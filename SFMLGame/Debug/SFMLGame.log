@@ -1,0 +1,11 @@
+﻿Build started 9/27/2015 2:53:08 PM.
+     1>Project "F:\Programming\Games\SFMLGame\SFMLGame\SFMLGame.vcxproj" on node 2 (ClCompile target(s)).
+     1>ClCompile:
+         F:\Programs\Visual Studio 2013 Community\VC\bin\CL.exe /c /I"F:\Programming\SFML\SFML-2.3.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D SFML_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         Skipping... (no relevant changes detected)
+         main.cpp
+     1>Done Building Project "F:\Programming\Games\SFMLGame\SFMLGame\SFMLGame.vcxproj" (ClCompile target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.04
