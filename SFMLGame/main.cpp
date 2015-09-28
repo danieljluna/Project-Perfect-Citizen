@@ -1,9 +1,19 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    sf::Texture tex_bat;
+    if (!tex_bat.loadFromFile("Resources/Images/bat.png")) {
+        std::cerr << "Could not load bat.png!" << std::endl;
+        system("PAUSE");
+        window.close();
+    }
+    tex_bat.setSmooth(true);
+    tex_bat.setRepeated(true);
+    sf::Sprite spr_bat;
+    spr_bat.setTexture(tex_bat);
+    spr_bat.setOrigin(sf::Vector2f(8, 36));
 
     while (window.isOpen()) {
         sf::Event event;
@@ -13,7 +23,7 @@ int main() {
         }
 
         window.clear();
-        window.draw(shape);
+        window.draw(spr_bat);
         window.display();
     }
 
