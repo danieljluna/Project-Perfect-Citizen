@@ -14,6 +14,7 @@ int main() {
     sf::Sprite spr_bat;
     spr_bat.setTexture(tex_bat);
     spr_bat.setOrigin(sf::Vector2f(8, 36));
+    spr_bat.setPosition(sf::Vector2f(10, 50));
 
     while (window.isOpen()) {
         sf::Event event;
