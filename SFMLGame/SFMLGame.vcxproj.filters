@@ -13,13 +13,28 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Helios">
+      <UniqueIdentifier>{b388032f-8bff-4bad-a9c3-e4d9420206cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Util">
+      <UniqueIdentifier>{55d354d7-980c-451a-ae6d-f8f9e68cb619}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Util">
+      <UniqueIdentifier>{45a53794-d859-4d47-bf09-d7a7c9cae5e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helios">
+      <UniqueIdentifier>{4e239c09-1664-4bc3-ae2c-108b9f168662}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="base_obj.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="helios_main.cpp">
+      <Filter>Source Files\Helios</Filter>
+    </ClCompile>
+    <ClCompile Include="helios_collision.cpp">
+      <Filter>Source Files\Helios</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -28,8 +43,11 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="base_obj.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="helios_main.h">
+      <Filter>Header Files\Helios</Filter>
+    </ClInclude>
+    <ClInclude Include="helios_collision.h">
+      <Filter>Header Files\Helios</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

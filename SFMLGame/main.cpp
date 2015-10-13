@@ -1,5 +1,8 @@
-#include <SFML/Graphics.hpp>
 #include <iostream>
+
+#include <SFML/Graphics.hpp>
+
+#include "helios_main.h"
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
@@ -30,3 +33,4 @@ int main() {
 
     return 0;
 }
+

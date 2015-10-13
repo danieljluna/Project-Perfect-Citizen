@@ -70,14 +70,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="base_obj.cpp" />
+    <ClCompile Include="helios_main.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="helios_collision.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Images\bat.png" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="base_obj.h" />
+    <ClInclude Include="helios_main.h" />
+    <ClInclude Include="helios_collision.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
