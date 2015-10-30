@@ -19,6 +19,8 @@ int main() {
     spr_bat.setOrigin(sf::Vector2f(8, 36));
     spr_bat.setPosition(sf::Vector2f(10, 50));
 
+    Helios::Room testing(window);
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -27,7 +29,7 @@ int main() {
         }
 
         window.clear();
-        window.draw(spr_bat);
+        window.draw(testing);
         window.display();
     }
 
