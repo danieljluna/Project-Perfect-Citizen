@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Age of Espionage
-   &#160;<span id="projectnumber">0.0.1</span>
+   &#160;<span id="projectnumber">0.0.1.2</span>
    </div>
    <div id="projectbrief">SFML CMPM 170 Game</div>
   </td>
@@ -124,95 +124,95 @@ $(document).ready(function(){initNavTree('helios__baseobj_8h_source.html','');})
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="class_helios_1_1_base_obj.html#ad77bdec51d537c1bfc9661b728980498">BaseObj</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> priority = 0);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">//No Universal Copy Constructor</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="class_helios_1_1_base_obj.html#ad77bdec51d537c1bfc9661b728980498">BaseObj</a>(<span class="keyword">const</span> <a class="code" href="class_helios_1_1_base_obj.html">BaseObj</a>&amp; other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">//No Universal Copy Constructor</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_helios_1_1_base_obj.html">BaseObj</a>(<span class="keyword">const</span> <a class="code" href="class_helios_1_1_base_obj.html">BaseObj</a>&amp; other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">//No Universal Move Constructor</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="class_helios_1_1_base_obj.html">BaseObj</a>(<a class="code" href="class_helios_1_1_base_obj.html">BaseObj</a>&amp;&amp; other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">//Virtual Destructor</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_helios_1_1_base_obj.html">BaseObj</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">//No Universal Move Constructor</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="class_helios_1_1_base_obj.html#ad77bdec51d537c1bfc9661b728980498">BaseObj</a>(<a class="code" href="class_helios_1_1_base_obj.html">BaseObj</a>&amp;&amp; other) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">//Virtual Destructor</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_helios_1_1_base_obj.html">BaseObj</a>();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="comment">//  Operators:</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span>    </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">//No Universal Copy Assignment Operator</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="class_helios_1_1_base_obj.html">BaseObj</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="class_helios_1_1_base_obj.html">BaseObj</a>&amp; other) = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="comment">//  Operators:</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"></span>    </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">//No Universal Copy Assignment Operator</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="class_helios_1_1_base_obj.html">BaseObj</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="class_helios_1_1_base_obj.html">BaseObj</a>&amp; other) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">//No Universal Move Assignment Operator</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="class_helios_1_1_base_obj.html">BaseObj</a>&amp; operator=(<a class="code" href="class_helios_1_1_base_obj.html">BaseObj</a>&amp;&amp; other) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="comment">//  Accsessor Functions:</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="class_helios_1_1_room.html">Room</a>* <a class="code" href="class_helios_1_1_base_obj.html#a896030076cb96c794f4b202cca0ec584">get_room</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">signed</span> <span class="keywordtype">int</span> <a class="code" href="class_helios_1_1_base_obj.html#abf2a6d187e1c8329bb8e24256218aecb">get_priority</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_helios_1_1_base_obj.html#a418fb8f5e8aa25f0969e37e24cadb8c9">is_visible</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_helios_1_1_base_obj.html#a8c748b30dca39c303e8bb9085f9d6d15">is_active</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="comment">//  Mutator Functions:</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_helios_1_1_base_obj.html#a7823cb052c6c97f4aab120f6eb864392">Activate</a>(<a class="code" href="class_helios_1_1_room.html">Room</a> &amp;roomHandle);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_helios_1_1_base_obj.html#ade0a810a861f41a43adf0e7c766951d1">Deactivate</a>();</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_helios_1_1_base_obj.html#ad3335cdcb1dfc4ee7e749dbb32f8cd2a">set_priority</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> prior);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_helios_1_1_base_obj.html#a354767a20905778fefe96fe895a382ae">set_visible</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> vis);</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  <span class="comment">//  Step and Frame Functions:</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_helios_1_1_base_obj.html#aa42e26e872234b6871d159c29afdef17">Update</a>() = 0;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  <span class="comment">//  Proctected Methods</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_helios_1_1_base_obj.html#af7355477f06d38692dc6cdb6f99dbd11">render</a>(sf::RenderTarget &amp;target, sf::RenderStates states) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    </div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <span class="comment">//  Proctected Data</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="comment">//Denotes the priority of the object&#39;s update funciton relative to</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="comment">//other objects. Default is zero.</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordtype">signed</span> <span class="keywordtype">int</span> _priority;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="comment">//A bool regulating whether or not this object should be drawn.</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordtype">bool</span> _visible;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">//No Universal Move Assignment Operator</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="class_helios_1_1_base_obj.html">BaseObj</a>&amp; operator=(<a class="code" href="class_helios_1_1_base_obj.html">BaseObj</a>&amp;&amp; other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">//  Accsessor Functions:</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="class_helios_1_1_room.html">Room</a>* <a class="code" href="class_helios_1_1_base_obj.html#a896030076cb96c794f4b202cca0ec584">get_room</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">signed</span> <span class="keywordtype">int</span> <a class="code" href="class_helios_1_1_base_obj.html#abf2a6d187e1c8329bb8e24256218aecb">get_priority</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_helios_1_1_base_obj.html#a418fb8f5e8aa25f0969e37e24cadb8c9">is_visible</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_helios_1_1_base_obj.html#a8c748b30dca39c303e8bb9085f9d6d15">is_active</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="comment">//  Mutator Functions:</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_helios_1_1_base_obj.html#a7823cb052c6c97f4aab120f6eb864392">Activate</a>(<a class="code" href="class_helios_1_1_room.html">Room</a> &amp;roomHandle);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_helios_1_1_base_obj.html#ade0a810a861f41a43adf0e7c766951d1">Deactivate</a>();</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_helios_1_1_base_obj.html#ad3335cdcb1dfc4ee7e749dbb32f8cd2a">set_priority</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> prior);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_helios_1_1_base_obj.html#a354767a20905778fefe96fe895a382ae">set_visible</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> vis);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  <span class="comment">//  Step and Frame Functions:</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_helios_1_1_base_obj.html#aa42e26e872234b6871d159c29afdef17">Update</a>() = 0;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  <span class="comment">//  Proctected Methods</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <a class="code" href="class_helios_1_1_base_obj.html">BaseObj</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> priority = 0);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_helios_1_1_base_obj.html#af7355477f06d38692dc6cdb6f99dbd11">render</a>(sf::RenderTarget &amp;target, sf::RenderStates states) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  <span class="comment">//  Proctected Data</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="comment">//Denotes the priority of the object&#39;s update funciton relative to</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="comment">//other objects. Default is zero.</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordtype">signed</span> <span class="keywordtype">int</span> _priority;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="comment">//A bool regulating whether or not this object should be drawn.</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordtype">bool</span> _visible;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  <span class="comment">//  Private Functions</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordtype">void</span> draw(sf::RenderTarget &amp;target, sf::RenderStates states) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  <span class="comment">//  Private Data</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="comment">//Pointer the the room this object resides in.</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="comment">//If it equals nullptr, the object is inactive.</span></div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <a class="code" href="class_helios_1_1_room.html">Room</a>* _roomHandle;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;};  <span class="comment">//End BaseObj Declaration------------------------------------------</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  <span class="comment">//  Private Functions</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordtype">void</span> draw(sf::RenderTarget &amp;target, sf::RenderStates states) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  <span class="comment">//  Private Data</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="comment">//Pointer the the room this object resides in.</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="comment">//If it equals nullptr, the object is inactive.</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <a class="code" href="class_helios_1_1_room.html">Room</a>* _roomHandle;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;};  <span class="comment">//End BaseObj Declaration------------------------------------------</span></div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;}   <span class="comment">//namespace Helios-------------------------------------------------</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="preprocessor">#endif  //HELIOS_BASEOBJ_H</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;}   <span class="comment">//namespace Helios-------------------------------------------------</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="preprocessor">#endif  //HELIOS_BASEOBJ_H</span></div>
 <div class="ttc" id="class_helios_1_1_base_obj_html_abf2a6d187e1c8329bb8e24256218aecb"><div class="ttname"><a href="class_helios_1_1_base_obj.html#abf2a6d187e1c8329bb8e24256218aecb">Helios::BaseObj::get_priority</a></div><div class="ttdeci">signed int get_priority() const </div><div class="ttdoc">Returns the priority for this object in the update cycle. </div><div class="ttdef"><b>Definition:</b> helios_baseobj.cpp:54</div></div>
 <div class="ttc" id="class_helios_1_1_base_obj_html"><div class="ttname"><a href="class_helios_1_1_base_obj.html">Helios::BaseObj</a></div><div class="ttdoc">An abstract class representing an interface all objects should adhere to. </div><div class="ttdef"><b>Definition:</b> helios_baseobj.h:35</div></div>
-<div class="ttc" id="class_helios_1_1_base_obj_html_ad77bdec51d537c1bfc9661b728980498"><div class="ttname"><a href="class_helios_1_1_base_obj.html#ad77bdec51d537c1bfc9661b728980498">Helios::BaseObj::BaseObj</a></div><div class="ttdeci">BaseObj(const unsigned int priority=0)</div><div class="ttdoc">Default Constructor. Creates an object that is inactive and invisible, with the given priority (defau...</div><div class="ttdef"><b>Definition:</b> helios_baseobj.cpp:38</div></div>
 <div class="ttc" id="class_helios_1_1_base_obj_html_af7355477f06d38692dc6cdb6f99dbd11"><div class="ttname"><a href="class_helios_1_1_base_obj.html#af7355477f06d38692dc6cdb6f99dbd11">Helios::BaseObj::render</a></div><div class="ttdeci">virtual void render(sf::RenderTarget &amp;target, sf::RenderStates states) const  =0</div><div class="ttdoc">Overwrite this function to define how this object should be rendered on a render target. This definition will likely vary radically for each derived class. </div></div>
 <div class="ttc" id="class_helios_1_1_base_obj_html_aa42e26e872234b6871d159c29afdef17"><div class="ttname"><a href="class_helios_1_1_base_obj.html#aa42e26e872234b6871d159c29afdef17">Helios::BaseObj::Update</a></div><div class="ttdeci">virtual void Update()=0</div><div class="ttdoc">Function called by the Room this object is active in to update this object for the next frame...</div></div>
 <div class="ttc" id="class_helios_1_1_base_obj_html_a896030076cb96c794f4b202cca0ec584"><div class="ttname"><a href="class_helios_1_1_base_obj.html#a896030076cb96c794f4b202cca0ec584">Helios::BaseObj::get_room</a></div><div class="ttdeci">Room * get_room() const </div><div class="ttdoc">Returns a pointer to the room this object is active in, provided it is active. If this object is not ...</div><div class="ttdef"><b>Definition:</b> helios_baseobj.cpp:50</div></div>
@@ -222,7 +222,7 @@ $(document).ready(function(){initNavTree('helios__baseobj_8h_source.html','');})
 <div class="ttc" id="namespace_helios_html"><div class="ttname"><a href="namespace_helios.html">Helios</a></div><div class="ttdef"><b>Definition:</b> helios_baseobj.h:8</div></div>
 <div class="ttc" id="class_helios_1_1_base_obj_html_a7823cb052c6c97f4aab120f6eb864392"><div class="ttname"><a href="class_helios_1_1_base_obj.html#a7823cb052c6c97f4aab120f6eb864392">Helios::BaseObj::Activate</a></div><div class="ttdeci">void Activate(Room &amp;roomHandle)</div><div class="ttdoc">Links object to a room and thus to that room&#39;s update cycle / collision checks, etc. Does nothing if the object is already active in a room. Nothing happens if the roomHandle is nullptr. </div><div class="ttdef"><b>Definition:</b> helios_baseobj.cpp:71</div></div>
 <div class="ttc" id="class_helios_1_1_base_obj_html_ad3335cdcb1dfc4ee7e749dbb32f8cd2a"><div class="ttname"><a href="class_helios_1_1_base_obj.html#ad3335cdcb1dfc4ee7e749dbb32f8cd2a">Helios::BaseObj::set_priority</a></div><div class="ttdeci">void set_priority(const unsigned int prior)</div><div class="ttdoc">Sets the priority of this object&#39;s update. This priority will be updated in the current Room before t...</div><div class="ttdef"><b>Definition:</b> helios_baseobj.cpp:81</div></div>
-<div class="ttc" id="class_helios_1_1_base_obj_html_ade0a810a861f41a43adf0e7c766951d1"><div class="ttname"><a href="class_helios_1_1_base_obj.html#ade0a810a861f41a43adf0e7c766951d1">Helios::BaseObj::Deactivate</a></div><div class="ttdeci">void Deactivate()</div><div class="ttdoc">Disconnects and object from its associated room - if any. </div><div class="ttdef"><b>Definition:</b> helios_baseobj.cpp:76</div></div>
+<div class="ttc" id="class_helios_1_1_base_obj_html_ade0a810a861f41a43adf0e7c766951d1"><div class="ttname"><a href="class_helios_1_1_base_obj.html#ade0a810a861f41a43adf0e7c766951d1">Helios::BaseObj::Deactivate</a></div><div class="ttdeci">void Deactivate()</div><div class="ttdoc">Disconnects and object from its associated room - if any - preventing it from engaging in regular upd...</div><div class="ttdef"><b>Definition:</b> helios_baseobj.cpp:76</div></div>
 <div class="ttc" id="class_helios_1_1_base_obj_html_a354767a20905778fefe96fe895a382ae"><div class="ttname"><a href="class_helios_1_1_base_obj.html#a354767a20905778fefe96fe895a382ae">Helios::BaseObj::set_visible</a></div><div class="ttdeci">void set_visible(const bool vis)</div><div class="ttdoc">Sets a property determining whether or not this object can be drawn via the public Draw function...</div><div class="ttdef"><b>Definition:</b> helios_baseobj.cpp:85</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
