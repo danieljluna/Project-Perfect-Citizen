@@ -12,7 +12,7 @@ namespace Helios {
 class BaseObj;
 
 ///////////////////////////////////////////////////////////////////////
-/// @breif Describes a given space and the objects that exist within 
+/// @brief Describes a given space and the objects that exist within 
 ///     it in a way that facilitates consistent generation. Rooms are 
 ///     also responsible for calling update routines regularly,  
 ///     checking for collisions, and drawing objects.

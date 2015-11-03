@@ -6,7 +6,7 @@
 
 #include "helios_main.h"
 
-// \breif Defines a quadtree with each node having four children
+// \brief Defines a quadtree with each node having four children
 
 namespace Helios {
     class QuadTree {
@@ -30,7 +30,7 @@ namespace Helios {
         QuadTree operator=(QuadTree&& other);
 
     private:
-        // \breif 
+        // \brief 
         class Node {
         public:
         //Constructors:

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>SFML Game: Helios::BaseObj Class Reference</title>
+<title>Age of Espionage: Helios::BaseObj Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,10 +31,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">SFML Game
-   &#160;<span id="projectnumber">0.01</span>
+   <div id="projectname">Age of Espionage
+   &#160;<span id="projectnumber">0.0.1</span>
    </div>
-   <div id="projectbrief">Age of Espionage</div>
+   <div id="projectbrief">SFML CMPM 170 Game</div>
   </td>
  </tr>
  </tbody>
@@ -116,6 +116,9 @@ $(document).ready(function(){initNavTree('class_helios_1_1_base_obj.html','');})
 </div><!--header-->
 <div class="contents">
 
+<p>An abstract class representing an interface all objects should adhere to.  
+ <a href="class_helios_1_1_base_obj.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="helios__baseobj_8h_source.html">helios_baseobj.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Helios::BaseObj:</div>
@@ -123,14 +126,15 @@ Inheritance diagram for Helios::BaseObj:</div>
  <div class="center">
   <img src="class_helios_1_1_base_obj.png" usemap="#Helios::BaseObj_map" alt=""/>
   <map id="Helios::BaseObj_map" name="Helios::BaseObj_map">
-<area href="class_helios_1_1_spr_obj.html" alt="Helios::SprObj" shape="rect" coords="0,112,101,136"/>
+<area href="class_helios_1_1_spr_obj.html" title="An abstract parent class providing the basis for packaging sprite with the appropriate logic function..." alt="Helios::SprObj" shape="rect" coords="0,112,101,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad77bdec51d537c1bfc9661b728980498"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_base_obj.html#ad77bdec51d537c1bfc9661b728980498">BaseObj</a> (const unsigned int priority=0)</td></tr>
-<tr class="memdesc:ad77bdec51d537c1bfc9661b728980498"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructors &amp; Destructors:  <a href="#ad77bdec51d537c1bfc9661b728980498">More...</a><br /></td></tr>
+<tr class="memitem:ad77bdec51d537c1bfc9661b728980498"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad77bdec51d537c1bfc9661b728980498"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_base_obj.html#ad77bdec51d537c1bfc9661b728980498">BaseObj</a> (const unsigned int priority=0)</td></tr>
+<tr class="memdesc:ad77bdec51d537c1bfc9661b728980498"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor. Creates an object that is inactive and invisible, with the given priority (default zero). <br /></td></tr>
 <tr class="separator:ad77bdec51d537c1bfc9661b728980498"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa278e49125c0c84d26906ae47cfff727"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa278e49125c0c84d26906ae47cfff727"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>BaseObj</b> (const <a class="el" href="class_helios_1_1_base_obj.html">BaseObj</a> &amp;other)=delete</td></tr>
@@ -145,27 +149,39 @@ Public Member Functions</h2></td></tr>
 <a class="el" href="class_helios_1_1_base_obj.html">BaseObj</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_helios_1_1_base_obj.html">BaseObj</a> &amp;&amp;other)=delete</td></tr>
 <tr class="separator:ab588e3ffe972a53de418f50558651f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a896030076cb96c794f4b202cca0ec584"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_helios_1_1_room.html">Room</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_base_obj.html#a896030076cb96c794f4b202cca0ec584">get_room</a> () const </td></tr>
+<tr class="memdesc:a896030076cb96c794f4b202cca0ec584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the room this object is active in, provided it is active. If this object is not active, it will return nullptr.  <a href="#a896030076cb96c794f4b202cca0ec584">More...</a><br /></td></tr>
 <tr class="separator:a896030076cb96c794f4b202cca0ec584"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf2a6d187e1c8329bb8e24256218aecb"><td class="memItemLeft" align="right" valign="top">signed int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_base_obj.html#abf2a6d187e1c8329bb8e24256218aecb">get_priority</a> () const </td></tr>
+<tr class="memdesc:abf2a6d187e1c8329bb8e24256218aecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the priority for this object in the update cycle.  <a href="#abf2a6d187e1c8329bb8e24256218aecb">More...</a><br /></td></tr>
 <tr class="separator:abf2a6d187e1c8329bb8e24256218aecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a418fb8f5e8aa25f0969e37e24cadb8c9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_base_obj.html#a418fb8f5e8aa25f0969e37e24cadb8c9">is_visible</a> () const </td></tr>
+<tr class="memdesc:a418fb8f5e8aa25f0969e37e24cadb8c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the object is flagged to be drawable.  <a href="#a418fb8f5e8aa25f0969e37e24cadb8c9">More...</a><br /></td></tr>
 <tr class="separator:a418fb8f5e8aa25f0969e37e24cadb8c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c748b30dca39c303e8bb9085f9d6d15"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_base_obj.html#a8c748b30dca39c303e8bb9085f9d6d15">is_active</a> () const </td></tr>
+<tr class="memdesc:a8c748b30dca39c303e8bb9085f9d6d15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the BaseObject is active. Active objects are linked to a <a class="el" href="class_helios_1_1_room.html" title="Describes a given space and the objects that exist within it in a way that facilitates consistent gen...">Room</a> that keeps maintains <a class="el" href="class_helios_1_1_base_obj.html#aa42e26e872234b6871d159c29afdef17" title="Function called by the Room this object is active in to update this object for the next frame...">Update()</a> calls, collision checking, and drawing.  <a href="#a8c748b30dca39c303e8bb9085f9d6d15">More...</a><br /></td></tr>
 <tr class="separator:a8c748b30dca39c303e8bb9085f9d6d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7823cb052c6c97f4aab120f6eb864392"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_base_obj.html#a7823cb052c6c97f4aab120f6eb864392">Activate</a> (<a class="el" href="class_helios_1_1_room.html">Room</a> &amp;roomHandle)</td></tr>
+<tr class="memdesc:a7823cb052c6c97f4aab120f6eb864392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Links object to a room and thus to that room's update cycle / collision checks, etc. Does nothing if the object is already active in a room. Nothing happens if the roomHandle is nullptr.  <a href="#a7823cb052c6c97f4aab120f6eb864392">More...</a><br /></td></tr>
 <tr class="separator:a7823cb052c6c97f4aab120f6eb864392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade0a810a861f41a43adf0e7c766951d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_base_obj.html#ade0a810a861f41a43adf0e7c766951d1">Deactivate</a> ()</td></tr>
+<tr class="memdesc:ade0a810a861f41a43adf0e7c766951d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disconnects and object from its associated room - if any.  <a href="#ade0a810a861f41a43adf0e7c766951d1">More...</a><br /></td></tr>
 <tr class="separator:ade0a810a861f41a43adf0e7c766951d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3335cdcb1dfc4ee7e749dbb32f8cd2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_base_obj.html#ad3335cdcb1dfc4ee7e749dbb32f8cd2a">set_priority</a> (const unsigned int prior)</td></tr>
+<tr class="memdesc:ad3335cdcb1dfc4ee7e749dbb32f8cd2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the priority of this object's update. This priority will be updated in the current <a class="el" href="class_helios_1_1_room.html" title="Describes a given space and the objects that exist within it in a way that facilitates consistent gen...">Room</a> before the next update.  <a href="#ad3335cdcb1dfc4ee7e749dbb32f8cd2a">More...</a><br /></td></tr>
 <tr class="separator:ad3335cdcb1dfc4ee7e749dbb32f8cd2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a354767a20905778fefe96fe895a382ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_base_obj.html#a354767a20905778fefe96fe895a382ae">set_visible</a> (const bool vis)</td></tr>
+<tr class="memdesc:a354767a20905778fefe96fe895a382ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a property determining whether or not this object can be drawn via the public Draw function.  <a href="#a354767a20905778fefe96fe895a382ae">More...</a><br /></td></tr>
 <tr class="separator:a354767a20905778fefe96fe895a382ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa42e26e872234b6871d159c29afdef17"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_base_obj.html#aa42e26e872234b6871d159c29afdef17">Update</a> ()=0</td></tr>
+<tr class="memitem:aa42e26e872234b6871d159c29afdef17"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa42e26e872234b6871d159c29afdef17"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_base_obj.html#aa42e26e872234b6871d159c29afdef17">Update</a> ()=0</td></tr>
+<tr class="memdesc:aa42e26e872234b6871d159c29afdef17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function called by the <a class="el" href="class_helios_1_1_room.html" title="Describes a given space and the objects that exist within it in a way that facilitates consistent gen...">Room</a> this object is active in to update this object for the next frame. <br /></td></tr>
 <tr class="separator:aa42e26e872234b6871d159c29afdef17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:af7355477f06d38692dc6cdb6f99dbd11"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_base_obj.html#af7355477f06d38692dc6cdb6f99dbd11">render</a> (sf::RenderTarget &amp;target, sf::RenderStates states) const  =0</td></tr>
+<tr class="memitem:af7355477f06d38692dc6cdb6f99dbd11"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af7355477f06d38692dc6cdb6f99dbd11"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_base_obj.html#af7355477f06d38692dc6cdb6f99dbd11">render</a> (sf::RenderTarget &amp;target, sf::RenderStates states) const  =0</td></tr>
+<tr class="memdesc:af7355477f06d38692dc6cdb6f99dbd11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrite this function to define how this object should be rendered on a render target. This definition will likely vary radically for each derived class. <br /></td></tr>
 <tr class="separator:af7355477f06d38692dc6cdb6f99dbd11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -178,28 +194,13 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_visible</b></td></tr
 <tr class="separator:aed78a9a68c038e6d82e07711f9065e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An abstract parent class providing the basis for packaging sprite with the appropriate logic functions all objects in the room need. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ad77bdec51d537c1bfc9661b728980498"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">BaseObj::BaseObj </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>priority</em> = <code>0</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Constructors &amp; Destructors: </p>
-<p>Default Constructor. Creates an object that is inactive and invisible, with the given priority (default zero). </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>An abstract class representing an interface all objects should adhere to. </p>
+<p><a class="el" href="class_helios_1_1_base_obj.html" title="An abstract class representing an interface all objects should adhere to. ">BaseObj</a> is merely defines interface for all objects. Thus, all objects should have an Update function, which is inteded to be called on the object for each game step.<br />
+ All objects are also sf::Drawables, and will only draw if they are visible. Specify how to draw derived classes with the virtual function render in order to maintain visible functionality.<br />
+ Objects are also designed to be managed by the <a class="el" href="class_helios_1_1_room.html" title="Describes a given space and the objects that exist within it in a way that facilitates consistent gen...">Helios::Room</a> class. For this reason, they may be set as active in a room using the Activate function. This will inform both parties that the <a class="el" href="class_helios_1_1_room.html" title="Describes a given space and the objects that exist within it in a way that facilitates consistent gen...">Helios::Room</a> in question is responsible for managing Update and draw function calls as well as interactions between objects in the <a class="el" href="class_helios_1_1_room.html" title="Describes a given space and the objects that exist within it in a way that facilitates consistent gen...">Helios::Room</a>.<br />
+ The priority of any object can changes the priority of this object's draw and Update functions with respect to the other objects handled by the same <a class="el" href="class_helios_1_1_room.html" title="Describes a given space and the objects that exist within it in a way that facilitates consistent gen...">Helios::Room</a>.<br />
+</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a7823cb052c6c97f4aab120f6eb864392"></a>
 <div class="memitem">
 <div class="memproto">
@@ -213,8 +214,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_visible</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Links object to a room and thus to that room's update cycle / collision checks, etc. Does nothing if the object is already active in a room. Nothing happens if the roomHandle is nullptr.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_helios_1_1_base_obj.html#a8c748b30dca39c303e8bb9085f9d6d15">is_active()</a>, Deactivate(Room &amp;roomHandle) </dd></dl>
+
+<p>Links object to a room and thus to that room's update cycle / collision checks, etc. Does nothing if the object is already active in a room. Nothing happens if the roomHandle is nullptr. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_helios_1_1_base_obj.html#a8c748b30dca39c303e8bb9085f9d6d15" title="Returns whether the BaseObject is active. Active objects are linked to a Room that keeps maintains Up...">is_active()</a>, Deactivate(Room &amp;roomHandle) </dd></dl>
 
 </div>
 </div>
@@ -230,10 +232,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_visible</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Disconnects and object from its associated room - if any</p><ul>
+
+<p>Disconnects and object from its associated room - if any. </p>
+<ul>
 <li>preventing it from engaging in regular updates, collision checks and other room dependant interactions.</li>
 </ul>
-<dl class="section see"><dt>See also</dt><dd>active(), <a class="el" href="class_helios_1_1_base_obj.html#a7823cb052c6c97f4aab120f6eb864392">Activate(Room &amp;roomHandle)</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>active(), <a class="el" href="class_helios_1_1_base_obj.html#a7823cb052c6c97f4aab120f6eb864392" title="Links object to a room and thus to that room&#39;s update cycle / collision checks, etc. Does nothing if the object is already active in a room. Nothing happens if the roomHandle is nullptr. ">Activate(Room &amp;roomHandle)</a> </dd></dl>
 
 </div>
 </div>
@@ -249,9 +253,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_visible</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the priority for this object in the update cycle.</p>
+
+<p>Returns the priority for this object in the update cycle. </p>
 <dl class="section return"><dt>Returns</dt><dd>signed int indicating object priority.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_helios_1_1_base_obj.html#ad3335cdcb1dfc4ee7e749dbb32f8cd2a">set_priority()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_helios_1_1_base_obj.html#ad3335cdcb1dfc4ee7e749dbb32f8cd2a" title="Sets the priority of this object&#39;s update. This priority will be updated in the current Room before t...">set_priority()</a> </dd></dl>
 
 </div>
 </div>
@@ -267,7 +272,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_visible</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns a pointer to the room this object is active in, provided it is active. If this object is not active, it will return nullptr.</p>
+
+<p>Returns a pointer to the room this object is active in, provided it is active. If this object is not active, it will return nullptr. </p>
 <dl class="section return"><dt>Returns</dt><dd>Room* indicating room this object is active in </dd></dl>
 
 </div>
@@ -284,9 +290,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_visible</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns whether the BaseObject is active. Active objects are linked to a <a class="el" href="class_helios_1_1_room.html">Room</a> that keeps maintains <a class="el" href="class_helios_1_1_base_obj.html#aa42e26e872234b6871d159c29afdef17">Update()</a> calls, collision checking, and drawing.</p>
+
+<p>Returns whether the BaseObject is active. Active objects are linked to a <a class="el" href="class_helios_1_1_room.html" title="Describes a given space and the objects that exist within it in a way that facilitates consistent gen...">Room</a> that keeps maintains <a class="el" href="class_helios_1_1_base_obj.html#aa42e26e872234b6871d159c29afdef17" title="Function called by the Room this object is active in to update this object for the next frame...">Update()</a> calls, collision checking, and drawing. </p>
 <dl class="section return"><dt>Returns</dt><dd>bool indicating active status.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_helios_1_1_base_obj.html#a7823cb052c6c97f4aab120f6eb864392">Activate(Room &amp;roomHandle)</a>, <a class="el" href="class_helios_1_1_base_obj.html#ade0a810a861f41a43adf0e7c766951d1">Deactivate()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_helios_1_1_base_obj.html#a7823cb052c6c97f4aab120f6eb864392" title="Links object to a room and thus to that room&#39;s update cycle / collision checks, etc. Does nothing if the object is already active in a room. Nothing happens if the roomHandle is nullptr. ">Activate(Room &amp;roomHandle)</a>, <a class="el" href="class_helios_1_1_base_obj.html#ade0a810a861f41a43adf0e7c766951d1" title="Disconnects and object from its associated room - if any. ">Deactivate()</a> </dd></dl>
 
 </div>
 </div>
@@ -302,46 +309,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_visible</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns whether the object is flagged to be drawable.</p>
+
+<p>Returns whether the object is flagged to be drawable. </p>
 <dl class="section return"><dt>Returns</dt><dd>bool indicating draw status.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_helios_1_1_base_obj.html#a354767a20905778fefe96fe895a382ae">set_visible()</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="af7355477f06d38692dc6cdb6f99dbd11"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void Helios::BaseObj::render </td>
-          <td>(</td>
-          <td class="paramtype">sf::RenderTarget &amp;&#160;</td>
-          <td class="paramname"><em>target</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sf::RenderStates&#160;</td>
-          <td class="paramname"><em>states</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Overwrite this function to define how this object should be rendered on a render target. This definition will likely vary radically for each derived class. </p>
-
-<p>Implemented in <a class="el" href="class_helios_1_1_spr_obj.html#a4cfc26ae9779c15ae4db84e5736cb6b1">Helios::SprObj</a>.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_helios_1_1_base_obj.html#a354767a20905778fefe96fe895a382ae" title="Sets a property determining whether or not this object can be drawn via the public Draw function...">set_visible()</a> </dd></dl>
 
 </div>
 </div>
@@ -358,8 +329,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_visible</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the priority of this object's update. This priority will be updated in the current <a class="el" href="class_helios_1_1_room.html">Room</a> before the next update.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_helios_1_1_base_obj.html#abf2a6d187e1c8329bb8e24256218aecb">get_priority()</a> </dd></dl>
+
+<p>Sets the priority of this object's update. This priority will be updated in the current <a class="el" href="class_helios_1_1_room.html" title="Describes a given space and the objects that exist within it in a way that facilitates consistent gen...">Room</a> before the next update. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_helios_1_1_base_obj.html#abf2a6d187e1c8329bb8e24256218aecb" title="Returns the priority for this object in the update cycle. ">get_priority()</a> </dd></dl>
 
 </div>
 </div>
@@ -376,34 +348,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_visible</b></td></tr
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets a property determining whether or not this object can be drawn via the public Draw function.</p>
+
+<p>Sets a property determining whether or not this object can be drawn via the public Draw function. </p>
 <dl class="section see"><dt>See also</dt><dd>visible() </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="aa42e26e872234b6871d159c29afdef17"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void Helios::BaseObj::Update </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Function called by the <a class="el" href="class_helios_1_1_room.html">Room</a> this object is active in to update this object for the next frame. </p>
-
-<p>Implemented in <a class="el" href="class_helios_1_1_spr_obj.html#a5ea59f62cf7bb7bd7ff8080a79894037">Helios::SprObj</a>.</p>
 
 </div>
 </div>
