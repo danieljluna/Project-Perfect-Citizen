@@ -45,6 +45,8 @@ sf::Time Room::Update() {
             UpdateObjectPriority(it);
         }
     }
+
+    return 0;
 }
 
 

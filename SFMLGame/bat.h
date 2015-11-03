@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics/Sprite.hpp>
 
-#include "helios_baseobj.h"
+#include "Helios/helios_baseobj.h"
 
 namespace Pong {
 

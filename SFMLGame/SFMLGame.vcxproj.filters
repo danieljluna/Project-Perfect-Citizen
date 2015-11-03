@@ -25,15 +25,36 @@
     <Filter Include="Source Files\Helios">
       <UniqueIdentifier>{4e239c09-1664-4bc3-ae2c-108b9f168662}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Helios\Helios Main">
+      <UniqueIdentifier>{d9d136b7-529a-4732-99e2-0da461a708da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Local Objects">
+      <UniqueIdentifier>{d7fcc1ab-7ad2-43e1-8927-0822455abd33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Local Objects">
+      <UniqueIdentifier>{d0ff720c-e2db-4f40-a7e2-f0a68ad7aa6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helios\Helios Main">
+      <UniqueIdentifier>{0c718a37-5f82-4e67-862b-ade107380a4c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="helios_main.cpp">
-      <Filter>Source Files\Helios</Filter>
+    <ClCompile Include="bat.cpp">
+      <Filter>Source Files\Local Objects</Filter>
     </ClCompile>
-    <ClCompile Include="helios_collision.cpp">
+    <ClCompile Include="Helios\helios_baseobj.cpp">
+      <Filter>Source Files\Helios\Helios Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Helios\helios_room.cpp">
+      <Filter>Source Files\Helios\Helios Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Helios\helios_sprobj.cpp">
+      <Filter>Source Files\Helios\Helios Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Helios\helios_collision.cpp">
       <Filter>Source Files\Helios</Filter>
     </ClCompile>
   </ItemGroup>
@@ -43,10 +64,22 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="helios_main.h">
-      <Filter>Header Files\Helios</Filter>
+    <ClInclude Include="bat.h">
+      <Filter>Header Files\Local Objects</Filter>
     </ClInclude>
-    <ClInclude Include="helios_collision.h">
+    <ClInclude Include="Helios\helios_baseobj.h">
+      <Filter>Header Files\Helios\Helios Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Helios\helios_main.h">
+      <Filter>Header Files\Helios\Helios Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Helios\helios_room.h">
+      <Filter>Header Files\Helios\Helios Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Helios\helios_sprobj.h">
+      <Filter>Header Files\Helios\Helios Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Helios\helios_collision.h">
       <Filter>Header Files\Helios</Filter>
     </ClInclude>
   </ItemGroup>

@@ -94,3 +94,4 @@ void BaseObj::set_visible(const bool vis) {
 void BaseObj::draw(sf::RenderTarget &target, sf::RenderStates states) const {
     if (_visible) render(target, states);
 }
+

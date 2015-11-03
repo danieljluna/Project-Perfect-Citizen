@@ -70,16 +70,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="helios_main.cpp" />
+    <ClCompile Include="bat.cpp" />
+    <ClCompile Include="Helios\helios_baseobj.cpp" />
+    <ClCompile Include="Helios\helios_collision.cpp" />
+    <ClCompile Include="Helios\helios_room.cpp" />
+    <ClCompile Include="Helios\helios_sprobj.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="helios_collision.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Images\bat.png" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="helios_main.h" />
-    <ClInclude Include="helios_collision.h" />
+    <ClInclude Include="bat.h" />
+    <ClInclude Include="Helios\helios_baseobj.h" />
+    <ClInclude Include="Helios\helios_collision.h" />
+    <ClInclude Include="Helios\helios_main.h" />
+    <ClInclude Include="Helios\helios_room.h" />
+    <ClInclude Include="Helios\helios_sprobj.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

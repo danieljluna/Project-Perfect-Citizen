@@ -1,0 +1,92 @@
+#ifndef HELIOS_SPROBJ_H
+#define HELIOS_SPROBJ_H
+
+#include <SFML/Graphics/Sprite.hpp>
+
+#include "helios_baseobj.h"
+
+namespace Helios {
+
+
+///////////////////////////////////////////////////////////////////////
+/// @breif An abstract parent class providing the basis for packaging 
+///     sprite with the appropriate logic functions all objects in the
+///     room need.
+///
+///////////////////////////////////////////////////////////////////////
+class SprObj : BaseObj { //TODO: Finish SprObj
+public:
+
+  /////////////////////////////////////////////////////////////////////
+  /// Constructors and Destructor:
+  /////////////////////////////////////////////////////////////////////
+
+    //Delete Default Constructor
+    SprObj(const unsigned int priority = 0);
+
+    //Delete Copy Constructor
+    SprObj(const SprObj& other) = delete;
+
+    //Delete Move Constructor
+    SprObj(SprObj&& other) = delete;
+
+    //Virtual Destructor
+    virtual ~SprObj();
+
+
+  /////////////////////////////////////////////////////////////////////
+  /// Operators:
+  /////////////////////////////////////////////////////////////////////
+
+    //No Universal Copy Assignment Operator
+    BaseObj& operator=(const BaseObj& other) = delete;
+
+    //No Universal Move Assignment Operator
+    BaseObj& operator=(BaseObj&& other) = delete;
+
+
+  /////////////////////////////////////////////////////////////////////
+  /// Step and Frame Functions:
+  /////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////
+    /// @breif Function called by the Room this object is active in to
+    /// update this object for the next frame.
+    ///
+    ///////////////////////////////////////////////////////////////////
+    virtual void Update() = 0;
+
+
+protected:
+
+  /////////////////////////////////////////////////////////////////////
+  /// Proctected Methods
+  /////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////
+    /// @breif Draws the sprIndex-th Sprite in the sprVector.
+    ///
+    /// @pre 0 <= sprVector < sprVector.size()
+    ///////////////////////////////////////////////////////////////////
+    virtual void render(sf::RenderTarget &target, sf::RenderStates states) const = 0;
+
+
+  /////////////////////////////////////////////////////////////////////
+  /// Protected Data
+  /////////////////////////////////////////////////////////////////////
+
+    //Holds a vector of the object's sprites
+    std::vector<sf::Sprite> sprVector;
+
+    //Holds the index of the sprVector marking the current Sprite to 
+    //draw
+    size_t sprIndex;
+
+};  //End SprObj Declaration-------------------------------------------
+
+
+
+
+}; //End Namespace-----------------------------------------------------
+
+#endif  //HELIOS_SPROBJ_H
