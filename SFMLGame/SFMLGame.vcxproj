@@ -70,10 +70,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bat.cpp" />
+    <ClCompile Include="Helios\helios_baseobj.cpp" />
+    <ClCompile Include="Helios\helios_collision.cpp" />
+    <ClCompile Include="Helios\helios_room.cpp" />
+    <ClCompile Include="Helios\helios_sprobj.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Images\bat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bat.h" />
+    <ClInclude Include="Helios\helios_baseobj.h" />
+    <ClInclude Include="Helios\helios_collision.h" />
+    <ClInclude Include="Helios\helios_main.h" />
+    <ClInclude Include="Helios\helios_room.h" />
+    <ClInclude Include="Helios\helios_sprobj.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
