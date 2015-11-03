@@ -8,7 +8,7 @@ using namespace Helios;
 /*********************************************************************\
 * Room Implementation                                                 *
 |*********************************************************************|
-* AT ALL TIMES, a BaseObj MUST follow:                                *
+* AT ALL TIMES, a Room MUST follow:                                   *
 *   a)                                                                *
 *                                                                     *
 *                                                                     *
@@ -28,7 +28,7 @@ Room::~Room() {}
 
 //Step & Frame Functions:
 
-sf::Time Room::Update() {
+void Room::Update() {
 
     for (auto it = _updateList.begin();
         it != _updateList.end();
@@ -45,8 +45,6 @@ sf::Time Room::Update() {
             UpdateObjectPriority(it);
         }
     }
-
-    return 0;
 }
 
 

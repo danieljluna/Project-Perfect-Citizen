@@ -1,0 +1,93 @@
+\hypertarget{class_helios_1_1_spr_obj}{}\section{Helios\+:\+:Spr\+Obj Class Reference}
+\label{class_helios_1_1_spr_obj}\index{Helios\+::\+Spr\+Obj@{Helios\+::\+Spr\+Obj}}
+
+
+{\ttfamily \#include $<$helios\+\_\+sprobj.\+h$>$}
+
+Inheritance diagram for Helios\+:\+:Spr\+Obj\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_helios_1_1_spr_obj}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_helios_1_1_spr_obj_a25235d4dbfaeda9dfc1c157b2e6ebb05}{}\hyperlink{class_helios_1_1_spr_obj_a25235d4dbfaeda9dfc1c157b2e6ebb05}{Spr\+Obj} (const unsigned int priority=0)\label{class_helios_1_1_spr_obj_a25235d4dbfaeda9dfc1c157b2e6ebb05}
+
+\begin{DoxyCompactList}\small\item\em Constructors and Destructor\+: \end{DoxyCompactList}\item 
+\hypertarget{class_helios_1_1_spr_obj_ab803d71e66b25686f4d6a29c1f3ee0d6}{}{\bfseries Spr\+Obj} (const \hyperlink{class_helios_1_1_spr_obj}{Spr\+Obj} \&other)=delete\label{class_helios_1_1_spr_obj_ab803d71e66b25686f4d6a29c1f3ee0d6}
+
+\item 
+\hypertarget{class_helios_1_1_spr_obj_ab0a6136a689b13a5ab16270df52a303a}{}{\bfseries Spr\+Obj} (\hyperlink{class_helios_1_1_spr_obj}{Spr\+Obj} \&\&other)=delete\label{class_helios_1_1_spr_obj_ab0a6136a689b13a5ab16270df52a303a}
+
+\item 
+\hypertarget{class_helios_1_1_spr_obj_a89e23d41b2a2b4262ed68b9c81cdbe42}{}\hyperlink{class_helios_1_1_base_obj}{Base\+Obj} \& \hyperlink{class_helios_1_1_spr_obj_a89e23d41b2a2b4262ed68b9c81cdbe42}{operator=} (const \hyperlink{class_helios_1_1_base_obj}{Base\+Obj} \&other)=delete\label{class_helios_1_1_spr_obj_a89e23d41b2a2b4262ed68b9c81cdbe42}
+
+\begin{DoxyCompactList}\small\item\em Operators\+: \end{DoxyCompactList}\item 
+\hypertarget{class_helios_1_1_spr_obj_a99d676eda512fa5dbc026ca6db1bfcb0}{}\hyperlink{class_helios_1_1_base_obj}{Base\+Obj} \& {\bfseries operator=} (\hyperlink{class_helios_1_1_base_obj}{Base\+Obj} \&\&other)=delete\label{class_helios_1_1_spr_obj_a99d676eda512fa5dbc026ca6db1bfcb0}
+
+\item 
+virtual void \hyperlink{class_helios_1_1_spr_obj_a5ea59f62cf7bb7bd7ff8080a79894037}{Update} ()=0
+\begin{DoxyCompactList}\small\item\em Step and Frame Functions\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_helios_1_1_spr_obj_a4cfc26ae9779c15ae4db84e5736cb6b1}{render} (sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const  =0
+\begin{DoxyCompactList}\small\item\em Proctected Methods. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_helios_1_1_spr_obj_ac9b20866be4703e1285b1b75e2e08490}{}std\+::vector$<$ sf\+::\+Sprite $>$ \hyperlink{class_helios_1_1_spr_obj_ac9b20866be4703e1285b1b75e2e08490}{spr\+Vector}\label{class_helios_1_1_spr_obj_ac9b20866be4703e1285b1b75e2e08490}
+
+\begin{DoxyCompactList}\small\item\em Protected Data. \end{DoxyCompactList}\item 
+\hypertarget{class_helios_1_1_spr_obj_a5a5099d52e40625858912ed29c519c59}{}size\+\_\+t {\bfseries spr\+Index}\label{class_helios_1_1_spr_obj_a5a5099d52e40625858912ed29c519c59}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An abstract parent class providing the basis for packaging sprite with the appropriate logic functions all objects in the room need. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_helios_1_1_spr_obj_a4cfc26ae9779c15ae4db84e5736cb6b1}{}\index{Helios\+::\+Spr\+Obj@{Helios\+::\+Spr\+Obj}!render@{render}}
+\index{render@{render}!Helios\+::\+Spr\+Obj@{Helios\+::\+Spr\+Obj}}
+\subsubsection[{render(sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const  =0}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Helios\+::\+Spr\+Obj\+::render (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Render\+Target \&}]{target, }
+\item[{sf\+::\+Render\+States}]{states}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\label{class_helios_1_1_spr_obj_a4cfc26ae9779c15ae4db84e5736cb6b1}
+
+
+Proctected Methods. 
+
+Draws the spr\+Index-\/th Sprite in the spr\+Vector.
+
+\begin{DoxyPrecond}{Precondition}
+0 $<$= spr\+Vector $<$ spr\+Vector.\+size() 
+\end{DoxyPrecond}
+
+
+Implements \hyperlink{class_helios_1_1_base_obj_af7355477f06d38692dc6cdb6f99dbd11}{Helios\+::\+Base\+Obj}.
+
+\hypertarget{class_helios_1_1_spr_obj_a5ea59f62cf7bb7bd7ff8080a79894037}{}\index{Helios\+::\+Spr\+Obj@{Helios\+::\+Spr\+Obj}!Update@{Update}}
+\index{Update@{Update}!Helios\+::\+Spr\+Obj@{Helios\+::\+Spr\+Obj}}
+\subsubsection[{Update()=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Helios\+::\+Spr\+Obj\+::\+Update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_helios_1_1_spr_obj_a5ea59f62cf7bb7bd7ff8080a79894037}
+
+
+Step and Frame Functions\+: 
+
+Function called by the \hyperlink{class_helios_1_1_room}{Room} this object is active in to update this object for the next frame. 
+
+Implements \hyperlink{class_helios_1_1_base_obj_aa42e26e872234b6871d159c29afdef17}{Helios\+::\+Base\+Obj}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+S\+F\+M\+L\+Game/\+Helios/helios\+\_\+sprobj.\+h\end{DoxyCompactItemize}

@@ -13,9 +13,9 @@ class BaseObj;
 
 ///////////////////////////////////////////////////////////////////////
 /// @breif Describes a given space and the objects that exist within 
-/// it in a way that facilitates consistent generation. Rooms are 
-/// also responsible for calling update routines regularly, checking 
-/// for collisions, and drawing objects.
+///     it in a way that facilitates consistent generation. Rooms are 
+///     also responsible for calling update routines regularly,  
+///     checking for collisions, and drawing objects.
 ///
 ///////////////////////////////////////////////////////////////////////
 //TODO: Update comments for Room
@@ -52,7 +52,7 @@ public:
   //Step & Frame Functions:
 
     //Updates all objects
-    sf::Time Update();
+    void Update();
 
 
   //Object Management Functions:
