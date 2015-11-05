@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bat.h" />
+    <ClInclude Include="debug.h" />
     <ClInclude Include="Helios\helios_baseobj.h" />
     <ClInclude Include="Helios\helios_collision.h" />
     <ClInclude Include="Helios\helios_main.h" />
@@ -90,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="Documentation\html\index.html" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

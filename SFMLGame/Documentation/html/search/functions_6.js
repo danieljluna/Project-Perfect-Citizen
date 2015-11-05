@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['render',['render',['../class_helios_1_1_base_obj.html#af7355477f06d38692dc6cdb6f99dbd11',1,'Helios::BaseObj::render()'],['../class_helios_1_1_spr_obj.html#a4cfc26ae9779c15ae4db84e5736cb6b1',1,'Helios::SprObj::render()']]],
-  ['room',['Room',['../class_helios_1_1_room.html#a069b54c002742b2e943e281520654d43',1,'Helios::Room']]]
+  ['set_5fvisible',['set_visible',['../class_helios_1_1_base_obj.html#a354767a20905778fefe96fe895a382ae',1,'Helios::BaseObj']]],
+  ['sprobj',['SprObj',['../class_helios_1_1_spr_obj.html#a25235d4dbfaeda9dfc1c157b2e6ebb05',1,'Helios::SprObj']]]
 ];

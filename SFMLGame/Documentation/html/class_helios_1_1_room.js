@@ -9,5 +9,5 @@ var class_helios_1_1_room =
     [ "operator=", "class_helios_1_1_room.html#ac4529d35e99e767f434e0c33f922257a", null ],
     [ "operator=", "class_helios_1_1_room.html#a9f5645c1ec1a46c98ee7621c7a327723", null ],
     [ "UnlinkObject", "class_helios_1_1_room.html#ae94868797f3224f81604193f7e6e9af0", null ],
-    [ "Update", "class_helios_1_1_room.html#a26dd287e7d05d6157b97bd42ca4c5f54", null ]
+    [ "Update", "class_helios_1_1_room.html#aeb4ac37cb202acbe6b0f95c3f06ebb9d", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>SFML Game: Helios::SprObj Class Reference</title>
+<title>Age of Espionage: Helios::SprObj Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,10 +31,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">SFML Game
-   &#160;<span id="projectnumber">0.01</span>
+   <div id="projectname">Age of Espionage
+   &#160;<span id="projectnumber">0.0.1.2</span>
    </div>
-   <div id="projectbrief">Age of Espionage</div>
+   <div id="projectbrief">SFML CMPM 170 Game</div>
   </td>
  </tr>
  </tbody>
@@ -116,6 +116,9 @@ $(document).ready(function(){initNavTree('class_helios_1_1_spr_obj.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>An abstract parent class providing the basis for packaging sprite with the appropriate logic functions all objects in the room need.  
+ <a href="class_helios_1_1_spr_obj.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="helios__sprobj_8h_source.html">helios_sprobj.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Helios::SprObj:</div>
@@ -123,16 +126,12 @@ Inheritance diagram for Helios::SprObj:</div>
  <div class="center">
   <img src="class_helios_1_1_spr_obj.png" usemap="#Helios::SprObj_map" alt=""/>
   <map id="Helios::SprObj_map" name="Helios::SprObj_map">
-<area href="class_helios_1_1_base_obj.html" alt="Helios::BaseObj" shape="rect" coords="0,0,101,24"/>
+<area href="class_helios_1_1_base_obj.html" title="An abstract class representing an interface all objects should adhere to. " alt="Helios::BaseObj" shape="rect" coords="0,0,101,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a25235d4dbfaeda9dfc1c157b2e6ebb05"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a25235d4dbfaeda9dfc1c157b2e6ebb05"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_spr_obj.html#a25235d4dbfaeda9dfc1c157b2e6ebb05">SprObj</a> (const unsigned int priority=0)</td></tr>
-<tr class="memdesc:a25235d4dbfaeda9dfc1c157b2e6ebb05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructors and Destructor: <br /></td></tr>
-<tr class="separator:a25235d4dbfaeda9dfc1c157b2e6ebb05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab803d71e66b25686f4d6a29c1f3ee0d6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab803d71e66b25686f4d6a29c1f3ee0d6"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>SprObj</b> (const <a class="el" href="class_helios_1_1_spr_obj.html">SprObj</a> &amp;other)=delete</td></tr>
 <tr class="separator:ab803d71e66b25686f4d6a29c1f3ee0d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,105 +139,38 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>SprObj</b> (<a class="el" href="class_helios_1_1_spr_obj.html">SprObj</a> &amp;&amp;other)=delete</td></tr>
 <tr class="separator:ab0a6136a689b13a5ab16270df52a303a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89e23d41b2a2b4262ed68b9c81cdbe42"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a89e23d41b2a2b4262ed68b9c81cdbe42"></a>
-<a class="el" href="class_helios_1_1_base_obj.html">BaseObj</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_spr_obj.html#a89e23d41b2a2b4262ed68b9c81cdbe42">operator=</a> (const <a class="el" href="class_helios_1_1_base_obj.html">BaseObj</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a89e23d41b2a2b4262ed68b9c81cdbe42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operators: <br /></td></tr>
+<a class="el" href="class_helios_1_1_base_obj.html">BaseObj</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_helios_1_1_base_obj.html">BaseObj</a> &amp;other)=delete</td></tr>
 <tr class="separator:a89e23d41b2a2b4262ed68b9c81cdbe42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99d676eda512fa5dbc026ca6db1bfcb0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a99d676eda512fa5dbc026ca6db1bfcb0"></a>
 <a class="el" href="class_helios_1_1_base_obj.html">BaseObj</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_helios_1_1_base_obj.html">BaseObj</a> &amp;&amp;other)=delete</td></tr>
 <tr class="separator:a99d676eda512fa5dbc026ca6db1bfcb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ea59f62cf7bb7bd7ff8080a79894037"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_spr_obj.html#a5ea59f62cf7bb7bd7ff8080a79894037">Update</a> ()=0</td></tr>
-<tr class="memdesc:a5ea59f62cf7bb7bd7ff8080a79894037"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step and Frame Functions:  <a href="#a5ea59f62cf7bb7bd7ff8080a79894037">More...</a><br /></td></tr>
+<tr class="memitem:a5ea59f62cf7bb7bd7ff8080a79894037"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ea59f62cf7bb7bd7ff8080a79894037"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_spr_obj.html#a5ea59f62cf7bb7bd7ff8080a79894037">Update</a> ()=0</td></tr>
+<tr class="memdesc:a5ea59f62cf7bb7bd7ff8080a79894037"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function called by the <a class="el" href="class_helios_1_1_room.html" title="Describes a given space and the objects that exist within it in a way that facilitates consistent gen...">Room</a> this object is active in to update this object for the next frame. <br /></td></tr>
 <tr class="separator:a5ea59f62cf7bb7bd7ff8080a79894037"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a4cfc26ae9779c15ae4db84e5736cb6b1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_spr_obj.html#a4cfc26ae9779c15ae4db84e5736cb6b1">render</a> (sf::RenderTarget &amp;target, sf::RenderStates states) const  =0</td></tr>
-<tr class="memdesc:a4cfc26ae9779c15ae4db84e5736cb6b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Proctected Methods.  <a href="#a4cfc26ae9779c15ae4db84e5736cb6b1">More...</a><br /></td></tr>
-<tr class="separator:a4cfc26ae9779c15ae4db84e5736cb6b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25235d4dbfaeda9dfc1c157b2e6ebb05"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a25235d4dbfaeda9dfc1c157b2e6ebb05"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_spr_obj.html#a25235d4dbfaeda9dfc1c157b2e6ebb05">SprObj</a> (const unsigned int priority=0)</td></tr>
+<tr class="memdesc:a25235d4dbfaeda9dfc1c157b2e6ebb05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor. <br /></td></tr>
+<tr class="separator:a25235d4dbfaeda9dfc1c157b2e6ebb05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f21ff22d40d1f06dc58fbc9b2b16de7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f21ff22d40d1f06dc58fbc9b2b16de7"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_spr_obj.html#a9f21ff22d40d1f06dc58fbc9b2b16de7">render</a> (sf::RenderTarget &amp;target, sf::RenderStates states) const </td></tr>
+<tr class="memdesc:a9f21ff22d40d1f06dc58fbc9b2b16de7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the Sprite. <br /></td></tr>
+<tr class="separator:a9f21ff22d40d1f06dc58fbc9b2b16de7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ac9b20866be4703e1285b1b75e2e08490"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac9b20866be4703e1285b1b75e2e08490"></a>
-std::vector&lt; sf::Sprite &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_spr_obj.html#ac9b20866be4703e1285b1b75e2e08490">sprVector</a></td></tr>
-<tr class="memdesc:ac9b20866be4703e1285b1b75e2e08490"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected Data. <br /></td></tr>
-<tr class="separator:ac9b20866be4703e1285b1b75e2e08490"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a5099d52e40625858912ed29c519c59"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a5099d52e40625858912ed29c519c59"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>sprIndex</b></td></tr>
-<tr class="separator:a5a5099d52e40625858912ed29c519c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a5db777d590b3835d9b0ec749a5292"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad7a5db777d590b3835d9b0ec749a5292"></a>
+sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><b>_sprite</b></td></tr>
+<tr class="separator:ad7a5db777d590b3835d9b0ec749a5292"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An abstract parent class providing the basis for packaging sprite with the appropriate logic functions all objects in the room need. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a4cfc26ae9779c15ae4db84e5736cb6b1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void Helios::SprObj::render </td>
-          <td>(</td>
-          <td class="paramtype">sf::RenderTarget &amp;&#160;</td>
-          <td class="paramname"><em>target</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sf::RenderStates&#160;</td>
-          <td class="paramname"><em>states</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Proctected Methods. </p>
-<p>Draws the sprIndex-th Sprite in the sprVector.</p>
-<dl class="section pre"><dt>Precondition</dt><dd>0 &lt;= sprVector &lt; sprVector.size() </dd></dl>
-
-<p>Implements <a class="el" href="class_helios_1_1_base_obj.html#af7355477f06d38692dc6cdb6f99dbd11">Helios::BaseObj</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5ea59f62cf7bb7bd7ff8080a79894037"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void Helios::SprObj::Update </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Step and Frame Functions: </p>
-<p>Function called by the <a class="el" href="class_helios_1_1_room.html">Room</a> this object is active in to update this object for the next frame. </p>
-
-<p>Implements <a class="el" href="class_helios_1_1_base_obj.html#aa42e26e872234b6871d159c29afdef17">Helios::BaseObj</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>SFMLGame/Helios/<a class="el" href="helios__sprobj_8h_source.html">helios_sprobj.h</a></li>
+<li>SFMLGame/Helios/helios_sprobj.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

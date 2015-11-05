@@ -5,6 +5,10 @@
 
 #include <SFML/Graphics/Drawable.hpp>
 
+class RenderStates;
+class RenderTarget;
+class Sprite;
+
 namespace Helios {
 
 class Room;
@@ -15,20 +19,17 @@ class Room;
 ///     should adhere to.
 /// @details BaseObj is merely defines interface for all objects. Thus,
 ///     all objects should have an Update function, which is inteded to
-///     be called on the object for each game step.\n
+///     be called on the object for each game step.\n\n
 ///     All objects are also sf::Drawables, and will only draw if they
 ///     are visible. Specify how to draw derived classes with the 
 ///     virtual function render in order to maintain visible 
-///     functionality.\n
-///     Objects are also designed to be managed by the Helios::Room 
-///     class. For this reason, they may be set as active in a room
-///     using the Activate function. This will inform both parties that
-///     the Helios::Room in question is responsible for managing 
-///     Update and draw function calls as well as interactions between
-///     objects in the Helios::Room.\n
-///     The priority of any object can changes the priority of this 
-///     object's draw and Update functions with respect to the other
-///     objects handled by the same Helios::Room.\n
+///     functionality.\n\n
+///     Objects are also designed to be managed by the Room class. For 
+///     this reason, they may be set as active in a room using the 
+///     Activate function. This will inform both parties that the Room 
+///     in question is responsible for managing Update and draw 
+///     function calls as well as interactions between objects in the 
+///     Room.\n
 ///
 ///
 ///////////////////////////////////////////////////////////////////////
@@ -43,7 +44,9 @@ public:
     //No Universal Move Constructor
     BaseObj(BaseObj&& other) = delete;
 
-    //Virtual Destructor
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Virtual Destructor.
+    ///////////////////////////////////////////////////////////////////
     virtual ~BaseObj();
 
 
@@ -63,20 +66,22 @@ public:
   /////////////////////////////////////////////////////////////////////
 
     ///////////////////////////////////////////////////////////////////
-    /// @brief Returns a pointer to the room this object is active in,
-    /// provided it is active. If this object is not active, it will
-    /// return nullptr.
+    /// @brief Returns a pointer to the room this object is active in.
+    /// @details Inactive objects return nullptr.
     ///
-    /// @return Room* indicating room this object is active in
+    /// @return Room* handle
     /// 
     ///////////////////////////////////////////////////////////////////
     Room* get_room() const;
 
     ///////////////////////////////////////////////////////////////////
-    /// @brief Returns the priority for this object in the update 
-    /// cycle.
+    /// @brief Returns the current priority of this object.
+    /// @details The object's priority represents how early in the 
+    ///     update cycle this object's Update() and draw() calls should
+    ///     be made. Given two objects, the object with the higher
+    ///     priority should be updated and drawn before the other.
     ///
-    /// @return signed int indicating object priority.
+    /// @return signed int priority.
     /// 
     /// @see set_priority()
     /// 
@@ -84,9 +89,11 @@ public:
     signed int get_priority() const;
 
     ///////////////////////////////////////////////////////////////////
-    /// @brief Returns whether the object is flagged to be drawable.
+    /// @brief Checks if the object is visible.
+    /// @details If an object is not visible, then calls to draw that
+    ///     object will be ignored.
     /// 
-    /// @return bool indicating draw status.
+    /// @return bool visible
     /// 
     /// @see set_visible()
     /// 
@@ -94,11 +101,14 @@ public:
     bool is_visible() const;
 
     ///////////////////////////////////////////////////////////////////
-    /// @brief Returns whether the BaseObject is active. Active objects
-    /// are linked to a Room that keeps maintains Update() calls, 
-    /// collision checking, and drawing.
+    /// @brief Returns whether the BaseObject is active in any Room.
+    /// @details Active objects are linked to some Room which is held 
+    ///     responsible for calling Update and draw regularly as well 
+    ///     as enabling other functionality such as collision checks 
+    ///     with other objects in the Room. \n\n
+    ///     An object can only be active in one Room at a time.
     /// 
-    /// @return bool indicating active status.
+    /// @return bool active
     /// 
     /// @see Activate(Room &roomHandle), Deactivate()
     /// 
@@ -111,40 +121,41 @@ public:
   /////////////////////////////////////////////////////////////////////
 
     ///////////////////////////////////////////////////////////////////
-    /// @brief Links object to a room and thus to that room's update 
-    /// cycle / collision checks, etc. Does nothing if the object is
-    /// already active in a room. Nothing happens if the roomHandle is
-    /// nullptr.
-    /// 
-    /// @see is_active(), Deactivate(Room &roomHandle)
+    /// @brief Activates the object, making a Room responsible for 
+    ///     managing it.
+    /// @details The Room responsible for this object will call update
+    ///     each step, draw each frame, and may optimize other object
+    ///     interactions such as collision checks.
+    ///
+    /// @param[in] roomPtr A pointer to the Room to activate in
+    ///
+    /// @pre  The object is not active
+    /// @post The object is active
+    ///
+    /// @see is_active(), Deactivate()
     /// 
     ///////////////////////////////////////////////////////////////////
-    void Activate(Room &roomHandle);
+    void Activate(Room* roomPtr);
 
     ///////////////////////////////////////////////////////////////////
-    /// @brief Disconnects and object from its associated room - if 
-    /// any - preventing it from engaging in regular updates, collision 
-    /// checks and other room dependant interactions.
-    /// 
-    /// @see active(), Activate(Room &roomHandle)
+    /// @brief Deactivates the object, removing all responsibilities
+    ///     of the Room it is in.
+    /// @details Deactivating an object
+    ///
+    /// @pre  The object is active
+    /// @post The object is not active
+    ///
+    /// @see is_active(), Activate(Room &roomHandle)
     /// 
     ///////////////////////////////////////////////////////////////////
     void Deactivate();
 
     ///////////////////////////////////////////////////////////////////
-    /// @brief Sets the priority of this object's update. This priority
-    /// will be updated in the current Room before the next update.
+    /// @brief Sets the visibility of the object.
     /// 
-    /// @see get_priority()
-    /// 
-    ///////////////////////////////////////////////////////////////////
-    void set_priority(const unsigned int prior);
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Sets a property determining whether or not this object
-    /// can be drawn via the public Draw function.
-    /// 
-    /// @see visible()
+    /// @param[in] vis Desired visibility
+    ///
+    /// @see is_visible()
     /// 
     ///////////////////////////////////////////////////////////////////
     void set_visible(const bool vis);
@@ -155,8 +166,10 @@ public:
   /////////////////////////////////////////////////////////////////////
 
     ///////////////////////////////////////////////////////////////////
-    /// @brief Function called by the Room this object is active in to
-    /// update this object for the next frame.
+    /// @brief Virtual Update Function.
+    /// @details This function should hold the code defining how to 
+    ///     update after each game step. It will likelly be different 
+    ///     for each derived class.
     ///
     ///////////////////////////////////////////////////////////////////
     virtual void Update() = 0;
@@ -173,13 +186,18 @@ protected:
     /// @details Creates an object that is inactive and invisible, with
     ///     the given priority (default zero).
     ///
+    /// @param[in] priority Priority of object
     ///////////////////////////////////////////////////////////////////
     BaseObj(const unsigned int priority = 0);
     
     ///////////////////////////////////////////////////////////////////
-    /// @brief Overwrite this function to define how this object 
-    ///     should be rendered on a render target. This definition will
-    ///     likely vary radically for each derived class.
+    /// @brief Draw the object to a render target.
+    /// @details This is a pure virtual function that has to be 
+    ///     implemented by the derived class to define how the object
+    ///     should be drawn.
+    ///
+    /// @param[in] target Render target to draw to.
+    /// @param[in] states Current render states.
     ///////////////////////////////////////////////////////////////////
     virtual void render(sf::RenderTarget &target, sf::RenderStates states) const = 0;
     
@@ -187,12 +205,23 @@ protected:
   /////////////////////////////////////////////////////////////////////
   //  Proctected Data
   /////////////////////////////////////////////////////////////////////
-
-    //Denotes the priority of the object's update funciton relative to
-    //other objects. Default is zero.
+    
+    ///////////////////////////////////////////////////////////////////
+    /// @brief The priority of this object's update() and draw() calls.
+    /// @details Priority is relative. Between two objects in the same
+    ///     Room, the object with the higher _priority will be
+    ///     updated and drawn first. It is expected that the object 
+    ///     itself will know what the ideal priority is for it at any 
+    ///     moment.
+    ///
+    ///////////////////////////////////////////////////////////////////
     signed int _priority;
 
-    //A bool regulating whether or not this object should be drawn.
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Flag denoting visibility
+    /// @details If _visible is false, drawing will be prevented.
+    ///
+    ///////////////////////////////////////////////////////////////////
     bool _visible;
 
 
@@ -203,14 +232,16 @@ private:
   /////////////////////////////////////////////////////////////////////
 
     ///////////////////////////////////////////////////////////////////
-    /// @brief Draws the object to the target as programmed in render()
-    /// after making the appropriate visiblity checks. Also allows the 
-    /// typical SFML draw call syntax of RenderTarget.draw(BaseObj).
+    /// @brief Draws the object to the sf::RenderTarget.
+    /// @details Allows the typical SFML draw syntax below:
+    ///     @code sf::RenderTarget.draw(sf::Drawable); @endcode
+    ///     draw() also enforces visibility functionality before 
+    ///     rendering the object via a call to render().
     ///
-    /// @note While this function *is* an inherited virtual function,
-    /// it is assumed this function will not be overwritten in child
-    /// classes. Doing so may ruin visible functionality. Instead edit
-    /// the virtual function render().
+    /// @warning While this function *is* an inherited virtual
+    ///     function, it is assumed this function will not be
+    ///     overwritten in child classes. Doing so may ruin visibility
+    ///     functionality.
     ///
     ///////////////////////////////////////////////////////////////////
     void draw(sf::RenderTarget &target, sf::RenderStates states) const;
@@ -220,8 +251,10 @@ private:
   //  Private Data
   /////////////////////////////////////////////////////////////////////
 
-    //Pointer the the room this object resides in.
-    //If it equals nullptr, the object is inactive.
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Pointer the the room this object resides in.
+    /// @details If (_roomHandle == nullptr), the object is inactive.
+    ///////////////////////////////////////////////////////////////////
     Room* _roomHandle;
 
 

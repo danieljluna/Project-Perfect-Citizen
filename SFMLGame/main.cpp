@@ -19,7 +19,7 @@ int main() {
     spr_bat.setOrigin(sf::Vector2f(8, 36));
     spr_bat.setPosition(sf::Vector2f(10, 50));
 
-    Helios::Room testing(window);
+    Helios::Room testing(window.getSize());
 
     while (window.isOpen()) {
         sf::Event event;

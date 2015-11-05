@@ -68,18 +68,14 @@ bool BaseObj::is_active() const {
 //  Mutator Functions
 ///////////////////////////////////////////////////////////////////////
 
-void BaseObj::Activate(Room &roomHandle) {
-    _roomHandle = &roomHandle;
+void BaseObj::Activate(Room* roomPtr) {
+    _roomHandle = roomPtr;
     _roomHandle->LinkObject(this);
 }
 
 void BaseObj::Deactivate() {
     _roomHandle->UnlinkObject(this);
     _roomHandle = nullptr;
-}
-
-void BaseObj::set_priority(const unsigned int prior) {
-    _priority = prior;
 }
 
 void BaseObj::set_visible(const bool vis) {

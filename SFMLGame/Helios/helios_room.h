@@ -4,7 +4,6 @@
 #include <map>
 
 #include <SFML/Graphics/Drawable.hpp>
-#include <SFML/System/Clock.hpp>
 
 
 namespace Helios {
@@ -65,7 +64,7 @@ public:
         
 
 private:
-    typedef std::multimap<unsigned int, BaseObj*> mmapIntObj;
+    typedef std::multimap<signed int, BaseObj*> mmapIntObj;
 
   //Private Functions:
     

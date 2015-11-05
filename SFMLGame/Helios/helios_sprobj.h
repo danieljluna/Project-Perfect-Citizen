@@ -2,6 +2,7 @@
 #define HELIOS_SPROBJ_H
 
 #include <SFML/Graphics/Sprite.hpp>
+#include <SFML/System/Vector2.hpp>
 
 #include "helios_baseobj.h"
 
@@ -18,11 +19,8 @@ class SprObj : BaseObj { //TODO: Finish SprObj
 public:
 
   /////////////////////////////////////////////////////////////////////
-  /// Constructors and Destructor:
+  //  Constructors and Destructor:
   /////////////////////////////////////////////////////////////////////
-
-    //Delete Default Constructor
-    SprObj(const unsigned int priority = 0);
 
     //Delete Copy Constructor
     SprObj(const SprObj& other) = delete;
@@ -35,7 +33,7 @@ public:
 
 
   /////////////////////////////////////////////////////////////////////
-  /// Operators:
+  //  Operators:
   /////////////////////////////////////////////////////////////////////
 
     //No Universal Copy Assignment Operator
@@ -44,9 +42,9 @@ public:
     //No Universal Move Assignment Operator
     BaseObj& operator=(BaseObj&& other) = delete;
 
-
+    
   /////////////////////////////////////////////////////////////////////
-  /// Step and Frame Functions:
+  //  Step and Frame Functions:
   /////////////////////////////////////////////////////////////////////
 
     ///////////////////////////////////////////////////////////////////
@@ -60,27 +58,27 @@ public:
 protected:
 
   /////////////////////////////////////////////////////////////////////
-  /// Proctected Methods
+  //  Proctected Methods
   /////////////////////////////////////////////////////////////////////
 
     ///////////////////////////////////////////////////////////////////
-    /// @brief Draws the sprIndex-th Sprite in the sprVector.
-    ///
-    /// @pre 0 <= sprVector < sprVector.size()
+    /// @brief Default Constructor
     ///////////////////////////////////////////////////////////////////
-    virtual void render(sf::RenderTarget &target, sf::RenderStates states) const = 0;
+    SprObj(const unsigned int priority = 0);
+    
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Draws the Sprite
+    ///////////////////////////////////////////////////////////////////
+    virtual void render(sf::RenderTarget &target, sf::RenderStates states) const;
 
 
   /////////////////////////////////////////////////////////////////////
-  /// Protected Data
+  //  Protected Data
   /////////////////////////////////////////////////////////////////////
 
-    //Holds a vector of the object's sprites
-    std::vector<sf::Sprite> sprVector;
+    //Holds the sprite to be drawn
+    sf::Sprite _sprite;
 
-    //Holds the index of the sprVector marking the current Sprite to 
-    //draw
-    size_t sprIndex;
 
 };  //End SprObj Declaration-------------------------------------------
 

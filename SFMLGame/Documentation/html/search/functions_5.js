@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3d',['operator=',['../class_helios_1_1_base_obj.html#a499a49d6f7f7f79190e6d598eab4391e',1,'Helios::BaseObj::operator=()'],['../class_helios_1_1_spr_obj.html#a89e23d41b2a2b4262ed68b9c81cdbe42',1,'Helios::SprObj::operator=()']]]
+  ['render',['render',['../class_helios_1_1_base_obj.html#af7355477f06d38692dc6cdb6f99dbd11',1,'Helios::BaseObj::render()'],['../class_helios_1_1_spr_obj.html#a9f21ff22d40d1f06dc58fbc9b2b16de7',1,'Helios::SprObj::render()']]]
 ];

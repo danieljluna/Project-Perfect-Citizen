@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics/Sprite.hpp>
 
-#include "Helios/helios_baseobj.h"
+#include "Helios/helios_sprobj.h"
 
 namespace Pong {
 
@@ -17,7 +17,9 @@ public:
     /// \breif Default Constructor.
     ///
     ///////////////////////////////////////////////////////////////////
-    Bat::Bat();
+    Bat();
+
+    
 
 
   /////////////////////////////////////////////////////////////////////
@@ -31,11 +33,13 @@ public:
     ///////////////////////////////////////////////////////////////////
     virtual void Update();
 
-private:
-  //Private Functions
-    
+
+protected:
     //Draw
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states);
+
+private:
+  //Private Functions
 
 
   //Static Private Members

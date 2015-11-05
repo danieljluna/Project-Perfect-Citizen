@@ -37,6 +37,9 @@
     <Filter Include="Source Files\Helios\Helios Main">
       <UniqueIdentifier>{0c718a37-5f82-4e67-862b-ade107380a4c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{144b5a6f-f04a-4bbb-be4b-063ae7d5d503}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -82,8 +85,14 @@
     <ClInclude Include="Helios\helios_collision.h">
       <Filter>Header Files\Helios</Filter>
     </ClInclude>
+    <ClInclude Include="debug.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="Documentation\html\index.html">
+      <Filter>Documentation</Filter>
+    </None>
   </ItemGroup>
 </Project>

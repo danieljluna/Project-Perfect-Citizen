@@ -1,5 +1,9 @@
 #include "helios_sprobj.h"
 
+#include "SFML\Graphics\Sprite.hpp"
+#include "SFML\Graphics\RenderTarget.hpp"
+#include "SFML\Graphics\RenderStates.hpp"
+
 using namespace Helios;
 
 /*********************************************************************\
@@ -22,7 +26,15 @@ using namespace Helios;
 *                                                                     *
 *                                                                     *
 \*********************************************************************/
-SprObj::SprObj(const unsigned priority = 0) {
 
+///////////////////////////////////////////////////////////////////////
+//  Protected Functions
+///////////////////////////////////////////////////////////////////////
+
+SprObj::SprObj(const unsigned priority) {
+    _priority = priority;
 }
 
+void SprObj::render(sf::RenderTarget &target, sf::RenderStates states)  const {
+    target.draw(_sprite, states);
+}
