@@ -217,7 +217,7 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -226,7 +226,7 @@ Protected Attributes</h2></td></tr>
 <p>Creates an object that is inactive and invisible, with the given priority (default zero).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">priority</td><td>Priority of object </td></tr>
+    <tr><td class="paramname">priority</td><td>Priority of object </td></tr>
   </table>
   </dd>
 </dl>
@@ -252,7 +252,7 @@ Protected Attributes</h2></td></tr>
 <p>The <a class="el" href="class_helios_1_1_room.html" title="Describes a given space and the objects that exist within it in a way that facilitates consistent gen...">Room</a> responsible for this object will call update each step, draw each frame, and may optimize other object interactions such as collision checks.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">roomPtr</td><td>A pointer to the <a class="el" href="class_helios_1_1_room.html" title="Describes a given space and the objects that exist within it in a way that facilitates consistent gen...">Room</a> to activate in</td></tr>
+    <tr><td class="paramname">roomPtr</td><td>A pointer to the <a class="el" href="class_helios_1_1_room.html" title="Describes a given space and the objects that exist within it in a way that facilitates consistent gen...">Room</a> to activate in</td></tr>
   </table>
   </dd>
 </dl>
@@ -400,8 +400,8 @@ Protected Attributes</h2></td></tr>
 <p>This is a pure virtual function that has to be implemented by the derived class to define how the object should be drawn.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">target</td><td>Render target to draw to. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">states</td><td>Current render states. </td></tr>
+    <tr><td class="paramname">target</td><td>Render target to draw to. </td></tr>
+    <tr><td class="paramname">states</td><td>Current render states. </td></tr>
   </table>
   </dd>
 </dl>
@@ -427,7 +427,7 @@ Protected Attributes</h2></td></tr>
 <p>Sets the visibility of the object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">vis</td><td>Desired visibility</td></tr>
+    <tr><td class="paramname">vis</td><td>Desired visibility</td></tr>
   </table>
   </dd>
 </dl>

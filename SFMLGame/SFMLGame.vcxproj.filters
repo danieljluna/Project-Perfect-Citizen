@@ -45,9 +45,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bat.cpp">
-      <Filter>Source Files\Local Objects</Filter>
-    </ClCompile>
     <ClCompile Include="Helios\helios_baseobj.cpp">
       <Filter>Source Files\Helios\Helios Main</Filter>
     </ClCompile>
@@ -60,16 +57,14 @@
     <ClCompile Include="Helios\helios_collision.cpp">
       <Filter>Source Files\Helios</Filter>
     </ClCompile>
+    <ClCompile Include="Helios\helios_dynamic.cpp">
+      <Filter>Source Files\Helios\Helios Main</Filter>
+    </ClCompile>
+    <ClCompile Include="aoe_unit.cpp">
+      <Filter>Source Files\Local Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resources\Images\bat.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="bat.h">
-      <Filter>Header Files\Local Objects</Filter>
-    </ClInclude>
     <ClInclude Include="Helios\helios_baseobj.h">
       <Filter>Header Files\Helios\Helios Main</Filter>
     </ClInclude>
@@ -87,6 +82,12 @@
     </ClInclude>
     <ClInclude Include="debug.h">
       <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Helios\helios_dynamic.h">
+      <Filter>Header Files\Helios\Helios Main</Filter>
+    </ClInclude>
+    <ClInclude Include="aoe_unit.h">
+      <Filter>Header Files\Local Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

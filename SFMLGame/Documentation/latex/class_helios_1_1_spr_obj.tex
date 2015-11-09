@@ -30,18 +30,19 @@ Inheritance diagram for Helios\+:\+:Spr\+Obj\+:\begin{figure}[H]
 \hypertarget{class_helios_1_1_spr_obj_a99d676eda512fa5dbc026ca6db1bfcb0}{}\hyperlink{class_helios_1_1_base_obj}{Base\+Obj} \& {\bfseries operator=} (\hyperlink{class_helios_1_1_base_obj}{Base\+Obj} \&\&other)=delete\label{class_helios_1_1_spr_obj_a99d676eda512fa5dbc026ca6db1bfcb0}
 
 \item 
-\hypertarget{class_helios_1_1_spr_obj_a5ea59f62cf7bb7bd7ff8080a79894037}{}virtual void \hyperlink{class_helios_1_1_spr_obj_a5ea59f62cf7bb7bd7ff8080a79894037}{Update} ()=0\label{class_helios_1_1_spr_obj_a5ea59f62cf7bb7bd7ff8080a79894037}
-
-\begin{DoxyCompactList}\small\item\em Function called by the \hyperlink{class_helios_1_1_room}{Room} this object is active in to update this object for the next frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+virtual void \hyperlink{class_helios_1_1_spr_obj_a5ea59f62cf7bb7bd7ff8080a79894037}{Update} ()=0
+\begin{DoxyCompactList}\small\item\em Virtual Update Function. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_helios_1_1_spr_obj_a25235d4dbfaeda9dfc1c157b2e6ebb05}{}\hyperlink{class_helios_1_1_spr_obj_a25235d4dbfaeda9dfc1c157b2e6ebb05}{Spr\+Obj} (const unsigned int priority=0)\label{class_helios_1_1_spr_obj_a25235d4dbfaeda9dfc1c157b2e6ebb05}
-
+\hyperlink{class_helios_1_1_spr_obj_a12d178715704be054dbd0534eab42085}{Spr\+Obj} (const signed int priority=0)
 \begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
-\hypertarget{class_helios_1_1_spr_obj_a9f21ff22d40d1f06dc58fbc9b2b16de7}{}virtual void \hyperlink{class_helios_1_1_spr_obj_a9f21ff22d40d1f06dc58fbc9b2b16de7}{render} (sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const \label{class_helios_1_1_spr_obj_a9f21ff22d40d1f06dc58fbc9b2b16de7}
-
-\begin{DoxyCompactList}\small\item\em Draws the Sprite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\hyperlink{class_helios_1_1_spr_obj_ab74ed9f4a4c3463a578fffc9a83c9fc5}{Spr\+Obj} (const sf\+::\+Texture \&texture, const signed int priority=0)
+\begin{DoxyCompactList}\small\item\em Constructs the \hyperlink{class_helios_1_1_spr_obj}{Spr\+Obj} from a source texture. \end{DoxyCompactList}\item 
+\hyperlink{class_helios_1_1_spr_obj_ada87975063df60e0804b982a85bff019}{Spr\+Obj} (const sf\+::\+Texture \&texture, const sf\+::\+Int\+Rect \&rectangle, const signed int priority=0)
+\begin{DoxyCompactList}\small\item\em Constructs the \hyperlink{class_helios_1_1_spr_obj}{Spr\+Obj} using a sub-\/rectangle of a source texture. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_helios_1_1_spr_obj_a9f21ff22d40d1f06dc58fbc9b2b16de7}{render} (sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const 
+\begin{DoxyCompactList}\small\item\em Draw the object to a render target. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -52,6 +53,109 @@ Inheritance diagram for Helios\+:\+:Spr\+Obj\+:\begin{figure}[H]
 
 \subsection{Detailed Description}
 An abstract parent class providing the basis for packaging sprite with the appropriate logic functions all objects in the room need. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_helios_1_1_spr_obj_a12d178715704be054dbd0534eab42085}{}\index{Helios\+::\+Spr\+Obj@{Helios\+::\+Spr\+Obj}!Spr\+Obj@{Spr\+Obj}}
+\index{Spr\+Obj@{Spr\+Obj}!Helios\+::\+Spr\+Obj@{Helios\+::\+Spr\+Obj}}
+\subsubsection[{Spr\+Obj(const signed int priority=0)}]{\setlength{\rightskip}{0pt plus 5cm}Spr\+Obj\+::\+Spr\+Obj (
+\begin{DoxyParamCaption}
+\item[{const signed int}]{priority = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}\label{class_helios_1_1_spr_obj_a12d178715704be054dbd0534eab42085}
+
+
+Default Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em priority} & Priority of object \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_helios_1_1_spr_obj_ab74ed9f4a4c3463a578fffc9a83c9fc5}{}\index{Helios\+::\+Spr\+Obj@{Helios\+::\+Spr\+Obj}!Spr\+Obj@{Spr\+Obj}}
+\index{Spr\+Obj@{Spr\+Obj}!Helios\+::\+Spr\+Obj@{Helios\+::\+Spr\+Obj}}
+\subsubsection[{Spr\+Obj(const sf\+::\+Texture \&texture, const signed int priority=0)}]{\setlength{\rightskip}{0pt plus 5cm}Spr\+Obj\+::\+Spr\+Obj (
+\begin{DoxyParamCaption}
+\item[{const sf\+::\+Texture \&}]{texture, }
+\item[{const signed int}]{priority = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}\label{class_helios_1_1_spr_obj_ab74ed9f4a4c3463a578fffc9a83c9fc5}
+
+
+Constructs the \hyperlink{class_helios_1_1_spr_obj}{Spr\+Obj} from a source texture. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & Source texture \\
+\hline
+{\em priority} & Priority of object \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_helios_1_1_spr_obj_ada87975063df60e0804b982a85bff019}{}\index{Helios\+::\+Spr\+Obj@{Helios\+::\+Spr\+Obj}!Spr\+Obj@{Spr\+Obj}}
+\index{Spr\+Obj@{Spr\+Obj}!Helios\+::\+Spr\+Obj@{Helios\+::\+Spr\+Obj}}
+\subsubsection[{Spr\+Obj(const sf\+::\+Texture \&texture, const sf\+::\+Int\+Rect \&rectangle, const signed int priority=0)}]{\setlength{\rightskip}{0pt plus 5cm}Spr\+Obj\+::\+Spr\+Obj (
+\begin{DoxyParamCaption}
+\item[{const sf\+::\+Texture \&}]{texture, }
+\item[{const sf\+::\+Int\+Rect \&}]{rectangle, }
+\item[{const signed int}]{priority = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_helios_1_1_spr_obj_ada87975063df60e0804b982a85bff019}
+
+
+Constructs the \hyperlink{class_helios_1_1_spr_obj}{Spr\+Obj} using a sub-\/rectangle of a source texture. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & Source texture \\
+\hline
+{\em rectangle} & Sub-\/rectangle of the texture to assign to the sprite \\
+\hline
+{\em priority} & Priority of object \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_helios_1_1_spr_obj_a9f21ff22d40d1f06dc58fbc9b2b16de7}{}\index{Helios\+::\+Spr\+Obj@{Helios\+::\+Spr\+Obj}!render@{render}}
+\index{render@{render}!Helios\+::\+Spr\+Obj@{Helios\+::\+Spr\+Obj}}
+\subsubsection[{render(sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const }]{\setlength{\rightskip}{0pt plus 5cm}void Spr\+Obj\+::render (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Render\+Target \&}]{target, }
+\item[{sf\+::\+Render\+States}]{states}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\label{class_helios_1_1_spr_obj_a9f21ff22d40d1f06dc58fbc9b2b16de7}
+
+
+Draw the object to a render target. 
+
+This is a pure virtual function that has to be implemented by the derived class to define how the object should be drawn.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Render target to draw to. \\
+\hline
+{\em states} & Current render states. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_helios_1_1_base_obj_af7355477f06d38692dc6cdb6f99dbd11}{Helios\+::\+Base\+Obj}.
+
+\hypertarget{class_helios_1_1_spr_obj_a5ea59f62cf7bb7bd7ff8080a79894037}{}\index{Helios\+::\+Spr\+Obj@{Helios\+::\+Spr\+Obj}!Update@{Update}}
+\index{Update@{Update}!Helios\+::\+Spr\+Obj@{Helios\+::\+Spr\+Obj}}
+\subsubsection[{Update()=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Helios\+::\+Spr\+Obj\+::\+Update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_helios_1_1_spr_obj_a5ea59f62cf7bb7bd7ff8080a79894037}
+
+
+Virtual Update Function. 
+
+This function should hold the code defining how to update after each game step. It will likelly be different for each derived class. 
+
+Implements \hyperlink{class_helios_1_1_base_obj_aa42e26e872234b6871d159c29afdef17}{Helios\+::\+Base\+Obj}.
+
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

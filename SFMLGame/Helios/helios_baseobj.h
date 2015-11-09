@@ -1,15 +1,13 @@
 #ifndef HELIOS_BASEOBJ_H
 #define HELIOS_BASEOBJ_H
 
-#include <vector>
-
 #include <SFML/Graphics/Drawable.hpp>
 
 class RenderStates;
 class RenderTarget;
 class Sprite;
 
-namespace Helios {
+namespace helios {
 
 class Room;
 
@@ -30,8 +28,6 @@ class Room;
 ///     in question is responsible for managing Update and draw 
 ///     function calls as well as interactions between objects in the 
 ///     Room.\n
-///
-///
 ///////////////////////////////////////////////////////////////////////
 class BaseObj : public sf::Drawable {
     friend Room;
@@ -70,7 +66,6 @@ public:
     /// @details Inactive objects return nullptr.
     ///
     /// @return Room* handle
-    /// 
     ///////////////////////////////////////////////////////////////////
     Room* get_room() const;
 
@@ -83,8 +78,7 @@ public:
     ///
     /// @return signed int priority.
     /// 
-    /// @see set_priority()
-    /// 
+    /// @see set_priority(const signed int)
     ///////////////////////////////////////////////////////////////////
     signed int get_priority() const;
 
@@ -94,9 +88,6 @@ public:
     ///     object will be ignored.
     /// 
     /// @return bool visible
-    /// 
-    /// @see set_visible()
-    /// 
     ///////////////////////////////////////////////////////////////////
     bool is_visible() const;
 
@@ -110,8 +101,7 @@ public:
     /// 
     /// @return bool active
     /// 
-    /// @see Activate(Room &roomHandle), Deactivate()
-    /// 
+    /// @see Activate(Room*), Deactivate()
     ///////////////////////////////////////////////////////////////////
     bool is_active() const;
 
@@ -127,13 +117,12 @@ public:
     ///     each step, draw each frame, and may optimize other object
     ///     interactions such as collision checks.
     ///
-    /// @param[in] roomPtr A pointer to the Room to activate in
+    /// @param roomPtr A pointer to the Room to activate in
     ///
     /// @pre  The object is not active
     /// @post The object is active
     ///
     /// @see is_active(), Deactivate()
-    /// 
     ///////////////////////////////////////////////////////////////////
     void Activate(Room* roomPtr);
 
@@ -145,20 +134,9 @@ public:
     /// @pre  The object is active
     /// @post The object is not active
     ///
-    /// @see is_active(), Activate(Room &roomHandle)
-    /// 
+    /// @see is_active(), Activate(Room*)
     ///////////////////////////////////////////////////////////////////
     void Deactivate();
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Sets the visibility of the object.
-    /// 
-    /// @param[in] vis Desired visibility
-    ///
-    /// @see is_visible()
-    /// 
-    ///////////////////////////////////////////////////////////////////
-    void set_visible(const bool vis);
 
 
   /////////////////////////////////////////////////////////////////////
@@ -170,7 +148,6 @@ public:
     /// @details This function should hold the code defining how to 
     ///     update after each game step. It will likelly be different 
     ///     for each derived class.
-    ///
     ///////////////////////////////////////////////////////////////////
     virtual void Update() = 0;
 
@@ -186,9 +163,9 @@ protected:
     /// @details Creates an object that is inactive and invisible, with
     ///     the given priority (default zero).
     ///
-    /// @param[in] priority Priority of object
+    /// @param priority Priority of object
     ///////////////////////////////////////////////////////////////////
-    BaseObj(const unsigned int priority = 0);
+    explicit BaseObj(const unsigned int priority = 0);
     
     ///////////////////////////////////////////////////////////////////
     /// @brief Draw the object to a render target.
@@ -196,10 +173,11 @@ protected:
     ///     implemented by the derived class to define how the object
     ///     should be drawn.
     ///
-    /// @param[in] target Render target to draw to.
-    /// @param[in] states Current render states.
+    /// @param target Render target to draw to.
+    /// @param states Current render states.
     ///////////////////////////////////////////////////////////////////
-    virtual void render(sf::RenderTarget &target, sf::RenderStates states) const = 0;
+    virtual void render(sf::RenderTarget &target, 
+                        sf::RenderStates states) const = 0;
     
 
   /////////////////////////////////////////////////////////////////////
@@ -213,14 +191,12 @@ protected:
     ///     updated and drawn first. It is expected that the object 
     ///     itself will know what the ideal priority is for it at any 
     ///     moment.
-    ///
     ///////////////////////////////////////////////////////////////////
     signed int _priority;
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Flag denoting visibility
     /// @details If _visible is false, drawing will be prevented.
-    ///
     ///////////////////////////////////////////////////////////////////
     bool _visible;
 
@@ -238,13 +214,11 @@ private:
     ///     draw() also enforces visibility functionality before 
     ///     rendering the object via a call to render().
     ///
-    /// @warning While this function *is* an inherited virtual
-    ///     function, it is assumed this function will not be
-    ///     overwritten in child classes. Doing so may ruin visibility
-    ///     functionality.
-    ///
+    /// @param target Render target to draw to.
+    /// @param states Current render states.
     ///////////////////////////////////////////////////////////////////
-    void draw(sf::RenderTarget &target, sf::RenderStates states) const;
+    virtual void draw(sf::RenderTarget &target, 
+                      sf::RenderStates states) const final;
 
 
   /////////////////////////////////////////////////////////////////////
@@ -253,7 +227,8 @@ private:
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Pointer the the room this object resides in.
-    /// @details If (_roomHandle == nullptr), the object is inactive.
+    /// @details _roomHandle == nullptr if and only if the object is 
+    ///     inactive.
     ///////////////////////////////////////////////////////////////////
     Room* _roomHandle;
 
@@ -263,6 +238,6 @@ private:
 
 
 
-}   //namespace Helios-------------------------------------------------
+}   //namespace helios-------------------------------------------------
 
 #endif  //HELIOS_BASEOBJ_H

@@ -1,0 +1,281 @@
+\hypertarget{classhelios_1_1_base_obj}{}\section{helios\+:\+:Base\+Obj Class Reference}
+\label{classhelios_1_1_base_obj}\index{helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}}
+
+
+An abstract class representing an interface all objects should adhere to.  
+
+
+
+
+{\ttfamily \#include $<$helios\+\_\+baseobj.\+h$>$}
+
+Inheritance diagram for helios\+:\+:Base\+Obj\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classhelios_1_1_base_obj}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhelios_1_1_base_obj_aa4f8943b2f5c935ba33a9fd2800a082a}{}{\bfseries Base\+Obj} (const \hyperlink{classhelios_1_1_base_obj}{Base\+Obj} \&other)=delete\label{classhelios_1_1_base_obj_aa4f8943b2f5c935ba33a9fd2800a082a}
+
+\item 
+\hypertarget{classhelios_1_1_base_obj_abc87bfb4698ff77144b8f6c85f5dcf75}{}{\bfseries Base\+Obj} (\hyperlink{classhelios_1_1_base_obj}{Base\+Obj} \&\&other)=delete\label{classhelios_1_1_base_obj_abc87bfb4698ff77144b8f6c85f5dcf75}
+
+\item 
+\hypertarget{classhelios_1_1_base_obj_acf317ded8e51f261f61ee230a1a4a548}{}virtual \hyperlink{classhelios_1_1_base_obj_acf317ded8e51f261f61ee230a1a4a548}{$\sim$\+Base\+Obj} ()\label{classhelios_1_1_base_obj_acf317ded8e51f261f61ee230a1a4a548}
+
+\begin{DoxyCompactList}\small\item\em Virtual Destructor. \end{DoxyCompactList}\item 
+\hypertarget{classhelios_1_1_base_obj_ac38bad436b81c0deb6ee4d4bdff52e3b}{}\hyperlink{classhelios_1_1_base_obj}{Base\+Obj} \& {\bfseries operator=} (const \hyperlink{classhelios_1_1_base_obj}{Base\+Obj} \&other)=delete\label{classhelios_1_1_base_obj_ac38bad436b81c0deb6ee4d4bdff52e3b}
+
+\item 
+\hypertarget{classhelios_1_1_base_obj_af147e65fd18bb77bf4e88123ac704a30}{}\hyperlink{classhelios_1_1_base_obj}{Base\+Obj} \& {\bfseries operator=} (\hyperlink{classhelios_1_1_base_obj}{Base\+Obj} \&\&other)=delete\label{classhelios_1_1_base_obj_af147e65fd18bb77bf4e88123ac704a30}
+
+\item 
+\hyperlink{classhelios_1_1_room}{Room} $\ast$ \hyperlink{classhelios_1_1_base_obj_a80f8b7b016a797e12e54bd76300648ca}{get\+\_\+room} () const 
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the room this object is active in. \end{DoxyCompactList}\item 
+signed int \hyperlink{classhelios_1_1_base_obj_abc6c07bdfebdea51f75277f6d5409d3e}{get\+\_\+priority} () const 
+\begin{DoxyCompactList}\small\item\em Returns the current priority of this object. \end{DoxyCompactList}\item 
+bool \hyperlink{classhelios_1_1_base_obj_a3aa6d4c78bbd57109930b5af41a48bc7}{is\+\_\+visible} () const 
+\begin{DoxyCompactList}\small\item\em Checks if the object is visible. \end{DoxyCompactList}\item 
+bool \hyperlink{classhelios_1_1_base_obj_a4f9a27f7f395e5e0cee2e53751e3b81c}{is\+\_\+active} () const 
+\begin{DoxyCompactList}\small\item\em Returns whether the Base\+Object is active in any \hyperlink{classhelios_1_1_room}{Room}. \end{DoxyCompactList}\item 
+void \hyperlink{classhelios_1_1_base_obj_aa5f34b01a4ec137038b98434538e19a5}{Activate} (\hyperlink{classhelios_1_1_room}{Room} $\ast$room\+Ptr)
+\begin{DoxyCompactList}\small\item\em Activates the object, making a \hyperlink{classhelios_1_1_room}{Room} responsible for managing it. \end{DoxyCompactList}\item 
+void \hyperlink{classhelios_1_1_base_obj_ae820f0663d142d5a3c2b248fa4764be4}{Deactivate} ()
+\begin{DoxyCompactList}\small\item\em Deactivates the object, removing all responsibilities of the \hyperlink{classhelios_1_1_room}{Room} it is in. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classhelios_1_1_base_obj_ac5f5d55ab4be3727bc42e583f20f2ff2}{Update} ()=0
+\begin{DoxyCompactList}\small\item\em Virtual Update Function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhelios_1_1_base_obj_a2643236c24e9292ff696e3e13bb20c63}{Base\+Obj} (const unsigned int priority=0)
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classhelios_1_1_base_obj_ac9b5f84814f4e12a8b145fcdc9289189}{render} (sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const  =0
+\begin{DoxyCompactList}\small\item\em Draw the object to a render target. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+signed int \hyperlink{classhelios_1_1_base_obj_aa770e0799b9c82837fd40fbe80eb15e3}{\+\_\+priority}
+\begin{DoxyCompactList}\small\item\em The priority of this object\textquotesingle{}s update() and draw() calls. \end{DoxyCompactList}\item 
+bool \hyperlink{classhelios_1_1_base_obj_ab614fbf556382cdfb8c09fc0215db281}{\+\_\+visible}
+\begin{DoxyCompactList}\small\item\em Flag denoting visibility. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An abstract class representing an interface all objects should adhere to. 
+
+\hyperlink{classhelios_1_1_base_obj}{Base\+Obj} is merely defines interface for all objects. Thus, all objects should have an Update function, which is inteded to be called on the object for each game step.~\newline
+~\newline
+ All objects are also sf\+::\+Drawables, and will only draw if they are visible. Specify how to draw derived classes with the virtual function render in order to maintain visible functionality.~\newline
+~\newline
+ Objects are also designed to be managed by the \hyperlink{classhelios_1_1_room}{Room} class. For this reason, they may be set as active in a room using the Activate function. This will inform both parties that the \hyperlink{classhelios_1_1_room}{Room} in question is responsible for managing Update and draw function calls as well as interactions between objects in the \hyperlink{classhelios_1_1_room}{Room}.~\newline
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhelios_1_1_base_obj_a2643236c24e9292ff696e3e13bb20c63}{}\index{helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}!Base\+Obj@{Base\+Obj}}
+\index{Base\+Obj@{Base\+Obj}!helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}}
+\subsubsection[{Base\+Obj(const unsigned int priority=0)}]{\setlength{\rightskip}{0pt plus 5cm}helios\+::\+Base\+Obj\+::\+Base\+Obj (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{priority = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}\label{classhelios_1_1_base_obj_a2643236c24e9292ff696e3e13bb20c63}
+
+
+Default Constructor. 
+
+Creates an object that is inactive and invisible, with the given priority (default zero).
+
+
+\begin{DoxyParams}{Parameters}
+{\em priority} & Priority of object \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classhelios_1_1_base_obj_aa5f34b01a4ec137038b98434538e19a5}{}\index{helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}!Activate@{Activate}}
+\index{Activate@{Activate}!helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}}
+\subsubsection[{Activate(\+Room $\ast$room\+Ptr)}]{\setlength{\rightskip}{0pt plus 5cm}void helios\+::\+Base\+Obj\+::\+Activate (
+\begin{DoxyParamCaption}
+\item[{{\bf Room} $\ast$}]{room\+Ptr}
+\end{DoxyParamCaption}
+)}\label{classhelios_1_1_base_obj_aa5f34b01a4ec137038b98434538e19a5}
+
+
+Activates the object, making a \hyperlink{classhelios_1_1_room}{Room} responsible for managing it. 
+
+The \hyperlink{classhelios_1_1_room}{Room} responsible for this object will call update each step, draw each frame, and may optimize other object interactions such as collision checks.
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Ptr} & A pointer to the \hyperlink{classhelios_1_1_room}{Room} to activate in\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+The object is not active 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The object is active
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classhelios_1_1_base_obj_a4f9a27f7f395e5e0cee2e53751e3b81c}{is\+\_\+active()}, \hyperlink{classhelios_1_1_base_obj_ae820f0663d142d5a3c2b248fa4764be4}{Deactivate()} 
+\end{DoxySeeAlso}
+\hypertarget{classhelios_1_1_base_obj_ae820f0663d142d5a3c2b248fa4764be4}{}\index{helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}!Deactivate@{Deactivate}}
+\index{Deactivate@{Deactivate}!helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}}
+\subsubsection[{Deactivate()}]{\setlength{\rightskip}{0pt plus 5cm}void helios\+::\+Base\+Obj\+::\+Deactivate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classhelios_1_1_base_obj_ae820f0663d142d5a3c2b248fa4764be4}
+
+
+Deactivates the object, removing all responsibilities of the \hyperlink{classhelios_1_1_room}{Room} it is in. 
+
+Deactivating an object
+
+\begin{DoxyPrecond}{Precondition}
+The object is active 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The object is not active
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classhelios_1_1_base_obj_a4f9a27f7f395e5e0cee2e53751e3b81c}{is\+\_\+active()}, \hyperlink{classhelios_1_1_base_obj_aa5f34b01a4ec137038b98434538e19a5}{Activate(\+Room$\ast$)} 
+\end{DoxySeeAlso}
+\hypertarget{classhelios_1_1_base_obj_abc6c07bdfebdea51f75277f6d5409d3e}{}\index{helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}!get\+\_\+priority@{get\+\_\+priority}}
+\index{get\+\_\+priority@{get\+\_\+priority}!helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}}
+\subsubsection[{get\+\_\+priority() const }]{\setlength{\rightskip}{0pt plus 5cm}signed int helios\+::\+Base\+Obj\+::get\+\_\+priority (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classhelios_1_1_base_obj_abc6c07bdfebdea51f75277f6d5409d3e}
+
+
+Returns the current priority of this object. 
+
+The object\textquotesingle{}s priority represents how early in the update cycle this object\textquotesingle{}s \hyperlink{classhelios_1_1_base_obj_ac5f5d55ab4be3727bc42e583f20f2ff2}{Update()} and draw() calls should be made. Given two objects, the object with the higher priority should be updated and drawn before the other.
+
+\begin{DoxyReturn}{Returns}
+signed int priority.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+set\+\_\+priority(const signed int) 
+\end{DoxySeeAlso}
+\hypertarget{classhelios_1_1_base_obj_a80f8b7b016a797e12e54bd76300648ca}{}\index{helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}!get\+\_\+room@{get\+\_\+room}}
+\index{get\+\_\+room@{get\+\_\+room}!helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}}
+\subsubsection[{get\+\_\+room() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Room} $\ast$ helios\+::\+Base\+Obj\+::get\+\_\+room (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classhelios_1_1_base_obj_a80f8b7b016a797e12e54bd76300648ca}
+
+
+Returns a pointer to the room this object is active in. 
+
+Inactive objects return nullptr.
+
+\begin{DoxyReturn}{Returns}
+Room$\ast$ handle 
+\end{DoxyReturn}
+\hypertarget{classhelios_1_1_base_obj_a4f9a27f7f395e5e0cee2e53751e3b81c}{}\index{helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}!is\+\_\+active@{is\+\_\+active}}
+\index{is\+\_\+active@{is\+\_\+active}!helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}}
+\subsubsection[{is\+\_\+active() const }]{\setlength{\rightskip}{0pt plus 5cm}bool helios\+::\+Base\+Obj\+::is\+\_\+active (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classhelios_1_1_base_obj_a4f9a27f7f395e5e0cee2e53751e3b81c}
+
+
+Returns whether the Base\+Object is active in any \hyperlink{classhelios_1_1_room}{Room}. 
+
+Active objects are linked to some \hyperlink{classhelios_1_1_room}{Room} which is held responsible for calling Update and draw regularly as well as enabling other functionality such as collision checks with other objects in the \hyperlink{classhelios_1_1_room}{Room}. ~\newline
+~\newline
+ An object can only be active in one \hyperlink{classhelios_1_1_room}{Room} at a time.
+
+\begin{DoxyReturn}{Returns}
+bool active
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classhelios_1_1_base_obj_aa5f34b01a4ec137038b98434538e19a5}{Activate(\+Room$\ast$)}, \hyperlink{classhelios_1_1_base_obj_ae820f0663d142d5a3c2b248fa4764be4}{Deactivate()} 
+\end{DoxySeeAlso}
+\hypertarget{classhelios_1_1_base_obj_a3aa6d4c78bbd57109930b5af41a48bc7}{}\index{helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}!is\+\_\+visible@{is\+\_\+visible}}
+\index{is\+\_\+visible@{is\+\_\+visible}!helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}}
+\subsubsection[{is\+\_\+visible() const }]{\setlength{\rightskip}{0pt plus 5cm}bool helios\+::\+Base\+Obj\+::is\+\_\+visible (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classhelios_1_1_base_obj_a3aa6d4c78bbd57109930b5af41a48bc7}
+
+
+Checks if the object is visible. 
+
+If an object is not visible, then calls to draw that object will be ignored.
+
+\begin{DoxyReturn}{Returns}
+bool visible 
+\end{DoxyReturn}
+\hypertarget{classhelios_1_1_base_obj_ac9b5f84814f4e12a8b145fcdc9289189}{}\index{helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}!render@{render}}
+\index{render@{render}!helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}}
+\subsubsection[{render(sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const  =0}]{\setlength{\rightskip}{0pt plus 5cm}virtual void helios\+::\+Base\+Obj\+::render (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Render\+Target \&}]{target, }
+\item[{sf\+::\+Render\+States}]{states}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\label{classhelios_1_1_base_obj_ac9b5f84814f4e12a8b145fcdc9289189}
+
+
+Draw the object to a render target. 
+
+This is a pure virtual function that has to be implemented by the derived class to define how the object should be drawn.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Render target to draw to. \\
+\hline
+{\em states} & Current render states. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classhelios_1_1_spr_obj_a779248e35120a473187b30495466986f}{helios\+::\+Spr\+Obj}.
+
+\hypertarget{classhelios_1_1_base_obj_ac5f5d55ab4be3727bc42e583f20f2ff2}{}\index{helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}!Update@{Update}}
+\index{Update@{Update}!helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}}
+\subsubsection[{Update()=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual void helios\+::\+Base\+Obj\+::\+Update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classhelios_1_1_base_obj_ac5f5d55ab4be3727bc42e583f20f2ff2}
+
+
+Virtual Update Function. 
+
+This function should hold the code defining how to update after each game step. It will likelly be different for each derived class. 
+
+Implemented in \hyperlink{classhelios_1_1_spr_obj_ad098d4bff19702f347fdf548576d02fd}{helios\+::\+Spr\+Obj}, and \hyperlink{classaoe_1_1_unit_af529a5f8a4caa37fcd904077c032e664}{aoe\+::\+Unit}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classhelios_1_1_base_obj_aa770e0799b9c82837fd40fbe80eb15e3}{}\index{helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}!\+\_\+priority@{\+\_\+priority}}
+\index{\+\_\+priority@{\+\_\+priority}!helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}}
+\subsubsection[{\+\_\+priority}]{\setlength{\rightskip}{0pt plus 5cm}signed int helios\+::\+Base\+Obj\+::\+\_\+priority\hspace{0.3cm}{\ttfamily [protected]}}\label{classhelios_1_1_base_obj_aa770e0799b9c82837fd40fbe80eb15e3}
+
+
+The priority of this object\textquotesingle{}s update() and draw() calls. 
+
+Priority is relative. Between two objects in the same \hyperlink{classhelios_1_1_room}{Room}, the object with the higher \+\_\+priority will be updated and drawn first. It is expected that the object itself will know what the ideal priority is for it at any moment. \hypertarget{classhelios_1_1_base_obj_ab614fbf556382cdfb8c09fc0215db281}{}\index{helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}!\+\_\+visible@{\+\_\+visible}}
+\index{\+\_\+visible@{\+\_\+visible}!helios\+::\+Base\+Obj@{helios\+::\+Base\+Obj}}
+\subsubsection[{\+\_\+visible}]{\setlength{\rightskip}{0pt plus 5cm}bool helios\+::\+Base\+Obj\+::\+\_\+visible\hspace{0.3cm}{\ttfamily [protected]}}\label{classhelios_1_1_base_obj_ab614fbf556382cdfb8c09fc0215db281}
+
+
+Flag denoting visibility. 
+
+If \+\_\+visible is false, drawing will be prevented. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+S\+F\+M\+L\+Game/\+Helios/helios\+\_\+baseobj.\+h\item 
+S\+F\+M\+L\+Game/\+Helios/helios\+\_\+baseobj.\+cpp\end{DoxyCompactItemize}

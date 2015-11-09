@@ -1,0 +1,32 @@
+#include "aoe_unit.h"
+
+namespace aoe {
+
+///////////////////////////////////////////////////////////////////////
+// Constructors and Destructors
+///////////////////////////////////////////////////////////////////////
+
+Unit::Unit(const signed int _priority) 
+            : SprObj(_priority) {}
+
+
+
+
+Unit::Unit(const std::vector<sf::Sprite> &sprVec,
+            const signed int _priority) 
+            : SprObj(sprVec, _priority) {}
+
+
+
+
+Unit::~Unit() {}
+
+
+///////////////////////////////////////////////////////////////////////
+// Step and Update Functions:
+///////////////////////////////////////////////////////////////////////
+
+void Unit::Update() {}
+
+
+}   //namespace aoe

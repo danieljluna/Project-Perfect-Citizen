@@ -1,21 +1,24 @@
 #ifndef HELIOS_SPROBJ_H
 #define HELIOS_SPROBJ_H
 
-#include <SFML/Graphics/Sprite.hpp>
-#include <SFML/System/Vector2.hpp>
-
 #include "helios_baseobj.h"
 
-namespace Helios {
+#include <vector>
+
+#include <SFML\Graphics\Rect.hpp>
+#include <SFML\Graphics\Sprite.hpp>
+
+class Texture;
+
+namespace helios {
 
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief An abstract parent class providing the basis for packaging 
 ///     sprite with the appropriate logic functions all objects in the
 ///     room need.
-///
 ///////////////////////////////////////////////////////////////////////
-class SprObj : BaseObj { //TODO: Finish SprObj
+class SprObj : public BaseObj { //TODO: Finish SprObj
 public:
 
   /////////////////////////////////////////////////////////////////////
@@ -44,14 +47,23 @@ public:
 
     
   /////////////////////////////////////////////////////////////////////
-  //  Step and Frame Functions:
+  //  Mutator Functions:
   /////////////////////////////////////////////////////////////////////
 
     ///////////////////////////////////////////////////////////////////
-    /// @brief Function called by the Room this object is active in to
-    /// update this object for the next frame.
+    /// @brief Sets the visibility of the object.
+    /// 
+    /// @param vis Desired visibility
     ///
+    /// @see is_visible()
     ///////////////////////////////////////////////////////////////////
+    void set_visible(const bool vis);
+    
+
+  /////////////////////////////////////////////////////////////////////
+  //  Step and Frame Functions:
+  /////////////////////////////////////////////////////////////////////
+
     virtual void Update() = 0;
 
 
@@ -62,14 +74,42 @@ protected:
   /////////////////////////////////////////////////////////////////////
 
     ///////////////////////////////////////////////////////////////////
-    /// @brief Default Constructor
+    /// @brief Default Constructor. 
+    /// @details Creates an object that is inactive and invisible, with
+    ///     the given priority (default zero).
+    ///
+    /// @param priority Priority of object
     ///////////////////////////////////////////////////////////////////
-    SprObj(const unsigned int priority = 0);
+    explicit SprObj(const signed int priority = 0);
     
     ///////////////////////////////////////////////////////////////////
-    /// @brief Draws the Sprite
+    /// @brief Constructs the SprObj from a vector of Sprites
+    /// 
+    /// @param sprVec Sprite Vector
+    /// @param priority Priority of object
     ///////////////////////////////////////////////////////////////////
-    virtual void render(sf::RenderTarget &target, sf::RenderStates states) const;
+    explicit SprObj(const std::vector<sf::Sprite> &sprVec,
+                    const signed int priority = 0);
+    
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets current sprite index
+    /// @details If the index passed is invalid, nothing will happen.
+    ///
+    /// @param index Desired index
+    ///
+    /// @pre index: [0, _spriteVector.size())
+    ///////////////////////////////////////////////////////////////////
+    void set_sprite_index(const std::size_t index);
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Returns current sprite index
+    ///
+    /// @see set_sprite_index(const size_t)
+    ///////////////////////////////////////////////////////////////////
+    size_t get_sprite_index();
+    
+    virtual void render(sf::RenderTarget &target, 
+                        sf::RenderStates states) const;
 
 
   /////////////////////////////////////////////////////////////////////
@@ -77,11 +117,20 @@ protected:
   /////////////////////////////////////////////////////////////////////
 
     //Holds the sprite to be drawn
-    sf::Sprite _sprite;
+    std::vector<sf::Sprite> _spriteVector;
+
+    
+private:
+
+  /////////////////////////////////////////////////////////////////////
+  //  Private Data
+  /////////////////////////////////////////////////////////////////////
+
+    //Holds the current index
+    std::size_t _spriteIndex;
 
 
 };  //End SprObj Declaration-------------------------------------------
-
 
 
 

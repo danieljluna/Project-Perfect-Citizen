@@ -82,7 +82,7 @@ An abstract class representing an interface all objects should adhere to.
 \begin{DoxyParamCaption}
 \item[{const unsigned int}]{priority = {\ttfamily 0}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_helios_1_1_base_obj_ad77bdec51d537c1bfc9661b728980498}
+)\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}\label{class_helios_1_1_base_obj_ad77bdec51d537c1bfc9661b728980498}
 
 
 Default Constructor. 
@@ -90,8 +90,8 @@ Default Constructor.
 Creates an object that is inactive and invisible, with the given priority (default zero).
 
 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em priority} & Priority of object \\
+\begin{DoxyParams}{Parameters}
+{\em priority} & Priority of object \\
 \hline
 \end{DoxyParams}
 
@@ -111,8 +111,8 @@ Activates the object, making a \hyperlink{class_helios_1_1_room}{Room} responsib
 The \hyperlink{class_helios_1_1_room}{Room} responsible for this object will call update each step, draw each frame, and may optimize other object interactions such as collision checks.
 
 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em room\+Ptr} & A pointer to the \hyperlink{class_helios_1_1_room}{Room} to activate in\\
+\begin{DoxyParams}{Parameters}
+{\em room\+Ptr} & A pointer to the \hyperlink{class_helios_1_1_room}{Room} to activate in\\
 \hline
 \end{DoxyParams}
 \begin{DoxyPrecond}{Precondition}
@@ -236,10 +236,10 @@ Draw the object to a render target.
 This is a pure virtual function that has to be implemented by the derived class to define how the object should be drawn.
 
 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em target} & Render target to draw to. \\
+\begin{DoxyParams}{Parameters}
+{\em target} & Render target to draw to. \\
 \hline
-\mbox{\tt in}  & {\em states} & Current render states. \\
+{\em states} & Current render states. \\
 \hline
 \end{DoxyParams}
 
@@ -258,8 +258,8 @@ Implemented in \hyperlink{class_helios_1_1_spr_obj_a9f21ff22d40d1f06dc58fbc9b2b1
 Sets the visibility of the object. 
 
 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em vis} & Desired visibility\\
+\begin{DoxyParams}{Parameters}
+{\em vis} & Desired visibility\\
 \hline
 \end{DoxyParams}
 \begin{DoxySeeAlso}{See also}

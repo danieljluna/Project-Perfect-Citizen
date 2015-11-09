@@ -6,9 +6,9 @@
 
 #include "helios_main.h"
 
-// \brief Defines a quadtree with each node having four children
+// @brief Defines a quadtree with each node having four children
 
-namespace Helios {
+namespace helios {
     class QuadTree {
     public:
     //Constructors & Destructors:

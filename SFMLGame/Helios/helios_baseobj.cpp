@@ -2,7 +2,7 @@
 
 #include "helios_room.h"
 
-using namespace Helios;
+namespace helios {
 
 
 /*********************************************************************\
@@ -40,6 +40,9 @@ BaseObj::BaseObj(const unsigned int priority) :
     _visible(false), 
     _priority(priority) {}
 
+
+
+
 BaseObj::~BaseObj() {}
 
 
@@ -51,13 +54,22 @@ Room* BaseObj::get_room() const {
     return _roomHandle;
 }
 
+
+
+
 signed int BaseObj::get_priority() const {
     return _priority;
 }
 
+
+
+
 bool BaseObj::is_visible() const {
     return _visible; 
 }
+
+
+
 
 bool BaseObj::is_active() const {
     return (_roomHandle != nullptr);
@@ -73,13 +85,12 @@ void BaseObj::Activate(Room* roomPtr) {
     _roomHandle->LinkObject(this);
 }
 
+
+
+
 void BaseObj::Deactivate() {
     _roomHandle->UnlinkObject(this);
     _roomHandle = nullptr;
-}
-
-void BaseObj::set_visible(const bool vis) {
-    _visible = vis;
 }
 
 
@@ -87,7 +98,11 @@ void BaseObj::set_visible(const bool vis) {
 //  Draw Functions
 ///////////////////////////////////////////////////////////////////////
 
-void BaseObj::draw(sf::RenderTarget &target, sf::RenderStates states) const {
+void BaseObj::draw(sf::RenderTarget &target, 
+                   sf::RenderStates states) const {
     if (_visible) render(target, states);
 }
+
+
+}   //namespace helios
 

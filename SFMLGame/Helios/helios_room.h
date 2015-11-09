@@ -6,7 +6,7 @@
 #include <SFML/Graphics/Drawable.hpp>
 
 
-namespace Helios {
+namespace helios {
 
 class BaseObj;
 
@@ -89,6 +89,6 @@ private:
 };
 
 
-}   //namespace Helios
+}   //namespace helios
 
 #endif  //HELIOS_ROOM_H

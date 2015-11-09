@@ -144,20 +144,23 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a99d676eda512fa5dbc026ca6db1bfcb0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a99d676eda512fa5dbc026ca6db1bfcb0"></a>
 <a class="el" href="class_helios_1_1_base_obj.html">BaseObj</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_helios_1_1_base_obj.html">BaseObj</a> &amp;&amp;other)=delete</td></tr>
 <tr class="separator:a99d676eda512fa5dbc026ca6db1bfcb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ea59f62cf7bb7bd7ff8080a79894037"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ea59f62cf7bb7bd7ff8080a79894037"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_spr_obj.html#a5ea59f62cf7bb7bd7ff8080a79894037">Update</a> ()=0</td></tr>
-<tr class="memdesc:a5ea59f62cf7bb7bd7ff8080a79894037"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function called by the <a class="el" href="class_helios_1_1_room.html" title="Describes a given space and the objects that exist within it in a way that facilitates consistent gen...">Room</a> this object is active in to update this object for the next frame. <br /></td></tr>
+<tr class="memitem:a5ea59f62cf7bb7bd7ff8080a79894037"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_spr_obj.html#a5ea59f62cf7bb7bd7ff8080a79894037">Update</a> ()=0</td></tr>
+<tr class="memdesc:a5ea59f62cf7bb7bd7ff8080a79894037"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual Update Function.  <a href="#a5ea59f62cf7bb7bd7ff8080a79894037">More...</a><br /></td></tr>
 <tr class="separator:a5ea59f62cf7bb7bd7ff8080a79894037"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a25235d4dbfaeda9dfc1c157b2e6ebb05"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a25235d4dbfaeda9dfc1c157b2e6ebb05"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_spr_obj.html#a25235d4dbfaeda9dfc1c157b2e6ebb05">SprObj</a> (const unsigned int priority=0)</td></tr>
-<tr class="memdesc:a25235d4dbfaeda9dfc1c157b2e6ebb05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor. <br /></td></tr>
-<tr class="separator:a25235d4dbfaeda9dfc1c157b2e6ebb05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f21ff22d40d1f06dc58fbc9b2b16de7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f21ff22d40d1f06dc58fbc9b2b16de7"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_spr_obj.html#a9f21ff22d40d1f06dc58fbc9b2b16de7">render</a> (sf::RenderTarget &amp;target, sf::RenderStates states) const </td></tr>
-<tr class="memdesc:a9f21ff22d40d1f06dc58fbc9b2b16de7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the Sprite. <br /></td></tr>
+<tr class="memitem:a12d178715704be054dbd0534eab42085"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_spr_obj.html#a12d178715704be054dbd0534eab42085">SprObj</a> (const signed int priority=0)</td></tr>
+<tr class="memdesc:a12d178715704be054dbd0534eab42085"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor.  <a href="#a12d178715704be054dbd0534eab42085">More...</a><br /></td></tr>
+<tr class="separator:a12d178715704be054dbd0534eab42085"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab74ed9f4a4c3463a578fffc9a83c9fc5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_spr_obj.html#ab74ed9f4a4c3463a578fffc9a83c9fc5">SprObj</a> (const sf::Texture &amp;texture, const signed int priority=0)</td></tr>
+<tr class="memdesc:ab74ed9f4a4c3463a578fffc9a83c9fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <a class="el" href="class_helios_1_1_spr_obj.html" title="An abstract parent class providing the basis for packaging sprite with the appropriate logic function...">SprObj</a> from a source texture.  <a href="#ab74ed9f4a4c3463a578fffc9a83c9fc5">More...</a><br /></td></tr>
+<tr class="separator:ab74ed9f4a4c3463a578fffc9a83c9fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada87975063df60e0804b982a85bff019"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_spr_obj.html#ada87975063df60e0804b982a85bff019">SprObj</a> (const sf::Texture &amp;texture, const sf::IntRect &amp;rectangle, const signed int priority=0)</td></tr>
+<tr class="memdesc:ada87975063df60e0804b982a85bff019"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <a class="el" href="class_helios_1_1_spr_obj.html" title="An abstract parent class providing the basis for packaging sprite with the appropriate logic function...">SprObj</a> using a sub-rectangle of a source texture.  <a href="#ada87975063df60e0804b982a85bff019">More...</a><br /></td></tr>
+<tr class="separator:ada87975063df60e0804b982a85bff019"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f21ff22d40d1f06dc58fbc9b2b16de7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_spr_obj.html#a9f21ff22d40d1f06dc58fbc9b2b16de7">render</a> (sf::RenderTarget &amp;target, sf::RenderStates states) const </td></tr>
+<tr class="memdesc:a9f21ff22d40d1f06dc58fbc9b2b16de7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the object to a render target.  <a href="#a9f21ff22d40d1f06dc58fbc9b2b16de7">More...</a><br /></td></tr>
 <tr class="separator:a9f21ff22d40d1f06dc58fbc9b2b16de7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -168,7 +171,208 @@ sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><b>_sprite</b></td
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An abstract parent class providing the basis for packaging sprite with the appropriate logic functions all objects in the room need. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a12d178715704be054dbd0534eab42085"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SprObj::SprObj </td>
+          <td>(</td>
+          <td class="paramtype">const signed int&#160;</td>
+          <td class="paramname"><em>priority</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">priority</td><td>Priority of object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab74ed9f4a4c3463a578fffc9a83c9fc5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SprObj::SprObj </td>
+          <td>(</td>
+          <td class="paramtype">const sf::Texture &amp;&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const signed int&#160;</td>
+          <td class="paramname"><em>priority</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs the <a class="el" href="class_helios_1_1_spr_obj.html" title="An abstract parent class providing the basis for packaging sprite with the appropriate logic function...">SprObj</a> from a source texture. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">texture</td><td>Source texture </td></tr>
+    <tr><td class="paramname">priority</td><td>Priority of object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ada87975063df60e0804b982a85bff019"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SprObj::SprObj </td>
+          <td>(</td>
+          <td class="paramtype">const sf::Texture &amp;&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sf::IntRect &amp;&#160;</td>
+          <td class="paramname"><em>rectangle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const signed int&#160;</td>
+          <td class="paramname"><em>priority</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs the <a class="el" href="class_helios_1_1_spr_obj.html" title="An abstract parent class providing the basis for packaging sprite with the appropriate logic function...">SprObj</a> using a sub-rectangle of a source texture. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">texture</td><td>Source texture </td></tr>
+    <tr><td class="paramname">rectangle</td><td>Sub-rectangle of the texture to assign to the sprite </td></tr>
+    <tr><td class="paramname">priority</td><td>Priority of object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a9f21ff22d40d1f06dc58fbc9b2b16de7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SprObj::render </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderTarget &amp;&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::RenderStates&#160;</td>
+          <td class="paramname"><em>states</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Draw the object to a render target. </p>
+<p>This is a pure virtual function that has to be implemented by the derived class to define how the object should be drawn.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>Render target to draw to. </td></tr>
+    <tr><td class="paramname">states</td><td>Current render states. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_helios_1_1_base_obj.html#af7355477f06d38692dc6cdb6f99dbd11">Helios::BaseObj</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5ea59f62cf7bb7bd7ff8080a79894037"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Helios::SprObj::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual Update Function. </p>
+<p>This function should hold the code defining how to update after each game step. It will likelly be different for each derived class. </p>
+
+<p>Implements <a class="el" href="class_helios_1_1_base_obj.html#aa42e26e872234b6871d159c29afdef17">Helios::BaseObj</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>SFMLGame/Helios/<a class="el" href="helios__sprobj_8h_source.html">helios_sprobj.h</a></li>
 <li>SFMLGame/Helios/helios_sprobj.cpp</li>
 </ul>
