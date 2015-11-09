@@ -4,15 +4,14 @@
 #include <map>
 
 #include <SFML/Graphics/Drawable.hpp>
-#include <SFML/System/Clock.hpp>
 
 
-namespace Helios {
+namespace helios {
 
 class BaseObj;
 
 ///////////////////////////////////////////////////////////////////////
-/// @breif Describes a given space and the objects that exist within 
+/// @brief Describes a given space and the objects that exist within 
 ///     it in a way that facilitates consistent generation. Rooms are 
 ///     also responsible for calling update routines regularly,  
 ///     checking for collisions, and drawing objects.
@@ -65,7 +64,7 @@ public:
         
 
 private:
-    typedef std::multimap<unsigned int, BaseObj*> mmapIntObj;
+    typedef std::multimap<signed int, BaseObj*> mmapIntObj;
 
   //Private Functions:
     
@@ -90,6 +89,6 @@ private:
 };
 
 
-}   //namespace Helios
+}   //namespace helios
 
 #endif  //HELIOS_ROOM_H

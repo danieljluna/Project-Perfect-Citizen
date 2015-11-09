@@ -46,3 +46,9 @@ SFMLGame.opensdf
 *.tlog
 SFMLGame.sdf
 *.suo
+*.sdf
+SFMLGame/Debug/vc120.idb
+SFMLGame/Debug/vc120.pdb
+*.tlog
+SFMLGame/Debug/SFMLGame.log
+*.obj

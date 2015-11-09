@@ -2,7 +2,7 @@
 
 #include "helios_baseobj.h"
 
-using namespace Helios;
+namespace helios {
 
 
 /*********************************************************************\
@@ -16,23 +16,26 @@ using namespace Helios;
 //TODO: Implement Room Class
 
 ///////////////////////////////////////////////////////////////////////
-/// Constructors & Destructors:
+//  Constructors & Destructors:
 ///////////////////////////////////////////////////////////////////////
 
 Room::Room(sf::Vector2u roomSize) :
     _size(roomSize) {}
 
-//Destructor
+
+
+
 Room::~Room() {}
 
-
-//Step & Frame Functions:
+///////////////////////////////////////////////////////////////////////
+// Step & Frame Functions
+///////////////////////////////////////////////////////////////////////
 
 void Room::Update() {
 
     for (auto it = _updateList.begin();
-        it != _updateList.end();
-        ++it) {
+            it != _updateList.end();
+            ++it) {
         //If object priority needs to increase, do so before updating
         //in order to avoid double updates.
         if (it->first < it->second->get_priority()) {
@@ -48,15 +51,18 @@ void Room::Update() {
 }
 
 
-//Object Management Functions:
+///////////////////////////////////////////////////////////////////////
+// Object Management Functions
+///////////////////////////////////////////////////////////////////////
 
-//Adds object to appropriate management lists
 void Room::LinkObject(BaseObj *objPtr) {
     //Link the Object to the update list
     _updateList.emplace(objPtr->_priority, objPtr);
 }
 
-//Removes object from all management lists
+
+
+
 void Room::UnlinkObject(BaseObj *objPtr) {
     //Search for object in updateList
     auto searchRange = _updateList.equal_range(objPtr->_priority);
@@ -72,7 +78,9 @@ void Room::UnlinkObject(BaseObj *objPtr) {
 }
 
 
-//Private Methods
+///////////////////////////////////////////////////////////////////////
+// Private Methods
+///////////////////////////////////////////////////////////////////////
 
 void Room::draw(sf::RenderTarget &target, sf::RenderStates states) const {
     for (auto it = _updateList.begin();
@@ -82,6 +90,8 @@ void Room::draw(sf::RenderTarget &target, sf::RenderStates states) const {
         it->second->draw(target, states);
     }
 }
+
+
 
 
 void Room::UpdateObjectPriority(mmapIntObj::iterator objItor) {
@@ -96,4 +106,6 @@ void Room::UpdateObjectPriority(mmapIntObj::iterator objItor) {
     }
 }
 
-//End-Room-------------------------------------------------------------
+
+
+}   //namespace helios

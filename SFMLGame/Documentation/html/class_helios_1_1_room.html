@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>SFML Game: Helios::Room Class Reference</title>
+<title>Age of Espionage: Helios::Room Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,10 +31,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">SFML Game
-   &#160;<span id="projectnumber">0.01</span>
+   <div id="projectname">Age of Espionage
+   &#160;<span id="projectnumber">0.0.1.2</span>
    </div>
-   <div id="projectbrief">Age of Espionage</div>
+   <div id="projectbrief">SFML CMPM 170 Game</div>
   </td>
  </tr>
  </tbody>
@@ -114,6 +114,9 @@ $(document).ready(function(){initNavTree('class_helios_1_1_room.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Describes a given space and the objects that exist within it in a way that facilitates consistent generation. Rooms are also responsible for calling update routines regularly, checking for collisions, and drawing objects.  
+ <a href="class_helios_1_1_room.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="helios__room_8h_source.html">helios_room.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Helios::Room:</div>
@@ -133,8 +136,7 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Room</b> (<a class="el" href="class_helios_1_1_room.html">Room</a> &amp;&amp;other)=delete</td></tr>
 <tr class="separator:a49dee88dbca1430546f49dedda0ef88a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a069b54c002742b2e943e281520654d43"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a069b54c002742b2e943e281520654d43"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helios_1_1_room.html#a069b54c002742b2e943e281520654d43">Room</a> (sf::Vector2u roomSize)</td></tr>
-<tr class="memdesc:a069b54c002742b2e943e281520654d43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructors &amp; Destructors: <br /></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Room</b> (sf::Vector2u roomSize)</td></tr>
 <tr class="separator:a069b54c002742b2e943e281520654d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4529d35e99e767f434e0c33f922257a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4529d35e99e767f434e0c33f922257a"></a>
 <a class="el" href="class_helios_1_1_room.html">Room</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_helios_1_1_room.html">Room</a> &amp;other)=delete</td></tr>
@@ -142,9 +144,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9f5645c1ec1a46c98ee7621c7a327723"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f5645c1ec1a46c98ee7621c7a327723"></a>
 <a class="el" href="class_helios_1_1_room.html">Room</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_helios_1_1_room.html">Room</a> &amp;&amp;other)=delete</td></tr>
 <tr class="separator:a9f5645c1ec1a46c98ee7621c7a327723"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26dd287e7d05d6157b97bd42ca4c5f54"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26dd287e7d05d6157b97bd42ca4c5f54"></a>
-sf::Time&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
-<tr class="separator:a26dd287e7d05d6157b97bd42ca4c5f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb4ac37cb202acbe6b0f95c3f06ebb9d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb4ac37cb202acbe6b0f95c3f06ebb9d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
+<tr class="separator:aeb4ac37cb202acbe6b0f95c3f06ebb9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1dc648407daeb69bed664c1b6aca899d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1dc648407daeb69bed664c1b6aca899d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>LinkObject</b> (<a class="el" href="class_helios_1_1_base_obj.html">BaseObj</a> *objPtr)</td></tr>
 <tr class="separator:a1dc648407daeb69bed664c1b6aca899d"><td class="memSeparator" colspan="2">&#160;</td></tr>
