@@ -28,23 +28,26 @@
     <Filter Include="Header Files\Helios\Helios Main">
       <UniqueIdentifier>{d9d136b7-529a-4732-99e2-0da461a708da}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Local Objects">
-      <UniqueIdentifier>{d7fcc1ab-7ad2-43e1-8927-0822455abd33}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Local Objects">
-      <UniqueIdentifier>{d0ff720c-e2db-4f40-a7e2-f0a68ad7aa6a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Helios\Helios Main">
       <UniqueIdentifier>{0c718a37-5f82-4e67-862b-ade107380a4c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Documentation">
       <UniqueIdentifier>{144b5a6f-f04a-4bbb-be4b-063ae7d5d503}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\AoE">
+      <UniqueIdentifier>{d7fcc1ab-7ad2-43e1-8927-0822455abd33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AoE">
+      <UniqueIdentifier>{d0ff720c-e2db-4f40-a7e2-f0a68ad7aa6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Images">
+      <UniqueIdentifier>{3cb19825-b96e-43b3-a7fa-2e70e8c98d88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Initialization Files">
+      <UniqueIdentifier>{bb9eb196-f4a9-4ebc-ae34-9d18bd773aa8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Helios\helios_baseobj.cpp">
       <Filter>Source Files\Helios\Helios Main</Filter>
     </ClCompile>
@@ -61,7 +64,10 @@
       <Filter>Source Files\Helios\Helios Main</Filter>
     </ClCompile>
     <ClCompile Include="aoe_unit.cpp">
-      <Filter>Source Files\Local Objects</Filter>
+      <Filter>Source Files\AoE</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -87,7 +93,7 @@
       <Filter>Header Files\Helios\Helios Main</Filter>
     </ClInclude>
     <ClInclude Include="aoe_unit.h">
-      <Filter>Header Files\Local Objects</Filter>
+      <Filter>Header Files\AoE</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -95,5 +101,13 @@
     <None Include="Documentation\html\index.html">
       <Filter>Documentation</Filter>
     </None>
+    <None Include="SpriteLoader.ini">
+      <Filter>Resource Files\Initialization Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Images\StickUnit.png">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
   </ItemGroup>
 </Project>

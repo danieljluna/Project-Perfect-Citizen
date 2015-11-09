@@ -91,6 +91,10 @@
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
     <None Include="Documentation\html\index.html" />
+    <None Include="SpriteLoader.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Images\StickUnit.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

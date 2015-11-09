@@ -17,10 +17,16 @@ namespace helios {
 * SprObj Implementation                                               *
 |*********************************************************************|
 * AT ALL TIMES, a SprObj MUST follow:                                 *
-*   a) all requirements of a BaseObj                                  *
-*       i) _roomHandle will only point to a valid Room                *
-*   b) (0 <= spriteIndex < spriteVector.size())                       *
+*   a) (0 <= animIndex < animations.size) || (!visible)               *
+*   b) (0 <= spriteIndex < animations[animationFrame].size) ||        *
+*             (!visible))                                             *
 *   c) (spriteVector.size() != 0)                                     *
+*                                                                     *
+*                                                                     *
+* Protected Data:                                                     *
+*                                                                     *
+*   vector<Animation> _animations -                                   *
+*     Holds this object's copy of animations it will use to draw      *
 *                                                                     *
 *                                                                     *
 * Inherited Protected Data:                                           *
@@ -33,6 +39,17 @@ namespace helios {
 *     A bool regulating whether or not this object should be drawn    *
 *                                                                     *
 *                                                                     *
+* Private Data:                                                       *
+*                                                                     *
+*   size_t _animation -                                               *
+*     Holds the index of the current animation we are interested in   *
+*     drawing                                                         *
+*                                                                     *
+*   size_t _animationFrame -                                          *
+*     Holds the index of the sprite in our current animation that we  *
+*     are interested in drawing                                       *
+*                                                                     *
+*                                                                     *
 \*********************************************************************/
 
 ///////////////////////////////////////////////////////////////////////
@@ -42,10 +59,45 @@ namespace helios {
 SprObj::~SprObj() {}
 
 void SprObj::set_visible(const bool vis) {
-    if (vis || _spriteVector.size()) {
+    //Only let things be visible if they have a sprite to draw
+    if (vis || _animations[0].size()) {
         _visible = vis;
     }
 }
+
+
+
+
+size_t SprObj::get_animation() {
+    return _animation;
+}
+
+
+
+
+size_t SprObj::get_animationFrame() {
+    return _animationFrame;
+}
+
+
+
+
+void SprObj::set_animation(const std::size_t index) {
+    if ( (index >= 0) && (index < _animations.size()) &&
+            (_animations[index].size()) ) {
+        _animation = index;
+    }
+}
+
+
+
+
+void SprObj::set_animationFrame(const std::size_t index) {
+    if ((index >= 0) && (index < _animations[_animation].size())) {
+        _animationFrame = index;
+    }
+}
+
  
 
 ///////////////////////////////////////////////////////////////////////
@@ -53,34 +105,27 @@ void SprObj::set_visible(const bool vis) {
 ///////////////////////////////////////////////////////////////////////
 
 SprObj::SprObj(const signed int priority) 
-               : _spriteVector() {
+               : _animations() {
     _priority = priority;
+    _animation = 0;
+    _animationFrame = 0;
     _visible = false;
 }
 
 
 
 
-SprObj::SprObj(const std::vector<sf::Sprite> &sprVec,
+SprObj::SprObj(const std::vector<helios::Animation> &animVec,
                const signed int priority)
-               : _spriteVector(sprVec) {
+               : _animations(animVec) {
     _priority = priority;
-}
-
-
-
-
-void SprObj::set_sprite_index(const std::size_t index) {
-    if ((index >= 0) && (index < _spriteVector.size())) {
-        _spriteIndex = index;
+    _animation = 0;
+    _animationFrame = 0;
+    if ((_animations.size()) && (_animations[_animation].size())) {
+        _visible = true;
+    } else {
+        _visible = false;
     }
-}
-
-
-
-
-size_t SprObj::get_sprite_index() {
-    return _spriteIndex;
 }
 
 
@@ -88,7 +133,7 @@ size_t SprObj::get_sprite_index() {
 
 void SprObj::render(sf::RenderTarget &target,
                     sf::RenderStates states) const {
-    target.draw(_spriteVector[_spriteIndex], states);
+    target.draw(_animations[_animation][_animationFrame], states);
 }
 
 
