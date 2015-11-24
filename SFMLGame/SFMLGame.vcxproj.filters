@@ -48,52 +48,28 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Helios\helios_baseobj.cpp">
-      <Filter>Source Files\Helios\Helios Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Helios\helios_room.cpp">
-      <Filter>Source Files\Helios\Helios Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Helios\helios_sprobj.cpp">
-      <Filter>Source Files\Helios\Helios Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Helios\helios_collision.cpp">
-      <Filter>Source Files\Helios</Filter>
-    </ClCompile>
-    <ClCompile Include="Helios\helios_dynamic.cpp">
-      <Filter>Source Files\Helios\Helios Main</Filter>
-    </ClCompile>
     <ClCompile Include="aoe_unit.cpp">
       <Filter>Source Files\AoE</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Helios\hls_object.cpp">
+      <Filter>Source Files\Helios\Helios Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Helios\helios_baseobj.h">
-      <Filter>Header Files\Helios\Helios Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Helios\helios_main.h">
-      <Filter>Header Files\Helios\Helios Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Helios\helios_room.h">
-      <Filter>Header Files\Helios\Helios Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Helios\helios_sprobj.h">
-      <Filter>Header Files\Helios\Helios Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Helios\helios_collision.h">
-      <Filter>Header Files\Helios</Filter>
-    </ClInclude>
     <ClInclude Include="debug.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Helios\helios_dynamic.h">
-      <Filter>Header Files\Helios\Helios Main</Filter>
-    </ClInclude>
     <ClInclude Include="aoe_unit.h">
       <Filter>Header Files\AoE</Filter>
+    </ClInclude>
+    <ClInclude Include="Helios\hls_object.h">
+      <Filter>Header Files\Helios\Helios Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Helios\hls_object_component.h">
+      <Filter>Source Files\Helios\Helios Main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -101,7 +77,7 @@
     <None Include="Documentation\html\index.html">
       <Filter>Documentation</Filter>
     </None>
-    <None Include="SpriteLoader.ini">
+    <None Include="SpriteLoaderTemplate.ini">
       <Filter>Resource Files\Initialization Files</Filter>
     </None>
   </ItemGroup>

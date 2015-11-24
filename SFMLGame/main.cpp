@@ -1,5 +1,7 @@
 #include <exception>
+#include <fstream>
 #include <iostream>
+#include <map>
 #include <string>
 #include <vector>
 
@@ -16,6 +18,8 @@ void LoadTexture(sf::Texture &texture,
                  const std::string& filename, 
                  const sf::IntRect area = sf::IntRect());
 
+void Init(const std::string& filename);
+
 int main() {
     try {
         sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
@@ -26,9 +30,9 @@ int main() {
 
         sf::Sprite unitStatic(MyTexture);
         unitStatic.setPosition(sf::Vector2f(10,10));
+        helios::Animation anim(1, unitStatic);
 
-
-        aoe::Unit::defaultAnimations.push_back(helios::Animation { unitStatic });
+        aoe::Unit::defaultAnimations.push_back(anim);
 
         helios::Room testing(window.getSize());
         aoe::Unit unit(0);

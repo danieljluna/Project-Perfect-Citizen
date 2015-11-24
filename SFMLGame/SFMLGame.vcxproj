@@ -70,28 +70,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Helios\helios_baseobj.cpp" />
-    <ClCompile Include="Helios\helios_collision.cpp" />
-    <ClCompile Include="Helios\helios_dynamic.cpp" />
-    <ClCompile Include="Helios\helios_room.cpp" />
-    <ClCompile Include="Helios\helios_sprobj.cpp" />
+    <ClCompile Include="Helios\hls_object.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="aoe_unit.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="debug.h" />
-    <ClInclude Include="Helios\helios_baseobj.h" />
-    <ClInclude Include="Helios\helios_collision.h" />
-    <ClInclude Include="Helios\helios_dynamic.h" />
-    <ClInclude Include="Helios\helios_main.h" />
-    <ClInclude Include="Helios\helios_room.h" />
-    <ClInclude Include="Helios\helios_sprobj.h" />
+    <ClInclude Include="Helios\hls_object.h" />
     <ClInclude Include="aoe_unit.h" />
+    <ClInclude Include="Helios\hls_object_component.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
     <None Include="Documentation\html\index.html" />
-    <None Include="SpriteLoader.ini" />
+    <None Include="SpriteLoaderTemplate.ini" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Images\StickUnit.png" />
