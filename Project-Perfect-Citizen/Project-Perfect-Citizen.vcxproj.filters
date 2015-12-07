@@ -19,21 +19,33 @@
     <Filter Include="Source Files\Helios %282D Engine%29">
       <UniqueIdentifier>{c45c9684-e9fe-4e1b-b3ec-1d69dae335a5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Helios %282D Engine%29\Objects">
+      <UniqueIdentifier>{b1abac0d-c231-4cb4-9b61-4c0cb1e33d70}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Code\Helios\hls_object.h">
-      <Filter>Header Files\Helios %282D Engine%29</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Helios\hls_object_component.h">
-      <Filter>Header Files\Helios %282D Engine%29</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Code\Helios\hls_object.cpp">
-      <Filter>Source Files\Helios %282D Engine%29</Filter>
-    </ClCompile>
     <ClCompile Include="Code\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\ppc_object.cpp">
+      <Filter>Source Files\Helios %282D Engine%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\ppc_obj_event.cpp">
+      <Filter>Source Files\Helios %282D Engine%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\ppc_object_component.cpp">
+      <Filter>Source Files\Helios %282D Engine%29</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Code\Engine\ppc_object.h">
+      <Filter>Header Files\Helios %282D Engine%29\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ppc_object_component.h">
+      <Filter>Header Files\Helios %282D Engine%29\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ppc_object_event.h">
+      <Filter>Header Files\Helios %282D Engine%29\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
