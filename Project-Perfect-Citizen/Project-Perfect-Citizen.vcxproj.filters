@@ -27,24 +27,24 @@
     <ClCompile Include="Code\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\ppc_object.cpp">
-      <Filter>Source Files\Helios %282D Engine%29</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\ppc_obj_event.cpp">
       <Filter>Source Files\Helios %282D Engine%29</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\ppc_object_component.cpp">
+    <ClCompile Include="Code\Engine\ppc_window.cpp">
+      <Filter>Source Files\Helios %282D Engine%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\ppc_window_feature.cpp">
       <Filter>Source Files\Helios %282D Engine%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Code\Engine\ppc_object.h">
-      <Filter>Header Files\Helios %282D Engine%29\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\ppc_object_component.h">
-      <Filter>Header Files\Helios %282D Engine%29\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\ppc_object_event.h">
+      <Filter>Header Files\Helios %282D Engine%29\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ppc_window.h">
+      <Filter>Header Files\Helios %282D Engine%29\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ppc_window_feature.h">
       <Filter>Header Files\Helios %282D Engine%29\Objects</Filter>
     </ClInclude>
   </ItemGroup>
