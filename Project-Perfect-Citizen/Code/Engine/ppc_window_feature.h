@@ -7,9 +7,9 @@
 namespace ppc {
 
 
+// TODO: Implement WindowFeature Class. Flesh out details via Doxygen.
 ///////////////////////////////////////////////////////////////////////
 /// @brief Decorator class for the Window class
-/// @todo Implement WindowFeature Class. Flesh out details via Doxygen.
 ///////////////////////////////////////////////////////////////////////
 class WindowFeature {
 

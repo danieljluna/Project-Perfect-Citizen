@@ -7,9 +7,9 @@
 namespace ppc {
 
 
+// TODO: Implement Computer class. Flesh out details via Doxygen.
 ///////////////////////////////////////////////////////////////////////
 /// @brief Acts as a fake in-game computer.
-/// @todo Implement Computer class. Flesh out details via Doxygen.
 ///////////////////////////////////////////////////////////////////////
 class Computer {
 

@@ -1,0 +1,9 @@
+Everything is set up for linking. The only thing you need to do is make
+sure VS can find SFML.
+
+I am using SFML 2.3.1, and put the files here:
+	C:\SFML\SFML-2.3.1
+
+
+Downloads:
+	SFML 2.3.1:	http://www.sfml-dev.org/download/sfml/2.3.1/
