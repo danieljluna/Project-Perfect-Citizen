@@ -1,17 +1,9 @@
-﻿Build started 12/6/2015 5:30:22 PM.
+﻿Build started 12/10/2015 1:41:34 PM.
      1>Project "C:\Users\Dan\Documents\GitHub\Project-Perfect-Citizen\Project-Perfect-Citizen\Project-Perfect-Citizen.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\SFML\SFML-2.3.1\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D SFML_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Code\Engine\ppc_object.cpp Code\Engine\ppc_object_component.cpp Code\Engine\ppc_obj_event.cpp
-         ppc_obj_event.cpp
-     1>c:\users\dan\documents\github\project-perfect-citizen\project-perfect-citizen\code\engine\ppc_obj_event.cpp(1): fatal error C1083: Cannot open include file: 'ppc_obj_event.h': No such file or directory
-         ppc_object_component.cpp
-     1>c:\users\dan\documents\github\project-perfect-citizen\project-perfect-citizen\code\engine\ppc_object_component.h(20): error C2061: syntax error : identifier 'Object'
-     1>c:\users\dan\documents\github\project-perfect-citizen\project-perfect-citizen\code\engine\ppc_object_component.cpp(4): fatal error C1083: Cannot open include file: 'ppc_obj_event.h': No such file or directory
-         ppc_object.cpp
-     1>c:\users\dan\documents\github\project-perfect-citizen\project-perfect-citizen\code\engine\ppc_object_component.h(20): error C2061: syntax error : identifier 'Object'
-         Generating Code...
-     1>Done Building Project "C:\Users\Dan\Documents\GitHub\Project-Perfect-Citizen\Project-Perfect-Citizen\Project-Perfect-Citizen.vcxproj" (Build target(s)) -- FAILED.
+     1>Link:
+         Project-Perfect-Citizen.vcxproj -> C:\Users\Dan\Documents\GitHub\Project-Perfect-Citizen\Debug\Project-Perfect-Citizen.exe
+     1>Done Building Project "C:\Users\Dan\Documents\GitHub\Project-Perfect-Citizen\Project-Perfect-Citizen\Project-Perfect-Citizen.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:01.02
+Time Elapsed 00:00:00.06
