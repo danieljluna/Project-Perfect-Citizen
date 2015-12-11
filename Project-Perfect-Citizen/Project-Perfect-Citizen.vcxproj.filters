@@ -19,9 +19,6 @@
     <Filter Include="Source Files\Helios %282D Engine%29">
       <UniqueIdentifier>{c45c9684-e9fe-4e1b-b3ec-1d69dae335a5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files\Coding Docs">
-      <UniqueIdentifier>{89a71ddd-0e42-48b8-9393-69a159706f8a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Helios %282D Engine%29\Computer">
       <UniqueIdentifier>{b1abac0d-c231-4cb4-9b61-4c0cb1e33d70}</UniqueIdentifier>
     </Filter>
@@ -33,6 +30,9 @@
     </Filter>
     <Filter Include="Source Files\Helios %282D Engine%29\Computer">
       <UniqueIdentifier>{8b55d2e0-7ce9-49a1-93b4-bd40f5a75200}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Coding Reference">
+      <UniqueIdentifier>{89a71ddd-0e42-48b8-9393-69a159706f8a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -48,9 +48,6 @@
     <ClCompile Include="Code\Engine\ppc_computer.cpp">
       <Filter>Source Files\Helios %282D Engine%29\Computer</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\ppc_computer_os.cpp">
-      <Filter>Source Files\Helios %282D Engine%29\Computer</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\ppc_computer.h">
@@ -62,16 +59,13 @@
     <ClInclude Include="Code\Engine\ppc_window_feature.h">
       <Filter>Header Files\Helios %282D Engine%29\Window</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\ppc_computer_os.h">
-      <Filter>Header Files\Helios %282D Engine%29\Computer</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="LinkHelp.txt">
-      <Filter>Resource Files\Coding Docs</Filter>
+    <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
+      <Filter>Resource Files\Coding Reference</Filter>
     </Text>
-    <Text Include="DoxygenHelp.txt">
-      <Filter>Resource Files\Coding Docs</Filter>
+    <Text Include="Resources\Coding Reference\LinkHelp.txt">
+      <Filter>Resource Files\Coding Reference</Filter>
     </Text>
   </ItemGroup>
 </Project>
