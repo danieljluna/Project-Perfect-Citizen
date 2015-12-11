@@ -19,11 +19,20 @@
     <Filter Include="Source Files\Helios %282D Engine%29">
       <UniqueIdentifier>{c45c9684-e9fe-4e1b-b3ec-1d69dae335a5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Helios %282D Engine%29\Objects">
-      <UniqueIdentifier>{b1abac0d-c231-4cb4-9b61-4c0cb1e33d70}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource Files\Coding Docs">
       <UniqueIdentifier>{89a71ddd-0e42-48b8-9393-69a159706f8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Helios %282D Engine%29\Computer">
+      <UniqueIdentifier>{b1abac0d-c231-4cb4-9b61-4c0cb1e33d70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Helios %282D Engine%29\Window">
+      <UniqueIdentifier>{9f5b3dc4-adc1-41d2-8bc4-957fdab1d6ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helios %282D Engine%29\Window">
+      <UniqueIdentifier>{8c3e34cc-f384-4ec1-bbd0-47ba517668fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helios %282D Engine%29\Computer">
+      <UniqueIdentifier>{8b55d2e0-7ce9-49a1-93b4-bd40f5a75200}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -31,24 +40,30 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\ppc_window.cpp">
-      <Filter>Source Files\Helios %282D Engine%29</Filter>
+      <Filter>Source Files\Helios %282D Engine%29\Window</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\ppc_window_feature.cpp">
-      <Filter>Source Files\Helios %282D Engine%29</Filter>
+      <Filter>Source Files\Helios %282D Engine%29\Window</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\ppc_computer.cpp">
-      <Filter>Source Files\Helios %282D Engine%29</Filter>
+      <Filter>Source Files\Helios %282D Engine%29\Computer</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\ppc_computer_os.cpp">
+      <Filter>Source Files\Helios %282D Engine%29\Computer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Code\Engine\ppc_computer.h">
+      <Filter>Header Files\Helios %282D Engine%29\Computer</Filter>
+    </ClInclude>
     <ClInclude Include="Code\Engine\ppc_window.h">
-      <Filter>Header Files\Helios %282D Engine%29\Objects</Filter>
+      <Filter>Header Files\Helios %282D Engine%29\Window</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\ppc_window_feature.h">
-      <Filter>Header Files\Helios %282D Engine%29\Objects</Filter>
+      <Filter>Header Files\Helios %282D Engine%29\Window</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\ppc_computer.h">
-      <Filter>Header Files\Helios %282D Engine%29\Objects</Filter>
+    <ClInclude Include="Code\Engine\ppc_computer_os.h">
+      <Filter>Header Files\Helios %282D Engine%29\Computer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

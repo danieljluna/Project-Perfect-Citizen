@@ -1,7 +1,7 @@
 #ifndef PPC_WINDOW_FEATURE_H
 #define PPC_WINDOW_FEATURE_H
 
-
+#include "ppc_window.h"
 
 
 namespace ppc {
@@ -11,7 +11,7 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 /// @brief Decorator class for the Window class
 ///////////////////////////////////////////////////////////////////////
-class WindowFeature {
+class WindowFeature : Window {
 
 };
 

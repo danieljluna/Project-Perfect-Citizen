@@ -1,7 +1,7 @@
 Everything is set up for linking. The only thing you need to do is make
 sure VS can find SFML.
 
-I am using SFML 2.3.1, and put the files here:
+I am using SFML 2.3.1, and put the folder downloaded at:
 	C:\SFML\SFML-2.3.1
 
 
