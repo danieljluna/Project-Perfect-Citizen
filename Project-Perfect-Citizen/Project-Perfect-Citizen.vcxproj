@@ -17,13 +17,15 @@
     <ClCompile Include="Code\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Code\Engine\ppc_entity.h" />
+    <ClInclude Include="Code\Engine\ppc_world.h" />
     <ClInclude Include="Code\Engine\ppc_window.h" />
     <ClInclude Include="Code\Engine\ppc_window_feature.h" />
     <ClInclude Include="Code\Engine\ppc_computer.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="DoxygenHelp.txt" />
-    <Text Include="LinkHelp.txt" />
+    <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
+    <Text Include="Resources\Coding Reference\LinkHelp.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{76E6A61E-6FF8-4ABA-82B6-674967E67119}</ProjectGuid>
