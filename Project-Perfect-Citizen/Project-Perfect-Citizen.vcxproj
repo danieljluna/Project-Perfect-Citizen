@@ -17,6 +17,8 @@
     <ClCompile Include="Code\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Code\Engine\ppc_entity.h" />
+    <ClInclude Include="Code\Engine\ppc_world.h" />
     <ClInclude Include="Code\Engine\ppc_window.h" />
     <ClInclude Include="Code\Engine\ppc_window_feature.h" />
     <ClInclude Include="Code\Engine\ppc_computer.h" />
