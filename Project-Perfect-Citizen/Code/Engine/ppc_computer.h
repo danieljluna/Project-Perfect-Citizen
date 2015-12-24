@@ -10,6 +10,7 @@ namespace ppc {
 /// @brief Acts as a fake in-game computer.
 /// @details Maintains the state and representation of a Computer.
 ///////////////////////////////////////////////////////////////////////
+
 class Computer {
 
   
