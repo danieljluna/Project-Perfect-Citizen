@@ -13,7 +13,7 @@ class World {
 };
 
 
-}   //End namespace ppc
+};   //End namespace ppc
 
 
 #endif  //End PPC_WORLD_H

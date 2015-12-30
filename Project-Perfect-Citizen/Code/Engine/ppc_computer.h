@@ -17,7 +17,7 @@ class Computer {
 };
 
 
-}       //End namespace ppc
+};       //End namespace ppc
 
 
 #endif  //End PPC_COMPUTER_H

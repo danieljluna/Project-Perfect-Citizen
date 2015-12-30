@@ -11,12 +11,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Code\Engine\ppc_cmpnt_input.cpp" />
+    <ClCompile Include="Code\Engine\ppc_entity.cpp" />
     <ClCompile Include="Code\Engine\ppc_window.cpp" />
     <ClCompile Include="Code\Engine\ppc_window_feature.cpp" />
     <ClCompile Include="Code\Engine\ppc_computer.cpp" />
     <ClCompile Include="Code\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Code\Engine\ppc_cmpnt_input.h" />
+    <ClInclude Include="Code\Engine\ppc_component.h" />
     <ClInclude Include="Code\Engine\ppc_entity.h" />
     <ClInclude Include="Code\Engine\ppc_world.h" />
     <ClInclude Include="Code\Engine\ppc_window.h" />
@@ -26,6 +30,7 @@
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
     <Text Include="Resources\Coding Reference\LinkHelp.txt" />
+    <Text Include="Resources\Engine\EngineSettings.ini" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{76E6A61E-6FF8-4ABA-82B6-674967E67119}</ProjectGuid>
