@@ -10,13 +10,13 @@
 //Note that this is placeholder for now
 int main() {
     // Create the main window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
-
+    sf::RenderWindow window(sf::VideoMode(1200, 800), "SFML window");
+	sf::Mouse myMouse;
 	sf::Vector2i mouse_position;
 	mouse_position = sf::Mouse::getPosition(window);
 
-	ppc::Window myWindow (200.0f, 250.0f);
-
+	ppc::Window myWindow (200.0f, 250.0f, 50.0f, 50.0f);
+	ppc::Window myWindow2(100.0f, 100.0f, 300.0f, 50.0f);
 
 
     // Start the game loop
@@ -28,22 +28,31 @@ int main() {
             if (event.type == sf::Event::Closed)
                 window.close();
 
-			if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
+			if (event.type == sf::Event::MouseMoved) 
 			{
-				mouse_position.x = event.mouseButton.x;
-				mouse_position.y = event.mouseButton.y;
+				mouse_position.x = event.mouseMove.x;
+				mouse_position.y = event.mouseMove.y;
 			}
         }
 		
         // Clear screen
         window.clear();
 
-		if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
+		//if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
+		if (event.type == sf::Event::MouseMoved)
 		{
-			myWindow.setPosition(mouse_position.x, mouse_position.y);
+			if (myMouse.isButtonPressed(sf::Mouse::Left))
+			{
+			
+				if (myWindow.intersectsMouse(mouse_position))
+					myWindow.setPosition(mouse_position.x-10, mouse_position.y-10);
+				if (myWindow2.intersectsMouse(mouse_position))
+					myWindow2.setPosition(mouse_position.x-10, mouse_position.y-10);
+			}
 		}
         // Update the window
 		window.draw(myWindow);
+		window.draw(myWindow2);
         window.display();
     }
     return EXIT_SUCCESS;

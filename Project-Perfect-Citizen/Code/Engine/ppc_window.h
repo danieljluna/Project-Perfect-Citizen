@@ -12,7 +12,8 @@ namespace ppc {
 class Window : public sf::RectangleShape {
 public:
 
-	Window(float w, float h);
+	bool intersectsMouse(sf::Vector2i &mouse_position);
+	Window(float w, float h, float x, float y);
 
 private:
 	
