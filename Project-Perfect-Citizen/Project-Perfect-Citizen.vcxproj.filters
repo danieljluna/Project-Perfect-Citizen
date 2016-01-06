@@ -80,4 +80,9 @@
       <Filter>Resource Files\Coding Reference</Filter>
     </Text>
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="Resources\arial.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+  </ItemGroup>
 </Project>
