@@ -8,10 +8,14 @@
 namespace ppc {
 
 
-class Window {
 
+class Window : public sf::RectangleShape {
+public:
 
+	Window(float w, float h);
 
+private:
+	
 };
 
 
