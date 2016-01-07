@@ -45,9 +45,9 @@ int main() {
 			{
 			
 				if (myWindow.intersectsMouse(mouse_position))
-					myWindow.setPosition(mouse_position.x-10, mouse_position.y-10);
+					myWindow.setPosition(mouse_position.x-20, mouse_position.y-20);
 				if (myWindow2.intersectsMouse(mouse_position))
-					myWindow2.setPosition(mouse_position.x-10, mouse_position.y-10);
+					myWindow2.setPosition(mouse_position.x-20, mouse_position.y-20);
 			}
 		}
         // Update the window
