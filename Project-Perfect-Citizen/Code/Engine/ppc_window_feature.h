@@ -11,14 +11,14 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 /// @brief Decorator class for the Window class
 ///////////////////////////////////////////////////////////////////////
-class WindowFeature : Window {
+class WindowFeature : public Window {
 
 
 
 };
 
 
-}       //End namespace ppc
+};       //End namespace ppc
 
 
 #endif  //End PPC_WINDOW_FEATURE_H

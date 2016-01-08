@@ -1,7 +1,7 @@
 #ifndef PPC_ENTITY_H
 #define PPC_ENTITY_H
 
-
+#include <initializer_list>
 
 namespace ppc {
 
@@ -16,6 +16,11 @@ public:
   // Constructors & Destructors
   /////////////////////////////////////////////////////////////////////
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Default Constructor
+    /// @details Creates an Entity with no Components.
+    ///////////////////////////////////////////////////////////////////
+    Entity();
 
 
 private:
@@ -24,12 +29,12 @@ private:
   // Private Member Data
   /////////////////////////////////////////////////////////////////////
 
-
-
+    float x, y;
+    
 };
 
 
-}   //End namespace ppc
+};   //End namespace ppc
 
 
 #endif  //End PPC_ENTITY_H

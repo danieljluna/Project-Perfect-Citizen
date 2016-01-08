@@ -11,12 +11,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Code\Engine\ppc_cmpnt_input.cpp" />
+    <ClCompile Include="Code\Engine\ppc_entity.cpp" />
     <ClCompile Include="Code\Engine\ppc_window.cpp" />
     <ClCompile Include="Code\Engine\ppc_window_feature.cpp" />
     <ClCompile Include="Code\Engine\ppc_computer.cpp" />
     <ClCompile Include="Code\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Code\Engine\ppc_cmpnt_input.h" />
+    <ClInclude Include="Code\Engine\ppc_component.h" />
     <ClInclude Include="Code\Engine\ppc_entity.h" />
     <ClInclude Include="Code\Engine\ppc_world.h" />
     <ClInclude Include="Code\Engine\ppc_window.h" />
@@ -26,6 +30,7 @@
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
     <Text Include="Resources\Coding Reference\LinkHelp.txt" />
+    <Text Include="Resources\Engine\EngineSettings.ini" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{76E6A61E-6FF8-4ABA-82B6-674967E67119}</ProjectGuid>
@@ -68,6 +73,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\SFML\SFML-2.3.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalOptions>/ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -86,6 +93,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>C:\SFML\SFML-2.3.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system.lib;sfml-window.lib;sfml-graphics.lib;sfml-audio.lib</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalOptions>/ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

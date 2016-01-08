@@ -14,7 +14,7 @@ class Window {
 };
 
 
-}   //End namespace ppc
+};   //End namespace ppc
 
 
 #endif  //End PPC_WINDOW_H
