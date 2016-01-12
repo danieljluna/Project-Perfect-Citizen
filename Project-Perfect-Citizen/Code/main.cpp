@@ -1,11 +1,13 @@
 #include <SFML/Main.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include "Engine\renderSquare.h"
 
 //Note that this is placeholder for now
 int main() {
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+	RenderComponent* testRect = new RenderSquare();
     // Start the game loop
     while (window.isOpen()) {
         // Process events
@@ -17,6 +19,7 @@ int main() {
         }
         // Clear screen
         window.clear();
+		testRect->render(&window);
         // Update the window
         window.display();
     }

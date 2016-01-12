@@ -16,6 +16,7 @@
     <ClCompile Include="Code\Engine\ppc_window.cpp" />
     <ClCompile Include="Code\Engine\ppc_window_feature.cpp" />
     <ClCompile Include="Code\Engine\ppc_computer.cpp" />
+    <ClCompile Include="Code\Engine\renderSquare.cpp" />
     <ClCompile Include="Code\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -26,6 +27,8 @@
     <ClInclude Include="Code\Engine\ppc_window.h" />
     <ClInclude Include="Code\Engine\ppc_window_feature.h" />
     <ClInclude Include="Code\Engine\ppc_computer.h" />
+    <ClInclude Include="Code\Engine\renderSquare.h" />
+    <ClInclude Include="Code\Engine\render_component.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
