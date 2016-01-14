@@ -12,11 +12,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\Engine\ppc_cmpnt_input.cpp" />
+    <ClCompile Include="Code\Engine\ppc_component.cpp" />
     <ClCompile Include="Code\Engine\ppc_entity.cpp" />
     <ClCompile Include="Code\Engine\ppc_window.cpp" />
     <ClCompile Include="Code\Engine\ppc_window_feature.cpp" />
     <ClCompile Include="Code\Engine\ppc_computer.cpp" />
     <ClCompile Include="Code\Engine\renderSquare.cpp" />
+    <ClCompile Include="Code\Engine\testRenderSprite.cpp" />
     <ClCompile Include="Code\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -29,6 +31,7 @@
     <ClInclude Include="Code\Engine\ppc_computer.h" />
     <ClInclude Include="Code\Engine\renderSquare.h" />
     <ClInclude Include="Code\Engine\render_component.h" />
+    <ClInclude Include="Code\Engine\testRenderSprite.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
