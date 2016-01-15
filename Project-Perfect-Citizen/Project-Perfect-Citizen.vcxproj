@@ -11,12 +11,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Code\Engine\Entity.cpp" />
     <ClCompile Include="Code\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
     <Text Include="Resources\Coding Reference\LinkHelp.txt" />
     <Text Include="Resources\Engine\EngineSettings.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Code\Engine\Component.h" />
+    <ClInclude Include="Code\Engine\Entity.h" />
+    <ClInclude Include="Code\Engine\ObjectPool.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{76E6A61E-6FF8-4ABA-82B6-674967E67119}</ProjectGuid>
