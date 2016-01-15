@@ -9,5 +9,5 @@ private:
 	int myTempVar;
 
 public:
-	virtual void update() = 0;
+	virtual void update(sf::Time deltaTime) = 0; 
 };

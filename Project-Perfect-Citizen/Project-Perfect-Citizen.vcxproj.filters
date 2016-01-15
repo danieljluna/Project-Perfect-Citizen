@@ -55,11 +55,5 @@
     <ClInclude Include="Code\Engine\ppc_computer.h">
       <Filter>Header Files\Helios %282D Engine%29</Filter>
     </ClInclude>
-    <ClInclude Include="update_component.h">
-      <Filter>Header Files\Helios %282D Engine%29</Filter>
-    </ClInclude>
-    <ClInclude Include="testUpdateComponent.h">
-      <Filter>Header Files\Helios %282D Engine%29</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
