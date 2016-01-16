@@ -9,15 +9,15 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Header Files\Helios %282D Engine%29">
       <UniqueIdentifier>{c095eed6-b971-45b1-a3f8-ec6d13c537ce}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Helios %282D Engine%29">
       <UniqueIdentifier>{c45c9684-e9fe-4e1b-b3ec-1d69dae335a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Resource Files\Coding Reference">
       <UniqueIdentifier>{89a71ddd-0e42-48b8-9393-69a159706f8a}</UniqueIdentifier>
@@ -30,6 +30,18 @@
     <ClCompile Include="Code\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\ppc_computer.cpp">
+      <Filter>Source Files\Helios %282D Engine%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\ppc_window.cpp">
+      <Filter>Source Files\Helios %282D Engine%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\ppc_window_feature.cpp">
+      <Filter>Source Files\Helios %282D Engine%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\testRotateSprite.cpp">
+      <Filter>Source Files\Helios %282D Engine%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
@@ -41,5 +53,16 @@
     <Text Include="Resources\Engine\EngineSettings.ini">
       <Filter>Resource Files\Engine</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Code\Engine\ppc_computer.h">
+      <Filter>Header Files\Helios %282D Engine%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\update_component.h">
+      <Filter>Header Files\Helios %282D Engine%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\testRotateSprite.h">
+      <Filter>Header Files\Helios %282D Engine%29</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
