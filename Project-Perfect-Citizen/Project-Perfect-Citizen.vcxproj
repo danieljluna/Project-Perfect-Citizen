@@ -14,7 +14,6 @@
     <ClCompile Include="Code\Engine\ppc_computer.cpp" />
     <ClCompile Include="Code\Engine\ppc_window.cpp" />
     <ClCompile Include="Code\Engine\ppc_window_feature.cpp" />
-    <ClCompile Include="Code\Engine\testMoveSpriteCircular.cpp" />
     <ClCompile Include="Code\Engine\testRotateSprite.cpp" />
     <ClCompile Include="Code\main.cpp" />
   </ItemGroup>
@@ -25,7 +24,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\ppc_computer.h" />
-    <ClInclude Include="Code\Engine\testMoveSpriteCircular.h" />
     <ClInclude Include="Code\Engine\testRotateSprite.h" />
     <ClInclude Include="Code\Engine\update_component.h" />
   </ItemGroup>

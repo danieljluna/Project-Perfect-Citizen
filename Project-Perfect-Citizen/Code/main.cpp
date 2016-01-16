@@ -18,10 +18,6 @@ int main() {
 	S->setScale(0.2f, 0.2f);
 
 	//Add the component to it
-	float degreesPerSec = 1.f;
-	sf::Vector2f wndCenter(400.0f, 300.0f);
-	//testMoveSpriteCircular* test = new testMoveSpriteCircular(*S, wndCenter, angularVelocity);
-	//testMoveSpriteCircular *test = new testMoveSpriteCircular(S, wndCenter, degreesPerSec);
 	testRotateSprite* test = new testRotateSprite(*S, 1);
     // Start the game loop
 	sf::Clock deltaTime; //define deltaTime
