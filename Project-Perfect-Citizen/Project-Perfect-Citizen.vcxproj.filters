@@ -34,16 +34,22 @@
     <Filter Include="Resource Files\Images">
       <UniqueIdentifier>{9bc7ee5a-802c-4a07-ad24-6a3c509f00d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Helios %282D Engine%29\Entities and Components">
+      <UniqueIdentifier>{b5d5ab47-499d-444b-a7bc-0cde89b2e583}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\Entity.cpp">
-      <Filter>Source Files\Helios %282D Engine%29</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\testRotateSprite.cpp">
       <Filter>Source Files\Helios %282D Engine%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\Entity.cpp">
+      <Filter>Source Files\Helios %282D Engine%29\Entities and Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\Component.cpp">
+      <Filter>Source Files\Helios %282D Engine%29\Entities and Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
