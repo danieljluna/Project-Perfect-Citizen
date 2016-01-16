@@ -39,6 +39,12 @@
     <ClCompile Include="Code\Engine\ppc_window_feature.cpp">
       <Filter>Source Files\Helios %282D Engine%29</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\testMoveSpriteCircular.cpp">
+      <Filter>Source Files\Helios %282D Engine%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\testRotateSprite.cpp">
+      <Filter>Source Files\Helios %282D Engine%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
@@ -53,6 +59,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\ppc_computer.h">
+      <Filter>Header Files\Helios %282D Engine%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\testMoveSpriteCircular.h">
+      <Filter>Header Files\Helios %282D Engine%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\update_component.h">
+      <Filter>Header Files\Helios %282D Engine%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\testRotateSprite.h">
       <Filter>Header Files\Helios %282D Engine%29</Filter>
     </ClInclude>
   </ItemGroup>

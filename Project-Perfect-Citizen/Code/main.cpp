@@ -2,7 +2,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Engine\testMoveSpriteCircular.h"
+#include "Engine\testRotateSprite.h"
 
 using namespace std;
 //Note that this is placeholder for now
@@ -18,14 +18,16 @@ int main() {
 	S->setScale(0.2f, 0.2f);
 
 	//Add the component to it
-	float angularVelocity = 10.0f;
+	float degreesPerSec = 1.f;
 	sf::Vector2f wndCenter(400.0f, 300.0f);
 	//testMoveSpriteCircular* test = new testMoveSpriteCircular(*S, wndCenter, angularVelocity);
-	testMoveSpriteCircular test(S, wndCenter, angularVelocity);
+	//testMoveSpriteCircular *test = new testMoveSpriteCircular(S, wndCenter, degreesPerSec);
+	testRotateSprite* test = new testRotateSprite(*S, 1);
     // Start the game loop
 	sf::Clock deltaTime; //define deltaTime
 	sf::Time dt;
     while (window.isOpen()) {
+		dt = deltaTime.restart();
         // Process events
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -33,15 +35,19 @@ int main() {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+		//Update
+		test->update(dt);
+
         // Clear screen
         window.clear();
-		//Update before draw/render
-		test.update(dt);
+
 		window.draw(*S);
         // Update the window
         window.display();
 
-		dt = deltaTime.restart();
     }
+	delete test;
+	delete S;
+	delete T;
     return EXIT_SUCCESS;
 }
