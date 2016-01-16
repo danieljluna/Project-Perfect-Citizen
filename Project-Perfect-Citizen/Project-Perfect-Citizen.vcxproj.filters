@@ -31,12 +31,18 @@
     <Filter Include="Header Files\Helios %282D Engine%29\Containers">
       <UniqueIdentifier>{21d36909-40cd-4d59-bb82-6b46cd75307f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Images">
+      <UniqueIdentifier>{9bc7ee5a-802c-4a07-ad24-6a3c509f00d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\Entity.cpp">
+      <Filter>Source Files\Helios %282D Engine%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\testRotateSprite.cpp">
       <Filter>Source Files\Helios %282D Engine%29</Filter>
     </ClCompile>
   </ItemGroup>
@@ -61,5 +67,16 @@
     <ClInclude Include="Code\Engine\ObjectPool.h">
       <Filter>Header Files\Helios %282D Engine%29\Containers</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\testRotateSprite.h">
+      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\update_component.h">
+      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\kappa.png">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
   </ItemGroup>
 </Project>
