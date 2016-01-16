@@ -47,9 +47,11 @@ public:
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Adds a Component to the Entity
+    ///
     /// @param cmpnt Pointer to the Component you wish to add.
+    /// @return The index of the added Component. A return of -1
     ///////////////////////////////////////////////////////////////////
-    void addComponent(Component* cmpnt);
+    int addComponent(Component* cmpnt);
     
     
   /////////////////////////////////////////////////////////////////////
