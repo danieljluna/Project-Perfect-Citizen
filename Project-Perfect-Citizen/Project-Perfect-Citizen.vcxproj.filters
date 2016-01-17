@@ -22,32 +22,100 @@
     <Filter Include="Resource Files\Coding Reference">
       <UniqueIdentifier>{89a71ddd-0e42-48b8-9393-69a159706f8a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Helios %282D Engine%29\Objects">
+      <UniqueIdentifier>{07e1334a-66a4-4901-8a2a-349ecb710a87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Helios %282D Engine%29\Objects\Computer">
+      <UniqueIdentifier>{b1abac0d-c231-4cb4-9b61-4c0cb1e33d70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Helios %282D Engine%29\Objects\Window">
+      <UniqueIdentifier>{9f5b3dc4-adc1-41d2-8bc4-957fdab1d6ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Helios %282D Engine%29\Main">
+      <UniqueIdentifier>{23fb537b-0598-4cfe-92c4-9006176027e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helios %282D Engine%29\Main">
+      <UniqueIdentifier>{15a728b2-95f5-464a-a1fd-0271cee4bf8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helios %282D Engine%29\Objects">
+      <UniqueIdentifier>{bde306a5-75d1-46ef-941d-86af7d8b8dab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helios %282D Engine%29\Objects\Window">
+      <UniqueIdentifier>{8c3e34cc-f384-4ec1-bbd0-47ba517668fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helios %282D Engine%29\Objects\Computer">
+      <UniqueIdentifier>{8b55d2e0-7ce9-49a1-93b4-bd40f5a75200}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Resource Files\Engine">
       <UniqueIdentifier>{71804018-d97c-4b06-bd75-f98625b4cbc4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Helios %282D Engine%29\Entities and Components">
-      <UniqueIdentifier>{2f9ad328-815d-4893-8d9d-ac663e782374}</UniqueIdentifier>
+    <Filter Include="Header Files\Helios %282D Engine%29\Main\Components">
+      <UniqueIdentifier>{56dc96fc-6003-40ec-b307-7cf14c02ac4c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Helios %282D Engine%29\Containers">
-      <UniqueIdentifier>{21d36909-40cd-4d59-bb82-6b46cd75307f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\Images">
-      <UniqueIdentifier>{9bc7ee5a-802c-4a07-ad24-6a3c509f00d3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Helios %282D Engine%29\Entities and Components">
-      <UniqueIdentifier>{b5d5ab47-499d-444b-a7bc-0cde89b2e583}</UniqueIdentifier>
+    <Filter Include="Source Files\Helios %282D Engine%29\Main\Components">
+      <UniqueIdentifier>{e7b8e4c6-fe77-49c3-bd55-79b2af969a8a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\testRotateSprite.cpp">
-      <Filter>Source Files\Helios %282D Engine%29</Filter>
+    <ClCompile Include="Code\Engine\ppc_window.cpp">
+      <Filter>Source Files\Helios %282D Engine%29\Objects\Window</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\Entity.cpp">
-      <Filter>Source Files\Helios %282D Engine%29\Entities and Components</Filter>
+    <ClCompile Include="Code\Engine\ppc_window_feature.cpp">
+      <Filter>Source Files\Helios %282D Engine%29\Objects\Window</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\ppc_computer.cpp">
+      <Filter>Source Files\Helios %282D Engine%29\Objects\Computer</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\ppc_entity.cpp">
+      <Filter>Source Files\Helios %282D Engine%29\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\ppc_cmpnt_input.cpp">
+      <Filter>Source Files\Helios %282D Engine%29\Main\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\renderSquare.cpp">
+      <Filter>Source Files\Helios %282D Engine%29\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\testRenderSprite.cpp">
+      <Filter>Source Files\Helios %282D Engine%29\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\ppc_component.cpp">
+      <Filter>Source Files\Helios %282D Engine%29\Main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Code\Engine\ppc_computer.h">
+      <Filter>Header Files\Helios %282D Engine%29\Objects\Computer</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ppc_window.h">
+      <Filter>Header Files\Helios %282D Engine%29\Objects\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ppc_window_feature.h">
+      <Filter>Header Files\Helios %282D Engine%29\Objects\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ppc_entity.h">
+      <Filter>Header Files\Helios %282D Engine%29\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ppc_world.h">
+      <Filter>Header Files\Helios %282D Engine%29\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ppc_component.h">
+      <Filter>Header Files\Helios %282D Engine%29\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ppc_cmpnt_input.h">
+      <Filter>Header Files\Helios %282D Engine%29\Main\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\render_component.h">
+      <Filter>Header Files\Helios %282D Engine%29\Main\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\renderSquare.h">
+      <Filter>Header Files\Helios %282D Engine%29\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\testRenderSprite.h">
+      <Filter>Header Files\Helios %282D Engine%29\Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
@@ -59,27 +127,5 @@
     <Text Include="Resources\Engine\EngineSettings.ini">
       <Filter>Resource Files\Engine</Filter>
     </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Code\Engine\Component.h">
-      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\Entity.h">
-      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\ObjectPool.h">
-      <Filter>Header Files\Helios %282D Engine%29\Containers</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\testRotateSprite.h">
-      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\update_component.h">
-      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Resources\kappa.png">
-      <Filter>Resource Files\Images</Filter>
-    </Image>
   </ItemGroup>
 </Project>
