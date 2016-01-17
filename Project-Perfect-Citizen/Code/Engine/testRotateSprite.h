@@ -5,7 +5,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "update_component.h"
+#include "updateComponent.h"
 
 using namespace std;
 
