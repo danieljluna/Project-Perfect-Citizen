@@ -8,6 +8,7 @@
 ///	data/fields of Entities inheirit from this class. Components 
 ///	inheirting from this class must define the virtual function:
 /// void update(sf::Time deltaTime). 
+/// @todo Add inheritance from Component; Add connection to Entity
 ///////////////////////////////////////////////////////////////////
 class UpdateComponent {
 
