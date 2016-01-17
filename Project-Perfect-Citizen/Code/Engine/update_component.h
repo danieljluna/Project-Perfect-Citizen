@@ -1,9 +1,11 @@
 #pragma once
 
+#include "Component.h"
+
 //Update Component 
 
 
-class UpdateComponent {
+class UpdateComponent : public ppc::Component {
 
 private:
 	int myTempVar;
