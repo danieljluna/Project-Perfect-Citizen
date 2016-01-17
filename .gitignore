@@ -299,3 +299,4 @@ build/
 *.xccheckout
 *.moved-aside
 *.suo
+*.db
