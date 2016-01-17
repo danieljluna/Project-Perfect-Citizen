@@ -12,4 +12,5 @@ public:
 	TestRenderSprite(string filename);
 	void render(sf::RenderWindow* wnd);
 	sf::Sprite* getSprite();
+	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const ;
 };

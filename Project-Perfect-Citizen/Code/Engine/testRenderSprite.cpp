@@ -8,13 +8,18 @@ TestRenderSprite::TestRenderSprite(string filename) {
 	sprite->setTexture(*texture);
 	sprite->setPosition(100, 100);
 	sprite->setScale(.2f, .2f);
-	RenderComponent::renderVector.push_back(this->sprite);
+	//RenderComponent::renderVector.push_back(this->sprite);
 }
 //defining render which is an virtual function
+//this function is now defunct
 void TestRenderSprite::render(sf::RenderWindow* wnd) {
 	wnd->draw(*(this->sprite));
 }
 
 sf::Sprite*  TestRenderSprite::getSprite() {
 	return this->sprite;
+}
+
+void TestRenderSprite::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+
 }

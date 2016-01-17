@@ -11,8 +11,9 @@ using namespace std;
 int main() {
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
-	RenderComponent* testRect = new RenderSquare();
-	TestRenderSprite* testSprite = new TestRenderSprite("kappa.png");
+	//RenderComponent* testRect = new RenderSquare();
+	//TestRenderSprite* testSprite = new TestRenderSprite("kappa.png");
+	RenderComponent* testSpriteTwo = new TestRenderSprite("kappa.png");
 	//Define a Sprite
 	sf::Sprite* S = new sf::Sprite();
 	sf::Texture* T = new sf::Texture();
@@ -40,12 +41,14 @@ int main() {
 
         // Clear screen
         window.clear();
-		testRect->render(&window);
+		//testRect->render(&window);
 		//going though the static renderVector inside component and calling class testRenderSprites' render function
-		for (auto iter = RenderComponent::renderVector.begin(); iter != RenderComponent::renderVector.end(); iter++) {
-			window.draw((**iter));
-		}
-		testSprite->render(&window);
+
+		//TODO
+		//for (auto iter = RenderComponent::renderVector.begin(); iter != RenderComponent::renderVector.end(); iter++) {
+			//window.draw((**iter));
+		//}
+		//testSprite->render(&window);
 
 		window.draw(*S);
         // Update the window
