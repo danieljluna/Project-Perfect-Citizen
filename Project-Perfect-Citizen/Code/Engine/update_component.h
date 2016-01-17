@@ -4,6 +4,8 @@
 #include <vector>
 #include "Component.h"
 
+using namespace std;
+
 namespace ppc {
 
 	///////////////////////////////////////////////////////////////////
@@ -12,14 +14,17 @@ namespace ppc {
 	///	data/fields of Entities inheirit from this class. Components 
 	///	inheirting from this class must define the virtual function:
 	/// void update(sf::Time deltaTime). 
-	/// @todo Add inheritance from Component; Add connection to Entity
 	///////////////////////////////////////////////////////////////////
 	class UpdateComponent : public ppc::Component {
-
 	public:
-
+	
+		/////////////////////////////////////////////////////////////
+		/// @brief Stores pointers to all existing update components.
+		/// @details New pointers added should be deleted in
+		/// the destructor of the component. Useful to remember
+		/// the index it was added to.
+		/////////////////////////////////////////////////////////////
 		static vector<UpdateComponent*> updateVector;
-
 
 		/////////////////////////////////////////////////////////////
 		/// @brief The component updates its Entity when it is called.
@@ -40,5 +45,7 @@ namespace ppc {
 		/// @return void
 		/////////////////////////////////////////////////////////
 		virtual void update(sf::Time deltaTime) = 0;
-	};
+};
 } //end of namespace
+
+
