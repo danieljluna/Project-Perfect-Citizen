@@ -1,6 +1,5 @@
 #ifndef PPC_CMPNT_RENDER
 #define PPC_CMPNT_RENDER
-#pragma once
 #include "ppc_component.h"
 #include <SFML/Graphics.hpp>
 class RenderComponent : public Component {

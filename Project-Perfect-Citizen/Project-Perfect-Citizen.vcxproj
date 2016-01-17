@@ -12,6 +12,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\Engine\Entity.cpp" />
+    <ClCompile Include="Code\Engine\ppc_component.cpp" />
+    <ClCompile Include="Code\Engine\renderSquare.cpp" />
+    <ClCompile Include="Code\Engine\testRenderSprite.cpp" />
     <ClCompile Include="Code\Engine\testRotateSprite.cpp" />
     <ClCompile Include="Code\main.cpp" />
   </ItemGroup>
@@ -24,6 +27,9 @@
     <ClInclude Include="Code\Engine\Component.h" />
     <ClInclude Include="Code\Engine\Entity.h" />
     <ClInclude Include="Code\Engine\ObjectPool.h" />
+    <ClInclude Include="Code\Engine\renderSquare.h" />
+    <ClInclude Include="Code\Engine\render_component.h" />
+    <ClInclude Include="Code\Engine\testRenderSprite.h" />
     <ClInclude Include="Code\Engine\testRotateSprite.h" />
     <ClInclude Include="Code\Engine\update_component.h" />
   </ItemGroup>
