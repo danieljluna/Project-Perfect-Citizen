@@ -42,7 +42,7 @@ int main() {
         window.clear();
 		testRect->render(&window);
 		//going though the static renderVector inside component and calling class testRenderSprites' render function
-		for (auto iter = Component::renderVector.begin(); iter != Component::renderVector.end(); iter++) {
+		for (auto iter = RenderComponent::renderVector.begin(); iter != RenderComponent::renderVector.end(); iter++) {
 			window.draw((**iter));
 		}
 		//testSprite->render(&window);

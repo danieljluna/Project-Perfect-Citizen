@@ -60,7 +60,7 @@ public:
     virtual void recieveMessage(unsigned int message) {};
 
 
-private:
+protected:
 
   /////////////////////////////////////////////////////////////////////
   // Private Constructors to prevent instantiation
