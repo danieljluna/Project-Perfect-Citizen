@@ -45,7 +45,7 @@ int main() {
 		for (auto iter = RenderComponent::renderVector.begin(); iter != RenderComponent::renderVector.end(); iter++) {
 			window.draw((**iter));
 		}
-		//testSprite->render(&window);
+		testSprite->render(&window);
 
 		window.draw(*S);
         // Update the window
