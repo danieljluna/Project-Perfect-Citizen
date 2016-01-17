@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "render_component.h"
+#include "renderComponent.h"
 #include <string>
 using namespace std;
 class TestRenderSprite : public RenderComponent {

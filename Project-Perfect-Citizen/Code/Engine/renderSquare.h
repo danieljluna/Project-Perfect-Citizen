@@ -1,7 +1,7 @@
 #ifndef PPC_RENDER_SQUARE
 #define PPC_RENDER_SQUARE
 
-#include "render_component.h"
+#include "renderComponent.h"
 
 //Test class is showing an example of render
 class RenderSquare : public RenderComponent {
