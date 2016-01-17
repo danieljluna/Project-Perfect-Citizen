@@ -298,3 +298,4 @@ build/
 !default.perspectivev3
 *.xccheckout
 *.moved-aside
+*.suo

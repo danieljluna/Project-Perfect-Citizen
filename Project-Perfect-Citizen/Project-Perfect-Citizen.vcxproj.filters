@@ -25,10 +25,28 @@
     <Filter Include="Resource Files\Engine">
       <UniqueIdentifier>{71804018-d97c-4b06-bd75-f98625b4cbc4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Helios %282D Engine%29\Entities and Components">
+      <UniqueIdentifier>{2f9ad328-815d-4893-8d9d-ac663e782374}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Helios %282D Engine%29\Containers">
+      <UniqueIdentifier>{21d36909-40cd-4d59-bb82-6b46cd75307f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Images">
+      <UniqueIdentifier>{9bc7ee5a-802c-4a07-ad24-6a3c509f00d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helios %282D Engine%29\Entities and Components">
+      <UniqueIdentifier>{b5d5ab47-499d-444b-a7bc-0cde89b2e583}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\testRotateSprite.cpp">
+      <Filter>Source Files\Helios %282D Engine%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\Entity.cpp">
+      <Filter>Source Files\Helios %282D Engine%29\Entities and Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -41,5 +59,27 @@
     <Text Include="Resources\Engine\EngineSettings.ini">
       <Filter>Resource Files\Engine</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Code\Engine\Component.h">
+      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Entity.h">
+      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ObjectPool.h">
+      <Filter>Header Files\Helios %282D Engine%29\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\testRotateSprite.h">
+      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\update_component.h">
+      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\kappa.png">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
   </ItemGroup>
 </Project>
