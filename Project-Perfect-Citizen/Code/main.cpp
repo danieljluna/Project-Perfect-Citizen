@@ -1,10 +1,10 @@
 #include <SFML/Main.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include "Engine\renderSquare.h"
-#include "Engine\testRenderSprite.h"
+#include "Engine/renderSquare.h"
+#include "Engine/testRenderSprite.h"
 #include <iostream>
-#include "Engine\testRotateSprite.h"
+#include "Engine/testRotateSprite.h"
 
 using namespace std;
 //Note that this is placeholder for now
