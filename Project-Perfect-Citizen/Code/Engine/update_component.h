@@ -1,7 +1,7 @@
 //Update Component 
 
 #pragma once
-
+#include <vector>
 #include "Component.h"
 
 namespace ppc {
@@ -17,6 +17,9 @@ namespace ppc {
 	class UpdateComponent : public ppc::Component {
 
 	public:
+
+		static vector<UpdateComponent*> updateVector;
+
 
 		/////////////////////////////////////////////////////////////
 		/// @brief The component updates its Entity when it is called.
