@@ -19,6 +19,7 @@
     <ClCompile Include="Code\Engine\testRenderSprite.cpp" />
     <ClCompile Include="Code\Engine\testRotateSprite.cpp" />
     <ClCompile Include="Code\Engine\updateComponent.cpp" />
+    <ClCompile Include="Code\Engine\world.cpp" />
     <ClCompile Include="Code\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -36,6 +37,7 @@
     <ClInclude Include="Code\Engine\testRenderSprite.h" />
     <ClInclude Include="Code\Engine\testRotateSprite.h" />
     <ClInclude Include="Code\Engine\updateComponent.h" />
+    <ClInclude Include="Code\Engine\world.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\kappa.png" />
