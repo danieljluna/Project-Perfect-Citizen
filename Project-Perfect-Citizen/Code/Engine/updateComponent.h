@@ -44,12 +44,12 @@ namespace ppc {
 		///
 		/// @details The update function of all update components are
 		/// called after the game loop Input phase. After inputs are read,
-		/// the Entity sends messages to update components (e.g. whether a
-		/// collision has occurred, a key is pressed, etc.), and update is
-		/// called when desired inputs have occurred.
+		/// the Entity sends messages to update components (e.g. whether
+		/// a collision has occurred, a key is pressed, etc.), and update
+		/// is called when desired inputs have occurred.
 		///
-		/// @param in deltaTime Time required from the last frame to be
-		/// processed. Required to have updates be independent of 
+		/// @param [in] deltaTime Time required from the last frame to
+		/// be processed. Required to have updates be independent of 
 		/// processor speed. Should be uses as deltaTime.asSeconds().
 		///
 		/// @post Effect of update should vary based on the 
