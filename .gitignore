@@ -302,8 +302,4 @@ build/
 *.db
 Project-Perfect-Citizen.VC.opendb
 *.filters
-*.filters
-Project-Perfect-Citizen/Project-Perfect-Citizen.vcxproj.filters
-*.filters
-*.filters
 Project-Perfect-Citizen/Project-Perfect-Citizen.vcxproj.filters
