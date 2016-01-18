@@ -19,7 +19,7 @@ int main() {
 	//Define a Sprite
 	sf::Sprite* S = new sf::Sprite();
 	sf::Texture* T = new sf::Texture();
-	T->loadFromFile("Kappa.png");
+	T->loadFromFile("Resources/Kappa.png");
 	S->setTexture(*T);
 	S->setPosition(100, 100);
 	S->setScale(0.2f, 0.2f);

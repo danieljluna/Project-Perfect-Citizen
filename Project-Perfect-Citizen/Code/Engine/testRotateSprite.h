@@ -1,15 +1,14 @@
 // Rotate a sprite continually
-#ifndef __ROTATE_SPRITE_H__
-#define __ROTATE_SPRITE_H__
+
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <iostream>
+
 #include "updateComponent.h"
 
 using namespace std;
 
-class testRotateSprite : public UpdateComponent {
+class testRotateSprite : public ppc::updateComponent {
 
 private:
 	sf::Sprite* sprite;
@@ -21,5 +20,3 @@ public:
 	void update(sf::Time deltaTime) override;
 };
 
-
-#endif __ROTATE_SPRITE_H__

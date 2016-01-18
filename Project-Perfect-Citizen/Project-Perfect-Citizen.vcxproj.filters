@@ -57,7 +57,11 @@
     <ClCompile Include="Code\Engine\testRotateSprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="Code\Engine\updateComponent.cpp">
+=======
     <ClCompile Include="Code\Engine\component.cpp">
+>>>>>>> refs/remotes/origin/experimental
       <Filter>Source Files\Helios %282D Engine%29\Entities and Components</Filter>
     </ClCompile>
   </ItemGroup>
