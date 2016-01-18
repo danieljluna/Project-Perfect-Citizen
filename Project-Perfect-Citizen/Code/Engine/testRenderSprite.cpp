@@ -6,7 +6,10 @@ TestRenderSprite::TestRenderSprite(string filename) {
 	//texture->loadFromFile(filename);
 	texture->loadFromFile(filename);
 	sprite->setTexture(*texture);
-	sprite->setPosition(100 + (100 * RenderComponent::renderVector.size()), 100 + (100 * RenderComponent::renderVector.size()));
+	sprite->setPosition(
+            100.0 + (100.0 * RenderComponent::renderVector.size()), 
+            100.0 + (100.0 * RenderComponent::renderVector.size())
+        );
 	sprite->setScale(.2f, .2f);
 	RenderComponent::renderVector.push_back(this);
 	vectorIndex = RenderComponent::renderVector.size() - 1;

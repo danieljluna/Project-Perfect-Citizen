@@ -2,7 +2,7 @@
 #define OBJECT_POOL_H
 
 #include <new>
-#include <exception>
+#include <stdexcept>
 #include <iostream>
 
 

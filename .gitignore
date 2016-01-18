@@ -301,3 +301,4 @@ build/
 *.suo
 *.db
 Project-Perfect-Citizen.VC.opendb
+*.filters

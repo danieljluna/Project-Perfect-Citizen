@@ -2,6 +2,8 @@
 #define COMPONENT_H
 
 
+typedef unsigned int msgType;
+
 namespace ppc {
 
 
@@ -9,9 +11,11 @@ class Entity;
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Parent Class of all Component types.
-/// @details Due to a lack of common behavior between Component sub-
-///     classes, this class mostly serves as a means to create a 
-///     pointer to any such sub-class.
+/// @details Components are a base class used most commonly in pairing
+///     with the Entity class. Components can be assigned an Entity, 
+///     and doing so will allow the Component to send / recieve
+///     messages to / from the other Components which comprise the 
+///     Entity.
 ///////////////////////////////////////////////////////////////////////
 class Component {
 
@@ -27,7 +31,7 @@ public:
     ///////////////////////////////////////////////////////////////////
     /// @brief Virtual Destructor
     ///////////////////////////////////////////////////////////////////
-    virtual ~Component() { entity = nullptr; };
+    virtual ~Component();
 
 
   /////////////////////////////////////////////////////////////////////
@@ -37,7 +41,7 @@ public:
     ///////////////////////////////////////////////////////////////////
     /// @brief Returns the Entity this object is a part of
     ///////////////////////////////////////////////////////////////////
-    Entity* getEntity() { return entity; };
+    Entity* getEntity();
 
     
   /////////////////////////////////////////////////////////////////////
@@ -57,7 +61,7 @@ public:
     /// @param message This parameter denotes what message is being
     ///     passed to this Component.
     ///////////////////////////////////////////////////////////////////
-    virtual void recieveMessage(unsigned int message) {};
+    virtual void recieveMessage(msgType message) {};
 
 
 protected:
@@ -66,8 +70,24 @@ protected:
   // Protected Constructors to prevent instantiation
   /////////////////////////////////////////////////////////////////////
 
-    //Default Constructor
-	Component() {};
+    ///////////////////////////////////////////////////////////////////  
+    /// @brief Default Constructor
+    /// @details Initializes the Component with no Entity.
+    ///////////////////////////////////////////////////////////////////
+	Component();
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Copy Constructor
+    /// @details Copies the Component, ignoring any entity attatched
+    ///     to it.
+    ///////////////////////////////////////////////////////////////////
+    Component(const Component& other);
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Move Constructor
+    /// @details Also makes sure the Entity is aware of the move.
+    ///////////////////////////////////////////////////////////////////
+    Component(Component&& other);
 
 
   /////////////////////////////////////////////////////////////////////
