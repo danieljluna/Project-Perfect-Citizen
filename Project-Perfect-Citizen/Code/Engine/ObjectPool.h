@@ -6,7 +6,7 @@
 #include <iostream>
 
 
-namespace pcg {
+namespace ppc {
 
 
 //TODO: Add Doxygen Comments to ObjectPool

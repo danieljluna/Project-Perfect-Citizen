@@ -43,8 +43,8 @@ Example:
 	///		passed highscoreTable is invalid, it will be dumped and
 	///		treated as empty.
 	///
-	/// @param in  points			
-	///	@param out highscoreTable	
+	/// @param [in]  points			
+	///	@param [out] highscoreTable	
 	/// @post highscoreTable will be formatted properly to print via
 	///		cout.
 	/// @return Whether or not the new score changed the highscoreTable

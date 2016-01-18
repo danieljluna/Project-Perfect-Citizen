@@ -1,52 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Header Files\Helios %282D Engine%29">
-      <UniqueIdentifier>{c095eed6-b971-45b1-a3f8-ec6d13c537ce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Helios %282D Engine%29">
-      <UniqueIdentifier>{c45c9684-e9fe-4e1b-b3ec-1d69dae335a5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\Coding Reference">
-      <UniqueIdentifier>{89a71ddd-0e42-48b8-9393-69a159706f8a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\Engine">
-      <UniqueIdentifier>{71804018-d97c-4b06-bd75-f98625b4cbc4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Helios %282D Engine%29\Entities and Components">
-      <UniqueIdentifier>{2f9ad328-815d-4893-8d9d-ac663e782374}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Helios %282D Engine%29\Containers">
-      <UniqueIdentifier>{21d36909-40cd-4d59-bb82-6b46cd75307f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\Images">
-      <UniqueIdentifier>{9bc7ee5a-802c-4a07-ad24-6a3c509f00d3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Helios %282D Engine%29\Entities and Components">
-      <UniqueIdentifier>{b5d5ab47-499d-444b-a7bc-0cde89b2e583}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
+    <ClCompile Include="Code\Engine\component.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\entity.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
     <ClCompile Include="Code\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\Entity.cpp">
-      <Filter>Source Files\Helios %282D Engine%29\Entities and Components</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\renderComponent.cpp">
-      <Filter>Source Files\Helios %282D Engine%29\Entities and Components</Filter>
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\renderSquare.cpp">
       <Filter>Source Files</Filter>
@@ -57,50 +22,67 @@
     <ClCompile Include="Code\Engine\testRotateSprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\component.cpp">
-      <Filter>Source Files\Helios %282D Engine%29\Entities and Components</Filter>
+    <ClCompile Include="Code\Engine\updateComponent.cpp">
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
-      <Filter>Resource Files\Coding Reference</Filter>
-    </Text>
-    <Text Include="Resources\Coding Reference\LinkHelp.txt">
-      <Filter>Resource Files\Coding Reference</Filter>
-    </Text>
-    <Text Include="Resources\Engine\EngineSettings.ini">
-      <Filter>Resource Files\Engine</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Code\Engine\Component.h">
-      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
+    <ClInclude Include="Code\Engine\component.h">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\Entity.h">
-      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
+    <ClInclude Include="Code\Engine\entity.h">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\ObjectPool.h">
-      <Filter>Header Files\Helios %282D Engine%29\Containers</Filter>
+    <ClInclude Include="Code\Engine\objectPool.h">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\renderComponent.h">
-      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\updateComponent.h">
-      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\testRenderSprite.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\renderSquare.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\testRenderSprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\testRotateSprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\updateComponent.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Resources\Coding Reference\LinkHelp.txt">
+      <Filter>Resources</Filter>
+    </Text>
+    <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
+      <Filter>Resources</Filter>
+    </Text>
+    <Text Include="Resources\Engine\EngineSettings.ini">
+      <Filter>Resources</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{7518563c-97d3-417c-af26-7bcfba4cbfe8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{8f13e866-01ef-4d4f-ac40-057b17afa9a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{6b6f9a16-ff9a-4041-8728-d1e68c420ace}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{fbe4a463-be3e-49f4-b29c-d986458a80c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{82ece3a0-69a0-4eed-97b1-8af334d720b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\kappa.png">
-      <Filter>Resource Files\Images</Filter>
+      <Filter>Resources</Filter>
     </Image>
   </ItemGroup>
 </Project>

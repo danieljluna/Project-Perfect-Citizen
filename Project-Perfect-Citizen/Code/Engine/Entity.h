@@ -1,6 +1,8 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#include <cstddef>
+#include <SFML\Graphics\Transformable.hpp>
 
 typedef unsigned int msgType;
 
@@ -13,9 +15,11 @@ class Component;
 ///////////////////////////////////////////////////////////////////////
 /// @brief Uses a collection of Components to define a Entity
 /// @details The Entity is a minimally intrusive class that holds 
-///     together the real powerhouses: the Components. The only data
-///     in Entity should be data accepted to be used by a vast majority
-///     of Components.
+///     together the real powerhouses: the Components. The Entity is 
+///     not designed to anything other than group Components 
+///     considered to be part of the same Entity. The only member
+///     data in Entity should be data used by a vast majority of 
+///     Components.
 ///////////////////////////////////////////////////////////////////////
 class Entity {
 public:
