@@ -298,3 +298,6 @@ build/
 !default.perspectivev3
 *.xccheckout
 *.moved-aside
+*.suo
+*.db
+Project-Perfect-Citizen.VC.opendb
