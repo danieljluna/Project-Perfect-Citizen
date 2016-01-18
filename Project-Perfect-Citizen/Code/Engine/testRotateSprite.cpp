@@ -5,6 +5,7 @@
 testRotateSprite::testRotateSprite() {
 	sprite = nullptr;
 	this->angle = 0.f;
+
 }
 
 
