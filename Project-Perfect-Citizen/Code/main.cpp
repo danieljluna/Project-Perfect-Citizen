@@ -1,9 +1,9 @@
 //Used to get XCODE working/////////////////////////////////
 
-#ifndef WINDOWS_MARKER
-    #include "ResourcePath.hpp"
-#else
+#ifdef WINDOWS_MARKER
     #define resourcePath() string()
+#else
+    #include "ResourcePath.hpp"
 #endif
 
 ///////////////////////////////////////////////////////////
