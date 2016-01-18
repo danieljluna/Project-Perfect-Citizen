@@ -31,7 +31,7 @@ namespace ppc {
 		/// @brief Removes a component from updateComponent::updateVector
 		/// @details Erases the component. The destructor of the element
 		/// being removed should call this function. 
-		/// @param in index Index in the update vector. Should have
+		/// @param [in] [index] Index in the update vector. Should have
 		/// been saved when it was added to the vector. Right when a
 		/// component is added, its index should be: (size of the
 		/// vector - 1 )

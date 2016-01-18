@@ -2,102 +2,60 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Code\Engine\component.cpp">
-<<<<<<< HEAD
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\entity.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Sources\Components</Filter>
     </ClCompile>
     <ClCompile Include="Code\main.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\renderComponent.cpp">
-      <Filter>Source Files\Components</Filter>
-=======
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\entity.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\renderComponent.cpp">
-      <Filter>Source Files\Engine</Filter>
->>>>>>> refs/remotes/origin/experimental
+      <Filter>Sources\Components</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\renderSquare.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Sources\Examples</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\testRenderSprite.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Sources\Examples</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\testRotateSprite.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Sources\Examples</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\updateComponent.cpp">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Sources\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\entity.cpp">
+      <Filter>Sources\Entity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\entity.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\objectPool.h">
-      <Filter>Header Files\Engine</Filter>
+      <Filter>Headers\Components</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\renderComponent.h">
-      <Filter>Header Files\Engine</Filter>
+      <Filter>Headers\Components</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\renderSquare.h">
-      <Filter>Header Files</Filter>
+      <Filter>Headers\Examples</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\testRenderSprite.h">
-      <Filter>Header Files</Filter>
+      <Filter>Headers\Examples</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\testRotateSprite.h">
-      <Filter>Headers</Filter>
+      <Filter>Headers\Examples</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\updateComponent.h">
       <Filter>Headers\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\updateComponent.h">
-      <Filter>Header Files\Engine</Filter>
+    <ClInclude Include="Code\Engine\entity.h">
+      <Filter>Headers\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\objectPool.h">
+      <Filter>Additional</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Resources\Coding Reference\LinkHelp.txt">
-      <Filter>Resources</Filter>
-    </Text>
-    <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
-      <Filter>Resources</Filter>
-    </Text>
     <Text Include="Resources\Engine\EngineSettings.ini">
-      <Filter>Resources</Filter>
+      <Filter>Engine</Filter>
     </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{7518563c-97d3-417c-af26-7bcfba4cbfe8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Engine">
-      <UniqueIdentifier>{8f13e866-01ef-4d4f-ac40-057b17afa9a9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{6b6f9a16-ff9a-4041-8728-d1e68c420ace}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine">
-      <UniqueIdentifier>{fbe4a463-be3e-49f4-b29c-d986458a80c7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resources">
-      <UniqueIdentifier>{82ece3a0-69a0-4eed-97b1-8af334d720b0}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Resources\Engine\EngineSettings.ini" />
     <Text Include="Resources\Coding Reference\LinkHelp.txt">
       <Filter>Resources</Filter>
     </Text>
@@ -107,19 +65,37 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headers">
-      <UniqueIdentifier>{d6f9cfb5-64cb-43f9-8a84-af7eb6ab0b36}</UniqueIdentifier>
+      <UniqueIdentifier>{baf9a50b-2459-44c3-aa9d-3ca9b67a6d6e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{78c48c18-f619-411f-8390-f14eb7564638}</UniqueIdentifier>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{0048f3c6-0ebf-47dc-a74c-e217259352a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Examples">
+      <UniqueIdentifier>{0e01e25d-6c29-48e5-bce3-97628031278d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Headers\Components">
-      <UniqueIdentifier>{de8f900f-d2ef-40ac-9ed9-8eb1cac20911}</UniqueIdentifier>
+      <UniqueIdentifier>{4f1d9cab-6ee2-49f8-8756-64ebe9c1827f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Components">
-      <UniqueIdentifier>{5ddbda88-3b4b-4801-81d0-c3ebd45bcf4c}</UniqueIdentifier>
+    <Filter Include="Sources\Examples">
+      <UniqueIdentifier>{8a64dff5-ecb4-44d7-8311-ec366f68d802}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Components">
+      <UniqueIdentifier>{b81f4938-d823-4aa0-9be0-5b28592faa7c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources">
-      <UniqueIdentifier>{792a0214-8706-4228-94ab-1fe62124e9be}</UniqueIdentifier>
+      <UniqueIdentifier>{07c1c74f-fcc1-49b8-aa8a-b438b52a61a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{2f609283-4fd0-45a4-86f8-6e08dba97483}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Entity">
+      <UniqueIdentifier>{81f4b261-5834-459d-afc0-215059893a0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Entity">
+      <UniqueIdentifier>{637d958c-481d-4f56-a98d-00427d5e9158}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Additional">
+      <UniqueIdentifier>{900cd8b2-c39b-4e1f-b713-dac94a2a4627}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
