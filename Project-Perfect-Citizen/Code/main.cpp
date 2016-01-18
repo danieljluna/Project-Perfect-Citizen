@@ -5,7 +5,11 @@
 #include "Engine/testRenderSprite.h"
 #include <iostream>
 #include "Engine/testRotateSprite.h"
-#include "ResourcePath.hpp"
+#ifndef WINDOWS_MARKER
+    #include "ResourcePath.hpp"
+#else
+    string resourcePath() { return ""; };
+#endif
 
 using namespace std;
 //Note that this is placeholder for now
