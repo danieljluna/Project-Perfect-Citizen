@@ -2,13 +2,13 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Code\Engine\component.cpp">
-      <Filter>Sources\Components</Filter>
+      <Filter>Sources\Engine\Components</Filter>
     </ClCompile>
     <ClCompile Include="Code\main.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\renderComponent.cpp">
-      <Filter>Sources\Components</Filter>
+      <Filter>Sources\Engine\Components</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\renderSquare.cpp">
       <Filter>Sources\Examples</Filter>
@@ -20,18 +20,21 @@
       <Filter>Sources\Examples</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\updateComponent.cpp">
-      <Filter>Sources\Components</Filter>
+      <Filter>Sources\Engine\Components</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\entity.cpp">
-      <Filter>Sources\Entity</Filter>
+      <Filter>Sources\Engine\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\world.cpp">
+      <Filter>Sources\Engine\World</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
-      <Filter>Headers\Components</Filter>
+      <Filter>Headers\Engine\Components</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\renderComponent.h">
-      <Filter>Headers\Components</Filter>
+      <Filter>Headers\Engine\Components</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\renderSquare.h">
       <Filter>Headers\Examples</Filter>
@@ -43,18 +46,21 @@
       <Filter>Headers\Examples</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\updateComponent.h">
-      <Filter>Headers\Components</Filter>
+      <Filter>Headers\Engine\Components</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\entity.h">
-      <Filter>Headers\Entity</Filter>
+      <Filter>Headers\Engine\Entity</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\objectPool.h">
       <Filter>Additional</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\world.h">
+      <Filter>Headers\Engine\World</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Engine\EngineSettings.ini">
-      <Filter>Engine</Filter>
+      <Filter>Engine Settings</Filter>
     </Text>
     <Text Include="Resources\Coding Reference\LinkHelp.txt">
       <Filter>Resources</Filter>
@@ -73,29 +79,41 @@
     <Filter Include="Headers\Examples">
       <UniqueIdentifier>{0e01e25d-6c29-48e5-bce3-97628031278d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Headers\Components">
-      <UniqueIdentifier>{4f1d9cab-6ee2-49f8-8756-64ebe9c1827f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Sources\Examples">
       <UniqueIdentifier>{8a64dff5-ecb4-44d7-8311-ec366f68d802}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sources\Components">
-      <UniqueIdentifier>{b81f4938-d823-4aa0-9be0-5b28592faa7c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources">
       <UniqueIdentifier>{07c1c74f-fcc1-49b8-aa8a-b438b52a61a5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine">
-      <UniqueIdentifier>{2f609283-4fd0-45a4-86f8-6e08dba97483}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sources\Entity">
-      <UniqueIdentifier>{81f4b261-5834-459d-afc0-215059893a0c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\Entity">
-      <UniqueIdentifier>{637d958c-481d-4f56-a98d-00427d5e9158}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Additional">
       <UniqueIdentifier>{900cd8b2-c39b-4e1f-b713-dac94a2a4627}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine">
+      <UniqueIdentifier>{01d7fd51-8484-4aa9-bafd-9217f70e9980}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine">
+      <UniqueIdentifier>{093476ea-4708-4aef-8384-88bfb45fae2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\Components">
+      <UniqueIdentifier>{b81f4938-d823-4aa0-9be0-5b28592faa7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Components">
+      <UniqueIdentifier>{4f1d9cab-6ee2-49f8-8756-64ebe9c1827f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\World">
+      <UniqueIdentifier>{750b1a1f-a648-4cd9-8fc3-bfdce5782eb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\World">
+      <UniqueIdentifier>{fd8c357f-d3f1-41cb-8ef5-35d6b6074820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Entity">
+      <UniqueIdentifier>{637d958c-481d-4f56-a98d-00427d5e9158}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\Entity">
+      <UniqueIdentifier>{81f4b261-5834-459d-afc0-215059893a0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine Settings">
+      <UniqueIdentifier>{2f609283-4fd0-45a4-86f8-6e08dba97483}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

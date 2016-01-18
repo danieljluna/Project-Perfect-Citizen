@@ -16,9 +16,9 @@ TestRenderSprite::TestRenderSprite(string filename) {
 }
 //defining render which is an virtual function
 //this function is now depreciated
-void TestRenderSprite::render(sf::RenderWindow* wnd) {
-	wnd->draw(*(this->sprite));
-}
+//void TestRenderSprite::render(sf::RenderWindow* wnd) {
+//	wnd->draw(*(this->sprite));
+//}
 
 sf::Sprite*  TestRenderSprite::getSprite() {
 	return this->sprite;
