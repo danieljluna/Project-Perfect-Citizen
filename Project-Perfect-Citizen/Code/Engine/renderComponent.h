@@ -14,6 +14,7 @@ public:
 	virtual void render(sf::RenderWindow* wnd) = 0;
     static std::vector<RenderComponent*> renderVector;
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
+	void removeElement(int index);
 };
 
 #endif

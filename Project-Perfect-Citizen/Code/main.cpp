@@ -14,6 +14,8 @@ int main() {
 	//RenderComponent* testRect = new RenderSquare();
 	//TestRenderSprite* testSprite = new TestRenderSprite("kappa.png");
 	RenderComponent* testSpriteTwo = new TestRenderSprite("kappa.png");
+	RenderComponent* testSpriteThree = new TestRenderSprite("kappa.png");
+	sf::RenderStates testRenderState;
 	//Define a Sprite
 	sf::Sprite* S = new sf::Sprite();
 	sf::Texture* T = new sf::Texture();
@@ -45,15 +47,18 @@ int main() {
 		//going though the static renderVector inside component and calling class testRenderSprites' render function
 
 		//TODO
-		//for (auto iter = RenderComponent::renderVector.begin(); iter != RenderComponent::renderVector.end(); iter++) {
-			//window.draw((**iter));
-		//}
-		//testSprite->render(&window);
+		for (auto iter = RenderComponent::renderVector.begin(); iter != RenderComponent::renderVector.end(); iter++) {
+			//this line casts the (*iter) which is originally a base pointer of type RenderComponent into type TestRenderSprite*
+			//http://www.cplusplus.com/forum/general/2710/
+			(dynamic_cast <TestRenderSprite*>(*iter))->draw(window, testRenderState);
+		}
 
 		window.draw(*S);
+		//testSpriteTwo->draw(window, testRenderState);
         // Update the window
         window.display();
     }
+	
 	delete test;
 	delete S;
 	delete T;
