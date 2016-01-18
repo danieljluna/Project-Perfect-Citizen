@@ -1,3 +1,13 @@
+//Used to get XCODE working/////////////////////////////////
+
+#ifndef WINDOWS_MARKER
+    #include "ResourcePath.hpp"
+#else
+    #define resourcePath() string()
+#endif
+
+///////////////////////////////////////////////////////////
+
 #include <SFML/Main.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
@@ -5,11 +15,6 @@
 #include "Engine/testRenderSprite.h"
 #include <iostream>
 #include "Engine/testRotateSprite.h"
-#ifndef WINDOWS_MARKER
-    #include "ResourcePath.hpp"
-#else
-    string resourcePath() { return ""; };
-#endif
 
 using namespace std;
 //Note that this is placeholder for now
