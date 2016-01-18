@@ -8,8 +8,12 @@ private:
 	int privatePlaceholder;
 	sf::Sprite* sprite;
 	sf::Texture* texture;
+	int vectorIndex;
 public:
 	TestRenderSprite(string filename);
 	void render(sf::RenderWindow* wnd);
 	sf::Sprite* getSprite();
+	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const ;
+	int getVectorIndex();
+	~TestRenderSprite();
 };

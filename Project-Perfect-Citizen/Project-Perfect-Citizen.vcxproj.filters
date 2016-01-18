@@ -37,28 +37,25 @@
     <Filter Include="Source Files\Helios %282D Engine%29\Entities and Components">
       <UniqueIdentifier>{b5d5ab47-499d-444b-a7bc-0cde89b2e583}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Render Components">
-      <UniqueIdentifier>{d780b02a-ca19-4c7e-84e1-8d113fd06086}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Update Components">
-      <UniqueIdentifier>{5e1113ed-8b0a-4e53-aeb6-69487259e621}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\renderSquare.cpp">
+    <ClCompile Include="Code\Engine\Entity.cpp">
       <Filter>Source Files\Helios %282D Engine%29\Entities and Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\renderComponent.cpp">
+      <Filter>Source Files\Helios %282D Engine%29\Entities and Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\renderSquare.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\testRenderSprite.cpp">
-      <Filter>Source Files\Helios %282D Engine%29\Entities and Components</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\testRotateSprite.cpp">
-      <Filter>Source Files\Helios %282D Engine%29\Entities and Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\entity.cpp">
-      <Filter>Source Files\Helios %282D Engine%29\Entities and Components</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -73,29 +70,29 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Code\Engine\testRenderSprite.h">
-      <Filter>Header Files\Render Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\renderSquare.h">
-      <Filter>Header Files\Render Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\updateComponent.h">
+    <ClInclude Include="Code\Engine\Component.h">
       <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Entity.h">
+      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ObjectPool.h">
+      <Filter>Header Files\Helios %282D Engine%29\Containers</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\renderComponent.h">
       <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\updateComponent.h">
+      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\testRenderSprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\renderSquare.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Code\Engine\testRotateSprite.h">
-      <Filter>Header Files\Update Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\entity.h">
-      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\component.h">
-      <Filter>Header Files\Helios %282D Engine%29\Entities and Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\objectPool.h">
-      <Filter>Header Files\Helios %282D Engine%29\Containers</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

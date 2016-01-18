@@ -3,7 +3,7 @@
 
 #include "renderComponent.h"
 
-//Test class is showing an example of render
+//For the moment this class is defunct
 class RenderSquare : public RenderComponent {
 private:
 	int area;
