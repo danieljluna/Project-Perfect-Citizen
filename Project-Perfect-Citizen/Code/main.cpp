@@ -11,8 +11,11 @@ using namespace std;
 int main() {
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
-	RenderComponent* testRect = new RenderSquare();
-	TestRenderSprite* testSprite = new TestRenderSprite("kappa.png");
+	//RenderComponent* testRect = new RenderSquare();
+	//TestRenderSprite* testSprite = new TestRenderSprite("kappa.png");
+	RenderComponent* testSpriteTwo = new TestRenderSprite("kappa.png");
+	RenderComponent* testSpriteThree = new TestRenderSprite("kappa.png");
+	sf::RenderStates testRenderState;
 	//Define a Sprite
 	sf::Sprite* S = new sf::Sprite();
 	sf::Texture* T = new sf::Texture();
@@ -40,17 +43,22 @@ int main() {
 
         // Clear screen
         window.clear();
-		testRect->render(&window);
+		//testRect->render(&window);
 		//going though the static renderVector inside component and calling class testRenderSprites' render function
+
+		//TODO
 		for (auto iter = RenderComponent::renderVector.begin(); iter != RenderComponent::renderVector.end(); iter++) {
-			window.draw((**iter));
+			//this line casts the (*iter) which is originally a base pointer of type RenderComponent into type TestRenderSprite*
+			//http://www.cplusplus.com/forum/general/2710/
+			(dynamic_cast <TestRenderSprite*>(*iter))->draw(window, testRenderState);
 		}
-		testSprite->render(&window);
 
 		window.draw(*S);
+		//testSpriteTwo->draw(window, testRenderState);
         // Update the window
         window.display();
     }
+	
 	delete test;
 	delete S;
 	delete T;

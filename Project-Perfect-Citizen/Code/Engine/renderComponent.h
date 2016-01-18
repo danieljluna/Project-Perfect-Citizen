@@ -5,16 +5,16 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
-class RenderComponent : public ppc::Component {
+class RenderComponent : public ppc::Component, public sf::Drawable {
 private:
 	int tempVar;
 
 public:
 	//virtual RenderComponent* init() = 0;
 	virtual void render(sf::RenderWindow* wnd) = 0;
-
-    static std::vector<sf::Sprite*> renderVector;
-
+    static std::vector<RenderComponent*> renderVector;
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
+	void removeElement(int index);
 };
 
 #endif
