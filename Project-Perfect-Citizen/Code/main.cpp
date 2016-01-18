@@ -21,21 +21,21 @@ using namespace std;
 int main() {
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
-	//RenderComponent* testRect = new RenderSquare();
-	//TestRenderSprite* testSprite = new TestRenderSprite("kappa.png");
+
 	RenderComponent* testSpriteTwo = new TestRenderSprite(resourcePath() + "kappa.png");
 	RenderComponent* testSpriteThree = new TestRenderSprite(resourcePath() + "kappa.png");
 	sf::RenderStates testRenderState;
+
 	//Define a Sprite
-	sf::Sprite* S = new sf::Sprite();
-	sf::Texture* T = new sf::Texture();
-	T->loadFromFile(resourcePath() + "kappa.png");
-	S->setTexture(*T);
-	S->setPosition(100, 100);
-	S->setScale(0.2f, 0.2f);
+	sf::Sprite S;
+	sf::Texture T;
+	T.loadFromFile(resourcePath() + "kappa.png");
+	S.setTexture(T);
+	S.setPosition(100, 100);
+	S.setScale(0.2f, 0.2f);
 
 	//Add the component to it
-	testRotateSprite* test = new testRotateSprite(*S, 1);
+	testRotateSprite test(S, 1);
     // Start the game loop
 	sf::Clock deltaTime; //define deltaTime
 	sf::Time dt;
@@ -49,7 +49,7 @@ int main() {
                 window.close();
         }
 		//Update
-		test->update(dt);
+		test.update(dt);
 
         // Clear screen
         window.clear();
@@ -63,14 +63,11 @@ int main() {
 			(dynamic_cast <TestRenderSprite*>(*iter))->draw(window, testRenderState);
 		}
 
-		window.draw(*S);
+		window.draw(S);
 		//testSpriteTwo->draw(window, testRenderState);
         // Update the window
         window.display();
     }
-	
-	delete test;
-	delete S;
-	delete T;
+
     return EXIT_SUCCESS;
 }

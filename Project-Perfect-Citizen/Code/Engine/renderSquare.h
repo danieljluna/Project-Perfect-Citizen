@@ -4,6 +4,7 @@
 #include "renderComponent.h"
 
 //For the moment this class is defunct
+
 class RenderSquare : public RenderComponent {
 private:
 	int area;
