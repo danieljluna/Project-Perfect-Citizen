@@ -5,6 +5,7 @@
 #include "Engine/testRenderSprite.h"
 #include <iostream>
 #include "Engine/testRotateSprite.h"
+#include "ResourcePath.hpp"
 
 using namespace std;
 //Note that this is placeholder for now
@@ -13,13 +14,13 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
 	//RenderComponent* testRect = new RenderSquare();
 	//TestRenderSprite* testSprite = new TestRenderSprite("kappa.png");
-	RenderComponent* testSpriteTwo = new TestRenderSprite("kappa.png");
-	RenderComponent* testSpriteThree = new TestRenderSprite("kappa.png");
+	RenderComponent* testSpriteTwo = new TestRenderSprite(resourcePath() + "kappa.png");
+	RenderComponent* testSpriteThree = new TestRenderSprite(resourcePath() + "kappa.png");
 	sf::RenderStates testRenderState;
 	//Define a Sprite
 	sf::Sprite* S = new sf::Sprite();
 	sf::Texture* T = new sf::Texture();
-	T->loadFromFile("Resources/Kappa.png");
+	T->loadFromFile(resourcePath() + "kappa.png");
 	S->setTexture(*T);
 	S->setPosition(100, 100);
 	S->setScale(0.2f, 0.2f);
