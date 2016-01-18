@@ -17,7 +17,6 @@
     <ClCompile Include="Code\Engine\testRenderSprite.cpp" />
     <ClCompile Include="Code\Engine\testRotateSprite.cpp" />
     <ClCompile Include="Code\main.cpp" />
-    <ClCompile Include="render_component.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
