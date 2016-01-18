@@ -2,6 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Code\Engine\component.cpp">
+<<<<<<< HEAD
       <Filter>Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\entity.cpp">
@@ -12,6 +13,18 @@
     </ClCompile>
     <ClCompile Include="Code\Engine\renderComponent.cpp">
       <Filter>Source Files\Components</Filter>
+=======
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\entity.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\renderComponent.cpp">
+      <Filter>Source Files\Engine</Filter>
+>>>>>>> refs/remotes/origin/experimental
     </ClCompile>
     <ClCompile Include="Code\Engine\renderSquare.cpp">
       <Filter>Source Files</Filter>
@@ -23,27 +36,27 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\updateComponent.cpp">
-      <Filter>Source Files\Components</Filter>
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
-      <Filter>Headers\Components</Filter>
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\entity.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\renderComponent.h">
-      <Filter>Headers\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\renderSquare.h">
-      <Filter>Headers</Filter>
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\objectPool.h">
-      <Filter>Headers</Filter>
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\renderComponent.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\renderSquare.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\testRenderSprite.h">
-      <Filter>Headers</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\testRotateSprite.h">
       <Filter>Headers</Filter>
@@ -51,6 +64,37 @@
     <ClInclude Include="Code\Engine\updateComponent.h">
       <Filter>Headers\Components</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\updateComponent.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Resources\Coding Reference\LinkHelp.txt">
+      <Filter>Resources</Filter>
+    </Text>
+    <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
+      <Filter>Resources</Filter>
+    </Text>
+    <Text Include="Resources\Engine\EngineSettings.ini">
+      <Filter>Resources</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{7518563c-97d3-417c-af26-7bcfba4cbfe8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{8f13e866-01ef-4d4f-ac40-057b17afa9a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{6b6f9a16-ff9a-4041-8728-d1e68c420ace}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{fbe4a463-be3e-49f4-b29c-d986458a80c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{82ece3a0-69a0-4eed-97b1-8af334d720b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Engine\EngineSettings.ini" />
