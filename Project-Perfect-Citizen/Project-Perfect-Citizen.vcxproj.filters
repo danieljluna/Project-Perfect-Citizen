@@ -1,11 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Code\Engine\renderComponent.cpp" />
-    <ClCompile Include="Code\Engine\renderSquare.cpp" />
-    <ClCompile Include="Code\Engine\testRenderSprite.cpp" />
-    <ClCompile Include="Code\Engine\testRotateSprite.cpp" />
-    <ClCompile Include="Code\Engine\updateComponent.cpp" />
     <ClCompile Include="Code\Engine\component.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
@@ -15,19 +10,46 @@
     <ClCompile Include="Code\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\renderComponent.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\renderSquare.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\testRenderSprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\testRotateSprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\updateComponent.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Code\Engine\objectPool.h" />
-    <ClInclude Include="Code\Engine\renderSquare.h" />
-    <ClInclude Include="Code\Engine\renderComponent.h" />
-    <ClInclude Include="Code\Engine\testRenderSprite.h" />
-    <ClInclude Include="Code\Engine\testRotateSprite.h" />
-    <ClInclude Include="Code\Engine\updateComponent.h" />
     <ClInclude Include="Code\Engine\component.h">
       <Filter>Headers\Components</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\entity.h">
       <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\renderComponent.h">
+      <Filter>Headers\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\renderSquare.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\objectPool.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\testRenderSprite.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\testRotateSprite.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\updateComponent.h">
+      <Filter>Headers\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
