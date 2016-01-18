@@ -2,6 +2,7 @@
 
 #pragma once
 #include <vector>
+#include <SFML/Graphics.hpp>
 #include "Component.h"
 
 using namespace std;
@@ -15,16 +16,28 @@ namespace ppc {
 	///	inheirting from this class must define the virtual function:
 	/// void update(sf::Time deltaTime). 
 	///////////////////////////////////////////////////////////////////
-	class UpdateComponent : public ppc::Component {
+	class updateComponent : public ppc::Component {
 	public:
-	
+
 		/////////////////////////////////////////////////////////////
 		/// @brief Stores pointers to all existing update components.
-		/// @details New pointers added should be deleted in
-		/// the destructor of the component. Useful to remember
-		/// the index it was added to.
+		/// @details New components should add themselves in their Ctor
+		/// Pointers added should be deleted in the destructor of the 
+		/// component. Need to remember the index it was added to.
 		/////////////////////////////////////////////////////////////
-		static vector<UpdateComponent*> updateVector;
+		static vector<updateComponent*> updateVector;
+
+		/////////////////////////////////////////////////////////////
+		/// @brief Removes a component from updateComponent::updateVector
+		/// @details Erases the component. The destructor of the element
+		/// being removed should call this function. 
+		/// @param in index Index in the update vector. Should have
+		/// been saved when it was added to the vector. Right when a
+		/// component is added, its index should be: (size of the
+		/// vector - 1 )
+		/////////////////////////////////////////////////////////////
+		void removeElement(int index);
+
 
 		/////////////////////////////////////////////////////////////
 		/// @brief The component updates its Entity when it is called.
