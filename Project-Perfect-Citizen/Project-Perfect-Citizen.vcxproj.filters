@@ -57,6 +57,9 @@
     <ClCompile Include="Code\Engine\testRotateSprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\component.cpp">
+      <Filter>Source Files\Helios %282D Engine%29\Entities and Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
