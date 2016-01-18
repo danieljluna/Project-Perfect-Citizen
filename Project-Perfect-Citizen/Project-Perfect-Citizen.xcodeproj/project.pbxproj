@@ -1,0 +1,376 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C86E377C1C4D67F200842EFD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C86E377A1C4D67F200842EFD /* main.cpp */; };
+		C86E379F1C4D6B4100842EFD /* component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C86E37911C4D6B4100842EFD /* component.cpp */; };
+		C86E37A01C4D6B4100842EFD /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C86E37931C4D6B4100842EFD /* Entity.cpp */; };
+		C86E37A11C4D6B4100842EFD /* renderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C86E37961C4D6B4100842EFD /* renderComponent.cpp */; };
+		C86E37A21C4D6B4100842EFD /* renderSquare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C86E37981C4D6B4100842EFD /* renderSquare.cpp */; };
+		C86E37A31C4D6B4100842EFD /* testRenderSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C86E379A1C4D6B4100842EFD /* testRenderSprite.cpp */; };
+		C86E37A41C4D6B4100842EFD /* testRotateSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C86E379C1C4D6B4100842EFD /* testRotateSprite.cpp */; };
+		C86E37AD1C4D6B5100842EFD /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = C86E37A71C4D6B5100842EFD /* DoxygenHelp.txt */; };
+		C86E37AE1C4D6B5100842EFD /* LinkHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = C86E37A81C4D6B5100842EFD /* LinkHelp.txt */; };
+		C86E37AF1C4D6B5200842EFD /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = C86E37AA1C4D6B5100842EFD /* EngineSettings.ini */; };
+		C86E37B11C4D6B5200842EFD /* kappa.png in Resources */ = {isa = PBXBuildFile; fileRef = C86E37AC1C4D6B5100842EFD /* kappa.png */; };
+		C881BEE91C4D7C5B008B1EBD /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C8058A631C4D679D005E23BA /* Project-Perfect-Citizen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-Perfect-Citizen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C86E377A1C4D67F200842EFD /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
+		C86E37911C4D6B4100842EFD /* component.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = component.cpp; sourceTree = "<group>"; };
+		C86E37921C4D6B4100842EFD /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
+		C86E37931C4D6B4100842EFD /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		C86E37941C4D6B4100842EFD /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		C86E37951C4D6B4100842EFD /* ObjectPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectPool.h; sourceTree = "<group>"; };
+		C86E37961C4D6B4100842EFD /* renderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = renderComponent.cpp; sourceTree = "<group>"; };
+		C86E37971C4D6B4100842EFD /* renderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = renderComponent.h; sourceTree = "<group>"; };
+		C86E37981C4D6B4100842EFD /* renderSquare.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = renderSquare.cpp; sourceTree = "<group>"; };
+		C86E37991C4D6B4100842EFD /* renderSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = renderSquare.h; sourceTree = "<group>"; };
+		C86E379A1C4D6B4100842EFD /* testRenderSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testRenderSprite.cpp; sourceTree = "<group>"; };
+		C86E379B1C4D6B4100842EFD /* testRenderSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testRenderSprite.h; sourceTree = "<group>"; };
+		C86E379C1C4D6B4100842EFD /* testRotateSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testRotateSprite.cpp; sourceTree = "<group>"; };
+		C86E379D1C4D6B4100842EFD /* testRotateSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testRotateSprite.h; sourceTree = "<group>"; };
+		C86E379E1C4D6B4100842EFD /* updateComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = updateComponent.h; sourceTree = "<group>"; };
+		C86E37A71C4D6B5100842EFD /* DoxygenHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoxygenHelp.txt; sourceTree = "<group>"; };
+		C86E37A81C4D6B5100842EFD /* LinkHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LinkHelp.txt; sourceTree = "<group>"; };
+		C86E37AA1C4D6B5100842EFD /* EngineSettings.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EngineSettings.ini; sourceTree = "<group>"; };
+		C86E37AB1C4D6B5100842EFD /* Project-Perfect-Citizen-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Project-Perfect-Citizen-Info.plist"; sourceTree = "<group>"; };
+		C86E37AC1C4D6B5100842EFD /* kappa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kappa.png; sourceTree = "<group>"; };
+		C881BEE71C4D7C5B008B1EBD /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ResourcePath.hpp; path = Resources/ResourcePath.hpp; sourceTree = SOURCE_ROOT; };
+		C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ResourcePath.mm; path = Resources/ResourcePath.mm; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C8058A5F1C4D679D005E23BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C8058A591C4D679D005E23BA = {
+			isa = PBXGroup;
+			children = (
+				C8058A651C4D679D005E23BA /* Project-Perfect-Citizen */,
+				C8058A641C4D679D005E23BA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C8058A641C4D679D005E23BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C8058A631C4D679D005E23BA /* Project-Perfect-Citizen.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C8058A651C4D679D005E23BA /* Project-Perfect-Citizen */ = {
+			isa = PBXGroup;
+			children = (
+				C86E37901C4D6B4100842EFD /* Engine */,
+				C86E377A1C4D67F200842EFD /* main.cpp */,
+				C86E37A51C4D6B5100842EFD /* Resources */,
+			);
+			path = "Project-Perfect-Citizen";
+			sourceTree = "<group>";
+		};
+		C86E37901C4D6B4100842EFD /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				C86E37911C4D6B4100842EFD /* component.cpp */,
+				C86E37921C4D6B4100842EFD /* Component.h */,
+				C86E37931C4D6B4100842EFD /* Entity.cpp */,
+				C86E37941C4D6B4100842EFD /* Entity.h */,
+				C86E37951C4D6B4100842EFD /* ObjectPool.h */,
+				C86E37961C4D6B4100842EFD /* renderComponent.cpp */,
+				C86E37971C4D6B4100842EFD /* renderComponent.h */,
+				C86E37981C4D6B4100842EFD /* renderSquare.cpp */,
+				C86E37991C4D6B4100842EFD /* renderSquare.h */,
+				C86E379A1C4D6B4100842EFD /* testRenderSprite.cpp */,
+				C86E379B1C4D6B4100842EFD /* testRenderSprite.h */,
+				C86E379C1C4D6B4100842EFD /* testRotateSprite.cpp */,
+				C86E379D1C4D6B4100842EFD /* testRotateSprite.h */,
+				C86E379E1C4D6B4100842EFD /* updateComponent.h */,
+			);
+			name = Engine;
+			path = Code/Engine;
+			sourceTree = SOURCE_ROOT;
+		};
+		C86E37A51C4D6B5100842EFD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C881BEE71C4D7C5B008B1EBD /* ResourcePath.hpp */,
+				C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */,
+				C86E37A61C4D6B5100842EFD /* Coding Reference */,
+				C86E37A91C4D6B5100842EFD /* Engine */,
+				C86E37AC1C4D6B5100842EFD /* kappa.png */,
+			);
+			path = Resources;
+			sourceTree = SOURCE_ROOT;
+		};
+		C86E37A61C4D6B5100842EFD /* Coding Reference */ = {
+			isa = PBXGroup;
+			children = (
+				C86E37A71C4D6B5100842EFD /* DoxygenHelp.txt */,
+				C86E37A81C4D6B5100842EFD /* LinkHelp.txt */,
+			);
+			path = "Coding Reference";
+			sourceTree = "<group>";
+		};
+		C86E37A91C4D6B5100842EFD /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				C86E37AA1C4D6B5100842EFD /* EngineSettings.ini */,
+				C86E37AB1C4D6B5100842EFD /* Project-Perfect-Citizen-Info.plist */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C8058A621C4D679D005E23BA /* Project-Perfect-Citizen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8058A781C4D679D005E23BA /* Build configuration list for PBXNativeTarget "Project-Perfect-Citizen" */;
+			buildPhases = (
+				C8058A5E1C4D679D005E23BA /* Sources */,
+				C8058A5F1C4D679D005E23BA /* Frameworks */,
+				C8058A601C4D679D005E23BA /* Resources */,
+				C8058A611C4D679D005E23BA /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Project-Perfect-Citizen";
+			productName = "Project-Perfect-Citizen";
+			productReference = C8058A631C4D679D005E23BA /* Project-Perfect-Citizen.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C8058A5A1C4D679D005E23BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Hyperfocus Games";
+				TargetAttributes = {
+					C8058A621C4D679D005E23BA = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+				};
+			};
+			buildConfigurationList = C8058A5D1C4D679D005E23BA /* Build configuration list for PBXProject "Project-Perfect-Citizen" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C8058A591C4D679D005E23BA;
+			productRefGroup = C8058A641C4D679D005E23BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C8058A621C4D679D005E23BA /* Project-Perfect-Citizen */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C8058A601C4D679D005E23BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C86E37AF1C4D6B5200842EFD /* EngineSettings.ini in Resources */,
+				C86E37B11C4D6B5200842EFD /* kappa.png in Resources */,
+				C86E37AD1C4D6B5100842EFD /* DoxygenHelp.txt in Resources */,
+				C86E37AE1C4D6B5100842EFD /* LinkHelp.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C8058A611C4D679D005E23BA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This shell script simply copies required SFML dylibs/frameworks into the application bundle frameworks folder.\n# If you're using static libraries (which is not recommended) you should remove this script from your project.\n\n# SETTINGS\nCMAKE_INSTALL_FRAMEWORK_PREFIX=\"/Library/Frameworks\"\nCMAKE_INSTALL_LIB_PREFIX=\"/usr/local/lib\"\nFRAMEWORKS_FULL_PATH=\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/\"\n\n# Are we building a project that uses frameworks or dylibs?\ncase \"$SFML_BINARY_TYPE\" in\n    DYLIBS)\n        frameworks=\"false\"\n        ;;\n    *)\n        frameworks=\"true\"\n        ;;\nesac\n\n# Echoes to stderr\nerror () # $* message to display\n{\n    echo $* 1>&2\n    exit 2\n}\n\nassert () # $1 is a boolean, $2...N is an error message\n{\n    if [ $# -lt 2 ]\n    then\n        error \"Internal error in assert: not enough args\"\n    fi\n\n    if [ $1 -ne 0 ]\n    then\n        shift\n        error \"$*\"\n    fi\n}\n\nforce_remove () # $@ is some paths\n{\n    test $# -ge 1\n    assert $? \"force_remove() requires at least one parameter\"\n    rm -fr $@\n    assert $? \"couldn't remove $@\"\n}\n\ncopy () # $1 is a source, $2 is a destination\n{\n    test $# -eq 2\n    assert $? \"copy() requires two parameters\"\n    ditto \"$1\" \"$2\"\n    assert $? \"couldn't copy $1 to $2\"\n}\n\nrequire () # $1 is a SFML module like 'system' or 'audio'\n{\n    dest=\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/\"\n\n    if [ -z \"$1\" ]\n    then\n        error \"require() requires one parameter!\"\n    else\n        # clean potentially old stuff\n        force_remove \"$dest/libsfml-$1\"*\n        force_remove \"$dest/sfml-$1.framework\"\n\n        # copy SFML libraries\n        if [ \"$frameworks\" = \"true\" ]\n        then\n            source=\"$CMAKE_INSTALL_FRAMEWORK_PREFIX/sfml-$1.framework\"\n            target=\"sfml-$1.framework\"\n        elif [ \"$SFML_LINK_DYLIBS_SUFFIX\" = \"-d\" ]\n        then\n            source=\"$CMAKE_INSTALL_LIB_PREFIX/libsfml-$1-d.dylib\"\n            target=\"`readlink $source`\"\n        else\n            source=\"$CMAKE_INSTALL_LIB_PREFIX/libsfml-$1.dylib\"\n            target=\"`readlink $source`\"\n        fi\n\n        copy \"$source\" \"$dest/$target\"\n\n        # copy extra dependencies\n        if [ \"$1\" = \"audio\" ]\n        then\n            # copy \"FLAC\" \"ogg\" \"vorbis\" \"vorbisenc\" \"vorbisfile\" \"OpenAL\" frameworks too\n            for f in \"FLAC\" \"ogg\" \"vorbis\" \"vorbisenc\" \"vorbisfile\" \"OpenAL\"\n            do\n                copy \"$CMAKE_INSTALL_FRAMEWORK_PREFIX/$f.framework\" \"$dest/$f.framework\"\n            done\n        elif [ \"$1\" = \"graphics\" ]\n        then\n            copy \"$CMAKE_INSTALL_FRAMEWORK_PREFIX/freetype.framework\" \"$dest/freetype.framework\"\n        fi\n    fi\n}\n\nif [ -n \"$SFML_SYSTEM\" ]\nthen\n    require \"system\"\nfi\n\nif [ -n \"$SFML_AUDIO\" ]\nthen\n    require \"audio\"\nfi\n\nif [ -n \"$SFML_NETWORK\" ]\nthen\n    require \"network\"\nfi\n\nif [ -n \"$SFML_WINDOW\" ]\nthen\n    require \"window\"\nfi\n\nif [ -n \"$SFML_GRAPHICS\" ]\nthen\n    require \"graphics\"\nfi\n\n                ";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C8058A5E1C4D679D005E23BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C86E37A41C4D6B4100842EFD /* testRotateSprite.cpp in Sources */,
+				C86E37A31C4D6B4100842EFD /* testRenderSprite.cpp in Sources */,
+				C86E377C1C4D67F200842EFD /* main.cpp in Sources */,
+				C86E37A01C4D6B4100842EFD /* Entity.cpp in Sources */,
+				C881BEE91C4D7C5B008B1EBD /* ResourcePath.mm in Sources */,
+				C86E37A21C4D6B4100842EFD /* renderSquare.cpp in Sources */,
+				C86E379F1C4D6B4100842EFD /* component.cpp in Sources */,
+				C86E37A11C4D6B4100842EFD /* renderComponent.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C8058A761C4D679D005E23BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					x86_64,
+				);
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks/,
+					"$(inherited)",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib/,
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(SFML_SYSTEM)",
+					"$(SFML_WINDOW)",
+					"$(SFML_GRAPHICS)",
+					"$(SFML_AUDIO)",
+					"$(SFML_NETWORK)",
+				);
+				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_BINARY_TYPE = FRAMEWORKS;
+				SFML_GRAPHICS = "$(SFML_LINK_PREFIX) sfml-graphics$(SFML_LINK_SUFFIX)";
+				SFML_LINK_DYLIBS_PREFIX = "-l";
+				SFML_LINK_DYLIBS_SUFFIX = "";
+				SFML_LINK_FRAMEWORKS_PREFIX = "-framework";
+				SFML_LINK_FRAMEWORKS_SUFFIX = "";
+				SFML_LINK_PREFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_PREFIX)";
+				SFML_LINK_SUFFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_SUFFIX)";
+				SFML_NETWORK = "$(SFML_LINK_PREFIX) sfml-network$(SFML_LINK_SUFFIX)";
+				SFML_SYSTEM = "$(SFML_LINK_PREFIX) sfml-system$(SFML_LINK_SUFFIX)";
+				SFML_WINDOW = "$(SFML_LINK_PREFIX) sfml-window$(SFML_LINK_SUFFIX)";
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Debug;
+		};
+		C8058A771C4D679D005E23BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					x86_64,
+				);
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks/,
+					"$(inherited)",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib/,
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(SFML_SYSTEM)",
+					"$(SFML_WINDOW)",
+					"$(SFML_GRAPHICS)",
+					"$(SFML_AUDIO)",
+					"$(SFML_NETWORK)",
+				);
+				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_BINARY_TYPE = FRAMEWORKS;
+				SFML_GRAPHICS = "$(SFML_LINK_PREFIX) sfml-graphics$(SFML_LINK_SUFFIX)";
+				SFML_LINK_DYLIBS_PREFIX = "-l";
+				SFML_LINK_DYLIBS_SUFFIX = "";
+				SFML_LINK_FRAMEWORKS_PREFIX = "-framework";
+				SFML_LINK_FRAMEWORKS_SUFFIX = "";
+				SFML_LINK_PREFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_PREFIX)";
+				SFML_LINK_SUFFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_SUFFIX)";
+				SFML_NETWORK = "$(SFML_LINK_PREFIX) sfml-network$(SFML_LINK_SUFFIX)";
+				SFML_SYSTEM = "$(SFML_LINK_PREFIX) sfml-system$(SFML_LINK_SUFFIX)";
+				SFML_WINDOW = "$(SFML_LINK_PREFIX) sfml-window$(SFML_LINK_SUFFIX)";
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Release;
+		};
+		C8058A791C4D679D005E23BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Engine/Project-Perfect-Citizen-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C8058A7A1C4D679D005E23BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Engine/Project-Perfect-Citizen-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C8058A5D1C4D679D005E23BA /* Build configuration list for PBXProject "Project-Perfect-Citizen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8058A761C4D679D005E23BA /* Debug */,
+				C8058A771C4D679D005E23BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8058A781C4D679D005E23BA /* Build configuration list for PBXNativeTarget "Project-Perfect-Citizen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8058A791C4D679D005E23BA /* Debug */,
+				C8058A7A1C4D679D005E23BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C8058A5A1C4D679D005E23BA /* Project object */;
+}
