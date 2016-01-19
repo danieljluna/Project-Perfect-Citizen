@@ -301,9 +301,6 @@ build/
 *.suo
 *.db
 Project-Perfect-Citizen.VC.opendb
-*.filters
-Project-Perfect-Citizen/Project-Perfect-Citizen.vcxproj.filters
-*.vcxproj
 
 *.xcscheme
 
