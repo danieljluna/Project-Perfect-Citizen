@@ -1,3 +1,6 @@
+//updateComponent.cpp
+// Nader Sleem
+
 #include "updateComponent.h"
 
 using namespace ppc;
