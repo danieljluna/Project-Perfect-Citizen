@@ -45,11 +45,7 @@ size_t Entity::cmpntCount() {
 
 
 Component* Entity::getComponent(size_t index) {
-    if (index < componentCount_) {
-        return components_[index];
-    } else {
-        throw std::out_of_range("Entity: getComponent used invalid index!");
-    }
+    return components_[index];
 }
 
 

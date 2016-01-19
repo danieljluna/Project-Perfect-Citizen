@@ -14,6 +14,11 @@ TestRenderSprite::TestRenderSprite(string filename) {
 	RenderComponent::renderVector.push_back(this);
 	vectorIndex = RenderComponent::renderVector.size() - 1;
 }
+//defining render which is an virtual function
+//this function is now depreciated
+void TestRenderSprite::render(sf::RenderWindow* wnd) {
+	wnd->draw(*(this->sprite));
+}
 
 sf::Sprite*  TestRenderSprite::getSprite() {
 	return this->sprite;
