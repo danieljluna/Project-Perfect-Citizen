@@ -29,7 +29,7 @@
       <Filter>Sources\Engine\World</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\inputComponent.cpp">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Sources\Engine\Components</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\observer.cpp">
       <Filter>Source Files\Engine</Filter>
@@ -67,7 +67,7 @@
       <Filter>Headers\Engine\World</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\inputComponent.h">
-      <Filter>Header Files\Engine</Filter>
+      <Filter>Headers\Engine\Components</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\observer.h">
       <Filter>Header Files\Engine</Filter>

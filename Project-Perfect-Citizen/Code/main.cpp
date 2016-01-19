@@ -67,6 +67,5 @@ int main() {
         // Update the window
         window.display();
     }
-
     return EXIT_SUCCESS;
 }
