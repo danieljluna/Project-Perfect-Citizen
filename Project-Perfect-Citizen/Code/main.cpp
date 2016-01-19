@@ -56,7 +56,6 @@ int main() {
 		//testRect->render(&window);
 		//going though the static renderVector inside component and calling class testRenderSprites' render function
 
-		//TODO
 		for (auto iter = RenderComponent::renderVector.begin(); iter != RenderComponent::renderVector.end(); iter++) {
 			//this line casts the (*iter) which is originally a base pointer of type RenderComponent into type TestRenderSprite*
 			//http://www.cplusplus.com/forum/general/2710/
@@ -68,6 +67,5 @@ int main() {
         // Update the window
         window.display();
     }
-
     return EXIT_SUCCESS;
 }

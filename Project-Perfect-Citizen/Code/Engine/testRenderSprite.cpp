@@ -15,6 +15,7 @@ TestRenderSprite::TestRenderSprite(string filename) {
 	vectorIndex = RenderComponent::renderVector.size() - 1;
 }
 
+
 sf::Sprite*  TestRenderSprite::getSprite() {
 	return this->sprite;
 }

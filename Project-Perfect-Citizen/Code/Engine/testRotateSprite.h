@@ -1,5 +1,9 @@
-// Rotate a sprite continually
+// testRotateSprite.h
+// Nader Sleem
 
+// Rotate a sprite continually
+// Not a good example now that we have Entities
+// Ask Nader for help with update components when needed
 #pragma once
 
 #include <SFML/Graphics.hpp>

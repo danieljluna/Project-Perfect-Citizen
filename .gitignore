@@ -301,3 +301,9 @@ build/
 *.suo
 *.db
 Project-Perfect-Citizen.VC.opendb
+
+*.xcscheme
+
+*.plist
+
+*.xcuserstate
