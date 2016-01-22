@@ -2,7 +2,7 @@
 #define ENTITY_H
 
 #include <cstddef>
-#include <SFML\Graphics\Transformable.hpp>
+#include <SFML/Graphics/Transformable.hpp>
 
 typedef unsigned int msgType;
 
