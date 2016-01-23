@@ -66,6 +66,13 @@
     <ClInclude Include="Code\Engine\subject.h">
       <Filter>Headers\Engine\Events</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\Window.h">
+      <Filter>Headers\Engine\Windows / Desktop</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\WindowDecorator.h">
+      <Filter>Headers\Engine\Windows / Desktop</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
@@ -124,10 +131,21 @@
     <Filter Include="Sources\Engine\Events">
       <UniqueIdentifier>{19e64c98-7fda-48db-a0d3-b0f4e8e67694}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headers\Engine\Windows / Desktop">
+      <UniqueIdentifier>{07b2c04c-7b37-4978-895c-e50d30a12648}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\kappa.png">
       <Filter>Resources\Images</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Project-Perfect-Citizen.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Code\Engine\ClassDiagram.cd">
+      <Filter>Resources\Coding Help</Filter>
+    </None>
   </ItemGroup>
 </Project>

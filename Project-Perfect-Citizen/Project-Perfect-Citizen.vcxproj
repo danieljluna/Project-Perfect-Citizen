@@ -39,9 +39,18 @@
     <ClInclude Include="Code\Engine\testRenderSprite.h" />
     <ClInclude Include="Code\Engine\testRotateSprite.h" />
     <ClInclude Include="Code\Engine\updateComponent.h" />
+    <ClInclude Include="Code\Engine\Window.h" />
+    <ClInclude Include="Code\Engine\WindowDecorator.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\kappa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Project-Perfect-Citizen.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Code\Engine\ClassDiagram.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{76E6A61E-6FF8-4ABA-82B6-674967E67119}</ProjectGuid>
