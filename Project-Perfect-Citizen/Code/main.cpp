@@ -15,6 +15,7 @@
 #include "Engine/testRenderSprite.h"
 #include <iostream>
 #include "Engine/testRotateSprite.h"
+#include "Engine\subject.h"
 
 using namespace std;
 //Note that this is placeholder for now
@@ -25,6 +26,16 @@ int main() {
 	RenderComponent* testSpriteTwo = new TestRenderSprite(resourcePath() + "kappa.png");
 	RenderComponent* testSpriteThree = new TestRenderSprite(resourcePath() + "kappa.png");
 	sf::RenderStates testRenderState;
+
+	Observer testObserver;
+	testObserver.numberIdentifier = 1337;
+	ppc::Event testEvent;
+	testEvent.type = ppc::Event::EventTypes::UpdateEventType;
+	testObserver.eventHandler(testEvent);
+	
+	Subject testSubject;
+	testSubject.addObserver(&testObserver);
+	cout << "the observerHead's identifier is" << testSubject.getObserverHead()->numberIdentifier << endl;
 
 	//Define a Sprite
 	sf::Sprite S;
@@ -42,6 +53,7 @@ int main() {
     while (window.isOpen()) {
 		dt = deltaTime.restart();
         // Process events
+		//sperate from ppc::event
         sf::Event event;
         while (window.pollEvent(event)) {
             // Close window: exit
@@ -59,7 +71,8 @@ int main() {
 		for (auto iter = RenderComponent::renderVector.begin(); iter != RenderComponent::renderVector.end(); iter++) {
 			//this line casts the (*iter) which is originally a base pointer of type RenderComponent into type TestRenderSprite*
 			//http://www.cplusplus.com/forum/general/2710/
-			(dynamic_cast <TestRenderSprite*>(*iter))->draw(window, testRenderState);
+			//(dynamic_cast <TestRenderSprite*>(*iter))->draw(window, testRenderState);
+			window.draw(**iter);
 		}
 
 		window.draw(S);

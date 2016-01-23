@@ -2,10 +2,13 @@
 //adds to the front. 
 //TODO
 void Subject::addObserver(Observer* observer) {
-	observer->next == observerHead;
-	observerHead->prev = observer;
-	observerHead = observer;
-	observer->prev = nullptr;
+		observer->next = observerHead;
+		if (observerHead != nullptr) {
+			observerHead->prev = observer;
+		}
+		observerHead = observer;
+		observer->prev = nullptr;
+	
 }
 
 void Subject::removeObserver(Observer * observer){
@@ -39,5 +42,15 @@ void Subject::removeObserver(Observer * observer){
 			return;
 		}
 		currentObserver = currentObserver->next;
+	}
+}
+
+Observer * Subject::getObserverHead()
+{
+	if (this->observerHead == nullptr) {
+		return nullptr;
+	}
+	else {
+		return this->observerHead;
 	}
 }
