@@ -31,6 +31,9 @@
     <ClCompile Include="Code\Engine\subject.cpp">
       <Filter>Sources\Engine\Events</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\inputComponent.cpp">
+      <Filter>Sources\Engine\Entity / Componentns</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -73,6 +76,9 @@
       <Filter>Headers\Engine\Windows / Desktop</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Code\Engine\inputComponent.h">
+      <Filter>Headers\Engine\Entity / Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">

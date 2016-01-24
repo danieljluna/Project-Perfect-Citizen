@@ -4,17 +4,23 @@
 namespace ppc {
 
 
+///////////////////////////////////////////////////////////////////////
+/// @brief Interface for all Window Objects
+/// @details 
+///////////////////////////////////////////////////////////////////////
 class Window {
 public:
 
+    virtual ~Window();
 
-private:
+
+protected:
 
 
 };
 
 
-};
+};      //End namespace ppc
 
 
 #endif  //End WINDOW_H
