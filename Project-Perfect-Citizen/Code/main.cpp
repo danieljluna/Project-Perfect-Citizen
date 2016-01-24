@@ -20,8 +20,9 @@
 using namespace std;
 //Note that this is placeholder for now
 int main(int argc, char** argv) {
-
+	//Need this at very beginning
 	Debug::scanOpts(argc, argv);
+	//Example of using the debugger
 	DEBUGF("rc", argc);
 
     // Create the main window

@@ -9,7 +9,7 @@ Debug::flagset Debug::flags;
 
 void Debug::scanOpts(int argc, char** argv) {
 	if (argc < 2) {
-		cout << "No flags entered" << endl;
+		cout << "No flags entered in cmd line" << endl;
 		return;
 	}
 
