@@ -2,7 +2,7 @@
 //adds to the front. 
 //TODO
 void Subject::addObserver(Observer* observer) {
-	observer->next == observerHead;
+	observer->next = observerHead;
 	observerHead->prev = observer;
 	observerHead = observer;
 	observer->prev = nullptr;
