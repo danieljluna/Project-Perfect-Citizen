@@ -15,15 +15,20 @@
 #include "Engine/testRenderSprite.h"
 #include <iostream>
 #include "Engine/testRotateSprite.h"
+#include "Engine/debug.h"
 
 using namespace std;
 //Note that this is placeholder for now
-int main() {
+int main(int argc, char** argv) {
+
+	Debug::scanOpts(argc, argv);
+	DEBUGF("rc", argc);
+
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
 
-	RenderComponent* testSpriteTwo = new TestRenderSprite(resourcePath() + "kappa.png");
-	RenderComponent* testSpriteThree = new TestRenderSprite(resourcePath() + "kappa.png");
+	ppc::RenderComponent* testSpriteTwo = new TestRenderSprite(resourcePath() + "kappa.png");
+	ppc::RenderComponent* testSpriteThree = new TestRenderSprite(resourcePath() + "kappa.png");
 	sf::RenderStates testRenderState;
 
 	//Define a Sprite
@@ -56,7 +61,7 @@ int main() {
 		//testRect->render(&window);
 		//going though the static renderVector inside component and calling class testRenderSprites' render function
 
-		for (auto iter = RenderComponent::renderVector.begin(); iter != RenderComponent::renderVector.end(); iter++) {
+		for (auto iter = ppc::RenderComponent::renderVector.begin(); iter != ppc::RenderComponent::renderVector.end(); iter++) {
 			//this line casts the (*iter) which is originally a base pointer of type RenderComponent into type TestRenderSprite*
 			//http://www.cplusplus.com/forum/general/2710/
 			(dynamic_cast <TestRenderSprite*>(*iter))->draw(window, testRenderState);
