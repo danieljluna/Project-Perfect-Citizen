@@ -18,8 +18,10 @@
     <ClCompile Include="Code\Engine\renderComponent.cpp" />
     <ClCompile Include="Code\Engine\renderSquare.cpp" />
     <ClCompile Include="Code\Engine\subject.cpp" />
+    <ClCompile Include="Code\Engine\TestObserver.cpp" />
     <ClCompile Include="Code\Engine\testRenderSprite.cpp" />
     <ClCompile Include="Code\Engine\testRotateSprite.cpp" />
+    <ClCompile Include="Code\Engine\TestSubject.cpp" />
     <ClCompile Include="Code\Engine\updateComponent.cpp" />
     <ClCompile Include="Code\Engine\world.cpp" />
     <ClCompile Include="Code\main.cpp" />
@@ -39,8 +41,10 @@
     <ClInclude Include="Code\Engine\renderSquare.h" />
     <ClInclude Include="Code\Engine\renderComponent.h" />
     <ClInclude Include="Code\Engine\subject.h" />
+    <ClInclude Include="Code\Engine\TestObserver.h" />
     <ClInclude Include="Code\Engine\testRenderSprite.h" />
     <ClInclude Include="Code\Engine\testRotateSprite.h" />
+    <ClInclude Include="Code\Engine\TestSubject.h" />
     <ClInclude Include="Code\Engine\updateComponent.h" />
     <ClInclude Include="Code\Engine\world.h" />
   </ItemGroup>
@@ -88,12 +92,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_MARKER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <AdditionalOptions>/ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>
@@ -106,14 +110,14 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_MARKER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system.lib;sfml-window.lib;sfml-graphics.lib;sfml-audio.lib</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <AdditionalOptions>/ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>
