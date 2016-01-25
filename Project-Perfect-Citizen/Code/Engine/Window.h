@@ -20,7 +20,7 @@ namespace ppc {
 /// @brief Interface for all Window Objects
 /// @details 
 ///////////////////////////////////////////////////////////////////////
-class Window : public WindowInterface {
+class Window : public WindowInterface, public sf::Drawable {
 public:
 
   /////////////////////////////////////////////////////////////////////
@@ -35,19 +35,23 @@ public:
   // Update Functionality
   /////////////////////////////////////////////////////////////////////
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Updates this, and all objects in the Window.
+    ///////////////////////////////////////////////////////////////////
     void update(sf::Time deltaTime);
 
-
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Reacts to Input for this, and all objects in the Window.
+    ///////////////////////////////////////////////////////////////////
+    void getInput();
 
 
 protected:
 
 
     ///////////////////////////////////////////////////////////////////
-    /// @brief draw function inherited from sf::Drawable
-    /// @details Every class that inheirits from RenderComponent MUST 
-    /// define draw(sf::RenderTarget& target, sf::RenderStates states) 
-    /// as it is an abstract function.
+    /// @brief Draws this, and all objects in the Window.
+    /// @details 
     ///
     /// @param target This is almost always going to be a 
     /// sf::renderWindow. 
