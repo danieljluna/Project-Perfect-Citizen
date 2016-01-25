@@ -19,12 +19,11 @@ namespace ppc {
 class InputComponent : public Component {
 public:
 
-    static std::vector<InputComponent*> inputVector;
 
-
-    InputComponent();
+    InputComponent() = delete;
 
     virtual ~InputComponent();
+
 
     virtual void getInput() = 0;
 

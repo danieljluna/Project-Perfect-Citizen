@@ -13,14 +13,7 @@
 ///////////////////////////////////////////////////////////////////////
 
 class RenderComponent : public ppc::Component, public sf::Drawable {
-public:
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief This bad boy is a vector that contains pointers to 
-    /// RenderComponents. Whenever an object is created to be rendered, 
-    /// be sure its added to this vector. 
-    ///////////////////////////////////////////////////////////////////
-    static std::vector<RenderComponent*> renderVector;
+protected:
 
     ///////////////////////////////////////////////////////////////////
 	/// @brief draw function inherited from sf::Drawable
@@ -38,13 +31,6 @@ public:
                       sf::RenderStates states) const = 0;
 
 
-    ///////////////////////////////////////////////////////////////////
-	/// @brief NOT COMPLETELY TESTED, DO NOT USE
-	/// @details Part of the destructor for renderComponent. Removes 
-    /// the specified element from RenderComponent::renderVector
-	/// @param index is the index you would like to remove
-    ///////////////////////////////////////////////////////////////////
-	void removeElement(int index);
 };
 
 #endif

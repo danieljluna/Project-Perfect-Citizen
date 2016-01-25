@@ -1,12 +1,12 @@
 #ifndef WINDOW_DECORATOR_H
 #define WINDOW_DECORATOR_H
 
-#include "Window.h"
+#include "WindowInterface.h"
 
 namespace ppc {
 
 
-class WindowDecorator : public Window {
+class WindowDecorator : public WindowInterface {
 public:
 
   /////////////////////////////////////////////////////////////////////
