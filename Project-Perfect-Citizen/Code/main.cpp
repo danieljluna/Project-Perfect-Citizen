@@ -15,6 +15,9 @@
 #include "Engine/testRenderSprite.h"
 #include <iostream>
 #include "Engine/testRotateSprite.h"
+#include "Engine\subject.h"
+#include "Engine\TestSubject.h"
+#include "Engine\TestObserver.h"
 #include "Engine/debug.h"
 
 using namespace std;
@@ -34,6 +37,11 @@ int main(int argc, char** argv) {
 		resourcePath() + "kappa.png");
 	sf::RenderStates testRenderState;
 
+
+	TestSubject* testChildSubject = new TestSubject();
+	TestObserver* testChildObserver = new TestObserver();
+
+
 	//Define a Sprite
 	sf::Sprite S;
 	sf::Texture T;
@@ -50,6 +58,7 @@ int main(int argc, char** argv) {
     while (window.isOpen()) {
 		dt = deltaTime.restart();
         // Process events
+		//sperate from ppc::event
         sf::Event event;
         while (window.pollEvent(event)) {
             // Close window: exit
@@ -71,7 +80,8 @@ int main(int argc, char** argv) {
 			//pointer of type RenderComponent into 
 			//type TestRenderSprite*
 			//http://www.cplusplus.com/forum/general/2710/
-			(dynamic_cast <TestRenderSprite*>(*iter))->draw(window,testRenderState);
+			//(dynamic_cast <TestRenderSprite*>(*iter))->draw(window, testRenderState);
+			window.draw(**iter);
 		}
 
 		window.draw(S);
