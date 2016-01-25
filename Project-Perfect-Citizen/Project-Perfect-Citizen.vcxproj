@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\Engine\component.cpp" />
+    <ClCompile Include="Code\Engine\debug.cpp" />
     <ClCompile Include="Code\Engine\entity.cpp" />
     <ClCompile Include="Code\Engine\observer.cpp" />
     <ClCompile Include="Code\Engine\renderComponent.cpp" />
@@ -22,6 +23,7 @@
     <ClCompile Include="Code\Engine\testRotateSprite.cpp" />
     <ClCompile Include="Code\Engine\TestSubject.cpp" />
     <ClCompile Include="Code\Engine\updateComponent.cpp" />
+    <ClCompile Include="Code\Engine\world.cpp" />
     <ClCompile Include="Code\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -31,6 +33,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h" />
+    <ClInclude Include="Code\Engine\debug.h" />
     <ClInclude Include="Code\Engine\entity.h" />
     <ClInclude Include="Code\Engine\event.h" />
     <ClInclude Include="Code\Engine\objectPool.h" />
@@ -43,6 +46,7 @@
     <ClInclude Include="Code\Engine\testRotateSprite.h" />
     <ClInclude Include="Code\Engine\TestSubject.h" />
     <ClInclude Include="Code\Engine\updateComponent.h" />
+    <ClInclude Include="Code\Engine\world.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\kappa.png" />

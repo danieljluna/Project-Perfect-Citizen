@@ -2,20 +2,19 @@
 //Nader Sleem
 #include "world.h"
 
-using namespace ppc;
 
-std::vector<World*> World::worldsVector;
+std::vector<ppc::World*> ppc::World::worldsVector;
 
-World::World() {
+ppc::World::World() {
 	for (size_t i = 0; i < MAX_DESKTOP_COUNT; i++) {
 		this->desktops_[i] = nullptr;
 	}
 
-	World::worldsVector.push_back(this);
-	this->worldIndex = World::worldsVector.size() - 1;
+	ppc::World::worldsVector.push_back(this);
+	this->worldIndex = ppc::World::worldsVector.size() - 1;
 }
 
-World::~World() {
+ppc::World::~World() {
 	for (size_t i = 0; i < MAX_DESKTOP_COUNT; i++) {
 		if (this->desktops_[i] != nullptr) {
 			//need to add more code here depending
@@ -31,16 +30,16 @@ World::~World() {
 		this->worldIndex);
 }
 
-size_t World::desktopCount() {
+size_t ppc::World::desktopCount() {
 	return desktopCount_;
 }
 
-Desktop* World::getDesktop(int index) {
+ppc::Desktop* ppc::World::getDesktop(int index) {
 	if ((size_t)index > desktopCount() || index < 0) return nullptr;
 	return desktops_[index];
 }
 
-int World::getIndex(Desktop* d) {
+int ppc::World::getIndex(Desktop* d) {
 	int result = -1;
 
 	if (d == nullptr) return result;
@@ -58,7 +57,7 @@ int World::getIndex(Desktop* d) {
 	return result;
 }
 
-int World::addDesktop(Desktop* d) {
+int ppc::World::addDesktop(Desktop* d) {
 	//Test if we have room for the cmpnt
 	if (desktopCount_ < MAX_DESKTOP_COUNT) {
 		//Store cmpnt and return the index it was stored at
@@ -73,12 +72,12 @@ int World::addDesktop(Desktop* d) {
 	}
 }
 
-void World::removeDesktop(Desktop* d) {
+void ppc::World::removeDesktop(Desktop* d) {
 	if (d == nullptr) return;
 	removeDesktop(World::getIndex(d));
 }
 
-void World::removeDesktop(int index) {
+void ppc::World::removeDesktop(int index) {
 	if ((size_t)index > desktopCount() || index < 0) return;
 	//save index
 	size_t i = index;

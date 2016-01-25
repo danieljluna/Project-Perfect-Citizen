@@ -1,9 +1,9 @@
 #include "renderComponent.h"
 //You need this when you have a static vector that contains a class data type
-std::vector<RenderComponent*> RenderComponent::renderVector;
+std::vector<ppc::RenderComponent*> ppc::RenderComponent::renderVector;
 
 
-void RenderComponent::removeElement(int index)
+void ppc::RenderComponent::removeElement(int index)
 {
-	RenderComponent::renderVector.erase(RenderComponent::renderVector.begin() + index);
+	ppc::RenderComponent::renderVector.erase(ppc::RenderComponent::renderVector.begin() + index);
 }
