@@ -31,6 +31,12 @@
     <ClCompile Include="Code\Engine\subject.cpp">
       <Filter>Sources\Engine\Events</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\TestSubject.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\TestObserver.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -65,6 +71,12 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\subject.h">
       <Filter>Headers\Engine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\TestSubject.h">
+      <Filter>Headers\Engine\Entity / Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\TestObserver.h">
+      <Filter>Headers\Engine\Entity / Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

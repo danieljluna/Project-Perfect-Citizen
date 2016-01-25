@@ -16,6 +16,8 @@
 #include <iostream>
 #include "Engine/testRotateSprite.h"
 #include "Engine\subject.h"
+#include "Engine\TestSubject.h"
+#include "Engine\TestObserver.h"
 
 using namespace std;
 //Note that this is placeholder for now
@@ -27,15 +29,10 @@ int main() {
 	RenderComponent* testSpriteThree = new TestRenderSprite(resourcePath() + "kappa.png");
 	sf::RenderStates testRenderState;
 
-	Observer testObserver;
-	testObserver.numberIdentifier = 1337;
-	ppc::Event testEvent;
-	testEvent.type = ppc::Event::EventTypes::UpdateEventType;
-	testObserver.eventHandler(testEvent);
-	
-	Subject testSubject;
-	testSubject.addObserver(&testObserver);
-	cout << "the observerHead's identifier is" << testSubject.getObserverHead()->numberIdentifier << endl;
+
+	TestSubject* testChildSubject = new TestSubject();
+	TestObserver* testChildObserver = new TestObserver();
+
 
 	//Define a Sprite
 	sf::Sprite S;

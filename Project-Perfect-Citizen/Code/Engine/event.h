@@ -1,74 +1,10 @@
 #pragma once
-//Another possible solution
+//Programmed by Andy
 
-/*union Event {
-	enum eventType { RENDER, INPUT, UPDATE };
-	eventType type;
-	struct renderStruct
-	{
-		int testRenderInt;
-	};
-	struct inputStruct {
-		int testInputInt;
-	};
-	struct updateStruct {
-		int testUpdateStruct;
-	};
-};
-*/
-
-/*struct dannyStruct {
-	enum dannyType{ HAPPY, SAD, ANGRY_AT_ANDY};
-	dannyType dType;
-	union dannyData {
-		struct hello {
-			int testHappy;
-		};
-		struct {
-			double testHappyDouble;
-			char testHappyChar;
-		};
-	};
-};
-
-struct secondTestStruct {
-	int stStructInt;
-	char firstLetter;
-	double secondDouble;
-};
-
-struct secondTestStructA {
-	int stStructIntA;
-	char firstLetterA;
-	
-};
-
-struct secondTestStructB {
-	int stStructIntB;
-	double secondDoubleB;
-};
-
-struct secondTestStructC {
-	char firstLetterC;
-	double secondDoubleC;
-};
-
-
-union monkey {
-	secondTestStruct blah;
-	secondTestStructA a;
-	secondTestStructB b;
-	secondTestStructC c;
-};
-
-
-//{
-///	enum Blash {};
-	//Blah type;
-	//monkey;
-//}
-*/
 namespace ppc {
+	//This is the event struct. You can add events here
+	//if you need them. Nothing here is final except
+	//the template. 
 	struct Event
 	{
 		struct RenderStruct {

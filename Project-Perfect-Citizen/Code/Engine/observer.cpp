@@ -1,9 +1,17 @@
 #include "observer.h"
 #include <iostream>
-//this would be virtual of course, but this is just an example
 
+
+// for now, we want every child of observer to at least have the
+// base behavior of... doing nothing with an event. You can always
+// define it in the base class if you need something specifically 
+// done.
 void Observer::eventHandler(ppc::Event event)
 {
+	cout << "I received an event, my UID is " << this->numberIdentifier << endl;
+	cout << "The event type is " << event.type << endl;
+
+	/*
 	int test = 0;
 	int testTwo = 0;
 	int testThree = 0;
@@ -28,6 +36,7 @@ void Observer::eventHandler(ppc::Event event)
 	cout << "the value of testTwo is " << testTwo << endl;
 	cout << "the value of testThree is " << testThree << endl;
 	return;
+	*/
 }
 
 
