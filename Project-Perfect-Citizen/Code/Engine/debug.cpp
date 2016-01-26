@@ -38,7 +38,10 @@ void Debug::setFlags(string& flag) {
 
 	size_t M = flag.find_first_not_of('@');
 	size_t m = M + 1;
-
+	if (m >= flag.length()) {
+		cerr << "Invalid flag: " << flag << endl;
+		return;
+	}
 	for (; m <= flag.length(); M+=2, m+=2) {
 		unsigned char major = flag.at(M);
 		unsigned char minor = flag.at(m);
