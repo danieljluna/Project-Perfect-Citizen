@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
 	//Need this at very beginning
 	Debug::scanOpts(argc, argv);
 	//Example of using the debugger
-	DEBUGF("rc", argc);
+	DEBUGF("ac", argc);
 
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
