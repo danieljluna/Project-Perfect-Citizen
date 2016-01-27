@@ -37,6 +37,12 @@
     <ClCompile Include="Code\Engine\TestObserver.cpp">
       <Filter>Sources\Examples</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\world.cpp">
+      <Filter>Sources\Engine\World</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\debug.cpp">
+      <Filter>Sources\Engine\Debug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -77,6 +83,12 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\TestObserver.h">
       <Filter>Headers\Engine\Entity / Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\world.h">
+      <Filter>Headers\Engine\World</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\debug.h">
+      <Filter>Headers\Engine\Debug</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +147,18 @@
     </Filter>
     <Filter Include="Sources\Engine\Events">
       <UniqueIdentifier>{19e64c98-7fda-48db-a0d3-b0f4e8e67694}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\World">
+      <UniqueIdentifier>{10c7e7da-8d8c-4ecb-a8b7-08b3b10b1424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\World">
+      <UniqueIdentifier>{826a65fd-e2f4-4180-b010-873afea164e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\Debug">
+      <UniqueIdentifier>{8585b42c-5752-4825-830d-fe1ff11d4085}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Debug">
+      <UniqueIdentifier>{051d946d-8c24-475d-a444-0191eadde47e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
