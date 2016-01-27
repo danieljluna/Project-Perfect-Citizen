@@ -34,6 +34,12 @@
     <ClCompile Include="Code\Engine\inputComponent.cpp">
       <Filter>Sources\Engine\Entity / Componentns</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\TestObserver.cpp">
+      <Filter>Headers\Engine\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\TestSubject.cpp">
+      <Filter>Headers\Engine\Events</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -75,9 +81,20 @@
     <ClInclude Include="Code\Engine\WindowDecorator.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h" />
     <ClInclude Include="Code\Engine\inputComponent.h">
       <Filter>Headers\Engine\Entity / Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\WindowInterface.h">
+      <Filter>Headers\Engine\Windows / Desktop</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\TestSubject.h">
+      <Filter>Headers\Engine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\TestObserver.h">
+      <Filter>Headers\Engine\Events</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -147,11 +164,13 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Project-Perfect-Citizen.rc" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Code\Engine\ClassDiagram.cd">
       <Filter>Resources\Coding Help</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Project-Perfect-Citizen.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

@@ -5,13 +5,15 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
+
+namespace ppc {
+
 ///////////////////////////////////////////////////////////////////////
 /// @brief The base class for all components that need to be rendered!
 /// @details Remember, any class that is a child of RenderComponent 
 ///     must implement void draw(sf::RenderTarget& target, 
 ///     sf::RenderStates states). 
 ///////////////////////////////////////////////////////////////////////
-
 class RenderComponent : public ppc::Component, public sf::Drawable {
 protected:
 
@@ -29,4 +31,9 @@ protected:
 
 
 };
+
+
+};  //End namespace ppc
+
+
 #endif

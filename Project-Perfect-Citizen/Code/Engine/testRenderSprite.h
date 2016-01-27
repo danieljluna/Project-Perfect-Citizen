@@ -2,7 +2,9 @@
 #include <SFML/Graphics.hpp>
 #include "renderComponent.h"
 #include <string>
+
 using namespace std;
+
 /////////////////////////////////////////////////////////////
 /// @brief and example class inheiritng from RenderComponent!
 /// @details I made this class to help anyone in creating a 
