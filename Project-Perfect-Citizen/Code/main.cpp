@@ -15,9 +15,9 @@
 #include "Engine/testRenderSprite.h"
 #include <iostream>
 #include "Engine/testRotateSprite.h"
-#include "Engine\subject.h"
-#include "Engine\TestSubject.h"
-#include "Engine\TestObserver.h"
+#include "Engine/subject.h"
+#include "Engine/TestSubject.h"
+#include "Engine/TestObserver.h"
 #include "Engine/debug.h"
 
 using namespace std;
