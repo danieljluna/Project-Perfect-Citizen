@@ -25,7 +25,7 @@ using namespace std;
 int main(int argc, char** argv) {
 	//Need this at very beginning
 	Debug::scanOpts(argc, argv);
-	//Example of using the debugger
+	//Example of using the debugger macro
 	DEBUGF("ac", argc);
 
     // Create the main window
