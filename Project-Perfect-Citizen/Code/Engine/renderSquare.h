@@ -5,7 +5,7 @@
 
 //For the moment this class is defunct
 
-class RenderSquare : public RenderComponent {
+class RenderSquare : public ppc::RenderComponent {
 private:
 	int area;
 	sf::RectangleShape* rect;

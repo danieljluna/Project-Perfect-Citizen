@@ -1,17 +1,42 @@
 #pragma once
-//Another possible solution
+//Programmed by Andy
 
-union Event {
-	enum eventType { RENDER, INPUT, UPDATE };
-	eventType type;
-	struct renderStruct
+namespace ppc {
+	//This is the event struct. You can add events here
+	//if you need them. Nothing here is final except
+	//the template. 
+	struct Event
 	{
-		int testRenderInt;
+		struct RenderStruct {
+			int testRenderEventInt;
+			double testRenderEventDouble;
+		};
+
+		struct InputStruct {
+			char testInputEventChar;
+			float testInputEventFloat;
+		};
+
+		struct UpdateStruct {
+			int testUpdateInt;
+			int testUpdateIntTwo;
+		};
+
+		enum EventTypes
+		{
+			RenderEventType,
+			InputEventType,
+			UpdateEventType,
+
+			Count
+		};
+
+		EventTypes type;
+
+		union {
+			RenderStruct renderStruct;
+			InputStruct inputStruct;
+			UpdateStruct updateStruct;
+		};
 	};
-	struct inputStruct {
-		int testInputInt;
-	};
-	struct updateStruct {
-		int testUpdateStruct;
-	};
-};
+} //end of ppc namespace
