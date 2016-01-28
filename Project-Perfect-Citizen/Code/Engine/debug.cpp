@@ -23,7 +23,9 @@ void Debug::scanOpts(int argc, char** argv) {
 	//substr should have found the flags
 	// starting from the @
 
-	setFlags(flags.substr(found));
+    string temp = flags.substr(found);
+    
+	setFlags(temp);
 }
 
 void Debug::setFlags(string& flag) {
