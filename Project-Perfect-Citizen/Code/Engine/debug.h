@@ -139,7 +139,7 @@ public:
 #define DEBUGF(FLAG,CODE) { \
            if (Debug::getFlag (FLAG)) { \
               Debug::where (FLAG, __FILE__, __LINE__, __func__); \
-              cerr << CODE << endl; \
+              cout << CODE << endl; \
            } \
         }
 #define DEBUGS(FLAG,STMT) { \
