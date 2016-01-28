@@ -20,6 +20,7 @@ void TestRenderSprite::render(sf::RenderWindow* wnd) {
 	wnd->draw(*(this->sprite));
 }
 
+
 sf::Sprite*  TestRenderSprite::getSprite() {
 	return this->sprite;
 }

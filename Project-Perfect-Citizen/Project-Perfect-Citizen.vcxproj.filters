@@ -2,87 +2,148 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Code\Engine\component.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\entity.cpp">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Sources\Engine\Entity / Componentns</Filter>
     </ClCompile>
     <ClCompile Include="Code\main.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\renderComponent.cpp">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Sources\Engine\Entity / Componentns</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\renderSquare.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Sources\Examples</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\testRenderSprite.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Sources\Examples</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\testRotateSprite.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Sources\Examples</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\updateComponent.cpp">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Sources\Engine\Entity / Componentns</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\entity.cpp">
+      <Filter>Sources\Engine\Entity / Componentns</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\observer.cpp">
+      <Filter>Sources\Engine\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\subject.cpp">
+      <Filter>Sources\Engine\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\TestSubject.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\TestObserver.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\debug.cpp" />
+    <ClCompile Include="Code\Engine\world.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\entity.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\objectPool.h">
-      <Filter>Header Files\Engine</Filter>
+      <Filter>Headers\Engine\Entity / Components</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\renderComponent.h">
-      <Filter>Header Files\Engine</Filter>
+      <Filter>Headers\Engine\Entity / Components</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\renderSquare.h">
-      <Filter>Header Files</Filter>
+      <Filter>Headers\Examples</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\testRenderSprite.h">
-      <Filter>Header Files</Filter>
+      <Filter>Headers\Examples</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\testRotateSprite.h">
-      <Filter>Header Files</Filter>
+      <Filter>Headers\Examples</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\updateComponent.h">
-      <Filter>Header Files\Engine</Filter>
+      <Filter>Headers\Engine\Entity / Components</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\entity.h">
+      <Filter>Headers\Engine\Entity / Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\objectPool.h">
+      <Filter>Headers\Engine\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\event.h">
+      <Filter>Headers\Engine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\observer.h">
+      <Filter>Headers\Engine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\subject.h">
+      <Filter>Headers\Engine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\TestSubject.h">
+      <Filter>Headers\Engine\Entity / Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\TestObserver.h">
+      <Filter>Headers\Engine\Entity / Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\debug.h" />
+    <ClInclude Include="Code\Engine\world.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Resources\Coding Reference\LinkHelp.txt">
-      <Filter>Resources</Filter>
-    </Text>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
-      <Filter>Resources</Filter>
+      <Filter>Resources\Coding Help</Filter>
+    </Text>
+    <Text Include="Resources\Coding Reference\LinkHelp.txt">
+      <Filter>Resources\Coding Help</Filter>
     </Text>
     <Text Include="Resources\Engine\EngineSettings.ini">
-      <Filter>Resources</Filter>
+      <Filter>Resources\Settings</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{7518563c-97d3-417c-af26-7bcfba4cbfe8}</UniqueIdentifier>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{baf9a50b-2459-44c3-aa9d-3ca9b67a6d6e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Engine">
-      <UniqueIdentifier>{8f13e866-01ef-4d4f-ac40-057b17afa9a9}</UniqueIdentifier>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{0048f3c6-0ebf-47dc-a74c-e217259352a1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{6b6f9a16-ff9a-4041-8728-d1e68c420ace}</UniqueIdentifier>
+    <Filter Include="Headers\Examples">
+      <UniqueIdentifier>{0e01e25d-6c29-48e5-bce3-97628031278d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine">
-      <UniqueIdentifier>{fbe4a463-be3e-49f4-b29c-d986458a80c7}</UniqueIdentifier>
+    <Filter Include="Sources\Examples">
+      <UniqueIdentifier>{8a64dff5-ecb4-44d7-8311-ec366f68d802}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources">
-      <UniqueIdentifier>{82ece3a0-69a0-4eed-97b1-8af334d720b0}</UniqueIdentifier>
+      <UniqueIdentifier>{07c1c74f-fcc1-49b8-aa8a-b438b52a61a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine">
+      <UniqueIdentifier>{01d7fd51-8484-4aa9-bafd-9217f70e9980}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine">
+      <UniqueIdentifier>{093476ea-4708-4aef-8384-88bfb45fae2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Entity / Components">
+      <UniqueIdentifier>{4f1d9cab-6ee2-49f8-8756-64ebe9c1827f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Container">
+      <UniqueIdentifier>{ca1e9255-955b-4d50-b0cb-8fe4874deaca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Coding Help">
+      <UniqueIdentifier>{16aa2900-6943-4c9e-a949-81718767f3ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Images">
+      <UniqueIdentifier>{509bb8a5-e988-46a9-882d-856e731768f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Settings">
+      <UniqueIdentifier>{77f507f0-42f8-4ef5-ae29-82def3e32d81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\Entity / Componentns">
+      <UniqueIdentifier>{b81f4938-d823-4aa0-9be0-5b28592faa7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Events">
+      <UniqueIdentifier>{0701780d-79e0-4e34-8731-61e9b95ba5a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\Events">
+      <UniqueIdentifier>{19e64c98-7fda-48db-a0d3-b0f4e8e67694}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\kappa.png">
-      <Filter>Resources</Filter>
+      <Filter>Resources\Images</Filter>
     </Image>
   </ItemGroup>
 </Project>

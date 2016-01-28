@@ -301,3 +301,11 @@ build/
 *.suo
 *.db
 Project-Perfect-Citizen.VC.opendb
+
+*.xcscheme
+
+*.plist
+
+*.xcuserstate
+Project-Perfect-Citizen/Project-Perfect-Citizen.vcxproj.filters
+Project-Perfect-Citizen/Project-Perfect-Citizen.vcxproj.filters

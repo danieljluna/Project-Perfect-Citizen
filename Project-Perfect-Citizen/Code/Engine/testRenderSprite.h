@@ -9,7 +9,7 @@ using namespace std;
 /// renderComponent child Class. Dont be afraid to ask questions
 /// and use this as a template!
 /////////////////////////////////////////////////////////////
-class TestRenderSprite : public RenderComponent {
+class TestRenderSprite : public ppc::RenderComponent {
 private:
 	sf::Sprite* sprite;
 	sf::Texture* texture;
