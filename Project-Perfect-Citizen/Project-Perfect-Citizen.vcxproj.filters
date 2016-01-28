@@ -37,6 +37,8 @@
     <ClCompile Include="Code\Engine\TestObserver.cpp">
       <Filter>Sources\Examples</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\debug.cpp" />
+    <ClCompile Include="Code\Engine\world.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -78,6 +80,8 @@
     <ClInclude Include="Code\Engine\TestObserver.h">
       <Filter>Headers\Engine\Entity / Components</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\debug.h" />
+    <ClInclude Include="Code\Engine\world.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
