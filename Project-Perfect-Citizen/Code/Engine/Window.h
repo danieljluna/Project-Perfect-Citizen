@@ -11,7 +11,7 @@
 #include "inputComponent.h"
 #include "updateComponent.h"
 #include "renderComponent.h"
-#include "WindowInterface.h"
+#include "windowInterface.h"
 
 
 namespace ppc {
@@ -27,28 +27,50 @@ public:
   // Constructors and Destructor
   /////////////////////////////////////////////////////////////////////
 
+    //No Default Constructor
     Window() = delete;
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Window Constructor
+    /// @details Creates a Window of the given width and height.
+    ///
+    /// @param width The desired width of the Window
+    /// @param height The desired height of the Window
+    ///////////////////////////////////////////////////////////////////
     Window(unsigned int width, unsigned int height);
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Window Constructor
+    /// @details Creates a Window of the given size.
+    ///
+    /// @param size The desired size of the Window
+    ///////////////////////////////////////////////////////////////////
+    Window(const sf::Vector2u& size);
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Copy Constructor
+    ///////////////////////////////////////////////////////////////////
     Window(const Window& other);
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Virtual Destructor
+    ///////////////////////////////////////////////////////////////////
     virtual ~Window();
 
 
   /////////////////////////////////////////////////////////////////////
-  // Update Functionality
+  // Step Functionality
   /////////////////////////////////////////////////////////////////////
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Updates this, and all objects in the Window.
     ///////////////////////////////////////////////////////////////////
-    virtual void update(sf::Time deltaTime);
+    void update(sf::Time& deltaTime);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Reacts to Input for this, and all objects in the Window.
     ///////////////////////////////////////////////////////////////////
-    virtual void getInput();
+    void registerInput();
 
 
 protected:
@@ -63,21 +85,8 @@ protected:
     /// object can be rendered in. For now this can be safely "ignored"
     /// Just created a RenderStates object and shove it in there. 
     ///////////////////////////////////////////////////////////////////
-    virtual void draw(sf::RenderTarget& target,
-                      sf::RenderStates states) const override;
-
-  /////////////////////////////////////////////////////////////////////
-  // Protected Constructors
-  /////////////////////////////////////////////////////////////////////
-
-    //Default Constructor
-    Window();
-
-    //Copy Constructor
-    Window(const Window& other);
-
-    //Move Constructor
-    Window(Window&& other);
+    void draw(sf::RenderTarget& target, 
+              sf::RenderStates states) const final;
 
 
   /////////////////////////////////////////////////////////////////////
@@ -90,9 +99,9 @@ protected:
     
     std::vector<InputComponent> inputcmpnts_;
 
-    std::vector<InputComponent> updatecmpnts_;
+    std::vector<UpdateComponent> updatecmpnts_;
 
-    std::vector<InputComponent> rendercmpnts_;
+    std::vector<RenderComponent> rendercmpnts_;
 
 
 };

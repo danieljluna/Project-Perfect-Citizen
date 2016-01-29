@@ -12,7 +12,7 @@
 
 using namespace std;
 
-class testRotateSprite : public ppc::updateComponent {
+class testRotateSprite : public ppc::UpdateComponent {
 
 private:
 	sf::Sprite* sprite;

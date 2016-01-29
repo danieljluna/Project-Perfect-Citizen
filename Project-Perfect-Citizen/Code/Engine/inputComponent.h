@@ -25,7 +25,7 @@ public:
     virtual ~InputComponent();
 
 
-    virtual void getInput() = 0;
+    virtual void registerInput() = 0;
 
 
 private:

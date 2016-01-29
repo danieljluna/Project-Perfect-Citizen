@@ -16,7 +16,7 @@ namespace ppc {
 	///	inheirting from this class must define the virtual function:
 	/// void update(sf::Time deltaTime). 
 	///////////////////////////////////////////////////////////////////
-	class updateComponent : public ppc::Component {
+	class UpdateComponent : public ppc::Component {
 
 	////////////////////////////////////////////////////////
 	// PRIVATE FIELDS
@@ -39,25 +39,25 @@ namespace ppc {
 		/// @details New components are added by the Ctor. Pointers
 		/// in the vector are deleted by the Dtor when it is called.
 		/////////////////////////////////////////////////////////////
-		static vector<updateComponent*> updateVector;
+		static vector<UpdateComponent*> updateVector;
 
 		/////////////////////////////////////////////////////////////
-		/// @brief Ctor for updateComponent
+		/// @brief Ctor for UpdateComponent
 		/// @details Adds the newly created update component
 		/// to the updateVector. 
 		/////////////////////////////////////////////////////////////
-		updateComponent();
+		UpdateComponent();
 
 		////////////////////////////////////////////////////////////
-		/// @brief Dtor for updateComponent
+		/// @brief Dtor for UpdateComponent
 		/// @details Calls removeElement with index as its argument,
 		/// therefore having the component delete itself from
 		/// the update vector.
 		////////////////////////////////////////////////////////////
-		virtual ~updateComponent();
+		virtual ~UpdateComponent();
 
 		/////////////////////////////////////////////////////////////
-		/// @brief Removes a component from updateComponent::updateVector
+		/// @brief Removes a component from UpdateComponent::updateVector
 		/// @details Erases the component. The Dtor calls this.
 		/// @param [in] [index] Index in the update vector. Should have
 		/// been saved when it was added to the vector. Right when a
@@ -85,7 +85,7 @@ namespace ppc {
 		///
 		/// @return void
 		/////////////////////////////////////////////////////////
-		virtual void update(sf::Time deltaTime) = 0;
+		virtual void update(sf::Time& deltaTime) = 0;
 };
 } //end of namespace
 
