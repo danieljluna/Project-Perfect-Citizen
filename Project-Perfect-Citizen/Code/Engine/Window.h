@@ -27,9 +27,11 @@ public:
   // Constructors and Destructor
   /////////////////////////////////////////////////////////////////////
 
-    Window();
+    Window() = delete;
 
-    Window(const Window& other) = delete;
+    Window(unsigned int width, unsigned int height);
+
+    Window(const Window& other);
 
     virtual ~Window();
 
@@ -82,15 +84,15 @@ protected:
   // Protected Members
   /////////////////////////////////////////////////////////////////////
 
-    sf::RenderTexture windowSpace;
+    sf::RenderTexture windowSpace_;
 
-    sf::View windowView;
+    sf::View windowView_;
     
-    std::vector<InputComponent> inputcmpnts;
+    std::vector<InputComponent> inputcmpnts_;
 
-    std::vector<InputComponent> updatecmpnts;
+    std::vector<InputComponent> updatecmpnts_;
 
-    std::vector<InputComponent> rendercmpnts;
+    std::vector<InputComponent> rendercmpnts_;
 
 
 };
