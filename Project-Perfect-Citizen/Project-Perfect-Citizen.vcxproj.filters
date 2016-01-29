@@ -40,6 +40,9 @@
     <ClCompile Include="Code\Engine\TestSubject.cpp">
       <Filter>Headers\Engine\Events</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\Window.cpp">
+      <Filter>Sources\Engine\Windows / Desktop</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -156,6 +159,9 @@
     </Filter>
     <Filter Include="Headers\Engine\Windows / Desktop">
       <UniqueIdentifier>{07b2c04c-7b37-4978-895c-e50d30a12648}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\Windows / Desktop">
+      <UniqueIdentifier>{31755ff1-68f5-48c3-be25-9a9489bd0df7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

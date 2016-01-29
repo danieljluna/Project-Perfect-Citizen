@@ -4,6 +4,7 @@
 #include <vector>
 
 #include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/RenderTexture.hpp>
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 
@@ -23,8 +24,12 @@ class Window : public WindowInterface, public sf::Drawable {
 public:
 
   /////////////////////////////////////////////////////////////////////
-  // Destructor
+  // Constructors and Destructor
   /////////////////////////////////////////////////////////////////////
+
+    Window();
+
+    Window(const Window& other) = delete;
 
     virtual ~Window();
 
@@ -77,7 +82,9 @@ protected:
   // Protected Members
   /////////////////////////////////////////////////////////////////////
 
-    sf::RectangleShape background;
+    sf::RenderTexture windowSpace;
+
+    sf::View windowView;
     
     std::vector<InputComponent> inputcmpnts;
 
