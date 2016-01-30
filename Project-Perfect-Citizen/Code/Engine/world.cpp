@@ -30,11 +30,11 @@ ppc::World::~World() {
 		this->worldIndex);
 }
 
-size_t ppc::World::desktopCount() {
+size_t ppc::World::desktopCount() const {
 	return desktopCount_;
 }
 
-ppc::Desktop* ppc::World::getDesktop(int index) {
+ppc::Desktop* ppc::World::getDesktop(int index) const{
 	if ((size_t)index > desktopCount() || index < 0) return nullptr;
 	return desktops_[index];
 }
