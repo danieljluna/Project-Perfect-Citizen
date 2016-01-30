@@ -3,13 +3,13 @@
 #pragma once
 
 #include <vector>
-
+#include "desktop.h"
 using namespace std;
 
 namespace ppc {
 
 
-	class Desktop;
+	
 
 
 	//////////////////////////////////////////////////////////////////////
@@ -78,7 +78,7 @@ namespace ppc {
 		/// @brief Return how many Desktops this World contains
 		/// @return Return how many Desktops this World contains
 		//////////////////////////////////////////////////////////////////////
-		size_t desktopCount();
+		size_t desktopCount() const;
 
 		//////////////////////////////////////////////////////////////////////
 		/// @brief Returns the Desktop at the specified index
@@ -87,7 +87,7 @@ namespace ppc {
 		/// @return If the index is valid, returns a pointer to the desired
 		///		Desktop. Otherwise, nullptr.
 		//////////////////////////////////////////////////////////////////////
-		Desktop* getDesktop(int index);
+		Desktop* getDesktop(int index) const;
 
 		//////////////////////////////////////////////////////////////////////
 		/// @brief Returns the index of a specified Desktop
