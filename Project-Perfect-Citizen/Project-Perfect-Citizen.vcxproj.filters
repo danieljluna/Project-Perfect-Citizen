@@ -34,6 +34,15 @@
     <ClCompile Include="Code\Engine\Window.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\world.cpp">
+      <Filter>Sources\Engine\World</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\debug.cpp">
+      <Filter>Sources\Engine\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\desktop.cpp">
+      <Filter>Sources\Engine\Desktop</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -74,6 +83,11 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\inputComponent.h">
       <Filter>Headers\Engine\Entity / Components</Filter>
+    <ClInclude Include="Code\Engine\world.h">
+      <Filter>Headers\Engine\World</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\debug.h">
+      <Filter>Headers\Engine\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\WindowInterface.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
@@ -85,7 +99,13 @@
       <Filter>Headers\Engine\Events</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\TestObserver.h">
-      <Filter>Headers\Engine\Events</Filter>
+      <Filter>Headers\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\TestSubject.h">
+      <Filter>Headers\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\desktop.h">
+      <Filter>Headers\Engine\Desktop</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +170,23 @@
     </Filter>
     <Filter Include="Sources\Engine\Windows / Desktop">
       <UniqueIdentifier>{31755ff1-68f5-48c3-be25-9a9489bd0df7}</UniqueIdentifier>
+    <Filter Include="Headers\Engine\World">
+      <UniqueIdentifier>{10c7e7da-8d8c-4ecb-a8b7-08b3b10b1424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\World">
+      <UniqueIdentifier>{826a65fd-e2f4-4180-b010-873afea164e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\Debug">
+      <UniqueIdentifier>{8585b42c-5752-4825-830d-fe1ff11d4085}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Debug">
+      <UniqueIdentifier>{051d946d-8c24-475d-a444-0191eadde47e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\Desktop">
+      <UniqueIdentifier>{a389dd8d-6648-4fdf-b3bc-86d12676f05f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Desktop">
+      <UniqueIdentifier>{135f0a23-fd8a-47d5-971c-9c80b6812871}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -12,6 +12,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\Engine\component.cpp" />
+    <ClCompile Include="Code\Engine\debug.cpp" />
+    <ClCompile Include="Code\Engine\desktop.cpp" />
     <ClCompile Include="Code\Engine\entity.cpp" />
     <ClCompile Include="Code\Engine\observer.cpp" />
     <ClCompile Include="Code\Engine\subject.cpp" />
@@ -30,6 +32,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h" />
+    <ClInclude Include="Code\Engine\debug.h" />
+    <ClInclude Include="Code\Engine\desktop.h" />
     <ClInclude Include="Code\Engine\entity.h" />
     <ClInclude Include="Code\Engine\event.h" />
     <ClInclude Include="Code\Engine\inputComponent.h" />
