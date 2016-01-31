@@ -8,10 +8,10 @@
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 
+#include "windowInterface.h"
 #include "inputComponent.h"
 #include "updateComponent.h"
 #include "renderComponent.h"
-#include "windowInterface.h"
 
 
 namespace ppc {
@@ -20,7 +20,7 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 /// @brief Manages a sub-screen with its own Components
 ///////////////////////////////////////////////////////////////////////
-class Window : public WindowInterface, public sf::Drawable {
+class Window : public WindowInterface {
 public:
 
   /////////////////////////////////////////////////////////////////////
@@ -65,12 +65,12 @@ public:
     ///////////////////////////////////////////////////////////////////
     /// @brief Updates this, and all objects in the Window.
     ///////////////////////////////////////////////////////////////////
-    void update(sf::Time& deltaTime);
+    virtual void update(sf::Time& deltaTime) override;
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Reacts to Input for this, and all objects in the Window.
     ///////////////////////////////////////////////////////////////////
-    void registerInput();
+    virtual void registerInput() override;
 
 
 protected:
@@ -86,7 +86,7 @@ protected:
     /// Just created a RenderStates object and shove it in there. 
     ///////////////////////////////////////////////////////////////////
     void draw(sf::RenderTarget& target, 
-              sf::RenderStates states) const final;
+              sf::RenderStates states) const override;
 
 
   /////////////////////////////////////////////////////////////////////
@@ -97,11 +97,11 @@ protected:
 
     sf::View windowView_;
     
-    std::vector<InputComponent> inputcmpnts_;
+    std::vector<InputComponent*> inputcmpnts_;
 
-    std::vector<UpdateComponent> updatecmpnts_;
+    std::vector<UpdateComponent*> updatecmpnts_;
 
-    std::vector<RenderComponent> rendercmpnts_;
+    std::vector<RenderComponent*> rendercmpnts_;
 
 
 };

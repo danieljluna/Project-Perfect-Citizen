@@ -11,7 +11,6 @@
 #include <SFML/Main.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include "Engine/renderSquare.h"
 #include "Engine/testRenderSprite.h"
 #include <iostream>
 #include "Engine/testRotateSprite.h"
@@ -50,8 +49,6 @@ int main(int argc, char** argv) {
 	S.setPosition(100, 100);
 	S.setScale(0.2f, 0.2f);
 
-	//Add the component to it
-	testRotateSprite test(S, 1);
     // Start the game loop
 	sf::Clock deltaTime; //define deltaTime
 	sf::Time dt;
@@ -65,28 +62,13 @@ int main(int argc, char** argv) {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-		//Update
-		test.update(dt);
 
         // Clear screen
         window.clear();
-		//testRect->render(&window);
-		//going though the static renderVector inside component and 
-		//calling class testRenderSprites' render function
 
-		for (auto iter = ppc::RenderComponent::renderVector.begin(); 
-			iter != ppc::RenderComponent::renderVector.end(); iter++) {
-			//this line casts the (*iter) which is originally a base 
-			//pointer of type RenderComponent into 
-			//type TestRenderSprite*
-			//http://www.cplusplus.com/forum/general/2710/
-			//(dynamic_cast <TestRenderSprite*>(*iter))->draw(window, testRenderState);
-			window.draw(**iter);
-		}
 
 		window.draw(S);
-		//testSpriteTwo->draw(window, testRenderState);
-        // Update the window
+		
         window.display();
     }
     return EXIT_SUCCESS;

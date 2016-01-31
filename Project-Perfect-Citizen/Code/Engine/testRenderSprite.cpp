@@ -7,12 +7,10 @@ TestRenderSprite::TestRenderSprite(string filename) {
 	texture->loadFromFile(filename);
 	sprite->setTexture(*texture);
 	sprite->setPosition(
-            100.0 + (100.0 * RenderComponent::renderVector.size()), 
-            100.0 + (100.0 * RenderComponent::renderVector.size())
+            100.0 + (100.0 * (rand() % 10)), 
+            100.0 + (100.0 * (rand() % 10))
         );
 	sprite->setScale(.2f, .2f);
-	RenderComponent::renderVector.push_back(this);
-	vectorIndex = RenderComponent::renderVector.size() - 1;
 }
 
 
@@ -24,13 +22,7 @@ void TestRenderSprite::draw(sf::RenderTarget& target, sf::RenderStates states) c
 	target.draw(*(this->sprite), states);
 }
 
-int TestRenderSprite::getVectorIndex()
-{
-	return this->vectorIndex;
-}
 
 //in progress
-TestRenderSprite::~TestRenderSprite() {
-	RenderComponent::renderVector.erase(RenderComponent::renderVector.begin() + this->vectorIndex);
-}
+TestRenderSprite::~TestRenderSprite() {}
 

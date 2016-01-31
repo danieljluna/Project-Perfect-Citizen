@@ -7,12 +7,6 @@
     <ClCompile Include="Code\main.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\renderComponent.cpp">
-      <Filter>Sources\Engine\Entity / Componentns</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\renderSquare.cpp">
-      <Filter>Sources\Examples</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\testRenderSprite.cpp">
       <Filter>Sources\Examples</Filter>
     </ClCompile>
@@ -31,9 +25,6 @@
     <ClCompile Include="Code\Engine\subject.cpp">
       <Filter>Sources\Engine\Events</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\inputComponent.cpp">
-      <Filter>Sources\Engine\Entity / Componentns</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\TestObserver.cpp">
       <Filter>Headers\Engine\Events</Filter>
     </ClCompile>
@@ -43,8 +34,6 @@
     <ClCompile Include="Code\Engine\Window.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\debug.cpp" />
-    <ClCompile Include="Code\Engine\world.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -52,9 +41,6 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\renderComponent.h">
       <Filter>Headers\Engine\Entity / Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\renderSquare.h">
-      <Filter>Headers\Examples</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\testRenderSprite.h">
       <Filter>Headers\Examples</Filter>
@@ -101,8 +87,6 @@
     <ClInclude Include="Code\Engine\TestObserver.h">
       <Filter>Headers\Engine\Events</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\debug.h" />
-    <ClInclude Include="Code\Engine\world.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">

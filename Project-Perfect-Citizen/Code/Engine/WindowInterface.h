@@ -15,7 +15,7 @@ namespace ppc {
 ///     class is needed to define the common interface between all 
 ///     classes in the hierarchy.
 ///////////////////////////////////////////////////////////////////////
-class WindowInterface : sf::Drawable {
+class WindowInterface : public sf::Drawable, public sf::Transformable {
 public:
   /////////////////////////////////////////////////////////////////////
   // Virtual Destructor
@@ -31,12 +31,12 @@ public:
     ///////////////////////////////////////////////////////////////////
     /// @brief Updates this, and all objects in the Window.
     ///////////////////////////////////////////////////////////////////
-    virtual void update(sf::Time deltaTime) = 0;
+    virtual void update(sf::Time& deltaTime) = 0;
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Reacts to Input for this, and all objects in the Window.
     ///////////////////////////////////////////////////////////////////
-    virtual void getInput() = 0;
+    virtual void registerInput() = 0;
 
 
 protected:

@@ -14,23 +14,20 @@ namespace ppc {
 /// @details Currently not actually functional. Waiting on the 
 ///     implementation of Observers and Subjects. Not for use yet.
 /// 
-/// @todo Implement.
+/// @todo Implement. Requires updated Observer
 ///////////////////////////////////////////////////////////////////////
 class InputComponent : public Component {
 public:
 
-
-    InputComponent() = delete;
-
-    virtual ~InputComponent();
+    virtual ~InputComponent() {};
 
 
     virtual void registerInput() = 0;
 
 
-private:
+protected:
 
-    size_t id;
+    InputComponent() {};
 
 };
 

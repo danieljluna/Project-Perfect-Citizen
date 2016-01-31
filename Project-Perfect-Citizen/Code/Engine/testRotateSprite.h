@@ -21,6 +21,6 @@ public:
 	testRotateSprite();
 	testRotateSprite(sf::Sprite& sprt, float angle);
 	~testRotateSprite();
-	void update(sf::Time deltaTime) override;
+	void update(sf::Time& deltaTime) override;
 };
 
