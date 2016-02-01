@@ -16,23 +16,17 @@
 
 #include "Engine/testRenderSprite.h"
 #include "Engine/testRotateSprite.h"
-<<<<<<< HEAD
 #include "Engine/subject.h"
-#include "Engine/TestSubject.h"
-#include "Engine/TestObserver.h"
-#include "Engine/debug.h"
-#include "Library/json/json.h"
-#include <fstream>
-=======
 #include "Engine/TestSubject.h"
 #include "Engine/TestObserver.h"
 #include "Engine/debug.h"
 #include "Engine/entity.h"
 #include "Engine/Window.h"
+#include "Library/json/json.h"
+#include <fstream>
 
 using namespace ppc;
 
->>>>>>> experimental
 
 //Note that this is placeholder for now
 int main(int argc, char** argv) {
@@ -47,7 +41,7 @@ int main(int argc, char** argv) {
     //Define a Sprite
     sf::Sprite S;
     sf::Texture T;
-    if (!(T.loadFromFile(resourcePath() + "Resources/kappa.png"))) {
+    if (!(T.loadFromFile(resourcePath() + "kappa.png"))) {
         //Test for failure
         cerr << "COULD NOT LOAD KAPPA.PNG\n";
         std::system("PAUSE");
@@ -59,7 +53,7 @@ int main(int argc, char** argv) {
 
 
     //Create A TestRenderSprite
-    TestRenderSprite testRenderSpr(resourcePath() + "Resources/kappa.png");
+    TestRenderSprite testRenderSpr(resourcePath() + "kappa.png");
 
     //Create A TestRotateSprite
 	testRotateSprite testSprCmpnt;
@@ -73,7 +67,6 @@ int main(int argc, char** argv) {
     //Add testEntity to ppc::Window
     kappaBlack.addEntity(testEntity);
 
-<<<<<<< HEAD
 	//Add the component to it
 	testRotateSprite test(S, 1);
     // Start the game loop
@@ -107,12 +100,9 @@ int main(int argc, char** argv) {
     string temp = value.get("Try to find me", "Not found" ).asString();
     cout << temp << endl;
     ////////////////////////////////////////////////////////////////////
-=======
-////Start the game loop
+    ////Start the game loop
     //Used to keep track time
-	sf::Clock deltaTime;
     sf::Time framePeriod = sf::milliseconds(1000.0f / 30.f);
->>>>>>> experimental
     while (window.isOpen()) {
         //Process sf::events
         sf::Event event;
