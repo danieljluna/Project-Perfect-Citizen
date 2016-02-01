@@ -13,13 +13,15 @@ class Component;
 
 //TODO: Finish Entity Interface
 ///////////////////////////////////////////////////////////////////////
-/// @brief Uses a collection of Components to define a Entity
+/// @brief Uses a collection of Components to define a Entity.
+/// @author Daniel Luna
 /// @details The Entity is a minimally intrusive class that holds 
 ///     together the real powerhouses: the Components. The Entity is 
 ///     not designed to anything other than group Components 
 ///     considered to be part of the same Entity. The only member
 ///     data in Entity should be data used by a vast majority of 
-///     Components.
+///     Components. Furthermore, an Entity takes responsibility for
+///     the destruction of its Components.
 ///////////////////////////////////////////////////////////////////////
 class Entity {
 public:
@@ -50,7 +52,7 @@ public:
     ///////////////////////////////////////////////////////////////////
     /// @brief Returns the number of Components in this Entity.
     /// 
-    /// @ret Returns the number of Components in this Entity.
+    /// @return Returns the number of Components in this Entity.
     ///////////////////////////////////////////////////////////////////
     size_t cmpntCount();
   
@@ -60,8 +62,8 @@ public:
     /// @pre (0 < index < cmpntCount())
     ///
     /// @param index The index to return
-    /// @ret Returns a pointer to the Component with the given index in
-    ///     this Entity.
+    /// @return  Returns a pointer to the Component with the given
+    ///     index in this Entity.
     ///////////////////////////////////////////////////////////////////
     Component* getComponent(size_t index);
     
@@ -69,8 +71,8 @@ public:
     /// @brief Returns the index of the Component in this Entity.
     /// 
     /// @param cmpnt The Component to get the index of.
-    /// @ret Returns the index of cmpnt in this Entity. If cmpnt is not
-    ///     part of this Entity, returns -1.
+    /// @return Returns the index of cmpnt in this Entity. If cmpnt is
+    ///     not part of this Entity, returns -1.
     ///////////////////////////////////////////////////////////////////
     int getIndex(Component* cmpnt);
 
@@ -131,10 +133,16 @@ public:
     void broadcastMessage(msgType message);
 
 
-private:
+  /////////////////////////////////////////////////////////////////////
+  // Static Variables
+  /////////////////////////////////////////////////////////////////////
 
-    //Holds the max amount of Components per Entity
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Holds the max amount of Components per Entity
+    ///////////////////////////////////////////////////////////////////
     static const size_t maxComponentCount = 10;
+
+private:
     
     //Stores a collection of pointers to Components
     Component* components_[maxComponentCount];

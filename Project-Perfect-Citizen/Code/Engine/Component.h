@@ -11,6 +11,7 @@ class Entity;
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Parent Class of all Component types.
+/// @author Daniel Luna
 /// @details Components are a base class used most commonly in pairing
 ///     with the Entity class. Components can be assigned an Entity, 
 ///     and doing so will allow the Component to send / recieve

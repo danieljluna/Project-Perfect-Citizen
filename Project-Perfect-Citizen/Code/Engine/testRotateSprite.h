@@ -12,7 +12,7 @@
 
 using namespace std;
 
-class testRotateSprite : public ppc::updateComponent {
+class testRotateSprite : public ppc::UpdateComponent {
 
 private:
 	sf::Sprite* sprite;
@@ -21,6 +21,6 @@ public:
 	testRotateSprite();
 	testRotateSprite(sf::Sprite& sprt, float angle);
 	~testRotateSprite();
-	void update(sf::Time deltaTime) override;
+	void update(sf::Time& deltaTime) override;
 };
 

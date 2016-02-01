@@ -18,6 +18,6 @@ testRotateSprite::~testRotateSprite() {
 	this->sprite = nullptr;
 }
 
-void testRotateSprite::update(sf::Time deltaTime) {
+void testRotateSprite::update(sf::Time& deltaTime) {
 	this->sprite->rotate(angle);
 }
