@@ -13,9 +13,6 @@
     <ClCompile Include="Code\Engine\testRotateSprite.cpp">
       <Filter>Sources\Examples</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\updateComponent.cpp">
-      <Filter>Sources\Engine\Entity / Componentns</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\entity.cpp">
       <Filter>Sources\Engine\Entity / Componentns</Filter>
     </ClCompile>

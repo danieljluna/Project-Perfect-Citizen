@@ -21,7 +21,6 @@
     <ClCompile Include="Code\Engine\testRenderSprite.cpp" />
     <ClCompile Include="Code\Engine\testRotateSprite.cpp" />
     <ClCompile Include="Code\Engine\TestSubject.cpp" />
-    <ClCompile Include="Code\Engine\updateComponent.cpp" />
     <ClCompile Include="Code\Engine\Window.cpp" />
     <ClCompile Include="Code\main.cpp" />
   </ItemGroup>

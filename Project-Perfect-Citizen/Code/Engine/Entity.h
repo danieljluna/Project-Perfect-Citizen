@@ -20,7 +20,8 @@ class Component;
 ///     not designed to anything other than group Components 
 ///     considered to be part of the same Entity. The only member
 ///     data in Entity should be data used by a vast majority of 
-///     Components.
+///     Components. Furthermore, an Entity takes responsibility for
+///     the destruction of its Components.
 ///////////////////////////////////////////////////////////////////////
 class Entity {
 public:
@@ -132,10 +133,16 @@ public:
     void broadcastMessage(msgType message);
 
 
-private:
+  /////////////////////////////////////////////////////////////////////
+  // Static Variables
+  /////////////////////////////////////////////////////////////////////
 
-    //Holds the max amount of Components per Entity
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Holds the max amount of Components per Entity
+    ///////////////////////////////////////////////////////////////////
     static const size_t maxComponentCount = 10;
+
+private:
     
     //Stores a collection of pointers to Components
     Component* components_[maxComponentCount];
