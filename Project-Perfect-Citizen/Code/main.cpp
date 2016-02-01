@@ -86,7 +86,8 @@ int main(int argc, char** argv) {
             window.draw(S);
             
             //Update kappaBlack
-            kappaBlack.update(deltaTime.restart());
+            sf::Time dt = deltaTime.restart();
+            kappaBlack.update(dt);
 
             //Draw kappaBlack ppc::Window
             kappaBlack.refresh();
