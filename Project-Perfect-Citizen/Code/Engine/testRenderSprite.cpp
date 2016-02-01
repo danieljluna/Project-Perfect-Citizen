@@ -1,16 +1,16 @@
 #include "testRenderSprite.h"
 
 TestRenderSprite::TestRenderSprite(string filename) {
-	this->texture = new sf::Texture();
-	this->sprite = new sf::Sprite();
-	//texture->loadFromFile(filename);
-	texture->loadFromFile(filename);
+    this->texture = new sf::Texture();
+    this->sprite = new sf::Sprite();
+    //texture->loadFromFile(filename);
+    if (!texture->loadFromFile(filename)) {
+        //ERROR
+        std::exit(-1);
+    }
 	sprite->setTexture(*texture);
-	sprite->setPosition(
-            100.0 + (100.0 * (rand() % 10)), 
-            100.0 + (100.0 * (rand() % 10))
-        );
-	sprite->setScale(.2f, .2f);
+	sprite->setPosition(0,0);
+	sprite->setScale(.1f, .1f);
 }
 
 

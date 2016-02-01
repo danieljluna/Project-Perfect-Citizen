@@ -51,8 +51,6 @@ int main(int argc, char** argv) {
 
     //Create A TestRenderSprite
     TestRenderSprite testRenderSpr(resourcePath() + "Resources/kappa.png");
-    testRenderSpr.getSprite()->setScale(0.2, 0.2);
-    testRenderSpr.getSprite()->setPosition(10, 10);
 
     //Create A TestRotateSprite
 	testRotateSprite testSprCmpnt;
@@ -62,7 +60,7 @@ int main(int argc, char** argv) {
     testEntity.addComponent(&testRenderSpr);
 
     //Create ppc::Window
-    Window kappaBlack(100, 150);
+    Window kappaBlack(200, 200);
     //Add testEntity to ppc::Window
     kappaBlack.addEntity(testEntity);
 
@@ -84,6 +82,7 @@ int main(int argc, char** argv) {
             window.clear(sf::Color::White);
 
             //Draw Objects
+            window.draw(testRenderSpr);
             window.draw(S);
             
             //Update kappaBlack
