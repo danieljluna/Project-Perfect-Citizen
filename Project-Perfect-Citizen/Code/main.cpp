@@ -19,6 +19,8 @@
 #include "Engine/TestSubject.h"
 #include "Engine/TestObserver.h"
 #include "Engine/debug.h"
+#include "Library/json/json.h"
+#include <fstream>
 
 using namespace std;
 //Note that this is placeholder for now
@@ -55,6 +57,34 @@ int main(int argc, char** argv) {
     // Start the game loop
 	sf::Clock deltaTime; //define deltaTime
 	sf::Time dt;
+    //////////JSON EXAMPLE//////////////////////////////////////////////
+    Json::Reader reader;
+    Json::Value value;
+    // read from file, why can I just use the name dummy.json?
+    ifstream doc(resourcePath() + "dummy.json", ifstream::binary);
+    if (reader.parse(doc, value)){
+        //outputting whole dummy doc
+        cout << value << endl;
+        //output value acquanted with my-encoding
+        string out = value[ "my-encoding" ].asString();
+        cout << out << endl;
+        // create Json Array object from my-plug-ins
+        const Json::Value arrayObj = value[ "my-plug-ins" ];
+        for (int i = 0; i < arrayObj.size(); i++){
+            //output each arrayObj
+            cout << arrayObj[i].asString();
+            if (i != arrayObj.size() - 1) { cout << endl; }
+        }
+    }
+    cout << endl;
+    //create json array from my-indent
+    const Json::Value indentArray = value["my-indent"];
+    //can make returned value int, bool, string, etc.
+    cout << indentArray.get("length", "Not found").asInt() << endl;
+    cout << indentArray.get("use_space", "Not found").asBool() << endl;
+    string temp = value.get("Try to find me", "Not found" ).asString();
+    cout << temp << endl;
+    ////////////////////////////////////////////////////////////////////
     while (window.isOpen()) {
 		dt = deltaTime.restart();
         // Process events
