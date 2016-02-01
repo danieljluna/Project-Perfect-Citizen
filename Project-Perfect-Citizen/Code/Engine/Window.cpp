@@ -14,9 +14,12 @@ using namespace ppc;
 // Constructors and Destructor
 ///////////////////////////////////////////////////////////////////////
 
-Window::Window(unsigned int width, unsigned int height) : 
-        windowSpace_() {
+Window::Window(unsigned int width, 
+               unsigned int height, 
+               sf::Color color) : 
+            windowSpace_() {
     windowSpace_.create(width, height);
+    backgroundColor_ = color;
 }
 
 
@@ -50,7 +53,7 @@ Window::~Window() {}
 
 void Window::update(sf::Time& deltaTime) {
     //Loop over all updateComponents
-    for (auto c : updatecmpnts_) {
+    for (UpdateComponent* c : updatecmpnts_) {
         c->update(deltaTime);
     }
 }
@@ -60,8 +63,21 @@ void Window::update(sf::Time& deltaTime) {
 
 void Window::registerInput() {
     //HACK: This is not how input should be done
-    for (auto c : inputcmpnts_) {
+    for (InputComponent* c : inputcmpnts_) {
         c->registerInput();
+    }
+}
+
+
+
+
+void Window::refresh(sf::RenderStates states) {
+    //Clear Window to Background Color
+
+
+    //Draws all objects in the window
+    for (RenderComponent* c : rendercmpnts_) {
+        windowSpace_.draw(*c, states);
     }
 }
 

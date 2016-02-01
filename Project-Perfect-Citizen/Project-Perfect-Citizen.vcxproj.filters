@@ -25,12 +25,6 @@
     <ClCompile Include="Code\Engine\subject.cpp">
       <Filter>Sources\Engine\Events</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\TestObserver.cpp">
-      <Filter>Headers\Engine\Events</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\TestSubject.cpp">
-      <Filter>Headers\Engine\Events</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\debug.cpp">
       <Filter>Sources\Engine\Debug</Filter>
     </ClCompile>
@@ -39,6 +33,12 @@
     </ClCompile>
     <ClCompile Include="Code\Engine\Window.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\TestObserver.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\TestSubject.cpp">
+      <Filter>Sources\Examples</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -78,9 +78,6 @@
     <ClInclude Include="resource.h">
       <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\TestSubject.h">
-      <Filter>Headers\Engine\Events</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\TestObserver.h">
       <Filter>Headers\Examples</Filter>
     </ClInclude>
@@ -101,6 +98,9 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\WindowInterface.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\TestSubject.h">
+      <Filter>Headers\Examples</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

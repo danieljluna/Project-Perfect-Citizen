@@ -19,6 +19,7 @@ namespace ppc {
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Manages a sub-screen with its own Components
+/// @author Daniel Luna
 ///////////////////////////////////////////////////////////////////////
 class Window : public WindowInterface {
 public:
@@ -37,7 +38,9 @@ public:
     /// @param width The desired width of the Window
     /// @param height The desired height of the Window
     ///////////////////////////////////////////////////////////////////
-    Window(unsigned int width, unsigned int height);
+    Window(unsigned int width, 
+           unsigned int height, 
+           sf::Color color = sf::Color::Black);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Window Constructor
@@ -70,20 +73,31 @@ public:
     ///////////////////////////////////////////////////////////////////
     /// @brief Reacts to Input for this, and all objects in the Window.
     ///////////////////////////////////////////////////////////////////
-    virtual void registerInput() override;
+    virtual void registerInput() final;
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Refreshes the Window so it is ready to draw again.
+    /// @details Should be called any time a Component of the Window
+    ///     might change.
+    ///
+    /// @post The next call to draw the Window will correctly depict
+    ///     the state of all renderComponents in this Window at this 
+    ///     time.
+    /// @param states Used to manipulate draw 
+    ///////////////////////////////////////////////////////////////////
+    void refresh(sf::RenderStates states = sf::RenderStates());
 
 
 protected:
 
     ///////////////////////////////////////////////////////////////////
-    /// @brief Draws this, and all objects in the Window.
-    /// @details 
+    /// @brief Draws the last Window refresh
+    /// @details This does NOT draw all objects within the window, it
+    ///     merely draws the texture which was last updated in the last
+    ///     call to refresh().
     ///
-    /// @param target This is almost always going to be a 
-    /// sf::renderWindow. 
-    /// @param states This is used to dictate certain states that the 
-    /// object can be rendered in. For now this can be safely "ignored"
-    /// Just created a RenderStates object and shove it in there. 
+    /// @param target The target to draw to.
+    /// @param states Used to manipulate draw calls
     ///////////////////////////////////////////////////////////////////
     void draw(sf::RenderTarget& target, 
               sf::RenderStates states) const override;
@@ -94,6 +108,8 @@ protected:
   /////////////////////////////////////////////////////////////////////
 
     sf::RenderTexture windowSpace_;
+
+    sf::Color backgroundColor_;
 
     sf::View windowView_;
     

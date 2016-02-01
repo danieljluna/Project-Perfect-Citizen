@@ -1,7 +1,7 @@
 //Used to get XCODE working/////////////////////////////////
 
 #ifdef WINDOWS_MARKER
-    #define resourcePath() string()
+    #define resourcePath()
 #else
     #include "ResourcePath.hpp"
 #endif
@@ -19,10 +19,12 @@
 #include "Engine/TestObserver.h"
 #include "Engine/debug.h"
 
-using namespace std;
+using namespace ppc;
+
+
 //Note that this is placeholder for now
 int main(int argc, char** argv) {
-	//Need this at very beginning
+	//Scans Debug Flags
 	Debug::scanOpts(argc, argv);
 	//Example of using the debugger macro
 	DEBUGF("ac", argc);
@@ -30,16 +32,8 @@ int main(int argc, char** argv) {
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
 
-	ppc::RenderComponent* testSpriteTwo = new TestRenderSprite(
-		resourcePath() + "kappa.png");
-	ppc::RenderComponent* testSpriteThree = new TestRenderSprite(
-		resourcePath() + "kappa.png");
-	sf::RenderStates testRenderState;
-
-
-	TestSubject* testChildSubject = new TestSubject();
-	TestObserver* testChildObserver = new TestObserver();
-
+    //Create A TestRenderSprite
+	TestRenderSprite testSpriteTwo(resourcePath() + "kappa.png");
 
 	//Define a Sprite
 	sf::Sprite S;
@@ -49,13 +43,16 @@ int main(int argc, char** argv) {
 	S.setPosition(100, 100);
 	S.setScale(0.2f, 0.2f);
 
-    // Start the game loop
-	sf::Clock deltaTime; //define deltaTime
+////Start the game loop
+    //Used to keep track time
+	sf::Clock deltaTime;
+    //Marks the times since the last frame
 	sf::Time dt;
     while (window.isOpen()) {
+        //Save the new dt
 		dt = deltaTime.restart();
-        // Process events
-		//sperate from ppc::event
+
+        //Process sf::events
         sf::Event event;
         while (window.pollEvent(event)) {
             // Close window: exit
@@ -66,9 +63,10 @@ int main(int argc, char** argv) {
         // Clear screen
         window.clear();
 
-
+        //Draw Objects
 		window.draw(S);
 		
+        //Display final Window
         window.display();
     }
     return EXIT_SUCCESS;
