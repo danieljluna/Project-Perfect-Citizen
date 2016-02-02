@@ -1,7 +1,7 @@
 //Used to get XCODE working/////////////////////////////////
 
 #ifdef WINDOWS_MARKER
-    #define resourcePath() string()
+    #define resourcePath() string("Resources/")
 #else
     #include "ResourcePath.hpp"
 #endif
