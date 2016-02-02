@@ -152,7 +152,7 @@ void Window::refresh(sf::RenderStates states) {
         windowSpace_.draw(*c, states);
     }
 
-    std::cout << rendercmpnts_.size();
+    //std::cout << rendercmpnts_.size();
     //windowSpace_.setView(windowSpace_.getDefaultView());
 
     windowSpace_.display();

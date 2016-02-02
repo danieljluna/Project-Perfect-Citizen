@@ -33,12 +33,12 @@ int main(int argc, char** argv) {
 	DEBUGF("ac", argc);
 
     // Create the main sf::window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+    sf::RenderWindow window(sf::VideoMode(1600, 900), "SFML window");
 
     //Define a Sprite
     sf::Sprite S;
     sf::Texture T;
-    if (!(T.loadFromFile(resourcePath() + "Resources/kappa.png"))) {
+    if (!(T.loadFromFile(resourcePath() + "kappa.png"))) {
         //Test for failure
         cerr << "COULD NOT LOAD KAPPA.PNG\n";
         std::system("PAUSE");
@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
 
 
     //Create A TestRenderSprite
-    TestRenderSprite testRenderSpr(resourcePath() + "Resources/kappa.png");
+    TestRenderSprite testRenderSpr(resourcePath() + "kappa.png");
 
     //Create A TestRotateSprite
 	testRotateSprite testSprCmpnt;
