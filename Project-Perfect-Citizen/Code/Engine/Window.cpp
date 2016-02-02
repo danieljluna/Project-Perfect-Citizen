@@ -7,7 +7,7 @@
 
 #include <SFML/Graphics/RenderTexture.hpp>
 #include <cstddef>
-
+#include <iostream>
 
 using namespace ppc;
 
