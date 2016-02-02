@@ -16,11 +16,14 @@
 
 #include "Engine/testRenderSprite.h"
 #include "Engine/testRotateSprite.h"
+#include "Engine/subject.h"
 #include "Engine/TestSubject.h"
 #include "Engine/TestObserver.h"
 #include "Engine/debug.h"
 #include "Engine/entity.h"
 #include "Engine/Window.h"
+#include "Library/json/json.h"
+#include <fstream>
 
 using namespace ppc;
 
@@ -38,7 +41,7 @@ int main(int argc, char** argv) {
     //Define a Sprite
     sf::Sprite S;
     sf::Texture T;
-    if (!(T.loadFromFile(resourcePath() + "Resources/kappa.png"))) {
+    if (!(T.loadFromFile(resourcePath() + "kappa.png"))) {
         //Test for failure
         cerr << "COULD NOT LOAD KAPPA.PNG\n";
         std::system("PAUSE");
@@ -50,7 +53,7 @@ int main(int argc, char** argv) {
 
 
     //Create A TestRenderSprite
-    TestRenderSprite testRenderSpr(resourcePath() + "Resources/kappa.png");
+    TestRenderSprite testRenderSpr(resourcePath() + "kappa.png");
 
     //Create A TestRotateSprite
 	testRotateSprite testSprCmpnt;
@@ -64,9 +67,41 @@ int main(int argc, char** argv) {
     //Add testEntity to ppc::Window
     kappaBlack.addEntity(testEntity);
 
-////Start the game loop
+	//Add the component to it
+	testRotateSprite test(S, 1);
+    // Start the game loop
+	sf::Clock deltaTime; //define deltaTime
+	sf::Time dt;
+    //////////JSON EXAMPLE//////////////////////////////////////////////
+    Json::Reader reader;
+    Json::Value value;
+    // read from file, why can I just use the name dummy.json?
+    ifstream doc(resourcePath() + "dummy.json", ifstream::binary);
+    if (reader.parse(doc, value)){
+        //outputting whole dummy doc
+        cout << value << endl;
+        //output value acquanted with my-encoding
+        string out = value[ "my-encoding" ].asString();
+        cout << out << endl;
+        // create Json Array object from my-plug-ins
+        const Json::Value arrayObj = value[ "my-plug-ins" ];
+        for (int i = 0; i < arrayObj.size(); i++){
+            //output each arrayObj
+            cout << arrayObj[i].asString();
+            if (i != arrayObj.size() - 1) { cout << endl; }
+        }
+    }
+    cout << endl;
+    //create json array from my-indent
+    const Json::Value indentArray = value["my-indent"];
+    //can make returned value int, bool, string, etc.
+    cout << indentArray.get("length", "Not found").asInt() << endl;
+    cout << indentArray.get("use_space", "Not found").asBool() << endl;
+    string temp = value.get("Try to find me", "Not found" ).asString();
+    cout << temp << endl;
+    ////////////////////////////////////////////////////////////////////
+    ////Start the game loop
     //Used to keep track time
-	sf::Clock deltaTime;
     sf::Time framePeriod = sf::milliseconds(1000.0f / 30.f);
     while (window.isOpen()) {
         //Process sf::events
