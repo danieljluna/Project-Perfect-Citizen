@@ -72,6 +72,7 @@ int main(int argc, char** argv) {
     // Start the game loop
 	sf::Clock deltaTime; //define deltaTime
 	sf::Time dt;
+
     //////////JSON EXAMPLE//////////////////////////////////////////////
     Json::Reader reader;
     Json::Value value;
@@ -100,6 +101,7 @@ int main(int argc, char** argv) {
     string temp = value.get("Try to find me", "Not found" ).asString();
     cout << temp << endl;
     ////////////////////////////////////////////////////////////////////
+
     ////Start the game loop
     //Used to keep track time
     sf::Time framePeriod = sf::milliseconds(1000.0f / 30.f);
