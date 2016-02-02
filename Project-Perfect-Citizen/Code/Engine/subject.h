@@ -1,6 +1,7 @@
 //Programmed by Andy
 #pragma once
 #include "observer.h"
+#include <SFML/Graphics.hpp>
 ///////////////////////////////////////////////
 ///@brief This is the subject base class. It is
 ///the parent of all objects that wish to have
@@ -23,6 +24,6 @@ public:
 	Observer* getObserverHead();
 	void printObservers();
 protected:
-	void sendEvent(ppc::Event event);
+	void sendEvent(sf::Event event);
 	
 };
