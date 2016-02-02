@@ -7,7 +7,6 @@
 
 #include <SFML/Graphics/RenderTexture.hpp>
 #include <cstddef>
-#include <iostream>
 
 
 using namespace ppc;
@@ -144,15 +143,17 @@ void Window::refresh(sf::RenderStates states) {
     //Clear Window to Background Color
     windowSpace_.clear(backgroundColor_);
 
+    //TODO: FIX VIEW
     //Apply the view
-   // windowSpace_.setView(windowView_);
+    //windowSpace_.setView(windowView_);
 
     //Draws all objects in the window
     for (RenderComponent* c : rendercmpnts_) {
         windowSpace_.draw(*c, states);
     }
 
-    //std::cout << rendercmpnts_.size();
+
+    std::cout << rendercmpnts_.size();
     //windowSpace_.setView(windowSpace_.getDefaultView());
 
     windowSpace_.display();

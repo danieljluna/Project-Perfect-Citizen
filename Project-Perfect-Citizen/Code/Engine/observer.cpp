@@ -1,14 +1,12 @@
 #include "observer.h"
 #include <iostream>
 
-
 // for now, we want every child of observer to at least have the
 // base behavior of... doing nothing with an event. You can always
 // define it in the base class if you need something specifically 
 // done.
-void Observer::eventHandler(ppc::Event event)
+void Observer::eventHandler(sf::Event event)
 {
-	cout << "I received an event, my UID is " << this->numberIdentifier << endl;
 	cout << "The event type is " << event.type << endl;
 
 	/*

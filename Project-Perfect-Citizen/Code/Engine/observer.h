@@ -1,5 +1,6 @@
 #pragma once
 #include "event.h"
+#include <SFML/Graphics.hpp>
 ///////////////////////////////////////////////
 ///@brief Abstract base class for all observer
 ///systems.
@@ -28,7 +29,7 @@ public:
 	///passed by the subject to all of its 
 	///currently linked observers. 
 	///////////////////////////////////////////////
-	virtual void eventHandler(ppc::Event event);
+	virtual void eventHandler(sf::Event event);
 	//this is a UID to help you get a sense of what
 	//although you could use anything else you'd
 	//prefer...
