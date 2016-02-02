@@ -16,5 +16,5 @@ public:
 	///going to have to in most situations.
 	///@param Event to be parsed. 
 	///////////////////////////////////////////////
-	virtual void eventHandler(ppc::Event event);
+	virtual void eventHandler(sf::Event event);
 };
