@@ -37,8 +37,14 @@
     <ClCompile Include="Code\Engine\TestSubject.cpp">
       <Filter>Sources\Examples</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\world.cpp">
+      <Filter>Sources\Engine\World</Filter>
+    </ClCompile>
     <ClCompile Include="Code\Library\jsoncpp.cpp">
       <Filter>Sources\JSON</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\testButtonPress.cpp">
+      <Filter>Sources\Examples</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -102,11 +108,17 @@
     <ClInclude Include="Code\Engine\TestSubject.h">
       <Filter>Headers\Examples</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\world.h">
+      <Filter>Headers\Engine\World</Filter>
+    </ClInclude>
     <ClInclude Include="Code\Library\json\json.h">
       <Filter>Headers\JSON</Filter>
     </ClInclude>
     <ClInclude Include="Code\Library\json\json-forwards.h">
       <Filter>Headers\JSON</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\testButtonPress.hpp">
+      <Filter>Headers\Examples</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

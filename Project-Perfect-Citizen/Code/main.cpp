@@ -22,8 +22,11 @@
 #include "Engine/debug.h"
 #include "Engine/entity.h"
 #include "Engine/Window.h"
+#include "Engine/desktop.h"
+
 #include "Library/json/json.h"
 #include <fstream>
+
 
 using namespace ppc;
 
@@ -36,42 +39,50 @@ int main(int argc, char** argv) {
 	DEBUGF("ac", argc);
 
     // Create the main sf::window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+    sf::RenderWindow screen(sf::VideoMode(1600, 900), "SFML window");
 
     //Define a Sprite
     sf::Sprite S;
     sf::Texture T;
-    if (!(T.loadFromFile(resourcePath() + "kappa.png"))) {
+    if (!(T.loadFromFile(resourcePath() + "Wallpaper.png"))) {
         //Test for failure
-        cerr << "COULD NOT LOAD KAPPA.PNG\n";
+        cerr << "COULD NOT LOAD\n";
         std::system("PAUSE");
         return -1;
     };
     S.setTexture(T);
-    S.setPosition(300, 300);
-    S.setScale(0.2f, 0.2f);
+    S.setPosition(0, 0);
+    S.setScale(0.7f, 0.7f);
+    
 
-
+    sf::Image spriteSheet;
+    spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
     //Create A TestRenderSprite
-    TestRenderSprite testRenderSpr(resourcePath() + "kappa.png");
-
+    TestRenderSprite testRenderSpr(spriteSheet, 0, 3, 1);
+	testRenderSpr.renderPosition(sf::Vector2f(10, 10));
+    TestRenderSprite rend(spriteSheet, 0, 4, 1);
+    rend.renderPosition(sf::Vector2f(170,0));
     //Create A TestRotateSprite
 	testRotateSprite testSprCmpnt;
     
     //Put that Component into an Entity
     Entity testEntity;
     testEntity.addComponent(&testRenderSpr);
+    testEntity.addComponent(&rend);
+    
 
     //Create ppc::Window
-    Window kappaBlack(200, 200);
+    Window testWindow(200, 200,sf::Color(200,200,200));
+	Window testWindow2(200, 200, sf::Color(150, 150, 150));
     //Add testEntity to ppc::Window
-    kappaBlack.addEntity(testEntity);
+	testWindow.addEntity(testEntity);
 
-	//Add the component to it
-	testRotateSprite test(S, 1);
-    // Start the game loop
-	sf::Clock deltaTime; //define deltaTime
-	sf::Time dt;
+	//Create ppc::Desktop
+	char dummyTree = 't'; //using a dummy variable for Ctor until
+	//the actual FileTree is completed
+	Desktop myDesktop(dummyTree);
+	myDesktop.addWindow(&testWindow);
+
     //////////JSON EXAMPLE//////////////////////////////////////////////
     Json::Reader reader;
     Json::Value value;
@@ -85,7 +96,7 @@ int main(int argc, char** argv) {
         cout << out << endl;
         // create Json Array object from my-plug-ins
         const Json::Value arrayObj = value[ "my-plug-ins" ];
-        for (int i = 0; i < arrayObj.size(); i++){
+        for (unsigned int i = 0; i < arrayObj.size(); i++){
             //output each arrayObj
             cout << arrayObj[i].asString();
             if (i != arrayObj.size() - 1) { cout << endl; }
@@ -99,37 +110,39 @@ int main(int argc, char** argv) {
     cout << indentArray.get("use_space", "Not found").asBool() << endl;
     string temp = value.get("Try to find me", "Not found" ).asString();
     cout << temp << endl;
-    ////////////////////////////////////////////////////////////////////
-    ////Start the game loop
+
+    ///////////////////////////////////////////////////////////////////
+	// Start the game loop
+	///////////////////////////////////////////////////////////////////
+	sf::Clock deltaTime; //define deltaTime
     //Used to keep track time
     sf::Time framePeriod = sf::milliseconds(1000.0f / 30.f);
-    while (window.isOpen()) {
+    while (screen.isOpen()) {
         //Process sf::events
         sf::Event event;
-        while (window.pollEvent(event)) {
+        while (screen.pollEvent(event)) {
             // Close window: exit
             if (event.type == sf::Event::Closed)
-                window.close();
+				screen.close();
         }
 
         if (deltaTime.getElapsedTime() > framePeriod) {
             // Clear screen
-            window.clear(sf::Color::White);
+			screen.clear(sf::Color::White);
 
-            //Draw Objects
-            window.draw(testRenderSpr);
-            window.draw(S);
+            //Draw Background
+			screen.draw(S);
             
-            //Update kappaBlack
+            //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
-            kappaBlack.update(dt);
+            myDesktop.update(dt);
 
-            //Draw kappaBlack ppc::Window
-            kappaBlack.refresh();
-            window.draw(kappaBlack);
+            //Draw all the Windows in the Desktop
+			myDesktop.refresh();
+			screen.draw(myDesktop);
 
             //Display final Window
-            window.display();
+			screen.display();
         }
     }
     return EXIT_SUCCESS;

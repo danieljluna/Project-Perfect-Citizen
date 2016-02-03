@@ -17,6 +17,7 @@ private:
     //TODO: Remove unique texture: Let the Sprite refernce the correct 
     ///     one
 	sf::Texture* texture;
+    static const int size = 128;
 
 public:
 
@@ -24,7 +25,11 @@ public:
 /// @brief Constructor for TestRenderSprite
 /// @param filname is the String of a file path of a .png file
 ///////////////////////////////////////////////////////////////////////
-	TestRenderSprite(string filename);
+    TestRenderSprite(sf::Image& image, int x, int y, int r);
+
+	~TestRenderSprite();
+
+    void renderPosition(sf::Vector2f pos);
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Returns a pointer to sprite
@@ -42,5 +47,5 @@ public:
 	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const ;
 
 
-	~TestRenderSprite();
+
 };
