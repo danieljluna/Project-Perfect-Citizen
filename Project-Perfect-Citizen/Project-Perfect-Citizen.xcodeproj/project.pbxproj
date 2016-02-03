@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C858D3961C61C1BB0086199C /* Windows_UI.png in Resources */ = {isa = PBXBuildFile; fileRef = C858D3951C61C1BB0086199C /* Windows_UI.png */; };
+		C858D3981C61C2540086199C /* Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = C858D3971C61C2540086199C /* Wallpaper.png */; };
+		C858D39B1C61C41D0086199C /* testButtonPress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C858D3991C61C41D0086199C /* testButtonPress.cpp */; };
 		C86E377C1C4D67F200842EFD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C86E377A1C4D67F200842EFD /* main.cpp */; };
 		C86E37AD1C4D6B5100842EFD /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = C86E37A71C4D6B5100842EFD /* DoxygenHelp.txt */; };
 		C86E37AE1C4D6B5100842EFD /* LinkHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = C86E37A81C4D6B5100842EFD /* LinkHelp.txt */; };
@@ -32,6 +35,10 @@
 
 /* Begin PBXFileReference section */
 		C8058A631C4D679D005E23BA /* Project-Perfect-Citizen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-Perfect-Citizen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C858D3951C61C1BB0086199C /* Windows_UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_UI.png; sourceTree = "<group>"; };
+		C858D3971C61C2540086199C /* Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Wallpaper.png; path = ../../../../../../../../Desktop/Wallpaper.png; sourceTree = "<group>"; };
+		C858D3991C61C41D0086199C /* testButtonPress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testButtonPress.cpp; sourceTree = "<group>"; };
+		C858D39A1C61C41D0086199C /* testButtonPress.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = testButtonPress.hpp; sourceTree = "<group>"; };
 		C86E377A1C4D67F200842EFD /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
 		C86E37A71C4D6B5100842EFD /* DoxygenHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoxygenHelp.txt; sourceTree = "<group>"; };
 		C86E37A81C4D6B5100842EFD /* LinkHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LinkHelp.txt; sourceTree = "<group>"; };
@@ -151,6 +158,8 @@
 				E9C810771C603E2800D47DA6 /* WindowInterface.h */,
 				E9C810781C603E2800D47DA6 /* world.cpp */,
 				E9C810791C603E2800D47DA6 /* world.h */,
+				C858D3991C61C41D0086199C /* testButtonPress.cpp */,
+				C858D39A1C61C41D0086199C /* testButtonPress.hpp */,
 			);
 			name = Engine;
 			path = Code/Engine;
@@ -159,6 +168,8 @@
 		C86E37A51C4D6B5100842EFD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C858D3971C61C2540086199C /* Wallpaper.png */,
+				C858D3951C61C1BB0086199C /* Windows_UI.png */,
 				E9C810581C603E1600D47DA6 /* dummy.json */,
 				C881BEE71C4D7C5B008B1EBD /* ResourcePath.hpp */,
 				C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */,
@@ -262,9 +273,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C858D3981C61C2540086199C /* Wallpaper.png in Resources */,
 				C86E37AF1C4D6B5200842EFD /* EngineSettings.ini in Resources */,
 				E9C810591C603E1600D47DA6 /* dummy.json in Resources */,
 				C86E37B11C4D6B5200842EFD /* kappa.png in Resources */,
+				C858D3961C61C1BB0086199C /* Windows_UI.png in Resources */,
 				E9C8107A1C603E2800D47DA6 /* ClassDiagram.cd in Resources */,
 				C86E37AD1C4D6B5100842EFD /* DoxygenHelp.txt in Resources */,
 				C86E37AE1C4D6B5100842EFD /* LinkHelp.txt in Resources */,
@@ -307,6 +320,7 @@
 				E9C810841C603E2800D47DA6 /* TestSubject.cpp in Sources */,
 				C881BEE91C4D7C5B008B1EBD /* ResourcePath.mm in Sources */,
 				E9C8107F1C603E2800D47DA6 /* observer.cpp in Sources */,
+				C858D39B1C61C41D0086199C /* testButtonPress.cpp in Sources */,
 				E9C8107D1C603E2800D47DA6 /* desktop.cpp in Sources */,
 				E9C8107C1C603E2800D47DA6 /* debug.cpp in Sources */,
 			);
