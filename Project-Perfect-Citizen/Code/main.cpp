@@ -71,15 +71,15 @@ int main(int argc, char** argv) {
     
 
     //Create ppc::Window
-    Window kappaBlack(200, 200);
+    Window testWindow(200, 200);
     //Add testEntity to ppc::Window
-    kappaBlack.addEntity(testEntity);
+	testWindow.addEntity(testEntity);
 
 	//Create ppc::Desktop
 	char dummyTree = 't'; //using a dummy variable for Ctor until
 	//the actual FileTree is completed
 	Desktop myDesktop(dummyTree);
-	myDesktop.addWindow(&kappaBlack);
+	myDesktop.addWindow(&testWindow);
 
 
     //////////JSON EXAMPLE//////////////////////////////////////////////
