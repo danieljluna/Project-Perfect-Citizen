@@ -26,6 +26,9 @@ public:
 /// @param filname is the String of a file path of a .png file
 ///////////////////////////////////////////////////////////////////////
     TestRenderSprite(sf::Image& image, int x, int y, int r);
+
+	~TestRenderSprite();
+
     void renderPosition(sf::Vector2f pos);
 
 ///////////////////////////////////////////////////////////////////////
@@ -44,5 +47,5 @@ public:
 	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const ;
 
 
-	~TestRenderSprite();
+
 };
