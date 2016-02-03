@@ -39,14 +39,14 @@ int main(int argc, char** argv) {
 	DEBUGF("ac", argc);
 
     // Create the main sf::window
-    sf::RenderWindow window(sf::VideoMode(1600, 900), "SFML window");
+    sf::RenderWindow screen(sf::VideoMode(1600, 900), "SFML window");
 
     //Define a Sprite
     sf::Sprite S;
     sf::Texture T;
     if (!(T.loadFromFile(resourcePath() + "Wallpaper.png"))) {
         //Test for failure
-        cerr << "COULD NOT LOAD KAPPA.PNG\n";
+        cerr << "COULD NOT LOAD\n";
         std::system("PAUSE");
         return -1;
     };
@@ -59,6 +59,7 @@ int main(int argc, char** argv) {
     spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
     //Create A TestRenderSprite
     TestRenderSprite testRenderSpr(spriteSheet, 0, 3, 1);
+	testRenderSpr.renderPosition(sf::Vector2f(10, 10));
     TestRenderSprite rend(spriteSheet, 0, 4, 1);
     rend.renderPosition(sf::Vector2f(170,0));
     //Create A TestRotateSprite
@@ -71,7 +72,7 @@ int main(int argc, char** argv) {
     
 
     //Create ppc::Window
-    Window testWindow(200, 200);
+    Window testWindow(200, 200,sf::Color(200,200,200));
     //Add testEntity to ppc::Window
 	testWindow.addEntity(testEntity);
 
@@ -117,22 +118,21 @@ int main(int argc, char** argv) {
 	sf::Time dt;
     //Used to keep track time
     sf::Time framePeriod = sf::milliseconds(1000.0f / 30.f);
-    while (window.isOpen()) {
+    while (screen.isOpen()) {
         //Process sf::events
         sf::Event event;
-        while (window.pollEvent(event)) {
+        while (screen.pollEvent(event)) {
             // Close window: exit
             if (event.type == sf::Event::Closed)
-                window.close();
+				screen.close();
         }
 
         if (deltaTime.getElapsedTime() > framePeriod) {
             // Clear screen
-            window.clear(sf::Color::White);
+			screen.clear(sf::Color::White);
 
             //Draw Objects
-            window.draw(testRenderSpr);
-            window.draw(S);
+			screen.draw(S);
             
             //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
@@ -140,10 +140,10 @@ int main(int argc, char** argv) {
 
             //Draw all the Windows in the Desktop
 			myDesktop.refresh();
-            window.draw(myDesktop);
+			screen.draw(myDesktop);
 
             //Display final Window
-            window.display();
+			screen.display();
         }
     }
     return EXIT_SUCCESS;

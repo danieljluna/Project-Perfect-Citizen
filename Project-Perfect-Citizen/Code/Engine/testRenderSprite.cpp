@@ -18,6 +18,11 @@ TestRenderSprite::TestRenderSprite(sf::Image& image, int x, int y,
     sprite->setScale(.5f, .5f);
 }
 
+TestRenderSprite::~TestRenderSprite() {
+	delete texture;
+	delete sprite;
+}
+
 void TestRenderSprite::renderPosition(sf::Vector2f pos) {
     sprite->setPosition(pos.x, pos.y);
 }
@@ -31,7 +36,4 @@ void TestRenderSprite::draw(sf::RenderTarget& target, sf::RenderStates states) c
 	target.draw(*(this->sprite), states);
 }
 
-
-//in progress
-TestRenderSprite::~TestRenderSprite() {}
 
