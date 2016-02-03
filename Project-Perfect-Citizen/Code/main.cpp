@@ -39,31 +39,36 @@ int main(int argc, char** argv) {
 	DEBUGF("ac", argc);
 
     // Create the main sf::window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+    sf::RenderWindow window(sf::VideoMode(1600, 900), "SFML window");
 
     //Define a Sprite
     sf::Sprite S;
     sf::Texture T;
-    if (!(T.loadFromFile(resourcePath() + "kappa.png"))) {
+    if (!(T.loadFromFile(resourcePath() + "Wallpaper.png"))) {
         //Test for failure
         cerr << "COULD NOT LOAD KAPPA.PNG\n";
         std::system("PAUSE");
         return -1;
     };
     S.setTexture(T);
-    S.setPosition(300, 300);
-    S.setScale(0.2f, 0.2f);
+    S.setPosition(0, 0);
+    S.setScale(0.7f, 0.7f);
+    
 
-
+    sf::Image spriteSheet;
+    spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
     //Create A TestRenderSprite
-    TestRenderSprite testRenderSpr(resourcePath() + "kappa.png");
-
+    TestRenderSprite testRenderSpr(spriteSheet, 0, 3, 1);
+    TestRenderSprite rend(spriteSheet, 0, 4, 1);
+    rend.renderPosition(sf::Vector2f(170,0));
     //Create A TestRotateSprite
 	testRotateSprite testSprCmpnt;
     
     //Put that Component into an Entity
     Entity testEntity;
     testEntity.addComponent(&testRenderSpr);
+    testEntity.addComponent(&rend);
+    
 
     //Create ppc::Window
     Window kappaBlack(200, 200);
