@@ -22,7 +22,8 @@ ppc::World::~World() {
 
 			//Should I be deleting the contents of the array???
 			// Todo: ask during meeting
-			//delete this->desktops_[i];
+
+			delete this->desktops_[i];
 			this->desktops_[i] = nullptr;
 		}
 	}
