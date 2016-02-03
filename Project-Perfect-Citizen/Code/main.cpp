@@ -21,6 +21,7 @@
 #include "Engine/debug.h"
 #include "Engine/entity.h"
 #include "Engine/Window.h"
+#include "Engine/desktop.h"
 
 using namespace ppc;
 
@@ -64,6 +65,12 @@ int main(int argc, char** argv) {
     //Add testEntity to ppc::Window
     kappaBlack.addEntity(testEntity);
 
+	//Create ppc::Desktop
+	char dummyTree = 't'; //using a dummy variable for Ctor until
+	//the actual FileTree is completed
+	Desktop myDesktop(dummyTree);
+	myDesktop.addWindow(&kappaBlack);
+
 ////Start the game loop
     //Used to keep track time
 	sf::Clock deltaTime;
@@ -85,13 +92,13 @@ int main(int argc, char** argv) {
             window.draw(testRenderSpr);
             window.draw(S);
             
-            //Update kappaBlack
+            //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
-            kappaBlack.update(dt);
+            myDesktop.update(dt);
 
-            //Draw kappaBlack ppc::Window
-            kappaBlack.refresh();
-            window.draw(kappaBlack);
+            //Draw all the Windows in the Desktop
+			myDesktop.refresh();
+            window.draw(myDesktop);
 
             //Display final Window
             window.display();

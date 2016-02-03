@@ -37,6 +37,9 @@
     <ClCompile Include="Code\Engine\TestSubject.cpp">
       <Filter>Sources\Examples</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\world.cpp">
+      <Filter>Sources\Engine\World</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -98,6 +101,9 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\TestSubject.h">
       <Filter>Headers\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\world.h">
+      <Filter>Headers\Engine\World</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

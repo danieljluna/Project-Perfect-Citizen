@@ -3,59 +3,106 @@
 
 #include "desktop.h"
 
-ppc::Desktop::Desktop() {
-	os_ = nullptr;
-	ft_ = nullptr;
+ppc::Desktop::Desktop(FileTree& ft) {
+	style_ = nullptr;
+	fileTree_ = &ft;
 }
 
-ppc::Desktop::Desktop(windVec windows, 
-	operatingSys &os, fileTree &ft) {
-
-	os_ = &os;
-	ft_ = &ft;
-	windows_ = windows;
+ppc::Desktop::Desktop(const Desktop& other) {
+	this->style_ = other.style_;
+	this->fileTree_ = other.fileTree_;
+	this->windows_ = other.windows_;
 }
 
 ppc::Desktop::~Desktop() {
-	if (os_ != nullptr) delete os_;
-	if (ft_ != nullptr) delete ft_;
+	if (style_ != nullptr) delete style_;
+	//if (fileTree_ != nullptr) delete fileTree_;
+
+	windows_.clear();
+
 }
 
-const operatingSys& ppc::Desktop::getOS() const {
-	return *os_;
-}
 
-const fileTree& ppc::Desktop::getFileTree() const {
-	return *ft_;
-}
-
-ppc::Desktop::windVec::iterator ppc::Desktop::getIter(window* w) {
+//should things be swapped or should wi 
+//only be moved, while ordering is kept?
+void ppc::Desktop::focusWindow(WindowInterface* wi) {
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-		if (*it == w) {
-			return it;
+		if (*it == wi) {
+			//keep swapping it w/ thing before until at front
+			auto it2 = it;
+			auto temp = it - 1;
+			while (it2 != windows_.begin()) {
+				auto tempWindow = *it2;
+				*it2 = *temp;
+				*temp = tempWindow;
+				it2 = temp;
+				--temp;
+			}
+			return;
 		}
 	}
-	return windows_.end();
 }
 
-ppc::Desktop::windVec::iterator ppc::Desktop::windVecBegin() {
-	return windows_.begin();
+void ppc::Desktop::draw(sf::RenderTarget& target, 
+						sf::RenderStates states) const {
+
+	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
+		target.draw(*(*it), states);
+	}
 }
 
-ppc::Desktop::windVec::iterator ppc::Desktop::windVecEnd() {
-	return windows_.end();
+
+void ppc::Desktop::addWindow(WindowInterface* wi){
+	if (wi == nullptr) return;
+	//automatically put it at the front,
+	//so the new window is focused
+	windows_.insert(windows_.begin(), wi);
 }
 
-ppc::Desktop::windVec::iterator ppc::Desktop::addWindow(window* w) {
-	windows_.push_back(w);
-	return windows_.end() - 1;
+void ppc::Desktop::destroyWindow(WindowInterface* wi) {
+	if (wi == nullptr) return;
+	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
+		if (*it == wi) {
+			windows_.erase(it);
+			return;
+		}
+	}
 }
 
-void ppc::Desktop::removeWindow(window* w) {
-	auto it = ppc::Desktop::getIter(w);
-	ppc::Desktop::removeWindow(it);
+void ppc::Desktop::setStyle(OSStyle* oss) {
+	style_ = oss;
 }
 
-void ppc::Desktop::removeWindow(windVec::iterator it) {
-	windows_.erase(it);
+FileState& ppc::Desktop::getRoot() {
+	//it is bad to return a reference to a 
+	// variable about to go out of scope,
+	//but this is only temporary until
+	// FileTree and FileState are completed
+	float temp = 0.0f;
+	return temp;
+}
+
+void ppc::Desktop::registerInput(){
+	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
+		(*it)->registerInput();
+	}
+}
+
+void ppc::Desktop::update(sf::Time& deltaTime){
+	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
+		(*it)->update(deltaTime);
+	}
+}
+//ask why we need draw if refresh already calls draw when it is called
+void ppc::Desktop::refresh(sf::RenderStates states) {
+	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
+		//windows_ contains pointers to the base class of Window,
+		// which doesnt have a refresh() function.
+		//Therefore, downcasting is needed
+		Window* w = dynamic_cast<Window *> (*it);
+
+		//if the downcast worked, perform the operation 
+		//(it always should)
+		w->refresh(states);
+	}
 }
