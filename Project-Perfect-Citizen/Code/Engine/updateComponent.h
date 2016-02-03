@@ -14,7 +14,8 @@ namespace ppc {
 	///	@details New components which revolve around updating the
 	///	data/fields of Entities inheirit from this class. Components 
 	///	inheirting from this class must define the virtual function:
-	/// void update(sf::Time deltaTime). 
+	/// void update(sf::Time deltaTime).
+	/// @author Nader Sleem
 	///////////////////////////////////////////////////////////////////
 	class UpdateComponent : public ppc::Component {
 	////////////////////////////////////////////////////////

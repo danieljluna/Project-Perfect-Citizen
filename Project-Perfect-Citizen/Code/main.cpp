@@ -22,8 +22,11 @@
 #include "Engine/debug.h"
 #include "Engine/entity.h"
 #include "Engine/Window.h"
+#include "Engine/desktop.h"
+
 #include "Library/json/json.h"
 #include <fstream>
+
 
 using namespace ppc;
 
@@ -67,11 +70,13 @@ int main(int argc, char** argv) {
     //Add testEntity to ppc::Window
     kappaBlack.addEntity(testEntity);
 
-	//Add the component to it
-	testRotateSprite test(S, 1);
-    // Start the game loop
-	sf::Clock deltaTime; //define deltaTime
-	sf::Time dt;
+	//Create ppc::Desktop
+	char dummyTree = 't'; //using a dummy variable for Ctor until
+	//the actual FileTree is completed
+	Desktop myDesktop(dummyTree);
+	myDesktop.addWindow(&kappaBlack);
+
+
     //////////JSON EXAMPLE//////////////////////////////////////////////
     Json::Reader reader;
     Json::Value value;
@@ -85,7 +90,7 @@ int main(int argc, char** argv) {
         cout << out << endl;
         // create Json Array object from my-plug-ins
         const Json::Value arrayObj = value[ "my-plug-ins" ];
-        for (int i = 0; i < arrayObj.size(); i++){
+        for (unsigned int i = 0; i < arrayObj.size(); i++){
             //output each arrayObj
             cout << arrayObj[i].asString();
             if (i != arrayObj.size() - 1) { cout << endl; }
@@ -99,8 +104,12 @@ int main(int argc, char** argv) {
     cout << indentArray.get("use_space", "Not found").asBool() << endl;
     string temp = value.get("Try to find me", "Not found" ).asString();
     cout << temp << endl;
-    ////////////////////////////////////////////////////////////////////
-    ////Start the game loop
+
+    ///////////////////////////////////////////////////////////////////
+	// Start the game loop
+	///////////////////////////////////////////////////////////////////
+	sf::Clock deltaTime; //define deltaTime
+	sf::Time dt;
     //Used to keep track time
     sf::Time framePeriod = sf::milliseconds(1000.0f / 30.f);
     while (window.isOpen()) {
@@ -120,13 +129,13 @@ int main(int argc, char** argv) {
             window.draw(testRenderSpr);
             window.draw(S);
             
-            //Update kappaBlack
+            //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
-            kappaBlack.update(dt);
+            myDesktop.update(dt);
 
-            //Draw kappaBlack ppc::Window
-            kappaBlack.refresh();
-            window.draw(kappaBlack);
+            //Draw all the Windows in the Desktop
+			myDesktop.refresh();
+            window.draw(myDesktop);
 
             //Display final Window
             window.display();
