@@ -306,11 +306,7 @@ Project-Perfect-Citizen.VC.opendb
 
 *.plist
 
-*.xcuserstate
-
 Project-Perfect-Citizen/Project-Perfect-Citizen.vcxproj
-Project-Perfect-Citizen/Project-Perfect-Citizen.vcxproj.filters
-Project-Perfect-Citizen/Project-Perfect-Citizen.vcxproj.filters
 Project-Perfect-Citizen/Project-Perfect-Citizen.vcxproj.filters
 
 Project-Perfect-Citizen/Project-Perfect-Citizen.xcodeproj/project.pbxproj
@@ -321,18 +317,8 @@ Project-Perfect-Citizen/Project-Perfect-Citizen.xcodeproj/xcuserdata/brandongome
 
 Project-Perfect-Citizen/Project-Perfect-Citizen.xcodeproj/project.pbxproj
 
-Project-Perfect-Citizen/Project-Perfect-Citizen.xcodeproj/project.pbxproj
-
-*.pbxproj
-
 *.pbxproj
 
 Project-Perfect-Citizen/Project-Perfect-Citizen.xcodeproj/project.pbxproj
-
-Project-Perfect-Citizen/Project-Perfect-Citizen.xcodeproj/project.pbxproj
-
-*.pbxproj
-
-*.xcuserstate
 
 *.xcuserstate
