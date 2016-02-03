@@ -41,19 +41,24 @@ int main(int argc, char** argv) {
     //Define a Sprite
     sf::Sprite S;
     sf::Texture T;
-    if (!(T.loadFromFile(resourcePath() + "kappa.png"))) {
+    if (!(T.loadFromFile(resourcePath() + "Wallpaper.png"))) {
         //Test for failure
         cerr << "COULD NOT LOAD KAPPA.PNG\n";
         std::system("PAUSE");
         return -1;
     };
     S.setTexture(T);
-    S.setPosition(300, 300);
-    S.setScale(0.2f, 0.2f);
+    S.setPosition(0, 0);
+    S.setScale(0.7f, 0.7f);
 
+    
+    sf::Image image;
+    image.loadFromFile(resourcePath() + "Windows_UI.png");
 
     //Create A TestRenderSprite
-    TestRenderSprite testRenderSpr(resourcePath() + "kappa.png");
+    TestRenderSprite testRenderSpr(image,0,3,1);
+
+    //TestRenderSprite button(image,4, 4, 1);
 
     //Create A TestRotateSprite
 	testRotateSprite testSprCmpnt;
@@ -62,13 +67,15 @@ int main(int argc, char** argv) {
     Entity testEntity;
     testEntity.addComponent(&testRenderSpr);
 
+    //testEntity.addComponent(&button);
+
     //Create ppc::Window
-    Window kappaBlack(200, 200);
+    Window kappaBlack(600, 480, sf::Color(200, 200, 200, 255));
     //Add testEntity to ppc::Window
     kappaBlack.addEntity(testEntity);
 
 	//Add the component to it
-	testRotateSprite test(S, 1);
+	//testRotateSprite test(S, 1);
     // Start the game loop
 	sf::Clock deltaTime; //define deltaTime
 	sf::Time dt;
@@ -117,7 +124,7 @@ int main(int argc, char** argv) {
             window.clear(sf::Color::White);
 
             //Draw Objects
-            window.draw(testRenderSpr);
+            //window.draw(testRenderSpr);
             window.draw(S);
             
             //Update kappaBlack

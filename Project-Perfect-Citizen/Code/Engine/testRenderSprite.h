@@ -18,13 +18,14 @@ private:
     ///     one
 	sf::Texture* texture;
 
+
 public:
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Constructor for TestRenderSprite
 /// @param filname is the String of a file path of a .png file
 ///////////////////////////////////////////////////////////////////////
-	TestRenderSprite(string filename);
+    TestRenderSprite(sf::Image& image, int x, int y, int r);
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Returns a pointer to sprite

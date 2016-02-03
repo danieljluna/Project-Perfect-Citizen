@@ -24,6 +24,7 @@
 		C86E37AF1C4D6B5200842EFD /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = C86E37AA1C4D6B5100842EFD /* EngineSettings.ini */; };
 		C86E37B11C4D6B5200842EFD /* kappa.png in Resources */ = {isa = PBXBuildFile; fileRef = C86E37AC1C4D6B5100842EFD /* kappa.png */; };
 		C881BEE91C4D7C5B008B1EBD /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */; };
+		C8D3BCBB1C6187AD00C8F212 /* Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D3BCBA1C6187AD00C8F212 /* Wallpaper.png */; };
 		E9C810551C603DCB00D47DA6 /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9C810541C603DCB00D47DA6 /* jsoncpp.cpp */; };
 		E9C810591C603E1600D47DA6 /* dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = E9C810581C603E1600D47DA6 /* dummy.json */; };
 		E9C8107A1C603E2800D47DA6 /* ClassDiagram.cd in Resources */ = {isa = PBXBuildFile; fileRef = E9C8105A1C603E2800D47DA6 /* ClassDiagram.cd */; };
@@ -62,6 +63,7 @@
 		C86E37AC1C4D6B5100842EFD /* kappa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kappa.png; sourceTree = "<group>"; };
 		C881BEE71C4D7C5B008B1EBD /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ResourcePath.hpp; path = Resources/ResourcePath.hpp; sourceTree = SOURCE_ROOT; };
 		C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ResourcePath.mm; path = Resources/ResourcePath.mm; sourceTree = SOURCE_ROOT; };
+		C8D3BCBA1C6187AD00C8F212 /* Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Wallpaper.png; path = ../../../../../../../../../Desktop/Wallpaper.png; sourceTree = "<group>"; };
 		E9C810541C603DCB00D47DA6 /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = jsoncpp.cpp; path = Code/Library/jsoncpp.cpp; sourceTree = SOURCE_ROOT; };
 		E9C810561C603DD700D47DA6 /* json-forwards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "json-forwards.h"; path = "Code/Library/json/json-forwards.h"; sourceTree = SOURCE_ROOT; };
 		E9C810571C603DD700D47DA6 /* json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = json.h; path = Code/Library/json/json.h; sourceTree = SOURCE_ROOT; };
@@ -141,6 +143,7 @@
 		C835D60F1C6128F6004B86E0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C8D3BCBA1C6187AD00C8F212 /* Wallpaper.png */,
 				C835D6101C6128F6004B86E0 /* Linux_UI_Icons.png */,
 				C835D6111C6128F6004B86E0 /* Mac_Icons.png */,
 				C835D6121C6128F6004B86E0 /* Mac_UI.png */,
@@ -315,6 +318,7 @@
 				C835D6261C6128F6004B86E0 /* Windows_UI.png in Resources */,
 				C835D61F1C6128F6004B86E0 /* Grid.psd in Resources */,
 				C835D6211C6128F6004B86E0 /* GRID_Mac_Icons.png in Resources */,
+				C8D3BCBB1C6187AD00C8F212 /* Wallpaper.png in Resources */,
 				E9C810591C603E1600D47DA6 /* dummy.json in Resources */,
 				C835D6241C6128F6004B86E0 /* GRID_Windows_UI.png in Resources */,
 				C86E37B11C4D6B5200842EFD /* kappa.png in Resources */,
