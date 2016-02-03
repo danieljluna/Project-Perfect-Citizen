@@ -23,6 +23,7 @@
     <ClCompile Include="Code\Engine\TestSubject.cpp" />
     <ClCompile Include="Code\Engine\Window.cpp" />
     <ClCompile Include="Code\Engine\world.cpp" />
+    <ClCompile Include="Code\Library\jsoncpp.cpp" />
     <ClCompile Include="Code\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +51,8 @@
     <ClInclude Include="Code\Engine\WindowDecorator.h" />
     <ClInclude Include="Code\Engine\WindowInterface.h" />
     <ClInclude Include="Code\Engine\world.h" />
+    <ClInclude Include="Code\Library\json\json-forwards.h" />
+    <ClInclude Include="Code\Library\json\json.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

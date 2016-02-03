@@ -74,7 +74,7 @@ void Subject::printObservers()
 	}
 }
 
-void Subject::sendEvent(ppc::Event event)
+void Subject::sendEvent(sf::Event event)
 {
 	Observer* currentObserver = this->observerHead;
 	if (observerHead == nullptr) {

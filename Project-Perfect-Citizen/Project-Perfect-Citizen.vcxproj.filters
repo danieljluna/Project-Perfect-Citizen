@@ -39,6 +39,9 @@
     </ClCompile>
     <ClCompile Include="Code\Engine\world.cpp">
       <Filter>Sources\Engine\World</Filter>
+	</ClCompile>
+    <ClCompile Include="Code\Library\jsoncpp.cpp">
+      <Filter>Sources\JSON</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +107,12 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\world.h">
       <Filter>Headers\Engine\World</Filter>
+	</ClInclude>
+    <ClInclude Include="Code\Library\json\json.h">
+      <Filter>Headers\JSON</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Library\json\json-forwards.h">
+      <Filter>Headers\JSON</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +189,12 @@
     </Filter>
     <Filter Include="Headers\Engine\Windows / Desktop">
       <UniqueIdentifier>{135f0a23-fd8a-47d5-971c-9c80b6812871}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\JSON">
+      <UniqueIdentifier>{e34cc932-3025-44e0-905e-fa9a373bc43d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\JSON">
+      <UniqueIdentifier>{62c78ee4-d0e8-469a-ac3d-4c6282f2e1c2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
