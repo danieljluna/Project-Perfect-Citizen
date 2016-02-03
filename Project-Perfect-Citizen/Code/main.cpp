@@ -90,7 +90,7 @@ int main(int argc, char** argv) {
         cout << out << endl;
         // create Json Array object from my-plug-ins
         const Json::Value arrayObj = value[ "my-plug-ins" ];
-        for (int i = 0; i < arrayObj.size(); i++){
+        for (unsigned int i = 0; i < arrayObj.size(); i++){
             //output each arrayObj
             cout << arrayObj[i].asString();
             if (i != arrayObj.size() - 1) { cout << endl; }
