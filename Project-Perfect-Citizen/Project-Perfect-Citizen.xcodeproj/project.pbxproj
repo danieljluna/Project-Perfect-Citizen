@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C812D6151C61D29600901173 /* Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = C812D6141C61D29600901173 /* Wallpaper.png */; };
 		C858D3961C61C1BB0086199C /* Windows_UI.png in Resources */ = {isa = PBXBuildFile; fileRef = C858D3951C61C1BB0086199C /* Windows_UI.png */; };
-		C858D3981C61C2540086199C /* Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = C858D3971C61C2540086199C /* Wallpaper.png */; };
 		C858D39B1C61C41D0086199C /* testButtonPress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C858D3991C61C41D0086199C /* testButtonPress.cpp */; };
 		C86E377C1C4D67F200842EFD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C86E377A1C4D67F200842EFD /* main.cpp */; };
 		C86E37AD1C4D6B5100842EFD /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = C86E37A71C4D6B5100842EFD /* DoxygenHelp.txt */; };
@@ -35,8 +35,8 @@
 
 /* Begin PBXFileReference section */
 		C8058A631C4D679D005E23BA /* Project-Perfect-Citizen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-Perfect-Citizen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C812D6141C61D29600901173 /* Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wallpaper.png; sourceTree = "<group>"; };
 		C858D3951C61C1BB0086199C /* Windows_UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_UI.png; sourceTree = "<group>"; };
-		C858D3971C61C2540086199C /* Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Wallpaper.png; path = ../../../../../../../../Desktop/Wallpaper.png; sourceTree = "<group>"; };
 		C858D3991C61C41D0086199C /* testButtonPress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testButtonPress.cpp; sourceTree = "<group>"; };
 		C858D39A1C61C41D0086199C /* testButtonPress.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = testButtonPress.hpp; sourceTree = "<group>"; };
 		C86E377A1C4D67F200842EFD /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
@@ -168,7 +168,7 @@
 		C86E37A51C4D6B5100842EFD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C858D3971C61C2540086199C /* Wallpaper.png */,
+				C812D6141C61D29600901173 /* Wallpaper.png */,
 				C858D3951C61C1BB0086199C /* Windows_UI.png */,
 				E9C810581C603E1600D47DA6 /* dummy.json */,
 				C881BEE71C4D7C5B008B1EBD /* ResourcePath.hpp */,
@@ -273,7 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C858D3981C61C2540086199C /* Wallpaper.png in Resources */,
+				C812D6151C61D29600901173 /* Wallpaper.png in Resources */,
 				C86E37AF1C4D6B5200842EFD /* EngineSettings.ini in Resources */,
 				E9C810591C603E1600D47DA6 /* dummy.json in Resources */,
 				C86E37B11C4D6B5200842EFD /* kappa.png in Resources */,
