@@ -73,6 +73,7 @@ int main(int argc, char** argv) {
 
     //Create ppc::Window
     Window testWindow(200, 200,sf::Color(200,200,200));
+	Window testWindow2(200, 200, sf::Color(150, 150, 150));
     //Add testEntity to ppc::Window
 	testWindow.addEntity(testEntity);
 
@@ -81,7 +82,6 @@ int main(int argc, char** argv) {
 	//the actual FileTree is completed
 	Desktop myDesktop(dummyTree);
 	myDesktop.addWindow(&testWindow);
-
 
     //////////JSON EXAMPLE//////////////////////////////////////////////
     Json::Reader reader;
@@ -115,7 +115,6 @@ int main(int argc, char** argv) {
 	// Start the game loop
 	///////////////////////////////////////////////////////////////////
 	sf::Clock deltaTime; //define deltaTime
-	sf::Time dt;
     //Used to keep track time
     sf::Time framePeriod = sf::milliseconds(1000.0f / 30.f);
     while (screen.isOpen()) {
@@ -131,7 +130,7 @@ int main(int argc, char** argv) {
             // Clear screen
 			screen.clear(sf::Color::White);
 
-            //Draw Objects
+            //Draw Background
 			screen.draw(S);
             
             //Update all Windows in the Desktop

@@ -17,6 +17,7 @@
     <ClCompile Include="Code\Engine\entity.cpp" />
     <ClCompile Include="Code\Engine\observer.cpp" />
     <ClCompile Include="Code\Engine\subject.cpp" />
+    <ClCompile Include="Code\Engine\testButtonPress.cpp" />
     <ClCompile Include="Code\Engine\TestObserver.cpp" />
     <ClCompile Include="Code\Engine\testRenderSprite.cpp" />
     <ClCompile Include="Code\Engine\testRotateSprite.cpp" />
@@ -42,6 +43,7 @@
     <ClInclude Include="Code\Engine\observer.h" />
     <ClInclude Include="Code\Engine\renderComponent.h" />
     <ClInclude Include="Code\Engine\subject.h" />
+    <ClInclude Include="Code\Engine\testButtonPress.hpp" />
     <ClInclude Include="Code\Engine\TestObserver.h" />
     <ClInclude Include="Code\Engine\testRenderSprite.h" />
     <ClInclude Include="Code\Engine\testRotateSprite.h" />
