@@ -23,8 +23,6 @@ ppc::Desktop::~Desktop() {
 }
 
 
-//should things be swapped or should wi 
-//only be moved, while ordering is kept?
 void ppc::Desktop::focusWindow(WindowInterface* wi) {
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 		if (*it == wi) {
@@ -45,8 +43,8 @@ void ppc::Desktop::focusWindow(WindowInterface* wi) {
 
 void ppc::Desktop::draw(sf::RenderTarget& target, 
 						sf::RenderStates states) const {
-
-	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
+	//Using reverse itors
+	for (auto it = windows_.rbegin(); it != windows_.rend(); ++it) {
 		target.draw(*(*it), states);
 	}
 }
@@ -82,20 +80,23 @@ FileState& ppc::Desktop::getRoot() {
 	return temp;
 }
 
-void ppc::Desktop::registerInput(){
+void ppc::Desktop::registerInput(sf::Event& ev){
+	//No reverse itors needed
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-		(*it)->registerInput();
+		(*it)->registerInput(ev);
 	}
 }
 
 void ppc::Desktop::update(sf::Time& deltaTime){
+	//No reverse itors needed
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 		(*it)->update(deltaTime);
 	}
 }
 //ask why we need draw if refresh already calls draw when it is called
 void ppc::Desktop::refresh(sf::RenderStates states) {
-	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
+	//Reverse itors needed
+	for (auto it = windows_.rbegin(); it != windows_.rend(); ++it) {
 		//windows_ contains pointers to the base class of Window,
 		// which doesnt have a refresh() function.
 		//Therefore, downcasting is needed

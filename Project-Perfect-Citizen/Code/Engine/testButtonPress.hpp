@@ -18,7 +18,7 @@ public:
     
     virtual ~ButtonPress() {};
     
-    virtual void registerInput() override;
+    virtual void registerInput(sf::Event&) override;
     
 };
 

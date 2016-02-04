@@ -17,10 +17,10 @@
       <Filter>Sources\Engine\Entity / Componentns</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\observer.cpp">
-      <Filter>Sources\Engine\Events</Filter>
+      <Filter>Sources\Engine\Input</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\subject.cpp">
-      <Filter>Sources\Engine\Events</Filter>
+      <Filter>Sources\Engine\Input</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\debug.cpp">
       <Filter>Sources\Engine\Debug</Filter>
@@ -34,14 +34,20 @@
     <ClCompile Include="Code\Engine\TestObserver.cpp">
       <Filter>Sources\Examples</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\TestSubject.cpp">
-      <Filter>Sources\Examples</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\world.cpp">
       <Filter>Sources\Engine\World</Filter>
-	</ClCompile>
+    </ClCompile>
     <ClCompile Include="Code\Library\jsoncpp.cpp">
       <Filter>Sources\JSON</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\testButtonPress.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\InputHandler.cpp">
+      <Filter>Sources\Engine\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\ComponentObsvr.cpp">
+      <Filter>Sources\Engine\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -66,15 +72,6 @@
     <ClInclude Include="Code\Engine\objectPool.h">
       <Filter>Headers\Engine\Container</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\event.h">
-      <Filter>Headers\Engine\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\observer.h">
-      <Filter>Headers\Engine\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\subject.h">
-      <Filter>Headers\Engine\Events</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\inputComponent.h">
       <Filter>Headers\Engine\Entity / Components</Filter>
     </ClInclude>
@@ -82,9 +79,6 @@
       <Filter>Resources</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\TestObserver.h">
-      <Filter>Headers\Examples</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\TestSubject.h">
       <Filter>Headers\Examples</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\desktop.h">
@@ -107,12 +101,30 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\world.h">
       <Filter>Headers\Engine\World</Filter>
-	</ClInclude>
+    </ClInclude>
     <ClInclude Include="Code\Library\json\json.h">
       <Filter>Headers\JSON</Filter>
     </ClInclude>
     <ClInclude Include="Code\Library\json\json-forwards.h">
       <Filter>Headers\JSON</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\testButtonPress.hpp">
+      <Filter>Headers\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\InputHandler.h">
+      <Filter>Headers\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\event.h">
+      <Filter>Headers\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\observer.h">
+      <Filter>Headers\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\subject.h">
+      <Filter>Headers\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ComponentObsvr.h">
+      <Filter>Headers\Engine\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -166,12 +178,6 @@
     <Filter Include="Sources\Engine\Entity / Componentns">
       <UniqueIdentifier>{b81f4938-d823-4aa0-9be0-5b28592faa7c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Headers\Engine\Events">
-      <UniqueIdentifier>{0701780d-79e0-4e34-8731-61e9b95ba5a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sources\Engine\Events">
-      <UniqueIdentifier>{19e64c98-7fda-48db-a0d3-b0f4e8e67694}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Headers\Engine\World">
       <UniqueIdentifier>{10c7e7da-8d8c-4ecb-a8b7-08b3b10b1424}</UniqueIdentifier>
     </Filter>
@@ -195,6 +201,12 @@
     </Filter>
     <Filter Include="Sources\JSON">
       <UniqueIdentifier>{62c78ee4-d0e8-469a-ac3d-4c6282f2e1c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Input">
+      <UniqueIdentifier>{ab94d234-0dbc-4539-ad73-bd069d03133e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\Input">
+      <UniqueIdentifier>{19e64c98-7fda-48db-a0d3-b0f4e8e67694}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
