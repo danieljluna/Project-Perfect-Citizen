@@ -9,23 +9,22 @@
 ///////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <fstream>
 
 #include <SFML/Main.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
+#include "Library/json/json.h"
+
 #include "Engine/testRenderSprite.h"
 #include "Engine/testRotateSprite.h"
 #include "Engine/subject.h"
-#include "Engine/TestSubject.h"
 #include "Engine/TestObserver.h"
 #include "Engine/debug.h"
 #include "Engine/entity.h"
 #include "Engine/Window.h"
 #include "Engine/desktop.h"
-
-#include "Library/json/json.h"
-#include <fstream>
 
 
 using namespace ppc;
@@ -39,7 +38,7 @@ int main(int argc, char** argv) {
 	DEBUGF("ac", argc);
 
     // Create the main sf::window
-    sf::RenderWindow screen(sf::VideoMode(1600, 900), "SFML window");
+    sf::RenderWindow screen(sf::VideoMode(800, 600), "SFML window");
 
     //Define a Sprite
     sf::Sprite S;
@@ -62,8 +61,6 @@ int main(int argc, char** argv) {
 	testRenderSpr.renderPosition(sf::Vector2f(10, 10));
     TestRenderSprite rend(spriteSheet, 0, 4, 1);
     rend.renderPosition(sf::Vector2f(170,0));
-    //Create A TestRotateSprite
-	testRotateSprite testSprCmpnt;
     
     //Put that Component into an Entity
     Entity testEntity;
@@ -84,6 +81,7 @@ int main(int argc, char** argv) {
 	myDesktop.addWindow(&testWindow);
 
     //////////JSON EXAMPLE//////////////////////////////////////////////
+
     Json::Reader reader;
     Json::Value value;
     // read from file, why can I just use the name dummy.json?

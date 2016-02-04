@@ -2,6 +2,9 @@
 #pragma once
 #include "observer.h"
 #include <SFML/Graphics.hpp>
+
+namespace ppc {
+
 ///////////////////////////////////////////////
 ///@brief This is the subject  class. Stick a
 ///as a member variable inside any class you 
@@ -16,14 +19,17 @@ private:
 	int numberOfObservers;
 	//The front of the doubly linked list of observers
 	//that every child of subject may have. 
-	Observer* observerHead;
+	BaseObserver* observerHead;
 public:
 	Subject() : observerHead(nullptr) {};
-	void addObserver(Observer* observer);
-	void removeObserver(Observer* observer);
-	Observer* getObserverHead();
+	void addObserver(BaseObserver* observer);
+	void removeObserver(BaseObserver* observer);
+	BaseObserver* getObserverHead();
 	void printObservers();
-protected:
-	void sendEvent(sf::Event event);
+
+	void sendEvent(sf::Event& event);
 	
+};
+
+
 };

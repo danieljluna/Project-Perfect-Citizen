@@ -4,7 +4,10 @@
 #include <vector>
 #include <cstddef>
 
+#include <SFML/Window/Event.hpp>
+
 #include "Component.h"
+#include "ComponentObsvr.h"
 
 
 namespace ppc {
@@ -21,15 +24,29 @@ namespace ppc {
 class InputComponent : public Component {
 public:
 
-    virtual ~InputComponent() {};
+    virtual ~InputComponent() { delete [] observerArray_; };
 
-
-    virtual void registerInput() = 0;
+    virtual void registerInput(sf::Event& ev) = 0;
 
 
 protected:
 
-    InputComponent() {};
+    InputComponent(size_t observerCount = 1) {
+        observerArray_ = new ComponentObsvr* [observerCount];
+        observerCount_ = observerCount;
+    };
+
+    ComponentObsvr* getObserver(size_t index = 0) {
+        if (index < observerCount_) {
+            return observerArray_[index];
+        } else { return nullptr; }
+    }
+
+private:
+
+    ComponentObsvr** observerArray_;
+
+    size_t observerCount_;
 
 };
 
