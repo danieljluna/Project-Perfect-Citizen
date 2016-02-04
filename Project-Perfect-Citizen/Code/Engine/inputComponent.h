@@ -4,7 +4,10 @@
 #include <vector>
 #include <cstddef>
 
+#include <SFML/Window/Event.hpp>
+
 #include "Component.h"
+#include "ComponentObsvr.h"
 
 
 namespace ppc {
@@ -24,12 +27,14 @@ public:
     virtual ~InputComponent() {};
 
 
-    virtual void registerInput() = 0;
+    virtual void registerInput(sf::Event& ev) = 0;
 
 
 protected:
 
     InputComponent() {};
+
+    ComponentObsvr
 
 };
 
