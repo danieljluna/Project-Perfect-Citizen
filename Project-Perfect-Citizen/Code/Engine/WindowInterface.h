@@ -5,6 +5,7 @@
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/Transformable.hpp>
+#include <SFML/Window/Event.hpp>
 
 
 namespace ppc {
@@ -37,7 +38,7 @@ public:
     ///////////////////////////////////////////////////////////////////
     /// @brief Reacts to Input for this, and all objects in the Window.
     ///////////////////////////////////////////////////////////////////
-    virtual void registerInput() = 0;
+    virtual void registerInput(sf::Event&) = 0;
 
 
 protected:

@@ -135,7 +135,7 @@ namespace ppc {
 ///@brief Reacts to Input for all Windows, and all objects
 /// in the Windows.
 ///////////////////////////////////////////////////////////////////////
-		void registerInput();
+		void registerInput(sf::Event& ev);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Updates all Windows and all objects in the Windows.

@@ -80,10 +80,10 @@ FileState& ppc::Desktop::getRoot() {
 	return temp;
 }
 
-void ppc::Desktop::registerInput(){
+void ppc::Desktop::registerInput(sf::Event& ev){
 	//No reverse itors needed
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-		(*it)->registerInput();
+		(*it)->registerInput(ev);
 	}
 }
 

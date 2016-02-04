@@ -129,11 +129,8 @@ void Window::update(sf::Time& deltaTime) {
 
 
 
-void Window::registerInput() {
-    //HACK: This is not how input should be done
-    for (InputComponent* c : inputcmpnts_) {
-        c->registerInput();
-    }
+void Window::registerInput(sf::Event& ev) {
+    //TODO: Implement using InputHandler
 }
 
 
