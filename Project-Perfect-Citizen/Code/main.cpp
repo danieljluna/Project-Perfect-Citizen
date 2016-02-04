@@ -60,7 +60,7 @@ int main(int argc, char** argv) {
     TestRenderSprite testRenderSpr(spriteSheet, 0, 3, 1);
 	testRenderSpr.renderPosition(sf::Vector2f(10, 10));
     TestRenderSprite rend(spriteSheet, 0, 4, 1);
-    rend.renderPosition(sf::Vector2f(170,0));
+    rend.renderPosition(sf::Vector2f(150,0));
     
     //Put that Component into an Entity
     Entity testEntity;
