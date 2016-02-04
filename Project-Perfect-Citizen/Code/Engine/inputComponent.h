@@ -24,17 +24,29 @@ namespace ppc {
 class InputComponent : public Component {
 public:
 
-    virtual ~InputComponent() {};
-
+    virtual ~InputComponent() { delete [] observerArray_; };
 
     virtual void registerInput(sf::Event& ev) = 0;
 
 
 protected:
 
-    InputComponent() {};
+    InputComponent(size_t observerCount = 1) {
+        observerArray_ = new ComponentObsvr* [observerCount];
+        observerCount_ = observerCount;
+    };
 
-    ComponentObsvr
+    ComponentObsvr* getObserver(size_t index = 0) {
+        if (index < observerCount_) {
+            return observerArray_[index];
+        } else { return nullptr; }
+    }
+
+private:
+
+    ComponentObsvr** observerArray_;
+
+    size_t observerCount_;
 
 };
 

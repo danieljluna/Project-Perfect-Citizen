@@ -8,7 +8,7 @@ namespace ppc {
 class InputComponent;
 
 ///////////////////////////////////////////////////////////////////////
-///
+/// @brief Observer used by InputComponents
 ///////////////////////////////////////////////////////////////////////
 class ComponentObsvr : public BaseObserver {
 public:
@@ -16,7 +16,7 @@ public:
     //No Default Constructor
     ComponentObsvr() = delete;
 
-    ComponentObsvr(InputComponent& input);
+    ComponentObsvr(InputComponent& iCmpnt);
 
 
 
@@ -25,12 +25,13 @@ public:
 private:
 
     //Stores a pointer to the InputComponent to notify
-    InputComponent* i_cmpnt_;
+    InputComponent& i_cmpnt_;
 
 
 };
 
-};
+
+};  //End namespace ppc
 
 
 #endif  //End COMPONENT_OBSVR_H

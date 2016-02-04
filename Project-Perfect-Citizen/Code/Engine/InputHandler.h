@@ -56,7 +56,7 @@ private:
 };
 
 
-};
+};  //End namespace ppc
 
 
 #endif //End INPUT_HANDLER_H

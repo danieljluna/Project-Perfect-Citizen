@@ -2,8 +2,18 @@
 
 using namespace ppc;
 
+InputHandler::InputHandler() {}
+
+
+
+
+InputHandler::~InputHandler() {}
+
+
+
+
 void InputHandler::addHandle(sf::Event::EventType type) {
-    inputMap.emplace(type);
+    inputMap.emplace(type, Subject{});
 }
 
 
@@ -29,7 +39,7 @@ bool InputHandler::addObserver(sf::Event::EventType type,
         it->second.addObserver(obsvr);
         result = true;
     } else if (forceCreation) {
-        auto emplaceRet = inputMap.emplace(type);
+        auto emplaceRet = inputMap.emplace(type, Subject{});
         if (emplaceRet.second) {
             emplaceRet.first->second.addObserver(obsvr);
         }
