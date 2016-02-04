@@ -50,6 +50,7 @@ Component* Entity::getComponent(size_t index) {
     } else {
         throw std::out_of_range("Entity: getComponent used invalid index!");
     }
+    return components_[index];
 }
 
 
