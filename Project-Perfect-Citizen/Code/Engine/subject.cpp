@@ -1,8 +1,10 @@
 #include "subject.h"
 #include <iostream>
+using namespace ppc;
+
 //adds to the front. 
 //TODO
-void Subject::addObserver(Observer* observer) {
+void Subject::addObserver(BaseObserver* observer) {
 		observer->next = observerHead;
 		if (observerHead != nullptr) {
 			observerHead->prev = observer;
@@ -12,13 +14,13 @@ void Subject::addObserver(Observer* observer) {
 	
 }
 
-void Subject::removeObserver(Observer * observer){
+void Subject::removeObserver(BaseObserver * observer){
 	//if its the head
 	
 	if (observerHead == observer) {
 		//there is only one 
 		if (observerHead->next == nullptr) {
-			Observer* tempObserver = observerHead;
+			BaseObserver* tempObserver = observerHead;
 			observerHead = nullptr;
 			tempObserver->prev = nullptr;
 			tempObserver->next = nullptr;
@@ -28,7 +30,7 @@ void Subject::removeObserver(Observer * observer){
 
 		}
 		else {
-			Observer* tempObserver = observerHead;
+			BaseObserver* tempObserver = observerHead;
 			observerHead = observerHead->next;
 			observerHead->prev = nullptr;
 			tempObserver->next = nullptr;
@@ -38,7 +40,7 @@ void Subject::removeObserver(Observer * observer){
 		}
 	}
 
-	Observer* currentObserver = observerHead;
+    BaseObserver* currentObserver = observerHead;
 	while (currentObserver != nullptr) {
 		if (currentObserver->next == observer) {
 			currentObserver->next = observer->next;
@@ -54,7 +56,7 @@ void Subject::removeObserver(Observer * observer){
 	}
 }
 
-Observer * Subject::getObserverHead()
+BaseObserver * Subject::getObserverHead()
 {
 	if (this->observerHead == nullptr) {
 		
@@ -67,18 +69,18 @@ Observer * Subject::getObserverHead()
 
 void Subject::printObservers()
 {
-	Observer* currentObserver = this->observerHead;
+    BaseObserver* currentObserver = this->observerHead;
 	while (currentObserver != nullptr) {
-		std::cout << "identifier is "<< currentObserver->numberIdentifier << endl;
+		std::cout << "identifier is "<< currentObserver->id << std::endl;
 		currentObserver = currentObserver->next;
 	}
 }
 
-void Subject::sendEvent(ppc::Event event)
+void Subject::sendEvent(sf::Event& event)
 {
-	Observer* currentObserver = this->observerHead;
+    BaseObserver* currentObserver = this->observerHead;
 	if (observerHead == nullptr) {
-		cout << "no observers connected to this object!" << endl;
+		std::cout << "no observers connected to this object!" << std::endl;
 		return;
 	}
 

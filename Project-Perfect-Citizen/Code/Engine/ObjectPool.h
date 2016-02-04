@@ -13,6 +13,7 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 /// @brief A staitc-sized container of Objects that rapidly are created 
 ///     and destroyed.
+/// @author Daniel Luna (for CMPM 265, in case we need it)
 /// @details A generic templated class for managing a pool of objects.
 ///     This class mainly functions as a container that returns the
 ///     next available object to initialize. The exact initialization
@@ -32,7 +33,12 @@ public:
   // Constructors & Destructor
   /////////////////////////////////////////////////////////////////////
 
-    //Default Constructor
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Default Constructor
+    /// @details Initializes the pool to the given size.
+    ///
+    /// @param poolSize The desired size of the pool.
+    ///////////////////////////////////////////////////////////////////
     ObjectPool(size_t poolSize = 0) {
         //Allocate memory for the pool
         if (poolSize > 0) {
@@ -57,7 +63,11 @@ public:
 
 
 
-    //Copy Constructor
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Copy Constructor
+    /// @details Creates another pool of the same size and with 
+    ///     deep copy of the active particles.
+    ///////////////////////////////////////////////////////////////////
     ObjectPool(const ObjectPool<ObjectType>& other) 
             : ObjectPool<ObjectType>(other.poolSize_) {
         //Check if the pool was allocated correctly
@@ -72,7 +82,10 @@ public:
 
 
 
-    //Destructor
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Destructor
+    /// @details Namely deletes the allocated pool.
+    ///////////////////////////////////////////////////////////////////
     ~ObjectPool() {
         //Delete Pool
         delete[] pool_;
@@ -85,9 +98,14 @@ public:
   // Pool Management
   /////////////////////////////////////////////////////////////////////
 
-    //Changes the maximum number of Objects the pool can hold.
-    //Pre:  No object is in-use.
-    //Post: The pool can now hold a maximum of poolSize objects.
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Changes the maximum number of Objects the pool can hold.
+    ///
+    /// @pre No object in the pool is in-use, and there is enough
+    ///     memory for the desired size.
+    /// @post size() = poolSize;
+    /// @param poolSize The desired size of the pool.
+    ///////////////////////////////////////////////////////////////////
     void resize(size_t poolSize) {
 
         //If no object is in use...
@@ -121,12 +139,19 @@ public:
     };
 
 
-    //Activates an object for use and returns a pointer to it for 
-    //  initialization.
-    //Pre:  (activeCount_ < poolSize_)
-    //Ret:  Returns a pointer to the next object to activate. If there
-    //      are none reusable objects left, this function returns 
-    //      nullptr.
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Activates an object for use.
+    /// @details The newly activated object's initialization is left
+    ///     to the user, and thus this function returns a pointer to
+    ///     the activated object. This function uses the nullptr to 
+    ///     denote a failed activation.
+    ///
+    /// @pre (activeCount_ < poolSize_)
+    /// @post activeObjects() += 1;
+    /// @return Returns a pointer to the next object to activate. If
+    ///     there are none reusable objects left, this function returns
+    ///     nullptr.
+    ///////////////////////////////////////////////////////////////////
     ObjectType* createObject() const {
 
         //If we have more objects to activate
@@ -140,8 +165,15 @@ public:
     };
 
 
-    //Deactivates the object at the given index.
-    //Pre: (index < activeCount_)
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Deactivates the object at the given index.
+    /// @details Due to the way this moves around objects in the pool,
+    ///     if you have to deactivate multiple objects at once, destroy
+    ///     the object with the highest index first.
+    ///
+    /// @pre (index < activeCount_)
+    /// @post activeObjects() -= 1;
+    ///////////////////////////////////////////////////////////////////
     void destroyObject(size_t index) const {
         //If we are trying to destroy an inactive index, simply ignore it.
         //      Otherwise:
@@ -163,14 +195,26 @@ public:
   // Getters
   /////////////////////////////////////////////////////////////////////
 
-    //Returns the size of the ObjectPool
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Returns the size of the pool.
+    ///
+    /// @return Size of the pool.
+    ///////////////////////////////////////////////////////////////////
     size_t size() const { return poolSize_; };
 
-    //Returns the number of active Objects
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Returns the number of active objects in the pool.
+    ///
+    /// @return The number of active objects in the pool.
+    ///////////////////////////////////////////////////////////////////
     size_t activeObjects() const { return activeCount_; };
 
-    //Returns a pointer to the index-th active Object
-    //Pre:  (0 < index < activeCount_)
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Returns a pointer to the index-th active Object.
+    ///
+    /// @pre (0 < index < activeCount_)
+    /// @return A pointer to the index-th active Object.
+    ///////////////////////////////////////////////////////////////////
     ObjectType& operator[] (size_t index) const {
         //Check if we have a valid index
         if (index >= activeCount_) {
@@ -204,7 +248,7 @@ private:
 };
 
 
-};      //End namespace pcg
+};      //End namespace ppc
 
 
 #endif  //End OBJECT_POOL_H

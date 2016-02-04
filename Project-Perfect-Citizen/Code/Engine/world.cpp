@@ -22,7 +22,8 @@ ppc::World::~World() {
 
 			//Should I be deleting the contents of the array???
 			// Todo: ask during meeting
-			//delete this->desktops_[i];
+
+			delete this->desktops_[i];
 			this->desktops_[i] = nullptr;
 		}
 	}
@@ -30,11 +31,11 @@ ppc::World::~World() {
 		this->worldIndex);
 }
 
-size_t ppc::World::desktopCount() {
+size_t ppc::World::desktopCount() const {
 	return desktopCount_;
 }
 
-ppc::Desktop* ppc::World::getDesktop(int index) {
+ppc::Desktop* ppc::World::getDesktop(int index) const{
 	if ((size_t)index > desktopCount() || index < 0) return nullptr;
 	return desktops_[index];
 }

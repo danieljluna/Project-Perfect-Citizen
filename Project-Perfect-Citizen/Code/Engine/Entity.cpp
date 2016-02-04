@@ -15,6 +15,7 @@ Entity::Entity() {
     for (size_t i = 0; i < maxComponentCount; ++i) {
         components_[i] = nullptr;
     }
+    componentCount_ = 0;
 }
 
 
@@ -25,7 +26,6 @@ Entity::~Entity() {
     for (size_t i = 0; i < maxComponentCount; ++i) {
         if (components_[i] != nullptr) {
             components_[i]->entity = nullptr;
-            delete components_[i];
         }
     }
 }
@@ -45,6 +45,11 @@ size_t Entity::cmpntCount() {
 
 
 Component* Entity::getComponent(size_t index) {
+    if (index < maxComponentCount) {
+        return components_[index];
+    } else {
+        throw std::out_of_range("Entity: getComponent used invalid index!");
+    }
     return components_[index];
 }
 
@@ -78,8 +83,10 @@ int Entity::getIndex(Component* cmpnt) {
 int Entity::addComponent(Component* cmpnt) {
     //Test if we have room for the cmpnt
     if (componentCount_ < maxComponentCount) {
-        //Store cmpnt and return the index it was stored at
-        components_[componentCount_] = cmpnt;
+        //Find next open slot
+        size_t index = 0;
+        while (components_[index] != nullptr) { ++index; }
+        components_[index] = cmpnt;
         cmpnt->entity = this;
         return componentCount_++;
     } else {

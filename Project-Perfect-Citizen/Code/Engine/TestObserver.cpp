@@ -1,14 +1,12 @@
 #include "TestObserver.h"
 
-void TestObserver::eventHandler(ppc::Event event)
+using namespace ppc;
+
+void TestObserver::eventHandler(sf::Event event)
 {
-	if (event.type != ppc::Event::EventTypes::RenderEventType) {
+	if (event.type != sf::Event::EventType::MouseMoved){
 		return;
 	}
-
-	cout << "The double in this event is " << 
-		event.renderStruct.testRenderEventDouble << endl;
-
-	cout << "The integer in this event is " <<
-		event.renderStruct.testRenderEventInt << endl;
+	std::cout << "the x value is " << event.mouseMove.x << std::endl;
+	std::cout << "the y value is " << event.mouseMove.y << std::endl;
 }

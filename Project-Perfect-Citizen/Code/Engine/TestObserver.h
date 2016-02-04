@@ -3,10 +3,14 @@
 #include "observer.h"
 #include <iostream>
 
+
+namespace ppc {
+
+
 ///////////////////////////////////////////////
 ///@brief Test child class for Observer
 ///////////////////////////////////////////////
-class TestObserver : public Observer {
+class TestObserver : public BaseObserver {
 public:
 	////////////////////////////////////////////////
 	///@brief This function is inherited from
@@ -16,5 +20,8 @@ public:
 	///going to have to in most situations.
 	///@param Event to be parsed. 
 	///////////////////////////////////////////////
-	virtual void eventHandler(ppc::Event event);
+	virtual void eventHandler(sf::Event event);
+};
+
+
 };
