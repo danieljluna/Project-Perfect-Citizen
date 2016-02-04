@@ -129,7 +129,7 @@ void Window::update(sf::Time& deltaTime) {
 
 
 
-void Window::registerInput() {
+void Window::registerInput(sf::Event& ev) {
     //TODO: Implement using InputHandler
 }
 
