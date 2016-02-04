@@ -11,36 +11,41 @@
 
 
 namespace ppc {
-//HACK: This whole class is defunct for now. Will be updated soon
+
+class InputHandler;
+
 ///////////////////////////////////////////////////////////////////////
 /// @brief Base Class for all Components handling Input
 /// @author Daniel Luna
-/// @details Currently not actually functional. Waiting on the 
-///     implementation of Observers and Subjects. Not for use yet.
-/// 
-/// @todo Implement. Requires updated Observer. Currently is more or 
-///     less another updateComponent.
+/// @details InputComponents make use of ComponentObsvrs to react to
+///     Input during the Input phase of the main loop. The reaction is
+///     defined in registerInput(sf::Event&), which is passed the event
+///     to react to by its observers. The observers managed by the
+///     InputComponent use a reference to an InputHandler to link up
+///     with the proper Subjects.
 ///////////////////////////////////////////////////////////////////////
 class InputComponent : public Component {
 public:
 
-    virtual ~InputComponent() { delete [] observerArray_; };
+    virtual ~InputComponent();
 
     virtual void registerInput(sf::Event& ev) = 0;
 
 
 protected:
 
-    InputComponent(size_t observerCount = 1) {
-        observerArray_ = new ComponentObsvr* [observerCount];
-        observerCount_ = observerCount;
-    };
+    InputComponent(size_t observerCount = 1);
 
-    ComponentObsvr* getObserver(size_t index = 0) {
-        if (index < observerCount_) {
-            return observerArray_[index];
-        } else { return nullptr; }
-    }
+    ComponentObsvr* getObserver(size_t index = 0);
+
+    bool watch(Subject& subject);
+
+    bool watch(InputHandler& iHandler, sf::Event::EventType type);
+
+    bool ignore(Subject& subject);
+
+    bool ignore(InputHandler& iHandler, sf::Event::EventType type);
+
 
 private:
 
