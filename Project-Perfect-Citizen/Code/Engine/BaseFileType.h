@@ -13,7 +13,7 @@ namespace ppc {
 	protected:
 		BaseFileType();
 		string data = "";
-		map<string, BaseFileType*> contents;
+		map<BaseFileType*, string> contents;
 	public:
 		virtual void readFile();
 		virtual void printDir();

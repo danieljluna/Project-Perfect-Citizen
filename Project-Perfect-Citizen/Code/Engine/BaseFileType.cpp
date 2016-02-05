@@ -15,6 +15,6 @@ void ppc::BaseFileType::readFile()
 void ppc::BaseFileType::printDir()
 {
 	for (auto iter = this->contents.begin(); iter != this->contents.end(); iter++) {
-		cout << iter->second << endl;
+		cout << iter->first << endl;
 	}
 }

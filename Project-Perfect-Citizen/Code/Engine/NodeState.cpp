@@ -22,8 +22,8 @@ void ppc::NodeState::setUp()
 {
 	this->workingDirectory.push_back("/");
 	BaseFileType* newRoot = new BaseFileType();
-	newRoot->contents["."] = newRoot;
-	newRoot->contents[".."] = newRoot;
+	newRoot->contents[newRoot] = ".";
+	newRoot->contents[newRoot] = "..";
 	this->root = newRoot;
 	this->cwd = newRoot;
 }
