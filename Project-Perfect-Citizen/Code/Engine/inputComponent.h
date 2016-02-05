@@ -26,27 +26,81 @@ class InputHandler;
 class InputComponent : public Component {
 public:
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Virtual Destructor
+    ///////////////////////////////////////////////////////////////////
     virtual ~InputComponent();
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Reaction Function
+    /// @details Override this function to define how this Component
+    ///     reacts to the Events passed to it.
+    ///
+    /// @param ev The sf::Event passed to this Component when it an
+    ///     Observer calls this Component.
+    ///////////////////////////////////////////////////////////////////
     virtual void registerInput(sf::Event& ev) = 0;
 
 
 protected:
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Constructor
+    /// @details Creates an InputComponent with the given number of
+    ///     Observers to watch events with.
+    ///
+    /// @param observerCount The number of desired Observers for this
+    ///     InputComponent.
+    ///////////////////////////////////////////////////////////////////
     InputComponent(size_t observerCount = 1);
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Returns the index-th observer 
+    ///
+    /// @pre (index < observerCount_)
+    /// @param index The index of the Observer Array you wish to 
+    ///     manipulate.
+    /// @return A pointer to the Observer desired. Returns nullptr if
+    ///     the precondition fails.
+    ///////////////////////////////////////////////////////////////////
     ComponentObsvr* getObserver(size_t index = 0);
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets up an Observer to watch the Subject.
+    ///
+    /// @pre There is an Observer not currently in use.
+    /// @return Whether or not there was an Observer available to 
+    ///     assign to the Subject given.
+    ///////////////////////////////////////////////////////////////////
     bool watch(Subject& subject);
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets up an Observer to watch for an sf::Event.
+    ///
+    /// @pre There is an Observer not currently in use.
+    /// @return Whether or not there was an Observer available to 
+    ///     assign to the InputHandler given.
+    ///////////////////////////////////////////////////////////////////
     bool watch(InputHandler& iHandler, sf::Event::EventType type);
 
-    bool ignore(Subject& subject);
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Detatches Observers connected to this subject.
+    /// @details This will detach all Observers related to this 
+    ///     InputComponent from the given Subject.
+    ///////////////////////////////////////////////////////////////////
+    void ignore(Subject& subject);
 
-    bool ignore(InputHandler& iHandler, sf::Event::EventType type);
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Detatches Observers connected to this subject.
+    /// @details This will detach all Observers related to this 
+    ///     InputComponent from the given handle in the InputHandler.
+    ///////////////////////////////////////////////////////////////////
+    void ignore(InputHandler& iHandler, sf::Event::EventType type);
 
 
 private:
+
+    size_t findNextObserver();
 
     ComponentObsvr** observerArray_;
 

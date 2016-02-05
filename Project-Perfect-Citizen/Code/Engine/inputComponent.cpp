@@ -16,6 +16,11 @@ InputComponent::InputComponent(size_t observerCount) {
 
 
 InputComponent::~InputComponent() {
+    for (size_t i = 0; i < observerCount_; ++i) {
+        if (observerArray_[i] != nullptr) {
+            delete observerArray_[i];
+        }
+    }
     delete[] observerArray_;
 }
 
@@ -32,7 +37,14 @@ ComponentObsvr* InputComponent::getObserver(size_t index) {
 
 
 bool InputComponent::watch(Subject& subject) {
-    return false;
+    size_t i = findNextObserver();
+
+    if (i < observerCount_) {
+        subject.addObserver(observerArray_[i]);
+        return true;
+    } else {
+        return false;
+    }
 }
 
 
@@ -40,20 +52,39 @@ bool InputComponent::watch(Subject& subject) {
 
 bool InputComponent::watch(InputHandler& iHandler, 
                            sf::Event::EventType type) {
-    return false;
+    size_t i = findNextObserver();
+
+    if (i < observerCount_) {
+        iHandler.addObserver(type, observerArray_[i]);
+        return true;
+    } else {
+        return false;
+    }
 }
 
 
 
 
-bool InputComponent::ignore(Subject& subject) {
-    return false;
+void InputComponent::ignore(Subject& subject) {
+    subject.removeObserver(observerArray_[0]->id, observerCount_);
 }
 
 
 
 
-bool InputComponent::ignore(InputHandler& iHandler,
+void InputComponent::ignore(InputHandler& iHandler,
                             sf::Event::EventType type) {
-    return false;
+    iHandler.removeObserver(type, observerArray_[0]->id, observerCount_);
+}
+
+
+
+
+size_t InputComponent::findNextObserver() {
+    size_t i = 0;
+    while ((i < observerCount_) && (observerArray_[i]->isInUse())) {
+        ++i;
+    }
+
+    return i;
 }
