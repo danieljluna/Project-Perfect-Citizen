@@ -37,18 +37,20 @@ public:
     ///
     /// @param width The desired width of the Window
     /// @param height The desired height of the Window
+    /// @param color The background color of the Window
     ///////////////////////////////////////////////////////////////////
-    Window(float width, 
-           float height, 
-           sf::Color color = sf::Color::Black);
+    Window(unsigned int width, 
+           unsigned int height, 
+           sf::Color col = sf::Color::Black);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Window Constructor
     /// @details Creates a Window of the given size.
     ///
     /// @param size The desired size of the Window
+    /// @param color The background color of the Window
     ///////////////////////////////////////////////////////////////////
-    Window(const sf::Vector2u& size);
+    Window(const sf::Vector2u& size, sf::Color col = sf::Color::Black);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Copy Constructor
