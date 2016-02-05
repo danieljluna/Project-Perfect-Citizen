@@ -32,7 +32,7 @@ ComponentObsvr* InputComponent::getObserver(size_t index) {
 
 
 bool InputComponent::watch(Subject& subject) {
-
+    return false;
 }
 
 
@@ -40,14 +40,14 @@ bool InputComponent::watch(Subject& subject) {
 
 bool InputComponent::watch(InputHandler& iHandler, 
                            sf::Event::EventType type) {
-
+    return false;
 }
 
 
 
 
 bool InputComponent::ignore(Subject& subject) {
-
+    return false;
 }
 
 
@@ -55,5 +55,5 @@ bool InputComponent::ignore(Subject& subject) {
 
 bool InputComponent::ignore(InputHandler& iHandler,
                             sf::Event::EventType type) {
-
+    return false;
 }
