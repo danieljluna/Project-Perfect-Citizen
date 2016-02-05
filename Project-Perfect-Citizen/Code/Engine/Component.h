@@ -1,8 +1,9 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
+#include <string>
 
-typedef unsigned int msgType;
+typedef string msgType;
 
 namespace ppc {
 
