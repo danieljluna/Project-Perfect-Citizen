@@ -16,8 +16,32 @@ namespace ppc {
 //////////////////////////////////////////////
 class Subject {
 public:
+	///////////////////////////////////////////////
+	///@brief Constructor for a subject
+	///simply instantiates it and sets 
+	///the object and sets the observerhead
+	///to nullptr (its empty after all!)
+	///////////////////////////////////////////////
 	Subject() : observerHead(nullptr) {};
+	///////////////////////////////////////////////
+	///@brief Adds and observer to this subject.
+	///@details The observer parameter is an 
+	///object of a class inhieriting from 
+	///observer and never the BaseObserver
+	///class. The object is added at the front
+	///of the doubly linked list that observerHead
+	///points to. If the DLL is empty, the observer
+	///becomes the head. 
+	///////////////////////////////////////////////
 	void addObserver(BaseObserver* observer);
+	///////////////////////////////////////////////
+	///@brief Removes the designated observer from
+	///doubly linked list that ObserverHead
+	///points to. 
+	///@details The observer parameter is never of
+	///type BaseObserver, but of a class type that
+	///inheirts BaseObserver
+	///////////////////////////////////////////////
 	void removeObserver(BaseObserver* observer);
     
     ///////////////////////////////////////////////////////////////////
