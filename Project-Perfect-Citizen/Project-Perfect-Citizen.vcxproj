@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Code\Engine\BaseFileType.cpp" />
     <ClCompile Include="Code\Engine\component.cpp" />
     <ClCompile Include="Code\Engine\ComponentObsvr.cpp" />
     <ClCompile Include="Code\Engine\debug.cpp" />
@@ -25,6 +26,7 @@
     <ClCompile Include="Code\Engine\TestObserver.cpp" />
     <ClCompile Include="Code\Engine\testRenderSprite.cpp" />
     <ClCompile Include="Code\Engine\testRotateSprite.cpp" />
+    <ClCompile Include="Code\Engine\TreeCommands.cpp" />
     <ClCompile Include="Code\Engine\Window.cpp" />
     <ClCompile Include="Code\Engine\world.cpp" />
     <ClCompile Include="Code\Library\jsoncpp.cpp" />
@@ -54,7 +56,7 @@
     <ClInclude Include="Code\Engine\TestObserver.h" />
     <ClInclude Include="Code\Engine\testRenderSprite.h" />
     <ClInclude Include="Code\Engine\testRotateSprite.h" />
-    <ClInclude Include="Code\Engine\TreeNode.h" />
+    <ClInclude Include="Code\Engine\TreeCommands.h" />
     <ClInclude Include="Code\Engine\updateComponent.h" />
     <ClInclude Include="Code\Engine\Window.h" />
     <ClInclude Include="Code\Engine\WindowDecorator.h" />

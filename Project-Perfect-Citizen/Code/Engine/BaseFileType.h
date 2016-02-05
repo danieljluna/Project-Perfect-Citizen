@@ -1,8 +1,21 @@
 #pragma once
 //implemented by Andy
-#include "TreeNode.h"
+#include <iostream>
+#include <vector>
+#include <map>
+using namespace std;
 
-class BaseFileType {
-public:
+namespace ppc {
+	enum FileType { Directory, File};
 
+	class BaseFileType {
+		friend class NodeState;
+	protected:
+		BaseFileType();
+		string data = "";
+		map<string, BaseFileType*> contents;
+	public:
+		virtual void readFile();
+		virtual void printDir();
+	};
 };

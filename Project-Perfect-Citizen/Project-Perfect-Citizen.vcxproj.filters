@@ -52,6 +52,11 @@
     <ClCompile Include="Code\Engine\NodeState.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\inputComponent.cpp" />
+    <ClCompile Include="Code\Engine\BaseFileType.cpp" />
+    <ClCompile Include="Code\Engine\TreeCommands.cpp">
+      <Filter>Sources\Engine\Windows / Desktop</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -129,10 +134,10 @@
     <ClInclude Include="Code\Engine\NodeState.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\TreeNode.h">
+    <ClInclude Include="Code\Engine\BaseFileType.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\BaseFileType.h">
+    <ClInclude Include="Code\Engine\TreeCommands.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
     </ClInclude>
   </ItemGroup>
@@ -222,11 +227,6 @@
     <Image Include="Resources\kappa.png">
       <Filter>Resources\Images</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Code\Engine\ClassDiagram.cd">
-      <Filter>Resources\Coding Help</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Project-Perfect-Citizen.rc">

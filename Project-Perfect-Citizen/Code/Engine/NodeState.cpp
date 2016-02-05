@@ -17,3 +17,23 @@ void ppc::NodeState::printWorking()
 		pwd += (iter + " ");
 	}
 }
+
+void ppc::NodeState::setUp()
+{
+	this->workingDirectory.push_back("/");
+	BaseFileType* newRoot = new BaseFileType();
+	newRoot->contents["."] = newRoot;
+	newRoot->contents[".."] = newRoot;
+	this->root = newRoot;
+	this->cwd = newRoot;
+}
+
+ppc::BaseFileType* ppc::NodeState::getCwd()
+{
+	return this->cwd;
+}
+
+ppc::BaseFileType * ppc::NodeState::getRoot()
+{
+	return this->root;
+}
