@@ -16,8 +16,8 @@ using namespace ppc;
 // Constructors and Destructor
 ///////////////////////////////////////////////////////////////////////
 
-Window::Window(unsigned int width, 
-               unsigned int height, 
+Window::Window(float width, 
+               float height, 
                sf::Color color) : 
             windowSpace_() {
     windowSpace_.create(width, height);
