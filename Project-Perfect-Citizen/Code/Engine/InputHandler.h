@@ -12,6 +12,7 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 /// @brief Class that maps sf::Events to Subjects.
 /// @author Daniel Luna
+/// @details 
 ///////////////////////////////////////////////////////////////////////
 class InputHandler {
 public:
@@ -20,20 +21,36 @@ public:
   // Constructors and Destructor
   /////////////////////////////////////////////////////////////////////
 
-    //Default Constructor
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Default Constructor
+    ///////////////////////////////////////////////////////////////////
     InputHandler();
 
-    //Destructor
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Destructor
+    ///////////////////////////////////////////////////////////////////
     ~InputHandler();
 
   /////////////////////////////////////////////////////////////////////
   // Manipulating Subjects
   /////////////////////////////////////////////////////////////////////
 
-    //Adds a Handle mapped to the given event if not already in
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Adds a handle for the given event.
+    /// @details If there is already a handle for the given EventType, 
+    ///     then it is not duplicated.
+    ///
+    /// @param type The type of sf::Event to create a handle for.
+    ///////////////////////////////////////////////////////////////////
     void addHandle(sf::Event::EventType type);
 
-    //Called to register a given event
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Called to register a given event.
+    /// @details Finds the correct handle for the given event based on
+    ///     its type, and then notifies the interested parties.
+    ///
+    /// @param ev The Event to handle.
+    ///////////////////////////////////////////////////////////////////
     void registerEvent(sf::Event& ev);
 
 
@@ -41,7 +58,18 @@ public:
   // Manipulating Observers
   /////////////////////////////////////////////////////////////////////
 
-    //Attaches the observer to the EventType
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Attaches the observer to the EventType.
+    /// @details 
+    /// 
+    /// @param type The EventType the Observer is interested in.
+    /// @param obsvr A pointer to the Observer to add.
+    /// @param forceCreation Whether or not the InputHandler should 
+    ///     create a new handle for the given EventType if it doesn not
+    ///     exist already.
+    /// @return A bool denoting whether the Observer was mapped
+    ///     successfully to a handle.
+    ///////////////////////////////////////////////////////////////////
     bool addObserver(sf::Event::EventType type,
                      BaseObserver* obsvr,
                      bool forceCreation = false);
