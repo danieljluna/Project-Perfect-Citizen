@@ -49,6 +49,9 @@
     <ClCompile Include="Code\Engine\ComponentObsvr.cpp">
       <Filter>Sources\Engine\Input</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\inputComponent.cpp">
+      <Filter>Sources\Engine\Entity / Componentns</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -95,9 +98,6 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\WindowInterface.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\TestSubject.h">
-      <Filter>Headers\Examples</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\world.h">
       <Filter>Headers\Engine\World</Filter>
@@ -213,11 +213,6 @@
     <Image Include="Resources\kappa.png">
       <Filter>Resources\Images</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Code\Engine\ClassDiagram.cd">
-      <Filter>Resources\Coding Help</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Project-Perfect-Citizen.rc">
