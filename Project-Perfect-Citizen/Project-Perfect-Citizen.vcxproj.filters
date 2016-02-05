@@ -49,6 +49,9 @@
     <ClCompile Include="Code\Engine\ComponentObsvr.cpp">
       <Filter>Sources\Engine\Input</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\NodeState.cpp">
+      <Filter>Sources\Engine\Windows / Desktop</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -96,9 +99,6 @@
     <ClInclude Include="Code\Engine\WindowInterface.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\TestSubject.h">
-      <Filter>Headers\Examples</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\world.h">
       <Filter>Headers\Engine\World</Filter>
     </ClInclude>
@@ -125,6 +125,15 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\ComponentObsvr.h">
       <Filter>Headers\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\NodeState.h">
+      <Filter>Headers\Engine\Windows / Desktop</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\TreeNode.h">
+      <Filter>Headers\Engine\Windows / Desktop</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\BaseFileType.h">
+      <Filter>Headers\Engine\Windows / Desktop</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
