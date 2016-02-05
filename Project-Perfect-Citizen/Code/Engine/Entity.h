@@ -5,7 +5,7 @@
 #include <SFML/Graphics/Transformable.hpp>
 #include <string>
 
-typedef string msgType;
+typedef std::string msgType;
 
 namespace ppc {
 
