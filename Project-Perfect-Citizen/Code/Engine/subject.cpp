@@ -11,7 +11,7 @@ void Subject::addObserver(BaseObserver* observer) {
 		}
 		observerHead = observer;
 		observer->prev = nullptr;
-	
+        observer->inUse = true;
 }
 
 void Subject::removeObserver(BaseObserver * observer){
@@ -162,5 +162,7 @@ void Subject::rmObserver(BaseObserver* obsvr) {
         //Set that observer's prev to this observer's prev
         obsvr->next->prev = obsvr->prev;
     }
+
+    obsvr->inUse = false;
 }
 

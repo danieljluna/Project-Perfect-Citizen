@@ -12,3 +12,6 @@ BaseObserver::BaseObserver() : id(++id_counter_) {
 BaseObserver::~BaseObserver() {}
 
 
+bool BaseObserver::isInUse() {
+    return inUse;
+}

@@ -74,6 +74,35 @@ public:
                      BaseObserver* obsvr,
                      bool forceCreation = false);
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Removes the observer from the given handle.
+    /// 
+    /// @param type The EventType that the observer should be 
+    ///     disconnected from.
+    /// @param obsvr A pointer to the Observer to remove.
+    ///////////////////////////////////////////////////////////////////
+    void removeObserver(sf::Event::EventType type,
+                        BaseObserver* obsvr);
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Removes Observers by id
+    /// @details Removes all Observers attached to this Subject with
+    ///     the id given. If a range is specified, this function will
+    ///     remove any Observers with ids in the range of 
+    ///     [obsvr_id, obsvr_id + range)
+    ///
+    /// @param type The EventType that the observer should be 
+    ///     disconnected from.
+    /// @param obsvr_id The id to remove. If a range is specified, it
+    ///     marks the low end of the range.
+    /// @param range The number of ids in the range to remove. i.e. if
+    ///     range is 2, then obsvr_id and obsvr_id + 1 will be removed
+    ///     if found.
+    ///////////////////////////////////////////////////////////////////
+    void removeObserver(sf::Event::EventType type,
+                        unsigned int id,
+                        unsigned int range = 1);
+
 
 private:
 
