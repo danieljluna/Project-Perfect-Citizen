@@ -124,7 +124,7 @@ int main(int argc, char** argv) {
 	///////////////////////////////////////////////////////////////////
 	sf::Clock deltaTime; //define deltaTime
     //Used to keep track time
-    sf::Time framePeriod = sf::milliseconds(1000.0f / 30.f);
+    sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
     while (screen.isOpen()) {
         //Process sf::events
         sf::Event event;

@@ -38,8 +38,8 @@ public:
     /// @param width The desired width of the Window
     /// @param height The desired height of the Window
     ///////////////////////////////////////////////////////////////////
-    Window(unsigned int width, 
-           unsigned int height, 
+    Window(float width, 
+           float height, 
            sf::Color color = sf::Color::Black);
 
     ///////////////////////////////////////////////////////////////////

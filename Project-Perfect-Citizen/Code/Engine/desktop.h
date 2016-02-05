@@ -16,7 +16,7 @@ typedef char FileTree;
 typedef float FileState;
 
 namespace ppc {
-	///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
 ///@brief Manages a series of Windows, an associated file tree and
 /// OS style.
 ///@details Desktops drawn on the screen will also have their
