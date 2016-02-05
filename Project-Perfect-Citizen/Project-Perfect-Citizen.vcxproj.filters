@@ -40,9 +40,6 @@
     <ClCompile Include="Code\Library\jsoncpp.cpp">
       <Filter>Sources\JSON</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\testButtonPress.cpp">
-      <Filter>Sources\Examples</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\InputHandler.cpp">
       <Filter>Sources\Engine\Input</Filter>
     </ClCompile>
@@ -51,6 +48,9 @@
     </ClCompile>
     <ClCompile Include="Code\Engine\inputComponent.cpp">
       <Filter>Sources\Engine\Entity / Componentns</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\mousePressButton.cpp">
+      <Filter>Sources\Engine\Created Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -108,9 +108,6 @@
     <ClInclude Include="Code\Library\json\json-forwards.h">
       <Filter>Headers\JSON</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\testButtonPress.hpp">
-      <Filter>Headers\Examples</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\InputHandler.h">
       <Filter>Headers\Engine\Input</Filter>
     </ClInclude>
@@ -125,6 +122,9 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\ComponentObsvr.h">
       <Filter>Headers\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\mousePressButton.h">
+      <Filter>Headers\Engine\Created Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -207,6 +207,12 @@
     </Filter>
     <Filter Include="Sources\Engine\Input">
       <UniqueIdentifier>{19e64c98-7fda-48db-a0d3-b0f4e8e67694}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Created Components">
+      <UniqueIdentifier>{aa4adf4a-2786-49bd-b8b2-1851ba63b3eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\Created Components">
+      <UniqueIdentifier>{02b72c68-768c-4e22-8a3e-e3872c3a8987}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
