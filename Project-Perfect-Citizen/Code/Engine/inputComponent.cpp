@@ -5,7 +5,10 @@
 using namespace ppc;
 
 InputComponent::InputComponent(size_t observerCount) {
-    observerArray_ = new ComponentObsvr*[observerCount];
+    observerArray_ = new ComponentObsvr* [observerCount];
+    for (size_t index = 0; index < observerCount_; ++index) {
+        observerArray_[index] = new ComponentObsvr(*this);
+    }
     observerCount_ = observerCount;
 };
 

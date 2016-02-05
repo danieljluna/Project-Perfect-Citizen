@@ -1,7 +1,6 @@
 #ifndef INPUT_COMPONENT_H
 #define INPUT_COMPONENT_H
 
-#include <vector>
 #include <cstddef>
 
 #include <SFML/Window/Event.hpp>
