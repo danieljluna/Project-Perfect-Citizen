@@ -61,7 +61,11 @@ void Subject::removeObserver(BaseObserver * observer){
 
 void Subject::removeObserver(unsigned int obsvr_id, 
                              unsigned int range) {
-
+    BaseObserver* temp = find(obsvr_id, range);
+    while (temp != nullptr) {
+        rmObserver(temp);
+        temp = find(obsvr_id, range);
+    }
 }
 
 

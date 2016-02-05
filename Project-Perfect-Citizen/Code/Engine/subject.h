@@ -19,6 +19,21 @@ public:
 	Subject() : observerHead(nullptr) {};
 	void addObserver(BaseObserver* observer);
 	void removeObserver(BaseObserver* observer);
+    
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Removes Observers by id
+    /// @author Daniel Luna
+    /// @details Removes all Observers attached to this Subject with
+    ///     the id given. If a range is specified, this function will
+    ///     remove any Observers with ids in the range of 
+    ///     [obsvr_id, obsvr_id + range)
+    ///
+    /// @param obsvr_id The id to remove. If a range is specified, it
+    ///     marks the low end of the range.
+    /// @param range The number of ids in the range to remove. i.e. if
+    ///     range is 2, then obsvr_id and obsvr_id + 1 will be removed
+    ///     if found.
+    ///////////////////////////////////////////////////////////////////
     void removeObserver(unsigned int obsvr_id, unsigned int range = 1);
 	BaseObserver* getObserverHead();
 	void printObservers();
