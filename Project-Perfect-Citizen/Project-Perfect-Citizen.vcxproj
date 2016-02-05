@@ -16,6 +16,7 @@
     <ClCompile Include="Code\Engine\debug.cpp" />
     <ClCompile Include="Code\Engine\desktop.cpp" />
     <ClCompile Include="Code\Engine\entity.cpp" />
+    <ClCompile Include="Code\Engine\inputComponent.cpp" />
     <ClCompile Include="Code\Engine\InputHandler.cpp" />
     <ClCompile Include="Code\Engine\NodeState.cpp" />
     <ClCompile Include="Code\Engine\observer.cpp" />
@@ -68,9 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Project-Perfect-Citizen.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Code\Engine\ClassDiagram.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{76E6A61E-6FF8-4ABA-82B6-674967E67119}</ProjectGuid>
