@@ -81,10 +81,10 @@ int main(int argc, char** argv) {
 
     //Create ppc::Window
     Window testWindow(200, 200,sf::Color(200,200,200));
-	cout << "BLAH " << &testWindow << endl;
-	WindowLogger testWindowLogger(testWindow,cout);
+	
+	
     //Add testEntity to ppc::Window
-	testWindowLogger.addEntity(testEntity);
+	testWindow.addEntity(testEntity);
 
 	//Create ppc::Desktop
 	char dummyTree = 't'; //using a dummy variable for Ctor until
@@ -92,7 +92,7 @@ int main(int argc, char** argv) {
 	Desktop myDesktop(dummyTree);
 
 	//Add windows to Desktops
-	myDesktop.addWindow(&testWindowLogger);
+	myDesktop.addWindow(&testWindow);
 
     //////////JSON EXAMPLE//////////////////////////////////////////////
 
