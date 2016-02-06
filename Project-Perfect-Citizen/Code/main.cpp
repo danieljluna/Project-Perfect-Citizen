@@ -18,13 +18,15 @@
 #include "Library/json/json.h"
 
 #include "Engine/testRenderSprite.h"
-#include "Engine/testRotateSprite.h"
+#include "Engine/InputHandler.h"
 #include "Engine/subject.h"
 #include "Engine/TestObserver.h"
 #include "Engine/debug.h"
 #include "Engine/entity.h"
 #include "Engine/Window.h"
 #include "Engine/desktop.h"
+
+#include "Engine/mousePressButton.h"
 
 
 using namespace ppc;
@@ -39,6 +41,11 @@ int main(int argc, char** argv) {
 
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(800, 600), "SFML window");
+
+	//Create the InputHandler
+	ppc::InputHandler inputHandle;
+
+	
 
     //Define a Sprite
     sf::Sprite S;
@@ -62,15 +69,18 @@ int main(int argc, char** argv) {
     TestRenderSprite rend(spriteSheet, 0, 4, 1);
     rend.renderPosition(sf::Vector2f(170,0));
     
+
+	mousePressButton mpb(inputHandle,*testRenderSpr.getSprite());
+
     //Put that Component into an Entity
     Entity testEntity;
     testEntity.addComponent(&testRenderSpr);
-    testEntity.addComponent(&rend);
+    testEntity.addComponent(&mpb);
     
 
     //Create ppc::Window
     Window testWindow(200, 200,sf::Color(200,200,200));
-	Window testWindow2(200, 200, sf::Color(150, 150, 150));
+
     //Add testEntity to ppc::Window
 	testWindow.addEntity(testEntity);
 
@@ -114,7 +124,7 @@ int main(int argc, char** argv) {
 	///////////////////////////////////////////////////////////////////
 	sf::Clock deltaTime; //define deltaTime
     //Used to keep track time
-    sf::Time framePeriod = sf::milliseconds(1000.0f / 30.f);
+    sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
     while (screen.isOpen()) {
         //Process sf::events
         sf::Event event;
@@ -122,9 +132,13 @@ int main(int argc, char** argv) {
             // Close window: exit
             if (event.type == sf::Event::Closed)
 				screen.close();
+
+			//Input phase
+			inputHandle.registerEvent(event);
         }
 
         if (deltaTime.getElapsedTime() > framePeriod) {
+
             // Clear screen
 			screen.clear(sf::Color::White);
 
