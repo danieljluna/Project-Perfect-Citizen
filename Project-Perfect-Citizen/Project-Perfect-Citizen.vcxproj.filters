@@ -52,8 +52,19 @@
     <ClCompile Include="Code\Engine\mousePressButton.cpp">
       <Filter>Sources\Engine\Created Components</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Code\Engine\buttonRenderComponent.cpp">
       <Filter>Headers\Examples</Filter>
+=======
+    <ClCompile Include="Code\Engine\DesktopLogger.cpp">
+      <Filter>Sources\Engine\Logger Decorators</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\WindowDecorator.cpp">
+      <Filter>Sources\Engine\Windows / Desktop</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\WindowLogger.cpp">
+      <Filter>Sources\Engine\Logger Decorators</Filter>
+>>>>>>> c4dc150ef97eb513938f2aa4f06cfdf0214cc594
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -129,8 +140,16 @@
     <ClInclude Include="Code\Engine\mousePressButton.h">
       <Filter>Headers\Engine\Created Components</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Code\Engine\buttonRenderComponent.h">
       <Filter>Sources\Examples</Filter>
+=======
+    <ClInclude Include="Code\Engine\DesktopLogger.h">
+      <Filter>Headers\Engine\Logger Decorators</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\WindowLogger.h">
+      <Filter>Headers\Engine\Logger Decorators</Filter>
+>>>>>>> c4dc150ef97eb513938f2aa4f06cfdf0214cc594
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -219,6 +238,12 @@
     </Filter>
     <Filter Include="Sources\Engine\Created Components">
       <UniqueIdentifier>{02b72c68-768c-4e22-8a3e-e3872c3a8987}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Logger Decorators">
+      <UniqueIdentifier>{27225f4f-141d-4e49-a51d-fd3f83898412}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\Logger Decorators">
+      <UniqueIdentifier>{54615524-e889-4a52-a3e0-47f8d99107c6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -34,10 +34,21 @@ public:
     virtual ~WindowDecorator();
 
 
+	virtual void addInputComponent(InputComponent* inputcmpnt);
+	virtual void addRenderComponent(RenderComponent* rendercmpnt);
+	virtual void addUpdateComponent(UpdateComponent* updatecmpnt);
+	virtual void addEntity(Entity& entity);
+
+	virtual void update(sf::Time& deltaTime);
+	virtual void registerInput(sf::Event&);
+	virtual void refresh(sf::RenderStates states = sf::RenderStates());
+
 protected:
 
-    WindowInterface* getDecoTarget() { return windowHandle_; };
+    WindowInterface* getDecoTarget() const { return windowHandle_; };
 
+	virtual void draw(sf::RenderTarget& target,
+		sf::RenderStates states) const override;
 
 private:
 

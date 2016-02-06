@@ -1,13 +1,7 @@
 #include "Window.h"
 
-#include "inputComponent.h"
-#include "updateComponent.h"
-#include "renderComponent.h"
-#include "entity.h"
-
 #include <SFML/Graphics/RenderTexture.hpp>
 #include <cstddef>
-
 
 using namespace ppc;
 
@@ -16,24 +10,23 @@ using namespace ppc;
 // Constructors and Destructor
 ///////////////////////////////////////////////////////////////////////
 
-Window::Window(float width, 
-               float height, 
-               sf::Color color) : 
+Window::Window(unsigned int width, 
+               unsigned int height, 
+               sf::Color col) : 
             windowSpace_() {
     windowSpace_.create(width, height);
-    backgroundColor_ = color;
-    //Create View
-    windowView_.reset(sf::FloatRect(0.0, 0.0, 100.0, 100.0));
-    windowView_.setViewport(sf::FloatRect(0.f, 0.f, width, height));
+    backgroundColor_ = col;
+    windowView_.reset(sf::FloatRect(0.0, 0.0, 
+                                    float(width), float(height)));
+    windowView_.setViewport(sf::FloatRect(0.f, 0.f, 1, 1));
 }
 
 
 
 
-Window::Window(const sf::Vector2u& size) :
-        windowSpace_() {
-    windowSpace_.create(size.x, size.y);
-}
+Window::Window(const sf::Vector2u& size,
+               sf::Color col) :
+        Window(size.x, size.y, col) {}
 
 
 
@@ -48,6 +41,13 @@ Window::Window(const Window& other) :
 
 
 Window::~Window() {}
+
+
+
+
+///////////////////////////////////////////////////////////////////////
+// Step Functionality
+///////////////////////////////////////////////////////////////////////
 
 
 
@@ -84,6 +84,7 @@ void Window::addUpdateComponent(UpdateComponent* updatecmpnt) {
 
 
 void Window::addEntity(Entity& entity) {
+	
     //Stores the current index we're on
     size_t i = 0;
     //Stores the number of components we haven't found
@@ -140,16 +141,15 @@ void Window::refresh(sf::RenderStates states) {
     //Clear Window to Background Color
     windowSpace_.clear(backgroundColor_);
 
-    //TODO: FIX VIEW
     //Apply the view
-    //windowSpace_.setView(windowView_);
+    windowSpace_.setView(windowView_);
 
     //Draws all objects in the window
     for (RenderComponent* c : rendercmpnts_) {
         windowSpace_.draw(*c, states);
     }
 
-    //windowSpace_.setView(windowSpace_.getDefaultView());
+    windowSpace_.setView(windowSpace_.getDefaultView());
 
     windowSpace_.display();
 }
@@ -161,7 +161,8 @@ void Window::draw(sf::RenderTarget& target,
                   sf::RenderStates states) const {
     //Create a sprite off of the windowSpace_
     sf::Sprite spr(windowSpace_.getTexture());
-    spr.setPosition(100, 100);
+
+    states.transform *= getTransform();
 
     //Draw the sprite
     target.draw(spr, states);

@@ -7,6 +7,7 @@
 #include "Entity.h"
 #include "subject.h"
 
+
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Input Component for a generic window 'X' button
 /// @author Alex Vincent & Nader Sleem
@@ -15,6 +16,7 @@
 ///     all generic "X" button related sfml event parts. 
 ///		Stick this onto an entity to give it this functionality.
 ///////////////////////////////////////////////////////////////////////
+
 
 class mousePressButton: public ppc::InputComponent {
 private:
@@ -31,7 +33,7 @@ public:
 
 
 	mousePressButton(ppc::InputHandler& ih, sf::Sprite& s);
-	~mousePressButton();
+	virtual ~mousePressButton();
 	virtual void registerInput(sf::Event& ev) override;
 
 };

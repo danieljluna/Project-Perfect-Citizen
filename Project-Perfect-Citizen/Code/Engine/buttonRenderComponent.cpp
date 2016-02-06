@@ -1,9 +1,9 @@
 #include "buttonRenderComponent.h"
 
 using namespace std;
-const int MOUSE_DOWN_CODE = 200;
-const int MOUSE_RELEASED_CODE = 400;
-const int MOUSE_DOUBLE_CLICK_CODE = 600;
+const string MOUSE_DOWN_CODE = "MDC";
+const string MOUSE_RELEASED_CODE = "MRC";
+const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
 
 buttonRenderComponent::buttonRenderComponent( sf::Image& image, 
 	int x, int y, int r) : buttonImage(image) {
@@ -48,17 +48,11 @@ void buttonRenderComponent::draw( sf::RenderTarget& target,
 }
 
 void buttonRenderComponent::recieveMessage(msgType code) {
-	switch (code) {
-		case MOUSE_DOWN_CODE:
-			setSprite(1, 3, 1);
-			break;
-		case MOUSE_RELEASED_CODE:
-			setSprite(0, 3, 1);
-			break;
-		case MOUSE_DOUBLE_CLICK_CODE:
-			setSprite(6, 5, 1);
-			break;
-		default:
-			break;
-	}
+
+	if(code.compare(MOUSE_DOWN_CODE) == 0)
+		setSprite(1, 3, 1);
+	else if(code.compare(MOUSE_RELEASED_CODE) == 0)
+		setSprite(0, 3, 1);
+	else if(code.compare(MOUSE_DOUBLE_CLICK_CODE) == 0)
+		setSprite(6, 5, 1);
 }
