@@ -64,11 +64,10 @@ public:
 
 
   /////////////////////////////////////////////////////////////////////
-  // Setters
+  // Setters 
   /////////////////////////////////////////////////////////////////////
-
-    //TODO: Add Setters
     
+
   /////////////////////////////////////////////////////////////////////
   // Adding Entities and Components
   /////////////////////////////////////////////////////////////////////
@@ -180,7 +179,6 @@ protected:
     //Not in use yet.
     sf::View windowView_;
     
-    //HACK: Holds all inputComponents for the Window.
     //Eventually this will be a means of passing events to components
     //  via subjects and observers
     std::vector<InputComponent*> inputcmpnts_;
