@@ -53,7 +53,13 @@
       <Filter>Sources\Engine\Created Components</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\DesktopLogger.cpp">
+      <Filter>Sources\Engine\Logger Decorators</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\WindowDecorator.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\WindowLogger.cpp">
+      <Filter>Sources\Engine\Logger Decorators</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -130,7 +136,10 @@
       <Filter>Headers\Engine\Created Components</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\DesktopLogger.h">
-      <Filter>Headers\Engine\Windows / Desktop</Filter>
+      <Filter>Headers\Engine\Logger Decorators</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\WindowLogger.h">
+      <Filter>Headers\Engine\Logger Decorators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

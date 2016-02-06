@@ -11,7 +11,6 @@ mousePressButton::mousePressButton(ppc::InputHandler& ih,
 	if (watch(ih, sf::Event::MouseButtonReleased)) {
 		cout << "Event watched" << endl;
 	}
-
 }
 
 mousePressButton::~mousePressButton() {
@@ -22,17 +21,17 @@ bool mousePressButton::isCollision(sf::Vector2i mousePos) {
 
 	//NOTE: NEED TO ADD X,Y POS OF WINDOW(TARGET) SPRITE IS IN
 	//HARD CODE FOR NOW, BUT EXPLAIN TO EVERYONE LATER
-	sf::Vector2f sprtBoxPos = { buttonSprt.getGlobalBounds().left,
+	sf::Vector2f sprtBoxPos = { buttonSprt.getGlobalBounds().left ,
 		buttonSprt.getGlobalBounds().top };
 
 	sf::Vector2f sprtBoxDim = { buttonSprt.getGlobalBounds().width,
 		buttonSprt.getGlobalBounds().height };
 
 	bool result = false;
-	if (mousePos.x >= sprtBoxPos.x + 100 &&
-			mousePos.x <= sprtBoxPos.x + 100 + sprtBoxDim.x) {
-		if (mousePos.y >= sprtBoxPos.y + 100 &&
-				mousePos.y <= sprtBoxPos.y + 100 + sprtBoxDim.y) {
+	if (mousePos.x >= sprtBoxPos.x  &&
+			mousePos.x <= sprtBoxPos.x + sprtBoxDim.x) {
+		if (mousePos.y >= sprtBoxPos.y &&
+				mousePos.y <= sprtBoxPos.y + sprtBoxDim.y) {
 			result = true;
 		}
 	}

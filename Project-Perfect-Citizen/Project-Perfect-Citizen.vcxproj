@@ -26,6 +26,8 @@
     <ClCompile Include="Code\Engine\testRenderSprite.cpp" />
     <ClCompile Include="Code\Engine\testRotateSprite.cpp" />
     <ClCompile Include="Code\Engine\Window.cpp" />
+    <ClCompile Include="Code\Engine\WindowDecorator.cpp" />
+    <ClCompile Include="Code\Engine\WindowLogger.cpp" />
     <ClCompile Include="Code\Engine\world.cpp" />
     <ClCompile Include="Code\Library\jsoncpp.cpp" />
     <ClCompile Include="Code\main.cpp" />
@@ -57,6 +59,7 @@
     <ClInclude Include="Code\Engine\Window.h" />
     <ClInclude Include="Code\Engine\WindowDecorator.h" />
     <ClInclude Include="Code\Engine\WindowInterface.h" />
+    <ClInclude Include="Code\Engine\WindowLogger.h" />
     <ClInclude Include="Code\Engine\world.h" />
     <ClInclude Include="Code\Library\json\json-forwards.h" />
     <ClInclude Include="Code\Library\json\json.h" />

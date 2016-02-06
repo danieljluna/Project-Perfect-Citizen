@@ -5,66 +5,66 @@ using namespace ppc;
 using namespace std;
 
 DesktopLogger::DesktopLogger(Desktop& d,ostream& o): 
-	loggedDesktop(&d), out(o){}
+	loggedDesktop_(&d), out_(o){}
 
 DesktopLogger::~DesktopLogger() {
-	loggedDesktop = nullptr;
+	loggedDesktop_ = nullptr;
 }
 
 void DesktopLogger::addWindow(WindowInterface* wi) {
-	out << "DesktopLogger: Adding Window: " << wi << endl;
+	out_ << "DesktopLogger: Adding Window: " << wi << endl;
 
-	loggedDesktop->addWindow(wi);
+	loggedDesktop_->addWindow(wi);
 
-	out << "DesktopLogger: Finished Adding Window" << endl;
+	out_ << "DesktopLogger: Finished Adding Window" << endl;
 }
 
 void DesktopLogger::destroyWindow(WindowInterface* wi) {
-	out << "DesktopLogger: Destroy Window: " << wi << endl;
+	out_ << "DesktopLogger: Destroy Window: " << wi << endl;
 
-	loggedDesktop->destroyWindow(wi);
+	loggedDesktop_->destroyWindow(wi);
 
-	out << "DesktopLogger: Finished Destroying Window" << endl;
+	out_ << "DesktopLogger: Finished Destroying Window" << endl;
 }
 
 void DesktopLogger::setStyle(OSStyle* oss) {
-	out << "DesktopLogger: Setting Style" << endl;
+	out_ << "DesktopLogger: Setting Style" << endl;
 
-	loggedDesktop->setStyle(oss);
+	loggedDesktop_->setStyle(oss);
 
-	out << "DesktopLogger: Finished Setting Style" << endl;
+	out_ << "DesktopLogger: Finished Setting Style" << endl;
 }
 
 FileState& DesktopLogger::getRoot() {
-	out << "DesktopLogger: Getting Root" << endl;
+	out_ << "DesktopLogger: Getting Root" << endl;
 
-	return loggedDesktop->getRoot();
+	return loggedDesktop_->getRoot();
 
-	out << "DesktopLogger: Got Root" << endl;
+	out_ << "DesktopLogger: Got Root" << endl;
 }
 
 void DesktopLogger::registerInput(sf::Event& ev) {
-	out << "DesktopLogger: Registering Input Event: " << 
+	out_ << "DesktopLogger: Registering Input Event: " <<
 		ev.type << endl;
 
-	loggedDesktop->registerInput(ev);
+	loggedDesktop_->registerInput(ev);
 
-	out << "DesktopLogger: Finished Registering Input" << endl;
+	out_ << "DesktopLogger: Finished Registering Input" << endl;
 }
 
 void DesktopLogger::update(sf::Time& deltaTime) {
-	out << "DesktopLogger: Updating Window: "<< loggedDesktop << endl;
+	out_ << "DesktopLogger: Updating Window: "<< loggedDesktop_ << endl;
 
-	loggedDesktop->update(deltaTime);
+	loggedDesktop_->update(deltaTime);
 
-	out << "DesktopLogger: Finished Updating Window" << endl;
+	out_ << "DesktopLogger: Finished Updating Window" << endl;
 }
 
 void DesktopLogger::refresh(sf::RenderStates states) {
-	out << "DesktopLogger: Refreshing Window: " << 
-		loggedDesktop << endl;
+	out_ << "DesktopLogger: Refreshing Window: " <<
+		loggedDesktop_ << endl;
 
-	loggedDesktop->refresh(states);
+	loggedDesktop_->refresh(states);
 
-	out << "DesktopLogger: Finished Refreshing Window" << endl;
+	out_ << "DesktopLogger: Finished Refreshing Window" << endl;
 }

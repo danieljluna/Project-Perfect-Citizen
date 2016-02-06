@@ -9,8 +9,8 @@ namespace ppc {
 
 	private:
 
-		Desktop *loggedDesktop;
-		ostream& out;
+		Desktop *loggedDesktop_;
+		ostream& out_;
 
 	public:
 

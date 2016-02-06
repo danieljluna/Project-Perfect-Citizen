@@ -26,6 +26,7 @@
 #include "Engine/Window.h"
 #include "Engine/desktop.h"
 #include "Engine/DesktopLogger.h"
+#include "Engine/WindowLogger.h"
 #include "Engine/mousePressButton.h"
 
 
@@ -80,9 +81,10 @@ int main(int argc, char** argv) {
 
     //Create ppc::Window
     Window testWindow(200, 200,sf::Color(200,200,200));
-
+	cout << "BLAH " << &testWindow << endl;
+	WindowLogger testWindowLogger(testWindow,cout);
     //Add testEntity to ppc::Window
-	testWindow.addEntity(testEntity);
+	testWindowLogger.addEntity(testEntity);
 
 	//Create ppc::Desktop
 	char dummyTree = 't'; //using a dummy variable for Ctor until
@@ -90,7 +92,7 @@ int main(int argc, char** argv) {
 	Desktop myDesktop(dummyTree);
 
 	//Add windows to Desktops
-	myDesktop.addWindow(&testWindow);
+	myDesktop.addWindow(&testWindowLogger);
 
     //////////JSON EXAMPLE//////////////////////////////////////////////
 
