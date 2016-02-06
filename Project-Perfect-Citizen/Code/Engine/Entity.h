@@ -3,8 +3,9 @@
 
 #include <cstddef>
 #include <SFML/Graphics/Transformable.hpp>
+#include <string>
 
-typedef unsigned int msgType;
+typedef std::string msgType;
 
 namespace ppc {
 

@@ -37,18 +37,20 @@ public:
     ///
     /// @param width The desired width of the Window
     /// @param height The desired height of the Window
+    /// @param color The background color of the Window
     ///////////////////////////////////////////////////////////////////
     Window(unsigned int width, 
            unsigned int height, 
-           sf::Color color = sf::Color::Black);
+           sf::Color col = sf::Color::Black);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Window Constructor
     /// @details Creates a Window of the given size.
     ///
     /// @param size The desired size of the Window
+    /// @param color The background color of the Window
     ///////////////////////////////////////////////////////////////////
-    Window(const sf::Vector2u& size);
+    Window(const sf::Vector2u& size, sf::Color col = sf::Color::Black);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Copy Constructor
@@ -62,11 +64,10 @@ public:
 
 
   /////////////////////////////////////////////////////////////////////
-  // Setters
+  // Setters 
   /////////////////////////////////////////////////////////////////////
-
-    //TODO: Add Setters
     
+
   /////////////////////////////////////////////////////////////////////
   // Adding Entities and Components
   /////////////////////////////////////////////////////////////////////
@@ -178,7 +179,6 @@ protected:
     //Not in use yet.
     sf::View windowView_;
     
-    //HACK: Holds all inputComponents for the Window.
     //Eventually this will be a means of passing events to components
     //  via subjects and observers
     std::vector<InputComponent*> inputcmpnts_;

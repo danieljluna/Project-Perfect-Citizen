@@ -1,11 +1,15 @@
 #ifndef WINDOW_INTERFACE_H
 #define WINDOW_INTERFACE_H
 
-
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/Transformable.hpp>
 #include <SFML/Window/Event.hpp>
+
+#include "inputComponent.h"
+#include "updateComponent.h"
+#include "renderComponent.h"
+#include "entity.h"
 
 
 namespace ppc {
@@ -25,7 +29,66 @@ public:
 
     virtual ~WindowInterface() {};
 
+
+  /////////////////////////////////////////////////////////////////////
+  // Setters
+  /////////////////////////////////////////////////////////////////////
+
     
+
+  /////////////////////////////////////////////////////////////////////
+  // Adding Entities and Components
+  /////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Adds an Input Component to the Window.
+    /// @details This function adds an Input Component to the Window.
+    ///     Currently merely appends the Component.
+    /// @todo Add functionality to assign Components order in the 
+    ///     Vector
+    ///
+    /// @pre inputcmpnt != nullptr
+    /// @param inputcmpnt A pointer to the InputComponent to add.
+    ///////////////////////////////////////////////////////////////////
+    virtual void addInputComponent(InputComponent* inputcmpnt) = 0;
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Adds an Render Component to the Window.
+    /// @details This function adds an Render Component to the Window.
+    ///     Currently merely appends the Component.
+    /// @todo Add functionality to assign Components order in the 
+    ///     Vector
+    ///
+    /// @pre rendercmpnt != nullptr
+    /// @param rendercmpnt A pointer to the RenderComponent to add.
+    ///////////////////////////////////////////////////////////////////
+    virtual void addRenderComponent(RenderComponent* rendercmpnt) = 0;
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Adds an Update Component to the Window.
+    /// @details This function adds an Update Component to the Window.
+    ///     Currently merely appends the Component.
+    /// @todo Add functionality to assign Components order in the 
+    ///     Vector
+    ///
+    /// @pre updatecmpnt != nullptr
+    /// @param updatecmpnt A pointer to the UpdateComponent to add.
+    ///////////////////////////////////////////////////////////////////
+    virtual void addUpdateComponent(UpdateComponent* updatecmpnt) = 0;
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Adds an Entity to the Window
+    /// @details More specifically, this adds the Components connected
+    ///     to this Entity to the Window. Currently merely appends the 
+    ///     Components.
+    /// @todo Add functionality to assign Components order in the 
+    ///     Vector
+    ///
+    /// @param entity The entity to add to the Window.
+    ///////////////////////////////////////////////////////////////////
+    virtual void addEntity(Entity& entity) = 0;
+
+
   /////////////////////////////////////////////////////////////////////
   // Update Functionality
   /////////////////////////////////////////////////////////////////////
