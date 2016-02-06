@@ -5,7 +5,7 @@
 #include "inputComponent.h"
 #include "InputHandler.h"
 
-
+//An example of the mouse pressing a button.
 class mousePressButton: public ppc::InputComponent {
 private:
 
@@ -18,7 +18,7 @@ public:
 
 	mousePressButton() = delete;
 	mousePressButton(ppc::InputHandler& ih, sf::Sprite& s);
-	~mousePressButton();
+	virtual ~mousePressButton();
 	virtual void registerInput(sf::Event& ev) override;
 
 };

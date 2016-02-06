@@ -3,7 +3,6 @@
 #include <SFML/Graphics/RenderTexture.hpp>
 #include <cstddef>
 
-
 using namespace ppc;
 
 
@@ -85,6 +84,7 @@ void Window::addUpdateComponent(UpdateComponent* updatecmpnt) {
 
 
 void Window::addEntity(Entity& entity) {
+	
     //Stores the current index we're on
     size_t i = 0;
     //Stores the number of components we haven't found

@@ -15,6 +15,7 @@
     <ClCompile Include="Code\Engine\ComponentObsvr.cpp" />
     <ClCompile Include="Code\Engine\debug.cpp" />
     <ClCompile Include="Code\Engine\desktop.cpp" />
+    <ClCompile Include="Code\Engine\DesktopLogger.cpp" />
     <ClCompile Include="Code\Engine\entity.cpp" />
     <ClCompile Include="Code\Engine\inputComponent.cpp" />
     <ClCompile Include="Code\Engine\InputHandler.cpp" />
@@ -25,6 +26,8 @@
     <ClCompile Include="Code\Engine\testRenderSprite.cpp" />
     <ClCompile Include="Code\Engine\testRotateSprite.cpp" />
     <ClCompile Include="Code\Engine\Window.cpp" />
+    <ClCompile Include="Code\Engine\WindowDecorator.cpp" />
+    <ClCompile Include="Code\Engine\WindowLogger.cpp" />
     <ClCompile Include="Code\Engine\world.cpp" />
     <ClCompile Include="Code\Library\jsoncpp.cpp" />
     <ClCompile Include="Code\main.cpp" />
@@ -39,6 +42,7 @@
     <ClInclude Include="Code\Engine\component.h" />
     <ClInclude Include="Code\Engine\debug.h" />
     <ClInclude Include="Code\Engine\desktop.h" />
+    <ClInclude Include="Code\Engine\DesktopLogger.h" />
     <ClInclude Include="Code\Engine\entity.h" />
     <ClInclude Include="Code\Engine\event.h" />
     <ClInclude Include="Code\Engine\inputComponent.h" />
@@ -55,6 +59,7 @@
     <ClInclude Include="Code\Engine\Window.h" />
     <ClInclude Include="Code\Engine\WindowDecorator.h" />
     <ClInclude Include="Code\Engine\WindowInterface.h" />
+    <ClInclude Include="Code\Engine\WindowLogger.h" />
     <ClInclude Include="Code\Engine\world.h" />
     <ClInclude Include="Code\Library\json\json-forwards.h" />
     <ClInclude Include="Code\Library\json\json.h" />

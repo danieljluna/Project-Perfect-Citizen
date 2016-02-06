@@ -25,7 +25,8 @@
 #include "Engine/entity.h"
 #include "Engine/Window.h"
 #include "Engine/desktop.h"
-
+#include "Engine/DesktopLogger.h"
+#include "Engine/WindowLogger.h"
 #include "Engine/mousePressButton.h"
 
 
@@ -80,15 +81,18 @@ int main(int argc, char** argv) {
 
     //Create ppc::Window
     Window testWindow(200, 200,sf::Color(200,200,200));
-
+	cout << "BLAH " << &testWindow << endl;
+	WindowLogger testWindowLogger(testWindow,cout);
     //Add testEntity to ppc::Window
-	testWindow.addEntity(testEntity);
+	testWindowLogger.addEntity(testEntity);
 
 	//Create ppc::Desktop
 	char dummyTree = 't'; //using a dummy variable for Ctor until
 	//the actual FileTree is completed
 	Desktop myDesktop(dummyTree);
-	myDesktop.addWindow(&testWindow);
+
+	//Add windows to Desktops
+	myDesktop.addWindow(&testWindowLogger);
 
     //////////JSON EXAMPLE//////////////////////////////////////////////
 
@@ -147,15 +151,19 @@ int main(int argc, char** argv) {
             
             //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
-            myDesktop.update(dt);
+			myDesktop.update(dt);
 
             //Draw all the Windows in the Desktop
 			myDesktop.refresh();
+
+			//Logger should not be used in place of passing
+			//the actual drawn Desktop
 			screen.draw(myDesktop);
 
             //Display final Window
 			screen.display();
         }
     }
+	
     return EXIT_SUCCESS;
 }
