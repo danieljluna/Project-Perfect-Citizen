@@ -21,7 +21,8 @@ private:
 
 	sf::Sprite& buttonSprt;
 	ppc::InputHandler& inputHandle;
-
+	sf::Clock mouseClock;
+	float mouseTime;
 	bool isCollision(sf::Vector2i);
 
 public:

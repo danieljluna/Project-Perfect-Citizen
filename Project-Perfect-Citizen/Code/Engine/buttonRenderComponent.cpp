@@ -3,6 +3,7 @@
 using namespace std;
 const int MOUSE_DOWN_CODE = 200;
 const int MOUSE_RELEASED_CODE = 400;
+const int MOUSE_DOUBLE_CLICK_CODE = 600;
 
 buttonRenderComponent::buttonRenderComponent( sf::Image& image, 
 	int x, int y, int r) : buttonImage(image) {
@@ -53,6 +54,10 @@ void buttonRenderComponent::recieveMessage(msgType code) {
 			break;
 		case MOUSE_RELEASED_CODE:
 			setSprite(0, 3, 1);
+			break;
+		case MOUSE_DOUBLE_CLICK_CODE:
+			setSprite(6, 5, 1);
+			break;
 		default:
 			break;
 	}

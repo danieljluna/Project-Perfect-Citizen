@@ -4,6 +4,9 @@
 using namespace std;
 const int MOUSE_DOWN_CODE = 200;
 const int MOUSE_RELEASED_CODE = 400;
+const int MOUSE_DOUBLE_CLICK_CODE = 600;
+
+const float DOUBLE_CLICK_TIME = 500;
 
 mousePressButton::mousePressButton(ppc::InputHandler& ih, 
 	sf::Sprite& s): InputComponent(2), buttonSprt(s), inputHandle(ih){
@@ -59,13 +62,28 @@ void mousePressButton::registerInput(sf::Event& ev) {
 	if (ev.type == sf::Event::MouseButtonPressed) {
 		if (ev.mouseButton.button == sf::Mouse::Left &&
 			isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
+			
+			/* Send the mouse down message regardless */
 			parentEntity->broadcastMessage(MOUSE_DOWN_CODE);
+
+			/* Handle Double Click Register */
+			mouseTime = mouseClock.getElapsedTime().asMilliseconds();
+			if (mouseTime > DOUBLE_CLICK_TIME) {
+				mouseClock.restart();
+			}
+			else if (mouseTime < DOUBLE_CLICK_TIME) {
+				/* Send the d/c message only if clicked with 500 ms*/
+				cout << "Double clicked on an entity with MPB!" << endl;
+				parentEntity->broadcastMessage(MOUSE_DOUBLE_CLICK_CODE);
+			}
 		}
 	}
 	/* Case: Mouse Released Event*/
 	if (ev.type == sf::Event::MouseButtonReleased) {
 		if (ev.mouseButton.button == sf::Mouse::Left &&
 			isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
+
+			/* Send the mouse release message regardless*/
 			parentEntity->broadcastMessage(MOUSE_RELEASED_CODE);
 		}
 	}
