@@ -52,6 +52,9 @@
     <ClCompile Include="Code\Engine\mousePressButton.cpp">
       <Filter>Sources\Engine\Created Components</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\buttonRenderComponent.cpp">
+      <Filter>Headers\Examples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -125,6 +128,9 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\mousePressButton.h">
       <Filter>Headers\Engine\Created Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\buttonRenderComponent.h">
+      <Filter>Sources\Examples</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

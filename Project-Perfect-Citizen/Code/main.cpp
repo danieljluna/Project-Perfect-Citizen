@@ -27,6 +27,7 @@
 #include "Engine/desktop.h"
 
 #include "Engine/mousePressButton.h"
+#include "Engine/buttonRenderComponent.h"
 
 
 using namespace ppc;
@@ -63,18 +64,27 @@ int main(int argc, char** argv) {
 
     sf::Image spriteSheet;
     spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
-    //Create A TestRenderSprite
-    TestRenderSprite testRenderSpr(spriteSheet, 0, 3, 1);
-	testRenderSpr.renderPosition(sf::Vector2f(10, 10));
-    TestRenderSprite rend(spriteSheet, 0, 4, 1);
-    rend.renderPosition(sf::Vector2f(150,0));
-    
 
-	mousePressButton mpb(inputHandle,*testRenderSpr.getSprite());
+
+
+    //Create A TestRenderSprite
+    //TestRenderSprite testRenderSpr(spriteSheet, 0, 3, 1);
+	//testRenderSpr.renderPosition(sf::Vector2f(10, 10));
+
+	//TestRenderSprite rend(spriteSheet, 0, 4, 1);
+	//rend.renderPosition(sf::Vector2f(150,0));
+	
+
+	//Try it with a buttonRenderComponent
+	buttonRenderComponent buttonRender(spriteSheet, 0, 3, 1);
+	buttonRender.renderPosition(sf::Vector2f(10, 10));
+
+	// Create the mouse button input
+	mousePressButton mpb(inputHandle,*buttonRender.getSprite());
 
     //Put that Component into an Entity
     Entity testEntity;
-    testEntity.addComponent(&testRenderSpr);
+	testEntity.addComponent(&buttonRender);
     testEntity.addComponent(&mpb);
     
 
