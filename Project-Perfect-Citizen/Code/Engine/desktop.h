@@ -110,7 +110,7 @@ namespace ppc {
 /// If the pointer is nullptr, nothing happens.
 ///@post Desktop contains 1 more Window.
 ///////////////////////////////////////////////////////////////////////
-		void addWindow(WindowInterface*);
+		virtual void addWindow(WindowInterface*);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Removes a Window from the Desktop.
@@ -118,37 +118,37 @@ namespace ppc {
 /// deleted. If the pointer is nullptr, nothing happens.
 ///@post Desktop contains 1 less Window.
 ///////////////////////////////////////////////////////////////////////
-		void destroyWindow(WindowInterface*);
+		virtual void destroyWindow(WindowInterface*);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Sets the Desktop to the given OS style.
 ///@param oss The style the Desktop is to be associated with.
 ///////////////////////////////////////////////////////////////////////
-		void setStyle(OSStyle*);
+		virtual void setStyle(OSStyle*);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Returns the root of the FileTree in the Desktop.
 ///////////////////////////////////////////////////////////////////////
-		FileState& getRoot();
+		virtual FileState& getRoot();
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Reacts to Input for all Windows, and all objects
 /// in the Windows.
 ///////////////////////////////////////////////////////////////////////
-		void registerInput(sf::Event& ev);
+		virtual void registerInput(sf::Event& ev);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Updates all Windows and all objects in the Windows.
 ///@param deltaTime The time the object needs to catch up with.
 ///////////////////////////////////////////////////////////////////////
-		void update(sf::Time&);
+		virtual void update(sf::Time&);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Refreshes all Windows of the Desktop, so they are ready
 /// to be drawn again.
 ///@param states Used to manipulate draw.
 ///////////////////////////////////////////////////////////////////////
-		void refresh(sf::RenderStates states = sf::RenderStates());
+		virtual void refresh(sf::RenderStates states = sf::RenderStates());
 			
 	};
 };

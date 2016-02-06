@@ -19,18 +19,15 @@ mousePressButton::~mousePressButton() {
 }
 
 bool mousePressButton::isCollision(sf::Vector2i mousePos) {
-	cout << "MOUSE X: " << mousePos.x;
-	cout << "   MOUSE Y: " << mousePos.y << endl;
+
 	//NOTE: NEED TO ADD X,Y POS OF WINDOW(TARGET) SPRITE IS IN
 	//HARD CODE FOR NOW, BUT EXPLAIN TO EVERYONE LATER
 	sf::Vector2f sprtBoxPos = { buttonSprt.getGlobalBounds().left,
 		buttonSprt.getGlobalBounds().top };
-	cout << "BOX X: " << sprtBoxPos.x;
-	cout << "   BOX Y: " << sprtBoxPos.y << endl;
+
 	sf::Vector2f sprtBoxDim = { buttonSprt.getGlobalBounds().width,
 		buttonSprt.getGlobalBounds().height };
-	cout << "BOX Width: " << sprtBoxDim.x;
-	cout << "   BOX Height: " << sprtBoxDim.y << endl;
+
 	bool result = false;
 	if (mousePos.x >= sprtBoxPos.x + 100 &&
 			mousePos.x <= sprtBoxPos.x + 100 + sprtBoxDim.x) {
