@@ -50,6 +50,13 @@ Window::~Window() {}
 // Step Functionality
 ///////////////////////////////////////////////////////////////////////
 
+
+
+
+///////////////////////////////////////////////////////////////////////
+// Step Functionality
+///////////////////////////////////////////////////////////////////////
+
 void Window::addInputComponent(InputComponent* inputcmpnt) {
     if (inputcmpnt != nullptr) {
         inputcmpnts_.push_back(inputcmpnt);
@@ -154,7 +161,8 @@ void Window::draw(sf::RenderTarget& target,
                   sf::RenderStates states) const {
     //Create a sprite off of the windowSpace_
     sf::Sprite spr(windowSpace_.getTexture());
-    spr.setPosition(100, 100);
+
+    states.transform *= getTransform();
 
     //Draw the sprite
     target.draw(spr, states);
