@@ -18,6 +18,7 @@
     <ClCompile Include="Code\Engine\DesktopLogger.cpp" />
     <ClCompile Include="Code\Engine\entity.cpp" />
     <ClCompile Include="Code\Engine\EntityDecorator.cpp" />
+    <ClCompile Include="Code\Engine\EntityLogger.cpp" />
     <ClCompile Include="Code\Engine\inputComponent.cpp" />
     <ClCompile Include="Code\Engine\InputHandler.cpp" />
     <ClCompile Include="Code\Engine\mousePressButton.cpp" />
@@ -46,6 +47,7 @@
     <ClInclude Include="Code\Engine\DesktopLogger.h" />
     <ClInclude Include="Code\Engine\entity.h" />
     <ClInclude Include="Code\Engine\EntityDecorator.h" />
+    <ClInclude Include="Code\Engine\EntityLogger.h" />
     <ClInclude Include="Code\Engine\event.h" />
     <ClInclude Include="Code\Engine\inputComponent.h" />
     <ClInclude Include="Code\Engine\InputHandler.h" />
