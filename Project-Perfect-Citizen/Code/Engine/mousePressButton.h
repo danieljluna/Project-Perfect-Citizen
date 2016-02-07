@@ -19,6 +19,6 @@ public:
 	mousePressButton() = delete;
 	mousePressButton(ppc::InputHandler& ih, sf::Sprite& s);
 	~mousePressButton();
-	virtual void registerInput(sf::Event& ev) override;
+	virtual bool registerInput(sf::Event& ev) override;
 
 };

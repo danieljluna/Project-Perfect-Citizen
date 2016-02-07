@@ -12,6 +12,7 @@
 #include "inputComponent.h"
 #include "updateComponent.h"
 #include "renderComponent.h"
+#include "InputHandler.h"
 
 
 namespace ppc {
@@ -20,6 +21,8 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 /// @brief Manages a sub-screen with its own Components
 /// @author Daniel Luna
+/// @details The Window class defines a space and an in-game Window
+///     with which to 
 ///////////////////////////////////////////////////////////////////////
 class Window : public WindowInterface {
 public:
@@ -178,6 +181,10 @@ protected:
     //The view of the Texture used when drawing the Window.
     //Not in use yet.
     sf::View windowView_;
+
+    //Used to pass Events to inputComponents which are part of the 
+    //  Window
+    InputHandler inputHandler_;
     
     //Eventually this will be a means of passing events to components
     //  via subjects and observers

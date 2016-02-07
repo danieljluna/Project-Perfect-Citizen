@@ -43,7 +43,7 @@ bool mousePressButton::isCollision(sf::Vector2i mousePos) {
 }
 
 
-void mousePressButton::registerInput(sf::Event& ev) {
+bool mousePressButton::registerInput(sf::Event& ev) {
 	
 	if (ev.type == sf::Event::MouseButtonReleased) {
 
@@ -54,4 +54,6 @@ void mousePressButton::registerInput(sf::Event& ev) {
 
 		}
 	}
+
+    return true;
 }

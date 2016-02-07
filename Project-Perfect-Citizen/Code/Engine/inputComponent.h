@@ -38,8 +38,9 @@ public:
     ///
     /// @param ev The sf::Event passed to this Component when it an
     ///     Observer calls this Component.
+    /// @return Denotes whether this observer propogates the event.
     ///////////////////////////////////////////////////////////////////
-    virtual void registerInput(sf::Event& ev) = 0;
+    virtual bool registerInput(sf::Event& ev) = 0;
 
 
 protected:

@@ -36,8 +36,9 @@ public:
     ///@details This is the function that will be called when an 
     /// Observer is notified of an event of interest.
 	///@param event The event this Observer was notified of.
+    ///@return Denotes whether this observer propogates the event.
     ///////////////////////////////////////////////////////////////////
-	virtual void eventHandler(sf::Event& ev) = 0;
+	virtual bool eventHandler(sf::Event& ev) = 0;
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Returns if this Observer is in use by a Subject
