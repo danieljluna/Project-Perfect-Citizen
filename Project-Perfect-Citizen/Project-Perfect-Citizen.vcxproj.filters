@@ -52,10 +52,6 @@
     <ClCompile Include="Code\Engine\mousePressButton.cpp">
       <Filter>Sources\Engine\Created Components</Filter>
     </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="Code\Engine\buttonRenderComponent.cpp">
-      <Filter>Headers\Examples</Filter>
-=======
     <ClCompile Include="Code\Engine\DesktopLogger.cpp">
       <Filter>Sources\Engine\Logger Decorators</Filter>
     </ClCompile>
@@ -64,7 +60,9 @@
     </ClCompile>
     <ClCompile Include="Code\Engine\WindowLogger.cpp">
       <Filter>Sources\Engine\Logger Decorators</Filter>
->>>>>>> c4dc150ef97eb513938f2aa4f06cfdf0214cc594
+    </ClCompile>
+    <ClCompile Include="Code\Engine\buttonRenderComponent.cpp">
+      <Filter>Sources\Examples</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -140,16 +138,14 @@
     <ClInclude Include="Code\Engine\mousePressButton.h">
       <Filter>Headers\Engine\Created Components</Filter>
     </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="Code\Engine\buttonRenderComponent.h">
-      <Filter>Sources\Examples</Filter>
-=======
     <ClInclude Include="Code\Engine\DesktopLogger.h">
       <Filter>Headers\Engine\Logger Decorators</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\WindowLogger.h">
       <Filter>Headers\Engine\Logger Decorators</Filter>
->>>>>>> c4dc150ef97eb513938f2aa4f06cfdf0214cc594
+    </ClInclude>
+    <ClInclude Include="Code\Engine\buttonRenderComponent.h">
+      <Filter>Headers\Examples</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
