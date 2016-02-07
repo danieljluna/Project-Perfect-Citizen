@@ -25,8 +25,10 @@
 #include "Engine/entity.h"
 #include "Engine/Window.h"
 #include "Engine/desktop.h"
-
+#include "Engine/DesktopLogger.h"
+#include "Engine/WindowLogger.h"
 #include "Engine/mousePressButton.h"
+#include "Engine/buttonRenderComponent.h"
 
 
 using namespace ppc;
@@ -63,32 +65,44 @@ int main(int argc, char** argv) {
 
     sf::Image spriteSheet;
     spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
-    //Create A TestRenderSprite
-    TestRenderSprite testRenderSpr(spriteSheet, 0, 3, 1);
-	testRenderSpr.renderPosition(sf::Vector2f(10, 10));
-    TestRenderSprite rend(spriteSheet, 0, 4, 1);
-    rend.renderPosition(sf::Vector2f(170,0));
-    
 
-	mousePressButton mpb(inputHandle,*testRenderSpr.getSprite());
+
+
+    //Create A TestRenderSprite
+    //TestRenderSprite testRenderSpr(spriteSheet, 0, 3, 1);
+	//testRenderSpr.renderPosition(sf::Vector2f(10, 10));
+
+	//TestRenderSprite rend(spriteSheet, 0, 4, 1);
+	//rend.renderPosition(sf::Vector2f(150,0));
+	
+
+	//Try it with a buttonRenderComponent
+	buttonRenderComponent buttonRender(spriteSheet, 0, 3, 1);
+	buttonRender.renderPosition(sf::Vector2f(10, 10));
+
+	// Create the mouse button input
+	mousePressButton mpb(inputHandle,*buttonRender.getSprite());
 
     //Put that Component into an Entity
     Entity testEntity;
-    testEntity.addComponent(&testRenderSpr);
+	testEntity.addComponent(&buttonRender);
     testEntity.addComponent(&mpb);
     
 
     //Create ppc::Window
     Window testWindow(200, 200,sf::Color(200,200,200));
-
+	cout << "BLAH " << &testWindow << endl;
+	WindowLogger testWindowLogger(testWindow,cout);
     //Add testEntity to ppc::Window
-	testWindow.addEntity(testEntity);
+	testWindowLogger.addEntity(testEntity);
 
 	//Create ppc::Desktop
 	char dummyTree = 't'; //using a dummy variable for Ctor until
 	//the actual FileTree is completed
 	Desktop myDesktop(dummyTree);
-	myDesktop.addWindow(&testWindow);
+
+	//Add windows to Desktops
+	myDesktop.addWindow(&testWindowLogger);
 
     //////////JSON EXAMPLE//////////////////////////////////////////////
 
@@ -119,6 +133,7 @@ int main(int argc, char** argv) {
     string temp = value.get("Try to find me", "Not found" ).asString();
     cout << temp << endl;
 
+
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop
 	///////////////////////////////////////////////////////////////////
@@ -147,15 +162,19 @@ int main(int argc, char** argv) {
             
             //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
-            myDesktop.update(dt);
+			myDesktop.update(dt);
 
             //Draw all the Windows in the Desktop
 			myDesktop.refresh();
+
+			//Logger should not be used in place of passing
+			//the actual drawn Desktop
 			screen.draw(myDesktop);
 
             //Display final Window
 			screen.display();
         }
     }
+	
     return EXIT_SUCCESS;
 }
