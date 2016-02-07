@@ -52,20 +52,26 @@
     <ClCompile Include="Code\Engine\mousePressButton.cpp">
       <Filter>Sources\Engine\Created Components</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\DesktopLogger.cpp">
-      <Filter>Sources\Engine\Logger Decorators</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\WindowDecorator.cpp">
-      <Filter>Sources\Engine\Windows / Desktop</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\WindowLogger.cpp">
-      <Filter>Sources\Engine\Logger Decorators</Filter>
+      <Filter>Sources\Engine\Windows / Desktop\Decorators</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\EntityDecorator.cpp">
-      <Filter>Sources\Engine\Entity / Componentns</Filter>
+      <Filter>Sources\Engine\Entity / Componentns\Decorators</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\UpdateCmpntDecorator.cpp">
+      <Filter>Sources\Engine\Entity / Componentns\Decorators</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\EntityLogger.cpp">
-      <Filter>Sources\Engine\Logger Decorators</Filter>
+      <Filter>Sources\Engine\Entity / Componentns\Decorators\Loggers</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\DesktopLogger.cpp">
+      <Filter>Sources\Engine\Windows / Desktop\Decorators\Loggers</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\WindowLogger.cpp">
+      <Filter>Sources\Engine\Windows / Desktop\Decorators\Loggers</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\UpdateCmpntLogger.cpp">
+      <Filter>Sources\Engine\Entity / Componentns\Decorators\Loggers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -108,9 +114,6 @@
     <ClInclude Include="Code\Engine\Window.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\WindowDecorator.h">
-      <Filter>Headers\Engine\Windows / Desktop</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\WindowInterface.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
     </ClInclude>
@@ -141,17 +144,26 @@
     <ClInclude Include="Code\Engine\mousePressButton.h">
       <Filter>Headers\Engine\Created Components</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\DesktopLogger.h">
-      <Filter>Headers\Engine\Logger Decorators</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\WindowLogger.h">
-      <Filter>Headers\Engine\Logger Decorators</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\EntityDecorator.h">
-      <Filter>Headers\Engine\Entity / Components</Filter>
+      <Filter>Headers\Engine\Entity / Components\Decorators</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\WindowDecorator.h">
+      <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\UpdateCmpntDecorator.h">
+      <Filter>Headers\Engine\Entity / Components\Decorators</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\EntityLogger.h">
-      <Filter>Headers\Engine\Logger Decorators</Filter>
+      <Filter>Headers\Engine\Entity / Components\Decorators\Loggers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\DesktopLogger.h">
+      <Filter>Headers\Engine\Windows / Desktop\Decorators\Loggers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\WindowLogger.h">
+      <Filter>Headers\Engine\Windows / Desktop\Decorators\Loggers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\UpdateCmpntLogger.h">
+      <Filter>Headers\Engine\Entity / Components\Decorators\Loggers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -241,11 +253,29 @@
     <Filter Include="Sources\Engine\Created Components">
       <UniqueIdentifier>{02b72c68-768c-4e22-8a3e-e3872c3a8987}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Headers\Engine\Logger Decorators">
-      <UniqueIdentifier>{27225f4f-141d-4e49-a51d-fd3f83898412}</UniqueIdentifier>
+    <Filter Include="Headers\Engine\Entity / Components\Decorators">
+      <UniqueIdentifier>{ef7e0e1d-a131-4c74-bc41-40199f34d00c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Engine\Logger Decorators">
-      <UniqueIdentifier>{54615524-e889-4a52-a3e0-47f8d99107c6}</UniqueIdentifier>
+    <Filter Include="Headers\Engine\Windows / Desktop\Decorators">
+      <UniqueIdentifier>{219668e0-be0e-43f0-aed1-857098f416ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\Windows / Desktop\Decorators">
+      <UniqueIdentifier>{a655cd95-9c1d-4b43-b2d9-39b5a5408c84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\Entity / Componentns\Decorators">
+      <UniqueIdentifier>{562cfc5d-3821-4d22-9f21-6e0891555529}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Entity / Components\Decorators\Loggers">
+      <UniqueIdentifier>{758a4145-6c87-4c9c-833e-0d7db9f73280}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\Entity / Componentns\Decorators\Loggers">
+      <UniqueIdentifier>{ea432496-dbad-434c-a1ba-80d9d22846c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\Windows / Desktop\Decorators\Loggers">
+      <UniqueIdentifier>{15c69699-4daa-42ca-9135-8904abeccc0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Windows / Desktop\Decorators\Loggers">
+      <UniqueIdentifier>{71fcf245-fe0b-4ffd-9494-297e0e4ccab3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

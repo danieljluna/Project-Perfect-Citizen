@@ -27,6 +27,8 @@
     <ClCompile Include="Code\Engine\TestObserver.cpp" />
     <ClCompile Include="Code\Engine\testRenderSprite.cpp" />
     <ClCompile Include="Code\Engine\testRotateSprite.cpp" />
+    <ClCompile Include="Code\Engine\UpdateCmpntDecorator.cpp" />
+    <ClCompile Include="Code\Engine\UpdateCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\Window.cpp" />
     <ClCompile Include="Code\Engine\WindowDecorator.cpp" />
     <ClCompile Include="Code\Engine\WindowLogger.cpp" />
@@ -59,6 +61,8 @@
     <ClInclude Include="Code\Engine\TestObserver.h" />
     <ClInclude Include="Code\Engine\testRenderSprite.h" />
     <ClInclude Include="Code\Engine\testRotateSprite.h" />
+    <ClInclude Include="Code\Engine\UpdateCmpntDecorator.h" />
+    <ClInclude Include="Code\Engine\UpdateCmpntLogger.h" />
     <ClInclude Include="Code\Engine\updateComponent.h" />
     <ClInclude Include="Code\Engine\Window.h" />
     <ClInclude Include="Code\Engine\WindowDecorator.h" />

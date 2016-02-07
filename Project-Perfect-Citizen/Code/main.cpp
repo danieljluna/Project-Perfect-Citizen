@@ -76,9 +76,8 @@ int main(int argc, char** argv) {
 
     //Put that Component into an Entity
     Entity testEntity;
-	EntityLogger entityLogger(testEntity, cout);
-	entityLogger.addComponent(&testRenderSpr);
-	entityLogger.addComponent(&mpb);
+	testEntity.addComponent(&testRenderSpr);
+	testEntity.addComponent(&mpb);
     
 
     //Create ppc::Window
@@ -86,7 +85,7 @@ int main(int argc, char** argv) {
 	
 	
     //Add testEntity to ppc::Window
-	testWindow.addEntity(entityLogger);
+	testWindow.addEntity(testEntity);
 
 	//Create ppc::Desktop
 	char dummyTree = 't'; //using a dummy variable for Ctor until
