@@ -3,11 +3,21 @@
 using namespace ppc;
 
 
-WindowDecorator::WindowDecorator(WindowInterface& windowPtr): 
-	windowHandle_(&windowPtr) {}
+WindowDecorator::WindowDecorator(WindowInterface& win): 
+    windowHandle_(&win) {}
 
 WindowDecorator::~WindowDecorator() {
-	delete windowHandle_;
+    if (windowHandle_ != nullptr) {
+        delete windowHandle_;
+    }
+}
+
+void WindowDecorator::setSize(sf::Vector2u& size) {
+    windowHandle_->setSize(size);
+}
+
+void WindowDecorator::setSize(unsigned int width, unsigned int height) {
+    windowHandle_->setSize(width, height);
 }
 
 void WindowDecorator::addInputComponent(InputComponent* inputcmpnt) {

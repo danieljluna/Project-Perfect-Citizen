@@ -27,6 +27,8 @@
 #include "Engine/desktop.h"
 #include "Engine/mousePressButton.h"
 #include "Engine/buttonRenderComponent.h"
+#include "Engine/TreeCommands.h"
+#include "Engine/NodeState.h"
 
 
 using namespace ppc;
@@ -88,9 +90,9 @@ int main(int argc, char** argv) {
 	testEntity.addComponent(&mpb);
 
     //Create ppc::Window
+
     Window testWindow(200, 200,sf::Color(200,200,200));
-	
-	
+
     //Add testEntity to ppc::Window
 	testWindow.addEntity(testEntity);
 

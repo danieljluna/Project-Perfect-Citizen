@@ -8,6 +8,7 @@ namespace ppc {
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Decorator for any Window.
+/// @author Daniel Luna
 /// @details Any Decorator for the Window hierarchy needs to inherit 
 ///     this class. Decorators are designed to add functionality to a
 ///     Window. If DecoratorA decorates a WindowB, then DecoratorA will
@@ -29,19 +30,26 @@ public:
     ///////////////////////////////////////////////////////////////////
     /// @brief Attaches this Decorator to a Window
     ///////////////////////////////////////////////////////////////////
-    WindowDecorator(WindowInterface& windowPtr);
+    WindowDecorator(WindowInterface& window);
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Virtual Destructor
+    /// @details Destroys the decorated Window.
+    ///////////////////////////////////////////////////////////////////
     virtual ~WindowDecorator();
 
 
-	virtual void addInputComponent(InputComponent* inputcmpnt);
-	virtual void addRenderComponent(RenderComponent* rendercmpnt);
-	virtual void addUpdateComponent(UpdateComponent* updatecmpnt);
-	virtual void addEntity(Entity& entity);
+    virtual void setSize(sf::Vector2u& size) override;
+    virtual void setSize(unsigned int width, unsigned int height) override;
 
-	virtual void update(sf::Time& deltaTime);
-	virtual void registerInput(sf::Event&);
-	virtual void refresh(sf::RenderStates states = sf::RenderStates());
+	virtual void addInputComponent(InputComponent* inputcmpnt) override;
+	virtual void addRenderComponent(RenderComponent* rendercmpnt) override;
+	virtual void addUpdateComponent(UpdateComponent* updatecmpnt) override;
+	virtual void addEntity(Entity& entity) override;
+
+	virtual void update(sf::Time& deltaTime) override;
+	virtual void registerInput(sf::Event&) override;
+	virtual void refresh(sf::RenderStates states = sf::RenderStates()) override;
 
 protected:
 

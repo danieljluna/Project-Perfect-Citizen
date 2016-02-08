@@ -34,6 +34,32 @@ public:
   // Setters
   /////////////////////////////////////////////////////////////////////
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the size of the Window.
+    /// @details Specifically, this function sets the size space that 
+    ///     represents this room. A Window can be displayed independant
+    ///     of its size.
+    ///
+    /// @param size A vector denoting the desired size of the Window.
+    /// @post Any components defined as part of the Window that now lay
+    ///     outside of it are destroyed.
+    ///////////////////////////////////////////////////////////////////
+    virtual void setSize(sf::Vector2u& size) = 0;
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the size of the Window.
+    /// @details Specifically, this function sets the size space that 
+    ///     represents this room. A Window can be displayed independant
+    ///     of its size.
+    ///
+    /// @param width The desired width of the Window.
+    /// @param height The desired height of the Window.
+    /// @post Any components defined as part of the Window that now lay
+    ///     outside of it are destroyed.
+    ///////////////////////////////////////////////////////////////////
+    virtual void setSize(unsigned int width, unsigned int height) = 0;
+
+    //TODO: Add code to manipulate View
     
 
   /////////////////////////////////////////////////////////////////////
