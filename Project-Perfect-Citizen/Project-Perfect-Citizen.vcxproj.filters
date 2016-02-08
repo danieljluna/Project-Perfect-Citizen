@@ -73,6 +73,12 @@
     <ClCompile Include="Code\Engine\UpdateCmpntLogger.cpp">
       <Filter>Sources\Engine\Entity / Componentns\Decorators\Loggers</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\RenderCmpntDecorator.cpp">
+      <Filter>Sources\Engine\Entity / Componentns\Decorators</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\RenderCmpntLogger.cpp">
+      <Filter>Sources\Engine\Entity / Componentns\Decorators\Loggers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -163,6 +169,12 @@
       <Filter>Headers\Engine\Windows / Desktop\Decorators\Loggers</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\UpdateCmpntLogger.h">
+      <Filter>Headers\Engine\Entity / Components\Decorators\Loggers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\RenderCmpntDecorator.h">
+      <Filter>Headers\Engine\Entity / Components\Decorators</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\RenderCmpntLogger.h">
       <Filter>Headers\Engine\Entity / Components\Decorators\Loggers</Filter>
     </ClInclude>
   </ItemGroup>

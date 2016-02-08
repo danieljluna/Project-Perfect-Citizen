@@ -5,7 +5,7 @@ using namespace ppc;
 EntityDecorator::EntityDecorator(Entity& entityPtr): entityHandle_(&entityPtr) {}
 
 EntityDecorator:: ~EntityDecorator() {
-	entityHandle_ = nullptr;
+	delete entityHandle_;
 }
 
 size_t EntityDecorator::cmpntCount() {

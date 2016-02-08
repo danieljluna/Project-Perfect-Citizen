@@ -7,7 +7,7 @@ WindowDecorator::WindowDecorator(WindowInterface& windowPtr):
 	windowHandle_(&windowPtr) {}
 
 WindowDecorator::~WindowDecorator() {
-	windowHandle_ = nullptr;
+	delete windowHandle_;
 }
 
 void WindowDecorator::addInputComponent(InputComponent* inputcmpnt) {

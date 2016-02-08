@@ -72,7 +72,7 @@ protected:
     /// @return Whether or not there was an Observer available to 
     ///     assign to the Subject given.
     ///////////////////////////////////////////////////////////////////
-    bool watch(Subject& subject);
+	virtual bool watch(Subject& subject);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Sets up an Observer to watch for an sf::Event.
@@ -81,21 +81,21 @@ protected:
     /// @return Whether or not there was an Observer available to 
     ///     assign to the InputHandler given.
     ///////////////////////////////////////////////////////////////////
-    bool watch(InputHandler& iHandler, sf::Event::EventType type);
+	virtual bool watch(InputHandler& iHandler, sf::Event::EventType type);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Detatches Observers connected to this subject.
     /// @details This will detach all Observers related to this 
     ///     InputComponent from the given Subject.
     ///////////////////////////////////////////////////////////////////
-    void ignore(Subject& subject);
+	virtual void ignore(Subject& subject);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Detatches Observers connected to this subject.
     /// @details This will detach all Observers related to this 
     ///     InputComponent from the given handle in the InputHandler.
     ///////////////////////////////////////////////////////////////////
-    void ignore(InputHandler& iHandler, sf::Event::EventType type);
+    virtual void ignore(InputHandler& iHandler, sf::Event::EventType type);
 
 
 private:

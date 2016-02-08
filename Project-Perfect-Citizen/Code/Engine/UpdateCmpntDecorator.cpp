@@ -6,7 +6,7 @@ updateCmpntDecorator::updateCmpntDecorator(
 	UpdateComponent& updatePtr): uCmpntHandle_(&updatePtr){}
 
 updateCmpntDecorator::~updateCmpntDecorator() {
-	uCmpntHandle_ = nullptr;
+	delete uCmpntHandle_;
 }
 
 Entity* updateCmpntDecorator::getEntity() {

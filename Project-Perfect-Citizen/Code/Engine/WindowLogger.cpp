@@ -1,6 +1,5 @@
 #include "WindowLogger.h"
 
-using namespace std;
 using namespace ppc;
 
 WindowLogger::WindowLogger(WindowInterface& windowPtr, ostream& out):

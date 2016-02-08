@@ -29,7 +29,7 @@
 #include "Engine/WindowLogger.h"
 #include "Engine/EntityLogger.h"
 #include "Engine/mousePressButton.h"
-
+#include "Engine/RenderCmpntLogger.h"
 
 using namespace ppc;
 
@@ -66,17 +66,21 @@ int main(int argc, char** argv) {
     sf::Image spriteSheet;
     spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
     //Create A TestRenderSprite
-    TestRenderSprite testRenderSpr(spriteSheet, 0, 3, 1);
-	testRenderSpr.renderPosition(sf::Vector2f(10, 10));
+	//Make sure you use pointers and dynamic memory as such below
+    TestRenderSprite* testRenderSpr = new TestRenderSprite(spriteSheet, 0, 3, 1);
+	testRenderSpr->renderPosition(sf::Vector2f(10, 10));
+	//Not using pointers and calling new will cause problems.
+	//Dont make stuff like below:
     TestRenderSprite rend(spriteSheet, 0, 4, 1);
     rend.renderPosition(sf::Vector2f(170,0));
     
 
-	mousePressButton mpb(inputHandle,*testRenderSpr.getSprite());
+	mousePressButton mpb(inputHandle,*testRenderSpr->getSprite());
+
 
     //Put that Component into an Entity
     Entity testEntity;
-	testEntity.addComponent(&testRenderSpr);
+	testEntity.addComponent(testRenderSpr);
 	testEntity.addComponent(&mpb);
     
 
