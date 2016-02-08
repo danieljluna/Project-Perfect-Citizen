@@ -99,8 +99,13 @@ void Subject::sendEvent(sf::Event& event)
 	}
 
 	while (currentObserver != nullptr) {
-		currentObserver->eventHandler(event);
-		currentObserver = currentObserver->next;
+        if (!currentObserver->eventHandler(event)) {
+            //Observer returned false, denoting it wants to stop event 
+            //  propagation
+            currentObserver = nullptr;
+        } else {
+            currentObserver = currentObserver->next;
+        }
 	}
 }
 

@@ -90,9 +90,9 @@ int main(int argc, char** argv) {
     
 
     //Create ppc::Window
-    Window testWindow(200, 200,sf::Color(200,200,200));
+    Window* testWindow = new Window(200, 200,sf::Color(200,200,200));
 	cout << "BLAH " << &testWindow << endl;
-	WindowLogger testWindowLogger(testWindow,cout);
+	WindowLogger testWindowLogger(*testWindow,cout);
     //Add testEntity to ppc::Window
 	testWindowLogger.addEntity(testEntity);
 

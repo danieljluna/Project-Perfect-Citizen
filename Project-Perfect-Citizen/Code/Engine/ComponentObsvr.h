@@ -20,7 +20,7 @@ public:
 
 
 
-    virtual void eventHandler(sf::Event& ev) override;
+    virtual bool eventHandler(sf::Event& ev) override;
 
 private:
 

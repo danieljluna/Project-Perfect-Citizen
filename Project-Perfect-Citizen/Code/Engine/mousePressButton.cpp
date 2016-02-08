@@ -57,7 +57,8 @@ bool mousePressButton::isCollision(sf::Vector2i mousePos) {
 	return result;
 }
 
-void mousePressButton::registerInput(sf::Event& ev) {
+
+bool mousePressButton::registerInput(sf::Event& ev) {
 	
 	ppc::Entity *parentEntity = getEntity();
 
@@ -91,4 +92,5 @@ void mousePressButton::registerInput(sf::Event& ev) {
 		}
 	}
 
+    return true;
 }
