@@ -30,11 +30,11 @@ void inputCmpntLogger::recieveMessage(msgType message) {
 		message << std::endl;
 }
 
-void inputCmpntLogger::registerInput(sf::Event& ev) {
+bool inputCmpntLogger::registerInput(sf::Event& ev) {
 	std::cout << "ADADAWFAFAWFDAWFAW" << std::endl;
 	out_ << "InputCmpntLogger: Registering Event in Cmpnt: " <<
 		iCmpntHandle_ << std::endl;
-	iCmpntHandle_->registerInput(ev);
+	return iCmpntHandle_->registerInput(ev);
 	out_ << "InputCmpntLogger: Event " << ev.type << 
 		" registered." << std::endl;
 }

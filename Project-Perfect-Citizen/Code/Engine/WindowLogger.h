@@ -23,6 +23,9 @@ namespace ppc {
 		WindowLogger(WindowInterface& windowPtr, ostream& out);
 		virtual ~WindowLogger();
 
+		virtual void setSize(sf::Vector2u& size);
+		virtual void setSize(unsigned int width, unsigned int height);
+
 		virtual void addInputComponent(InputComponent* inputcmpnt);
 		virtual void addRenderComponent(RenderComponent* rendercmpnt);
 		virtual void addUpdateComponent(UpdateComponent* updatecmpnt);

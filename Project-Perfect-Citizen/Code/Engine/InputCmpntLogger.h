@@ -28,6 +28,6 @@ namespace ppc{
 		Entity* getEntity();
 		void setEntity(Entity*);
 		void recieveMessage(msgType message);
-		void registerInput(sf::Event& ev);
+		bool registerInput(sf::Event& ev);
 	};
 };

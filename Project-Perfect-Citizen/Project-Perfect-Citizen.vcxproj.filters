@@ -49,8 +49,6 @@
     <ClCompile Include="Code\Engine\NodeState.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\inputComponent.cpp" />
-    <ClCompile Include="Code\Engine\BaseFileType.cpp" />
     <ClCompile Include="Code\Engine\TreeCommands.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
     </ClCompile>
@@ -89,6 +87,12 @@
     </ClCompile>
     <ClCompile Include="Code\Engine\InputCmpntLogger.cpp">
       <Filter>Sources\Engine\Entity / Componentns\Decorators\Loggers</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\inputComponent.cpp">
+      <Filter>Sources\Engine\Entity / Componentns</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\BaseFileType.cpp">
+      <Filter>Sources\Engine\Windows / Desktop</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -129,11 +133,6 @@
       <Filter>Headers\Engine\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\Window.h">
-      <Filter>Headers\Engine\Windows / Desktop</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\WindowInterface.h">
-    </ClInclude>
-    <ClInclude Include="Code\Engine\WindowDecorator.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\world.h">
@@ -191,6 +190,7 @@
       <Filter>Headers\Engine\Entity / Components\Decorators\Loggers</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\buttonRenderComponent.h">
+    </ClInclude>
     <ClInclude Include="Code\Engine\NodeState.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
     </ClInclude>
@@ -205,6 +205,12 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\InputCmpntLogger.h">
       <Filter>Headers\Engine\Entity / Components\Decorators\Loggers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\WindowInterface.h">
+      <Filter>Headers\Engine\Windows / Desktop</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\WindowDecorator.h">
+      <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
