@@ -4,7 +4,14 @@
 #include "desktop.h"
 
 namespace ppc {
-
+	///////////////////////////////////////////////////////////////////
+	///@brief A Faux-Decorator that logs information for Desktops.
+	///@details Normally, Decorators would handle the deletion of the
+	/// object they are decoration, but this is ins't a real decorator
+	/// deletion of desktops rely on the user instead of the
+	/// decorator.
+	///@author Nader Sleem
+	///////////////////////////////////////////////////////////////////
 	class DesktopLogger {
 
 	private:

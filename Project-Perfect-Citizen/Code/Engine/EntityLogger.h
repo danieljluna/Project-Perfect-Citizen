@@ -5,7 +5,11 @@
 
 
 namespace ppc {
-
+	///////////////////////////////////////////////////////////////////
+	///@brief A decorator for Entities that logs data when functions  
+	/// are called.
+	///@author Nader Sleem
+	///////////////////////////////////////////////////////////////////
 	class EntityLogger : public EntityDecorator {
 
 	private:

@@ -4,6 +4,11 @@
 #include <iostream>
 
 namespace ppc {
+	///////////////////////////////////////////////////////////////////
+	///@brief A decorator for Update Cmpnts that logs data when 
+	///functions are called.
+	///@author Nader Sleem
+	///////////////////////////////////////////////////////////////////
 	class updateCmpntLogger: public updateCmpntDecorator {
 	private:
 

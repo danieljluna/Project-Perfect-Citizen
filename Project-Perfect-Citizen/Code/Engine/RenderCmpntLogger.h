@@ -5,6 +5,11 @@
 #include <iostream>
 
 namespace ppc {
+	///////////////////////////////////////////////////////////////////
+	///@brief A decorator for Render Cmpnts that logs data when 
+	///functions are called.
+	///@author Nader Sleem
+	///////////////////////////////////////////////////////////////////
 	class renderCmpntLogger : public renderCmpntDecorator {
 	private:
 

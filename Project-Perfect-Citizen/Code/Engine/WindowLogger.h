@@ -4,7 +4,11 @@
 #include <iostream>
 
 namespace ppc {
-
+	///////////////////////////////////////////////////////////////////
+	///@brief A decorator for Windows that logs data when functions are 
+	/// called.
+	///@author Nader Sleem
+	///////////////////////////////////////////////////////////////////
 	class WindowLogger : public WindowDecorator {
 	private:
 		ostream& out_;
