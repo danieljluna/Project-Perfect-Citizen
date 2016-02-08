@@ -49,3 +49,10 @@ ppc::BaseFileType * ppc::NodeState::getRoot()
 {
 	return this->root;
 }
+
+void ppc::NodeState::moveToRoot()
+{
+	this->workingDirectory.clear();
+	this->workingDirectory.push_back("/");
+	this->cwd = this->root;
+}

@@ -59,3 +59,14 @@ ppc::BaseFileType * ppc::BaseFileType::findElement(std::string filename)
 	}
 	return nullptr;
 }
+
+ppc::BaseFileType * ppc::BaseFileType::getParent()
+{
+	return this->findElement("..");
+}
+
+ppc::FileType ppc::BaseFileType::getFileType()
+{
+	return this->filetype;
+}
+

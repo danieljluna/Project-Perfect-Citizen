@@ -41,48 +41,6 @@ int main(int argc, char** argv) {
 
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(800, 600), "SFML window");
-
-	//////////////////////TREE TESTING///////////////////////////////////
-	std::cout << "Start of tree testing" << endl;
-	string splitTest = "/hello/my/name/is/Andy/";
-	std::vector<std::string> splitVecotr = split(splitTest, "/");
-	printVector(splitVecotr);
-	NodeState state;
-	vector<string>treeCommands;
-	treeCommands.push_back("/");
-	state.setUp();
-	treeCommands.clear();
-	treeCommands.push_back("mkDir");
-	treeCommands.push_back("testDir");
-	fn_mkDir(state, treeCommands);
-	treeCommands.clear();
-	treeCommands.push_back("mkdir");
-	treeCommands.push_back("/one/two/three/four/");
-	fn_mkDir(state, treeCommands);
-	treeCommands.clear();
-	treeCommands.push_back("cd");
-	treeCommands.push_back("one");
-	fn_cd(state, treeCommands);
-	treeCommands.clear();
-	treeCommands.push_back("cd");
-	treeCommands.push_back("two");
-	fn_cd(state, treeCommands);
-	treeCommands.clear();
-	treeCommands.push_back("make");
-	treeCommands.push_back("insideTwo");
-	fn_mkfile(state, treeCommands);
-	fn_ls(state, treeCommands);
-	//printVector(treeCommands);
-	std::cout << "End of tree testing" << endl;
-
-	//////////////////////TREE TESTING//////////////////////////////////
-
-
-
-
-
-
-
     //Define a Sprite
     sf::Sprite S;
     sf::Texture T;
