@@ -29,7 +29,7 @@
 #include "Engine/WindowLogger.h"
 #include "Engine/EntityLogger.h"
 #include "Engine/mousePressButton.h"
-#include "Engine/RenderCmpntLogger.h"
+#include "Engine/buttonRenderComponent.h"
 
 using namespace ppc;
 
@@ -65,23 +65,28 @@ int main(int argc, char** argv) {
 
     sf::Image spriteSheet;
     spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
+
+
+
     //Create A TestRenderSprite
-	//Make sure you use pointers and dynamic memory as such below
-    TestRenderSprite* testRenderSpr = new TestRenderSprite(spriteSheet, 0, 3, 1);
-	testRenderSpr->renderPosition(sf::Vector2f(10, 10));
-	//Not using pointers and calling new will cause problems.
-	//Dont make stuff like below:
-    TestRenderSprite rend(spriteSheet, 0, 4, 1);
-    rend.renderPosition(sf::Vector2f(170,0));
-    
+    //TestRenderSprite testRenderSpr(spriteSheet, 0, 3, 1);
+	//testRenderSpr.renderPosition(sf::Vector2f(10, 10));
 
-	mousePressButton mpb(inputHandle,*testRenderSpr->getSprite());
+	//TestRenderSprite rend(spriteSheet, 0, 4, 1);
+	//rend.renderPosition(sf::Vector2f(150,0));
+	
 
+	//Try it with a buttonRenderComponent
+	buttonRenderComponent buttonRender(spriteSheet, 0, 3, 1);
+	buttonRender.renderPosition(sf::Vector2f(10, 10));
+
+	// Create the mouse button input
+	mousePressButton mpb(inputHandle,*buttonRender.getSprite());
 
     //Put that Component into an Entity
     Entity testEntity;
-	testEntity.addComponent(testRenderSpr);
-	testEntity.addComponent(&mpb);
+	testEntity.addComponent(&buttonRender);
+    testEntity.addComponent(&mpb);
     
 
     //Create ppc::Window
@@ -127,6 +132,7 @@ int main(int argc, char** argv) {
     cout << indentArray.get("use_space", "Not found").asBool() << endl;
     string temp = value.get("Try to find me", "Not found" ).asString();
     cout << temp << endl;
+
 
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop
