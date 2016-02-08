@@ -2,7 +2,7 @@
 
 using namespace ppc;
 
-EntityDecorator::EntityDecorator(Entity& entityPtr): entityHandle_(&entityPtr) {}
+EntityDecorator::EntityDecorator(Entity& entityPtr):entityHandle_(&entityPtr) {}
 
 EntityDecorator:: ~EntityDecorator() {
 	delete entityHandle_;

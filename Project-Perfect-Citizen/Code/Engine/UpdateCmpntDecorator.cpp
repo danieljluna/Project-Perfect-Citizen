@@ -13,6 +13,10 @@ Entity* updateCmpntDecorator::getEntity() {
 	return uCmpntHandle_->getEntity();
 }
 
+void updateCmpntDecorator::setEntity(Entity* e) {
+	uCmpntHandle_->setEntity(e);
+}
+
 void updateCmpntDecorator::recieveMessage(msgType message) {
 	uCmpntHandle_->recieveMessage(message);
 }

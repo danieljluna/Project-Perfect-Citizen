@@ -21,6 +21,7 @@ namespace ppc {
 		virtual ~renderCmpntDecorator();
 
 		virtual Entity* getEntity();
+		virtual void setEntity(Entity*);
 		virtual void recieveMessage(msgType message);
 		virtual void draw(sf::RenderTarget& target,
 			sf::RenderStates states) const;

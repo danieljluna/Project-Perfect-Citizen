@@ -82,6 +82,9 @@
     <ClCompile Include="Code\Engine\buttonRenderComponent.cpp">
       <Filter>Sources\Examples</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\InputCmpntLogger.cpp">
+      <Filter>Sources\Engine\Entity / Componentns\Decorators\Loggers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -182,6 +185,9 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\buttonRenderComponent.h">
       <Filter>Headers\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\InputCmpntLogger.h">
+      <Filter>Headers\Engine\Entity / Components\Decorators\Loggers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

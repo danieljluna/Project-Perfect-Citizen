@@ -53,7 +53,8 @@ void DesktopLogger::registerInput(sf::Event& ev) {
 }
 
 void DesktopLogger::update(sf::Time& deltaTime) {
-	out_ << "DesktopLogger: Updating Window: "<< loggedDesktop_ << std::endl;
+	out_ << "DesktopLogger: Updating Window: "<< 
+		loggedDesktop_ << std::endl;
 
 	loggedDesktop_->update(deltaTime);
 

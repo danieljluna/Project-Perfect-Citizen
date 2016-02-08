@@ -13,11 +13,18 @@ Entity* renderCmpntLogger::getEntity() {
 	return this->getDecoTarget()->getEntity();
 }
 
+void renderCmpntLogger::setEntity(Entity* e) {
+	out_ << "RenderCmpntLogger: Setting Entity of Cmpnt: " <<
+		this->getDecoTarget() << std::endl;
+	this->getDecoTarget()->setEntity(e);
+}
+
 void renderCmpntLogger::recieveMessage(msgType message) {
 	out_ << "RenderCmpntLogger: Recieving Msg in Cmpnt: " <<
 		this->getDecoTarget() << std::endl;
 	this->getDecoTarget()->recieveMessage(message);
-	out_ << "RenderCmpntLogger: Recieved Msg: " << message << std::endl;
+	out_ << "RenderCmpntLogger: Recieved Msg: " <<
+		message << std::endl;
 }
 
 void renderCmpntLogger::draw(sf::RenderTarget& target,

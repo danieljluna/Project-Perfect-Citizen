@@ -13,7 +13,8 @@ size_t EntityLogger::cmpntCount() {
 	size_t count = this->getDecoTarget()->cmpntCount();
 
 	out_ << "Entity Logger: Counting Cmpnts of Entity: " << 
-		this->getDecoTarget() << ": " << count << " cmpnts" << std::endl;
+		this->getDecoTarget() << ": " << count << 
+		" cmpnts" << std::endl;
 
 	return count;
 }

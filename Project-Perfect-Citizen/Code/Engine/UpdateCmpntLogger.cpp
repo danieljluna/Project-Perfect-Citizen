@@ -14,11 +14,18 @@ Entity* updateCmpntLogger::getEntity() {
 	return this->getDecoTarget()->getEntity();
 }
 
+void updateCmpntLogger::setEntity(Entity* e) {
+	out_ << "UpdateCmpntLogger: Setting Entity of Cmpnt: " <<
+		this->getDecoTarget() << std::endl;
+	this->getDecoTarget()->setEntity(e);
+}
+
 void updateCmpntLogger::recieveMessage(msgType message) {
 	out_ << "UpdateCmpntLogger: Recieving Msg in Cmpnt: " <<
 		this->getDecoTarget() << std::endl;
 	this->getDecoTarget()->recieveMessage(message);
-	out_ << "UpdateCmpntLogger: Recieved Msg: " << message << std::endl;
+	out_ << "UpdateCmpntLogger: Recieved Msg: " << 
+		message << std::endl;
 }
 
 void updateCmpntLogger::update(sf::Time& deltaTime) {

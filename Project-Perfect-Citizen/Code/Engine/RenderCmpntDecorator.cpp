@@ -3,7 +3,9 @@
 using namespace ppc;
 
 renderCmpntDecorator::renderCmpntDecorator(RenderComponent& updatePtr): 
-	rCmpntHandle_(&updatePtr){}
+	rCmpntHandle_(&updatePtr){
+	
+}
 
 renderCmpntDecorator:: ~renderCmpntDecorator() {
 	delete rCmpntHandle_;
@@ -11,6 +13,10 @@ renderCmpntDecorator:: ~renderCmpntDecorator() {
 
 Entity* renderCmpntDecorator::getEntity() {
 	return rCmpntHandle_->getEntity();
+}
+
+void renderCmpntDecorator::setEntity(Entity* e) {
+	rCmpntHandle_->setEntity(e);
 }
 
 void renderCmpntDecorator::recieveMessage(msgType message) {
