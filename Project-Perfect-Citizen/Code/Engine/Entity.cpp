@@ -48,7 +48,8 @@ Component* Entity::getComponent(size_t index) {
     if (index < maxComponentCount) {
         return components_[index];
     } else {
-        throw std::out_of_range("Entity: getComponent used invalid index!");
+        std::string msg = "Entity: getComponent used invalid index!";
+        throw std::out_of_range(msg);
     }
     return components_[index];
 }
