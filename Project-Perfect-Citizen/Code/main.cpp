@@ -25,8 +25,6 @@
 #include "Engine/entity.h"
 #include "Engine/Window.h"
 #include "Engine/desktop.h"
-#include "Engine/DesktopLogger.h"
-#include "Engine/WindowLogger.h"
 #include "Engine/mousePressButton.h"
 #include "Engine/buttonRenderComponent.h"
 #include "Engine/TreeCommands.h"
@@ -82,21 +80,21 @@ int main(int argc, char** argv) {
 	buttonRenderComponent buttonRender(spriteSheet, 0, 3, 1);
 	buttonRender.renderPosition(sf::Vector2f(10, 10));
 
+	
 	// Create the mouse button input
 	mousePressButton mpb(inputHandle,*buttonRender.getSprite());
-
+	
     //Put that Component into an Entity
     Entity testEntity;
 	testEntity.addComponent(&buttonRender);
-    testEntity.addComponent(&mpb);
-    
+	testEntity.addComponent(&mpb);
 
     //Create ppc::Window
-    Window* testWindow = new Window(200, 200,sf::Color(200,200,200));
-	cout << "BLAH " << &testWindow << endl;
-	WindowLogger testWindowLogger(*testWindow,cout);
+
+    Window testWindow(200, 200,sf::Color(200,200,200));
+
     //Add testEntity to ppc::Window
-	testWindowLogger.addEntity(testEntity);
+	testWindow.addEntity(testEntity);
 
 	//Create ppc::Desktop
 	char dummyTree = 't'; //using a dummy variable for Ctor until
@@ -104,7 +102,7 @@ int main(int argc, char** argv) {
 	Desktop myDesktop(dummyTree);
 
 	//Add windows to Desktops
-	myDesktop.addWindow(&testWindowLogger);
+	myDesktop.addWindow(&testWindow);
 
     //////////JSON EXAMPLE//////////////////////////////////////////////
 
