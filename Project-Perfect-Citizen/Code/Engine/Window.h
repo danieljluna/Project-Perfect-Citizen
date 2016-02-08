@@ -69,6 +69,32 @@ public:
   /////////////////////////////////////////////////////////////////////
   // Setters 
   /////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the size of the Window.
+    /// @details Specifically, this function sets the size space that 
+    ///     represents this room. A Window can be displayed independant
+    ///     of its size.
+    ///
+    /// @param size A vector denoting the desired size of the Window.
+    /// @post Any components defined as part of the Window that now lay
+    ///     outside of it are destroyed.
+    ///////////////////////////////////////////////////////////////////
+    virtual void setSize(sf::Vector2u& size) override;
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the size of the Window.
+    /// @details Specifically, this function sets the size space that 
+    ///     represents this room. A Window can be displayed independant
+    ///     of its size.
+    ///
+    /// @param width The desired width of the Window.
+    /// @param height The desired height of the Window.
+    /// @post Any components defined as part of the Window that now lay
+    ///     outside of it are destroyed.
+    ///////////////////////////////////////////////////////////////////
+    virtual void setSize(unsigned int width, unsigned int height) override;
+
     
 
   /////////////////////////////////////////////////////////////////////
@@ -153,7 +179,7 @@ public:
     void refresh(sf::RenderStates states = sf::RenderStates());
 
 
-protected:
+private:
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Draws the last Window refresh
@@ -166,6 +192,20 @@ protected:
     ///////////////////////////////////////////////////////////////////
     void draw(sf::RenderTarget& target, 
               sf::RenderStates states) const override;
+
+
+  /////////////////////////////////////////////////////////////////////
+  // Helper Functions
+  /////////////////////////////////////////////////////////////////////
+
+    //Deletes all Entities that aren't part of the windowSpace
+    void trimEntities();
+
+    //Deletes an Entity along with its components
+    void deleteEntity(std::vector<Entity>::iterator entityIt);
+
+    //Removes a Component. Will not delete it.
+    void removeComponent(Component* cmpntPtr);
 
 
   /////////////////////////////////////////////////////////////////////
@@ -197,6 +237,9 @@ protected:
     //All the render Components currently in the window. Will be 
     //  iterated over.
     std::vector<RenderComponent*> rendercmpnts_;
+
+    //Stores all the Entities that reside in this room
+    std::vector<Entity> entityVec_;
 
 
 };
