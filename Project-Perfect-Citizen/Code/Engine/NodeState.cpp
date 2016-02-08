@@ -14,18 +14,30 @@ void ppc::NodeState::printWorking()
 {
 	string pwd = "";
 	for (auto& iter: this->workingDirectory) {
-		pwd += (iter + " ");
+		if (iter != "/") {
+			pwd += (iter + "/");
+		}
+		else {
+			pwd += iter;
+		}
+		
 	}
+	std::cout << pwd << std::endl;
 }
 
 void ppc::NodeState::setUp()
 {
 	this->workingDirectory.push_back("/");
-	BaseFileType* newRoot = new BaseFileType();
-	newRoot->contents[newRoot] = ".";
-	newRoot->contents[newRoot] = "..";
+	BaseFileType* newRoot = new BaseFileType(ppc::FileType::Directory);
+	newRoot->contents["."] = newRoot;
+	newRoot->contents[".."] = newRoot;
 	this->root = newRoot;
 	this->cwd = newRoot;
+}
+
+void ppc::NodeState::setCwd(ppc::BaseFileType* newCwd)
+{
+	this->cwd = newCwd;
 }
 
 ppc::BaseFileType* ppc::NodeState::getCwd()

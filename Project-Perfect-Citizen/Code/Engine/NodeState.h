@@ -17,7 +17,9 @@ namespace ppc {
 		void pushWorking(string filename);
 		void printWorking();
 		void setUp();
+		void setCwd(BaseFileType* newCwd);
 		BaseFileType* getCwd();
 		BaseFileType* getRoot();
+
 	};
 }

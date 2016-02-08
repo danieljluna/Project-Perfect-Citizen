@@ -3,7 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <map>
-using namespace std;
+#include <String>
+//using namespace std;
 
 namespace ppc {
 	enum FileType { Directory, File};
@@ -11,11 +12,17 @@ namespace ppc {
 	class BaseFileType {
 		friend class NodeState;
 	protected:
-		BaseFileType();
-		string data = "";
-		map<BaseFileType*, string> contents;
+		BaseFileType(ppc::FileType type);
+		std::string data = "";
+		std::string jSonString = "";
+		std::map<std::string, BaseFileType*> contents;
+		ppc::FileType filetype;
 	public:
+		virtual void uploadJson(std::string jString);
 		virtual void readFile();
 		virtual void printDir();
+		virtual void makeFile(std::string filename, std::string content);
+		virtual BaseFileType* makeDir(std::string filename);
+		virtual BaseFileType* findElement(std::string filename);
 	};
 };
