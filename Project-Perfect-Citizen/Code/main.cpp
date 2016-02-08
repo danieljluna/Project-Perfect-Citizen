@@ -29,6 +29,8 @@
 #include "Engine/WindowLogger.h"
 #include "Engine/mousePressButton.h"
 #include "Engine/buttonRenderComponent.h"
+#include "Engine/TreeCommands.h"
+#include "Engine/NodeState.h"
 
 
 using namespace ppc;
