@@ -25,7 +25,7 @@ Entity::~Entity() {
     //Delete each Component in the component array
     for (size_t i = 0; i < maxComponentCount; ++i) {
         if (components_[i] != nullptr) {
-            components_[i]->entity = nullptr;
+            components_[i]->setEntity(nullptr);
         }
     }
 }
@@ -95,7 +95,7 @@ int Entity::addComponent(Component* cmpnt) {
         size_t index = 0;
         while (components_[index] != nullptr) { ++index; }
         components_[index] = cmpnt;
-        cmpnt->entity = this;
+        cmpnt->setEntity(this);
         return componentCount_++;
     } else {
         //If there is no room, return -1
@@ -112,7 +112,7 @@ void Entity::removeComponent(Component* cmpnt) {
         //If we find the cmpnt specified
         if (components_[i] == cmpnt) {
             //Inform the Component we no longer want it (Bloody Orphan)
-            components_[i]->entity = nullptr;
+            components_[i]->setEntity(nullptr);
 
             //Swap it around the array to retain continuity
             //Also, decrement componentCount
@@ -129,7 +129,7 @@ void Entity::removeComponent(Component* cmpnt) {
 void Entity::removeComponent(size_t index) {
     if (index < componentCount_) {
         //Inform the Component we no longer want it (Bloody Orphan)
-        components_[index]->entity = nullptr;
+		components_[index]->setEntity(nullptr); 
 
         //Swap it around the array to retain continuity
         //Also, decrement componentCount

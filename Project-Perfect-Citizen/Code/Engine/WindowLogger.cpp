@@ -1,12 +1,25 @@
 #include "WindowLogger.h"
 
-using namespace std;
 using namespace ppc;
 
 WindowLogger::WindowLogger(WindowInterface& windowPtr, ostream& out):
 	WindowDecorator(windowPtr), out_(out){}
 
 WindowLogger::~WindowLogger() {}
+
+void WindowLogger::setSize(sf::Vector2u& size) {
+	out_ << "Window Logger: Setting Size of Window: " <<
+		this->getDecoTarget() << ": New size: " << 
+		size.x << ", " << size.y << endl;
+	this->getDecoTarget()->setSize(size);
+}
+
+void WindowLogger::setSize(unsigned int width, unsigned int height) {
+	out_ << "Window Logger: Setting Size of Window: " <<
+		this->getDecoTarget() << ": New size: " <<
+		width << ", " << height << endl;
+	this->getDecoTarget()->setSize(width, height);
+}
 
 void WindowLogger::addInputComponent(InputComponent* inputcmpnt) {
 	out_ << "Window Logger: Adding ICmpnt: " << inputcmpnt << endl;

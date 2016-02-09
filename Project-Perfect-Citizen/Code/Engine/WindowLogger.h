@@ -4,7 +4,11 @@
 #include <iostream>
 
 namespace ppc {
-
+	///////////////////////////////////////////////////////////////////
+	///@brief A decorator for Windows that logs data when functions are 
+	/// called.
+	///@author Nader Sleem
+	///////////////////////////////////////////////////////////////////
 	class WindowLogger : public WindowDecorator {
 	private:
 		ostream& out_;
@@ -18,6 +22,9 @@ namespace ppc {
 		WindowLogger() = delete;
 		WindowLogger(WindowInterface& windowPtr, ostream& out);
 		virtual ~WindowLogger();
+
+		virtual void setSize(sf::Vector2u& size);
+		virtual void setSize(unsigned int width, unsigned int height);
 
 		virtual void addInputComponent(InputComponent* inputcmpnt);
 		virtual void addRenderComponent(RenderComponent* rendercmpnt);
