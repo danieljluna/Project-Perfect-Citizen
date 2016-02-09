@@ -38,7 +38,7 @@ Window::Window(const Window& other) :
 }
 
 
-
+//RUN
 
 Window::~Window() {
     for (auto ic : inputcmpnts_) {
