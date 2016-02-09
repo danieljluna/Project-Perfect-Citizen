@@ -20,12 +20,50 @@ Entity::Entity() {
 
 
 
+Entity::Entity(const Entity& other) noexcept {
+    for (size_t i = 0; i < maxComponentCount; ++i) {
+        components_[i] = (other.components_[i]);
+        if (components_[i] != nullptr)
+            components_[i]->entity = this;
+    }
+    componentCount_ = other.componentCount_;
+}
+
+
+
+Entity& Entity::operator=(const Entity& other) {
+    for (size_t i = 0; i < maxComponentCount; ++i) {
+        components_[i] = (other.components_[i]);
+        if (components_[i] != nullptr)
+            components_[i]->entity = this;
+    }
+    componentCount_ = other.componentCount_;
+
+    return *this;
+}
+
+
+
+
+Entity::Entity(Entity&& other) noexcept {
+    for (size_t i = 0; i < maxComponentCount; ++i) {
+        components_[i] = other.components_[i];
+        if (components_[i] != nullptr)
+            components_[i]->entity = this;
+    }
+    componentCount_ = other.componentCount_;
+}
+
+
+
 
 Entity::~Entity() {
     //Delete each Component in the component array
     for (size_t i = 0; i < maxComponentCount; ++i) {
         if (components_[i] != nullptr) {
-            components_[i]->setEntity(nullptr);
+            if (components_[i]->getEntity() == this) {
+                components_[i]->setEntity(nullptr);
+            }
         }
     }
 }
@@ -48,7 +86,8 @@ Component* Entity::getComponent(size_t index) {
     if (index < maxComponentCount) {
         return components_[index];
     } else {
-        throw std::out_of_range("Entity: getComponent used invalid index!");
+        std::string msg = "Entity: getComponent used invalid index!";
+        throw std::out_of_range(msg);
     }
     return components_[index];
 }
