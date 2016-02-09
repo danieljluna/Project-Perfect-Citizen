@@ -68,7 +68,9 @@ bool mousePressButton::registerInput(sf::Event& ev) {
 			isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
 			
 			/* Send the mouse down message regardless */
+			if (parentEntity == nullptr) cout << "parent was null" << endl;
 			parentEntity->broadcastMessage(MOUSE_DOWN_CODE);
+			cout << "Sent click down" << endl;
 
 			/* Handle Double Click Register */
 			mouseTime = mouseClock.getElapsedTime().asMilliseconds();
