@@ -59,40 +59,39 @@ bool mousePressButton::isCollision(sf::Vector2i mousePos) {
 
 
 bool mousePressButton::registerInput(sf::Event& ev) {
-	
-	ppc::Entity *parentEntity = getEntity();
+    if (getEntity() != nullptr) {
 
-	/* Case: Mouse Pressed Event*/
-	if (ev.type == sf::Event::MouseButtonPressed) {
-		if (ev.mouseButton.button == sf::Mouse::Left &&
-			isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
-			
-			/* Send the mouse down message regardless */
-			if (parentEntity == nullptr) cout << "parent was null" << endl;
-			parentEntity->broadcastMessage(MOUSE_DOWN_CODE);
-			cout << "Sent click down" << endl;
+        /* Case: Mouse Pressed Event*/
+        if (ev.type == sf::Event::MouseButtonPressed) {
+            if (ev.mouseButton.button == sf::Mouse::Left &&
+                isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
 
-			/* Handle Double Click Register */
-			mouseTime = mouseClock.getElapsedTime().asMilliseconds();
-			if (mouseTime > DOUBLE_CLICK_TIME) {
-				mouseClock.restart();
-			}
-			else if (mouseTime < DOUBLE_CLICK_TIME) {
-				/* Send the d/c message only if clicked with 500 ms*/
-				cout << "Double clicked on an entity with MPB!" << endl;
-				parentEntity->broadcastMessage(MOUSE_DOUBLE_CLICK_CODE);
-			}
-		}
-	}
-	/* Case: Mouse Released Event*/
-	if (ev.type == sf::Event::MouseButtonReleased) {
-		if (ev.mouseButton.button == sf::Mouse::Left &&
-			isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
+                /* Send the mouse down message regardless */
+                getEntity()->broadcastMessage(MOUSE_DOWN_CODE);
+				cout << "Clicked on an entity with MPB" << endl;
 
-			/* Send the mouse release message regardless*/
-			parentEntity->broadcastMessage(MOUSE_RELEASED_CODE);
-		}
-	}
+                /* Handle Double Click Register */
+                mouseTime = mouseClock.getElapsedTime().asMilliseconds();
+                if (mouseTime > DOUBLE_CLICK_TIME) {
+                    mouseClock.restart();
+                } else if (mouseTime < DOUBLE_CLICK_TIME) {
+                    /* Send the d/c message only if clicked with 500 ms*/
+                    cout << "Double clicked on an entity with MPB!" << endl;
+                    getEntity()->broadcastMessage(
+                            MOUSE_DOUBLE_CLICK_CODE);
+                }
+            }
+        }
+        /* Case: Mouse Released Event*/
+        else if (ev.type == sf::Event::MouseButtonReleased) {
+            if (ev.mouseButton.button == sf::Mouse::Left &&
+                isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
+
+                /* Send the mouse release message regardless*/
+                getEntity()->broadcastMessage(MOUSE_RELEASED_CODE);
+            }
+        }
+    }
 
     return true;
 }
