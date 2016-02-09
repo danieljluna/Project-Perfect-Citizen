@@ -20,13 +20,38 @@ Entity::Entity() {
 
 
 
+Entity::Entity(const Entity& other) {
+    for (size_t i = 0; i < maxComponentCount; ++i) {
+        components_[i] = (other.components_[i]);
+        if (components_[i] != nullptr)
+            components_[i]->entity = this;
+    }
+    componentCount_ = other.componentCount_;
+}
+
+
+
+Entity& Entity::operator=(const Entity& other) {
+    for (size_t i = 0; i < maxComponentCount; ++i) {
+        components_[i] = (other.components_[i]);
+        if (components_[i] != nullptr)
+            components_[i]->entity = this;
+    }
+    componentCount_ = other.componentCount_;
+
+    return *this;
+}
+
+
+
+
 Entity::Entity(Entity&& other) {
-    //Initialize component array to nullptr
     for (size_t i = 0; i < maxComponentCount; ++i) {
         components_[i] = other.components_[i];
-        components_[i]->entity = this;
+        if (components_[i] != nullptr)
+            components_[i]->entity = this;
     }
-    componentCount_ = 0;
+    componentCount_ = other.componentCount_;
 }
 
 
