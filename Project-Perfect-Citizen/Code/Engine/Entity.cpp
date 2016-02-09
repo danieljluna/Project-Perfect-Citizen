@@ -20,7 +20,7 @@ Entity::Entity() {
 
 
 
-Entity::Entity(const Entity& other) {
+Entity::Entity(const Entity& other) noexcept {
     for (size_t i = 0; i < maxComponentCount; ++i) {
         components_[i] = (other.components_[i]);
         if (components_[i] != nullptr)
@@ -45,7 +45,7 @@ Entity& Entity::operator=(const Entity& other) {
 
 
 
-Entity::Entity(Entity&& other) {
+Entity::Entity(Entity&& other) noexcept {
     for (size_t i = 0; i < maxComponentCount; ++i) {
         components_[i] = other.components_[i];
         if (components_[i] != nullptr)
@@ -61,7 +61,9 @@ Entity::~Entity() {
     //Delete each Component in the component array
     for (size_t i = 0; i < maxComponentCount; ++i) {
         if (components_[i] != nullptr) {
-            components_[i]->setEntity(nullptr);
+            if (components_[i]->getEntity() == this) {
+                components_[i]->setEntity(nullptr);
+            }
         }
     }
 }
