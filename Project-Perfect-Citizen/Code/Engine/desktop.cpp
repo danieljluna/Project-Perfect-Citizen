@@ -97,13 +97,6 @@ void ppc::Desktop::update(sf::Time& deltaTime){
 void ppc::Desktop::refresh(sf::RenderStates states) {
 	//Reverse itors needed
 	for (auto it = windows_.rbegin(); it != windows_.rend(); ++it) {
-		//windows_ contains pointers to the base class of Window,
-		// which doesnt have a refresh() function.
-		//Therefore, downcasting is needed
-		Window* w = dynamic_cast<Window *> (*it);
-
-		//if the downcast worked, perform the operation 
-		//(it always should)
-		w->refresh(states);
+		(*it)->refresh(states);
 	}
 }

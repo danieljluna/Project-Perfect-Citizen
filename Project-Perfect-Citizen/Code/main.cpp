@@ -18,13 +18,18 @@
 #include "Library/json/json.h"
 
 #include "Engine/testRenderSprite.h"
-#include "Engine/testRotateSprite.h"
+#include "Engine/InputHandler.h"
 #include "Engine/subject.h"
 #include "Engine/TestObserver.h"
 #include "Engine/debug.h"
 #include "Engine/entity.h"
 #include "Engine/Window.h"
 #include "Engine/desktop.h"
+#include "Engine/mousePressButton.h"
+#include "Engine/buttonRenderComponent.h"
+#include "Engine/consoleIconRenderComponent.h"
+#include "Engine/TreeCommands.h"
+#include "Engine/NodeState.h"
 
 
 using namespace ppc;
@@ -39,6 +44,9 @@ int main(int argc, char** argv) {
 
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(800, 600), "SFML window");
+
+	//Create the InputHandler
+	ppc::InputHandler inputHandle;
 
     //Define a Sprite
     sf::Sprite S;
@@ -56,65 +64,68 @@ int main(int argc, char** argv) {
 
     sf::Image spriteSheet;
     spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
-    //Create A TestRenderSprite
-    TestRenderSprite testRenderSpr(spriteSheet, 0, 3, 1);
-	testRenderSpr.renderPosition(sf::Vector2f(10, 10));
-    TestRenderSprite rend(spriteSheet, 0, 4, 1);
-    rend.renderPosition(sf::Vector2f(170,0));
-    
-    //Put that Component into an Entity
-    Entity testEntity;
-    testEntity.addComponent(&testRenderSpr);
-    testEntity.addComponent(&rend);
-    
+
+	sf::Image iconSheet;
+	iconSheet.loadFromFile(resourcePath() + "Windows_Icons.png");
+
+	/////// Button Entity ////////
+	buttonRenderComponent* buttonRender = new buttonRenderComponent(spriteSheet, 0, 3, 1);
+	buttonRender->renderPosition(sf::Vector2f(10, 10));
+	mousePressButton* mpb = new mousePressButton(inputHandle,*buttonRender->getSprite());
+	
+    Entity* testEntity = new Entity();
+	testEntity->addComponent(buttonRender);
+    testEntity->addComponent(mpb);
+	///////////////////////////////
+
+	
+	////// Icon Entity //////
+	consoleIconRenderComponent* consoleIconRender = new consoleIconRenderComponent(iconSheet, 0, 0, 1);
+	consoleIconRender->renderPosition(sf::Vector2f(120, 120));
+    mousePressButton* mpb2 = new mousePressButton(inputHandle, *consoleIconRender->getSprite());
+
+	Entity* consoleIcon = new Entity();
+	consoleIcon->addComponent(consoleIconRender);
+	consoleIcon->addComponent(mpb2);
+	/////////////////////////
+
+	////// Icon Entity //////
+	consoleIconRenderComponent* consoleIconRender3 = new consoleIconRenderComponent(iconSheet, 1, 0, 1);
+	consoleIconRender3->renderPosition(sf::Vector2f(0, 120));
+	mousePressButton* mpb3 = new mousePressButton(inputHandle, *consoleIconRender3->getSprite());
+
+	Entity* consoleIcon3 = new Entity();
+	consoleIcon3->addComponent(consoleIconRender3);
+	consoleIcon3->addComponent(mpb3);
+	/////////////////////////
+
 
     //Create ppc::Window
-    Window testWindow(200, 200,sf::Color(200,200,200));
-	Window testWindow2(200, 200, sf::Color(150, 150, 150));
+    Window* testWindow = new Window(200, 200,sf::Color(200,200,200));
+	//testWindow->addInputComponent(mpb);
+	//testWindow->addInputComponent(mpb2);
+	testWindow->addEntity(*testEntity);
+    testWindow->addEntity(*consoleIcon);
+	testWindow->addEntity(*consoleIcon3);
+	//WindowLogger testWindowLogger(*testWindow,cout);
     //Add testEntity to ppc::Window
-	testWindow.addEntity(testEntity);
+	//testWindowLogger.addEntity(testEntity);
 
 	//Create ppc::Desktop
 	char dummyTree = 't'; //using a dummy variable for Ctor until
 	//the actual FileTree is completed
 	Desktop myDesktop(dummyTree);
-	myDesktop.addWindow(&testWindow);
 
-    //////////JSON EXAMPLE//////////////////////////////////////////////
-
-    Json::Reader reader;
-    Json::Value value;
-    // read from file, why can I just use the name dummy.json?
-    ifstream doc(resourcePath() + "dummy.json", ifstream::binary);
-    if (reader.parse(doc, value)){
-        //outputting whole dummy doc
-        cout << value << endl;
-        //output value acquanted with my-encoding
-        string out = value[ "my-encoding" ].asString();
-        cout << out << endl;
-        // create Json Array object from my-plug-ins
-        const Json::Value arrayObj = value[ "my-plug-ins" ];
-        for (unsigned int i = 0; i < arrayObj.size(); i++){
-            //output each arrayObj
-            cout << arrayObj[i].asString();
-            if (i != arrayObj.size() - 1) { cout << endl; }
-        }
-    }
-    cout << endl;
-    //create json array from my-indent
-    const Json::Value indentArray = value["my-indent"];
-    //can make returned value int, bool, string, etc.
-    cout << indentArray.get("length", "Not found").asInt() << endl;
-    cout << indentArray.get("use_space", "Not found").asBool() << endl;
-    string temp = value.get("Try to find me", "Not found" ).asString();
-    cout << temp << endl;
+	//Add windows to Desktops
+	//myDesktop.addWindow(&testWindowLogger);
+	myDesktop.addWindow(testWindow);
 
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop
 	///////////////////////////////////////////////////////////////////
 	sf::Clock deltaTime; //define deltaTime
     //Used to keep track time
-    sf::Time framePeriod = sf::milliseconds(1000.0f / 30.f);
+    sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
     while (screen.isOpen()) {
         //Process sf::events
         sf::Event event;
@@ -122,9 +133,13 @@ int main(int argc, char** argv) {
             // Close window: exit
             if (event.type == sf::Event::Closed)
 				screen.close();
+
+			//Input phase
+			inputHandle.registerEvent(event);
         }
 
         if (deltaTime.getElapsedTime() > framePeriod) {
+
             // Clear screen
 			screen.clear(sf::Color::White);
 
@@ -133,15 +148,19 @@ int main(int argc, char** argv) {
             
             //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
-            myDesktop.update(dt);
+			myDesktop.update(dt);
 
             //Draw all the Windows in the Desktop
 			myDesktop.refresh();
+
+			//Logger should not be used in place of passing
+			//the actual drawn Desktop
 			screen.draw(myDesktop);
 
             //Display final Window
 			screen.display();
         }
     }
+	
     return EXIT_SUCCESS;
 }

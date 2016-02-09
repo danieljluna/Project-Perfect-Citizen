@@ -12,6 +12,7 @@
 #include "inputComponent.h"
 #include "updateComponent.h"
 #include "renderComponent.h"
+#include "InputHandler.h"
 
 
 namespace ppc {
@@ -20,6 +21,8 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 /// @brief Manages a sub-screen with its own Components
 /// @author Daniel Luna
+/// @details The Window class defines a space and an in-game Window
+///     with which to 
 ///////////////////////////////////////////////////////////////////////
 class Window : public WindowInterface {
 public:
@@ -37,18 +40,20 @@ public:
     ///
     /// @param width The desired width of the Window
     /// @param height The desired height of the Window
+    /// @param color The background color of the Window
     ///////////////////////////////////////////////////////////////////
     Window(unsigned int width, 
            unsigned int height, 
-           sf::Color color = sf::Color::Black);
+           sf::Color col = sf::Color::Black);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Window Constructor
     /// @details Creates a Window of the given size.
     ///
     /// @param size The desired size of the Window
+    /// @param color The background color of the Window
     ///////////////////////////////////////////////////////////////////
-    Window(const sf::Vector2u& size);
+    Window(const sf::Vector2u& size, sf::Color col = sf::Color::Black);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Copy Constructor
@@ -62,11 +67,36 @@ public:
 
 
   /////////////////////////////////////////////////////////////////////
-  // Setters
+  // Setters 
   /////////////////////////////////////////////////////////////////////
 
-    //TODO: Add Setters
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the size of the Window.
+    /// @details Specifically, this function sets the size space that 
+    ///     represents this room. A Window can be displayed independant
+    ///     of its size.
+    ///
+    /// @param size A vector denoting the desired size of the Window.
+    /// @post Any components defined as part of the Window that now lay
+    ///     outside of it are destroyed.
+    ///////////////////////////////////////////////////////////////////
+    virtual void setSize(sf::Vector2u& size) override;
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the size of the Window.
+    /// @details Specifically, this function sets the size space that 
+    ///     represents this room. A Window can be displayed independant
+    ///     of its size.
+    ///
+    /// @param width The desired width of the Window.
+    /// @param height The desired height of the Window.
+    /// @post Any components defined as part of the Window that now lay
+    ///     outside of it are destroyed.
+    ///////////////////////////////////////////////////////////////////
+    virtual void setSize(unsigned int width, unsigned int height) override;
+
     
+
   /////////////////////////////////////////////////////////////////////
   // Adding Entities and Components
   /////////////////////////////////////////////////////////////////////
@@ -149,7 +179,7 @@ public:
     void refresh(sf::RenderStates states = sf::RenderStates());
 
 
-protected:
+private:
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Draws the last Window refresh
@@ -165,6 +195,20 @@ protected:
 
 
   /////////////////////////////////////////////////////////////////////
+  // Helper Functions
+  /////////////////////////////////////////////////////////////////////
+
+    //Deletes all Entities that aren't part of the windowSpace
+    void trimEntities();
+
+    //Deletes an Entity along with its components
+    void deleteEntity(std::vector<Entity>::iterator entityIt);
+
+    //Removes a Component. Will not delete it.
+    void removeComponent(Component* cmpntPtr);
+
+
+  /////////////////////////////////////////////////////////////////////
   // Protected Members
   /////////////////////////////////////////////////////////////////////
 
@@ -177,8 +221,11 @@ protected:
     //The view of the Texture used when drawing the Window.
     //Not in use yet.
     sf::View windowView_;
+
+    //Used to pass Events to inputComponents which are part of the 
+    //  Window
+    InputHandler inputHandler_;
     
-    //HACK: Holds all inputComponents for the Window.
     //Eventually this will be a means of passing events to components
     //  via subjects and observers
     std::vector<InputComponent*> inputcmpnts_;
@@ -190,6 +237,9 @@ protected:
     //All the render Components currently in the window. Will be 
     //  iterated over.
     std::vector<RenderComponent*> rendercmpnts_;
+
+    //Stores all the Entities that reside in this room
+    std::vector<Entity> entityVec_;
 
 
 };
