@@ -20,6 +20,17 @@ Entity::Entity() {
 
 
 
+Entity::Entity(Entity&& other) {
+    //Initialize component array to nullptr
+    for (size_t i = 0; i < maxComponentCount; ++i) {
+        components_[i] = other.components_[i];
+        components_[i]->entity = this;
+    }
+    componentCount_ = 0;
+}
+
+
+
 
 Entity::~Entity() {
     //Delete each Component in the component array
