@@ -25,8 +25,6 @@
 #include "Engine/entity.h"
 #include "Engine/Window.h"
 #include "Engine/desktop.h"
-#include "Engine/DesktopLogger.h"
-#include "Engine/WindowLogger.h"
 #include "Engine/mousePressButton.h"
 #include "Engine/buttonRenderComponent.h"
 #include "Engine/consoleIconRenderComponent.h"
