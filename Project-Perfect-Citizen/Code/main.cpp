@@ -29,7 +29,7 @@
 #include "Engine/buttonRenderComponent.h"
 #include "Engine/TreeCommands.h"
 #include "Engine/NodeState.h"
-
+#include "Engine/animatorComponent.hpp"
 
 using namespace ppc;
 
@@ -66,6 +66,8 @@ int main(int argc, char** argv) {
     sf::Image spriteSheet;
     spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
 
+    sf::Image iconSheet;
+    iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
 
 
     //Create A TestRenderSprite
@@ -77,16 +79,21 @@ int main(int argc, char** argv) {
 	
 
 	//Try it with a buttonRenderComponent
-	buttonRenderComponent buttonRender(spriteSheet, 0, 3, 1);
-	buttonRender.renderPosition(sf::Vector2f(10, 10));
+	//buttonRenderComponent buttonRender(spriteSheet, 0, 3, 1, 1);
+	//buttonRender.renderPosition(sf::Vector2f(10, 10));
+    
+    buttonRenderComponent iconRender(iconSheet, 0, 0, 1, 4);
+    iconRender.renderPosition(sf::Vector2f(10,10));
+    animatorComponent animator(iconRender, 0.1f);
 
-	
+
 	// Create the mouse button input
-	mousePressButton mpb(inputHandle,*buttonRender.getSprite());
+	mousePressButton mpb(inputHandle,*iconRender.getSprite());
 	
     //Put that Component into an Entity
     Entity testEntity;
-	testEntity.addComponent(&buttonRender);
+    testEntity.addComponent(&iconRender);
+    testEntity.addComponent(&animator);
 	testEntity.addComponent(&mpb);
 
     //Create ppc::Window

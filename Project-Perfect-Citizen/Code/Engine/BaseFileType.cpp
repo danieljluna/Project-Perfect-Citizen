@@ -1,4 +1,5 @@
 #include "BaseFileType.h"
+
 ppc::BaseFileType::BaseFileType(ppc::FileType type)
 {
 	switch (filetype) {
@@ -9,7 +10,7 @@ ppc::BaseFileType::BaseFileType(ppc::FileType type)
 		this->filetype = ppc::FileType::File;
 		break;
 	default:
-		throw std::exception("BaseFileType::BaseFiletype() :not a valid enum type");
+		//throw std::exception("BaseFileType::BaseFiletype() :not a valid enum type");
 		break;
 	}
 }

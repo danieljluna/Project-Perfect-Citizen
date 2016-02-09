@@ -6,14 +6,30 @@ const string MOUSE_RELEASED_CODE = "MRC";
 const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
 
 buttonRenderComponent::buttonRenderComponent( sf::Image& image, 
-	int x, int y, int r) : buttonImage(image) {
+	int x, int y, int r, int f) : buttonImage(image) {
 	
 	this->sprite = new sf::Sprite();
 	this->texture = new sf::Texture();
-
-	/* Check that the file exists in the path */
-	if (!texture->loadFromImage(image, 
-		sf::IntRect(x*size, y*size, r*size, size))) { std::exit(-1); }
+    
+    width = r;
+    frameCount = f;
+    xIndex = x;
+    yIndex = y;
+    
+    if (frameCount == 1) _isStatic = true;
+    else {
+        _isStatic = false;
+        _willAnimate = false;
+    }
+    
+    rectSourceSprite = new sf::IntRect(xIndex*size,
+                                       yIndex*size,
+                                       width*size,
+                                       size);
+    
+    /* Check that the file exists in the path */
+    if (!texture->loadFromImage(image, *rectSourceSprite))
+        std::exit(-1);
 
 	sprite->setTexture(*texture);
 	sprite->setPosition(0, 0);
@@ -23,6 +39,7 @@ buttonRenderComponent::buttonRenderComponent( sf::Image& image,
 buttonRenderComponent::~buttonRenderComponent() {
 	delete texture;
 	delete sprite;
+    delete rectSourceSprite;
 }
 
 void buttonRenderComponent::renderPosition(sf::Vector2f pos) {
@@ -42,17 +59,42 @@ void buttonRenderComponent::setButtonScale(int r) {
 	sprite->setScale(r + 0.0f, r + 0.0f);
 }
 
-void buttonRenderComponent::draw( sf::RenderTarget& target, 
+void buttonRenderComponent::animate() {
+    if (_willAnimate) {
+        if (rectSourceSprite->left == (frameCount * size)) {
+            rectSourceSprite->left = 0;
+            _willAnimate = false;
+        } else
+            rectSourceSprite->left += size;
+        
+        texture->loadFromImage(buttonImage, *rectSourceSprite);
+        sprite->setTexture(*texture);
+    }
+}
+
+bool buttonRenderComponent::isStatic() {
+    return _isStatic;
+}
+
+bool buttonRenderComponent::willAnimate() {
+    return _willAnimate;
+}
+
+void buttonRenderComponent::draw( sf::RenderTarget& target,
 	sf::RenderStates states) const {
 		target.draw(*(this->sprite), states);
 }
 
 void buttonRenderComponent::recieveMessage(msgType code) {
-
-	if(code.compare(MOUSE_DOWN_CODE) == 0)
-		setSprite(1, 3, 1);
-	else if(code.compare(MOUSE_RELEASED_CODE) == 0)
-		setSprite(0, 3, 1);
-	else if(code.compare(MOUSE_DOUBLE_CLICK_CODE) == 0)
-		setSprite(6, 5, 1);
+    if (_isStatic) {
+        if(code.compare(MOUSE_DOWN_CODE) == 0)
+            setSprite(xIndex+width, yIndex, width);
+        if(code.compare(MOUSE_RELEASED_CODE) == 0)
+            setSprite(xIndex, yIndex, width);
+        else if(code.compare(MOUSE_DOUBLE_CLICK_CODE) == 0)
+            setSprite(6, 5, 1);
+    } else {
+       if(code.compare(MOUSE_DOUBLE_CLICK_CODE) == 0)
+           _willAnimate = true;
+    }
 }
