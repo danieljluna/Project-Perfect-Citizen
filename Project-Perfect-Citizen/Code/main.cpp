@@ -89,11 +89,24 @@ int main(int argc, char** argv) {
 	consoleIcon->addComponent(mpb2);
 	/////////////////////////
 
+	////// Icon Entity //////
+	consoleIconRenderComponent* consoleIconRender3 = new consoleIconRenderComponent(iconSheet, 1, 0, 1);
+	consoleIconRender3->renderPosition(sf::Vector2f(0, 120));
+	mousePressButton* mpb3 = new mousePressButton(inputHandle, *consoleIconRender3->getSprite());
+
+	Entity* consoleIcon3 = new Entity();
+	consoleIcon3->addComponent(consoleIconRender3);
+	consoleIcon3->addComponent(mpb3);
+	/////////////////////////
+
 
     //Create ppc::Window
     Window* testWindow = new Window(200, 200,sf::Color(200,200,200));
+	//testWindow->addInputComponent(mpb);
+	//testWindow->addInputComponent(mpb2);
 	testWindow->addEntity(*testEntity);
     testWindow->addEntity(*consoleIcon);
+	testWindow->addEntity(*consoleIcon3);
 	//WindowLogger testWindowLogger(*testWindow,cout);
     //Add testEntity to ppc::Window
 	//testWindowLogger.addEntity(testEntity);
