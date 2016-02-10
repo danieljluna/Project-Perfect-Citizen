@@ -9,7 +9,7 @@ using namespace std;
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Render Component for a generic window 'X' button
-/// @author Alex Vincent
+/// @author Alex Vincent / Michael Lowe
 /// @details The buttonRenderComponent is a basic packaged subclass
 ///     extension of RenderComponent, make specifically to handle
 ///     all generic "X" button related drawing/animating parts that
@@ -20,7 +20,10 @@ class buttonRenderComponent : public ppc::RenderComponent{
 private:
 	sf::Sprite* sprite;
 	sf::Texture* texture;
+    sf::IntRect* rectSourceSprite;
 	sf::Image& buttonImage;
+    int frameCount, width, xIndex, yIndex;
+    bool _isStatic, _willAnimate;
 	static const int size = 128;
 
 public:
@@ -28,11 +31,17 @@ public:
 	/// @brief Constructor for buttonRenderComponent
 	/// @param image is the String of a file path of a .png file
 	/// @param x is the x position of the target
+    /// @param r is the range of indices that the sprite covers
+    /// @param f is the frame count of animation. 1 for static sprite
 	///////////////////////////////////////////////////////////////////////
-	buttonRenderComponent(sf::Image& image, int x, int y, int r);
+	buttonRenderComponent(sf::Image& image, int x, int y, int r, int f);
 
 	~buttonRenderComponent();
 
+    
+    ///////////////////////////////////////////////////////////////////////
+    /// @brief changes the position of the component within its parent view
+    ///////////////////////////////////////////////////////////////////////
 	void renderPosition(sf::Vector2f pos);
 
 	///////////////////////////////////////////////////////////////////////
@@ -44,7 +53,7 @@ public:
 	/// @brief Updates sprite image by changing its spritesheet position
 	/// @param x: Designates the COLUMN of the sprite sheet loaded
 	/// @param y: Designates the ROW of the sprite sheet loaded
-	/// @param r: Designates the WIDTH of the sprite sheet loaded
+	/// @param r: Designates the WIDTH (range) of the sprite sheet loaded
 	///////////////////////////////////////////////////////////////////////
 	void setSprite(int x, int y, int r);
 
@@ -52,7 +61,23 @@ public:
 	/// @brief Updates the scale (width) of the sprite
 	///////////////////////////////////////////////////////////////////////
 	void setButtonScale(int r);
-
+    
+    ///////////////////////////////////////////////////////////////////////
+    /// @brief Animates the sprite
+    ///////////////////////////////////////////////////////////////////////
+    void animate();
+    
+    ///////////////////////////////////////////////////////////////////////
+    /// @brief returns true is the sprite has a frame count of 1
+    ///////////////////////////////////////////////////////////////////////
+    bool isStatic();
+    
+    ///////////////////////////////////////////////////////////////////////
+    /// @brief flag that returns true is the sprite should enter
+    //         its animation sequence. Resets when animation completes
+    ///////////////////////////////////////////////////////////////////////
+    bool willAnimate();
+    
 	///////////////////////////////////////////////////////////////////////
 	/// @brief The main draw function that was inheirted from RenderComponent.
 	/// @details You need to define this to create a child of RenderComponent

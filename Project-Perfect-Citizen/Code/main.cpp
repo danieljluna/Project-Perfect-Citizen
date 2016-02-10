@@ -30,7 +30,7 @@
 #include "Engine/consoleIconRenderComponent.h"
 #include "Engine/TreeCommands.h"
 #include "Engine/NodeState.h"
-
+#include "Engine/animatorComponent.hpp"
 
 using namespace ppc;
 
@@ -65,11 +65,11 @@ int main(int argc, char** argv) {
     sf::Image spriteSheet;
     spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
 
-	sf::Image iconSheet;
-	iconSheet.loadFromFile(resourcePath() + "Windows_Icons.png");
+    sf::Image iconSheet;
+    iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
 
 	/////// Button Entity ////////
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spriteSheet, 0, 3, 1);
+	buttonRenderComponent* buttonRender = new buttonRenderComponent(spriteSheet, 0, 3, 1, 1);
 	buttonRender->renderPosition(sf::Vector2f(10, 10));
 	mousePressButton* mpb = new mousePressButton(inputHandle,*buttonRender->getSprite());
 	
@@ -84,6 +84,7 @@ int main(int argc, char** argv) {
 	consoleIconRender->renderPosition(sf::Vector2f(120, 120));
     mousePressButton* mpb2 = new mousePressButton(inputHandle, *consoleIconRender->getSprite());
 
+
 	Entity* consoleIcon = new Entity();
 	consoleIcon->addComponent(consoleIconRender);
 	consoleIcon->addComponent(mpb2);
@@ -93,20 +94,33 @@ int main(int argc, char** argv) {
 	consoleIconRenderComponent* consoleIconRender3 = new consoleIconRenderComponent(iconSheet, 1, 0, 1);
 	consoleIconRender3->renderPosition(sf::Vector2f(0, 120));
 	mousePressButton* mpb3 = new mousePressButton(inputHandle, *consoleIconRender3->getSprite());
-
+    
 	Entity* consoleIcon3 = new Entity();
 	consoleIcon3->addComponent(consoleIconRender3);
 	consoleIcon3->addComponent(mpb3);
 	/////////////////////////
+    
+    /// Animated Icon Button Entity ///
+    buttonRenderComponent* folderIconRender = new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
+    folderIconRender->renderPosition(sf::Vector2f(0, 220));
+    animatorComponent* animator = new animatorComponent(*folderIconRender, 0.05f);
+    mousePressButton* mpb4 = new mousePressButton(inputHandle, *folderIconRender->getSprite());
+
+    
+    Entity* folderIcon = new Entity();
+    folderIcon->addComponent(folderIconRender);
+    folderIcon->addComponent(animator);
+    folderIcon->addComponent(mpb4);
 
 
     //Create ppc::Window
-    Window* testWindow = new Window(200, 200,sf::Color(200,200,200));
+    Window* testWindow = new Window(300, 300,sf::Color(200,200,200));
 	//testWindow->addInputComponent(mpb);
 	//testWindow->addInputComponent(mpb2);
 	testWindow->addEntity(*testEntity);
     testWindow->addEntity(*consoleIcon);
 	testWindow->addEntity(*consoleIcon3);
+    testWindow->addEntity(*folderIcon);
 	//WindowLogger testWindowLogger(*testWindow,cout);
     //Add testEntity to ppc::Window
 	//testWindowLogger.addEntity(testEntity);
