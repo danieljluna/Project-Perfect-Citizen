@@ -22,7 +22,7 @@ void ppc::BaseFileType::uploadJson(std::string jString)
 
 void ppc::BaseFileType::readFile()
 {
-	if (this->encrypted) {
+	if (this->isEncrypted) {
 		return;
 	}
 	switch (this->filetype) {

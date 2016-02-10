@@ -94,6 +94,10 @@
     <ClCompile Include="Code\Engine\BaseFileType.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\consoleIconRenderComponent.cpp" />
+    <ClCompile Include="Code\Engine\animatorComponent.cpp">
+      <Filter>Sources\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -211,6 +215,9 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\WindowDecorator.h">
       <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\animatorComponent.hpp">
+      <Filter>Headers\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -354,5 +361,8 @@
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
     <Text Include="Resources\Coding Reference\LinkHelp.txt" />
     <Text Include="Resources\Engine\EngineSettings.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Project-Perfect-Citizen.rc" />
   </ItemGroup>
 </Project>
