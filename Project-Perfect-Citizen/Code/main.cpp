@@ -27,6 +27,7 @@
 #include "Engine/desktop.h"
 #include "Engine/mousePressButton.h"
 #include "Engine/buttonRenderComponent.h"
+#include "Engine/consoleIconRenderComponent.h"
 #include "Engine/TreeCommands.h"
 #include "Engine/NodeState.h"
 #include "Engine/animatorComponent.hpp"
@@ -46,8 +47,6 @@ int main(int argc, char** argv) {
 
 	//Create the InputHandler
 	ppc::InputHandler inputHandle;
-
-	
 
     //Define a Sprite
     sf::Sprite S;
@@ -69,39 +68,62 @@ int main(int argc, char** argv) {
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
 
-
-    //Create A TestRenderSprite
-    //TestRenderSprite testRenderSpr(spriteSheet, 0, 3, 1);
-	//testRenderSpr.renderPosition(sf::Vector2f(10, 10));
-
-	//TestRenderSprite rend(spriteSheet, 0, 4, 1);
-	//rend.renderPosition(sf::Vector2f(150,0));
+	/////// Button Entity ////////
+	buttonRenderComponent* buttonRender = new buttonRenderComponent(spriteSheet, 0, 3, 1, 1);
+	buttonRender->renderPosition(sf::Vector2f(10, 10));
+	mousePressButton* mpb = new mousePressButton(inputHandle,*buttonRender->getSprite());
 	
+    Entity* testEntity = new Entity();
+	testEntity->addComponent(buttonRender);
+    testEntity->addComponent(mpb);
+	///////////////////////////////
 
-	//Try it with a buttonRenderComponent
-	//buttonRenderComponent buttonRender(spriteSheet, 0, 3, 1, 1);
-	//buttonRender.renderPosition(sf::Vector2f(10, 10));
+	
+	////// Icon Entity //////
+	consoleIconRenderComponent* consoleIconRender = new consoleIconRenderComponent(iconSheet, 0, 0, 1);
+	consoleIconRender->renderPosition(sf::Vector2f(120, 120));
+    mousePressButton* mpb2 = new mousePressButton(inputHandle, *consoleIconRender->getSprite());
+
+
+	Entity* consoleIcon = new Entity();
+	consoleIcon->addComponent(consoleIconRender);
+	consoleIcon->addComponent(mpb2);
+	/////////////////////////
+
+	////// Icon Entity //////
+	consoleIconRenderComponent* consoleIconRender3 = new consoleIconRenderComponent(iconSheet, 1, 0, 1);
+	consoleIconRender3->renderPosition(sf::Vector2f(0, 120));
+	mousePressButton* mpb3 = new mousePressButton(inputHandle, *consoleIconRender3->getSprite());
     
-    buttonRenderComponent iconRender(iconSheet, 0, 0, 1, 4);
-    iconRender.renderPosition(sf::Vector2f(10,10));
-    animatorComponent animator(iconRender, 0.1f);
+	Entity* consoleIcon3 = new Entity();
+	consoleIcon3->addComponent(consoleIconRender3);
+	consoleIcon3->addComponent(mpb3);
+	/////////////////////////
+    
+    /// Animated Icon Button Entity ///
+    buttonRenderComponent* folderIconRender = new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
+    folderIconRender->renderPosition(sf::Vector2f(0, 220));
+    animatorComponent* animator = new animatorComponent(*folderIconRender, 0.05f);
+    mousePressButton* mpb4 = new mousePressButton(inputHandle, *folderIconRender->getSprite());
 
+    
+    Entity* folderIcon = new Entity();
+    folderIcon->addComponent(folderIconRender);
+    folderIcon->addComponent(animator);
+    folderIcon->addComponent(mpb4);
 
-	// Create the mouse button input
-	mousePressButton mpb(inputHandle,*iconRender.getSprite());
-	
-    //Put that Component into an Entity
-    Entity testEntity;
-    testEntity.addComponent(&iconRender);
-    testEntity.addComponent(&animator);
-	testEntity.addComponent(&mpb);
 
     //Create ppc::Window
-
-    Window testWindow(200, 200,sf::Color(200,200,200));
-
+    Window* testWindow = new Window(300, 300,sf::Color(200,200,200));
+	//testWindow->addInputComponent(mpb);
+	//testWindow->addInputComponent(mpb2);
+	testWindow->addEntity(*testEntity);
+    testWindow->addEntity(*consoleIcon);
+	testWindow->addEntity(*consoleIcon3);
+    testWindow->addEntity(*folderIcon);
+	//WindowLogger testWindowLogger(*testWindow,cout);
     //Add testEntity to ppc::Window
-	testWindow.addEntity(testEntity);
+	//testWindowLogger.addEntity(testEntity);
 
 	//Create ppc::Desktop
 	char dummyTree = 't'; //using a dummy variable for Ctor until
@@ -109,37 +131,8 @@ int main(int argc, char** argv) {
 	Desktop myDesktop(dummyTree);
 
 	//Add windows to Desktops
-	myDesktop.addWindow(&testWindow);
-
-    //////////JSON EXAMPLE//////////////////////////////////////////////
-
-    Json::Reader reader;
-    Json::Value value;
-    // read from file, why can I just use the name dummy.json?
-    ifstream doc(resourcePath() + "dummy.json", ifstream::binary);
-    if (reader.parse(doc, value)){
-        //outputting whole dummy doc
-        cout << value << endl;
-        //output value acquanted with my-encoding
-        string out = value[ "my-encoding" ].asString();
-        cout << out << endl;
-        // create Json Array object from my-plug-ins
-        const Json::Value arrayObj = value[ "my-plug-ins" ];
-        for (unsigned int i = 0; i < arrayObj.size(); i++){
-            //output each arrayObj
-            cout << arrayObj[i].asString();
-            if (i != arrayObj.size() - 1) { cout << endl; }
-        }
-    }
-    cout << endl;
-    //create json array from my-indent
-    const Json::Value indentArray = value["my-indent"];
-    //can make returned value int, bool, string, etc.
-    cout << indentArray.get("length", "Not found").asInt() << endl;
-    cout << indentArray.get("use_space", "Not found").asBool() << endl;
-    string temp = value.get("Try to find me", "Not found" ).asString();
-    cout << temp << endl;
-
+	//myDesktop.addWindow(&testWindowLogger);
+	myDesktop.addWindow(testWindow);
 
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop

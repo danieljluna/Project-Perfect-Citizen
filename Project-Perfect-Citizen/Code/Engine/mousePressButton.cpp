@@ -59,7 +59,6 @@ bool mousePressButton::isCollision(sf::Vector2i mousePos) {
 
 
 bool mousePressButton::registerInput(sf::Event& ev) {
-
     if (getEntity() != nullptr) {
 
         /* Case: Mouse Pressed Event*/
@@ -69,6 +68,7 @@ bool mousePressButton::registerInput(sf::Event& ev) {
 
                 /* Send the mouse down message regardless */
                 getEntity()->broadcastMessage(MOUSE_DOWN_CODE);
+				cout << "Clicked on an entity with MPB" << endl;
 
                 /* Handle Double Click Register */
                 mouseTime = mouseClock.getElapsedTime().asMilliseconds();

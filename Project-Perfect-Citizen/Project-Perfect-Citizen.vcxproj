@@ -15,6 +15,7 @@
     <ClCompile Include="Code\Engine\BaseFileType.cpp" />
     <ClCompile Include="Code\Engine\component.cpp" />
     <ClCompile Include="Code\Engine\ComponentObsvr.cpp" />
+    <ClCompile Include="Code\Engine\consoleIconRenderComponent.cpp" />
     <ClCompile Include="Code\Engine\debug.cpp" />
     <ClCompile Include="Code\Engine\desktop.cpp" />
     <ClCompile Include="Code\Engine\DesktopLogger.cpp" />
@@ -53,6 +54,7 @@
     <ClInclude Include="Code\Engine\BaseFileType.h" />
     <ClInclude Include="Code\Engine\ComponentObsvr.h" />
     <ClInclude Include="Code\Engine\component.h" />
+    <ClInclude Include="Code\Engine\consoleIconRenderComponent.h" />
     <ClInclude Include="Code\Engine\debug.h" />
     <ClInclude Include="Code\Engine\desktop.h" />
     <ClInclude Include="Code\Engine\DesktopLogger.h" />
