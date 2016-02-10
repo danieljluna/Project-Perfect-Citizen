@@ -22,6 +22,9 @@ void ppc::BaseFileType::uploadJson(std::string jString)
 
 void ppc::BaseFileType::readFile()
 {
+	if (this->isEncrypted) {
+		return;
+	}
 	switch (this->filetype) {
 	case FileType::File:
 		std::cout << this->data << std::endl;
@@ -69,5 +72,25 @@ ppc::BaseFileType * ppc::BaseFileType::getParent()
 ppc::FileType ppc::BaseFileType::getFileType()
 {
 	return this->filetype;
+}
+
+void ppc::BaseFileType::toggleVisibility()
+{
+	if (this->isHidden) {
+		this->isHidden = false;
+	}
+	else {
+		this->isHidden = true;
+	}
+}
+
+void ppc::BaseFileType::toggleEncryption()
+{
+	if (this->isEncrypted) {
+		this->isEncrypted = false;
+	}
+	else {
+		this->isEncrypted = true;
+	}
 }
 
