@@ -51,6 +51,16 @@ namespace ppc {
 		///FileType::File
 		///////////////////////////////////////////////
 		ppc::FileType filetype;
+		///////////////////////////////////////////////
+		///@brief Dictates whether or nto file is
+		///visable
+		///////////////////////////////////////////////
+		bool isHidden = false;
+		///////////////////////////////////////////////
+		///@brief Dictates whether or not file is 
+		///encrypted
+		///////////////////////////////////////////////
+		bool isEncrypted = false;
 	public:
 		///////////////////////////////////////////////
 		///@brief assigns Json string to jSonString;
@@ -94,5 +104,8 @@ namespace ppc {
 		///@brief Returns the enum type of the node.
 		///////////////////////////////////////////////
 		virtual ppc::FileType getFileType();
+		virtual void toggleVisibility();
+		virtual void toggleEncryption();
+
 	};
 };
