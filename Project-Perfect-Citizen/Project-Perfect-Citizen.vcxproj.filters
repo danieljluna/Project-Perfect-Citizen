@@ -94,6 +94,7 @@
     <ClCompile Include="Code\Engine\BaseFileType.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\consoleIconRenderComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -348,11 +349,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resources\kappa.png" />
+    <Text Include="Resources\Engine\EngineSettings.ini">
+      <Filter>Resources\Settings</Filter>
+    </Text>
+    <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
+      <Filter>Resources\Coding Help</Filter>
+    </Text>
+    <Text Include="Resources\Coding Reference\LinkHelp.txt">
+      <Filter>Resources\Coding Help</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
-    <Text Include="Resources\Coding Reference\LinkHelp.txt" />
-    <Text Include="Resources\Engine\EngineSettings.ini" />
+    <Image Include="Resources\kappa.png">
+      <Filter>Resources\Images</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Project-Perfect-Citizen.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
