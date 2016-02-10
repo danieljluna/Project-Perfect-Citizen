@@ -1,4 +1,5 @@
 #include "BaseFileType.h"
+
 ppc::BaseFileType::BaseFileType(ppc::FileType type)
 {
 	switch (filetype) {
@@ -9,7 +10,7 @@ ppc::BaseFileType::BaseFileType(ppc::FileType type)
 		this->filetype = ppc::FileType::File;
 		break;
 	default:
-		throw std::exception("BaseFileType::BaseFiletype() :not a valid enum type");
+		//throw std::exception("BaseFileType::BaseFiletype() :not a valid enum type");
 		break;
 	}
 }
@@ -21,6 +22,9 @@ void ppc::BaseFileType::uploadJson(std::string jString)
 
 void ppc::BaseFileType::readFile()
 {
+	if (this->encrypted) {
+		return;
+	}
 	switch (this->filetype) {
 	case FileType::File:
 		std::cout << this->data << std::endl;
@@ -68,5 +72,25 @@ ppc::BaseFileType * ppc::BaseFileType::getParent()
 ppc::FileType ppc::BaseFileType::getFileType()
 {
 	return this->filetype;
+}
+
+void ppc::BaseFileType::toggleVisibility()
+{
+	if (this->isHidden) {
+		this->isHidden = false;
+	}
+	else {
+		this->isHidden = true;
+	}
+}
+
+void ppc::BaseFileType::toggleEncryption()
+{
+	if (this->isEncrypted) {
+		this->isEncrypted = false;
+	}
+	else {
+		this->isEncrypted = true;
+	}
 }
 

@@ -214,15 +214,37 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
-      <Filter>Resources\Coding Help</Filter>
-    </Text>
-    <Text Include="Resources\Coding Reference\LinkHelp.txt">
-      <Filter>Resources\Coding Help</Filter>
-    </Text>
-    <Text Include="Resources\Engine\EngineSettings.ini">
-      <Filter>Resources\Settings</Filter>
-    </Text>
+    <ClInclude Include="Code\Engine\buttonRenderComponent.h" />
+    <ClInclude Include="Code\Engine\BaseFileType.h" />
+    <ClInclude Include="Code\Engine\ComponentObsvr.h" />
+    <ClInclude Include="Code\Engine\component.h" />
+    <ClInclude Include="Code\Engine\debug.h" />
+    <ClInclude Include="Code\Engine\desktop.h" />
+    <ClInclude Include="Code\Engine\DesktopLogger.h" />
+    <ClInclude Include="Code\Engine\entity.h" />
+    <ClInclude Include="Code\Engine\event.h" />
+    <ClInclude Include="Code\Engine\inputComponent.h" />
+    <ClInclude Include="Code\Engine\InputHandler.h" />
+    <ClInclude Include="Code\Engine\NodeState.h" />
+    <ClInclude Include="Code\Engine\objectPool.h" />
+    <ClInclude Include="Code\Engine\observer.h" />
+    <ClInclude Include="Code\Engine\mousePressButton.h" />
+    <ClInclude Include="Code\Engine\renderComponent.h" />
+    <ClInclude Include="Code\Engine\subject.h" />
+    <ClInclude Include="Code\Engine\TestObserver.h" />
+    <ClInclude Include="Code\Engine\testRenderSprite.h" />
+    <ClInclude Include="Code\Engine\testRotateSprite.h" />
+    <ClInclude Include="Code\Engine\TreeCommands.h" />
+    <ClInclude Include="Code\Engine\updateComponent.h" />
+    <ClInclude Include="Code\Engine\Window.h" />
+    <ClInclude Include="Code\Engine\WindowDecorator.h" />
+    <ClInclude Include="Code\Engine\WindowInterface.h" />
+    <ClInclude Include="Code\Engine\WindowLogger.h" />
+    <ClInclude Include="Code\Engine\world.h" />
+    <ClInclude Include="Code\Library\json\json-forwards.h" />
+    <ClInclude Include="Code\Library\json\json.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Code\Engine\consoleIconRenderComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headers">
@@ -326,13 +348,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resources\kappa.png">
-      <Filter>Resources\Images</Filter>
-    </Image>
+    <Image Include="Resources\kappa.png" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Project-Perfect-Citizen.rc">
-      <Filter>Resources</Filter>
-    </ResourceCompile>
+    <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
+    <Text Include="Resources\Coding Reference\LinkHelp.txt" />
+    <Text Include="Resources\Engine\EngineSettings.ini" />
   </ItemGroup>
 </Project>
