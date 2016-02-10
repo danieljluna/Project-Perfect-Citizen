@@ -7,6 +7,7 @@
 
 #include "Component.h"
 #include "ComponentObsvr.h"
+#include "subject.h"
 
 
 namespace ppc {
