@@ -59,16 +59,8 @@ Window::~Window() {
 
 
 ///////////////////////////////////////////////////////////////////////
-// Setters
+// Space Setters
 ///////////////////////////////////////////////////////////////////////
-
-void Window::setSize(sf::Vector2u& size) {
-    windowSpace_.create(size.x, size.y);
-    trimEntities();
-}
-
-
-
 
 void Window::setSize(unsigned int width, unsigned int height) {
     windowSpace_.create(width, height);
@@ -76,6 +68,38 @@ void Window::setSize(unsigned int width, unsigned int height) {
 }
 
 
+///////////////////////////////////////////////////////////////////////
+// Transformation Setters
+///////////////////////////////////////////////////////////////////////
+
+void Window::setPosition(float x, float y) {
+    transform_.setPosition(x, y);
+}
+
+void Window::move(float x, float y) {
+    transform_.move(x, y);
+}
+
+void Window::setScale(float x, float y) {
+    transform_.setScale(x, y);
+}
+
+void Window::scale(float x, float y) {
+    transform_.scale(x, y);
+}
+
+
+///////////////////////////////////////////////////////////////////////
+// Transformation Getters
+///////////////////////////////////////////////////////////////////////
+
+sf::Vector2f Window::getPosition() const {
+    return transform_.getPosition();
+}
+
+sf::Vector2f Window::getScale() const {
+    return transform_.getScale();
+}
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -191,7 +215,7 @@ void Window::draw(sf::RenderTarget& target,
     //Create a sprite off of the windowSpace_
     sf::Sprite spr(windowSpace_.getTexture());
 
-    states.transform *= getTransform();
+    states.transform *= transform_.getTransform();
 
     //Draw the sprite
     target.draw(spr, states);
