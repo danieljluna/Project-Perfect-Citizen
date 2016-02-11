@@ -21,6 +21,13 @@ void WindowInterface::setPosition(const sf::Vector2f& pos) {
 
 
 
+void WindowInterface::move(const sf::Vector2f& pos) {
+    move(pos.x, pos.y);
+}
+
+
+
+
 void WindowInterface::setScale(float scale) { 
     setScale(scale, scale); 
 }
@@ -30,4 +37,17 @@ void WindowInterface::setScale(float scale) {
 
 void WindowInterface::setScale(const sf::Vector2f& scale) {
     setScale(scale.x, scale.y);
+}
+
+
+
+void WindowInterface::scale(float scaleFactor) {
+    scale(scaleFactor, scaleFactor);
+}
+
+
+
+
+void WindowInterface::scale(const sf::Vector2f& scaleVec) {
+    scale(scaleVec.x, scaleVec.y);
 }

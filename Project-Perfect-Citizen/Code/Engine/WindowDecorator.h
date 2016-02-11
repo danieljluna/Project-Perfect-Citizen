@@ -16,6 +16,9 @@ namespace ppc {
 ///     called, DecoratorA.fn(), it does extra leg-work specific to
 ///     the decorator, if any, then calles WindowB.fn(). Decorators can
 ///     stack.
+/// @note Many functions are not documented in the .h file as Doxygen
+///     automatically take the docs from parent classes when none are
+///     provided.
 ///////////////////////////////////////////////////////////////////////
 class WindowDecorator : public WindowInterface {
 public:
@@ -39,13 +42,30 @@ public:
     virtual ~WindowDecorator();
 
 
-    virtual void setSize(sf::Vector2u& size) override;
+    // Space Setters
+
     virtual void setSize(unsigned int width, unsigned int height) override;
+
+    // Transformation Setters
+
+    virtual void setPosition(float x, float y) override;
+    virtual void move(float dx, float dy) override;
+    virtual void setScale(float xscale, float yscale) override;
+    virtual void scale(float xscale, float yscale) override;
+
+    //Transformation Getters
+
+    virtual sf::Vector2f getPosition() const override;
+    virtual sf::Vector2f getScale() const override;
+
+    //Component Manipulation
 
 	virtual void addInputComponent(InputComponent* inputcmpnt) override;
 	virtual void addRenderComponent(RenderComponent* rendercmpnt) override;
 	virtual void addUpdateComponent(UpdateComponent* updatecmpnt) override;
 	virtual void addEntity(Entity& entity) override;
+
+    //Game Loop Functionality
 
 	virtual void update(sf::Time& deltaTime) override;
 	virtual void registerInput(sf::Event&) override;

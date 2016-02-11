@@ -23,7 +23,10 @@ namespace ppc {
 /// @brief Manages a sub-screen with its own Components
 /// @author Daniel Luna
 /// @details The Window class defines a space and an in-game Window
-///     with which to 
+///     with which to add Entities and Components to.
+/// @note Many functions are not documented in the .h file as Doxygen
+///     automatically take the docs from parent classes when none are
+///     provided.
 ///////////////////////////////////////////////////////////////////////
 class Window : public WindowInterface {
 public:
@@ -67,130 +70,38 @@ public:
     virtual ~Window();
 
 
-  /////////////////////////////////////////////////////////////////////
-  // Setters 
-  /////////////////////////////////////////////////////////////////////
+    // Space Setters
 
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Sets the size of the Window.
-    /// @details Specifically, this function sets the size space that 
-    ///     represents this room. A Window can be displayed independant
-    ///     of its size.
-    ///
-    /// @param size A vector denoting the desired size of the Window.
-    /// @post Any components defined as part of the Window that now lay
-    ///     outside of it are destroyed.
-    ///////////////////////////////////////////////////////////////////
-    virtual void setSize(sf::Vector2u& size) override;
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Sets the size of the Window.
-    /// @details Specifically, this function sets the size space that 
-    ///     represents this room. A Window can be displayed independant
-    ///     of its size.
-    ///
-    /// @param width The desired width of the Window.
-    /// @param height The desired height of the Window.
-    /// @post Any components defined as part of the Window that now lay
-    ///     outside of it are destroyed.
-    ///////////////////////////////////////////////////////////////////
     virtual void setSize(unsigned int width, unsigned int height) override;
 
-    
+    // Transformation Setters
 
-  /////////////////////////////////////////////////////////////////////
-  // Adding Entities and Components
-  /////////////////////////////////////////////////////////////////////
+    virtual void setPosition(float x, float y) override;
+    virtual void move(float dx, float dy) override;
+    virtual void setScale(float xscale, float yscale) override;
+    virtual void scale(float xscale, float yscale) override;
 
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Adds an Input Component to the Window.
-    /// @details This function adds an Input Component to the Window.
-    ///     Currently merely appends the Component.
-    /// @todo Add functionality to assign Components order in the 
-    ///     Vector
-    ///
-    /// @pre inputcmpnt != nullptr
-    /// @param inputcmpnt A pointer to the InputComponent to add.
-    ///////////////////////////////////////////////////////////////////
-    void addInputComponent(InputComponent* inputcmpnt);
+    //Transformation Getters
 
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Adds an Render Component to the Window.
-    /// @details This function adds an Render Component to the Window.
-    ///     Currently merely appends the Component.
-    /// @todo Add functionality to assign Components order in the 
-    ///     Vector
-    ///
-    /// @pre rendercmpnt != nullptr
-    /// @param rendercmpnt A pointer to the RenderComponent to add.
-    ///////////////////////////////////////////////////////////////////
-    void addRenderComponent(RenderComponent* rendercmpnt);
-  
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Adds an Update Component to the Window.
-    /// @details This function adds an Update Component to the Window.
-    ///     Currently merely appends the Component.
-    /// @todo Add functionality to assign Components order in the 
-    ///     Vector
-    ///
-    /// @pre updatecmpnt != nullptr
-    /// @param updatecmpnt A pointer to the UpdateComponent to add.
-    ///////////////////////////////////////////////////////////////////
-    void addUpdateComponent(UpdateComponent* updatecmpnt);
+    virtual sf::Vector2f getPosition() const override;
+    virtual sf::Vector2f getScale() const override;
 
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Adds an Entity to the Window
-    /// @details More specifically, this adds the Components connected
-    ///     to this Entity to the Window. Currently merely appends the 
-    ///     Components.
-    /// @todo Add functionality to assign Components order in the 
-    ///     Vector
-    ///
-    /// @param entity The entity to add to the Window.
-    ///////////////////////////////////////////////////////////////////
-    void addEntity(Entity& entity);
+    //Component Manipulation
 
-    
-  /////////////////////////////////////////////////////////////////////
-  // Step Functionality
-  /////////////////////////////////////////////////////////////////////
+    virtual void addInputComponent(InputComponent* inputcmpnt) override;
+    virtual void addRenderComponent(RenderComponent* rendercmpnt) override;
+    virtual void addUpdateComponent(UpdateComponent* updatecmpnt) override;
+    virtual void addEntity(Entity& entity) override;
 
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Updates this, and all objects in the Window.
-    ///
-    /// @param deltaTime The time the object needs to catch up with.
-    ///////////////////////////////////////////////////////////////////
+    //Game Loop Functionality
+
     virtual void update(sf::Time& deltaTime) override;
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Reacts to Input for this, and all objects in the Window.
-    ///////////////////////////////////////////////////////////////////
-    virtual void registerInput(sf::Event&) final;
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Refreshes the Window so it is ready to draw again.
-    /// @details Should be called any time a Component of the Window
-    ///     might change.
-    ///
-    /// @post The next call to draw the Window will correctly depict
-    ///     the state of all renderComponents in this Window at this 
-    ///     time.
-    /// @param states Used to manipulate draw 
-    ///////////////////////////////////////////////////////////////////
-    void refresh(sf::RenderStates states = sf::RenderStates());
+    virtual void registerInput(sf::Event&) override;
+    virtual void refresh(sf::RenderStates states = sf::RenderStates()) override;
 
 
 private:
 
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Draws the last Window refresh
-    /// @details This does NOT draw all objects within the window, it
-    ///     merely draws the texture which was last updated in the last
-    ///     call to refresh().
-    ///
-    /// @param target The target to draw to.
-    /// @param states Used to manipulate draw calls
-    ///////////////////////////////////////////////////////////////////
     void draw(sf::RenderTarget& target, 
               sf::RenderStates states) const override;
 
