@@ -191,7 +191,7 @@ void Window::draw(sf::RenderTarget& target,
     //Create a sprite off of the windowSpace_
     sf::Sprite spr(windowSpace_.getTexture());
 
-    states.transform *= getTransform();
+    states.transform *= transform_.getTransform();
 
     //Draw the sprite
     target.draw(spr, states);

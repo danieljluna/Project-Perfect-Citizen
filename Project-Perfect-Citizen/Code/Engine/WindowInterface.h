@@ -3,7 +3,6 @@
 
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/System/Time.hpp>
-#include <SFML/Graphics/Transformable.hpp>
 #include <SFML/Window/Event.hpp>
 
 #include "inputComponent.h"
@@ -21,30 +20,22 @@ namespace ppc {
 ///     class is needed to define the common interface between all 
 ///     classes in the hierarchy.
 ///////////////////////////////////////////////////////////////////////
-class WindowInterface : public sf::Drawable, public sf::Transformable {
+class WindowInterface : public sf::Drawable {
 public:
   /////////////////////////////////////////////////////////////////////
   // Virtual Destructor
   /////////////////////////////////////////////////////////////////////
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Virtual Destructor
+    ///////////////////////////////////////////////////////////////////
     virtual ~WindowInterface() {};
 
 
   /////////////////////////////////////////////////////////////////////
-  // Setters
+  // Space Setters
   /////////////////////////////////////////////////////////////////////
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Sets the size of the Window.
-    /// @details Specifically, this function sets the size space that 
-    ///     represents this room. A Window can be displayed independant
-    ///     of its size.
-    ///
-    /// @param size A vector denoting the desired size of the Window.
-    /// @post Any components defined as part of the Window that now lay
-    ///     outside of it are destroyed.
-    ///////////////////////////////////////////////////////////////////
-    virtual void setSize(sf::Vector2u& size) = 0;
+    
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Sets the size of the Window.
@@ -58,7 +49,64 @@ public:
     ///     outside of it are destroyed.
     ///////////////////////////////////////////////////////////////////
     virtual void setSize(unsigned int width, unsigned int height) = 0;
+  
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the size of the Window.
+    /// @details Specifically, this function sets the size space that 
+    ///     represents this room. A Window can be displayed independant
+    ///     of its size.
+    ///
+    /// @param size A vector denoting the desired size of the Window.
+    /// @post Any components defined as part of the Window that now lay
+    ///     outside of it are destroyed.
+    ///////////////////////////////////////////////////////////////////
+    void setSize(sf::Vector2u& size);
 
+
+  /////////////////////////////////////////////////////////////////////
+  // Transformation Setters
+  /////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the position of the Window.
+    ///
+    /// @param x The desired x coordinate for the Window.
+    /// @param y The desired y coordinate for the Window.
+    ///////////////////////////////////////////////////////////////////
+    virtual void setPosition(float x, float y) = 0;
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the position of the Window.
+    ///
+    /// @param pos The desired position for the Window.
+    ///////////////////////////////////////////////////////////////////
+    void setPosition(const sf::Vector2f& pos);
+
+
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the scale of the Window.
+    ///
+    /// @param xscale The desired horizontal scale of the Window.
+    /// @param yscale The desired vertical scale of the Window.
+    ///////////////////////////////////////////////////////////////////
+    virtual void setScale(float xscale, float yscale) = 0;
+    
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the scale of the Window.
+    ///
+    /// @param scale The desired scale of the Window.
+    ///////////////////////////////////////////////////////////////////
+    void setScale(float scale);
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the scale of the Window.
+    ///
+    /// @param xscale The desired horizontal scale of the Window.
+    /// @param yscale The desired vertical scale of the Window.
+    ///////////////////////////////////////////////////////////////////
+    void setScale(const sf::Vector2f& scale);
+    
     //TODO: Add code to manipulate View
     
 

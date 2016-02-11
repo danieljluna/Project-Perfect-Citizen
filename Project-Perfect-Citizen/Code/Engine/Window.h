@@ -6,6 +6,7 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderTexture.hpp>
 #include <SFML/System/Time.hpp>
+#include <SFML/Graphics/Transformable.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 
 #include "windowInterface.h"
@@ -240,6 +241,9 @@ private:
 
     //Stores all the Entities that reside in this room
     std::vector<Entity> entityVec_;
+
+    //Stores the Transformation applicable to the Window
+    sf::Transformable transform_;
 
 
 };
