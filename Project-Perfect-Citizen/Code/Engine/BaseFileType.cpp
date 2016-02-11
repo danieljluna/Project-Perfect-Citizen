@@ -10,7 +10,7 @@ ppc::BaseFileType::BaseFileType(ppc::FileType type)
 		this->filetype = ppc::FileType::File;
 		break;
 	default:
-		//throw std::exception("BaseFileType::BaseFiletype() :not a valid enum type");
+		throw std::exception("BaseFileType::BaseFiletype() :not a valid enum type");
 		break;
 	}
 }
@@ -22,7 +22,7 @@ void ppc::BaseFileType::uploadJson(std::string jString)
 
 void ppc::BaseFileType::readFile()
 {
-	if (this->encrypted) {
+	if (this->isEncrypted) {
 		return;
 	}
 	switch (this->filetype) {

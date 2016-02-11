@@ -18,6 +18,8 @@ commandFn findFunction(const std::string& command);
 ///@param inode state for the tree in question
 ///@param words are the commands being passed
 ///from the console
+///@throw Throws an std::exception error if a function 
+///isnt found
 ///////////////////////////////////////////////
 void fn_mkfile(ppc::NodeState& state, const vector<string> words);
 ///////////////////////////////////////////////

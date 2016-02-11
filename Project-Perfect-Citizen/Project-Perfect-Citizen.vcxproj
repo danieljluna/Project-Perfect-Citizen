@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Code\Engine\animatorComponent.cpp" />
     <ClCompile Include="Code\Engine\buttonRenderComponent.cpp" />
     <ClCompile Include="Code\Engine\BaseFileType.cpp" />
     <ClCompile Include="Code\Engine\component.cpp" />
@@ -39,6 +40,7 @@
     <ClCompile Include="Code\Engine\TreeCommands.cpp" />
     <ClCompile Include="Code\Engine\Window.cpp" />
     <ClCompile Include="Code\Engine\WindowDecorator.cpp" />
+    <ClCompile Include="Code\Engine\WindowInterface.cpp" />
     <ClCompile Include="Code\Engine\WindowLogger.cpp" />
     <ClCompile Include="Code\Engine\world.cpp" />
     <ClCompile Include="Code\Library\jsoncpp.cpp" />
@@ -50,6 +52,7 @@
     <Text Include="Resources\Engine\EngineSettings.ini" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Code\Engine\animatorComponent.hpp" />
     <ClInclude Include="Code\Engine\buttonRenderComponent.h" />
     <ClInclude Include="Code\Engine\BaseFileType.h" />
     <ClInclude Include="Code\Engine\ComponentObsvr.h" />

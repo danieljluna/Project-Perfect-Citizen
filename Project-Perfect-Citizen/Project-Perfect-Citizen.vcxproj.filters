@@ -94,7 +94,15 @@
     <ClCompile Include="Code\Engine\BaseFileType.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\consoleIconRenderComponent.cpp" />
+    <ClCompile Include="Code\Engine\animatorComponent.cpp">
+      <Filter>Sources\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\consoleIconRenderComponent.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\WindowInterface.cpp">
+      <Filter>Sources\Engine\Windows / Desktop</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -160,9 +168,6 @@
     <ClInclude Include="Code\Engine\ComponentObsvr.h">
       <Filter>Headers\Engine\Input</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\mousePressButton.h">
-      <Filter>Headers\Engine\Created Components</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\EntityDecorator.h">
       <Filter>Headers\Engine\Entity / Components\Decorators</Filter>
     </ClInclude>
@@ -190,8 +195,6 @@
     <ClInclude Include="Code\Engine\RenderCmpntLogger.h">
       <Filter>Headers\Engine\Entity / Components\Decorators\Loggers</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\buttonRenderComponent.h">
-    </ClInclude>
     <ClInclude Include="Code\Engine\NodeState.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
     </ClInclude>
@@ -201,9 +204,6 @@
     <ClInclude Include="Code\Engine\TreeCommands.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\WindowInterface.h">
-      <Filter>Headers\Examples</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\InputCmpntLogger.h">
       <Filter>Headers\Engine\Entity / Components\Decorators\Loggers</Filter>
     </ClInclude>
@@ -212,6 +212,21 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\WindowDecorator.h">
       <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\animatorComponent.hpp">
+      <Filter>Headers\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\WindowInterface.h">
+      <Filter>Headers\Engine\Windows / Desktop</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\buttonRenderComponent.h">
+      <Filter>Headers\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\mousePressButton.h">
+      <Filter>Headers\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\consoleIconRenderComponent.h">
+      <Filter>Headers\Examples</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -245,7 +260,6 @@
     <ClInclude Include="Code\Library\json\json-forwards.h" />
     <ClInclude Include="Code\Library\json\json.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Code\Engine\consoleIconRenderComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headers">
@@ -317,9 +331,6 @@
     <Filter Include="Sources\Engine\Input">
       <UniqueIdentifier>{19e64c98-7fda-48db-a0d3-b0f4e8e67694}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Headers\Engine\Created Components">
-      <UniqueIdentifier>{aa4adf4a-2786-49bd-b8b2-1851ba63b3eb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Sources\Engine\Created Components">
       <UniqueIdentifier>{02b72c68-768c-4e22-8a3e-e3872c3a8987}</UniqueIdentifier>
     </Filter>
@@ -349,11 +360,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Resources\Engine\EngineSettings.ini">
-      <Filter>Resources\Settings</Filter>
-    </Text>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
       <Filter>Resources\Coding Help</Filter>
+    </Text>
+    <Text Include="Resources\Engine\EngineSettings.ini">
+      <Filter>Resources\Settings</Filter>
     </Text>
     <Text Include="Resources\Coding Reference\LinkHelp.txt">
       <Filter>Resources\Coding Help</Filter>
