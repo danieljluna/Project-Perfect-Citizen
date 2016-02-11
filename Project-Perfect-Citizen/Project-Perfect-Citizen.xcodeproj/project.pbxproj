@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C812D6151C61D29600901173 /* Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = C812D6141C61D29600901173 /* Wallpaper.png */; };
+		C83752F41C6D3C83002DF7E1 /* textInputKeys.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C83752F21C6D3C83002DF7E1 /* textInputKeys.cpp */; };
+		C83752F71C6D3FCA002DF7E1 /* WindowInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C83752F51C6D3FCA002DF7E1 /* WindowInterface.cpp */; };
+		C83752FA1C6D449E002DF7E1 /* textBoxRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C83752F81C6D449E002DF7E1 /* textBoxRenderComponent.cpp */; };
 		C849139F1C6AA64300F84CB0 /* BaseFileType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C849135F1C6AA64300F84CB0 /* BaseFileType.cpp */; };
 		C84913A11C6AA64300F84CB0 /* ClassDiagram.cd in Resources */ = {isa = PBXBuildFile; fileRef = C84913631C6AA64300F84CB0 /* ClassDiagram.cd */; };
 		C84913A21C6AA64300F84CB0 /* component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C84913641C6AA64300F84CB0 /* component.cpp */; };
@@ -55,6 +58,12 @@
 /* Begin PBXFileReference section */
 		C8058A631C4D679D005E23BA /* Project-Perfect-Citizen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-Perfect-Citizen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C812D6141C61D29600901173 /* Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wallpaper.png; sourceTree = "<group>"; };
+		C83752F21C6D3C83002DF7E1 /* textInputKeys.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textInputKeys.cpp; sourceTree = "<group>"; };
+		C83752F31C6D3C83002DF7E1 /* textInputKeys.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textInputKeys.hpp; sourceTree = "<group>"; };
+		C83752F51C6D3FCA002DF7E1 /* WindowInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowInterface.cpp; sourceTree = "<group>"; };
+		C83752F61C6D3FCA002DF7E1 /* WindowInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowInterface.h; sourceTree = "<group>"; };
+		C83752F81C6D449E002DF7E1 /* textBoxRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textBoxRenderComponent.cpp; sourceTree = "<group>"; };
+		C83752F91C6D449E002DF7E1 /* textBoxRenderComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textBoxRenderComponent.hpp; sourceTree = "<group>"; };
 		C849135F1C6AA64300F84CB0 /* BaseFileType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseFileType.cpp; sourceTree = "<group>"; };
 		C84913601C6AA64300F84CB0 /* BaseFileType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseFileType.h; sourceTree = "<group>"; };
 		C84913631C6AA64300F84CB0 /* ClassDiagram.cd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ClassDiagram.cd; sourceTree = "<group>"; };
@@ -112,7 +121,6 @@
 		C84913971C6AA64300F84CB0 /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
 		C84913981C6AA64300F84CB0 /* WindowDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowDecorator.cpp; sourceTree = "<group>"; };
 		C84913991C6AA64300F84CB0 /* WindowDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowDecorator.h; sourceTree = "<group>"; };
-		C849139A1C6AA64300F84CB0 /* WindowInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowInterface.h; sourceTree = "<group>"; };
 		C849139B1C6AA64300F84CB0 /* WindowLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowLogger.cpp; sourceTree = "<group>"; };
 		C849139C1C6AA64300F84CB0 /* WindowLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowLogger.h; sourceTree = "<group>"; };
 		C849139D1C6AA64300F84CB0 /* world.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = world.cpp; sourceTree = "<group>"; };
@@ -180,10 +188,16 @@
 		C86E37901C4D6B4100842EFD /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				C84913C31C6AA6CA00F84CB0 /* animatorComponent.cpp */,
 				C84913C41C6AA6CA00F84CB0 /* animatorComponent.hpp */,
+				C84913C31C6AA6CA00F84CB0 /* animatorComponent.cpp */,
 				C84913BD1C6AA66B00F84CB0 /* buttonRenderComponent.cpp */,
 				C84913BE1C6AA66B00F84CB0 /* buttonRenderComponent.h */,
+				C849137B1C6AA64300F84CB0 /* mousePressButton.cpp */,
+				C849137C1C6AA64300F84CB0 /* mousePressButton.h */,
+				C83752F81C6D449E002DF7E1 /* textBoxRenderComponent.cpp */,
+				C83752F91C6D449E002DF7E1 /* textBoxRenderComponent.hpp */,
+				C83752F21C6D3C83002DF7E1 /* textInputKeys.cpp */,
+				C83752F31C6D3C83002DF7E1 /* textInputKeys.hpp */,
 				C849135F1C6AA64300F84CB0 /* BaseFileType.cpp */,
 				C84913601C6AA64300F84CB0 /* BaseFileType.h */,
 				C84913631C6AA64300F84CB0 /* ClassDiagram.cd */,
@@ -212,8 +226,6 @@
 				C84913781C6AA64300F84CB0 /* inputComponent.h */,
 				C84913791C6AA64300F84CB0 /* InputHandler.cpp */,
 				C849137A1C6AA64300F84CB0 /* InputHandler.h */,
-				C849137B1C6AA64300F84CB0 /* mousePressButton.cpp */,
-				C849137C1C6AA64300F84CB0 /* mousePressButton.h */,
 				C849137D1C6AA64300F84CB0 /* NodeState.cpp */,
 				C849137E1C6AA64300F84CB0 /* NodeState.h */,
 				C849137F1C6AA64300F84CB0 /* ObjectPool.h */,
@@ -243,7 +255,8 @@
 				C84913971C6AA64300F84CB0 /* Window.h */,
 				C84913981C6AA64300F84CB0 /* WindowDecorator.cpp */,
 				C84913991C6AA64300F84CB0 /* WindowDecorator.h */,
-				C849139A1C6AA64300F84CB0 /* WindowInterface.h */,
+				C83752F51C6D3FCA002DF7E1 /* WindowInterface.cpp */,
+				C83752F61C6D3FCA002DF7E1 /* WindowInterface.h */,
 				C849139B1C6AA64300F84CB0 /* WindowLogger.cpp */,
 				C849139C1C6AA64300F84CB0 /* WindowLogger.h */,
 				C849139D1C6AA64300F84CB0 /* world.cpp */,
@@ -419,6 +432,7 @@
 				C84913B01C6AA64300F84CB0 /* RenderCmpntDecorator.cpp in Sources */,
 				C84913B31C6AA64300F84CB0 /* TestObserver.cpp in Sources */,
 				C849139F1C6AA64300F84CB0 /* BaseFileType.cpp in Sources */,
+				C83752F41C6D3C83002DF7E1 /* textInputKeys.cpp in Sources */,
 				C84913B91C6AA64300F84CB0 /* Window.cpp in Sources */,
 				C84913A91C6AA64300F84CB0 /* EntityLogger.cpp in Sources */,
 				C84913B61C6AA64300F84CB0 /* TreeCommands.cpp in Sources */,
@@ -428,7 +442,9 @@
 				C84913A21C6AA64300F84CB0 /* component.cpp in Sources */,
 				C84913B11C6AA64300F84CB0 /* RenderCmpntLogger.cpp in Sources */,
 				C84913C51C6AA6CA00F84CB0 /* animatorComponent.cpp in Sources */,
+				C83752FA1C6D449E002DF7E1 /* textBoxRenderComponent.cpp in Sources */,
 				C84913AC1C6AA64300F84CB0 /* InputHandler.cpp in Sources */,
+				C83752F71C6D3FCA002DF7E1 /* WindowInterface.cpp in Sources */,
 				C84913BB1C6AA64300F84CB0 /* WindowLogger.cpp in Sources */,
 				C84913B81C6AA64300F84CB0 /* UpdateCmpntLogger.cpp in Sources */,
 			);
