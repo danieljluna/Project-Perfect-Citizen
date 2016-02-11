@@ -31,6 +31,7 @@
 #include "Engine/TreeCommands.h"
 #include "Engine/NodeState.h"
 #include "Engine/animatorComponent.hpp"
+#include "Engine/textInputKeys.hpp"
 
 using namespace ppc;
 
@@ -103,14 +104,16 @@ int main(int argc, char** argv) {
     /// Animated Icon Button Entity ///
     buttonRenderComponent* folderIconRender = new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
     folderIconRender->renderPosition(sf::Vector2f(0, 220));
-    animatorComponent* animator = new animatorComponent(*folderIconRender, 0.05f);
+    animatorComponent* animator = new animatorComponent(*folderIconRender, 0.3f);
     mousePressButton* mpb4 = new mousePressButton(inputHandle, *folderIconRender->getSprite());
+    textInputKeys* tib = new textInputKeys(inputHandle, *folderIconRender->getSprite());
 
     
     Entity* folderIcon = new Entity();
     folderIcon->addComponent(folderIconRender);
     folderIcon->addComponent(animator);
     folderIcon->addComponent(mpb4);
+    folderIcon->addComponent(tib);
 
 
     //Create ppc::Window
