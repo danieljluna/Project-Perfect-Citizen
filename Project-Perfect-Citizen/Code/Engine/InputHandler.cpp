@@ -48,3 +48,28 @@ bool InputHandler::addObserver(sf::Event::EventType type,
 
     return result;
 }
+
+
+
+
+void InputHandler::removeObserver(sf::Event::EventType type,
+                                  BaseObserver* obsvr) {
+    auto it = inputMap.find(type);
+
+    if (it != inputMap.end()) {
+        it->second.removeObserver(obsvr);
+    }
+}
+
+
+
+
+void InputHandler::removeObserver(sf::Event::EventType type,
+                                  unsigned int id,
+                                  unsigned int range) {
+    auto it = inputMap.find(type);
+
+    if (it != inputMap.end()) {
+        it->second.removeObserver(id, range);
+    }
+}

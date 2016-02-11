@@ -3,8 +3,9 @@
 
 #include <cstddef>
 #include <SFML/Graphics/Transformable.hpp>
+#include <string>
 
-typedef unsigned int msgType;
+typedef std::string msgType;
 
 namespace ppc {
 
@@ -36,11 +37,22 @@ public:
     ///////////////////////////////////////////////////////////////////
     Entity();
 
-    //No Copy Constructor
-    Entity(const Entity& other) = delete;
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Copy Constructor
+    ///////////////////////////////////////////////////////////////////
+    Entity(const Entity& other) noexcept;
+
+    Entity& operator=(const Entity& other);
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Move Constructor
+    ///////////////////////////////////////////////////////////////////
+    Entity(Entity&& other) noexcept;
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Destructor
+    /// @details Note that Entities do NOT destroy the components they
+    ///     manage via destruction.
     ///////////////////////////////////////////////////////////////////
     ~Entity();
 
@@ -54,7 +66,7 @@ public:
     /// 
     /// @return Returns the number of Components in this Entity.
     ///////////////////////////////////////////////////////////////////
-    size_t cmpntCount();
+	virtual size_t cmpntCount();
   
     ///////////////////////////////////////////////////////////////////
     /// @brief Returns the Component (or lack thereof) at the specified
@@ -65,7 +77,7 @@ public:
     /// @return  Returns a pointer to the Component with the given
     ///     index in this Entity.
     ///////////////////////////////////////////////////////////////////
-    Component* getComponent(size_t index);
+	virtual Component* getComponent(size_t index);
     
     ///////////////////////////////////////////////////////////////////
     /// @brief Returns the index of the Component in this Entity.
@@ -74,7 +86,12 @@ public:
     /// @return Returns the index of cmpnt in this Entity. If cmpnt is
     ///     not part of this Entity, returns -1.
     ///////////////////////////////////////////////////////////////////
-    int getIndex(Component* cmpnt);
+	virtual int getIndex(Component* cmpnt);
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Returns the position of the Entity as a Vector.
+    ///////////////////////////////////////////////////////////////////
+    sf::Vector2f& getPosition();
 
     
   /////////////////////////////////////////////////////////////////////
@@ -91,7 +108,7 @@ public:
     /// @return The index of the added Component. A return of -1 
     ///     implies the Component was not found.
     ///////////////////////////////////////////////////////////////////
-    int addComponent(Component* cmpnt);
+	virtual int addComponent(Component* cmpnt);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Removes the Component at the specified address from the
@@ -103,7 +120,7 @@ public:
     ///
     /// @param cmpnt A pointer to the Entity
     ///////////////////////////////////////////////////////////////////
-    void removeComponent(Component* cmpnt);
+	virtual void removeComponent(Component* cmpnt);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Removes the Component with the specified index from the
@@ -116,7 +133,7 @@ public:
     /// @param index The index of the desired Component you would like
     ///     to remove.
     ///////////////////////////////////////////////////////////////////
-    void removeComponent(size_t index);
+	virtual void removeComponent(size_t index);
     
     
   /////////////////////////////////////////////////////////////////////
@@ -130,7 +147,7 @@ public:
     ///
     /// @param message Denotes the message to send.
     ///////////////////////////////////////////////////////////////////
-    void broadcastMessage(msgType message);
+	virtual void broadcastMessage(msgType message);
 
 
   /////////////////////////////////////////////////////////////////////
@@ -149,6 +166,9 @@ private:
 
     //Current Component Count
     size_t componentCount_;
+
+    //Position of the Entity
+    sf::Vector2f position_;
 
 
 };

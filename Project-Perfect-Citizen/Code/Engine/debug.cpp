@@ -13,18 +13,20 @@ void Debug::scanOpts(int argc, char** argv) {
 		return;
 	}
 
-	string flags = argv[1];
+	for (int i = 1; i < argc; i++) {
 
-	size_t found = flags.find('@');
-	if (found == string::npos) {
-		cerr << "Invalid: '-@' not found" << endl;
-		return;
+		string flags = argv[i];
+
+		size_t found = flags.find('@');
+		if (found == string::npos) {
+			continue;
+		}
+		//substr should have found the flags
+		// starting from the @
+
+		flags = flags.substr(found);
+		setFlags(flags);
 	}
-	//substr should have found the flags
-	// starting from the @
-
-    flags = flags.substr(found);
-    setFlags(flags);
 }
 
 void Debug::setFlags(string& flag) {
