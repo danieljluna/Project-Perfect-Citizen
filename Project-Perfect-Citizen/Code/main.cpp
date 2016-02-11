@@ -10,13 +10,10 @@
 
 #include <iostream>
 #include <fstream>
-
 #include <SFML/Main.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-
 #include "Library/json/json.h"
-
 #include "Engine/testRenderSprite.h"
 #include "Engine/InputHandler.h"
 #include "Engine/subject.h"
@@ -31,7 +28,6 @@
 #include "Engine/TreeCommands.h"
 #include "Engine/NodeState.h"
 #include "Engine/animatorComponent.hpp"
-#include "Engine/textInputKeys.hpp"
 
 using namespace ppc;
 
@@ -48,6 +44,47 @@ int main(int argc, char** argv) {
 
 	//Create the InputHandler
 	ppc::InputHandler inputHandle;
+
+	///////////////////////////TREE EXAMPLE//////////////////////
+	std::cout << "START OF TREE EXAMPLE" << std::endl << std::endl;
+	ppc::NodeState testState;
+	testState.setUp(); /////SUPER IMPORTANT
+	
+	//////////////////////////MAKE/////////////////////////////////////
+	std::vector<std::string> testMakeVector;
+	testMakeVector.push_back("make");
+	testMakeVector.push_back("testPlainFile");
+	testMakeVector.push_back("This is what the plain File contains");
+	
+	commandFn makeFunction = findFunction(testMakeVector.at(0));
+	makeFunction(testState, testMakeVector);
+	//////////////////////////MAKE/////////////////////////////////////
+	//////////////////////////MKDIR////////////////////////////////////
+	std::vector<std::string> testMkDirVector;
+	testMkDirVector.push_back("mkdir");
+	testMkDirVector.push_back("/testDirectory");
+
+	commandFn mkDirFunction = findFunction(testMkDirVector.at(0));
+	mkDirFunction(testState, testMkDirVector);
+	//////////////////////////MKDIR////////////////////////////////////
+	//////////////////////////CD///////////////////////////////////////
+	std::vector<std::string> testCdVector;
+	testCdVector.push_back("cd");
+	testCdVector.push_back("testDirectory");
+
+	commandFn cdFunction = findFunction(testCdVector.at(0));
+	cdFunction(testState, testCdVector);
+	//////////////////////////CD///////////////////////////////////////
+	//////////////////////////LS///////////////////////////////////////
+	std::vector<std::string> testLsVector;
+	testLsVector.push_back("ls");
+	testState.printWorking();
+
+	commandFn lsFunction = findFunction(testLsVector.at(0));
+	lsFunction(testState, testLsVector);
+	//////////////////////////LS///////////////////////////////////////
+	std::cout << "END OF TREE EXAMPLE" << endl << endl;
+	/////////////////////////END TREE EXAMPLE////////////////////
 
     //Define a Sprite
     sf::Sprite S;
@@ -104,16 +141,14 @@ int main(int argc, char** argv) {
     /// Animated Icon Button Entity ///
     buttonRenderComponent* folderIconRender = new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
     folderIconRender->renderPosition(sf::Vector2f(0, 220));
-    animatorComponent* animator = new animatorComponent(*folderIconRender, 0.3f);
+    animatorComponent* animator = new animatorComponent(*folderIconRender, 0.05f);
     mousePressButton* mpb4 = new mousePressButton(inputHandle, *folderIconRender->getSprite());
-    textInputKeys* tib = new textInputKeys(inputHandle, *folderIconRender->getSprite());
 
     
     Entity* folderIcon = new Entity();
     folderIcon->addComponent(folderIconRender);
     folderIcon->addComponent(animator);
     folderIcon->addComponent(mpb4);
-    folderIcon->addComponent(tib);
 
 
     //Create ppc::Window
