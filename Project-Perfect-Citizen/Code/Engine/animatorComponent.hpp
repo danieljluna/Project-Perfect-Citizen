@@ -24,13 +24,6 @@ private:
     sf::Time framePeriod;
 public:
     animatorComponent();
-    
-    ///////////////////////////////////////////////////////////////////////
-    /// @brief Animator component constructor
-    /// @param r is a reference to the button / icon's render component
-    /// @param s is the speed of the animation
-    ///////////////////////////////////////////////////////////////////////
-
     animatorComponent(buttonRenderComponent& r, float s);
     ~animatorComponent();
     void update(sf::Time& deltaTime) override;
