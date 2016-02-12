@@ -28,25 +28,13 @@ void consoleUpdateComponent::executeCommand(string str) {
         commandVec.push_back(token);
         last = next + 1;
     }
-    
-   /* size_t pos = 0;
-    string token;
-    while ((pos = lastCommand.find(delimiter)) != std::string::npos) {
-        token = lastCommand.substr(0, pos);
-        cout << token << endl;
-        commandVec.push_back(token);
-        lastCommand.erase(0, pos + delimiter.length());
-    }*/
 }
 
 void consoleUpdateComponent::update(sf::Time& deltaTime) {
 	if (canParse) {
         commandFn makeFunction = findFunction(commandVec.at(0));
         makeFunction(fileTree, commandVec);
-        
-		//if (commandVec.at(0) == "pwd") { fileTree.printWorking(); }
         toggleParsing();
         commandVec.clear();
 	}
-	//fileTree.printWorking();
 }
