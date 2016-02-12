@@ -103,16 +103,6 @@
     <ClCompile Include="Code\Engine\WindowInterface.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\textInputKeys.cpp">
-      <Filter>Sources\Engine\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\textInputRenderComponent.cpp">
-      <Filter>Sources\Examples</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\createWindow.cpp">
-      <Filter>Sources\Examples</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\consoleUpdateComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -238,16 +228,6 @@
     <ClInclude Include="Code\Engine\consoleIconRenderComponent.h">
       <Filter>Headers\Examples</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\textInputKeys.hpp">
-      <Filter>Headers\Engine\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\textInputRenderComponent.hpp">
-      <Filter>Headers\Examples</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\createWindow.h">
-      <Filter>Headers\Examples</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\consoleUpdateComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\buttonRenderComponent.h" />
@@ -399,10 +379,5 @@
     <ResourceCompile Include="Project-Perfect-Citizen.rc">
       <Filter>Resources</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="Resources\Consolas.ttf">
-      <Filter>Resources</Filter>
-    </Font>
   </ItemGroup>
 </Project>

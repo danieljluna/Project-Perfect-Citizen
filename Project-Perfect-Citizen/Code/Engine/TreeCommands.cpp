@@ -4,15 +4,13 @@ fnMap functionMap{
 	{ "cd"    , fn_cd },
 	{ "ls"    , fn_ls },
 	{ "make"  , fn_mkfile },
-	{ "mkdir" , fn_mkDir },
-    { "pwd"   ,  fn_pwd  }
+	{ "mkdir" , fn_mkDir }
 };
 
 commandFn findFunction(const std::string& command) {
 	auto result = functionMap.find(command);
 	if (result == functionMap.end()) {
 		cout << "function not found" << endl;
-	//	throw std::exception("TreeCommands::findFunction() :function not found");
 	}
 	return result->second;
 }
@@ -119,11 +117,6 @@ void fn_mkDir(ppc::NodeState& state, const vector<string> words)
 		tempCWD =  tempCWD->makeDir(*itor);
 	}
 }
-
-void fn_pwd(ppc::NodeState& state, const vector<string> words) {
-    state.printWorking();
-}
-
 
 std::vector<string> split(std::string line, std::string delimiter)
 {

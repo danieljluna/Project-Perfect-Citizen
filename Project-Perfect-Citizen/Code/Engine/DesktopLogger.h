@@ -29,7 +29,7 @@ namespace ppc {
 		void addWindow(WindowInterface*);
 		void destroyWindow(WindowInterface*);
 		void setStyle(OSStyle*);
-		NodeState& getNodeState();
+		FileState& getRoot();
 		void registerInput(sf::Event& ev);
 		void update(sf::Time&);
 		void refresh(sf::RenderStates states = sf::RenderStates());
