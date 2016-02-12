@@ -155,7 +155,7 @@ int main(int argc, char** argv) {
   
     //Create ppc::Window
     Window* testWindow = new Window(600, 300,sf::Color(200,200,200));
-	Window* consoleWindow = spawnConsole(*inputHandle);
+	Window* consoleWindow = spawnConsole(*inputHandle, *testState);
 	//testWindow->addInputComponent(mpb);
 	//testWindow->addInputComponent(mpb2);
 	testWindow->addEntity(*testEntity);

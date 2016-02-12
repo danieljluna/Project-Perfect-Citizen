@@ -112,6 +112,7 @@
     <ClCompile Include="Code\Engine\createWindow.cpp">
       <Filter>Sources\Examples</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\consoleUpdateComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -246,6 +247,7 @@
     <ClInclude Include="Code\Engine\createWindow.h">
       <Filter>Headers\Examples</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\consoleUpdateComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\buttonRenderComponent.h" />
