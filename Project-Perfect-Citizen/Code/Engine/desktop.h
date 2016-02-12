@@ -48,8 +48,10 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 		std::vector<WindowInterface*> windows_;
 
-		//ask what this is and about its def in the uml
-		//map<string, (WindowInterface*)(Node*)> extensionMap_;
+
+		//maps strings to function pointers of functions that take in 
+		// Node* and return WindowInterface*
+		//map<string, (WindowInterface*) (Node*)> extensionMap_;
 
 
 ///////////////////////////////////////////////////////////////////////

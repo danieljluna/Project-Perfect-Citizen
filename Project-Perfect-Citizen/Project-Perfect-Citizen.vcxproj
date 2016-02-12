@@ -35,6 +35,7 @@
     <ClCompile Include="Code\Engine\TestObserver.cpp" />
     <ClCompile Include="Code\Engine\testRenderSprite.cpp" />
     <ClCompile Include="Code\Engine\testRotateSprite.cpp" />
+    <ClCompile Include="Code\Engine\textInputKeys.cpp" />
     <ClCompile Include="Code\Engine\UpdateCmpntDecorator.cpp" />
     <ClCompile Include="Code\Engine\UpdateCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\TreeCommands.cpp" />
@@ -79,6 +80,7 @@
     <ClInclude Include="Code\Engine\TestObserver.h" />
     <ClInclude Include="Code\Engine\testRenderSprite.h" />
     <ClInclude Include="Code\Engine\testRotateSprite.h" />
+    <ClInclude Include="Code\Engine\textInputKeys.hpp" />
     <ClInclude Include="Code\Engine\UpdateCmpntDecorator.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntLogger.h" />
     <ClInclude Include="Code\Engine\TreeCommands.h" />

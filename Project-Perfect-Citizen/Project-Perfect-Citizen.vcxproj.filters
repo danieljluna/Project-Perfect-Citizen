@@ -103,6 +103,9 @@
     <ClCompile Include="Code\Engine\WindowInterface.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\textInputKeys.cpp">
+      <Filter>Sources\Engine\Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -227,6 +230,9 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\consoleIconRenderComponent.h">
       <Filter>Headers\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\textInputKeys.hpp">
+      <Filter>Headers\Engine\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
