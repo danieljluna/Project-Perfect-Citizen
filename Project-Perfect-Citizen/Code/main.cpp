@@ -89,6 +89,7 @@ int main(int argc, char** argv) {
 	std::cout << "END OF TREE EXAMPLE" << endl << endl;
 	/////////////////////////END TREE EXAMPLE////////////////////
 
+    
     //Define a Sprite
     sf::Sprite S;
     sf::Texture T;

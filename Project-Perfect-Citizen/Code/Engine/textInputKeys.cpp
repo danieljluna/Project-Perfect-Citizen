@@ -65,6 +65,7 @@ bool textInputKeys::registerInput(sf::Event& ev) {
                 //std::cout << str << std::endl;
 			}
 			else if (ev.key.code == sf::Keyboard::Return && (str.size() != 0)) {
+                str += " ";
 				cup.executeCommand(str);
 				str.clear();
 				textBox.updateString(str);
