@@ -32,8 +32,9 @@ void consoleUpdateComponent::executeCommand(string str) {
 
 void consoleUpdateComponent::update(sf::Time& deltaTime) {
 	if (canParse) {
-        commandFn makeFunction = findFunction(commandVec.at(0));
-        makeFunction(fileTree, commandVec);
+        commandFn commandFunction = findFunction(commandVec.at(0));
+        commandFunction(fileTree, commandVec);
+        cout << endl;
         toggleParsing();
         commandVec.clear();
 	}
