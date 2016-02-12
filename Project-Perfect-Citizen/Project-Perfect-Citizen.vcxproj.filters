@@ -109,6 +109,9 @@
     <ClCompile Include="Code\Engine\textInputRenderComponent.cpp">
       <Filter>Sources\Examples</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\createWindow.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -238,6 +241,9 @@
       <Filter>Headers\Engine\Input</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\textInputRenderComponent.hpp">
+      <Filter>Headers\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\createWindow.h">
       <Filter>Headers\Examples</Filter>
     </ClInclude>
   </ItemGroup>
