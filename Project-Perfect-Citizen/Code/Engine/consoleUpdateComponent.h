@@ -1,7 +1,6 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-
 #include "updateComponent.h"
 #include "buttonRenderComponent.h"
 #include "textInputRenderComponent.hpp"
@@ -21,8 +20,10 @@ class consoleUpdateComponent : public ppc::UpdateComponent {
 
 private:
 	ppc::NodeState& fileTree;
-	bool canParse;
+    bool canParse;
 	string lastCommand;
+    std::vector<string> commandVec;
+
 public:
 	consoleUpdateComponent(ppc::NodeState& ns);
 	consoleUpdateComponent();
