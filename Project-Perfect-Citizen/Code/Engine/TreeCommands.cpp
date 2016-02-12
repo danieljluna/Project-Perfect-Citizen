@@ -4,7 +4,8 @@ fnMap functionMap{
 	{ "cd"    , fn_cd },
 	{ "ls"    , fn_ls },
 	{ "make"  , fn_mkfile },
-	{ "mkdir" , fn_mkDir }
+	{ "mkdir" , fn_mkDir },
+    { "pwd"   ,  fn_pwd  }
 };
 
 commandFn findFunction(const std::string& command) {
@@ -118,6 +119,11 @@ void fn_mkDir(ppc::NodeState& state, const vector<string> words)
 		tempCWD =  tempCWD->makeDir(*itor);
 	}
 }
+
+void fn_pwd(ppc::NodeState& state, const vector<string> words) {
+    state.printWorking();
+}
+
 
 std::vector<string> split(std::string line, std::string delimiter)
 {

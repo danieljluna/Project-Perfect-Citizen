@@ -49,6 +49,13 @@ void fn_cd(ppc::NodeState& state, const vector<string> words);
 ///////////////////////////////////////////////
 void fn_mkDir(ppc::NodeState& state, const vector<string> words);
 ///////////////////////////////////////////////
+///@brief
+///@param inode state for the tree in question
+///@param words are the commands being passed
+///from the console
+///////////////////////////////////////////////
+void fn_pwd(ppc::NodeState& state, const vector<string> words);
+///////////////////////////////////////////////
 ///@brief Helper function that splits a string
 ///by a delimiter. Returns a string vector
 ///@param line. String to be split up

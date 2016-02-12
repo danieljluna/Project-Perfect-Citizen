@@ -15,9 +15,9 @@ textInputRenderComponent::textInputRenderComponent(sf::Font& f):font(f) {
     
     //font.loadFromFile(resourcePath() + "Consolas.ttf");
     text->setFont(font);
-    text->setColor(sf::Color::Black);
+    text->setColor(sf::Color::White);
     text->setPosition(0, 0);
-    text->setCharacterSize(12);
+    text->setCharacterSize(26);
     text->setString("");
     
   //  this->sprite = new sf::Sprite();
