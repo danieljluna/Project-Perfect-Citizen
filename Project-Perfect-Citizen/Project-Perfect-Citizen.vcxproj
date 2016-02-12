@@ -92,6 +92,7 @@
     <ClInclude Include="Code\Engine\TreeCommands.h" />
     <ClInclude Include="Code\Engine\updateComponent.h" />
     <ClInclude Include="Code\Engine\Window.h" />
+    <ClInclude Include="Code\Engine\WindowBorder.h" />
     <ClInclude Include="Code\Engine\WindowDecorator.h" />
     <ClInclude Include="Code\Engine\WindowInterface.h" />
     <ClInclude Include="Code\Engine\WindowLogger.h" />

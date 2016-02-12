@@ -74,23 +74,12 @@ ppc::FileType ppc::BaseFileType::getFileType()
 	return this->filetype;
 }
 
-void ppc::BaseFileType::toggleVisibility()
+void ppc::BaseFileType::setVisibility(bool flag)
 {
-	if (this->isHidden) {
-		this->isHidden = false;
-	}
-	else {
-		this->isHidden = true;
-	}
+	this->isHidden = flag;
 }
 
-void ppc::BaseFileType::toggleEncryption()
-{
-	if (this->isEncrypted) {
-		this->isEncrypted = false;
-	}
-	else {
-		this->isEncrypted = true;
-	}
+void ppc::BaseFileType::setEncryption(bool flag) {
+	this->isEncrypted = flag;
 }
 
