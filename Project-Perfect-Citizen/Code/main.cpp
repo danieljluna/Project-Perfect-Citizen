@@ -29,12 +29,14 @@
 #include "Engine/NodeState.h"
 #include "Engine/animatorComponent.hpp"
 #include "Engine/textInputKeys.hpp"
+#include "Engine/createWindow.h"
 
 using namespace ppc;
 
 
 //Note that this is placeholder for now
 int main(int argc, char** argv) {
+
 	//Scans Debug Flags
 	Debug::scanOpts(argc, argv);
 	//Example of using the debugger macro
@@ -44,7 +46,7 @@ int main(int argc, char** argv) {
     sf::RenderWindow screen(sf::VideoMode(1800, 1000), "SFML window");
 
 	//Create the InputHandler
-	ppc::InputHandler inputHandle;
+	ppc::InputHandler* inputHandle = new InputHandler();
 
 	///////////////////////////TREE EXAMPLE//////////////////////
 	std::cout << "START OF TREE EXAMPLE" << std::endl << std::endl;
@@ -94,6 +96,7 @@ int main(int argc, char** argv) {
 	//////////////////////////ENCRYPT///////////////////////////////////////
 	/////////////////////////END TREE EXAMPLE//////////////////////////
 
+    
     //Define a Sprite
     sf::Sprite S;
     sf::Texture T;
@@ -117,7 +120,7 @@ int main(int argc, char** argv) {
 	/////// Button Entity ////////
 	buttonRenderComponent* buttonRender = new buttonRenderComponent(spriteSheet, 0, 3, 1, 1);
 	buttonRender->renderPosition(sf::Vector2f(10, 10));
-	mousePressButton* mpb = new mousePressButton(inputHandle,*buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(*inputHandle,*buttonRender->getSprite());
 	
     Entity* testEntity = new Entity();
 	testEntity->addComponent(buttonRender);
@@ -128,7 +131,7 @@ int main(int argc, char** argv) {
 	////// Icon Entity //////
 	consoleIconRenderComponent* consoleIconRender = new consoleIconRenderComponent(iconSheet, 0, 0, 1);
 	consoleIconRender->renderPosition(sf::Vector2f(120, 120));
-    mousePressButton* mpb2 = new mousePressButton(inputHandle, *consoleIconRender->getSprite());
+    mousePressButton* mpb2 = new mousePressButton(*inputHandle, *consoleIconRender->getSprite());
 
 
 	Entity* consoleIcon = new Entity();
@@ -139,7 +142,7 @@ int main(int argc, char** argv) {
 	////// Icon Entity //////
 	consoleIconRenderComponent* consoleIconRender3 = new consoleIconRenderComponent(iconSheet, 1, 0, 1);
 	consoleIconRender3->renderPosition(sf::Vector2f(0, 120));
-	mousePressButton* mpb3 = new mousePressButton(inputHandle, *consoleIconRender3->getSprite());
+	mousePressButton* mpb3 = new mousePressButton(*inputHandle, *consoleIconRender3->getSprite());
     
 	Entity* consoleIcon3 = new Entity();
 	consoleIcon3->addComponent(consoleIconRender3);
@@ -150,45 +153,35 @@ int main(int argc, char** argv) {
     buttonRenderComponent* folderIconRender = new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
     folderIconRender->renderPosition(sf::Vector2f(0, 220));
     animatorComponent* animator = new animatorComponent(*folderIconRender, 0.05f);
-    mousePressButton* mpb4 = new mousePressButton(inputHandle, *folderIconRender->getSprite());
+    mousePressButton* mpb4 = new mousePressButton(*inputHandle, *folderIconRender->getSprite());
     
     Entity* folderIcon = new Entity();
     folderIcon->addComponent(folderIconRender);
     folderIcon->addComponent(animator);
     folderIcon->addComponent(mpb4);
     
-    /// Text Input Component ///
-	sf::Font myFont;
-	myFont.loadFromFile(resourcePath() + "Consolas.ttf");
-    string fontPath = resourcePath() + "Consolas.ttf";
-    textInputRenderComponent* textInputBox = new textInputRenderComponent(myFont);
-    textInputKeys* tik = new textInputKeys(inputHandle, *folderIconRender->getSprite(), *textInputBox);
-    
-    Entity* textBox = new Entity();
-    textBox->addComponent(textInputBox);
-    textBox->addComponent(tik);
-    
-
+  
     //Create ppc::Window
     Window* testWindow = new Window(600, 300,sf::Color(200,200,200));
+	Window* consoleWindow = spawnConsole(*inputHandle, *testState);
 	//testWindow->addInputComponent(mpb);
 	//testWindow->addInputComponent(mpb2);
 	testWindow->addEntity(*testEntity);
     testWindow->addEntity(*consoleIcon);
 	testWindow->addEntity(*consoleIcon3);
     testWindow->addEntity(*folderIcon);
-    testWindow->addEntity(*textBox);
+  
 	//WindowLogger testWindowLogger(*testWindow,cout);
     //Add testEntity to ppc::Window
 	//testWindowLogger.addEntity(testEntity);
 
 	//Create ppc::Desktop
-	
 	Desktop myDesktop(*testState);
 
 	//Add windows to Desktops
 	//myDesktop.addWindow(&testWindowLogger);
 	myDesktop.addWindow(testWindow);
+	myDesktop.addWindow(consoleWindow);
 
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop
@@ -205,7 +198,7 @@ int main(int argc, char** argv) {
 				screen.close();
 
 			//Input phase
-			inputHandle.registerEvent(event);
+			inputHandle->registerEvent(event);
         }
 
         if (deltaTime.getElapsedTime() > framePeriod) {

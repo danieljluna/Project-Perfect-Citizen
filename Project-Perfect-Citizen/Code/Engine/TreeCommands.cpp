@@ -6,7 +6,8 @@ fnMap functionMap{
 	{ "make"	,	fn_mkfile },
 	{ "mkdir"	,	fn_mkDir },
 	{ "decrypt"	,	fn_decrypt},
-	{ "encrypt"	,	fn_decrypt}
+	{ "encrypt"	,	fn_decrypt},
+	{ "pwd"		,	fn_pwd}
 };
 
 commandFn findFunction(const std::string& command) {
@@ -149,6 +150,11 @@ void fn_decrypt(ppc::NodeState & state, const vector<std::string> words)
 	}
 	
 }
+
+void fn_pwd(ppc::NodeState& state, const vector<string> words) {
+    state.printWorking();
+}
+
 
 std::vector<string> split(std::string line, std::string delimiter)
 {
