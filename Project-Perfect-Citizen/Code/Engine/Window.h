@@ -70,6 +70,10 @@ public:
     virtual ~Window();
 
 
+    // Space Getters
+
+    virtual sf::Vector2u getSize() override;
+    
     // Space Setters
 
     virtual void setSize(unsigned int width, unsigned int height) override;
@@ -92,6 +96,10 @@ public:
     virtual void addRenderComponent(RenderComponent* rendercmpnt) override;
     virtual void addUpdateComponent(UpdateComponent* updatecmpnt) override;
     virtual void addEntity(Entity& entity) override;
+
+    //Other Getters
+
+    virtual InputHandler& getInputHandler() override;
 
     //Game Loop Functionality
 

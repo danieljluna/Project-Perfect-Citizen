@@ -81,6 +81,7 @@ void InputComponent::ignore(InputHandler& iHandler,
 
 
 
+//Finds the next available Observer for assignemnt
 size_t InputComponent::findNextObserver() {
     size_t i = 0;
     while ((i < observerCount_) && (observerArray_[i]->isInUse())) {

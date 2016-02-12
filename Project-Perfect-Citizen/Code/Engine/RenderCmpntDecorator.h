@@ -29,10 +29,10 @@ namespace ppc {
 		renderCmpntDecorator(RenderComponent& updatePtr);
 		virtual ~renderCmpntDecorator();
 
-		virtual Entity* getEntity();
-		virtual void setEntity(Entity*);
-		virtual void recieveMessage(msgType message);
+		virtual Entity* getEntity() override;
+		virtual void setEntity(Entity*) override;
+		virtual void recieveMessage(msgType message) override;
 		virtual void draw(sf::RenderTarget& target,
-			sf::RenderStates states) const;
+			sf::RenderStates states) const override;
 	};
 };
