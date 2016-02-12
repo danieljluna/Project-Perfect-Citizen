@@ -65,6 +65,10 @@ public:
 	virtual void addUpdateComponent(UpdateComponent* updatecmpnt) override;
 	virtual void addEntity(Entity& entity) override;
 
+    //Other Getters
+
+    virtual InputHandler& getInputHandler() override;
+
     //Game Loop Functionality
 
 	virtual void update(sf::Time& deltaTime) override;
