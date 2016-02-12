@@ -151,9 +151,10 @@ int main(int argc, char** argv) {
     folderIcon->addComponent(mpb4);
     
     /// Text Input Component ///
-    
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "Consolas.ttf");
     string fontPath = resourcePath() + "Consolas.ttf";
-    textInputRenderComponent* textInputBox = new textInputRenderComponent("");
+    textInputRenderComponent* textInputBox = new textInputRenderComponent(myFont);
     textInputKeys* tik = new textInputKeys(inputHandle, *folderIconRender->getSprite(), *textInputBox);
     
     Entity* textBox = new Entity();

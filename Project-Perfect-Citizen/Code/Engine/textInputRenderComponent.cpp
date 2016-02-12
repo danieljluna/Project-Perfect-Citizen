@@ -7,15 +7,14 @@
 //
 
 #include "textInputRenderComponent.hpp"
-#include "ResourcePath.hpp"
 
 const string TEXT_KEY_INPUT = "TKI";
 
-textInputRenderComponent::textInputRenderComponent(sf::Font& f) {
-    
+textInputRenderComponent::textInputRenderComponent(sf::Font& f):font(f) {
+	this->text = new sf::Text();
     
     //font.loadFromFile(resourcePath() + "Consolas.ttf");
-    text->setFont(*font);
+    text->setFont(font);
     text->setColor(sf::Color::Black);
     text->setPosition(0, 0);
     text->setCharacterSize(12);

@@ -18,7 +18,7 @@ private:
 //   sf::Texture* texture;
   //  sf::IntRect* rectSourceSprite;
     sf::Text* text;
-    sf::Font* font;
+    sf::Font font;
     string str;
    // int frameCount, width, xIndex, yIndex;
     static const int size = 128;
