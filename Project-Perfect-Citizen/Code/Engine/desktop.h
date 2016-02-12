@@ -106,7 +106,8 @@ namespace ppc {
 /// height for the size of the desktopWindow_, which holds the icons &
 /// buttons for the Desktop.
 ///@param ft The FileTree object to be associated with the Desktop.
-///
+///@param w Width of the desktopWindow_
+///@param h Height of the desktopWindow_
 ///@todo Add param for OSStyle?.
 ///////////////////////////////////////////////////////////////////////
 		Desktop(size_t w, size_t h, NodeState& n);
