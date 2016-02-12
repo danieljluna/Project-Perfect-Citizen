@@ -53,7 +53,7 @@ bool textInputKeys::isCollision(sf::Vector2i mousePos) {
 bool textInputKeys::registerInput(sf::Event& ev) {
     if (getEntity() != nullptr) {
         if (ev.type == sf::Event::TextEntered){
-            if (ev.text.unicode < 128 && ev.text.unicode != 8) {
+            if (ev.text.unicode < 128 && ev.text.unicode != 8 && ev.text.unicode != 10) {
                 str.push_back((char)ev.text.unicode);
                 //std::cout << str << std::endl;
                 textBox.updateString(str);
