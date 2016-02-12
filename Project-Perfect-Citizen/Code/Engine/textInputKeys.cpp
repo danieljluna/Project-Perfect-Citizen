@@ -65,7 +65,9 @@ bool textInputKeys::registerInput(sf::Event& ev) {
         } else if (ev.type == sf::Event::KeyPressed) {
             if (ev.key.code == sf::Keyboard::BackSpace && (str.size()!=0)) {
                 // First pop_back() deletes the 'backspace' character
-                if (str.size() > 1) str.pop_back();
+				if (str.size() > 1) {
+					str.pop_back();
+				}
 
                 // Second pop_back() deletes the last character
                 str.pop_back();

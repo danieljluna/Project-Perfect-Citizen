@@ -36,6 +36,7 @@ textInputRenderComponent::~textInputRenderComponent() {
 
 void textInputRenderComponent::updateString(string s) {
     str = s;
+	text->setString(str);
 }
 
 void textInputRenderComponent::draw( sf::RenderTarget& target,
