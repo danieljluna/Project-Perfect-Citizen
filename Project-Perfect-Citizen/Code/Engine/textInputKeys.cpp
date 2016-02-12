@@ -9,7 +9,10 @@ const string TEXT_KEY_INPUT = "TKI";
 const float DOUBLE_CLICK_TIME = 500;
 
 textInputKeys::textInputKeys(ppc::InputHandler& ih,
-                                   sf::Sprite& s): InputComponent(2), textBoxSprt(s), inputHandle(ih){
+                             sf::Sprite& s ,
+                             textInputRenderComponent& r):
+                             InputComponent(2), textBoxSprt(s),
+                             textBox(r), inputHandle(ih){
 
 
     ih.addHandle(sf::Event::TextEntered);
@@ -28,7 +31,6 @@ textInputKeys::textInputKeys(ppc::InputHandler& ih,
 textInputKeys::~textInputKeys() {
     ignore(inputHandle, sf::Event::TextEntered);
     ignore(inputHandle, sf::Event::KeyPressed);
-    ignore(inputHandle, sf::Event::KeyReleased);
 }
 
 bool textInputKeys::isCollision(sf::Vector2i mousePos) {
@@ -46,6 +48,9 @@ bool textInputKeys::isCollision(sf::Vector2i mousePos) {
             result = true;
         }
     }
+    
+    // textBoxSprt.setSelected(true);
+    
     return result;
 }
 
@@ -55,13 +60,15 @@ bool textInputKeys::registerInput(sf::Event& ev) {
             if (ev.text.unicode < 128) {
                 str.push_back((char)ev.text.unicode);
                 std::cout << str << std::endl;
+                textBox.updateString(str);
             }
         } else if (ev.type == sf::Event::KeyPressed) {
             if (ev.key.code == sf::Keyboard::BackSpace && (str.size()!=0)) {
                 // First pop_back() deletes the 'backspace' character
-                str.pop_back();
+                if (str.size() > 1) str.pop_back();
                 // Second pop_back() deletes the last character
                 str.pop_back();
+                textBox.updateString(str);
                 std::cout << str << std::endl;
             }
         }

@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
 	DEBUGF("ac", argc);
 
     // Create the main sf::window
-    sf::RenderWindow screen(sf::VideoMode(800, 600), "SFML window");
+    sf::RenderWindow screen(sf::VideoMode(1800, 1000), "SFML window");
 
 	//Create the InputHandler
 	ppc::InputHandler inputHandle;
@@ -144,24 +144,32 @@ int main(int argc, char** argv) {
     folderIconRender->renderPosition(sf::Vector2f(0, 220));
     animatorComponent* animator = new animatorComponent(*folderIconRender, 0.05f);
     mousePressButton* mpb4 = new mousePressButton(inputHandle, *folderIconRender->getSprite());
-    textInputKeys* tik = new textInputKeys(inputHandle, *folderIconRender->getSprite());
-
     
     Entity* folderIcon = new Entity();
     folderIcon->addComponent(folderIconRender);
     folderIcon->addComponent(animator);
     folderIcon->addComponent(mpb4);
-    folderIcon->addComponent(tik);
-
+    
+    /// Text Input Component ///
+    
+    string fontPath = resourcePath() + "Consolas.ttf";
+    textInputRenderComponent* textInputBox = new textInputRenderComponent("");
+    textInputKeys* tik = new textInputKeys(inputHandle, *folderIconRender->getSprite(), *textInputBox);
+    
+    Entity* textBox = new Entity();
+    textBox->addComponent(textInputBox);
+    textBox->addComponent(tik);
+    
 
     //Create ppc::Window
-    Window* testWindow = new Window(300, 300,sf::Color(200,200,200));
+    Window* testWindow = new Window(600, 300,sf::Color(200,200,200));
 	//testWindow->addInputComponent(mpb);
 	//testWindow->addInputComponent(mpb2);
 	testWindow->addEntity(*testEntity);
     testWindow->addEntity(*consoleIcon);
 	testWindow->addEntity(*consoleIcon3);
     testWindow->addEntity(*folderIcon);
+    testWindow->addEntity(*textBox);
 	//WindowLogger testWindowLogger(*testWindow,cout);
     //Add testEntity to ppc::Window
 	//testWindowLogger.addEntity(testEntity);

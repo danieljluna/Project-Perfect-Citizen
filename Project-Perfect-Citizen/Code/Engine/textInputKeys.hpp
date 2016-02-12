@@ -6,6 +6,7 @@
 #include "InputHandler.h"
 #include "Entity.h"
 #include "subject.h"
+#include "textInputRenderComponent.hpp"
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -21,6 +22,7 @@ class textInputKeys: public ppc::InputComponent {
 private:
     
     sf::Sprite& textBoxSprt;
+    textInputRenderComponent& textBox;
     ppc::InputHandler& inputHandle;
     sf::Clock mouseClock;
     std::string str;
@@ -36,7 +38,7 @@ public:
     /// @param ih is the input handler
     /// @param s is the render component where the text will be drawn
     ///////////////////////////////////////////////////////////////////////
-    textInputKeys(ppc::InputHandler& ih, sf::Sprite& s);
+    textInputKeys(ppc::InputHandler& ih, sf::Sprite& s, textInputRenderComponent &r);
     virtual ~textInputKeys();
     virtual bool registerInput(sf::Event& ev) override;
     

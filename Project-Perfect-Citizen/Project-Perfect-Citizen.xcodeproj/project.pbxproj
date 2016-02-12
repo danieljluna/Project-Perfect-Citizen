@@ -10,6 +10,7 @@
 		C812D6151C61D29600901173 /* Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = C812D6141C61D29600901173 /* Wallpaper.png */; };
 		C83753661C6D5885002DF7E1 /* textInputKeys.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C83753641C6D5885002DF7E1 /* textInputKeys.cpp */; };
 		C83753681C6D58F2002DF7E1 /* WindowInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C83753671C6D58F2002DF7E1 /* WindowInterface.cpp */; };
+		C837536B1C6D5D07002DF7E1 /* textInputRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C83753691C6D5D07002DF7E1 /* textInputRenderComponent.cpp */; };
 		C849139F1C6AA64300F84CB0 /* BaseFileType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C849135F1C6AA64300F84CB0 /* BaseFileType.cpp */; };
 		C84913A11C6AA64300F84CB0 /* ClassDiagram.cd in Resources */ = {isa = PBXBuildFile; fileRef = C84913631C6AA64300F84CB0 /* ClassDiagram.cd */; };
 		C84913A21C6AA64300F84CB0 /* component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C84913641C6AA64300F84CB0 /* component.cpp */; };
@@ -60,6 +61,9 @@
 		C83753641C6D5885002DF7E1 /* textInputKeys.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textInputKeys.cpp; sourceTree = "<group>"; };
 		C83753651C6D5885002DF7E1 /* textInputKeys.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textInputKeys.hpp; sourceTree = "<group>"; };
 		C83753671C6D58F2002DF7E1 /* WindowInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowInterface.cpp; sourceTree = "<group>"; };
+		C83753691C6D5D07002DF7E1 /* textInputRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textInputRenderComponent.cpp; sourceTree = "<group>"; };
+		C837536A1C6D5D07002DF7E1 /* textInputRenderComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textInputRenderComponent.hpp; sourceTree = "<group>"; };
+		C837536C1C6D5DC2002DF7E1 /* Consolas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Consolas.ttf; sourceTree = "<group>"; };
 		C849135F1C6AA64300F84CB0 /* BaseFileType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseFileType.cpp; sourceTree = "<group>"; };
 		C84913601C6AA64300F84CB0 /* BaseFileType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseFileType.h; sourceTree = "<group>"; };
 		C84913631C6AA64300F84CB0 /* ClassDiagram.cd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ClassDiagram.cd; sourceTree = "<group>"; };
@@ -189,6 +193,10 @@
 				C84913C41C6AA6CA00F84CB0 /* animatorComponent.hpp */,
 				C84913BD1C6AA66B00F84CB0 /* buttonRenderComponent.cpp */,
 				C84913BE1C6AA66B00F84CB0 /* buttonRenderComponent.h */,
+				C83753641C6D5885002DF7E1 /* textInputKeys.cpp */,
+				C83753651C6D5885002DF7E1 /* textInputKeys.hpp */,
+				C83753691C6D5D07002DF7E1 /* textInputRenderComponent.cpp */,
+				C837536A1C6D5D07002DF7E1 /* textInputRenderComponent.hpp */,
 				C849135F1C6AA64300F84CB0 /* BaseFileType.cpp */,
 				C84913601C6AA64300F84CB0 /* BaseFileType.h */,
 				C84913631C6AA64300F84CB0 /* ClassDiagram.cd */,
@@ -219,8 +227,6 @@
 				C849137A1C6AA64300F84CB0 /* InputHandler.h */,
 				C849137B1C6AA64300F84CB0 /* mousePressButton.cpp */,
 				C849137C1C6AA64300F84CB0 /* mousePressButton.h */,
-				C83753641C6D5885002DF7E1 /* textInputKeys.cpp */,
-				C83753651C6D5885002DF7E1 /* textInputKeys.hpp */,
 				C849137D1C6AA64300F84CB0 /* NodeState.cpp */,
 				C849137E1C6AA64300F84CB0 /* NodeState.h */,
 				C849137F1C6AA64300F84CB0 /* ObjectPool.h */,
@@ -264,6 +270,7 @@
 		C86E37A51C4D6B5100842EFD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C837536C1C6D5DC2002DF7E1 /* Consolas.ttf */,
 				C84913C61C6AA82E00F84CB0 /* Icon_Sheet.png */,
 				C812D6141C61D29600901173 /* Wallpaper.png */,
 				C858D3951C61C1BB0086199C /* Windows_UI.png */,
@@ -419,6 +426,7 @@
 				C84913A31C6AA64300F84CB0 /* ComponentObsvr.cpp in Sources */,
 				C84913AE1C6AA64300F84CB0 /* NodeState.cpp in Sources */,
 				C84913A51C6AA64300F84CB0 /* desktop.cpp in Sources */,
+				C837536B1C6D5D07002DF7E1 /* textInputRenderComponent.cpp in Sources */,
 				C84913B41C6AA64300F84CB0 /* testRenderSprite.cpp in Sources */,
 				C84913AD1C6AA64300F84CB0 /* mousePressButton.cpp in Sources */,
 				C84913B51C6AA64300F84CB0 /* testRotateSprite.cpp in Sources */,
