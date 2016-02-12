@@ -1,16 +1,20 @@
 #include "TreeCommands.h"
 
 fnMap functionMap{
-	{ "cd"    , fn_cd },
-	{ "ls"    , fn_ls },
-	{ "make"  , fn_mkfile },
-	{ "mkdir" , fn_mkDir }
+	{ "cd"		,	fn_cd },
+	{ "ls"		,	fn_ls },
+	{ "make"	,	fn_mkfile },
+	{ "mkdir"	,	fn_mkDir },
+	{ "decrypt"	,	fn_decrypt},
+	{ "encrypt"	,	fn_decrypt},
+	{ "pwd"		,	fn_pwd}
 };
 
 commandFn findFunction(const std::string& command) {
 	auto result = functionMap.find(command);
 	if (result == functionMap.end()) {
 		cout << "function not found" << endl;
+		throw std::exception("TreeCommands::findFunction() :function not found");
 	}
 	return result->second;
 }
@@ -57,7 +61,6 @@ void fn_ls(ppc::NodeState& state, const vector<string> words)
 		}
 	}
 	state.printWorking();
-	//state.printWorking();
 	tempCwd->printDir();
 }
 
@@ -115,8 +118,43 @@ void fn_mkDir(ppc::NodeState& state, const vector<string> words)
 
 	for (auto itor = vecPath.begin(); itor != vecPath.end(); itor++) {
 		tempCWD =  tempCWD->makeDir(*itor);
+		if (tempCWD == nullptr) {
+			return;
+		}
 	}
 }
+
+void fn_decrypt(ppc::NodeState & state, const vector<std::string> words)
+{
+	if (words.size() == 1) {
+		return;
+	}
+	ppc::BaseFileType* tempCWD;
+	if (words.at(1).substr(0, 1) == "/") {
+		tempCWD = state.getRoot();
+	}
+	else {
+		tempCWD = state.getCwd();
+	}
+	string filepath = words.at(1);
+	std::vector<std::string> pathVec = split(filepath, "/");
+	int i = 0;
+	for (auto iter = pathVec.begin(); iter != pathVec.end(); iter++) {
+		tempCWD = tempCWD->findElement(pathVec.at(i));
+	}
+	if (words.at(0) == "decrypt") {
+		tempCWD->setEncryption(false);
+	}
+	else {
+		tempCWD->setEncryption(true);
+	}
+	
+}
+
+void fn_pwd(ppc::NodeState& state, const vector<string> words) {
+    state.printWorking();
+}
+
 
 std::vector<string> split(std::string line, std::string delimiter)
 {

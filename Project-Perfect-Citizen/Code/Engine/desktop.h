@@ -9,11 +9,12 @@
 #include <SFML/Graphics.hpp>
 
 #include "Window.h"
+#include "NodeState.h"
+#include "BaseFileType.h"
 
 //temporary typedefs for classes/types not defined yet
 typedef int OSStyle;
-typedef char FileTree;
-typedef float FileState;
+
 
 namespace ppc {
 ///////////////////////////////////////////////////////////////////////
@@ -41,15 +42,17 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 ///@brief The FileTree structure of this Desktop
 ///////////////////////////////////////////////////////////////////////
-		FileTree* fileTree_;
+		NodeState* nodeState_;
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief The container of all WindowInterfaces/Windows
 ///////////////////////////////////////////////////////////////////////
 		std::vector<WindowInterface*> windows_;
 
-		//ask what this is and about its def in the uml
-		//map<string, (WindowInterface*)(Node*)> extensionMap_;
+
+		//maps strings to function pointers of functions that take in 
+		// Node* and return WindowInterface*
+		//map<string, (WindowInterface*) (Node*)> extensionMap_;
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -89,7 +92,7 @@ namespace ppc {
 ///
 ///@todo Add param for OSStyle?.
 ///////////////////////////////////////////////////////////////////////
-		Desktop(FileTree& ft);
+		Desktop(NodeState& n);
 
 		
 ///////////////////////////////////////////////////////////////////////
@@ -127,9 +130,9 @@ namespace ppc {
 		virtual void setStyle(OSStyle*);
 
 ///////////////////////////////////////////////////////////////////////
-///@brief Returns the root of the FileTree in the Desktop.
+///@brief Returns the root of the NodeState in the Desktop.
 ///////////////////////////////////////////////////////////////////////
-		virtual FileState& getRoot();
+		virtual NodeState& getNodeState();
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Reacts to Input for all Windows, and all objects

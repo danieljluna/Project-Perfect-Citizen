@@ -104,8 +104,8 @@ namespace ppc {
 		///@brief Returns the enum type of the node.
 		///////////////////////////////////////////////
 		virtual ppc::FileType getFileType();
-		virtual void toggleVisibility();
-		virtual void toggleEncryption();
+		virtual void setVisibility(bool flag);
+		virtual void setEncryption(bool flag);
 
 	};
 };
