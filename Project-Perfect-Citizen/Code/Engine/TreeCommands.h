@@ -18,6 +18,8 @@ commandFn findFunction(const std::string& command);
 ///@param inode state for the tree in question
 ///@param words are the commands being passed
 ///from the console
+///@throw Throws an std::exception error if a function 
+///isnt found
 ///////////////////////////////////////////////
 void fn_mkfile(ppc::NodeState& state, const vector<string> words);
 ///////////////////////////////////////////////
@@ -46,6 +48,13 @@ void fn_cd(ppc::NodeState& state, const vector<string> words);
 ///from the console
 ///////////////////////////////////////////////
 void fn_mkDir(ppc::NodeState& state, const vector<string> words);
+///////////////////////////////////////////////
+///@brief
+///@param inode state for the tree in question
+///@param words are the commands being passed
+///from the console
+///////////////////////////////////////////////
+void fn_pwd(ppc::NodeState& state, const vector<string> words);
 ///////////////////////////////////////////////
 ///@brief Helper function that splits a string
 ///by a delimiter. Returns a string vector

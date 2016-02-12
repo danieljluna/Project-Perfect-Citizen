@@ -17,6 +17,8 @@
     <ClCompile Include="Code\Engine\component.cpp" />
     <ClCompile Include="Code\Engine\ComponentObsvr.cpp" />
     <ClCompile Include="Code\Engine\consoleIconRenderComponent.cpp" />
+    <ClCompile Include="Code\Engine\consoleUpdateComponent.cpp" />
+    <ClCompile Include="Code\Engine\createWindow.cpp" />
     <ClCompile Include="Code\Engine\debug.cpp" />
     <ClCompile Include="Code\Engine\desktop.cpp" />
     <ClCompile Include="Code\Engine\DesktopLogger.cpp" />
@@ -35,6 +37,8 @@
     <ClCompile Include="Code\Engine\TestObserver.cpp" />
     <ClCompile Include="Code\Engine\testRenderSprite.cpp" />
     <ClCompile Include="Code\Engine\testRotateSprite.cpp" />
+    <ClCompile Include="Code\Engine\textInputKeys.cpp" />
+    <ClCompile Include="Code\Engine\textInputRenderComponent.cpp" />
     <ClCompile Include="Code\Engine\UpdateCmpntDecorator.cpp" />
     <ClCompile Include="Code\Engine\UpdateCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\TreeCommands.cpp" />
@@ -58,6 +62,8 @@
     <ClInclude Include="Code\Engine\ComponentObsvr.h" />
     <ClInclude Include="Code\Engine\component.h" />
     <ClInclude Include="Code\Engine\consoleIconRenderComponent.h" />
+    <ClInclude Include="Code\Engine\consoleUpdateComponent.h" />
+    <ClInclude Include="Code\Engine\createWindow.h" />
     <ClInclude Include="Code\Engine\debug.h" />
     <ClInclude Include="Code\Engine\desktop.h" />
     <ClInclude Include="Code\Engine\DesktopLogger.h" />
@@ -79,6 +85,8 @@
     <ClInclude Include="Code\Engine\TestObserver.h" />
     <ClInclude Include="Code\Engine\testRenderSprite.h" />
     <ClInclude Include="Code\Engine\testRotateSprite.h" />
+    <ClInclude Include="Code\Engine\textInputKeys.hpp" />
+    <ClInclude Include="Code\Engine\textInputRenderComponent.hpp" />
     <ClInclude Include="Code\Engine\UpdateCmpntDecorator.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntLogger.h" />
     <ClInclude Include="Code\Engine\TreeCommands.h" />
@@ -97,6 +105,9 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Project-Perfect-Citizen.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Resources\Consolas.ttf" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{76E6A61E-6FF8-4ABA-82B6-674967E67119}</ProjectGuid>
