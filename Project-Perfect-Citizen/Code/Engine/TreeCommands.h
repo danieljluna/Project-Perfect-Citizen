@@ -55,6 +55,9 @@ void fn_mkDir(ppc::NodeState& state, const vector<string> words);
 ///@param delimiter That the string is split up
 ///by
 ///////////////////////////////////////////////
+
+void fn_decrypt(ppc::NodeState& state, const vector<std::string>words);
+
 std::vector<string> split(std::string line, std::string delimiter);
 ///////////////////////////////////////////////
 ///@brief helper function that prints a 

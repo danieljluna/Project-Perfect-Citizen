@@ -48,7 +48,7 @@ int main(int argc, char** argv) {
 
 	///////////////////////////TREE EXAMPLE//////////////////////
 	std::cout << "START OF TREE EXAMPLE" << std::endl << std::endl;
-	ppc::NodeState* testState = new NodeState();;
+	ppc::NodeState* testState = new NodeState();
 	testState->setUp(); /////SUPER IMPORTANT
 	
 	//////////////////////////MAKE/////////////////////////////////////
@@ -85,7 +85,14 @@ int main(int argc, char** argv) {
 	lsFunction(*testState, testLsVector);
 	//////////////////////////LS///////////////////////////////////////
 	std::cout << "END OF TREE EXAMPLE" << endl << endl;
-	/////////////////////////END TREE EXAMPLE////////////////////
+	//////////////////////////DECRYPT///////////////////////////////////////
+	std::vector<std::string> testDecryptVector;
+	testDecryptVector.push_back("decrypt");
+	testDecryptVector.push_back("/testPlainFile");
+	commandFn decryptFunction = findFunction(testDecryptVector.at(0));
+	decryptFunction(*testState, testDecryptVector);
+	//////////////////////////ENCRYPT///////////////////////////////////////
+	/////////////////////////END TREE EXAMPLE//////////////////////////
 
     //Define a Sprite
     sf::Sprite S;
