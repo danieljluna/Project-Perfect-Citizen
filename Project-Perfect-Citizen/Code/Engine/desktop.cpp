@@ -7,9 +7,10 @@ ppc::Desktop::Desktop(size_t w, size_t h, NodeState& n) {
 	style_ = nullptr;
 	nodeState_ = &n;
 
-	desktopWindow_ = new Window(w, h);
+	windows_.push_back(new Window(w, h));
+	desktopWindow_ = windows_.front();
 	focused_ = desktopWindow_;
-	windows_.push_back(desktopWindow_);
+	
 }
 
 ppc::Desktop::Desktop(const Desktop& other) {
@@ -21,7 +22,8 @@ ppc::Desktop::Desktop(const Desktop& other) {
 ppc::Desktop::~Desktop() {
 	if (style_ != nullptr) delete style_;
 	if (nodeState_ != nullptr) delete nodeState_;
-
+	focused_ = nullptr;
+	desktopWindow_ = nullptr;
 	windows_.clear();
 
 }
