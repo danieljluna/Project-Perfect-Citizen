@@ -28,6 +28,7 @@
 #include "Engine/TreeCommands.h"
 #include "Engine/NodeState.h"
 #include "Engine/animatorComponent.hpp"
+#include "Engine/textInputKeys.hpp"
 
 using namespace ppc;
 
@@ -143,12 +144,14 @@ int main(int argc, char** argv) {
     folderIconRender->renderPosition(sf::Vector2f(0, 220));
     animatorComponent* animator = new animatorComponent(*folderIconRender, 0.05f);
     mousePressButton* mpb4 = new mousePressButton(inputHandle, *folderIconRender->getSprite());
+    textInputKeys* tik = new textInputKeys(inputHandle, *folderIconRender->getSprite());
 
     
     Entity* folderIcon = new Entity();
     folderIcon->addComponent(folderIconRender);
     folderIcon->addComponent(animator);
     folderIcon->addComponent(mpb4);
+    folderIcon->addComponent(tik);
 
 
     //Create ppc::Window
