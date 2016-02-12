@@ -3,20 +3,20 @@
 
 #include "desktop.h"
 
-ppc::Desktop::Desktop(FileTree& ft) {
+ppc::Desktop::Desktop(NodeState& n) {
 	style_ = nullptr;
-	fileTree_ = &ft;
+	nodeState_ = &n;
 }
 
 ppc::Desktop::Desktop(const Desktop& other) {
 	this->style_ = other.style_;
-	this->fileTree_ = other.fileTree_;
+	this->nodeState_ = other.nodeState_;
 	this->windows_ = other.windows_;
 }
 
 ppc::Desktop::~Desktop() {
 	if (style_ != nullptr) delete style_;
-	//if (fileTree_ != nullptr) delete fileTree_;
+	if (nodeState_ != nullptr) delete nodeState_;
 
 	windows_.clear();
 
@@ -71,13 +71,9 @@ void ppc::Desktop::setStyle(OSStyle* oss) {
 	style_ = oss;
 }
 
-FileState& ppc::Desktop::getRoot() {
-	//it is bad to return a reference to a 
-	// variable about to go out of scope,
-	//but this is only temporary until
-	// FileTree and FileState are completed
-	float temp = 0.0f;
-	return temp;
+ppc::NodeState& ppc::Desktop::getNodeState() {
+
+	return *nodeState_;
 }
 
 void ppc::Desktop::registerInput(sf::Event& ev){
@@ -93,7 +89,7 @@ void ppc::Desktop::update(sf::Time& deltaTime){
 		(*it)->update(deltaTime);
 	}
 }
-//ask why we need draw if refresh already calls draw when it is called
+
 void ppc::Desktop::refresh(sf::RenderStates states) {
 	//Reverse itors needed
 	for (auto it = windows_.rbegin(); it != windows_.rend(); ++it) {

@@ -48,8 +48,8 @@ int main(int argc, char** argv) {
 
 	///////////////////////////TREE EXAMPLE//////////////////////
 	std::cout << "START OF TREE EXAMPLE" << std::endl << std::endl;
-	ppc::NodeState testState;
-	testState.setUp(); /////SUPER IMPORTANT
+	ppc::NodeState* testState = new NodeState();;
+	testState->setUp(); /////SUPER IMPORTANT
 	
 	//////////////////////////MAKE/////////////////////////////////////
 	std::vector<std::string> testMakeVector;
@@ -58,7 +58,7 @@ int main(int argc, char** argv) {
 	testMakeVector.push_back("This is what the plain File contains");
 	
 	commandFn makeFunction = findFunction(testMakeVector.at(0));
-	makeFunction(testState, testMakeVector);
+	makeFunction(*testState, testMakeVector);
 	//////////////////////////MAKE/////////////////////////////////////
 	//////////////////////////MKDIR////////////////////////////////////
 	std::vector<std::string> testMkDirVector;
@@ -66,7 +66,7 @@ int main(int argc, char** argv) {
 	testMkDirVector.push_back("/testDirectory");
 
 	commandFn mkDirFunction = findFunction(testMkDirVector.at(0));
-	mkDirFunction(testState, testMkDirVector);
+	mkDirFunction(*testState, testMkDirVector);
 	//////////////////////////MKDIR////////////////////////////////////
 	//////////////////////////CD///////////////////////////////////////
 	std::vector<std::string> testCdVector;
@@ -74,15 +74,15 @@ int main(int argc, char** argv) {
 	testCdVector.push_back("testDirectory");
 
 	commandFn cdFunction = findFunction(testCdVector.at(0));
-	cdFunction(testState, testCdVector);
+	cdFunction(*testState, testCdVector);
 	//////////////////////////CD///////////////////////////////////////
 	//////////////////////////LS///////////////////////////////////////
 	std::vector<std::string> testLsVector;
 	testLsVector.push_back("ls");
-	testState.printWorking();
+	testState->printWorking();
 
 	commandFn lsFunction = findFunction(testLsVector.at(0));
-	lsFunction(testState, testLsVector);
+	lsFunction(*testState, testLsVector);
 	//////////////////////////LS///////////////////////////////////////
 	std::cout << "END OF TREE EXAMPLE" << endl << endl;
 	/////////////////////////END TREE EXAMPLE////////////////////
@@ -175,9 +175,8 @@ int main(int argc, char** argv) {
 	//testWindowLogger.addEntity(testEntity);
 
 	//Create ppc::Desktop
-	char dummyTree = 't'; //using a dummy variable for Ctor until
-	//the actual FileTree is completed
-	Desktop myDesktop(dummyTree);
+	
+	Desktop myDesktop(*testState);
 
 	//Add windows to Desktops
 	//myDesktop.addWindow(&testWindowLogger);
