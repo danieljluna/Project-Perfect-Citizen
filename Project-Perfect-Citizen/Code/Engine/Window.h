@@ -70,6 +70,10 @@ public:
     virtual ~Window();
 
 
+    // Space Getters
+
+    virtual sf::Vector2u getSize() override;
+    
     // Space Setters
 
     virtual void setSize(unsigned int width, unsigned int height) override;
