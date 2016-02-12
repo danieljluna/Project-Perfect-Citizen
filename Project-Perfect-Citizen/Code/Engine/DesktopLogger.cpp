@@ -35,7 +35,7 @@ void DesktopLogger::setStyle(OSStyle* oss) {
 	out_ << "DesktopLogger: Finished Setting Style" << std::endl;
 }
 
-FileState& DesktopLogger::getRoot() {
+const BaseFileType& DesktopLogger::getRoot() {
 	out_ << "DesktopLogger: Getting Root" << std::endl;
 
 	return loggedDesktop_->getRoot();
