@@ -169,7 +169,7 @@ int main(int argc, char** argv) {
 	//testWindowLogger.addEntity(testEntity);
 
 	//Create ppc::Desktop
-	Desktop myDesktop(*testState);
+	Desktop myDesktop(1800 ,1000,*testState);
 
 	//Add windows to Desktops
 	//myDesktop.addWindow(&testWindowLogger);

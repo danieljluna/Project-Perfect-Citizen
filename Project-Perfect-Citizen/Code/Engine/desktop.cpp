@@ -3,9 +3,13 @@
 
 #include "desktop.h"
 
-ppc::Desktop::Desktop(NodeState& n) {
+ppc::Desktop::Desktop(size_t w, size_t h, NodeState& n) {
 	style_ = nullptr;
 	nodeState_ = &n;
+
+	desktopWindow_ = new Window(w, h);
+	focused_ = desktopWindow_;
+	windows_.push_back(desktopWindow_);
 }
 
 ppc::Desktop::Desktop(const Desktop& other) {
@@ -24,7 +28,11 @@ ppc::Desktop::~Desktop() {
 
 
 void ppc::Desktop::focusWindow(WindowInterface* wi) {
+	//Keep desktopWindow_ in the back of the vector
+	if (wi == this->desktopWindow_ || wi == nullptr) return;
+	//while the itor is not desktopWindow_
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
+		//if we find the window to be focused
 		if (*it == wi) {
 			//keep swapping it w/ thing before until at front
 			auto it2 = it;
@@ -36,6 +44,7 @@ void ppc::Desktop::focusWindow(WindowInterface* wi) {
 				it2 = temp;
 				--temp;
 			}
+			this->focused_ = *it;
 			return;
 		}
 	}
@@ -51,17 +60,18 @@ void ppc::Desktop::draw(sf::RenderTarget& target,
 
 
 void ppc::Desktop::addWindow(WindowInterface* wi){
-	if (wi == nullptr) return;
+	if (wi == nullptr || wi == this->desktopWindow_) return;
 	//automatically put it at the front,
-	//so the new window is focused
-	windows_.insert(windows_.begin(), wi);
+	//and focused is set to what was added
+	focused_ = *(windows_.insert(windows_.begin(), wi));
 }
 
 void ppc::Desktop::destroyWindow(WindowInterface* wi) {
-	if (wi == nullptr) return;
+	if (wi == nullptr|| wi == desktopWindow_) return;
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 		if (*it == wi) {
 			windows_.erase(it);
+			focused_ = desktopWindow_;
 			return;
 		}
 	}
@@ -77,10 +87,16 @@ ppc::NodeState& ppc::Desktop::getNodeState() {
 }
 
 void ppc::Desktop::registerInput(sf::Event& ev){
-	//No reverse itors needed
-	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-		(*it)->registerInput(ev);
+	//first check if the mouse clicked in the focused window.
+	//if the window clicked in a window that wasnt focused,
+	//then focus that window.
+
+	if (ev.type == sf::Event::MouseButtonPressed) {
+		
 	}
+
+	focused_->registerInput(ev);
+
 }
 
 void ppc::Desktop::update(sf::Time& deltaTime){
