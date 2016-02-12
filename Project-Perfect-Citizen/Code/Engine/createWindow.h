@@ -15,5 +15,7 @@
 #include "textInputKeys.hpp"
 #include "InputHandler.h"
 #include "buttonRenderComponent.h"
+#include "consoleUpdateComponent.h"
+#include "NodeState.h"
 
-ppc::Window* spawnConsole(ppc::InputHandler& ih);
+ppc::Window* spawnConsole(ppc::InputHandler& ih, ppc::NodeState& ns);
