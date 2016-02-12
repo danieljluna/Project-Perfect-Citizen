@@ -35,10 +35,10 @@ void DesktopLogger::setStyle(OSStyle* oss) {
 	out_ << "DesktopLogger: Finished Setting Style" << std::endl;
 }
 
-NodeState& DesktopLogger::getNodeState() {
+FileState& DesktopLogger::getRoot() {
 	out_ << "DesktopLogger: Getting Root" << std::endl;
 
-	return loggedDesktop_->getNodeState();
+	return loggedDesktop_->getRoot();
 
 	out_ << "DesktopLogger: Got Root" << std::endl;
 }
