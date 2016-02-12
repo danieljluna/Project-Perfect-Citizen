@@ -71,9 +71,9 @@ void ppc::Desktop::setStyle(OSStyle* oss) {
 	style_ = oss;
 }
 
-const ppc::BaseFileType& ppc::Desktop::getRoot() {
+ppc::NodeState& ppc::Desktop::getNodeState() {
 
-	return *(nodeState_->getRoot());
+	return *nodeState_;
 }
 
 void ppc::Desktop::registerInput(sf::Event& ev){
