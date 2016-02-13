@@ -29,6 +29,7 @@ namespace ppc {
 		void addWindow(WindowInterface*);
 		void destroyWindow(WindowInterface*);
 		void setStyle(OSStyle*);
+		WindowInterface& getDesktopWindow();
 		NodeState& getNodeState();
 		void registerInput(sf::Event& ev);
 		void update(sf::Time&);
