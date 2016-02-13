@@ -86,8 +86,11 @@ void ppc::Desktop::setStyle(OSStyle* oss) {
 	style_ = oss;
 }
 
-ppc::NodeState& ppc::Desktop::getNodeState() {
+ppc::Window::WindowInterface& ppc::Desktop::getDesktopWindow() {
+	return *desktopWindow_;
+}
 
+ppc::NodeState& ppc::Desktop::getNodeState() {
 	return *nodeState_;
 }
 
