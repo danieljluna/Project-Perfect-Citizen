@@ -25,8 +25,7 @@ namespace ppc {
 /// addition, each Desktop has its own unique FileTree and
 /// OS style.
 ///@author Nader Sleem
-///@todo Hook up this class with FileTree and OSStyle when they are
-/// done
+///@todo Deal with minimization.
 ///////////////////////////////////////////////////////////////////////
 	class Desktop : public sf::Drawable {
 
@@ -155,6 +154,11 @@ namespace ppc {
 ///@param oss The style the Desktop is to be associated with.
 ///////////////////////////////////////////////////////////////////////
 		virtual void setStyle(OSStyle*);
+
+///////////////////////////////////////////////////////////////////////
+///@brief Return a reference to desktopWindow
+///////////////////////////////////////////////////////////////////////
+		virtual WindowInterface& getDesktopWindow();
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Returns the root of the NodeState in the Desktop.
