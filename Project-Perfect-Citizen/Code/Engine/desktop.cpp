@@ -31,11 +31,14 @@ ppc::Desktop::~Desktop() {
 
 void ppc::Desktop::focusWindow(WindowInterface* wi) {
 	//Keep desktopWindow_ in the back of the vector
-	if (wi == this->desktopWindow_ || wi == nullptr) return;
+	if (wi == this->desktopWindow_ || wi == nullptr) {
+		this->focused_ = this->desktopWindow_;
+		return;
+	}
 	//while the itor is not desktopWindow_
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 		//if we find the window to be focused
-		if (*it == wi) {
+		if (*it == wi && it != windows_.begin()) {
 			//keep swapping it w/ thing before until at front
 			auto it2 = it;
 			auto temp = it - 1;
@@ -73,7 +76,7 @@ void ppc::Desktop::destroyWindow(WindowInterface* wi) {
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 		if (*it == wi) {
 			windows_.erase(it);
-			focused_ = desktopWindow_;
+			focusWindow(desktopWindow_);
 			return;
 		}
 	}
@@ -92,9 +95,15 @@ void ppc::Desktop::registerInput(sf::Event& ev){
 	//first check if the mouse clicked in the focused window.
 	//if the window clicked in a window that wasnt focused,
 	//then focus that window.
-
+	
 	if (ev.type == sf::Event::MouseButtonPressed) {
-		
+		sf::Vector2f pos(ev.mouseButton.x, ev.mouseButton.y);
+		for (auto it = windows_.begin(); it != windows_.end(); ++it) {
+			if (isMouseCollision(*it, pos)) {
+				focusWindow(*it);
+				break;
+			}
+		}
 	}
 
 	focused_->registerInput(ev);
@@ -113,4 +122,20 @@ void ppc::Desktop::refresh(sf::RenderStates states) {
 	for (auto it = windows_.rbegin(); it != windows_.rend(); ++it) {
 		(*it)->refresh(states);
 	}
+}
+
+bool ppc::Desktop::isMouseCollision(WindowInterface* wi,
+	sf::Vector2f pos) {
+	
+	bool result = false;
+	sf::Vector2f windowPos = wi->getPosition();
+	sf::Vector2u windowDim = wi->getSize();
+	
+	if (pos.x >= windowPos.x && pos.x <= windowPos.x + windowDim.x) {
+		if (pos.y >= windowPos.y && pos.y <= windowPos.y + windowDim.y) {
+			result = true;
+		}
+	}
+
+	return result;
 }
