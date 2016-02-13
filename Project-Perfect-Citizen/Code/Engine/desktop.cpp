@@ -3,9 +3,14 @@
 
 #include "desktop.h"
 
-ppc::Desktop::Desktop(NodeState& n) {
+ppc::Desktop::Desktop(size_t w, size_t h, NodeState& n) {
 	style_ = nullptr;
 	nodeState_ = &n;
+
+	windows_.push_back(new Window(w, h));
+	desktopWindow_ = windows_.front();
+	focused_ = desktopWindow_;
+	
 }
 
 ppc::Desktop::Desktop(const Desktop& other) {
@@ -17,15 +22,23 @@ ppc::Desktop::Desktop(const Desktop& other) {
 ppc::Desktop::~Desktop() {
 	if (style_ != nullptr) delete style_;
 	if (nodeState_ != nullptr) delete nodeState_;
-
+	focused_ = nullptr;
+	desktopWindow_ = nullptr;
 	windows_.clear();
 
 }
 
 
 void ppc::Desktop::focusWindow(WindowInterface* wi) {
+	//Keep desktopWindow_ in the back of the vector
+	if (wi == this->desktopWindow_ || wi == nullptr) {
+		this->focused_ = this->desktopWindow_;
+		return;
+	}
+	//while the itor is not desktopWindow_
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-		if (*it == wi) {
+		//if we find the window to be focused
+		if (*it == wi && it != windows_.begin()) {
 			//keep swapping it w/ thing before until at front
 			auto it2 = it;
 			auto temp = it - 1;
@@ -36,6 +49,7 @@ void ppc::Desktop::focusWindow(WindowInterface* wi) {
 				it2 = temp;
 				--temp;
 			}
+			this->focused_ = *it;
 			return;
 		}
 	}
@@ -51,17 +65,18 @@ void ppc::Desktop::draw(sf::RenderTarget& target,
 
 
 void ppc::Desktop::addWindow(WindowInterface* wi){
-	if (wi == nullptr) return;
+	if (wi == nullptr || wi == this->desktopWindow_) return;
 	//automatically put it at the front,
-	//so the new window is focused
-	windows_.insert(windows_.begin(), wi);
+	//and focused is set to what was added
+	focused_ = *(windows_.insert(windows_.begin(), wi));
 }
 
 void ppc::Desktop::destroyWindow(WindowInterface* wi) {
-	if (wi == nullptr) return;
+	if (wi == nullptr|| wi == desktopWindow_) return;
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 		if (*it == wi) {
 			windows_.erase(it);
+			focusWindow(desktopWindow_);
 			return;
 		}
 	}
@@ -77,10 +92,22 @@ ppc::NodeState& ppc::Desktop::getNodeState() {
 }
 
 void ppc::Desktop::registerInput(sf::Event& ev){
-	//No reverse itors needed
-	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-		(*it)->registerInput(ev);
+	//first check if the mouse clicked in the focused window.
+	//if the window clicked in a window that wasnt focused,
+	//then focus that window.
+	
+	if (ev.type == sf::Event::MouseButtonPressed) {
+		sf::Vector2f pos(ev.mouseButton.x, ev.mouseButton.y);
+		for (auto it = windows_.begin(); it != windows_.end(); ++it) {
+			if (isMouseCollision(*it, pos)) {
+				focusWindow(*it);
+				break;
+			}
+		}
 	}
+
+	focused_->registerInput(ev);
+
 }
 
 void ppc::Desktop::update(sf::Time& deltaTime){
@@ -95,4 +122,20 @@ void ppc::Desktop::refresh(sf::RenderStates states) {
 	for (auto it = windows_.rbegin(); it != windows_.rend(); ++it) {
 		(*it)->refresh(states);
 	}
+}
+
+bool ppc::Desktop::isMouseCollision(WindowInterface* wi,
+	sf::Vector2f pos) {
+	
+	bool result = false;
+	sf::Vector2f windowPos = wi->getPosition();
+	sf::Vector2u windowDim = wi->getSize();
+	
+	if (pos.x >= windowPos.x && pos.x <= windowPos.x + windowDim.x) {
+		if (pos.y >= windowPos.y && pos.y <= windowPos.y + windowDim.y) {
+			result = true;
+		}
+	}
+
+	return result;
 }

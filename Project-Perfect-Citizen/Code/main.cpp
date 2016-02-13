@@ -57,6 +57,7 @@ int main(int argc, char** argv) {
 	////////////////////////////////////////////////////////////
 	
     ////////////////// BACKGROUND IMAGE ////////////////////
+
     sf::Sprite S;
     sf::Texture T;
     if (!(T.loadFromFile(resourcePath() + "Wallpaper.png"))) {
@@ -98,9 +99,8 @@ int main(int argc, char** argv) {
 	testWindow->addEntity(*consoleIconFromWindow);
 	//////////////////////////////////////////////////////
   
-
 	/////////////////////// DESKTOP /////////////////////
-	Desktop myDesktop(*testState);
+	Desktop myDesktop(1800 ,1000,*testState);
 	myDesktop.addWindow(testWindow);
 	myDesktop.addWindow(consoleWindow);
 	////////////////////////////////////////////////////

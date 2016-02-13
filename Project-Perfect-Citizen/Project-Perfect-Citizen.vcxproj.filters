@@ -240,6 +240,9 @@
     <ClInclude Include="Code\Engine\consoleIconRenderComponent.h">
       <Filter>Headers\Examples</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\WindowBorder.h">
+      <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
+    </ClInclude>
     <ClInclude Include="Code\Engine\textInputKeys.hpp">
       <Filter>Headers\Engine\Input</Filter>
     </ClInclude>
