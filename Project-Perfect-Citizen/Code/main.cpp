@@ -79,17 +79,14 @@ int main(int argc, char** argv) {
 
 	////////////////////// WINDOW 1 ///////////////////////////
 	Entity* closeButton = new Entity();
-	Entity* nextButton = new Entity();
-	//Entity* folderIcon = new Entity();
+	Entity* templateIcon = new Entity();
 
 	spawnCloseButton(*closeButton, *inputHandle, spriteSheet, 0.0f, 50.0f, 0.4f);
-	spawnMaximizeButton(*nextButton, *inputHandle, spriteSheet, 0.0f, 100.0f, 0.4f);
-	//spawnFolderIcon(*folderIcon, *inputHandle, iconSheet, 0.0f, 150.0f, 0.4f);
+	spawnFolderIcon(*templateIcon, *inputHandle, iconSheet, 0.0f, 100.0f, 0.4f, 0.25f);
 
 	Window* testWindow = new Window(600, 300, sf::Color(200, 200, 200));
     testWindow->addEntity(*closeButton);
-	testWindow->addEntity(*nextButton);
-	//testWindow->addEntity(*folderIcon);
+	testWindow->addEntity(*templateIcon);
 	///////////////////////////////////////////////////////
 
 
