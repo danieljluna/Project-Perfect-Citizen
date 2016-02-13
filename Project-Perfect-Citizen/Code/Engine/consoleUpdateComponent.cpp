@@ -5,11 +5,7 @@
 const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
 
 consoleUpdateComponent::consoleUpdateComponent(ppc::NodeState& ns) : fileTree(ns) {
-<<<<<<< HEAD
 	canParse = false;
-=======
-    canParse = false;
->>>>>>> e842e0d18c7fd130957ce23aaee572cd99504707
 }
 
 consoleUpdateComponent::~consoleUpdateComponent() {

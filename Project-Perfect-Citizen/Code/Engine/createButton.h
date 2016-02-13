@@ -14,9 +14,11 @@
 #include "textInputRenderComponent.hpp"
 #include "textInputKeys.hpp"
 #include "InputHandler.h"
+#include "animatorComponent.hpp"
+#include "mousePressButton.h"
+#include "consoleIconRenderComponent.h"
 #include "buttonRenderComponent.h"
 #include "consoleUpdateComponent.h"
 #include "NodeState.h"
 
-
-ppc::Window* spawnConsole(ppc::InputHandler& ih, ppc::NodeState& ns);
+void spawnCloseButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet);

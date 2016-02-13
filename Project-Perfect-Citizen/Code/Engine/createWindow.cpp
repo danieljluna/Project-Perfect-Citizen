@@ -43,7 +43,7 @@ ppc::Window* spawnConsole(InputHandler& ih, NodeState& ns) {
 
 	/////// WINDOW  /////////
 		Window* consoleWindow = new Window(600, 300, sf::Color(51, 50, 161));
-		consoleWindow->setPosition(300, 400);
+		consoleWindow->setPosition(0, 300);
 		consoleWindow->addEntity(*textBox);
 		return consoleWindow;
 	////////////////////////

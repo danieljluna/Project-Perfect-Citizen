@@ -14,9 +14,15 @@
 #include "textInputRenderComponent.hpp"
 #include "textInputKeys.hpp"
 #include "InputHandler.h"
+#include "animatorComponent.hpp"
+#include "mousePressButton.h"
+#include "consoleIconRenderComponent.h"
 #include "buttonRenderComponent.h"
 #include "consoleUpdateComponent.h"
 #include "NodeState.h"
 
+void spawnConsoleIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet);
 
-ppc::Window* spawnConsole(ppc::InputHandler& ih, ppc::NodeState& ns);
+void spawnSettingsIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet);
+
+void spawnFolderIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet);

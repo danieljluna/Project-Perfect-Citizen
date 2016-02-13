@@ -91,8 +91,6 @@ void buttonRenderComponent::recieveMessage(msgType code) {
             setSprite(xIndex+width, yIndex, width);
         if(code.compare(MOUSE_RELEASED_CODE) == 0)
             setSprite(xIndex, yIndex, width);
-        else if(code.compare(MOUSE_DOUBLE_CLICK_CODE) == 0)
-            setSprite(6, 5, 1);
     } else {
        if(code.compare(MOUSE_DOUBLE_CLICK_CODE) == 0)
            _willAnimate = true;
