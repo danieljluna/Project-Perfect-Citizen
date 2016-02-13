@@ -43,7 +43,7 @@ int main(int argc, char** argv) {
 	DEBUGF("ac", argc);
 
     // Create the main sf::window
-    sf::RenderWindow screen(sf::VideoMode(1800, 1000), "SFML window");
+    sf::RenderWindow screen(sf::VideoMode(800, 600), "SFML window");
 
 	//Create the InputHandler
 	ppc::InputHandler* inputHandle = new InputHandler();
