@@ -43,9 +43,6 @@ WindowInterface* ppc::spawnConsole(InputHandler & ih, NodeState & ns) {
 		myFont.loadFromFile(resourcePath() + "Consolas.ttf");
 		textInputRenderComponent* textInputBox = new textInputRenderComponent(myFont);
 		textInputKeys* tik = new textInputKeys(ih, *textRenderComponent->getSprite(), *textInputBox, *cup);
-
-
-
 	///////////////////////////////////////
 
 
@@ -58,7 +55,6 @@ WindowInterface* ppc::spawnConsole(InputHandler & ih, NodeState & ns) {
 
 
 	/////// WINDOW  /////////
-        
 		WindowInterface* consoleWindow = new Window(600, 300, sf::Color(51, 50, 161));
 		consoleWindow->setPosition(300, 400);
 		consoleWindow->addEntity(*textBox);
