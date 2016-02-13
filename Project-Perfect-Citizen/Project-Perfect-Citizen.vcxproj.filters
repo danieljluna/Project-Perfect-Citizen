@@ -118,6 +118,7 @@
     <ClCompile Include="Code\Engine\BorderDecorator.cpp">
       <Filter>Sources\Engine\Windows / Desktop\Decorators</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\iconInputComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -258,6 +259,7 @@
     <ClInclude Include="Code\Engine\BorderDecorator.h">
       <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\iconInputComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\buttonRenderComponent.h" />

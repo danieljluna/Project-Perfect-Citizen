@@ -77,30 +77,25 @@ int main(int argc, char** argv) {
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
 	//////////////////////////////////////////////////////
 
+	///// DESKTOP /////
+	Desktop myDesktop(1800, 1000, *testState);
+	////////////////////
+
 	////////////////////// WINDOW 1 ///////////////////////////
 	Entity* closeButton = new Entity();
 	Entity* templateIcon = new Entity();
 
 	spawnCloseButton(*closeButton, *inputHandle, spriteSheet, 0.0f, 50.0f, 0.4f);
-	spawnFolderIcon(*templateIcon, *inputHandle, iconSheet, 0.0f, 100.0f, 0.4f, 0.25f);
+	spawnConsoleIcon(*templateIcon, myDesktop, *inputHandle, iconSheet, 0.0f, 150.0f, 0.4f, 0.25f);
 
 	Window* testWindow = new Window(600, 300, sf::Color(200, 200, 200));
     testWindow->addEntity(*closeButton);
 	testWindow->addEntity(*templateIcon);
 	///////////////////////////////////////////////////////
 
-
-	//////////////////// CONSOLE WINDOW /////////////////////
-	WindowInterface* consoleWindow = spawnConsole(*inputHandle, *testState);
-	//////////////////////////////////////////////////////
-
- 
-	/////////////////////// DESKTOP /////////////////////
-	Desktop myDesktop(1800 ,1000,*testState);
+	////////////////// DESKTOP ADD WINDOWS /////////////////////
 	myDesktop.addWindow(testWindow);
-	myDesktop.addWindow(consoleWindow);
 	////////////////////////////////////////////////////
-
 
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop

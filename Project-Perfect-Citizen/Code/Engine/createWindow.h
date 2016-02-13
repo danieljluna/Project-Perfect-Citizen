@@ -7,7 +7,7 @@
 
 namespace ppc {
 
-WindowInterface* spawnConsole(InputHandler& ih, NodeState& ns);
+WindowInterface* spawnConsole(InputHandler& ih, NodeState& ns, int x, int y, int w, int h);
 
 };
 

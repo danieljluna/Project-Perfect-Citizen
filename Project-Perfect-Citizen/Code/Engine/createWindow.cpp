@@ -21,11 +21,12 @@
 #include "subject.h"
 #include "textInputRenderComponent.hpp"
 #include "textInputKeys.hpp"
+#include "BorderDecorator.h"
 
 
 using namespace ppc;
 
-WindowInterface* ppc::spawnConsole(InputHandler & ih, NodeState & ns) {
+WindowInterface* ppc::spawnConsole(InputHandler & ih, NodeState & ns, int x, int y, int w, int h) {
 
 	
 	/////// COMPONENTS /////////
@@ -55,9 +56,10 @@ WindowInterface* ppc::spawnConsole(InputHandler & ih, NodeState & ns) {
 
 
 	/////// WINDOW  /////////
-		WindowInterface* consoleWindow = new Window(600, 300, sf::Color(51, 50, 161));
-		consoleWindow->setPosition(300, 400);
+		WindowInterface* consoleWindow = new Window(w, h, sf::Color(51, 50, 161));
+		consoleWindow->setPosition(x, y);
 		consoleWindow->addEntity(*textBox);
+		consoleWindow = new BorderDecorator(*consoleWindow);
 		return consoleWindow;
 	////////////////////////
 	

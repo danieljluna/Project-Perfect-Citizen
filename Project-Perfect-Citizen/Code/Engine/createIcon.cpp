@@ -14,7 +14,7 @@ void spawnFolderIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Ima
 	IconRender->setImageScale(size, size);
 	IconRender->renderPosition(sf::Vector2f(x, y));
 	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
-	mousePressButton* mpbFolder = new mousePressButton(ih, *IconRender->getSprite());
+	mousePressButton* mpbFolder = new mousePressButton(ih, *IconRender->getSprite(), "folderIcon");
 
 	entityToModify.addComponent(IconRender);
 	entityToModify.addComponent(animator);
@@ -32,7 +32,7 @@ void spawnSettingsIcon(ppc::Entity& entityToModify, InputHandler& ih, sf::Image&
 	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
 
 	/// Input Component ///
-	mousePressButton* mpbIcon = new mousePressButton(ih, *IconRender->getSprite());
+	mousePressButton* mpbIcon = new mousePressButton(ih, *IconRender->getSprite(), "settingsIcon");
 
 	entityToModify.addComponent(IconRender);
 	entityToModify.addComponent(animator);
@@ -50,7 +50,7 @@ void spawnChatIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image
 	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
 
 	/// Input Component ///
-	mousePressButton* mpbIcon = new mousePressButton(ih, *IconRender->getSprite());
+	mousePressButton* mpbIcon = new mousePressButton(ih, *IconRender->getSprite(), "chatIcon");
 
 	entityToModify.addComponent(IconRender);
 	entityToModify.addComponent(animator);
@@ -67,7 +67,7 @@ void spawnSearchIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Ima
 	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
 
 	/// Input Component ///
-	mousePressButton* mpbIcon = new mousePressButton(ih, *IconRender->getSprite());
+	mousePressButton* mpbIcon = new mousePressButton(ih, *IconRender->getSprite(), "searchIcon");
 
 	entityToModify.addComponent(IconRender);
 	entityToModify.addComponent(animator);
@@ -84,7 +84,7 @@ void spawnDataGraphIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::
 	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
 
 	/// Input Component ///
-	mousePressButton* mpbIcon = new mousePressButton(ih, *IconRender->getSprite());
+	mousePressButton* mpbIcon = new mousePressButton(ih, *IconRender->getSprite(), "dataGraphIcon");
 
 	entityToModify.addComponent(IconRender);
 	entityToModify.addComponent(animator);
@@ -101,7 +101,7 @@ void spawnHelpIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image
 	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
 
 	/// Input Component ///
-	mousePressButton* mpbIcon = new mousePressButton(ih, *IconRender->getSprite());
+	mousePressButton* mpbIcon = new mousePressButton(ih, *IconRender->getSprite(), "helpIcon");
 
 	entityToModify.addComponent(IconRender);
 	entityToModify.addComponent(animator);
@@ -118,7 +118,7 @@ void spawnBrowserIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Im
 	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
 
 	/// Input Component ///
-	mousePressButton* mpbIcon = new mousePressButton(ih, *IconRender->getSprite());
+	mousePressButton* mpbIcon = new mousePressButton(ih, *IconRender->getSprite(), "browserIcon");
 
 	entityToModify.addComponent(IconRender);
 	entityToModify.addComponent(animator);
@@ -135,14 +135,14 @@ void spawnHardDriveIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::
 	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
 
 	/// Input Component ///
-	mousePressButton* mpbIcon = new mousePressButton(ih, *IconRender->getSprite());
+	mousePressButton* mpbIcon = new mousePressButton(ih, *IconRender->getSprite(), "hardDriveIcon");
 
 	entityToModify.addComponent(IconRender);
 	entityToModify.addComponent(animator);
 	entityToModify.addComponent(mpbIcon);
 }
 
-void spawnConsoleIcon(ppc::Entity& entityToModify, InputHandler& ih, sf::Image& iconSheet, float x, float y, float size, float animSpeed) {
+void spawnConsoleIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, InputHandler& ih, sf::Image& iconSheet, float x, float y, float size, float animSpeed) {
 
 	/// Render Component ///
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 8, 1, 1);
@@ -152,12 +152,14 @@ void spawnConsoleIcon(ppc::Entity& entityToModify, InputHandler& ih, sf::Image& 
 	// Animator (Update) Component ///
 	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
 
-	/// Input Component ///
-	mousePressButton* mpbIcon = new mousePressButton(ih, *IconRender->getSprite());
-
+	/// Input Components ///
+	mousePressButton* mpbIcon = new mousePressButton(ih, *IconRender->getSprite(), "consoleIcon");
+	iconInputComponent* iconInputComp = new iconInputComponent(dT, ih);
 	entityToModify.addComponent(IconRender);
 	entityToModify.addComponent(animator);
 	entityToModify.addComponent(mpbIcon);
+	entityToModify.addComponent(iconInputComp);
+
 
 }
 

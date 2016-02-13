@@ -20,6 +20,7 @@
 #include "buttonRenderComponent.h"
 #include "consoleUpdateComponent.h"
 #include "NodeState.h"
+#include "iconInputComponent.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief A toolkit of functions that turn entities into useable icons
@@ -91,7 +92,7 @@ void spawnHardDriveIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::
 /// Pass it the entity, a shared input handler, a spritesheet with 
 /// the button animations at (0, 8), (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
-void spawnConsoleIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
+void spawnConsoleIcon(ppc::Entity& entityToModify, ppc::Desktop& dt, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
 
 

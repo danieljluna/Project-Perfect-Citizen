@@ -15,7 +15,7 @@ void spawnBackButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Ima
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "backButton");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
@@ -28,7 +28,7 @@ void spawnStartButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Im
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "startButton");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
@@ -41,7 +41,7 @@ void spawnNextButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Ima
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "nextButton");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
@@ -54,7 +54,7 @@ void spawnBlankLargeButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, s
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "blankLargeButton");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
@@ -67,7 +67,7 @@ void spawnOkayButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Ima
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "okayButton");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
@@ -80,7 +80,7 @@ void spawnCancelButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::I
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "cancelButton");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
@@ -94,7 +94,7 @@ void spawnCloseButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Im
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 	
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "closeButton");
 	
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
@@ -107,7 +107,7 @@ void spawnMaximizeButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf:
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "maximizeButton");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
@@ -120,7 +120,7 @@ void spawnMinimizeButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf:
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "minimizeButton");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
@@ -133,7 +133,7 @@ void spawnBlankSmallButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, s
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "blankSmallButton");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
@@ -146,7 +146,7 @@ void spawnUpButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "upButton");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
@@ -159,7 +159,7 @@ void spawnDownButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Ima
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "downButton");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
@@ -172,7 +172,7 @@ void spawnRightButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Im
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "rightButton");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
@@ -185,7 +185,7 @@ void spawnLeftButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Ima
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "leftButton");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
@@ -198,7 +198,7 @@ void spawnScrollBarContainer(ppc::Entity& entityToModify, ppc::InputHandler& ih,
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "scrollBarContainer");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
@@ -211,7 +211,7 @@ void spawnScrollBarHandle(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "scrollBarHandle");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
@@ -224,7 +224,7 @@ void spawnConfirmedIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "confirmedIcon");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
@@ -237,7 +237,7 @@ void spawnAlertIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Imag
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
+	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite(), "alertIcon");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
