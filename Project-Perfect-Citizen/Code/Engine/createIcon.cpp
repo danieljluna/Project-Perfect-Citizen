@@ -10,9 +10,6 @@ using namespace ppc;
 
 void spawnConsoleIcon(ppc::Entity& entityToModify, InputHandler& ih, sf::Image& iconSheet) {
 
-	//sf::Image iconSheet;
-	//iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
-
 	/// Render Component ///
 	buttonRenderComponent* consoleIconRender = new buttonRenderComponent(iconSheet, 0, 8, 1, 2);
 	consoleIconRender->renderPosition(sf::Vector2f(100,0));
@@ -30,9 +27,6 @@ void spawnConsoleIcon(ppc::Entity& entityToModify, InputHandler& ih, sf::Image& 
 }
 
 void spawnSettingsIcon(ppc::Entity& entityToModify,  InputHandler& ih, sf::Image& iconSheet) {
-
-	//sf::Image iconSheet;
-	//iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
 
 	/// Render Component ///
 	buttonRenderComponent* settingsIconRender = new buttonRenderComponent(iconSheet, 0, 1, 1, 3);

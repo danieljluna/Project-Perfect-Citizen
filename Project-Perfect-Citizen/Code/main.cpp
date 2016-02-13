@@ -31,7 +31,8 @@
 #include "Engine/textInputKeys.hpp"
 #include "Engine/createWindow.h"
 #include "Engine/createIcon.h"
-#include "Engine\createButton.h"
+#include "Engine/createButton.h"
+#include "Engine/BorderDecorator.h"
 
 using namespace ppc;
 
@@ -45,7 +46,8 @@ int main(int argc, char** argv) {
 	DEBUGF("ac", argc);
 
     // Create the main sf::window
-    sf::RenderWindow screen(sf::VideoMode(800, 600), "SFML window");
+    sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
+
 
 	//Create the InputHandler
 	ppc::InputHandler* inputHandle = new InputHandler();
@@ -95,10 +97,11 @@ int main(int argc, char** argv) {
 	Entity* consoleIconFromWindow = new Entity();
 	spawnConsoleIcon(*consoleIconFromWindow,*inputHandle, iconSheet);
 
-	Window* consoleWindow = spawnConsole(*inputHandle, *testState);
+	WindowInterface* consoleWindow = spawnConsole(*inputHandle, *testState);
 	testWindow->addEntity(*consoleIconFromWindow);
 	//////////////////////////////////////////////////////
-  
+
+ 
 	/////////////////////// DESKTOP /////////////////////
 	Desktop myDesktop(1800 ,1000,*testState);
 	myDesktop.addWindow(testWindow);

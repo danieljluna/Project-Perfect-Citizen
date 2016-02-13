@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\Engine\animatorComponent.cpp" />
+    <ClCompile Include="Code\Engine\BorderDecorator.cpp" />
     <ClCompile Include="Code\Engine\buttonRenderComponent.cpp" />
     <ClCompile Include="Code\Engine\BaseFileType.cpp" />
     <ClCompile Include="Code\Engine\component.cpp" />
@@ -96,7 +97,7 @@
     <ClInclude Include="Code\Engine\TreeCommands.h" />
     <ClInclude Include="Code\Engine\updateComponent.h" />
     <ClInclude Include="Code\Engine\Window.h" />
-    <ClInclude Include="Code\Engine\WindowBorder.h" />
+    <ClInclude Include="Code\Engine\BorderDecorator.h" />
     <ClInclude Include="Code\Engine\WindowDecorator.h" />
     <ClInclude Include="Code\Engine\WindowInterface.h" />
     <ClInclude Include="Code\Engine\WindowLogger.h" />
