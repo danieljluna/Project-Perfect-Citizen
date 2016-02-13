@@ -82,23 +82,23 @@ int main(int argc, char** argv) {
 
 	////////////////////// WINDOW 1 ///////////////////////////
 	Entity* closeButton = new Entity();
-	spawnCloseButton(*closeButton, *inputHandle, spriteSheet, 0.2f);
+	spawnCloseButton(*closeButton, *inputHandle, spriteSheet, 0.0f, 50.0f, 0.4f);
 
 	Entity* folderIcon = new Entity();
-	spawnFolderIcon(*folderIcon, *inputHandle, iconSheet);
+	spawnFolderIcon(*folderIcon, *inputHandle, iconSheet, 0.0f, 100.0f, 0.4f);
+
+	Entity* consoleIconFromWindow = new Entity();
+	spawnConsoleIcon(*consoleIconFromWindow, *inputHandle, iconSheet, 0.0f, 150.0f, 0.4f);
 
 	Window* testWindow = new Window(600, 300, sf::Color(200, 200, 200));
     testWindow->addEntity(*closeButton);
 	testWindow->addEntity(*folderIcon);
+	testWindow->addEntity(*consoleIconFromWindow);
 	///////////////////////////////////////////////////////
 
 
 	//////////////////// CONSOLE WINDOW /////////////////////
-	Entity* consoleIconFromWindow = new Entity();
-	spawnConsoleIcon(*consoleIconFromWindow,*inputHandle, iconSheet);
-
 	WindowInterface* consoleWindow = spawnConsole(*inputHandle, *testState);
-	testWindow->addEntity(*consoleIconFromWindow);
 	//////////////////////////////////////////////////////
 
  

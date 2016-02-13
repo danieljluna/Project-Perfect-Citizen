@@ -8,11 +8,12 @@
 
 using namespace ppc;
 
-void spawnConsoleIcon(ppc::Entity& entityToModify, InputHandler& ih, sf::Image& iconSheet) {
+void spawnConsoleIcon(ppc::Entity& entityToModify, InputHandler& ih, sf::Image& iconSheet, float x, float y, float size) {
 
 	/// Render Component ///
 	buttonRenderComponent* consoleIconRender = new buttonRenderComponent(iconSheet, 0, 8, 1, 2);
-	consoleIconRender->renderPosition(sf::Vector2f(100,0));
+	consoleIconRender->setImageScale(size, size);
+	consoleIconRender->renderPosition(sf::Vector2f(x, y));
 
 	// Animator (Update) Component ///
 	animatorComponent* animator = new animatorComponent(*consoleIconRender, 0.05f);
@@ -26,11 +27,12 @@ void spawnConsoleIcon(ppc::Entity& entityToModify, InputHandler& ih, sf::Image& 
 
 }
 
-void spawnSettingsIcon(ppc::Entity& entityToModify,  InputHandler& ih, sf::Image& iconSheet) {
+void spawnSettingsIcon(ppc::Entity& entityToModify,  InputHandler& ih, sf::Image& iconSheet, float x, float y, float size) {
 
 	/// Render Component ///
 	buttonRenderComponent* settingsIconRender = new buttonRenderComponent(iconSheet, 0, 1, 1, 3);
-	settingsIconRender->renderPosition(sf::Vector2f(100, 0));
+	settingsIconRender->setImageScale(size, size);
+	settingsIconRender->renderPosition(sf::Vector2f(x, y));
 
 	// Animator (Update) Component ///
 	animatorComponent* animator = new animatorComponent(*settingsIconRender, 0.05f);
@@ -44,10 +46,11 @@ void spawnSettingsIcon(ppc::Entity& entityToModify,  InputHandler& ih, sf::Image
 
 }
 
-void spawnFolderIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& iconSheet) {
+void spawnFolderIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& iconSheet, float x, float y, float size) {
 	
 	buttonRenderComponent* folderIconRender = new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
-	folderIconRender->renderPosition(sf::Vector2f(0, 220));
+	folderIconRender->setImageScale(size, size);
+	folderIconRender->renderPosition(sf::Vector2f(x, y));
 	animatorComponent* animator = new animatorComponent(*folderIconRender, 0.05f);
 	mousePressButton* mpbFolder = new mousePressButton(ih, *folderIconRender->getSprite());
 
