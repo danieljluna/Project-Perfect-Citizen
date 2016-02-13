@@ -18,10 +18,10 @@ mousePressButton::mousePressButton(ppc::InputHandler& ih,
 
 	//add an observer to the subject we just added
 	if (watch(ih, sf::Event::MouseButtonPressed)) {
-		cout << "Mouse Pressed Watched" << endl;
+		//cout << "Mouse Pressed Watched" << endl;
 	}
 	if (watch(ih, sf::Event::MouseButtonReleased)) {
-		cout << "Mouse Released Event Watched" << endl;
+		//cout << "Mouse Released Event Watched" << endl;
 	}
 }
 
@@ -68,7 +68,7 @@ bool mousePressButton::registerInput(sf::Event& ev) {
 
                 /* Send the mouse down message regardless */
                 getEntity()->broadcastMessage(MOUSE_DOWN_CODE);
-				cout << "Clicked on an entity with MPB" << endl;
+				//cout << "Clicked on an entity with MPB" << endl;
 
                 /* Handle Double Click Register */
                 mouseTime = mouseClock.getElapsedTime().asMilliseconds();
@@ -76,7 +76,7 @@ bool mousePressButton::registerInput(sf::Event& ev) {
                     mouseClock.restart();
                 } else if (mouseTime < DOUBLE_CLICK_TIME) {
                     /* Send the d/c message only if clicked with 500 ms*/
-                    cout << "Double clicked on an entity with MPB!" << endl;
+                    //cout << "Double clicked on an entity with MPB!" << endl;
                     getEntity()->broadcastMessage(
                             MOUSE_DOUBLE_CLICK_CODE);
                 }
