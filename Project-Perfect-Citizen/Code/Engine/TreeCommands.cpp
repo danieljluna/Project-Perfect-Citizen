@@ -32,6 +32,7 @@ void fn_mkfile(ppc::NodeState& state, const vector<string> words)
 void fn_ls(ppc::NodeState& state, const vector<string> words)
 {
 	if (words.size() == 1) {
+		state.printWorking();
 		state.getCwd()->printDir();
 		return;
 	}
@@ -59,6 +60,13 @@ void fn_ls(ppc::NodeState& state, const vector<string> words)
 		if (tempCwd->getFileType() == ppc::FileType::File) {
 			return;
 		}
+	}
+	if (tempCwd->isEncrypted()) {
+		std::cout << "Access Denied: Directory Encrypted" << endl;
+		return;
+	}
+	if (tempCwd->isHidden()) {
+		return;
 	}
 	state.printWorking();
 	tempCwd->printDir();
@@ -97,6 +105,10 @@ void fn_cd(ppc::NodeState& state, const vector<string> words)
 		else {
 			state.pushWorking(*iter);
 		}
+	}
+	if (newDir->isEncrypted()) {
+		cout << "Access Denied: Directory is Encrypted" << endl;
+		return;
 	}
 	state.setCwd(newDir);
 }
