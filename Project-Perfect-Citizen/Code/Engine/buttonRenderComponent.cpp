@@ -46,6 +46,10 @@ void buttonRenderComponent::renderPosition(sf::Vector2f pos) {
 	sprite->setPosition(pos.x, pos.y);
 }
 
+void buttonRenderComponent::setImageScale(float ScaleX, float ScaleY) {
+	sprite->setScale(ScaleX, ScaleY);
+}
+
 sf::Sprite*  buttonRenderComponent::getSprite() {
 	return this->sprite;
 }

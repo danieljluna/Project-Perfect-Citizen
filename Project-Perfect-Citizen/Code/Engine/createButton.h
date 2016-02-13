@@ -21,4 +21,4 @@
 #include "consoleUpdateComponent.h"
 #include "NodeState.h"
 
-void spawnCloseButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet);
+void spawnCloseButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float size);

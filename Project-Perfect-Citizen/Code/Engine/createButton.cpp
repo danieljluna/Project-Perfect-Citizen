@@ -8,12 +8,13 @@
 
 using namespace ppc;
 
-void spawnCloseButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet) {
+void spawnCloseButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float size) {
 
 	/* Render Component */
 	buttonRenderComponent* buttonRender = new buttonRenderComponent(spriteSheet, 0, 3, 1, 1);
+	buttonRender->setImageScale(size, size);
 	buttonRender->renderPosition(sf::Vector2f(10, 10));
-
+	
 	/* Input Component*/
 	mousePressButton* mpb = new mousePressButton(ih, *buttonRender->getSprite());
 	

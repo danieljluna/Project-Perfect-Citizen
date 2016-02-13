@@ -82,7 +82,7 @@ int main(int argc, char** argv) {
 
 	////////////////////// WINDOW 1 ///////////////////////////
 	Entity* closeButton = new Entity();
-	spawnCloseButton(*closeButton, *inputHandle, spriteSheet);
+	spawnCloseButton(*closeButton, *inputHandle, spriteSheet, 0.2f);
 
 	Entity* folderIcon = new Entity();
 	spawnFolderIcon(*folderIcon, *inputHandle, iconSheet);
