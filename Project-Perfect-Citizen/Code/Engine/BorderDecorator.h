@@ -16,8 +16,8 @@ public:
     BorderDecorator() = delete;
 
     BorderDecorator(WindowInterface& win, 
-                    unsigned int majorBorder = 12, 
-                    unsigned int minorBorder = 2);
+                    unsigned int majorBorder = 34, 
+                    unsigned int minorBorder = 5);
 
     virtual ~BorderDecorator();
 

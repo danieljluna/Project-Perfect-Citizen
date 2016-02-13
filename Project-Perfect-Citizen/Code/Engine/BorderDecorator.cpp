@@ -1,5 +1,7 @@
 #include "BorderDecorator.h"
 
+#include <SFML/Window/Event.hpp>
+
 using namespace ppc;
 
 ///////////////////////////////////////////////////////////////////////
@@ -20,6 +22,7 @@ BorderDecorator::BorderDecorator(
                       float(win.getSize().y + minorBorder + 
                                 majorBorder));
     borderShape.setSize(size);
+    borderShape.setFillColor(sf::Color::Red);
 }
 
 
@@ -77,7 +80,9 @@ void BorderDecorator::move(float x, float y) {
 
 
 void BorderDecorator::registerInput(sf::Event& ev) {
+    /*if (ev.type == sf::Event::MouseButtonPressed) {
 
+    }*/
 }
 
 
@@ -85,5 +90,7 @@ void BorderDecorator::registerInput(sf::Event& ev) {
 
 void BorderDecorator::draw(sf::RenderTarget& target,
                            sf::RenderStates states) const {
+    target.draw(borderShape, states);
+
     WindowDecorator::draw(target, states);
 }
