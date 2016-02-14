@@ -35,12 +35,6 @@ void DesktopLogger::setStyle(OSStyle* oss) {
 	out_ << "DesktopLogger: Finished Setting Style" << std::endl;
 }
 
-WindowInterface& DesktopLogger::getDesktopWindow() {
-	out_ << "DesktopLogger: Getting Desktop Window" << std::endl;
-
-	return loggedDesktop_->getDesktopWindow();
-}
-
 NodeState& DesktopLogger::getNodeState() {
 	out_ << "DesktopLogger: Getting Root" << std::endl;
 
