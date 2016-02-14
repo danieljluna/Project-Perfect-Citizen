@@ -34,8 +34,6 @@ public:
 
     virtual void move(float x, float y) override;
 
-    virtual void registerInput(sf::Event& ev) override;
-
 
 protected:
 
@@ -49,10 +47,12 @@ private:
   // Private Variables 
   /////////////////////////////////////////////////////////////////////
 
-    sf::Vector2u borderTopLeft;
-    sf::Vector2u borderBottomRight;
+    sf::Vector2u borderTopLeft_;
+    sf::Vector2u borderBottomRight_;
 
-    sf::RectangleShape borderShape;
+    sf::RectangleShape borderShape_;
+
+    bool isBeingDragged_;
 
 
 };
