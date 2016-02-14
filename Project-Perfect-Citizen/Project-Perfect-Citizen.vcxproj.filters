@@ -94,17 +94,11 @@
     <ClCompile Include="Code\Engine\BaseFileType.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\animatorComponent.cpp">
-      <Filter>Sources\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\consoleIconRenderComponent.cpp">
       <Filter>Sources\Examples</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\WindowInterface.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\textInputKeys.cpp">
-      <Filter>Sources\Engine\Input</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\textInputRenderComponent.cpp">
       <Filter>Sources\Examples</Filter>
@@ -115,6 +109,12 @@
     <ClCompile Include="Code\Engine\consoleUpdateComponent.cpp" />
     <ClCompile Include="Code\Engine\BorderDecorator.cpp">
       <Filter>Sources\Engine\Windows / Desktop\Decorators</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\animatorComponent.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\textInputKeys.cpp">
+      <Filter>Sources\Examples</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,13 +172,7 @@
     <ClInclude Include="Code\Engine\event.h">
       <Filter>Headers\Engine\Input</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\observer.h">
-      <Filter>Headers\Engine\Input</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\subject.h">
-      <Filter>Headers\Engine\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\ComponentObsvr.h">
       <Filter>Headers\Engine\Input</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\EntityDecorator.h">
@@ -226,9 +220,6 @@
     <ClInclude Include="Code\Engine\WindowDecorator.h">
       <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\animatorComponent.hpp">
-      <Filter>Headers\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\WindowInterface.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
     </ClInclude>
@@ -241,9 +232,6 @@
     <ClInclude Include="Code\Engine\consoleIconRenderComponent.h">
       <Filter>Headers\Examples</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\textInputKeys.hpp">
-      <Filter>Headers\Engine\Input</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\textInputRenderComponent.hpp">
       <Filter>Headers\Examples</Filter>
     </ClInclude>
@@ -253,6 +241,18 @@
     <ClInclude Include="Code\Engine\consoleUpdateComponent.h" />
     <ClInclude Include="Code\Engine\BorderDecorator.h">
       <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ComponentObsvr.h">
+      <Filter>Headers\Engine\Input\Observers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\observer.h">
+      <Filter>Headers\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\textInputKeys.hpp">
+      <Filter>Headers\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\animatorComponent.hpp">
+      <Filter>Headers\Examples</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -383,6 +383,9 @@
     </Filter>
     <Filter Include="Headers\Engine\Windows / Desktop\Decorators\Loggers">
       <UniqueIdentifier>{71fcf245-fe0b-4ffd-9494-297e0e4ccab3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Input\Observers">
+      <UniqueIdentifier>{93e2bba6-54d7-489b-b869-d12ac7b1e74f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

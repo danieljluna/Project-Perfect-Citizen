@@ -45,6 +45,8 @@ public:
     // Space Getters
 
     virtual sf::Vector2u getSize() override;
+
+    virtual sf::FloatRect getBounds() override;
     
     // Space Setters
 
@@ -81,15 +83,28 @@ public:
 
 protected:
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Returns a pointer to the WindowInterface that is being
+    ///     decorated.
+    ///////////////////////////////////////////////////////////////////
     WindowInterface* getDecoTarget() const { return windowHandle_; };
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Returns a pointer to the outermost Decorator to the
+    ///     Window.
+    ///////////////////////////////////////////////////////////////////
+    WindowInterface* getUniversalTarget() const {return univHandle_;};
+
 	virtual void draw(sf::RenderTarget& target,
-		sf::RenderStates states) const override;
+		              sf::RenderStates states) const override;
 
 private:
 
     //A Pointer to the Window this decorates
     WindowInterface* windowHandle_;
+
+    //A Pointer to the outermost Decorator
+    WindowInterface* univHandle_;
 
 
 };
