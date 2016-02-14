@@ -31,6 +31,7 @@
 #include "Engine/textInputKeys.hpp"
 #include "Engine/createWindow.h"
 #include "Engine/BorderDecorator.h"
+#include "Engine/desktopExtractionComponent.hpp"
 
 using namespace ppc;
 
