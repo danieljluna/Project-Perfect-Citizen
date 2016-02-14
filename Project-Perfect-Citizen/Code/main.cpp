@@ -33,6 +33,7 @@
 #include "Engine/createIcon.h"
 #include "Engine/createButton.h"
 #include "Engine/BorderDecorator.h"
+#include "Engine/createDesktop.h"
 
 using namespace ppc;
 
@@ -77,25 +78,12 @@ int main(int argc, char** argv) {
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
 	//////////////////////////////////////////////////////
 
-	///// DESKTOP /////
-	Desktop myDesktop(1800, 1000, *testState);
-	////////////////////
-
-	////////////////////// WINDOW 1 ///////////////////////////
-	Entity* closeButton = new Entity();
-	Entity* templateIcon = new Entity();
-
-	spawnCloseButton(*closeButton, *inputHandle, spriteSheet, 0.0f, 50.0f, 0.4f);
-	spawnConsoleIcon(*templateIcon, myDesktop, *inputHandle, iconSheet, 0.0f, 150.0f, 0.4f, 0.25f);
-
-	Window* testWindow = new Window(600, 300, sf::Color(200, 200, 200));
-    testWindow->addEntity(*closeButton);
-	testWindow->addEntity(*templateIcon);
-	///////////////////////////////////////////////////////
-
-	////////////////// DESKTOP ADD WINDOWS /////////////////////
-	myDesktop.addWindow(testWindow);
-	////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////
+	///// CREATE THE PLAYER DESKTOP
+	/////////////////////////////////////////////////////////
+	WindowInterface* desktopWindow = new Window(1800,1000,sf::Color(200, 200, 200));
+	Desktop myDesktop(*desktopWindow, *testState);
+	createPlayerDesktop(myDesktop, *desktopWindow, *inputHandle, iconSheet);
 
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop

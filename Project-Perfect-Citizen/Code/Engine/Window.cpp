@@ -67,6 +67,18 @@ sf::Vector2u Window::getSize() {
 }
 
 
+
+
+sf::FloatRect Window::getBounds() {
+    sf::FloatRect result;
+    result.left = transform_.getPosition().x;
+    result.top = transform_.getPosition().y;
+    result.width = float(windowSpace_.getSize().x);
+    result.height = windowSpace_.getSize().y;
+    return result;
+}
+
+
 ///////////////////////////////////////////////////////////////////////
 // Space Setters
 ///////////////////////////////////////////////////////////////////////

@@ -111,12 +111,12 @@ namespace ppc {
 ///@details Creates a Desktop with a given FileTree and width and 
 /// height for the size of the desktopWindow_, which holds the icons &
 /// buttons for the Desktop.
-///@param ft The FileTree object to be associated with the Desktop.
-///@param w Width of the desktopWindow_
-///@param h Height of the desktopWindow_
+///@param bkgndWin The Window representing the Window for the Desktop
+/// background, which can hold icons/entities.
+///@param n The NodeState object to be associated with the Desktop.
 ///@todo Add param for OSStyle?.
 ///////////////////////////////////////////////////////////////////////
-		Desktop(size_t w, size_t h, NodeState& n);
+		Desktop(WindowInterface& bkgndWin, NodeState& n);
 
 		
 ///////////////////////////////////////////////////////////////////////
@@ -154,11 +154,6 @@ namespace ppc {
 ///@param oss The style the Desktop is to be associated with.
 ///////////////////////////////////////////////////////////////////////
 		virtual void setStyle(OSStyle*);
-
-///////////////////////////////////////////////////////////////////////
-///@brief Return a reference to desktopWindow
-///////////////////////////////////////////////////////////////////////
-		virtual WindowInterface& getDesktopWindow();
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Returns the root of the NodeState in the Desktop.
