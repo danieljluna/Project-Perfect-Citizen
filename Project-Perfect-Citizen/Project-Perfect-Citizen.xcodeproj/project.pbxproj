@@ -16,43 +16,46 @@
 		C86E37AF1C4D6B5200842EFD /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = C86E37AA1C4D6B5100842EFD /* EngineSettings.ini */; };
 		C86E37B11C4D6B5200842EFD /* kappa.png in Resources */ = {isa = PBXBuildFile; fileRef = C86E37AC1C4D6B5100842EFD /* kappa.png */; };
 		C881BEE91C4D7C5B008B1EBD /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */; };
-		C88CFABD1C6DB9C200CE9092 /* animatorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA701C6DB9C200CE9092 /* animatorComponent.cpp */; };
-		C88CFABE1C6DB9C200CE9092 /* BaseFileType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA721C6DB9C200CE9092 /* BaseFileType.cpp */; };
-		C88CFABF1C6DB9C200CE9092 /* buttonRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA741C6DB9C200CE9092 /* buttonRenderComponent.cpp */; };
-		C88CFAC01C6DB9C200CE9092 /* ClassDiagram.cd in Resources */ = {isa = PBXBuildFile; fileRef = C88CFA761C6DB9C200CE9092 /* ClassDiagram.cd */; };
-		C88CFAC11C6DB9C200CE9092 /* component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA771C6DB9C200CE9092 /* component.cpp */; };
-		C88CFAC21C6DB9C200CE9092 /* ComponentObsvr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA791C6DB9C200CE9092 /* ComponentObsvr.cpp */; };
-		C88CFAC31C6DB9C200CE9092 /* consoleIconRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA7B1C6DB9C200CE9092 /* consoleIconRenderComponent.cpp */; };
-		C88CFAC41C6DB9C200CE9092 /* consoleUpdateComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA7D1C6DB9C200CE9092 /* consoleUpdateComponent.cpp */; };
-		C88CFAC51C6DB9C200CE9092 /* createWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA7F1C6DB9C200CE9092 /* createWindow.cpp */; };
-		C88CFAC61C6DB9C200CE9092 /* debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA811C6DB9C200CE9092 /* debug.cpp */; };
-		C88CFAC71C6DB9C200CE9092 /* desktop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA831C6DB9C200CE9092 /* desktop.cpp */; };
-		C88CFAC81C6DB9C200CE9092 /* DesktopLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA851C6DB9C200CE9092 /* DesktopLogger.cpp */; };
-		C88CFAC91C6DB9C200CE9092 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA871C6DB9C200CE9092 /* Entity.cpp */; };
-		C88CFACA1C6DB9C200CE9092 /* EntityDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA891C6DB9C200CE9092 /* EntityDecorator.cpp */; };
-		C88CFACB1C6DB9C200CE9092 /* EntityLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA8B1C6DB9C200CE9092 /* EntityLogger.cpp */; };
-		C88CFACC1C6DB9C200CE9092 /* InputCmpntLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA8E1C6DB9C200CE9092 /* InputCmpntLogger.cpp */; };
-		C88CFACD1C6DB9C200CE9092 /* inputComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA901C6DB9C200CE9092 /* inputComponent.cpp */; };
-		C88CFACE1C6DB9C200CE9092 /* InputHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA921C6DB9C200CE9092 /* InputHandler.cpp */; };
-		C88CFACF1C6DB9C200CE9092 /* mousePressButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA941C6DB9C200CE9092 /* mousePressButton.cpp */; };
-		C88CFAD01C6DB9C200CE9092 /* NodeState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA961C6DB9C200CE9092 /* NodeState.cpp */; };
-		C88CFAD11C6DB9C200CE9092 /* observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA991C6DB9C200CE9092 /* observer.cpp */; };
-		C88CFAD21C6DB9C200CE9092 /* RenderCmpntDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA9B1C6DB9C200CE9092 /* RenderCmpntDecorator.cpp */; };
-		C88CFAD31C6DB9C200CE9092 /* RenderCmpntLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFA9D1C6DB9C200CE9092 /* RenderCmpntLogger.cpp */; };
-		C88CFAD41C6DB9C200CE9092 /* subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFAA01C6DB9C200CE9092 /* subject.cpp */; };
-		C88CFAD51C6DB9C200CE9092 /* TestObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFAA21C6DB9C200CE9092 /* TestObserver.cpp */; };
-		C88CFAD61C6DB9C200CE9092 /* testRenderSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFAA41C6DB9C200CE9092 /* testRenderSprite.cpp */; };
-		C88CFAD71C6DB9C200CE9092 /* testRotateSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFAA61C6DB9C200CE9092 /* testRotateSprite.cpp */; };
-		C88CFAD81C6DB9C200CE9092 /* textInputKeys.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFAA81C6DB9C200CE9092 /* textInputKeys.cpp */; };
-		C88CFAD91C6DB9C200CE9092 /* textInputRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFAAA1C6DB9C200CE9092 /* textInputRenderComponent.cpp */; };
-		C88CFADA1C6DB9C200CE9092 /* TreeCommands.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFAAC1C6DB9C200CE9092 /* TreeCommands.cpp */; };
-		C88CFADB1C6DB9C200CE9092 /* UpdateCmpntDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFAAE1C6DB9C200CE9092 /* UpdateCmpntDecorator.cpp */; };
-		C88CFADC1C6DB9C200CE9092 /* UpdateCmpntLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFAB01C6DB9C200CE9092 /* UpdateCmpntLogger.cpp */; };
-		C88CFADD1C6DB9C200CE9092 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFAB31C6DB9C200CE9092 /* Window.cpp */; };
-		C88CFADE1C6DB9C200CE9092 /* WindowDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFAB51C6DB9C200CE9092 /* WindowDecorator.cpp */; };
-		C88CFADF1C6DB9C200CE9092 /* WindowInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFAB71C6DB9C200CE9092 /* WindowInterface.cpp */; };
-		C88CFAE01C6DB9C200CE9092 /* WindowLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFAB91C6DB9C200CE9092 /* WindowLogger.cpp */; };
-		C88CFAE11C6DB9C200CE9092 /* world.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88CFABB1C6DB9C200CE9092 /* world.cpp */; };
+		E959DD0F1C702097001F2CAF /* animatorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCC01C702097001F2CAF /* animatorComponent.cpp */; };
+		E959DD101C702097001F2CAF /* BaseFileType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCC21C702097001F2CAF /* BaseFileType.cpp */; };
+		E959DD111C702097001F2CAF /* BorderDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCC41C702097001F2CAF /* BorderDecorator.cpp */; };
+		E959DD121C702097001F2CAF /* buttonRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCC61C702097001F2CAF /* buttonRenderComponent.cpp */; };
+		E959DD131C702097001F2CAF /* ClassDiagram.cd in Resources */ = {isa = PBXBuildFile; fileRef = E959DCC81C702097001F2CAF /* ClassDiagram.cd */; };
+		E959DD141C702097001F2CAF /* component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCC91C702097001F2CAF /* component.cpp */; };
+		E959DD151C702097001F2CAF /* ComponentObsvr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCCB1C702097001F2CAF /* ComponentObsvr.cpp */; };
+		E959DD161C702097001F2CAF /* consoleIconRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCCD1C702097001F2CAF /* consoleIconRenderComponent.cpp */; };
+		E959DD171C702097001F2CAF /* consoleUpdateComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCCF1C702097001F2CAF /* consoleUpdateComponent.cpp */; };
+		E959DD181C702097001F2CAF /* createWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCD11C702097001F2CAF /* createWindow.cpp */; };
+		E959DD191C702097001F2CAF /* debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCD31C702097001F2CAF /* debug.cpp */; };
+		E959DD1A1C702097001F2CAF /* desktop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCD51C702097001F2CAF /* desktop.cpp */; };
+		E959DD1B1C702097001F2CAF /* DesktopLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCD71C702097001F2CAF /* DesktopLogger.cpp */; };
+		E959DD1C1C702097001F2CAF /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCD91C702097001F2CAF /* Entity.cpp */; };
+		E959DD1D1C702097001F2CAF /* EntityDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCDB1C702097001F2CAF /* EntityDecorator.cpp */; };
+		E959DD1E1C702097001F2CAF /* EntityLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCDD1C702097001F2CAF /* EntityLogger.cpp */; };
+		E959DD1F1C702097001F2CAF /* InputCmpntLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCE01C702097001F2CAF /* InputCmpntLogger.cpp */; };
+		E959DD201C702097001F2CAF /* inputComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCE21C702097001F2CAF /* inputComponent.cpp */; };
+		E959DD211C702097001F2CAF /* InputHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCE41C702097001F2CAF /* InputHandler.cpp */; };
+		E959DD221C702097001F2CAF /* mousePressButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCE61C702097001F2CAF /* mousePressButton.cpp */; };
+		E959DD231C702097001F2CAF /* NodeState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCE81C702097001F2CAF /* NodeState.cpp */; };
+		E959DD241C702097001F2CAF /* observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCEB1C702097001F2CAF /* observer.cpp */; };
+		E959DD251C702097001F2CAF /* RenderCmpntDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCED1C702097001F2CAF /* RenderCmpntDecorator.cpp */; };
+		E959DD261C702097001F2CAF /* RenderCmpntLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCEF1C702097001F2CAF /* RenderCmpntLogger.cpp */; };
+		E959DD271C702097001F2CAF /* subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCF21C702097001F2CAF /* subject.cpp */; };
+		E959DD281C702097001F2CAF /* TestObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCF41C702097001F2CAF /* TestObserver.cpp */; };
+		E959DD291C702097001F2CAF /* testRenderSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCF61C702097001F2CAF /* testRenderSprite.cpp */; };
+		E959DD2A1C702097001F2CAF /* testRotateSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCF81C702097001F2CAF /* testRotateSprite.cpp */; };
+		E959DD2B1C702097001F2CAF /* textInputKeys.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCFA1C702097001F2CAF /* textInputKeys.cpp */; };
+		E959DD2C1C702097001F2CAF /* textInputRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCFC1C702097001F2CAF /* textInputRenderComponent.cpp */; };
+		E959DD2D1C702097001F2CAF /* TreeCommands.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCFE1C702097001F2CAF /* TreeCommands.cpp */; };
+		E959DD2E1C702097001F2CAF /* UpdateCmpntDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DD001C702097001F2CAF /* UpdateCmpntDecorator.cpp */; };
+		E959DD2F1C702097001F2CAF /* UpdateCmpntLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DD021C702097001F2CAF /* UpdateCmpntLogger.cpp */; };
+		E959DD301C702097001F2CAF /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DD051C702097001F2CAF /* Window.cpp */; };
+		E959DD311C702097001F2CAF /* WindowDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DD071C702097001F2CAF /* WindowDecorator.cpp */; };
+		E959DD321C702097001F2CAF /* WindowInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DD091C702097001F2CAF /* WindowInterface.cpp */; };
+		E959DD331C702097001F2CAF /* WindowLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DD0B1C702097001F2CAF /* WindowLogger.cpp */; };
+		E959DD341C702097001F2CAF /* world.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DD0D1C702097001F2CAF /* world.cpp */; };
+		E959DD371C70213A001F2CAF /* desktopExtractionComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DD351C70213A001F2CAF /* desktopExtractionComponent.cpp */; };
+		E959DD391C7022F7001F2CAF /* TestDesktop.json in Resources */ = {isa = PBXBuildFile; fileRef = E959DD381C7022F7001F2CAF /* TestDesktop.json */; };
 		E9C810551C603DCB00D47DA6 /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9C810541C603DCB00D47DA6 /* jsoncpp.cpp */; };
 		E9C810591C603E1600D47DA6 /* dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = E9C810581C603E1600D47DA6 /* dummy.json */; };
 /* End PBXBuildFile section */
@@ -71,83 +74,88 @@
 		C86E37AC1C4D6B5100842EFD /* kappa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kappa.png; sourceTree = "<group>"; };
 		C881BEE71C4D7C5B008B1EBD /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ResourcePath.hpp; path = Resources/ResourcePath.hpp; sourceTree = SOURCE_ROOT; };
 		C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ResourcePath.mm; path = Resources/ResourcePath.mm; sourceTree = SOURCE_ROOT; };
-		C88CFA701C6DB9C200CE9092 /* animatorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = animatorComponent.cpp; sourceTree = "<group>"; };
-		C88CFA711C6DB9C200CE9092 /* animatorComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = animatorComponent.hpp; sourceTree = "<group>"; };
-		C88CFA721C6DB9C200CE9092 /* BaseFileType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseFileType.cpp; sourceTree = "<group>"; };
-		C88CFA731C6DB9C200CE9092 /* BaseFileType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseFileType.h; sourceTree = "<group>"; };
-		C88CFA741C6DB9C200CE9092 /* buttonRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buttonRenderComponent.cpp; sourceTree = "<group>"; };
-		C88CFA751C6DB9C200CE9092 /* buttonRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buttonRenderComponent.h; sourceTree = "<group>"; };
-		C88CFA761C6DB9C200CE9092 /* ClassDiagram.cd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ClassDiagram.cd; sourceTree = "<group>"; };
-		C88CFA771C6DB9C200CE9092 /* component.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = component.cpp; sourceTree = "<group>"; };
-		C88CFA781C6DB9C200CE9092 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
-		C88CFA791C6DB9C200CE9092 /* ComponentObsvr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentObsvr.cpp; sourceTree = "<group>"; };
-		C88CFA7A1C6DB9C200CE9092 /* ComponentObsvr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentObsvr.h; sourceTree = "<group>"; };
-		C88CFA7B1C6DB9C200CE9092 /* consoleIconRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = consoleIconRenderComponent.cpp; sourceTree = "<group>"; };
-		C88CFA7C1C6DB9C200CE9092 /* consoleIconRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = consoleIconRenderComponent.h; sourceTree = "<group>"; };
-		C88CFA7D1C6DB9C200CE9092 /* consoleUpdateComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = consoleUpdateComponent.cpp; sourceTree = "<group>"; };
-		C88CFA7E1C6DB9C200CE9092 /* consoleUpdateComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = consoleUpdateComponent.h; sourceTree = "<group>"; };
-		C88CFA7F1C6DB9C200CE9092 /* createWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = createWindow.cpp; sourceTree = "<group>"; };
-		C88CFA801C6DB9C200CE9092 /* createWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = createWindow.h; sourceTree = "<group>"; };
-		C88CFA811C6DB9C200CE9092 /* debug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = debug.cpp; sourceTree = "<group>"; };
-		C88CFA821C6DB9C200CE9092 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
-		C88CFA831C6DB9C200CE9092 /* desktop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = desktop.cpp; sourceTree = "<group>"; };
-		C88CFA841C6DB9C200CE9092 /* desktop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = desktop.h; sourceTree = "<group>"; };
-		C88CFA851C6DB9C200CE9092 /* DesktopLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DesktopLogger.cpp; sourceTree = "<group>"; };
-		C88CFA861C6DB9C200CE9092 /* DesktopLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopLogger.h; sourceTree = "<group>"; };
-		C88CFA871C6DB9C200CE9092 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
-		C88CFA881C6DB9C200CE9092 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
-		C88CFA891C6DB9C200CE9092 /* EntityDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityDecorator.cpp; sourceTree = "<group>"; };
-		C88CFA8A1C6DB9C200CE9092 /* EntityDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityDecorator.h; sourceTree = "<group>"; };
-		C88CFA8B1C6DB9C200CE9092 /* EntityLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityLogger.cpp; sourceTree = "<group>"; };
-		C88CFA8C1C6DB9C200CE9092 /* EntityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityLogger.h; sourceTree = "<group>"; };
-		C88CFA8D1C6DB9C200CE9092 /* event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event.h; sourceTree = "<group>"; };
-		C88CFA8E1C6DB9C200CE9092 /* InputCmpntLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputCmpntLogger.cpp; sourceTree = "<group>"; };
-		C88CFA8F1C6DB9C200CE9092 /* InputCmpntLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCmpntLogger.h; sourceTree = "<group>"; };
-		C88CFA901C6DB9C200CE9092 /* inputComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = inputComponent.cpp; sourceTree = "<group>"; };
-		C88CFA911C6DB9C200CE9092 /* inputComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputComponent.h; sourceTree = "<group>"; };
-		C88CFA921C6DB9C200CE9092 /* InputHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputHandler.cpp; sourceTree = "<group>"; };
-		C88CFA931C6DB9C200CE9092 /* InputHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputHandler.h; sourceTree = "<group>"; };
-		C88CFA941C6DB9C200CE9092 /* mousePressButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mousePressButton.cpp; sourceTree = "<group>"; };
-		C88CFA951C6DB9C200CE9092 /* mousePressButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mousePressButton.h; sourceTree = "<group>"; };
-		C88CFA961C6DB9C200CE9092 /* NodeState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodeState.cpp; sourceTree = "<group>"; };
-		C88CFA971C6DB9C200CE9092 /* NodeState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeState.h; sourceTree = "<group>"; };
-		C88CFA981C6DB9C200CE9092 /* ObjectPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectPool.h; sourceTree = "<group>"; };
-		C88CFA991C6DB9C200CE9092 /* observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = observer.cpp; sourceTree = "<group>"; };
-		C88CFA9A1C6DB9C200CE9092 /* observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = observer.h; sourceTree = "<group>"; };
-		C88CFA9B1C6DB9C200CE9092 /* RenderCmpntDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderCmpntDecorator.cpp; sourceTree = "<group>"; };
-		C88CFA9C1C6DB9C200CE9092 /* RenderCmpntDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderCmpntDecorator.h; sourceTree = "<group>"; };
-		C88CFA9D1C6DB9C200CE9092 /* RenderCmpntLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderCmpntLogger.cpp; sourceTree = "<group>"; };
-		C88CFA9E1C6DB9C200CE9092 /* RenderCmpntLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderCmpntLogger.h; sourceTree = "<group>"; };
-		C88CFA9F1C6DB9C200CE9092 /* renderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = renderComponent.h; sourceTree = "<group>"; };
-		C88CFAA01C6DB9C200CE9092 /* subject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = subject.cpp; sourceTree = "<group>"; };
-		C88CFAA11C6DB9C200CE9092 /* subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subject.h; sourceTree = "<group>"; };
-		C88CFAA21C6DB9C200CE9092 /* TestObserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestObserver.cpp; sourceTree = "<group>"; };
-		C88CFAA31C6DB9C200CE9092 /* TestObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObserver.h; sourceTree = "<group>"; };
-		C88CFAA41C6DB9C200CE9092 /* testRenderSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testRenderSprite.cpp; sourceTree = "<group>"; };
-		C88CFAA51C6DB9C200CE9092 /* testRenderSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testRenderSprite.h; sourceTree = "<group>"; };
-		C88CFAA61C6DB9C200CE9092 /* testRotateSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testRotateSprite.cpp; sourceTree = "<group>"; };
-		C88CFAA71C6DB9C200CE9092 /* testRotateSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testRotateSprite.h; sourceTree = "<group>"; };
-		C88CFAA81C6DB9C200CE9092 /* textInputKeys.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textInputKeys.cpp; sourceTree = "<group>"; };
-		C88CFAA91C6DB9C200CE9092 /* textInputKeys.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textInputKeys.hpp; sourceTree = "<group>"; };
-		C88CFAAA1C6DB9C200CE9092 /* textInputRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textInputRenderComponent.cpp; sourceTree = "<group>"; };
-		C88CFAAB1C6DB9C200CE9092 /* textInputRenderComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textInputRenderComponent.hpp; sourceTree = "<group>"; };
-		C88CFAAC1C6DB9C200CE9092 /* TreeCommands.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TreeCommands.cpp; sourceTree = "<group>"; };
-		C88CFAAD1C6DB9C200CE9092 /* TreeCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeCommands.h; sourceTree = "<group>"; };
-		C88CFAAE1C6DB9C200CE9092 /* UpdateCmpntDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UpdateCmpntDecorator.cpp; sourceTree = "<group>"; };
-		C88CFAAF1C6DB9C200CE9092 /* UpdateCmpntDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateCmpntDecorator.h; sourceTree = "<group>"; };
-		C88CFAB01C6DB9C200CE9092 /* UpdateCmpntLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UpdateCmpntLogger.cpp; sourceTree = "<group>"; };
-		C88CFAB11C6DB9C200CE9092 /* UpdateCmpntLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateCmpntLogger.h; sourceTree = "<group>"; };
-		C88CFAB21C6DB9C200CE9092 /* updateComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = updateComponent.h; sourceTree = "<group>"; };
-		C88CFAB31C6DB9C200CE9092 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
-		C88CFAB41C6DB9C200CE9092 /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
-		C88CFAB51C6DB9C200CE9092 /* WindowDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowDecorator.cpp; sourceTree = "<group>"; };
-		C88CFAB61C6DB9C200CE9092 /* WindowDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowDecorator.h; sourceTree = "<group>"; };
-		C88CFAB71C6DB9C200CE9092 /* WindowInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowInterface.cpp; sourceTree = "<group>"; };
-		C88CFAB81C6DB9C200CE9092 /* WindowInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowInterface.h; sourceTree = "<group>"; };
-		C88CFAB91C6DB9C200CE9092 /* WindowLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowLogger.cpp; sourceTree = "<group>"; };
-		C88CFABA1C6DB9C200CE9092 /* WindowLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowLogger.h; sourceTree = "<group>"; };
-		C88CFABB1C6DB9C200CE9092 /* world.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = world.cpp; sourceTree = "<group>"; };
-		C88CFABC1C6DB9C200CE9092 /* world.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = world.h; sourceTree = "<group>"; };
+		E959DCC01C702097001F2CAF /* animatorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = animatorComponent.cpp; sourceTree = "<group>"; };
+		E959DCC11C702097001F2CAF /* animatorComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = animatorComponent.hpp; sourceTree = "<group>"; };
+		E959DCC21C702097001F2CAF /* BaseFileType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseFileType.cpp; sourceTree = "<group>"; };
+		E959DCC31C702097001F2CAF /* BaseFileType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseFileType.h; sourceTree = "<group>"; };
+		E959DCC41C702097001F2CAF /* BorderDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BorderDecorator.cpp; sourceTree = "<group>"; };
+		E959DCC51C702097001F2CAF /* BorderDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderDecorator.h; sourceTree = "<group>"; };
+		E959DCC61C702097001F2CAF /* buttonRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buttonRenderComponent.cpp; sourceTree = "<group>"; };
+		E959DCC71C702097001F2CAF /* buttonRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buttonRenderComponent.h; sourceTree = "<group>"; };
+		E959DCC81C702097001F2CAF /* ClassDiagram.cd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ClassDiagram.cd; sourceTree = "<group>"; };
+		E959DCC91C702097001F2CAF /* component.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = component.cpp; sourceTree = "<group>"; };
+		E959DCCA1C702097001F2CAF /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
+		E959DCCB1C702097001F2CAF /* ComponentObsvr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentObsvr.cpp; sourceTree = "<group>"; };
+		E959DCCC1C702097001F2CAF /* ComponentObsvr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentObsvr.h; sourceTree = "<group>"; };
+		E959DCCD1C702097001F2CAF /* consoleIconRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = consoleIconRenderComponent.cpp; sourceTree = "<group>"; };
+		E959DCCE1C702097001F2CAF /* consoleIconRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = consoleIconRenderComponent.h; sourceTree = "<group>"; };
+		E959DCCF1C702097001F2CAF /* consoleUpdateComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = consoleUpdateComponent.cpp; sourceTree = "<group>"; };
+		E959DCD01C702097001F2CAF /* consoleUpdateComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = consoleUpdateComponent.h; sourceTree = "<group>"; };
+		E959DCD11C702097001F2CAF /* createWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = createWindow.cpp; sourceTree = "<group>"; };
+		E959DCD21C702097001F2CAF /* createWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = createWindow.h; sourceTree = "<group>"; };
+		E959DCD31C702097001F2CAF /* debug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = debug.cpp; sourceTree = "<group>"; };
+		E959DCD41C702097001F2CAF /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
+		E959DCD51C702097001F2CAF /* desktop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = desktop.cpp; sourceTree = "<group>"; };
+		E959DCD61C702097001F2CAF /* desktop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = desktop.h; sourceTree = "<group>"; };
+		E959DCD71C702097001F2CAF /* DesktopLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DesktopLogger.cpp; sourceTree = "<group>"; };
+		E959DCD81C702097001F2CAF /* DesktopLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopLogger.h; sourceTree = "<group>"; };
+		E959DCD91C702097001F2CAF /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		E959DCDA1C702097001F2CAF /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		E959DCDB1C702097001F2CAF /* EntityDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityDecorator.cpp; sourceTree = "<group>"; };
+		E959DCDC1C702097001F2CAF /* EntityDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityDecorator.h; sourceTree = "<group>"; };
+		E959DCDD1C702097001F2CAF /* EntityLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityLogger.cpp; sourceTree = "<group>"; };
+		E959DCDE1C702097001F2CAF /* EntityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityLogger.h; sourceTree = "<group>"; };
+		E959DCDF1C702097001F2CAF /* event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event.h; sourceTree = "<group>"; };
+		E959DCE01C702097001F2CAF /* InputCmpntLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputCmpntLogger.cpp; sourceTree = "<group>"; };
+		E959DCE11C702097001F2CAF /* InputCmpntLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCmpntLogger.h; sourceTree = "<group>"; };
+		E959DCE21C702097001F2CAF /* inputComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = inputComponent.cpp; sourceTree = "<group>"; };
+		E959DCE31C702097001F2CAF /* inputComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputComponent.h; sourceTree = "<group>"; };
+		E959DCE41C702097001F2CAF /* InputHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputHandler.cpp; sourceTree = "<group>"; };
+		E959DCE51C702097001F2CAF /* InputHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputHandler.h; sourceTree = "<group>"; };
+		E959DCE61C702097001F2CAF /* mousePressButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mousePressButton.cpp; sourceTree = "<group>"; };
+		E959DCE71C702097001F2CAF /* mousePressButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mousePressButton.h; sourceTree = "<group>"; };
+		E959DCE81C702097001F2CAF /* NodeState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodeState.cpp; sourceTree = "<group>"; };
+		E959DCE91C702097001F2CAF /* NodeState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeState.h; sourceTree = "<group>"; };
+		E959DCEA1C702097001F2CAF /* ObjectPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectPool.h; sourceTree = "<group>"; };
+		E959DCEB1C702097001F2CAF /* observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = observer.cpp; sourceTree = "<group>"; };
+		E959DCEC1C702097001F2CAF /* observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = observer.h; sourceTree = "<group>"; };
+		E959DCED1C702097001F2CAF /* RenderCmpntDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderCmpntDecorator.cpp; sourceTree = "<group>"; };
+		E959DCEE1C702097001F2CAF /* RenderCmpntDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderCmpntDecorator.h; sourceTree = "<group>"; };
+		E959DCEF1C702097001F2CAF /* RenderCmpntLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderCmpntLogger.cpp; sourceTree = "<group>"; };
+		E959DCF01C702097001F2CAF /* RenderCmpntLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderCmpntLogger.h; sourceTree = "<group>"; };
+		E959DCF11C702097001F2CAF /* renderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = renderComponent.h; sourceTree = "<group>"; };
+		E959DCF21C702097001F2CAF /* subject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = subject.cpp; sourceTree = "<group>"; };
+		E959DCF31C702097001F2CAF /* subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subject.h; sourceTree = "<group>"; };
+		E959DCF41C702097001F2CAF /* TestObserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestObserver.cpp; sourceTree = "<group>"; };
+		E959DCF51C702097001F2CAF /* TestObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObserver.h; sourceTree = "<group>"; };
+		E959DCF61C702097001F2CAF /* testRenderSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testRenderSprite.cpp; sourceTree = "<group>"; };
+		E959DCF71C702097001F2CAF /* testRenderSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testRenderSprite.h; sourceTree = "<group>"; };
+		E959DCF81C702097001F2CAF /* testRotateSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testRotateSprite.cpp; sourceTree = "<group>"; };
+		E959DCF91C702097001F2CAF /* testRotateSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testRotateSprite.h; sourceTree = "<group>"; };
+		E959DCFA1C702097001F2CAF /* textInputKeys.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textInputKeys.cpp; sourceTree = "<group>"; };
+		E959DCFB1C702097001F2CAF /* textInputKeys.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textInputKeys.hpp; sourceTree = "<group>"; };
+		E959DCFC1C702097001F2CAF /* textInputRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textInputRenderComponent.cpp; sourceTree = "<group>"; };
+		E959DCFD1C702097001F2CAF /* textInputRenderComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textInputRenderComponent.hpp; sourceTree = "<group>"; };
+		E959DCFE1C702097001F2CAF /* TreeCommands.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TreeCommands.cpp; sourceTree = "<group>"; };
+		E959DCFF1C702097001F2CAF /* TreeCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeCommands.h; sourceTree = "<group>"; };
+		E959DD001C702097001F2CAF /* UpdateCmpntDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UpdateCmpntDecorator.cpp; sourceTree = "<group>"; };
+		E959DD011C702097001F2CAF /* UpdateCmpntDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateCmpntDecorator.h; sourceTree = "<group>"; };
+		E959DD021C702097001F2CAF /* UpdateCmpntLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UpdateCmpntLogger.cpp; sourceTree = "<group>"; };
+		E959DD031C702097001F2CAF /* UpdateCmpntLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateCmpntLogger.h; sourceTree = "<group>"; };
+		E959DD041C702097001F2CAF /* updateComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = updateComponent.h; sourceTree = "<group>"; };
+		E959DD051C702097001F2CAF /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
+		E959DD061C702097001F2CAF /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
+		E959DD071C702097001F2CAF /* WindowDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowDecorator.cpp; sourceTree = "<group>"; };
+		E959DD081C702097001F2CAF /* WindowDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowDecorator.h; sourceTree = "<group>"; };
+		E959DD091C702097001F2CAF /* WindowInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowInterface.cpp; sourceTree = "<group>"; };
+		E959DD0A1C702097001F2CAF /* WindowInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowInterface.h; sourceTree = "<group>"; };
+		E959DD0B1C702097001F2CAF /* WindowLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowLogger.cpp; sourceTree = "<group>"; };
+		E959DD0C1C702097001F2CAF /* WindowLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowLogger.h; sourceTree = "<group>"; };
+		E959DD0D1C702097001F2CAF /* world.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = world.cpp; sourceTree = "<group>"; };
+		E959DD0E1C702097001F2CAF /* world.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = world.h; sourceTree = "<group>"; };
+		E959DD351C70213A001F2CAF /* desktopExtractionComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = desktopExtractionComponent.cpp; sourceTree = "<group>"; };
+		E959DD361C70213A001F2CAF /* desktopExtractionComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = desktopExtractionComponent.hpp; sourceTree = "<group>"; };
+		E959DD381C7022F7001F2CAF /* TestDesktop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestDesktop.json; sourceTree = "<group>"; };
 		E9C810541C603DCB00D47DA6 /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = jsoncpp.cpp; path = Code/Library/jsoncpp.cpp; sourceTree = SOURCE_ROOT; };
 		E9C810561C603DD700D47DA6 /* json-forwards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "json-forwards.h"; path = "Code/Library/json/json-forwards.h"; sourceTree = SOURCE_ROOT; };
 		E9C810571C603DD700D47DA6 /* json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = json.h; path = Code/Library/json/json.h; sourceTree = SOURCE_ROOT; };
@@ -195,83 +203,87 @@
 		C86E37901C4D6B4100842EFD /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				C88CFA701C6DB9C200CE9092 /* animatorComponent.cpp */,
-				C88CFA711C6DB9C200CE9092 /* animatorComponent.hpp */,
-				C88CFA721C6DB9C200CE9092 /* BaseFileType.cpp */,
-				C88CFA731C6DB9C200CE9092 /* BaseFileType.h */,
-				C88CFA741C6DB9C200CE9092 /* buttonRenderComponent.cpp */,
-				C88CFA751C6DB9C200CE9092 /* buttonRenderComponent.h */,
-				C88CFA761C6DB9C200CE9092 /* ClassDiagram.cd */,
-				C88CFA771C6DB9C200CE9092 /* component.cpp */,
-				C88CFA781C6DB9C200CE9092 /* Component.h */,
-				C88CFA791C6DB9C200CE9092 /* ComponentObsvr.cpp */,
-				C88CFA7A1C6DB9C200CE9092 /* ComponentObsvr.h */,
-				C88CFA7B1C6DB9C200CE9092 /* consoleIconRenderComponent.cpp */,
-				C88CFA7C1C6DB9C200CE9092 /* consoleIconRenderComponent.h */,
-				C88CFA7D1C6DB9C200CE9092 /* consoleUpdateComponent.cpp */,
-				C88CFA7E1C6DB9C200CE9092 /* consoleUpdateComponent.h */,
-				C88CFA7F1C6DB9C200CE9092 /* createWindow.cpp */,
-				C88CFA801C6DB9C200CE9092 /* createWindow.h */,
-				C88CFA811C6DB9C200CE9092 /* debug.cpp */,
-				C88CFA821C6DB9C200CE9092 /* debug.h */,
-				C88CFA831C6DB9C200CE9092 /* desktop.cpp */,
-				C88CFA841C6DB9C200CE9092 /* desktop.h */,
-				C88CFA851C6DB9C200CE9092 /* DesktopLogger.cpp */,
-				C88CFA861C6DB9C200CE9092 /* DesktopLogger.h */,
-				C88CFA871C6DB9C200CE9092 /* Entity.cpp */,
-				C88CFA881C6DB9C200CE9092 /* Entity.h */,
-				C88CFA891C6DB9C200CE9092 /* EntityDecorator.cpp */,
-				C88CFA8A1C6DB9C200CE9092 /* EntityDecorator.h */,
-				C88CFA8B1C6DB9C200CE9092 /* EntityLogger.cpp */,
-				C88CFA8C1C6DB9C200CE9092 /* EntityLogger.h */,
-				C88CFA8D1C6DB9C200CE9092 /* event.h */,
-				C88CFA8E1C6DB9C200CE9092 /* InputCmpntLogger.cpp */,
-				C88CFA8F1C6DB9C200CE9092 /* InputCmpntLogger.h */,
-				C88CFA901C6DB9C200CE9092 /* inputComponent.cpp */,
-				C88CFA911C6DB9C200CE9092 /* inputComponent.h */,
-				C88CFA921C6DB9C200CE9092 /* InputHandler.cpp */,
-				C88CFA931C6DB9C200CE9092 /* InputHandler.h */,
-				C88CFA941C6DB9C200CE9092 /* mousePressButton.cpp */,
-				C88CFA951C6DB9C200CE9092 /* mousePressButton.h */,
-				C88CFA961C6DB9C200CE9092 /* NodeState.cpp */,
-				C88CFA971C6DB9C200CE9092 /* NodeState.h */,
-				C88CFA981C6DB9C200CE9092 /* ObjectPool.h */,
-				C88CFA991C6DB9C200CE9092 /* observer.cpp */,
-				C88CFA9A1C6DB9C200CE9092 /* observer.h */,
-				C88CFA9B1C6DB9C200CE9092 /* RenderCmpntDecorator.cpp */,
-				C88CFA9C1C6DB9C200CE9092 /* RenderCmpntDecorator.h */,
-				C88CFA9D1C6DB9C200CE9092 /* RenderCmpntLogger.cpp */,
-				C88CFA9E1C6DB9C200CE9092 /* RenderCmpntLogger.h */,
-				C88CFA9F1C6DB9C200CE9092 /* renderComponent.h */,
-				C88CFAA01C6DB9C200CE9092 /* subject.cpp */,
-				C88CFAA11C6DB9C200CE9092 /* subject.h */,
-				C88CFAA21C6DB9C200CE9092 /* TestObserver.cpp */,
-				C88CFAA31C6DB9C200CE9092 /* TestObserver.h */,
-				C88CFAA41C6DB9C200CE9092 /* testRenderSprite.cpp */,
-				C88CFAA51C6DB9C200CE9092 /* testRenderSprite.h */,
-				C88CFAA61C6DB9C200CE9092 /* testRotateSprite.cpp */,
-				C88CFAA71C6DB9C200CE9092 /* testRotateSprite.h */,
-				C88CFAA81C6DB9C200CE9092 /* textInputKeys.cpp */,
-				C88CFAA91C6DB9C200CE9092 /* textInputKeys.hpp */,
-				C88CFAAA1C6DB9C200CE9092 /* textInputRenderComponent.cpp */,
-				C88CFAAB1C6DB9C200CE9092 /* textInputRenderComponent.hpp */,
-				C88CFAAC1C6DB9C200CE9092 /* TreeCommands.cpp */,
-				C88CFAAD1C6DB9C200CE9092 /* TreeCommands.h */,
-				C88CFAAE1C6DB9C200CE9092 /* UpdateCmpntDecorator.cpp */,
-				C88CFAAF1C6DB9C200CE9092 /* UpdateCmpntDecorator.h */,
-				C88CFAB01C6DB9C200CE9092 /* UpdateCmpntLogger.cpp */,
-				C88CFAB11C6DB9C200CE9092 /* UpdateCmpntLogger.h */,
-				C88CFAB21C6DB9C200CE9092 /* updateComponent.h */,
-				C88CFAB31C6DB9C200CE9092 /* Window.cpp */,
-				C88CFAB41C6DB9C200CE9092 /* Window.h */,
-				C88CFAB51C6DB9C200CE9092 /* WindowDecorator.cpp */,
-				C88CFAB61C6DB9C200CE9092 /* WindowDecorator.h */,
-				C88CFAB71C6DB9C200CE9092 /* WindowInterface.cpp */,
-				C88CFAB81C6DB9C200CE9092 /* WindowInterface.h */,
-				C88CFAB91C6DB9C200CE9092 /* WindowLogger.cpp */,
-				C88CFABA1C6DB9C200CE9092 /* WindowLogger.h */,
-				C88CFABB1C6DB9C200CE9092 /* world.cpp */,
-				C88CFABC1C6DB9C200CE9092 /* world.h */,
+				E959DD351C70213A001F2CAF /* desktopExtractionComponent.cpp */,
+				E959DD361C70213A001F2CAF /* desktopExtractionComponent.hpp */,
+				E959DCC01C702097001F2CAF /* animatorComponent.cpp */,
+				E959DCC11C702097001F2CAF /* animatorComponent.hpp */,
+				E959DCC21C702097001F2CAF /* BaseFileType.cpp */,
+				E959DCC31C702097001F2CAF /* BaseFileType.h */,
+				E959DCC41C702097001F2CAF /* BorderDecorator.cpp */,
+				E959DCC51C702097001F2CAF /* BorderDecorator.h */,
+				E959DCC61C702097001F2CAF /* buttonRenderComponent.cpp */,
+				E959DCC71C702097001F2CAF /* buttonRenderComponent.h */,
+				E959DCC81C702097001F2CAF /* ClassDiagram.cd */,
+				E959DCC91C702097001F2CAF /* component.cpp */,
+				E959DCCA1C702097001F2CAF /* Component.h */,
+				E959DCCB1C702097001F2CAF /* ComponentObsvr.cpp */,
+				E959DCCC1C702097001F2CAF /* ComponentObsvr.h */,
+				E959DCCD1C702097001F2CAF /* consoleIconRenderComponent.cpp */,
+				E959DCCE1C702097001F2CAF /* consoleIconRenderComponent.h */,
+				E959DCCF1C702097001F2CAF /* consoleUpdateComponent.cpp */,
+				E959DCD01C702097001F2CAF /* consoleUpdateComponent.h */,
+				E959DCD11C702097001F2CAF /* createWindow.cpp */,
+				E959DCD21C702097001F2CAF /* createWindow.h */,
+				E959DCD31C702097001F2CAF /* debug.cpp */,
+				E959DCD41C702097001F2CAF /* debug.h */,
+				E959DCD51C702097001F2CAF /* desktop.cpp */,
+				E959DCD61C702097001F2CAF /* desktop.h */,
+				E959DCD71C702097001F2CAF /* DesktopLogger.cpp */,
+				E959DCD81C702097001F2CAF /* DesktopLogger.h */,
+				E959DCD91C702097001F2CAF /* Entity.cpp */,
+				E959DCDA1C702097001F2CAF /* Entity.h */,
+				E959DCDB1C702097001F2CAF /* EntityDecorator.cpp */,
+				E959DCDC1C702097001F2CAF /* EntityDecorator.h */,
+				E959DCDD1C702097001F2CAF /* EntityLogger.cpp */,
+				E959DCDE1C702097001F2CAF /* EntityLogger.h */,
+				E959DCDF1C702097001F2CAF /* event.h */,
+				E959DCE01C702097001F2CAF /* InputCmpntLogger.cpp */,
+				E959DCE11C702097001F2CAF /* InputCmpntLogger.h */,
+				E959DCE21C702097001F2CAF /* inputComponent.cpp */,
+				E959DCE31C702097001F2CAF /* inputComponent.h */,
+				E959DCE41C702097001F2CAF /* InputHandler.cpp */,
+				E959DCE51C702097001F2CAF /* InputHandler.h */,
+				E959DCE61C702097001F2CAF /* mousePressButton.cpp */,
+				E959DCE71C702097001F2CAF /* mousePressButton.h */,
+				E959DCE81C702097001F2CAF /* NodeState.cpp */,
+				E959DCE91C702097001F2CAF /* NodeState.h */,
+				E959DCEA1C702097001F2CAF /* ObjectPool.h */,
+				E959DCEB1C702097001F2CAF /* observer.cpp */,
+				E959DCEC1C702097001F2CAF /* observer.h */,
+				E959DCED1C702097001F2CAF /* RenderCmpntDecorator.cpp */,
+				E959DCEE1C702097001F2CAF /* RenderCmpntDecorator.h */,
+				E959DCEF1C702097001F2CAF /* RenderCmpntLogger.cpp */,
+				E959DCF01C702097001F2CAF /* RenderCmpntLogger.h */,
+				E959DCF11C702097001F2CAF /* renderComponent.h */,
+				E959DCF21C702097001F2CAF /* subject.cpp */,
+				E959DCF31C702097001F2CAF /* subject.h */,
+				E959DCF41C702097001F2CAF /* TestObserver.cpp */,
+				E959DCF51C702097001F2CAF /* TestObserver.h */,
+				E959DCF61C702097001F2CAF /* testRenderSprite.cpp */,
+				E959DCF71C702097001F2CAF /* testRenderSprite.h */,
+				E959DCF81C702097001F2CAF /* testRotateSprite.cpp */,
+				E959DCF91C702097001F2CAF /* testRotateSprite.h */,
+				E959DCFA1C702097001F2CAF /* textInputKeys.cpp */,
+				E959DCFB1C702097001F2CAF /* textInputKeys.hpp */,
+				E959DCFC1C702097001F2CAF /* textInputRenderComponent.cpp */,
+				E959DCFD1C702097001F2CAF /* textInputRenderComponent.hpp */,
+				E959DCFE1C702097001F2CAF /* TreeCommands.cpp */,
+				E959DCFF1C702097001F2CAF /* TreeCommands.h */,
+				E959DD001C702097001F2CAF /* UpdateCmpntDecorator.cpp */,
+				E959DD011C702097001F2CAF /* UpdateCmpntDecorator.h */,
+				E959DD021C702097001F2CAF /* UpdateCmpntLogger.cpp */,
+				E959DD031C702097001F2CAF /* UpdateCmpntLogger.h */,
+				E959DD041C702097001F2CAF /* updateComponent.h */,
+				E959DD051C702097001F2CAF /* Window.cpp */,
+				E959DD061C702097001F2CAF /* Window.h */,
+				E959DD071C702097001F2CAF /* WindowDecorator.cpp */,
+				E959DD081C702097001F2CAF /* WindowDecorator.h */,
+				E959DD091C702097001F2CAF /* WindowInterface.cpp */,
+				E959DD0A1C702097001F2CAF /* WindowInterface.h */,
+				E959DD0B1C702097001F2CAF /* WindowLogger.cpp */,
+				E959DD0C1C702097001F2CAF /* WindowLogger.h */,
+				E959DD0D1C702097001F2CAF /* world.cpp */,
+				E959DD0E1C702097001F2CAF /* world.h */,
 			);
 			name = Engine;
 			path = Code/Engine;
@@ -280,6 +292,7 @@
 		C86E37A51C4D6B5100842EFD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E959DD381C7022F7001F2CAF /* TestDesktop.json */,
 				C837536C1C6D5DC2002DF7E1 /* Consolas.ttf */,
 				C84913C61C6AA82E00F84CB0 /* Icon_Sheet.png */,
 				C812D6141C61D29600901173 /* Wallpaper.png */,
@@ -387,10 +400,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E959DD391C7022F7001F2CAF /* TestDesktop.json in Resources */,
 				C812D6151C61D29600901173 /* Wallpaper.png in Resources */,
 				C86E37AF1C4D6B5200842EFD /* EngineSettings.ini in Resources */,
 				E9C810591C603E1600D47DA6 /* dummy.json in Resources */,
-				C88CFAC01C6DB9C200CE9092 /* ClassDiagram.cd in Resources */,
+				E959DD131C702097001F2CAF /* ClassDiagram.cd in Resources */,
 				C86E37B11C4D6B5200842EFD /* kappa.png in Resources */,
 				C858D3961C61C1BB0086199C /* Windows_UI.png in Resources */,
 				C86E37AD1C4D6B5100842EFD /* DoxygenHelp.txt in Resources */,
@@ -422,44 +436,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C88CFABD1C6DB9C200CE9092 /* animatorComponent.cpp in Sources */,
-				C88CFAD31C6DB9C200CE9092 /* RenderCmpntLogger.cpp in Sources */,
-				C88CFAC61C6DB9C200CE9092 /* debug.cpp in Sources */,
-				C88CFADA1C6DB9C200CE9092 /* TreeCommands.cpp in Sources */,
-				C88CFAC11C6DB9C200CE9092 /* component.cpp in Sources */,
-				C88CFACE1C6DB9C200CE9092 /* InputHandler.cpp in Sources */,
-				C88CFAC71C6DB9C200CE9092 /* desktop.cpp in Sources */,
-				C88CFACA1C6DB9C200CE9092 /* EntityDecorator.cpp in Sources */,
-				C88CFAD11C6DB9C200CE9092 /* observer.cpp in Sources */,
-				C88CFAD61C6DB9C200CE9092 /* testRenderSprite.cpp in Sources */,
-				C88CFADF1C6DB9C200CE9092 /* WindowInterface.cpp in Sources */,
-				C88CFAD41C6DB9C200CE9092 /* subject.cpp in Sources */,
-				C88CFACF1C6DB9C200CE9092 /* mousePressButton.cpp in Sources */,
-				C88CFAC31C6DB9C200CE9092 /* consoleIconRenderComponent.cpp in Sources */,
-				C88CFACB1C6DB9C200CE9092 /* EntityLogger.cpp in Sources */,
-				C88CFAC51C6DB9C200CE9092 /* createWindow.cpp in Sources */,
-				C88CFAC21C6DB9C200CE9092 /* ComponentObsvr.cpp in Sources */,
-				C88CFABE1C6DB9C200CE9092 /* BaseFileType.cpp in Sources */,
-				C88CFAC81C6DB9C200CE9092 /* DesktopLogger.cpp in Sources */,
-				C88CFAD01C6DB9C200CE9092 /* NodeState.cpp in Sources */,
+				E959DD311C702097001F2CAF /* WindowDecorator.cpp in Sources */,
+				E959DD0F1C702097001F2CAF /* animatorComponent.cpp in Sources */,
+				E959DD2E1C702097001F2CAF /* UpdateCmpntDecorator.cpp in Sources */,
+				E959DD281C702097001F2CAF /* TestObserver.cpp in Sources */,
+				E959DD141C702097001F2CAF /* component.cpp in Sources */,
+				E959DD321C702097001F2CAF /* WindowInterface.cpp in Sources */,
+				E959DD1B1C702097001F2CAF /* DesktopLogger.cpp in Sources */,
+				E959DD271C702097001F2CAF /* subject.cpp in Sources */,
+				E959DD151C702097001F2CAF /* ComponentObsvr.cpp in Sources */,
+				E959DD101C702097001F2CAF /* BaseFileType.cpp in Sources */,
 				E9C810551C603DCB00D47DA6 /* jsoncpp.cpp in Sources */,
-				C88CFABF1C6DB9C200CE9092 /* buttonRenderComponent.cpp in Sources */,
-				C88CFADD1C6DB9C200CE9092 /* Window.cpp in Sources */,
+				E959DD1F1C702097001F2CAF /* InputCmpntLogger.cpp in Sources */,
+				E959DD2A1C702097001F2CAF /* testRotateSprite.cpp in Sources */,
+				E959DD221C702097001F2CAF /* mousePressButton.cpp in Sources */,
+				E959DD291C702097001F2CAF /* testRenderSprite.cpp in Sources */,
+				E959DD211C702097001F2CAF /* InputHandler.cpp in Sources */,
+				E959DD2D1C702097001F2CAF /* TreeCommands.cpp in Sources */,
+				E959DD1E1C702097001F2CAF /* EntityLogger.cpp in Sources */,
+				E959DD261C702097001F2CAF /* RenderCmpntLogger.cpp in Sources */,
+				E959DD111C702097001F2CAF /* BorderDecorator.cpp in Sources */,
+				E959DD1A1C702097001F2CAF /* desktop.cpp in Sources */,
+				E959DD1C1C702097001F2CAF /* Entity.cpp in Sources */,
+				E959DD2B1C702097001F2CAF /* textInputKeys.cpp in Sources */,
+				E959DD241C702097001F2CAF /* observer.cpp in Sources */,
+				E959DD251C702097001F2CAF /* RenderCmpntDecorator.cpp in Sources */,
+				E959DD2C1C702097001F2CAF /* textInputRenderComponent.cpp in Sources */,
+				E959DD331C702097001F2CAF /* WindowLogger.cpp in Sources */,
+				E959DD161C702097001F2CAF /* consoleIconRenderComponent.cpp in Sources */,
+				E959DD171C702097001F2CAF /* consoleUpdateComponent.cpp in Sources */,
+				E959DD231C702097001F2CAF /* NodeState.cpp in Sources */,
+				E959DD2F1C702097001F2CAF /* UpdateCmpntLogger.cpp in Sources */,
+				E959DD1D1C702097001F2CAF /* EntityDecorator.cpp in Sources */,
+				E959DD201C702097001F2CAF /* inputComponent.cpp in Sources */,
 				C86E377C1C4D67F200842EFD /* main.cpp in Sources */,
-				C88CFAD51C6DB9C200CE9092 /* TestObserver.cpp in Sources */,
-				C88CFAE11C6DB9C200CE9092 /* world.cpp in Sources */,
-				C88CFAC41C6DB9C200CE9092 /* consoleUpdateComponent.cpp in Sources */,
-				C88CFAD71C6DB9C200CE9092 /* testRotateSprite.cpp in Sources */,
-				C88CFADB1C6DB9C200CE9092 /* UpdateCmpntDecorator.cpp in Sources */,
-				C88CFACC1C6DB9C200CE9092 /* InputCmpntLogger.cpp in Sources */,
-				C88CFACD1C6DB9C200CE9092 /* inputComponent.cpp in Sources */,
-				C88CFAC91C6DB9C200CE9092 /* Entity.cpp in Sources */,
-				C88CFAD91C6DB9C200CE9092 /* textInputRenderComponent.cpp in Sources */,
-				C88CFADE1C6DB9C200CE9092 /* WindowDecorator.cpp in Sources */,
-				C88CFAD81C6DB9C200CE9092 /* textInputKeys.cpp in Sources */,
-				C88CFADC1C6DB9C200CE9092 /* UpdateCmpntLogger.cpp in Sources */,
-				C88CFAE01C6DB9C200CE9092 /* WindowLogger.cpp in Sources */,
-				C88CFAD21C6DB9C200CE9092 /* RenderCmpntDecorator.cpp in Sources */,
+				E959DD371C70213A001F2CAF /* desktopExtractionComponent.cpp in Sources */,
+				E959DD341C702097001F2CAF /* world.cpp in Sources */,
+				E959DD301C702097001F2CAF /* Window.cpp in Sources */,
+				E959DD181C702097001F2CAF /* createWindow.cpp in Sources */,
+				E959DD191C702097001F2CAF /* debug.cpp in Sources */,
+				E959DD121C702097001F2CAF /* buttonRenderComponent.cpp in Sources */,
 				C881BEE91C4D7C5B008B1EBD /* ResourcePath.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
