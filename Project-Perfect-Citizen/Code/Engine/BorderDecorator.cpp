@@ -62,7 +62,7 @@ void BorderDecorator::setSize(unsigned int x, unsigned int y) {
 
 
 void BorderDecorator::setPosition(float x, float y) {
-    
+    borderShape.setPosition(x - borderTopLeft.x, y - borderTopLeft.y);
 
     WindowDecorator::setPosition(x, y);
 }
@@ -74,15 +74,6 @@ void BorderDecorator::move(float x, float y) {
     borderShape.move(x, y);
 
     WindowDecorator::move(x, y);
-}
-
-
-
-
-void BorderDecorator::registerInput(sf::Event& ev) {
-    /*if (ev.type == sf::Event::MouseButtonPressed) {
-
-    }*/
 }
 
 

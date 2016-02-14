@@ -34,8 +34,6 @@ public:
 
     virtual void move(float x, float y) override;
 
-    virtual void registerInput(sf::Event& ev) override;
-
 
 protected:
 
