@@ -113,7 +113,6 @@
       <Filter>Sources\Examples</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\consoleUpdateComponent.cpp" />
-    <ClCompile Include="Code\Engine\FunctionObserver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -252,9 +251,6 @@
       <Filter>Headers\Examples</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\consoleUpdateComponent.h" />
-    <ClInclude Include="Code\Engine\FunctionObserver.h">
-      <Filter>Headers\Engine\Input</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\buttonRenderComponent.h" />
