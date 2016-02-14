@@ -25,8 +25,7 @@ namespace ppc {
 /// addition, each Desktop has its own unique FileTree and
 /// OS style.
 ///@author Nader Sleem
-///@todo Hook up this class with FileTree and OSStyle when they are
-/// done
+///@todo Deal with minimization.
 ///////////////////////////////////////////////////////////////////////
 	class Desktop : public sf::Drawable {
 
@@ -112,12 +111,12 @@ namespace ppc {
 ///@details Creates a Desktop with a given FileTree and width and 
 /// height for the size of the desktopWindow_, which holds the icons &
 /// buttons for the Desktop.
-///@param ft The FileTree object to be associated with the Desktop.
-///@param w Width of the desktopWindow_
-///@param h Height of the desktopWindow_
+///@param bkgndWin The Window representing the Window for the Desktop
+/// background, which can hold icons/entities.
+///@param n The NodeState object to be associated with the Desktop.
 ///@todo Add param for OSStyle?.
 ///////////////////////////////////////////////////////////////////////
-		Desktop(size_t w, size_t h, NodeState& n);
+		Desktop(WindowInterface& bkgndWin, NodeState& n);
 
 		
 ///////////////////////////////////////////////////////////////////////

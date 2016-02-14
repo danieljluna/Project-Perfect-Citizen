@@ -3,12 +3,12 @@
 
 #include "desktop.h"
 
-ppc::Desktop::Desktop(size_t w, size_t h, NodeState& n) {
+ppc::Desktop::Desktop(WindowInterface& bkgndWin, NodeState& n) {
 	style_ = nullptr;
 	nodeState_ = &n;
 
-	windows_.push_back(new Window(w, h));
-	desktopWindow_ = windows_.front();
+	windows_.push_back(&bkgndWin);
+	desktopWindow_ = &bkgndWin;
 	focused_ = desktopWindow_;
 	
 }
@@ -87,7 +87,6 @@ void ppc::Desktop::setStyle(OSStyle* oss) {
 }
 
 ppc::NodeState& ppc::Desktop::getNodeState() {
-
 	return *nodeState_;
 }
 
