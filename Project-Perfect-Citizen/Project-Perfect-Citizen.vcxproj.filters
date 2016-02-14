@@ -113,6 +113,10 @@
       <Filter>Sources\Examples</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\consoleUpdateComponent.cpp" />
+    <ClCompile Include="Code\Engine\BorderDecorator.cpp" />
+    <ClCompile Include="Code\Engine\FunctionObserver.cpp">
+      <Filter>Sources\Engine\Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -238,9 +242,6 @@
     <ClInclude Include="Code\Engine\consoleIconRenderComponent.h">
       <Filter>Headers\Examples</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\WindowBorder.h">
-      <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\textInputKeys.hpp">
       <Filter>Headers\Engine\Input</Filter>
     </ClInclude>
@@ -251,6 +252,10 @@
       <Filter>Headers\Examples</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\consoleUpdateComponent.h" />
+    <ClInclude Include="Code\Engine\BorderDecorator.h" />
+    <ClInclude Include="Code\Engine\FunctionObserver.h">
+      <Filter>Headers\Engine\Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\buttonRenderComponent.h" />
