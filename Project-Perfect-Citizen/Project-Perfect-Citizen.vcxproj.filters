@@ -252,6 +252,7 @@
       <Filter>Headers\Examples</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\consoleUpdateComponent.h" />
+    <ClInclude Include="Code\Engine\BorderDecorator.h" />
     <ClInclude Include="Code\Engine\FunctionObserver.h">
       <Filter>Headers\Engine\Input</Filter>
     </ClInclude>
