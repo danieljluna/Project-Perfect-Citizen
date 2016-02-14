@@ -25,8 +25,7 @@ namespace ppc {
 /// addition, each Desktop has its own unique FileTree and
 /// OS style.
 ///@author Nader Sleem
-///@todo Hook up this class with FileTree and OSStyle when they are
-/// done
+///@todo Deal with minimization.
 ///////////////////////////////////////////////////////////////////////
 	class Desktop : public sf::Drawable {
 
@@ -43,6 +42,21 @@ namespace ppc {
 ///@brief The FileTree structure of this Desktop
 ///////////////////////////////////////////////////////////////////////
 		NodeState* nodeState_;
+
+///////////////////////////////////////////////////////////////////////
+///@brief The Window that represents the Desktop itself. Should contain
+/// all the icons and buttons, and other windows of the Desktop.
+///@details This window is special, in that it cannot be deleted from
+/// from a Desktop. desktopWindow_ is a part of all the windows kept 
+/// track by windows_. desktopWindow is ALWAYS in the back of the
+/// window_ vector, even when it is focused. 
+///////////////////////////////////////////////////////////////////////
+		WindowInterface* desktopWindow_;
+
+///////////////////////////////////////////////////////////////////////
+///@brief The Window that is focused
+///////////////////////////////////////////////////////////////////////
+		WindowInterface* focused_;
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief The container of all WindowInterfaces/Windows
@@ -75,6 +89,13 @@ namespace ppc {
 		virtual void draw(sf::RenderTarget&, sf::RenderStates) const;
 
 ///////////////////////////////////////////////////////////////////////
+///@brief A helper function that checks if the mouse is within a
+/// window.
+///////////////////////////////////////////////////////////////////////
+		bool isMouseCollision(WindowInterface*, sf::Vector2f);
+
+
+///////////////////////////////////////////////////////////////////////
 //PUBLIC FIELD
 ///////////////////////////////////////////////////////////////////////
 	public:
@@ -87,12 +108,15 @@ namespace ppc {
 		Desktop() = delete;
 ///////////////////////////////////////////////////////////////////////
 ///@brief Desktop Constructor.
-///@details Creates a Desktop with a given FileTree.
-///@param ft The FileTree object to be associated with the Desktop.
-///
+///@details Creates a Desktop with a given FileTree and width and 
+/// height for the size of the desktopWindow_, which holds the icons &
+/// buttons for the Desktop.
+///@param bkgndWin The Window representing the Window for the Desktop
+/// background, which can hold icons/entities.
+///@param n The NodeState object to be associated with the Desktop.
 ///@todo Add param for OSStyle?.
 ///////////////////////////////////////////////////////////////////////
-		Desktop(NodeState& n);
+		Desktop(WindowInterface& bkgndWin, NodeState& n);
 
 		
 ///////////////////////////////////////////////////////////////////////
@@ -117,6 +141,8 @@ namespace ppc {
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Removes a Window from the Desktop.
+///@details After a window is closed, the desktopWindow is the new 
+/// focused.
 ///@param wi  A WindowInterface* which points to the Window to be 
 /// deleted. If the pointer is nullptr, nothing happens.
 ///@post Desktop contains 1 less Window.
@@ -135,8 +161,7 @@ namespace ppc {
 		virtual NodeState& getNodeState();
 
 ///////////////////////////////////////////////////////////////////////
-///@brief Reacts to Input for all Windows, and all objects
-/// in the Windows.
+///@brief Reacts to Input for the focused Window.
 ///////////////////////////////////////////////////////////////////////
 		virtual void registerInput(sf::Event& ev);
 

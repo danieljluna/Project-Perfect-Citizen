@@ -30,6 +30,7 @@
 #include "Engine/animatorComponent.hpp"
 #include "Engine/textInputKeys.hpp"
 #include "Engine/createWindow.h"
+#include "Engine/BorderDecorator.h"
 
 using namespace ppc;
 
@@ -43,7 +44,7 @@ int main(int argc, char** argv) {
 	DEBUGF("ac", argc);
 
     // Create the main sf::window
-    sf::RenderWindow screen(sf::VideoMode(1800, 1000), "SFML window");
+    sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
 	//Create the InputHandler
 	ppc::InputHandler* inputHandle = new InputHandler();
@@ -162,8 +163,9 @@ int main(int argc, char** argv) {
     
   
     //Create ppc::Window
-    Window* testWindow = new Window(600, 300,sf::Color(200,200,200));
-	Window* consoleWindow = spawnConsole(*inputHandle, *testState);
+    WindowInterface* testWindow = new Window(300, 300,sf::Color(200,200,200));
+	WindowInterface* consoleWindow = spawnConsole(*inputHandle, *testState);
+    consoleWindow = new BorderDecorator(*consoleWindow);
 	//testWindow->addInputComponent(mpb);
 	//testWindow->addInputComponent(mpb2);
 	testWindow->addEntity(*testEntity);
@@ -176,7 +178,9 @@ int main(int argc, char** argv) {
 	//testWindowLogger.addEntity(testEntity);
 
 	//Create ppc::Desktop
-	Desktop myDesktop(*testState);
+	//Create the Window that represents the Desktop itself.
+	WindowInterface* desktopWin = new Window(1800, 1000);
+	Desktop myDesktop(*desktopWin,*testState);
 
 	//Add windows to Desktops
 	//myDesktop.addWindow(&testWindowLogger);
