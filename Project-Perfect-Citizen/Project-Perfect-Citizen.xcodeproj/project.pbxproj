@@ -16,6 +16,8 @@
 		C86E37AF1C4D6B5200842EFD /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = C86E37AA1C4D6B5100842EFD /* EngineSettings.ini */; };
 		C86E37B11C4D6B5200842EFD /* kappa.png in Resources */ = {isa = PBXBuildFile; fileRef = C86E37AC1C4D6B5100842EFD /* kappa.png */; };
 		C881BEE91C4D7C5B008B1EBD /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */; };
+		E94E75981C72836500C77C60 /* expressionistParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E94E75961C72836500C77C60 /* expressionistParser.cpp */; };
+		E94E759A1C728D2C00C77C60 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = E94E75991C728D2C00C77C60 /* data.json */; };
 		E959DD0F1C702097001F2CAF /* animatorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCC01C702097001F2CAF /* animatorComponent.cpp */; };
 		E959DD101C702097001F2CAF /* BaseFileType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCC21C702097001F2CAF /* BaseFileType.cpp */; };
 		E959DD111C702097001F2CAF /* BorderDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E959DCC41C702097001F2CAF /* BorderDecorator.cpp */; };
@@ -74,6 +76,9 @@
 		C86E37AC1C4D6B5100842EFD /* kappa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kappa.png; sourceTree = "<group>"; };
 		C881BEE71C4D7C5B008B1EBD /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ResourcePath.hpp; path = Resources/ResourcePath.hpp; sourceTree = SOURCE_ROOT; };
 		C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ResourcePath.mm; path = Resources/ResourcePath.mm; sourceTree = SOURCE_ROOT; };
+		E94E75961C72836500C77C60 /* expressionistParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = expressionistParser.cpp; sourceTree = "<group>"; };
+		E94E75971C72836500C77C60 /* expressionistParser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = expressionistParser.hpp; sourceTree = "<group>"; };
+		E94E75991C728D2C00C77C60 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		E959DCC01C702097001F2CAF /* animatorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = animatorComponent.cpp; sourceTree = "<group>"; };
 		E959DCC11C702097001F2CAF /* animatorComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = animatorComponent.hpp; sourceTree = "<group>"; };
 		E959DCC21C702097001F2CAF /* BaseFileType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseFileType.cpp; sourceTree = "<group>"; };
@@ -284,6 +289,8 @@
 				E959DD0C1C702097001F2CAF /* WindowLogger.h */,
 				E959DD0D1C702097001F2CAF /* world.cpp */,
 				E959DD0E1C702097001F2CAF /* world.h */,
+				E94E75961C72836500C77C60 /* expressionistParser.cpp */,
+				E94E75971C72836500C77C60 /* expressionistParser.hpp */,
 			);
 			name = Engine;
 			path = Code/Engine;
@@ -292,6 +299,7 @@
 		C86E37A51C4D6B5100842EFD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E94E75991C728D2C00C77C60 /* data.json */,
 				E959DD381C7022F7001F2CAF /* TestDesktop.json */,
 				C837536C1C6D5DC2002DF7E1 /* Consolas.ttf */,
 				C84913C61C6AA82E00F84CB0 /* Icon_Sheet.png */,
@@ -400,6 +408,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E94E759A1C728D2C00C77C60 /* data.json in Resources */,
 				E959DD391C7022F7001F2CAF /* TestDesktop.json in Resources */,
 				C812D6151C61D29600901173 /* Wallpaper.png in Resources */,
 				C86E37AF1C4D6B5200842EFD /* EngineSettings.ini in Resources */,
@@ -447,6 +456,7 @@
 				E959DD151C702097001F2CAF /* ComponentObsvr.cpp in Sources */,
 				E959DD101C702097001F2CAF /* BaseFileType.cpp in Sources */,
 				E9C810551C603DCB00D47DA6 /* jsoncpp.cpp in Sources */,
+				E94E75981C72836500C77C60 /* expressionistParser.cpp in Sources */,
 				E959DD1F1C702097001F2CAF /* InputCmpntLogger.cpp in Sources */,
 				E959DD2A1C702097001F2CAF /* testRotateSprite.cpp in Sources */,
 				E959DD221C702097001F2CAF /* mousePressButton.cpp in Sources */,
