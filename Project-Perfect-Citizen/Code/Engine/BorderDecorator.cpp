@@ -9,9 +9,11 @@ using namespace ppc;
 ///////////////////////////////////////////////////////////////////////
 
 BorderDecorator::BorderDecorator(
-        WindowInterface& win,
-        unsigned int majorBorder,
-        unsigned int minorBorder) : WindowDecorator(win) {
+    WindowInterface& win,
+    unsigned int majorBorder,
+    unsigned int minorBorder) :
+            WindowDecorator(win),
+            draggableInput_(*this, getBounds()) {
     borderTopLeft_.y = majorBorder;
     borderTopLeft_.x = borderBottomRight_.x = 
             borderBottomRight_.y = minorBorder;
@@ -23,8 +25,6 @@ BorderDecorator::BorderDecorator(
                                 majorBorder));
     borderShape_.setSize(size);
     borderShape_.setFillColor(sf::Color::Red);
-
-    isBeingDragged_ = false;
 }
 
 

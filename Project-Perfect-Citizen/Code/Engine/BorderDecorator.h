@@ -2,6 +2,7 @@
 #define BORDER_DECORATOR_H
 
 #include "WindowDecorator.h"
+#include "DraggableInput.h"
 
 namespace ppc {
 
@@ -52,7 +53,7 @@ private:
 
     sf::RectangleShape borderShape_;
 
-    bool isBeingDragged_;
+    DraggableInput draggableInput_;
 
 
 };

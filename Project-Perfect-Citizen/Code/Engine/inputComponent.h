@@ -65,7 +65,7 @@ protected:
     /// @return A pointer to the Observer desired. Returns nullptr if
     ///     the precondition fails.
     ///////////////////////////////////////////////////////////////////
-    ComponentObsvr* getObserver(size_t index = 0);
+    BaseObserver* getObserver(size_t index = 0);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Sets up an Observer to watch the Subject.
@@ -104,7 +104,7 @@ private:
 
     size_t findNextObserver();
 
-    ComponentObsvr** observerArray_;
+    BaseObserver** observerArray_;
 
     size_t observerCount_;
 

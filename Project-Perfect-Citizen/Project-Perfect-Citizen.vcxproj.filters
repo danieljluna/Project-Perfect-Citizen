@@ -117,6 +117,9 @@
     <ClCompile Include="Code\Engine\FunctionObserver.cpp">
       <Filter>Sources\Engine\Input</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\DraggableInput.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -255,6 +258,9 @@
     <ClInclude Include="Code\Engine\BorderDecorator.h" />
     <ClInclude Include="Code\Engine\FunctionObserver.h">
       <Filter>Headers\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\DraggableInput.h">
+      <Filter>Headers\Examples</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
