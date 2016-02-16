@@ -29,16 +29,9 @@ BorderDecorator::BorderDecorator(
     borderShape_.setSize(size);
     borderShape_.setFillColor(sf::Color::Red);
 
-    //Set up Draggable Input Bounds
-    sf::FloatRect bounds;
-    bounds.top = borderShape_.getPosition().x;
-    bounds.left = borderShape_.getPosition().y;
-    bounds.height = majorBorder;
-    bounds.width = borderShape_.getSize().x;
-    draggableInput_.setBounds(bounds);
+    //Set up Bounds
 
     //Set up Draggable Input Observers
-    win.getInputHandler();
     draggableInput_.watch(win.getInputHandler(), 
                           sf::Event::MouseButtonPressed);
     draggableInput_.watch(win.getInputHandler(),
@@ -108,4 +101,22 @@ void BorderDecorator::draw(sf::RenderTarget& target,
     target.draw(borderShape_, states);
 
     WindowDecorator::draw(target, states);
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////////
+// Helper Functions
+///////////////////////////////////////////////////////////////////////
+
+void BorderDecorator::updateBounds() {
+    //Set up Draggable Input Bounds
+    sf::FloatRect bounds;
+    bounds.height = float(borderTopLeft_.y);
+    bounds.width = borderShape_.getSize().x + float(borderTopLeft_.x) +
+                borderBottomRight_.x;
+    bounds.top = borderShape_.getPosition().y - float(borderTopLeft_.y);
+    bounds.left = borderShape_.getPosition().x - float(borderTopLeft_.x);
+    draggableInput_.setBounds(bounds);
 }
