@@ -32,6 +32,7 @@
 #include "Engine/createWindow.h"
 #include "Engine/BorderDecorator.h"
 #include "Engine/desktopExtractionComponent.hpp"
+#include "Engine/expressionistParser.hpp"
 
 using namespace ppc;
 
@@ -187,6 +188,9 @@ int main(int argc, char** argv) {
 	//myDesktop.addWindow(&testWindowLogger);
 	myDesktop.addWindow(testWindow);
 	myDesktop.addWindow(consoleWindow);
+    
+    expressionistParser* de0 = new expressionistParser();
+    de0->parse("data.json");
 
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop
