@@ -34,9 +34,10 @@ void expressionistParser::parse(std::string file){
     std::ifstream doc(resourcePath() + file, std::ifstream::binary);
     if (reader.parse(doc, value)){
         Json::Value nonTerminalObj = value[ "nonterminals" ];
+        std::vector<std::string> terminalNames = nonTerminalObj.getMemberNames();
         
         for (unsigned int i = 0; i < nonTerminalObj.size(); i++){
-            Json::Value expressionObj = nonTerminalObj["I or i"];
+            Json::Value expressionObj = nonTerminalObj[terminalNames[i]];
             this->complete_ = expressionObj.get("complete", "ERROR").asBool();
             this->deep_ = expressionObj.get("deep", "ERROR").asBool();
             
