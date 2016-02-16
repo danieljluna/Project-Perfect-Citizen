@@ -46,6 +46,10 @@ void buttonRenderComponent::renderPosition(sf::Vector2f pos) {
 	sprite->setPosition(pos.x, pos.y);
 }
 
+void buttonRenderComponent::setImageScale(float ScaleX, float ScaleY) {
+	sprite->setScale(ScaleX, ScaleY);
+}
+
 sf::Sprite*  buttonRenderComponent::getSprite() {
 	return this->sprite;
 }
@@ -91,8 +95,6 @@ void buttonRenderComponent::recieveMessage(msgType code) {
             setSprite(xIndex+width, yIndex, width);
         if(code.compare(MOUSE_RELEASED_CODE) == 0)
             setSprite(xIndex, yIndex, width);
-        else if(code.compare(MOUSE_DOUBLE_CLICK_CODE) == 0)
-            setSprite(6, 5, 1);
     } else {
        if(code.compare(MOUSE_DOUBLE_CLICK_CODE) == 0)
            _willAnimate = true;
