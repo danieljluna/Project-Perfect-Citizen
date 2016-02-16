@@ -43,19 +43,6 @@ public:
     ///////////////////////////////////////////////////////////////////
     virtual bool registerInput(sf::Event& ev) = 0;
 
-
-protected:
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Constructor
-    /// @details Creates an InputComponent with the given number of
-    ///     Observers to watch events with.
-    ///
-    /// @param observerCount The number of desired Observers for this
-    ///     InputComponent.
-    ///////////////////////////////////////////////////////////////////
-    InputComponent(size_t observerCount = 1);
-
     ///////////////////////////////////////////////////////////////////
     /// @brief Returns the index-th observer 
     ///
@@ -74,7 +61,7 @@ protected:
     /// @return Whether or not there was an Observer available to 
     ///     assign to the Subject given.
     ///////////////////////////////////////////////////////////////////
-	virtual bool watch(Subject& subject);
+    virtual bool watch(Subject& subject);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Sets up an Observer to watch for an sf::Event.
@@ -83,14 +70,14 @@ protected:
     /// @return Whether or not there was an Observer available to 
     ///     assign to the InputHandler given.
     ///////////////////////////////////////////////////////////////////
-	virtual bool watch(InputHandler& iHandler, sf::Event::EventType type);
+    virtual bool watch(InputHandler& iHandler, sf::Event::EventType type);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Detatches Observers connected to this subject.
     /// @details This will detach all Observers related to this 
     ///     InputComponent from the given Subject.
     ///////////////////////////////////////////////////////////////////
-	virtual void ignore(Subject& subject);
+    virtual void ignore(Subject& subject);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Detatches Observers connected to this subject.
@@ -98,6 +85,19 @@ protected:
     ///     InputComponent from the given handle in the InputHandler.
     ///////////////////////////////////////////////////////////////////
     virtual void ignore(InputHandler& iHandler, sf::Event::EventType type);
+
+
+protected:
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Constructor
+    /// @details Creates an InputComponent with the given number of
+    ///     Observers to watch events with.
+    ///
+    /// @param observerCount The number of desired Observers for this
+    ///     InputComponent.
+    ///////////////////////////////////////////////////////////////////
+    InputComponent(size_t observerCount = 1);
 
 
 private:

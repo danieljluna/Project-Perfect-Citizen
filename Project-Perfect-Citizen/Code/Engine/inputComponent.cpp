@@ -56,7 +56,7 @@ bool InputComponent::watch(InputHandler& iHandler,
     size_t i = findNextObserver();
 
     if (i < observerCount_) {
-        iHandler.addObserver(type, observerArray_[i]);
+        iHandler.addObserver(type, observerArray_[i], true);
         return true;
     } else {
         return false;

@@ -6,27 +6,23 @@ using namespace ppc;
 // Constructors & Destructor
 ///////////////////////////////////////////////////////////////////////
 
-DraggableInput::DraggableInput(WindowInterface& win, 
-                               sf::FloatRect& bounds) : 
+DraggableInput::DraggableInput(WindowInterface& win) : 
                                InputComponent(3) {
     //Set Private Variables
     isDragging_ = false;
     isWindow_ = true;
     win_ = &win;
-    bounds_ = bounds;
 }
 
 
 
 
-DraggableInput::DraggableInput(sf::Transformable& trans,
-                               sf::FloatRect& bounds) :
+DraggableInput::DraggableInput(sf::Transformable& trans) :
                                InputComponent(3) {
     //Set Private Variables
     isDragging_ = false;
     isWindow_ = false;
     trans_ = &trans;
-    bounds_ = bounds;
 }
 
 
@@ -34,6 +30,17 @@ DraggableInput::DraggableInput(sf::Transformable& trans,
 
 DraggableInput::~DraggableInput() {
 
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////////
+// Setters
+///////////////////////////////////////////////////////////////////////
+
+void DraggableInput::setBounds(const sf::FloatRect& bounds) {
+    bounds_ = bounds;
 }
 
 
@@ -57,8 +64,10 @@ bool DraggableInput::registerInput(sf::Event& ev) {
     //If we have a mouseRelease
     } else if (ev.type == ev.MouseButtonReleased) {
 
-        //Unset the flag
-        isDragging_ = false;
+        if (ev.mouseButton.button == sf::Mouse::Left) {
+            //Unset the flag
+            isDragging_ = false;
+        }
 
     } else if (ev.type == ev.MouseMoved) {
 
@@ -74,4 +83,6 @@ bool DraggableInput::registerInput(sf::Event& ev) {
         }
 
     }
+
+    return false;
 }

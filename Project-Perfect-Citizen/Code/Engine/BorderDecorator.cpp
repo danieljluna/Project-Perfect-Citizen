@@ -13,18 +13,38 @@ BorderDecorator::BorderDecorator(
     unsigned int majorBorder,
     unsigned int minorBorder) :
             WindowDecorator(win),
-            draggableInput_(*this, getBounds()) {
+            draggableInput_(*this) {
+    //Store Input
     borderTopLeft_.y = majorBorder;
     borderTopLeft_.x = borderBottomRight_.x = 
             borderBottomRight_.y = minorBorder;
 
+    //Set up BorderShape
     borderShape_.setPosition(win.getPosition().x - minorBorder, 
                             win.getPosition().y - majorBorder);
     sf::Vector2f size(float(win.getSize().x + 2 * minorBorder),
                       float(win.getSize().y + minorBorder + 
                                 majorBorder));
+
     borderShape_.setSize(size);
     borderShape_.setFillColor(sf::Color::Red);
+
+    //Set up Draggable Input Bounds
+    sf::FloatRect bounds;
+    bounds.top = borderShape_.getPosition().x;
+    bounds.left = borderShape_.getPosition().y;
+    bounds.height = majorBorder;
+    bounds.width = borderShape_.getSize().x;
+    draggableInput_.setBounds(bounds);
+
+    //Set up Draggable Input Observers
+    win.getInputHandler();
+    draggableInput_.watch(win.getInputHandler(), 
+                          sf::Event::MouseButtonPressed);
+    draggableInput_.watch(win.getInputHandler(),
+                          sf::Event::MouseButtonReleased);
+    draggableInput_.watch(win.getInputHandler(),
+                          sf::Event::MouseMoved);
 }
 
 
