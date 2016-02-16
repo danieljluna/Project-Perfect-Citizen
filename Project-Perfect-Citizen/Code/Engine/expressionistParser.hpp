@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include <map>
 
 namespace ppc {
     
@@ -26,7 +27,7 @@ public:
     expressionistParser();
     
     
-    void parse(std::string file);
+    std::vector<expressionistParser> parse(std::string file);
     
     ///////////////////////////////////////////////////////////////////
     // Setters
@@ -40,14 +41,8 @@ public:
     void setAppRate(int appRate){
         appRate_ = appRate;
     }
-    void setExpansion(std::string expansion){
-        expansion_ = expansion;
-    }
-    void setMarkUp(std::vector<std::string> markUp){
-        markUp_ = markUp;
-    }
-    void setRules(std::vector<expressionistParser> rules){
-        rules_ = rules;
+    void setAgePreconditions(std::map<std::string, std::string> markUp){
+        agePreconditions_ = markUp;
     }
     
     ///////////////////////////////////////////////////////////////////
@@ -63,24 +58,17 @@ public:
     int getAppRate(){
         return appRate_;
     }
-    std::string getExpansion(){
-        return expansion_;
-    }
-    std::vector<std::string> getMarkUp(){
-        return markUp_;
-    }
-    std::vector<expressionistParser> getRules(){
-        return rules_;
+    std::map<std::string, std::string> getAgePreconditions(){
+        return agePreconditions_;
     }
     
 private:
     std::string expression_;
     bool complete_;
     bool deep_;
+    
     int appRate_;
-    std::string expansion_;
-    std::vector<std::string> markUp_;
-    std::vector<expressionistParser> rules_;
+    std::map<std::string, std::string> agePreconditions_;
 };
     
 };

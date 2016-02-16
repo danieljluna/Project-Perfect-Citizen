@@ -189,8 +189,14 @@ int main(int argc, char** argv) {
 	myDesktop.addWindow(testWindow);
 	myDesktop.addWindow(consoleWindow);
     
-    expressionistParser* de0 = new expressionistParser();
-    de0->parse("data.json");
+    expressionistParser* expression = new expressionistParser();
+    std::vector<expressionistParser> express = expression->parse("data.json");
+    cout << express.at(0).getExpression() << endl;
+    cout << express.at(0).getDeep() << endl;
+    std::map<std::string, std::string> m = express.at(0).getAgePreconditions();
+    for(auto it = m.begin(); it != m.end(); it++){
+        cout << it->second << endl;
+    }
 
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop
