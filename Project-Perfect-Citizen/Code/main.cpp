@@ -34,6 +34,7 @@
 #include "Engine/createButton.h"
 #include "Engine/BorderDecorator.h"
 #include "Engine/createDesktop.h"
+#include "Engine/desktopExtractionComponent.hpp"
 
 using namespace ppc;
 

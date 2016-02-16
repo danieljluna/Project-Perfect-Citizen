@@ -30,6 +30,7 @@
     <ClCompile Include="Code\Engine\EntityDecorator.cpp" />
     <ClCompile Include="Code\Engine\EntityLogger.cpp" />
     <ClCompile Include="Code\Engine\iconInputComponent.cpp" />
+    <ClCompile Include="Code\Engine\FunctionObserver.cpp" />
     <ClCompile Include="Code\Engine\InputCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\inputComponent.cpp" />
     <ClCompile Include="Code\Engine\InputHandler.cpp" />
@@ -80,6 +81,7 @@
     <ClInclude Include="Code\Engine\EntityLogger.h" />
     <ClInclude Include="Code\Engine\event.h" />
     <ClInclude Include="Code\Engine\iconInputComponent.h" />
+    <ClInclude Include="Code\Engine\FunctionObserver.h" />
     <ClInclude Include="Code\Engine\InputCmpntLogger.h" />
     <ClInclude Include="Code\Engine\inputComponent.h" />
     <ClInclude Include="Code\Engine\InputHandler.h" />
