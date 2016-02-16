@@ -57,19 +57,19 @@ std::vector<expressionistParser> expressionistParser::parse(std::string file){
                     Json::Value personalityPre = markUpObj.get("personalityPreconditions", " ");
                     Json::Value relationship = markUpObj.get("relationship", " ");
                     for(unsigned int l = 0; l < agePre.size(); l++){
-                        expressionist[i].agePreconditions_[expansion] = agePre[l].asString();
+                        expressionist[i].markUp_["agePreconditions"] = agePre[l].asString();
                     }
                     for(unsigned int l = 0; l < iqPre.size(); l++){
-                        //expressionist[i].markUp_[expansion] = iqPre[l].asString();
+                        expressionist[i].markUp_["iqPreconditions"] = iqPre[l].asString();
                     }
                     for(unsigned int l = 0; l < linkSus.size(); l++){
-                        //expressionist[i].markUp_[expansion] = linkSus[l].asString();
+                        expressionist[i].markUp_["linkSuspicion"] = linkSus[l].asString();
                     }
                     for(unsigned int l = 0; l < personalityPre.size(); l++){
-                        //expressionist[i].markUp_[expansion] = personalityPre[l].asString();
+                        expressionist[i].markUp_["personalityPreconditions"] = personalityPre[l].asString();
                     }
                     for(unsigned int l = 0; l < relationship.size(); l++){
-                        //expressionist[i].markUp_[expansion] = relationship[l].asString();
+                        expressionist[i].markUp_["relationship"] = relationship[l].asString();
                     }
                 }
             }

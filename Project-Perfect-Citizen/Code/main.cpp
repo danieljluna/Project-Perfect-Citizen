@@ -193,7 +193,7 @@ int main(int argc, char** argv) {
     std::vector<expressionistParser> express = expression->parse("data.json");
     cout << express.at(0).getExpression() << endl;
     cout << express.at(0).getDeep() << endl;
-    std::map<std::string, std::string> m = express.at(0).getAgePreconditions();
+    std::map<std::string, std::string> m = express.at(0).getMarkUp();
     for(auto it = m.begin(); it != m.end(); it++){
         cout << it->second << endl;
     }

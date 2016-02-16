@@ -41,8 +41,8 @@ public:
     void setAppRate(int appRate){
         appRate_ = appRate;
     }
-    void setAgePreconditions(std::map<std::string, std::string> markUp){
-        agePreconditions_ = markUp;
+    void setMarkUp(std::map<std::string, std::string> markUp){
+        markUp_ = markUp;
     }
     
     ///////////////////////////////////////////////////////////////////
@@ -58,8 +58,8 @@ public:
     int getAppRate(){
         return appRate_;
     }
-    std::map<std::string, std::string> getAgePreconditions(){
-        return agePreconditions_;
+    std::map<std::string, std::string> getMarkUp(){
+        return markUp_;
     }
     
 private:
@@ -68,7 +68,7 @@ private:
     bool deep_;
     
     int appRate_;
-    std::map<std::string, std::string> agePreconditions_;
+    std::map<std::string, std::string> markUp_;
 };
     
 };
