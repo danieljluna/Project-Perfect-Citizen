@@ -23,6 +23,7 @@ private:
 
 	sf::Sprite& buttonSprt;
 	ppc::InputHandler& inputHandle;
+	std::string isBeingPressed;
 	sf::Clock mouseClock;
 	float mouseTime;
 	bool isCollision(sf::Vector2i);
@@ -30,9 +31,7 @@ private:
 public:
 
 	mousePressButton() = delete;
-
-
-	mousePressButton(ppc::InputHandler& ih, sf::Sprite& s);
+	mousePressButton(ppc::InputHandler& ih, sf::Sprite& s, std::string isBeingPressed);
 	virtual ~mousePressButton();
 	virtual bool registerInput(sf::Event& ev) override;
 

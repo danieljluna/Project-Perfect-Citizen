@@ -19,6 +19,9 @@
     <ClCompile Include="Code\Engine\ComponentObsvr.cpp" />
     <ClCompile Include="Code\Engine\consoleIconRenderComponent.cpp" />
     <ClCompile Include="Code\Engine\consoleUpdateComponent.cpp" />
+    <ClCompile Include="Code\Engine\createButton.cpp" />
+    <ClCompile Include="Code\Engine\createDesktop.cpp" />
+    <ClCompile Include="Code\Engine\createIcon.cpp" />
     <ClCompile Include="Code\Engine\createWindow.cpp" />
     <ClCompile Include="Code\Engine\debug.cpp" />
     <ClCompile Include="Code\Engine\desktop.cpp" />
@@ -27,6 +30,7 @@
     <ClCompile Include="Code\Engine\entity.cpp" />
     <ClCompile Include="Code\Engine\EntityDecorator.cpp" />
     <ClCompile Include="Code\Engine\EntityLogger.cpp" />
+    <ClCompile Include="Code\Engine\iconInputComponent.cpp" />
     <ClCompile Include="Code\Engine\FunctionObserver.cpp" />
     <ClCompile Include="Code\Engine\InputCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\inputComponent.cpp" />
@@ -66,6 +70,9 @@
     <ClInclude Include="Code\Engine\component.h" />
     <ClInclude Include="Code\Engine\consoleIconRenderComponent.h" />
     <ClInclude Include="Code\Engine\consoleUpdateComponent.h" />
+    <ClInclude Include="Code\Engine\createButton.h" />
+    <ClInclude Include="Code\Engine\createDesktop.h" />
+    <ClInclude Include="Code\Engine\createIcon.h" />
     <ClInclude Include="Code\Engine\createWindow.h" />
     <ClInclude Include="Code\Engine\debug.h" />
     <ClInclude Include="Code\Engine\desktop.h" />
@@ -75,6 +82,7 @@
     <ClInclude Include="Code\Engine\EntityDecorator.h" />
     <ClInclude Include="Code\Engine\EntityLogger.h" />
     <ClInclude Include="Code\Engine\event.h" />
+    <ClInclude Include="Code\Engine\iconInputComponent.h" />
     <ClInclude Include="Code\Engine\FunctionObserver.h" />
     <ClInclude Include="Code\Engine\InputCmpntLogger.h" />
     <ClInclude Include="Code\Engine\inputComponent.h" />
