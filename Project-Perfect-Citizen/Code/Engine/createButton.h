@@ -46,112 +46,112 @@ void spawnStartButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Im
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable next button
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 3, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnNextButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable next button
+/// @brief Turns the passed entity into a useable blank large button
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 3, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnBlankLargeButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a okay button
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 3, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnOkayButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a okay button
+/// @brief Turns the passed entity into a cancel button
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 3, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnCancelButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable close ("X") button
+/// @brief Turns the passed entity into a useable close button
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 3, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnCloseButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable cancel button
+/// @brief Turns the passed entity into a useable maximize button
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 3, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnMaximizeButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable cancel button
+/// @brief Turns the passed entity into a useable minimize button
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 3, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnMinimizeButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable cancel button
+/// @brief Turns the passed entity into a useable blank small button
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 3, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnBlankSmallButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable cancel button
+/// @brief Turns the passed entity into a useable up button
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 3, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnUpButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable cancel button
+/// @brief Turns the passed entity into a useable down button
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 3, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnDownButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable cancel button
+/// @brief Turns the passed entity into a useable right button
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 3, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnRightButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable cancel button
+/// @brief Turns the passed entity into a useable left button
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 3, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnLeftButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable cancel button
+/// @brief Turns the passed entity into a useable scroll bar container
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 3, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnScrollBarContainer(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable cancel button
+/// @brief Turns the passed entity into a useable scroll bar handle
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 3, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnScrollBarHandle(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable cancel button
+/// @brief Turns the passed entity into a useable confirmed icon (non clickable)
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 3, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnConfirmedIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable cancel button
+/// @brief Turns the passed entity into a useable alert icon (non clickable)
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 3, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnAlertIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);

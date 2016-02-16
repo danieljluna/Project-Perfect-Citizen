@@ -10,7 +10,7 @@
 using namespace std;
 
 ///////////////////////////////////////////////////////////////////////
-/// @brief Designated Update Component for Console
+/// @brief Designated Update Component for Console window
 /// @author Alex Vincent
 /// @details Parses and executes commands of the filetree
 ///////////////////////////////////////////////////////////////////////

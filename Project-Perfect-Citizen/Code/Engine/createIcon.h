@@ -34,63 +34,63 @@
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable folder Icon
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 0), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnFolderIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable settings Icon
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnSettingsIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable settings Icon
+/// @brief Turns the passed entity into a useable chat Icon
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnChatIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable settings Icon
+/// @brief Turns the passed entity into a useable search Icon
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnSearchIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable settings Icon
+/// @brief Turns the passed entity into a useable pipeline extraction Icon
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnDataGraphIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable settings Icon
+/// @brief Turns the passed entity into a useable help Icon
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnHelpIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable settings Icon
+/// @brief Turns the passed entity into a useable browser Icon
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnBrowserIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
-/// @brief Turns the passed entity into a useable settings Icon
+/// @brief Turns the passed entity into a useable hard drive Icon
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 1), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnHardDriveIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable console Icon
 /// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations at (0, 8), (x, y position), and a square scale size.
+/// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnConsoleIcon(ppc::Entity& entityToModify, ppc::Desktop& dt, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
