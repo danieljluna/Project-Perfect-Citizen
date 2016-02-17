@@ -117,6 +117,11 @@
     <ClCompile Include="Code\Engine\BorderDecorator.cpp">
       <Filter>Sources\Engine\Windows / Desktop\Decorators</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\createButton.cpp" />
+    <ClCompile Include="Code\Engine\createDesktop.cpp" />
+    <ClCompile Include="Code\Engine\createIcon.cpp" />
+    <ClCompile Include="Code\Engine\iconInputComponent.cpp" />
+    <ClCompile Include="Code\Engine\windowBkgndRenderCmpnt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -259,6 +264,11 @@
     <ClInclude Include="Code\Engine\BorderDecorator.h">
       <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\createButton.h" />
+    <ClInclude Include="Code\Engine\createDesktop.h" />
+    <ClInclude Include="Code\Engine\createIcon.h" />
+    <ClInclude Include="Code\Engine\iconInputComponent.h" />
+    <ClInclude Include="Code\Engine\windowBkgndRenderCmpnt.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\buttonRenderComponent.h" />

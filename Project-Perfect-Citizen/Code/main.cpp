@@ -101,7 +101,7 @@ int main(int argc, char** argv) {
 				screen.close();
 
 			//Input phase
-			inputHandle->registerEvent(event);
+			myDesktop.registerInput(event);
         }
 
         if (deltaTime.getElapsedTime() > framePeriod) {
