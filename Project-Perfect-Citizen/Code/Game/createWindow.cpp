@@ -26,7 +26,7 @@
 
 using namespace ppc;
 
-WindowInterface* ppc::spawnConsole(InputHandler & ih, NodeState & ns, int x, int y, int w, int h) {
+WindowInterface* ppc::spawnConsole(InputHandler & ih, NodeState & ns, float x, float y, unsigned int w, unsigned int h) {
 
 	
 	/////// COMPONENTS /////////

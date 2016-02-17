@@ -96,7 +96,7 @@ void ppc::Desktop::registerInput(sf::Event& ev){
 	//then focus that window.
 	
 	if (ev.type == sf::Event::MouseButtonPressed) {
-		sf::Vector2f pos(ev.mouseButton.x, ev.mouseButton.y);
+		sf::Vector2f pos(float(ev.mouseButton.x), float(ev.mouseButton.y));
 		for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 			if (isMouseCollision(*it, pos)) {
 				focusWindow(*it);
