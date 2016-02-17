@@ -14,27 +14,26 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "Library/json/json.h"
-#include "Engine/testRenderSprite.h"
+#include "Game/testRenderSprite.h"
 #include "Engine/InputHandler.h"
 #include "Engine/subject.h"
-#include "Engine/TestObserver.h"
 #include "Engine/debug.h"
 #include "Engine/entity.h"
 #include "Engine/Window.h"
 #include "Engine/desktop.h"
-#include "Engine/mousePressButton.h"
-#include "Engine/buttonRenderComponent.h"
-#include "Engine/consoleIconRenderComponent.h"
-#include "Engine/TreeCommands.h"
+#include "Game/mousePressButton.h"
+#include "Game/buttonRenderComponent.h"
+#include "Game/consoleIconRenderComponent.h"
+#include "Game/TreeCommands.h"
 #include "Engine/NodeState.h"
-#include "Engine/animatorComponent.hpp"
-#include "Engine/textInputKeys.hpp"
-#include "Engine/createWindow.h"
-#include "Engine/createIcon.h"
-#include "Engine/createButton.h"
+#include "Game/animatorComponent.hpp"
+#include "Game/textInputKeys.hpp"
+#include "Game/createWindow.h"
+#include "Game/createIcon.h"
+#include "Game/createButton.h"
 #include "Engine/BorderDecorator.h"
-#include "Engine/createDesktop.h"
-#include "Engine/desktopExtractionComponent.hpp"
+#include "Game/createDesktop.h"
+#include "Game/desktopExtractionComponent.hpp"
 
 using namespace ppc;
 
@@ -44,32 +43,26 @@ int main(int argc, char** argv) {
 
 	//Scans Debug Flags
 	Debug::scanOpts(argc, argv);
-	//Example of using the debugger macro
 	DEBUGF("ac", argc);
 
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
-	//Create the InputHandler
+	//Create the InputHandler <-- to be removed
 	ppc::InputHandler* inputHandle = new InputHandler();
 
-	///////////////////////////TREE EXAMPLE//////////////////////
-	ppc::NodeState* testState = new NodeState();;
-	testState->setUp(); 
-	////////////////////////////////////////////////////////////
-	
     ////////////////// BACKGROUND IMAGE ////////////////////
-    sf::Sprite S;
-    sf::Texture T;
-    if (!(T.loadFromFile(resourcePath() + "Wallpaper.png"))) {
+    sf::Sprite* S = new sf::Sprite();
+    sf::Texture* T = new sf::Texture();
+    if (!(T->loadFromFile(resourcePath() + "Wallpaper.png"))) {
         //Test for failure
         cerr << "COULD NOT LOAD\n";
         std::system("PAUSE");
         return -1;
     };
-    S.setTexture(T);
-    S.setPosition(0, 0);
-    S.setScale(0.7f, 0.7f);
+    S->setTexture(*T);
+    S->setPosition(0, 0);
+    S->setScale(0.7f, 0.7f);
 	///////////////////////////////////////////////////////
 
 	///////////// Load Spritesheets/Textures //////////////
@@ -82,9 +75,14 @@ int main(int argc, char** argv) {
 	//////////////////////////////////////////////////////////
 	///// CREATE THE PLAYER DESKTOP
 	/////////////////////////////////////////////////////////
+	ppc::NodeState* testState = new NodeState();
+	testState->setUp();
 	WindowInterface* desktopWindow = new Window(1800,1000,sf::Color(200, 200, 200));
 	Desktop myDesktop(*desktopWindow, *testState);
+	myDesktop.addBackgroundCmpnt(desktopWindow, *S);
 	createPlayerDesktop(myDesktop, *desktopWindow, *inputHandle, iconSheet);
+
+	//spawnConsole()
 
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop
@@ -101,17 +99,14 @@ int main(int argc, char** argv) {
 				screen.close();
 
 			//Input phase
-			inputHandle->registerEvent(event);
+			myDesktop.registerInput(event);
         }
 
         if (deltaTime.getElapsedTime() > framePeriod) {
 
             // Clear screen
 			screen.clear(sf::Color::White);
-
-            //Draw Background
-			screen.draw(S);
-            
+     
             //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
 			myDesktop.update(dt);

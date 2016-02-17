@@ -14,26 +14,26 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
-#include "Window.h"
-#include "WindowInterface.h"
+#include "../Engine/Window.h"
+#include "../Engine/WindowInterface.h"
 #include "buttonRenderComponent.h"
 #include "consoleUpdateComponent.h"
-#include "inputComponent.h"
-#include "InputHandler.h"
-#include "Entity.h"
-#include "subject.h"
-#include "desktop.h"
+#include "../Engine/inputComponent.h"
+#include "../Engine/InputHandler.h"
+#include "../Engine/Entity.h"
+#include "../Engine/subject.h"
+#include "../Engine/desktop.h"
 #include "textInputRenderComponent.hpp"
 #include "textInputKeys.hpp"
-#include "BorderDecorator.h"
+#include "../Engine/BorderDecorator.h"
 #include "createIcon.h"
 
 ///////////////////////////////////////////////////////////////////////
-/// @brief A toolkit of functions that sets up complete desktops (with icons)
+/// @brief A toolkit of functions that sets up complete desktops
 /// @author Alex Vincent 
-/// @details Create a desktopreference (statically or dynamically) and pass them
-/// by reference to any one of these functions. The passed entity will
-/// be augmented by the function you called on it.
+/// @details Create a desktop reference (statically or dynamically) and
+/// pass it by reference to any one of these functions. The passed entity 
+/// will be augmented by the function you called on it.
 ///////////////////////////////////////////////////////////////////////
 
 void createPlayerDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& desktopWindowToModify, ppc::InputHandler& ih, sf::Image& iconSheet);
