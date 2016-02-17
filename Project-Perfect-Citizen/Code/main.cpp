@@ -41,6 +41,8 @@ using namespace ppc;
 //Note that this is placeholder for now
 int main(int argc, char** argv) {
 
+    DBG_INIT();
+
 	//Scans Debug Flags
 	Debug::scanOpts(argc, argv);
 	DEBUGF("ac", argc);
