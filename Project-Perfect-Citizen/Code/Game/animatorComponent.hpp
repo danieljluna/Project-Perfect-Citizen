@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "updateComponent.h"
+#include "../Engine/updateComponent.h"
 #include "buttonRenderComponent.h"
 
 using namespace std;
