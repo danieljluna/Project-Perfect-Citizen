@@ -164,12 +164,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Andy\Desktop\UCSC\SFML-2.3.2\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_MARKER;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Andy\Desktop\UCSC\SFML-2.3.2\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <AdditionalOptions>/ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>
