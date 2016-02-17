@@ -149,6 +149,12 @@ public:
         #define new DBG_NEW
     #endif  //DBG_NEW
 
+    //////////////////////////////////////////////////////////////////////
+    ///@brief Prints a memory diagnostic to VS Debug output.
+    ///@details Since it instantiates a variable temp, it may end up 
+    ///     redefining that variable multiple times if used in the same 
+    ///     scope. Be careful when using this in the same scope twice.
+    //////////////////////////////////////////////////////////////////////
     #define MEM_PRINT() {   \
             _CrtMemState temp;  \
             _CrtMemCheckpoint(&temp); \
