@@ -1,0 +1,1366 @@
+{
+   "markups":{
+      "agePreconditions":[
+         "speaker.age >= 45 && speaker.age <= 64",
+         "speaker.age >= 25 && speaker.age <= 44",
+         "speaker.age >= 18 && speaker.age <= 24"
+      ],
+      "contentType":[
+         "sms"
+      ],
+      "iqPreconditions":[
+         "speaker.iq >= 70 && speaker.iq <= 84",
+         "speaker.iq >= 115 && speaker.iq <= 129",
+         "speaker.iq >= 55 && speaker.iq <= 69",
+         "speaker.iq >= 85 && speaker.iq <= 114",
+         "speaker.iq >= 130 && speaker.iq <= 144"
+      ],
+      "linkSuspicion":[
+         "clearlyClean",
+         "clearlySuspicious",
+         "slightlyQuestionable",
+         "ambiguous",
+         "suggestive"
+      ],
+      "personalityPreconditions":[
+         "speaker.outerLife == perceiving",
+         "speaker.social == ambivert",
+         "speaker.takeIn == intuition",
+         "speaker.outerLife == judging",
+         "speaker.decisions == thinking",
+         "speaker.decisions == middleGround",
+         "speaker.decisions == feeling",
+         "speaker.social == extraversion",
+         "speaker.takeIn == middleGround",
+         "speaker.social == introversion",
+         "speaker.takeIn == sensing",
+         "speaker.outerLife == middleGround"
+      ],
+      "recipentSuspicion":[
+
+      ],
+      "relationship":[
+         "family",
+         "work",
+         "friends",
+         "communties",
+         "school"
+      ],
+      "speakerSuspicion":[
+
+      ]
+   },
+   "nonterminals":{
+      "I or i":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "I"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24",
+                     "speaker.age >= 25 && speaker.age <= 44",
+                     "speaker.age >= 45 && speaker.age <= 64"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 130 && speaker.iq <= 144",
+                     "speaker.iq >= 85 && speaker.iq <= 114",
+                     "speaker.iq >= 115 && speaker.iq <= 129",
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ]
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "i"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ]
+               }
+            }
+         ]
+      },
+      "are or r":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "are"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24",
+                     "speaker.age >= 25 && speaker.age <= 44",
+                     "speaker.age >= 45 && speaker.age <= 64"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 130 && speaker.iq <= 144",
+                     "speaker.iq >= 85 && speaker.iq <= 114",
+                     "speaker.iq >= 115 && speaker.iq <= 129",
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ]
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "r"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 55 && speaker.iq <= 69"
+                  ]
+               }
+            }
+         ]
+      },
+      "baby":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "baby"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24",
+                     "speaker.age >= 25 && speaker.age <= 44"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 85 && speaker.iq <= 114",
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ]
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "babe"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24",
+                     "speaker.age >= 25 && speaker.age <= 44"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 85 && speaker.iq <= 114",
+                     "speaker.iq >= 55 && speaker.iq <= 69",
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ]
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "bby"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 85 && speaker.iq <= 114",
+                     "speaker.iq >= 55 && speaker.iq <= 69",
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ]
+               }
+            }
+         ]
+      },
+      "bad person event":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+            "linkSuspicion":[
+               "suggestive",
+               "slightlyQuestionable",
+               "clearlySuspicious"
+            ]
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "visit a Friend"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24",
+                     "speaker.age >= 25 && speaker.age <= 44"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 85 && speaker.iq <= 114",
+                     "speaker.iq >= 55 && speaker.iq <= 69",
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ]
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "go on a long trip"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24",
+                     "speaker.age >= 25 && speaker.age <= 44"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 85 && speaker.iq <= 114",
+                     "speaker.iq >= 55 && speaker.iq <= 69",
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ]
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "going to a Resort to see many colleagues"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "code":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+            "linkSuspicion":[
+               "suggestive",
+               "slightlyQuestionable",
+               "clearlySuspicious"
+            ]
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "Fix"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "Copies"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "day":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "tommorrow"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "Wednesday"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "Monday"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "Tuesday"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "Thursday"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "Friday"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "Saturday"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "Sunday"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "this weekend"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "event":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "party"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 55 && speaker.iq <= 69",
+                     "speaker.iq >= 130 && speaker.iq <= 144",
+                     "speaker.iq >= 85 && speaker.iq <= 114",
+                     "speaker.iq >= 115 && speaker.iq <= 129",
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ]
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "to the movies"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24",
+                     "speaker.age >= 25 && speaker.age <= 44",
+                     "speaker.age >= 45 && speaker.age <= 64"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 55 && speaker.iq <= 69",
+                     "speaker.iq >= 130 && speaker.iq <= 144",
+                     "speaker.iq >= 85 && speaker.iq <= 114",
+                     "speaker.iq >= 115 && speaker.iq <= 129",
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ]
+               }
+            }
+         ]
+      },
+      "greeting question":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "how ",
+                  "[[are or r]]",
+                  " ",
+                  "[[you or u]]",
+                  " doing"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "greeting word":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "Hello"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24",
+                     "speaker.age >= 25 && speaker.age <= 44",
+                     "speaker.age >= 45 && speaker.age <= 64"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 130 && speaker.iq <= 144",
+                     "speaker.iq >= 85 && speaker.iq <= 114",
+                     "speaker.iq >= 115 && speaker.iq <= 129"
+                  ]
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "Hi"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24",
+                     "speaker.age >= 25 && speaker.age <= 44",
+                     "speaker.age >= 45 && speaker.age <= 64"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 85 && speaker.iq <= 114",
+                     "speaker.iq >= 115 && speaker.iq <= 129",
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ]
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "Hiii"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 55 && speaker.iq <= 69",
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ]
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "Hey"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24",
+                     "speaker.age >= 25 && speaker.age <= 44",
+                     "speaker.age >= 45 && speaker.age <= 64"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 55 && speaker.iq <= 69",
+                     "speaker.iq >= 85 && speaker.iq <= 114",
+                     "speaker.iq >= 115 && speaker.iq <= 129",
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ]
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "Yo"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 85 && speaker.iq <= 114",
+                     "speaker.iq >= 55 && speaker.iq <= 69",
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ]
+               }
+            }
+         ]
+      },
+      "meet or talk":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "meet"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "talk"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "need":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "need"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "want"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "punctuation":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "!"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "."
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  " "
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "school word":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+            "agePreconditions":[
+               "speaker.age >= 18 && speaker.age <= 24"
+            ],
+            "linkSuspicion":[
+               "ambiguous",
+               "clearlyClean"
+            ],
+            "relationship":[
+               "school"
+            ]
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "assignment"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "homework"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "sms ambiguous opener":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "Out ",
+                  "[[tonight or 2nite]]",
+                  "]]]]]]] ",
+                  "[[meet or talk]]",
+                  " ",
+                  "[[day]]",
+                  "[[punctuation]]"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "sms ambiuous nongreeting":{
+         "complete":false,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+
+         ]
+      },
+      "sms friend opener":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[greeting word]]",
+                  " ",
+                  "[[are or r]]",
+                  " we going to ",
+                  "[[event]]",
+                  " ",
+                  "[[day]]",
+                  "[[punctuation]]"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "sms message":{
+         "complete":true,
+         "deep":true,
+         "markup":{
+            "contentType":[
+               "sms"
+            ]
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[sms opener]]"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "sms opener":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[sms opener with greeting]]"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[sms opener without greeting]]"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "sms opener with booty call":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[greeting word]]",
+                  " ",
+                  "[[baby]]",
+                  " ",
+                  "[[I or i]]",
+                  " ",
+                  "[[need]]",
+                  " ",
+                  "[[you or u]]",
+                  " ",
+                  "[[tonight]]",
+                  "[[punctuation]]"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "sms opener with greeting":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[sms opener with booty call]]"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[sms regular opener]]"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[sms friend opener]]"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[sms work opener]]"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[sms school opener]]"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[sms suspicous opener]]"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[sms ambiguous opener]]"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "sms opener without greeting":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[sms suspiciuos nongreeting]]",
+                  " "
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[sms ambiuous nongreeting]]"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[sms regular nongreeting]]"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "sms regular nongreeting":{
+         "complete":false,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+
+         ]
+      },
+      "sms regular opener":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+            "linkSuspicion":[
+               "ambiguous",
+               "suggestive",
+               "slightlyQuestionable"
+            ],
+            "relationship":[
+               "communties",
+               "friends",
+               "family"
+            ]
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[greeting word]]",
+                  " ",
+                  "[[greeting question]]",
+                  "[[punctuation]]"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[greeting word]]",
+                  " how have ",
+                  "[[you or u]]",
+                  " been",
+                  "[[punctuation]]"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[greeting word]]",
+                  " how ",
+                  "[[are or r]]",
+                  " ",
+                  "[[you or u]]",
+                  "[[punctuation]]"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[greeting word]]",
+                  " how's everything",
+                  "[[punctuation]]"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[greeting word]]",
+                  " how's it going",
+                  "[[punctuation]]"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "What's new",
+                  "[[punctuation]]"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "Wassup",
+                  "[[punctuation]]"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "sms school opener":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+            "relationship":[
+               "school"
+            ]
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[greeting word]]",
+                  " how far ",
+                  "[[are or r]]",
+                  " in the ",
+                  "[[school word]]",
+                  "[[punctuation]]"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "sms suspiciuos nongreeting":{
+         "complete":false,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+
+         ]
+      },
+      "sms suspicous opener":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+            "linkSuspicion":[
+               "ambiguous",
+               "suggestive",
+               "clearlySuspicious"
+            ]
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "[[I or i]]",
+                  " need more ",
+                  "[[code]]",
+                  " ",
+                  "[[day]]",
+                  ", going to a ",
+                  "[[bad person event]]",
+                  "[[punctuation]]"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "sms work opener":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+            "agePreconditions":[
+               "speaker.age >= 25 && speaker.age <= 44",
+               "speaker.age >= 45 && speaker.age <= 64"
+            ],
+            "iqPreconditions":[
+               "speaker.iq >= 130 && speaker.iq <= 144",
+               "speaker.iq >= 85 && speaker.iq <= 114",
+               "speaker.iq >= 115 && speaker.iq <= 129"
+            ],
+            "linkSuspicion":[
+               "ambiguous",
+               "slightlyQuestionable",
+               "clearlyClean"
+            ],
+            "personalityPreconditions":[
+               "speaker.outerLife == middleGround",
+               "speaker.takeIn == sensing",
+               "speaker.social == introversion",
+               "speaker.takeIn == middleGround",
+               "speaker.social == extraversion",
+               "speaker.decisions == feeling",
+               "speaker.decisions == middleGround",
+               "speaker.decisions == thinking",
+               "speaker.outerLife == judging",
+               "speaker.takeIn == intuition",
+               "speaker.social == ambivert",
+               "speaker.outerLife == perceiving"
+            ],
+            "relationship":[
+               "work"
+            ]
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "Did ",
+                  "[[you or u]]",
+                  " finish that TPS report",
+                  "[[punctuation]]"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "tonight":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "tonight"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "2nite"
+               ],
+               "markup":{
+
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "now"
+               ],
+               "markup":{
+
+               }
+            }
+         ]
+      },
+      "tonight or 2nite":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "tonight"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24",
+                     "speaker.age >= 25 && speaker.age <= 44",
+                     "speaker.age >= 45 && speaker.age <= 64"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 55 && speaker.iq <= 69",
+                     "speaker.iq >= 130 && speaker.iq <= 144",
+                     "speaker.iq >= 85 && speaker.iq <= 114",
+                     "speaker.iq >= 115 && speaker.iq <= 129",
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ],
+                  "linkSuspicion":[
+                     "ambiguous",
+                     "suggestive",
+                     "slightlyQuestionable",
+                     "clearlyClean",
+                     "clearlySuspicious"
+                  ],
+                  "personalityPreconditions":[
+                     "speaker.outerLife == middleGround",
+                     "speaker.takeIn == sensing",
+                     "speaker.social == introversion",
+                     "speaker.takeIn == middleGround",
+                     "speaker.social == extraversion",
+                     "speaker.decisions == feeling",
+                     "speaker.decisions == middleGround",
+                     "speaker.decisions == thinking",
+                     "speaker.outerLife == judging",
+                     "speaker.takeIn == intuition",
+                     "speaker.social == ambivert",
+                     "speaker.outerLife == perceiving"
+                  ],
+                  "relationship":[
+                     "communties",
+                     "work",
+                     "friends",
+                     "school",
+                     "family"
+                  ]
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "2nite"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 55 && speaker.iq <= 69",
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ],
+                  "linkSuspicion":[
+                     "ambiguous",
+                     "suggestive",
+                     "slightlyQuestionable",
+                     "clearlyClean",
+                     "clearlySuspicious"
+                  ],
+                  "personalityPreconditions":[
+                     "speaker.outerLife == middleGround",
+                     "speaker.takeIn == sensing",
+                     "speaker.social == introversion",
+                     "speaker.takeIn == middleGround",
+                     "speaker.social == extraversion",
+                     "speaker.decisions == feeling",
+                     "speaker.decisions == middleGround",
+                     "speaker.decisions == thinking",
+                     "speaker.outerLife == judging",
+                     "speaker.takeIn == intuition",
+                     "speaker.social == ambivert",
+                     "speaker.outerLife == perceiving"
+                  ],
+                  "relationship":[
+                     "school",
+                     "work",
+                     "friends",
+                     "communties",
+                     "family"
+                  ]
+               }
+            }
+         ]
+      },
+      "you or u":{
+         "complete":true,
+         "deep":false,
+         "markup":{
+
+         },
+         "rules":[
+            {
+               "app_rate":1,
+               "expansion":[
+                  "you"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24",
+                     "speaker.age >= 25 && speaker.age <= 44",
+                     "speaker.age >= 45 && speaker.age <= 64"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 130 && speaker.iq <= 144",
+                     "speaker.iq >= 85 && speaker.iq <= 114",
+                     "speaker.iq >= 115 && speaker.iq <= 129",
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ],
+                  "linkSuspicion":[
+                     "ambiguous",
+                     "suggestive",
+                     "slightlyQuestionable",
+                     "clearlyClean",
+                     "clearlySuspicious"
+                  ],
+                  "personalityPreconditions":[
+                     "speaker.outerLife == middleGround",
+                     "speaker.takeIn == sensing",
+                     "speaker.social == introversion",
+                     "speaker.takeIn == middleGround",
+                     "speaker.social == extraversion",
+                     "speaker.decisions == feeling",
+                     "speaker.decisions == middleGround",
+                     "speaker.decisions == thinking",
+                     "speaker.outerLife == judging",
+                     "speaker.takeIn == intuition",
+                     "speaker.social == ambivert",
+                     "speaker.outerLife == perceiving"
+                  ],
+                  "relationship":[
+                     "communties",
+                     "work",
+                     "friends",
+                     "school",
+                     "family"
+                  ]
+               }
+            },
+            {
+               "app_rate":1,
+               "expansion":[
+                  "u"
+               ],
+               "markup":{
+                  "agePreconditions":[
+                     "speaker.age >= 18 && speaker.age <= 24"
+                  ],
+                  "iqPreconditions":[
+                     "speaker.iq >= 55 && speaker.iq <= 69",
+                     "speaker.iq >= 70 && speaker.iq <= 84"
+                  ],
+                  "linkSuspicion":[
+                     "ambiguous",
+                     "suggestive",
+                     "slightlyQuestionable",
+                     "clearlyClean",
+                     "clearlySuspicious"
+                  ],
+                  "personalityPreconditions":[
+                     "speaker.decisions == middleGround",
+                     "speaker.outerLife == middleGround",
+                     "speaker.outerLife == judging",
+                     "speaker.social == ambivert",
+                     "speaker.takeIn == intuition",
+                     "speaker.takeIn == middleGround",
+                     "speaker.social == extraversion",
+                     "speaker.decisions == feeling",
+                     "speaker.takeIn == sensing"
+                  ],
+                  "relationship":[
+                     "communties",
+                     "friends",
+                     "school",
+                     "family"
+                  ]
+               }
+            }
+         ]
+      }
+   },
+   "system_vars":[
+
+   ]
+}
