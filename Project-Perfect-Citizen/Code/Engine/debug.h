@@ -126,28 +126,62 @@ public:
 		const char* func);
 
 
-//////////////////////////////////////////////////////////////////////
-///@brief Definition of the debug macro to be used. 
-///@details TO USE THE DEBUG MACRO: DEBUGF(flag,code);
-/// where flag is the flag that must me turned on for code to be
-/// printed
-//////////////////////////////////////////////////////////////////////
-#ifdef NDEBUG
-#define DEBUGF(FLAG,CODE) ;
-#define DEBUGS(FLAG,STMT) ;
-#else
-#define DEBUGF(FLAG,CODE) { \
-           if (Debug::getFlag (FLAG)) { \
-              Debug::where (FLAG, __FILE__, __LINE__, __func__); \
-              cout << CODE << endl; \
-           } \
+//If we are debugging
+#ifdef _DEBUG
+
+    #include <crtdbg.h>
+    #include <cstdlib>
+
+
+    #define DBG_INIT() { \
+        _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF); \
+    }
+
+    //Require Debug Reports at the end of all Executions
+    #ifndef _CRTDBG_MAP_ALLOC
+        #define _CRTDBG_MAP_ALLOC
+    #endif
+
+
+    //Make sure new is reported correctly
+    #ifndef DBG_NEW
+        #define DBG_NEW new ( _NORMAL_BLOCK , __FILE__ , __LINE__ )
+        #define new DBG_NEW
+    #endif  //DBG_NEW
+
+    #define MEM_PRINT(NAME) {   \
+            _CrtMemState NAME;  \
+            _CrtMemCheckpoint(& NAME); \
+            _CrtMemDumpStatistics( & NAME ); \
         }
-#define DEBUGS(FLAG,STMT) { \
-           if (Debug::getFlag (FLAG)) { \
-              Debug::where (FLAG, __FILE__, __LINE__, __func__); \
-              STMT; \
-           } \
+
+
+    //////////////////////////////////////////////////////////////////////
+    ///@brief Definition of the debug macro to be used. 
+    ///@details TO USE THE DEBUG MACRO: DEBUGF(flag,code);
+    /// where flag is the flag that must me turned on for code to be
+    /// printed
+    //////////////////////////////////////////////////////////////////////
+    #define DEBUGF(FLAG,CODE) { \
+        if (Debug::getFlag (FLAG)) { \
+                Debug::where (FLAG, __FILE__, __LINE__, __func__); \
+                cout << CODE << endl; \
+            } \
         }
-#endif
+    #define DEBUGS(FLAG,STMT) { \
+            if (Debug::getFlag (FLAG)) { \
+                Debug::where (FLAG, __FILE__, __LINE__, __func__); \
+                STMT; \
+            } \
+        }
+
+#else   //If not _DEBUG defined
+
+    #define DBG_INIT() ;
+    #define MEM_PRINT() ;
+    #define DEBUGF(FLAG,CODE) ;
+    #define DEBUGS(FLAG,STMT) ;
+
+#endif  // _DEBUG
 
 };
