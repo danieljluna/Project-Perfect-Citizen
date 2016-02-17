@@ -42,7 +42,7 @@ WindowInterface* ppc::spawnConsole(InputHandler & ih, NodeState & ns, int x, int
 		/* Create the input component */
 		sf::Font myFont;
 		myFont.loadFromFile(resourcePath() + "Consolas.ttf");
-		textInputRenderComponent* textInputBox = new textInputRenderComponent(myFont);
+		textInputRenderComponent* textInputBox = new textInputRenderComponent(myFont, 100, 100);
 		textInputKeys* tik = new textInputKeys(ih, *textRenderComponent->getSprite(), *textInputBox, *cup);
 	///////////////////////////////////////
 
@@ -60,6 +60,8 @@ WindowInterface* ppc::spawnConsole(InputHandler & ih, NodeState & ns, int x, int
 		consoleWindow->setPosition(x, y);
 		consoleWindow->addEntity(*textBox);
 		consoleWindow = new BorderDecorator(*consoleWindow);
+		//sf::Vector2u size = consoleWindow->getSize();
+		//cout << size.x << "" << size.y << endl;
 		return consoleWindow;
 	////////////////////////
 	

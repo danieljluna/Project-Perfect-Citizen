@@ -44,33 +44,13 @@ int main(int argc, char** argv) {
 
 	//Scans Debug Flags
 	Debug::scanOpts(argc, argv);
-	//Example of using the debugger macro
 	DEBUGF("ac", argc);
 
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
-	//Create the InputHandler
+	//Create the InputHandler <-- to be removed
 	ppc::InputHandler* inputHandle = new InputHandler();
-
-	///////////////////////////TREE EXAMPLE//////////////////////
-	ppc::NodeState* testState = new NodeState();;
-	testState->setUp(); 
-	////////////////////////////////////////////////////////////
-	
-    ////////////////// BACKGROUND IMAGE ////////////////////
-    sf::Sprite S;
-    sf::Texture T;
-    if (!(T.loadFromFile(resourcePath() + "Wallpaper.png"))) {
-        //Test for failure
-        cerr << "COULD NOT LOAD\n";
-        std::system("PAUSE");
-        return -1;
-    };
-    S.setTexture(T);
-    S.setPosition(0, 0);
-    S.setScale(0.7f, 0.7f);
-	///////////////////////////////////////////////////////
 
 	///////////// Load Spritesheets/Textures //////////////
     sf::Image spriteSheet;
@@ -82,6 +62,8 @@ int main(int argc, char** argv) {
 	//////////////////////////////////////////////////////////
 	///// CREATE THE PLAYER DESKTOP
 	/////////////////////////////////////////////////////////
+	ppc::NodeState* testState = new NodeState();
+	testState->setUp();
 	WindowInterface* desktopWindow = new Window(1800,1000,sf::Color(200, 200, 200));
 	Desktop myDesktop(*desktopWindow, *testState);
 	createPlayerDesktop(myDesktop, *desktopWindow, *inputHandle, iconSheet);
@@ -110,7 +92,7 @@ int main(int argc, char** argv) {
 			screen.clear(sf::Color::White);
 
             //Draw Background
-			screen.draw(S);
+			//screen.draw(S);
             
             //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();

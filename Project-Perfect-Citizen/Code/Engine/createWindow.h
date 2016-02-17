@@ -1,8 +1,10 @@
 #pragma once
 
+#include <SFML/System/Vector2.hpp>
 #include "WindowInterface.h"
 #include "InputHandler.h"
 #include "NodeState.h"
+
 
 
 namespace ppc {
