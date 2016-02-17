@@ -25,7 +25,7 @@ private:
 
 public:
     
-    textInputRenderComponent(sf::Font& f, int x, int y);
+    textInputRenderComponent(sf::Font& f, float x, float y);
     
     ~textInputRenderComponent();
     
