@@ -16,7 +16,7 @@ const string OPEN_THE_HELP = "OTH";
 const string OPEN_THE_BROWSER = "OTB";
 const string OPEN_THE_EXPLORER = "OTE";
 
-const float DOUBLE_CLICK_TIME = 500;
+const float DOUBLE_CLICK_TIME = 500.0f;
 
 mousePressButton::mousePressButton(ppc::InputHandler& ih, 
 	sf::Sprite& s, std::string iBP): 
