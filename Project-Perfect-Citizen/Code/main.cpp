@@ -34,6 +34,7 @@
 #include "Engine/BorderDecorator.h"
 #include "Game/createDesktop.h"
 #include "Game/desktopExtractionComponent.hpp"
+#include "Game/expressionistParser.hpp"
 
 using namespace ppc;
 
