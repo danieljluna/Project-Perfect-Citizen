@@ -86,49 +86,52 @@
       <Filter>Sources\Engine\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\animatorComponent.cpp">
-      <Filter>Sources\Examples</Filter>
+      <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\buttonRenderComponent.cpp">
-      <Filter>Sources\Examples</Filter>
+      <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\consoleIconRenderComponent.cpp">
-      <Filter>Sources\Examples</Filter>
+      <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\consoleUpdateComponent.cpp">
-      <Filter>Sources\Examples</Filter>
+      <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\createButton.cpp">
-      <Filter>Sources\Examples</Filter>
+      <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\createDesktop.cpp">
-      <Filter>Sources\Examples</Filter>
+      <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\createIcon.cpp">
-      <Filter>Sources\Examples</Filter>
+      <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\createWindow.cpp">
-      <Filter>Sources\Examples</Filter>
+      <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\desktopExtractionComponent.cpp">
-      <Filter>Sources\Examples</Filter>
+      <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\iconInputComponent.cpp">
-      <Filter>Sources\Examples</Filter>
+      <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\mousePressButton.cpp">
-      <Filter>Sources\Examples</Filter>
+      <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\testRenderSprite.cpp">
-      <Filter>Sources\Examples</Filter>
+      <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\textInputKeys.cpp">
-      <Filter>Sources\Examples</Filter>
+      <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\textInputRenderComponent.cpp">
-      <Filter>Sources\Examples</Filter>
+      <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\TreeCommands.cpp">
-      <Filter>Sources\Examples</Filter>
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\WindowBkgndRenderCmpnt.cpp">
+      <Filter>Sources\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -282,9 +285,14 @@
     <ClInclude Include="Code\Game\animatorComponent.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\BorderDecorator.h">
+      <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\WindowBkgndRenderCmpnt.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Code\Engine\buttonRenderComponent.h" />
     <ClInclude Include="Code\Engine\BaseFileType.h" />
     <ClInclude Include="Code\Engine\ComponentObsvr.h" />
     <ClInclude Include="Code\Engine\component.h" />
@@ -298,13 +306,8 @@
     <ClInclude Include="Code\Engine\NodeState.h" />
     <ClInclude Include="Code\Engine\objectPool.h" />
     <ClInclude Include="Code\Engine\observer.h" />
-    <ClInclude Include="Code\Engine\mousePressButton.h" />
     <ClInclude Include="Code\Engine\renderComponent.h" />
     <ClInclude Include="Code\Engine\subject.h" />
-    <ClInclude Include="Code\Engine\TestObserver.h" />
-    <ClInclude Include="Code\Engine\testRenderSprite.h" />
-    <ClInclude Include="Code\Engine\testRotateSprite.h" />
-    <ClInclude Include="Code\Engine\TreeCommands.h" />
     <ClInclude Include="Code\Engine\updateComponent.h" />
     <ClInclude Include="Code\Engine\Window.h" />
     <ClInclude Include="Code\Engine\WindowDecorator.h" />
@@ -321,9 +324,6 @@
     </Filter>
     <Filter Include="Sources">
       <UniqueIdentifier>{0048f3c6-0ebf-47dc-a74c-e217259352a1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sources\Examples">
-      <UniqueIdentifier>{8a64dff5-ecb4-44d7-8311-ec366f68d802}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources">
       <UniqueIdentifier>{07c1c74f-fcc1-49b8-aa8a-b438b52a61a5}</UniqueIdentifier>
@@ -396,6 +396,9 @@
     </Filter>
     <Filter Include="Headers\Game">
       <UniqueIdentifier>{8e806e22-1ad6-4fee-aca9-05ff1e6210a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Game">
+      <UniqueIdentifier>{8a64dff5-ecb4-44d7-8311-ec366f68d802}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

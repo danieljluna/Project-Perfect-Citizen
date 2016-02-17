@@ -9,8 +9,10 @@
 #include <SFML/Graphics.hpp>
 
 #include "Window.h"
+#include "InputHandler.h"
 #include "NodeState.h"
 #include "BaseFileType.h"
+#include "../Game/WindowBkgndRenderCmpnt.h"
 
 //temporary typedefs for classes/types not defined yet
 typedef int OSStyle;
@@ -68,7 +70,6 @@ namespace ppc {
 		// Node* and return WindowInterface*
 		//map<string, (WindowInterface*) (Node*)> extensionMap_;
 
-
 ///////////////////////////////////////////////////////////////////////
 ///@brief Brings the desired Window into focus.
 ///@details To be called when a specificed Window should be 
@@ -92,7 +93,7 @@ namespace ppc {
 ///@brief A helper function that checks if the mouse is within a
 /// window.
 ///////////////////////////////////////////////////////////////////////
-		bool isMouseCollision(WindowInterface*, sf::Vector2f);
+		bool isMouseCollision(WindowInterface*, sf::Vector2i);
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -110,7 +111,8 @@ namespace ppc {
 ///@brief Desktop Constructor.
 ///@details Creates a Desktop with a given FileTree and width and 
 /// height for the size of the desktopWindow_, which holds the icons &
-/// buttons for the Desktop.
+/// buttons for the Desktop. The Ctor also intitalizes the
+/// Input Handle for the Desktop. 
 ///@param bkgndWin The Window representing the Window for the Desktop
 /// background, which can hold icons/entities.
 ///@param n The NodeState object to be associated with the Desktop.
@@ -156,9 +158,15 @@ namespace ppc {
 		virtual void setStyle(OSStyle*);
 
 ///////////////////////////////////////////////////////////////////////
-///@brief Returns the root of the NodeState in the Desktop.
+///@brief Returns a reference of the NodeState in the Desktop.
+///@return A reference to the NodeState in the Desktop
 ///////////////////////////////////////////////////////////////////////
 		virtual NodeState& getNodeState();
+
+///////////////////////////////////////////////////////////////////////
+///@brief Adds a background render cmpnt to the given Window
+///////////////////////////////////////////////////////////////////////
+		virtual void addBackgroundCmpnt(WindowInterface*, sf::Sprite&);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Reacts to Input for the focused Window.

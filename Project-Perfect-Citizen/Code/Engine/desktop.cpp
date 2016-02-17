@@ -2,6 +2,7 @@
 // Nader Sleem
 
 #include "desktop.h"
+#include "debug.h"
 
 ppc::Desktop::Desktop(WindowInterface& bkgndWin, NodeState& n) {
 	style_ = nullptr;
@@ -17,6 +18,9 @@ ppc::Desktop::Desktop(const Desktop& other) {
 	this->style_ = other.style_;
 	this->nodeState_ = other.nodeState_;
 	this->windows_ = other.windows_;
+	this->desktopWindow_ = other.desktopWindow_;
+	this->focused_ = other.focused_;
+
 }
 
 ppc::Desktop::~Desktop() {
@@ -30,6 +34,7 @@ ppc::Desktop::~Desktop() {
 
 
 void ppc::Desktop::focusWindow(WindowInterface* wi) {
+	DEBUGF("df", wi);
 	//Keep desktopWindow_ in the back of the vector
 	if (wi == this->desktopWindow_ || wi == nullptr) {
 		this->focused_ = this->desktopWindow_;
@@ -57,6 +62,9 @@ void ppc::Desktop::focusWindow(WindowInterface* wi) {
 
 void ppc::Desktop::draw(sf::RenderTarget& target, 
 						sf::RenderStates states) const {
+
+	//Draw the background image here first.
+	//then:
 	//Using reverse itors
 	for (auto it = windows_.rbegin(); it != windows_.rend(); ++it) {
 		target.draw(*(*it), states);
@@ -90,13 +98,18 @@ ppc::NodeState& ppc::Desktop::getNodeState() {
 	return *nodeState_;
 }
 
+void ppc::Desktop::addBackgroundCmpnt(WindowInterface* wi, sf::Sprite& s) {
+	WindowBkgndRenderCmpnt* wBRC = new WindowBkgndRenderCmpnt(s);
+	wi->addRenderComponent(wBRC);
+}
+
 void ppc::Desktop::registerInput(sf::Event& ev){
 	//first check if the mouse clicked in the focused window.
 	//if the window clicked in a window that wasnt focused,
 	//then focus that window.
 	
 	if (ev.type == sf::Event::MouseButtonPressed) {
-		sf::Vector2f pos(float(ev.mouseButton.x), float(ev.mouseButton.y));
+		sf::Vector2i pos(ev.mouseButton.x, ev.mouseButton.y);
 		for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 			if (isMouseCollision(*it, pos)) {
 				focusWindow(*it);
@@ -124,7 +137,7 @@ void ppc::Desktop::refresh(sf::RenderStates states) {
 }
 
 bool ppc::Desktop::isMouseCollision(WindowInterface* wi,
-	sf::Vector2f pos) {
+	sf::Vector2i pos) {
 	
 	bool result = false;
 	sf::Vector2f windowPos = wi->getPosition();

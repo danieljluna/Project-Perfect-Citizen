@@ -32,10 +32,16 @@ void consoleUpdateComponent::executeCommand(string str) {
 
 void consoleUpdateComponent::update(sf::Time& deltaTime) {
 	if (canParse) {
-        commandFn commandFunction = findFunction(commandVec.at(0));
-        commandFunction(fileTree, commandVec);
-        cout << endl;
-        toggleParsing();
-        commandVec.clear();
+		try {
+			commandFn commandFunction = findFunction(commandVec.at(0));
+			commandFunction(fileTree, commandVec);
+			cout << endl;
+			toggleParsing();
+			commandVec.clear();
+		} catch (std::exception e) {
+			toggleParsing();
+			commandVec.clear();
+			return;
+		}
 	}
 }
