@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "renderComponent.h"
+#include "../Engine/renderComponent.h"
 #include <string>
 
 using namespace std;

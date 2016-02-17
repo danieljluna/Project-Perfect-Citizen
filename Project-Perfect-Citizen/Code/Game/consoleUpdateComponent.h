@@ -1,11 +1,11 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "updateComponent.h"
+#include "../Engine/updateComponent.h"
 #include "buttonRenderComponent.h"
 #include "textInputRenderComponent.hpp"
 #include "textInputKeys.hpp"
-#include "NodeState.h"
+#include "../Engine/NodeState.h"
 
 using namespace std;
 
