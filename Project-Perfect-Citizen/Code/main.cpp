@@ -34,12 +34,15 @@
 #include "Engine/BorderDecorator.h"
 #include "Game/createDesktop.h"
 #include "Game/desktopExtractionComponent.hpp"
+#include "Game/expressionistParser.hpp"
 
 using namespace ppc;
 
 
 //Note that this is placeholder for now
 int main(int argc, char** argv) {
+
+    DBG_INIT();
 
 	//Scans Debug Flags
 	Debug::scanOpts(argc, argv);

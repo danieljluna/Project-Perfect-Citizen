@@ -10,7 +10,11 @@
 
 const string TEXT_KEY_INPUT = "TKI";
 
+<<<<<<< HEAD
 textInputRenderComponent::textInputRenderComponent(sf::Font& f, int x, int y, int size):font(f) {
+=======
+textInputRenderComponent::textInputRenderComponent(sf::Font& f, float x, float y):font(f) {
+>>>>>>> 218a1df53cedd4620b3872f848a4f372399051e8
 	this->text = new sf::Text();
     
     //font.loadFromFile(resourcePath() + "Consolas.ttf");

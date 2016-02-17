@@ -33,6 +33,7 @@ void ppc::NodeState::setUp()
 	newRoot->contents[".."] = newRoot;
 	this->root = newRoot;
 	this->cwd = newRoot;
+	this->lastLsNode = newRoot;
 }
 
 void ppc::NodeState::setCwd(ppc::BaseFileType* newCwd)
@@ -56,3 +57,20 @@ void ppc::NodeState::moveToRoot()
 	this->workingDirectory.push_back("/");
 	this->cwd = this->root;
 }
+
+std::vector<std::string> ppc::NodeState::getPwdVector()
+{
+	return this->workingDirectory;
+}
+
+void ppc::NodeState::setLastLsNode(BaseFileType * node)
+{
+	this->lastLsNode = node;
+	this->dirString = node->baseDirString;
+}
+
+string ppc::NodeState::getDirString()
+{
+	return this->dirString;
+}
+

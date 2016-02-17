@@ -75,7 +75,7 @@ sf::FloatRect Window::getBounds() {
     result.left = transform_.getPosition().x;
     result.top = transform_.getPosition().y;
     result.width = float(windowSpace_.getSize().x);
-    result.height = windowSpace_.getSize().y;
+    result.height = float(windowSpace_.getSize().y);
     return result;
 }
 

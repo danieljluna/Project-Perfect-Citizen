@@ -26,6 +26,7 @@
 
 using namespace ppc;
 
+
 void ppc::spawnConsole(WindowInterface* windowToModify, InputHandler & ih, NodeState & ns, 
 	float x, float y) {
 
