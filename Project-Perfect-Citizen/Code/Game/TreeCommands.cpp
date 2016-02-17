@@ -14,7 +14,7 @@ commandFn findFunction(const std::string& command) {
 	auto result = functionMap.find(command);
 	if (result == functionMap.end()) {
 		cout << "function not found" << endl;
-		//throw std::exception("TreeCommands::findFunction() :function not found");
+		throw std::exception("TreeCommands::findFunction() :function not found");
 	}
 	return result->second;
 }
