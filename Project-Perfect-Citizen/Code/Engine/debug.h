@@ -149,10 +149,10 @@ public:
         #define new DBG_NEW
     #endif  //DBG_NEW
 
-    #define MEM_PRINT(NAME) {   \
-            _CrtMemState NAME;  \
-            _CrtMemCheckpoint(& NAME); \
-            _CrtMemDumpStatistics( & NAME ); \
+    #define MEM_PRINT() {   \
+            _CrtMemState temp;  \
+            _CrtMemCheckpoint(&temp); \
+            _CrtMemDumpStatistics(&temp); \
         }
 
 
