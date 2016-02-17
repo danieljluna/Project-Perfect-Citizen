@@ -59,17 +59,17 @@ int main(int argc, char** argv) {
 	////////////////////////////////////////////////////////////
 	
     ////////////////// BACKGROUND IMAGE ////////////////////
-    sf::Sprite S;
-    sf::Texture T;
-    if (!(T.loadFromFile(resourcePath() + "Wallpaper.png"))) {
+    sf::Sprite* S = new sf::Sprite();
+    sf::Texture* T = new sf::Texture();
+    if (!(T->loadFromFile(resourcePath() + "Wallpaper.png"))) {
         //Test for failure
         cerr << "COULD NOT LOAD\n";
         std::system("PAUSE");
         return -1;
     };
-    S.setTexture(T);
-    S.setPosition(0, 0);
-    S.setScale(0.7f, 0.7f);
+    S->setTexture(*T);
+    S->setPosition(0, 0);
+    S->setScale(0.7f, 0.7f);
 	///////////////////////////////////////////////////////
 
 	///////////// Load Spritesheets/Textures //////////////
@@ -84,6 +84,7 @@ int main(int argc, char** argv) {
 	/////////////////////////////////////////////////////////
 	WindowInterface* desktopWindow = new Window(1800,1000,sf::Color(200, 200, 200));
 	Desktop myDesktop(*desktopWindow, *testState);
+	myDesktop.addBackgroundCmpnt(desktopWindow, *S);
 	createPlayerDesktop(myDesktop, *desktopWindow, *inputHandle, iconSheet);
 
     ///////////////////////////////////////////////////////////////////
@@ -101,16 +102,13 @@ int main(int argc, char** argv) {
 				screen.close();
 
 			//Input phase
-			inputHandle->registerEvent(event);
+			myDesktop.registerInput(event);
         }
 
         if (deltaTime.getElapsedTime() > framePeriod) {
 
             // Clear screen
 			screen.clear(sf::Color::White);
-
-            //Draw Background
-			screen.draw(S);
             
             //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
