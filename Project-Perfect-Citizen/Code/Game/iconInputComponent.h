@@ -2,14 +2,14 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "inputComponent.h"
-#include "InputHandler.h"
-#include "Entity.h"
-#include "subject.h"
-#include "desktop.h"
+#include "../Engine/inputComponent.h"
+#include "../Engine/InputHandler.h"
+#include "../Engine/Entity.h"
+#include "../Engine/subject.h"
+#include "../Engine/desktop.h"
 #include "createWindow.h"
-#include "Window.h"
-#include "WindowInterface.h"
+#include "../Engine/Window.h"
+#include "../Engine/WindowInterface.h"
 
 
 ///////////////////////////////////////////////////////////////////////

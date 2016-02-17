@@ -7,12 +7,6 @@
     <ClCompile Include="Code\main.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\testRenderSprite.cpp">
-      <Filter>Sources\Examples</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\testRotateSprite.cpp">
-      <Filter>Sources\Examples</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\entity.cpp">
       <Filter>Sources\Engine\Entity / Componentns</Filter>
     </ClCompile>
@@ -31,9 +25,6 @@
     <ClCompile Include="Code\Engine\Window.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\TestObserver.cpp">
-      <Filter>Sources\Examples</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\world.cpp">
       <Filter>Sources\Engine\World</Filter>
     </ClCompile>
@@ -49,12 +40,6 @@
     <ClCompile Include="Code\Engine\NodeState.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\TreeCommands.cpp">
-      <Filter>Sources\Engine\Windows / Desktop</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\mousePressButton.cpp">
-      <Filter>Sources\Engine\Created Components</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\WindowDecorator.cpp">
       <Filter>Sources\Engine\Windows / Desktop\Decorators</Filter>
     </ClCompile>
@@ -64,29 +49,8 @@
     <ClCompile Include="Code\Engine\UpdateCmpntDecorator.cpp">
       <Filter>Sources\Engine\Entity / Componentns\Decorators</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\EntityLogger.cpp">
-      <Filter>Sources\Engine\Entity / Componentns\Decorators\Loggers</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\DesktopLogger.cpp">
-      <Filter>Sources\Engine\Windows / Desktop\Decorators\Loggers</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\WindowLogger.cpp">
-      <Filter>Sources\Engine\Windows / Desktop\Decorators\Loggers</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\UpdateCmpntLogger.cpp">
-      <Filter>Sources\Engine\Entity / Componentns\Decorators\Loggers</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\RenderCmpntDecorator.cpp">
       <Filter>Sources\Engine\Entity / Componentns\Decorators</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\RenderCmpntLogger.cpp">
-      <Filter>Sources\Engine\Entity / Componentns\Decorators\Loggers</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\buttonRenderComponent.cpp">
-      <Filter>Sources\Examples</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\InputCmpntLogger.cpp">
-      <Filter>Sources\Engine\Entity / Componentns\Decorators\Loggers</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\inputComponent.cpp">
       <Filter>Sources\Engine\Entity / Componentns</Filter>
@@ -94,28 +58,77 @@
     <ClCompile Include="Code\Engine\BaseFileType.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\animatorComponent.cpp">
-      <Filter>Sources\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\consoleIconRenderComponent.cpp">
-      <Filter>Sources\Examples</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\WindowInterface.cpp">
       <Filter>Sources\Engine\Windows / Desktop</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\textInputKeys.cpp">
+    <ClCompile Include="Code\Engine\FunctionObserver.cpp">
       <Filter>Sources\Engine\Input</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\textInputRenderComponent.cpp">
-      <Filter>Sources\Examples</Filter>
+    <ClCompile Include="Code\Engine\EntityLogger.cpp">
+      <Filter>Sources\Engine\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\createWindow.cpp">
-      <Filter>Sources\Examples</Filter>
+    <ClCompile Include="Code\Engine\InputCmpntLogger.cpp">
+      <Filter>Sources\Engine\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\consoleUpdateComponent.cpp" />
-    <ClCompile Include="Code\Engine\FunctionObserver.cpp" />
+    <ClCompile Include="Code\Engine\RenderCmpntLogger.cpp">
+      <Filter>Sources\Engine\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\UpdateCmpntLogger.cpp">
+      <Filter>Sources\Engine\Debug</Filter>
+    </ClCompile>
     <ClCompile Include="Code\Engine\BorderDecorator.cpp">
       <Filter>Sources\Engine\Windows / Desktop\Decorators</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\DesktopLogger.cpp">
+      <Filter>Sources\Engine\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\WindowLogger.cpp">
+      <Filter>Sources\Engine\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\animatorComponent.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\buttonRenderComponent.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\consoleIconRenderComponent.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\consoleUpdateComponent.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\createButton.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\createDesktop.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\createIcon.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\createWindow.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\desktopExtractionComponent.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\iconInputComponent.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\mousePressButton.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\testRenderSprite.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\textInputKeys.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\textInputRenderComponent.cpp">
+      <Filter>Sources\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\TreeCommands.cpp">
+      <Filter>Sources\Examples</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\createButton.cpp" />
     <ClCompile Include="Code\Engine\createDesktop.cpp" />
@@ -129,12 +142,6 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\renderComponent.h">
       <Filter>Headers\Engine\Entity / Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\testRenderSprite.h">
-      <Filter>Headers\Examples</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\testRotateSprite.h">
-      <Filter>Headers\Examples</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\updateComponent.h">
       <Filter>Headers\Engine\Entity / Components</Filter>
@@ -150,9 +157,6 @@
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\TestObserver.h">
-      <Filter>Headers\Examples</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\desktop.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
@@ -187,32 +191,8 @@
     <ClInclude Include="Code\Engine\ComponentObsvr.h">
       <Filter>Headers\Engine\Input</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\EntityDecorator.h">
-      <Filter>Headers\Engine\Entity / Components\Decorators</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\WindowDecorator.h">
       <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\UpdateCmpntDecorator.h">
-      <Filter>Headers\Engine\Entity / Components\Decorators</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\EntityLogger.h">
-      <Filter>Headers\Engine\Entity / Components\Decorators\Loggers</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\DesktopLogger.h">
-      <Filter>Headers\Engine\Windows / Desktop\Decorators\Loggers</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\WindowLogger.h">
-      <Filter>Headers\Engine\Windows / Desktop\Decorators\Loggers</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\UpdateCmpntLogger.h">
-      <Filter>Headers\Engine\Entity / Components\Decorators\Loggers</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\RenderCmpntDecorator.h">
-      <Filter>Headers\Engine\Entity / Components\Decorators</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\RenderCmpntLogger.h">
-      <Filter>Headers\Engine\Entity / Components\Decorators\Loggers</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\NodeState.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
@@ -220,46 +200,92 @@
     <ClInclude Include="Code\Engine\BaseFileType.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\TreeCommands.h">
-      <Filter>Headers\Engine\Windows / Desktop</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\InputCmpntLogger.h">
-      <Filter>Headers\Engine\Entity / Components\Decorators\Loggers</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\WindowInterface.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\WindowDecorator.h">
       <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\animatorComponent.hpp">
-      <Filter>Headers\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\WindowInterface.h">
       <Filter>Headers\Engine\Windows / Desktop</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\buttonRenderComponent.h">
-      <Filter>Headers\Examples</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\mousePressButton.h">
-      <Filter>Headers\Examples</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\consoleIconRenderComponent.h">
-      <Filter>Headers\Examples</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\textInputKeys.hpp">
-      <Filter>Headers\Engine\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\textInputRenderComponent.hpp">
-      <Filter>Headers\Examples</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\createWindow.h">
-      <Filter>Headers\Examples</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\consoleUpdateComponent.h" />
-    <ClInclude Include="Code\Engine\BorderDecorator.h" />
     <ClInclude Include="Code\Engine\FunctionObserver.h">
       <Filter>Headers\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\EntityLogger.h">
+      <Filter>Headers\Engine\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\InputCmpntLogger.h">
+      <Filter>Headers\Engine\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\RenderCmpntLogger.h">
+      <Filter>Headers\Engine\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\UpdateCmpntLogger.h">
+      <Filter>Headers\Engine\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\EntityDecorator.h">
+      <Filter>Headers\Engine\Entity / Components\Decorators</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\RenderCmpntDecorator.h">
+      <Filter>Headers\Engine\Entity / Components\Decorators</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\UpdateCmpntDecorator.h">
+      <Filter>Headers\Engine\Entity / Components\Decorators</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\DesktopLogger.h">
+      <Filter>Headers\Engine\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\WindowLogger.h">
+      <Filter>Headers\Engine\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\buttonRenderComponent.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\consoleIconRenderComponent.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\consoleUpdateComponent.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\createButton.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\createDesktop.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\createIcon.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\createWindow.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\desktopExtractionComponent.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\iconInputComponent.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\mousePressButton.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\testRenderSprite.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\textInputKeys.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\textInputRenderComponent.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\TreeCommands.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\BorderDecorator.h">
+      <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\animatorComponent.hpp">
+      <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\BorderDecorator.h">
       <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
@@ -308,9 +334,6 @@
     </Filter>
     <Filter Include="Sources">
       <UniqueIdentifier>{0048f3c6-0ebf-47dc-a74c-e217259352a1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\Examples">
-      <UniqueIdentifier>{0e01e25d-6c29-48e5-bce3-97628031278d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Sources\Examples">
       <UniqueIdentifier>{8a64dff5-ecb4-44d7-8311-ec366f68d802}</UniqueIdentifier>
@@ -372,9 +395,6 @@
     <Filter Include="Sources\Engine\Input">
       <UniqueIdentifier>{19e64c98-7fda-48db-a0d3-b0f4e8e67694}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Engine\Created Components">
-      <UniqueIdentifier>{02b72c68-768c-4e22-8a3e-e3872c3a8987}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Headers\Engine\Entity / Components\Decorators">
       <UniqueIdentifier>{ef7e0e1d-a131-4c74-bc41-40199f34d00c}</UniqueIdentifier>
     </Filter>
@@ -387,17 +407,8 @@
     <Filter Include="Sources\Engine\Entity / Componentns\Decorators">
       <UniqueIdentifier>{562cfc5d-3821-4d22-9f21-6e0891555529}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Headers\Engine\Entity / Components\Decorators\Loggers">
-      <UniqueIdentifier>{758a4145-6c87-4c9c-833e-0d7db9f73280}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sources\Engine\Entity / Componentns\Decorators\Loggers">
-      <UniqueIdentifier>{ea432496-dbad-434c-a1ba-80d9d22846c6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sources\Engine\Windows / Desktop\Decorators\Loggers">
-      <UniqueIdentifier>{15c69699-4daa-42ca-9135-8904abeccc0e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\Engine\Windows / Desktop\Decorators\Loggers">
-      <UniqueIdentifier>{71fcf245-fe0b-4ffd-9494-297e0e4ccab3}</UniqueIdentifier>
+    <Filter Include="Headers\Game">
+      <UniqueIdentifier>{8e806e22-1ad6-4fee-aca9-05ff1e6210a5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

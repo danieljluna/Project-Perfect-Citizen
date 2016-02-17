@@ -1,8 +1,8 @@
 #pragma once
 
-#include "WindowInterface.h"
-#include "InputHandler.h"
-#include "NodeState.h"
+#include "../Engine/WindowInterface.h"
+#include "../Engine/InputHandler.h"
+#include "../Engine/NodeState.h"
 
 
 namespace ppc {
