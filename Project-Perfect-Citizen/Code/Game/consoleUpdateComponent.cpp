@@ -32,7 +32,6 @@ void consoleUpdateComponent::executeCommand(string str) {
 
 void consoleUpdateComponent::update(sf::Time& deltaTime) {
 	if (canParse) {
-		commandFn commandFunction;
 		try {
 			commandFn commandFunction = findFunction(commandVec.at(0));
 			commandFunction(fileTree, commandVec);

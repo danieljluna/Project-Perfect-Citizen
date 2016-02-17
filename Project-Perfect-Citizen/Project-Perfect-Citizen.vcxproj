@@ -33,7 +33,6 @@
     <ClCompile Include="Code\Engine\UpdateCmpntDecorator.cpp" />
     <ClCompile Include="Code\Engine\UpdateCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\Window.cpp" />
-    <ClCompile Include="Code\Engine\windowBkgndRenderCmpnt.cpp" />
     <ClCompile Include="Code\Engine\WindowDecorator.cpp" />
     <ClCompile Include="Code\Engine\WindowInterface.cpp" />
     <ClCompile Include="Code\Engine\WindowLogger.cpp" />
@@ -53,6 +52,7 @@
     <ClCompile Include="Code\Game\textInputKeys.cpp" />
     <ClCompile Include="Code\Game\textInputRenderComponent.cpp" />
     <ClCompile Include="Code\Game\TreeCommands.cpp" />
+    <ClCompile Include="Code\Game\WindowBkgndRenderCmpnt.cpp" />
     <ClCompile Include="Code\Library\jsoncpp.cpp" />
     <ClCompile Include="Code\main.cpp" />
   </ItemGroup>
@@ -88,7 +88,6 @@
     <ClInclude Include="Code\Engine\updateComponent.h" />
     <ClInclude Include="Code\Engine\Window.h" />
     <ClInclude Include="Code\Engine\BorderDecorator.h" />
-    <ClInclude Include="Code\Engine\windowBkgndRenderCmpnt.h" />
     <ClInclude Include="Code\Engine\WindowDecorator.h" />
     <ClInclude Include="Code\Engine\WindowInterface.h" />
     <ClInclude Include="Code\Engine\WindowLogger.h" />
@@ -108,6 +107,7 @@
     <ClInclude Include="Code\Game\textInputKeys.hpp" />
     <ClInclude Include="Code\Game\textInputRenderComponent.hpp" />
     <ClInclude Include="Code\Game\TreeCommands.h" />
+    <ClInclude Include="Code\Game\WindowBkgndRenderCmpnt.h" />
     <ClInclude Include="Code\Library\json\json-forwards.h" />
     <ClInclude Include="Code\Library\json\json.h" />
     <ClInclude Include="resource.h" />

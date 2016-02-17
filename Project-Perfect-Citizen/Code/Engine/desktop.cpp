@@ -2,6 +2,7 @@
 // Nader Sleem
 
 #include "desktop.h"
+#include "debug.h"
 
 ppc::Desktop::Desktop(WindowInterface& bkgndWin, NodeState& n) {
 	style_ = nullptr;
@@ -33,6 +34,7 @@ ppc::Desktop::~Desktop() {
 
 
 void ppc::Desktop::focusWindow(WindowInterface* wi) {
+	DEBUGF("df", wi);
 	//Keep desktopWindow_ in the back of the vector
 	if (wi == this->desktopWindow_ || wi == nullptr) {
 		this->focused_ = this->desktopWindow_;
@@ -96,8 +98,9 @@ ppc::NodeState& ppc::Desktop::getNodeState() {
 	return *nodeState_;
 }
 
-void ppc::Desktop::addBackgroundCmpnt(WindowInterface*, sf::Sprite) {
-
+void ppc::Desktop::addBackgroundCmpnt(WindowInterface* wi, sf::Sprite& s) {
+	WindowBkgndRenderCmpnt* wBRC = new WindowBkgndRenderCmpnt(s);
+	wi->addRenderComponent(wBRC);
 }
 
 void ppc::Desktop::registerInput(sf::Event& ev){

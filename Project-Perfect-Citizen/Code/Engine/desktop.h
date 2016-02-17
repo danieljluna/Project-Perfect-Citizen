@@ -12,6 +12,7 @@
 #include "InputHandler.h"
 #include "NodeState.h"
 #include "BaseFileType.h"
+#include "../Game/WindowBkgndRenderCmpnt.h"
 
 //temporary typedefs for classes/types not defined yet
 typedef int OSStyle;
@@ -165,7 +166,7 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 ///@brief Adds a background render cmpnt to the given Window
 ///////////////////////////////////////////////////////////////////////
-		virtual void addBackgroundCmpnt(WindowInterface*, sf::Sprite);
+		virtual void addBackgroundCmpnt(WindowInterface*, sf::Sprite&);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Reacts to Input for the focused Window.

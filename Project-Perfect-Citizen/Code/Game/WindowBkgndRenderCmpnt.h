@@ -2,10 +2,10 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "renderComponent.h"
+#include "../Engine/renderComponent.h"
 
 
-class windowBkgndRenderCmpnt: public ppc::RenderComponent {
+class WindowBkgndRenderCmpnt: public ppc::RenderComponent {
 	
 private:
 
@@ -14,9 +14,9 @@ private:
 
 public:
 
-	windowBkgndRenderCmpnt() = delete;
-	windowBkgndRenderCmpnt(sf::Sprite&);
-	virtual ~windowBkgndRenderCmpnt();
+	WindowBkgndRenderCmpnt() = delete;
+	WindowBkgndRenderCmpnt(sf::Sprite&);
+	virtual ~WindowBkgndRenderCmpnt();
 
 	virtual void draw(sf::RenderTarget& target, 
 		sf::RenderStates states) const override;
