@@ -25,7 +25,7 @@ private:
 	ppc::InputHandler& inputHandle;
 	std::string isBeingPressed;
 	sf::Clock mouseClock;
-	float mouseTime;
+    sf::Int32 mouseTime;
 	bool isCollision(sf::Vector2i);
 
 public:
