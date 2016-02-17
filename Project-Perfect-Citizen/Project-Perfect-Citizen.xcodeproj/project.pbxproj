@@ -65,7 +65,6 @@
 /* Begin PBXFileReference section */
 		C8058A631C4D679D005E23BA /* Project-Perfect-Citizen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-Perfect-Citizen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C812D6141C61D29600901173 /* Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wallpaper.png; sourceTree = "<group>"; };
-		C837536C1C6D5DC2002DF7E1 /* Consolas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Consolas.ttf; sourceTree = "<group>"; };
 		C84913C61C6AA82E00F84CB0 /* Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Sheet.png; sourceTree = "<group>"; };
 		C858D3951C61C1BB0086199C /* Windows_UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_UI.png; sourceTree = "<group>"; };
 		C86E377A1C4D67F200842EFD /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
@@ -165,6 +164,7 @@
 		E9C810561C603DD700D47DA6 /* json-forwards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "json-forwards.h"; path = "Code/Library/json/json-forwards.h"; sourceTree = SOURCE_ROOT; };
 		E9C810571C603DD700D47DA6 /* json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = json.h; path = Code/Library/json/json.h; sourceTree = SOURCE_ROOT; };
 		E9C810581C603E1600D47DA6 /* dummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummy.json; sourceTree = "<group>"; };
+		E9F598481C73CE2A00219B2E /* Consolas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Consolas.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,9 +299,9 @@
 		C86E37A51C4D6B5100842EFD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E9F598481C73CE2A00219B2E /* Consolas.ttf */,
 				E94E75991C728D2C00C77C60 /* data.json */,
 				E959DD381C7022F7001F2CAF /* TestDesktop.json */,
-				C837536C1C6D5DC2002DF7E1 /* Consolas.ttf */,
 				C84913C61C6AA82E00F84CB0 /* Icon_Sheet.png */,
 				C812D6141C61D29600901173 /* Wallpaper.png */,
 				C858D3951C61C1BB0086199C /* Windows_UI.png */,

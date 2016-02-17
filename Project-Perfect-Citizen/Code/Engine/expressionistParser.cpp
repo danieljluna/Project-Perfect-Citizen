@@ -6,7 +6,7 @@
 //  Copyright © 2016 Hyperfocus Games. All rights reserved.
 //
 
-//Used to get XCODE working/////////////////////////////////
+//Used to get XCODE working/////////////////////////////////////////////
 
 #ifdef WINDOWS_MARKER
 #define resourcePath() string("Resources/")
@@ -14,7 +14,7 @@
 #include "ResourcePath.hpp"
 #endif
 
-///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 
 #include "expressionistParser.hpp"
 #include "../Library/json/json.h"
@@ -22,58 +22,84 @@
 #include <fstream>
 #include <map>
 
-using namespace ppc;
+using namespace std;
+
+////////////////////////////////////////////////////////////////////////
+///constructor for parsing expressionist data
+////////////////////////////////////////////////////////////////////////
 
 expressionistParser::expressionistParser(){
 
 }
 
-std::vector<expressionistParser> expressionistParser::parse(std::string file){
+////////////////////////////////////////////////////////////////////////
+///parsing out the JSON file returning a vector of the class
+////////////////////////////////////////////////////////////////////////
+
+vector<expressionistParser> expressionistParser::parse(string file){
     Json::Reader reader;
     Json::Value value;
-    std::ifstream doc(resourcePath() + file, std::ifstream::binary);
-    std::vector<expressionistParser> expressionist;
+    ifstream doc(resourcePath() + file, ifstream::binary);
+    vector<expressionistParser> parsed;
     if (reader.parse(doc, value)){
         Json::Value nonTerminalObj = value[ "nonterminals" ];
-        std::vector<std::string> terminalNames = nonTerminalObj.getMemberNames();
+        vector<string> terminalNames
+            = nonTerminalObj.getMemberNames();
         
         for (unsigned int i = 0; i < nonTerminalObj.size(); i++){
-            expressionist.resize(nonTerminalObj.size());
-            Json::Value expressionObj = nonTerminalObj[terminalNames[i]];
-            expressionist[i].expression_ = terminalNames[i];
-            expressionist[i].complete_ = expressionObj.get("complete", "ERROR").asBool();
-            expressionist[i].deep_ = expressionObj.get("deep", "ERROR").asBool();
+            parsed.resize(nonTerminalObj.size());
+            Json::Value expressionObj
+                = nonTerminalObj[terminalNames[i]];
+            parsed[i].expression_ = terminalNames[i];
+            parsed[i].complete_
+                = expressionObj.get("complete", "ERROR").asBool();
+            parsed[i].deep_
+                = expressionObj.get("deep", "ERROR").asBool();
             
             for (unsigned int j = 0; j < expressionObj.size(); j++){
-                Json::Value rulesObj = expressionObj["rules"];
+                Json::Value rules = expressionObj["rules"];
                 
-                for (unsigned int k = 0; k < rulesObj.size(); k++){
-                    std::string expansion = rulesObj[k].get("expansion", "ERROR")[0].asString();
-                    Json::Value markUpObj = rulesObj[k].get("markup", "ERROR");
+                for (unsigned int k = 0; k < rules.size(); k++){
+                    parsed[i].appRate_
+                    = rules[k].get("app_rate", "ER").asInt();
+                    string expansion
+                        = rules[k].get("expansion", "ER")[0].asString();
+                    Json::Value markUps
+                        = rules[k].get("markup", "ERROR");
                     
-                    Json::Value agePre = markUpObj.get("agePreconditions", " ");
-                    Json::Value iqPre = markUpObj.get("iqPreconditions", " ");
-                    Json::Value linkSus = markUpObj.get("linkSuspicion", " ");
-                    Json::Value personalityPre = markUpObj.get("personalityPreconditions", " ");
-                    Json::Value relationship = markUpObj.get("relationship", " ");
-                    for(unsigned int l = 0; l < agePre.size(); l++){
-                        expressionist[i].markUp_["agePreconditions"] = agePre[l].asString();
+                    Json::Value agePre
+                        = markUps.get("agePreconditions", " ");
+                    Json::Value iqPre
+                        = markUps.get("iqPreconditions", " ");
+                    Json::Value linkSus
+                        = markUps.get("linkSuspicion", " ");
+                    Json::Value personalPre
+                        = markUps.get("personalityPreconditions", " ");
+                    Json::Value relationship
+                        = markUps.get("relationship", " ");
+                    for(int l = 0; l < agePre.size(); l++){
+                        parsed[i].markUp_["agePreconditions"]
+                            = agePre[l].asString();
                     }
-                    for(unsigned int l = 0; l < iqPre.size(); l++){
-                        expressionist[i].markUp_["iqPreconditions"] = iqPre[l].asString();
+                    for(int l = 0; l < iqPre.size(); l++){
+                        parsed[i].markUp_["iqPreconditions"]
+                            = iqPre[l].asString();
                     }
-                    for(unsigned int l = 0; l < linkSus.size(); l++){
-                        expressionist[i].markUp_["linkSuspicion"] = linkSus[l].asString();
+                    for(int l = 0; l < linkSus.size(); l++){
+                        parsed[i].markUp_["linkSuspicion"]
+                            = linkSus[l].asString();
                     }
-                    for(unsigned int l = 0; l < personalityPre.size(); l++){
-                        expressionist[i].markUp_["personalityPreconditions"] = personalityPre[l].asString();
+                    for(int l = 0; l < personalPre.size(); l++){
+                        parsed[i].markUp_["personalityPreconditions"]
+                            = personalPre[l].asString();
                     }
-                    for(unsigned int l = 0; l < relationship.size(); l++){
-                        expressionist[i].markUp_["relationship"] = relationship[l].asString();
+                    for(int l = 0; l < relationship.size(); l++){
+                        parsed[i].markUp_["relationship"]
+                            = relationship[l].asString();
                     }
                 }
             }
         }
     }
-    return expressionist;
+    return parsed;
 }
