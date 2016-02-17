@@ -29,11 +29,11 @@
 #include "createIcon.h"
 
 ///////////////////////////////////////////////////////////////////////
-/// @brief A toolkit of functions that sets up complete desktops (with icons)
+/// @brief A toolkit of functions that sets up complete desktops
 /// @author Alex Vincent 
-/// @details Create a desktopreference (statically or dynamically) and pass them
-/// by reference to any one of these functions. The passed entity will
-/// be augmented by the function you called on it.
+/// @details Create a desktop reference (statically or dynamically) and
+/// pass it by reference to any one of these functions. The passed entity 
+/// will be augmented by the function you called on it.
 ///////////////////////////////////////////////////////////////////////
 
 void createPlayerDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& desktopWindowToModify, ppc::InputHandler& ih, sf::Image& iconSheet);

@@ -23,8 +23,8 @@
 class iconInputComponent : public ppc::InputComponent {
 private:
 
-	ppc::Desktop& theDesktop;
-	ppc::InputHandler& inputHandler;
+	ppc::Desktop& theDesktop_;
+	ppc::InputHandler& inputHandler_;
 
 public:
 
