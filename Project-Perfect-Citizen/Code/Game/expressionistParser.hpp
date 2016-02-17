@@ -57,18 +57,13 @@ public:
     }
     
     ////////////////////////////////////////////////////////////////////
-    // @brief sets the expression's app rate. The rate of the
+    // @brief sets the markup's or rules of the expression.
+    //     first = expression, second.first = condition, second.second =
+    //     rate. The rate of the
     //     expression, a higher rate means a higher chance of being
     //     called.
     ////////////////////////////////////////////////////////////////////
-    void setAppRate(int appRate){
-        appRate_ = appRate;
-    }
-    
-    ////////////////////////////////////////////////////////////////////
-    // @brief sets the markup's or rules of the expression.
-    ////////////////////////////////////////////////////////////////////
-    void setMarkUp(std::map<std::string, std::string> markUp){
+    void setMarkUp(std::map<std::string, std::pair<std::string, int>> markUp){
         markUp_ = markUp;
     }
     
@@ -98,20 +93,15 @@ public:
     bool getDeep(){
         return deep_;
     }
-    
+
     ////////////////////////////////////////////////////////////////////
-    // @brief returns the expression's app rate. The rate of the
+    // @brief returns the markup's or rules of the expression.
+    //     first = expression, second.first = condition, second.second =
+    //     rate. The rate of the
     //     expression, a higher rate means a higher chance of being
     //     called.
     ////////////////////////////////////////////////////////////////////
-    int getAppRate(){
-        return appRate_;
-    }
-    
-    ////////////////////////////////////////////////////////////////////
-    // @brief returns the markup's or rules of the expression.
-    ////////////////////////////////////////////////////////////////////
-    std::map<std::string, std::string> getMarkUp(){
+    std::map<std::string, std::pair<std::string, int>> getMarkUp(){
         return markUp_;
     }
     
@@ -120,8 +110,7 @@ private:
     bool complete_;
     bool deep_;
     
-    std::map<std::string, std::string> markUp_;
-    int appRate_;
+    std::map<std::string, std::pair<std::string, int>> markUp_;
 };
     
 };

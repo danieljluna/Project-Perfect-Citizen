@@ -60,8 +60,6 @@ vector<expressionistParser> expressionistParser::parse(string file){
                 Json::Value rules = expressionObj["rules"];
                 
                 for (unsigned int k = 0; k < rules.size(); k++){
-                    parsed[i].appRate_
-                    = rules[k].get("app_rate", "ER").asInt();
                     string expansion
                         = rules[k].get("expansion", "ER")[0].asString();
                     Json::Value markUps
@@ -77,25 +75,35 @@ vector<expressionistParser> expressionistParser::parse(string file){
                         = markUps.get("personalityPreconditions", " ");
                     Json::Value relationship
                         = markUps.get("relationship", " ");
+                    int rate
+                        = rules[k].get("app_rate", "ERROR").asInt();
                     for(int l = 0; l < agePre.size(); l++){
+                        string condition = agePre[l].asString();
+                        pair<string, int> conAndRate(condition, rate);
                         parsed[i].markUp_["agePreconditions"]
-                            = agePre[l].asString();
+                            = conAndRate;
                     }
                     for(int l = 0; l < iqPre.size(); l++){
+                        string condition = iqPre[l].asString();
+                        pair<string, int> conAndRate(condition, rate);
                         parsed[i].markUp_["iqPreconditions"]
-                            = iqPre[l].asString();
+                            = conAndRate;
                     }
                     for(int l = 0; l < linkSus.size(); l++){
-                        parsed[i].markUp_["linkSuspicion"]
-                            = linkSus[l].asString();
+                        string condition = linkSus[l].asString();
+                        pair<string, int> conAndRate(condition, rate);
+                        parsed[i].markUp_["linkSuspicion"] = conAndRate;
                     }
                     for(int l = 0; l < personalPre.size(); l++){
+                        string condition = personalPre[l].asString();
+                        pair<string, int> conAndRate(condition, rate);
                         parsed[i].markUp_["personalityPreconditions"]
-                            = personalPre[l].asString();
+                            = conAndRate;
                     }
                     for(int l = 0; l < relationship.size(); l++){
-                        parsed[i].markUp_["relationship"]
-                            = relationship[l].asString();
+                        string condition = relationship[l].asString();
+                        pair<string, int> conAndRate(condition, rate);
+                        parsed[i].markUp_["relationship"] = conAndRate;
                     }
                 }
             }
