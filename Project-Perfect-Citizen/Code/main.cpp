@@ -32,13 +32,9 @@
 #include "Game/createIcon.h"
 #include "Game/createButton.h"
 #include "Engine/BorderDecorator.h"
-<<<<<<< HEAD
-#include "Engine/desktopExtractionComponent.hpp"
-#include "Engine/expressionistParser.hpp"
-=======
 #include "Game/createDesktop.h"
 #include "Game/desktopExtractionComponent.hpp"
->>>>>>> experimental
+#include "Game/expressionistParser.hpp"
 
 using namespace ppc;
 
