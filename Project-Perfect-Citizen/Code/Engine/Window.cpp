@@ -19,6 +19,7 @@ Window::Window(unsigned int width,
     windowView_.reset(sf::FloatRect(0.0, 0.0, 
                                     float(width), float(height)));
     windowView_.setViewport(sf::FloatRect(0.f, 0.f, 1, 1));
+	inputHandler_ = InputHandler();
 }
 
 

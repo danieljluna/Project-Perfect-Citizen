@@ -21,6 +21,10 @@ textInputKeys::textInputKeys(ppc::InputHandler& ih, sf::Sprite& s, textInputRend
     if (watch(ih, sf::Event::KeyPressed)) {
         cout << "Key Pressed Watched" << endl;
     }
+
+	str.push_back((char)'>');
+	str.push_back((char)' ');
+	textBox.updateString(str);
     
 }
 
@@ -53,23 +57,26 @@ bool textInputKeys::isCollision(sf::Vector2i mousePos) {
 bool textInputKeys::registerInput(sf::Event& ev) {
     if (getEntity() != nullptr) {
         if (ev.type == sf::Event::TextEntered){
-            if (ev.text.unicode < 128 && ev.text.unicode != 8 && ev.text.unicode != 10) {
+			/* Ignore Control, Backspace, Enter/Line Feed, Carriage Return */
+            if (ev.text.unicode < 128 && ev.text.unicode != 8 && ev.text.unicode != 10 && ev.text.unicode != 13) {
                 str.push_back((char)ev.text.unicode);
-                //std::cout << str << std::endl;
                 textBox.updateString(str);
             }
         } else if (ev.type == sf::Event::KeyPressed) {
-            if (ev.key.code == sf::Keyboard::BackSpace && (str.size()!=0)) {
+            if (ev.key.code == sf::Keyboard::BackSpace && (str.size()>2)) {
                 str.pop_back();
                 textBox.updateString(str);
-                //std::cout << str << std::endl;
 			}
 			else if (ev.key.code == sf::Keyboard::Return && (str.size() != 0)) {
-                str += " ";
-				cup.executeCommand(str);
-				str.clear();
+				/* Copy/send the command*/
+				std::string cmd;
+				for (int i = 2; i<str.size(); ++i) { cmd.push_back(str.at(i)); }
+				cmd += " ";
+				cup.executeCommand(cmd);
+
+				/* Reset the command line - keeping the prompt */
+				str.erase(2, str.length());
 				textBox.updateString(str);
-				//std::cout << str << std::endl;
 			}
         }
     }

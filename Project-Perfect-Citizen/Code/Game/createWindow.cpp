@@ -35,19 +35,25 @@ void ppc::spawnConsole(WindowInterface* windowToModify, InputHandler & ih, NodeS
 	/////////////////////////////////////////
 	/////// COMPONENTS 
 	///////////////////////////////////////
-		/* Create the render component */
+		/* Create the render components */
 		sf::Image iconSheet;
 		iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
 		buttonRenderComponent* textRenderComponent = new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
 		textRenderComponent->renderPosition(sf::Vector2f(0, 220));
 
+		sf::Font myFont;
+		myFont.loadFromFile(resourcePath() + "Consolas.ttf");
+		int fontSize = 24;
+		int windowOffset = 5;
+
+		textInputRenderComponent* textInputBox = new textInputRenderComponent(
+			myFont, 0, windowToModify->getSize().y - (fontSize + windowOffset), fontSize);
+		//textInputRenderComponent* textDisplayBox = new textInputRenderComponent(myFont, 0, 0, fontSize);
+
 		/* Create the update component */
 		consoleUpdateComponent* cup = new consoleUpdateComponent(ns);
 
-		/* Create the input component */
-		sf::Font myFont;
-		myFont.loadFromFile(resourcePath() + "Consolas.ttf");
-		textInputRenderComponent* textInputBox = new textInputRenderComponent(myFont, 100, 100);
+		/* Create the input components */
 		textInputKeys* tik = new textInputKeys(ih, *textRenderComponent->getSprite(), *textInputBox, *cup);
 	
 	/////////////////////////////////////////
@@ -58,14 +64,17 @@ void ppc::spawnConsole(WindowInterface* windowToModify, InputHandler & ih, NodeS
 		textBox->addComponent(tik);
 		textBox->addComponent(cup);
 
+		//Entity* textDisplay = new Entity();
+		//textDisplay->addComponent(textDisplayBox);
+
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 		windowToModify->setPosition(x, y);
 		windowToModify->addEntity(*textBox);
+		//windowToModify->addEntity(*textDisplay);
 		windowToModify = new BorderDecorator(*windowToModify);
-		//sf::Vector2u size = consoleWindow->getSize();
-		//cout << size.x << "" << size.y << endl;
+	
 }
 
 

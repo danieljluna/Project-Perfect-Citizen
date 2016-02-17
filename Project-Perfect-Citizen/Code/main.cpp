@@ -49,7 +49,7 @@ int main(int argc, char** argv) {
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
 	//Create the InputHandler <-- to be removed
-	ppc::InputHandler* inputHandle = new InputHandler();
+	//ppc::InputHandler* inputHandle = new InputHandler();
 
     ////////////////// BACKGROUND IMAGE ////////////////////
     sf::Sprite* S = new sf::Sprite();
@@ -80,7 +80,7 @@ int main(int argc, char** argv) {
 	WindowInterface* desktopWindow = new Window(1800,1000,sf::Color(200, 200, 200));
 	Desktop myDesktop(*desktopWindow, *testState);
 	myDesktop.addBackgroundCmpnt(desktopWindow, *S);
-	createPlayerDesktop(myDesktop, *desktopWindow, *inputHandle, iconSheet);
+	createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet);
 
 	//spawnConsole()
 

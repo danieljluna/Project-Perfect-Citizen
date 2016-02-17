@@ -10,14 +10,14 @@
 
 const string TEXT_KEY_INPUT = "TKI";
 
-textInputRenderComponent::textInputRenderComponent(sf::Font& f, int x, int y):font(f) {
+textInputRenderComponent::textInputRenderComponent(sf::Font& f, int x, int y, int size):font(f) {
 	this->text = new sf::Text();
     
     //font.loadFromFile(resourcePath() + "Consolas.ttf");
     text->setFont(font);
     text->setColor(sf::Color::White);
     text->setPosition(x, y);
-    text->setCharacterSize(26);
+    text->setCharacterSize(size);
     text->setString("");
     
   //  this->sprite = new sf::Sprite();
@@ -36,12 +36,11 @@ textInputRenderComponent::~textInputRenderComponent() {
 
 void textInputRenderComponent::updateString(string s) {
     str = s;
-	text->setString(str);
+	text->setString(str + "|");
 }
 
 void textInputRenderComponent::draw( sf::RenderTarget& target,
                                  sf::RenderStates states) const {
-   // target.draw(*(this->sprite), states);
     target.draw(*(this->text), states);
 }
 
