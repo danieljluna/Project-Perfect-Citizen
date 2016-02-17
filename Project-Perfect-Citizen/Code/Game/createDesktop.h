@@ -14,18 +14,18 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
-#include "Window.h"
-#include "WindowInterface.h"
+#include "../Engine/Window.h"
+#include "../Engine/WindowInterface.h"
 #include "buttonRenderComponent.h"
 #include "consoleUpdateComponent.h"
-#include "inputComponent.h"
-#include "InputHandler.h"
-#include "Entity.h"
-#include "subject.h"
-#include "desktop.h"
+#include "../Engine/inputComponent.h"
+#include "../Engine/InputHandler.h"
+#include "../Engine/Entity.h"
+#include "../Engine/subject.h"
+#include "../Engine/desktop.h"
 #include "textInputRenderComponent.hpp"
 #include "textInputKeys.hpp"
-#include "BorderDecorator.h"
+#include "../Engine/BorderDecorator.h"
 #include "createIcon.h"
 
 ///////////////////////////////////////////////////////////////////////

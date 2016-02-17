@@ -1,6 +1,6 @@
 #pragma once
-#include "NodeState.h"
-#include "BaseFileType.h"
+#include "../Engine/NodeState.h"
+#include "../Engine/BaseFileType.h"
 
 using commandFn = void(*)(ppc::NodeState& state, const vector<string> words);
 using fnMap = std::map<string, commandFn>;

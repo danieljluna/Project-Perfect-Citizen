@@ -12,21 +12,21 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
-#include "Window.h"
+#include "../Engine/Window.h"
 #include "buttonRenderComponent.h"
 #include "consoleUpdateComponent.h"
-#include "inputComponent.h"
-#include "InputHandler.h"
-#include "Entity.h"
-#include "subject.h"
+#include "../Engine/inputComponent.h"
+#include "../Engine/InputHandler.h"
+#include "../Engine/Entity.h"
+#include "../Engine/subject.h"
 #include "textInputRenderComponent.hpp"
 #include "textInputKeys.hpp"
-#include "BorderDecorator.h"
+#include "../Engine/BorderDecorator.h"
 
 
 using namespace ppc;
 
-WindowInterface* ppc::spawnConsole(InputHandler & ih, NodeState & ns, int x, int y, int w, int h) {
+WindowInterface* ppc::spawnConsole(InputHandler & ih, NodeState & ns, float x, float y, int w, int h) {
 
 	
 	/////// COMPONENTS /////////

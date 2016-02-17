@@ -6,20 +6,20 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
-#include "Window.h"
-#include "inputComponent.h"
-#include "InputHandler.h"
-#include "Entity.h"
-#include "subject.h"
+#include "../Engine/Window.h"
+#include "../Engine/inputComponent.h"
+#include "../Engine/InputHandler.h"
+#include "../Engine/Entity.h"
+#include "../Engine/subject.h"
 #include "textInputRenderComponent.hpp"
 #include "textInputKeys.hpp"
-#include "InputHandler.h"
+#include "../Engine/InputHandler.h"
 #include "animatorComponent.hpp"
 #include "mousePressButton.h"
 #include "consoleIconRenderComponent.h"
 #include "buttonRenderComponent.h"
 #include "consoleUpdateComponent.h"
-#include "NodeState.h"
+#include "../Engine/NodeState.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief A toolkit of functions that turn entities into useable buttons
