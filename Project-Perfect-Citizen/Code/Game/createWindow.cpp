@@ -26,10 +26,15 @@
 
 using namespace ppc;
 
-WindowInterface* ppc::spawnConsole(InputHandler & ih, NodeState & ns, float x, float y, int w, int h) {
+void ppc::spawnConsole(WindowInterface* windowToModify, InputHandler & ih, NodeState & ns, 
+	float x, float y) {
 
-	
-	/////// COMPONENTS /////////
+	/* Check to make sure the window passed isn't null */
+	if (windowToModify == nullptr) { return; }
+
+	/////////////////////////////////////////
+	/////// COMPONENTS 
+	///////////////////////////////////////
 		/* Create the render component */
 		sf::Image iconSheet;
 		iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
@@ -42,28 +47,25 @@ WindowInterface* ppc::spawnConsole(InputHandler & ih, NodeState & ns, float x, f
 		/* Create the input component */
 		sf::Font myFont;
 		myFont.loadFromFile(resourcePath() + "Consolas.ttf");
-		textInputRenderComponent* textInputBox = new textInputRenderComponent(myFont);
+		textInputRenderComponent* textInputBox = new textInputRenderComponent(myFont, 100, 100);
 		textInputKeys* tik = new textInputKeys(ih, *textRenderComponent->getSprite(), *textInputBox, *cup);
+	
+	/////////////////////////////////////////
+	/////// ENTITIES 
 	///////////////////////////////////////
-
-
-	///// ENTITIES ////////
 		Entity* textBox = new Entity();
 		textBox->addComponent(textInputBox);
 		textBox->addComponent(tik);
 		textBox->addComponent(cup);
-	//////////////////////////////////
 
-
-	/////// WINDOW  /////////
-		WindowInterface* consoleWindow = new Window(w, h, sf::Color(51, 50, 161));
-		consoleWindow->setPosition(x, y);
-		consoleWindow->addEntity(*textBox);
-		consoleWindow = new BorderDecorator(*consoleWindow);
-		return consoleWindow;
-	////////////////////////
-	
-	
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+		windowToModify->setPosition(x, y);
+		windowToModify->addEntity(*textBox);
+		windowToModify = new BorderDecorator(*windowToModify);
+		//sf::Vector2u size = consoleWindow->getSize();
+		//cout << size.x << "" << size.y << endl;
 }
 
 

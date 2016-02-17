@@ -44,20 +44,14 @@ int main(int argc, char** argv) {
 
 	//Scans Debug Flags
 	Debug::scanOpts(argc, argv);
-	//Example of using the debugger macro
 	DEBUGF("ac", argc);
 
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
-	//Create the InputHandler
+	//Create the InputHandler <-- to be removed
 	ppc::InputHandler* inputHandle = new InputHandler();
 
-	///////////////////////////TREE EXAMPLE//////////////////////
-	ppc::NodeState* testState = new NodeState();;
-	testState->setUp(); 
-	////////////////////////////////////////////////////////////
-	
     ////////////////// BACKGROUND IMAGE ////////////////////
     sf::Sprite* S = new sf::Sprite();
     sf::Texture* T = new sf::Texture();
@@ -82,10 +76,14 @@ int main(int argc, char** argv) {
 	//////////////////////////////////////////////////////////
 	///// CREATE THE PLAYER DESKTOP
 	/////////////////////////////////////////////////////////
+	ppc::NodeState* testState = new NodeState();
+	testState->setUp();
 	WindowInterface* desktopWindow = new Window(1800,1000,sf::Color(200, 200, 200));
 	Desktop myDesktop(*desktopWindow, *testState);
 	myDesktop.addBackgroundCmpnt(desktopWindow, *S);
 	createPlayerDesktop(myDesktop, *desktopWindow, *inputHandle, iconSheet);
+
+	//spawnConsole()
 
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop
@@ -109,7 +107,7 @@ int main(int argc, char** argv) {
 
             // Clear screen
 			screen.clear(sf::Color::White);
-            
+     
             //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
 			myDesktop.update(dt);
