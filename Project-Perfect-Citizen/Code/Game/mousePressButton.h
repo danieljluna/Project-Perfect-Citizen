@@ -2,10 +2,10 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "inputComponent.h"
-#include "InputHandler.h"
-#include "Entity.h"
-#include "subject.h"
+#include "../Engine/inputComponent.h"
+#include "../Engine/InputHandler.h"
+#include "../Engine/Entity.h"
+#include "../Engine/subject.h"
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -23,6 +23,7 @@ private:
 
 	sf::Sprite& buttonSprt;
 	ppc::InputHandler& inputHandle;
+	std::string isBeingPressed;
 	sf::Clock mouseClock;
 	float mouseTime;
 	bool isCollision(sf::Vector2i);
@@ -30,9 +31,7 @@ private:
 public:
 
 	mousePressButton() = delete;
-
-
-	mousePressButton(ppc::InputHandler& ih, sf::Sprite& s);
+	mousePressButton(ppc::InputHandler& ih, sf::Sprite& s, std::string isBeingPressed);
 	virtual ~mousePressButton();
 	virtual bool registerInput(sf::Event& ev) override;
 

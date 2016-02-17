@@ -12,20 +12,21 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
-#include "Window.h"
+#include "../Engine/Window.h"
 #include "buttonRenderComponent.h"
 #include "consoleUpdateComponent.h"
-#include "inputComponent.h"
-#include "InputHandler.h"
-#include "Entity.h"
-#include "subject.h"
+#include "../Engine/inputComponent.h"
+#include "../Engine/InputHandler.h"
+#include "../Engine/Entity.h"
+#include "../Engine/subject.h"
 #include "textInputRenderComponent.hpp"
 #include "textInputKeys.hpp"
+#include "../Engine/BorderDecorator.h"
 
 
 using namespace ppc;
 
-WindowInterface* ppc::spawnConsole(InputHandler & ih, NodeState & ns) {
+WindowInterface* ppc::spawnConsole(InputHandler & ih, NodeState & ns, int x, int y, int w, int h) {
 
 	
 	/////// COMPONENTS /////////
@@ -43,9 +44,6 @@ WindowInterface* ppc::spawnConsole(InputHandler & ih, NodeState & ns) {
 		myFont.loadFromFile(resourcePath() + "Consolas.ttf");
 		textInputRenderComponent* textInputBox = new textInputRenderComponent(myFont);
 		textInputKeys* tik = new textInputKeys(ih, *textRenderComponent->getSprite(), *textInputBox, *cup);
-
-
-
 	///////////////////////////////////////
 
 
@@ -58,10 +56,10 @@ WindowInterface* ppc::spawnConsole(InputHandler & ih, NodeState & ns) {
 
 
 	/////// WINDOW  /////////
-        
-		WindowInterface* consoleWindow = new Window(600, 300, sf::Color(51, 50, 161));
-		consoleWindow->setPosition(300, 400);
+		WindowInterface* consoleWindow = new Window(w, h, sf::Color(51, 50, 161));
+		consoleWindow->setPosition(x, y);
 		consoleWindow->addEntity(*textBox);
+		consoleWindow = new BorderDecorator(*consoleWindow);
 		return consoleWindow;
 	////////////////////////
 	

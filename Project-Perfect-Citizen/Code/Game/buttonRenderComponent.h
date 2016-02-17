@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "renderComponent.h"
+#include "../Engine/renderComponent.h"
 #include <string>
 
 using namespace std;
@@ -43,6 +43,11 @@ public:
     /// @brief changes the position of the component within its parent view
     ///////////////////////////////////////////////////////////////////////
 	void renderPosition(sf::Vector2f pos);
+
+	///////////////////////////////////////////////////////////////////////
+	/// @brief Sets the X/Y scale of the square image texture of the button
+	///////////////////////////////////////////////////////////////////////
+	void setImageScale(float ScaleX, float ScaleY);
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Returns a pointer to the button's sprite
@@ -90,6 +95,7 @@ public:
 
 
 	//virtual void registerInput(sf::Event& ev) override;
+
 	virtual void recieveMessage(msgType code) override;
 	
 };

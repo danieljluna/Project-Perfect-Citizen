@@ -14,25 +14,31 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "Library/json/json.h"
-#include "Engine/testRenderSprite.h"
+#include "Game/testRenderSprite.h"
 #include "Engine/InputHandler.h"
 #include "Engine/subject.h"
-#include "Engine/TestObserver.h"
 #include "Engine/debug.h"
 #include "Engine/entity.h"
 #include "Engine/Window.h"
 #include "Engine/desktop.h"
-#include "Engine/mousePressButton.h"
-#include "Engine/buttonRenderComponent.h"
-#include "Engine/consoleIconRenderComponent.h"
-#include "Engine/TreeCommands.h"
+#include "Game/mousePressButton.h"
+#include "Game/buttonRenderComponent.h"
+#include "Game/consoleIconRenderComponent.h"
+#include "Game/TreeCommands.h"
 #include "Engine/NodeState.h"
-#include "Engine/animatorComponent.hpp"
-#include "Engine/textInputKeys.hpp"
-#include "Engine/createWindow.h"
+#include "Game/animatorComponent.hpp"
+#include "Game/textInputKeys.hpp"
+#include "Game/createWindow.h"
+#include "Game/createIcon.h"
+#include "Game/createButton.h"
 #include "Engine/BorderDecorator.h"
+<<<<<<< HEAD
 #include "Engine/desktopExtractionComponent.hpp"
 #include "Engine/expressionistParser.hpp"
+=======
+#include "Game/createDesktop.h"
+#include "Game/desktopExtractionComponent.hpp"
+>>>>>>> experimental
 
 using namespace ppc;
 
@@ -52,55 +58,11 @@ int main(int argc, char** argv) {
 	ppc::InputHandler* inputHandle = new InputHandler();
 
 	///////////////////////////TREE EXAMPLE//////////////////////
-	std::cout << "START OF TREE EXAMPLE" << std::endl << std::endl;
-	ppc::NodeState* testState = new NodeState();
-	testState->setUp(); /////SUPER IMPORTANT
+	ppc::NodeState* testState = new NodeState();;
+	testState->setUp(); 
+	////////////////////////////////////////////////////////////
 	
-	//////////////////////////MAKE/////////////////////////////////////
-	std::vector<std::string> testMakeVector;
-	testMakeVector.push_back("make");
-	testMakeVector.push_back("testPlainFile");
-	testMakeVector.push_back("This is what the plain File contains");
-	
-	commandFn makeFunction = findFunction(testMakeVector.at(0));
-	makeFunction(*testState, testMakeVector);
-	//////////////////////////MAKE/////////////////////////////////////
-	//////////////////////////MKDIR////////////////////////////////////
-	std::vector<std::string> testMkDirVector;
-	testMkDirVector.push_back("mkdir");
-	testMkDirVector.push_back("/testDirectory");
-
-	commandFn mkDirFunction = findFunction(testMkDirVector.at(0));
-	mkDirFunction(*testState, testMkDirVector);
-	//////////////////////////MKDIR////////////////////////////////////
-	//////////////////////////CD///////////////////////////////////////
-	std::vector<std::string> testCdVector;
-	testCdVector.push_back("cd");
-	testCdVector.push_back("testDirectory");
-
-	commandFn cdFunction = findFunction(testCdVector.at(0));
-	cdFunction(*testState, testCdVector);
-	//////////////////////////CD///////////////////////////////////////
-	//////////////////////////LS///////////////////////////////////////
-	std::vector<std::string> testLsVector;
-	testLsVector.push_back("ls");
-	testState->printWorking();
-
-	commandFn lsFunction = findFunction(testLsVector.at(0));
-	lsFunction(*testState, testLsVector);
-	//////////////////////////LS///////////////////////////////////////
-	std::cout << "END OF TREE EXAMPLE" << endl << endl;
-	//////////////////////////DECRYPT///////////////////////////////////////
-	std::vector<std::string> testDecryptVector;
-	testDecryptVector.push_back("decrypt");
-	testDecryptVector.push_back("/testPlainFile");
-	commandFn decryptFunction = findFunction(testDecryptVector.at(0));
-	decryptFunction(*testState, testDecryptVector);
-	//////////////////////////ENCRYPT///////////////////////////////////////
-	/////////////////////////END TREE EXAMPLE//////////////////////////
-
-    
-    //Define a Sprite
+    ////////////////// BACKGROUND IMAGE ////////////////////
     sf::Sprite S;
     sf::Texture T;
     if (!(T.loadFromFile(resourcePath() + "Wallpaper.png"))) {
@@ -112,82 +74,21 @@ int main(int argc, char** argv) {
     S.setTexture(T);
     S.setPosition(0, 0);
     S.setScale(0.7f, 0.7f);
-    
+	///////////////////////////////////////////////////////
 
+	///////////// Load Spritesheets/Textures //////////////
     sf::Image spriteSheet;
-    spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
-
+	spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
+	//////////////////////////////////////////////////////
 
-	/////// Button Entity ////////
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spriteSheet, 0, 3, 1, 1);
-	buttonRender->renderPosition(sf::Vector2f(10, 10));
-	mousePressButton* mpb = new mousePressButton(*inputHandle,*buttonRender->getSprite());
-	
-    Entity* testEntity = new Entity();
-	testEntity->addComponent(buttonRender);
-    testEntity->addComponent(mpb);
-	///////////////////////////////
-
-	
-	////// Icon Entity //////
-	consoleIconRenderComponent* consoleIconRender = new consoleIconRenderComponent(iconSheet, 0, 0, 1);
-	consoleIconRender->renderPosition(sf::Vector2f(120, 120));
-    mousePressButton* mpb2 = new mousePressButton(*inputHandle, *consoleIconRender->getSprite());
-
-
-	Entity* consoleIcon = new Entity();
-	consoleIcon->addComponent(consoleIconRender);
-	consoleIcon->addComponent(mpb2);
-	/////////////////////////
-
-	////// Icon Entity //////
-	consoleIconRenderComponent* consoleIconRender3 = new consoleIconRenderComponent(iconSheet, 1, 0, 1);
-	consoleIconRender3->renderPosition(sf::Vector2f(0, 120));
-	mousePressButton* mpb3 = new mousePressButton(*inputHandle, *consoleIconRender3->getSprite());
-    
-	Entity* consoleIcon3 = new Entity();
-	consoleIcon3->addComponent(consoleIconRender3);
-	consoleIcon3->addComponent(mpb3);
-	/////////////////////////
-    
-    /// Animated Icon Button Entity ///
-    buttonRenderComponent* folderIconRender = new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
-    folderIconRender->renderPosition(sf::Vector2f(0, 220));
-    animatorComponent* animator = new animatorComponent(*folderIconRender, 0.05f);
-    mousePressButton* mpb4 = new mousePressButton(*inputHandle, *folderIconRender->getSprite());
-    
-    Entity* folderIcon = new Entity();
-    folderIcon->addComponent(folderIconRender);
-    folderIcon->addComponent(animator);
-    folderIcon->addComponent(mpb4);
-    
-  
-    //Create ppc::Window
-    WindowInterface* testWindow = new Window(300, 300,sf::Color(200,200,200));
-	WindowInterface* consoleWindow = spawnConsole(*inputHandle, *testState);
-    consoleWindow = new BorderDecorator(*consoleWindow);
-	//testWindow->addInputComponent(mpb);
-	//testWindow->addInputComponent(mpb2);
-	testWindow->addEntity(*testEntity);
-    testWindow->addEntity(*consoleIcon);
-	testWindow->addEntity(*consoleIcon3);
-    testWindow->addEntity(*folderIcon);
-  
-	//WindowLogger testWindowLogger(*testWindow,cout);
-    //Add testEntity to ppc::Window
-	//testWindowLogger.addEntity(testEntity);
-
-	//Create ppc::Desktop
-	//Create the Window that represents the Desktop itself.
-	WindowInterface* desktopWin = new Window(1800, 1000);
-	Desktop myDesktop(*desktopWin,*testState);
-
-	//Add windows to Desktops
-	//myDesktop.addWindow(&testWindowLogger);
-	myDesktop.addWindow(testWindow);
-	myDesktop.addWindow(consoleWindow);
+	//////////////////////////////////////////////////////////
+	///// CREATE THE PLAYER DESKTOP
+	/////////////////////////////////////////////////////////
+	WindowInterface* desktopWindow = new Window(1800,1000,sf::Color(200, 200, 200));
+	Desktop myDesktop(*desktopWindow, *testState);
+	createPlayerDesktop(myDesktop, *desktopWindow, *inputHandle, iconSheet);
 
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop
