@@ -54,6 +54,7 @@
     <ClCompile Include="Code\Game\testRenderSprite.cpp" />
     <ClCompile Include="Code\Game\textInputKeys.cpp" />
     <ClCompile Include="Code\Game\textInputRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\textOutputRenderComponent.cpp" />
     <ClCompile Include="Code\Game\TreeCommands.cpp" />
     <ClCompile Include="Code\Game\WindowBkgndRenderCmpnt.cpp" />
     <ClCompile Include="Code\Library\jsoncpp.cpp" />
@@ -115,6 +116,7 @@
     <ClInclude Include="Code\Game\testRenderSprite.h" />
     <ClInclude Include="Code\Game\textInputKeys.hpp" />
     <ClInclude Include="Code\Game\textInputRenderComponent.hpp" />
+    <ClInclude Include="Code\Game\textOutputRenderComponent.h" />
     <ClInclude Include="Code\Game\TreeCommands.h" />
     <ClInclude Include="Code\Game\WindowBkgndRenderCmpnt.h" />
     <ClInclude Include="Code\Library\json\json-forwards.h" />
