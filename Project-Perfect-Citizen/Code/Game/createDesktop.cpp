@@ -1,5 +1,4 @@
 #include "createDesktop.h"
-
 using namespace ppc;
 
 void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet) {

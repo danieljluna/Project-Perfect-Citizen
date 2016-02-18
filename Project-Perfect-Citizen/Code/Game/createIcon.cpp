@@ -5,7 +5,6 @@
 #endif
 
 #include "createIcon.h"
-
 using namespace ppc;
 
 void spawnFolderIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& iconSheet, float x, float y, float size, float animSpeed) {
