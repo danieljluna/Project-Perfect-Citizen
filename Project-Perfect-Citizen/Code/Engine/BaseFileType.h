@@ -55,12 +55,13 @@ namespace ppc {
 		///@brief Dictates whether or nto file is
 		///visable
 		///////////////////////////////////////////////
-		bool isHidden = false;
+		bool hidden = false;
 		///////////////////////////////////////////////
 		///@brief Dictates whether or not file is 
 		///encrypted
 		///////////////////////////////////////////////
-		bool isEncrypted = false;
+		bool encrypted = false;
+		std::string baseDirString = "";
 	public:
 		///////////////////////////////////////////////
 		///@brief assigns Json string to jSonString;
@@ -104,8 +105,23 @@ namespace ppc {
 		///@brief Returns the enum type of the node.
 		///////////////////////////////////////////////
 		virtual ppc::FileType getFileType();
-		virtual void toggleVisibility();
-		virtual void toggleEncryption();
-
+		///////////////////////////////////////////////
+		///@brief sets the visibility to the flag
+		///specified
+		///////////////////////////////////////////////
+		virtual void setVisibility(bool flag);
+		///////////////////////////////////////////////
+		///@brief sets the encryption to the flag
+		///specified
+		///////////////////////////////////////////////
+		virtual void setEncryption(bool flag);
+		///////////////////////////////////////////////
+		///@brief returns the status of BaseFileType::hidden
+		///////////////////////////////////////////////
+		virtual bool isHidden();
+		///////////////////////////////////////////////
+		///@brief returns the status of BaseFileType::encrypted
+		///////////////////////////////////////////////
+		virtual bool isEncrypted();
 	};
 };

@@ -8,12 +8,36 @@ using namespace ppc;
 ///////////////////////////////////////////////////////////////////////
 
 WindowDecorator::WindowDecorator(WindowInterface& win): 
-    windowHandle_(&win) {}
+        windowHandle_(&win) {
+    univHandle_ = this;
+
+    //Updates 
+    WindowDecorator* decorates;
+    decorates = dynamic_cast<WindowDecorator*>(windowHandle_);
+    while (decorates != nullptr) {
+        decorates->univHandle_ = this;
+        //Set decorates to next decorated Window if it is a Dec
+        decorates = 
+            dynamic_cast<WindowDecorator*>(decorates->windowHandle_);
+    }
+}
 
 WindowDecorator::~WindowDecorator() {
     if (windowHandle_ != nullptr) {
         delete windowHandle_;
     }
+}
+
+///////////////////////////////////////////////////////////////////////
+// Space Getters
+///////////////////////////////////////////////////////////////////////
+
+sf::Vector2u WindowDecorator::getSize() {
+    return windowHandle_->getSize();
+}
+
+sf::FloatRect WindowDecorator::getBounds() {
+    return windowHandle_->getBounds();
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -84,6 +108,20 @@ void WindowDecorator::addUpdateComponent(
 void WindowDecorator::addEntity(Entity& entity) {
 	windowHandle_->addEntity(entity);
 }
+
+
+///////////////////////////////////////////////////////////////////////
+// Other Getters
+///////////////////////////////////////////////////////////////////////
+
+InputHandler& WindowDecorator::getInputHandler() {
+    return windowHandle_->getInputHandler();
+}
+
+
+///////////////////////////////////////////////////////////////////////
+// Game Loop Functionality
+///////////////////////////////////////////////////////////////////////
 
 void WindowDecorator::update(sf::Time& deltaTime) {
 	windowHandle_->update(deltaTime);

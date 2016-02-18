@@ -1,6 +1,6 @@
 #pragma once
-#include "NodeState.h"
-#include "BaseFileType.h"
+#include "../Engine/NodeState.h"
+#include "../Engine/BaseFileType.h"
 
 using commandFn = void(*)(ppc::NodeState& state, const vector<string> words);
 using fnMap = std::map<string, commandFn>;
@@ -36,6 +36,12 @@ void fn_ls(ppc::NodeState& state, const vector<string> words);
 ///@brief Moves you to the targeted directory
 ///does nothing if the directory doesnt exist
 ///or if the target is not a directory
+///@details also sets the last directory 
+///that you used LS on to NodeState::LastLSNode
+///Therefore you can call NodeState::getDirString()
+///to get the string of what LS would normally print
+///This string is seperated by @ characters and
+///needs to be parsed. 
 ///@param inode state for the tree in question
 ///@param words are the commands being passed
 ///from the console
@@ -62,6 +68,9 @@ void fn_pwd(ppc::NodeState& state, const vector<string> words);
 ///@param delimiter That the string is split up
 ///by
 ///////////////////////////////////////////////
+
+void fn_decrypt(ppc::NodeState& state, const vector<std::string>words);
+
 std::vector<string> split(std::string line, std::string delimiter);
 ///////////////////////////////////////////////
 ///@brief helper function that prints a 

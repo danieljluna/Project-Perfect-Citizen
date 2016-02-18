@@ -2,12 +2,13 @@
 
 #include <SFML/Graphics.hpp>
 #include <string>
-#include "inputComponent.h"
-#include "InputHandler.h"
-#include "Entity.h"
-#include "subject.h"
+#include "../Engine/inputComponent.h"
+#include "../Engine/InputHandler.h"
+#include "../Engine/Entity.h"
+#include "../Engine/subject.h"
 #include "textInputRenderComponent.hpp"
 #include "consoleUpdateComponent.h"
+#include "textOutputRenderComponent.h"
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -24,6 +25,7 @@ private:
     
     sf::Sprite& textBoxSprt;
     textInputRenderComponent& textBox;
+	textOutputRenderComponent& textDisplay;
     ppc::InputHandler& inputHandle;
 	consoleUpdateComponent& cup;
     sf::Clock mouseClock;
@@ -40,7 +42,9 @@ public:
     /// @param ih is the input handler
     /// @param s is the render component where the text will be drawn
     ///////////////////////////////////////////////////////////////////////
-    textInputKeys(ppc::InputHandler& ih, sf::Sprite& s, textInputRenderComponent &r, consoleUpdateComponent& c);
+    textInputKeys(ppc::InputHandler& ih, sf::Sprite& s, 
+		textInputRenderComponent &r, textOutputRenderComponent& r2, 
+		consoleUpdateComponent& c);
     virtual ~textInputKeys();
     virtual bool registerInput(sf::Event& ev) override;
     

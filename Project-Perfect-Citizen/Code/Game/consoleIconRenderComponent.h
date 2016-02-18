@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "renderComponent.h"
+#include "../Engine/renderComponent.h"
 #include <string>
 
 using namespace std;
@@ -61,6 +61,7 @@ public:
 
 
 	//virtual void registerInput(sf::Event& ev) override;
+
 	virtual void recieveMessage(msgType code) override;
 
 };
