@@ -66,7 +66,7 @@ void expr::expressionistObj::fire(std::string & ruleName, const std::vector<expr
 NOTE to self:
 I think the best way to do this is for expand and fire to return bools.
 
-EXPAND SYMBOL
+bool EXPAND SYMBOL(Json::Value Symbol, const exprObjVec&, string&)
 check markup
 if markup fails checks, return failed
 look at rules
@@ -76,7 +76,7 @@ if success, return result of fire
 if failed, try again
 if all rules tried and failed, return failure
 
-FIRE RULE
+bool FIRE RULE(Json::Value Rule, const exprObjVec&, string&)
 check markup
 if markup fails checks, return failed
 if double brackets its a rule so expand it
