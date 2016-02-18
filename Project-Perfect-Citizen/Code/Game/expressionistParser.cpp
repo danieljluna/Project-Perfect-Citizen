@@ -67,6 +67,8 @@ NOTE to self:
 I think the best way to do this is for expand and fire to return bools.
 
 EXPAND SYMBOL
+check markup
+if markup fails checks, return failed
 look at rules
 pick a rule based on app rate (keep track of successes/failures, dont revisit failures)
 fire rule
