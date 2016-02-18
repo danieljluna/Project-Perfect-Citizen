@@ -84,7 +84,7 @@ int main(int argc, char** argv) {
 
 	Desktop* myDesktop = new Desktop(*desktopWindow, *testState);
 	myDesktop->addBackgroundCmpnt(desktopWindow, *S);
-	createPlayerDesktop(*myDesktop, *desktopWindow, *inputHandle, iconSheet);
+	createPlayerDesktop(*myDesktop, *desktopWindow, myDesktop->getInputHandler(), iconSheet);
 
 	//spawnConsole()
 
@@ -129,6 +129,5 @@ int main(int argc, char** argv) {
 
 	delete myDesktop;
 	delete T;
-	delete inputHandle;
     return EXIT_SUCCESS;
 }
