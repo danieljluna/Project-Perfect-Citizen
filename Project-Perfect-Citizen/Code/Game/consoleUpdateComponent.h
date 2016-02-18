@@ -43,7 +43,7 @@ public:
 	/// @brief Converts the passed string into a useable vector that the
 	/// function map will read
 	///////////////////////////////////////////////////////////////////////
-	void executeCommand(string str);
+	void executeCommand(std::vector<string> cmd);
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Default destructor
