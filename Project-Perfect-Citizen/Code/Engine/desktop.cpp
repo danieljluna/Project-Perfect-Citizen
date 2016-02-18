@@ -26,10 +26,12 @@ ppc::Desktop::Desktop(const Desktop& other) {
 ppc::Desktop::~Desktop() {
 	if (style_ != nullptr) delete style_;
 	if (nodeState_ != nullptr) delete nodeState_;
+	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
+		delete *it;
+	}
 	focused_ = nullptr;
 	desktopWindow_ = nullptr;
 	windows_.clear();
-
 }
 
 
