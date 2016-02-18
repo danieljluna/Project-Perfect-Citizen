@@ -1,11 +1,6 @@
 #pragma once
-
+#include "Sounds.h"
 namespace ppc {
-	enum Sounds {
-		gunshot,
-		click
-	};
-
 	class Audio {
 	public:
 		virtual ~Audio() {};

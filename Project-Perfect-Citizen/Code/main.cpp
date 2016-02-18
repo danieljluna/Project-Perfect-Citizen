@@ -36,7 +36,7 @@
 #include "Game/desktopExtractionComponent.hpp"
 #include "Game/expressionistParser.hpp"
 #include "Engine/Audio/AudioLocator.h"
-
+#include "Engine/Audio/DesktopAudio.h"
 using namespace ppc;
 
 
@@ -56,15 +56,10 @@ int main(int argc, char** argv) {
 	ppc::InputHandler* inputHandle = new InputHandler();
 
 	AudioLocator::initialize();
-
-	NodeState testStateTwo;
-	testStateTwo.setUp();
-	std::vector<std::string>testV;
-	testV.push_back("ls");
-	testV.push_back("/");
-	fn_ls(testStateTwo, testV);
-	cout << "=============" << endl;
-	cout << testStateTwo.getDirString() << endl;
+	ppc::DesktopAudio* dAudio = new ppc::DesktopAudio();
+	AudioLocator::assign(dAudio);
+	Audio* audio = AudioLocator::getAudio();
+	audio->playSound(ppc::Sounds::gunshot);
 
 
     ////////////////// BACKGROUND IMAGE ////////////////////

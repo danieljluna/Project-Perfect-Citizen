@@ -315,6 +315,9 @@
     <ClInclude Include="Code\Engine\Audio\NullAudio.h">
       <Filter>Sources\Engine\Sound</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\Audio\Sounds.h">
+      <Filter>Sources\Engine\Sound</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\BaseFileType.h" />
