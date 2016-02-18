@@ -35,7 +35,8 @@
 #include "Game/createDesktop.h"
 #include "Game/desktopExtractionComponent.hpp"
 #include "Game/expressionistParser.hpp"
-
+#include "Engine/Audio/AudioLocator.h"
+#include "Engine/Audio/DesktopAudio.h"
 using namespace ppc;
 
 
@@ -53,6 +54,13 @@ int main(int argc, char** argv) {
 
 	//Create the InputHandler <-- to be removed
 	//ppc::InputHandler* inputHandle = new InputHandler();
+
+	AudioLocator::initialize();
+	ppc::DesktopAudio* dAudio = new ppc::DesktopAudio();
+	AudioLocator::assign(dAudio);
+	Audio* audio = AudioLocator::getAudio();
+	audio->playSound(ppc::Sounds::gunshot);
+
 
     ////////////////// BACKGROUND IMAGE ////////////////////
     sf::Sprite* S = new sf::Sprite();

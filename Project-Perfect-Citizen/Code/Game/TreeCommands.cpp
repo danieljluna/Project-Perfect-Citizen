@@ -34,11 +34,13 @@ void fn_ls(ppc::NodeState& state, const vector<string> words)
 	if (words.size() == 1) {
 		state.printWorking();
 		state.getCwd()->printDir();
+		state.setLastLsNode(state.getCwd());
 		return;
 	}
 	if (words.size() > 1) {
 		if (words.at(1) == "/") {
 			state.getRoot()->printDir();
+			state.setLastLsNode(state.getRoot());
 			return;
 		}
 	}
