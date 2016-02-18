@@ -136,6 +136,12 @@
     <ClCompile Include="Code\Game\expressionistParser.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\Audio\DesktopAudio.cpp">
+      <Filter>Headers\Engine\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\Audio\AudioLocator.cpp">
+      <Filter>Headers\Engine\Audio</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -297,6 +303,18 @@
     <ClInclude Include="Code\Game\expressionistParser.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\Audio\Audio.h">
+      <Filter>Sources\Engine\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Audio\DesktopAudio.h">
+      <Filter>Sources\Engine\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Audio\AudioLocator.h">
+      <Filter>Sources\Engine\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Audio\NullAudio.h">
+      <Filter>Sources\Engine\Sound</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\BaseFileType.h" />
@@ -405,6 +423,12 @@
     </Filter>
     <Filter Include="Sources\Game">
       <UniqueIdentifier>{8a64dff5-ecb4-44d7-8311-ec366f68d802}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\Sound">
+      <UniqueIdentifier>{5fad2e51-2510-4c24-b96d-6d5ad9dc5b89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Audio">
+      <UniqueIdentifier>{d24e0cd5-1bae-453f-a081-d9ac5308b296}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
