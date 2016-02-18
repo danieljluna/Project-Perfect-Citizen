@@ -28,19 +28,72 @@ using namespace expr;
 ///constructor for parsing expressionist data
 ////////////////////////////////////////////////////////////////////////
 
-expressionistParser::expressionistParser(){
+expressionistObj::expressionistObj(){
 
 }
+
+
+std::string expr::express(const std::vector<expressionistObj>& exprObjVec) {
+	std::string retString = "";
+	
+	//Find "deep"
+	//Expand that symbol
+
+
+	return retString;
+	
+}
+
+std::string expr::expressionistObj::expand(const std::vector<expressionistObj>& exprObjVec) {
+	// should these take Json::Value, string& as params?
+	// return type bool?
+	// non member functions?
+	// if doing above, need override for expand incase Json::Value is string?
+	// OR need string param to find relevant rule in vector?
+	std::string retString = "";
+	//
+
+	return retString;
+}
+
+void expr::expressionistObj::fire(std::string & ruleName, const std::vector<expressionistObj>& exprObjVec) {
+	// check complete, if false, pop out
+	// pick branch based on app rate
+	// expand all rules in branch
+}
+
+/*
+NOTE to self:
+I think the best way to do this is for expand and fire to return bools.
+
+EXPAND SYMBOL
+look at rules
+pick a rule based on app rate (keep track of successes/failures, dont revisit failures)
+fire rule
+if success, return result of fire
+if failed, try again
+if all rules tried and failed, return failure
+
+FIRE RULE
+check markup
+if markup fails checks, return failed
+if double brackets its a rule so expand it
+if single brackets its a substitution/variable so replace it
+otherwise its a string so return it
+
+
+*/
+
 
 ////////////////////////////////////////////////////////////////////////
 ///parsing out the JSON file returning a vector of the class
 ////////////////////////////////////////////////////////////////////////
 
-std::vector<expressionistParser> expr::parseExpressionist(std::string file){
+std::vector<expressionistObj> expr::parseExpressionist(std::string file){
     Json::Reader reader;
     Json::Value value;
     std::ifstream doc(resourcePath() + file, std::ifstream::binary);
-    std::vector<expressionistParser> parsed;
+    std::vector<expressionistObj> parsed;
     if (reader.parse(doc, value)){
         Json::Value nonTerminalObj = value[ "nonterminals" ];
         std::vector<std::string> terminalNames
@@ -111,3 +164,5 @@ std::vector<expressionistParser> expr::parseExpressionist(std::string file){
     }
     return parsed;
 }
+
+

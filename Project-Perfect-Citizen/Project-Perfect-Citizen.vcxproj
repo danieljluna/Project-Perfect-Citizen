@@ -108,7 +108,6 @@
     <ClInclude Include="Code\Game\iconInputComponent.h" />
     <ClInclude Include="Code\Game\mousePressButton.h" />
     <ClInclude Include="Code\Game\PipelineCharacter.h" />
-    <ClInclude Include="Code\Game\PipelineCharacterEnums.h" />
     <ClInclude Include="Code\Game\testRenderSprite.h" />
     <ClInclude Include="Code\Game\textInputKeys.hpp" />
     <ClInclude Include="Code\Game\textInputRenderComponent.hpp" />
