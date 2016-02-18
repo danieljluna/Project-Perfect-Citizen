@@ -136,6 +136,9 @@
     <ClCompile Include="Code\Game\expressionistParser.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\textOutputRenderComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -295,6 +298,9 @@
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\expressionistParser.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\textOutputRenderComponent.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>

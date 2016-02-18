@@ -42,6 +42,8 @@ using namespace ppc;
 //Note that this is placeholder for now
 int main(int argc, char** argv) {
 
+    DBG_INIT();
+
 	//Scans Debug Flags
 	Debug::scanOpts(argc, argv);
 	DEBUGF("ac", argc);
@@ -50,7 +52,7 @@ int main(int argc, char** argv) {
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
 	//Create the InputHandler <-- to be removed
-	ppc::InputHandler* inputHandle = new InputHandler();
+	//ppc::InputHandler* inputHandle = new InputHandler();
 
     ////////////////// BACKGROUND IMAGE ////////////////////
     sf::Sprite* S = new sf::Sprite();
@@ -79,9 +81,10 @@ int main(int argc, char** argv) {
 	ppc::NodeState* testState = new NodeState();
 	testState->setUp();
 	WindowInterface* desktopWindow = new Window(1800,1000,sf::Color(200, 200, 200));
-	Desktop myDesktop(*desktopWindow, *testState);
-	myDesktop.addBackgroundCmpnt(desktopWindow, *S);
-	createPlayerDesktop(myDesktop, *desktopWindow, *inputHandle, iconSheet);
+
+	Desktop* myDesktop = new Desktop(*desktopWindow, *testState);
+	myDesktop->addBackgroundCmpnt(desktopWindow, *S);
+	createPlayerDesktop(*myDesktop, *desktopWindow, myDesktop->getInputHandler(), iconSheet);
 
 	//spawnConsole()
 
@@ -100,7 +103,7 @@ int main(int argc, char** argv) {
 				screen.close();
 
 			//Input phase
-			myDesktop.registerInput(event);
+			myDesktop->registerInput(event);
         }
 
         if (deltaTime.getElapsedTime() > framePeriod) {
@@ -110,19 +113,21 @@ int main(int argc, char** argv) {
      
             //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
-			myDesktop.update(dt);
+			myDesktop->update(dt);
 
             //Draw all the Windows in the Desktop
-			myDesktop.refresh();
+			myDesktop->refresh();
 
 			//Logger should not be used in place of passing
 			//the actual drawn Desktop
-			screen.draw(myDesktop);
+			screen.draw(*myDesktop);
 
             //Display final Window
 			screen.display();
         }
     }
-	
+
+	delete myDesktop;
+	delete T;
     return EXIT_SUCCESS;
 }

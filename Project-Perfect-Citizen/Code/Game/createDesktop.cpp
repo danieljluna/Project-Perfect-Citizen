@@ -1,5 +1,4 @@
 #include "createDesktop.h"
-
 using namespace ppc;
 
 void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet) {
@@ -7,14 +6,14 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	//////////////////////////////////////////////
 	//// Create Player File Tree
 	/////////////////////////////////////////////
-	NodeState* playerFileTree = new NodeState();;
-	playerFileTree->setUp();
+	//NodeState* playerFileTree = new NodeState();;
+	//playerFileTree->setUp();
 
 	//////////////////////////////////////////////
 	//// Create the desktop window/desktop itself
 	/////////////////////////////////////////////
-	WindowInterface* desktopWindow = new Window(1800, 1000, sf::Color(200, 200, 200));
-	Desktop myDesktop(*desktopWindow, *playerFileTree);
+	//WindowInterface* desktopWindow = new Window(1800, 1000, sf::Color(200, 200, 200));
+	//Desktop myDesktop(*desktopWindow, *playerFileTree);
 
 	////////////////////////////////
 	///// ICONS ON PLAYER DESKTOP
