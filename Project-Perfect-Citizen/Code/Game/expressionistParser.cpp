@@ -9,7 +9,7 @@
 //Used to get XCODE working/////////////////////////////////////////////
 
 #ifdef WINDOWS_MARKER
-#define resourcePath() string("Resources/")
+#define resourcePath() std::string("Resources/")
 #else
 #include "ResourcePath.hpp"
 #endif
@@ -22,7 +22,7 @@
 #include <fstream>
 #include <map>
 
-using namespace std;
+using namespace expr;
 
 ////////////////////////////////////////////////////////////////////////
 ///constructor for parsing expressionist data
@@ -36,14 +36,14 @@ expressionistParser::expressionistParser(){
 ///parsing out the JSON file returning a vector of the class
 ////////////////////////////////////////////////////////////////////////
 
-vector<expressionistParser> expressionistParser::parse(string file){
+std::vector<expressionistParser> expr::parseExpressionist(std::string file){
     Json::Reader reader;
     Json::Value value;
-    ifstream doc(resourcePath() + file, ifstream::binary);
-    vector<expressionistParser> parsed;
+    std::ifstream doc(resourcePath() + file, std::ifstream::binary);
+    std::vector<expressionistParser> parsed;
     if (reader.parse(doc, value)){
         Json::Value nonTerminalObj = value[ "nonterminals" ];
-        vector<string> terminalNames
+        std::vector<std::string> terminalNames
             = nonTerminalObj.getMemberNames();
         
         for (unsigned int i = 0; i < nonTerminalObj.size(); i++){
@@ -60,7 +60,7 @@ vector<expressionistParser> expressionistParser::parse(string file){
                 Json::Value rules = expressionObj["rules"];
                 
                 for (unsigned int k = 0; k < rules.size(); k++){
-                    string expansion
+                    std::string expansion
                         = rules[k].get("expansion", "ER")[0].asString();
                     Json::Value markUps
                         = rules[k].get("markup", "ERROR");
@@ -78,31 +78,31 @@ vector<expressionistParser> expressionistParser::parse(string file){
                     int rate
                         = rules[k].get("app_rate", "ERROR").asInt();
                     for(unsigned int l = 0; l < agePre.size(); l++){
-                        string condition = agePre[l].asString();
-                        pair<string, int> conAndRate(condition, rate);
+                        std::string condition = agePre[l].asString();
+                        std::pair<std::string, int> conAndRate(condition, rate);
                         parsed[i].markUp_["agePreconditions"]
                             = conAndRate;
                     }
                     for(unsigned int l = 0; l < iqPre.size(); l++){
-                        string condition = iqPre[l].asString();
-                        pair<string, int> conAndRate(condition, rate);
+                        std::string condition = iqPre[l].asString();
+                        std::pair<std::string, int> conAndRate(condition, rate);
                         parsed[i].markUp_["iqPreconditions"]
                             = conAndRate;
                     }
                     for(unsigned int l = 0; l < linkSus.size(); l++){
-                        string condition = linkSus[l].asString();
-                        pair<string, int> conAndRate(condition, rate);
+                        std::string condition = linkSus[l].asString();
+						std::pair<std::string, int> conAndRate(condition, rate);
                         parsed[i].markUp_["linkSuspicion"] = conAndRate;
                     }
                     for(unsigned int l = 0; l < personalPre.size(); l++){
-                        string condition = personalPre[l].asString();
-                        pair<string, int> conAndRate(condition, rate);
+						std::string condition = personalPre[l].asString();
+						std::pair<std::string, int> conAndRate(condition, rate);
                         parsed[i].markUp_["personalityPreconditions"]
                             = conAndRate;
                     }
                     for(unsigned int l = 0; l < relationship.size(); l++){
-                        string condition = relationship[l].asString();
-                        pair<string, int> conAndRate(condition, rate);
+						std::string condition = relationship[l].asString();
+						std::pair<std::string, int> conAndRate(condition, rate);
                         parsed[i].markUp_["relationship"] = conAndRate;
                     }
                 }
