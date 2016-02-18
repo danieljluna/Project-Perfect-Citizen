@@ -11,7 +11,7 @@ textOutputRenderComponent::textOutputRenderComponent(sf::Font& f,
 	//font.loadFromFile(resourcePath() + "Consolas.ttf");
 	text_->setFont(font_);
 	text_->setColor(sf::Color::White);
-	text_->setPosition(x, y);
+	text_->setPosition(float(x), float(y));
 	text_->setCharacterSize(size);
 	text_->setString("");
 

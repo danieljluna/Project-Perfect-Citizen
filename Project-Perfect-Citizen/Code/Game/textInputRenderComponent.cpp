@@ -17,7 +17,7 @@ textInputRenderComponent::textInputRenderComponent(sf::Font& f,
     
     text->setFont(font);
     text->setColor(sf::Color::White);
-    text->setPosition(x, y);
+    text->setPosition(float(x), float(y));
     text->setCharacterSize(size);
     text->setString("");
     

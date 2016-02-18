@@ -75,7 +75,7 @@ bool textInputKeys::registerInput(sf::Event& ev) {
 				(str.size() != 0)) {
 				/* Copy/send the command*/
 				std::string cmd;
-				for (int i = 2; i<str.size(); ++i) { 
+				for (size_t i = 2; i<str.size(); ++i) { 
 					cmd.push_back(str.at(i)); 
 				}
 				cmd += " ";
