@@ -7,8 +7,10 @@ const string TEXT_KEY_INPUT = "TKI";
 
 const float DOUBLE_CLICK_TIME = 500;
 
-textInputKeys::textInputKeys(ppc::InputHandler& ih, sf::Sprite& s, textInputRenderComponent& r, consoleUpdateComponent& c):
-                             InputComponent(2), textBoxSprt(s), textBox(r), inputHandle(ih), cup(c){
+textInputKeys::textInputKeys(ppc::InputHandler& ih, sf::Sprite& s, 
+	textInputRenderComponent& r, textOutputRenderComponent& r2,
+	consoleUpdateComponent& c) : InputComponent(2), textBoxSprt(s), 
+	textBox(r), textDisplay(r2), inputHandle(ih), cup(c){
 
 
     ih.addHandle(sf::Event::TextEntered);
@@ -21,6 +23,10 @@ textInputKeys::textInputKeys(ppc::InputHandler& ih, sf::Sprite& s, textInputRend
     if (watch(ih, sf::Event::KeyPressed)) {
         cout << "Key Pressed Watched" << endl;
     }
+
+	str.push_back((char)'>');
+	str.push_back((char)' ');
+	textBox.updateString(str);
     
 }
 
@@ -53,23 +59,47 @@ bool textInputKeys::isCollision(sf::Vector2i mousePos) {
 bool textInputKeys::registerInput(sf::Event& ev) {
     if (getEntity() != nullptr) {
         if (ev.type == sf::Event::TextEntered){
-            if (ev.text.unicode < 128 && ev.text.unicode != 8 && ev.text.unicode != 10) {
+			/* Ignore CNTRL, BS, ENTR/LF, CR */
+            if (ev.text.unicode < 128 && ev.text.unicode != 8 && 
+				ev.text.unicode != 10 && ev.text.unicode != 13) {
                 str.push_back((char)ev.text.unicode);
-                //std::cout << str << std::endl;
                 textBox.updateString(str);
             }
         } else if (ev.type == sf::Event::KeyPressed) {
-            if (ev.key.code == sf::Keyboard::BackSpace && (str.size()!=0)) {
+            if (ev.key.code == sf::Keyboard::BackSpace && 
+				(str.size()>2)) {
                 str.pop_back();
                 textBox.updateString(str);
-                //std::cout << str << std::endl;
 			}
-			else if (ev.key.code == sf::Keyboard::Return && (str.size() != 0)) {
-                str += " ";
-				cup.executeCommand(str);
-				str.clear();
+			else if (ev.key.code == sf::Keyboard::Return && 
+				(str.size() != 0)) {
+				/* Copy/send the command*/
+				std::string cmd;
+				for (int i = 2; i<str.size(); ++i) { 
+					cmd.push_back(str.at(i)); 
+				}
+				cmd += " ";
+
+				std::vector<string> commandVec;
+				string delimiter = " ";
+				size_t last = 0;
+				size_t next = 0;
+				string token;
+				while ((next = cmd.find(delimiter, last)) != 
+											string::npos) {
+					token = cmd.substr(last, next - last);
+					commandVec.push_back(token);
+					last = next + 1;
+				}
+
+				cup.executeCommand(commandVec);
+
+				/* Reset the command line - keeping the prompt */
+				str.erase(2, str.length());
 				textBox.updateString(str);
-				//std::cout << str << std::endl;
+
+				/* Display the result */;
+				textDisplay.updateString(commandVec);
 			}
         }
     }

@@ -34,8 +34,11 @@ void ppc::BaseFileType::readFile()
 
 void ppc::BaseFileType::printDir()
 {
+	this->baseDirString = "";
 	for (auto iter = this->contents.begin(); iter != this->contents.end(); iter++) {
 		std::cout << iter->first << std::endl;
+		this->baseDirString += (iter->first + "@");
+		std::cout << baseDirString << std::endl;
 	}
 }
 

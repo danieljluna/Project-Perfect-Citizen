@@ -70,6 +70,7 @@ void fn_ls(ppc::NodeState& state, const vector<string> words)
 	}
 	state.printWorking();
 	tempCwd->printDir();
+	state.setLastLsNode(tempCwd);
 }
 
 void fn_cd(ppc::NodeState& state, const vector<string> words)

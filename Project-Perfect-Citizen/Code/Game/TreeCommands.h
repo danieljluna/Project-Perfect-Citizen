@@ -36,6 +36,12 @@ void fn_ls(ppc::NodeState& state, const vector<string> words);
 ///@brief Moves you to the targeted directory
 ///does nothing if the directory doesnt exist
 ///or if the target is not a directory
+///@details also sets the last directory 
+///that you used LS on to NodeState::LastLSNode
+///Therefore you can call NodeState::getDirString()
+///to get the string of what LS would normally print
+///This string is seperated by @ characters and
+///needs to be parsed. 
 ///@param inode state for the tree in question
 ///@param words are the commands being passed
 ///from the console

@@ -33,64 +33,119 @@
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable folder Icon
-/// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations, (x, y position), and a square scale size.
+///
+///@param The newly created entity to add components to.
+///@param The input handler of desktop window
+///@param The spritesheet from which to load the icon
+///@param The desired x position of the icon
+///@param The desired y position of the icon
+///@param The desired scaled size of the icon
+///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
 void spawnFolderIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable settings Icon
-/// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations, (x, y position), and a square scale size.
+///
+///@param The newly created entity to add components to.
+///@param The input handler of desktop window
+///@param The spritesheet from which to load the icon
+///@param The desired x position of the icon
+///@param The desired y position of the icon
+///@param The desired scaled size of the icon
+///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
 void spawnSettingsIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable chat Icon
-/// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations, (x, y position), and a square scale size.
+///
+///@param The newly created entity to add components to.
+///@param The input handler of desktop window
+///@param The spritesheet from which to load the icon
+///@param The desired x position of the icon
+///@param The desired y position of the icon
+///@param The desired scaled size of the icon
+///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
 void spawnChatIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable search Icon
-/// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations, (x, y position), and a square scale size.
+///
+///@param The newly created entity to add components to.
+///@param The input handler of desktop window
+///@param The spritesheet from which to load the icon
+///@param The desired x position of the icon
+///@param The desired y position of the icon
+///@param The desired scaled size of the icon
+///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
 void spawnSearchIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable pipeline extraction Icon
-/// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations, (x, y position), and a square scale size.
+///
+///@param The newly created entity to add components to.
+///@param The input handler of desktop window
+///@param The spritesheet from which to load the icon
+///@param The desired x position of the icon
+///@param The desired y position of the icon
+///@param The desired scaled size of the icon
+///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
 void spawnDataGraphIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable help Icon
-/// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations, (x, y position), and a square scale size.
+///
+///@param The newly created entity to add components to.
+///@param The input handler of desktop window
+///@param The spritesheet from which to load the icon
+///@param The desired x position of the icon
+///@param The desired y position of the icon
+///@param The desired scaled size of the icon
+///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
 void spawnHelpIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable browser Icon
-/// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations, (x, y position), and a square scale size.
+///
+///@param The newly created entity to add components to.
+///@param The input handler of desktop window
+///@param The spritesheet from which to load the icon
+///@param The desired x position of the icon
+///@param The desired y position of the icon
+///@param The desired scaled size of the icon
+///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
 void spawnBrowserIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable hard drive Icon
-/// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations, (x, y position), and a square scale size.
+///
+///@param The newly created entity to add components to.
+///@param The input handler of desktop window
+///@param The spritesheet from which to load the icon
+///@param The desired x position of the icon
+///@param The desired y position of the icon
+///@param The desired scaled size of the icon
+///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
 void spawnHardDriveIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable console Icon
-/// Pass it the entity, a shared input handler, a spritesheet with 
-/// the button animations, (x, y position), and a square scale size.
+///
+///@param The newly created entity to add components to.
+///@param The desktop in which to link the file tree to the console
+///@param The input handler of desktop window
+///@param The spritesheet from which to load the icon
+///@param The desired x position of the icon
+///@param The desired y position of the icon
+///@param The desired scaled size of the icon
+///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
 void spawnConsoleIcon(ppc::Entity& entityToModify, ppc::Desktop& dt, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size, float animSpeed);
 
