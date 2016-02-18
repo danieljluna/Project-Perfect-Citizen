@@ -36,4 +36,13 @@
 /// will be augmented by the function you called on it.
 ///////////////////////////////////////////////////////////////////////
 
+
+///////////////////////////////////////////////////////////////////////
+///@brief Constructs the entire player's desktop with icons.
+///
+///@param The newly created desktop to add components/entities to.
+///@param A reference to the desktop's window interface
+///@param A reference to the desktop's window interface's input handler
+///@param A sprite sheet from which to read the icon images
+///////////////////////////////////////////////////////////////////////
 void createPlayerDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& desktopWindowToModify, ppc::InputHandler& ih, sf::Image& iconSheet);

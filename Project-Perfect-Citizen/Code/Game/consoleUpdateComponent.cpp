@@ -4,7 +4,8 @@
 
 const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
 
-consoleUpdateComponent::consoleUpdateComponent(ppc::NodeState& ns) : fileTree(ns) {
+consoleUpdateComponent::consoleUpdateComponent(ppc::NodeState& ns) 
+	: fileTree(ns) {
 	canParse = false;
 }
 
@@ -16,10 +17,11 @@ void consoleUpdateComponent::toggleParsing() {
 	canParse = !canParse;
 }
 
-void consoleUpdateComponent::executeCommand(string str) {
+void consoleUpdateComponent::executeCommand(std::vector<string> cmd) {
 	toggleParsing();
-	lastCommand = str;
-    string delimiter = " ";
+	commandVec = cmd;
+	//lastCommand = str;
+    /*string delimiter = " ";
     size_t last = 0;
     size_t next = 0;
     string token;
@@ -27,7 +29,7 @@ void consoleUpdateComponent::executeCommand(string str) {
         token = lastCommand.substr(last, next-last);
         commandVec.push_back(token);
         last = next + 1;
-    }
+    }*/
 }
 
 void consoleUpdateComponent::update(sf::Time& deltaTime) {

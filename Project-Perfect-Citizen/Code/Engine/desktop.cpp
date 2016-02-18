@@ -98,6 +98,10 @@ ppc::NodeState& ppc::Desktop::getNodeState() {
 	return *nodeState_;
 }
 
+ppc::InputHandler& ppc::Desktop::getInputHandler() {
+	return desktopWindow_->getInputHandler();
+}
+
 void ppc::Desktop::addBackgroundCmpnt(WindowInterface* wi, sf::Sprite& s) {
 	WindowBkgndRenderCmpnt* wBRC = new WindowBkgndRenderCmpnt(s);
 	wi->addRenderComponent(wBRC);
