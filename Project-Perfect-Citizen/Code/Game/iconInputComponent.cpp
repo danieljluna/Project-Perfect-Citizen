@@ -17,15 +17,18 @@ const string OPEN_THE_HELP = "OTH";
 const string OPEN_THE_BROWSER = "OTB";
 const string OPEN_THE_EXPLORER = "OTE";
 
-iconInputComponent::iconInputComponent(ppc::Desktop& dT) : theDesktop_(dT) {
+iconInputComponent::iconInputComponent(ppc::Desktop& dT) 
+	: theDesktop_(dT) {
 
 }
 
 void iconInputComponent::recieveMessage(msgType msg) {
-	// Case: Double Clicked Console Icon - Make and Open a Console Window
+	// Case: Double Clicked Console Icon
 	if (msg.compare(OPEN_THE_CONSOLE) == 0) {
-		ppc::WindowInterface* consoleWindow = new ppc::Window(600, 300, sf::Color(51, 50, 161));
-		spawnConsole(consoleWindow, consoleWindow->getInputHandler(), theDesktop_.getNodeState(), 300, 400);
+		ppc::WindowInterface* consoleWindow = 
+			new ppc::Window(600, 300, sf::Color(51, 50, 161));
+		spawnConsole(consoleWindow, consoleWindow->getInputHandler(), 
+			theDesktop_.getNodeState(), 300, 400);
 		theDesktop_.addWindow(consoleWindow);
 	}
 	else if (msg.compare(OPEN_THE_FILE) == 0) {

@@ -22,13 +22,14 @@
 #include "textInputRenderComponent.hpp"
 #include "textInputKeys.hpp"
 #include "../Engine/BorderDecorator.h"
+#include "../Game/textOutputRenderComponent.h"
 
 
 using namespace ppc;
 
 
-void ppc::spawnConsole(WindowInterface* windowToModify, InputHandler & ih, NodeState & ns, 
-	float x, float y) {
+void ppc::spawnConsole(WindowInterface* windowToModify, 
+	InputHandler & ih, NodeState & ns, float x, float y) {
 
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
@@ -39,7 +40,8 @@ void ppc::spawnConsole(WindowInterface* windowToModify, InputHandler & ih, NodeS
 		/* Create the render components */
 		sf::Image iconSheet;
 		iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
-		buttonRenderComponent* textRenderComponent = new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
+		buttonRenderComponent* textRenderComponent = 
+			new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
 		textRenderComponent->renderPosition(sf::Vector2f(0, 220));
 
 		sf::Font myFont;
@@ -47,15 +49,20 @@ void ppc::spawnConsole(WindowInterface* windowToModify, InputHandler & ih, NodeS
 		int fontSize = 24;
 		int windowOffset = 5;
 
-		textInputRenderComponent* textInputBox = new textInputRenderComponent(
-			myFont, 0, windowToModify->getSize().y - (fontSize + windowOffset), fontSize);
-		//textInputRenderComponent* textDisplayBox = new textInputRenderComponent(myFont, 0, 0, fontSize);
+		textInputRenderComponent* textInputBox = 
+			new textInputRenderComponent(myFont, 0, 
+				windowToModify->getSize().y - (fontSize+windowOffset),
+				fontSize);
+		textOutputRenderComponent* textDisplayBox = 
+			new textOutputRenderComponent(myFont, ns, 0, 0, fontSize);
 
 		/* Create the update component */
 		consoleUpdateComponent* cup = new consoleUpdateComponent(ns);
 
 		/* Create the input components */
-		textInputKeys* tik = new textInputKeys(ih, *textRenderComponent->getSprite(), *textInputBox, *cup);
+		textInputKeys* tik = new textInputKeys(ih, 
+			*textRenderComponent->getSprite(), *textInputBox, 
+			*textDisplayBox, *cup);
 	
 	/////////////////////////////////////////
 	/////// ENTITIES 
@@ -65,15 +72,15 @@ void ppc::spawnConsole(WindowInterface* windowToModify, InputHandler & ih, NodeS
 		textBox->addComponent(tik);
 		textBox->addComponent(cup);
 
-		//Entity* textDisplay = new Entity();
-		//textDisplay->addComponent(textDisplayBox);
+		Entity* textDisplay = new Entity();
+		textDisplay->addComponent(textDisplayBox);
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 		windowToModify->setPosition(x, y);
 		windowToModify->addEntity(*textBox);
-		//windowToModify->addEntity(*textDisplay);
+		windowToModify->addEntity(*textDisplay);
 		windowToModify = new BorderDecorator(*windowToModify);
 	
 }
