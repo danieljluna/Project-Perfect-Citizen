@@ -85,8 +85,6 @@ int main(int argc, char** argv) {
 	myDesktop.addBackgroundCmpnt(desktopWindow, *S);
 	createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet);
 
-	//spawnConsole()
-
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop
 	///////////////////////////////////////////////////////////////////
