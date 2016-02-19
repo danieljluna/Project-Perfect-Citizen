@@ -21,6 +21,7 @@
     <ClCompile Include="Code\Engine\debug.cpp" />
     <ClCompile Include="Code\Engine\desktop.cpp" />
     <ClCompile Include="Code\Engine\DesktopLogger.cpp" />
+    <ClCompile Include="Code\Engine\DraggableInput.cpp" />
     <ClCompile Include="Code\Engine\entity.cpp" />
     <ClCompile Include="Code\Engine\EntityDecorator.cpp" />
     <ClCompile Include="Code\Engine\EntityLogger.cpp" />
@@ -52,6 +53,7 @@
     <ClCompile Include="Code\Game\expressionistParser.cpp" />
     <ClCompile Include="Code\Game\iconInputComponent.cpp" />
     <ClCompile Include="Code\Game\mousePressButton.cpp" />
+    <ClCompile Include="Code\Game\PipelineCharacter.cpp" />
     <ClCompile Include="Code\Game\testRenderSprite.cpp" />
     <ClCompile Include="Code\Game\textInputKeys.cpp" />
     <ClCompile Include="Code\Game\textInputRenderComponent.cpp" />
@@ -79,6 +81,7 @@
     <ClInclude Include="Code\Engine\debug.h" />
     <ClInclude Include="Code\Engine\desktop.h" />
     <ClInclude Include="Code\Engine\DesktopLogger.h" />
+    <ClInclude Include="Code\Engine\DraggableInput.h" />
     <ClInclude Include="Code\Engine\entity.h" />
     <ClInclude Include="Code\Engine\EntityDecorator.h" />
     <ClInclude Include="Code\Engine\EntityLogger.h" />
@@ -115,6 +118,7 @@
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
     <ClInclude Include="Code\Game\iconInputComponent.h" />
     <ClInclude Include="Code\Game\mousePressButton.h" />
+    <ClInclude Include="Code\Game\PipelineCharacter.h" />
     <ClInclude Include="Code\Game\testRenderSprite.h" />
     <ClInclude Include="Code\Game\textInputKeys.hpp" />
     <ClInclude Include="Code\Game\textInputRenderComponent.hpp" />

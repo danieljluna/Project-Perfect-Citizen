@@ -133,6 +133,9 @@
     <ClCompile Include="Code\Game\WindowBkgndRenderCmpnt.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\DraggableInput.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
     <ClCompile Include="Code\Game\expressionistParser.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
@@ -147,6 +150,12 @@
     </ClCompile>
     <ClCompile Include="Code\Engine\Audio\AudioLogger.cpp">
       <Filter>Headers\Engine\Audio</Filter>
+	  </ClCompile>
+    <ClCompile Include="Code\Game\PipelineCharacter.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\PipelineCharacter.cpp">
+      <Filter>Sources\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -306,6 +315,9 @@
     <ClInclude Include="Code\Game\WindowBkgndRenderCmpnt.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\DraggableInput.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
     <ClInclude Include="Code\Game\expressionistParser.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
@@ -329,6 +341,9 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\Audio\AudioLogger.h">
       <Filter>Sources\Engine\Sound</Filter>
+	  </ClInclude>
+    <ClInclude Include="Code\Game\PipelineCharacter.h">
+      <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
