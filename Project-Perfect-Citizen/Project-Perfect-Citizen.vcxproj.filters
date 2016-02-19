@@ -149,6 +149,9 @@
       <Filter>Sources\Game</Filter>
 	  
     </ClCompile>
+    <ClCompile Include="Code\Game\PipelineCharacter.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -329,6 +332,9 @@
       <Filter>Sources\Engine\Sound</Filter>
 	  </ClInclude>
     <ClInclude Include="Code\Game\textOutputRenderComponent.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\PipelineCharacter.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>
