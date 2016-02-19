@@ -27,15 +27,6 @@
 
 using namespace expr;
 
-////////////////////////////////////////////////////////////////////////
-///constructor for parsing expressionist data
-////////////////////////////////////////////////////////////////////////
-
-expressionistObj::expressionistObj(){
-
-}
-
-
 std::string expr::expressWithJson(const Json::Value& exprOutput) {
 	size_t i = 0;		
 	Json::Value nonTerminalObj = exprOutput["nonterminals"];
@@ -52,23 +43,7 @@ std::string expr::expressWithJson(const Json::Value& exprOutput) {
 
 }
 
-std::string expr::express(const std::vector<expressionistObj>& exprObjVec) {
-	std::string retString = "";
-	
-	//error handling?
-
-	//Find "deep"
-	//Expand that symbol
-
-
-	return retString;
-	
-}
-
 std::pair<std::string, bool> expr::expandWithJson(const Json::Value& exprOutput, const Json::Value& symbol) {
-
-	//need override for expand incase Json::Value is string?
-	// make non member?
 
 	if (symbol["complete"].asBool() == false) return std::make_pair("", false);
 
@@ -79,12 +54,10 @@ std::pair<std::string, bool> expr::expandWithJson(const Json::Value& exprOutput,
 
 
 	std::vector<Json::Value> unvisited;
-	//int totalAppRate = 0;
 
 	for (size_t i = 0; i < symbol["rules"].size(); ++i) {
 		Json::Value rule = symbol["rules"][i];
 		unvisited.push_back(rule);
-//		totalAppRate += rule["app_rate"].asInt();
 	}
 
 	std::random_device rd;
@@ -107,28 +80,14 @@ std::pair<std::string, bool> expr::expandWithJson(const Json::Value& exprOutput,
 				if (fireResult.second == true) {
 					return fireResult;
 				}
-				// if true, return true, don't update string
 			}
 		}
-		//totalAppRate -= unvisited[i]["app_rate"].asInt();
 		unvisited.erase(unvisited.begin() + i - 1);
 		unvsize = unvisited.size();
 	}
 
 	return std::make_pair("", false);
 
-	/*
-	bool EXPAND SYMBOL(const exprObjVec&, string&)
-		check markup
-		if markup fails checks, return failed
-			look at rules
-			pick a rule based on app rate(keep track of successes / failures, dont revisit failures)
-			fire rule
-			if success, return result of fire
-				if failed, try again
-					if all rules tried and failed, return failure
-
-    */
 }
 
 size_t trimBraces(std::string& str) {
@@ -145,6 +104,7 @@ size_t trimBraces(std::string& str) {
 
 std::pair<std::string, bool> expr::fireWithJson(const Json::Value& exprOutput, const Json::Value& rule) {
 	std::string result = "";
+
 	//Check validity of markup, if invalid, return make_pair(result, false);
 
 	//go through all strings in expansion
@@ -152,21 +112,23 @@ std::pair<std::string, bool> expr::fireWithJson(const Json::Value& exprOutput, c
 		std::string currExp = rule["expansion"][i].asString();
 		size_t braceCount = trimBraces(currExp);
 		if (braceCount == 0) {
+			//this is just a string, append it to the result
 			result += currExp;
 		} else if (braceCount == 1) {
+			//this is a run time variable that needs to be substituted for, otherwise treated as a string
 			//do replacement for system/run time variable
 		} else if (braceCount == 2) {
 			Json::Value newExp = exprOutput["nonterminals"][currExp];
-			//recursively expands upon another symbol, yielding a valid result if one is possible
+			//recursively expands upon a new non terminal symbol (newExp), yielding a valid result if one is possible
 			std::pair<std::string, bool> subResult = expandWithJson(exprOutput, newExp);
 			if (subResult.second == true) result += subResult.first;
 			
-			//there were no valid expansions, so this rule cannot be completed
+			//if there were no valid expansions, this rule cannot be completed
 			else return std::make_pair("", false);
 		}
 		else {
 			//something was wrong in the exprOutput
-			return std::make_pair("", false);
+			return std::make_pair("ERROR", false);
 		}
 
 	}
@@ -174,22 +136,6 @@ std::pair<std::string, bool> expr::fireWithJson(const Json::Value& exprOutput, c
 
 	return std::make_pair(result, true);
 }
-
-/*
-NOTE to self:
-I think the best way to do this is for expand and fire to return bools.
-
-
-
-bool FIRE RULE(const exprObjVec&, string&)
-check markup
-if markup fails checks, return failed
-if double brackets its a rule so expand it
-if single brackets its a substitution/variable so replace it
-otherwise its a string so return it
-
-
-*/
 
 
 ////////////////////////////////////////////////////////////////////////
@@ -204,7 +150,8 @@ Json::Value expr::parseExpressionistAsJson(std::string file) {
 	return value;
 }
 
-
+/*
+DEPRECATED
 std::vector<expressionistObj> expr::parseExpressionist(std::string file){
     Json::Reader reader;
     Json::Value value;
@@ -228,7 +175,6 @@ std::vector<expressionistObj> expr::parseExpressionist(std::string file){
 			parsed[i].rules_ = expressionObj["rules"];
 
 			parsed[i].jmarkUp_ = expressionObj["markup"];
-            /*
 			for (unsigned int j = 0; j < expressionObj.size(); j++){
                 Json::Value rules = expressionObj["rules"];
                 
@@ -280,10 +226,10 @@ std::vector<expressionistObj> expr::parseExpressionist(std::string file){
                     }
                 }
             }
-			*/
         }
     }
     return parsed;
 }
+*/
 
 
