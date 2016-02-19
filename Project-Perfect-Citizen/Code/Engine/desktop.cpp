@@ -55,14 +55,14 @@ void ppc::Desktop::focusWindow(WindowInterface* wi) {
 				*it2 = *temp;
 				*temp = tempWindow;
 				it2 = temp;
-				--temp;
+				if(temp != windows_.begin()) --temp;
 			}
-			this->focused_ = *it;
+			this->focused_ = windows_.front();
 			return;
 			//if it is already at the beginning, then focus it and 
 			//stop looping.
 		} else if(*it == wi && it == windows_.begin()) {
-			this->focused_ = *it;
+			this->focused_ = windows_.front();
 			return;
 		}
 	}
@@ -129,7 +129,6 @@ void ppc::Desktop::registerInput(sf::Event& ev){
 			}
 		}
 	}
-
 	focused_->registerInput(ev);
 
 }

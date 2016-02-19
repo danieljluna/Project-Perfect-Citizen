@@ -12,7 +12,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 		new ppc::Window(1000, 60, sf::Color(128, 128, 128));
 	startToolbar->setPosition(0, 750);
 	Entity* startButton = new Entity();
-	spawnStartButton(*startButton, ih, buttonSheet, 0, 0, 0.4f);
+	spawnStartButton(*startButton, startToolbar->getInputHandler(), buttonSheet, 0, 0, 0.4f);
 	startToolbar->addEntity(*startButton);
 	desktopToModify.addWindow(startToolbar);
 

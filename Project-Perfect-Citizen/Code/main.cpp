@@ -147,5 +147,6 @@ int main(int argc, char** argv) {
 
 	delete myDesktop;
 	delete T;
+	delete dAudio;
     return EXIT_SUCCESS;
 }
