@@ -118,11 +118,6 @@ InputHandler& WindowDecorator::getInputHandler() {
     return windowHandle_->getInputHandler();
 }
 
-sf::FloatRect WindowDecorator::getBounds() {
-    return windowHandle_->getBounds();
-}
-
-
 ///////////////////////////////////////////////////////////////////////
 // Game Loop Functionality
 ///////////////////////////////////////////////////////////////////////

@@ -198,13 +198,6 @@ InputHandler& Window::getInputHandler() {
     return inputHandler_;
 }
 
-sf::FloatRect Window::getBounds() {
-    return sf::FloatRect(transform_.getPosition().x, 
-                         transform_.getPosition().y, 
-                         windowSpace_.getSize().x, 
-                         windowSpace_.getSize().y);
-}
-
 
 
 
