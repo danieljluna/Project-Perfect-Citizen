@@ -86,6 +86,7 @@ bool mousePressButton::registerInput(sf::Event& ev) {
                 } else if (mouseTime < DOUBLE_CLICK_TIME) {
 					if (isBeingPressed == "folderIcon") {
 						getEntity()->broadcastMessage(OPEN_THE_FILE);
+						cout << "double clicked a file folder" << endl;
 					}
 					else if (isBeingPressed == "settingsIcon") {
 						getEntity()->broadcastMessage(OPEN_THE_SETTINGS);
