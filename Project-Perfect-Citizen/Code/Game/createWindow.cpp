@@ -85,4 +85,36 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
 	
 }
 
+void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih,
+	float x, float y) {
+	/* Check to make sure the window passed isn't null */
+	if (windowToModify == nullptr) { return; }
+
+	/////////////////////////////////////////
+	/////// COMPONENTS 
+	///////////////////////////////////////
+	/* Create the render components */
+	sf::Image iconSheet;
+	iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
+	buttonRenderComponent* textRenderComponent =
+		new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
+	textRenderComponent->renderPosition(sf::Vector2f(0, 220));
+
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "Consolas.ttf");
+	int fontSize = 24;
+	int windowOffset = 5;
+
+	/////////////////////////////////////////
+	/////// ENTITIES 
+	///////////////////////////////////////
+
+
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+	windowToModify->setPosition(x, y);
+	windowToModify = new BorderDecorator(*windowToModify);
+}
+
 

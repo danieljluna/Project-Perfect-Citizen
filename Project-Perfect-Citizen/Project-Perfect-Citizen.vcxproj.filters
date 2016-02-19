@@ -141,10 +141,12 @@
     </ClCompile>
     <ClCompile Include="Code\Engine\Audio\AudioLocator.cpp">
       <Filter>Headers\Engine\Audio</Filter>
-	</ClCompile>
+    </ClCompile>
     <ClCompile Include="Code\Game\textOutputRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
-	  
+    </ClCompile>
+    <ClCompile Include="Code\Game\PipelineCharacter.cpp">
+      <Filter>Sources\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -321,8 +323,11 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\Audio\Sounds.h">
       <Filter>Sources\Engine\Sound</Filter>
-	  </ClInclude>
+    </ClInclude>
     <ClInclude Include="Code\Game\textOutputRenderComponent.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\PipelineCharacter.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>
