@@ -133,6 +133,9 @@
     <ClCompile Include="Code\Game\WindowBkgndRenderCmpnt.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\DraggableInput.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
     <ClCompile Include="Code\Game\expressionistParser.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
@@ -302,6 +305,9 @@
       <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\WindowBkgndRenderCmpnt.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\DraggableInput.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\expressionistParser.hpp">

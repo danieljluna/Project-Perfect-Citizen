@@ -2,6 +2,7 @@
 #define BORDER_DECORATOR_H
 
 #include "WindowDecorator.h"
+#include "DraggableInput.h"
 
 namespace ppc {
 
@@ -43,6 +44,8 @@ protected:
 
 private:
 
+    void updateBounds();
+
   /////////////////////////////////////////////////////////////////////
   // Private Variables 
   /////////////////////////////////////////////////////////////////////
@@ -52,7 +55,7 @@ private:
 
     sf::RectangleShape borderShape_;
 
-    bool isBeingDragged_;
+    DraggableInput draggableInput_;
 
 
 };

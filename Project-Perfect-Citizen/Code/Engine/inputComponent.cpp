@@ -6,7 +6,7 @@ using namespace ppc;
 
 InputComponent::InputComponent(size_t observerCount) {
 
-    observerArray_ = new ComponentObsvr* [observerCount];
+    observerArray_ = new BaseObserver* [observerCount];
     for (size_t index = 0; index < observerCount; ++index) {
         observerArray_[index] = new ComponentObsvr(*this);
     }
@@ -28,7 +28,7 @@ InputComponent::~InputComponent() {
 
 
 
-ComponentObsvr* InputComponent::getObserver(size_t index) {
+BaseObserver* InputComponent::getObserver(size_t index) {
     if (index < observerCount_) {
         return observerArray_[index];
     } else { return nullptr; }
@@ -56,7 +56,7 @@ bool InputComponent::watch(InputHandler& iHandler,
     size_t i = findNextObserver();
 
     if (i < observerCount_) {
-        iHandler.addObserver(type, observerArray_[i]);
+        iHandler.addObserver(type, observerArray_[i], true);
         return true;
     } else {
         return false;
