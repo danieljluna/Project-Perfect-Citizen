@@ -148,6 +148,9 @@
     <ClCompile Include="Code\Game\textOutputRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\Audio\AudioLogger.cpp">
+      <Filter>Headers\Engine\Audio</Filter>
+	  </ClCompile>
     <ClCompile Include="Code\Game\PipelineCharacter.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
@@ -336,6 +339,9 @@
     <ClInclude Include="Code\Game\textOutputRenderComponent.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\Audio\AudioLogger.h">
+      <Filter>Sources\Engine\Sound</Filter>
+	  </ClInclude>
     <ClInclude Include="Code\Game\PipelineCharacter.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
