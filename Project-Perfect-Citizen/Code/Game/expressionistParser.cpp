@@ -27,6 +27,18 @@
 
 using namespace expr;
 
+////////////////////////////////////////////////////////////////////////
+///parsing out the JSON file
+////////////////////////////////////////////////////////////////////////
+
+Json::Value expr::parseExpressionistAsJson(std::string file) {
+	Json::Reader reader;
+	Json::Value value;
+	std::ifstream doc(resourcePath() + file, std::ifstream::binary);
+	reader.parse(doc, value);
+	return value;
+}
+
 std::string expr::expressWithJson(const Json::Value& exprOutput) {
 	size_t i = 0;		
 	Json::Value nonTerminalObj = exprOutput["nonterminals"];
@@ -48,8 +60,8 @@ std::pair<std::string, bool> expr::expandWithJson(const Json::Value& exprOutput,
 	if (symbol["complete"].asBool() == false) return std::make_pair("", false);
 
 	
-	
-	// if (checkMarkUp(speaker?) == false) { return false; } 
+	std::string teststring = "";
+	if (checkMarkUp(teststring) == false) { return std::make_pair("", false) ; } 
 
 
 
@@ -104,8 +116,9 @@ size_t trimBraces(std::string& str) {
 
 std::pair<std::string, bool> expr::fireWithJson(const Json::Value& exprOutput, const Json::Value& rule) {
 	std::string result = "";
+	std::string teststring = "";
 
-	//Check validity of markup, if invalid, return make_pair(result, false);
+	if (checkMarkUp(teststring) == false) return std::make_pair("", false);
 
 	//go through all strings in expansion
 	for (size_t i = 0; i < rule["expansion"].size(); ++i) {
@@ -138,98 +151,6 @@ std::pair<std::string, bool> expr::fireWithJson(const Json::Value& exprOutput, c
 }
 
 
-////////////////////////////////////////////////////////////////////////
-///parsing out the JSON file returning a vector of the class
-////////////////////////////////////////////////////////////////////////
-
-Json::Value expr::parseExpressionistAsJson(std::string file) {
-	Json::Reader reader;
-	Json::Value value;
-	std::ifstream doc(resourcePath() + file, std::ifstream::binary);
-	reader.parse(doc, value);
-	return value;
+bool checkMarkUp(std::string teststr) {
+	return true;
 }
-
-/*
-DEPRECATED
-std::vector<expressionistObj> expr::parseExpressionist(std::string file){
-    Json::Reader reader;
-    Json::Value value;
-    std::ifstream doc(resourcePath() + file, std::ifstream::binary);
-    std::vector<expressionistObj> parsed;
-    if (reader.parse(doc, value)){
-        Json::Value nonTerminalObj = value[ "nonterminals" ];
-        std::vector<std::string> terminalNames
-            = nonTerminalObj.getMemberNames();
-        
-        for (unsigned int i = 0; i < nonTerminalObj.size(); i++){
-            parsed.resize(nonTerminalObj.size());
-            Json::Value expressionObj
-                = nonTerminalObj[terminalNames[i]];
-            parsed[i].expression_ = terminalNames[i];
-            parsed[i].complete_
-                = expressionObj.get("complete", "ERROR").asBool();
-            parsed[i].deep_
-                = expressionObj.get("deep", "ERROR").asBool();
-            
-			parsed[i].rules_ = expressionObj["rules"];
-
-			parsed[i].jmarkUp_ = expressionObj["markup"];
-			for (unsigned int j = 0; j < expressionObj.size(); j++){
-                Json::Value rules = expressionObj["rules"];
-                
-                for (unsigned int k = 0; k < rules.size(); k++){
-                    std::string expansion
-                        = rules[k].get("expansion", "ER")[0].asString();
-                    Json::Value markUps
-                        = rules[k].get("markup", "ERROR");
-                    
-                    Json::Value agePre
-                        = markUps.get("agePreconditions", " ");
-                    Json::Value iqPre
-                        = markUps.get("iqPreconditions", " ");
-                    Json::Value linkSus
-                        = markUps.get("linkSuspicion", " ");
-                    Json::Value personalPre
-                        = markUps.get("personalityPreconditions", " ");
-                    Json::Value relationship
-                        = markUps.get("relationship", " ");
-                    int rate
-                        = rules[k].get("app_rate", "ERROR").asInt();
-                    for(unsigned int l = 0; l < agePre.size(); l++){
-                        std::string condition = agePre[l].asString();
-                        std::pair<std::string, int> conAndRate(condition, rate);
-                        parsed[i].markUp_["agePreconditions"]
-                            = conAndRate;
-                    }
-                    for(unsigned int l = 0; l < iqPre.size(); l++){
-                        std::string condition = iqPre[l].asString();
-                        std::pair<std::string, int> conAndRate(condition, rate);
-                        parsed[i].markUp_["iqPreconditions"]
-                            = conAndRate;
-                    }
-                    for(unsigned int l = 0; l < linkSus.size(); l++){
-                        std::string condition = linkSus[l].asString();
-						std::pair<std::string, int> conAndRate(condition, rate);
-                        parsed[i].markUp_["linkSuspicion"] = conAndRate;
-                    }
-                    for(unsigned int l = 0; l < personalPre.size(); l++){
-						std::string condition = personalPre[l].asString();
-						std::pair<std::string, int> conAndRate(condition, rate);
-                        parsed[i].markUp_["personalityPreconditions"]
-                            = conAndRate;
-                    }
-                    for(unsigned int l = 0; l < relationship.size(); l++){
-						std::string condition = relationship[l].asString();
-						std::pair<std::string, int> conAndRate(condition, rate);
-                        parsed[i].markUp_["relationship"] = conAndRate;
-                    }
-                }
-            }
-        }
-    }
-    return parsed;
-}
-*/
-
-
