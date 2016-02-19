@@ -15,6 +15,8 @@
 #include <vector>
 #include <map>
 
+#include "../Library/json/json.h"
+
 namespace expr {
     
 class expressionistObj{
@@ -22,6 +24,8 @@ class expressionistObj{
     ///@brief parsing out the JSON file returning a vector of the class
     ////////////////////////////////////////////////////////////////////
     friend std::vector<expressionistObj> parseExpressionist(std::string file);
+
+
 
 	///////////////////////////////////////////////////////////////////
 	/// @brief 
@@ -80,9 +84,9 @@ public:
     //     expression, a higher rate means a higher chance of being
     //     called.
     ////////////////////////////////////////////////////////////////////
-    void setMarkUp(std::map<std::string, std::pair<std::string, int>> markUp){
-        markUp_ = markUp;
-    }
+    //void setMarkUp(std::map<std::string, std::pair<std::string, int>> markUp){
+    //    markUp_ = markUp;
+    //}
     
   ////////////////////////////////////////////////////////////////////
   // Getters
@@ -121,17 +125,19 @@ public:
     //     expression, a higher rate means a higher chance of being
     //     called.
     ////////////////////////////////////////////////////////////////////
-    std::map<std::string, std::pair<std::string, int>> getMarkUp(){
-        return markUp_;
-    }
+    //std::map<std::string, std::pair<std::string, int>> getMarkUp(){
+    //    return markUp_;
+    //}
 
     
 private:
     std::string expression_;
     bool complete_;
     bool deep_;
+	Json::Value rules_;
+	Json::Value jmarkUp_; 
     
-    std::map<std::string, std::pair<std::string, int>> markUp_;	
+    //std::map<std::string, std::pair<std::string, int>> markUp_;	
 	
 
 	///////////////////////////////////////////////////////////////////
@@ -141,17 +147,25 @@ private:
 	/// of the path it took.
 	/// @param
 	///////////////////////////////////////////////////////////////////	
-	std::string expand(const std::vector<expressionistObj>& exprObjVec);
+	//bool expand(const std::vector<expressionistObj>& exprObjVec, std::string& result);
 
 	///////////////////////////////////////////////////////////////////
 	/// @brief recursive function that works with expand
 	/// @details Works with 
 	/// @param[in] str A string that is being edited 
 	///////////////////////////////////////////////////////////////////
-	void fire(std::string& ruleName, const std::vector<expressionistObj>& exprObjVec);
+	//std::pair<std::string, bool> fire(const Json::Value& thisRule, const std::vector<expressionistObj>& exprObjVec);
 
 };
     
+Json::Value parseExpressionistAsJson(std::string file);
+
+std::string expressWithJson(const Json::Value& exprOutput);
+
+std::pair<std::string, bool> expandWithJson(const Json::Value& exprOutput, const Json::Value& symbol);
+
+std::pair<std::string, bool> fireWithJson(const Json::Value& exprOutput, const Json::Value& rule);
+
 };
 
 #endif /* expressionistParser_hpp */
