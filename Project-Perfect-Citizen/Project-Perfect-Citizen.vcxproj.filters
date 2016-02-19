@@ -134,7 +134,13 @@
       <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Engine\DraggableInput.cpp">
-      <Filter>Sources\Examples</Filter>
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\expressionistParser.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\textOutputRenderComponent.cpp">
+      <Filter>Sources\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -295,7 +301,13 @@
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\DraggableInput.h">
-      <Filter>Headers\Examples</Filter>
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\expressionistParser.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\textOutputRenderComponent.h">
+      <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
