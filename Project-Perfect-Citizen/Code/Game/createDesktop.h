@@ -27,6 +27,7 @@
 #include "textInputKeys.hpp"
 #include "../Engine/BorderDecorator.h"
 #include "createIcon.h"
+#include "createButton.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief A toolkit of functions that sets up complete desktops
@@ -45,4 +46,4 @@
 ///@param A reference to the desktop's window interface's input handler
 ///@param A sprite sheet from which to read the icon images
 ///////////////////////////////////////////////////////////////////////
-void createPlayerDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& desktopWindowToModify, ppc::InputHandler& ih, sf::Image& iconSheet);
+void createPlayerDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& desktopWindowToModify, ppc::InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet);
