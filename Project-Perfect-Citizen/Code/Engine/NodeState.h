@@ -28,8 +28,18 @@ namespace ppc {
 		///////////////////////////////////////////////
 		///@brief vector of strings that keeps track of
 		///the current working directory
-		///////////////////////////////////////////////
 		vector<string> workingDirectory;
+		///////////////////////////////////////////////
+		///@brief the last node to be "printed by ls"
+		///used in pairing with dirString
+		///////////////////////////////////////////////
+		BaseFileType* lastLsNode;
+		///////////////////////////////////////////////
+		///@brief a string representation of every 
+		///element in lastLsNode. Each element is seperated
+		///by '@' and needs to be parsed. 
+		///////////////////////////////////////////////
+		std::string dirString = "";
 	public:
 		///////////////////////////////////////////////
 		///@brief pops off the last element in the
@@ -80,5 +90,23 @@ namespace ppc {
 		///containing only "/"
 		///////////////////////////////////////////////
 		void moveToRoot();
+		///////////////////////////////////////////////
+		///@brief returns the pwdVector;
+		///////////////////////////////////////////////
+		std::vector<std::string> getPwdVector();
+		///////////////////////////////////////////////
+		///@brief assigns a node* to this->lastLsNode
+		///used in fn_ls to determine the directory
+		///that will be printed.
+		///@param node* to be assigned
+		///////////////////////////////////////////////
+		void setLastLsNode(BaseFileType* node);
+		///////////////////////////////////////////////
+		///@brief returns this->dirstring
+		///@details The string contains every element in
+		///this->lastLSNode's directory. Every element is
+		///seperated by '@' and must be parsed out
+		///////////////////////////////////////////////
+		string getDirString();
 	};
 }//end ppc namespace

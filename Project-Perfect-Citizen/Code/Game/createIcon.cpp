@@ -5,7 +5,6 @@
 #endif
 
 #include "createIcon.h"
-
 using namespace ppc;
 
 void spawnFolderIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& iconSheet, float x, float y, float size, float animSpeed) {
@@ -154,7 +153,7 @@ void spawnConsoleIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, InputHandle
 
 	/// Input Components ///
 	mousePressButton* mpbIcon = new mousePressButton(ih, *IconRender->getSprite(), "consoleIcon");
-	iconInputComponent* iconInputComp = new iconInputComponent(dT, ih);
+	iconInputComponent* iconInputComp = new iconInputComponent(dT);
 	entityToModify.addComponent(IconRender);
 	entityToModify.addComponent(animator);
 	entityToModify.addComponent(mpbIcon);

@@ -24,12 +24,11 @@ class iconInputComponent : public ppc::InputComponent {
 private:
 
 	ppc::Desktop& theDesktop_;
-	ppc::InputHandler& inputHandler_;
 
 public:
 
 	iconInputComponent() = delete;
-	iconInputComponent(ppc::Desktop& theDesktop, ppc::InputHandler& ih);
+	iconInputComponent(ppc::Desktop& theDesktop);
 	virtual ~iconInputComponent();
 	virtual bool registerInput(sf::Event& ev) override;
 	virtual void recieveMessage(msgType message) override;

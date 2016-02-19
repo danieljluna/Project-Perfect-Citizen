@@ -19,6 +19,7 @@ Window::Window(unsigned int width,
     windowView_.reset(sf::FloatRect(0.0, 0.0, 
                                     float(width), float(height)));
     windowView_.setViewport(sf::FloatRect(0.f, 0.f, 1, 1));
+	inputHandler_ = InputHandler();
 }
 
 
@@ -74,7 +75,7 @@ sf::FloatRect Window::getBounds() {
     result.left = transform_.getPosition().x;
     result.top = transform_.getPosition().y;
     result.width = float(windowSpace_.getSize().x);
-    result.height = windowSpace_.getSize().y;
+    result.height = float(windowSpace_.getSize().y);
     return result;
 }
 
