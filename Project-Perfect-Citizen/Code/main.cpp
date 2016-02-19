@@ -37,6 +37,8 @@
 #include "Game/expressionistParser.hpp"
 #include "Engine/Audio/AudioLocator.h"
 #include "Engine/Audio/DesktopAudio.h"
+#include "Engine/Audio/NullAudio.h"
+#include "Engine/Audio/AudioLogger.h"
 #include "Game\PipelineCharacter.h"
 using namespace ppc;
 
@@ -56,12 +58,18 @@ int main(int argc, char** argv) {
 	//Create the InputHandler <-- to be removed
 	//ppc::InputHandler* inputHandle = new InputHandler();
 
+	//////////////////////////SOUND STUFF//////////////////////////////
 	AudioLocator::initialize();
 	ppc::DesktopAudio* dAudio = new ppc::DesktopAudio();
 	AudioLocator::assign(dAudio);
+	AudioLogger* logger = new AudioLogger(*(AudioLocator::getAudio()));
+	AudioLocator::assign(logger);
 	Audio* audio = AudioLocator::getAudio();
 	audio->playSound(ppc::Sounds::gunshot);
-
+	// YEAH I KNOW YOU DONT WANT IT IN MAIN BUT EVERYONE NEEDS TO MAKE
+	//SURE THEY HEAR A GUNSHOT WHEN THEY COMPILE TO TEST IF WORKING
+	//FEEL FREE TO REMOVE AFTER ;)
+	///////////////////////////////////////////////////////////////////
 
     ////////////////// BACKGROUND IMAGE ////////////////////
     sf::Sprite* S = new sf::Sprite();
