@@ -11,6 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Code\Engine\Audio\AudioLocator.cpp" />
+    <ClCompile Include="Code\Engine\Audio\AudioLogger.cpp" />
+    <ClCompile Include="Code\Engine\Audio\DesktopAudio.cpp" />
     <ClCompile Include="Code\Engine\BorderDecorator.cpp" />
     <ClCompile Include="Code\Engine\BaseFileType.cpp" />
     <ClCompile Include="Code\Engine\component.cpp" />
@@ -50,6 +53,7 @@
     <ClCompile Include="Code\Game\expressionistParser.cpp" />
     <ClCompile Include="Code\Game\iconInputComponent.cpp" />
     <ClCompile Include="Code\Game\mousePressButton.cpp" />
+    <ClCompile Include="Code\Game\PipelineCharacter.cpp" />
     <ClCompile Include="Code\Game\testRenderSprite.cpp" />
     <ClCompile Include="Code\Game\textInputKeys.cpp" />
     <ClCompile Include="Code\Game\textInputRenderComponent.cpp" />
@@ -65,6 +69,12 @@
     <Text Include="Resources\Engine\EngineSettings.ini" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Code\Engine\Audio\Audio.h" />
+    <ClInclude Include="Code\Engine\Audio\AudioLocator.h" />
+    <ClInclude Include="Code\Engine\Audio\AudioLogger.h" />
+    <ClInclude Include="Code\Engine\Audio\DesktopAudio.h" />
+    <ClInclude Include="Code\Engine\Audio\NullAudio.h" />
+    <ClInclude Include="Code\Engine\Audio\Sounds.h" />
     <ClInclude Include="Code\Engine\BaseFileType.h" />
     <ClInclude Include="Code\Engine\ComponentObsvr.h" />
     <ClInclude Include="Code\Engine\component.h" />
@@ -108,6 +118,7 @@
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
     <ClInclude Include="Code\Game\iconInputComponent.h" />
     <ClInclude Include="Code\Game\mousePressButton.h" />
+    <ClInclude Include="Code\Game\PipelineCharacter.h" />
     <ClInclude Include="Code\Game\testRenderSprite.h" />
     <ClInclude Include="Code\Game\textInputKeys.hpp" />
     <ClInclude Include="Code\Game\textInputRenderComponent.hpp" />
@@ -168,12 +179,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Andy\Desktop\UCSC\SFML-2.3.2\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_MARKER;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Andy\Desktop\UCSC\SFML-2.3.2\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <AdditionalOptions>/ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>

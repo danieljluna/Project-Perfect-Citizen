@@ -45,6 +45,7 @@ void ppc::Desktop::focusWindow(WindowInterface* wi) {
 	//while the itor is not desktopWindow_
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 		//if we find the window to be focused
+			//if it is not at the beginning, we have to put it there.
 		if (*it == wi && it != windows_.begin()) {
 			//keep swapping it w/ thing before until at front
 			auto it2 = it;
@@ -54,9 +55,14 @@ void ppc::Desktop::focusWindow(WindowInterface* wi) {
 				*it2 = *temp;
 				*temp = tempWindow;
 				it2 = temp;
-				--temp;
+				if(temp != windows_.begin()) --temp;
 			}
-			this->focused_ = *it;
+			this->focused_ = windows_.front();
+			return;
+			//if it is already at the beginning, then focus it and 
+			//stop looping.
+		} else if(*it == wi && it == windows_.begin()) {
+			this->focused_ = windows_.front();
 			return;
 		}
 	}
@@ -123,7 +129,6 @@ void ppc::Desktop::registerInput(sf::Event& ev){
 			}
 		}
 	}
-
 	focused_->registerInput(ev);
 
 }

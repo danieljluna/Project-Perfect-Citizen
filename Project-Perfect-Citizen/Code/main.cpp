@@ -35,7 +35,11 @@
 #include "Game/createDesktop.h"
 #include "Game/desktopExtractionComponent.hpp"
 #include "Game/expressionistParser.hpp"
-
+#include "Engine/Audio/AudioLocator.h"
+#include "Engine/Audio/DesktopAudio.h"
+#include "Engine/Audio/NullAudio.h"
+#include "Engine/Audio/AudioLogger.h"
+#include "Game\PipelineCharacter.h"
 using namespace ppc;
 
 
@@ -53,6 +57,19 @@ int main(int argc, char** argv) {
 
 	//Create the InputHandler <-- to be removed
 	//ppc::InputHandler* inputHandle = new InputHandler();
+
+	//////////////////////////SOUND STUFF//////////////////////////////
+	AudioLocator::initialize();
+	ppc::DesktopAudio* dAudio = new ppc::DesktopAudio();
+	AudioLocator::assign(dAudio);
+	AudioLogger* logger = new AudioLogger(*(AudioLocator::getAudio()));
+	AudioLocator::assign(logger);
+	Audio* audio = AudioLocator::getAudio();
+	audio->playSound(ppc::Sounds::gunshot);
+	// YEAH I KNOW YOU DONT WANT IT IN MAIN BUT EVERYONE NEEDS TO MAKE
+	//SURE THEY HEAR A GUNSHOT WHEN THEY COMPILE TO TEST IF WORKING
+	//FEEL FREE TO REMOVE AFTER ;)
+	///////////////////////////////////////////////////////////////////
 
     ////////////////// BACKGROUND IMAGE ////////////////////
     sf::Sprite* S = new sf::Sprite();
@@ -84,9 +101,18 @@ int main(int argc, char** argv) {
 
 	Desktop* myDesktop = new Desktop(*desktopWindow, *testState);
 	myDesktop->addBackgroundCmpnt(desktopWindow, *S);
-	createPlayerDesktop(*myDesktop, *desktopWindow, myDesktop->getInputHandler(), iconSheet);
+	createPlayerDesktop(*myDesktop, *desktopWindow, myDesktop->getInputHandler(), iconSheet, spriteSheet);
 
-	//spawnConsole()
+	std::vector<PipelineCharacter> pipevec;
+	for (int i = 0; i < 10; ++i) {
+		PipelineCharacter newCharacter;
+		newCharacter.generate();
+		pipevec.push_back(newCharacter);
+	}
+
+	for (auto iter = pipevec.begin(); iter != pipevec.end(); ++iter) {
+		cout << iter->getJob() << endl;
+	}
 
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop
@@ -129,5 +155,6 @@ int main(int argc, char** argv) {
 
 	delete myDesktop;
 	delete T;
+	delete dAudio;
     return EXIT_SUCCESS;
 }
