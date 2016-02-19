@@ -74,6 +74,7 @@ public:
     //Other Getters
 
     virtual InputHandler& getInputHandler() override;
+    virtual sf::FloatRect getBounds() override;
 
     //Game Loop Functionality
 

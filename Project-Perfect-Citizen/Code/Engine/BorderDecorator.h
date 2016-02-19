@@ -35,6 +35,8 @@ public:
 
     virtual void move(float x, float y) override;
 
+    virtual sf::FloatRect getBounds() override;
+
 
 protected:
 
