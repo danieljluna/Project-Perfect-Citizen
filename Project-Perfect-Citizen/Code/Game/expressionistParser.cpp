@@ -15,12 +15,13 @@
 #endif
 
 ////////////////////////////////////////////////////////////////////////
-
 #include "expressionistParser.hpp"
-#include "../Library/json/json.h"
 #include <iostream>
 #include <fstream>
 #include <map>
+
+#include "../Library/json/json.h"
+
 
 using namespace expr;
 

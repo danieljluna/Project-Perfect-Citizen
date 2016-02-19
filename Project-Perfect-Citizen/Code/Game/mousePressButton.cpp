@@ -1,6 +1,6 @@
 #include "mousePressButton.h"
-#include <iostream>
 #include <string>
+#include <iostream>
 
 using namespace std;
 const string MOUSE_DOWN_CODE = "MDC";

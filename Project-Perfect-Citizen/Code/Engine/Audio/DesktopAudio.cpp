@@ -1,5 +1,5 @@
 #include "DesktopAudio.h"
-
+#include "../debug.h"
 ppc::DesktopAudio::DesktopAudio()
 {
 }

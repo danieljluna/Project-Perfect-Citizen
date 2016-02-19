@@ -1,6 +1,6 @@
 
 #include "textOutputRenderComponent.h"
-
+#include "../Engine/debug.h"
 const string TEXT_KEY_INPUT = "TKI";
 
 textOutputRenderComponent::textOutputRenderComponent(sf::Font& f, 
@@ -19,7 +19,7 @@ textOutputRenderComponent::textOutputRenderComponent(sf::Font& f,
 
 
 textOutputRenderComponent::~textOutputRenderComponent() {
-
+	delete text_;
 }
 
 void textOutputRenderComponent::updateString(std::vector<string> cmd) {

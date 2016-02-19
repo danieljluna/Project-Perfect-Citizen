@@ -2,7 +2,7 @@
 // Nader Sleem
 
 #include "desktop.h"
-#include "debug.h"
+#include "../Engine/debug.h"
 
 ppc::Desktop::Desktop(WindowInterface& bkgndWin, NodeState& n) {
 	style_ = nullptr;

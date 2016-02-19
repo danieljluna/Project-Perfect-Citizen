@@ -1,6 +1,9 @@
 #include "textInputKeys.hpp"
+
 #include <iostream>
 #include <string>
+
+#include "../Engine/debug.h"
 
 using namespace std;
 const string TEXT_KEY_INPUT = "TKI";

@@ -1,4 +1,5 @@
 #include "consoleIconRenderComponent.h"
+#include "../Engine/debug.h"
 
 using namespace std;
 const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";

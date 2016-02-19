@@ -1,7 +1,7 @@
 #include "BorderDecorator.h"
 
 #include <SFML/Window/Event.hpp>
-
+#include "../Engine/debug.h"
 using namespace ppc;
 
 ///////////////////////////////////////////////////////////////////////

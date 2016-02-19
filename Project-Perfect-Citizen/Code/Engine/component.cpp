@@ -1,6 +1,6 @@
 #include "component.h"
 #include "entity.h"
-
+#include "../Engine/debug.h"
 using namespace ppc;
 
 ///////////////////////////////////////////////////////////////////////

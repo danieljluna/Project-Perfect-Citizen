@@ -1,5 +1,5 @@
 #include "WindowBkgndRenderCmpnt.h"
-
+#include "../Engine/debug.h"
 
 
 WindowBkgndRenderCmpnt::WindowBkgndRenderCmpnt(sf::Sprite& s):

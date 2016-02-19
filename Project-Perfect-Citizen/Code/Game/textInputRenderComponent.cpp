@@ -7,7 +7,7 @@
 //
 
 #include "textInputRenderComponent.hpp"
-
+#include "../Engine/debug.h"
 const string TEXT_KEY_INPUT = "TKI";
 
 textInputRenderComponent::textInputRenderComponent(sf::Font& f, 
@@ -25,7 +25,7 @@ textInputRenderComponent::textInputRenderComponent(sf::Font& f,
 
 
 textInputRenderComponent::~textInputRenderComponent() {
-    
+	delete text;
 }
 
 void textInputRenderComponent::updateString(string s) {

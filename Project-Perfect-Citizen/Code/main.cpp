@@ -37,7 +37,7 @@
 #include "Game/expressionistParser.hpp"
 #include "Engine/Audio/AudioLocator.h"
 #include "Engine/Audio/DesktopAudio.h"
-#include "Game\PipelineCharacter.h"
+#include "Game/PipelineCharacter.h"
 using namespace ppc;
 
 

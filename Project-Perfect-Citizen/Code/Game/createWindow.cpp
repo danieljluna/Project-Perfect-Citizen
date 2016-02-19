@@ -23,6 +23,8 @@
 #include "textInputKeys.hpp"
 #include "../Engine/BorderDecorator.h"
 #include "../Game/textOutputRenderComponent.h"
+#include "../Engine/debug.h"
+
 
 
 using namespace ppc;
@@ -67,20 +69,21 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
 	/////////////////////////////////////////
 	/////// ENTITIES 
 	///////////////////////////////////////
-		Entity* textBox = new Entity();
-		textBox->addComponent(textInputBox);
-		textBox->addComponent(tik);
-		textBox->addComponent(cup);
+		Entity textBox;
+		textBox.addComponent(textInputBox);
+		textBox.addComponent(tik);
+		textBox.addComponent(cup);
 
-		Entity* textDisplay = new Entity();
-		textDisplay->addComponent(textDisplayBox);
+
+		Entity textDisplay;
+		textDisplay.addComponent(textDisplayBox);
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 		windowToModify->setPosition(x, y);
-		windowToModify->addEntity(*textBox);
-		windowToModify->addEntity(*textDisplay);
+		windowToModify->addEntity(textBox);
+		windowToModify->addEntity(textDisplay);
 		windowToModify = new BorderDecorator(*windowToModify);
 	
 }

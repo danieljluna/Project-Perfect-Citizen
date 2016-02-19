@@ -1,4 +1,5 @@
 #include "buttonRenderComponent.h"
+#include "../Engine/debug.h"
 
 using namespace std;
 const string MOUSE_DOWN_CODE = "MDC";

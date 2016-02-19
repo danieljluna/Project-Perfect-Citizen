@@ -1,5 +1,6 @@
 #include "subject.h"
 #include <iostream>
+#include "../Engine/debug.h"
 using namespace ppc;
 
 //adds to the front. 
