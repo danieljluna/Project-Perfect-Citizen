@@ -9,22 +9,35 @@ using namespace ppc;
 ///////////////////////////////////////////////////////////////////////
 
 BorderDecorator::BorderDecorator(
-        WindowInterface& win,
-        unsigned int majorBorder,
-        unsigned int minorBorder) : WindowDecorator(win) {
+    WindowInterface& win,
+    unsigned int majorBorder,
+    unsigned int minorBorder) :
+            WindowDecorator(win),
+            draggableInput_(*this) {
+    //Store Input
     borderTopLeft_.y = majorBorder;
     borderTopLeft_.x = borderBottomRight_.x = 
             borderBottomRight_.y = minorBorder;
 
+    //Set up BorderShape
     borderShape_.setPosition(win.getPosition().x - minorBorder, 
                             win.getPosition().y - majorBorder);
     sf::Vector2f size(float(win.getSize().x + 2 * minorBorder),
                       float(win.getSize().y + minorBorder + 
                                 majorBorder));
+
     borderShape_.setSize(size);
     borderShape_.setFillColor(sf::Color::Red);
 
-    isBeingDragged_ = false;
+    //Set up Bounds
+
+    //Set up Draggable Input Observers
+    draggableInput_.watch(win.getInputHandler(), 
+                          sf::Event::MouseButtonPressed);
+    draggableInput_.watch(win.getInputHandler(),
+                          sf::Event::MouseButtonReleased);
+    draggableInput_.watch(win.getInputHandler(),
+                          sf::Event::MouseMoved);
 }
 
 
@@ -88,4 +101,22 @@ void BorderDecorator::draw(sf::RenderTarget& target,
     target.draw(borderShape_, states);
 
     WindowDecorator::draw(target, states);
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////////
+// Helper Functions
+///////////////////////////////////////////////////////////////////////
+
+void BorderDecorator::updateBounds() {
+    //Set up Draggable Input Bounds
+    sf::FloatRect bounds;
+    bounds.height = float(borderTopLeft_.y);
+    bounds.width = borderShape_.getSize().x + float(borderTopLeft_.x) +
+                borderBottomRight_.x;
+    bounds.top = borderShape_.getPosition().y - float(borderTopLeft_.y);
+    bounds.left = borderShape_.getPosition().x - float(borderTopLeft_.x);
+    draggableInput_.setBounds(bounds);
 }

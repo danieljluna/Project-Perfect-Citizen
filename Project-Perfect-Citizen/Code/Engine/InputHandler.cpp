@@ -32,12 +32,11 @@ void InputHandler::registerEvent(sf::Event& ev) {
 bool InputHandler::addObserver(sf::Event::EventType type, 
                                BaseObserver* obsvr,
                                bool forceCreation) {
-    bool result;
+    bool result = true;
     
     auto it = inputMap.find(type);
     if (it != inputMap.end()) {
         it->second.addObserver(obsvr);
-        result = true;
     } else if (forceCreation) {
         auto emplaceRet = inputMap.emplace(type, Subject{});
         if (emplaceRet.second) {
