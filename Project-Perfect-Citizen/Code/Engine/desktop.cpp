@@ -126,7 +126,7 @@ void ppc::Desktop::registerInput(sf::Event& ev) {
 		ev.type == sf::Event::MouseMoved) {
 		for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 			sf::FloatRect winBounds = (*it)->getBounds();
-			if (winBounds.contains(ev.mouseButton.x, ev.mouseButton.y)) {
+			if (winBounds.contains(float(ev.mouseButton.x), float(ev.mouseButton.y))) {
 				focusWindow(*it);
 				break;
 			}
