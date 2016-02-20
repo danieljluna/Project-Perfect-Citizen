@@ -1,19 +1,27 @@
 {
    "markups":{
       "agePreconditions":[
-         "speaker.age >= 45 && speaker.age <= 64",
-         "speaker.age >= 25 && speaker.age <= 44",
-         "speaker.age >= 18 && speaker.age <= 24"
+         "speaker.age >= 45", 
+         "speaker.age <= 64",
+         "speaker.age >= 25", 
+         "speaker.age <= 44",
+         "speaker.age >= 18", 
+         "speaker.age <= 24"
       ],
       "contentType":[
          "sms"
       ],
       "iqPreconditions":[
-         "speaker.iq >= 70 && speaker.iq <= 84",
-         "speaker.iq >= 115 && speaker.iq <= 129",
-         "speaker.iq >= 55 && speaker.iq <= 69",
-         "speaker.iq >= 85 && speaker.iq <= 114",
-         "speaker.iq >= 130 && speaker.iq <= 144"
+         "speaker.iq >= 70",
+         "speaker.iq <= 84",
+         "speaker.iq >= 115",
+         "speaker.iq <= 129",
+         "speaker.iq >= 55",
+         "speaker.iq <= 69",
+         "speaker.iq >= 85",
+         "speaker.iq <= 114",
+         "speaker.iq >= 130",
+         "speaker.iq <= 144"
       ],
       "linkSuspicion":[
          "clearlyClean",
@@ -65,15 +73,15 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44",
-                     "speaker.age >= 45 && speaker.age <= 64"
+                     "speaker.age >= 18", "speaker.age <= 24",
+                     "speaker.age >= 25", "speaker.age <= 44",
+                     "speaker.age >= 45", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 130 && speaker.iq <= 144",
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq >= 130", "speaker.iq <= 144",
+                     "speaker.iq >= 85", "speaker.iq <= 114",
+                     "speaker.iq >= 115", "speaker.iq <= 129",
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ]
                }
             },
@@ -84,10 +92,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24"
+                     "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ]
                }
             }
@@ -107,15 +115,15 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44",
-                     "speaker.age >= 45 && speaker.age <= 64"
+                     "speaker.age >= 18", "speaker.age <= 24",
+                     "speaker.age >= 25", "speaker.age <= 44",
+                     "speaker.age >= 45", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 130 && speaker.iq <= 144",
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq >= 130", "speaker.iq <= 144",
+                     "speaker.iq >= 85", "speaker.iq <= 114",
+                     "speaker.iq >= 115", "speaker.iq <= 129",
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ]
                }
             },
@@ -126,10 +134,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24"
+                     "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 55 && speaker.iq <= 69"
+                    "speaker.iq >= 55", "speaker.iq <= 69"
                   ]
                }
             }
@@ -149,12 +157,12 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44"
+                     "speaker.age >= 18", "speaker.age <= 24",
+                     "speaker.age >= 25", "speaker.age <= 44"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq >= 85", "speaker.iq <= 114",
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ]
                }
             },
@@ -165,13 +173,13 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44"
+                     "speaker.age >= 18", "speaker.age <= 24",
+                     "speaker.age >= 25", "speaker.age <= 44"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq >= 85", "speaker.iq <= 114",
+                    "speaker.iq >= 55", "speaker.iq <= 69",
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ]
                }
             },
@@ -182,12 +190,12 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24"
+                     "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq >= 85", "speaker.iq <= 114",
+                    "speaker.iq >= 55", "speaker.iq <= 69",
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ]
                }
             }
@@ -211,13 +219,13 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44"
+                     "speaker.age >= 18", "speaker.age <= 24",
+                     "speaker.age >= 25", "speaker.age <= 44"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq >= 85", "speaker.iq <= 114",
+                    "speaker.iq >= 55", "speaker.iq <= 69",
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ]
                }
             },
@@ -228,13 +236,13 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44"
+                     "speaker.age >= 18", "speaker.age <= 24",
+                     "speaker.age >= 25", "speaker.age <= 44"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq >= 85", "speaker.iq <= 114",
+                    "speaker.iq >= 55", "speaker.iq <= 69",
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ]
                }
             },
@@ -384,14 +392,14 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24"
+                     "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 130 && speaker.iq <= 144",
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                    "speaker.iq >= 55", "speaker.iq <= 69",
+                     "speaker.iq >= 130", "speaker.iq <= 144",
+                     "speaker.iq >= 85", "speaker.iq <= 114",
+                     "speaker.iq >= 115", "speaker.iq <= 129",
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ]
                }
             },
@@ -402,16 +410,16 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44",
-                     "speaker.age >= 45 && speaker.age <= 64"
+                     "speaker.age >= 18", "speaker.age <= 24",
+                     "speaker.age >= 25", "speaker.age <= 44",
+                     "speaker.age >= 45", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 130 && speaker.iq <= 144",
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                    "speaker.iq >= 55", "speaker.iq <= 69",
+                     "speaker.iq >= 130", "speaker.iq <= 144",
+                     "speaker.iq >= 85", "speaker.iq <= 114",
+                     "speaker.iq >= 115", "speaker.iq <= 129",
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ]
                }
             }
@@ -453,14 +461,14 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44",
-                     "speaker.age >= 45 && speaker.age <= 64"
+                     "speaker.age >= 18", "speaker.age <= 24",
+                     "speaker.age >= 25", "speaker.age <= 44",
+                     "speaker.age >= 45", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 130 && speaker.iq <= 144",
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129"
+                     "speaker.iq >= 130", "speaker.iq <= 144",
+                     "speaker.iq >= 85", "speaker.iq <= 114",
+                     "speaker.iq >= 115", "speaker.iq <= 129"
                   ]
                }
             },
@@ -471,14 +479,14 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44",
-                     "speaker.age >= 45 && speaker.age <= 64"
+                     "speaker.age >= 18", "speaker.age <= 24",
+                     "speaker.age >= 25", "speaker.age <= 44",
+                     "speaker.age >= 45", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq >= 85", "speaker.iq <= 114",
+                     "speaker.iq >= 115", "speaker.iq <= 129",
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ]
                }
             },
@@ -489,11 +497,11 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24"
+                     "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                    "speaker.iq >= 55", "speaker.iq <= 69",
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ]
                }
             },
@@ -504,15 +512,15 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44",
-                     "speaker.age >= 45 && speaker.age <= 64"
+                     "speaker.age >= 18", "speaker.age <= 24",
+                     "speaker.age >= 25", "speaker.age <= 44",
+                     "speaker.age >= 45", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                    "speaker.iq >= 55", "speaker.iq <= 69",
+                     "speaker.iq >= 85", "speaker.iq <= 114",
+                     "speaker.iq >= 115", "speaker.iq <= 129",
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ]
                }
             },
@@ -523,12 +531,12 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24"
+                     "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq >= 85", "speaker.iq <= 114",
+                    "speaker.iq >= 55", "speaker.iq <= 69",
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ]
                }
             }
@@ -629,7 +637,7 @@
          "deep":false,
          "markup":{
             "agePreconditions":[
-               "speaker.age >= 18 && speaker.age <= 24"
+               "speaker.age >= 18", "speaker.age <= 24"
             ],
             "linkSuspicion":[
                "ambiguous",
@@ -1083,13 +1091,13 @@
          "deep":false,
          "markup":{
             "agePreconditions":[
-               "speaker.age >= 25 && speaker.age <= 44",
-               "speaker.age >= 45 && speaker.age <= 64"
+               "speaker.age >= 25", "speaker.age <= 44",
+               "speaker.age >= 45", "speaker.age <= 65"
             ],
             "iqPreconditions":[
-               "speaker.iq >= 130 && speaker.iq <= 144",
-               "speaker.iq >= 85 && speaker.iq <= 114",
-               "speaker.iq >= 115 && speaker.iq <= 129"
+               "speaker.iq >= 130", "speaker.iq <= 144",
+               "speaker.iq >= 85", "speaker.iq <= 114",
+               "speaker.iq >= 115", "speaker.iq <= 129"
             ],
             "linkSuspicion":[
                "ambiguous",
@@ -1179,16 +1187,16 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44",
-                     "speaker.age >= 45 && speaker.age <= 64"
+                     "speaker.age >= 18", "speaker.age <= 24",
+                     "speaker.age >= 25", "speaker.age <= 44",
+                     "speaker.age >= 45", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 130 && speaker.iq <= 144",
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                    "speaker.iq >= 55", "speaker.iq <= 69",
+                     "speaker.iq >= 130", "speaker.iq <= 144",
+                     "speaker.iq >= 85", "speaker.iq <= 114",
+                     "speaker.iq >= 115", "speaker.iq <= 129",
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ],
                   "linkSuspicion":[
                      "ambiguous",
@@ -1227,11 +1235,11 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24"
+                     "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                    "speaker.iq >= 55", "speaker.iq <= 69",
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ],
                   "linkSuspicion":[
                      "ambiguous",
@@ -1279,15 +1287,15 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44",
-                     "speaker.age >= 45 && speaker.age <= 64"
+                     "speaker.age >= 18", "speaker.age <= 24",
+                     "speaker.age >= 25", "speaker.age <= 44",
+                     "speaker.age >= 45", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 130 && speaker.iq <= 144",
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq >= 130", "speaker.iq <= 144",
+                     "speaker.iq >= 85", "speaker.iq <= 114",
+                     "speaker.iq >= 115", "speaker.iq <= 129",
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ],
                   "linkSuspicion":[
                      "ambiguous",
@@ -1326,11 +1334,11 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24"
+                     "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                    "speaker.iq >= 55", "speaker.iq <= 69",
+                     "speaker.iq >= 70", "speaker.iq <= 84"
                   ],
                   "linkSuspicion":[
                      "ambiguous",

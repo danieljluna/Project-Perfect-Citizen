@@ -24,6 +24,7 @@
 #include <random>
 #include <list>
 #include <cstddef>
+#include "PipelineCharacter.h"
 
 using namespace expr;
 
@@ -151,6 +152,48 @@ std::pair<std::string, bool> expr::fireWithJson(const Json::Value& exprOutput, c
 }
 
 
-bool checkMarkUp(std::string teststr) {
+bool makeComparison(const std::string& str1, const std::string& str2, const std::string& oper) {
+	return true;
+}
+
+bool makeComparison(const int& int1, const int& int2, const std::string& oper) {
+	return true;
+}
+
+bool checkMarkUpPreconditions(const Json::Value& markup, const ppc::PipelineCharacter& speaker) {
+	std::vector<std::string> markupNames = markup.getMemberNames();
+	for (size_t i = 0; i < markup.size(); ++i) {
+		std::string currMark = markup[markupNames[i]].asString();
+		std::string oper;
+		std::string req;
+		std::string value;
+
+		for (size_t j = 0; j < markup[markupNames[i]].size(); ++j) {
+			std::string currCond = markup[markupNames[i]][j].asString();
+			req = currCond.substr(0, currCond.find_first_of(" "));
+			oper = currCond.substr(currCond.find_first_of(" ") + 1, currCond.find_last_of(" "));
+			value = currCond.substr(currCond.find_last_of(" ") + 1, std::string::npos);
+
+			if (currMark == "agePreconditions") {
+				if (makeComparison(speaker.getAge(), std::stoi(value), oper) == false) return false;
+			}
+			else if (currMark == "contentType"){ 
+				//unused currently
+			}
+			else if (currMark == "iqPreconditions") {
+				if (makeComparison(speaker.getIQ(), std::stoi(value), oper) == false) return false;
+			}
+			else if (currMark == "linkSuspicion") {
+				//unused currently
+			}
+			else if (currMark == "personalityPreconditions") {
+				//get specific personality trait
+			}
+			else if (currMark == "relationshipType") {
+				//unused currently
+			}
+		}
+	}
+	
 	return true;
 }

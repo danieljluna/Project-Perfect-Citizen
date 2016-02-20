@@ -50,6 +50,8 @@ std::pair<std::string, bool> expandWithJson(const Json::Value& exprOutput, const
 
 std::pair<std::string, bool> fireWithJson(const Json::Value& exprOutput, const Json::Value& rule);
 
+bool checkMarkUpPreconditions(const Json::Value & markup, const ppc::PipelineCharacter & speaker);
+
 };
 
 #endif /* expressionistParser_hpp */
