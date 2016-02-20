@@ -30,6 +30,12 @@ BorderDecorator::BorderDecorator(
     borderShape_.setFillColor(sf::Color::Red);
 
     //Set up Bounds
+	sf::FloatRect bounds;
+	bounds.width = (2 * minorBorder) + win.getBounds().width;
+	bounds.height = majorBorder;
+	bounds.top = win.getBounds().top - majorBorder;
+	bounds.left = win.getBounds().left - minorBorder;
+	draggableInput_.setBounds(bounds);
 
     //Set up Draggable Input Observers
     draggableInput_.watch(win.getInputHandler(), 
