@@ -30,12 +30,7 @@ BorderDecorator::BorderDecorator(
     borderShape_.setFillColor(sf::Color::Red);
 
     //Set up Bounds
-	sf::FloatRect bounds;
-	bounds.width = (2 * minorBorder) + win.getBounds().width;
-	bounds.height = majorBorder;
-	bounds.top = win.getBounds().top - majorBorder;
-	bounds.left = win.getBounds().left - minorBorder;
-	draggableInput_.setBounds(bounds);
+    updateBounds();
 
     //Set up Draggable Input Observers
     draggableInput_.watch(win.getInputHandler(), 
@@ -88,6 +83,8 @@ void BorderDecorator::setPosition(float x, float y) {
                              y - borderTopLeft_.y);
 
     WindowDecorator::setPosition(x, y);
+
+    updateBounds();
 }
 
 
@@ -97,6 +94,8 @@ void BorderDecorator::move(float x, float y) {
     borderShape_.move(x, y);
 
     WindowDecorator::move(x, y);
+
+    updateBounds();
 }
 
 
@@ -133,10 +132,10 @@ sf::FloatRect BorderDecorator::getBounds() {
 void BorderDecorator::updateBounds() {
     //Set up Draggable Input Bounds
     sf::FloatRect bounds;
-    bounds.height = float(borderTopLeft_.y);
-    bounds.width = borderShape_.getSize().x + float(borderTopLeft_.x) +
-                borderBottomRight_.x;
-    bounds.top = borderShape_.getPosition().y - float(borderTopLeft_.y);
-    bounds.left = borderShape_.getPosition().x - float(borderTopLeft_.x);
+    bounds.width = borderTopLeft_.x + borderBottomRight_.x + 
+                WindowDecorator::getBounds().width;
+    bounds.height = borderTopLeft_.y;
+    bounds.top = WindowDecorator::getBounds().top - borderTopLeft_.y;
+    bounds.left = WindowDecorator::getBounds().left - borderTopLeft_.x;
     draggableInput_.setBounds(bounds);
 }
