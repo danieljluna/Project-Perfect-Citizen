@@ -119,7 +119,6 @@ void ppc::Desktop::registerInput(sf::Event& ev) {
 	//first check if the mouse clicked in the focused window.
 	//if the window clicked in a window that wasnt focused,
 	//then focus that window.
-
 	//for any mouse event
 	if (ev.type == sf::Event::MouseButtonPressed ||
 		ev.type == sf::Event::MouseButtonReleased ||
