@@ -35,13 +35,14 @@
 #include "Game/createDesktop.h"
 #include "Game/desktopExtractionComponent.hpp"
 #include "Game/expressionistParser.hpp"
+#include "Engine/Audio/Audio.h"
+#include "Engine/Audio/Sounds.h"
+#include "Engine/Audio/DesktopAudio.h"
+#include "Engine/Audio/AudioLocator.h"
+#include "Engine/Audio/AudioLogger.h"
 #include "Engine/Audio/AudioLocator.h"
 #include "Engine/Audio/NullAudio.h"
 #include "Game/PipelineCharacter.h"
-
-
-
-
 
 using namespace ppc;
 
@@ -158,6 +159,5 @@ int main(int argc, char** argv) {
 
 	delete myDesktop;
 	delete T;
-	delete dAudio;
     return EXIT_SUCCESS;
 }
