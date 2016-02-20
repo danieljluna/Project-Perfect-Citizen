@@ -1,6 +1,6 @@
 #include "ComponentObsvr.h"
 #include "inputComponent.h"
-#include "../Engine/debug.h"
+
 using namespace ppc;
 
 ComponentObsvr::ComponentObsvr(InputComponent& iCmpnt) : 

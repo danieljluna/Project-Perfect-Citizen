@@ -1,8 +1,6 @@
-#include "PipelineCharacter.h"
-
 #include <random>
 
-#include "../Engine/debug.h"
+#include "PipelineCharacter.h"
 
 using namespace ppc;
 

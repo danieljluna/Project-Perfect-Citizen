@@ -2,7 +2,7 @@
 #include "component.h"
 
 #include <stdexcept>
-#include "../Engine/debug.h"
+
 using namespace ppc;
 
 

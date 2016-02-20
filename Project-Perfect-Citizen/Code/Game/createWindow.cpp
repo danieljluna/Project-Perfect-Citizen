@@ -23,8 +23,6 @@
 #include "textInputKeys.hpp"
 #include "../Engine/BorderDecorator.h"
 #include "../Game/textOutputRenderComponent.h"
-#include "../Engine/debug.h"
-
 
 
 using namespace ppc;
@@ -73,7 +71,6 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
 		textBox->addComponent(textInputBox);
 		textBox->addComponent(tik);
 		textBox->addComponent(cup);
-
 
 		Entity* textDisplay = new Entity();
 		textDisplay->addComponent(textDisplayBox);

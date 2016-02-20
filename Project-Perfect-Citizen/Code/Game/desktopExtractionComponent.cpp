@@ -17,13 +17,9 @@
 ///////////////////////////////////////////////////////////
 
 #include "desktopExtractionComponent.hpp"
-
+#include "../Library/json/json.h"
 #include <iostream>
 #include <fstream>
-
-#include "../Library/json/json.h"
-#include "../Engine/debug.h"
-
 
 using namespace ppc;
 

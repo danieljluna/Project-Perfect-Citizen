@@ -1,10 +1,7 @@
 #include "Window.h"
 
-#include <cstddef>
-
 #include <SFML/Graphics/RenderTexture.hpp>
-#include "../Engine/debug.h"
-
+#include <cstddef>
 
 using namespace ppc;
 

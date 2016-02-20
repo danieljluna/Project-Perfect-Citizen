@@ -1,6 +1,4 @@
 #include "createDesktop.h"
-#include "../Engine/debug.h"
-
 using namespace ppc;
 
 void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {

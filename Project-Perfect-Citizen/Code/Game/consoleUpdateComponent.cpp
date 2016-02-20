@@ -1,6 +1,5 @@
 #include "consoleUpdateComponent.h"
 #include "TreeCommands.h"
-#include "../Engine/debug.h"
 
 
 const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";

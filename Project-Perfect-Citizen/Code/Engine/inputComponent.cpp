@@ -1,7 +1,7 @@
 #include "inputComponent.h"
 
 #include "InputHandler.h"
-#include "../Engine/debug.h"
+
 using namespace ppc;
 
 InputComponent::InputComponent(size_t observerCount) {

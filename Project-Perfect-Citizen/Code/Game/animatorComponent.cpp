@@ -1,6 +1,5 @@
 
 #include "animatorComponent.hpp"
-#include "../Engine/debug.h"
 
 
 const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";

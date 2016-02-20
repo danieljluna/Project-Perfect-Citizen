@@ -1,5 +1,5 @@
 #include "InputHandler.h"
-#include "../Engine/debug.h"
+
 using namespace ppc;
 
 InputHandler::InputHandler() {}

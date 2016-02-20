@@ -1,5 +1,5 @@
 #include "FunctionObserver.h"
-#include "../Engine/debug.h"
+
 FunctionObserver::FunctionObserver(bool(*myFunction)(sf::Event &))
 {
 	this->obsFunc = myFunction;

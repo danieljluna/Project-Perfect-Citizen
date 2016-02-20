@@ -1,5 +1,5 @@
 #include "WindowDecorator.h"
-#include "../Engine/debug.h"
+
 using namespace ppc;
 
 

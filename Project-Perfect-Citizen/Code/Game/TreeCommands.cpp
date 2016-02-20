@@ -1,5 +1,4 @@
 #include "TreeCommands.h"
-#include "../Engine/debug.h"
 
 fnMap functionMap{
 	{ "cd"		,	fn_cd },

@@ -1,7 +1,7 @@
 #include "iconInputComponent.h"
 #include <iostream>
 #include <string>
-
+#include <string>
 
 using namespace std;
 const string MOUSE_DOWN_CODE = "MDC";
