@@ -106,6 +106,20 @@ void BorderDecorator::draw(sf::RenderTarget& target,
 
 
 
+sf::FloatRect BorderDecorator::getBounds() {
+    sf::FloatRect result = WindowDecorator::getBounds();
+
+    result.left -= borderTopLeft_.x;
+    result.top -= borderTopLeft_.y;
+    result.width += borderTopLeft_.x + borderBottomRight_.x;
+    result.height += borderTopLeft_.y + borderBottomRight_.y;
+
+    return result;
+}
+
+
+
+
 ///////////////////////////////////////////////////////////////////////
 // Helper Functions
 ///////////////////////////////////////////////////////////////////////
