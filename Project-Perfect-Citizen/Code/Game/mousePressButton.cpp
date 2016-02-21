@@ -41,31 +41,13 @@ mousePressButton::~mousePressButton() {
 }
 
 bool mousePressButton::isCollision(sf::Vector2i mousePos) {
+    //Gets the position as a Float Vector
+    sf::Vector2f mouseFloatPos(mousePos.x, mousePos.y);
+    //Gets the FloatRect of the Sprite
+    sf::FloatRect checkArea = buttonSprt.getGlobalBounds();
 
-	//cout << "MOUSE X: " << mousePos.x;
-	//cout << "   MOUSE Y: " << mousePos.y << endl;
-
-	//NOTE: NEED TO ADD X,Y POS OF WINDOW(TARGET) SPRITE IS IN
-	//HARD CODE FOR NOW, BUT EXPLAIN TO EVERYONE LATER
-	sf::Vector2f sprtBoxPos = { buttonSprt.getGlobalBounds().left ,
-		buttonSprt.getGlobalBounds().top };
-	//cout << "BOX X: " << sprtBoxPos.x;
-	//cout << "   BOX Y: " << sprtBoxPos.y << endl;
-	sf::Vector2f sprtBoxDim = { buttonSprt.getGlobalBounds().width,
-		buttonSprt.getGlobalBounds().height };
-	//cout << "BOX Width: " << sprtBoxDim.x;
-	//cout << "   BOX Height: " << sprtBoxDim.y << endl;
-
-	bool result = false;
-	if (mousePos.x >= sprtBoxPos.x  &&
-			mousePos.x <= sprtBoxPos.x + sprtBoxDim.x) {
-		if (mousePos.y >= sprtBoxPos.y &&
-				mousePos.y <= sprtBoxPos.y + sprtBoxDim.y) {
-			result = true;
-		}
-	}
-	cout << "checked for collision" << endl;
-	return result;
+    //Returns if point is in foatRect
+    return checkArea.contains(mouseFloatPos);
 }
 
 

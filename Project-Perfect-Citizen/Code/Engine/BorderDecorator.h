@@ -69,18 +69,10 @@ private:
 
     DraggableInput draggableInput_;
 
-	unsigned int majorBorder_;
-	unsigned int minorBorder_;
-
 	sf::RectangleShape closeButtonArea_;
-	
-	buttonRenderComponent* minRC_;
-	buttonRenderComponent* maxRC_;
 	buttonRenderComponent* closeRC_;
 	mousePressButton* bIC_;
-	// Note: this may cause memory leak because it is not attached to a
-	// window
-	Entity* closeButton_;
+	Entity closeButton_;
 
 
 };
