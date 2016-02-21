@@ -42,7 +42,7 @@ mousePressButton::~mousePressButton() {
 
 bool mousePressButton::isCollision(sf::Vector2i mousePos) {
     //Gets the position as a Float Vector
-    sf::Vector2f mouseFloatPos(mousePos.x, mousePos.y);
+    sf::Vector2f mouseFloatPos(float(mousePos.x), float(mousePos.y));
     //Gets the FloatRect of the Sprite
     sf::FloatRect checkArea = buttonSprt.getGlobalBounds();
 

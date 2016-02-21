@@ -29,12 +29,10 @@ BorderDecorator::BorderDecorator(
 
 	bIC_ = new mousePressButton(win.getInputHandler(), *closeRC_->getSprite(), "localCloseButton");
 
-	closeButton_->addComponent(closeRC_);
-	closeButton_->addComponent(bIC_);
+	closeButton_.addComponent(closeRC_);
+	closeButton_.addComponent(bIC_);
 
 	win.addInputComponent(bIC_);
-	//closeButton_->addComponent(closeRC_);
-	//this->addEntity(*closeButton_);
 
 	
     //Set up BorderShape
@@ -154,11 +152,15 @@ void BorderDecorator::updateBounds() {
     sf::FloatRect bounds;
     bounds.width = borderTopLeft_.x + borderBottomRight_.x + 
                 WindowDecorator::getBounds().width;
-    bounds.height = borderTopLeft_.y;
+    bounds.height = float(borderTopLeft_.y);
     bounds.top = WindowDecorator::getBounds().top - borderTopLeft_.y;
     bounds.left = WindowDecorator::getBounds().left - borderTopLeft_.x;
     draggableInput_.setBounds(bounds);
 
-	closeRC_->renderPosition(sf::Vector2f(WindowDecorator::getBounds().left + WindowDecorator::getBounds().width - closeRC_->getSprite()->getGlobalBounds().width,
-		WindowDecorator::getBounds().top - borderTopLeft_.y + ( (majorBorder_ - closeRC_->getSprite()->getGlobalBounds().height) / 2)));
+    //Re-position the button
+    float right = bounds.width + bounds.height;
+    sf::FloatRect sprBounds = closeRC_->getSprite()->getGlobalBounds();
+    sf::Vector2f ButtonPos(right - sprBounds.width,
+                           bounds.top + borderTopLeft_.y);
+	closeRC_->renderPosition(ButtonPos);
 }
