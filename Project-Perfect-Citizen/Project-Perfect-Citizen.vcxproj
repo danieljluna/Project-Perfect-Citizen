@@ -29,6 +29,7 @@
     <ClCompile Include="Code\Engine\InputCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\inputComponent.cpp" />
     <ClCompile Include="Code\Engine\InputHandler.cpp" />
+    <ClCompile Include="Code\Engine\Network.cpp" />
     <ClCompile Include="Code\Engine\NodeState.cpp" />
     <ClCompile Include="Code\Engine\observer.cpp" />
     <ClCompile Include="Code\Engine\RenderCmpntDecorator.cpp" />
@@ -82,6 +83,7 @@
     <ClInclude Include="Code\Engine\desktop.h" />
     <ClInclude Include="Code\Engine\DesktopLogger.h" />
     <ClInclude Include="Code\Engine\DraggableInput.h" />
+    <ClInclude Include="Code\Engine\Edge.h" />
     <ClInclude Include="Code\Engine\entity.h" />
     <ClInclude Include="Code\Engine\EntityDecorator.h" />
     <ClInclude Include="Code\Engine\EntityLogger.h" />
@@ -90,6 +92,7 @@
     <ClInclude Include="Code\Engine\InputCmpntLogger.h" />
     <ClInclude Include="Code\Engine\inputComponent.h" />
     <ClInclude Include="Code\Engine\InputHandler.h" />
+    <ClInclude Include="Code\Engine\Network.h" />
     <ClInclude Include="Code\Engine\NodeState.h" />
     <ClInclude Include="Code\Engine\objectPool.h" />
     <ClInclude Include="Code\Engine\observer.h" />
@@ -100,6 +103,7 @@
     <ClInclude Include="Code\Engine\UpdateCmpntDecorator.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntLogger.h" />
     <ClInclude Include="Code\Engine\updateComponent.h" />
+    <ClInclude Include="Code\Engine\Vertex.h" />
     <ClInclude Include="Code\Engine\Window.h" />
     <ClInclude Include="Code\Engine\BorderDecorator.h" />
     <ClInclude Include="Code\Engine\WindowDecorator.h" />
