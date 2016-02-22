@@ -6,7 +6,7 @@
 
 ppc::Desktop::Desktop(WindowInterface& bkgndWin, NodeState& n) {
 	style_ = nullptr;
-	nodeState_ = &n;
+	nodeState_ = new NodeState(n);
 
 	windows_.push_back(&bkgndWin);
 	desktopWindow_ = &bkgndWin;

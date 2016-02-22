@@ -59,34 +59,28 @@ int main(int argc, char** argv) {
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
-	//Create the InputHandler <-- to be removed
-	//ppc::InputHandler* inputHandle = new InputHandler();
-
 	//////////////////////////SOUND STUFF//////////////////////////////
 	AudioLocator::initialize();
-	ppc::DesktopAudio* dAudio = new ppc::DesktopAudio();
-	AudioLocator::assign(dAudio);
-	AudioLogger* logger = new AudioLogger(*(AudioLocator::getAudio()));
-	AudioLocator::assign(logger);
+	ppc::NullAudio dAudio;
+	AudioLocator::assign(&dAudio);
+	AudioLogger logger(dAudio);
+	AudioLocator::assign(&logger);
 	Audio* audio = AudioLocator::getAudio();
 	audio->playSound(ppc::Sounds::gunshot);
-	// YEAH I KNOW YOU DONT WANT IT IN MAIN BUT EVERYONE NEEDS TO MAKE
-	//SURE THEY HEAR A GUNSHOT WHEN THEY COMPILE TO TEST IF WORKING
-	//FEEL FREE TO REMOVE AFTER ;)
 	///////////////////////////////////////////////////////////////////
 
     ////////////////// BACKGROUND IMAGE ////////////////////
-    sf::Sprite* S = new sf::Sprite();
-    sf::Texture* T = new sf::Texture();
-    if (!(T->loadFromFile(resourcePath() + "Wallpaper.png"))) {
+    sf::Sprite S;
+    sf::Texture T;
+    if (!(T.loadFromFile(resourcePath() + "Wallpaper.png"))) {
         //Test for failure
         cerr << "COULD NOT LOAD\n";
         std::system("PAUSE");
         return -1;
     };
-    S->setTexture(*T);
-    S->setPosition(0, 0);
-    S->setScale(0.7f, 0.7f);
+    S.setTexture(T);
+    S.setPosition(0, 0);
+    S.setScale(0.7f, 0.7f);
 	///////////////////////////////////////////////////////
 
 	///////////// Load Spritesheets/Textures //////////////
@@ -99,13 +93,13 @@ int main(int argc, char** argv) {
 	//////////////////////////////////////////////////////////
 	///// CREATE THE PLAYER DESKTOP
 	/////////////////////////////////////////////////////////
-	ppc::NodeState* testState = new NodeState();
-	testState->setUp();
-	WindowInterface* desktopWindow = new Window(1800,1000,sf::Color(200, 200, 200));
+	ppc::NodeState testState;
+	testState.setUp();
+	Window* desktopWindow = new Window(1800,1000,sf::Color(200, 200, 200));
 
-	Desktop* myDesktop = new Desktop(*desktopWindow, *testState);
-	myDesktop->addBackgroundCmpnt(desktopWindow, *S);
-	createPlayerDesktop(*myDesktop, *desktopWindow, myDesktop->getInputHandler(), iconSheet, spriteSheet);
+	Desktop myDesktop(*desktopWindow, testState);
+	myDesktop.addBackgroundCmpnt(desktopWindow, S);
+	createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
 
 	std::vector<PipelineCharacter> pipevec;
 	for (int i = 0; i < 10; ++i) {
@@ -133,7 +127,7 @@ int main(int argc, char** argv) {
 				screen.close();
 
 			//Input phase
-			myDesktop->registerInput(event);
+			myDesktop.registerInput(event);
         }
 
         if (deltaTime.getElapsedTime() > framePeriod) {
@@ -143,21 +137,19 @@ int main(int argc, char** argv) {
      
             //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
-			myDesktop->update(dt);
+			myDesktop.update(dt);
 
             //Draw all the Windows in the Desktop
-			myDesktop->refresh();
+			myDesktop.refresh();
 
 			//Logger should not be used in place of passing
 			//the actual drawn Desktop
-			screen.draw(*myDesktop);
+			screen.draw(myDesktop);
 
             //Display final Window
 			screen.display();
         }
     }
 
-	delete myDesktop;
-	delete T;
     return EXIT_SUCCESS;
 }

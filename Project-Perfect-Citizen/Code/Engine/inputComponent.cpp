@@ -19,6 +19,7 @@ InputComponent::InputComponent(size_t observerCount) {
 InputComponent::~InputComponent() {
     for (size_t i = 0; i < observerCount_; ++i) {
         if (observerArray_[i] != nullptr) {
+
             delete observerArray_[i];
         }
     }
