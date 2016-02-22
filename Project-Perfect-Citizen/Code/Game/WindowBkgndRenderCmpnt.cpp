@@ -3,19 +3,17 @@
 
 
 WindowBkgndRenderCmpnt::WindowBkgndRenderCmpnt(sf::Sprite& s):
-	sprt(&s) {
+	sprt(s) {
 }
 
 
-WindowBkgndRenderCmpnt::~WindowBkgndRenderCmpnt() {
-	delete sprt;
-}
+WindowBkgndRenderCmpnt::~WindowBkgndRenderCmpnt() {}
 
 
 void WindowBkgndRenderCmpnt::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
 
-	target.draw(*(this->sprt), states);
+	target.draw(sprt, states);
 }
 
 void WindowBkgndRenderCmpnt::recieveMessage(msgType code) {

@@ -23,7 +23,16 @@ namespace ppc {
 	///@param The input handler of the listened-to window.
 	///@param The filetree for which the console will work on.
 	///////////////////////////////////////////////////////////////////////
-void spawnConsole(WindowInterface* windowToModify, InputHandler& ih, NodeState& ns,
+void spawnConsole(WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns,
+	float x, float y);
+
+///////////////////////////////////////////////////////////////////////
+///@brief Constructs a database window on the WindowInterface passed.
+///
+///@param The newly created window to add components/entities to.
+///@param The input handler of the listened-to window.
+///////////////////////////////////////////////////////////////////////
+void spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih,
 	float x, float y);
 
 };

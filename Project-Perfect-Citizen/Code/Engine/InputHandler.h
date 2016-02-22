@@ -72,7 +72,7 @@ public:
     ///////////////////////////////////////////////////////////////////
     bool addObserver(sf::Event::EventType type,
                      BaseObserver* obsvr,
-                     bool forceCreation = false);
+                     bool forceCreation = true);
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Removes the observer from the given handle.

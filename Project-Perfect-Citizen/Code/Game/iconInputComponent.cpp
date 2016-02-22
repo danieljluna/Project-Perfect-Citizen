@@ -41,7 +41,13 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		cout << "DEBUG: Implement and open the chat" << endl;
 	}
 	else if (msg.compare(OPEN_THE_SEARCH) == 0) {
-		cout << "DEBUG: Implement and open the search" << endl;
+		ppc::WindowInterface* databaseWindow =
+			new ppc::Window(500, 300, sf::Color(200, 200, 200));
+		ppc::spawnDatabase(databaseWindow, databaseWindow->getInputHandler(), 100, 200);
+		theDesktop_.addWindow(databaseWindow);
+
+
+
 	}
 	else if (msg.compare(OPEN_THE_PIPELINE) == 0) {
 		cout << "DEBUG: Implement and open the pipeline" << endl;

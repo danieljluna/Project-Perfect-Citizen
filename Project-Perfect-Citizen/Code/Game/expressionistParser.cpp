@@ -9,7 +9,7 @@
 //Used to get XCODE working/////////////////////////////////////////////
 
 #ifdef WINDOWS_MARKER
-#define resourcePath() string("Resources/")
+#define resourcePath() std::string("Resources/")
 #else
 #include "ResourcePath.hpp"
 #endif
@@ -22,28 +22,83 @@
 #include <fstream>
 #include <map>
 
-using namespace std;
+using namespace expr;
 
 ////////////////////////////////////////////////////////////////////////
 ///constructor for parsing expressionist data
 ////////////////////////////////////////////////////////////////////////
 
-expressionistParser::expressionistParser(){
+expressionistObj::expressionistObj(){
 
 }
+
+
+std::string expr::express(const std::vector<expressionistObj>& exprObjVec) {
+	std::string retString = "";
+	
+	//Find "deep"
+	//Expand that symbol
+
+
+	return retString;
+	
+}
+
+std::string expr::expressionistObj::expand(const std::vector<expressionistObj>& exprObjVec) {
+	// should these take Json::Value, string& as params?
+	// return type bool?
+	// non member functions?
+	// if doing above, need override for expand incase Json::Value is string?
+	// OR need string param to find relevant rule in vector?
+	std::string retString = "";
+	//
+
+	return retString;
+}
+
+void expr::expressionistObj::fire(std::string & ruleName, const std::vector<expressionistObj>& exprObjVec) {
+	// check complete, if false, pop out
+	// pick branch based on app rate
+	// expand all rules in branch
+}
+
+/*
+NOTE to self:
+I think the best way to do this is for expand and fire to return bools.
+
+bool EXPAND SYMBOL(Json::Value Symbol, const exprObjVec&, string&)
+check markup
+if markup fails checks, return failed
+look at rules
+pick a rule based on app rate (keep track of successes/failures, dont revisit failures)
+fire rule
+if success, return result of fire
+if failed, try again
+if all rules tried and failed, return failure
+
+bool FIRE RULE(Json::Value Rule, const exprObjVec&, string&)
+check markup
+if markup fails checks, return failed
+if double brackets its a rule so expand it
+if single brackets its a substitution/variable so replace it
+otherwise its a string so return it
+
+
+*/
+
 
 ////////////////////////////////////////////////////////////////////////
 ///parsing out the JSON file returning a vector of the class
 ////////////////////////////////////////////////////////////////////////
 
-vector<expressionistParser> expressionistParser::parse(string file){
+std::vector<expressionistObj> expr::parseExpressionist(std::string file){
     Json::Reader reader;
     Json::Value value;
-    ifstream doc(resourcePath() + file, ifstream::binary);
-    vector<expressionistParser> parsed;
+    std::ifstream doc(resourcePath() + file, std::ifstream::binary);
+    std::vector<expressionistObj> parsed;
     if (reader.parse(doc, value)){
         Json::Value nonTerminalObj = value[ "nonterminals" ];
-        vector<string> terminalNames
+        std::vector<std::string> terminalNames
             = nonTerminalObj.getMemberNames();
         
         for (unsigned int i = 0; i < nonTerminalObj.size(); i++){
@@ -60,7 +115,7 @@ vector<expressionistParser> expressionistParser::parse(string file){
                 Json::Value rules = expressionObj["rules"];
                 
                 for (unsigned int k = 0; k < rules.size(); k++){
-                    string expansion
+                    std::string expansion
                         = rules[k].get("expansion", "ER")[0].asString();
                     Json::Value markUps
                         = rules[k].get("markup", "ERROR");
@@ -78,31 +133,31 @@ vector<expressionistParser> expressionistParser::parse(string file){
                     int rate
                         = rules[k].get("app_rate", "ERROR").asInt();
                     for(unsigned int l = 0; l < agePre.size(); l++){
-                        string condition = agePre[l].asString();
-                        pair<string, int> conAndRate(condition, rate);
+                        std::string condition = agePre[l].asString();
+                        std::pair<std::string, int> conAndRate(condition, rate);
                         parsed[i].markUp_["agePreconditions"]
                             = conAndRate;
                     }
                     for(unsigned int l = 0; l < iqPre.size(); l++){
-                        string condition = iqPre[l].asString();
-                        pair<string, int> conAndRate(condition, rate);
+                        std::string condition = iqPre[l].asString();
+                        std::pair<std::string, int> conAndRate(condition, rate);
                         parsed[i].markUp_["iqPreconditions"]
                             = conAndRate;
                     }
                     for(unsigned int l = 0; l < linkSus.size(); l++){
-                        string condition = linkSus[l].asString();
-                        pair<string, int> conAndRate(condition, rate);
+                        std::string condition = linkSus[l].asString();
+						std::pair<std::string, int> conAndRate(condition, rate);
                         parsed[i].markUp_["linkSuspicion"] = conAndRate;
                     }
                     for(unsigned int l = 0; l < personalPre.size(); l++){
-                        string condition = personalPre[l].asString();
-                        pair<string, int> conAndRate(condition, rate);
+						std::string condition = personalPre[l].asString();
+						std::pair<std::string, int> conAndRate(condition, rate);
                         parsed[i].markUp_["personalityPreconditions"]
                             = conAndRate;
                     }
                     for(unsigned int l = 0; l < relationship.size(); l++){
-                        string condition = relationship[l].asString();
-                        pair<string, int> conAndRate(condition, rate);
+						std::string condition = relationship[l].asString();
+						std::pair<std::string, int> conAndRate(condition, rate);
                         parsed[i].markUp_["relationship"] = conAndRate;
                     }
                 }
@@ -111,3 +166,5 @@ vector<expressionistParser> expressionistParser::parse(string file){
     }
     return parsed;
 }
+
+
