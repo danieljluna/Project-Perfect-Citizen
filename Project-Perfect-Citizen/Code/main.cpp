@@ -59,20 +59,14 @@ int main(int argc, char** argv) {
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
-	//Create the InputHandler <-- to be removed
-	//ppc::InputHandler* inputHandle = new InputHandler();
-
 	//////////////////////////SOUND STUFF//////////////////////////////
 	AudioLocator::initialize();
-	ppc::DesktopAudio* dAudio = new ppc::DesktopAudio();
-	AudioLocator::assign(dAudio);
-	AudioLogger* logger = new AudioLogger(*(AudioLocator::getAudio()));
-	AudioLocator::assign(logger);
+	ppc::NullAudio dAudio;
+	AudioLocator::assign(&dAudio);
+	AudioLogger logger(dAudio);
+	AudioLocator::assign(&logger);
 	Audio* audio = AudioLocator::getAudio();
 	audio->playSound(ppc::Sounds::gunshot);
-	// YEAH I KNOW YOU DONT WANT IT IN MAIN BUT EVERYONE NEEDS TO MAKE
-	//SURE THEY HEAR A GUNSHOT WHEN THEY COMPILE TO TEST IF WORKING
-	//FEEL FREE TO REMOVE AFTER ;)
 	///////////////////////////////////////////////////////////////////
 
     ////////////////// BACKGROUND IMAGE ////////////////////

@@ -92,7 +92,8 @@ bool DraggableInput::registerInput(sf::Event& ev) {
 		startX_ = endX_;
 		startY_ = endY_;
 
+        return false;
     }
 
-    return false;
+    return true;
 }

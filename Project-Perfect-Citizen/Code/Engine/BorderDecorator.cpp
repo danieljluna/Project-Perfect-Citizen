@@ -32,7 +32,7 @@ BorderDecorator::BorderDecorator(
 	closeButton_.addComponent(closeRC_);
 	closeButton_.addComponent(bIC_);
 
-	win.addInputComponent(bIC_);
+	addInputComponent(bIC_);
 
 	
     //Set up BorderShape
@@ -40,7 +40,7 @@ BorderDecorator::BorderDecorator(
                             win.getPosition().y - majorBorder);
     sf::Vector2f size(float(win.getSize().x + 2 * minorBorder),
                       float(win.getSize().y + minorBorder + 
-                                majorBorder));
+                                              majorBorder));
 
     borderShape_.setSize(size);
     borderShape_.setFillColor(sf::Color::Red);
@@ -121,8 +121,6 @@ void BorderDecorator::draw(sf::RenderTarget& target,
                            sf::RenderStates states) const {
     target.draw(borderShape_, states);
     WindowDecorator::draw(target, states);
-	/*minRC_->draw(target, states);
-	maxRC_->draw(target, states);*/
 	closeRC_->draw(target, states);
 }
 
@@ -158,9 +156,9 @@ void BorderDecorator::updateBounds() {
     draggableInput_.setBounds(bounds);
 
     //Re-position the button
-    float right = bounds.width + bounds.height;
+    float right = bounds.left + bounds.width;
     sf::FloatRect sprBounds = closeRC_->getSprite()->getGlobalBounds();
-    sf::Vector2f ButtonPos(right - sprBounds.width,
-                           bounds.top + borderTopLeft_.y);
+    sf::Vector2f ButtonPos(right - sprBounds.width - borderBottomRight_.y,
+                           bounds.top + borderBottomRight_.y);
 	closeRC_->renderPosition(ButtonPos);
 }
