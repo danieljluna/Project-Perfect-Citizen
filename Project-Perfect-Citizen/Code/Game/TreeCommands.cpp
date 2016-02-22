@@ -7,7 +7,7 @@ fnMap functionMap{
 	{ "mkdir"	,	fn_mkDir },
 	{ "decrypt"	,	fn_decrypt},
 	{ "encrypt"	,	fn_decrypt},
-	{ "pwd"		,	fn_pwd}
+//	{ "pwd"		,	fn_pwd}
 };
 
 commandFn findFunction(const std::string& command) {
