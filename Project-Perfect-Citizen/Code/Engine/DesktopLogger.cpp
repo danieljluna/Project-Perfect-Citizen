@@ -40,7 +40,6 @@ FileState& DesktopLogger::getRoot() {
 
 	return loggedDesktop_->getRoot();
 
-	out_ << "DesktopLogger: Got Root" << std::endl;
 }
 
 void DesktopLogger::registerInput(sf::Event& ev) {

@@ -15,6 +15,21 @@ ppc::BaseFileType::BaseFileType(ppc::FileType type)
 	}
 }
 
+ppc::BaseFileType::~BaseFileType() {
+    if (filetype == FileType::Directory) {
+        //Remove Default Folders
+        contents.erase(".");
+        contents.erase("..");
+
+        //Remove all other folders
+        while (contents.size() > 0) {
+            auto it = contents.begin();
+            delete it->second;
+            contents.erase(it);
+        }
+    }
+}
+
 void ppc::BaseFileType::uploadJson(std::string jString)
 {
 	this->jSonString = jString;
@@ -22,7 +37,7 @@ void ppc::BaseFileType::uploadJson(std::string jString)
 
 void ppc::BaseFileType::readFile()
 {
-	if (this->isEncrypted) {
+	if (this->encrypted) {
 		return;
 	}
 	switch (this->filetype) {
@@ -34,8 +49,11 @@ void ppc::BaseFileType::readFile()
 
 void ppc::BaseFileType::printDir()
 {
+	this->baseDirString = "";
 	for (auto iter = this->contents.begin(); iter != this->contents.end(); iter++) {
 		std::cout << iter->first << std::endl;
+		this->baseDirString += (iter->first + "@");
+		std::cout << baseDirString << std::endl;
 	}
 }
 
@@ -74,23 +92,23 @@ ppc::FileType ppc::BaseFileType::getFileType()
 	return this->filetype;
 }
 
-void ppc::BaseFileType::toggleVisibility()
+void ppc::BaseFileType::setVisibility(bool flag)
 {
-	if (this->isHidden) {
-		this->isHidden = false;
-	}
-	else {
-		this->isHidden = true;
-	}
+	this->hidden = flag;
 }
 
-void ppc::BaseFileType::toggleEncryption()
-{
-	if (this->isEncrypted) {
-		this->isEncrypted = false;
-	}
-	else {
-		this->isEncrypted = true;
-	}
+void ppc::BaseFileType::setEncryption(bool flag) {
+	this->encrypted = flag;
 }
+
+bool ppc::BaseFileType::isHidden()
+{
+	return hidden;
+}
+
+bool ppc::BaseFileType::isEncrypted()
+{
+	return encrypted;
+}
+
 

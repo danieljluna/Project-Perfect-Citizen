@@ -9,11 +9,14 @@
 #include <SFML/Graphics.hpp>
 
 #include "Window.h"
+#include "InputHandler.h"
+#include "NodeState.h"
+#include "BaseFileType.h"
+#include "../Game/WindowBkgndRenderCmpnt.h"
 
 //temporary typedefs for classes/types not defined yet
 typedef int OSStyle;
-typedef char FileTree;
-typedef float FileState;
+
 
 namespace ppc {
 ///////////////////////////////////////////////////////////////////////
@@ -24,8 +27,7 @@ namespace ppc {
 /// addition, each Desktop has its own unique FileTree and
 /// OS style.
 ///@author Nader Sleem
-///@todo Hook up this class with FileTree and OSStyle when they are
-/// done
+///@todo Deal with minimization.
 ///////////////////////////////////////////////////////////////////////
 	class Desktop : public sf::Drawable {
 
@@ -41,16 +43,32 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 ///@brief The FileTree structure of this Desktop
 ///////////////////////////////////////////////////////////////////////
-		FileTree* fileTree_;
+		NodeState* nodeState_;
+
+///////////////////////////////////////////////////////////////////////
+///@brief The Window that represents the Desktop itself. Should contain
+/// all the icons and buttons, and other windows of the Desktop.
+///@details This window is special, in that it cannot be deleted from
+/// from a Desktop. desktopWindow_ is a part of all the windows kept 
+/// track by windows_. desktopWindow is ALWAYS in the back of the
+/// window_ vector, even when it is focused. 
+///////////////////////////////////////////////////////////////////////
+		WindowInterface* desktopWindow_;
+
+///////////////////////////////////////////////////////////////////////
+///@brief The Window that is focused
+///////////////////////////////////////////////////////////////////////
+		WindowInterface* focused_;
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief The container of all WindowInterfaces/Windows
 ///////////////////////////////////////////////////////////////////////
 		std::vector<WindowInterface*> windows_;
 
-		//ask what this is and about its def in the uml
-		//map<string, (WindowInterface*)(Node*)> extensionMap_;
 
+		//maps strings to function pointers of functions that take in 
+		// Node* and return WindowInterface*
+		//map<string, (WindowInterface*) (Node*)> extensionMap_;
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Brings the desired Window into focus.
@@ -72,6 +90,13 @@ namespace ppc {
 		virtual void draw(sf::RenderTarget&, sf::RenderStates) const;
 
 ///////////////////////////////////////////////////////////////////////
+///@brief A helper function that checks if the mouse is within a
+/// window.
+///////////////////////////////////////////////////////////////////////
+		bool isMouseCollision(WindowInterface*, sf::Vector2i);
+
+
+///////////////////////////////////////////////////////////////////////
 //PUBLIC FIELD
 ///////////////////////////////////////////////////////////////////////
 	public:
@@ -84,12 +109,16 @@ namespace ppc {
 		Desktop() = delete;
 ///////////////////////////////////////////////////////////////////////
 ///@brief Desktop Constructor.
-///@details Creates a Desktop with a given FileTree.
-///@param ft The FileTree object to be associated with the Desktop.
-///
+///@details Creates a Desktop with a given FileTree and width and 
+/// height for the size of the desktopWindow_, which holds the icons &
+/// buttons for the Desktop. The Ctor also intitalizes the
+/// Input Handle for the Desktop. 
+///@param bkgndWin The Window representing the Window for the Desktop
+/// background, which can hold icons/entities.
+///@param n The NodeState object to be associated with the Desktop.
 ///@todo Add param for OSStyle?.
 ///////////////////////////////////////////////////////////////////////
-		Desktop(FileTree& ft);
+		Desktop(WindowInterface& bkgndWin, NodeState& n);
 
 		
 ///////////////////////////////////////////////////////////////////////
@@ -114,6 +143,8 @@ namespace ppc {
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Removes a Window from the Desktop.
+///@details After a window is closed, the desktopWindow is the new 
+/// focused.
 ///@param wi  A WindowInterface* which points to the Window to be 
 /// deleted. If the pointer is nullptr, nothing happens.
 ///@post Desktop contains 1 less Window.
@@ -127,13 +158,24 @@ namespace ppc {
 		virtual void setStyle(OSStyle*);
 
 ///////////////////////////////////////////////////////////////////////
-///@brief Returns the root of the FileTree in the Desktop.
+///@brief Returns a reference of the NodeState in the Desktop.
+///@return A reference to the NodeState in the Desktop
 ///////////////////////////////////////////////////////////////////////
-		virtual FileState& getRoot();
+		virtual NodeState& getNodeState();
 
 ///////////////////////////////////////////////////////////////////////
-///@brief Reacts to Input for all Windows, and all objects
-/// in the Windows.
+///@brief Returns a reference to the Input Handler of desktop window
+///@return A reference to the InputHandler of desktopWindow_
+///////////////////////////////////////////////////////////////////////
+		virtual InputHandler& getInputHandler();
+
+///////////////////////////////////////////////////////////////////////
+///@brief Adds a background render cmpnt to the given Window
+///////////////////////////////////////////////////////////////////////
+		virtual void addBackgroundCmpnt(WindowInterface*, sf::Sprite&);
+
+///////////////////////////////////////////////////////////////////////
+///@brief Reacts to Input for the focused Window.
 ///////////////////////////////////////////////////////////////////////
 		virtual void registerInput(sf::Event& ev);
 

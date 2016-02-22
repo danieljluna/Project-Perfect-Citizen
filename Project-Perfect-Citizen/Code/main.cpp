@@ -10,45 +10,66 @@
 
 #include <iostream>
 #include <fstream>
-
 #include <SFML/Main.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-
 #include "Library/json/json.h"
-
-#include "Engine/testRenderSprite.h"
+#include "Game/testRenderSprite.h"
 #include "Engine/InputHandler.h"
 #include "Engine/subject.h"
-#include "Engine/TestObserver.h"
 #include "Engine/debug.h"
 #include "Engine/entity.h"
 #include "Engine/Window.h"
 #include "Engine/desktop.h"
-#include "Engine/mousePressButton.h"
-#include "Engine/buttonRenderComponent.h"
-#include "Engine/consoleIconRenderComponent.h"
-#include "Engine/TreeCommands.h"
+#include "Game/mousePressButton.h"
+#include "Game/buttonRenderComponent.h"
+#include "Game/consoleIconRenderComponent.h"
+#include "Game/TreeCommands.h"
 #include "Engine/NodeState.h"
-#include "Engine/animatorComponent.hpp"
+#include "Game/animatorComponent.hpp"
+#include "Game/textInputKeys.hpp"
+#include "Game/createWindow.h"
+#include "Game/createIcon.h"
+#include "Game/createButton.h"
+#include "Engine/BorderDecorator.h"
+#include "Game/createDesktop.h"
+#include "Game/desktopExtractionComponent.hpp"
+#include "Game/expressionistParser.hpp"
+#include "Engine/Audio/Audio.h"
+#include "Engine/Audio/Sounds.h"
+#include "Engine/Audio/DesktopAudio.h"
+#include "Engine/Audio/AudioLocator.h"
+#include "Engine/Audio/AudioLogger.h"
+#include "Engine/Audio/AudioLocator.h"
+#include "Engine/Audio/NullAudio.h"
+#include "Game/PipelineCharacter.h"
 
 using namespace ppc;
 
 
 //Note that this is placeholder for now
 int main(int argc, char** argv) {
+
+    DBG_INIT();
+
 	//Scans Debug Flags
 	Debug::scanOpts(argc, argv);
-	//Example of using the debugger macro
 	DEBUGF("ac", argc);
 
     // Create the main sf::window
-    sf::RenderWindow screen(sf::VideoMode(800, 600), "SFML window");
+    sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
-	//Create the InputHandler
-	ppc::InputHandler inputHandle;
+	//////////////////////////SOUND STUFF//////////////////////////////
+	AudioLocator::initialize();
+	ppc::NullAudio dAudio;
+	AudioLocator::assign(&dAudio);
+	AudioLogger logger(dAudio);
+	AudioLocator::assign(&logger);
+	Audio* audio = AudioLocator::getAudio();
+	audio->playSound(ppc::Sounds::gunshot);
+	///////////////////////////////////////////////////////////////////
 
-    //Define a Sprite
+    ////////////////// BACKGROUND IMAGE ////////////////////
     sf::Sprite S;
     sf::Texture T;
     if (!(T.loadFromFile(resourcePath() + "Wallpaper.png"))) {
@@ -60,79 +81,36 @@ int main(int argc, char** argv) {
     S.setTexture(T);
     S.setPosition(0, 0);
     S.setScale(0.7f, 0.7f);
-    
+	///////////////////////////////////////////////////////
 
+	///////////// Load Spritesheets/Textures //////////////
     sf::Image spriteSheet;
-    spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
-
+	spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
+	//////////////////////////////////////////////////////
 
-	/////// Button Entity ////////
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spriteSheet, 0, 3, 1, 1);
-	buttonRender->renderPosition(sf::Vector2f(10, 10));
-	mousePressButton* mpb = new mousePressButton(inputHandle,*buttonRender->getSprite());
-	
-    Entity* testEntity = new Entity();
-	testEntity->addComponent(buttonRender);
-    testEntity->addComponent(mpb);
-	///////////////////////////////
+	//////////////////////////////////////////////////////////
+	///// CREATE THE PLAYER DESKTOP
+	/////////////////////////////////////////////////////////
+	ppc::NodeState testState;
+	testState.setUp();
+	Window* desktopWindow = new Window(1800,1000,sf::Color(200, 200, 200));
 
-	
-	////// Icon Entity //////
-	consoleIconRenderComponent* consoleIconRender = new consoleIconRenderComponent(iconSheet, 0, 0, 1);
-	consoleIconRender->renderPosition(sf::Vector2f(120, 120));
-    mousePressButton* mpb2 = new mousePressButton(inputHandle, *consoleIconRender->getSprite());
+	Desktop myDesktop(*desktopWindow, testState);
+	myDesktop.addBackgroundCmpnt(desktopWindow, S);
+	createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
 
+	std::vector<PipelineCharacter> pipevec;
+	for (int i = 0; i < 10; ++i) {
+		PipelineCharacter newCharacter;
+		newCharacter.generate();
+		pipevec.push_back(newCharacter);
+	}
 
-	Entity* consoleIcon = new Entity();
-	consoleIcon->addComponent(consoleIconRender);
-	consoleIcon->addComponent(mpb2);
-	/////////////////////////
-
-	////// Icon Entity //////
-	consoleIconRenderComponent* consoleIconRender3 = new consoleIconRenderComponent(iconSheet, 1, 0, 1);
-	consoleIconRender3->renderPosition(sf::Vector2f(0, 120));
-	mousePressButton* mpb3 = new mousePressButton(inputHandle, *consoleIconRender3->getSprite());
-    
-	Entity* consoleIcon3 = new Entity();
-	consoleIcon3->addComponent(consoleIconRender3);
-	consoleIcon3->addComponent(mpb3);
-	/////////////////////////
-    
-    /// Animated Icon Button Entity ///
-    buttonRenderComponent* folderIconRender = new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
-    folderIconRender->renderPosition(sf::Vector2f(0, 220));
-    animatorComponent* animator = new animatorComponent(*folderIconRender, 0.05f);
-    mousePressButton* mpb4 = new mousePressButton(inputHandle, *folderIconRender->getSprite());
-
-    
-    Entity* folderIcon = new Entity();
-    folderIcon->addComponent(folderIconRender);
-    folderIcon->addComponent(animator);
-    folderIcon->addComponent(mpb4);
-
-
-    //Create ppc::Window
-    Window* testWindow = new Window(300, 300,sf::Color(200,200,200));
-	//testWindow->addInputComponent(mpb);
-	//testWindow->addInputComponent(mpb2);
-	testWindow->addEntity(*testEntity);
-    testWindow->addEntity(*consoleIcon);
-	testWindow->addEntity(*consoleIcon3);
-    testWindow->addEntity(*folderIcon);
-	//WindowLogger testWindowLogger(*testWindow,cout);
-    //Add testEntity to ppc::Window
-	//testWindowLogger.addEntity(testEntity);
-
-	//Create ppc::Desktop
-	char dummyTree = 't'; //using a dummy variable for Ctor until
-	//the actual FileTree is completed
-	Desktop myDesktop(dummyTree);
-
-	//Add windows to Desktops
-	//myDesktop.addWindow(&testWindowLogger);
-	myDesktop.addWindow(testWindow);
+	for (auto iter = pipevec.begin(); iter != pipevec.end(); ++iter) {
+		cout << iter->getJob() << endl;
+	}
 
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop
@@ -149,17 +127,14 @@ int main(int argc, char** argv) {
 				screen.close();
 
 			//Input phase
-			inputHandle.registerEvent(event);
+			myDesktop.registerInput(event);
         }
 
         if (deltaTime.getElapsedTime() > framePeriod) {
 
             // Clear screen
 			screen.clear(sf::Color::White);
-
-            //Draw Background
-			screen.draw(S);
-            
+     
             //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
 			myDesktop.update(dt);
@@ -175,6 +150,6 @@ int main(int argc, char** argv) {
 			screen.display();
         }
     }
-	
+
     return EXIT_SUCCESS;
 }

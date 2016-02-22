@@ -19,6 +19,7 @@ Window::Window(unsigned int width,
     windowView_.reset(sf::FloatRect(0.0, 0.0, 
                                     float(width), float(height)));
     windowView_.setViewport(sf::FloatRect(0.f, 0.f, 1, 1));
+	inputHandler_ = InputHandler();
 }
 
 
@@ -56,6 +57,27 @@ Window::~Window() {
 }
 
 
+
+
+///////////////////////////////////////////////////////////////////////
+// Space Getters
+///////////////////////////////////////////////////////////////////////
+
+sf::Vector2u Window::getSize() {
+    return windowSpace_.getSize();
+}
+
+
+
+
+sf::FloatRect Window::getBounds() {
+    sf::FloatRect result;
+    result.left = transform_.getPosition().x;
+    result.top = transform_.getPosition().y;
+    result.width = float(windowSpace_.getSize().x);
+    result.height = float(windowSpace_.getSize().y);
+    return result;
+}
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -168,6 +190,16 @@ void Window::addEntity(Entity& entity) {
 
 
 
+///////////////////////////////////////////////////////////////////////
+// Other Getters
+///////////////////////////////////////////////////////////////////////
+
+InputHandler& Window::getInputHandler() {
+    return inputHandler_;
+}
+
+
+
 
 ///////////////////////////////////////////////////////////////////////
 // Step Functionality
@@ -184,7 +216,7 @@ void Window::update(sf::Time& deltaTime) {
 
 
 void Window::registerInput(sf::Event& ev) {
-    //TODO: Implement using InputHandler
+    inputHandler_.registerEvent(ev);
 }
 
 
