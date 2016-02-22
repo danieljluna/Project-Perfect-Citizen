@@ -15,6 +15,21 @@ ppc::BaseFileType::BaseFileType(ppc::FileType type)
 	}
 }
 
+ppc::BaseFileType::~BaseFileType() {
+    if (filetype == FileType::Directory) {
+        //Remove Default Folders
+        contents.erase(".");
+        contents.erase("..");
+
+        //Remove all other folders
+        while (contents.size() > 0) {
+            auto it = contents.begin();
+            delete it->second;
+            contents.erase(it);
+        }
+    }
+}
+
 void ppc::BaseFileType::uploadJson(std::string jString)
 {
 	this->jSonString = jString;

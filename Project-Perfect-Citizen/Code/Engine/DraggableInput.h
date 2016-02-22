@@ -3,6 +3,7 @@
 
 #include "inputComponent.h"
 #include "WindowInterface.h"
+#include <iostream>
 
 
 namespace ppc {
@@ -53,6 +54,9 @@ public:
 private:
 
     bool isDragging_;
+
+	int startX_;
+	int startY_;
 
     sf::FloatRect bounds_;
 

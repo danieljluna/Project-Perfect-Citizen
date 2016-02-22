@@ -1,4 +1,5 @@
 #include "InputHandler.h"
+#include "debug.h"
 
 using namespace ppc;
 

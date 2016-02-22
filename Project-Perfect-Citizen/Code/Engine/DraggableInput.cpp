@@ -54,10 +54,15 @@ bool DraggableInput::registerInput(sf::Event& ev) {
     //If we have a mousePress
     if (ev.type == ev.MouseButtonPressed) {
 
+        sf::Vector2f mousePos(float(ev.mouseButton.x), 
+                              float(ev.mouseButton.y));
+
         //See if it was a left click in bounds
         if ((ev.mouseButton.button == sf::Mouse::Left) &&
-            (bounds_.contains(ev.mouseButton.x, ev.mouseButton.y))) {
+            (bounds_.contains(mousePos))) {
             //Set the flag to true
+			startX_ = ev.mouseButton.x;
+			startY_ = ev.mouseButton.y;
             isDragging_ = true;
         }
 
@@ -65,24 +70,30 @@ bool DraggableInput::registerInput(sf::Event& ev) {
     } else if (ev.type == ev.MouseButtonReleased) {
 
         if (ev.mouseButton.button == sf::Mouse::Left) {
-            //Unset the flag
             isDragging_ = false;
         }
 
     } else if (ev.type == ev.MouseMoved) {
-
+		int endX_ = ev.mouseMove.x;
+		int endY_ = ev.mouseMove.y;
         //See if we're dragging
         if (isDragging_) {
+            sf::Vector2f shift(float(endX_ - startX_),
+                               float(endY_ - startY_));
             //If we're pointing to a Window:
             if (isWindow_) {
-                win_->move(ev.mouseButton.x, ev.mouseButton.y);
+                win_->move(shift);
             //Else if we're pointing to a Transformable
             } else {
-                trans_->move(ev.mouseButton.x, ev.mouseButton.y);
+				trans_->move(shift);
             }
         }
 
+		startX_ = endX_;
+		startY_ = endY_;
+
+        return false;
     }
 
-    return false;
+    return true;
 }

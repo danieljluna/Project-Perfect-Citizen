@@ -174,7 +174,7 @@ public:
 #define DEBUGF(FLAG,CODE) { \
         if (Debug::getFlag (FLAG)) { \
                 Debug::where (FLAG, __FILE__, __LINE__, __func__); \
-                cout << CODE << endl; \
+                std::cout << CODE << std::endl; \
             } \
         }
 #define DEBUGS(FLAG,STMT) { \
