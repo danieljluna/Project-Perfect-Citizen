@@ -48,7 +48,7 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
 		textRenderComponent->renderPosition(sf::Vector2f(0, 220));
 
 		sf::Font myFont;
-		myFont.loadFromFile(resourcePath() + "Consolas.ttf");
+		myFont.loadFromFile(resourcePath() + "consola.ttf");
 		int fontSize = 24;
 		int windowOffset = 5;
 
