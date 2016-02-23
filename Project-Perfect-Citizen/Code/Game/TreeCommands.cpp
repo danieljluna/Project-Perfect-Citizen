@@ -7,7 +7,7 @@ fnMap functionMap{
 	{ "mkdir"	,	fn_mkDir },
 	{ "decrypt"	,	fn_decrypt},
 	{ "encrypt"	,	fn_decrypt},
-	{ "pwd"		,	fn_pwd}
+//	{ "pwd"		,	fn_pwd}
 };
 
 commandFn findFunction(const std::string& command) {
@@ -34,11 +34,13 @@ void fn_ls(ppc::NodeState& state, const vector<string> words)
 	if (words.size() == 1) {
 		state.printWorking();
 		state.getCwd()->printDir();
+		state.setLastLsNode(state.getCwd());
 		return;
 	}
 	if (words.size() > 1) {
 		if (words.at(1) == "/") {
 			state.getRoot()->printDir();
+			state.setLastLsNode(state.getRoot());
 			return;
 		}
 	}

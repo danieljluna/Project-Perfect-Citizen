@@ -1,7 +1,17 @@
 #ifndef BORDER_DECORATOR_H
 #define BORDER_DECORATOR_H
 
+#ifdef WINDOWS_MARKER
+#define resourcePath() string("Resources/")
+#else
+#include "ResourcePath.hpp"
+#endif
+
 #include "WindowDecorator.h"
+#include "DraggableInput.h"
+#include "../Game/buttonRenderComponent.h"
+#include "Entity.h"
+#include "../Game/mousePressButton.h"
 
 namespace ppc {
 
@@ -16,6 +26,7 @@ public:
     BorderDecorator() = delete;
 
     BorderDecorator(WindowInterface& win, 
+					
                     unsigned int majorBorder = 34, 
                     unsigned int minorBorder = 5);
 
@@ -34,6 +45,8 @@ public:
 
     virtual void move(float x, float y) override;
 
+    virtual sf::FloatRect getBounds() override;
+
 
 protected:
 
@@ -42,6 +55,8 @@ protected:
 
 
 private:
+
+    void updateBounds();
 
   /////////////////////////////////////////////////////////////////////
   // Private Variables 
@@ -52,7 +67,12 @@ private:
 
     sf::RectangleShape borderShape_;
 
-    bool isBeingDragged_;
+    DraggableInput draggableInput_;
+
+	sf::RectangleShape closeButtonArea_;
+	buttonRenderComponent* closeRC_;
+	mousePressButton* bIC_;
+	Entity closeButton_;
 
 
 };

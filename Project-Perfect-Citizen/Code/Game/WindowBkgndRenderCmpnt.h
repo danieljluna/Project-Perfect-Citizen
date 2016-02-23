@@ -18,7 +18,7 @@ private:
 ///@brief The sprite of the background. Must be created before passing
 /// to the Ctor.
 ///////////////////////////////////////////////////////////////////////
-	sf::Sprite* sprt;
+	sf::Sprite sprt;
 
 public:
 
