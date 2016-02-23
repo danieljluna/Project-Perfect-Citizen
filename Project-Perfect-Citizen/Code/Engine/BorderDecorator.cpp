@@ -20,20 +20,6 @@ BorderDecorator::BorderDecorator(
     borderTopLeft_.x = borderBottomRight_.x = 
             borderBottomRight_.y = minorBorder;
 
-
-	sf::Image spriteSheet;
-	spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
-
-	closeRC_ = new buttonRenderComponent(spriteSheet, 0, 3, 1, 1);
-	closeRC_->setImageScale(0.2f, 0.2f);
-
-	bIC_ = new mousePressButton(win.getInputHandler(), *closeRC_->getSprite(), "localCloseButton");
-
-	closeButton_.addComponent(closeRC_);
-	closeButton_.addComponent(bIC_);
-
-	addInputComponent(bIC_);
-
 	
     //Set up BorderShape
     borderShape_.setPosition(win.getPosition().x - minorBorder, 
@@ -44,6 +30,20 @@ BorderDecorator::BorderDecorator(
 
     borderShape_.setSize(size);
     borderShape_.setFillColor(sf::Color::Red);
+
+    sf::Image spriteSheet;
+    spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
+
+    buttonRenderVec_.push_back(buttonRenderComponent(spriteSheet, 0, 3, 1, 1));
+    buttonRenderVec_.at(0).setImageScale(0.2f, 0.2f);
+
+    buttonInputVec_.push_back(new mousePressButton(win.getInputHandler(), *(buttonRenderVec_.at(0).getSprite()), "localCloseButton"));
+
+    buttonEntitiyVec_.emplace_back();
+    buttonEntitiyVec_.at(0).addComponent(&(buttonRenderVec_.at(0)));
+    buttonEntitiyVec_.at(0).addComponent(buttonInputVec_.at(0));
+
+    addInputComponent(buttonInputVec_.at(0));
 
     //Set up Bounds
     updateBounds();
@@ -61,6 +61,27 @@ BorderDecorator::BorderDecorator(
 
 
 BorderDecorator::~BorderDecorator() {}
+
+
+
+void BorderDecorator::addButton(sf::Sprite& buttonImage) {
+    /*
+    sf::Image spriteSheet;
+    spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
+
+    buttonRenderVec_.push_back(buttonRenderComponent(spriteSheet, 0, 3, 1, 1));
+    buttonRenderVec_.at(0).setImageScale(0.2f, 0.2f);
+
+    buttonInputVec_.push_back(new mousePressButton(win.getInputHandler(), *buttonRenderVec_.at(0).getSprite(), "localCloseButton"));
+
+    buttonEntitiyVec_.emplace_back();
+    buttonEntitiyVec_.at(0).addComponent(&buttonRenderVec_.at(0));
+    buttonEntitiyVec_.at(0).addComponent(buttonInputVec_.at(0));
+
+    addInputComponent(buttonInputVec_.at(0));
+    */
+}
+
 
 
 
@@ -121,7 +142,7 @@ void BorderDecorator::draw(sf::RenderTarget& target,
                            sf::RenderStates states) const {
     target.draw(borderShape_, states);
     WindowDecorator::draw(target, states);
-	closeRC_->draw(target, states);
+	target.draw(buttonRenderVec_.at(0), states);
 }
 
 
@@ -157,8 +178,8 @@ void BorderDecorator::updateBounds() {
 
     //Re-position the button
     float right = bounds.left + bounds.width;
-    sf::FloatRect sprBounds = closeRC_->getSprite()->getGlobalBounds();
+    sf::FloatRect sprBounds = buttonRenderVec_.at(0).getSprite()->getGlobalBounds();
     sf::Vector2f ButtonPos(right - sprBounds.width - borderBottomRight_.y,
                            bounds.top + borderBottomRight_.y);
-	closeRC_->renderPosition(ButtonPos);
+	buttonRenderVec_.at(0).renderPosition(ButtonPos);
 }

@@ -52,6 +52,13 @@ public:
 
 
   /////////////////////////////////////////////////////////////////////
+  // Button Manipulation
+  /////////////////////////////////////////////////////////////////////
+
+    void addButton(sf::Sprite& buttonImage);
+
+
+  /////////////////////////////////////////////////////////////////////
   // Decorated Functionality
   /////////////////////////////////////////////////////////////////////
 
@@ -96,10 +103,12 @@ private:
     //  via the BorderDecorator.
     DraggableInput draggableInput_;
 
-	sf::RectangleShape closeButtonArea_;
-	buttonRenderComponent* closeRC_;
-	mousePressButton* bIC_;
-	Entity closeButton_;
+    //Vector of buttonRenderComponents
+	std::vector<buttonRenderComponent> buttonRenderVec_;
+    //Vector of buttonInputComponents
+	std::vector<mousePressButton*> buttonInputVec_;
+    //Vector of button Entities
+    std::vector<Entity> buttonEntitiyVec_;
 
 
 };
