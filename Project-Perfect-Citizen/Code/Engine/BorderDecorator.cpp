@@ -10,9 +10,11 @@ using namespace ppc;
 
 BorderDecorator::BorderDecorator(
     WindowInterface& win,
+	sf::Image& buttonSheet,
     unsigned int majorBorder,
     unsigned int minorBorder) :
             WindowDecorator(win),
+			buttonSpriteSheet(buttonSheet),
             draggableInput_(*this) {
     //Store Input
 
@@ -20,11 +22,7 @@ BorderDecorator::BorderDecorator(
     borderTopLeft_.x = borderBottomRight_.x = 
             borderBottomRight_.y = minorBorder;
 
-
-	sf::Image spriteSheet;
-	spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
-
-	closeRC_ = new buttonRenderComponent(spriteSheet, 0, 3, 1, 1);
+	closeRC_ = new buttonRenderComponent(buttonSpriteSheet, 0, 3, 1, 1);
 	closeRC_->setImageScale(0.2f, 0.2f);
 
 	bIC_ = new mousePressButton(win.getInputHandler(), *closeRC_->getSprite(), "localCloseButton");
