@@ -1,33 +1,36 @@
 // debug.cpp
 // Nader Sleem
 
-
 #include "debug.h"
+
+using namespace ppc;
 
 
 Debug::flagset Debug::flags;
 
 void Debug::scanOpts(int argc, char** argv) {
 	if (argc < 2) {
-		cout << "No flags entered in cmd line" << endl;
+		std::cout << "No flags entered in cmd line" << std::endl;
 		return;
 	}
 
-	string flags = argv[1];
+	for (int i = 1; i < argc; i++) {
 
-	size_t found = flags.find('@');
-	if (found == string::npos) {
-		cerr << "Invalid: '-@' not found" << endl;
-		return;
+        std::string flags = argv[i];
+
+		size_t found = flags.find('@');
+		if (found == std::string::npos) {
+			continue;
+		}
+		//substr should have found the flags
+		// starting from the @
+
+		flags = flags.substr(found);
+		setFlags(flags);
 	}
-	//substr should have found the flags
-	// starting from the @
-
-    flags = flags.substr(found);
-    setFlags(flags);
 }
 
-void Debug::setFlags(string& flag) {
+void Debug::setFlags(std::string& flag) {
 	//flag will always start with '@'
 	
 	//If the only flag found was @, then
@@ -40,7 +43,7 @@ void Debug::setFlags(string& flag) {
 	size_t M = flag.find_first_not_of('@');
 	size_t m = M + 1;
 	if (m >= flag.length()) {
-		cerr << "Invalid flag: " << flag << endl;
+        std::cerr << "Invalid flag: " << flag << std::endl;
 		return;
 	}
 	for (; m <= flag.length(); M+=2, m+=2) {
@@ -68,16 +71,16 @@ void Debug::setFlags(string& flag) {
 
 //DO NOT USE '_' IN THE FLAG. '_' is a special flag signifier,
 // not an actual flag.
-bool Debug::getFlag(string flag) {
+bool Debug::getFlag(std::string flag) {
 	if (flag.length() != 2) {
-		cerr << "Invalid Flag: " + flag << endl;
+        std::cerr << "Invalid Flag: " + flag << std::endl;
 		return false;
 	}
 	unsigned char major = flag.front();
 	unsigned char minor = flag.back();
 
 	if (minor == '_') {
-		cerr << "Invalid Flag: " + flag << endl;
+        std::cerr << "Invalid Flag: " + flag << std::endl;
 		return false;
 	}
 	int alphaPosMajor = (major - 'a') + 1;
@@ -90,12 +93,12 @@ bool Debug::getFlag(string flag) {
 
 }
 
-void Debug::where(string flag, const char* file, int line,
+void Debug::where(std::string flag, const char* file, int line,
 	const char* func) {
-	string f = file;
-	string fileName;
+    std::string f = file;
+    std::string fileName;
 	fileName = f.substr(f.find_last_of("/\\")+1);
-	cout << "DEBUG(" << flag << ") " <<
+    std::cout << "DEBUG(" << flag << ") " <<
 		fileName << " [Line:" << line << "] " << 
-		func << "()" << endl;
+		func << "()" << std::endl;
 }

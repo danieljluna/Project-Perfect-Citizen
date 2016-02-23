@@ -1,13 +1,7 @@
 #include "Window.h"
 
-#include "inputComponent.h"
-#include "updateComponent.h"
-#include "renderComponent.h"
-#include "entity.h"
-
 #include <SFML/Graphics/RenderTexture.hpp>
 #include <cstddef>
-
 
 using namespace ppc;
 
@@ -18,22 +12,22 @@ using namespace ppc;
 
 Window::Window(unsigned int width, 
                unsigned int height, 
-               sf::Color color) : 
+               sf::Color col) : 
             windowSpace_() {
     windowSpace_.create(width, height);
-    backgroundColor_ = color;
-    //Create View
-    windowView_.reset(sf::FloatRect(0.0, 0.0, 100.0, 100.0));
-    windowView_.setViewport(sf::FloatRect(0.f, 0.f, width, height));
+    backgroundColor_ = col;
+    windowView_.reset(sf::FloatRect(0.0, 0.0, 
+                                    float(width), float(height)));
+    windowView_.setViewport(sf::FloatRect(0.f, 0.f, 1, 1));
+	inputHandler_ = InputHandler();
 }
 
 
 
 
-Window::Window(const sf::Vector2u& size) :
-        windowSpace_() {
-    windowSpace_.create(size.x, size.y);
-}
+Window::Window(const sf::Vector2u& size,
+               sf::Color col) :
+        Window(size.x, size.y, col) {}
 
 
 
@@ -47,9 +41,87 @@ Window::Window(const Window& other) :
 
 
 
-Window::~Window() {}
+Window::~Window() {
+    for (auto ic : inputcmpnts_) {
+        delete ic;
+        ic = nullptr;
+    }
+    for (auto uc : updatecmpnts_) {
+        delete uc;
+        uc = nullptr;
+    }
+    for (auto rc : rendercmpnts_) {
+        delete rc;
+        rc = nullptr;
+    }
+}
 
 
+
+
+///////////////////////////////////////////////////////////////////////
+// Space Getters
+///////////////////////////////////////////////////////////////////////
+
+sf::Vector2u Window::getSize() {
+    return windowSpace_.getSize();
+}
+
+
+
+
+sf::FloatRect Window::getBounds() {
+    sf::FloatRect result;
+    result.left = transform_.getPosition().x;
+    result.top = transform_.getPosition().y;
+    result.width = float(windowSpace_.getSize().x);
+    result.height = float(windowSpace_.getSize().y);
+    return result;
+}
+
+
+///////////////////////////////////////////////////////////////////////
+// Space Setters
+///////////////////////////////////////////////////////////////////////
+
+void Window::setSize(unsigned int width, unsigned int height) {
+    windowSpace_.create(width, height);
+    trimEntities();
+}
+
+
+///////////////////////////////////////////////////////////////////////
+// Transformation Setters
+///////////////////////////////////////////////////////////////////////
+
+void Window::setPosition(float x, float y) {
+    transform_.setPosition(x, y);
+}
+
+void Window::move(float x, float y) {
+    transform_.move(x, y);
+}
+
+void Window::setScale(float x, float y) {
+    transform_.setScale(x, y);
+}
+
+void Window::scale(float x, float y) {
+    transform_.scale(x, y);
+}
+
+
+///////////////////////////////////////////////////////////////////////
+// Transformation Getters
+///////////////////////////////////////////////////////////////////////
+
+sf::Vector2f Window::getPosition() const {
+    return transform_.getPosition();
+}
+
+sf::Vector2f Window::getScale() const {
+    return transform_.getScale();
+}
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -84,6 +156,7 @@ void Window::addUpdateComponent(UpdateComponent* updatecmpnt) {
 
 
 void Window::addEntity(Entity& entity) {
+	
     //Stores the current index we're on
     size_t i = 0;
     //Stores the number of components we haven't found
@@ -102,6 +175,7 @@ void Window::addEntity(Entity& entity) {
             //Test if it is an updateComponent
             } else if (dynamic_cast<UpdateComponent*>(cmpnt) != nullptr) {
                 updatecmpnts_.push_back(dynamic_cast<UpdateComponent*>(cmpnt));
+            //Test if it is a renderComponent
             } else if (dynamic_cast<RenderComponent*>(cmpnt) != nullptr) {
                 rendercmpnts_.push_back(dynamic_cast<RenderComponent*>(cmpnt));
             }
@@ -110,6 +184,18 @@ void Window::addEntity(Entity& entity) {
         //Search the next index
         ++i;
     }
+
+    entityVec_.push_back(std::move(entity));
+}
+
+
+
+///////////////////////////////////////////////////////////////////////
+// Other Getters
+///////////////////////////////////////////////////////////////////////
+
+InputHandler& Window::getInputHandler() {
+    return inputHandler_;
 }
 
 
@@ -130,7 +216,7 @@ void Window::update(sf::Time& deltaTime) {
 
 
 void Window::registerInput(sf::Event& ev) {
-    //TODO: Implement using InputHandler
+    inputHandler_.registerEvent(ev);
 }
 
 
@@ -140,16 +226,15 @@ void Window::refresh(sf::RenderStates states) {
     //Clear Window to Background Color
     windowSpace_.clear(backgroundColor_);
 
-    //TODO: FIX VIEW
     //Apply the view
-    //windowSpace_.setView(windowView_);
+    windowSpace_.setView(windowView_);
 
     //Draws all objects in the window
     for (RenderComponent* c : rendercmpnts_) {
         windowSpace_.draw(*c, states);
     }
 
-    //windowSpace_.setView(windowSpace_.getDefaultView());
+    windowSpace_.setView(windowSpace_.getDefaultView());
 
     windowSpace_.display();
 }
@@ -161,9 +246,86 @@ void Window::draw(sf::RenderTarget& target,
                   sf::RenderStates states) const {
     //Create a sprite off of the windowSpace_
     sf::Sprite spr(windowSpace_.getTexture());
-    spr.setPosition(100, 100);
+
+    states.transform *= transform_.getTransform();
 
     //Draw the sprite
     target.draw(spr, states);
 }
 
+
+
+
+///////////////////////////////////////////////////////////////////////
+/// Helper Functions
+///////////////////////////////////////////////////////////////////////
+
+void Window::trimEntities() {
+    //For all entites:
+    for (auto i = entityVec_.begin(); i != entityVec_.end();) {
+        sf::Vector2f pos = i->getPosition();
+        sf::Vector2u size = windowSpace_.getSize();
+
+        //If that entity is not in the WindowSpace
+        if ((pos.x >= size.x) || (pos.y >= size.y) || (pos.x < 0) ||
+                (pos.y < 0)) {
+            //Remove the Entity
+            deleteEntity(i);
+
+        } else { 
+            ++i; 
+        }
+    }
+}
+
+
+
+
+void Window::deleteEntity(std::vector<Entity>::iterator entityIt) {
+    //Loop over the Components in the Entity
+    for (size_t c = 0; c < Entity::maxComponentCount; ++c) {
+        Component* cmpnt = entityIt->getComponent(c);
+        //If there is a Componentn in this slot:
+        if (cmpnt != nullptr) {
+            delete cmpnt;
+            removeComponent(cmpnt);
+        }
+    }
+
+    //Remove the Entity
+    entityVec_.erase(entityIt);
+}
+
+
+
+
+void Window::removeComponent(Component* cmpntPtr) {
+    //Test if it is an inputComponent
+    if (dynamic_cast<InputComponent*>(cmpntPtr) != nullptr) {
+        auto cmpntIt = std::find(inputcmpnts_.begin(),
+            inputcmpnts_.end(),
+            dynamic_cast<InputComponent*>(cmpntPtr));
+        //Delete if found
+        if (cmpntIt != inputcmpnts_.end()) {
+            inputcmpnts_.erase(cmpntIt);
+        }
+        //Test if it is an updateComponent
+    } else if (dynamic_cast<UpdateComponent*>(cmpntPtr) != nullptr) {
+        auto cmpntIt = std::find(updatecmpnts_.begin(),
+            updatecmpnts_.end(),
+            dynamic_cast<UpdateComponent*>(cmpntPtr));
+        //Delete if found
+        if (cmpntIt != updatecmpnts_.end()) {
+            updatecmpnts_.erase(cmpntIt);
+        }
+        //Test if it is a renderComponent
+    } else if (dynamic_cast<RenderComponent*>(cmpntPtr) != nullptr) {
+        auto cmpntIt = std::find(rendercmpnts_.begin(),
+            rendercmpnts_.end(),
+            dynamic_cast<RenderComponent*>(cmpntPtr));
+        //Delete if found
+        if (cmpntIt != rendercmpnts_.end()) {
+            rendercmpnts_.erase(cmpntIt);
+        }
+    }
+}

@@ -8,7 +8,6 @@ ComponentObsvr::ComponentObsvr(InputComponent& iCmpnt) :
 
 
 
-
-void ComponentObsvr::eventHandler(sf::Event& ev) {
-    i_cmpnt_.registerInput(ev);
+bool ComponentObsvr::eventHandler(sf::Event& ev) {
+    return (i_cmpnt_.registerInput(ev));
 }

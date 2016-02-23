@@ -11,49 +11,14 @@ void Subject::addObserver(BaseObserver* observer) {
 		}
 		observerHead = observer;
 		observer->prev = nullptr;
-        observer->inUse = true;
+        observer->watching_ = this;
 }
 
 void Subject::removeObserver(BaseObserver * observer){
-	//if its the head
-	
-	if (observerHead == observer) {
-		//there is only one 
-		if (observerHead->next == nullptr) {
-			BaseObserver* tempObserver = observerHead;
-			observerHead = nullptr;
-			tempObserver->prev = nullptr;
-			tempObserver->next = nullptr;
-			//delete observerHead;
-			delete tempObserver;
-			return;
-
-		}
-		else {
-			BaseObserver* tempObserver = observerHead;
-			observerHead = observerHead->next;
-			observerHead->prev = nullptr;
-			tempObserver->next = nullptr;
-			tempObserver->prev = nullptr;
-			delete tempObserver;
-			return;
-		}
-	}
-
-    BaseObserver* currentObserver = observerHead;
-	while (currentObserver != nullptr) {
-		if (currentObserver->next == observer) {
-			currentObserver->next = observer->next;
-			if (observer->next != nullptr) {
-				observer->next->prev = currentObserver;
-			}
-			observer->next = nullptr;
-			observer->prev = nullptr;
-			delete observer;
-			return;
-		}
-		currentObserver = currentObserver->next;
-	}
+    //If the observer is attatched to the subject:
+    if (find(observer) != nullptr) {
+        rmObserver(observer);
+    }
 }
 
 
@@ -99,8 +64,13 @@ void Subject::sendEvent(sf::Event& event)
 	}
 
 	while (currentObserver != nullptr) {
-		currentObserver->eventHandler(event);
-		currentObserver = currentObserver->next;
+        if (!currentObserver->eventHandler(event)) {
+            //Observer returned false, denoting it wants to stop event 
+            //  propagation
+            currentObserver = nullptr;
+        } else {
+            currentObserver = currentObserver->next;
+        }
 	}
 }
 
@@ -163,6 +133,6 @@ void Subject::rmObserver(BaseObserver* obsvr) {
         obsvr->next->prev = obsvr->prev;
     }
 
-    obsvr->inUse = false;
+    obsvr->watching_ = nullptr;
 }
 
