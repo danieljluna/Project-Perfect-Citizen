@@ -1,8 +1,17 @@
 #ifndef BORDER_DECORATOR_H
 #define BORDER_DECORATOR_H
 
+#ifdef WINDOWS_MARKER
+#define resourcePath() string("Resources/")
+#else
+#include "ResourcePath.hpp"
+#endif
+
 #include "WindowDecorator.h"
 #include "DraggableInput.h"
+#include "../Game/buttonRenderComponent.h"
+#include "Entity.h"
+#include "../Game/mousePressButton.h"
 
 namespace ppc {
 
@@ -32,6 +41,7 @@ public:
     ///     Window.
     ///////////////////////////////////////////////////////////////////
     BorderDecorator(WindowInterface& win, 
+					
                     unsigned int majorBorder = 34, 
                     unsigned int minorBorder = 5);
 
@@ -85,6 +95,11 @@ private:
     //Stores the input Component that allows the Window to be dragged 
     //  via the BorderDecorator.
     DraggableInput draggableInput_;
+
+	sf::RectangleShape closeButtonArea_;
+	buttonRenderComponent* closeRC_;
+	mousePressButton* bIC_;
+	Entity closeButton_;
 
 
 };
