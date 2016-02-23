@@ -49,8 +49,11 @@ int main(int argc, char** argv) {
 	DEBUGF("ac", argc);
 
 	Json::Value exprOutput = expr::parseExpressionistAsJson("data.json");
+	PipelineCharacter pipechar;
 	for (size_t i = 0; i < 10; ++i) {
-		cout << expr::expressWithJson(exprOutput) << endl;
+		pipechar.generate();
+		cout << "Char Age: " << pipechar.getAge() << ", Char IQ: " << pipechar.getIQ() << endl;
+		cout << expr::expressWithJson(exprOutput, pipechar) << endl;
 	}
 
     // Create the main sf::window

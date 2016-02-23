@@ -25,20 +25,20 @@ public:
 	///////////////////////////////////////////////////////////////////
 	// Getters
 	///////////////////////////////////////////////////////////////////
-	int const getIQ() { return iq_;  }
-	int const getAge() { return age_; }
-	int const getCreditScore() { return creditScore_; }
+	int getIQ() const { return iq_;  }
+	int getAge() const { return age_; }
+	int getCreditScore() const { return creditScore_; }
 
-	std::string const getSSN() { return ssn_; }
-	std::string const getEmail() { return email_; }
-	std::string const getPhoneNum() { return phoneNumber_; }
+	std::string getSSN() const { return ssn_; }
+	std::string getEmail() const { return email_; }
+	std::string getPhoneNum() const { return phoneNumber_; }
 
-	std::string const getPersOutgoing() { return persOutgoing_; }
-	std::string const getPersInfo() { return persInfo_; }
-	std::string const getPersDecision() { return persDecision_; }
-	std::string const getPersStructure() { return persStructure_; }
+	std::string getPersOutgoing() const { return persOutgoing_; }
+	std::string getPersInfo() const { return persInfo_; }
+	std::string getPersDecision() const { return persDecision_; }
+	std::string getPersStructure() const { return persStructure_; }
 
-	std::string const getJob() { return job_; }
+	std::string getJob() const { return job_; }
 
 	///////////////////////////////////////////////////////////////////
 	// Setters not needed?

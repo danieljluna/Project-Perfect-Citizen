@@ -24,7 +24,7 @@
 #include <random>
 #include <list>
 #include <cstddef>
-#include "PipelineCharacter.h"
+
 
 using namespace expr;
 
@@ -40,7 +40,7 @@ Json::Value expr::parseExpressionistAsJson(std::string file) {
 	return value;
 }
 
-std::string expr::expressWithJson(const Json::Value& exprOutput) {
+std::string expr::expressWithJson(const Json::Value& exprOutput, const ppc::PipelineCharacter& speaker) {
 	size_t i = 0;		
 	Json::Value nonTerminalObj = exprOutput["nonterminals"];
 	std::vector<std::string> terminalNames = nonTerminalObj.getMemberNames();
@@ -48,7 +48,7 @@ std::string expr::expressWithJson(const Json::Value& exprOutput) {
 		if (exprOutput["nonterminals"][terminalNames[i]]["deep"].asBool() == true) break;
 	}
 
-	std::pair<std::string, bool> result = expandWithJson(exprOutput, exprOutput["nonterminals"][terminalNames[i]]);
+	std::pair<std::string, bool> result = expandWithJson(exprOutput, exprOutput["nonterminals"][terminalNames[i]], speaker);
 	if (result.second == true) return result.first;
 
 	return "";
@@ -56,13 +56,13 @@ std::string expr::expressWithJson(const Json::Value& exprOutput) {
 
 }
 
-std::pair<std::string, bool> expr::expandWithJson(const Json::Value& exprOutput, const Json::Value& symbol) {
+std::pair<std::string, bool> expr::expandWithJson(const Json::Value& exprOutput, const Json::Value& symbol, const ppc::PipelineCharacter& speaker) {
 
 	if (symbol["complete"].asBool() == false) return std::make_pair("", false);
 
 	
 	std::string teststring = "";
-	if (checkMarkUp(teststring) == false) { return std::make_pair("", false) ; } 
+	if (checkMarkUpPreconditions(symbol["markup"], speaker) == false) { return std::make_pair("", false) ; } 
 
 
 
@@ -89,7 +89,7 @@ std::pair<std::string, bool> expr::expandWithJson(const Json::Value& exprOutput,
 		for (; i < unvisited.size(); ++i) {
 			currAppRate -= unvisited[i]["app_rate"].asInt();
 			if (currAppRate <= 0) {
-				std::pair<std::string, bool> fireResult = fireWithJson(exprOutput, unvisited[i]);
+				std::pair<std::string, bool> fireResult = fireWithJson(exprOutput, unvisited[i], speaker);
 				if (fireResult.second == true) {
 					return fireResult;
 				}
@@ -115,11 +115,15 @@ size_t trimBraces(std::string& str) {
 	return std::string::npos;
 }
 
-std::pair<std::string, bool> expr::fireWithJson(const Json::Value& exprOutput, const Json::Value& rule) {
+std::pair<std::string, bool> expr::fireWithJson(const Json::Value& exprOutput, const Json::Value& rule, const ppc::PipelineCharacter& speaker) {
 	std::string result = "";
 	std::string teststring = "";
 
-	if (checkMarkUp(teststring) == false) return std::make_pair("", false);
+	if (checkMarkUpPreconditions(rule["markup"], speaker) == false) {
+		//std::cout << "Markup check failed in Fire." << std::endl;
+		return std::make_pair("", false);
+	}
+	//std::cout << rule["expansion"][0].asString() << std::endl;
 
 	//go through all strings in expansion
 	for (size_t i = 0; i < rule["expansion"].size(); ++i) {
@@ -134,7 +138,7 @@ std::pair<std::string, bool> expr::fireWithJson(const Json::Value& exprOutput, c
 		} else if (braceCount == 2) {
 			Json::Value newExp = exprOutput["nonterminals"][currExp];
 			//recursively expands upon a new non terminal symbol (newExp), yielding a valid result if one is possible
-			std::pair<std::string, bool> subResult = expandWithJson(exprOutput, newExp);
+			std::pair<std::string, bool> subResult = expandWithJson(exprOutput, newExp, speaker);
 			if (subResult.second == true) result += subResult.first;
 			
 			//if there were no valid expansions, this rule cannot be completed
@@ -153,44 +157,83 @@ std::pair<std::string, bool> expr::fireWithJson(const Json::Value& exprOutput, c
 
 
 bool makeComparison(const std::string& str1, const std::string& str2, const std::string& oper) {
-	return true;
+	//std::cout << "strcmp: " << str1 << oper << str2 << std::endl;
+	
+	if (oper.compare("==")) {
+		return (str1.compare(str2) == 0);
+	}
+	else if (oper.compare("!=")) {
+		return (str1.compare(str2) != 0);
+	}
+	return false;
 }
 
 bool makeComparison(const int& int1, const int& int2, const std::string& oper) {
-	return true;
+	//std::cout << "IntComp: " << int1 << oper << int2 << std::endl;
+	//std::cout << "oper = \"" << oper << "\"" << std::endl;
+	if (oper.compare("==") == 0) {
+		return int1 == int2;
+	} 
+	else if (oper.compare(">=") == 0) {
+		return int1 >= int2;
+	}
+	else if (oper.compare(">") == 0) {
+		return int1 > int2;
+	}
+	else if (oper.compare("<=") == 0) {
+		return int1 <= int2;
+	}
+	else if (oper.compare("<") == 0) {
+		return int1 < int2;
+	}
+	else if (oper.compare("!=") == 0) {
+		return int1 != int2;
+	}
+
+	return false;
 }
 
-bool checkMarkUpPreconditions(const Json::Value& markup, const ppc::PipelineCharacter& speaker) {
+bool expr::checkMarkUpPreconditions(const Json::Value& markup, const ppc::PipelineCharacter& speaker) {
 	std::vector<std::string> markupNames = markup.getMemberNames();
 	for (size_t i = 0; i < markup.size(); ++i) {
-		std::string currMark = markup[markupNames[i]].asString();
+		Json::Value currMark = markup[markupNames[i]];
 		std::string oper;
 		std::string req;
 		std::string value;
 
-		for (size_t j = 0; j < markup[markupNames[i]].size(); ++j) {
-			std::string currCond = markup[markupNames[i]][j].asString();
-			req = currCond.substr(0, currCond.find_first_of(" "));
-			oper = currCond.substr(currCond.find_first_of(" ") + 1, currCond.find_last_of(" "));
+		for (size_t j = 0; j < currMark.size(); ++j) {
+			std::string currCond = currMark[j].asString();
+			//std::cout << "CurrCond = " << currCond << " markupNames[i] = " << markupNames[i] << std::endl;
+			size_t firstspace = currCond.find_first_of(" ");
+			req = currCond.substr(0, firstspace);
+			oper = currCond.substr(firstspace + 1, currCond.length() - currCond.find_last_of(" ") - 1);
 			value = currCond.substr(currCond.find_last_of(" ") + 1, std::string::npos);
+			if (markupNames[i].compare("agePreconditions") == 0) {
+				//std::cout << "Making Age Comparison" << std::endl;
 
-			if (currMark == "agePreconditions") {
 				if (makeComparison(speaker.getAge(), std::stoi(value), oper) == false) return false;
+				continue;
 			}
-			else if (currMark == "contentType"){ 
+			else if (markupNames[i].compare("contentType") == 0){
 				//unused currently
+				continue;
 			}
-			else if (currMark == "iqPreconditions") {
+			else if (markupNames[i].compare("iqPreconditions") == 0) {
+				//std::cout << "Making IQ comparison" << std::endl;
 				if (makeComparison(speaker.getIQ(), std::stoi(value), oper) == false) return false;
+				continue;
 			}
-			else if (currMark == "linkSuspicion") {
+			else if (markupNames[i].compare("linkSuspicion") == 0) {
 				//unused currently
+				continue;
 			}
-			else if (currMark == "personalityPreconditions") {
+			else if (markupNames[i].compare("personalityPreconditions") == 0) {
 				//get specific personality trait
+				continue;
 			}
-			else if (currMark == "relationshipType") {
+			else if (markupNames[i].compare("relationshipType") == 0) {
 				//unused currently
+				//needs target as well as speaker
 			}
 		}
 	}

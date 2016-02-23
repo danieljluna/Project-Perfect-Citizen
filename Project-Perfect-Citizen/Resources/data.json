@@ -73,15 +73,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18", "speaker.age <= 24",
-                     "speaker.age >= 25", "speaker.age <= 44",
-                     "speaker.age >= 45", "speaker.age <= 65"
+                     "speaker.age >= 18", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 130", "speaker.iq <= 144",
-                     "speaker.iq >= 85", "speaker.iq <= 114",
-                     "speaker.iq >= 115", "speaker.iq <= 129",
-                     "speaker.iq >= 70", "speaker.iq <= 84"
+                     "speaker.iq <= 144", "speaker.iq >= 70"
                   ]
                }
             },
@@ -94,9 +89,9 @@
                   "agePreconditions":[
                      "speaker.age >= 18", "speaker.age <= 24"
                   ],
-                  "iqPreconditions":[
-                     "speaker.iq >= 70", "speaker.iq <= 84"
-                  ]
+                  "iqPreconditions": [
+                     "speaker.iq <= 84"
+                ]
                }
             }
          ]
@@ -115,15 +110,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18", "speaker.age <= 24",
-                     "speaker.age >= 25", "speaker.age <= 44",
-                     "speaker.age >= 45", "speaker.age <= 65"
+                     "speaker.age >= 18", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 130", "speaker.iq <= 144",
-                     "speaker.iq >= 85", "speaker.iq <= 114",
-                     "speaker.iq >= 115", "speaker.iq <= 129",
-                     "speaker.iq >= 70", "speaker.iq <= 84"
+                     "speaker.iq >= 70"
                   ]
                }
             },
@@ -137,7 +127,7 @@
                      "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                    "speaker.iq >= 55", "speaker.iq <= 69"
+                     "speaker.iq >= 55", "speaker.iq <= 69"
                   ]
                }
             }
@@ -157,13 +147,11 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18", "speaker.age <= 24",
-                     "speaker.age >= 25", "speaker.age <= 44"
+                     "speaker.age >= 18", "speaker.age <= 44"
                   ],
-                  "iqPreconditions":[
-                     "speaker.iq >= 85", "speaker.iq <= 114",
-                     "speaker.iq >= 70", "speaker.iq <= 84"
-                  ]
+                  "iqPreconditions": [
+                     "speaker.iq <= 114", "speaker.iq >= 70"
+                ]
                }
             },
             {
@@ -173,13 +161,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18", "speaker.age <= 24",
-                     "speaker.age >= 25", "speaker.age <= 44"
+                     "speaker.age >= 18", "speaker.age <= 44"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85", "speaker.iq <= 114",
-                    "speaker.iq >= 55", "speaker.iq <= 69",
-                     "speaker.iq >= 70", "speaker.iq <= 84"
+                     "speaker.iq <= 114"
                   ]
                }
             },
@@ -193,9 +178,7 @@
                      "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85", "speaker.iq <= 114",
-                    "speaker.iq >= 55", "speaker.iq <= 69",
-                     "speaker.iq >= 70", "speaker.iq <= 84"
+                     "speaker.iq <= 114"
                   ]
                }
             }
@@ -219,13 +202,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18", "speaker.age <= 24",
-                     "speaker.age >= 25", "speaker.age <= 44"
+                     "speaker.age >= 18", "speaker.age <= 44"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85", "speaker.iq <= 114",
-                    "speaker.iq >= 55", "speaker.iq <= 69",
-                     "speaker.iq >= 70", "speaker.iq <= 84"
+                     "speaker.iq <= 114"
                   ]
                }
             },
@@ -236,13 +216,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18", "speaker.age <= 24",
-                     "speaker.age >= 25", "speaker.age <= 44"
+                     "speaker.age >= 18", "speaker.age <= 44"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85", "speaker.iq <= 114",
-                    "speaker.iq >= 55", "speaker.iq <= 69",
-                     "speaker.iq >= 70", "speaker.iq <= 84"
+                     "speaker.iq <= 114"
                   ]
                }
             },
@@ -395,11 +372,7 @@
                      "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                    "speaker.iq >= 55", "speaker.iq <= 69",
-                     "speaker.iq >= 130", "speaker.iq <= 144",
-                     "speaker.iq >= 85", "speaker.iq <= 114",
-                     "speaker.iq >= 115", "speaker.iq <= 129",
-                     "speaker.iq >= 70", "speaker.iq <= 84"
+
                   ]
                }
             },
@@ -410,16 +383,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18", "speaker.age <= 24",
-                     "speaker.age >= 25", "speaker.age <= 44",
-                     "speaker.age >= 45", "speaker.age <= 65"
+                     "speaker.age >= 18", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                    "speaker.iq >= 55", "speaker.iq <= 69",
-                     "speaker.iq >= 130", "speaker.iq <= 144",
-                     "speaker.iq >= 85", "speaker.iq <= 114",
-                     "speaker.iq >= 115", "speaker.iq <= 129",
-                     "speaker.iq >= 70", "speaker.iq <= 84"
+
                   ]
                }
             }
@@ -461,14 +428,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18", "speaker.age <= 24",
-                     "speaker.age >= 25", "speaker.age <= 44",
-                     "speaker.age >= 45", "speaker.age <= 65"
+                     "speaker.age >= 18", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 130", "speaker.iq <= 144",
-                     "speaker.iq >= 85", "speaker.iq <= 114",
-                     "speaker.iq >= 115", "speaker.iq <= 129"
+                     "speaker.iq >= 85"
                   ]
                }
             },
@@ -479,14 +442,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18", "speaker.age <= 24",
-                     "speaker.age >= 25", "speaker.age <= 44",
-                     "speaker.age >= 45", "speaker.age <= 65"
+                     "speaker.age >= 18", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85", "speaker.iq <= 114",
-                     "speaker.iq >= 115", "speaker.iq <= 129",
-                     "speaker.iq >= 70", "speaker.iq <= 84"
+                     "speaker.iq <= 129"
                   ]
                }
             },
@@ -500,8 +459,7 @@
                      "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                    "speaker.iq >= 55", "speaker.iq <= 69",
-                     "speaker.iq >= 70", "speaker.iq <= 84"
+                    "speaker.iq <= 84"
                   ]
                }
             },
@@ -512,15 +470,11 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18", "speaker.age <= 24",
-                     "speaker.age >= 25", "speaker.age <= 44",
-                     "speaker.age >= 45", "speaker.age <= 65"
+                     "speaker.age >= 18", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                    "speaker.iq >= 55", "speaker.iq <= 69",
-                     "speaker.iq >= 85", "speaker.iq <= 114",
-                     "speaker.iq >= 115", "speaker.iq <= 129",
-                     "speaker.iq >= 70", "speaker.iq <= 84"
+                     "speaker.iq <= 129"
+
                   ]
                }
             },
@@ -534,9 +488,7 @@
                      "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85", "speaker.iq <= 114",
-                    "speaker.iq >= 55", "speaker.iq <= 69",
-                     "speaker.iq >= 70", "speaker.iq <= 84"
+                     "speaker.iq <= 114"
                   ]
                }
             }
@@ -1091,13 +1043,10 @@
          "deep":false,
          "markup":{
             "agePreconditions":[
-               "speaker.age >= 25", "speaker.age <= 44",
-               "speaker.age >= 45", "speaker.age <= 65"
+               "speaker.age >= 25", "speaker.age <= 65"
             ],
             "iqPreconditions":[
-               "speaker.iq >= 130", "speaker.iq <= 144",
-               "speaker.iq >= 85", "speaker.iq <= 114",
-               "speaker.iq >= 115", "speaker.iq <= 129"
+               "speaker.iq >= 85"
             ],
             "linkSuspicion":[
                "ambiguous",
@@ -1187,16 +1136,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18", "speaker.age <= 24",
-                     "speaker.age >= 25", "speaker.age <= 44",
-                     "speaker.age >= 45", "speaker.age <= 65"
+                     "speaker.age >= 18", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                    "speaker.iq >= 55", "speaker.iq <= 69",
-                     "speaker.iq >= 130", "speaker.iq <= 144",
-                     "speaker.iq >= 85", "speaker.iq <= 114",
-                     "speaker.iq >= 115", "speaker.iq <= 129",
-                     "speaker.iq >= 70", "speaker.iq <= 84"
+                    
                   ],
                   "linkSuspicion":[
                      "ambiguous",
@@ -1238,8 +1181,7 @@
                      "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                    "speaker.iq >= 55", "speaker.iq <= 69",
-                     "speaker.iq >= 70", "speaker.iq <= 84"
+                    "speaker.iq <= 84"
                   ],
                   "linkSuspicion":[
                      "ambiguous",
@@ -1287,15 +1229,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18", "speaker.age <= 24",
-                     "speaker.age >= 25", "speaker.age <= 44",
-                     "speaker.age >= 45", "speaker.age <= 65"
+                     "speaker.age >= 18", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 130", "speaker.iq <= 144",
-                     "speaker.iq >= 85", "speaker.iq <= 114",
-                     "speaker.iq >= 115", "speaker.iq <= 129",
-                     "speaker.iq >= 70", "speaker.iq <= 84"
+
                   ],
                   "linkSuspicion":[
                      "ambiguous",
@@ -1337,8 +1274,7 @@
                      "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                    "speaker.iq >= 55", "speaker.iq <= 69",
-                     "speaker.iq >= 70", "speaker.iq <= 84"
+                     "speaker.iq <= 84"
                   ],
                   "linkSuspicion":[
                      "ambiguous",
