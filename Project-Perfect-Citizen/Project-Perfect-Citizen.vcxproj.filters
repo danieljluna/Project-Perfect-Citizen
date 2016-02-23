@@ -150,12 +150,15 @@
     </ClCompile>
     <ClCompile Include="Code\Engine\Audio\AudioLogger.cpp">
       <Filter>Headers\Engine\Audio</Filter>
-	  </ClCompile>
+    </ClCompile>
     <ClCompile Include="Code\Game\PipelineCharacter.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\PipelineCharacter.cpp">
       <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\Network.cpp">
+      <Filter>Sources\Engine\Graph</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -341,9 +344,18 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\Audio\AudioLogger.h">
       <Filter>Sources\Engine\Sound</Filter>
-	  </ClInclude>
+    </ClInclude>
     <ClInclude Include="Code\Game\PipelineCharacter.h">
       <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Edge.h">
+      <Filter>Headers\Engine\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Network.h">
+      <Filter>Headers\Engine\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Vertex.h">
+      <Filter>Headers\Engine\Graph</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -459,6 +471,12 @@
     </Filter>
     <Filter Include="Headers\Engine\Audio">
       <UniqueIdentifier>{d24e0cd5-1bae-453f-a081-d9ac5308b296}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Graph">
+      <UniqueIdentifier>{f2f2cfbf-7de2-4269-b774-fee416a57223}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Engine\Graph">
+      <UniqueIdentifier>{dc8c4a5c-745c-490f-aedc-04221bba055f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
