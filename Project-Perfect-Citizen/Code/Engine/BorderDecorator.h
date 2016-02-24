@@ -26,7 +26,7 @@ public:
     BorderDecorator() = delete;
 
     BorderDecorator(WindowInterface& win, 
-					
+					sf::Image& buttonSheet,
                     unsigned int majorBorder = 34, 
                     unsigned int minorBorder = 5);
 
@@ -69,7 +69,9 @@ private:
 
     DraggableInput draggableInput_;
 
+	sf::Image& buttonSpriteSheet;
 	sf::RectangleShape closeButtonArea_;
+
 	buttonRenderComponent* closeRC_;
 	mousePressButton* bIC_;
 	Entity closeButton_;
