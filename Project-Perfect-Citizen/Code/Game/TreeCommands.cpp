@@ -5,9 +5,9 @@ fnMap functionMap{
 	{ "ls"		,	fn_ls },
 	{ "make"	,	fn_mkfile },
 	{ "mkdir"	,	fn_mkDir },
-	{ "decrypt"	,	fn_decrypt},
-	{ "encrypt"	,	fn_decrypt},
-//	{ "pwd"		,	fn_pwd}
+	{ "decrypt"	,	fn_decrypt },
+	{ "encrypt"	,   fn_decrypt },
+	{"pwd"      ,   fn_pwd }
 };
 
 commandFn findFunction(const std::string& command) {
