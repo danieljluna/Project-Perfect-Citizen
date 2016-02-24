@@ -21,8 +21,8 @@
 class mousePressButton: public ppc::InputComponent {
 private:
 
-	sf::Sprite& buttonSprt;
-	ppc::InputHandler& inputHandle;
+	sf::Sprite buttonSprt;
+	ppc::InputHandler inputHandle;
 	std::string isBeingPressed;
 	sf::Clock mouseClock;
     sf::Int32 mouseTime;
@@ -30,8 +30,24 @@ private:
 
 public:
 
-	mousePressButton() = delete;
+	mousePressButton();
+
+///////////////////////////////////////////////////////////////////////
+///@brief This Ctor will be depricated soon. Please use the default 
+///Ctor and setter functions instead.
+///////////////////////////////////////////////////////////////////////
 	mousePressButton(ppc::InputHandler& ih, sf::Sprite& s, std::string isBeingPressed);
+
+///////////////////////////////////////////////////////////////////////
+//SETTERS
+///////////////////////////////////////////////////////////////////////
+
+	void setInputHandle(ppc::InputHandler& ih);
+
+	void setSprite(sf::Sprite& s);
+
+	void setIsBeingPressed(std::string iBP);
+
 	virtual ~mousePressButton();
 	virtual bool registerInput(sf::Event& ev) override;
 

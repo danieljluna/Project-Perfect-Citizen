@@ -18,6 +18,11 @@ const string OPEN_THE_EXPLORER = "OTE";
 
 const float DOUBLE_CLICK_TIME = 500.0f;
 
+mousePressButton::mousePressButton() : InputComponent(2), buttonSprt(), inputHandle() {
+
+}
+
+
 mousePressButton::mousePressButton(ppc::InputHandler& ih, 
 	sf::Sprite& s, std::string iBP): 
 	InputComponent(2), buttonSprt(s), inputHandle(ih), isBeingPressed(iBP){
@@ -39,6 +44,25 @@ mousePressButton::~mousePressButton() {
 	ignore(inputHandle, sf::Event::MouseButtonPressed);
 	ignore(inputHandle, sf::Event::MouseButtonReleased);
 }
+
+void mousePressButton::setInputHandle(ppc::InputHandler& ih) {
+	inputHandle = ih;
+
+	inputHandle.addHandle(sf::Event::MouseButtonPressed);
+	inputHandle.addHandle(sf::Event::MouseButtonReleased);
+
+	watch(inputHandle, sf::Event::MouseButtonPressed);
+	watch(inputHandle, sf::Event::MouseButtonReleased);
+}
+
+void mousePressButton::setSprite(sf::Sprite& s) {
+	buttonSprt = s;
+}
+
+void mousePressButton::setIsBeingPressed(std::string iBP) {
+	isBeingPressed = iBP;
+}
+
 
 bool mousePressButton::isCollision(sf::Vector2i mousePos) {
     //Gets the position as a Float Vector
