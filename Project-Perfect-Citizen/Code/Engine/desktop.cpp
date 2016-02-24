@@ -133,11 +133,14 @@ void ppc::Desktop::registerInput(sf::Event& ev) {
 		for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 			sf::FloatRect winBounds = (*it)->getBounds();
 			if (winBounds.contains(float(ev.mouseButton.x), float(ev.mouseButton.y))) {
-				focusWindow(*it);
+				focusWindow(*it);				
+				ev.mouseButton.x -= (*it)->getPosition().x;
+				ev.mouseButton.y -= (*it)->getPosition().y;
 				break;
 			}
 		}
 	}
+	
 	focused_->registerInput(ev);
 
 }

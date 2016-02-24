@@ -25,7 +25,7 @@ BorderDecorator::BorderDecorator(
 	closeRC_ = new buttonRenderComponent(buttonSpriteSheet, 0, 3, 1, 1);
 	closeRC_->setImageScale(0.2f, 0.2f);
 
-	bIC_ = new mousePressButton(win.getInputHandler(), closeRC_->getSprite()->getGlobalBounds(), "localCloseButton");
+	bIC_ = new mousePressButton(win.getInputHandler(), closeRC_->getSprite()->getLocalBounds(), "localCloseButton");
 
 	closeButton_.addComponent(closeRC_);
 	closeButton_.addComponent(bIC_);
