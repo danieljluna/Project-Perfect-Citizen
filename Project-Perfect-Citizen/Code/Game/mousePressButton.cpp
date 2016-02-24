@@ -18,14 +18,15 @@ const string OPEN_THE_EXPLORER = "OTE";
 
 const float DOUBLE_CLICK_TIME = 500.0f;
 
-mousePressButton::mousePressButton() : InputComponent(2), buttonSprt(), inputHandle() {
+mousePressButton::mousePressButton() : 
+	InputComponent(2), buttonRect(), inputHandle() {
 
 }
 
 
 mousePressButton::mousePressButton(ppc::InputHandler& ih, 
-	sf::Sprite& s, std::string iBP): 
-	InputComponent(2), buttonSprt(s), inputHandle(ih), isBeingPressed(iBP){
+	sf::FloatRect rect, std::string iBP): 
+	InputComponent(2), buttonRect(rect), inputHandle(ih), isBeingPressed(iBP){
 
 	//add a new subject that is tied to the event
 	ih.addHandle(sf::Event::MouseButtonPressed);
@@ -55,8 +56,8 @@ void mousePressButton::setInputHandle(ppc::InputHandler& ih) {
 	watch(inputHandle, sf::Event::MouseButtonReleased);
 }
 
-void mousePressButton::setSprite(sf::Sprite& s) {
-	buttonSprt = s;
+void mousePressButton::setFloatRect(sf::FloatRect rect) {
+	buttonRect = rect;
 }
 
 void mousePressButton::setIsBeingPressed(std::string iBP) {
@@ -67,11 +68,9 @@ void mousePressButton::setIsBeingPressed(std::string iBP) {
 bool mousePressButton::isCollision(sf::Vector2i mousePos) {
     //Gets the position as a Float Vector
     sf::Vector2f mouseFloatPos(float(mousePos.x), float(mousePos.y));
-    //Gets the FloatRect of the Sprite
-    sf::FloatRect checkArea = buttonSprt.getGlobalBounds();
 
     //Returns if point is in foatRect
-    return checkArea.contains(mouseFloatPos);
+    return buttonRect.contains(mouseFloatPos);
 }
 
 
