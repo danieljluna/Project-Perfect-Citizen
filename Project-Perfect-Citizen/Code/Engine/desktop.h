@@ -78,8 +78,11 @@ namespace ppc {
 /// but the ordering of the remaining Windows is kept.
 /// @param wi A WindowInterface* which points to the Window that
 /// is to be focused on.
+///@return Returns True if the Window successfuly focused. Returns
+/// False if the argument was nullptr, the Desktop's Window, or if
+/// the argument is not a Window in the Desktop.
 ///////////////////////////////////////////////////////////////////////
-		void focusWindow(WindowInterface*);
+		bool focusWindow(WindowInterface*);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Draws the Desktop & all its Windows.
