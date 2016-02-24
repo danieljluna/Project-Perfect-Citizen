@@ -32,6 +32,8 @@ BorderDecorator::BorderDecorator(
 
 	addInputComponent(bIC_);
 
+	//Set up Bounds to align new sprite placement
+	updateBounds();
 	
     //Set up BorderShape
     borderShape_.setPosition(win.getPosition().x - minorBorder, 
@@ -156,7 +158,9 @@ void BorderDecorator::updateBounds() {
     //Re-position the button
     float right = bounds.left + bounds.width;
     sf::FloatRect sprBounds = closeRC_->getSprite()->getGlobalBounds();
+	bIC_->setFloatRect(sprBounds);
     sf::Vector2f ButtonPos(right - sprBounds.width - borderBottomRight_.y,
                            bounds.top + borderBottomRight_.y);
 	closeRC_->renderPosition(ButtonPos);
+	
 }

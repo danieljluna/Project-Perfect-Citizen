@@ -32,6 +32,8 @@ void spawnStartButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Im
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
+
+	buttonRender->renderPosition(sf::Vector2f(x, y));
 }
 
 void spawnNextButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
