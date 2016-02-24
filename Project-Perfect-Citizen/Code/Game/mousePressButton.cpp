@@ -42,8 +42,9 @@ mousePressButton::mousePressButton(ppc::InputHandler& ih,
 }
 
 mousePressButton::~mousePressButton() {
-	ignore(inputHandle, sf::Event::MouseButtonPressed);
-	ignore(inputHandle, sf::Event::MouseButtonReleased);
+
+	//ignore(inputHandle, sf::Event::MouseButtonPressed);
+	//ignore(inputHandle, sf::Event::MouseButtonReleased);
 }
 
 void mousePressButton::setInputHandle(ppc::InputHandler& ih) {
