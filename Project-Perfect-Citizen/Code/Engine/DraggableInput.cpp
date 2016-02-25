@@ -12,6 +12,8 @@ DraggableInput::DraggableInput(WindowInterface& win) :
     isDragging_ = false;
     isWindow_ = true;
     win_ = &win;
+    startX_ = 0;
+    startY_ = 0;
 }
 
 
@@ -87,10 +89,10 @@ bool DraggableInput::registerInput(sf::Event& ev) {
             } else {
 				trans_->move(shift);
             }
-        }
 
-		startX_ = endX_;
-		startY_ = endY_;
+            startX_ = endX_ - shift.x;
+            startY_ = endY_ - shift.y;
+        }
 
         return false;
     }

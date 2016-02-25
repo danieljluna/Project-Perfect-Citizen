@@ -130,14 +130,18 @@ int main(int argc, char** argv) {
 			myDesktop.registerInput(event);
         }
 
-        if (deltaTime.getElapsedTime() > framePeriod) {
+        sf::Time elapsed = deltaTime.getElapsedTime();
+        while (elapsed > framePeriod) {
 
             // Clear screen
-			screen.clear(sf::Color::White);
-     
+            screen.clear(sf::Color::White);
+
             //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
-			myDesktop.update(dt);
+            myDesktop.update(dt);
+
+            elapsed -= framePeriod;
+        }
 
             //Draw all the Windows in the Desktop
 			myDesktop.refresh();
@@ -148,7 +152,7 @@ int main(int argc, char** argv) {
 
             //Display final Window
 			screen.display();
-        }
+
     }
 
     return EXIT_SUCCESS;
