@@ -31,18 +31,18 @@
          "suggestive"
       ],
       "personalityPreconditions":[
-         "speaker.outerLife == perceiving",
-         "speaker.social == ambivert",
-         "speaker.takeIn == intuition",
-         "speaker.outerLife == judging",
+         "speaker.outerLife == Perceiving",
+         "speaker.social == Ambivert",
+         "speaker.takeIn == Intuition",
+         "speaker.outerLife == Judging",
          "speaker.decisions == thinking",
-         "speaker.decisions == middleGround",
-         "speaker.decisions == feeling",
-         "speaker.social == extraversion",
-         "speaker.takeIn == middleGround",
-         "speaker.social == introversion",
-         "speaker.takeIn == sensing",
-         "speaker.outerLife == middleGround"
+         "speaker.decisions == Middle",
+         "speaker.decisions == Feeling",
+         "speaker.social == Extravert",
+         "speaker.takeIn == Middle",
+         "speaker.social == Introvert",
+         "speaker.takeIn == Sensing",
+         "speaker.outerLife == Middle"
       ],
       "recipentSuspicion":[
 
@@ -1054,18 +1054,7 @@
                "clearlyClean"
             ],
             "personalityPreconditions":[
-               "speaker.outerLife == middleGround",
-               "speaker.takeIn == sensing",
-               "speaker.social == introversion",
-               "speaker.takeIn == middleGround",
-               "speaker.social == extraversion",
-               "speaker.decisions == feeling",
-               "speaker.decisions == middleGround",
-               "speaker.decisions == thinking",
-               "speaker.outerLife == judging",
-               "speaker.takeIn == intuition",
-               "speaker.social == ambivert",
-               "speaker.outerLife == perceiving"
+
             ],
             "relationship":[
                "work"
@@ -1142,25 +1131,10 @@
                     
                   ],
                   "linkSuspicion":[
-                     "ambiguous",
-                     "suggestive",
-                     "slightlyQuestionable",
-                     "clearlyClean",
-                     "clearlySuspicious"
+
                   ],
                   "personalityPreconditions":[
-                     "speaker.outerLife == middleGround",
-                     "speaker.takeIn == sensing",
-                     "speaker.social == introversion",
-                     "speaker.takeIn == middleGround",
-                     "speaker.social == extraversion",
-                     "speaker.decisions == feeling",
-                     "speaker.decisions == middleGround",
-                     "speaker.decisions == thinking",
-                     "speaker.outerLife == judging",
-                     "speaker.takeIn == intuition",
-                     "speaker.social == ambivert",
-                     "speaker.outerLife == perceiving"
+
                   ],
                   "relationship":[
                      "communties",
@@ -1184,32 +1158,13 @@
                     "speaker.iq <= 84"
                   ],
                   "linkSuspicion":[
-                     "ambiguous",
-                     "suggestive",
-                     "slightlyQuestionable",
-                     "clearlyClean",
-                     "clearlySuspicious"
+
                   ],
                   "personalityPreconditions":[
-                     "speaker.outerLife == middleGround",
-                     "speaker.takeIn == sensing",
-                     "speaker.social == introversion",
-                     "speaker.takeIn == middleGround",
-                     "speaker.social == extraversion",
-                     "speaker.decisions == feeling",
-                     "speaker.decisions == middleGround",
-                     "speaker.decisions == thinking",
-                     "speaker.outerLife == judging",
-                     "speaker.takeIn == intuition",
-                     "speaker.social == ambivert",
-                     "speaker.outerLife == perceiving"
+
                   ],
                   "relationship":[
-                     "school",
-                     "work",
-                     "friends",
-                     "communties",
-                     "family"
+
                   ]
                }
             }
@@ -1235,32 +1190,13 @@
 
                   ],
                   "linkSuspicion":[
-                     "ambiguous",
-                     "suggestive",
-                     "slightlyQuestionable",
-                     "clearlyClean",
-                     "clearlySuspicious"
+
                   ],
                   "personalityPreconditions":[
-                     "speaker.outerLife == middleGround",
-                     "speaker.takeIn == sensing",
-                     "speaker.social == introversion",
-                     "speaker.takeIn == middleGround",
-                     "speaker.social == extraversion",
-                     "speaker.decisions == feeling",
-                     "speaker.decisions == middleGround",
-                     "speaker.decisions == thinking",
-                     "speaker.outerLife == judging",
-                     "speaker.takeIn == intuition",
-                     "speaker.social == ambivert",
-                     "speaker.outerLife == perceiving"
+
                   ],
                   "relationship":[
-                     "communties",
-                     "work",
-                     "friends",
-                     "school",
-                     "family"
+
                   ]
                }
             },
@@ -1277,28 +1213,13 @@
                      "speaker.iq <= 84"
                   ],
                   "linkSuspicion":[
-                     "ambiguous",
-                     "suggestive",
-                     "slightlyQuestionable",
-                     "clearlyClean",
-                     "clearlySuspicious"
+
                   ],
                   "personalityPreconditions":[
-                     "speaker.decisions == middleGround",
-                     "speaker.outerLife == middleGround",
-                     "speaker.outerLife == judging",
-                     "speaker.social == ambivert",
-                     "speaker.takeIn == intuition",
-                     "speaker.takeIn == middleGround",
-                     "speaker.social == extraversion",
-                     "speaker.decisions == feeling",
-                     "speaker.takeIn == sensing"
+
                   ],
                   "relationship":[
-                     "communties",
-                     "friends",
-                     "school",
-                     "family"
+
                   ]
                }
             }

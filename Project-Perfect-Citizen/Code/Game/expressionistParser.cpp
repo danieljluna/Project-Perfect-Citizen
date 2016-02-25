@@ -214,8 +214,9 @@ bool expr::checkMarkUpPreconditions(const Json::Value& markup, const ppc::Pipeli
 				if (makeComparison(speaker.getAge(), std::stoi(value), oper) == false) return false;
 				continue;
 			}
-			else if (markupNames[i].compare("contentType") == 0){
-				//unused currently
+			else if (markupNames[i].compare("decisions") == 0){
+				//std::cout << "making decisions comparison" << std::endl;
+				if (makeComparison(speaker.getPersDecision(), value, oper) == false) return false;
 				continue;
 			}
 			else if (markupNames[i].compare("iqPreconditions") == 0) {
@@ -225,15 +226,28 @@ bool expr::checkMarkUpPreconditions(const Json::Value& markup, const ppc::Pipeli
 			}
 			else if (markupNames[i].compare("linkSuspicion") == 0) {
 				//unused currently
+				//needs target or link info
 				continue;
 			}
-			else if (markupNames[i].compare("personalityPreconditions") == 0) {
-				//get specific personality trait
+			else if (markupNames[i].compare("outerLife") == 0) {
+				//std::cout << "making outerLife comparison" << std::endl;
+				if (makeComparison(speaker.getPersStructure(), value, oper) == false) return false;
 				continue;
 			}
-			else if (markupNames[i].compare("relationshipType") == 0) {
+			else if (markupNames[i].compare("relationship") == 0) {
 				//unused currently
-				//needs target as well as speaker
+				//needs target as well as speaker? or just link?
+				continue;
+			}
+			else if (markupNames[i].compare("social") == 0) {
+				//std::cout << "making social comparison" << std::endl;
+				if (makeComparison(speaker.getPersOutgoing(), value, oper) == false) return false;
+				continue;
+			}
+			else if (markupNames[i].compare("takeIn") == 0) {
+				//std::cout << "making takeIn comparison" << std::endl;
+				if (makeComparison(speaker.getPersInfo(), value, oper) == false) return false;
+				continue;
 			}
 		}
 	}

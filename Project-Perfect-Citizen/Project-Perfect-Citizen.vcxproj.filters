@@ -449,5 +449,8 @@
     <None Include="Resources\data.json">
       <Filter>Resources</Filter>
     </None>
+    <None Include="Resources\smsPipeline.json">
+      <Filter>Resources</Filter>
+    </None>
   </ItemGroup>
 </Project>

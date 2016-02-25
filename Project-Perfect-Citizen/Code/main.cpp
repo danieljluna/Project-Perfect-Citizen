@@ -48,7 +48,7 @@ int main(int argc, char** argv) {
 	Debug::scanOpts(argc, argv);
 	DEBUGF("ac", argc);
 
-	Json::Value exprOutput = expr::parseExpressionistAsJson("data.json");
+	Json::Value exprOutput = expr::parseExpressionistAsJson("smsPipeline.json");
 	PipelineCharacter pipechar;
 	for (size_t i = 0; i < 10; ++i) {
 		pipechar.generate();
