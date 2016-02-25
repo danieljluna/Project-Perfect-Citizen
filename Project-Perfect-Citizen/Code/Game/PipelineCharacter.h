@@ -25,20 +25,20 @@ public:
 	///////////////////////////////////////////////////////////////////
 	// Getters
 	///////////////////////////////////////////////////////////////////
-	int getIQ() { return iq_;  }
-	int getAge() { return age_; }
-	int getCreditScore() { return creditScore_; }
+	int getIQ() const { return iq_;  }
+	int getAge() const { return age_; }
+	int getCreditScore() const { return creditScore_; }
 
-	std::string getSSN() { return ssn_; }
-	std::string getEmail() { return email_; }
-	std::string getPhoneNum() { return phoneNumber_; }
+	std::string getSSN() const { return ssn_; }
+	std::string getEmail() const { return email_; }
+	std::string getPhoneNum() const { return phoneNumber_; }
 
-	std::string getPersOutgoing() { return persOutgoing_; }
-	std::string getPersInfo() { return persInfo_; }
-	std::string getPersDecision() { return persDecision_; }
-	std::string getPersStructure() { return persStructure_; }
+	std::string getPersOutgoing() const { return persOutgoing_; }
+	std::string getPersInfo() const { return persInfo_; }
+	std::string getPersDecision() const { return persDecision_; }
+	std::string getPersStructure() const { return persStructure_; }
 
-	std::string getJob() { return job_; }
+	std::string getJob() const { return job_; }
 
 	///////////////////////////////////////////////////////////////////
 	// Setters not needed?

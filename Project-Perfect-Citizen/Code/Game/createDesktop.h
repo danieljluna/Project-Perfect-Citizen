@@ -45,5 +45,6 @@
 ///@param A reference to the desktop's window interface
 ///@param A reference to the desktop's window interface's input handler
 ///@param A sprite sheet from which to read the icon images
+///@param A sprite sheet from which to read the button images
 ///////////////////////////////////////////////////////////////////////
 void createPlayerDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& desktopWindowToModify, ppc::InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet);
