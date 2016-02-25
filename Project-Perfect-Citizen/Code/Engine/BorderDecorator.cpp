@@ -14,8 +14,8 @@ BorderDecorator::BorderDecorator(
     unsigned int minorBorder) :
             WindowDecorator(win),
             draggableInput_(*this) {
-    //Store Input
 
+    //Store Input
     borderTopLeft_.y = majorBorder;
     borderTopLeft_.x = borderBottomRight_.x = 
             borderBottomRight_.y = minorBorder;
@@ -27,13 +27,14 @@ BorderDecorator::BorderDecorator(
     sf::Vector2f size(float(win.getSize().x + 2 * minorBorder),
                       float(win.getSize().y + minorBorder + 
                                               majorBorder));
-
     borderShape_.setSize(size);
     borderShape_.setFillColor(sf::Color::Red);
 
+    //Load Button Image
     sf::Image spriteSheet;
     spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
 
+    //Load button
     buttonRenderVec_.push_back(buttonRenderComponent(spriteSheet, 0, 3, 1, 1));
     buttonRenderVec_.at(0).setImageScale(0.2f, 0.2f);
 
