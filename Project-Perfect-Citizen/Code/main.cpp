@@ -56,6 +56,11 @@ int main(int argc, char** argv) {
 	Debug::scanOpts(argc, argv);
 	DEBUGF("ac", argc);
 
+	Json::Value exprOutput = expr::parseExpressionistAsJson("data.json");
+	for (size_t i = 0; i < 10; ++i) {
+		cout << expr::expressWithJson(exprOutput) << endl;
+	}
+
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 

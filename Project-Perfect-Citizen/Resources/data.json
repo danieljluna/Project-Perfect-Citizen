@@ -398,7 +398,7 @@
             {
                "app_rate":1,
                "expansion":[
-                  "to the movies"
+                  "the movies"
                ],
                "markup":{
                   "agePreconditions":[
@@ -672,7 +672,7 @@
                "expansion":[
                   "Out ",
                   "[[tonight or 2nite]]",
-                  "]]]]]]] ",
+                  " ",
                   "[[meet or talk]]",
                   " ",
                   "[[day]]",
@@ -1028,6 +1028,7 @@
                   "[[greeting word]]",
                   " how far ",
                   "[[are or r]]",
+                  "[[you or u]]",
                   " in the ",
                   "[[school word]]",
                   "[[punctuation]]"
