@@ -216,7 +216,7 @@ bool expr::checkMarkUpPreconditions(const Json::Value& markup, const ppc::Pipeli
 			}
 			else if (markupNames[i].compare("decisions") == 0){
 				//std::cout << "making decisions comparison" << std::endl;
-				if (makeComparison(speaker.getPersDecision(), value, oper) == false) return false;
+				if (makeComparison(speaker.getPersDecisions(), value, oper) == false) return false;
 				continue;
 			}
 			else if (markupNames[i].compare("iqPreconditions") == 0) {
@@ -231,7 +231,7 @@ bool expr::checkMarkUpPreconditions(const Json::Value& markup, const ppc::Pipeli
 			}
 			else if (markupNames[i].compare("outerLife") == 0) {
 				//std::cout << "making outerLife comparison" << std::endl;
-				if (makeComparison(speaker.getPersStructure(), value, oper) == false) return false;
+				if (makeComparison(speaker.getPersOuterLife(), value, oper) == false) return false;
 				continue;
 			}
 			else if (markupNames[i].compare("relationship") == 0) {
@@ -241,12 +241,12 @@ bool expr::checkMarkUpPreconditions(const Json::Value& markup, const ppc::Pipeli
 			}
 			else if (markupNames[i].compare("social") == 0) {
 				//std::cout << "making social comparison" << std::endl;
-				if (makeComparison(speaker.getPersOutgoing(), value, oper) == false) return false;
+				if (makeComparison(speaker.getPersSocial(), value, oper) == false) return false;
 				continue;
 			}
 			else if (markupNames[i].compare("takeIn") == 0) {
 				//std::cout << "making takeIn comparison" << std::endl;
-				if (makeComparison(speaker.getPersInfo(), value, oper) == false) return false;
+				if (makeComparison(speaker.getPersTakeIn(), value, oper) == false) return false;
 				continue;
 			}
 		}

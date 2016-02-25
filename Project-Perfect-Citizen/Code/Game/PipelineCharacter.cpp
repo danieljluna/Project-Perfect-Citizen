@@ -4,21 +4,21 @@
 
 using namespace ppc;
 
-const std::string OUTGOING_VALUES[] = { "Extravert", "Ambivert", 
+const std::string SOCIAL_VALUES[] = { "Extravert", "Ambivert", 
                                  "Introvert" };
-const int OUTGOING_SIZE	 = 3;
+const int SOCIAL_SIZE	 = 3;
 
-const std::string INFORMATION_VALUES[] = { "Sensing", "Middle", 
+const std::string TAKE_IN_VALUES[] = { "Sensing", "Middle", 
 										  "Intuition" };
-const int INFORMATION_SIZE = 3;
+const int TAKE_IN_SIZE = 3;
 
-const std::string DECISION_VALUES[] = { "Thinking", "Middle", 
+const std::string DECISIONS_VALUES[] = { "Thinking", "Middle", 
 									   "Feeling" };
-const int DECISION_SIZE = 3;
+const int DECISIONS_SIZE = 3;
 
-const std::string STRUCTURE_VALUES[] = { "Judging", "Middle", 
+const std::string OUTER_LIFE_VALUES[] = { "Judging", "Middle", 
 										"Perceiving" };
-const int STRUCTURE_SIZE = 3;
+const int OUTER_LIFE_SIZE = 3;
 
 const std::string JOBS[] = {
 	"Doctor",
@@ -76,15 +76,15 @@ void PipelineCharacter::generate() {
 
 	// set peronality and job, random from a list of possible string
 	// values that are used elsewhere for expressionist parsing
-	std::uniform_int_distribution<> outd(0, OUTGOING_SIZE - 1);
-	std::uniform_int_distribution<> infod(0, INFORMATION_SIZE - 1);
-	std::uniform_int_distribution<> decd(0, DECISION_SIZE - 1);
-	std::uniform_int_distribution<> strucd(0, STRUCTURE_SIZE - 1);
+	std::uniform_int_distribution<> outd(0, SOCIAL_SIZE - 1);
+	std::uniform_int_distribution<> infod(0, TAKE_IN_SIZE - 1);
+	std::uniform_int_distribution<> decd(0, DECISIONS_SIZE - 1);
+	std::uniform_int_distribution<> strucd(0, OUTER_LIFE_SIZE - 1);
 	std::uniform_int_distribution<> jobd(0, JOBS_SIZE - 1);
-	persOutgoing_ = OUTGOING_VALUES[outd(gen)];
-	persInfo_ = INFORMATION_VALUES[infod(gen)];
-	persDecision_ = DECISION_VALUES[decd(gen)];
-	persStructure_ = STRUCTURE_VALUES[strucd(gen)];
+	persSocial_ = SOCIAL_VALUES[outd(gen)];
+	persTakeIn_ = TAKE_IN_VALUES[infod(gen)];
+	persDecisions_ = DECISIONS_VALUES[decd(gen)];
+	persOuterLife_ = OUTER_LIFE_VALUES[strucd(gen)];
 	job_ = JOBS[jobd(gen)];
 
 }
@@ -98,8 +98,8 @@ std::ostream& ppc::operator<<(std::ostream & os,
 	os << "SSN: " << pc.ssn_ << ", Email: " << pc.email_;
 	os << ", Phone: " << pc.phoneNumber_ << std::endl;
 
-	os << "Personality: " << pc.persOutgoing_ << ", " << pc.persInfo_;
-	os << ", " << pc.persDecision_ << ", " << pc.persStructure_;
+	os << "Personality: " << pc.persSocial_ << ", " << pc.persTakeIn_;
+	os << ", " << pc.persDecisions_ << ", " << pc.persOuterLife_;
 	os << std::endl;
 
 	return os;
