@@ -1,19 +1,27 @@
 {
    "markups":{
       "agePreconditions":[
-         "speaker.age >= 45 && speaker.age <= 64",
-         "speaker.age >= 25 && speaker.age <= 44",
-         "speaker.age >= 18 && speaker.age <= 24"
+         "speaker.age >= 45", 
+         "speaker.age <= 64",
+         "speaker.age >= 25", 
+         "speaker.age <= 44",
+         "speaker.age >= 18", 
+         "speaker.age <= 24"
       ],
       "contentType":[
          "sms"
       ],
       "iqPreconditions":[
-         "speaker.iq >= 70 && speaker.iq <= 84",
-         "speaker.iq >= 115 && speaker.iq <= 129",
-         "speaker.iq >= 55 && speaker.iq <= 69",
-         "speaker.iq >= 85 && speaker.iq <= 114",
-         "speaker.iq >= 130 && speaker.iq <= 144"
+         "speaker.iq >= 70",
+         "speaker.iq <= 84",
+         "speaker.iq >= 115",
+         "speaker.iq <= 129",
+         "speaker.iq >= 55",
+         "speaker.iq <= 69",
+         "speaker.iq >= 85",
+         "speaker.iq <= 114",
+         "speaker.iq >= 130",
+         "speaker.iq <= 144"
       ],
       "linkSuspicion":[
          "clearlyClean",
@@ -23,18 +31,18 @@
          "suggestive"
       ],
       "personalityPreconditions":[
-         "speaker.outerLife == perceiving",
-         "speaker.social == ambivert",
-         "speaker.takeIn == intuition",
-         "speaker.outerLife == judging",
+         "speaker.outerLife == Perceiving",
+         "speaker.social == Ambivert",
+         "speaker.takeIn == Intuition",
+         "speaker.outerLife == Judging",
          "speaker.decisions == thinking",
-         "speaker.decisions == middleGround",
-         "speaker.decisions == feeling",
-         "speaker.social == extraversion",
-         "speaker.takeIn == middleGround",
-         "speaker.social == introversion",
-         "speaker.takeIn == sensing",
-         "speaker.outerLife == middleGround"
+         "speaker.decisions == Middle",
+         "speaker.decisions == Feeling",
+         "speaker.social == Extravert",
+         "speaker.takeIn == Middle",
+         "speaker.social == Introvert",
+         "speaker.takeIn == Sensing",
+         "speaker.outerLife == Middle"
       ],
       "recipentSuspicion":[
 
@@ -65,15 +73,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44",
-                     "speaker.age >= 45 && speaker.age <= 64"
+                     "speaker.age >= 18", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 130 && speaker.iq <= 144",
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq <= 144", "speaker.iq >= 70"
                   ]
                }
             },
@@ -84,11 +87,11 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24"
+                     "speaker.age >= 18", "speaker.age <= 24"
                   ],
-                  "iqPreconditions":[
-                     "speaker.iq >= 70 && speaker.iq <= 84"
-                  ]
+                  "iqPreconditions": [
+                     "speaker.iq <= 84"
+                ]
                }
             }
          ]
@@ -107,15 +110,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44",
-                     "speaker.age >= 45 && speaker.age <= 64"
+                     "speaker.age >= 18", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 130 && speaker.iq <= 144",
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq >= 70"
                   ]
                }
             },
@@ -126,10 +124,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24"
+                     "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 55 && speaker.iq <= 69"
+                     "speaker.iq >= 55", "speaker.iq <= 69"
                   ]
                }
             }
@@ -149,13 +147,11 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44"
+                     "speaker.age >= 18", "speaker.age <= 44"
                   ],
-                  "iqPreconditions":[
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
-                  ]
+                  "iqPreconditions": [
+                     "speaker.iq <= 114", "speaker.iq >= 70"
+                ]
                }
             },
             {
@@ -165,13 +161,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44"
+                     "speaker.age >= 18", "speaker.age <= 44"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq <= 114"
                   ]
                }
             },
@@ -182,12 +175,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24"
+                     "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq <= 114"
                   ]
                }
             }
@@ -211,13 +202,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44"
+                     "speaker.age >= 18", "speaker.age <= 44"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq <= 114"
                   ]
                }
             },
@@ -228,13 +216,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44"
+                     "speaker.age >= 18", "speaker.age <= 44"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq <= 114"
                   ]
                }
             },
@@ -384,34 +369,24 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24"
+                     "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 130 && speaker.iq <= 144",
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+
                   ]
                }
             },
             {
                "app_rate":1,
                "expansion":[
-                  "to the movies"
+                  "the movies"
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44",
-                     "speaker.age >= 45 && speaker.age <= 64"
+                     "speaker.age >= 18", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 130 && speaker.iq <= 144",
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+
                   ]
                }
             }
@@ -453,14 +428,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44",
-                     "speaker.age >= 45 && speaker.age <= 64"
+                     "speaker.age >= 18", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 130 && speaker.iq <= 144",
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129"
+                     "speaker.iq >= 85"
                   ]
                }
             },
@@ -471,14 +442,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44",
-                     "speaker.age >= 45 && speaker.age <= 64"
+                     "speaker.age >= 18", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq <= 129"
                   ]
                }
             },
@@ -489,11 +456,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24"
+                     "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                    "speaker.iq <= 84"
                   ]
                }
             },
@@ -504,15 +470,11 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44",
-                     "speaker.age >= 45 && speaker.age <= 64"
+                     "speaker.age >= 18", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq <= 129"
+
                   ]
                }
             },
@@ -523,12 +485,10 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24"
+                     "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq <= 114"
                   ]
                }
             }
@@ -629,7 +589,7 @@
          "deep":false,
          "markup":{
             "agePreconditions":[
-               "speaker.age >= 18 && speaker.age <= 24"
+               "speaker.age >= 18", "speaker.age <= 24"
             ],
             "linkSuspicion":[
                "ambiguous",
@@ -672,7 +632,7 @@
                "expansion":[
                   "Out ",
                   "[[tonight or 2nite]]",
-                  "]]]]]]] ",
+                  " ",
                   "[[meet or talk]]",
                   " ",
                   "[[day]]",
@@ -1028,6 +988,7 @@
                   "[[greeting word]]",
                   " how far ",
                   "[[are or r]]",
+                  "[[you or u]]",
                   " in the ",
                   "[[school word]]",
                   "[[punctuation]]"
@@ -1082,13 +1043,10 @@
          "deep":false,
          "markup":{
             "agePreconditions":[
-               "speaker.age >= 25 && speaker.age <= 44",
-               "speaker.age >= 45 && speaker.age <= 64"
+               "speaker.age >= 25", "speaker.age <= 65"
             ],
             "iqPreconditions":[
-               "speaker.iq >= 130 && speaker.iq <= 144",
-               "speaker.iq >= 85 && speaker.iq <= 114",
-               "speaker.iq >= 115 && speaker.iq <= 129"
+               "speaker.iq >= 85"
             ],
             "linkSuspicion":[
                "ambiguous",
@@ -1096,18 +1054,7 @@
                "clearlyClean"
             ],
             "personalityPreconditions":[
-               "speaker.outerLife == middleGround",
-               "speaker.takeIn == sensing",
-               "speaker.social == introversion",
-               "speaker.takeIn == middleGround",
-               "speaker.social == extraversion",
-               "speaker.decisions == feeling",
-               "speaker.decisions == middleGround",
-               "speaker.decisions == thinking",
-               "speaker.outerLife == judging",
-               "speaker.takeIn == intuition",
-               "speaker.social == ambivert",
-               "speaker.outerLife == perceiving"
+
             ],
             "relationship":[
                "work"
@@ -1178,37 +1125,16 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44",
-                     "speaker.age >= 45 && speaker.age <= 64"
+                     "speaker.age >= 18", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 130 && speaker.iq <= 144",
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                    
                   ],
                   "linkSuspicion":[
-                     "ambiguous",
-                     "suggestive",
-                     "slightlyQuestionable",
-                     "clearlyClean",
-                     "clearlySuspicious"
+
                   ],
                   "personalityPreconditions":[
-                     "speaker.outerLife == middleGround",
-                     "speaker.takeIn == sensing",
-                     "speaker.social == introversion",
-                     "speaker.takeIn == middleGround",
-                     "speaker.social == extraversion",
-                     "speaker.decisions == feeling",
-                     "speaker.decisions == middleGround",
-                     "speaker.decisions == thinking",
-                     "speaker.outerLife == judging",
-                     "speaker.takeIn == intuition",
-                     "speaker.social == ambivert",
-                     "speaker.outerLife == perceiving"
+
                   ],
                   "relationship":[
                      "communties",
@@ -1226,39 +1152,19 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24"
+                     "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                    "speaker.iq <= 84"
                   ],
                   "linkSuspicion":[
-                     "ambiguous",
-                     "suggestive",
-                     "slightlyQuestionable",
-                     "clearlyClean",
-                     "clearlySuspicious"
+
                   ],
                   "personalityPreconditions":[
-                     "speaker.outerLife == middleGround",
-                     "speaker.takeIn == sensing",
-                     "speaker.social == introversion",
-                     "speaker.takeIn == middleGround",
-                     "speaker.social == extraversion",
-                     "speaker.decisions == feeling",
-                     "speaker.decisions == middleGround",
-                     "speaker.decisions == thinking",
-                     "speaker.outerLife == judging",
-                     "speaker.takeIn == intuition",
-                     "speaker.social == ambivert",
-                     "speaker.outerLife == perceiving"
+
                   ],
                   "relationship":[
-                     "school",
-                     "work",
-                     "friends",
-                     "communties",
-                     "family"
+
                   ]
                }
             }
@@ -1278,43 +1184,19 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24",
-                     "speaker.age >= 25 && speaker.age <= 44",
-                     "speaker.age >= 45 && speaker.age <= 64"
+                     "speaker.age >= 18", "speaker.age <= 65"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 130 && speaker.iq <= 144",
-                     "speaker.iq >= 85 && speaker.iq <= 114",
-                     "speaker.iq >= 115 && speaker.iq <= 129",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+
                   ],
                   "linkSuspicion":[
-                     "ambiguous",
-                     "suggestive",
-                     "slightlyQuestionable",
-                     "clearlyClean",
-                     "clearlySuspicious"
+
                   ],
                   "personalityPreconditions":[
-                     "speaker.outerLife == middleGround",
-                     "speaker.takeIn == sensing",
-                     "speaker.social == introversion",
-                     "speaker.takeIn == middleGround",
-                     "speaker.social == extraversion",
-                     "speaker.decisions == feeling",
-                     "speaker.decisions == middleGround",
-                     "speaker.decisions == thinking",
-                     "speaker.outerLife == judging",
-                     "speaker.takeIn == intuition",
-                     "speaker.social == ambivert",
-                     "speaker.outerLife == perceiving"
+
                   ],
                   "relationship":[
-                     "communties",
-                     "work",
-                     "friends",
-                     "school",
-                     "family"
+
                   ]
                }
             },
@@ -1325,35 +1207,19 @@
                ],
                "markup":{
                   "agePreconditions":[
-                     "speaker.age >= 18 && speaker.age <= 24"
+                     "speaker.age >= 18", "speaker.age <= 24"
                   ],
                   "iqPreconditions":[
-                     "speaker.iq >= 55 && speaker.iq <= 69",
-                     "speaker.iq >= 70 && speaker.iq <= 84"
+                     "speaker.iq <= 84"
                   ],
                   "linkSuspicion":[
-                     "ambiguous",
-                     "suggestive",
-                     "slightlyQuestionable",
-                     "clearlyClean",
-                     "clearlySuspicious"
+
                   ],
                   "personalityPreconditions":[
-                     "speaker.decisions == middleGround",
-                     "speaker.outerLife == middleGround",
-                     "speaker.outerLife == judging",
-                     "speaker.social == ambivert",
-                     "speaker.takeIn == intuition",
-                     "speaker.takeIn == middleGround",
-                     "speaker.social == extraversion",
-                     "speaker.decisions == feeling",
-                     "speaker.takeIn == sensing"
+
                   ],
                   "relationship":[
-                     "communties",
-                     "friends",
-                     "school",
-                     "family"
+
                   ]
                }
             }
