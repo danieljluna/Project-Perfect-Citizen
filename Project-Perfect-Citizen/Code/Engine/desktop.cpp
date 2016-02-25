@@ -6,7 +6,7 @@
 
 ppc::Desktop::Desktop(WindowInterface& bkgndWin, NodeState& n) {
 	style_ = nullptr;
-	nodeState_ = &n;
+	nodeState_ = new NodeState(n);
 
 	windows_.push_back(&bkgndWin);
 	desktopWindow_ = &bkgndWin;
@@ -35,16 +35,17 @@ ppc::Desktop::~Desktop() {
 }
 
 
-void ppc::Desktop::focusWindow(WindowInterface* wi) {
+bool ppc::Desktop::focusWindow(WindowInterface* wi) {
 	DEBUGF("df", wi);
 	//Keep desktopWindow_ in the back of the vector
 	if (wi == this->desktopWindow_ || wi == nullptr) {
 		this->focused_ = this->desktopWindow_;
-		return;
+		return false;
 	}
 	//while the itor is not desktopWindow_
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 		//if we find the window to be focused
+			//if it is not at the beginning, we have to put it there.
 		if (*it == wi && it != windows_.begin()) {
 			//keep swapping it w/ thing before until at front
 			auto it2 = it;
@@ -54,12 +55,18 @@ void ppc::Desktop::focusWindow(WindowInterface* wi) {
 				*it2 = *temp;
 				*temp = tempWindow;
 				it2 = temp;
-				--temp;
+				if(temp != windows_.begin()) --temp;
 			}
-			this->focused_ = *it;
-			return;
+			this->focused_ = windows_.front();
+			return true;
+			//if it is already at the beginning, then focus it and 
+			//stop looping.
+		} else if(*it == wi && it == windows_.begin()) {
+			this->focused_ = windows_.front();
+			return true;
 		}
 	}
+	return false;
 }
 
 void ppc::Desktop::draw(sf::RenderTarget& target, 
@@ -76,6 +83,12 @@ void ppc::Desktop::draw(sf::RenderTarget& target,
 
 void ppc::Desktop::addWindow(WindowInterface* wi){
 	if (wi == nullptr || wi == this->desktopWindow_) return;
+
+	//If the Window is already in the Desktop, we merely need
+	//to focus it.
+	if (focusWindow(wi)) return;
+
+	//Otherwise, if wi is not a window in the desktop,
 	//automatically put it at the front,
 	//and focused is set to what was added
 	focused_ = *(windows_.insert(windows_.begin(), wi));
@@ -109,21 +122,25 @@ void ppc::Desktop::addBackgroundCmpnt(WindowInterface* wi, sf::Sprite& s) {
 	wi->addRenderComponent(wBRC);
 }
 
-void ppc::Desktop::registerInput(sf::Event& ev){
+void ppc::Desktop::registerInput(sf::Event& ev) {
 	//first check if the mouse clicked in the focused window.
 	//if the window clicked in a window that wasnt focused,
 	//then focus that window.
-	
-	if (ev.type == sf::Event::MouseButtonPressed) {
-		sf::Vector2i pos(ev.mouseButton.x, ev.mouseButton.y);
+	//for any mouse event
+	if (ev.type == sf::Event::MouseButtonPressed ||
+		ev.type == sf::Event::MouseButtonReleased ||
+		ev.type == sf::Event::MouseMoved) {
 		for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-			if (isMouseCollision(*it, pos)) {
-				focusWindow(*it);
+			sf::FloatRect winBounds = (*it)->getBounds();
+			if (winBounds.contains(float(ev.mouseButton.x), float(ev.mouseButton.y))) {
+				focusWindow(*it);				
+				ev.mouseButton.x -= (*it)->getPosition().x;
+				ev.mouseButton.y -= (*it)->getPosition().y;
 				break;
 			}
 		}
 	}
-
+	
 	focused_->registerInput(ev);
 
 }

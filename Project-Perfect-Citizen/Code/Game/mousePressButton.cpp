@@ -18,9 +18,15 @@ const string OPEN_THE_EXPLORER = "OTE";
 
 const float DOUBLE_CLICK_TIME = 500.0f;
 
+mousePressButton::mousePressButton() : 
+	InputComponent(2), buttonRect(), inputHandle() {
+
+}
+
+
 mousePressButton::mousePressButton(ppc::InputHandler& ih, 
-	sf::Sprite& s, std::string iBP): 
-	InputComponent(2), buttonSprt(s), inputHandle(ih), isBeingPressed(iBP){
+	sf::FloatRect rect, std::string iBP): 
+	InputComponent(2), buttonRect(rect), inputHandle(ih), isBeingPressed(iBP){
 
 	//add a new subject that is tied to the event
 	ih.addHandle(sf::Event::MouseButtonPressed);
@@ -36,35 +42,36 @@ mousePressButton::mousePressButton(ppc::InputHandler& ih,
 }
 
 mousePressButton::~mousePressButton() {
-	ignore(inputHandle, sf::Event::MouseButtonPressed);
-	ignore(inputHandle, sf::Event::MouseButtonReleased);
+
+	//ignore(inputHandle, sf::Event::MouseButtonPressed);
+	//ignore(inputHandle, sf::Event::MouseButtonReleased);
 }
 
+void mousePressButton::setInputHandle(ppc::InputHandler& ih) {
+	inputHandle = ih;
+
+	inputHandle.addHandle(sf::Event::MouseButtonPressed);
+	inputHandle.addHandle(sf::Event::MouseButtonReleased);
+
+	watch(inputHandle, sf::Event::MouseButtonPressed);
+	watch(inputHandle, sf::Event::MouseButtonReleased);
+}
+
+void mousePressButton::setFloatRect(sf::FloatRect rect) {
+	buttonRect = rect;
+}
+
+void mousePressButton::setIsBeingPressed(std::string iBP) {
+	isBeingPressed = iBP;
+}
+
+
 bool mousePressButton::isCollision(sf::Vector2i mousePos) {
+    //Gets the position as a Float Vector
+    sf::Vector2f mouseFloatPos(float(mousePos.x), float(mousePos.y));
 
-	//cout << "MOUSE X: " << mousePos.x;
-	//cout << "   MOUSE Y: " << mousePos.y << endl;
-
-	//NOTE: NEED TO ADD X,Y POS OF WINDOW(TARGET) SPRITE IS IN
-	//HARD CODE FOR NOW, BUT EXPLAIN TO EVERYONE LATER
-	sf::Vector2f sprtBoxPos = { buttonSprt.getGlobalBounds().left ,
-		buttonSprt.getGlobalBounds().top };
-	//cout << "BOX X: " << sprtBoxPos.x;
-	//cout << "   BOX Y: " << sprtBoxPos.y << endl;
-	sf::Vector2f sprtBoxDim = { buttonSprt.getGlobalBounds().width,
-		buttonSprt.getGlobalBounds().height };
-	//cout << "BOX Width: " << sprtBoxDim.x;
-	//cout << "   BOX Height: " << sprtBoxDim.y << endl;
-
-	bool result = false;
-	if (mousePos.x >= sprtBoxPos.x  &&
-			mousePos.x <= sprtBoxPos.x + sprtBoxDim.x) {
-		if (mousePos.y >= sprtBoxPos.y &&
-				mousePos.y <= sprtBoxPos.y + sprtBoxDim.y) {
-			result = true;
-		}
-	}
-	return result;
+    //Returns if point is in foatRect
+    return buttonRect.contains(mouseFloatPos);
 }
 
 
@@ -78,6 +85,7 @@ bool mousePressButton::registerInput(sf::Event& ev) {
 
                 /* Send the mouse down message regardless */
                 getEntity()->broadcastMessage(MOUSE_DOWN_CODE);
+				cout << "mouse downed on a mpb item" << endl;
 
                 /* Handle Double Click Register */
                 mouseTime = mouseClock.getElapsedTime().asMilliseconds();
@@ -86,6 +94,7 @@ bool mousePressButton::registerInput(sf::Event& ev) {
                 } else if (mouseTime < DOUBLE_CLICK_TIME) {
 					if (isBeingPressed == "folderIcon") {
 						getEntity()->broadcastMessage(OPEN_THE_FILE);
+						cout << "double clicked a file folder" << endl;
 					}
 					else if (isBeingPressed == "settingsIcon") {
 						getEntity()->broadcastMessage(OPEN_THE_SETTINGS);

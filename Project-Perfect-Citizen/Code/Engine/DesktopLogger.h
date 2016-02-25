@@ -30,6 +30,7 @@ namespace ppc {
 		void destroyWindow(WindowInterface*);
 		void setStyle(OSStyle*);
 		NodeState& getNodeState();
+		void addBackgroundCmpnt(WindowInterface*, sf::Sprite&);
 		void registerInput(sf::Event& ev);
 		void update(sf::Time&);
 		void refresh(sf::RenderStates states = sf::RenderStates());

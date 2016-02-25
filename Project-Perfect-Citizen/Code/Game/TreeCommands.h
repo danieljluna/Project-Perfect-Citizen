@@ -1,6 +1,6 @@
 #pragma once
 #include "../Engine/NodeState.h"
-#include "../Engine/BaseFileType.h"
+
 
 using commandFn = void(*)(ppc::NodeState& state, const vector<string> words);
 using fnMap = std::map<string, commandFn>;
@@ -18,8 +18,6 @@ commandFn findFunction(const std::string& command);
 ///@param inode state for the tree in question
 ///@param words are the commands being passed
 ///from the console
-///@throw Throws an std::exception error if a function 
-///isnt found
 ///////////////////////////////////////////////
 void fn_mkfile(ppc::NodeState& state, const vector<string> words);
 ///////////////////////////////////////////////
@@ -55,23 +53,17 @@ void fn_cd(ppc::NodeState& state, const vector<string> words);
 ///////////////////////////////////////////////
 void fn_mkDir(ppc::NodeState& state, const vector<string> words);
 ///////////////////////////////////////////////
-///@brief
-///@param inode state for the tree in question
-///@param words are the commands being passed
-///from the console
-///////////////////////////////////////////////
-void fn_pwd(ppc::NodeState& state, const vector<string> words);
-///////////////////////////////////////////////
 ///@brief Helper function that splits a string
 ///by a delimiter. Returns a string vector
 ///@param line. String to be split up
 ///@param delimiter That the string is split up
 ///by
 ///////////////////////////////////////////////
+std::vector<string> split(std::string line, std::string delimiter);
 
 void fn_decrypt(ppc::NodeState& state, const vector<std::string>words);
+void fn_pwd(ppc::NodeState& state, const vector<string> words);
 
-std::vector<string> split(std::string line, std::string delimiter);
 ///////////////////////////////////////////////
 ///@brief helper function that prints a 
 ///string vector

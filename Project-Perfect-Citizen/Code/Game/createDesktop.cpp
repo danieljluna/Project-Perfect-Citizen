@@ -1,19 +1,21 @@
 #include "createDesktop.h"
 using namespace ppc;
 
-void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet) {
+void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
 
 	//////////////////////////////////////////////
-	//// Create Player File Tree
+	//// Create the start menu
 	/////////////////////////////////////////////
-	//NodeState* playerFileTree = new NodeState();;
-	//playerFileTree->setUp();
+	//sf::Image spriteSheet;
+	//spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
+	ppc::WindowInterface* startToolbar =
+		new ppc::Window(1000, 60, sf::Color(128, 128, 128));
+	startToolbar->setPosition(0, 750);
+	Entity* startButton = new Entity();
+	spawnStartButton(*startButton, startToolbar->getInputHandler(), buttonSheet, 0, 0, 0.4f);
+	startToolbar->addEntity(*startButton);
+	desktopToModify.addWindow(startToolbar);
 
-	//////////////////////////////////////////////
-	//// Create the desktop window/desktop itself
-	/////////////////////////////////////////////
-	//WindowInterface* desktopWindow = new Window(1800, 1000, sf::Color(200, 200, 200));
-	//Desktop myDesktop(*desktopWindow, *playerFileTree);
 
 	////////////////////////////////
 	///// ICONS ON PLAYER DESKTOP
@@ -27,14 +29,14 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	Entity* SettingsIcon = new Entity();
 	Entity* SearchIcon = new Entity();
 
-	spawnConsoleIcon(*ConsoleIcon, desktopToModify, ih, iconSheet, 25.0f, 50.0f, 0.4f, 0.25f);
-	spawnFolderIcon(*FolderIcon, ih, iconSheet, 25.0f, 100.0f, 0.4f, 0.25f);
-	spawnBrowserIcon(*BrowserIcon, ih, iconSheet, 25.0f, 150.0f, 0.4f, 0.25f);
-	spawnChatIcon(*ChatIcon, ih, iconSheet, 25.0f, 200.0f, 0.4f, 0.25f);
-	spawnDataGraphIcon(*DataGraphIcon, ih, iconSheet, 25.0f, 250.0f, 0.4f, 0.25f);
-	spawnHardDriveIcon(*HardDriveIcon, ih, iconSheet, 25.0f, 300.0f, 0.4f, 0.25f);
-	spawnSettingsIcon(*SettingsIcon, ih, iconSheet, 25.0f, 350.0f, 0.4f, 0.25f);
-	spawnSearchIcon(*SearchIcon, ih, iconSheet, 25.0f, 400.0f, 0.4f, 0.25f);
+	spawnConsoleIcon(*ConsoleIcon, desktopToModify, ih, iconSheet, buttonSheet, 25.0f, 50.0f, 0.4f, 0.25f);
+	spawnFolderIcon(*FolderIcon, desktopToModify, ih, iconSheet, buttonSheet, 25.0f, 100.0f, 0.4f, 0.25f);
+	spawnBrowserIcon(*BrowserIcon, desktopToModify, ih, iconSheet, buttonSheet, 25.0f, 150.0f, 0.4f, 0.25f);
+	spawnChatIcon(*ChatIcon, desktopToModify, ih, iconSheet, buttonSheet, 25.0f, 200.0f, 0.4f, 0.25f);
+	spawnDataGraphIcon(*DataGraphIcon, desktopToModify, ih, iconSheet, buttonSheet, 25.0f, 250.0f, 0.4f, 0.25f);
+	spawnHardDriveIcon(*HardDriveIcon, desktopToModify, ih, iconSheet, buttonSheet, 25.0f, 300.0f, 0.4f, 0.25f);
+	spawnSettingsIcon(*SettingsIcon, desktopToModify, ih, iconSheet, buttonSheet, 25.0f, 350.0f, 0.4f, 0.25f);
+	spawnSearchIcon(*SearchIcon, desktopToModify, ih, iconSheet, buttonSheet, 25.0f, 400.0f, 0.4f, 0.25f);
 
 	desktopWindowToModify.addEntity(*ConsoleIcon);
 	desktopWindowToModify.addEntity(*FolderIcon);

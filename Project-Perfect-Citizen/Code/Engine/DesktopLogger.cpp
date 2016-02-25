@@ -68,3 +68,11 @@ void DesktopLogger::refresh(sf::RenderStates states) {
 
 	out_ << "DesktopLogger: Finished Refreshing Window" << std::endl;
 }
+
+void DesktopLogger::addBackgroundCmpnt(WindowInterface* wi, sf::Sprite& s) {
+
+	out_ << "DesktopLogger: Added a Background Sprite: " <<
+		loggedDesktop_ << std::endl;
+
+	loggedDesktop_->addBackgroundCmpnt(wi, s);
+}

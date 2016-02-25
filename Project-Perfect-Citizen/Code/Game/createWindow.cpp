@@ -28,8 +28,9 @@
 using namespace ppc;
 
 
-void ppc::spawnConsole(WindowInterface* windowToModify, 
-	InputHandler & ih, NodeState & ns, float x, float y) {
+void ppc::spawnConsole(WindowInterface*& windowToModify, 
+	InputHandler & ih, NodeState & ns, 
+	sf::Image& buttonSheet, float x, float y) {
 
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
@@ -40,12 +41,14 @@ void ppc::spawnConsole(WindowInterface* windowToModify,
 		/* Create the render components */
 		sf::Image iconSheet;
 		iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
+		//sf::Image buttonSheet;
+		//buttonSheet.loadFromFile(resourcePath() + "Windows_UI.png");
 		buttonRenderComponent* textRenderComponent = 
 			new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
 		textRenderComponent->renderPosition(sf::Vector2f(0, 220));
 
 		sf::Font myFont;
-		myFont.loadFromFile(resourcePath() + "Consolas.ttf");
+		myFont.loadFromFile(resourcePath() + "consola.ttf");
 		int fontSize = 24;
 		int windowOffset = 5;
 
@@ -81,8 +84,40 @@ void ppc::spawnConsole(WindowInterface* windowToModify,
 		windowToModify->setPosition(x, y);
 		windowToModify->addEntity(*textBox);
 		windowToModify->addEntity(*textDisplay);
-		windowToModify = new BorderDecorator(*windowToModify);
+		windowToModify = new BorderDecorator(*windowToModify, buttonSheet);
 	
+}
+
+void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, 
+	sf::Image& buttonSheet, float x, float y) {
+	/* Check to make sure the window passed isn't null */
+	if (windowToModify == nullptr) { return; }
+
+	/////////////////////////////////////////
+	/////// COMPONENTS 
+	///////////////////////////////////////
+	/* Create the render components */
+	sf::Image iconSheet;
+	iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
+	buttonRenderComponent* textRenderComponent =
+		new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
+	textRenderComponent->renderPosition(sf::Vector2f(0, 220));
+
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "Consolas.ttf");
+	int fontSize = 24;
+	int windowOffset = 5;
+
+	/////////////////////////////////////////
+	/////// ENTITIES 
+	///////////////////////////////////////
+
+
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+	windowToModify->setPosition(x, y);
+	windowToModify = new BorderDecorator(*windowToModify, buttonSheet);
 }
 
 

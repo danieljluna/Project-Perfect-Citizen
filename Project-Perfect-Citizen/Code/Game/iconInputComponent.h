@@ -24,11 +24,19 @@ class iconInputComponent : public ppc::InputComponent {
 private:
 
 	ppc::Desktop& theDesktop_;
+	sf::Image& buttonSheet_;
 
 public:
 
 	iconInputComponent() = delete;
-	iconInputComponent(ppc::Desktop& theDesktop);
+
+	//////////////////////////////////////////////////////////////////////
+	/// @brief Constructor
+	///
+	///@param The newly created icon entity to add components to.
+	///@param The buttonSheet of the window it will create's buttons.
+	///////////////////////////////////////////////////////////////////////
+	iconInputComponent(ppc::Desktop& theDesktop, sf::Image& buttonSheet_);
 	virtual ~iconInputComponent();
 	virtual bool registerInput(sf::Event& ev) override;
 	virtual void recieveMessage(msgType message) override;

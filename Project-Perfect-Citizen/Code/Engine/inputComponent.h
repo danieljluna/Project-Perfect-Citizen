@@ -43,6 +43,49 @@ public:
     ///////////////////////////////////////////////////////////////////
     virtual bool registerInput(sf::Event& ev) = 0;
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Returns the index-th observer 
+    ///
+    /// @pre (index < observerCount_)
+    /// @param index The index of the Observer Array you wish to 
+    ///     manipulate.
+    /// @return A pointer to the Observer desired. Returns nullptr if
+    ///     the precondition fails.
+    ///////////////////////////////////////////////////////////////////
+    BaseObserver* getObserver(size_t index = 0);
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets up an Observer to watch the Subject.
+    ///
+    /// @pre There is an Observer not currently in use.
+    /// @return Whether or not there was an Observer available to 
+    ///     assign to the Subject given.
+    ///////////////////////////////////////////////////////////////////
+    virtual bool watch(Subject& subject);
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets up an Observer to watch for an sf::Event.
+    ///
+    /// @pre There is an Observer not currently in use.
+    /// @return Whether or not there was an Observer available to 
+    ///     assign to the InputHandler given.
+    ///////////////////////////////////////////////////////////////////
+    virtual bool watch(InputHandler& iHandler, sf::Event::EventType type);
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Detatches Observers connected to this subject.
+    /// @details This will detach all Observers related to this 
+    ///     InputComponent from the given Subject.
+    ///////////////////////////////////////////////////////////////////
+    virtual void ignore(Subject& subject);
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Detatches Observers connected to this subject.
+    /// @details This will detach all Observers related to this 
+    ///     InputComponent from the given handle in the InputHandler.
+    ///////////////////////////////////////////////////////////////////
+    virtual void ignore(InputHandler& iHandler, sf::Event::EventType type);
+
 
 protected:
 
@@ -56,55 +99,12 @@ protected:
     ///////////////////////////////////////////////////////////////////
     InputComponent(size_t observerCount = 1);
 
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Returns the index-th observer 
-    ///
-    /// @pre (index < observerCount_)
-    /// @param index The index of the Observer Array you wish to 
-    ///     manipulate.
-    /// @return A pointer to the Observer desired. Returns nullptr if
-    ///     the precondition fails.
-    ///////////////////////////////////////////////////////////////////
-    ComponentObsvr* getObserver(size_t index = 0);
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Sets up an Observer to watch the Subject.
-    ///
-    /// @pre There is an Observer not currently in use.
-    /// @return Whether or not there was an Observer available to 
-    ///     assign to the Subject given.
-    ///////////////////////////////////////////////////////////////////
-	virtual bool watch(Subject& subject);
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Sets up an Observer to watch for an sf::Event.
-    ///
-    /// @pre There is an Observer not currently in use.
-    /// @return Whether or not there was an Observer available to 
-    ///     assign to the InputHandler given.
-    ///////////////////////////////////////////////////////////////////
-	virtual bool watch(InputHandler& iHandler, sf::Event::EventType type);
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Detatches Observers connected to this subject.
-    /// @details This will detach all Observers related to this 
-    ///     InputComponent from the given Subject.
-    ///////////////////////////////////////////////////////////////////
-	virtual void ignore(Subject& subject);
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Detatches Observers connected to this subject.
-    /// @details This will detach all Observers related to this 
-    ///     InputComponent from the given handle in the InputHandler.
-    ///////////////////////////////////////////////////////////////////
-    virtual void ignore(InputHandler& iHandler, sf::Event::EventType type);
-
 
 private:
 
     size_t findNextObserver();
 
-    ComponentObsvr** observerArray_;
+    BaseObserver** observerArray_;
 
     size_t observerCount_;
 
