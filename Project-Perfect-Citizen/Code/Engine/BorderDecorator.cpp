@@ -173,8 +173,8 @@ void BorderDecorator::updateBounds() {
     bounds.width = borderTopLeft_.x + borderBottomRight_.x + 
                 WindowDecorator::getBounds().width;
     bounds.height = float(borderTopLeft_.y);
-    bounds.top = WindowDecorator::getBounds().top - borderTopLeft_.y;
-    bounds.left = WindowDecorator::getBounds().left - borderTopLeft_.x;
+    bounds.top = 0.0f - borderTopLeft_.y;
+    bounds.left = 0.0f - borderTopLeft_.x;
     draggableInput_.setBounds(bounds);
 
     //Re-position the button
