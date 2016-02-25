@@ -85,13 +85,12 @@ bool DraggableInput::registerInput(sf::Event& ev) {
             //If we're pointing to a Window:
             if (isWindow_) {
                 win_->move(shift);
+                startX_ = endX_ - shift.x;
+                startY_ = endY_ - shift.y;
             //Else if we're pointing to a Transformable
             } else {
 				trans_->move(shift);
             }
-
-            startX_ = endX_ - shift.x;
-            startY_ = endY_ - shift.y;
         }
 
         return false;
