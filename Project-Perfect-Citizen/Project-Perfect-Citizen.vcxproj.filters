@@ -175,6 +175,7 @@
     <ClCompile Include="Code\Game\databaseDisplayRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\Audio\AudioQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -386,6 +387,8 @@
     </ClInclude>
     <ClInclude Include="Code\Game\databaseDisplayRenderComponent.h">
       <Filter>Headers\Game</Filter>
+    <ClInclude Include="Code\Engine\Audio\AudioQueue.h">
+      <Filter>Headers\Engine\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
