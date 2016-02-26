@@ -3,6 +3,9 @@
 #include "../Engine/WindowInterface.h"
 #include "../Engine/InputHandler.h"
 #include "../Engine/NodeState.h"
+#include "buttonUpdateComponent.h"
+#include "Database.h"
+
 
 
 ///////////////////////////////////////////////////////////////////////

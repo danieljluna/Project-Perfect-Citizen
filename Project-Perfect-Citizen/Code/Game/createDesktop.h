@@ -28,6 +28,7 @@
 #include "../Engine/BorderDecorator.h"
 #include "createIcon.h"
 #include "createButton.h"
+#include "Database.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief A toolkit of functions that sets up complete desktops

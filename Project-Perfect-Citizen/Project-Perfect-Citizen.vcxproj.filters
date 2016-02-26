@@ -160,6 +160,24 @@
     <ClCompile Include="Code\Engine\Network.cpp">
       <Filter>Sources\Engine\Graph</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\buttonUpdateComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\databaseDisplayRenderComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\databaseSearchInputComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\databaseSearchRenderComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\Database.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\Audio\AudioQueue.cpp">
+      <Filter>Sources\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -356,6 +374,24 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\Vertex.h">
       <Filter>Headers\Engine\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Audio\AudioQueue.h">
+      <Filter>Headers\Engine\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\buttonUpdateComponent.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\Database.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\databaseDisplayRenderComponent.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\databaseSearchInputComponent.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\databaseSearchRenderComponent.h">
+      <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
