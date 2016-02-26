@@ -127,19 +127,23 @@ void ppc::Desktop::registerInput(sf::Event& ev) {
 	//if the window clicked in a window that wasnt focused,
 	//then focus that window.
 	//for any mouse event
-	if (ev.type == sf::Event::MouseButtonPressed ||
-		ev.type == sf::Event::MouseButtonReleased ||
-		ev.type == sf::Event::MouseMoved) {
+	if (ev.type == sf::Event::MouseButtonPressed) {
 		for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 			sf::FloatRect winBounds = (*it)->getBounds();
 			if (winBounds.contains(float(ev.mouseButton.x), float(ev.mouseButton.y))) {
-				focusWindow(*it);				
-				ev.mouseButton.x -= (*it)->getPosition().x;
-				ev.mouseButton.y -= (*it)->getPosition().y;
-				break;
+				focusWindow(*it);
+                break;
 			}
 		}
 	}
+
+    if (ev.type == sf::Event::MouseMoved) {
+        ev.mouseMove.x -= int(focused_->getPosition().x);
+        ev.mouseMove.y -= int(focused_->getPosition().y);
+    } else if ((ev.type == sf::Event::MouseButtonPressed) || (ev.type == sf::Event::MouseButtonReleased)){
+        ev.mouseButton.x -= int(focused_->getPosition().x);
+        ev.mouseButton.y -= int(focused_->getPosition().y);
+    }
 	
 	focused_->registerInput(ev);
 

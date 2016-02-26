@@ -12,6 +12,8 @@ DraggableInput::DraggableInput(WindowInterface& win) :
     isDragging_ = false;
     isWindow_ = true;
     win_ = &win;
+    startX_ = 0;
+    startY_ = 0;
 }
 
 
@@ -83,14 +85,13 @@ bool DraggableInput::registerInput(sf::Event& ev) {
             //If we're pointing to a Window:
             if (isWindow_) {
                 win_->move(shift);
+                startX_ = endX_ - shift.x;
+                startY_ = endY_ - shift.y;
             //Else if we're pointing to a Transformable
             } else {
 				trans_->move(shift);
             }
         }
-
-		startX_ = endX_;
-		startY_ = endY_;
 
         return false;
     }

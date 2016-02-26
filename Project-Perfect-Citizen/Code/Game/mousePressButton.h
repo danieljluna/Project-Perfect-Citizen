@@ -22,7 +22,6 @@ class mousePressButton: public ppc::InputComponent {
 private:
 
 	sf::FloatRect buttonRect;
-	ppc::InputHandler inputHandle;
 	std::string isBeingPressed;
 	sf::Clock mouseClock;
     sf::Int32 mouseTime;

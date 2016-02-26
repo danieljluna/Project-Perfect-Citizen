@@ -160,6 +160,7 @@
     <ClCompile Include="Code\Engine\Network.cpp">
       <Filter>Sources\Engine\Graph</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\Audio\AudioQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -356,6 +357,9 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\Vertex.h">
       <Filter>Headers\Engine\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Audio\AudioQueue.h">
+      <Filter>Headers\Engine\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

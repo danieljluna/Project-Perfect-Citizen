@@ -43,7 +43,7 @@
 #include "Engine/Audio/AudioLocator.h"
 #include "Engine/Audio/NullAudio.h"
 #include "Game/PipelineCharacter.h"
-
+#include "Engine\Audio\AudioQueue.h"
 using namespace ppc;
 
 
@@ -60,13 +60,18 @@ int main(int argc, char** argv) {
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
 	//////////////////////////SOUND STUFF//////////////////////////////
-	AudioLocator::initialize();
-	ppc::NullAudio dAudio;
-	AudioLocator::assign(&dAudio);
-	AudioLogger logger(dAudio);
-	AudioLocator::assign(&logger);
-	Audio* audio = AudioLocator::getAudio();
-	audio->playSound(ppc::Sounds::gunshot);
+	//AudioLocator::initialize();
+	//ppc::NullAudio dAudio;
+	//AudioLocator::assign(&dAudio);
+	//AudioLogger logger(dAudio);
+	//AudioLocator::assign(&logger);
+	//Audio* audio = AudioLocator::getAudio();
+	//audio->playSound(ppc::Sounds::gunshot);
+
+	AudioQueue aq(5);
+	int gunshots = aq.addSound("shots", "gunshots.wav");
+	aq.playSound(gunshots);
+	aq.popAndPlay();
 	///////////////////////////////////////////////////////////////////
 
     ////////////////// BACKGROUND IMAGE ////////////////////
@@ -130,14 +135,18 @@ int main(int argc, char** argv) {
 			myDesktop.registerInput(event);
         }
 
-        if (deltaTime.getElapsedTime() > framePeriod) {
+        sf::Time elapsed = deltaTime.getElapsedTime();
+        while (elapsed > framePeriod) {
 
             // Clear screen
-			screen.clear(sf::Color::White);
-     
+            screen.clear(sf::Color::White);
+
             //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
-			myDesktop.update(dt);
+            myDesktop.update(dt);
+
+            elapsed -= framePeriod;
+        }
 
             //Draw all the Windows in the Desktop
 			myDesktop.refresh();
@@ -148,7 +157,7 @@ int main(int argc, char** argv) {
 
             //Display final Window
 			screen.display();
-        }
+
     }
 
     return EXIT_SUCCESS;
