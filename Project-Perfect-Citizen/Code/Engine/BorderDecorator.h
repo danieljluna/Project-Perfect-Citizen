@@ -41,7 +41,7 @@ public:
     ///     Window.
     ///////////////////////////////////////////////////////////////////
     BorderDecorator(WindowInterface& win, 
-					
+					sf::Image& buttonSheet,
                     unsigned int majorBorder = 34, 
                     unsigned int minorBorder = 5);
 

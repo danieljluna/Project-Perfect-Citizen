@@ -1,6 +1,6 @@
 #pragma once
 #include "../Engine/NodeState.h"
-#include "../Engine/BaseFileType.h"
+
 
 using commandFn = void(*)(ppc::NodeState& state, const vector<string> words);
 using fnMap = std::map<string, commandFn>;
@@ -59,10 +59,11 @@ void fn_mkDir(ppc::NodeState& state, const vector<string> words);
 ///@param delimiter That the string is split up
 ///by
 ///////////////////////////////////////////////
+std::vector<string> split(std::string line, std::string delimiter);
 
 void fn_decrypt(ppc::NodeState& state, const vector<std::string>words);
+void fn_pwd(ppc::NodeState& state, const vector<string> words);
 
-std::vector<string> split(std::string line, std::string delimiter);
 ///////////////////////////////////////////////
 ///@brief helper function that prints a 
 ///string vector

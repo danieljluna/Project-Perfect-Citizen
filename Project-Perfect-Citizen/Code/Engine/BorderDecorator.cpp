@@ -10,9 +10,11 @@ using namespace ppc;
 
 BorderDecorator::BorderDecorator(
     WindowInterface& win,
+	sf::Image& buttonSheet,
     unsigned int majorBorder,
     unsigned int minorBorder) :
             WindowDecorator(win),
+			buttonSpriteSheet(buttonSheet),
             draggableInput_(*this) {
 
     //Store Input
@@ -20,6 +22,21 @@ BorderDecorator::BorderDecorator(
     borderTopLeft_.x = borderBottomRight_.x = 
             borderBottomRight_.y = minorBorder;
 
+	closeRC_ = new buttonRenderComponent(buttonSpriteSheet, 0, 3, 1, 1);
+	closeRC_->setImageScale(0.2f, 0.2f);
+
+    bIC_ = new mousePressButton();
+    bIC_->setInputHandle(win.getInputHandler());
+    sf::FloatRect clickSpace = closeRC_->getSprite()->getLocalBounds();
+    clickSpace.top = 0.0f - minorBorder - clickSpace.height;
+    clickSpace.left = win.getSize().x - clickSpace.width - minorBorder;
+    bIC_->setFloatRect(clickSpace);
+    bIC_->setIsBeingPressed("localCloseButton");
+
+	closeButton_.addComponent(closeRC_);
+	closeButton_.addComponent(bIC_);
+
+	addInputComponent(bIC_);
 	
     //Set up BorderShape
     borderShape_.setPosition(win.getPosition().x - minorBorder, 
@@ -183,4 +200,12 @@ void BorderDecorator::updateBounds() {
     sf::Vector2f ButtonPos(right - sprBounds.width - borderBottomRight_.y,
                            bounds.top + borderBottomRight_.y);
 	buttonRenderVec_.at(0).renderPosition(ButtonPos);
+    /*
+    float right = bounds.left + bounds.width + WindowDecorator::getPosition().x;
+    float top = WindowDecorator::getPosition().y + bounds.top;
+    sf::FloatRect sprBounds = closeRC_->getSprite()->getGlobalBounds();
+    sf::Vector2f ButtonPos(right - sprBounds.width - borderBottomRight_.y,
+                           top + borderBottomRight_.y);
+	closeRC_->renderPosition(ButtonPos);
+    */
 }
