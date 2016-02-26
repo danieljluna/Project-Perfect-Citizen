@@ -3,11 +3,25 @@ using namespace ppc;
 
 void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
 
+	
+	//////////////////////////////////////////////
+	//// Create the database (really should take a seed)
+	/////////////////////////////////////////////
+	Database& theDatabase = Database();
+	theDatabase.generateFullDatabase(25);
+	/*Database& filteredDatabase = Database();
+	string filter = "job";
+	string query = "Doctor";
+	if (theDatabase.filterIsValid(filter)) {
+	filteredDatabase = theDatabase.sortBy(filter, query);
+	cout << " New Filtered Database: " << endl;
+	filteredDatabase.printCharacters();
+	} */
+	
+	
 	//////////////////////////////////////////////
 	//// Create the start menu
 	/////////////////////////////////////////////
-	//sf::Image spriteSheet;
-	//spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
 	ppc::WindowInterface* startToolbar =
 		new ppc::Window(1000, 60, sf::Color(128, 128, 128));
 	startToolbar->setPosition(0, 750);

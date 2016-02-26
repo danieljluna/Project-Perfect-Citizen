@@ -48,11 +48,24 @@ mousePressButton::~mousePressButton() {
 }
 
 void mousePressButton::setInputHandle(ppc::InputHandler& ih) {
+/*<<<<<<< HEAD
+	inputHandle = ih;
+
+	inputHandle.addHandle(sf::Event::MouseButtonPressed);
+	inputHandle.addHandle(sf::Event::MouseButtonReleased);
+	inputHandle.addHandle(sf::Event::MouseMoved);
+
+	watch(inputHandle, sf::Event::MouseButtonPressed);
+	watch(inputHandle, sf::Event::MouseButtonReleased);
+	watch(inputHandle, sf::Event::MouseMoved);
+
+=======*/
 	ih.addHandle(sf::Event::MouseButtonPressed);
 	ih.addHandle(sf::Event::MouseButtonReleased);
 
 	watch(ih, sf::Event::MouseButtonPressed);
 	watch(ih, sf::Event::MouseButtonReleased);
+//>>>>>>> 1fa780a3aca41e0a4f12b8c1b95e43053993b9a4
 }
 
 void mousePressButton::setFloatRect(sf::FloatRect rect) {
@@ -67,6 +80,8 @@ void mousePressButton::setIsBeingPressed(std::string iBP) {
 bool mousePressButton::isCollision(sf::Vector2i mousePos) {
     //Gets the position as a Float Vector
     sf::Vector2f mouseFloatPos(float(mousePos.x), float(mousePos.y));
+	//cout << "MOUSE X, Y: " << mousePos.x << ",  " << mousePos.y << endl;
+	//cout << "ButtonRect LEFT, TOP: " << buttonRect.left << ",  "<< buttonRect.top << endl;
 
     //Returns if point is in foatRect
     return buttonRect.contains(mouseFloatPos);
@@ -83,7 +98,6 @@ bool mousePressButton::registerInput(sf::Event& ev) {
 
                 /* Send the mouse down message regardless */
                 getEntity()->broadcastMessage(MOUSE_DOWN_CODE);
-				cout << "mouse downed on a mpb item" << endl;
 
                 /* Handle Double Click Register */
                 mouseTime = mouseClock.getElapsedTime().asMilliseconds();
@@ -139,8 +153,18 @@ bool mousePressButton::registerInput(sf::Event& ev) {
 
                 /* Send the mouse release message regardless*/
                 getEntity()->broadcastMessage(MOUSE_RELEASED_CODE);
+				if (isBeingPressed == "localCloseButton") {
+					// STUB: CLOSE THE WINDOW
+				}
             }
         }
+		/* Case: Mouse Moved Event*/
+		else if (ev.type == sf::Event::MouseMoved) {
+			if (!buttonRect.contains(ev.mouseMove.x, ev.mouseMove.y) && 
+				ev.mouseButton.button == sf::Mouse::Left) {
+				cout << "left the button" << endl;
+			}
+		}
     }
 
     return true;

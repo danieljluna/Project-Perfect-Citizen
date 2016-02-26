@@ -43,7 +43,8 @@
 #include "Engine/Audio/AudioLocator.h"
 #include "Engine/Audio/NullAudio.h"
 #include "Game/PipelineCharacter.h"
-
+#include "Game/Database.h"
+#include "Engine\Audio\AudioQueue.h"
 using namespace ppc;
 
 
@@ -60,13 +61,18 @@ int main(int argc, char** argv) {
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
 	//////////////////////////SOUND STUFF//////////////////////////////
-	AudioLocator::initialize();
-	ppc::NullAudio dAudio;
-	AudioLocator::assign(&dAudio);
-	AudioLogger logger(dAudio);
-	AudioLocator::assign(&logger);
-	Audio* audio = AudioLocator::getAudio();
-	audio->playSound(ppc::Sounds::gunshot);
+	//AudioLocator::initialize();
+	//ppc::NullAudio dAudio;
+	//AudioLocator::assign(&dAudio);
+	//AudioLogger logger(dAudio);
+	//AudioLocator::assign(&logger);
+	//Audio* audio = AudioLocator::getAudio();
+	//audio->playSound(ppc::Sounds::gunshot);
+
+	AudioQueue aq(5);
+	int gunshots = aq.addSound("shots", "gunshots.wav");
+	aq.playSound(gunshots);
+	aq.popAndPlay();
 	///////////////////////////////////////////////////////////////////
 
     ////////////////// BACKGROUND IMAGE ////////////////////
@@ -100,17 +106,6 @@ int main(int argc, char** argv) {
 	Desktop myDesktop(*desktopWindow, testState);
 	myDesktop.addBackgroundCmpnt(desktopWindow, S);
 	createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
-
-	std::vector<PipelineCharacter> pipevec;
-	for (int i = 0; i < 10; ++i) {
-		PipelineCharacter newCharacter;
-		newCharacter.generate();
-		pipevec.push_back(newCharacter);
-	}
-
-	for (auto iter = pipevec.begin(); iter != pipevec.end(); ++iter) {
-		cout << iter->getJob() << endl;
-	}
 
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop

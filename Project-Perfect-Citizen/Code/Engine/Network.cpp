@@ -9,9 +9,10 @@
 using namespace ppc;
 
 
-Network::Network(size_t size) : vertexData_(size, Vertex()) {
+Network::Network(size_t size) {
     size_ = size;
-    edgeMat_ = new Edge* [size * size];
+    edgeMat_ = new Edge*[size * size];
+    vertexData_ = new Vertex[size];
 
     //Init all edges to null
     for (size_t e = 0; e < size * size; ++e) {
@@ -19,8 +20,16 @@ Network::Network(size_t size) : vertexData_(size, Vertex()) {
     }
 
     //Drawing Vars
-    vertSize_ = 5.0f;
+    vertSize_ = 15.0f;
     edgeCount_ = 0;
+}
+
+
+
+
+Network::~Network() {
+    delete[] edgeMat_;
+    delete[] vertexData_;
 }
 
 
@@ -31,12 +40,19 @@ Network::Network(size_t size) : vertexData_(size, Vertex()) {
 ///////////////////////////////////////////////////////////////////////
 
 void Network::setSize(size_t size) {
-    Edge** newEdgeMat = new Edge* [size * size];
+    Edge** newEdgeMat = new Edge*[size * size];
+    Vertex* newVertexData = new Vertex[size];
     edgeCount_ = 0;
 
     //For all sources:
     for (size_t i = 0; i < size; ++i) {
-        
+
+        //If we have data on previous Verts
+        if (i < size_) {
+            //Copy over Vertex Data
+            newVertexData[i] = std::move(vertexData_[i]);
+        }
+
         //For all edge pairs:
         for (size_t j = 0; j < size; ++j) {
             //When both verts exist across resize:
@@ -54,12 +70,12 @@ void Network::setSize(size_t size) {
 
     }   //End for loop of i over verts
 
-    //Clear data
-    clearData();
-    
+        //Clear data
+    clearEdges();
+
     //Copy over data
     edgeMat_ = newEdgeMat;
-    vertexData_.resize(size);
+    vertexData_ = newVertexData;
 
 }
 
@@ -210,7 +226,7 @@ size_t Network::size() const {
 ///////////////////////////////////////////////////////////////////////
 
 void Network::draw(sf::RenderTarget& target,
-                   sf::RenderStates states) const {
+    sf::RenderStates states) const {
     //Define Vertex Shape:
     sf::CircleShape vertShape(vertSize_);
     vertShape.setOrigin(vertSize_, vertSize_);
@@ -228,7 +244,7 @@ void Network::draw(sf::RenderTarget& target,
         target.draw(vertShape, states);
 
         //For each edge leaving this Vertex
-        for(size_t j = 0; (lnsDrawn < lnVerts) && (j < size_); ++j){
+        for (size_t j = 0; (lnsDrawn < lnVerts) && (j < size_); ++j) {
             //If it exists:
             size_t edgeIndex = getEdgeIndex(i, j);
             if (edgeMat_[edgeIndex] != nullptr) {
@@ -256,13 +272,11 @@ void Network::draw(sf::RenderTarget& target,
 // Check Helper Functions
 ///////////////////////////////////////////////////////////////////////
 
-void Network::clearData() {
+void Network::clearEdges() {
     //Clear out edgeMat_
-    for (size_t i = 0; i < size_ * size_; ++i) {
+    for (size_t i = 0; i < size_; ++i) {
         removeEdge(i);
     }
-
-    vertexData_ = std::vector<Vertex>(size_, Vertex());
 }
 
 
