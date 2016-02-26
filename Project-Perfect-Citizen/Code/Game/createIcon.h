@@ -21,6 +21,7 @@
 #include "consoleUpdateComponent.h"
 #include "../Engine/NodeState.h"
 #include "iconInputComponent.h"
+#include "Database.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief A toolkit of functions that turn entities into useable icons
