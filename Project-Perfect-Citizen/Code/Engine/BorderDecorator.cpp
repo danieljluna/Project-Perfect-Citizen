@@ -25,7 +25,13 @@ BorderDecorator::BorderDecorator(
 	closeRC_ = new buttonRenderComponent(buttonSpriteSheet, 0, 3, 1, 1);
 	closeRC_->setImageScale(0.2f, 0.2f);
 
-	bIC_ = new mousePressButton(win.getInputHandler(), closeRC_->getSprite()->getLocalBounds(), "localCloseButton");
+    bIC_ = new mousePressButton();
+    bIC_->setInputHandle(win.getInputHandler());
+    sf::FloatRect clickSpace = closeRC_->getSprite()->getLocalBounds();
+    clickSpace.top = 0.0f - minorBorder - clickSpace.height;
+    clickSpace.left = win.getSize().x - clickSpace.width - minorBorder;
+    bIC_->setFloatRect(clickSpace);
+    bIC_->setIsBeingPressed("localCloseButton");
 
 	closeButton_.addComponent(closeRC_);
 	closeButton_.addComponent(bIC_);
@@ -151,16 +157,17 @@ void BorderDecorator::updateBounds() {
     bounds.width = borderTopLeft_.x + borderBottomRight_.x + 
                 WindowDecorator::getBounds().width;
     bounds.height = float(borderTopLeft_.y);
-    bounds.top = WindowDecorator::getBounds().top - borderTopLeft_.y;
-    bounds.left = WindowDecorator::getBounds().left - borderTopLeft_.x;
+    bounds.top = 0.0f - borderTopLeft_.y;
+    bounds.left = 0.0f - borderTopLeft_.x;
     draggableInput_.setBounds(bounds);
 
     //Re-position the button
-    float right = bounds.left + bounds.width;
+    float right = bounds.left + bounds.width + WindowDecorator::getPosition().x;
+    float top = WindowDecorator::getPosition().y + bounds.top;
     sf::FloatRect sprBounds = closeRC_->getSprite()->getGlobalBounds();
 	bIC_->setFloatRect(sprBounds);
     sf::Vector2f ButtonPos(right - sprBounds.width - borderBottomRight_.y,
-                           bounds.top + borderBottomRight_.y);
+                           top + borderBottomRight_.y);
 	closeRC_->renderPosition(ButtonPos);
 	
 }

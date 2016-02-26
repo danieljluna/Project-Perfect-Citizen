@@ -1,0 +1,5600 @@
+{
+  "markups": {
+    "agePrecondition": [
+      "speaker.age < 64",
+      "speaker.age < 24",
+      "speaker.age < 44"
+    ],
+    "decisions": [
+      "speaker.decisions == Feeling",
+      "speaker.decisions == Thinking",
+      "speaker.decisions == Middle"
+    ],
+    "iqPrecondition": [
+      "speaker.iq < 114",
+      "speaker.iq < 129",
+      "speaker.iq < 69",
+      "speaker.iq < 84",
+      "speaker.iq < 144"
+    ],
+    "linkSuspicion": [
+      "speaker.linkSuspicion == clearySuspicious",
+      "speaker.linkSuspicion == slightlySuspicious",
+      "speaker.linkSuspicion == clearlyClean",
+      "speaker.linkSuspicion == suggestive",
+      "speaker.linkSuspicion == ambiguous"
+    ],
+    "outerLife": [
+      "speaker.outerLife == Perceiving",
+      "speaker.outerLife == Judging",
+      "speaker.outerLife == Middle"
+    ],
+    "relationship": [
+      "speaker.relationship == friends",
+      "speaker.relationship == communities",
+      "speaker.relationship == school",
+      "speaker.relationship == family",
+      "speaker.relationship == work"
+    ],
+    "social": [
+      "speaker.social == Ambivert",
+      "speaker.social == Extravert",
+      "speaker.social == Introvert"
+    ],
+    "takeIn": [
+      "speaker.takeIn == Intuition",
+      "speaker.takeIn == Middle",
+      "speaker.takeIn == Sensing"
+    ]
+  },
+  "nonterminals": {
+    "Alright": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Alright" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Fine" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Okay" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Okie" ],
+          "markup": {
+            "agePrecondition": [ "speaker.age < 24" ],
+            "iqPrecondition": [ "speaker.iq < 114" ],
+            "social": [ "speaker.social == Extravert" ]
+          }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Ok" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Got it" ],
+          "markup": { }
+        }
+      ]
+    },
+    "Cool": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Cool" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Ooo" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Awesome" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Woah" ],
+          "markup": { }
+        }
+      ]
+    },
+    "Cut the shit": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Cut the shit" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Stop it" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Fuck you" ],
+          "markup": { }
+        }
+      ]
+    },
+    "Do": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Do" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Did" ],
+          "markup": { }
+        }
+      ]
+    },
+    "Do not": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Do not" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Don't" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Dont" ],
+          "markup": { }
+        }
+      ]
+    },
+    "Do not ask any questions": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Do not ask any questions" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Do not]]", " ask anything" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Doesn't matter" ],
+          "markup": { }
+        }
+      ]
+    },
+    "Do not tell anyone what happened": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Do not]]", " tell ", "[[anyone]]", " what ", "[[happened]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "Do you remember": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Do ", "[[you or u]]", " remember" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Remember" ],
+          "markup": { }
+        }
+      ]
+    },
+    "How many": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "How many" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "How many different types" ],
+          "markup": { }
+        }
+      ]
+    },
+    "I am sorry but": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " am sorry but" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "We are deeply sorry but" ],
+          "markup": { }
+        }
+      ]
+    },
+    "I or i": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "I" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "i" ],
+          "markup": { }
+        }
+      ]
+    },
+    "I will": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "We can" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "I will" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "I can" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "We will" ],
+          "markup": { }
+        }
+      ]
+    },
+    "I'm or Im": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "I'm" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Im" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "I am" ],
+          "markup": { }
+        }
+      ]
+    },
+    "In need call me": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "In need call me" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "In need" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "I need some, call me" ],
+          "markup": { }
+        }
+      ]
+    },
+    "It was so": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "It was" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "It was so" ],
+          "markup": { }
+        }
+      ]
+    },
+    "Just got informed": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Just got informed" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Just got told" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " just got noticed" ],
+          "markup": { }
+        }
+      ]
+    },
+    "Make sure to bring the": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Make sure to bring the" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Make sure to bring that" ],
+          "markup": { }
+        }
+      ]
+    },
+    "No": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "No" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "No way" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Nope" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Nu" ],
+          "markup": { }
+        }
+      ]
+    },
+    "Out": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Out" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Gone" ],
+          "markup": { }
+        }
+      ]
+    },
+    "Shipping": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Shipping" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Sending" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Delivering" ],
+          "markup": { }
+        }
+      ]
+    },
+    "The": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "The" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Our" ],
+          "markup": { }
+        }
+      ]
+    },
+    "This": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "This" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "this" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "The" ],
+          "markup": { }
+        }
+      ]
+    },
+    "We need more volunteers": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "We need more ", "[[volunteers]]", " for this" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "We need ", "[[volunteers]]", " for this" ],
+          "markup": { }
+        }
+      ]
+    },
+    "What is going on": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "What is going on" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "What is happening" ],
+          "markup": { }
+        }
+      ]
+    },
+    "What is this": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "What is this" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "What" ],
+          "markup": { }
+        }
+      ]
+    },
+    "Why": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Why" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "What" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "What the" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Uh" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Uhh" ],
+          "markup": { }
+        }
+      ]
+    },
+    "a lot": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "a lot" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "tons" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "quite a few" ],
+          "markup": { }
+        }
+      ]
+    },
+    "alert intro response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Oh shit" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Fuck" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Shoot" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Oh shoot" ],
+          "markup": { }
+        }
+      ]
+    },
+    "alert punctuation": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "!" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "!!" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "!!!" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ " " ],
+          "markup": { }
+        }
+      ]
+    },
+    "alright": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "alright" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "okay" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "cool" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "got it" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "fine" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "yes" ],
+          "markup": { }
+        }
+      ]
+    },
+    "amount": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "2nd time" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "4rd time" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "3rd time" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "5th time" ],
+          "markup": { }
+        }
+      ]
+    },
+    "amount num": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "about 10" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "about ", "[[number]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "and": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "and" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "&" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "n" ],
+          "markup": { }
+        }
+      ]
+    },
+    "another greeting": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "how has your day been" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "how has it been" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "hope things are going great" ],
+          "markup": { }
+        }
+      ]
+    },
+    "anyone": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "anyone" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "a soul" ],
+          "markup": { }
+        }
+      ]
+    },
+    "anything for you": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " would do anything for ", "[[you or u]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "are going to be crazy": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[are or r]]", " going to be insane" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[are or r]]", " going to go crazy" ],
+          "markup": { }
+        }
+      ]
+    },
+    "are or r": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "are" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "r" ],
+          "markup": { }
+        }
+      ]
+    },
+    "are we going to": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[are or r]]", " going to" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[are or r]]", " we headed to" ],
+          "markup": { }
+        }
+      ]
+    },
+    "aswell": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "also" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "aswell" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "too" ],
+          "markup": { }
+        }
+      ]
+    },
+    "at or @": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "at" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "@" ],
+          "markup": { }
+        }
+      ]
+    },
+    "bad": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "bad" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "serious" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "terrible" ],
+          "markup": { }
+        }
+      ]
+    },
+    "bad condition": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "okay" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "poorly" ],
+          "markup": { }
+        }
+      ]
+    },
+    "bad news": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " have some bad news" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " got something to tell you" ],
+          "markup": { }
+        }
+      ]
+    },
+    "bad people": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "those bad people" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "those crooks" ],
+          "markup": { }
+        }
+      ]
+    },
+    "be able to help me": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "be able to help me" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "be able to work on it with me" ],
+          "markup": { }
+        }
+      ]
+    },
+    "been working on a": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "have been working on a" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "have been busy with a" ],
+          "markup": { }
+        }
+      ]
+    },
+    "before": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "before" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "by" ],
+          "markup": { }
+        }
+      ]
+    },
+    "believe this is happening": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "believe this is happening" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "believe this going to happen" ],
+          "markup": { }
+        }
+      ]
+    },
+    "better not see it": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "better not see it" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "better not see that thing" ],
+          "markup": { }
+        }
+      ]
+    },
+    "boss": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "boss" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "big guy" ],
+          "markup": { }
+        }
+      ]
+    },
+    "cannot": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "cannot" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "can't" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "cant" ],
+          "markup": { }
+        }
+      ]
+    },
+    "cash": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "bank" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "money" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "mulla" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "cash money" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "some big ones" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "hunnas" ],
+          "markup": { }
+        }
+      ]
+    },
+    "class name": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "math class" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "english" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "algebra" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "economics" ],
+          "markup": { }
+        }
+      ]
+    },
+    "comma": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "," ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities": {
+      "complete": true,
+      "deep": false,
+      "markup": { "relationship": [ "speaker.relationship == communities" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[communities clearly clean]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[communities slightly questionable]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[communities ambiguous]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[communities suggestive]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[communities clearly suspicious]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities a close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[haha]]", "[[comma]]", " ", "[[you or u]]", " ", "[[group]]", " ", "[[are or r]]", " ", "[[fun]]", "[[comma]]", " ", "[[I or i]]", " ", "[[hope it did not scare]]", " ", "[[you or u]]", " ", "[[and]]", " ", "[[group]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities a intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[It was so]]", " ", "[[fun]]", " ", "[[to know that]]", " ", "[[group]]", " ", "[[knows about]]", " ", "[[you or u]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities ambiguous": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ambiguous" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[communities a intro]]", " ", "[[communities a close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities cc close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[sounds good]]", " ", "[[will see you there]]", "[[alert punctuation]]", " ", "[[emoticon]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities cc intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[greeting word]]", " ", "[[would you like to go to]]", " ", "[[community event]]", "[[question punctuation]]", " ", "[[there will be]]", " ", "[[things to do at event]]", " ", "[[and]]", " ", "[[things to do event]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities cc response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[yes]]", "[[comma]]", " ", "[[that sounds]]", " ", "[[fun]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities clearly clean": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearlyClean" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[communities cc intro]]", " ", "[[communities cc response]]", " ", "[[communities cc close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities clearly suspicious": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearySuspicious" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[communities cs intro]]", " ", "[[communities cs close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities cs close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I will]]", " ", "[[fix it]]", "[[comma]]", " ", "[[meet you at your place]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities cs intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[In need call me]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities s close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities s intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Shipping]]", " ", "[[a lot]]", " ", "[[this]]", " ", "[[week]]", " ", "[[need]]", " ", "[[drug]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities slightly questionable": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == slightlySuspicious" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[communities sq intro]]", " ", "[[communities sq response]]", " ", "[[communities sq sender response]]", " ", "[[communities sq close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities sq close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[haha]]", "[[comma]]", " ", "[[I or i]]", " ", "[[cannot]]", " ", "[[tell]]", " ", "[[you or u]]", "[[alert punctuation]]", " ", "[[emoticon]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities sq intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[We need more volunteers]]", " ", "[[time span]]", "s ", "[[community event]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities sq response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Alright]]", "[[comma]]", " ", "[[I or i]]", " ", "[[may arrive late]]", "[[comma]]", " ", "[[I or i]]", " ", "[[been working on a]]", " ", "[[project]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities sq sender response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Cool]]", "[[alert punctuation]]", " ", "[[What is this]]", " ", "[[project]]", " thing", "[[question punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "communities suggestive": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == suggestive" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[communities s intro]]", " ", "[[communities s close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "community event": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "a developers event" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "the book club's yearly meetup" ],
+          "markup": { }
+        }
+      ]
+    },
+    "day": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Monday" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Tuesday" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Wednesday" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Thursday" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Friday" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Saturday" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Sunday" ],
+          "markup": { }
+        }
+      ]
+    },
+    "did not": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "did not" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "didn't" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "didnt" ],
+          "markup": { }
+        }
+      ]
+    },
+    "did not have time to": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "but ", "[[I or i]]", " did not have enough time to finish it" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "but ", "[[I or i]]", " have been extremely busy" ],
+          "markup": { }
+        }
+      ]
+    },
+    "disgusting": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "gross" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "disgusting" ],
+          "markup": { }
+        }
+      ]
+    },
+    "distributing the": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "distributing the" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "sending the" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "selling the" ],
+          "markup": { }
+        }
+      ]
+    },
+    "do": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "do" ],
+          "markup": { }
+        }
+      ]
+    },
+    "do you want to cut": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "do ", "[[you or u]]", " want to skip" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "do ", "[[you or u]]", " want to cut" ],
+          "markup": { }
+        }
+      ]
+    },
+    "dog name": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Spot" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Yeller" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Lucky" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Shadow" ],
+          "markup": { }
+        }
+      ]
+    },
+    "drug": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Fix" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Things" ],
+          "markup": { }
+        }
+      ]
+    },
+    "dude": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "dude" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "stranger" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "creep" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "wierdo" ],
+          "markup": { }
+        }
+      ]
+    },
+    "early": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "bright ", "[[and]]", " early" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "early" ],
+          "markup": { }
+        }
+      ]
+    },
+    "emoticon": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ ":)" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ ":p" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ ":D" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ " " ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ ":^)" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ ":3" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "^-^" ],
+          "markup": { }
+        }
+      ]
+    },
+    "event": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "the movies" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "the party" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "the carnival" ],
+          "markup": { }
+        }
+      ]
+    },
+    "exactly": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "exactly" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "that is a no no" ],
+          "markup": { }
+        }
+      ]
+    },
+    "excitement": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "It is going to be so fun" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "It is going to be a blast" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " cannot wait" ],
+          "markup": { }
+        }
+      ]
+    },
+    "excuse": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "because ", "[[I or i]]", " had a family emergency" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "because ", "[[I or i]]", " had to take my wife to the hospital" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family": {
+      "complete": true,
+      "deep": false,
+      "markup": { "relationship": [ "speaker.relationship == family" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[family clearly clean]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[family slightly questionable]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[family ambiguous]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[family suggestive]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[family clearly suspicious]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family a close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[you or u]]", " ", "[[wont]]", " ", "[[I or i]]", " ", "[[put away]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family a intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " ", "[[better not see it]]", " ", "[[when]]", " ", "[[I or i]]", " ", "[[get home]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family ambiguous": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ambiguous" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[family a intro]]", " ", "[[family a close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family cc close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[headed over]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family cc intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[sad greeting]]", " ", "[[bad news]]", "[[regular punctuation]]", " ", "[[dog name]]", " ", "[[has died]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family cc response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[sad response]]", " ", "[[family check in question]]", "[[question punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family cc sender response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[family is devastated]]", "[[regular punctuation]]", " ", "[[you should come over]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family check in question": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "How has the family been" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "How has everyone been" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family clearly clean": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearlyClean" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[family cc intro]]", " ", "[[family cc response]]", " ", "[[family cc sender response]]", " ", "[[family cc close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family clearly suspicious": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearySuspicious" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[family cs intro]]", " ", "[[family cs response]]", " ", "[[family cs close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family cs close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[day]]", "[[comma]]", " ", "[[time of day]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family cs intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[family member]]", " ", "[[wants]]", " ", "[[help]]", " ", "[[distributing the]]", " ", "[[drug]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family cs response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Alright]]", "[[comma]]", " ", "[[when will they drop off the]]", " ", "[[drug]]", "[[question punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family is devastated": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "The family is doing ", "[[bad condition]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family member": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Dad" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Mom" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Your sister" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Your brother" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Your cousin" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Your uncle" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Your aunt" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family s close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[yes]]", "[[comma]]", " ", "[[no more]]", " ", "[[poor aspect]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family s intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Alright]]", "[[comma]]", " ", "[[you or u]]", " ", "[[have to get up]]", " ", "[[early]]", " ", "[[day]]", "[[comma]]", " ", "[[we have a big day ahead of us]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family s response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " ", "[[cannot]]", " ", "[[believe this is happening]]", "[[comma]]", " ", "[[we]]", " ", "[[are or r]]", " ", "[[going to be so]]", " ", "[[rich]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family slightly questionable": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == slightlySuspicious" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[family sq intro]]", " ", "[[family sq response]]", " ", "[[family sq close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family sq close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Do not ask any questions]]", "[[comma]]", " ", "[[just come over]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family sq intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[family member]]", " ", "[[wants you home]]", " ", "[[immediately]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family sq response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Why]]", "[[question punctuation]]", " ", "[[What is going on]]", "[[question punctuation]]", "\n" ],
+          "markup": { }
+        }
+      ]
+    },
+    "family suggestive": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == suggestive" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[family s intro]]", " ", "[[family s response]]", " ", "[[family s close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "finish": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "finish" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "complete" ],
+          "markup": { }
+        }
+      ]
+    },
+    "fix it": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Fix it" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Help it" ],
+          "markup": { }
+        }
+      ]
+    },
+    "food": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "burgers" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "tacos" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "burritos" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "hot dogs" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "pizza" ],
+          "markup": { }
+        }
+      ]
+    },
+    "forgot about it": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "forgot about it" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "forgot about that shit" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "completely forgot about it" ],
+          "markup": { }
+        }
+      ]
+    },
+    "friends": {
+      "complete": true,
+      "deep": false,
+      "markup": { "relationship": [ "speaker.relationship == friends" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[friends clearly clean]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[friends slightly questionable]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[friends ambiguous]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[friends suggestive]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[friends clearly suspicious]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "friends a close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[haha]]", " ", "[[emoticon]]", " ", "[[if you say so]]", " ", "[[I or i]]", " ", "[[will pick them up]]", " ", "[[tonight]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "friends a intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[How many]]", " ", "[[do]]", " ", "[[you or u]]", " ", "[[have]]", "[[question punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "friends a response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " ", "[[have]]", " ", "[[amount num]]", "[[regular punctuation]]", " ", "[[why]]", "[[question punctuation]]", " ", "[[do]]", " ", "[[you or u]]", " ", "[[want any]]", "[[question punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "friends ambiguous": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ambiguous" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[friends a intro]]", " ", "[[friends a response]]", " ", "[[friends a close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "friends cc intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[greeting word]]", " ", "[[are we going to]]", " ", "[[event]]", " ", "[[tonight]]", "[[question punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "friends cc response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[yes]]", " ", "[[will get ready]]", "[[regular punctuation]]", " ", "[[excitement]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "friends clearly clean": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearlyClean" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[friends cc intro]]", " ", "[[friends cc response]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "friends clearly suspicious": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearySuspicious" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[friends cs intro]]", " ", "[[friends cs close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "friends cs close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[yes]]", "[[comma]]", " ", "[[we hitting up {REDACTED}]]", "" ],
+          "markup": { }
+        }
+      ]
+    },
+    "friends cs intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[greeting word]]", "[[comma]]", " ", "[[we going to party this]]", " ", "[[weekend]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "friends s close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " ", "[[have no idea what]]", " ", "[[you or u]]", " ", "[[mean]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "friends s intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Cut the shit]]", "[[comma]]", " ", "[[tell me who it is]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "friends slightly questionable": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == slightlySuspicious" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[friends sq intro]]", " ", "[[friends sq close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "friends sq close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Alright]]", "[[comma]]", " ", "[[need to stop by the]]", " ", "[[store]]", " ", "[[tonight]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "friends sq intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[greeting word]]", " ", "[[food]]", " ", "[[tonight]]", "[[question punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "friends suggestive": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == suggestive" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[friends s intro]]", " ", "[[friends s close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "fun": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "fun" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "exciting" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "great" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "cool" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "awesome" ],
+          "markup": { }
+        }
+      ]
+    },
+    "fuss was all about": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "fuss was all about" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "talking was about" ],
+          "markup": { }
+        }
+      ]
+    },
+    "gender": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "him" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "her" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "them" ],
+          "markup": { }
+        }
+      ]
+    },
+    "get home": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "get home" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "arrive" ],
+          "markup": { }
+        }
+      ]
+    },
+    "going through struggles": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " have been struggling real bad", "[[comma]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " am in serious debt" ],
+          "markup": { }
+        }
+      ]
+    },
+    "going to be so": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "going to be so" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "going to be" ],
+          "markup": { }
+        }
+      ]
+    },
+    "goodbye": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Goodbye" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I'm or Im]]", " sorry" ],
+          "markup": { }
+        }
+      ]
+    },
+    "got a family to feed": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " have a family to feed" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " have to pay for medical bills" ],
+          "markup": { }
+        }
+      ]
+    },
+    "greeting word": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Hello" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "hello" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Hi" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "hi" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Hey" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "hey" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Yo" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "yo" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Hello," ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Hiii" ],
+          "markup": { }
+        }
+      ]
+    },
+    "group": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "the group" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "the guys" ],
+          "markup": { }
+        }
+      ]
+    },
+    "had no idea": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "had no idea" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "had no clue" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "was so confused" ],
+          "markup": { }
+        }
+      ]
+    },
+    "haha": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Haha" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Hehe" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Lol" ],
+          "markup": { }
+        }
+      ]
+    },
+    "happened": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "happened" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "occurred " ],
+          "markup": { }
+        }
+      ]
+    },
+    "happens to us": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 2,
+          "expansion": [ "happens to us" ],
+          "markup": { }
+        }
+      ]
+    },
+    "has been so": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "has been so" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "has been" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "is being" ],
+          "markup": { }
+        }
+      ]
+    },
+    "has died": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "passed away" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "has died" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "is dead" ],
+          "markup": { }
+        }
+      ]
+    },
+    "have": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "have" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "currently have" ],
+          "markup": { }
+        }
+      ]
+    },
+    "have a question": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "have a question on it" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "completely dont understand it" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "don't get it" ],
+          "markup": { }
+        }
+      ]
+    },
+    "have no idea what": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "have no idea" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "dont know" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "dont understand" ],
+          "markup": { }
+        }
+      ]
+    },
+    "have to get up": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "have to get up" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "have to wake up" ],
+          "markup": { }
+        }
+      ]
+    },
+    "headed over": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I'm or Im]]", " headed over" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " will be there soon" ],
+          "markup": { }
+        }
+      ]
+    },
+    "help": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "help" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "assistance" ],
+          "markup": { }
+        }
+      ]
+    },
+    "hope for the best": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "let's hope for the best" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "let's hope the punishment isn't that bad" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "let's prey for the best" ],
+          "markup": { }
+        }
+      ]
+    },
+    "hope it did not scare": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "hope it ", "[[did not]]", " scare" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "hope it ", "[[did not]]", " alert" ],
+          "markup": { }
+        }
+      ]
+    },
+    "if you say so": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "if ", "[[you or u]]", " say so" ],
+          "markup": { }
+        }
+      ]
+    },
+    "imagine what the boss will think of it": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "imagine what the ", "[[boss]]", " will think of it" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "think if the consequences if the ", "[[boss]]", " finds out" ],
+          "markup": { }
+        }
+      ]
+    },
+    "immediately": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "immediately" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "now" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "ASAP" ],
+          "markup": { }
+        }
+      ]
+    },
+    "is on my ass": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "is on my ass" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "is pushing on me hard" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "is running me down" ],
+          "markup": { }
+        }
+      ]
+    },
+    "just come over": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "just come over" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "just come by" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "just get ready" ],
+          "markup": { }
+        }
+      ]
+    },
+    "kids": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "kids" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "children" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "people" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "young ones" ],
+          "markup": { }
+        }
+      ]
+    },
+    "know but we need the money": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "know but we need the money...I need the money" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "know but we need the money" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "know but I need the money" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "know but I am going throught a crisis" ],
+          "markup": { }
+        }
+      ]
+    },
+    "know right": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "know right" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "know right, like" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "also think about it" ],
+          "markup": { }
+        }
+      ]
+    },
+    "knows about": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "knows about" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "is informed about" ],
+          "markup": { }
+        }
+      ]
+    },
+    "last time": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "but this will be the last time" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "but we are done after this" ],
+          "markup": { }
+        }
+      ]
+    },
+    "lets just hope": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Let's just hope" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Let's just pray" ],
+          "markup": { }
+        }
+      ]
+    },
+    "like that get their earned consequence": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "like that get their time" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "like that get their earned consequence" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "like that serve their time" ],
+          "markup": { }
+        }
+      ]
+    },
+    "may arrive late": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "may arrive late" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "may be there late" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "may not be there" ],
+          "markup": { }
+        }
+      ]
+    },
+    "mean": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "mean" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[are or r]]", " saying" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[are or r]]", " talking about" ],
+          "markup": { }
+        }
+      ]
+    },
+    "meet": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "meet" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "let's meet" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "rondevu" ],
+          "markup": { }
+        }
+      ]
+    },
+    "meet you at your place": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "meet ", "[[you or u]]", " at ", "[[place]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "need": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "need" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "want" ],
+          "markup": { }
+        }
+      ]
+    },
+    "need to stop by the": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "need to stop by the" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "need to go to the" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "need to buy something at the" ],
+          "markup": { }
+        }
+      ]
+    },
+    "next day": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "next ", "[[day]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "no more": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "no more" ],
+          "markup": { }
+        }
+      ]
+    },
+    "nothing": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "that nothing" ],
+          "markup": { }
+        }
+      ]
+    },
+    "now": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "now" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "tonight" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "right now" ],
+          "markup": { }
+        }
+      ]
+    },
+    "num": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "0" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "1" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "2" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "3" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "4" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "5" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "6" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "7" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "8" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "9" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "A" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "B" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "C" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "D" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "E" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "F" ],
+          "markup": { }
+        }
+      ]
+    },
+    "number": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "2" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "3" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "4" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "5" ],
+          "markup": { }
+        }
+      ]
+    },
+    "offered us some": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "offerred us some" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "wanted to give us some" ],
+          "markup": { }
+        }
+      ]
+    },
+    "party": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "party" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "to get lit" ],
+          "markup": { }
+        }
+      ]
+    },
+    "people like us to do this": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "people like us to do this" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "kids like us to do this" ],
+          "markup": { }
+        }
+      ]
+    },
+    "place": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "your place" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "my place" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "at the park" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "in the alley" ],
+          "markup": { }
+        }
+      ]
+    },
+    "please do not": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Please don't do this" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Please don't", "[[comma]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Don't do this to me", "[[comma]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "poor aspect": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "sleeping in the park" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "sleeping where we make food" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "single bedroom" ],
+          "markup": { }
+        }
+      ]
+    },
+    "previous": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "the previous" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "last" ],
+          "markup": { }
+        }
+      ]
+    },
+    "project": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "project" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "thing" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "something secretive" ],
+          "markup": { }
+        }
+      ]
+    },
+    "punishment": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "fire ", "[[you or u]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "suspend ", "[[you or u]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "put away": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "already put them away" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "already got rid of them" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "already threw them away" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "already gave them away" ],
+          "markup": { }
+        }
+      ]
+    },
+    "question punctiuation": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "?" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ " " ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "!?" ],
+          "markup": { }
+        }
+      ]
+    },
+    "question punctuation": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "?" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ " " ],
+          "markup": { }
+        }
+      ]
+    },
+    "regular punctuation": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "." ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ " " ],
+          "markup": { }
+        }
+      ]
+    },
+    "report name": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "TPS report" ],
+          "markup": { }
+        }
+      ]
+    },
+    "rich": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "rich" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "filthy rich" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "flithy stinken rich" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "swimming in mulla" ],
+          "markup": { }
+        }
+      ]
+    },
+    "sad greeting": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ ":(" ],
+          "markup": { }
+        }
+      ]
+    },
+    "sad response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "What", "[[comma]]", " ", "[[are or r]]", " ", "[[you or u]]", " serious", "[[question punctuation]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Oh no", "[[regular punctuation]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "This can't be", "[[regular punctuation]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "No", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school": {
+      "complete": true,
+      "deep": false,
+      "markup": { "relationship": [ "speaker.relationship == school" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[school clearly clean]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[school slightly questionable]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[school ambiguous]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[school suggestive]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[school clearly suspicious]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school a close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[lets just hope]]", " ", "[[nothing]]", " ", "[[bad]]", " ", "[[happens to us]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school a intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " ", "[[wonder what]]", " ", "[[that or the]]", " ", "[[fuss was all about]]", "[[question punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school a response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " ", "[[know right]]", "[[comma]]", " ", "[[I or i]]", " ", "[[had no idea]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school ambiguous": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ambiguous" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[school a intro]]", " ", "[[school a response]]", " ", "[[school a close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school cc close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[alert intro response]]", "[[alert punctuation]]", " ", "[[yes response]]", "[[regular punctuation]]", " ", "[[anything for you]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school cc intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[greeting word]]", " how far ", "[[are or r]]", " ", "[[you or u]]", " in the ", "[[school work]]", "[[question punctiuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school cc response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[alert intro response]]", "[[alert punctuation]]", " ", "[[I or i]]", " ", "[[forgot about it]]", "[[alert punctuation]]", " ", "[[I or i]]", " ", "[[start working on hw]]", "[[regular punctuation]]", " If ", "[[I or i]]", " ", "[[have a question]]", "[[comma]]", " will ", "[[you or u]]", " ", "[[be able to help me]]", "[[question punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school clearly clean": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearlyClean" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[school cc intro]]", " \\n ", "[[school cc response]]", " \\n ", "[[school cc close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school clearly suspicious": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearySuspicious" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[school cs intro]]", " ", "[[school cs response]]", " ", "[[school cs close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school cs close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[haha]]", "[[comma]]", " ", "[[these]]", " ", "[[kids]]", " ", "[[are going to be crazy]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school cs intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[greeting word]]", " ", "[[do you want to cut]]", " ", "[[class name]]", " ", "[[to sell our the]]", " ", "[[drug]]", "[[question punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school cs response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[haha]]", " ", "[[alright]]", "[[comma]]", " ", "[[we about to make bank]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school s close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[No]]", "[[comma]]", " ", "[[they would never expect]]", " ", "[[people like us to do this]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school s intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Make sure to bring the]]", " ", "[[drug]]", " ", "[[to.]]", " ", "[[class name]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school s response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Alright]]", "[[alert punctuation]]", " ", "[[Do]]", " ", "[[you or u]]", " ", "[[think we will be caught]]", "[[question punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school slightly questionable": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == slightlySuspicious" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[school sq intro]]", " ", "[[school sq response]]", " ", "[[school sq close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school sq close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[lets just hope]]", " ", "[[bad people]]", " ", "[[like that get their earned consequence]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school sq intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Do you remember]]", " ", "[[that time]]", " ", "[[when that]]", " ", "[[dude]]", " ", "[[offered us some]]", " ", "[[drug]]", "[[question punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school sq response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[yes]]", "[[comma]]", " ", "[[that was so gross]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school suggestive": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == suggestive" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[school s intro]]", " ", "[[school s response]]", " ", "[[school s close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "school work": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "math homework" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "hw" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "homework" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "english homework" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "English homework" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "algebra homework" ],
+          "markup": { }
+        }
+      ]
+    },
+    "sms messages": {
+      "complete": true,
+      "deep": true,
+      "markup": {
+        "agePrecondition": [
+        
+        ],
+        "decisions": [  ],
+        "iqPrecondition": [  ],
+        "outerLife": [  ],
+        "social": [  ],
+        "takeIn": [  ]
+      },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[communities]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[family]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[friends]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[school]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[work]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "sorry to tell you": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "sorry to tell ", "[[you or u]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "sorry to inform ", "[[you or u]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "sounds good": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Sounds good" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Great" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Awesome" ],
+          "markup": { }
+        }
+      ]
+    },
+    "start working on hw": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "should start working on it immediately" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "should start it" ],
+          "markup": { }
+        }
+      ]
+    },
+    "store": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "store" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "general store" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "connivence store" ],
+          "markup": { }
+        }
+      ]
+    },
+    "tell": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "tell" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "inform" ],
+          "markup": { }
+        }
+      ]
+    },
+    "tell me who it is": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "tell me who it is" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "tell me" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "I know who you are associated with" ],
+          "markup": { }
+        }
+      ]
+    },
+    "that": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "that" ],
+          "markup": { }
+        }
+      ]
+    },
+    "that or the": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "that" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "the" ],
+          "markup": { }
+        }
+      ]
+    },
+    "that sounds": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "that sounds" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "that seems" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "that will be" ],
+          "markup": { }
+        }
+      ]
+    },
+    "that the": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "that the" ],
+          "markup": { }
+        }
+      ]
+    },
+    "that time": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "that one time" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "that time" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "that instance" ],
+          "markup": { }
+        }
+      ]
+    },
+    "that was so gross": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "that was so ", "[[disgusting]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "that was so rude" ],
+          "markup": { }
+        }
+      ]
+    },
+    "there will be": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "There will be" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "The event will have" ],
+          "markup": { }
+        }
+      ]
+    },
+    "these": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "these" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "the" ],
+          "markup": { }
+        }
+      ]
+    },
+    "they would never expect": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "they would never expect" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "they can never see" ],
+          "markup": { }
+        }
+      ]
+    },
+    "thing": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "thing" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "item" ],
+          "markup": { }
+        }
+      ]
+    },
+    "things to do at event": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "snacks" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "food" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "free food" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "drinks" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "music" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "a special guest" ],
+          "markup": { }
+        }
+      ]
+    },
+    "things to do event": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "a preview of what is to come" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "free items" ],
+          "markup": { }
+        }
+      ]
+    },
+    "think we will be caught": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "think we will be caught" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "think we will get in trouble" ],
+          "markup": { }
+        }
+      ]
+    },
+    "this": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "this" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "next" ],
+          "markup": { }
+        }
+      ]
+    },
+    "this is the": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "This is the" ],
+          "markup": { }
+        }
+      ]
+    },
+    "thought we were done": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "thought we were done with that type of stuff" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "thought we were finished" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "didn't know we were going to make more" ],
+          "markup": { }
+        }
+      ]
+    },
+    "time of day": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "morning" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "evening" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "night" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "afternoon" ],
+          "markup": { }
+        }
+      ]
+    },
+    "time span": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "month" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "week" ],
+          "markup": { }
+        }
+      ]
+    },
+    "to": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "to" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "to immediately" ],
+          "markup": { }
+        }
+      ]
+    },
+    "to know that": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "to know that" ],
+          "markup": { }
+        }
+      ]
+    },
+    "to sell our the": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "to sell our" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "to sell the" ],
+          "markup": { }
+        }
+      ]
+    },
+    "to.": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "to" ],
+          "markup": { }
+        }
+      ]
+    },
+    "tonight": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "tonight" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[at or @]]", " 7" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[at or @]]", " 8" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[at or @]]", " 9" ],
+          "markup": { }
+        }
+      ]
+    },
+    "until the": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "until" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "by" ],
+          "markup": { }
+        }
+      ]
+    },
+    "volunteers": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "volunteers" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "people" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "helpers" ],
+          "markup": { }
+        }
+      ]
+    },
+    "want any": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "want any" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "need any" ],
+          "markup": { }
+        }
+      ]
+    },
+    "wants": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "wants" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "needs" ],
+          "markup": { }
+        }
+      ]
+    },
+    "wants you home": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "wants ", "[[you or u]]", " here" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "wants ", "[[you or u]]", " home" ],
+          "markup": { }
+        }
+      ]
+    },
+    "we": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "we" ],
+          "markup": { }
+        }
+      ]
+    },
+    "we about to make bank": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "we ", "[[are or r]]", " about to make ", "[[cash]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "we are booked": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "we ", "[[are or r]]", " booked" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "we ", "[[are or r]]", " busy" ],
+          "markup": { }
+        }
+      ]
+    },
+    "we are going to": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "we ", "[[are or r]]", " going to" ],
+          "markup": { }
+        }
+      ]
+    },
+    "we going to party this": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[are or r]]", " we going to ", "[[party]]", " this" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[are or r]]", " we going to the ", "[[party]]", " this" ],
+          "markup": { }
+        }
+      ]
+    },
+    "we have a big day ahead of us": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "we have a big day ahead of us" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "we have to deliver so many ", "[[drug]]", " tomorrow " ],
+          "markup": { }
+        }
+      ]
+    },
+    "we hitting up {REDACTED}": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "we hittin up {REDACTED}" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "we going to get some {REDACTED} ", "[[aswell]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "we should make more": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "we should make more" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "we should make the" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "we need to make more" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "we need to make" ],
+          "markup": { }
+        }
+      ]
+    },
+    "we won't have it by then": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "We won't have it by then" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "We won't make it by then" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "We have any by then" ],
+          "markup": { }
+        }
+      ]
+    },
+    "week": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "week" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "weekend" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[day]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "weekend": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "weekend" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "week" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "night" ],
+          "markup": { }
+        }
+      ]
+    },
+    "when": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "when" ],
+          "markup": { }
+        }
+      ]
+    },
+    "when that": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "when that" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "when the" ],
+          "markup": { }
+        }
+      ]
+    },
+    "when will they drop off the": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "when will they drop the" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "when will they give me the" ],
+          "markup": { }
+        }
+      ]
+    },
+    "why": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Why" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Why do ", "[[you or u]]", " ask" ],
+          "markup": { }
+        }
+      ]
+    },
+    "will get ready": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " will start getting ready" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " will start getting dressed" ],
+          "markup": { }
+        }
+      ]
+    },
+    "will not": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "will not" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "won't" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "wont" ],
+          "markup": { }
+        }
+      ]
+    },
+    "will pick them up": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "will pick them up" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "will be ready" ],
+          "markup": { }
+        }
+      ]
+    },
+    "will see you there": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "we will see ", "[[you or u]]", " there" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "see ", "[[you or u]]", " there" ],
+          "markup": { }
+        }
+      ]
+    },
+    "will tell": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "will tell" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "will inform" ],
+          "markup": { }
+        }
+      ]
+    },
+    "wonder what": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "wonder what" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "sometimes think what" ],
+          "markup": { }
+        }
+      ]
+    },
+    "wont": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "wont" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "will not see any" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "won't" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work": {
+      "complete": true,
+      "deep": false,
+      "markup": { "relationship": [ "speaker.relationship == work" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[work clearly clean]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[work slightly questionable]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[work ambiguous]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[work suggestive]]" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[work clearly suspicious]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work a close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " ", "[[will tell]]", " ", "[[gender]]", " ", "[[that]]", "[[comma]]", " ", "[[hope for the best]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work a intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Just got informed]]", " ", "[[that the]]", " ", "[[boss]]", " ", "[[wants]]", " ", "[[that or the]]", " ", "[[thing]]", " ", "[[before]]", " ", "[[day]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work a response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[alert intro response]]", " ", "[[we are booked]]", " ", "[[until the]]", " ", "[[next day]]", "[[alert punctuation]]", " ", "[[we won't have it by then]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work ambiguous": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ambiguous" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[work a intro]]", " ", "[[work a response]]", " ", "[[work a close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work cc intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[greeting word]]", "[[comma]]", " ", "[[another greeting]]", "[[regular punctuation]]", " Did ", "[[you or u]]", " ", "[[finish]]", " that ", "[[report name]]", "[[question punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work cc response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[greeting word]]", "[[regular punctuation]]", " ", "[[sorry to tell you]]", " ", "[[did not have time to]]", " ", "[[excuse]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work cc response 2": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[please do not]]", " ", "[[going through struggles]]", " ", "[[got a family to feed]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work cc sender response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[this is the]]", " ", "[[amount]]", " this ", "[[time span]]", "[[regular punctuation]]", " ", "[[I am sorry but]]", " ", "[[we are going to]]", " ", "[[punishment]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work clearly clean": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearlyClean" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[work cc intro]]", " ", "[[work cc response]]", " ", "[[work cc sender response]]", " ", "[[work cc response 2]]", "]]]]]]]]]]] ", "[[work close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work clearly suspicious": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearySuspicious" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[work cs intro]]", " ", "[[work cs response]]", " ", "[[work cs sender response]]", " ", "[[work cs close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[goodbye]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work cs close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Alright]]", "[[comma]]", " ", "[[last time]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work cs intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[This]]", " ", "[[time span]]", " ", "[[has been so]]", " ", "[[bad]]", "[[comma]]", " ", "[[we should make more]]", " ", "[[drug]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work cs response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " ", "[[thought we were done]]", "[[question punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work cs sender response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " ", "[[know but we need the money]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work s close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Out]]", " ", "[[now]]", "[[comma]]", " ", "[[meet]]", " ", "[[day]]", "[[question punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work s intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[The]]", " ", "[[boss]]", " ", "[[is on my ass]]", "[[comma]]", " ", "[[I or i]]", " ", "[[need]]", " ", "[[to]]", " ", "[[drug]]", " ", "[[this]]", "[[regular punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work slightly questionable": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == slightlySuspicious" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[work sq intro]]", " ", "[[work sq response]]", " ", "[[work sq close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work sq close": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[haha]]", " ", "[[exactly]]", "[[alert punctuation]]", " ", "[[emoticon]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work sq intro": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[Do not tell anyone what happened]]", " ", "[[previous]]", " ", "[[day]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work sq response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " ", "[[will not]]", "[[comma]]", " ", "[[imagine what the boss will think of it]]", "[[alert punctuation]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "work suggestive": {
+      "complete": true,
+      "deep": false,
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == suggestive" ] },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[work s intro]]", " ", "[[work s close]]" ],
+          "markup": { }
+        }
+      ]
+    },
+    "would you like to go to": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "would ", "[[you or u]]", " like to go" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[you or u]]", " ", "[[are or r]]", " invited to go" ],
+          "markup": { }
+        }
+      ]
+    },
+    "yes": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Yes" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Most definetly" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Ye" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Mhm" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Yeah" ],
+          "markup": { }
+        }
+      ]
+    },
+    "yes response": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Yeah", "[[comma]]", " just come over whenever ", "[[you or u]]", " want" ],
+          "markup": { }
+        }
+      ]
+    },
+    "you or u": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "you" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "u" ],
+          "markup": { }
+        }
+      ]
+    },
+    "you should come over": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "[[you or u]]", " should come over" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "maybe ", "[[you or u]]", " should come and try to comfort them" ],
+          "markup": { }
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "we need you here ASAP" ],
+          "markup": { }
+        }
+      ]
+    }
+  }, "system_vars": []}
