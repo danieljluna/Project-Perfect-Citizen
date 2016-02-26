@@ -66,6 +66,11 @@ private:
     sf::Vector2u borderBottomRight_;
 
     sf::RectangleShape borderShape_;
+    sf::RectangleShape borderTitle_;
+    
+    //Details
+    sf::RectangleShape borderShadow_;
+    sf::RectangleShape borderWhite_;
 
     DraggableInput draggableInput_;
 
