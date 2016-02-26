@@ -9,7 +9,9 @@
 namespace ppc {
 
 
-struct Edge {
+class Edge {
+
+public:
 
     float weight;
     

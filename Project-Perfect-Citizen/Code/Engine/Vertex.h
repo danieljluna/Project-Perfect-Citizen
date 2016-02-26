@@ -6,12 +6,33 @@
 namespace ppc {
 
 
-struct Vertex {
+class Vertex: public sf::Drawable {
 
-    sf::Color color;
+private:
 
-    sf::Vector2f pos;
+	sf::Color color_;
 
+	sf::Vector2f pos_;
+
+
+public:
+
+	Vertex();
+	Vertex(sf::Vector2f, sf::Color);
+	Vertex(float, float, sf::Color);
+	
+	~Vertex();
+
+
+	sf::Color getColor() const;
+	void setColor(sf::Color);
+
+	sf::Vector2f getPos() const;
+	void setPos(sf::Vector2f);
+	void setPos(float x, float y);
+
+	virtual void draw(sf::RenderTarget& target,
+		sf::RenderStates states) const override;
 };
 
 

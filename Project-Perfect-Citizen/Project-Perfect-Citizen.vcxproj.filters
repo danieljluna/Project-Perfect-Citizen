@@ -160,6 +160,12 @@
     <ClCompile Include="Code\Engine\Network.cpp">
       <Filter>Sources\Engine\Graph</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\Vertex.cpp">
+      <Filter>Sources\Engine\Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\Edge.cpp">
+      <Filter>Sources\Engine\Graph</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">

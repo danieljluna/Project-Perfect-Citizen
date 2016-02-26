@@ -223,8 +223,8 @@ void Network::draw(sf::RenderTarget& target,
     //For each Vertex
     for (size_t i = 0; i < size_; ++i) {
         //Draw that Vertex
-        vertShape.setPosition(vertexData_[i].pos);
-        vertShape.setFillColor(vertexData_[i].color);
+        vertShape.setPosition(vertexData_[i].getPos());
+        vertShape.setFillColor(vertexData_[i].getColor());
         target.draw(vertShape, states);
 
         //For each edge leaving this Vertex
@@ -233,10 +233,10 @@ void Network::draw(sf::RenderTarget& target,
             size_t edgeIndex = getEdgeIndex(i, j);
             if (edgeMat_[edgeIndex] != nullptr) {
                 //Add point i to the edgeLines to draw
-                edgeLines[lnsDrawn].position = vertexData_[i].pos;
+                edgeLines[lnsDrawn].position = vertexData_[i].getPos();
                 edgeLines[lnsDrawn].color = edgeMat_[edgeIndex]->color;
                 //Add point j to the edgeLines to draw
-                edgeLines[++lnsDrawn].position = vertexData_[j].pos;
+				edgeLines[++lnsDrawn].position = vertexData_[j].getPos();
                 edgeLines[lnsDrawn].color = edgeMat_[edgeIndex]->color;
                 ++lnsDrawn;
             }
