@@ -10,33 +10,16 @@ using namespace ppc;
 
 BorderDecorator::BorderDecorator(
     WindowInterface& win,
-	sf::Image& buttonSheet,
     unsigned int majorBorder,
     unsigned int minorBorder) :
             WindowDecorator(win),
-			buttonSpriteSheet(buttonSheet),
+            maxButtons_(3),
             draggableInput_(*this) {
 
     //Store Input
     borderTopLeft_.y = majorBorder;
     borderTopLeft_.x = borderBottomRight_.x = 
             borderBottomRight_.y = minorBorder;
-
-	closeRC_ = new buttonRenderComponent(buttonSpriteSheet, 0, 3, 1, 1);
-	closeRC_->setImageScale(0.2f, 0.2f);
-
-    bIC_ = new mousePressButton();
-    bIC_->setInputHandle(win.getInputHandler());
-    sf::FloatRect clickSpace = closeRC_->getSprite()->getLocalBounds();
-    clickSpace.top = 0.0f - minorBorder - clickSpace.height;
-    clickSpace.left = win.getSize().x - clickSpace.width - minorBorder;
-    bIC_->setFloatRect(clickSpace);
-    bIC_->setIsBeingPressed("localCloseButton");
-
-	closeButton_.addComponent(closeRC_);
-	closeButton_.addComponent(bIC_);
-
-	addInputComponent(bIC_);
 	
     //Set up BorderShape
     borderShape_.setPosition(win.getPosition().x - minorBorder, 
@@ -47,21 +30,11 @@ BorderDecorator::BorderDecorator(
     borderShape_.setSize(size);
     borderShape_.setFillColor(sf::Color::Red);
 
-    //Load Button Image
-    sf::Image spriteSheet;
-    spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
+    //Set up space for buttons
 
-    //Load button
-    buttonRenderVec_.push_back(buttonRenderComponent(spriteSheet, 0, 3, 1, 1));
-    buttonRenderVec_.at(0).setImageScale(0.2f, 0.2f);
-
-    buttonInputVec_.push_back(new mousePressButton(win.getInputHandler(), *(buttonRenderVec_.at(0).getSprite()), "localCloseButton"));
-
-    buttonEntitiyVec_.emplace_back();
-    buttonEntitiyVec_.at(0).addComponent(&(buttonRenderVec_.at(0)));
-    buttonEntitiyVec_.at(0).addComponent(buttonInputVec_.at(0));
-
-    addInputComponent(buttonInputVec_.at(0));
+    buttonInputs_ = new mousePressButton[maxButtons_];
+    buttonRenders_ = new buttonRenderComponent[maxButtons_];
+    buttonEntities_ = new Entity[maxButtons_];
 
     //Set up Bounds
     updateBounds();
@@ -82,22 +55,32 @@ BorderDecorator::~BorderDecorator() {}
 
 
 
-void BorderDecorator::addButton(sf::Sprite& buttonImage) {
-    /*
-    sf::Image spriteSheet;
-    spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
+void BorderDecorator::addButton(sf::Image& buttonImage) {
 
-    buttonRenderVec_.push_back(buttonRenderComponent(spriteSheet, 0, 3, 1, 1));
-    buttonRenderVec_.at(0).setImageScale(0.2f, 0.2f);
+    //Push back the button render cmpnt
+    buttonRenderVec_.push_back(buttonRenderComponent(buttonImage, 0, 3, 1, 1));
+    buttonRenderVec_.back().setImageScale(0.2f, 0.2f);
 
-    buttonInputVec_.push_back(new mousePressButton(win.getInputHandler(), *buttonRenderVec_.at(0).getSprite(), "localCloseButton"));
+    //Push back the button input cmpnt
+    buttonInputVec_.push_back(new mousePressButton());
 
+    //Calculate Button Click FloatRect
+    sf::FloatRect clickSpace = buttonRenderVec_[0].getSprite()->getLocalBounds();
+    clickSpace.top = 0.0f - borderTopLeft_.y - clickSpace.height;
+    clickSpace.left = WindowDecorator::getSize().x - clickSpace.width - borderBottomRight_.x;
+
+    //Set button input values
+    buttonInputVec_.back()->setInputHandle(getInputHandler());
+    buttonInputVec_.back()->setFloatRect(clickSpace);
+    buttonInputVec_.back()->setIsBeingPressed("localCloseButton");
+
+    //Push back the button entity
     buttonEntitiyVec_.emplace_back();
-    buttonEntitiyVec_.at(0).addComponent(&buttonRenderVec_.at(0));
-    buttonEntitiyVec_.at(0).addComponent(buttonInputVec_.at(0));
+    buttonEntitiyVec_.back().addComponent(&(buttonRenderVec_.at(0)));
+    buttonEntities_[buttonCount_].addComponent(buttonInputVec_.at(0));
 
-    addInputComponent(buttonInputVec_.at(0));
-    */
+    //Add the inputCmpnt to the Window
+    addInputComponent(buttonInputVec_.back());
 }
 
 

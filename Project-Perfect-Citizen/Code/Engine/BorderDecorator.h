@@ -40,8 +40,7 @@ public:
     ///     rest of the Window, and is simply used to outline the 
     ///     Window.
     ///////////////////////////////////////////////////////////////////
-    BorderDecorator(WindowInterface& win, 
-					sf::Image& buttonSheet,
+    BorderDecorator(WindowInterface& win,
                     unsigned int majorBorder = 34, 
                     unsigned int minorBorder = 5);
 
@@ -55,7 +54,7 @@ public:
   // Button Manipulation
   /////////////////////////////////////////////////////////////////////
 
-    void addButton(sf::Sprite& buttonImage);
+    void addButton(sf::Image& buttonImage);
 
 
   /////////////////////////////////////////////////////////////////////
@@ -103,12 +102,16 @@ private:
     //  via the BorderDecorator.
     DraggableInput draggableInput_;
 
-    //Vector of buttonRenderComponents
-	std::vector<buttonRenderComponent> buttonRenderVec_;
-    //Vector of buttonInputComponents
-	std::vector<mousePressButton*> buttonInputVec_;
-    //Vector of button Entities
-    std::vector<Entity> buttonEntitiyVec_;
+    //Array of buttonRenderComponents
+	buttonRenderComponent* buttonRenders_;
+    //Array of buttonInputComponents
+	mousePressButton* buttonInputs_;
+    //Array of button Entities
+    Entity* buttonEntities_;
+
+    //Holds number of buttons in this WindowBorder
+    unsigned int buttonCount_;
+    const unsigned int maxButtons_;
 
 
 };
