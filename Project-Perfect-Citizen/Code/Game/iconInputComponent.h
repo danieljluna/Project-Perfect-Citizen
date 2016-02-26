@@ -10,6 +10,7 @@
 #include "createWindow.h"
 #include "../Engine/Window.h"
 #include "../Engine/WindowInterface.h"
+#include "Database.h"
 
 
 ///////////////////////////////////////////////////////////////////////
