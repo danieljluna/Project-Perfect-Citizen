@@ -54,7 +54,7 @@ public:
   // Button Manipulation
   /////////////////////////////////////////////////////////////////////
 
-    void addButton(sf::Image& buttonImage);
+    void addButton(sf::Image& buttonImage, std::string buttonFn);
 
 
   /////////////////////////////////////////////////////////////////////
@@ -103,11 +103,11 @@ private:
     DraggableInput draggableInput_;
 
     //Array of buttonRenderComponents
-	buttonRenderComponent* buttonRenders_;
+	buttonRenderComponent** buttonRenders_;
     //Array of buttonInputComponents
-	mousePressButton* buttonInputs_;
+	mousePressButton** buttonInputs_;
     //Array of button Entities
-    Entity* buttonEntities_;
+    Entity** buttonEntities_;
 
     //Holds number of buttons in this WindowBorder
     unsigned int buttonCount_;
