@@ -19,14 +19,14 @@ const string OPEN_THE_EXPLORER = "OTE";
 const float DOUBLE_CLICK_TIME = 500.0f;
 
 mousePressButton::mousePressButton() : 
-	InputComponent(2), buttonRect(), inputHandle() {
+	InputComponent(2), buttonRect() {
 
 }
 
 
 mousePressButton::mousePressButton(ppc::InputHandler& ih, 
 	sf::FloatRect rect, std::string iBP): 
-	InputComponent(2), buttonRect(rect), inputHandle(ih), isBeingPressed(iBP){
+	InputComponent(2), buttonRect(rect), isBeingPressed(iBP){
 
 	//add a new subject that is tied to the event
 	ih.addHandle(sf::Event::MouseButtonPressed);
@@ -48,13 +48,11 @@ mousePressButton::~mousePressButton() {
 }
 
 void mousePressButton::setInputHandle(ppc::InputHandler& ih) {
-	inputHandle = ih;
+	ih.addHandle(sf::Event::MouseButtonPressed);
+	ih.addHandle(sf::Event::MouseButtonReleased);
 
-	inputHandle.addHandle(sf::Event::MouseButtonPressed);
-	inputHandle.addHandle(sf::Event::MouseButtonReleased);
-
-	watch(inputHandle, sf::Event::MouseButtonPressed);
-	watch(inputHandle, sf::Event::MouseButtonReleased);
+	watch(ih, sf::Event::MouseButtonPressed);
+	watch(ih, sf::Event::MouseButtonReleased);
 }
 
 void mousePressButton::setFloatRect(sf::FloatRect rect) {
