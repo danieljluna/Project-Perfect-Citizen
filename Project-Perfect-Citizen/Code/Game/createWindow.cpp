@@ -90,7 +90,7 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
 	
 }
 
-void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, 
+void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
 	sf::Image& buttonSheet, float x, float y) {
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
@@ -123,7 +123,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih,
 	/* Create the update components */
 
 	/* Create the input components */
-	databaseSearchInputComponent* dSI = new databaseSearchInputComponent(ih, *searchBox, *searchResults,
+	databaseSearchInputComponent* dSI = new databaseSearchInputComponent(db, ih, *searchBox, *searchResults,
 		*textRenderComponent->getSprite());
 
 	

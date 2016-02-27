@@ -30,7 +30,7 @@ private:
 	databaseSearchRenderComponent& textBox;
 	databaseDisplayRenderComponent& textDisplay;
 	ppc::InputHandler& inputHandle;
-	//std::stack<Database&> searchHistory;
+	std::stack<Database*> searchHistory;
 	sf::Clock mouseClock;
 	std::string str;
 	float mouseTime;
@@ -45,7 +45,7 @@ public:
 	/// @param ih is the input handler
 	/// @param s is the render component where the text will be drawn
 	///////////////////////////////////////////////////////////////////////
-	databaseSearchInputComponent(ppc::InputHandler& ih, databaseSearchRenderComponent& t,
+	databaseSearchInputComponent(Database* iDB, ppc::InputHandler& ih, databaseSearchRenderComponent& t,
 		databaseDisplayRenderComponent& d, sf::Sprite& s);
 	virtual ~databaseSearchInputComponent();
 	virtual bool registerInput(sf::Event& ev) override;

@@ -17,8 +17,8 @@ const string OPEN_THE_HELP = "OTH";
 const string OPEN_THE_BROWSER = "OTB";
 const string OPEN_THE_EXPLORER = "OTE";
 
-iconInputComponent::iconInputComponent(ppc::Desktop& dT, sf::Image& bS) 
-	: theDesktop_(dT), buttonSheet_(bS) {
+iconInputComponent::iconInputComponent(ppc::Desktop& dT, Database* dB, sf::Image& bS) 
+	: theDesktop_(dT), theDatabase_(dB), buttonSheet_(bS) {
 
 }
 
@@ -45,9 +45,9 @@ void iconInputComponent::recieveMessage(msgType msg) {
 	else if (msg.compare(OPEN_THE_SEARCH) == 0) {
 		ppc::WindowInterface* databaseWindow =
 			new ppc::Window(500, 300, sf::Color(200, 200, 200));
-		ppc::spawnDatabase(databaseWindow, databaseWindow->getInputHandler(), buttonSheet_, 100, 200);
+		ppc::spawnDatabase(databaseWindow, databaseWindow->getInputHandler(), theDatabase_, buttonSheet_, 100, 200);
 		theDesktop_.addWindow(databaseWindow);
-
+		
 
 
 	}

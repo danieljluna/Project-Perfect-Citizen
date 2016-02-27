@@ -7,9 +7,9 @@ const string TEXT_KEY_INPUT = "TKI";
 
 const float DOUBLE_CLICK_TIME = 500;
 
-databaseSearchInputComponent::databaseSearchInputComponent(ppc::InputHandler& ih, databaseSearchRenderComponent& t,
-	databaseDisplayRenderComponent& d, sf::Sprite& s) 
-	: InputComponent(2), textBoxSprt(s), textBox(t), textDisplay(d), inputHandle(ih)  {
+databaseSearchInputComponent::databaseSearchInputComponent(Database* initialDB, ppc::InputHandler& ih, databaseSearchRenderComponent& t,
+	databaseDisplayRenderComponent& d, sf::Sprite& s)
+	: InputComponent(2), textBoxSprt(s), textBox(t), textDisplay(d), inputHandle(ih) {
 
 	ih.addHandle(sf::Event::TextEntered);
 	ih.addHandle(sf::Event::KeyPressed);
@@ -17,7 +17,7 @@ databaseSearchInputComponent::databaseSearchInputComponent(ppc::InputHandler& ih
 	watch(ih, sf::Event::TextEntered);
 	watch(ih, sf::Event::KeyPressed);
 		
-	//searchHistory.push(initialDB);
+	searchHistory.push(initialDB);
 
 	str += "Search: ";
 	textBox.updateString(str);
@@ -87,18 +87,42 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 					last = next + 1;
 				}
 
-				//string filter = commandVec.at(0);
-				//string query = commandVec.at(1);
+				string filter = "";
+				string query = "";
+				if (commandVec.size() == 2) {
+					filter = commandVec.at(0);
+					query = commandVec.at(1);
+				}
+				else { 
+					cout << "bad input" << endl;
+					/* Reset the command line - keeping the prompt */
+					str.erase(8, str.length());
+					textBox.updateString(str);
 
-				//if (searchHistory.top().filterIsValid(filter)) {
-					//Database& filteredDatabase = Database();
-					//filteredDatabase.sortBy(filter, query);
-					//searchHistory.push(filteredDatabase);
-				//}
+					/* Display the result */;
+					textDisplay.updateString(commandVec);
+					return true;
+				}
+				
+
+				if (searchHistory.top()->filterIsValid(filter)) {
+					//Database filteredDatabase;
+					//searchHistory.top()->printCharacters();
+					//searchHistory.top()->sortBy(filter, query);
+					//searchHistory.push(&filteredDatabase);
+					//searchHistory.top()->printCharacters();
+					cout << "it was valid" << endl;
+
+					/*Database& filteredDatabase = Database();
+					if (theDatabase.filterIsValid(filter)) {
+					filteredDatabase = theDatabase.sortBy(filter, query);
+					cout << " New Filtered Database: " << endl;
+					filteredDatabase.printCharacters();
+					} */
+				}
 
 				// DO THE SEARCH HERE
 				
-
 				/* Reset the command line - keeping the prompt */
 				str.erase(8, str.length());
 				textBox.updateString(str);
