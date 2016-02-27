@@ -17,6 +17,8 @@
 
 #include "../Library/json/json.h"
 
+#include "PipelineCharacter.h"
+
 namespace expr {
 
 
@@ -44,11 +46,13 @@ Json::Value parseExpressionistAsJson(std::string file);
 /// @param[in]  const Json::Value&  A Json based object containing an
 ///                                 expressionist grammar
 ///////////////////////////////////////////////////////////////////////
-std::string expressWithJson(const Json::Value& exprOutput);
+std::string expressWithJson(const Json::Value& exprOutput, const ppc::PipelineCharacter& speaker);
 
-std::pair<std::string, bool> expandWithJson(const Json::Value& exprOutput, const Json::Value& symbol);
+std::pair<std::string, bool> expandWithJson(const Json::Value& exprOutput, const Json::Value& symbol, const ppc::PipelineCharacter& speaker);
 
-std::pair<std::string, bool> fireWithJson(const Json::Value& exprOutput, const Json::Value& rule);
+std::pair<std::string, bool> fireWithJson(const Json::Value& exprOutput, const Json::Value& rule, const ppc::PipelineCharacter& speaker);
+
+bool checkMarkUpPreconditions(const Json::Value & markup, const ppc::PipelineCharacter & speaker);
 
 };
 

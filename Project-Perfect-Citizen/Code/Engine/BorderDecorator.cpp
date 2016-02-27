@@ -10,9 +10,11 @@ using namespace ppc;
 
 BorderDecorator::BorderDecorator(
     WindowInterface& win,
+	sf::Image& buttonSheet,
     unsigned int majorBorder,
     unsigned int minorBorder) :
             WindowDecorator(win),
+			buttonSpriteSheet(buttonSheet),
             draggableInput_(*this) {
     //Store Input
 
@@ -20,30 +22,52 @@ BorderDecorator::BorderDecorator(
     borderTopLeft_.x = borderBottomRight_.x = 
             borderBottomRight_.y = minorBorder;
 
-
-	sf::Image spriteSheet;
-	spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
-
-	closeRC_ = new buttonRenderComponent(spriteSheet, 0, 3, 1, 1);
+	closeRC_ = new buttonRenderComponent(buttonSpriteSheet, 0, 3, 1, 1);
 	closeRC_->setImageScale(0.2f, 0.2f);
 
-	bIC_ = new mousePressButton(win.getInputHandler(), *closeRC_->getSprite(), "localCloseButton");
+    bIC_ = new mousePressButton();
+    bIC_->setInputHandle(win.getInputHandler());
+    sf::FloatRect clickSpace = closeRC_->getSprite()->getLocalBounds();
+    clickSpace.top = 0.0f - minorBorder - clickSpace.height;
+    clickSpace.left = win.getSize().x - clickSpace.width - minorBorder;
+    bIC_->setFloatRect(clickSpace);
+    bIC_->setIsBeingPressed("localCloseButton");
 
 	closeButton_.addComponent(closeRC_);
 	closeButton_.addComponent(bIC_);
 
 	addInputComponent(bIC_);
 
+	//Set up Bounds to align new sprite placement
+	updateBounds();
 	
-    //Set up BorderShape
-    borderShape_.setPosition(win.getPosition().x - minorBorder, 
-                            win.getPosition().y - majorBorder);
+    //Set up BorderShape & Visual Details
+    sf::Vector2f pos(win.getPosition().x - minorBorder,
+                     win.getPosition().y - majorBorder);
+    
+    sf::Vector2f whitePos(win.getPosition().x - minorBorder - 2,
+                                 win.getPosition().y - majorBorder - 2);
+                
     sf::Vector2f size(float(win.getSize().x + 2 * minorBorder),
-                      float(win.getSize().y + minorBorder + 
+                      float(win.getSize().y + minorBorder +
                                               majorBorder));
+                
+    sf::Vector2f shadowSize(size.x + 2, size.y + 2);
+    sf::Vector2f whiteSize(size.x + 2, size.y + 2);
+       
+                
+    borderShape_.setPosition(pos);
+    borderShadow_.setPosition(pos);
+    borderWhite_.setPosition(whitePos);
+            
+    borderShadow_.setSize(shadowSize);
+    borderShadow_.setFillColor(sf::Color::Black);
+                
+    borderWhite_.setSize(whiteSize);
+    borderWhite_.setFillColor(sf::Color::White);
 
     borderShape_.setSize(size);
-    borderShape_.setFillColor(sf::Color::Red);
+    borderShape_.setFillColor(sf::Color(170,170,170));
 
     //Set up Bounds
     updateBounds();
@@ -119,6 +143,8 @@ void BorderDecorator::move(float x, float y) {
 
 void BorderDecorator::draw(sf::RenderTarget& target,
                            sf::RenderStates states) const {
+    target.draw(borderWhite_, states);
+    target.draw(borderShadow_, states);
     target.draw(borderShape_, states);
     WindowDecorator::draw(target, states);
 	closeRC_->draw(target, states);
@@ -151,14 +177,17 @@ void BorderDecorator::updateBounds() {
     bounds.width = borderTopLeft_.x + borderBottomRight_.x + 
                 WindowDecorator::getBounds().width;
     bounds.height = float(borderTopLeft_.y);
-    bounds.top = WindowDecorator::getBounds().top - borderTopLeft_.y;
-    bounds.left = WindowDecorator::getBounds().left - borderTopLeft_.x;
+    bounds.top = 0.0f - borderTopLeft_.y;
+    bounds.left = 0.0f - borderTopLeft_.x;
     draggableInput_.setBounds(bounds);
 
     //Re-position the button
-    float right = bounds.left + bounds.width;
+    float right = bounds.left + bounds.width + WindowDecorator::getPosition().x;
+    float top = WindowDecorator::getPosition().y + bounds.top;
     sf::FloatRect sprBounds = closeRC_->getSprite()->getGlobalBounds();
+	bIC_->setFloatRect(sprBounds);
     sf::Vector2f ButtonPos(right - sprBounds.width - borderBottomRight_.y,
-                           bounds.top + borderBottomRight_.y);
+                           top + borderBottomRight_.y);
 	closeRC_->renderPosition(ButtonPos);
+	
 }

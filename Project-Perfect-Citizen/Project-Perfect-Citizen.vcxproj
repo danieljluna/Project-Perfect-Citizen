@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="Code\Engine\Audio\AudioLocator.cpp" />
     <ClCompile Include="Code\Engine\Audio\AudioLogger.cpp" />
+    <ClCompile Include="Code\Engine\Audio\AudioQueue.cpp" />
     <ClCompile Include="Code\Engine\Audio\DesktopAudio.cpp" />
     <ClCompile Include="Code\Engine\BorderDecorator.cpp" />
     <ClCompile Include="Code\Engine\BaseFileType.cpp" />
@@ -44,12 +45,17 @@
     <ClCompile Include="Code\Engine\world.cpp" />
     <ClCompile Include="Code\Game\animatorComponent.cpp" />
     <ClCompile Include="Code\Game\buttonRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\buttonUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\consoleIconRenderComponent.cpp" />
     <ClCompile Include="Code\Game\consoleUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\createButton.cpp" />
     <ClCompile Include="Code\Game\createDesktop.cpp" />
     <ClCompile Include="Code\Game\createIcon.cpp" />
     <ClCompile Include="Code\Game\createWindow.cpp" />
+    <ClCompile Include="Code\Game\Database.cpp" />
+    <ClCompile Include="Code\Game\databaseDisplayRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\databaseSearchInputComponent.cpp" />
+    <ClCompile Include="Code\Game\databaseSearchRenderComponent.cpp" />
     <ClCompile Include="Code\Game\desktopExtractionComponent.cpp" />
     <ClCompile Include="Code\Game\expressionistParser.cpp" />
     <ClCompile Include="Code\Game\iconInputComponent.cpp" />
@@ -73,6 +79,7 @@
     <ClInclude Include="Code\Engine\Audio\Audio.h" />
     <ClInclude Include="Code\Engine\Audio\AudioLocator.h" />
     <ClInclude Include="Code\Engine\Audio\AudioLogger.h" />
+    <ClInclude Include="Code\Engine\Audio\AudioQueue.h" />
     <ClInclude Include="Code\Engine\Audio\DesktopAudio.h" />
     <ClInclude Include="Code\Engine\Audio\NullAudio.h" />
     <ClInclude Include="Code\Engine\Audio\Sounds.h" />
@@ -112,12 +119,17 @@
     <ClInclude Include="Code\Engine\world.h" />
     <ClInclude Include="Code\Game\animatorComponent.hpp" />
     <ClInclude Include="Code\Game\buttonRenderComponent.h" />
+    <ClInclude Include="Code\Game\buttonUpdateComponent.h" />
     <ClInclude Include="Code\Game\consoleIconRenderComponent.h" />
     <ClInclude Include="Code\Game\consoleUpdateComponent.h" />
     <ClInclude Include="Code\Game\createButton.h" />
     <ClInclude Include="Code\Game\createDesktop.h" />
     <ClInclude Include="Code\Game\createIcon.h" />
     <ClInclude Include="Code\Game\createWindow.h" />
+    <ClInclude Include="Code\Game\Database.h" />
+    <ClInclude Include="Code\Game\databaseDisplayRenderComponent.h" />
+    <ClInclude Include="Code\Game\databaseSearchInputComponent.h" />
+    <ClInclude Include="Code\Game\databaseSearchRenderComponent.h" />
     <ClInclude Include="Code\Game\desktopExtractionComponent.hpp" />
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
     <ClInclude Include="Code\Game\iconInputComponent.h" />
@@ -144,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json" />
+    <None Include="Resources\smsPipeline.json" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{76E6A61E-6FF8-4ABA-82B6-674967E67119}</ProjectGuid>
@@ -186,12 +199,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Andy\Desktop\UCSC\SFML-2.3.2\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_MARKER;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Andy\Desktop\UCSC\SFML-2.3.2\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <AdditionalOptions>/ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>

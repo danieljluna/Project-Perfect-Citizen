@@ -109,4 +109,4 @@ namespace ppc {
 		///////////////////////////////////////////////
 		string getDirString();
 	};
-}//end ppc namespace
+}; //end ppc namespace

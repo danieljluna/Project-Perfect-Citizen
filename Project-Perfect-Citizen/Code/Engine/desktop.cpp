@@ -35,12 +35,12 @@ ppc::Desktop::~Desktop() {
 }
 
 
-void ppc::Desktop::focusWindow(WindowInterface* wi) {
+bool ppc::Desktop::focusWindow(WindowInterface* wi) {
 	DEBUGF("df", wi);
 	//Keep desktopWindow_ in the back of the vector
 	if (wi == this->desktopWindow_ || wi == nullptr) {
 		this->focused_ = this->desktopWindow_;
-		return;
+		return false;
 	}
 	//while the itor is not desktopWindow_
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
@@ -58,14 +58,15 @@ void ppc::Desktop::focusWindow(WindowInterface* wi) {
 				if(temp != windows_.begin()) --temp;
 			}
 			this->focused_ = windows_.front();
-			return;
+			return true;
 			//if it is already at the beginning, then focus it and 
 			//stop looping.
 		} else if(*it == wi && it == windows_.begin()) {
 			this->focused_ = windows_.front();
-			return;
+			return true;
 		}
 	}
+	return false;
 }
 
 void ppc::Desktop::draw(sf::RenderTarget& target, 
@@ -82,6 +83,12 @@ void ppc::Desktop::draw(sf::RenderTarget& target,
 
 void ppc::Desktop::addWindow(WindowInterface* wi){
 	if (wi == nullptr || wi == this->desktopWindow_) return;
+
+	//If the Window is already in the Desktop, we merely need
+	//to focus it.
+	if (focusWindow(wi)) return;
+
+	//Otherwise, if wi is not a window in the desktop,
 	//automatically put it at the front,
 	//and focused is set to what was added
 	focused_ = *(windows_.insert(windows_.begin(), wi));
@@ -120,17 +127,24 @@ void ppc::Desktop::registerInput(sf::Event& ev) {
 	//if the window clicked in a window that wasnt focused,
 	//then focus that window.
 	//for any mouse event
-	if (ev.type == sf::Event::MouseButtonPressed ||
-		ev.type == sf::Event::MouseButtonReleased ||
-		ev.type == sf::Event::MouseMoved) {
+	if (ev.type == sf::Event::MouseButtonPressed) {
 		for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 			sf::FloatRect winBounds = (*it)->getBounds();
 			if (winBounds.contains(float(ev.mouseButton.x), float(ev.mouseButton.y))) {
 				focusWindow(*it);
-				break;
+                break;
 			}
 		}
 	}
+
+    if (ev.type == sf::Event::MouseMoved) {
+        ev.mouseMove.x -= int(focused_->getPosition().x);
+        ev.mouseMove.y -= int(focused_->getPosition().y);
+    } else if ((ev.type == sf::Event::MouseButtonPressed) || (ev.type == sf::Event::MouseButtonReleased)){
+        ev.mouseButton.x -= int(focused_->getPosition().x);
+        ev.mouseButton.y -= int(focused_->getPosition().y);
+    }
+	
 	focused_->registerInput(ev);
 
 }
