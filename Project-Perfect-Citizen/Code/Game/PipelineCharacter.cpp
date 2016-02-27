@@ -1,8 +1,13 @@
 #include <random>
+#include <cassert>
+#include <algorithm>
 
+#include "../Engine/debug.h"
 #include "PipelineCharacter.h"
 
 using namespace ppc;
+
+const std::string DEBUG_FLAG = "pc";
 
 const std::string SOCIAL_VALUES[] = { "Extravert", "Ambivert", 
                                  "Introvert" };
@@ -20,7 +25,7 @@ const std::string OUTER_LIFE_VALUES[] = { "Judging", "Middle",
 										"Perceiving" };
 const int OUTER_LIFE_SIZE = 3;
 
-const std::string JOBS[] = {
+const std::vector<std::string> JOBS = {
 	"Doctor",
 	"Lawyer",
 	"Teacher",
@@ -30,6 +35,23 @@ const std::string JOBS[] = {
 };
 const int JOBS_SIZE = 6;
 
+
+ppc::PipelineCharacter::PipelineCharacter() {
+	generate();
+}
+
+ppc::PipelineCharacter::PipelineCharacter(const std::string & job) {
+	auto itor = std::find(JOBS.begin(), JOBS.end(), job);
+	generate();
+	if (itor == JOBS.end()) {
+		DEBUGF(DEBUG_FLAG, "Job not found");
+	}
+	else {
+		job_ = job;
+	}
+
+
+}
 
 void PipelineCharacter::generate() {
 	std::random_device rd;

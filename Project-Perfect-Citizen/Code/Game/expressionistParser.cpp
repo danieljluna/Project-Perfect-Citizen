@@ -32,7 +32,7 @@ using namespace expr;
 ///parsing out the JSON file
 ////////////////////////////////////////////////////////////////////////
 
-Json::Value expr::parseExpressionistAsJson(std::string file) {
+Json::Value expr::ExpressionistParser::parseExpressionistAsJson(std::string file) {
 	Json::Reader reader;
 	Json::Value value;
 	std::ifstream doc(resourcePath() + file, std::ifstream::binary);
@@ -40,7 +40,7 @@ Json::Value expr::parseExpressionistAsJson(std::string file) {
 	return value;
 }
 
-std::string expr::expressWithJson(const Json::Value& exprOutput, const ppc::PipelineCharacter& speaker) {
+std::string expr::ExpressionistParser::expressWithJson(const Json::Value& exprOutput, const ppc::PipelineCharacter& speaker) {
 	size_t i = 0;		
 	Json::Value nonTerminalObj = exprOutput["nonterminals"];
 	std::vector<std::string> terminalNames = nonTerminalObj.getMemberNames();
@@ -56,7 +56,7 @@ std::string expr::expressWithJson(const Json::Value& exprOutput, const ppc::Pipe
 
 }
 
-std::pair<std::string, bool> expr::expandWithJson(const Json::Value& exprOutput, const Json::Value& symbol, const ppc::PipelineCharacter& speaker) {
+std::pair<std::string, bool> expr::ExpressionistParser::expandWithJson(const Json::Value& exprOutput, const Json::Value& symbol, const ppc::PipelineCharacter& speaker) {
 
 	if (symbol["complete"].asBool() == false) return std::make_pair("", false);
 
@@ -115,7 +115,7 @@ size_t trimBraces(std::string& str) {
 	return std::string::npos;
 }
 
-std::pair<std::string, bool> expr::fireWithJson(const Json::Value& exprOutput, const Json::Value& rule, const ppc::PipelineCharacter& speaker) {
+std::pair<std::string, bool> expr::ExpressionistParser::fireWithJson(const Json::Value& exprOutput, const Json::Value& rule, const ppc::PipelineCharacter& speaker) {
 	std::string result = "";
 	std::string teststring = "";
 
@@ -193,7 +193,7 @@ bool makeComparison(const int& int1, const int& int2, const std::string& oper) {
 	return false;
 }
 
-bool expr::checkMarkUpPreconditions(const Json::Value& markup, const ppc::PipelineCharacter& speaker) {
+bool expr::ExpressionistParser::checkMarkUpPreconditions(const Json::Value& markup, const ppc::PipelineCharacter& speaker) {
 	std::vector<std::string> markupNames = markup.getMemberNames();
 	for (size_t i = 0; i < markup.size(); ++i) {
 		Json::Value currMark = markup[markupNames[i]];
