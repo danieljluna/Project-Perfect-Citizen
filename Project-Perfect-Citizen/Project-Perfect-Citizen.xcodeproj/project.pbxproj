@@ -75,16 +75,85 @@
 		C86E37AF1C4D6B5200842EFD /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = C86E37AA1C4D6B5100842EFD /* EngineSettings.ini */; };
 		C86E37B11C4D6B5200842EFD /* kappa.png in Resources */ = {isa = PBXBuildFile; fileRef = C86E37AC1C4D6B5100842EFD /* kappa.png */; };
 		C881BEE91C4D7C5B008B1EBD /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */; };
-		E904CF681C8169250080DCBC /*  Catch 22 - Joseph Heller.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E904CF611C8169250080DCBC /*  Catch 22 - Joseph Heller.pdf */; };
-		E904CF691C8169250080DCBC /* Bluebird by Charles Bukowski.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E904CF621C8169250080DCBC /* Bluebird by Charles Bukowski.pdf */; };
-		E904CF6A1C8169250080DCBC /* CatcherInTheRye - Salinger.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E904CF631C8169250080DCBC /* CatcherInTheRye - Salinger.pdf */; };
-		E904CF6B1C8169250080DCBC /* Invisible Man - Ellison.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E904CF641C8169250080DCBC /* Invisible Man - Ellison.pdf */; };
-		E904CF6C1C8169250080DCBC /* Myth of Sisyphus by Albert Camus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E904CF651C8169250080DCBC /* Myth of Sisyphus by Albert Camus.pdf */; };
-		E904CF6D1C8169250080DCBC /* The_Metamorphosis.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E904CF661C8169250080DCBC /* The_Metamorphosis.pdf */; };
-		E904CF6E1C8169250080DCBC /* The_Scarlet_Letter.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E904CF671C8169250080DCBC /* The_Scarlet_Letter.pdf */; };
 		E942036B1C8129540064AC89 /* Desktop1.json in Resources */ = {isa = PBXBuildFile; fileRef = E942036A1C8129540064AC89 /* Desktop1.json */; };
 		E94E759A1C728D2C00C77C60 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = E94E75991C728D2C00C77C60 /* data.json */; };
 		E959DD391C7022F7001F2CAF /* TestDesktop.json in Resources */ = {isa = PBXBuildFile; fileRef = E959DD381C7022F7001F2CAF /* TestDesktop.json */; };
+		E9A7D8E81C82646D00C85AF0 /* 1-24-08-182.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D89C1C82646D00C85AF0 /* 1-24-08-182.jpg */; };
+		E9A7D8E91C82646D00C85AF0 /* 2-20-09-431.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D89D1C82646D00C85AF0 /* 2-20-09-431.jpg */; };
+		E9A7D8EA1C82646D00C85AF0 /* 2-23-2011-213.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D89E1C82646D00C85AF0 /* 2-23-2011-213.jpg */; };
+		E9A7D8EB1C82646D00C85AF0 /* 3-29-12-184.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D89F1C82646D00C85AF0 /* 3-29-12-184.jpg */; };
+		E9A7D8EC1C82646D00C85AF0 /* 4-4-12-048.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8A01C82646D00C85AF0 /* 4-4-12-048.jpg */; };
+		E9A7D8ED1C82646D00C85AF0 /* 4-10-08-386.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8A11C82646D00C85AF0 /* 4-10-08-386.jpg */; };
+		E9A7D8EE1C82646D00C85AF0 /* 4-14-09-462.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8A21C82646D00C85AF0 /* 4-14-09-462.jpg */; };
+		E9A7D8EF1C82646D00C85AF0 /* 4-24-08-152.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8A31C82646D00C85AF0 /* 4-24-08-152.jpg */; };
+		E9A7D8F01C82646D00C85AF0 /* 4-24-08-492.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8A41C82646D00C85AF0 /* 4-24-08-492.jpg */; };
+		E9A7D8F11C82646D00C85AF0 /* 7-24-12-052.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8A51C82646D00C85AF0 /* 7-24-12-052.jpg */; };
+		E9A7D8F21C82646D00C85AF0 /* 7-29-14-345.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8A61C82646D00C85AF0 /* 7-29-14-345.jpg */; };
+		E9A7D8F31C82646D00C85AF0 /* 8-9-11-0426.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8A71C82646D00C85AF0 /* 8-9-11-0426.jpg */; };
+		E9A7D8F41C82646D00C85AF0 /* 9-24-14-195-Edit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8A81C82646D00C85AF0 /* 9-24-14-195-Edit.jpg */; };
+		E9A7D8F51C82646D00C85AF0 /* 1894.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8A91C82646D00C85AF0 /* 1894.jpg */; };
+		E9A7D8F61C82646D00C85AF0 /* 3191.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8AA1C82646D00C85AF0 /* 3191.jpg */; };
+		E9A7D8F71C82646D00C85AF0 /* 3573.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8AB1C82646D00C85AF0 /* 3573.jpg */; };
+		E9A7D8F81C82646D00C85AF0 /* 4065.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8AC1C82646D00C85AF0 /* 4065.jpg */; };
+		E9A7D8F91C82646D00C85AF0 /* 5678.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8AD1C82646D00C85AF0 /* 5678.jpg */; };
+		E9A7D8FA1C82646D00C85AF0 /* 6576.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8AE1C82646D00C85AF0 /* 6576.jpg */; };
+		E9A7D8FB1C82646D00C85AF0 /* 7146.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8AF1C82646D00C85AF0 /* 7146.jpg */; };
+		E9A7D8FC1C82646D00C85AF0 /* 7402.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8B01C82646D00C85AF0 /* 7402.jpg */; };
+		E9A7D8FD1C82646D00C85AF0 /* Conversation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8B11C82646D00C85AF0 /* Conversation.jpg */; };
+		E9A7D8FE1C82646D00C85AF0 /* Crowd1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8B21C82646D00C85AF0 /* Crowd1.jpg */; };
+		E9A7D8FF1C82646E00C85AF0 /* Crowd2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8B31C82646D00C85AF0 /* Crowd2.jpg */; };
+		E9A7D9001C82646E00C85AF0 /* Crowd3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8B41C82646D00C85AF0 /* Crowd3.jpg */; };
+		E9A7D9011C82646E00C85AF0 /* Crowd7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8B51C82646D00C85AF0 /* Crowd7.jpg */; };
+		E9A7D9021C82646E00C85AF0 /* Crowd8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8B61C82646D00C85AF0 /* Crowd8.jpg */; };
+		E9A7D9031C82646E00C85AF0 /* Crowd14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8B71C82646D00C85AF0 /* Crowd14.jpg */; };
+		E9A7D9041C82646E00C85AF0 /* Crowd16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8B81C82646D00C85AF0 /* Crowd16.jpg */; };
+		E9A7D9051C82646E00C85AF0 /* Crowd21.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8B91C82646D00C85AF0 /* Crowd21.jpg */; };
+		E9A7D9061C82646E00C85AF0 /* Crowd29.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8BA1C82646D00C85AF0 /* Crowd29.jpg */; };
+		E9A7D9071C82646E00C85AF0 /* Crowd31.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8BB1C82646D00C85AF0 /* Crowd31.jpg */; };
+		E9A7D9081C82646E00C85AF0 /* Crowd32.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8BC1C82646D00C85AF0 /* Crowd32.jpg */; };
+		E9A7D9091C82646E00C85AF0 /* Crowd35.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8BD1C82646D00C85AF0 /* Crowd35.jpg */; };
+		E9A7D90A1C82646E00C85AF0 /* Doubt1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8BE1C82646D00C85AF0 /* Doubt1.jpg */; };
+		E9A7D90B1C82646E00C85AF0 /* Doubt2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8BF1C82646D00C85AF0 /* Doubt2.jpg */; };
+		E9A7D90C1C82646E00C85AF0 /* Doubt3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8C01C82646D00C85AF0 /* Doubt3.jpg */; };
+		E9A7D90D1C82646E00C85AF0 /* Doubt6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8C11C82646D00C85AF0 /* Doubt6.jpg */; };
+		E9A7D90E1C82646E00C85AF0 /* Doubt9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8C21C82646D00C85AF0 /* Doubt9.jpg */; };
+		E9A7D90F1C82646E00C85AF0 /* Doubt11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8C31C82646D00C85AF0 /* Doubt11.jpg */; };
+		E9A7D9101C82646E00C85AF0 /* Doubt15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8C41C82646D00C85AF0 /* Doubt15.jpg */; };
+		E9A7D9111C82646E00C85AF0 /* Doubt16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8C51C82646D00C85AF0 /* Doubt16.jpg */; };
+		E9A7D9121C82646E00C85AF0 /* Epidemic-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8C61C82646D00C85AF0 /* Epidemic-2.jpg */; };
+		E9A7D9131C82646E00C85AF0 /* EternalStation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8C71C82646D00C85AF0 /* EternalStation.jpg */; };
+		E9A7D9141C82646E00C85AF0 /* Fallen1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8C81C82646D00C85AF0 /* Fallen1.jpg */; };
+		E9A7D9151C82646E00C85AF0 /* Fallen2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8C91C82646D00C85AF0 /* Fallen2.jpg */; };
+		E9A7D9161C82646E00C85AF0 /* Fallen5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8CA1C82646D00C85AF0 /* Fallen5.jpg */; };
+		E9A7D9171C82646E00C85AF0 /* Fallen7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8CB1C82646D00C85AF0 /* Fallen7.jpg */; };
+		E9A7D9181C82646E00C85AF0 /* Fata+Morgana.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8CC1C82646D00C85AF0 /* Fata+Morgana.jpg */; };
+		E9A7D9191C82646E00C85AF0 /* Fragment+Of+Eternity.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8CD1C82646D00C85AF0 /* Fragment+Of+Eternity.jpg */; };
+		E9A7D91A1C82646E00C85AF0 /* Journey+Into+Dark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8CE1C82646D00C85AF0 /* Journey+Into+Dark.jpg */; };
+		E9A7D91B1C82646E00C85AF0 /* New+Crowd39.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8CF1C82646D00C85AF0 /* New+Crowd39.jpg */; };
+		E9A7D91C1C82646E00C85AF0 /* NewCrowd38.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8D01C82646D00C85AF0 /* NewCrowd38.jpg */; };
+		E9A7D91D1C82646E00C85AF0 /* NewCrowd38Fragment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8D11C82646D00C85AF0 /* NewCrowd38Fragment.jpg */; };
+		E9A7D91E1C82646E00C85AF0 /* NewCrowd42Fragment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8D21C82646D00C85AF0 /* NewCrowd42Fragment.jpg */; };
+		E9A7D91F1C82646E00C85AF0 /* NewCrowd46.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8D31C82646D00C85AF0 /* NewCrowd46.jpg */; };
+		E9A7D9201C82646E00C85AF0 /* NewCrowd52.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8D41C82646D00C85AF0 /* NewCrowd52.jpg */; };
+		E9A7D9211C82646E00C85AF0 /* NewCrowd58.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8D51C82646D00C85AF0 /* NewCrowd58.jpg */; };
+		E9A7D9221C82646E00C85AF0 /* Sheptune2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8D61C82646D00C85AF0 /* Sheptune2.jpg */; };
+		E9A7D9231C82646E00C85AF0 /*  Catch 22 - Joseph Heller.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8D71C82646D00C85AF0 /*  Catch 22 - Joseph Heller.pdf */; };
+		E9A7D9241C82646E00C85AF0 /* As I Lay Dying - Faulkner.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8D81C82646D00C85AF0 /* As I Lay Dying - Faulkner.pdf */; };
+		E9A7D9251C82646E00C85AF0 /* Bacchae - Euripides.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8D91C82646D00C85AF0 /* Bacchae - Euripides.pdf */; };
+		E9A7D9261C82646E00C85AF0 /* bataille_story_of_eye.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8DA1C82646D00C85AF0 /* bataille_story_of_eye.pdf */; };
+		E9A7D9271C82646E00C85AF0 /* Bluebird by Charles Bukowski.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8DB1C82646D00C85AF0 /* Bluebird by Charles Bukowski.pdf */; };
+		E9A7D9281C82646E00C85AF0 /* CatcherInTheRye - Salinger.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8DC1C82646D00C85AF0 /* CatcherInTheRye - Salinger.pdf */; };
+		E9A7D9291C82646E00C85AF0 /* Donne - Med 17.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8DD1C82646D00C85AF0 /* Donne - Med 17.pdf */; };
+		E9A7D92A1C82646E00C85AF0 /* Geek Love by Katherine Dunn - Ch1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8DE1C82646D00C85AF0 /* Geek Love by Katherine Dunn - Ch1.pdf */; };
+		E9A7D92B1C82646E00C85AF0 /* Invisible Man - Ellison.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8DF1C82646D00C85AF0 /* Invisible Man - Ellison.pdf */; };
+		E9A7D92C1C82646E00C85AF0 /* Kristeva_-_powers_of_horror.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8E01C82646D00C85AF0 /* Kristeva_-_powers_of_horror.pdf */; };
+		E9A7D92D1C82646E00C85AF0 /* LacanMirrorPhase.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8E11C82646D00C85AF0 /* LacanMirrorPhase.pdf */; };
+		E9A7D92E1C82646E00C85AF0 /* Lolita - Vladimir Nabokov.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8E21C82646D00C85AF0 /* Lolita - Vladimir Nabokov.pdf */; };
+		E9A7D92F1C82646E00C85AF0 /* mulvey-visualpleasure.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8E31C82646D00C85AF0 /* mulvey-visualpleasure.pdf */; };
+		E9A7D9301C82646E00C85AF0 /* Myth of Sisyphus by Albert Camus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8E41C82646D00C85AF0 /* Myth of Sisyphus by Albert Camus.pdf */; };
+		E9A7D9311C82646E00C85AF0 /* St. Augustine - Confessions copy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8E51C82646D00C85AF0 /* St. Augustine - Confessions copy.pdf */; };
+		E9A7D9321C82646E00C85AF0 /* The_Metamorphosis.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8E61C82646D00C85AF0 /* The_Metamorphosis.pdf */; };
+		E9A7D9331C82646E00C85AF0 /* The_Scarlet_Letter.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9A7D8E71C82646D00C85AF0 /* The_Scarlet_Letter.pdf */; };
 		E9DE4B271C8161A30022A0A7 /* dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = E9DE4B261C8161A30022A0A7 /* dummy.json */; };
 /* End PBXBuildFile section */
 
@@ -228,16 +297,85 @@
 		C86E37AC1C4D6B5100842EFD /* kappa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kappa.png; sourceTree = "<group>"; };
 		C881BEE71C4D7C5B008B1EBD /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ResourcePath.hpp; path = Resources/ResourcePath.hpp; sourceTree = SOURCE_ROOT; };
 		C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ResourcePath.mm; path = Resources/ResourcePath.mm; sourceTree = SOURCE_ROOT; };
-		E904CF611C8169250080DCBC /*  Catch 22 - Joseph Heller.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = " Catch 22 - Joseph Heller.pdf"; path = "DesktopContent/Desktop1/ Catch 22 - Joseph Heller.pdf"; sourceTree = "<group>"; };
-		E904CF621C8169250080DCBC /* Bluebird by Charles Bukowski.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Bluebird by Charles Bukowski.pdf"; path = "DesktopContent/Desktop1/Bluebird by Charles Bukowski.pdf"; sourceTree = "<group>"; };
-		E904CF631C8169250080DCBC /* CatcherInTheRye - Salinger.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "CatcherInTheRye - Salinger.pdf"; path = "DesktopContent/Desktop1/CatcherInTheRye - Salinger.pdf"; sourceTree = "<group>"; };
-		E904CF641C8169250080DCBC /* Invisible Man - Ellison.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Invisible Man - Ellison.pdf"; path = "DesktopContent/Desktop1/Invisible Man - Ellison.pdf"; sourceTree = "<group>"; };
-		E904CF651C8169250080DCBC /* Myth of Sisyphus by Albert Camus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Myth of Sisyphus by Albert Camus.pdf"; path = "DesktopContent/Desktop1/Myth of Sisyphus by Albert Camus.pdf"; sourceTree = "<group>"; };
-		E904CF661C8169250080DCBC /* The_Metamorphosis.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = The_Metamorphosis.pdf; path = DesktopContent/Desktop1/The_Metamorphosis.pdf; sourceTree = "<group>"; };
-		E904CF671C8169250080DCBC /* The_Scarlet_Letter.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = The_Scarlet_Letter.pdf; path = DesktopContent/Desktop1/The_Scarlet_Letter.pdf; sourceTree = "<group>"; };
 		E942036A1C8129540064AC89 /* Desktop1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Desktop1.json; sourceTree = "<group>"; };
 		E94E75991C728D2C00C77C60 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		E959DD381C7022F7001F2CAF /* TestDesktop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestDesktop.json; sourceTree = "<group>"; };
+		E9A7D89C1C82646D00C85AF0 /* 1-24-08-182.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "1-24-08-182.jpg"; path = "DesktopContent/Desktop1/1-24-08-182.jpg"; sourceTree = "<group>"; };
+		E9A7D89D1C82646D00C85AF0 /* 2-20-09-431.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "2-20-09-431.jpg"; path = "DesktopContent/Desktop1/2-20-09-431.jpg"; sourceTree = "<group>"; };
+		E9A7D89E1C82646D00C85AF0 /* 2-23-2011-213.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "2-23-2011-213.jpg"; path = "DesktopContent/Desktop1/2-23-2011-213.jpg"; sourceTree = "<group>"; };
+		E9A7D89F1C82646D00C85AF0 /* 3-29-12-184.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "3-29-12-184.jpg"; path = "DesktopContent/Desktop1/3-29-12-184.jpg"; sourceTree = "<group>"; };
+		E9A7D8A01C82646D00C85AF0 /* 4-4-12-048.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "4-4-12-048.jpg"; path = "DesktopContent/Desktop1/4-4-12-048.jpg"; sourceTree = "<group>"; };
+		E9A7D8A11C82646D00C85AF0 /* 4-10-08-386.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "4-10-08-386.jpg"; path = "DesktopContent/Desktop1/4-10-08-386.jpg"; sourceTree = "<group>"; };
+		E9A7D8A21C82646D00C85AF0 /* 4-14-09-462.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "4-14-09-462.jpg"; path = "DesktopContent/Desktop1/4-14-09-462.jpg"; sourceTree = "<group>"; };
+		E9A7D8A31C82646D00C85AF0 /* 4-24-08-152.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "4-24-08-152.jpg"; path = "DesktopContent/Desktop1/4-24-08-152.jpg"; sourceTree = "<group>"; };
+		E9A7D8A41C82646D00C85AF0 /* 4-24-08-492.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "4-24-08-492.jpg"; path = "DesktopContent/Desktop1/4-24-08-492.jpg"; sourceTree = "<group>"; };
+		E9A7D8A51C82646D00C85AF0 /* 7-24-12-052.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "7-24-12-052.jpg"; path = "DesktopContent/Desktop1/7-24-12-052.jpg"; sourceTree = "<group>"; };
+		E9A7D8A61C82646D00C85AF0 /* 7-29-14-345.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "7-29-14-345.jpg"; path = "DesktopContent/Desktop1/7-29-14-345.jpg"; sourceTree = "<group>"; };
+		E9A7D8A71C82646D00C85AF0 /* 8-9-11-0426.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "8-9-11-0426.jpg"; path = "DesktopContent/Desktop1/8-9-11-0426.jpg"; sourceTree = "<group>"; };
+		E9A7D8A81C82646D00C85AF0 /* 9-24-14-195-Edit.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "9-24-14-195-Edit.jpg"; path = "DesktopContent/Desktop1/9-24-14-195-Edit.jpg"; sourceTree = "<group>"; };
+		E9A7D8A91C82646D00C85AF0 /* 1894.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1894.jpg; path = DesktopContent/Desktop1/1894.jpg; sourceTree = "<group>"; };
+		E9A7D8AA1C82646D00C85AF0 /* 3191.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3191.jpg; path = DesktopContent/Desktop1/3191.jpg; sourceTree = "<group>"; };
+		E9A7D8AB1C82646D00C85AF0 /* 3573.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3573.jpg; path = DesktopContent/Desktop1/3573.jpg; sourceTree = "<group>"; };
+		E9A7D8AC1C82646D00C85AF0 /* 4065.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 4065.jpg; path = DesktopContent/Desktop1/4065.jpg; sourceTree = "<group>"; };
+		E9A7D8AD1C82646D00C85AF0 /* 5678.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 5678.jpg; path = DesktopContent/Desktop1/5678.jpg; sourceTree = "<group>"; };
+		E9A7D8AE1C82646D00C85AF0 /* 6576.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 6576.jpg; path = DesktopContent/Desktop1/6576.jpg; sourceTree = "<group>"; };
+		E9A7D8AF1C82646D00C85AF0 /* 7146.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 7146.jpg; path = DesktopContent/Desktop1/7146.jpg; sourceTree = "<group>"; };
+		E9A7D8B01C82646D00C85AF0 /* 7402.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 7402.jpg; path = DesktopContent/Desktop1/7402.jpg; sourceTree = "<group>"; };
+		E9A7D8B11C82646D00C85AF0 /* Conversation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Conversation.jpg; path = DesktopContent/Desktop1/Conversation.jpg; sourceTree = "<group>"; };
+		E9A7D8B21C82646D00C85AF0 /* Crowd1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Crowd1.jpg; path = DesktopContent/Desktop1/Crowd1.jpg; sourceTree = "<group>"; };
+		E9A7D8B31C82646D00C85AF0 /* Crowd2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Crowd2.jpg; path = DesktopContent/Desktop1/Crowd2.jpg; sourceTree = "<group>"; };
+		E9A7D8B41C82646D00C85AF0 /* Crowd3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Crowd3.jpg; path = DesktopContent/Desktop1/Crowd3.jpg; sourceTree = "<group>"; };
+		E9A7D8B51C82646D00C85AF0 /* Crowd7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Crowd7.jpg; path = DesktopContent/Desktop1/Crowd7.jpg; sourceTree = "<group>"; };
+		E9A7D8B61C82646D00C85AF0 /* Crowd8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Crowd8.jpg; path = DesktopContent/Desktop1/Crowd8.jpg; sourceTree = "<group>"; };
+		E9A7D8B71C82646D00C85AF0 /* Crowd14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Crowd14.jpg; path = DesktopContent/Desktop1/Crowd14.jpg; sourceTree = "<group>"; };
+		E9A7D8B81C82646D00C85AF0 /* Crowd16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Crowd16.jpg; path = DesktopContent/Desktop1/Crowd16.jpg; sourceTree = "<group>"; };
+		E9A7D8B91C82646D00C85AF0 /* Crowd21.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Crowd21.jpg; path = DesktopContent/Desktop1/Crowd21.jpg; sourceTree = "<group>"; };
+		E9A7D8BA1C82646D00C85AF0 /* Crowd29.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Crowd29.jpg; path = DesktopContent/Desktop1/Crowd29.jpg; sourceTree = "<group>"; };
+		E9A7D8BB1C82646D00C85AF0 /* Crowd31.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Crowd31.jpg; path = DesktopContent/Desktop1/Crowd31.jpg; sourceTree = "<group>"; };
+		E9A7D8BC1C82646D00C85AF0 /* Crowd32.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Crowd32.jpg; path = DesktopContent/Desktop1/Crowd32.jpg; sourceTree = "<group>"; };
+		E9A7D8BD1C82646D00C85AF0 /* Crowd35.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Crowd35.jpg; path = DesktopContent/Desktop1/Crowd35.jpg; sourceTree = "<group>"; };
+		E9A7D8BE1C82646D00C85AF0 /* Doubt1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Doubt1.jpg; path = DesktopContent/Desktop1/Doubt1.jpg; sourceTree = "<group>"; };
+		E9A7D8BF1C82646D00C85AF0 /* Doubt2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Doubt2.jpg; path = DesktopContent/Desktop1/Doubt2.jpg; sourceTree = "<group>"; };
+		E9A7D8C01C82646D00C85AF0 /* Doubt3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Doubt3.jpg; path = DesktopContent/Desktop1/Doubt3.jpg; sourceTree = "<group>"; };
+		E9A7D8C11C82646D00C85AF0 /* Doubt6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Doubt6.jpg; path = DesktopContent/Desktop1/Doubt6.jpg; sourceTree = "<group>"; };
+		E9A7D8C21C82646D00C85AF0 /* Doubt9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Doubt9.jpg; path = DesktopContent/Desktop1/Doubt9.jpg; sourceTree = "<group>"; };
+		E9A7D8C31C82646D00C85AF0 /* Doubt11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Doubt11.jpg; path = DesktopContent/Desktop1/Doubt11.jpg; sourceTree = "<group>"; };
+		E9A7D8C41C82646D00C85AF0 /* Doubt15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Doubt15.jpg; path = DesktopContent/Desktop1/Doubt15.jpg; sourceTree = "<group>"; };
+		E9A7D8C51C82646D00C85AF0 /* Doubt16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Doubt16.jpg; path = DesktopContent/Desktop1/Doubt16.jpg; sourceTree = "<group>"; };
+		E9A7D8C61C82646D00C85AF0 /* Epidemic-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Epidemic-2.jpg"; path = "DesktopContent/Desktop1/Epidemic-2.jpg"; sourceTree = "<group>"; };
+		E9A7D8C71C82646D00C85AF0 /* EternalStation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = EternalStation.jpg; path = DesktopContent/Desktop1/EternalStation.jpg; sourceTree = "<group>"; };
+		E9A7D8C81C82646D00C85AF0 /* Fallen1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Fallen1.jpg; path = DesktopContent/Desktop1/Fallen1.jpg; sourceTree = "<group>"; };
+		E9A7D8C91C82646D00C85AF0 /* Fallen2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Fallen2.jpg; path = DesktopContent/Desktop1/Fallen2.jpg; sourceTree = "<group>"; };
+		E9A7D8CA1C82646D00C85AF0 /* Fallen5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Fallen5.jpg; path = DesktopContent/Desktop1/Fallen5.jpg; sourceTree = "<group>"; };
+		E9A7D8CB1C82646D00C85AF0 /* Fallen7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Fallen7.jpg; path = DesktopContent/Desktop1/Fallen7.jpg; sourceTree = "<group>"; };
+		E9A7D8CC1C82646D00C85AF0 /* Fata+Morgana.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Fata+Morgana.jpg"; path = "DesktopContent/Desktop1/Fata+Morgana.jpg"; sourceTree = "<group>"; };
+		E9A7D8CD1C82646D00C85AF0 /* Fragment+Of+Eternity.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Fragment+Of+Eternity.jpg"; path = "DesktopContent/Desktop1/Fragment+Of+Eternity.jpg"; sourceTree = "<group>"; };
+		E9A7D8CE1C82646D00C85AF0 /* Journey+Into+Dark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Journey+Into+Dark.jpg"; path = "DesktopContent/Desktop1/Journey+Into+Dark.jpg"; sourceTree = "<group>"; };
+		E9A7D8CF1C82646D00C85AF0 /* New+Crowd39.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "New+Crowd39.jpg"; path = "DesktopContent/Desktop1/New+Crowd39.jpg"; sourceTree = "<group>"; };
+		E9A7D8D01C82646D00C85AF0 /* NewCrowd38.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = NewCrowd38.jpg; path = DesktopContent/Desktop1/NewCrowd38.jpg; sourceTree = "<group>"; };
+		E9A7D8D11C82646D00C85AF0 /* NewCrowd38Fragment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = NewCrowd38Fragment.jpg; path = DesktopContent/Desktop1/NewCrowd38Fragment.jpg; sourceTree = "<group>"; };
+		E9A7D8D21C82646D00C85AF0 /* NewCrowd42Fragment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = NewCrowd42Fragment.jpg; path = DesktopContent/Desktop1/NewCrowd42Fragment.jpg; sourceTree = "<group>"; };
+		E9A7D8D31C82646D00C85AF0 /* NewCrowd46.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = NewCrowd46.jpg; path = DesktopContent/Desktop1/NewCrowd46.jpg; sourceTree = "<group>"; };
+		E9A7D8D41C82646D00C85AF0 /* NewCrowd52.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = NewCrowd52.jpg; path = DesktopContent/Desktop1/NewCrowd52.jpg; sourceTree = "<group>"; };
+		E9A7D8D51C82646D00C85AF0 /* NewCrowd58.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = NewCrowd58.jpg; path = DesktopContent/Desktop1/NewCrowd58.jpg; sourceTree = "<group>"; };
+		E9A7D8D61C82646D00C85AF0 /* Sheptune2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Sheptune2.jpg; path = DesktopContent/Desktop1/Sheptune2.jpg; sourceTree = "<group>"; };
+		E9A7D8D71C82646D00C85AF0 /*  Catch 22 - Joseph Heller.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = " Catch 22 - Joseph Heller.pdf"; path = "DesktopContent/Desktop1/ Catch 22 - Joseph Heller.pdf"; sourceTree = "<group>"; };
+		E9A7D8D81C82646D00C85AF0 /* As I Lay Dying - Faulkner.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "As I Lay Dying - Faulkner.pdf"; path = "DesktopContent/Desktop1/As I Lay Dying - Faulkner.pdf"; sourceTree = "<group>"; };
+		E9A7D8D91C82646D00C85AF0 /* Bacchae - Euripides.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Bacchae - Euripides.pdf"; path = "DesktopContent/Desktop1/Bacchae - Euripides.pdf"; sourceTree = "<group>"; };
+		E9A7D8DA1C82646D00C85AF0 /* bataille_story_of_eye.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = bataille_story_of_eye.pdf; path = DesktopContent/Desktop1/bataille_story_of_eye.pdf; sourceTree = "<group>"; };
+		E9A7D8DB1C82646D00C85AF0 /* Bluebird by Charles Bukowski.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Bluebird by Charles Bukowski.pdf"; path = "DesktopContent/Desktop1/Bluebird by Charles Bukowski.pdf"; sourceTree = "<group>"; };
+		E9A7D8DC1C82646D00C85AF0 /* CatcherInTheRye - Salinger.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "CatcherInTheRye - Salinger.pdf"; path = "DesktopContent/Desktop1/CatcherInTheRye - Salinger.pdf"; sourceTree = "<group>"; };
+		E9A7D8DD1C82646D00C85AF0 /* Donne - Med 17.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Donne - Med 17.pdf"; path = "DesktopContent/Desktop1/Donne - Med 17.pdf"; sourceTree = "<group>"; };
+		E9A7D8DE1C82646D00C85AF0 /* Geek Love by Katherine Dunn - Ch1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Geek Love by Katherine Dunn - Ch1.pdf"; path = "DesktopContent/Desktop1/Geek Love by Katherine Dunn - Ch1.pdf"; sourceTree = "<group>"; };
+		E9A7D8DF1C82646D00C85AF0 /* Invisible Man - Ellison.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Invisible Man - Ellison.pdf"; path = "DesktopContent/Desktop1/Invisible Man - Ellison.pdf"; sourceTree = "<group>"; };
+		E9A7D8E01C82646D00C85AF0 /* Kristeva_-_powers_of_horror.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Kristeva_-_powers_of_horror.pdf"; path = "DesktopContent/Desktop1/Kristeva_-_powers_of_horror.pdf"; sourceTree = "<group>"; };
+		E9A7D8E11C82646D00C85AF0 /* LacanMirrorPhase.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = LacanMirrorPhase.pdf; path = DesktopContent/Desktop1/LacanMirrorPhase.pdf; sourceTree = "<group>"; };
+		E9A7D8E21C82646D00C85AF0 /* Lolita - Vladimir Nabokov.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Lolita - Vladimir Nabokov.pdf"; path = "DesktopContent/Desktop1/Lolita - Vladimir Nabokov.pdf"; sourceTree = "<group>"; };
+		E9A7D8E31C82646D00C85AF0 /* mulvey-visualpleasure.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "mulvey-visualpleasure.pdf"; path = "DesktopContent/Desktop1/mulvey-visualpleasure.pdf"; sourceTree = "<group>"; };
+		E9A7D8E41C82646D00C85AF0 /* Myth of Sisyphus by Albert Camus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Myth of Sisyphus by Albert Camus.pdf"; path = "DesktopContent/Desktop1/Myth of Sisyphus by Albert Camus.pdf"; sourceTree = "<group>"; };
+		E9A7D8E51C82646D00C85AF0 /* St. Augustine - Confessions copy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "St. Augustine - Confessions copy.pdf"; path = "DesktopContent/Desktop1/St. Augustine - Confessions copy.pdf"; sourceTree = "<group>"; };
+		E9A7D8E61C82646D00C85AF0 /* The_Metamorphosis.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = The_Metamorphosis.pdf; path = DesktopContent/Desktop1/The_Metamorphosis.pdf; sourceTree = "<group>"; };
+		E9A7D8E71C82646D00C85AF0 /* The_Scarlet_Letter.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = The_Scarlet_Letter.pdf; path = DesktopContent/Desktop1/The_Scarlet_Letter.pdf; sourceTree = "<group>"; };
 		E9DE4B261C8161A30022A0A7 /* dummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummy.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -504,13 +642,82 @@
 		E904CF5C1C81681C0080DCBC /* Desktop1 */ = {
 			isa = PBXGroup;
 			children = (
-				E904CF611C8169250080DCBC /*  Catch 22 - Joseph Heller.pdf */,
-				E904CF621C8169250080DCBC /* Bluebird by Charles Bukowski.pdf */,
-				E904CF631C8169250080DCBC /* CatcherInTheRye - Salinger.pdf */,
-				E904CF641C8169250080DCBC /* Invisible Man - Ellison.pdf */,
-				E904CF651C8169250080DCBC /* Myth of Sisyphus by Albert Camus.pdf */,
-				E904CF661C8169250080DCBC /* The_Metamorphosis.pdf */,
-				E904CF671C8169250080DCBC /* The_Scarlet_Letter.pdf */,
+				E9A7D89C1C82646D00C85AF0 /* 1-24-08-182.jpg */,
+				E9A7D89D1C82646D00C85AF0 /* 2-20-09-431.jpg */,
+				E9A7D89E1C82646D00C85AF0 /* 2-23-2011-213.jpg */,
+				E9A7D89F1C82646D00C85AF0 /* 3-29-12-184.jpg */,
+				E9A7D8A01C82646D00C85AF0 /* 4-4-12-048.jpg */,
+				E9A7D8A11C82646D00C85AF0 /* 4-10-08-386.jpg */,
+				E9A7D8A21C82646D00C85AF0 /* 4-14-09-462.jpg */,
+				E9A7D8A31C82646D00C85AF0 /* 4-24-08-152.jpg */,
+				E9A7D8A41C82646D00C85AF0 /* 4-24-08-492.jpg */,
+				E9A7D8A51C82646D00C85AF0 /* 7-24-12-052.jpg */,
+				E9A7D8A61C82646D00C85AF0 /* 7-29-14-345.jpg */,
+				E9A7D8A71C82646D00C85AF0 /* 8-9-11-0426.jpg */,
+				E9A7D8A81C82646D00C85AF0 /* 9-24-14-195-Edit.jpg */,
+				E9A7D8A91C82646D00C85AF0 /* 1894.jpg */,
+				E9A7D8AA1C82646D00C85AF0 /* 3191.jpg */,
+				E9A7D8AB1C82646D00C85AF0 /* 3573.jpg */,
+				E9A7D8AC1C82646D00C85AF0 /* 4065.jpg */,
+				E9A7D8AD1C82646D00C85AF0 /* 5678.jpg */,
+				E9A7D8AE1C82646D00C85AF0 /* 6576.jpg */,
+				E9A7D8AF1C82646D00C85AF0 /* 7146.jpg */,
+				E9A7D8B01C82646D00C85AF0 /* 7402.jpg */,
+				E9A7D8B11C82646D00C85AF0 /* Conversation.jpg */,
+				E9A7D8B21C82646D00C85AF0 /* Crowd1.jpg */,
+				E9A7D8B31C82646D00C85AF0 /* Crowd2.jpg */,
+				E9A7D8B41C82646D00C85AF0 /* Crowd3.jpg */,
+				E9A7D8B51C82646D00C85AF0 /* Crowd7.jpg */,
+				E9A7D8B61C82646D00C85AF0 /* Crowd8.jpg */,
+				E9A7D8B71C82646D00C85AF0 /* Crowd14.jpg */,
+				E9A7D8B81C82646D00C85AF0 /* Crowd16.jpg */,
+				E9A7D8B91C82646D00C85AF0 /* Crowd21.jpg */,
+				E9A7D8BA1C82646D00C85AF0 /* Crowd29.jpg */,
+				E9A7D8BB1C82646D00C85AF0 /* Crowd31.jpg */,
+				E9A7D8BC1C82646D00C85AF0 /* Crowd32.jpg */,
+				E9A7D8BD1C82646D00C85AF0 /* Crowd35.jpg */,
+				E9A7D8BE1C82646D00C85AF0 /* Doubt1.jpg */,
+				E9A7D8BF1C82646D00C85AF0 /* Doubt2.jpg */,
+				E9A7D8C01C82646D00C85AF0 /* Doubt3.jpg */,
+				E9A7D8C11C82646D00C85AF0 /* Doubt6.jpg */,
+				E9A7D8C21C82646D00C85AF0 /* Doubt9.jpg */,
+				E9A7D8C31C82646D00C85AF0 /* Doubt11.jpg */,
+				E9A7D8C41C82646D00C85AF0 /* Doubt15.jpg */,
+				E9A7D8C51C82646D00C85AF0 /* Doubt16.jpg */,
+				E9A7D8C61C82646D00C85AF0 /* Epidemic-2.jpg */,
+				E9A7D8C71C82646D00C85AF0 /* EternalStation.jpg */,
+				E9A7D8C81C82646D00C85AF0 /* Fallen1.jpg */,
+				E9A7D8C91C82646D00C85AF0 /* Fallen2.jpg */,
+				E9A7D8CA1C82646D00C85AF0 /* Fallen5.jpg */,
+				E9A7D8CB1C82646D00C85AF0 /* Fallen7.jpg */,
+				E9A7D8CC1C82646D00C85AF0 /* Fata+Morgana.jpg */,
+				E9A7D8CD1C82646D00C85AF0 /* Fragment+Of+Eternity.jpg */,
+				E9A7D8CE1C82646D00C85AF0 /* Journey+Into+Dark.jpg */,
+				E9A7D8CF1C82646D00C85AF0 /* New+Crowd39.jpg */,
+				E9A7D8D01C82646D00C85AF0 /* NewCrowd38.jpg */,
+				E9A7D8D11C82646D00C85AF0 /* NewCrowd38Fragment.jpg */,
+				E9A7D8D21C82646D00C85AF0 /* NewCrowd42Fragment.jpg */,
+				E9A7D8D31C82646D00C85AF0 /* NewCrowd46.jpg */,
+				E9A7D8D41C82646D00C85AF0 /* NewCrowd52.jpg */,
+				E9A7D8D51C82646D00C85AF0 /* NewCrowd58.jpg */,
+				E9A7D8D61C82646D00C85AF0 /* Sheptune2.jpg */,
+				E9A7D8D71C82646D00C85AF0 /*  Catch 22 - Joseph Heller.pdf */,
+				E9A7D8D81C82646D00C85AF0 /* As I Lay Dying - Faulkner.pdf */,
+				E9A7D8D91C82646D00C85AF0 /* Bacchae - Euripides.pdf */,
+				E9A7D8DA1C82646D00C85AF0 /* bataille_story_of_eye.pdf */,
+				E9A7D8DB1C82646D00C85AF0 /* Bluebird by Charles Bukowski.pdf */,
+				E9A7D8DC1C82646D00C85AF0 /* CatcherInTheRye - Salinger.pdf */,
+				E9A7D8DD1C82646D00C85AF0 /* Donne - Med 17.pdf */,
+				E9A7D8DE1C82646D00C85AF0 /* Geek Love by Katherine Dunn - Ch1.pdf */,
+				E9A7D8DF1C82646D00C85AF0 /* Invisible Man - Ellison.pdf */,
+				E9A7D8E01C82646D00C85AF0 /* Kristeva_-_powers_of_horror.pdf */,
+				E9A7D8E11C82646D00C85AF0 /* LacanMirrorPhase.pdf */,
+				E9A7D8E21C82646D00C85AF0 /* Lolita - Vladimir Nabokov.pdf */,
+				E9A7D8E31C82646D00C85AF0 /* mulvey-visualpleasure.pdf */,
+				E9A7D8E41C82646D00C85AF0 /* Myth of Sisyphus by Albert Camus.pdf */,
+				E9A7D8E51C82646D00C85AF0 /* St. Augustine - Confessions copy.pdf */,
+				E9A7D8E61C82646D00C85AF0 /* The_Metamorphosis.pdf */,
+				E9A7D8E71C82646D00C85AF0 /* The_Scarlet_Letter.pdf */,
 			);
 			name = Desktop1;
 			sourceTree = "<group>";
@@ -572,26 +779,95 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E904CF681C8169250080DCBC /*  Catch 22 - Joseph Heller.pdf in Resources */,
+				E9A7D9321C82646E00C85AF0 /* The_Metamorphosis.pdf in Resources */,
+				E9A7D9331C82646E00C85AF0 /* The_Scarlet_Letter.pdf in Resources */,
+				E9A7D9061C82646E00C85AF0 /* Crowd29.jpg in Resources */,
+				E9A7D9181C82646E00C85AF0 /* Fata+Morgana.jpg in Resources */,
+				E9A7D9131C82646E00C85AF0 /* EternalStation.jpg in Resources */,
+				E9A7D8F21C82646D00C85AF0 /* 7-29-14-345.jpg in Resources */,
+				E9A7D8F01C82646D00C85AF0 /* 4-24-08-492.jpg in Resources */,
+				E9A7D8F81C82646D00C85AF0 /* 4065.jpg in Resources */,
+				E9A7D9241C82646E00C85AF0 /* As I Lay Dying - Faulkner.pdf in Resources */,
 				E94E759A1C728D2C00C77C60 /* data.json in Resources */,
 				E959DD391C7022F7001F2CAF /* TestDesktop.json in Resources */,
-				E904CF6E1C8169250080DCBC /* The_Scarlet_Letter.pdf in Resources */,
+				E9A7D92B1C82646E00C85AF0 /* Invisible Man - Ellison.pdf in Resources */,
+				E9A7D91E1C82646E00C85AF0 /* NewCrowd42Fragment.jpg in Resources */,
+				E9A7D92E1C82646E00C85AF0 /* Lolita - Vladimir Nabokov.pdf in Resources */,
 				C812D6151C61D29600901173 /* Wallpaper.png in Resources */,
+				E9A7D9221C82646E00C85AF0 /* Sheptune2.jpg in Resources */,
+				E9A7D8E81C82646D00C85AF0 /* 1-24-08-182.jpg in Resources */,
+				E9A7D90E1C82646E00C85AF0 /* Doubt9.jpg in Resources */,
 				C82E61551C810E4B001860CC /* gunshots.wav in Resources */,
+				E9A7D9191C82646E00C85AF0 /* Fragment+Of+Eternity.jpg in Resources */,
+				E9A7D9271C82646E00C85AF0 /* Bluebird by Charles Bukowski.pdf in Resources */,
+				E9A7D8FB1C82646D00C85AF0 /* 7146.jpg in Resources */,
+				E9A7D90F1C82646E00C85AF0 /* Doubt11.jpg in Resources */,
+				E9A7D92C1C82646E00C85AF0 /* Kristeva_-_powers_of_horror.pdf in Resources */,
+				E9A7D9121C82646E00C85AF0 /* Epidemic-2.jpg in Resources */,
 				C86E37AF1C4D6B5200842EFD /* EngineSettings.ini in Resources */,
+				E9A7D9031C82646E00C85AF0 /* Crowd14.jpg in Resources */,
+				E9A7D9261C82646E00C85AF0 /* bataille_story_of_eye.pdf in Resources */,
 				C86E37B11C4D6B5200842EFD /* kappa.png in Resources */,
+				E9A7D9251C82646E00C85AF0 /* Bacchae - Euripides.pdf in Resources */,
+				E9A7D8EE1C82646D00C85AF0 /* 4-14-09-462.jpg in Resources */,
+				E9A7D8F41C82646D00C85AF0 /* 9-24-14-195-Edit.jpg in Resources */,
+				E9A7D91C1C82646E00C85AF0 /* NewCrowd38.jpg in Resources */,
 				C82E61541C810E4B001860CC /* gunshot.ogg in Resources */,
+				E9A7D8FD1C82646D00C85AF0 /* Conversation.jpg in Resources */,
+				E9A7D9041C82646E00C85AF0 /* Crowd16.jpg in Resources */,
+				E9A7D9081C82646E00C85AF0 /* Crowd32.jpg in Resources */,
+				E9A7D9301C82646E00C85AF0 /* Myth of Sisyphus by Albert Camus.pdf in Resources */,
+				E9A7D8EB1C82646D00C85AF0 /* 3-29-12-184.jpg in Resources */,
+				E9A7D8F61C82646D00C85AF0 /* 3191.jpg in Resources */,
+				E9A7D9011C82646E00C85AF0 /* Crowd7.jpg in Resources */,
+				E9A7D91F1C82646E00C85AF0 /* NewCrowd46.jpg in Resources */,
+				E9A7D90B1C82646E00C85AF0 /* Doubt2.jpg in Resources */,
+				E9A7D9211C82646E00C85AF0 /* NewCrowd58.jpg in Resources */,
+				E9A7D8FA1C82646D00C85AF0 /* 6576.jpg in Resources */,
+				E9A7D8F11C82646D00C85AF0 /* 7-24-12-052.jpg in Resources */,
+				E9A7D8F91C82646D00C85AF0 /* 5678.jpg in Resources */,
+				E9A7D8EA1C82646D00C85AF0 /* 2-23-2011-213.jpg in Resources */,
+				E9A7D91B1C82646E00C85AF0 /* New+Crowd39.jpg in Resources */,
 				C858D3961C61C1BB0086199C /* Windows_UI.png in Resources */,
-				E904CF6C1C8169250080DCBC /* Myth of Sisyphus by Albert Camus.pdf in Resources */,
+				E9A7D9311C82646E00C85AF0 /* St. Augustine - Confessions copy.pdf in Resources */,
+				E9A7D9281C82646E00C85AF0 /* CatcherInTheRye - Salinger.pdf in Resources */,
+				E9A7D91A1C82646E00C85AF0 /* Journey+Into+Dark.jpg in Resources */,
 				E9DE4B271C8161A30022A0A7 /* dummy.json in Resources */,
-				E904CF6B1C8169250080DCBC /* Invisible Man - Ellison.pdf in Resources */,
-				E904CF6A1C8169250080DCBC /* CatcherInTheRye - Salinger.pdf in Resources */,
+				E9A7D9141C82646E00C85AF0 /* Fallen1.jpg in Resources */,
+				E9A7D90D1C82646E00C85AF0 /* Doubt6.jpg in Resources */,
+				E9A7D9021C82646E00C85AF0 /* Crowd8.jpg in Resources */,
+				E9A7D92F1C82646E00C85AF0 /* mulvey-visualpleasure.pdf in Resources */,
+				E9A7D8FF1C82646E00C85AF0 /* Crowd2.jpg in Resources */,
+				E9A7D92A1C82646E00C85AF0 /* Geek Love by Katherine Dunn - Ch1.pdf in Resources */,
+				E9A7D8EF1C82646D00C85AF0 /* 4-24-08-152.jpg in Resources */,
+				E9A7D9151C82646E00C85AF0 /* Fallen2.jpg in Resources */,
+				E9A7D9001C82646E00C85AF0 /* Crowd3.jpg in Resources */,
+				E9A7D8E91C82646D00C85AF0 /* 2-20-09-431.jpg in Resources */,
+				E9A7D9161C82646E00C85AF0 /* Fallen5.jpg in Resources */,
+				E9A7D8F71C82646D00C85AF0 /* 3573.jpg in Resources */,
+				E9A7D9171C82646E00C85AF0 /* Fallen7.jpg in Resources */,
+				E9A7D9201C82646E00C85AF0 /* NewCrowd52.jpg in Resources */,
+				E9A7D9111C82646E00C85AF0 /* Doubt16.jpg in Resources */,
 				C86E37AD1C4D6B5100842EFD /* DoxygenHelp.txt in Resources */,
+				E9A7D8FC1C82646D00C85AF0 /* 7402.jpg in Resources */,
+				E9A7D9101C82646E00C85AF0 /* Doubt15.jpg in Resources */,
+				E9A7D8F51C82646D00C85AF0 /* 1894.jpg in Resources */,
+				E9A7D8FE1C82646D00C85AF0 /* Crowd1.jpg in Resources */,
 				C86E37AE1C4D6B5100842EFD /* LinkHelp.txt in Resources */,
+				E9A7D9051C82646E00C85AF0 /* Crowd21.jpg in Resources */,
+				E9A7D91D1C82646E00C85AF0 /* NewCrowd38Fragment.jpg in Resources */,
+				E9A7D90A1C82646E00C85AF0 /* Doubt1.jpg in Resources */,
+				E9A7D90C1C82646E00C85AF0 /* Doubt3.jpg in Resources */,
+				E9A7D92D1C82646E00C85AF0 /* LacanMirrorPhase.pdf in Resources */,
+				E9A7D8F31C82646D00C85AF0 /* 8-9-11-0426.jpg in Resources */,
+				E9A7D9091C82646E00C85AF0 /* Crowd35.jpg in Resources */,
+				E9A7D9231C82646E00C85AF0 /*  Catch 22 - Joseph Heller.pdf in Resources */,
+				E9A7D9071C82646E00C85AF0 /* Crowd31.jpg in Resources */,
 				C84913C71C6AA82E00F84CB0 /* Icon_Sheet.png in Resources */,
-				E904CF691C8169250080DCBC /* Bluebird by Charles Bukowski.pdf in Resources */,
-				E904CF6D1C8169250080DCBC /* The_Metamorphosis.pdf in Resources */,
 				E942036B1C8129540064AC89 /* Desktop1.json in Resources */,
+				E9A7D9291C82646E00C85AF0 /* Donne - Med 17.pdf in Resources */,
+				E9A7D8ED1C82646D00C85AF0 /* 4-10-08-386.jpg in Resources */,
+				E9A7D8EC1C82646D00C85AF0 /* 4-4-12-048.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
