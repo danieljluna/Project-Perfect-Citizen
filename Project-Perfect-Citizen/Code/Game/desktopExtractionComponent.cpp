@@ -32,5 +32,10 @@ Json::Value desktopExtractionComponent::parseDesktopAsJson(std::string file) {
     Json::Value value;
     std::ifstream doc(resourcePath() + file, std::ifstream::binary);
     reader.parse(doc, value);
+    Json::Value nonTerminalObj = value[ "Desktop" ];
+    std::vector<std::string> terminalNames = nonTerminalObj.getMemberNames();
+    for (unsigned int i = 0; i < nonTerminalObj.size(); i++){
+        std::cout << terminalNames[i] << std::endl;
+    }
     return value;
 }
