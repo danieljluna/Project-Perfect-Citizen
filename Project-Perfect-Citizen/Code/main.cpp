@@ -106,6 +106,9 @@ int main(int argc, char** argv) {
 	Desktop myDesktop(*desktopWindow, testState);
 	myDesktop.addBackgroundCmpnt(desktopWindow, S);
 	createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+    
+    desktopExtractionComponent* DE1 = new desktopExtractionComponent();
+    DE1->parseDesktopAsJson("Desktop1.json");
 
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop

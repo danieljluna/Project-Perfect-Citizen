@@ -13,22 +13,20 @@
 #include <string>
 #include <vector>
 
+#include "../Library/json/json.h"
+
 namespace ppc {
 
 class desktopExtractionComponent{
     
 public:
     
+    Json::Value parseDesktopAsJson(std::string file);
+    
     ///////////////////////////////////////////////////////////////////
     ///@brief constructor for crearting desktop data
     ///////////////////////////////////////////////////////////////////
     desktopExtractionComponent();
-    
-    ///////////////////////////////////////////////////////////////////
-    // @brief creates Desktop Extraction Data using JSON
-    // @param file: loads a file from the resource with the same name
-    ///////////////////////////////////////////////////////////////////
-    void setDesktop(std::string file);
     
   ///////////////////////////////////////////////////////////////////
   // Setters
