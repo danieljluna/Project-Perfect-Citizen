@@ -5,7 +5,7 @@
 
 namespace ppc {
 
-
+class Subject;
 ///////////////////////////////////////////////////////////////////////
 ///@brief Abstract base class for all observer systems.
 ///@details If you want to create a class that observes something, make
@@ -13,7 +13,7 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 class BaseObserver {
 	//allows subjects to manage their observers
-	friend class Subject;
+	friend Subject;
 
 private:
 	BaseObserver* next;

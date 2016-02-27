@@ -1,6 +1,6 @@
 #pragma once
 #include "Audio.h"
-#include "SFML\Audio.hpp"
+#include "SFML/Audio.hpp"
 #include <iostream>
 #include <utility>
 #include <queue>
