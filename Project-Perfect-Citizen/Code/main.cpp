@@ -44,10 +44,30 @@
 #include "Engine/Audio/NullAudio.h"
 #include "Game/PipelineCharacter.h"
 #include "Game/Database.h"
-#include "Engine\Audio\AudioQueue.h"
+#include "Engine/Audio/AudioQueue.h"
+#include "Game/BootScreen.hpp"
+
+
+#include <iostream>
+#include <algorithm>
+#include <memory>
+#include <string>
+#include <vector>
+#include <math.h>
+
 using namespace ppc;
 
-
+//////////////////////////////////////////////////////////
+///// TEMPORARY RANDOM STRING FUNCTION
+/////////////////////////////////////////////////////////
+std::string getRandomString(int stringLength) {
+    std::string text = "";
+    std::string possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for (int i = 0; i < stringLength; ++i) {
+        text += possible[floor(rand() % possible.length())];
+    }
+    return text;
+}
 //Note that this is placeholder for now
 int main(int argc, char** argv) {
 
@@ -101,11 +121,30 @@ int main(int argc, char** argv) {
 	/////////////////////////////////////////////////////////
 	ppc::NodeState testState;
 	testState.setUp();
-	Window* desktopWindow = new Window(1800,1000,sf::Color(200, 200, 200));
+	Window* desktopWindow = new Window(1800,1000,sf::Color(0,0,0));
+    
+    Desktop myDesktop(*desktopWindow, testState);
+    myDesktop.addBackgroundCmpnt(desktopWindow, S);
+    createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+    
+    //////////////////////////////////////////////////////////
+    ///// TEMPORARY BOOT LOADING SCREEN SETUP
+    /////////////////////////////////////////////////////////
+    bool hasBooted = false;
+    int step = 0;
+    
+    sf::Font font;
+    font.loadFromFile(resourcePath() + "consola.ttf");
+    sf::Text text;
+    text.setPosition(0, 0);
+    text.setColor(sf::Color::Green);
+    text.setCharacterSize(18);
+    text.setFont(font);
 
-	Desktop myDesktop(*desktopWindow, testState);
-	myDesktop.addBackgroundCmpnt(desktopWindow, S);
-	createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+    std::string renderString = " PCOS(C) , UNMOS. UNAUTHORIZED USE OF THIS TERMINAL CAN RESULT IN PENALTY BY DEATH. \n";
+    text.setString(renderString);
+    
+	
 
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop
@@ -122,33 +161,74 @@ int main(int argc, char** argv) {
 				screen.close();
 
 			//Input phase
-			myDesktop.registerInput(event);
+			if(hasBooted)myDesktop.registerInput(event);
         }
 
         sf::Time elapsed = deltaTime.getElapsedTime();
         while (elapsed > framePeriod) {
 
             // Clear screen
-            screen.clear(sf::Color::White);
+            screen.clear(sf::Color::Black);
 
             //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
-            myDesktop.update(dt);
+            if(hasBooted)myDesktop.update(dt);
 
             elapsed -= framePeriod;
         }
 
-            //Draw all the Windows in the Desktop
-			myDesktop.refresh();
+        
+        //////////////////////////////////////////////////////////
+        ///// I KNOW THIS IS A REALLY GROSS LOOP
+        ///// TEMPORARY BOOT LOADING SCREEN
+        /////////////////////////////////////////////////////////
+        if (!hasBooted) {
+            if (step == 500) {
+                renderString += "  Beginning File System Initialization \n";
+            } else if (step == 1000) {
+                renderString +="   Loaded: /PCOS/init/config/system \n";
+            } else if (step == 3000) {
+                renderString +="   Loaded: /PCOS/init/config//ntoskrn1.exe \n";
+            } else if (step == 4000) {
+                for (int i = 0; i < 20; ++i) {
+                    renderString += "   Loaded: /PCOS/init/config//DRIVERSs";
+                    renderString += "//" + getRandomString((rand() % 12)+ 4) + "\n";
+                }
+            } else if (step == 4200) {
+                for (int i = 0; i < 20; ++i) {
+                    renderString += "   Loaded: /PCOS/init/config//ntwkprtl";
+                    renderString += "//" + getRandomString((rand() % 12)+ 4) + "\n";
+                }
+            } else if (step == 5000) {
+                for (int i = 0; i < 20; ++i) {
+                    renderString += "   Loaded: /PCOS/init/config//drivers";
+                    renderString += "//" + getRandomString((rand() % 12)+ 4) + "\n";
+                }
+            } else if (step == 5200) {
+                renderString = "   > Receiving packet from [UNKNOWN-ADDRESS] \n";
+            } else if (step == 5500) {
+                renderString += "   > Packet Received \n";
+            } else if (step == 6100) {
+                renderString +="   > Executing";
+            } else if (step == 6300) {
+                hasBooted = true;
+            }
+            
+            step++;
+            text.setString(renderString);
+            screen.draw(text);
+        } else {
+           myDesktop.refresh();
+           screen.draw(myDesktop);
+        }
 
-			//Logger should not be used in place of passing
-			//the actual drawn Desktop
-			screen.draw(myDesktop);
-
-            //Display final Window
-			screen.display();
+        //Display final Window
+        screen.display();
 
     }
 
     return EXIT_SUCCESS;
 }
+
+
+
