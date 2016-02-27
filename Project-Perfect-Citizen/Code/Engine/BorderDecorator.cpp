@@ -69,14 +69,16 @@ void BorderDecorator::addButton(sf::Image& buttonImage, std::string buttonFn) {
         //Push back the button render cmpnt
         buttonRenders_[buttonCount_] = new buttonRenderComponent(buttonImage, 0, 3, 1, 1);
         buttonRenders_[buttonCount_]->setImageScale(0.2f, 0.2f);
+        updateButton(buttonCount_);
 
         //Push back the button input cmpnt
         buttonInputs_[buttonCount_] = new mousePressButton();
 
         //Calculate Button Click FloatRect
-        sf::FloatRect clickSpace = buttonRenders_[buttonCount_]->getSprite()->getLocalBounds();
-        clickSpace.top = 0.0f - borderTopLeft_.y - clickSpace.height;
-        clickSpace.left = WindowDecorator::getSize().x - (1 + buttonCount_)*(clickSpace.width - borderBottomRight_.x);
+        sf::FloatRect clickSpace = buttonRenders_[buttonCount_]->getSprite()->getGlobalBounds();
+        clickSpace.left = WindowDecorator::getSize().x;
+        clickSpace.left -= float(buttonCount_ + 1) * (borderBottomRight_.x + clickSpace.width);
+        clickSpace.top = float(borderBottomRight_.y) - float(borderTopLeft_.y);
 
         //Set button input values
         buttonInputs_[buttonCount_]->setInputHandle(getInputHandler());
@@ -194,13 +196,18 @@ void BorderDecorator::updateBounds() {
 
     //Re-position the buttons
     for (size_t i = 0; i < buttonCount_; ++i) {
-        sf::FloatRect sprBounds = buttonRenders_[i]->getSprite()->getGlobalBounds();
-        float left = bounds.left + bounds.width + WindowDecorator::getPosition().x;
-        left = left - float(i + 1) * (borderBottomRight_.y + sprBounds.width);
-        float top = WindowDecorator::getPosition().y - borderTopLeft_.y + borderBottomRight_.y;
-
-        sf::Vector2f ButtonPos(left, top);
-        buttonRenders_[i]->renderPosition(ButtonPos);
+        updateButton(i);
     }
     
+}
+
+
+
+void BorderDecorator::updateButton(size_t i) {
+    float left = borderShape_.getPosition().x + borderShape_.getSize().x;
+    left = left - float(i + 1) * (borderBottomRight_.y + buttonRenders_[i]->getSprite()->getGlobalBounds().width);
+    float top = WindowDecorator::getPosition().y - borderTopLeft_.y + borderBottomRight_.y;
+
+    sf::Vector2f ButtonPos(left, top);
+    buttonRenders_[i]->renderPosition(ButtonPos);
 }

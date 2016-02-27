@@ -82,6 +82,8 @@ private:
 
     void updateBounds();
 
+    void updateButton(size_t i);
+
 
   /////////////////////////////////////////////////////////////////////
   // Private Variables 
