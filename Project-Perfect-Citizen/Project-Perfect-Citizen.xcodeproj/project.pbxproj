@@ -75,10 +75,17 @@
 		C86E37AF1C4D6B5200842EFD /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = C86E37AA1C4D6B5100842EFD /* EngineSettings.ini */; };
 		C86E37B11C4D6B5200842EFD /* kappa.png in Resources */ = {isa = PBXBuildFile; fileRef = C86E37AC1C4D6B5100842EFD /* kappa.png */; };
 		C881BEE91C4D7C5B008B1EBD /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */; };
+		E904CF681C8169250080DCBC /*  Catch 22 - Joseph Heller.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E904CF611C8169250080DCBC /*  Catch 22 - Joseph Heller.pdf */; };
+		E904CF691C8169250080DCBC /* Bluebird by Charles Bukowski.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E904CF621C8169250080DCBC /* Bluebird by Charles Bukowski.pdf */; };
+		E904CF6A1C8169250080DCBC /* CatcherInTheRye - Salinger.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E904CF631C8169250080DCBC /* CatcherInTheRye - Salinger.pdf */; };
+		E904CF6B1C8169250080DCBC /* Invisible Man - Ellison.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E904CF641C8169250080DCBC /* Invisible Man - Ellison.pdf */; };
+		E904CF6C1C8169250080DCBC /* Myth of Sisyphus by Albert Camus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E904CF651C8169250080DCBC /* Myth of Sisyphus by Albert Camus.pdf */; };
+		E904CF6D1C8169250080DCBC /* The_Metamorphosis.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E904CF661C8169250080DCBC /* The_Metamorphosis.pdf */; };
+		E904CF6E1C8169250080DCBC /* The_Scarlet_Letter.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E904CF671C8169250080DCBC /* The_Scarlet_Letter.pdf */; };
 		E942036B1C8129540064AC89 /* Desktop1.json in Resources */ = {isa = PBXBuildFile; fileRef = E942036A1C8129540064AC89 /* Desktop1.json */; };
 		E94E759A1C728D2C00C77C60 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = E94E75991C728D2C00C77C60 /* data.json */; };
 		E959DD391C7022F7001F2CAF /* TestDesktop.json in Resources */ = {isa = PBXBuildFile; fileRef = E959DD381C7022F7001F2CAF /* TestDesktop.json */; };
-		E9C810591C603E1600D47DA6 /* dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = E9C810581C603E1600D47DA6 /* dummy.json */; };
+		E9DE4B271C8161A30022A0A7 /* dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = E9DE4B261C8161A30022A0A7 /* dummy.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -221,10 +228,17 @@
 		C86E37AC1C4D6B5100842EFD /* kappa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kappa.png; sourceTree = "<group>"; };
 		C881BEE71C4D7C5B008B1EBD /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ResourcePath.hpp; path = Resources/ResourcePath.hpp; sourceTree = SOURCE_ROOT; };
 		C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ResourcePath.mm; path = Resources/ResourcePath.mm; sourceTree = SOURCE_ROOT; };
+		E904CF611C8169250080DCBC /*  Catch 22 - Joseph Heller.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = " Catch 22 - Joseph Heller.pdf"; path = "DesktopContent/Desktop1/ Catch 22 - Joseph Heller.pdf"; sourceTree = "<group>"; };
+		E904CF621C8169250080DCBC /* Bluebird by Charles Bukowski.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Bluebird by Charles Bukowski.pdf"; path = "DesktopContent/Desktop1/Bluebird by Charles Bukowski.pdf"; sourceTree = "<group>"; };
+		E904CF631C8169250080DCBC /* CatcherInTheRye - Salinger.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "CatcherInTheRye - Salinger.pdf"; path = "DesktopContent/Desktop1/CatcherInTheRye - Salinger.pdf"; sourceTree = "<group>"; };
+		E904CF641C8169250080DCBC /* Invisible Man - Ellison.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Invisible Man - Ellison.pdf"; path = "DesktopContent/Desktop1/Invisible Man - Ellison.pdf"; sourceTree = "<group>"; };
+		E904CF651C8169250080DCBC /* Myth of Sisyphus by Albert Camus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Myth of Sisyphus by Albert Camus.pdf"; path = "DesktopContent/Desktop1/Myth of Sisyphus by Albert Camus.pdf"; sourceTree = "<group>"; };
+		E904CF661C8169250080DCBC /* The_Metamorphosis.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = The_Metamorphosis.pdf; path = DesktopContent/Desktop1/The_Metamorphosis.pdf; sourceTree = "<group>"; };
+		E904CF671C8169250080DCBC /* The_Scarlet_Letter.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = The_Scarlet_Letter.pdf; path = DesktopContent/Desktop1/The_Scarlet_Letter.pdf; sourceTree = "<group>"; };
 		E942036A1C8129540064AC89 /* Desktop1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Desktop1.json; sourceTree = "<group>"; };
 		E94E75991C728D2C00C77C60 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		E959DD381C7022F7001F2CAF /* TestDesktop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestDesktop.json; sourceTree = "<group>"; };
-		E9C810581C603E1600D47DA6 /* dummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummy.json; sourceTree = "<group>"; };
+		E9DE4B261C8161A30022A0A7 /* dummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummy.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,6 +457,8 @@
 		C86E37A51C4D6B5100842EFD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E904CF5B1C8168110080DCBC /* DesktopContent */,
+				E9DE4B261C8161A30022A0A7 /* dummy.json */,
 				E942036A1C8129540064AC89 /* Desktop1.json */,
 				C82E5FE81C810CCF001860CC /* consola.ttf */,
 				E94E75991C728D2C00C77C60 /* data.json */,
@@ -450,7 +466,6 @@
 				C84913C61C6AA82E00F84CB0 /* Icon_Sheet.png */,
 				C812D6141C61D29600901173 /* Wallpaper.png */,
 				C858D3951C61C1BB0086199C /* Windows_UI.png */,
-				E9C810581C603E1600D47DA6 /* dummy.json */,
 				C881BEE71C4D7C5B008B1EBD /* ResourcePath.hpp */,
 				C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */,
 				C86E37A61C4D6B5100842EFD /* Coding Reference */,
@@ -476,6 +491,28 @@
 				C86E37AB1C4D6B5100842EFD /* Project-Perfect-Citizen-Info.plist */,
 			);
 			path = Engine;
+			sourceTree = "<group>";
+		};
+		E904CF5B1C8168110080DCBC /* DesktopContent */ = {
+			isa = PBXGroup;
+			children = (
+				E904CF5C1C81681C0080DCBC /* Desktop1 */,
+			);
+			name = DesktopContent;
+			sourceTree = "<group>";
+		};
+		E904CF5C1C81681C0080DCBC /* Desktop1 */ = {
+			isa = PBXGroup;
+			children = (
+				E904CF611C8169250080DCBC /*  Catch 22 - Joseph Heller.pdf */,
+				E904CF621C8169250080DCBC /* Bluebird by Charles Bukowski.pdf */,
+				E904CF631C8169250080DCBC /* CatcherInTheRye - Salinger.pdf */,
+				E904CF641C8169250080DCBC /* Invisible Man - Ellison.pdf */,
+				E904CF651C8169250080DCBC /* Myth of Sisyphus by Albert Camus.pdf */,
+				E904CF661C8169250080DCBC /* The_Metamorphosis.pdf */,
+				E904CF671C8169250080DCBC /* The_Scarlet_Letter.pdf */,
+			);
+			name = Desktop1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -535,18 +572,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E904CF681C8169250080DCBC /*  Catch 22 - Joseph Heller.pdf in Resources */,
 				E94E759A1C728D2C00C77C60 /* data.json in Resources */,
 				E959DD391C7022F7001F2CAF /* TestDesktop.json in Resources */,
+				E904CF6E1C8169250080DCBC /* The_Scarlet_Letter.pdf in Resources */,
 				C812D6151C61D29600901173 /* Wallpaper.png in Resources */,
 				C82E61551C810E4B001860CC /* gunshots.wav in Resources */,
 				C86E37AF1C4D6B5200842EFD /* EngineSettings.ini in Resources */,
-				E9C810591C603E1600D47DA6 /* dummy.json in Resources */,
 				C86E37B11C4D6B5200842EFD /* kappa.png in Resources */,
 				C82E61541C810E4B001860CC /* gunshot.ogg in Resources */,
 				C858D3961C61C1BB0086199C /* Windows_UI.png in Resources */,
+				E904CF6C1C8169250080DCBC /* Myth of Sisyphus by Albert Camus.pdf in Resources */,
+				E9DE4B271C8161A30022A0A7 /* dummy.json in Resources */,
+				E904CF6B1C8169250080DCBC /* Invisible Man - Ellison.pdf in Resources */,
+				E904CF6A1C8169250080DCBC /* CatcherInTheRye - Salinger.pdf in Resources */,
 				C86E37AD1C4D6B5100842EFD /* DoxygenHelp.txt in Resources */,
 				C86E37AE1C4D6B5100842EFD /* LinkHelp.txt in Resources */,
 				C84913C71C6AA82E00F84CB0 /* Icon_Sheet.png in Resources */,
+				E904CF691C8169250080DCBC /* Bluebird by Charles Bukowski.pdf in Resources */,
+				E904CF6D1C8169250080DCBC /* The_Metamorphosis.pdf in Resources */,
 				E942036B1C8129540064AC89 /* Desktop1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,12 +21,22 @@ class desktopExtractionComponent{
     
 public:
     
-    Json::Value parseDesktopAsJson(std::string file);
-    
     ///////////////////////////////////////////////////////////////////
     ///@brief constructor for crearting desktop data
     ///////////////////////////////////////////////////////////////////
     desktopExtractionComponent();
+    
+    ////////////////////////////////////////////////////////////////////
+    /// @brief Builds Json::Value Object containing Desktop content and
+    //      their appropiate paths
+    /// @details Builds a C++ Json representation of Desktop content
+    ///     object as specified by a .json file
+    /// @param[out] Json::Value         Json object containing
+    ///                                 an expressionist grammar
+    /// @param[in]  string              Json file name containing an
+    ///                                 expressionist grammar
+    ////////////////////////////////////////////////////////////////////
+    Json::Value parseDesktopAsJson(std::string file);
     
   ///////////////////////////////////////////////////////////////////
   // Setters
