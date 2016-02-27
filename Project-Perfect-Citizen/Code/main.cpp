@@ -45,7 +45,6 @@
 #include "Game/PipelineCharacter.h"
 #include "Game/Database.h"
 #include "Engine/Audio/AudioQueue.h"
-#include "Game/BootScreen.hpp"
 
 
 #include <iostream>
