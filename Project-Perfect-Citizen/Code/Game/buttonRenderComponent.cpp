@@ -86,7 +86,7 @@ bool buttonRenderComponent::willAnimate() {
 
 void buttonRenderComponent::draw( sf::RenderTarget& target,
 	sf::RenderStates states) const {
-		target.draw(*(this->sprite), states);
+        target.draw(*sprite, states);
 }
 
 void buttonRenderComponent::recieveMessage(msgType code) {

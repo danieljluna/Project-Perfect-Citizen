@@ -32,7 +32,7 @@ bool Database::filterIsValid(string filter) {
 
 	/* Clean the filter term of any caps*/
 	string cleaned = "";
-	for (int i = 0; i < filter.length(); ++i) {
+	for (unsigned int i = 0; i < filter.length(); ++i) {
 		cleaned.push_back(tolower(filter.at(i)));
 	}
 

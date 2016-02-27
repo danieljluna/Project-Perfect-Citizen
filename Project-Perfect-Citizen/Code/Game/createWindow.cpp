@@ -86,7 +86,8 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
 		windowToModify->setPosition(x, y);
 		windowToModify->addEntity(*textBox);
 		windowToModify->addEntity(*textDisplay);
-		windowToModify = new BorderDecorator(*windowToModify, buttonSheet);
+		windowToModify = new BorderDecorator(*windowToModify);
+        dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
 	
 }
 
@@ -144,7 +145,8 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih,
 	windowToModify->setPosition(x, y);
 	windowToModify->addEntity(*searchBoxEntity);
 	windowToModify->addEntity(*resultsBoxEntity);
-	windowToModify = new BorderDecorator(*windowToModify, buttonSheet);
+	windowToModify = new BorderDecorator(*windowToModify);
+        dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
 }
 
 
