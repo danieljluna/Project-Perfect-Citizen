@@ -155,12 +155,13 @@ bool mousePressButton::registerInput(sf::Event& ev) {
                 getEntity()->broadcastMessage(MOUSE_RELEASED_CODE);
 				if (isBeingPressed == "localCloseButton") {
 					// STUB: CLOSE THE WINDOW
+                    std::cout << "localClose" << endl;
 				}
             }
         }
 		/* Case: Mouse Moved Event*/
 		else if (ev.type == sf::Event::MouseMoved) {
-			if (!buttonRect.contains(ev.mouseMove.x, ev.mouseMove.y) && 
+			if (!buttonRect.contains(float(ev.mouseMove.x), float(ev.mouseMove.y)) && 
 				ev.mouseButton.button == sf::Mouse::Left) {
 				cout << "left the button" << endl;
 			}

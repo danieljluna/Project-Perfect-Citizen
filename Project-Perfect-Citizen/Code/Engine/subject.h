@@ -35,6 +35,15 @@ public:
 	///////////////////////////////////////////////
 	void addObserver(BaseObserver* observer);
 	///////////////////////////////////////////////
+	///@brief Adds an obserer to the back on the
+	///observer list 
+	///@details addObserver adds an observer to the
+	///front of the list, this adds it to the back
+	///useful when you want to change the priority
+	///of something
+	///////////////////////////////////////////////
+	void addObserverToBack(BaseObserver* observer);
+	///////////////////////////////////////////////
 	///@brief Removes the designated observer from
 	///doubly linked list that ObserverHead
 	///points to. 
