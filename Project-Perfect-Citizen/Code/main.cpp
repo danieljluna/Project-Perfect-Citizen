@@ -180,7 +180,7 @@ int main(int argc, char** argv) {
 			//Logger should not be used in place of passing
 			//the actual drawn Desktop
 			screen.draw(myDesktop);
-
+			screen.draw(net);
 
             //Display the final window
 			screen.display();
