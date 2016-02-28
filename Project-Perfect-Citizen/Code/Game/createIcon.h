@@ -86,7 +86,7 @@ void spawnChatIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHand
 ///@param The desired scaled size of the icon
 ///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
-void spawnSearchIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database& db, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
+void spawnSearchIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database* db, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable pipeline extraction Icon

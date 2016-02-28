@@ -62,7 +62,7 @@ void spawnChatIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHand
 	entityToModify.addComponent(mpbIcon);
 }
 
-void spawnSearchIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void spawnSearchIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database* db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
 	/// Render Component ///
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 3, 1, 2);
 	IconRender->setImageScale(size, size);
@@ -73,7 +73,7 @@ void spawnSearchIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHa
 
 	/// Input Component ///
 	mousePressButton* mpbIcon = new mousePressButton(ih, IconRender->getSprite()->getGlobalBounds(), "searchIcon");
-	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, buttonSheet);
+	iconInputComponent* iconInputComp = new iconInputComponent(dT, db, buttonSheet);
 
 	entityToModify.addComponent(IconRender);
 	entityToModify.addComponent(iconInputComp);
