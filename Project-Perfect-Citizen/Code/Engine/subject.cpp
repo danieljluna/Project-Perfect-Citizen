@@ -14,6 +14,22 @@ void Subject::addObserver(BaseObserver* observer) {
         observer->watching_ = this;
 }
 
+void ppc::Subject::addObserverToBack(BaseObserver * observer)
+{
+	//if list is empty, call addObsever (it handles that already)
+	if (observerHead == nullptr) {
+		this->addObserver(observer);
+		return;
+	}
+
+	BaseObserver* current = this->observerHead;
+	while (current->next != nullptr) {
+		current = current->next;
+	}
+	current->next = observer;
+	observer->prev = current;
+}
+
 void Subject::removeObserver(BaseObserver * observer){
     //If the observer is attatched to the subject:
     if (find(observer) != nullptr) {

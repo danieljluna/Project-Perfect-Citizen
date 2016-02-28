@@ -44,9 +44,16 @@
 #include "Engine/Audio/NullAudio.h"
 #include "Game/PipelineCharacter.h"
 #include "Game/Database.h"
-#include "Engine\Audio\AudioQueue.h"
+#include "Engine/Audio/AudioQueue.h"
+#include "Engine/FunctionObserver.h"
 using namespace ppc;
 
+using testFunc = bool(*)(sf::Event&);
+
+bool printFunc(sf::Event& ev) {
+	std::cout << "inside printFunc" << std::endl;
+	return true;
+}
 
 //Note that this is placeholder for now
 int main(int argc, char** argv) {
@@ -59,21 +66,6 @@ int main(int argc, char** argv) {
 
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
-
-	//////////////////////////SOUND STUFF//////////////////////////////
-	//AudioLocator::initialize();
-	//ppc::NullAudio dAudio;
-	//AudioLocator::assign(&dAudio);
-	//AudioLogger logger(dAudio);
-	//AudioLocator::assign(&logger);
-	//Audio* audio = AudioLocator::getAudio();
-	//audio->playSound(ppc::Sounds::gunshot);
-
-	AudioQueue aq(5);
-	int gunshots = aq.addSound("shots", "gunshots.wav");
-	aq.playSound(gunshots);
-	aq.popAndPlay();
-	///////////////////////////////////////////////////////////////////
 
     ////////////////// BACKGROUND IMAGE ////////////////////
     sf::Sprite S;
