@@ -44,7 +44,9 @@
 #include "Engine/Audio/NullAudio.h"
 #include "Game/PipelineCharacter.h"
 #include "Game/Database.h"
-#include "Engine\Audio\AudioQueue.h"
+#include "Engine/Audio/AudioQueue.h"
+#include "Engine/Network.h"
+
 using namespace ppc;
 
 
@@ -69,10 +71,10 @@ int main(int argc, char** argv) {
 	//Audio* audio = AudioLocator::getAudio();
 	//audio->playSound(ppc::Sounds::gunshot);
 
-	AudioQueue aq(5);
-	int gunshots = aq.addSound("shots", "gunshots.wav");
-	aq.playSound(gunshots);
-	aq.popAndPlay();
+	//AudioQueue aq(5);
+	//int gunshots = aq.addSound("shots", "gunshots.wav");
+	//aq.playSound(gunshots);
+	//aq.popAndPlay();
 	///////////////////////////////////////////////////////////////////
 
     ////////////////// BACKGROUND IMAGE ////////////////////
@@ -106,6 +108,40 @@ int main(int argc, char** argv) {
 	Desktop myDesktop(*desktopWindow, testState);
 	myDesktop.addBackgroundCmpnt(desktopWindow, S);
 	createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+
+	///////////////////////////////////////////////////////
+	///// Testing Vertex Drawing //////////////////////////
+	///////////////////////////////////////////////////////
+
+	Network net(3);
+
+	PipelineCharacter Bob;
+	PipelineCharacter Tim;
+	PipelineCharacter Rob;
+	Tim.generate();
+	Bob.generate();
+	Rob.generate();
+	net.vert(0).setCharacter(Bob);
+	net.vert(1).setCharacter(Tim);
+	net.vert(2).setCharacter(Rob);
+	net.vert(0).setPos({ 360,300 });
+	net.vert(1).setPos({ 500,600 });
+	net.vert(2).setPos({ 100,200 });
+	DraggableInput di(net.vert(0).getCircle());
+	net.vert(0).applyDraggable(di, desktopWindow->getInputHandler());
+	di.setBounds(net.vert(0).getCircle().getGlobalBounds());
+	Edge e1, e2;
+	e1.setColorRed();
+	e2.setColorGreen();
+	e1.setWeight(1);
+	e1.setRelation("");
+
+	net.setEdge(0, 1, e1);
+	net.setEdge(1, 2, e2);
+	
+
+
+
 
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop
@@ -145,7 +181,8 @@ int main(int argc, char** argv) {
 			//the actual drawn Desktop
 			screen.draw(myDesktop);
 
-            //Display final Window
+
+            //Display the final window
 			screen.display();
 
     }
