@@ -5,15 +5,16 @@
 
 namespace ppc {
 
-class Subject;
+    class Subject;
+
 ///////////////////////////////////////////////////////////////////////
 ///@brief Abstract base class for all observer systems.
 ///@details If you want to create a class that observes something, make
 /// it a child of this. An example could be an achievment listener.
 ///////////////////////////////////////////////////////////////////////
 class BaseObserver {
-	//allows subjects to manage their observers
-	friend Subject;
+
+    friend Subject;
 
 private:
 	BaseObserver* next;
