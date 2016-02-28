@@ -75,6 +75,7 @@
 		C86E37AF1C4D6B5200842EFD /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = C86E37AA1C4D6B5100842EFD /* EngineSettings.ini */; };
 		C86E37B11C4D6B5200842EFD /* kappa.png in Resources */ = {isa = PBXBuildFile; fileRef = C86E37AC1C4D6B5100842EFD /* kappa.png */; };
 		C881BEE91C4D7C5B008B1EBD /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */; };
+		C8EFA2D81C838F2400A54FB9 /* BootLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8EFA2D61C838F2400A54FB9 /* BootLoader.cpp */; };
 		E94E759A1C728D2C00C77C60 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = E94E75991C728D2C00C77C60 /* data.json */; };
 		E959DD391C7022F7001F2CAF /* TestDesktop.json in Resources */ = {isa = PBXBuildFile; fileRef = E959DD381C7022F7001F2CAF /* TestDesktop.json */; };
 		E9C810591C603E1600D47DA6 /* dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = E9C810581C603E1600D47DA6 /* dummy.json */; };
@@ -220,6 +221,8 @@
 		C86E37AC1C4D6B5100842EFD /* kappa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kappa.png; sourceTree = "<group>"; };
 		C881BEE71C4D7C5B008B1EBD /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ResourcePath.hpp; path = Resources/ResourcePath.hpp; sourceTree = SOURCE_ROOT; };
 		C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ResourcePath.mm; path = Resources/ResourcePath.mm; sourceTree = SOURCE_ROOT; };
+		C8EFA2D61C838F2400A54FB9 /* BootLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BootLoader.cpp; sourceTree = "<group>"; };
+		C8EFA2D71C838F2400A54FB9 /* BootLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BootLoader.hpp; sourceTree = "<group>"; };
 		E94E75991C728D2C00C77C60 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		E959DD381C7022F7001F2CAF /* TestDesktop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestDesktop.json; sourceTree = "<group>"; };
 		E9C810581C603E1600D47DA6 /* dummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummy.json; sourceTree = "<group>"; };
@@ -334,6 +337,8 @@
 				C82E60E71C810E3F001860CC /* TreeCommands.h */,
 				C82E60E81C810E3F001860CC /* WindowBkgndRenderCmpnt.cpp */,
 				C82E60E91C810E3F001860CC /* WindowBkgndRenderCmpnt.h */,
+				C8EFA2D61C838F2400A54FB9 /* BootLoader.cpp */,
+				C8EFA2D71C838F2400A54FB9 /* BootLoader.hpp */,
 			);
 			name = Game;
 			path = Code/Game;
@@ -616,6 +621,7 @@
 				C82E615A1C810E4B001860CC /* debug.cpp in Sources */,
 				C82E61701C810E4B001860CC /* WindowLogger.cpp in Sources */,
 				C82E61581C810E4B001860CC /* component.cpp in Sources */,
+				C8EFA2D81C838F2400A54FB9 /* BootLoader.cpp in Sources */,
 				C82E615B1C810E4B001860CC /* desktop.cpp in Sources */,
 				C82E60EC1C810E3F001860CC /* buttonUpdateComponent.cpp in Sources */,
 				C82E615C1C810E4B001860CC /* DesktopLogger.cpp in Sources */,
