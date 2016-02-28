@@ -178,6 +178,18 @@
     <ClCompile Include="Code\Engine\Audio\AudioQueue.cpp">
       <Filter>Sources\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\NetworkRenderCmpnt.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\Edge.cpp">
+      <Filter>Sources\Engine\Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\Vertex.cpp">
+      <Filter>Sources\Engine\Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\NetworkInputCmpnt.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -391,6 +403,12 @@
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\databaseSearchRenderComponent.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\NetworkRenderCmpnt.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\NetworkInputCmpnt.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>
