@@ -24,29 +24,14 @@ BorderDecorator::BorderDecorator(
     //Set up BorderShape & Visual Details
     sf::Vector2f pos(win.getPosition().x - minorBorder,
                      win.getPosition().y - majorBorder);
-    
-    sf::Vector2f whitePos(win.getPosition().x - minorBorder - 2,
-                                 win.getPosition().y - majorBorder - 2);
-                
+ 
     sf::Vector2f size(float(win.getSize().x + 2 * minorBorder),
                       float(win.getSize().y + minorBorder +
                                               majorBorder));
 
                 
-    sf::Vector2f shadowSize(size.x + 2, size.y + 2);
-    sf::Vector2f whiteSize(size.x + 2, size.y + 2);
-       
-                
     borderShape_.setPosition(pos);
-    borderShadow_.setPosition(pos);
-    borderWhite_.setPosition(whitePos);
-            
-    borderShadow_.setSize(shadowSize);
-    borderShadow_.setFillColor(sf::Color::Black);
-                
-    borderWhite_.setSize(whiteSize);
-    borderWhite_.setFillColor(sf::Color::White);
-
+   
     borderShape_.setSize(size);
     borderShape_.setFillColor(sf::Color(170,170,170));
 
@@ -176,8 +161,6 @@ void BorderDecorator::move(float x, float y) {
 
 void BorderDecorator::draw(sf::RenderTarget& target,
                            sf::RenderStates states) const {
-    target.draw(borderWhite_, states);
-    target.draw(borderShadow_, states);
     target.draw(borderShape_, states);
     WindowDecorator::draw(target, states);
     for (size_t i = 0; i < buttonCount_; ++i) {
