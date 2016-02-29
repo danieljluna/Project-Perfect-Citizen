@@ -22,6 +22,7 @@
 ///          the keyboard. This will mainly be used in combination
 ///          with a text input box render component.
 ///////////////////////////////////////////////////////////////////////
+namespace ppc {
 
 class databaseSearchInputComponent : public ppc::InputComponent {
 private:
@@ -81,5 +82,7 @@ public:
 	/// @brief Inherited input component function
 	///////////////////////////////////////////////////////////////////////
 	virtual bool registerInput(sf::Event& ev) override;
+
+};
 
 };
