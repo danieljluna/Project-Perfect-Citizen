@@ -30,7 +30,7 @@
 /// by reference to any one of these functions. The passed entity will
 /// be augmented by the function you called on it.
 ///////////////////////////////////////////////////////////////////////
-
+namespace ppc {
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable folder Icon
@@ -58,7 +58,7 @@ void spawnFolderIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHa
 ///@param The desired scaled size of the icon
 ///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
-void spawnSettingsIcon(ppc::Entity& entityToModify, ppc::Desktop& dT,  ppc::InputHandler& ih, Database& db, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
+void spawnSettingsIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database& db, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable chat Icon
@@ -159,5 +159,5 @@ void spawnHardDriveIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::Inpu
 ///////////////////////////////////////////////////////////////////////
 void spawnConsoleIcon(ppc::Entity& entityToModify, ppc::Desktop& dt, ppc::InputHandler& ih, Database& db, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
 
-
+};
 
