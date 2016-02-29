@@ -27,6 +27,8 @@ private:
     sf::Sprite* body;
     sf::Sprite* shirt;
     
+    sf::Sprite* hair;
+    
     ///// Eyes //////
     sf::Sprite* irisL;
     sf::Sprite* irisR;
@@ -41,13 +43,17 @@ private:
 
     // A vector that holds all possible skin tones
     std::vector<sf::Color> skinTones;
+    // A vector that holds all possible hair tones
+    std::vector<sf::Color> hairTones;
     
     // The skin tone of the character.
     // A randomly selected element from skinTones
     sf::Color skinColor;
+    sf::Color hairColor;
     sf::Color shirtColor;
     
-    int eyeType, mouthType, skinType;
+    
+    int eyeType, mouthType, noseType, skinType, hairType;
     sf::Color eyeColor;
     static const int grid_size = 128;
     static const int combinations = 3;
@@ -78,6 +84,8 @@ public:
     /// @brief initializes vector of skin tones
     ////////////////////////////////////////////////////////////////////
     void initializeSkinTones();
+    
+    void initializeHairTones();
     
     
     ///////////////////////////////////////////////////////////////////////
