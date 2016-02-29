@@ -178,6 +178,12 @@
     <ClCompile Include="Code\Engine\Audio\AudioQueue.cpp">
       <Filter>Sources\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\BootLoader.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\characterRender.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -391,6 +397,12 @@
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\databaseSearchRenderComponent.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\BootLoader.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\characterRender.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>
