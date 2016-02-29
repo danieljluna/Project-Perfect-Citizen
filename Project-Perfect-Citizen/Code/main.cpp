@@ -120,7 +120,7 @@ int main(int argc, char** argv) {
     //////////////////////////////////////////////////////////
     ///// TEMPORARY BOOT LOADING SCREEN SETUP
     /////////////////////////////////////////////////////////
-    bool hasBooted = false;
+    bool hasBooted = true;
     int step = 0;
     
     sf::Font font;

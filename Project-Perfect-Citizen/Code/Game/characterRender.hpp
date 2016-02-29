@@ -7,6 +7,7 @@
 #include <SFML/System.hpp>
 #include "../Engine/renderComponent.h"
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -19,15 +20,35 @@ using namespace std;
 class characterRender : public ppc::RenderComponent{
 private:
     
+    sf::Texture* texture;
+    sf::Image& faceImage;
+    
+    ///// Body //////
+    sf::Sprite* body;
+    sf::Sprite* shirt;
+    
     ///// Eyes //////
     sf::Sprite* irisL;
     sf::Sprite* irisR;
     sf::Sprite* eyeL;
     sf::Sprite* eyeR;
     
-    sf::Texture* texture;
-    sf::Image& faceImage;
-    int height, xIndex, yIndex;
+    ///// Mouth //////
+    sf::Sprite* mouth;
+    
+    ///// Mouth //////
+    sf::Sprite* nose;
+
+    // A vector that holds all possible skin tones
+    std::vector<sf::Color> skinTones;
+    
+    // The skin tone of the character.
+    // A randomly selected element from skinTones
+    sf::Color skinColor;
+    sf::Color shirtColor;
+    
+    int eyeType, mouthType, skinType;
+    sf::Color eyeColor;
     static const int grid_size = 128;
     static const int combinations = 3;
     
@@ -41,29 +62,24 @@ public:
     ~characterRender();
     
     
-    ////////////////////////////////////////////////////////////////////
-    /// @brief Generates The Character's Eye
-    /// @details Recieves a color from generateEyeColor
-    /// Recieves an integer from generateEyeType, which corresponds to a
-    /// location on the texture grid.
-    ////////////////////////////////////////////////////////////////////
-    void generateCharacterEye();
     
     ////////////////////////////////////////////////////////////////////
-    /// @brief Returns a color for the characters eye
-    /// @details Subroutine of generateCharacterEye()
+    /// @brief Applies the randomly generated values to drawable sprites
     ////////////////////////////////////////////////////////////////////
-    sf::Color generateEyeColor();
+    void applyCharacterValues();
     
     
     ////////////////////////////////////////////////////////////////////
-    /// @brief Returns an integer to be read as a y location on texture
-    ////       grid.
-    /// @details Subroutine of generateCharacterEye().
-    ///          As of now the range of possible types is 0-3
+    /// @brief Generates a random set of character values
     ////////////////////////////////////////////////////////////////////
-    int generateEyeType();
-     
+    void generateCharacterValues();
+    
+    ////////////////////////////////////////////////////////////////////
+    /// @brief initializes vector of skin tones
+    ////////////////////////////////////////////////////////////////////
+    void initializeSkinTones();
+    
+    
     ///////////////////////////////////////////////////////////////////////
     /// @brief The main draw function that was inheirted from RenderComponent.
     /// @details You need to define this to create a child of RenderComponent
