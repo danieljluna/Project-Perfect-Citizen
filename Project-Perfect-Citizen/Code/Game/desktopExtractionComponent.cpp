@@ -24,38 +24,32 @@
 using namespace ppc;
 
 desktopExtractionComponent::desktopExtractionComponent(){
-
+    
 }
 
-
-void desktopExtractionComponent::setDesktop(std:: string file){
+Json::Value desktopExtractionComponent::parseDesktopAsJson(std::string file) {
     Json::Reader reader;
     Json::Value value;
-    std::vector<std::string> vectorHolder;;
     std::ifstream doc(resourcePath() + file, std::ifstream::binary);
-    if (reader.parse(doc, value)){
-        Json::Value emailObj = value[ "Emails" ];
-        for (unsigned int i = 0; i < emailObj.size(); i++){
-            vectorHolder.push_back(emailObj[i].asString());
+    reader.parse(doc, value);
+    return value;
+}
+
+void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string folder){
+    Json::Value directoryObj = value[folder];
+    std::vector<std::string> objNames = directoryObj.getMemberNames();
+    for (unsigned int i = 0; i < directoryObj.size(); i++){
+        auto contentObj = directoryObj[objNames[i]];
+        std::string objName = objNames[i];
+        // name of file/folder
+        // std::cout << objName << std::endl;
+        if(contentObj.size() > 0){
+            parseForFileTree(directoryObj, objNames[i]);
         }
-        this->setEmail(vectorHolder);
-        vectorHolder.clear();
-        Json::Value chatObj = value[ "Chat Messages" ];
-        for (unsigned int i = 0; i < chatObj.size(); i++){
-            vectorHolder.push_back(chatObj[i].asString());
+        else{
+            // name of the path to access content in resources
+            std::string pathName = directoryObj[objNames[i]].asString();
+            //std::cout << pathName << std::endl;
         }
-        this->setMessages(vectorHolder);
-        vectorHolder.clear();
-        Json::Value historyObj = value[ "Local History" ];
-        for (unsigned int i = 0; i < historyObj.size(); i++){
-            vectorHolder.push_back(historyObj[i].asString());
-        }
-        this->setHistory(vectorHolder);
-        vectorHolder.clear();
-        Json::Value documentsObj = value[ "Local Documents" ];
-        for (unsigned int i = 0; i < documentsObj.size(); i++){
-            vectorHolder.push_back(documentsObj[i].asString());
-        }
-        this->setDocuments(vectorHolder);
     }
 }
