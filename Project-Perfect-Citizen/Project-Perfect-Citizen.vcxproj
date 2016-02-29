@@ -44,8 +44,10 @@
     <ClCompile Include="Code\Engine\WindowLogger.cpp" />
     <ClCompile Include="Code\Engine\world.cpp" />
     <ClCompile Include="Code\Game\animatorComponent.cpp" />
+    <ClCompile Include="Code\Game\BootLoader.cpp" />
     <ClCompile Include="Code\Game\buttonRenderComponent.cpp" />
     <ClCompile Include="Code\Game\buttonUpdateComponent.cpp" />
+    <ClCompile Include="Code\Game\characterRender.cpp" />
     <ClCompile Include="Code\Game\consoleIconRenderComponent.cpp" />
     <ClCompile Include="Code\Game\consoleUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\createButton.cpp" />
@@ -118,8 +120,10 @@
     <ClInclude Include="Code\Engine\WindowLogger.h" />
     <ClInclude Include="Code\Engine\world.h" />
     <ClInclude Include="Code\Game\animatorComponent.hpp" />
+    <ClInclude Include="Code\Game\BootLoader.hpp" />
     <ClInclude Include="Code\Game\buttonRenderComponent.h" />
     <ClInclude Include="Code\Game\buttonUpdateComponent.h" />
+    <ClInclude Include="Code\Game\characterRender.hpp" />
     <ClInclude Include="Code\Game\consoleIconRenderComponent.h" />
     <ClInclude Include="Code\Game\consoleUpdateComponent.h" />
     <ClInclude Include="Code\Game\createButton.h" />

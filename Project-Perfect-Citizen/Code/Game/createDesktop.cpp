@@ -7,8 +7,10 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	//////////////////////////////////////////////
 	//// Create the database (really should take a seed)
 	/////////////////////////////////////////////
+
 	Database* theDatabase = new Database();
 	theDatabase->generateFullDatabase(200);
+
 	
 	//////////////////////////////////////////////
 	//// Create the start menu

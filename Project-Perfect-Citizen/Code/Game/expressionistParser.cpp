@@ -24,7 +24,7 @@
 #include <random>
 #include <list>
 #include <cstddef>
-
+#include <cstdlib>
 
 using namespace expr;
 
@@ -41,7 +41,7 @@ Json::Value expr::parseExpressionistAsJson(std::string file) {
 }
 
 std::string expr::expressWithJson(const Json::Value& exprOutput, const ppc::PipelineCharacter& speaker) {
-	size_t i = 0;		
+	int i = 0;		
 	Json::Value nonTerminalObj = exprOutput["nonterminals"];
 	std::vector<std::string> terminalNames = nonTerminalObj.getMemberNames();
 	for (; i < exprOutput["nonterminals"].size(); ++i) {
@@ -68,7 +68,7 @@ std::pair<std::string, bool> expr::expandWithJson(const Json::Value& exprOutput,
 
 	std::vector<Json::Value> unvisited;
 
-	for (size_t i = 0; i < symbol["rules"].size(); ++i) {
+	for (int i = 0; i < symbol["rules"].size(); ++i) {
 		Json::Value rule = symbol["rules"][i];
 		unvisited.push_back(rule);
 	}
@@ -79,13 +79,13 @@ std::pair<std::string, bool> expr::expandWithJson(const Json::Value& exprOutput,
 	int unvsize = unvisited.size();
 	while (unvsize > 0) {
 		int totalAppRate = 0;
-		for (size_t i = 0; i < unvisited.size(); ++i) {
+		for (int i = 0; i < unvisited.size(); ++i) {
 			totalAppRate += unvisited[i]["app_rate"].asInt();
 		}
 
 		std::uniform_int_distribution<> appd(1, totalAppRate);
 		int currAppRate = appd(gen);
-		size_t i = 0;
+		int i = 0;
 		for (; i < unvisited.size(); ++i) {
 			currAppRate -= unvisited[i]["app_rate"].asInt();
 			if (currAppRate <= 0) {
@@ -103,10 +103,10 @@ std::pair<std::string, bool> expr::expandWithJson(const Json::Value& exprOutput,
 
 }
 
-size_t trimBraces(std::string& str) {
-	size_t origLen = str.length();
-	for (size_t i = 0; i < origLen; ++i) {
-		size_t firstLetter = str.find_first_not_of('[');
+int trimBraces(std::string& str) {
+	int origLen = str.length();
+	for (int i = 0; i < origLen; ++i) {
+		int firstLetter = str.find_first_not_of('[');
 		if (firstLetter == 0) return i;
 
 		str.erase(0, 1);
@@ -126,9 +126,9 @@ std::pair<std::string, bool> expr::fireWithJson(const Json::Value& exprOutput, c
 	//std::cout << rule["expansion"][0].asString() << std::endl;
 
 	//go through all strings in expansion
-	for (size_t i = 0; i < rule["expansion"].size(); ++i) {
+	for (int i = 0; i < rule["expansion"].size(); ++i) {
 		std::string currExp = rule["expansion"][i].asString();
-		size_t braceCount = trimBraces(currExp);
+		int braceCount = trimBraces(currExp);
 		if (braceCount == 0) {
 			//this is just a string, append it to the result
 			result += currExp;
@@ -195,16 +195,16 @@ bool makeComparison(const int& int1, const int& int2, const std::string& oper) {
 
 bool expr::checkMarkUpPreconditions(const Json::Value& markup, const ppc::PipelineCharacter& speaker) {
 	std::vector<std::string> markupNames = markup.getMemberNames();
-	for (size_t i = 0; i < markup.size(); ++i) {
+	for (int i = 0; i < markup.size(); ++i) {
 		Json::Value currMark = markup[markupNames[i]];
 		std::string oper;
 		std::string req;
 		std::string value;
 
-		for (size_t j = 0; j < currMark.size(); ++j) {
+		for (int j = 0; j < currMark.size(); ++j) {
 			std::string currCond = currMark[j].asString();
 			//std::cout << "CurrCond = " << currCond << " markupNames[i] = " << markupNames[i] << std::endl;
-			size_t firstspace = currCond.find_first_of(" ");
+			int firstspace = currCond.find_first_of(" ");
 			req = currCond.substr(0, firstspace);
 			oper = currCond.substr(firstspace + 1, currCond.length() - currCond.find_last_of(" ") - 1);
 			value = currCond.substr(currCond.find_last_of(" ") + 1, std::string::npos);
