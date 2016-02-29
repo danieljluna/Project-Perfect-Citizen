@@ -68,6 +68,7 @@
 		C82E61701C810E4B001860CC /* WindowLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E614C1C810E4B001860CC /* WindowLogger.cpp */; };
 		C82E61711C810E4B001860CC /* world.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E614E1C810E4B001860CC /* world.cpp */; };
 		C82E61731C810E67001860CC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E61721C810E67001860CC /* main.cpp */; };
+		C83B93361C83B5D300426BD8 /* characterRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C83B93331C83B5D300426BD8 /* characterRender.cpp */; };
 		C84913C71C6AA82E00F84CB0 /* Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = C84913C61C6AA82E00F84CB0 /* Icon_Sheet.png */; };
 		C858D3961C61C1BB0086199C /* Windows_UI.png in Resources */ = {isa = PBXBuildFile; fileRef = C858D3951C61C1BB0086199C /* Windows_UI.png */; };
 		C86E37AD1C4D6B5100842EFD /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = C86E37A71C4D6B5100842EFD /* DoxygenHelp.txt */; };
@@ -76,6 +77,7 @@
 		C86E37B11C4D6B5200842EFD /* kappa.png in Resources */ = {isa = PBXBuildFile; fileRef = C86E37AC1C4D6B5100842EFD /* kappa.png */; };
 		C881BEE91C4D7C5B008B1EBD /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */; };
 		C8EFA2D81C838F2400A54FB9 /* BootLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8EFA2D61C838F2400A54FB9 /* BootLoader.cpp */; };
+		C8EFA2E81C83AA4B00A54FB9 /* Face_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = C8EFA2E71C83AA4B00A54FB9 /* Face_Sheet.png */; };
 		E94E759A1C728D2C00C77C60 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = E94E75991C728D2C00C77C60 /* data.json */; };
 		E959DD391C7022F7001F2CAF /* TestDesktop.json in Resources */ = {isa = PBXBuildFile; fileRef = E959DD381C7022F7001F2CAF /* TestDesktop.json */; };
 		E9C810591C603E1600D47DA6 /* dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = E9C810581C603E1600D47DA6 /* dummy.json */; };
@@ -212,6 +214,8 @@
 		C82E614E1C810E4B001860CC /* world.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = world.cpp; sourceTree = "<group>"; };
 		C82E614F1C810E4B001860CC /* world.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = world.h; sourceTree = "<group>"; };
 		C82E61721C810E67001860CC /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
+		C83B93331C83B5D300426BD8 /* characterRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = characterRender.cpp; sourceTree = "<group>"; };
+		C83B93341C83B5D300426BD8 /* characterRender.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = characterRender.hpp; sourceTree = "<group>"; };
 		C84913C61C6AA82E00F84CB0 /* Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Sheet.png; sourceTree = "<group>"; };
 		C858D3951C61C1BB0086199C /* Windows_UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_UI.png; sourceTree = "<group>"; };
 		C86E37A71C4D6B5100842EFD /* DoxygenHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoxygenHelp.txt; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 		C881BEE81C4D7C5B008B1EBD /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ResourcePath.mm; path = Resources/ResourcePath.mm; sourceTree = SOURCE_ROOT; };
 		C8EFA2D61C838F2400A54FB9 /* BootLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BootLoader.cpp; sourceTree = "<group>"; };
 		C8EFA2D71C838F2400A54FB9 /* BootLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BootLoader.hpp; sourceTree = "<group>"; };
+		C8EFA2E71C83AA4B00A54FB9 /* Face_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Face_Sheet.png; sourceTree = "<group>"; };
 		E94E75991C728D2C00C77C60 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		E959DD381C7022F7001F2CAF /* TestDesktop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestDesktop.json; sourceTree = "<group>"; };
 		E9C810581C603E1600D47DA6 /* dummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummy.json; sourceTree = "<group>"; };
@@ -337,6 +342,8 @@
 				C82E60E71C810E3F001860CC /* TreeCommands.h */,
 				C82E60E81C810E3F001860CC /* WindowBkgndRenderCmpnt.cpp */,
 				C82E60E91C810E3F001860CC /* WindowBkgndRenderCmpnt.h */,
+				C83B93331C83B5D300426BD8 /* characterRender.cpp */,
+				C83B93341C83B5D300426BD8 /* characterRender.hpp */,
 				C8EFA2D61C838F2400A54FB9 /* BootLoader.cpp */,
 				C8EFA2D71C838F2400A54FB9 /* BootLoader.hpp */,
 			);
@@ -446,6 +453,7 @@
 		C86E37A51C4D6B5100842EFD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C8EFA2E71C83AA4B00A54FB9 /* Face_Sheet.png */,
 				C82E5FE81C810CCF001860CC /* consola.ttf */,
 				E94E75991C728D2C00C77C60 /* data.json */,
 				E959DD381C7022F7001F2CAF /* TestDesktop.json */,
@@ -547,6 +555,7 @@
 				C82E61541C810E4B001860CC /* gunshot.ogg in Resources */,
 				C858D3961C61C1BB0086199C /* Windows_UI.png in Resources */,
 				C86E37AD1C4D6B5100842EFD /* DoxygenHelp.txt in Resources */,
+				C8EFA2E81C83AA4B00A54FB9 /* Face_Sheet.png in Resources */,
 				C86E37AE1C4D6B5100842EFD /* LinkHelp.txt in Resources */,
 				C84913C71C6AA82E00F84CB0 /* Icon_Sheet.png in Resources */,
 			);
@@ -606,6 +615,7 @@
 				C82E61661C810E4B001860CC /* NodeState.cpp in Sources */,
 				C82E61611C810E4B001860CC /* FunctionObserver.cpp in Sources */,
 				C82E60FF1C810E3F001860CC /* textOutputRenderComponent.cpp in Sources */,
+				C83B93361C83B5D300426BD8 /* characterRender.cpp in Sources */,
 				C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */,
 				C82E616E1C810E4B001860CC /* WindowDecorator.cpp in Sources */,
 				C82E60FB1C810E3F001860CC /* PipelineCharacter.cpp in Sources */,

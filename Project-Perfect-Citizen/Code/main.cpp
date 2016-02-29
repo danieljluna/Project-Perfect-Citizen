@@ -47,6 +47,8 @@
 #include "Engine/Audio/AudioQueue.h"
 #include "Game/BootLoader.hpp"
 #include "Engine/FunctionObserver.h"
+#include "Game/characterRender.hpp"
+
 
 
 using namespace ppc;
@@ -89,6 +91,10 @@ int main(int argc, char** argv) {
 	spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
+    sf::Image faceSheet;
+    faceSheet.loadFromFile(resourcePath() + "Face_Sheet.png");
+
+    
 	//////////////////////////////////////////////////////
 
 	//////////////////////////////////////////////////////////
@@ -102,10 +108,19 @@ int main(int argc, char** argv) {
     myDesktop.addBackgroundCmpnt(desktopWindow, S);
     createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
     
+    Entity* aCharacter = new Entity();
+    characterRender* characterRend = new characterRender(faceSheet);
+    aCharacter->addComponent(characterRend);
+    
+    desktopWindow->addEntity(*aCharacter);
+    
+    
+    
+    
     //////////////////////////////////////////////////////////
     ///// TEMPORARY BOOT LOADING SCREEN SETUP
     /////////////////////////////////////////////////////////
-    bool hasBooted = false;
+    bool hasBooted = true;
     int step = 0;
     
     sf::Font font;
