@@ -1,10 +1,3 @@
-//
-//  BootLoader.hpp
-//  Project-Perfect-Citizen
-//
-//  Created by Michael Lowe on 2/28/16.
-//  Copyright © 2016 Hyperfocus Games. All rights reserved.
-//
 
 #ifndef BootLoader_hpp
 #define BootLoader_hpp
@@ -13,7 +6,27 @@
 #include <string>
 
 
+
+///////////////////////////////////////////////////////////////////////
+/// @brief Boot Loader animation sequence displayed at start of game
+/// @author Micahel Lowe
+/// @details This is intended to be somewhat temporary. Eventually
+///          The boot loader will be its own desktop.
+///////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////
+/// @brief creates random strings for the file paths
+/// @param stringLength is the desired length of the string
+////////////////////////////////////////////////////////////////////
 std::string getRandomString(int stringLength);
+
+////////////////////////////////////////////////////////////////////
+/// @brief Performs the actual sequence of loading text into the
+///         String to be drawn.
+/// @param step indicates how many frame refreshes have passed
+/// @param renderString is the string to be updated and returned
+////////////////////////////////////////////////////////////////////
 std::string bootLoad(int step, std::string renderString);
 
 #endif /* BootLoader_hpp */
