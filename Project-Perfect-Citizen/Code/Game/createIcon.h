@@ -44,7 +44,7 @@
 ///@param The desired scaled size of the icon
 ///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
-void spawnFolderIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
+void spawnFolderIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database& db, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable settings Icon
@@ -58,7 +58,7 @@ void spawnFolderIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHa
 ///@param The desired scaled size of the icon
 ///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
-void spawnSettingsIcon(ppc::Entity& entityToModify, ppc::Desktop& dT,  ppc::InputHandler& ih, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
+void spawnSettingsIcon(ppc::Entity& entityToModify, ppc::Desktop& dT,  ppc::InputHandler& ih, Database& db, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable chat Icon
@@ -72,7 +72,7 @@ void spawnSettingsIcon(ppc::Entity& entityToModify, ppc::Desktop& dT,  ppc::Inpu
 ///@param The desired scaled size of the icon
 ///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
-void spawnChatIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
+void spawnChatIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database& db, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable search Icon
@@ -86,7 +86,7 @@ void spawnChatIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHand
 ///@param The desired scaled size of the icon
 ///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
-void spawnSearchIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
+void spawnSearchIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database* db, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable pipeline extraction Icon
@@ -100,7 +100,7 @@ void spawnSearchIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHa
 ///@param The desired scaled size of the icon
 ///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
-void spawnDataGraphIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
+void spawnDataGraphIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database& db, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable help Icon
@@ -114,7 +114,7 @@ void spawnDataGraphIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::Inpu
 ///@param The desired scaled size of the icon
 ///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
-void spawnHelpIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
+void spawnHelpIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database& db, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable browser Icon
@@ -128,7 +128,7 @@ void spawnHelpIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHand
 ///@param The desired scaled size of the icon
 ///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
-void spawnBrowserIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
+void spawnBrowserIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database& db, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable hard drive Icon
@@ -142,7 +142,7 @@ void spawnBrowserIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputH
 ///@param The desired scaled size of the icon
 ///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
-void spawnHardDriveIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
+void spawnHardDriveIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database& db, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable console Icon
@@ -157,7 +157,7 @@ void spawnHardDriveIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::Inpu
 ///@param The desired scaled size of the icon
 ///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
-void spawnConsoleIcon(ppc::Entity& entityToModify, ppc::Desktop& dt, ppc::InputHandler& ih, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
+void spawnConsoleIcon(ppc::Entity& entityToModify, ppc::Desktop& dt, ppc::InputHandler& ih, Database& db, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
 
 
 
