@@ -7,7 +7,6 @@ namespace ppc {
 
     class Subject;
 
-
 ///////////////////////////////////////////////////////////////////////
 ///@brief Abstract base class for all observer systems.
 ///@details If you want to create a class that observes something, make

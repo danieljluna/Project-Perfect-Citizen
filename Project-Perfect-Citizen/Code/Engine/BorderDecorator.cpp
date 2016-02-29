@@ -21,14 +21,19 @@ BorderDecorator::BorderDecorator(
     borderTopLeft_.x = borderBottomRight_.x = 
             borderBottomRight_.y = minorBorder;
 	
-    //Set up BorderShape
-    borderShape_.setPosition(win.getPosition().x - minorBorder, 
-                            win.getPosition().y - majorBorder);
+    //Set up BorderShape & Visual Details
+    sf::Vector2f pos(win.getPosition().x - minorBorder,
+                     win.getPosition().y - majorBorder);
+ 
     sf::Vector2f size(float(win.getSize().x + 2 * minorBorder),
-                      float(win.getSize().y + minorBorder + 
+                      float(win.getSize().y + minorBorder +
                                               majorBorder));
+
+                
+    borderShape_.setPosition(pos);
+   
     borderShape_.setSize(size);
-    borderShape_.setFillColor(sf::Color::Red);
+    borderShape_.setFillColor(sf::Color(170,170,170));
 
     //Set up space for buttons
 

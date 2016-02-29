@@ -7,7 +7,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	//////////////////////////////////////////////
 	//// Create the database (really should take a seed)
 	/////////////////////////////////////////////
-	Database& theDatabase = Database();
+	Database theDatabase;
 	theDatabase.generateFullDatabase(25);
 	/*Database& filteredDatabase = Database();
 	string filter = "job";
