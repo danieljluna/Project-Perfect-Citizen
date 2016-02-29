@@ -18,9 +18,15 @@ const string OPEN_THE_EXPLORER = "OTE";
 
 const float DOUBLE_CLICK_TIME = 500.0f;
 
+mousePressButton::mousePressButton() : 
+	InputComponent(2), buttonRect() {
+
+}
+
+
 mousePressButton::mousePressButton(ppc::InputHandler& ih, 
-	sf::Sprite& s, std::string iBP): 
-	InputComponent(2), buttonSprt(s), inputHandle(ih), isBeingPressed(iBP){
+	sf::FloatRect rect, std::string iBP): 
+	InputComponent(2), buttonRect(rect), isBeingPressed(iBP){
 
 	//add a new subject that is tied to the event
 	ih.addHandle(sf::Event::MouseButtonPressed);
@@ -36,18 +42,38 @@ mousePressButton::mousePressButton(ppc::InputHandler& ih,
 }
 
 mousePressButton::~mousePressButton() {
-	ignore(inputHandle, sf::Event::MouseButtonPressed);
-	ignore(inputHandle, sf::Event::MouseButtonReleased);
+
+	//ignore(inputHandle, sf::Event::MouseButtonPressed);
+	//ignore(inputHandle, sf::Event::MouseButtonReleased);
 }
+
+void mousePressButton::setInputHandle(ppc::InputHandler& ih) {
+
+	ih.addHandle(sf::Event::MouseButtonPressed);
+	ih.addHandle(sf::Event::MouseButtonReleased);
+
+	watch(ih, sf::Event::MouseButtonPressed);
+	watch(ih, sf::Event::MouseButtonReleased);
+
+}
+
+void mousePressButton::setFloatRect(sf::FloatRect rect) {
+	buttonRect = rect;
+}
+
+void mousePressButton::setIsBeingPressed(std::string iBP) {
+	isBeingPressed = iBP;
+}
+
 
 bool mousePressButton::isCollision(sf::Vector2i mousePos) {
     //Gets the position as a Float Vector
     sf::Vector2f mouseFloatPos(float(mousePos.x), float(mousePos.y));
-    //Gets the FloatRect of the Sprite
-    sf::FloatRect checkArea = buttonSprt.getGlobalBounds();
+	//cout << "MOUSE X, Y: " << mousePos.x << ",  " << mousePos.y << endl;
+	//cout << "ButtonRect LEFT, TOP: " << buttonRect.left << ",  "<< buttonRect.top << endl;
 
     //Returns if point is in foatRect
-    return checkArea.contains(mouseFloatPos);
+    return buttonRect.contains(mouseFloatPos);
 }
 
 
@@ -61,7 +87,6 @@ bool mousePressButton::registerInput(sf::Event& ev) {
 
                 /* Send the mouse down message regardless */
                 getEntity()->broadcastMessage(MOUSE_DOWN_CODE);
-				cout << "mouse downed on a mpb item" << endl;
 
                 /* Handle Double Click Register */
                 mouseTime = mouseClock.getElapsedTime().asMilliseconds();
@@ -117,8 +142,19 @@ bool mousePressButton::registerInput(sf::Event& ev) {
 
                 /* Send the mouse release message regardless*/
                 getEntity()->broadcastMessage(MOUSE_RELEASED_CODE);
+				if (isBeingPressed == "localCloseButton") {
+					// STUB: CLOSE THE WINDOW
+                    std::cout << "localClose" << endl;
+				}
             }
         }
+		/* Case: Mouse Moved Event*/
+		else if (ev.type == sf::Event::MouseMoved) {
+			if (!buttonRect.contains(float(ev.mouseMove.x), float(ev.mouseMove.y)) && 
+				ev.mouseButton.button == sf::Mouse::Left) {
+				cout << "left the button" << endl;
+			}
+		}
     }
 
     return true;

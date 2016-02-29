@@ -21,8 +21,7 @@
 class mousePressButton: public ppc::InputComponent {
 private:
 
-	sf::Sprite& buttonSprt;
-	ppc::InputHandler& inputHandle;
+	sf::FloatRect buttonRect;
 	std::string isBeingPressed;
 	sf::Clock mouseClock;
     sf::Int32 mouseTime;
@@ -30,8 +29,32 @@ private:
 
 public:
 
-	mousePressButton() = delete;
-	mousePressButton(ppc::InputHandler& ih, sf::Sprite& s, std::string isBeingPressed);
+	mousePressButton();
+
+///////////////////////////////////////////////////////////////////////
+///@brief This Ctor will be depricated soon. Please use the default 
+///Ctor and setter functions instead.
+///////////////////////////////////////////////////////////////////////
+	mousePressButton(ppc::InputHandler& ih, sf::FloatRect rect, std::string isBeingPressed);
+
+///////////////////////////////////////////////////////////////////////
+//SETTERS
+///////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////
+///@brief Adds the input handler to the component. Also sets up the
+/// neccessary subject and observers for this component.
+///////////////////////////////////////////////////////////////////////
+	void setInputHandle(ppc::InputHandler& ih);
+
+///////////////////////////////////////////////////////////////////////
+///@breif Sets the FloatRect of the sprite associated with this cmpnt.
+///@details Must pass in the globad bounds of the sprite.
+///////////////////////////////////////////////////////////////////////
+	void setFloatRect(sf::FloatRect rect);
+
+	void setIsBeingPressed(std::string iBP);
+
 	virtual ~mousePressButton();
 	virtual bool registerInput(sf::Event& ev) override;
 

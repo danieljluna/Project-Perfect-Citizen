@@ -10,6 +10,7 @@
 #include "createWindow.h"
 #include "../Engine/Window.h"
 #include "../Engine/WindowInterface.h"
+#include "Database.h"
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -18,19 +19,30 @@
 /// @details Functionality: opens windows and places them on the desktop
 /// by listening for double clicks from the mouse input
 ///////////////////////////////////////////////////////////////////////
-
+namespace ppc {
 
 class iconInputComponent : public ppc::InputComponent {
 private:
 
 	ppc::Desktop& theDesktop_;
+	sf::Image& buttonSheet_;
+	Database* theDatabase_;
 
 public:
 
 	iconInputComponent() = delete;
-	iconInputComponent(ppc::Desktop& theDesktop);
+
+	//////////////////////////////////////////////////////////////////////
+	/// @brief Constructor
+	///
+	///@param The newly created icon entity to add components to.
+	///@param The buttonSheet of the window it will create's buttons.
+	///////////////////////////////////////////////////////////////////////
+	iconInputComponent(Desktop& theDesktop, Database* db, sf::Image& buttonSheet_);
 	virtual ~iconInputComponent();
 	virtual bool registerInput(sf::Event& ev) override;
 	virtual void recieveMessage(msgType message) override;
+
+};
 
 };

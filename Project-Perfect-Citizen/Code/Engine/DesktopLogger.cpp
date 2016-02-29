@@ -35,10 +35,10 @@ void DesktopLogger::setStyle(OSStyle* oss) {
 	out_ << "DesktopLogger: Finished Setting Style" << std::endl;
 }
 
-FileState& DesktopLogger::getRoot() {
+NodeState& DesktopLogger::getNodeState() {
 	out_ << "DesktopLogger: Getting Root" << std::endl;
 
-	return loggedDesktop_->getRoot();
+	return loggedDesktop_->getNodeState();
 
 }
 
@@ -67,4 +67,12 @@ void DesktopLogger::refresh(sf::RenderStates states) {
 	loggedDesktop_->refresh(states);
 
 	out_ << "DesktopLogger: Finished Refreshing Window" << std::endl;
+}
+
+void DesktopLogger::addBackgroundCmpnt(WindowInterface* wi, sf::Sprite& s) {
+
+	out_ << "DesktopLogger: Added a Background Sprite: " <<
+		loggedDesktop_ << std::endl;
+
+	loggedDesktop_->addBackgroundCmpnt(wi, s);
 }
