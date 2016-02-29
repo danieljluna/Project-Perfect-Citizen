@@ -24,8 +24,12 @@ databaseDisplayRenderComponent::~databaseDisplayRenderComponent() {
 
 void databaseDisplayRenderComponent::updateString(std::vector<string> cmd) {
 	/* Print out what was just typed */
+	string output = "";
+	for (auto iter = cmd.begin(); iter != cmd.end(); ++iter) {
+		output.append(*iter);
+	}
 	// STUB: LOOP OVER THE VECTOR YOU JUST GOT AND PRINT IT OUT
-	text_->setString(str_);
+	text_->setString(output);
 }
 
 void databaseDisplayRenderComponent::clearString() {
