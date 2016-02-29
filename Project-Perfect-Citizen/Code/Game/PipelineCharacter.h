@@ -10,10 +10,6 @@
 ///  use in pipeline extraction sequences, as well as the function to
 ///  generate a character.  Characters are not automatically generated
 ///  when instantiated.
-// In regards to the above I was running into issues when I had them
-// generate immediately when instantiated, I don't remember why.  If
-// it ends up being better to automatically generate them it should be
-// simple to change it.
 ///////////////////////////////////////////////////////////////////////
 
 namespace ppc {

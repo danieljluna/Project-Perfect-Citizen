@@ -72,13 +72,6 @@ int main(int argc, char** argv) {
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
-	///testcode
-	ppc::Database myDatabase;
-	myDatabase.generateFullDatabase(100);
-	myDatabase.printCharacters();
-
-	///end testcode
-
     ////////////////// BACKGROUND IMAGE ////////////////////
     sf::Sprite S;
     sf::Texture T;
