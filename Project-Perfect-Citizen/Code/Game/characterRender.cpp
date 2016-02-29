@@ -20,7 +20,7 @@ characterRender::characterRender(sf::Image& image): faceImage(image) {
     
     if(!texture->loadFromImage(faceImage, sf::IntRect(0,0,3*grid_size,6*grid_size))) { exit(-1);}
     
-    setCharacterEye();
+    generateCharacterEye();
 }
 
 characterRender::~characterRender() {
@@ -31,7 +31,7 @@ characterRender::~characterRender() {
     delete eyeR;
     //delete rectSourceSprite;
 }
-void characterRender::setCharacterEye(){
+void characterRender::generateCharacterEye(){
   
     
     int eyeType = generateEyeType();

@@ -47,10 +47,11 @@ public:
     /// Recieves an integer from generateEyeType, which corresponds to a
     /// location on the texture grid.
     ////////////////////////////////////////////////////////////////////
-    void setCharacterEye();
+    void generateCharacterEye();
     
     ////////////////////////////////////////////////////////////////////
     /// @brief Returns a color for the characters eye
+    /// @details Subroutine of generateCharacterEye()
     ////////////////////////////////////////////////////////////////////
     sf::Color generateEyeColor();
     
@@ -58,7 +59,8 @@ public:
     ////////////////////////////////////////////////////////////////////
     /// @brief Returns an integer to be read as a y location on texture
     ////       grid.
-    /// @details As of now the range of possible types is 0-3
+    /// @details Subroutine of generateCharacterEye().
+    ///          As of now the range of possible types is 0-3
     ////////////////////////////////////////////////////////////////////
     int generateEyeType();
      
