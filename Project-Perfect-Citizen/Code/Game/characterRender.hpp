@@ -6,7 +6,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include "../Engine/renderComponent.h"
-#include "characterGenerator.hpp"
 #include <string>
 
 using namespace std;
