@@ -42,7 +42,7 @@ public:
 	~Database();
 
 	///////////////////////////////////////////////////////////////////////
-	/// @brief Returns the size of the current database's snapshot
+	/// @brief Returns a vector of strings of the current database
 	///////////////////////////////////////////////////////////////////////
 	std::vector<std::string> getPrintableDatabase();
 
@@ -58,7 +58,7 @@ public:
 	bool isEmpty();
 
 	///////////////////////////////////////////////////////////////////////
-	/// @brief Specifies whether the filter query is searchable,
+	/// @brief Sets the current database's vector of characters
 	///////////////////////////////////////////////////////////////////////
 	void setNewSnapshot(std::vector<ppc::PipelineCharacter> snapShot);
 
