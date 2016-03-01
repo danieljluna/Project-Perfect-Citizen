@@ -9,7 +9,7 @@
 namespace ppc {
 
 
-class Vertex: public sf::Drawable {
+class Vertex: public sf::Drawable, public sf::Transformable {
 
 private:
 
@@ -18,8 +18,6 @@ private:
 	sf::Text text_;
 	sf::Font font_;
 	static const int fontSize_;
-
-	sf::Vector2f pos_;
 
 	PipelineCharacter char_;
 
@@ -36,7 +34,7 @@ public:
 	
 	Vertex(const Vertex& other);
 	Vertex& operator=(const Vertex& other);
-	~Vertex();
+	virtual ~Vertex();
 
 	sf::CircleShape& getCircle();
 
@@ -47,8 +45,8 @@ public:
 	void setPos(sf::Vector2f);
 	void setPos(float x, float y);
 
-	sf::Vector2f getPosBot() const;
-	sf::Vector2f getPosTop() const;
+
+	sf::Vector2f getPosCenter() const;
 
 	PipelineCharacter getCharacter() const;
 	void setCharacter(PipelineCharacter);

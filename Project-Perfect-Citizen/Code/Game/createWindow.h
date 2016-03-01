@@ -5,6 +5,7 @@
 #include "../Engine/NodeState.h"
 #include "buttonUpdateComponent.h"
 #include "Database.h"
+#include "createButton.h"
 
 
 
@@ -37,7 +38,7 @@ void spawnConsole(WindowInterface*& windowToModify, InputHandler& ih, NodeState&
 ///@param The input handler of the listened-to window.
 ///@param Sprite sheet of it's border component's buttons
 ///////////////////////////////////////////////////////////////////////
-void spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih,
+void spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
 	sf::Image& buttonSheet, float x, float y);
 
 };

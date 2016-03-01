@@ -48,24 +48,13 @@ mousePressButton::~mousePressButton() {
 }
 
 void mousePressButton::setInputHandle(ppc::InputHandler& ih) {
-/*<<<<<<< HEAD
-	inputHandle = ih;
 
-	inputHandle.addHandle(sf::Event::MouseButtonPressed);
-	inputHandle.addHandle(sf::Event::MouseButtonReleased);
-	inputHandle.addHandle(sf::Event::MouseMoved);
-
-	watch(inputHandle, sf::Event::MouseButtonPressed);
-	watch(inputHandle, sf::Event::MouseButtonReleased);
-	watch(inputHandle, sf::Event::MouseMoved);
-
-=======*/
 	ih.addHandle(sf::Event::MouseButtonPressed);
 	ih.addHandle(sf::Event::MouseButtonReleased);
 
 	watch(ih, sf::Event::MouseButtonPressed);
 	watch(ih, sf::Event::MouseButtonReleased);
-//>>>>>>> 1fa780a3aca41e0a4f12b8c1b95e43053993b9a4
+
 }
 
 void mousePressButton::setFloatRect(sf::FloatRect rect) {
@@ -155,12 +144,13 @@ bool mousePressButton::registerInput(sf::Event& ev) {
                 getEntity()->broadcastMessage(MOUSE_RELEASED_CODE);
 				if (isBeingPressed == "localCloseButton") {
 					// STUB: CLOSE THE WINDOW
+                    std::cout << "localClose" << endl;
 				}
             }
         }
 		/* Case: Mouse Moved Event*/
 		else if (ev.type == sf::Event::MouseMoved) {
-			if (!buttonRect.contains(ev.mouseMove.x, ev.mouseMove.y) && 
+			if (!buttonRect.contains(float(ev.mouseMove.x), float(ev.mouseMove.y)) && 
 				ev.mouseButton.button == sf::Mouse::Left) {
 				cout << "left the button" << endl;
 			}

@@ -90,6 +90,10 @@ bool DraggableInput::registerInput(sf::Event& ev) {
             //Else if we're pointing to a Transformable
             } else {
 				trans_->move(shift);
+				bounds_.left += shift.x;
+				bounds_.top += shift.y;
+				startX_ = endX_;
+				startY_ = endY_;
             }
         }
 

@@ -46,9 +46,20 @@
 #include "Game/Database.h"
 #include "Engine/Audio/AudioQueue.h"
 #include "Engine/Network.h"
+#include "Game/BootLoader.hpp"
+#include "Engine/FunctionObserver.h"
+#include "Game/characterRender.hpp"
+
+
 
 using namespace ppc;
 
+using testFunc = bool(*)(sf::Event&);
+
+bool printFunc(sf::Event& ev) {
+	std::cout << "inside printFunc" << std::endl;
+	return true;
+}
 
 //Note that this is placeholder for now
 int main(int argc, char** argv) {
@@ -96,6 +107,10 @@ int main(int argc, char** argv) {
 	spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
+    sf::Image faceSheet;
+    faceSheet.loadFromFile(resourcePath() + "Face_Sheet.png");
+
+    
 	//////////////////////////////////////////////////////
 
 	//////////////////////////////////////////////////////////
@@ -103,11 +118,39 @@ int main(int argc, char** argv) {
 	/////////////////////////////////////////////////////////
 	ppc::NodeState testState;
 	testState.setUp();
-	Window* desktopWindow = new Window(1800,1000,sf::Color(200, 200, 200));
+	Window* desktopWindow = new Window(1800,1000,sf::Color(0,0,0));
+    
+    Desktop myDesktop(*desktopWindow, testState);
+    myDesktop.addBackgroundCmpnt(desktopWindow, S);
+    createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+    
+    Entity* aCharacter = new Entity();
+    characterRender* characterRend = new characterRender(faceSheet);
+    aCharacter->addComponent(characterRend);
+    
+    desktopWindow->addEntity(*aCharacter);
+    
+    
+    
+    
+    //////////////////////////////////////////////////////////
+    ///// TEMPORARY BOOT LOADING SCREEN SETUP
+    /////////////////////////////////////////////////////////
+    bool hasBooted = true;
+    int step = 0;
+    
+    sf::Font font;
+    font.loadFromFile(resourcePath() + "consola.ttf");
+    sf::Text text;
+    text.setPosition(0, 0);
+    text.setColor(sf::Color::Green);
+    text.setCharacterSize(18);
+    text.setFont(font);
 
-	Desktop myDesktop(*desktopWindow, testState);
-	myDesktop.addBackgroundCmpnt(desktopWindow, S);
-	createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+    std::string renderString = "";
+    text.setString(renderString);
+    
+	
 
 	///////////////////////////////////////////////////////
 	///// Testing Vertex Drawing //////////////////////////
@@ -118,6 +161,10 @@ int main(int argc, char** argv) {
 	PipelineCharacter Bob;
 	PipelineCharacter Tim;
 	PipelineCharacter Rob;
+	Bob.generate();
+	Tim.generate();
+	Rob.generate();
+
 	net.vert(0).setCharacter(Bob);
 	net.vert(1).setCharacter(Tim);
 	net.vert(2).setCharacter(Rob);
@@ -155,20 +202,35 @@ int main(int argc, char** argv) {
 				screen.close();
 
 			//Input phase
-			myDesktop.registerInput(event);
+			if(hasBooted)myDesktop.registerInput(event);
         }
 
         sf::Time elapsed = deltaTime.getElapsedTime();
         while (elapsed > framePeriod) {
 
             // Clear screen
-            screen.clear(sf::Color::White);
+            screen.clear(sf::Color::Black);
 
             //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
-            myDesktop.update(dt);
+            if(hasBooted)myDesktop.update(dt);
 
             elapsed -= framePeriod;
+        }
+        //////////////////////////////////////////////////////////
+        ///// I KNOW THIS IS A REALLY GROSS LOOP
+        ///// TEMPORARY BOOT LOADING SCREEN
+        /////////////////////////////////////////////////////////
+        if (!hasBooted) {
+            renderString = bootLoad(step, renderString);
+            if (step == 6300)
+                hasBooted = true;
+            step++;
+            text.setString(renderString);
+            screen.draw(text);
+        } else {
+           myDesktop.refresh();
+           screen.draw(myDesktop);
         }
 
             //Draw all the Windows in the Desktop
@@ -181,8 +243,10 @@ int main(int argc, char** argv) {
 
             //Display the final window
 			screen.display();
-
     }
 
     return EXIT_SUCCESS;
 }
+
+
+

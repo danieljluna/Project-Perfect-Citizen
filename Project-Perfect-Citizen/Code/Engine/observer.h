@@ -5,6 +5,7 @@
 
 namespace ppc {
 
+    class Subject;
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Abstract base class for all observer systems.
@@ -12,8 +13,8 @@ namespace ppc {
 /// it a child of this. An example could be an achievment listener.
 ///////////////////////////////////////////////////////////////////////
 class BaseObserver {
-	//allows subjects to manage their observers
-	friend class Subject;
+
+    friend Subject;
 
 private:
 	BaseObserver* next;
