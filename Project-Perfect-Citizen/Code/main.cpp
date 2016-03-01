@@ -118,9 +118,6 @@ int main(int argc, char** argv) {
 	PipelineCharacter Bob;
 	PipelineCharacter Tim;
 	PipelineCharacter Rob;
-	Tim.generate();
-	Bob.generate();
-	Rob.generate();
 	net.vert(0).setCharacter(Bob);
 	net.vert(1).setCharacter(Tim);
 	net.vert(2).setCharacter(Rob);
