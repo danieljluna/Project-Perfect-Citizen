@@ -5,16 +5,16 @@ fnMap functionMap{
 	{ "ls"		,	fn_ls },
 	{ "make"	,	fn_mkfile },
 	{ "mkdir"	,	fn_mkDir },
-	{ "decrypt"	,	fn_decrypt},
-	{ "encrypt"	,	fn_decrypt},
-//	{ "pwd"		,	fn_pwd}
+	{ "decrypt"	,	fn_decrypt },
+	{ "encrypt"	,   fn_decrypt },
+	{"pwd"      ,   fn_pwd }
 };
 
 commandFn findFunction(const std::string& command) {
 	auto result = functionMap.find(command);
 	if (result == functionMap.end()) {
 		cout << "function not found" << endl;
-		throw std::exception("TreeCommands::findFunction() :function not found");
+		//throw std::exception("TreeCommands::findFunction() :function not found");
 	}
 	return result->second;
 }

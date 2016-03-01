@@ -17,154 +17,240 @@
 ////////////////////////////////////////////////////////////////////////
 
 #include "expressionistParser.hpp"
-#include "../Library/json/json.h"
+//#include "../Library/json/json.h"
 #include <iostream>
 #include <fstream>
 #include <map>
+#include <random>
+#include <list>
+#include <cstddef>
+#include <cstdlib>
 
 using namespace expr;
 
 ////////////////////////////////////////////////////////////////////////
-///constructor for parsing expressionist data
+///parsing out the JSON file
 ////////////////////////////////////////////////////////////////////////
 
-expressionistObj::expressionistObj(){
+Json::Value expr::parseExpressionistAsJson(std::string file) {
+	Json::Reader reader;
+	Json::Value value;
+	std::ifstream doc(resourcePath() + file, std::ifstream::binary);
+	reader.parse(doc, value);
+	return value;
+}
+
+std::string expr::expressWithJson(const Json::Value& exprOutput, const ppc::PipelineCharacter& speaker) {
+	int i = 0;		
+	Json::Value nonTerminalObj = exprOutput["nonterminals"];
+	std::vector<std::string> terminalNames = nonTerminalObj.getMemberNames();
+	for (; i < exprOutput["nonterminals"].size(); ++i) {
+		if (exprOutput["nonterminals"][terminalNames[i]]["deep"].asBool() == true) break;
+	}
+
+	std::pair<std::string, bool> result = expandWithJson(exprOutput, exprOutput["nonterminals"][terminalNames[i]], speaker);
+	if (result.second == true) return result.first;
+
+	return "";
+
 
 }
 
+std::pair<std::string, bool> expr::expandWithJson(const Json::Value& exprOutput, const Json::Value& symbol, const ppc::PipelineCharacter& speaker) {
 
-std::string expr::express(const std::vector<expressionistObj>& exprObjVec) {
-	std::string retString = "";
+	if (symbol["complete"].asBool() == false) return std::make_pair("", false);
+
 	
-	//Find "deep"
-	//Expand that symbol
+	std::string teststring = "";
+	if (checkMarkUpPreconditions(symbol["markup"], speaker) == false) { return std::make_pair("", false) ; } 
 
 
-	return retString;
+
+	std::vector<Json::Value> unvisited;
+
+	for (int i = 0; i < symbol["rules"].size(); ++i) {
+		Json::Value rule = symbol["rules"][i];
+		unvisited.push_back(rule);
+	}
+
+	std::random_device rd;
+	std::mt19937 gen(rd());
+
+	int unvsize = unvisited.size();
+	while (unvsize > 0) {
+		int totalAppRate = 0;
+		for (int i = 0; i < unvisited.size(); ++i) {
+			totalAppRate += unvisited[i]["app_rate"].asInt();
+		}
+
+		std::uniform_int_distribution<> appd(1, totalAppRate);
+		int currAppRate = appd(gen);
+		int i = 0;
+		for (; i < unvisited.size(); ++i) {
+			currAppRate -= unvisited[i]["app_rate"].asInt();
+			if (currAppRate <= 0) {
+				std::pair<std::string, bool> fireResult = fireWithJson(exprOutput, unvisited[i], speaker);
+				if (fireResult.second == true) {
+					return fireResult;
+				}
+			}
+		}
+		unvisited.erase(unvisited.begin() + i - 1);
+		unvsize = unvisited.size();
+	}
+
+	return std::make_pair("", false);
+
+}
+
+int trimBraces(std::string& str) {
+	int origLen = str.length();
+	for (int i = 0; i < origLen; ++i) {
+		int firstLetter = str.find_first_not_of('[');
+		if (firstLetter == 0) return i;
+
+		str.erase(0, 1);
+		str.erase(str.length() - 1, 1);
+	}
+	return std::string::npos;
+}
+
+std::pair<std::string, bool> expr::fireWithJson(const Json::Value& exprOutput, const Json::Value& rule, const ppc::PipelineCharacter& speaker) {
+	std::string result = "";
+	std::string teststring = "";
+
+	if (checkMarkUpPreconditions(rule["markup"], speaker) == false) {
+		//std::cout << "Markup check failed in Fire." << std::endl;
+		return std::make_pair("", false);
+	}
+	//std::cout << rule["expansion"][0].asString() << std::endl;
+
+	//go through all strings in expansion
+	for (int i = 0; i < rule["expansion"].size(); ++i) {
+		std::string currExp = rule["expansion"][i].asString();
+		int braceCount = trimBraces(currExp);
+		if (braceCount == 0) {
+			//this is just a string, append it to the result
+			result += currExp;
+		} else if (braceCount == 1) {
+			//this is a run time variable that needs to be substituted for, otherwise treated as a string
+			//do replacement for system/run time variable
+		} else if (braceCount == 2) {
+			Json::Value newExp = exprOutput["nonterminals"][currExp];
+			//recursively expands upon a new non terminal symbol (newExp), yielding a valid result if one is possible
+			std::pair<std::string, bool> subResult = expandWithJson(exprOutput, newExp, speaker);
+			if (subResult.second == true) result += subResult.first;
+			
+			//if there were no valid expansions, this rule cannot be completed
+			else return std::make_pair("", false);
+		}
+		else {
+			//something was wrong in the exprOutput
+			return std::make_pair("ERROR", false);
+		}
+
+	}
+
+
+	return std::make_pair(result, true);
+}
+
+
+bool makeComparison(const std::string& str1, const std::string& str2, const std::string& oper) {
+	//std::cout << "strcmp: " << str1 << oper << str2 << std::endl;
 	
+	if (oper.compare("==")) {
+		return (str1.compare(str2) == 0);
+	}
+	else if (oper.compare("!=")) {
+		return (str1.compare(str2) != 0);
+	}
+	return false;
 }
 
-std::string expr::expressionistObj::expand(const std::vector<expressionistObj>& exprObjVec) {
-	// should these take Json::Value, string& as params?
-	// return type bool?
-	// non member functions?
-	// if doing above, need override for expand incase Json::Value is string?
-	// OR need string param to find relevant rule in vector?
-	std::string retString = "";
-	//
+bool makeComparison(const int& int1, const int& int2, const std::string& oper) {
+	//std::cout << "IntComp: " << int1 << oper << int2 << std::endl;
+	//std::cout << "oper = \"" << oper << "\"" << std::endl;
+	if (oper.compare("==") == 0) {
+		return int1 == int2;
+	} 
+	else if (oper.compare(">=") == 0) {
+		return int1 >= int2;
+	}
+	else if (oper.compare(">") == 0) {
+		return int1 > int2;
+	}
+	else if (oper.compare("<=") == 0) {
+		return int1 <= int2;
+	}
+	else if (oper.compare("<") == 0) {
+		return int1 < int2;
+	}
+	else if (oper.compare("!=") == 0) {
+		return int1 != int2;
+	}
 
-	return retString;
+	return false;
 }
 
-void expr::expressionistObj::fire(std::string & ruleName, const std::vector<expressionistObj>& exprObjVec) {
-	// check complete, if false, pop out
-	// pick branch based on app rate
-	// expand all rules in branch
+bool expr::checkMarkUpPreconditions(const Json::Value& markup, const ppc::PipelineCharacter& speaker) {
+	std::vector<std::string> markupNames = markup.getMemberNames();
+	for (int i = 0; i < markup.size(); ++i) {
+		Json::Value currMark = markup[markupNames[i]];
+		std::string oper;
+		std::string req;
+		std::string value;
+
+		for (int j = 0; j < currMark.size(); ++j) {
+			std::string currCond = currMark[j].asString();
+			//std::cout << "CurrCond = " << currCond << " markupNames[i] = " << markupNames[i] << std::endl;
+			int firstspace = currCond.find_first_of(" ");
+			req = currCond.substr(0, firstspace);
+			oper = currCond.substr(firstspace + 1, currCond.length() - currCond.find_last_of(" ") - 1);
+			value = currCond.substr(currCond.find_last_of(" ") + 1, std::string::npos);
+			if (markupNames[i].compare("agePreconditions") == 0) {
+				//std::cout << "Making Age Comparison" << std::endl;
+
+				if (makeComparison(speaker.getAge(), std::stoi(value), oper) == false) return false;
+				continue;
+			}
+			else if (markupNames[i].compare("decisions") == 0){
+				//std::cout << "making decisions comparison" << std::endl;
+				if (makeComparison(speaker.getPersDecision(), value, oper) == false) return false;
+				continue;
+			}
+			else if (markupNames[i].compare("iqPreconditions") == 0) {
+				//std::cout << "Making IQ comparison" << std::endl;
+				if (makeComparison(speaker.getIQ(), std::stoi(value), oper) == false) return false;
+				continue;
+			}
+			else if (markupNames[i].compare("linkSuspicion") == 0) {
+				//unused currently
+				//needs target or link info
+				continue;
+			}
+			else if (markupNames[i].compare("outerLife") == 0) {
+				//std::cout << "making outerLife comparison" << std::endl;
+				if (makeComparison(speaker.getPersStructure(), value, oper) == false) return false;
+				continue;
+			}
+			else if (markupNames[i].compare("relationship") == 0) {
+				//unused currently
+				//needs target as well as speaker? or just link?
+				continue;
+			}
+			else if (markupNames[i].compare("social") == 0) {
+				//std::cout << "making social comparison" << std::endl;
+				if (makeComparison(speaker.getPersOutgoing(), value, oper) == false) return false;
+				continue;
+			}
+			else if (markupNames[i].compare("takeIn") == 0) {
+				//std::cout << "making takeIn comparison" << std::endl;
+				if (makeComparison(speaker.getPersInfo(), value, oper) == false) return false;
+				continue;
+			}
+		}
+	}
+	
+	return true;
 }
-
-/*
-NOTE to self:
-I think the best way to do this is for expand and fire to return bools.
-
-bool EXPAND SYMBOL(Json::Value Symbol, const exprObjVec&, string&)
-check markup
-if markup fails checks, return failed
-look at rules
-pick a rule based on app rate (keep track of successes/failures, dont revisit failures)
-fire rule
-if success, return result of fire
-if failed, try again
-if all rules tried and failed, return failure
-
-bool FIRE RULE(Json::Value Rule, const exprObjVec&, string&)
-check markup
-if markup fails checks, return failed
-if double brackets its a rule so expand it
-if single brackets its a substitution/variable so replace it
-otherwise its a string so return it
-
-
-*/
-
-
-////////////////////////////////////////////////////////////////////////
-///parsing out the JSON file returning a vector of the class
-////////////////////////////////////////////////////////////////////////
-
-std::vector<expressionistObj> expr::parseExpressionist(std::string file){
-    Json::Reader reader;
-    Json::Value value;
-    std::ifstream doc(resourcePath() + file, std::ifstream::binary);
-    std::vector<expressionistObj> parsed;
-    if (reader.parse(doc, value)){
-        Json::Value nonTerminalObj = value[ "nonterminals" ];
-        std::vector<std::string> terminalNames
-            = nonTerminalObj.getMemberNames();
-        
-        for (unsigned int i = 0; i < nonTerminalObj.size(); i++){
-            parsed.resize(nonTerminalObj.size());
-            Json::Value expressionObj
-                = nonTerminalObj[terminalNames[i]];
-            parsed[i].expression_ = terminalNames[i];
-            parsed[i].complete_
-                = expressionObj.get("complete", "ERROR").asBool();
-            parsed[i].deep_
-                = expressionObj.get("deep", "ERROR").asBool();
-            
-            for (unsigned int j = 0; j < expressionObj.size(); j++){
-                Json::Value rules = expressionObj["rules"];
-                
-                for (unsigned int k = 0; k < rules.size(); k++){
-                    std::string expansion
-                        = rules[k].get("expansion", "ER")[0].asString();
-                    Json::Value markUps
-                        = rules[k].get("markup", "ERROR");
-                    
-                    Json::Value agePre
-                        = markUps.get("agePreconditions", " ");
-                    Json::Value iqPre
-                        = markUps.get("iqPreconditions", " ");
-                    Json::Value linkSus
-                        = markUps.get("linkSuspicion", " ");
-                    Json::Value personalPre
-                        = markUps.get("personalityPreconditions", " ");
-                    Json::Value relationship
-                        = markUps.get("relationship", " ");
-                    int rate
-                        = rules[k].get("app_rate", "ERROR").asInt();
-                    for(unsigned int l = 0; l < agePre.size(); l++){
-                        std::string condition = agePre[l].asString();
-                        std::pair<std::string, int> conAndRate(condition, rate);
-                        parsed[i].markUp_["agePreconditions"]
-                            = conAndRate;
-                    }
-                    for(unsigned int l = 0; l < iqPre.size(); l++){
-                        std::string condition = iqPre[l].asString();
-                        std::pair<std::string, int> conAndRate(condition, rate);
-                        parsed[i].markUp_["iqPreconditions"]
-                            = conAndRate;
-                    }
-                    for(unsigned int l = 0; l < linkSus.size(); l++){
-                        std::string condition = linkSus[l].asString();
-						std::pair<std::string, int> conAndRate(condition, rate);
-                        parsed[i].markUp_["linkSuspicion"] = conAndRate;
-                    }
-                    for(unsigned int l = 0; l < personalPre.size(); l++){
-						std::string condition = personalPre[l].asString();
-						std::pair<std::string, int> conAndRate(condition, rate);
-                        parsed[i].markUp_["personalityPreconditions"]
-                            = conAndRate;
-                    }
-                    for(unsigned int l = 0; l < relationship.size(); l++){
-						std::string condition = relationship[l].asString();
-						std::pair<std::string, int> conAndRate(condition, rate);
-                        parsed[i].markUp_["relationship"] = conAndRate;
-                    }
-                }
-            }
-        }
-    }
-    return parsed;
-}
-
-
