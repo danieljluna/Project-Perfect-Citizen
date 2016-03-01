@@ -8,8 +8,9 @@
 #include "../Engine/renderComponent.h"
 #include <string>
 #include <vector>
+#include "PipelineCharacter.h"
 
-using namespace std;
+using namespace ppc;
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Character Generator class for use by the PCG system.
@@ -23,6 +24,7 @@ private:
     sf::Texture* texture;
     sf::Image& faceImage;
     
+    
     ///// Body //////
     sf::Sprite* body;
     sf::Sprite* shirt;
@@ -35,6 +37,8 @@ private:
     sf::Sprite* eyeL;
     sf::Sprite* eyeR;
     
+    sf::Sprite* browL;
+    sf::Sprite* browR;
     ///// Mouth //////
     sf::Sprite* mouth;
     
@@ -43,18 +47,17 @@ private:
 
     // A vector that holds all possible skin tones
     std::vector<sf::Color> skinTones;
-    // A vector that holds all possible hair tones
     std::vector<sf::Color> hairTones;
+    std::vector<sf::Color> lipTones;
     
     // The skin tone of the character.
     // A randomly selected element from skinTones
-    sf::Color skinColor;
-    sf::Color hairColor;
-    sf::Color shirtColor;
+
+   // sf::Color shirtColor;
     
-    
-    int eyeType, mouthType, noseType, skinType, hairType;
-    sf::Color eyeColor;
+    /*
+    int eyeType, browType, mouthType, noseType, skinType, lipType, hairStyle, hairType;
+    sf::Color eyeColor;*/
     static const int grid_size = 128;
     static const int combinations = 3;
     
@@ -72,13 +75,13 @@ public:
     ////////////////////////////////////////////////////////////////////
     /// @brief Applies the randomly generated values to drawable sprites
     ////////////////////////////////////////////////////////////////////
-    void applyCharacterValues();
+    void applyCharacterValues(PipelineCharacter& myCharacter);
     
     
     ////////////////////////////////////////////////////////////////////
     /// @brief Generates a random set of character values
     ////////////////////////////////////////////////////////////////////
-    void generateCharacterValues();
+  //  void generateCharacterValues();
     
     ////////////////////////////////////////////////////////////////////
     /// @brief initializes vector of skin tones

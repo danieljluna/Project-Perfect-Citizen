@@ -26,7 +26,7 @@
 #include "../Game/databaseSearchRenderComponent.h"
 #include "../Game/databaseSearchInputComponent.h"
 #include "../Game/databaseDisplayRenderComponent.h"
-
+#include "../Game/characterRender.hpp"
 using namespace ppc;
 
 
@@ -107,13 +107,20 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
 	/* Create the render components */
 	sf::Image iconSheet;
 	iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
+    
+    sf::Image faceSheet;
+    faceSheet.loadFromFile(resourcePath() + "Face_Sheet.png");
 	buttonRenderComponent* textRenderComponent =
 		new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
 	textRenderComponent->renderPosition(sf::Vector2f(0, 220));
 
+    
+    
+    
 	databaseDisplayRenderComponent* searchResults =
-		new databaseDisplayRenderComponent(myFont, 0, fontSize + 5, fontSize - 10);
+		new databaseDisplayRenderComponent(myFont,faceSheet, 0, fontSize + 5, fontSize - 10);
 
+    
 	/* Create the input components */
 	databaseSearchRenderComponent* searchBox = new databaseSearchRenderComponent(myFont, 75, 0, fontSize);
 	/*databaseSearchRenderComponent* searchBox = new databaseSearchRenderComponent(myFont, 0,

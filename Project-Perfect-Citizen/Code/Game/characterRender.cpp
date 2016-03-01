@@ -8,6 +8,8 @@
 
 #include "characterRender.hpp"
 #include <iostream>
+#include <random>
+
 
 
 characterRender::characterRender(sf::Image& image): faceImage(image) {
@@ -21,6 +23,9 @@ characterRender::characterRender(sf::Image& image): faceImage(image) {
     this->irisR = new sf::Sprite();
     this->eyeL = new sf::Sprite();
     this->eyeR = new sf::Sprite();
+    
+    this->browL = new sf::Sprite();
+    this->browR = new sf::Sprite();
     
     this->mouth = new sf::Sprite();
     this->nose = new sf::Sprite();
@@ -37,8 +42,7 @@ characterRender::characterRender(sf::Image& image): faceImage(image) {
     initializeSkinTones();
     initializeHairTones();
     
-    generateCharacterValues();
-    applyCharacterValues();
+   // generateCharacterValues();
 }
 
 characterRender::~characterRender() {
@@ -54,69 +58,7 @@ characterRender::~characterRender() {
     //delete rectSourceSprite;
 }
 
-void characterRender::generateCharacterValues() {
-    
-    srand(time(NULL));
-
-    
-    // Random color
-    sf::Color sc(rand() % 250 + 100,
-                 rand() % 250 + 100,
-                 rand() % 250 + 100);
-    shirtColor = sc;
-    
-    
-    // Random color
-    sf::Color ec(rand() % 255,
-                 rand() % 255,
-                 rand() % 255);
-    eyeColor = ec;
-    
-    
-    // Randomly generated number
-    // Eyes are between points (0,0) and (0,3) on our sprite sheet
-    // So this randomly generates the y value  between 0-3
-    // Used in the sf::IntRect when loading eyes from the texture map
-    int e = rand() % 3;
-    eyeType = e;
-    
-    
-    // Randomly generated number
-    // Mouths are between points (0,4) and (0,6) on our sprite sheet
-    // So this randomly generates the y value  between 4-6
-    // Used in the sf::IntRect when loading eyes from the texture map
-    int m = rand() % 3 + 4;
-    mouthType = m;
-    
-    
-    // Randomly generated number
-    // Noses are between points (10,0) and (10,2) on our sprite sheet
-    // So this randomly generates the y value  between 0-2
-    // Used in the sf::IntRect when loading eyes from the texture map
-  
-    int n = rand() % 3;
-    noseType = n;
-    
-
-    // Randomly generated number
-    // The skinTones vector holds 8 possible sf::Color values
-    // This picks a random index
-    // skinColor then becomes the element at this random index
-    int s = rand() % 8;
-    skinType = s;
-    skinColor = skinTones.at(skinType);
-    
-    
-    // Randomly generated number
-    // The skinTones vector holds 8 possible sf::Color values
-    // This picks a random index
-    // skinColor then becomes the element at this random index
-    int h = rand() % 8;
-    hairType = h;
-    hairColor= hairTones.at(hairType);
-}
-
-void characterRender::applyCharacterValues() {
+void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
     
     ////////////////////////////////////
     /// DRAWING THE BODY
@@ -128,7 +70,7 @@ void characterRender::applyCharacterValues() {
                                      5*grid_size));
     body->setScale(1.2f, 1.2f);
 
-    body->setColor(skinColor);
+    body->setColor(skinTones.at(myCharacter.getSkinColorIndex()));
     body->setPosition(75, 75);
     
     
@@ -143,21 +85,26 @@ void characterRender::applyCharacterValues() {
                                      5*grid_size));
     shirt->setScale(1.2f, 1.2f);
     
-    shirt->setColor(shirtColor);
+    shirt->setColor(myCharacter.getShirtColor());
     shirt->setPosition(75, 75);
     
     
     ////////////////////////////////////
     /// DRAWING THE HAIR
     ////////////////////////////////////
+
     hair->setTexture(*texture);
     hair->setTextureRect(sf::IntRect(7*grid_size,
                                      0*grid_size,
                                      3*grid_size,
                                      2*grid_size));
     hair->setScale(1.2f, 1.2f);
-    
-    hair->setColor(hairColor);
+    if (myCharacter.getHairType() == 2) {
+        hair->setColor(sf::Color(0,0,0,0));
+    } else {
+        hair->setColor(hairTones.at(myCharacter.
+                                    getHairColorIndex()));
+    }
     hair->setPosition(205, 85);
     
     
@@ -169,16 +116,18 @@ void characterRender::applyCharacterValues() {
                                       3*grid_size,
                                       grid_size,
                                       grid_size));
-    irisL->setColor(eyeColor);
-    irisL->setPosition(300, 300);
+    irisL->setColor(myCharacter.getEyeColor());
+    irisL->setPosition(320, 330);
+    irisL->setScale(0.75f, 0.75f);
     
     irisR->setTexture(*texture);
     irisR->setTextureRect(sf::IntRect(1*grid_size,
                                       3*grid_size,
                                       grid_size,
                                       grid_size));
-    irisR->setColor(eyeColor);
-    irisR->setPosition(450,300);
+    irisR->setColor(myCharacter.getEyeColor());
+    irisR->setPosition(460,330);
+    irisR->setScale(0.75f, 0.75f);
     
     
     ////////////////////////////////////
@@ -187,17 +136,41 @@ void characterRender::applyCharacterValues() {
     
     eyeL->setTexture(*texture);
     eyeL->setTextureRect(sf::IntRect(0*grid_size,
-                                     eyeType*grid_size,
+                                     myCharacter.getEyeType()*grid_size,
                                      grid_size,
                                      grid_size));
-    eyeL->setPosition(300, 300);
+    eyeL->setPosition(320, 330);
+    eyeL->setScale(0.75f, 0.75f);
     
     eyeR->setTexture(*texture);
     eyeR->setTextureRect(sf::IntRect(1*grid_size,
-                                     eyeType*grid_size,
+                                      myCharacter.getEyeType()*grid_size,
                                      grid_size,
                                      grid_size));
-    eyeR->setPosition(450, 300);
+    eyeR->setPosition(460, 330);
+    eyeR->setScale(0.75f, 0.75f);
+    
+    
+    
+    browR->setTexture(*texture);
+    browR->setTextureRect(sf::IntRect(1*grid_size,
+                                      myCharacter.getBrowType()*grid_size,
+                                     grid_size,
+                                     grid_size));
+    browR->setPosition(455, 280);
+    browR->setColor(hairTones.at(myCharacter.getHairColorIndex()));
+    browR->setScale(0.8f, 0.8f);
+    
+    
+    
+    browL->setTexture(*texture);
+    browL->setTextureRect(sf::IntRect(0*grid_size,
+                                       myCharacter.getBrowType()*grid_size,
+                                      grid_size,
+                                      grid_size));
+    browL->setPosition(325, 280);
+    browL->setColor(hairTones.at(myCharacter.getHairColorIndex()));
+    browL->setScale(0.8f, 0.8f);
     
     
     
@@ -206,11 +179,12 @@ void characterRender::applyCharacterValues() {
     ////////////////////////////////////
     mouth->setTexture(*texture);
     mouth->setTextureRect(sf::IntRect(0*grid_size,
-                                      mouthType*grid_size,
+                                       myCharacter.getMouthType()*grid_size,
                                       2*grid_size,
                                       grid_size));
-    mouth->setPosition(360, 485);
-    mouth->setScale(0.6f, 0.6f);
+    mouth->setPosition(370, 495);
+    mouth->setColor(lipTones.at(myCharacter.getLipColorIndex()));
+    mouth->setScale(0.55f, 0.55f);
     
     
     
@@ -219,11 +193,11 @@ void characterRender::applyCharacterValues() {
     ////////////////////////////////////
     nose->setTexture(*texture);
     nose->setTextureRect(sf::IntRect(10*grid_size,
-                                      noseType*grid_size,
+                                       myCharacter.getNoseType()*grid_size,
                                       2*grid_size,
                                       1*grid_size));
     nose->setRotation(90);
-    nose->setPosition(484, 335);
+    nose->setPosition(489, 335);
     
     nose->setScale(0.7f, 0.7f);
     
@@ -269,6 +243,14 @@ void characterRender::initializeHairTones() {
     hairTones.push_back(sf::Color( 59, 48, 36));
     hairTones.push_back(sf::Color( 85, 72, 56));
     hairTones.push_back(sf::Color(106, 78, 66));
+    
+
+
+    lipTones.push_back(sf::Color(238,193,173));
+    lipTones.push_back(sf::Color(219,172,152));
+    lipTones.push_back(sf::Color(210,153,133));
+    lipTones.push_back(sf::Color(201,130,118));
+    lipTones.push_back(sf::Color(227,93,106));
 }
 
 
@@ -282,6 +264,8 @@ void characterRender::draw( sf::RenderTarget& target,
     target.draw(*irisR, states);
     target.draw(*eyeL, states);
     target.draw(*eyeR, states);
+    target.draw(*browR, states);
+    target.draw(*browL, states);
     target.draw(*mouth, states);
     
 }
