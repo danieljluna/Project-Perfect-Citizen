@@ -40,8 +40,8 @@ void spawnConsole(WindowInterface*& windowToModify, InputHandler& ih, NodeState&
 ///////////////////////////////////////////////////////////////////////
 void spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
 	sf::Image& buttonSheet, float x, float y);
-
-
+    
+    
 ///////////////////////////////////////////////////////////////////////
 ///@brief Constructs a pipeline window on the WindowInterface passed.
 ///
@@ -50,7 +50,8 @@ void spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Database*
 ///@param Sprite sheet of it's border component's buttons
 ///////////////////////////////////////////////////////////////////////
 void spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
-	sf::Image& buttonSheet, float x, float y);
-
+        sf::Image& buttonSheet, float x, float y);
+    
+void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, NodeState & ns, sf::Image& buttonSheet, float x, float y);
 };
 
