@@ -1,4 +1,4 @@
-
+#include "debug.h"
 #include "DesktopLogger.h"
 
 using namespace ppc;

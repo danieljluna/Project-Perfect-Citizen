@@ -1,3 +1,4 @@
+#include "../debug.h"
 #include "AudioLogger.h"
 
 void ppc::AudioLogger::log(const std::string message)

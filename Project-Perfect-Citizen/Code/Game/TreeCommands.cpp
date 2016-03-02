@@ -1,3 +1,4 @@
+#include "../Engine/debug.h"
 #include "TreeCommands.h"
 
 fnMap functionMap{

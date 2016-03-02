@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "RenderCmpntLogger.h"
 
 using namespace ppc;
