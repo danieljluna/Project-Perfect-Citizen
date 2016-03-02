@@ -11,10 +11,6 @@
 ///  use in pipeline extraction sequences, as well as the function to
 ///  generate a character.  Characters are not automatically generated
 ///  when instantiated.
-// In regards to the above I was running into issues when I had them
-// generate immediately when instantiated, I don't remember why.  If
-// it ends up being better to automatically generate them it should be
-// simple to change it.
 ///////////////////////////////////////////////////////////////////////
 
 namespace ppc {
@@ -34,10 +30,10 @@ public:
 	std::string getEmail() const { return email_; }
 	std::string getPhoneNum() const { return phoneNumber_; }
 
-	std::string getPersOutgoing() const { return persOutgoing_; }
-	std::string getPersInfo() const { return persInfo_; }
-	std::string getPersDecision() const { return persDecision_; }
-	std::string getPersStructure() const { return persStructure_; }
+	std::string getPersSocial() const { return persSocial_; }
+	std::string getPersTakeIn() const { return persTakeIn_; }
+	std::string getPersDecisions() const { return persDecisions_; }
+	std::string getPersOuterLife() const { return persOuterLife_; }
 
 	std::string getJob() const { return job_; }
     
@@ -59,28 +55,46 @@ public:
 	///////////////////////////////////////////////////////////////////
 
 	///////////////////////////////////////////////////////////////////
-	// Generate Character
+	// Constructors
 	///////////////////////////////////////////////////////////////////
 	
+	///////////////////////////////////////////////////////////////////
+	/// @brief Default Constructor, generates character procedurally
+	///        with no set features
+	///////////////////////////////////////////////////////////////////
+
+	PipelineCharacter();
+
+	///////////////////////////////////////////////////////////////////
+	/// @brief Job Constructor, generates character procedurally
+	///        with a specific Job
+	/// @param [in] job a string corresponding to a specific job type,
+	///                 must be one of the jobs listed in JOBS in
+	///                 PipelineCharacter.cpp
+	///////////////////////////////////////////////////////////////////
+
+	PipelineCharacter(const std::string& job);
+
+
+private:
+
 	///////////////////////////////////////////////////////////////////
 	/// @brief Generates pipeline character data
 	///////////////////////////////////////////////////////////////////
 	void generate();
-    
 
-private:
 	int iq_;
 	int age_;
 	int creditScore_;
 
-	std::string  ssn_;
+	std::string ssn_;
 	std::string email_;
 	std::string phoneNumber_;
 
-	std::string persOutgoing_;
-	std::string persInfo_;
-	std::string persDecision_;
-	std::string persStructure_;
+	std::string persSocial_;
+	std::string persTakeIn_;
+	std::string persDecisions_;
+	std::string persOuterLife_;
 
 	std::string job_;
     
