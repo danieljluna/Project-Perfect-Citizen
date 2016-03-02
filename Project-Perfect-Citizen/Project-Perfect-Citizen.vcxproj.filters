@@ -184,6 +184,12 @@
     <ClCompile Include="Code\Game\characterRender.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\PipelineDataRenderComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\PipelineGraphRenderComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -403,6 +409,12 @@
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\characterRender.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\PipelineGraphRenderComponent.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\PipelineDataRenderComponent.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>
