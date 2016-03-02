@@ -10,9 +10,10 @@
 using namespace std;
 
 ///////////////////////////////////////////////////////////////////////
-/// @brief Designated Render Component for an Text Output Box
-/// @author Michael Lowe / Alex Vincent
-/// @details write this later
+/// @brief Renders the pipeline meta data information
+/// @author Alex Vincent
+/// @details Contains an sfml font, text, sprite, and border box that
+/// constitutes the metadata box in the pipeline extraction
 ///////////////////////////////////////////////////////////////////////
 class PipelineDataRenderComponent : public ppc::RenderComponent {
 private:
@@ -45,27 +46,45 @@ private:
 
 public:
 
+
+	////////////////////////////////////////////////////////////////////
+	/// @brief The background of the Pipeline data box
+	/// @param The font to render the text with
+	/// @param the x position where the font will be rendered
+	/// @param the y position where the font will be rendered
+	/// @param the size of the text to display
+	/// @param the width of the surrounding border box
+	/// @param the height of the surrounding border box
+	////////////////////////////////////////////////////////////////////
 	PipelineDataRenderComponent(sf::Font& f, int x, int y, int size, int backgroundWidth, int backgroundHeight);
 
+	////////////////////////////////////////////////////////////////////
+	/// @brief Destructor
+	////////////////////////////////////////////////////////////////////
 	~PipelineDataRenderComponent();
 
 	////////////////////////////////////////////////////////////////////
 	/// @brief updateString recieves a string from an input component to
 	///        display.
-	/// @param s is the string recieved from the input component
+	/// @param string to be rendered to the screen
 	////////////////////////////////////////////////////////////////////
 	void updateString(std::string output);
 
 	////////////////////////////////////////////////////////////////////
 	/// @brief clearString deletes the contents of a string
-	/// @param s is the string recieved from the input component
 	////////////////////////////////////////////////////////////////////
 	void clearString();
 
+
+	////////////////////////////////////////////////////////////////////
+	/// @brief Inherited draw functions from the render component
+	////////////////////////////////////////////////////////////////////
 	virtual void draw(sf::RenderTarget & target,
 		sf::RenderStates states) const;
 
-	//virtual void registerInput(sf::Event& ev) override;
+	////////////////////////////////////////////////////////////////////
+	/// @brief Inherited recieveMessage function from render component
+	////////////////////////////////////////////////////////////////////
 	virtual void recieveMessage(msgType code) override;
 
 };
