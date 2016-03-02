@@ -42,6 +42,14 @@ BorderDecorator::BorderDecorator(
     buttonRenders_ = new buttonRenderComponent*[maxButtons_];
     buttonEntities_ = new Entity*[maxButtons_];
 
+    for (size_t i = 0; i < maxButtons_; ++i) {
+        buttonInputs_[i] = nullptr;
+        buttonRenders_[i] = nullptr;
+        buttonEntities_[i] = nullptr;
+    }
+
+    buttonCount_ = 0;
+
     //Set up Bounds
     updateBounds();
 

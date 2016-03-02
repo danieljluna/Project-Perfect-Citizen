@@ -2,7 +2,6 @@
 #include "iconInputComponent.h"
 #include <iostream>
 #include <string>
-#include <string>
 
 using namespace ppc;
 const string MOUSE_DOWN_CODE = "MDC";
