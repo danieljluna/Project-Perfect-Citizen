@@ -106,8 +106,8 @@ int main(int argc, char** argv) {
     
     Desktop myDesktop(*desktopWindow, testState);
     myDesktop.addBackgroundCmpnt(desktopWindow, S);
-    //createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
-    createTeacherDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+    createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+    //createTeacherDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
     
     Entity* aCharacter = new Entity();
     //characterRender* characterRend = new characterRender(faceSheet);

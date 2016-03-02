@@ -26,6 +26,8 @@
 #include "../Game/databaseSearchRenderComponent.h"
 #include "../Game/databaseSearchInputComponent.h"
 #include "../Game/databaseDisplayRenderComponent.h"
+#include "../Game/PipelineDataRenderComponent.h"
+#include "../Game/PipelineGraphRenderComponent.h"
 #include "../Game/photoRenderComponent.hpp"
 
 using namespace ppc;
@@ -151,6 +153,52 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
 	windowToModify->addEntity(backButton);
 	windowToModify = new BorderDecorator(*windowToModify);
         dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+}
+
+void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
+                        sf::Image& buttonSheet, float x, float y) {
+    if (windowToModify == nullptr) { return; }
+    
+    sf::Font myFont;
+    myFont.loadFromFile(resourcePath() + "consola.ttf");
+    int fontSize = 20;
+    int dataWindowX = (2 * windowToModify->getSize().x) / 3;
+    
+    /////////////////////////////////////////
+    /////// COMPONENTS
+    ///////////////////////////////////////
+    
+    /* Create the render components */
+    PipelineDataRenderComponent* dataText = new PipelineDataRenderComponent(myFont,
+            dataWindowX, 0, fontSize, windowToModify->getSize().x, windowToModify->getSize().y);
+    
+    PipelineGraphRenderComponent* graphBounds = new PipelineGraphRenderComponent(0, 0, dataWindowX,
+            windowToModify->getSize().y);
+    
+    /* NADER: PUT YOUR RENDER COMPONENTS HERE FOR THE GRAPH */
+    
+    /* MARK: this is how you display the text in the blue box.
+     Pass a reference of dataText to the thing thats making the PCG SMS
+     stuff call this function, passing your string to this function.*/
+    dataText->updateString("SMS MESSAGE\n\n { Ayy lmao }");
+    
+    /////////////////////////////////////////
+    /////// ENTITIES
+    ///////////////////////////////////////
+    Entity* dataBox = new Entity();
+    dataBox->addComponent(dataText);
+    
+    Entity* graphBox = new Entity();
+    dataBox->addComponent(graphBounds);
+    
+    /////////////////////////////////////////
+    /////// WINDOW CONSTRUCTION
+    ///////////////////////////////////////
+    windowToModify->addEntity(*dataBox);
+    windowToModify->addEntity(*graphBox);
+    windowToModify->setPosition(x, y);
+    windowToModify = new BorderDecorator(*windowToModify);
+    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
 }
 
 void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y) {
