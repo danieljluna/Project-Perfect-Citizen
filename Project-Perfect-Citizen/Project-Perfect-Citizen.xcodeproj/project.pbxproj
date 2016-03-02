@@ -80,6 +80,7 @@
 		C8EFA2E81C83AA4B00A54FB9 /* Face_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = C8EFA2E71C83AA4B00A54FB9 /* Face_Sheet.png */; };
 		E94E759A1C728D2C00C77C60 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = E94E75991C728D2C00C77C60 /* data.json */; };
 		E959DD391C7022F7001F2CAF /* TestDesktop.json in Resources */ = {isa = PBXBuildFile; fileRef = E959DD381C7022F7001F2CAF /* TestDesktop.json */; };
+		E984A8AB1C868AF9003A467C /* photoRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E984A8A91C868AF9003A467C /* photoRenderComponent.cpp */; };
 		E9C810591C603E1600D47DA6 /* dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = E9C810581C603E1600D47DA6 /* dummy.json */; };
 /* End PBXBuildFile section */
 
@@ -230,6 +231,8 @@
 		C8EFA2E71C83AA4B00A54FB9 /* Face_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Face_Sheet.png; sourceTree = "<group>"; };
 		E94E75991C728D2C00C77C60 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		E959DD381C7022F7001F2CAF /* TestDesktop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestDesktop.json; sourceTree = "<group>"; };
+		E984A8A91C868AF9003A467C /* photoRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = photoRenderComponent.cpp; sourceTree = "<group>"; };
+		E984A8AA1C868AF9003A467C /* photoRenderComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = photoRenderComponent.hpp; sourceTree = "<group>"; };
 		E9C810581C603E1600D47DA6 /* dummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummy.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -332,6 +335,8 @@
 				C82E60DD1C810E3F001860CC /* PipelineCharacter.h */,
 				C82E60DE1C810E3F001860CC /* testRenderSprite.cpp */,
 				C82E60DF1C810E3F001860CC /* testRenderSprite.h */,
+				E984A8A91C868AF9003A467C /* photoRenderComponent.cpp */,
+				E984A8AA1C868AF9003A467C /* photoRenderComponent.hpp */,
 				C82E60E01C810E3F001860CC /* textInputKeys.cpp */,
 				C82E60E11C810E3F001860CC /* textInputKeys.hpp */,
 				C82E60E21C810E3F001860CC /* textInputRenderComponent.cpp */,
@@ -630,6 +635,7 @@
 				C82E60EF1C810E3F001860CC /* createButton.cpp in Sources */,
 				C82E615A1C810E4B001860CC /* debug.cpp in Sources */,
 				C82E61701C810E4B001860CC /* WindowLogger.cpp in Sources */,
+				E984A8AB1C868AF9003A467C /* photoRenderComponent.cpp in Sources */,
 				C82E61581C810E4B001860CC /* component.cpp in Sources */,
 				C8EFA2D81C838F2400A54FB9 /* BootLoader.cpp in Sources */,
 				C82E615B1C810E4B001860CC /* desktop.cpp in Sources */,

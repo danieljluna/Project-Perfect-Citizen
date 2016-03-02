@@ -70,7 +70,7 @@ public:
 	/// @param Vector that will be interpreted and passed to main display
 	/// @param hardcoded string to pass into
 	///////////////////////////////////////////////////////////////////////
-	void databaseSearchInputComponent::updateDisplayResults(std::vector<std::string> displayVec, std::string newDisplay);
+	void updateDisplayResults(std::vector<std::string> displayVec, std::string newDisplay);
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Default ctor

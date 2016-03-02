@@ -26,6 +26,7 @@
 #include "../Game/databaseSearchRenderComponent.h"
 #include "../Game/databaseSearchInputComponent.h"
 #include "../Game/databaseDisplayRenderComponent.h"
+#include "../Game/photoRenderComponent.hpp"
 
 using namespace ppc;
 
@@ -150,6 +151,42 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
 	windowToModify->addEntity(backButton);
 	windowToModify = new BorderDecorator(*windowToModify);
         dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+}
+
+void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y) {
+    if (windowToModify == nullptr) { return; }
+    
+    /////////////////////////////////////////
+    /////// COMPONENTS
+    ///////////////////////////////////////
+    sf::Image iconSheet;
+    iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
+    buttonRenderComponent* textRenderComponent =
+        new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
+    textRenderComponent->renderPosition(sf::Vector2f(0, 220));
+    
+    sf::Image photo;
+    photo.loadFromFile(resourcePath() + "kappa.png");
+    photoRenderComponent* photoRender = new photoRenderComponent(photo);
+    photoRender->setImageScale((float)windowToModify->getSize().x /
+                               (float)photo.getSize().x,
+                               (float)windowToModify->getSize().y /
+                               (float)photo.getSize().y);
+    
+    /////////////////////////////////////////
+    /////// ENTITIES
+    ///////////////////////////////////////
+    Entity *newEnt = new Entity();
+    newEnt->addComponent(photoRender);
+    
+    /////////////////////////////////////////
+    /////// WINDOW CONSTRUCTION
+    ///////////////////////////////////////
+    windowToModify->setPosition(x, y);
+    windowToModify->addEntity(*newEnt);
+    windowToModify = new BorderDecorator(*windowToModify);
+        dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+
 }
 
 
