@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Engine/Network.h"
+#include "../Engine/debug.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// @author Mark Biundo
@@ -30,7 +31,8 @@ public:
 
 private:
 
-
+	static void populateLevelEdges(int start, int end, int numEdges, 
+		Network& net, int suspLevel);
 
 
 

@@ -2,7 +2,7 @@
 #define VERTEX_H
 
 #include <SFML/Graphics/Sprite.hpp>
-#include "PipelineCharacter.h"
+#include "../Game/PipelineCharacter.h"
 
 namespace ppc {
 

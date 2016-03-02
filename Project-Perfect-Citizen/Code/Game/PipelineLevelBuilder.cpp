@@ -40,9 +40,9 @@ Network PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 //Goes through a range of vertices and populates them with random edges
 //Useful for creating clusters of closely related nodes.  Set a susp
 //value of 0 or 1 for all nodes, or use -1 to determine randomly.
-void populateLevelEdges(int start, int end, int numEdges, Network& net, int suspLevel) {
+void PipelineLevelBuilder::populateLevelEdges(int start, int end, int numEdges, Network& net, int suspLevel) {
 	int i = 0;
-	std::srand(std::time(0));
+	std::srand(static_cast<unsigned int>(std::time(0)));
 	while (i < numEdges) {
 		int first = std::rand() % (end - start) + start;
 		int second = std::rand() % (end - start) + start;
@@ -53,8 +53,8 @@ void populateLevelEdges(int start, int end, int numEdges, Network& net, int susp
 		if (net.isAdjacent(first, second)) continue;
 		
 		Edge thisedge;
-		if (suspLevel == -1) thisedge.weight = std::rand() % 1;
-		else thisedge.weight = suspLevel;
+		if (suspLevel == -1) thisedge.weight = static_cast<float>(std::rand() % 1);
+		else thisedge.weight = static_cast<float>(suspLevel);
 
 		net.setEdge(first, second, thisedge);
 		net.setEdge(second, first, thisedge);
