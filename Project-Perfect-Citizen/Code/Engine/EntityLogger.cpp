@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "EntityLogger.h"
 
 using namespace ppc;

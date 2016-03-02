@@ -19,7 +19,7 @@
 /// @details Functionality: opens windows and places them on the desktop
 /// by listening for double clicks from the mouse input
 ///////////////////////////////////////////////////////////////////////
-
+namespace ppc {
 
 class iconInputComponent : public ppc::InputComponent {
 private:
@@ -38,9 +38,11 @@ public:
 	///@param The newly created icon entity to add components to.
 	///@param The buttonSheet of the window it will create's buttons.
 	///////////////////////////////////////////////////////////////////////
-	iconInputComponent(ppc::Desktop& theDesktop, Database* db, sf::Image& buttonSheet_);
+	iconInputComponent(Desktop& theDesktop, Database* db, sf::Image& buttonSheet_);
 	virtual ~iconInputComponent();
 	virtual bool registerInput(sf::Event& ev) override;
 	virtual void recieveMessage(msgType message) override;
+
+};
 
 };

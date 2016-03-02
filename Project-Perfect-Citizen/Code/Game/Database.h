@@ -15,6 +15,8 @@
 /// the intention is that there will be a stack of databases
 /// in the application itself.
 ///////////////////////////////////////////////////////////////////////
+namespace ppc {
+
 class Database {
 
 private:
@@ -88,5 +90,7 @@ public:
 	/// @brief prints the jobs of the characters currently in the database
 	///////////////////////////////////////////////////////////////////////
 	void printCharacters();
+
+};
 
 };

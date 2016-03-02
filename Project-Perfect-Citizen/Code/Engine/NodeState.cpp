@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "NodeState.h"
 
 void ppc::NodeState::popWorking()

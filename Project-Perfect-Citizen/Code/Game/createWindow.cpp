@@ -27,6 +27,7 @@
 #include "../Game/databaseSearchInputComponent.h"
 #include "../Game/databaseDisplayRenderComponent.h"
 
+#include "../Engine/debug.h"
 #include "../Game/characterRender.hpp"
 
 #include "../Game/PipelineDataRenderComponent.h"

@@ -16,6 +16,7 @@
 
 ///////////////////////////////////////////////////////////
 
+#include "../Engine/debug.h"
 #include "desktopExtractionComponent.hpp"
 #include "../Library/json/json.h"
 #include <iostream>

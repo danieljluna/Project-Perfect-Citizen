@@ -3,7 +3,6 @@
 #include "EntityDecorator.h"
 #include <iostream>
 
-
 namespace ppc {
 	///////////////////////////////////////////////////////////////////
 	///@brief A decorator for Entities that logs data when functions  

@@ -1,3 +1,4 @@
+#include "../Engine/debug.h"
 #include "createDesktop.h"
 using namespace ppc;
 

@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "FunctionObserver.h"
 #include <iostream>
 #include <string>

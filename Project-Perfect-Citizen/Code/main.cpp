@@ -48,6 +48,7 @@
 #include "Game/BootLoader.hpp"
 #include "Engine/FunctionObserver.h"
 #include "Game/characterRender.hpp"
+#include "Engine/debug.h"
 
 
 
