@@ -6,6 +6,7 @@
 #include "../Game/Database.h"
 #include <string>
 #include <stack>
+#include "characterRender.hpp"
 
 using namespace std;
 
@@ -17,6 +18,9 @@ using namespace std;
 class databaseDisplayRenderComponent : public ppc::RenderComponent {
 private:
 
+    characterRender* render;
+    
+    
 	////////////////////////////////////////////////////////////////////
 	/// @brief Sprite to be rendered
 	////////////////////////////////////////////////////////////////////
@@ -45,7 +49,7 @@ private:
 
 public:
 
-	databaseDisplayRenderComponent(sf::Font& f, int x, int y, int size);
+    databaseDisplayRenderComponent(sf::Font& f, sf::Image& faceSheet, int x, int y, int size);
 
 	~databaseDisplayRenderComponent();
 

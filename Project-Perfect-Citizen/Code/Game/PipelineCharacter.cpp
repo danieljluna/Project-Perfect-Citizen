@@ -4,7 +4,7 @@
 
 using namespace ppc;
 
-const std::string OUTGOING_VALUES[] = { "Extravert", "Ambivert", 
+const std::string OUTGOING_VALUES[] = { "Extravert", "Ambivert",
                                  "Introvert" };
 const int OUTGOING_SIZE	 = 3;
 
@@ -86,6 +86,48 @@ void PipelineCharacter::generate() {
 	persDecision_ = DECISION_VALUES[decd(gen)];
 	persStructure_ = STRUCTURE_VALUES[strucd(gen)];
 	job_ = JOBS[jobd(gen)];
+    
+    
+    
+    // for random colors
+    std::uniform_int_distribution<> colord(100, 250);
+    // for eye types
+    std::uniform_int_distribution<> eyed(0, 2);
+    // for brow types
+    std::uniform_int_distribution<> browd(7, 9);
+    // for mouth types
+    std::uniform_int_distribution<> mouthd(4, 6);
+    // for nose types
+    std::uniform_int_distribution<> nosed(0, 2);
+    // for skin index
+    std::uniform_int_distribution<> skind(0, 7);
+    // for hair index
+    std::uniform_int_distribution<> haircd(0, 7);
+    // for har type
+    std::uniform_int_distribution<> haird(0, 2);
+    //for lip index
+    std::uniform_int_distribution<> lipcd(0, 3);
+    
+    
+    sf::Color sc(colord(gen),colord(gen),colord(gen));
+    shirtColor_ = sc;
+    
+    sf::Color ec(colord(gen),colord(gen),colord(gen));
+    eyeColor_ = ec;
+    
+    
+    eyeType_ = eyed(gen);
+    
+    browType_ = browd(gen);
+    
+    mouthType_ = mouthd(gen);
+    
+    noseType_ = nosed(gen);
+    
+    skinColorIndex_ = skind(gen);
+    hairColorIndex_ = haircd(gen);
+    lipColorIndex_ = lipcd(gen);
+    
 
 }
 

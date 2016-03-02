@@ -7,8 +7,10 @@
 #include <SFML/System.hpp>
 #include "../Engine/renderComponent.h"
 #include <string>
+#include <vector>
+#include "PipelineCharacter.h"
 
-using namespace std;
+using namespace ppc;
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Character Generator class for use by the PCG system.
@@ -19,15 +21,43 @@ using namespace std;
 class characterRender : public ppc::RenderComponent{
 private:
     
+    sf::Texture* texture;
+    sf::Image& faceImage;
+    
+    
+    ///// Body //////
+    sf::Sprite* body;
+    sf::Sprite* shirt;
+    
+    sf::Sprite* hair;
+    
     ///// Eyes //////
     sf::Sprite* irisL;
     sf::Sprite* irisR;
     sf::Sprite* eyeL;
     sf::Sprite* eyeR;
     
-    sf::Texture* texture;
-    sf::Image& faceImage;
-    int height, xIndex, yIndex;
+    sf::Sprite* browL;
+    sf::Sprite* browR;
+    ///// Mouth //////
+    sf::Sprite* mouth;
+    
+    ///// Mouth //////
+    sf::Sprite* nose;
+
+    // A vector that holds all possible skin tones
+    std::vector<sf::Color> skinTones;
+    std::vector<sf::Color> hairTones;
+    std::vector<sf::Color> lipTones;
+    
+    // The skin tone of the character.
+    // A randomly selected element from skinTones
+
+   // sf::Color shirtColor;
+    
+    /*
+    int eyeType, browType, mouthType, noseType, skinType, lipType, hairStyle, hairType;
+    sf::Color eyeColor;*/
     static const int grid_size = 128;
     static const int combinations = 3;
     
@@ -41,29 +71,26 @@ public:
     ~characterRender();
     
     
-    ////////////////////////////////////////////////////////////////////
-    /// @brief Generates The Character's Eye
-    /// @details Recieves a color from generateEyeColor
-    /// Recieves an integer from generateEyeType, which corresponds to a
-    /// location on the texture grid.
-    ////////////////////////////////////////////////////////////////////
-    void generateCharacterEye();
     
     ////////////////////////////////////////////////////////////////////
-    /// @brief Returns a color for the characters eye
-    /// @details Subroutine of generateCharacterEye()
+    /// @brief Applies the randomly generated values to drawable sprites
     ////////////////////////////////////////////////////////////////////
-    sf::Color generateEyeColor();
+    void applyCharacterValues(PipelineCharacter& myCharacter);
     
     
     ////////////////////////////////////////////////////////////////////
-    /// @brief Returns an integer to be read as a y location on texture
-    ////       grid.
-    /// @details Subroutine of generateCharacterEye().
-    ///          As of now the range of possible types is 0-3
+    /// @brief Generates a random set of character values
     ////////////////////////////////////////////////////////////////////
-    int generateEyeType();
-     
+  //  void generateCharacterValues();
+    
+    ////////////////////////////////////////////////////////////////////
+    /// @brief initializes vector of skin tones
+    ////////////////////////////////////////////////////////////////////
+    void initializeSkinTones();
+    
+    void initializeHairTones();
+    
+    
     ///////////////////////////////////////////////////////////////////////
     /// @brief The main draw function that was inheirted from RenderComponent.
     /// @details You need to define this to create a child of RenderComponent
