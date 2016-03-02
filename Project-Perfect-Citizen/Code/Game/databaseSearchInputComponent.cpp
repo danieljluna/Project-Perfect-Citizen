@@ -12,8 +12,8 @@ const int ENTER_UNICODE = 10;
 const int CARRIAGE_RETURN_UNICODE = 13;
 
 databaseSearchInputComponent::databaseSearchInputComponent(Database* initialDB, ppc::InputHandler& ih, databaseSearchRenderComponent& t,
-	databaseDisplayRenderComponent& d, sf::Sprite& s)
-	: InputComponent(2), textBoxSprt(s), textBox(t), textDisplay(d), inputHandle(ih) {
+	databaseDisplayRenderComponent& d, sf::Sprite& s, characterRender& r)
+	: InputComponent(2), textBoxSprt(s), textBox(t), textDisplay(d), inputHandle(ih), render(r) {
 
 	ih.addHandle(sf::Event::TextEntered);
 	ih.addHandle(sf::Event::KeyPressed);
@@ -163,6 +163,7 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 						updateDisplayResults(displayVec, "No results found");
 					}
 					else {
+						render.applyCharacterValues(filteredDatabase->getDatabaseState().at(0));
 						searchHistory.emplace(filteredDatabase);
 						updateDisplayOutput(searchHistory.top()->getPrintableDatabase());
 					}

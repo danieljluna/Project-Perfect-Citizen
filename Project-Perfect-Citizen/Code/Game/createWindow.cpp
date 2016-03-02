@@ -114,11 +114,9 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
 		new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
 	textRenderComponent->renderPosition(sf::Vector2f(0, 220));
 
-    
-    
-    
+   
 	databaseDisplayRenderComponent* searchResults =
-		new databaseDisplayRenderComponent(myFont,faceSheet, 0, fontSize + 5, fontSize - 10);
+		new databaseDisplayRenderComponent(myFont, faceSheet, 0, fontSize + 5, fontSize - 10);
 
     
 	/* Create the input components */
@@ -127,17 +125,21 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
 		windowToModify->getSize().y - (fontSize + windowOffset),
 		fontSize);*/
 	
+	characterRender* render = new characterRender(faceSheet);
 	/* Create the update components */
 
 	/* Create the input components */
 	databaseSearchInputComponent* dSI = new databaseSearchInputComponent(db, ih, *searchBox, *searchResults,
-		*textRenderComponent->getSprite());
+		*textRenderComponent->getSprite(), *render);
 
 	
 
 	/////////////////////////////////////////
 	/////// ENTITIES 
 	///////////////////////////////////////
+	Entity* characterProfile = new Entity();
+	characterProfile->addComponent(render);
+
 	Entity* searchBoxEntity = new Entity();
 	searchBoxEntity->addComponent(searchBox);
 	searchBoxEntity->addComponent(dSI);
@@ -154,6 +156,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
 	windowToModify->setPosition(x, y);
 	windowToModify->addEntity(*searchBoxEntity);
 	windowToModify->addEntity(*resultsBoxEntity);
+	windowToModify->addEntity(*characterProfile);
 	windowToModify->addEntity(backButton);
 	windowToModify = new BorderDecorator(*windowToModify);
         dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");

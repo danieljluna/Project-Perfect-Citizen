@@ -24,6 +24,11 @@ void Database::generateFullDatabase(int newMaxNumber) {
 	databaseState_ = newDatabase;
 }
 
+std::vector<ppc::PipelineCharacter> Database::getDatabaseState()
+{
+	return databaseState_;
+}
+
 std::vector<std::string> Database::getPrintableDatabase(){
 	vector<string> printable;
 	string temp = "";
