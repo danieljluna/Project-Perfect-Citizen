@@ -255,7 +255,7 @@ void Network::draw(sf::RenderTarget& target,
 				//Adjust the bounds of the edge based on
 				//where it is drawn.
 				edgeMat_[edgeIndex]->constructBounds(
-					vertexData_[i].getPosCenter(), 
+					vertexData_[i].getPosCenter(),
 					vertexData_[j].getPosCenter());
             }
         }

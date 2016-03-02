@@ -23,14 +23,11 @@ private:
 
 	sf::CircleShape circ_;
 	static const float radius_;
-
-	void setTextPos();
+	sf::FloatRect bounds_;
 
 public:
 
 	Vertex();
-	Vertex(sf::Vector2f, PipelineCharacter, sf::Color);
-	Vertex(float, float, PipelineCharacter, sf::Color);
 	
 	Vertex(const Vertex& other);
 	Vertex& operator=(const Vertex& other);
@@ -41,12 +38,10 @@ public:
 	sf::Color getColor() const;
 	void setColor(sf::Color);
 
-	sf::Vector2f getPos() const;
-	void setPos(sf::Vector2f);
-	void setPos(float x, float y);
-
-
 	sf::Vector2f getPosCenter() const;
+
+	sf::FloatRect getLocalBounds() const;
+	sf::FloatRect getGlobalBounds() const;
 
 	PipelineCharacter getCharacter() const;
 	void setCharacter(PipelineCharacter);

@@ -168,12 +168,12 @@ int main(int argc, char** argv) {
 	net.vert(0).setCharacter(Bob);
 	net.vert(1).setCharacter(Tim);
 	net.vert(2).setCharacter(Rob);
-	net.vert(0).setPos({ 360,300 });
-	net.vert(1).setPos({ 500,600 });
-	net.vert(2).setPos({ 100,200 });
-	DraggableInput di(net.vert(0).getCircle());
+	net.vert(0).setPosition(360,300);
+	net.vert(1).setPosition(500,600);
+	net.vert(2).setPosition(100,200);
+	DraggableInput di(net.vert(0));
 	net.vert(0).applyDraggable(di, desktopWindow->getInputHandler());
-	di.setBounds(net.vert(0).getCircle().getGlobalBounds());
+	di.setBounds(net.vert(0).getGlobalBounds());
 	Edge e1, e2;
 	e1.setColorRed();
 	e2.setColorGreen();
