@@ -26,7 +26,6 @@
 #include <list>
 #include <cstddef>
 
-
 using namespace expr;
 
 ////////////////////////////////////////////////////////////////////////
@@ -69,7 +68,7 @@ std::pair<std::string, bool> expr::ExpressionistParser::expandWithJson(const Jso
 
 	std::vector<Json::Value> unvisited;
 
-	for (size_t i = 0; i < symbol["rules"].size(); ++i) {
+	for (unsigned int i = 0; i < symbol["rules"].size(); ++i) {
 		Json::Value rule = symbol["rules"][i];
 		unvisited.push_back(rule);
 	}
@@ -127,7 +126,7 @@ std::pair<std::string, bool> expr::ExpressionistParser::fireWithJson(const Json:
 	//std::cout << rule["expansion"][0].asString() << std::endl;
 
 	//go through all strings in expansion
-	for (size_t i = 0; i < rule["expansion"].size(); ++i) {
+	for (unsigned int i = 0; i < rule["expansion"].size(); ++i) {
 		std::string currExp = rule["expansion"][i].asString();
 		size_t braceCount = trimBraces(currExp);
 		if (braceCount == 0) {
@@ -202,7 +201,7 @@ bool expr::ExpressionistParser::checkMarkUpPreconditions(const Json::Value& mark
 		std::string req;
 		std::string value;
 
-		for (size_t j = 0; j < currMark.size(); ++j) {
+		for (unsigned int j = 0; j < currMark.size(); ++j) {
 			std::string currCond = currMark[j].asString();
 			//std::cout << "CurrCond = " << currCond << " markupNames[i] = " << markupNames[i] << std::endl;
 			size_t firstspace = currCond.find_first_of(" ");
