@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "BaseFileType.h"
 
 ppc::BaseFileType::BaseFileType(ppc::FileType type)

@@ -1,3 +1,4 @@
+#include "../Engine/debug.h"
 #include "iconInputComponent.h"
 #include <iostream>
 #include <string>

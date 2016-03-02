@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "observer.h"
 
 #include "subject.h"

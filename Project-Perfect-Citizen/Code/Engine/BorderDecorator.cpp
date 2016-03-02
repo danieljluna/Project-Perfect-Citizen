@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "BorderDecorator.h"
 
 #include <SFML/Window/Event.hpp>

@@ -1,3 +1,4 @@
+#include "../debug.h"
 #include "AudioQueue.h"
 #include <string>
 sf::Sound* AudioQueue::findOpenSound()

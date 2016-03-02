@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "RenderCmpntDecorator.h"
 
 using namespace ppc;
