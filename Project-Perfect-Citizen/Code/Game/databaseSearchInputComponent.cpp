@@ -155,9 +155,18 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 					return true;
 				}
 				
-				if (searchHistory.top()->filterIsValid(filter)) {
+
+				/* Clean the filter term of any caps*/
+				string cleaned = "";
+				for (unsigned int i = 0; i < filter.length(); ++i) {
+					cleaned.push_back(tolower(filter.at(i)));
+
+				}
+
+
+				if (searchHistory.top()->filterIsValid(cleaned)) {
 					Database* filteredDatabase;
-					filteredDatabase = &(searchHistory.top()->sortBy(filter, query));
+					filteredDatabase = &(searchHistory.top()->sortBy(cleaned, query));
 					cout << filteredDatabase->getDatabaseSize() << endl;
 					if (filteredDatabase->isEmpty()) { 
 						updateDisplayResults(displayVec, "No results found");

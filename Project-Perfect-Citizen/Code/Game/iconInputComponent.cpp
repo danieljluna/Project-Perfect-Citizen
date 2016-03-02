@@ -53,6 +53,10 @@ void iconInputComponent::recieveMessage(msgType msg) {
 	}
 	else if (msg.compare(OPEN_THE_PIPELINE) == 0) {
 		cout << "DEBUG: Implement and open the pipeline" << endl;
+		ppc::WindowInterface* piplineWindow =
+			new ppc::Window(800, 600, sf::Color(200, 200, 200));
+		ppc::spawnPipeline(piplineWindow, piplineWindow->getInputHandler(), theDatabase_, buttonSheet_, 100, 200);
+		theDesktop_.addWindow(piplineWindow);
 	}
 	else if (msg.compare(OPEN_THE_HELP) == 0) {
 		cout << "DEBUG: Implement and open the help" << endl;

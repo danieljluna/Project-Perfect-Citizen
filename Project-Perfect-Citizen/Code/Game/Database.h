@@ -7,7 +7,7 @@
 ///////////////////////////////////////////////////////////////////////
 /// @brief Datastructure of Pipeline characters that will feed the
 /// database application in-game
-/// @author Alex Vincent / Daniel Luna
+/// @author Alex Vincent
 /// @details Database is a wrapper that contains a vector of a filtered
 /// state of the database
 /// @note The purpose of a database object is to contain a snapshot
@@ -27,14 +27,14 @@ public:
 
 
 	///////////////////////////////////////////////////////////////////////
-	/// @brief No default constructor. Each database creation will be
-	/// manually specified
+	/// @brief Default constructor
 	///////////////////////////////////////////////////////////////////////
 	Database();
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Creates a fresh database of the max limit and sets it to
 	// the current state of the database
+	/// @param the max limit of the new database
 	///////////////////////////////////////////////////////////////////////
 	void generateFullDatabase(int newMaxNumber);
 
@@ -44,7 +44,7 @@ public:
 	~Database();
 
 	///////////////////////////////////////////////////////////////////////
-	/// @brief Returns the size of the current database's snapshot
+	/// @brief Returns a vector of strings of the current database
 	///////////////////////////////////////////////////////////////////////
 	std::vector<std::string> getPrintableDatabase();
 
@@ -60,23 +60,28 @@ public:
 	bool isEmpty();
 
 	///////////////////////////////////////////////////////////////////////
-	/// @brief Specifies whether the filter query is searchable,
+	/// @brief Sets the current database's vector of characters
+	/// @param The new database state to be assigned to the database
+	/// wrapper class. This is usually a filtered list of PE characters.
 	///////////////////////////////////////////////////////////////////////
 	void setNewSnapshot(std::vector<ppc::PipelineCharacter> snapShot);
 
 	///////////////////////////////////////////////////////////////////////
-	/// @brief Specifies whether the filter query is searchable,
+	/// @brief Specifies whether the filter query is searchable
+	/// @param the filter to be determined whether is value
 	///////////////////////////////////////////////////////////////////////
 	bool filterIsValid(std::string filter);
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Returns a copy of a new filtered database delimited by
-	// the filter. Assumes a valid filter query.
+	/// the filter. Assumes a valid filter query.
+	/// @param the database parameter to search on
+	/// @param the user-selected item to search on the filter
 	///////////////////////////////////////////////////////////////////////
 	Database& sortBy(std::string filter, std::string query);
 
 	///////////////////////////////////////////////////////////////////////
-	/// @brief {rints the jobs of the characters currently in the database
+	/// @brief prints the jobs of the characters currently in the database
 	///////////////////////////////////////////////////////////////////////
 	void printCharacters();
 
