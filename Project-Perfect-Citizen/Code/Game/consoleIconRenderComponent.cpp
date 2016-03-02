@@ -1,3 +1,4 @@
+#include "../Engine/debug.h"
 #include "consoleIconRenderComponent.h"
 
 using namespace std;

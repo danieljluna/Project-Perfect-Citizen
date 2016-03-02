@@ -4,10 +4,11 @@
 #include "ResourcePath.hpp"
 #endif
 
+#include "../Engine/debug.h"
 #include "createIcon.h"
 using namespace ppc;
 
-void spawnFolderIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnFolderIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
 
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
 	IconRender->setImageScale(size, size);
@@ -22,7 +23,7 @@ void spawnFolderIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHa
 	entityToModify.addComponent(mpbFolder);
 }
 
-void spawnSettingsIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnSettingsIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
 
 	/// Render Component ///
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 1, 1, 2);
@@ -43,7 +44,7 @@ void spawnSettingsIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, InputHandl
 
 }
 
-void spawnChatIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnChatIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
 	/// Render Component ///
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 2, 1, 2);
 	IconRender->setImageScale(size, size);
@@ -62,7 +63,7 @@ void spawnChatIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHand
 	entityToModify.addComponent(mpbIcon);
 }
 
-void spawnSearchIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database* db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnSearchIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database* db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
 	/// Render Component ///
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 3, 1, 2);
 	IconRender->setImageScale(size, size);
@@ -81,7 +82,7 @@ void spawnSearchIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHa
 	entityToModify.addComponent(mpbIcon);
 }
 
-void spawnDataGraphIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnDataGraphIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
 	/// Render Component ///
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 4, 1, 2);
 	IconRender->setImageScale(size, size);
@@ -100,7 +101,7 @@ void spawnDataGraphIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::Inpu
 	entityToModify.addComponent(mpbIcon);
 }
 
-void spawnHelpIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnHelpIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
 	/// Render Component ///
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 5, 1, 2);
 	IconRender->setImageScale(size, size);
@@ -119,7 +120,7 @@ void spawnHelpIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHand
 	entityToModify.addComponent(mpbIcon);
 }
 
-void spawnBrowserIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnBrowserIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
 	/// Render Component ///
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 6, 1, 1);
 	IconRender->setImageScale(size, size);
@@ -138,7 +139,7 @@ void spawnBrowserIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputH
 	entityToModify.addComponent(mpbIcon);
 }
 
-void spawnHardDriveIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnHardDriveIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
 	/// Render Component ///
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 7, 1, 1);
 	IconRender->setImageScale(size, size);
@@ -157,7 +158,7 @@ void spawnHardDriveIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, ppc::Inpu
 	entityToModify.addComponent(mpbIcon);
 }
 
-void spawnConsoleIcon(ppc::Entity& entityToModify, ppc::Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnConsoleIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
 
 	/// Render Component ///
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 8, 1, 1);

@@ -6,6 +6,7 @@
 //  Copyright © 2016 Hyperfocus Games. All rights reserved.
 //
 
+#include "../Engine/debug.h"
 #include "textInputRenderComponent.hpp"
 
 const string TEXT_KEY_INPUT = "TKI";

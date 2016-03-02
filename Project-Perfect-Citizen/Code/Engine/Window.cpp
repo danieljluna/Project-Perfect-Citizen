@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "Window.h"
 
 #include <SFML/Graphics/RenderTexture.hpp>

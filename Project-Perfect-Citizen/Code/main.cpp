@@ -45,9 +45,10 @@
 #include "Game/PipelineCharacter.h"
 #include "Game/Database.h"
 #include "Engine/Audio/AudioQueue.h"
-//#include "Game/BootLoader.hpp"
+#include "Game/BootLoader.hpp"
 #include "Engine/FunctionObserver.h"
 #include "Game/characterRender.hpp"
+#include "Engine/debug.h"
 
 
 
@@ -107,12 +108,13 @@ int main(int argc, char** argv) {
     Desktop myDesktop(*desktopWindow, testState);
     myDesktop.addBackgroundCmpnt(desktopWindow, S);
     createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+    //createTeacherDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
     
-    //Entity* aCharacter = new Entity();
+    Entity* aCharacter = new Entity();
     //characterRender* characterRend = new characterRender(faceSheet);
     //aCharacter->addComponent(characterRend);
     
-   // desktopWindow->addEntity(*aCharacter);
+    //desktopWindow->addEntity(*aCharacter);
     
     
     
@@ -120,7 +122,7 @@ int main(int argc, char** argv) {
     //////////////////////////////////////////////////////////
     ///// TEMPORARY BOOT LOADING SCREEN SETUP
     /////////////////////////////////////////////////////////
-   /* bool hasBooted = true;
+    bool hasBooted = true;
     int step = 0;
     
     sf::Font font;
@@ -132,7 +134,7 @@ int main(int argc, char** argv) {
     text.setFont(font);
 
     std::string renderString = "";
-    text.setString(renderString);*/
+    text.setString(renderString);
     
 	
 
@@ -151,8 +153,7 @@ int main(int argc, char** argv) {
 				screen.close();
 
 			//Input phase
-			//if(hasBooted)
-                myDesktop.registerInput(event);
+			if(hasBooted)myDesktop.registerInput(event);
         }
 
         sf::Time elapsed = deltaTime.getElapsedTime();
@@ -163,8 +164,7 @@ int main(int argc, char** argv) {
 
             //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
-            //if(hasBooted)
-                myDesktop.update(dt);
+            if(hasBooted)myDesktop.update(dt);
 
             elapsed -= framePeriod;
         }
@@ -172,17 +172,17 @@ int main(int argc, char** argv) {
         ///// I KNOW THIS IS A REALLY GROSS LOOP
         ///// TEMPORARY BOOT LOADING SCREEN
         /////////////////////////////////////////////////////////
-        /*if (!hasBooted) {
+        if (!hasBooted) {
             renderString = bootLoad(step, renderString);
             if (step == 6300)
                 hasBooted = true;
             step++;
             text.setString(renderString);
-            screen.draw(text);*/
-        //} else {
+            screen.draw(text);
+        } else {
            myDesktop.refresh();
            screen.draw(myDesktop);
-       // }
+        }
 
         //Display final Window
         screen.display();

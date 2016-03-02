@@ -1,3 +1,4 @@
+#include "../Engine/debug.h"
 #include "PipelineDataRenderComponent.h"
 
 PipelineDataRenderComponent::PipelineDataRenderComponent(sf::Font& f,

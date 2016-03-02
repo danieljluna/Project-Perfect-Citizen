@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "inputComponent.h"
 
 #include "InputHandler.h"

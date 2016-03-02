@@ -1,3 +1,4 @@
+#include "../Engine/debug.h"
 #include "consoleUpdateComponent.h"
 #include "TreeCommands.h"
 

@@ -1,8 +1,9 @@
+#include "../Engine/debug.h"
 #include "databaseSearchInputComponent.h"
 #include <iostream>
 #include <string>
 
-using namespace std;
+using namespace ppc;
 const string TEXT_KEY_INPUT = "TKI";
 
 const float DOUBLE_CLICK_TIME = 500;

@@ -6,6 +6,7 @@
 //  Copyright © 2016 Hyperfocus Games. All rights reserved.
 //
 
+#include "../Engine/debug.h"
 #include "characterRender.hpp"
 #include <iostream>
 #include <random>
