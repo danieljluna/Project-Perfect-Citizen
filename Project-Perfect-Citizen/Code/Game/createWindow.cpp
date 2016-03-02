@@ -126,6 +126,8 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
 		fontSize);*/
 	
 	characterRender* render = new characterRender(faceSheet);
+	float x1 =  windowToModify->getSize().x/2;
+	render->setOrigin(x1, 100);
 	/* Create the update components */
 
 	/* Create the input components */

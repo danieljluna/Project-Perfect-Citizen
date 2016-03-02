@@ -45,19 +45,14 @@ private:
     ///// Mouth //////
     sf::Sprite* nose;
 
+	// (2*window.width)/3
+	sf::Vector2f origin;
+
     // A vector that holds all possible skin tones
     std::vector<sf::Color> skinTones;
     std::vector<sf::Color> hairTones;
     std::vector<sf::Color> lipTones;
     
-    // The skin tone of the character.
-    // A randomly selected element from skinTones
-
-   // sf::Color shirtColor;
-    
-    /*
-    int eyeType, browType, mouthType, noseType, skinType, lipType, hairStyle, hairType;
-    sf::Color eyeColor;*/
     static const int grid_size = 128;
     static const int combinations = 3;
     
@@ -70,25 +65,22 @@ public:
     
     ~characterRender();
     
-    
+	void setOrigin(float x, float y);
     
     ////////////////////////////////////////////////////////////////////
     /// @brief Applies the randomly generated values to drawable sprites
+	/// @param myCharacter is a Pipeline Character passed in from the 
+	///					   Database.
     ////////////////////////////////////////////////////////////////////
     void applyCharacterValues(PipelineCharacter& myCharacter);
     
+ 
+  
     
-    ////////////////////////////////////////////////////////////////////
-    /// @brief Generates a random set of character values
-    ////////////////////////////////////////////////////////////////////
-  //  void generateCharacterValues();
-    
-    ////////////////////////////////////////////////////////////////////
-    /// @brief initializes vector of skin tones
-    ////////////////////////////////////////////////////////////////////
-    void initializeSkinTones();
-    
-    void initializeHairTones();
+	////////////////////////////////////////////////////////////////////
+	/// @brief initializes vector of skin, hair, and lip tones
+	////////////////////////////////////////////////////////////////////
+    void initializeTones();
     
     
     ///////////////////////////////////////////////////////////////////////

@@ -91,6 +91,8 @@ void databaseSearchInputComponent::updateDisplayResults(vector<string> displayVe
 bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 	if (getEntity() != nullptr) {
 
+		int lookAt = 0;
+
 		/* Ignore CNTRL, BS, ENTR/LF, CR symbols*/
 		if (ev.type == sf::Event::TextEntered) {
 			if (ev.text.unicode < CONTROL_UNICODE && 
@@ -163,7 +165,7 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 						updateDisplayResults(displayVec, "No results found");
 					}
 					else {
-						render.applyCharacterValues(filteredDatabase->getDatabaseState().at(0));
+						render.applyCharacterValues(filteredDatabase->getDatabaseState().at(lookAt));
 						searchHistory.emplace(filteredDatabase);
 						updateDisplayOutput(searchHistory.top()->getPrintableDatabase());
 					}

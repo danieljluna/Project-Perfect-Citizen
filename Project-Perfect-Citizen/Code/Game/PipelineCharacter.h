@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 
 ///////////////////////////////////////////////////////////////////////
-/// @author Mark Biundo
+/// @author Mark Biundo / Michael Lowe
 /// @brief Procedurally Generated Pipeline Characters
 /// @details contains elements of procedurally generated characters for
 ///  use in pipeline extraction sequences, as well as the function to

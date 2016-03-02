@@ -18,6 +18,10 @@ using namespace std;
 class databaseDisplayRenderComponent : public ppc::RenderComponent {
 private:
 
+	////////////////////////////////////////////////////////////////////
+	/// @brief Character Render used to process and display character
+	//					profile.
+	////////////////////////////////////////////////////////////////////
     characterRender* render;
     
     
