@@ -1,8 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-#include "renderComponent.h"
-#include "Network.h"
+#include "../Engine/renderComponent.h"
+#include "../Engine/Network.h"
+#include "../Engine/debug.h"
 
 namespace ppc {
 

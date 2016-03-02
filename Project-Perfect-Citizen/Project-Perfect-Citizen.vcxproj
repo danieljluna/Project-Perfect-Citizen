@@ -32,8 +32,6 @@
     <ClCompile Include="Code\Engine\inputComponent.cpp" />
     <ClCompile Include="Code\Engine\InputHandler.cpp" />
     <ClCompile Include="Code\Engine\Network.cpp" />
-    <ClCompile Include="Code\Engine\NetworkInputCmpnt.cpp" />
-    <ClCompile Include="Code\Engine\NetworkRenderCmpnt.cpp" />
     <ClCompile Include="Code\Engine\NodeState.cpp" />
     <ClCompile Include="Code\Engine\observer.cpp" />
     <ClCompile Include="Code\Engine\RenderCmpntDecorator.cpp" />
@@ -66,6 +64,8 @@
     <ClCompile Include="Code\Game\expressionistParser.cpp" />
     <ClCompile Include="Code\Game\iconInputComponent.cpp" />
     <ClCompile Include="Code\Game\mousePressButton.cpp" />
+    <ClCompile Include="Code\Game\NetworkInputCmpnt.cpp" />
+    <ClCompile Include="Code\Game\NetworkRenderCmpnt.cpp" />
     <ClCompile Include="Code\Game\PipelineCharacter.cpp" />
     <ClCompile Include="Code\Game\PipelineDataRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineGraphRenderComponent.cpp" />
@@ -108,8 +108,6 @@
     <ClInclude Include="Code\Engine\inputComponent.h" />
     <ClInclude Include="Code\Engine\InputHandler.h" />
     <ClInclude Include="Code\Engine\Network.h" />
-    <ClInclude Include="Code\Engine\NetworkInputCmpnt.h" />
-    <ClInclude Include="Code\Engine\NetworkRenderCmpnt.h" />
     <ClInclude Include="Code\Engine\NodeState.h" />
     <ClInclude Include="Code\Engine\objectPool.h" />
     <ClInclude Include="Code\Engine\observer.h" />
@@ -146,6 +144,8 @@
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
     <ClInclude Include="Code\Game\iconInputComponent.h" />
     <ClInclude Include="Code\Game\mousePressButton.h" />
+    <ClInclude Include="Code\Game\NetworkInputCmpnt.h" />
+    <ClInclude Include="Code\Game\NetworkRenderCmpnt.h" />
     <ClInclude Include="Code\Game\PipelineCharacter.h" />
     <ClInclude Include="Code\Game\PipelineDataRenderComponent.h" />
     <ClInclude Include="Code\Game\PipelineGraphRenderComponent.h" />

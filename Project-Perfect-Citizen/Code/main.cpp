@@ -152,43 +152,6 @@ int main(int argc, char** argv) {
     std::string renderString = "";
     text.setString(renderString);*/
     
-	
-
-	///////////////////////////////////////////////////////
-	///// Testing Vertex Drawing //////////////////////////
-	///////////////////////////////////////////////////////
-
-	Network net(3);
-
-	PipelineCharacter Bob;
-	PipelineCharacter Tim;
-	PipelineCharacter Rob;
-	Bob.generate();
-	Tim.generate();
-	Rob.generate();
-
-	net.vert(0).setCharacter(Bob);
-	net.vert(1).setCharacter(Tim);
-	net.vert(2).setCharacter(Rob);
-	net.vert(0).setPosition(360,300);
-	net.vert(1).setPosition(500,600);
-	net.vert(2).setPosition(100,200);
-	DraggableInput di(net.vert(0));
-	net.vert(0).applyDraggable(di, desktopWindow->getInputHandler());
-	di.setBounds(net.vert(0).getGlobalBounds());
-	Edge e1, e2;
-	e1.setColorRed();
-	e2.setColorGreen();
-	e1.setWeight(1);
-	e1.setRelation("");
-
-	net.setEdge(0, 1, e1);
-	net.setEdge(1, 2, e2);
-	
-
-
-
-
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop
 	///////////////////////////////////////////////////////////////////
@@ -217,7 +180,7 @@ int main(int argc, char** argv) {
             //Update all Windows in the Desktop
             sf::Time dt = deltaTime.restart();
             //if(hasBooted)
-                myDesktop.update(dt);
+            myDesktop.update(dt);
 
             elapsed -= framePeriod;
         }
@@ -243,7 +206,6 @@ int main(int argc, char** argv) {
 			//Logger should not be used in place of passing
 			//the actual drawn Desktop
 			screen.draw(myDesktop);
-			screen.draw(net);
 
             //Display the final window
 			screen.display();

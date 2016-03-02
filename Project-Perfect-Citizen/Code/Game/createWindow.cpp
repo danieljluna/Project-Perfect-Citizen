@@ -32,6 +32,9 @@
 #include "../Game/PipelineDataRenderComponent.h"
 #include "../Game/PipelineGraphRenderComponent.h"
 
+#include "../Game/NetworkRenderCmpnt.h"
+#include"../Game/NetworkInputCmpnt.h"
+
 using namespace ppc;
 
 
@@ -191,6 +194,33 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 		windowToModify->getSize().y);
 
 	/* NADER: PUT YOUR RENDER COMPONENTS HERE FOR THE GRAPH */
+	//Ask about how are we making networks to be added to the pipeline window.
+	Network* net = new Network(3);
+
+	PipelineCharacter Bob;
+	PipelineCharacter Tim;
+	PipelineCharacter Rob;
+	Bob.generate();
+	Tim.generate();
+	Rob.generate();
+
+	net->vert(0).setCharacter(Bob);
+	net->vert(1).setCharacter(Tim);
+	net->vert(2).setCharacter(Rob);
+	net->vert(0).setPosition(60, 10);
+	net->vert(1).setPosition(50, 40);
+	net->vert(2).setPosition(90, 80);
+
+	Edge e1, e2;
+	e1.setColorRed();
+	e2.setColorGreen();
+	e1.setWeight(1);
+	e1.setRelation("");
+
+	net->setEdge(0, 1, e1);
+	net->setEdge(1, 2, e2);
+
+	NetworkRenderComponent* networkRender = new NetworkRenderComponent(*net);
 
 	/* MARK: this is how you display the text in the blue box. 
 	Pass a reference of dataText to the thing thats making the PCG SMS
@@ -204,8 +234,8 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	dataBox->addComponent(dataText);
 
 	Entity* graphBox = new Entity();
-	dataBox->addComponent(graphBounds);
-
+	graphBox->addComponent(graphBounds);
+	graphBox->addComponent(networkRender);
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////

@@ -1,9 +1,9 @@
 #pragma once
 
 
-#include "inputComponent.h"
-#include "Network.h"
-
+#include "../Engine/inputComponent.h"
+#include "../Engine/Network.h"
+#include "../Engine/debug.h"
 
 namespace ppc {
 	class NetworkInputCmpnt : public InputComponent {
