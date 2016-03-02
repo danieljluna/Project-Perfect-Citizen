@@ -24,6 +24,11 @@ void Database::generateFullDatabase(int newMaxNumber) {
 	databaseState_ = newDatabase;
 }
 
+std::vector<ppc::PipelineCharacter> Database::getDatabaseState()
+{
+	return databaseState_;
+}
+
 std::vector<std::string> Database::getPrintableDatabase(){
 	vector<string> printable;
 	string temp = "";
@@ -58,19 +63,14 @@ void Database::setNewSnapshot(vector<ppc::PipelineCharacter> newSnapShot) {
 
 bool Database::filterIsValid(string filter) {
 
-	/* Clean the filter term of any caps*/
-	string cleaned = "";
-	for (unsigned int i = 0; i < filter.length(); ++i) {
-		cleaned.push_back(tolower(filter.at(i)));
-	}
-
-	if (cleaned.compare("iq") == 0) return true;
-	else if (cleaned.compare("age") == 0) return true;
-	else if (cleaned.compare("credit score") == 0) return true;
-	else if (cleaned.compare("ssn") == 0) return true;
-	else if (cleaned.compare("email") == 0) return true;
-	else if (cleaned.compare("phone") == 0) return true;
-	else if (cleaned.compare("job") == 0) return true;
+	
+	if (filter.compare("iq") == 0) return true;
+	else if (filter.compare("age") == 0) return true;
+	else if (filter.compare("credit score") == 0) return true;
+	else if (filter.compare("ssn") == 0) return true;
+	else if (filter.compare("email") == 0) return true;
+	else if (filter.compare("phone") == 0) return true;
+	else if (filter.compare("job") == 0) return true;
 
 	cout << "Error: Invalid filter" << endl;
 	return false;
