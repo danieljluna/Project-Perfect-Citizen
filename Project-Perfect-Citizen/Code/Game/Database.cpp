@@ -57,7 +57,6 @@ void Database::setNewSnapshot(std::vector<ppc::PipelineCharacter> newSnapShot) {
 
 bool Database::filterIsValid(std::string filter) {
 
-<<<<<<< HEAD
 	/* Clean the filter term of any caps*/
 	std::string cleaned = "";
 	for (unsigned int i = 0; i < filter.length(); ++i) {
@@ -71,8 +70,7 @@ bool Database::filterIsValid(std::string filter) {
 	else if (cleaned.compare("email") == 0) return true;
 	else if (cleaned.compare("phone") == 0) return true;
 	else if (cleaned.compare("job") == 0) return true;
-=======
-	
+
 	if (filter.compare("iq") == 0) return true;
 	else if (filter.compare("age") == 0) return true;
 	else if (filter.compare("credit score") == 0) return true;
@@ -80,7 +78,6 @@ bool Database::filterIsValid(std::string filter) {
 	else if (filter.compare("email") == 0) return true;
 	else if (filter.compare("phone") == 0) return true;
 	else if (filter.compare("job") == 0) return true;
->>>>>>> refs/remotes/origin/experimental
 
 	std::cout << "Error: Invalid filter" << std::endl;
 	return false;

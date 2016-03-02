@@ -2,6 +2,7 @@
 #define VERTEX_H
 
 #include <SFML/Graphics/Sprite.hpp>
+#include "PipelineCharacter.h"
 
 namespace ppc {
 
@@ -12,6 +13,8 @@ struct Vertex {
 
     sf::Vector2f pos;
 
+	PipelineCharacter pipechar;
+	
 };
 
 
