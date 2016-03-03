@@ -84,20 +84,20 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     /////////////////////////////////////////
     /////// ENTITIES
     ///////////////////////////////////////
-    Entity* textBox = new Entity();
-    textBox->addComponent(textInputBox);
-    textBox->addComponent(tik);
-    textBox->addComponent(cup);
+    Entity textBox;
+    textBox.addComponent(textInputBox);
+    textBox.addComponent(tik);
+    textBox.addComponent(cup);
     
-    Entity* textDisplay = new Entity();
-    textDisplay->addComponent(textDisplayBox);
+	Entity textDisplay;
+    textDisplay.addComponent(textDisplayBox);
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
     windowToModify->setPosition(x, y);
-    windowToModify->addEntity(*textBox);
-    windowToModify->addEntity(*textDisplay);
+    windowToModify->addEntity(textBox);
+    windowToModify->addEntity(textDisplay);
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
     
@@ -152,15 +152,15 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     /////////////////////////////////////////
     /////// ENTITIES
     ///////////////////////////////////////
-    Entity* characterProfile = new Entity();
-    characterProfile->addComponent(render);
+    Entity characterProfile;
+    characterProfile.addComponent(render);
     
-    Entity* searchBoxEntity = new Entity();
-    searchBoxEntity->addComponent(searchBox);
-    searchBoxEntity->addComponent(dSI);
+    Entity searchBoxEntity;
+    searchBoxEntity.addComponent(searchBox);
+    searchBoxEntity.addComponent(dSI);
     
-    Entity* resultsBoxEntity = new Entity();
-    resultsBoxEntity->addComponent(searchResults);
+    Entity resultsBoxEntity;
+    resultsBoxEntity.addComponent(searchResults);
     
     Entity backButton;
 	//bool (databaseSearchInputComponent::*backFunction)(sf::Event&); 
@@ -174,9 +174,9 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
     windowToModify->setPosition(x, y);
-    windowToModify->addEntity(*searchBoxEntity);
-    windowToModify->addEntity(*resultsBoxEntity);
-    windowToModify->addEntity(*characterProfile);
+    windowToModify->addEntity(searchBoxEntity);
+    windowToModify->addEntity(resultsBoxEntity);
+    windowToModify->addEntity(characterProfile);
     windowToModify->addEntity(backButton);
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
@@ -236,18 +236,18 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	/////////////////////////////////////////
 	/////// ENTITIES 
 	///////////////////////////////////////
-	Entity* dataBox = new Entity();
-	dataBox->addComponent(dataText);
+	Entity dataBox;
+	dataBox.addComponent(dataText);
 
-	Entity* graphBox = new Entity();
-	graphBox->addComponent(graphBounds);
-	graphBox->addComponent(networkRender);
-	graphBox->addComponent(networkInput);
+	Entity graphBox;
+	graphBox.addComponent(graphBounds);
+	graphBox.addComponent(networkRender);
+	graphBox.addComponent(networkInput);
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
-	windowToModify->addEntity(*dataBox);
-	windowToModify->addEntity(*graphBox);
+	windowToModify->addEntity(dataBox);
+	windowToModify->addEntity(graphBox);
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
@@ -277,14 +277,14 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     /////////////////////////////////////////
     /////// ENTITIES
     ///////////////////////////////////////
-    Entity *newEnt = new Entity();
-    newEnt->addComponent(photoRender);
+    Entity newEnt;
+    newEnt.addComponent(photoRender);
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
     windowToModify->setPosition(x, y);
-    windowToModify->addEntity(*newEnt);
+    windowToModify->addEntity(newEnt);
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
 }
