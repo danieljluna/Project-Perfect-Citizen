@@ -16,6 +16,15 @@ namespace ppc {
 
 		vector<ppc::DraggableInput*> drags_;
 
+		size_t selectedVert_;
+		std::pair<size_t,size_t> selectedEdge_;
+		bool clickedVert_;
+		bool clickedEdge_;
+
+		void selectEdge(sf::Vector2f);
+		void selectVert(sf::Vector2f);
+		void loopEdgeColor();
+
 	public:
 
 		NetworkInputCmpnt() = delete;

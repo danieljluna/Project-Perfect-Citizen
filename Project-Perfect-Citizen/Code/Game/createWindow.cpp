@@ -210,15 +210,6 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	net->vert(1).setPosition(150, 150);
 	net->vert(2).setPosition(200, 300);
 
-	Edge e1, e2;
-	e1.setColorRed();
-	e2.setColorGreen();
-	e1.setWeight(1);
-	e1.setRelation("");
-
-	net->setEdge(0, 1, e1);
-	net->setEdge(1, 2, e2);
-
 	NetworkRenderComponent* networkRender = new NetworkRenderComponent(*net);
 	NetworkInputCmpnt* networkInput = new NetworkInputCmpnt(*net, windowToModify->getInputHandler());
 	/* MARK: this is how you display the text in the blue box. 
