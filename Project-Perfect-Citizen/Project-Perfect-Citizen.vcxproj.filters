@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Code\Engine\component.cpp">
@@ -190,7 +190,6 @@
     <ClCompile Include="Code\Game\PipelineGraphRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\PipelineLevelBuilder.cpp">
     <ClCompile Include="Code\Game\photoRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
@@ -421,7 +420,6 @@
     <ClInclude Include="Code\Game\PipelineDataRenderComponent.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Game\PipelineLevelBuilder.h">
     <ClInclude Include="Code\Game\photoRenderComponent.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
