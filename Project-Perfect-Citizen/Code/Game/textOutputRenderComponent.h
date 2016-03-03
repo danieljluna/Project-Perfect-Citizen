@@ -60,6 +60,8 @@ public:
 		int x, int y, int size);
 
 	~textOutputRenderComponent();
+    
+    sf::Vector2f getPosition() const {return text_->getPosition();}
 
 	////////////////////////////////////////////////////////////////////
 	/// @brief updateString recieves a string from an input component to

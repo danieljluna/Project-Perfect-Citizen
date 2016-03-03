@@ -13,8 +13,8 @@ const int ENTER_UNICODE = 10;
 const int CARRIAGE_RETURN_UNICODE = 13;
 
 databaseSearchInputComponent::databaseSearchInputComponent(Database* initialDB, ppc::InputHandler& ih, databaseSearchRenderComponent& t,
-	databaseDisplayRenderComponent& d, sf::Sprite& s, characterRender& r)
-	: InputComponent(2), textBoxSprt(s), textBox(t), textDisplay(d), inputHandle(ih), render(r) {
+	databaseDisplayRenderComponent& d, characterRender& r)
+	: InputComponent(2),  textBox(t), textDisplay(d), inputHandle(ih), render(r) {
 
 	ih.addHandle(sf::Event::TextEntered);
 	ih.addHandle(sf::Event::KeyPressed);
@@ -39,7 +39,10 @@ databaseSearchInputComponent::~databaseSearchInputComponent() {
 }
 
 bool databaseSearchInputComponent::isCollision(sf::Vector2i mousePos) {
-	sf::Vector2f sprtBoxPos = { textBoxSprt.getGlobalBounds().left ,
+	
+    // Temporarily(?) removing collisions. May not be necessary
+    
+    /*sf::Vector2f sprtBoxPos = { textBoxSprt.getGlobalBounds().left ,
 		textBoxSprt.getGlobalBounds().top };
 
 	sf::Vector2f sprtBoxDim = { textBoxSprt.getGlobalBounds().width,
@@ -54,9 +57,9 @@ bool databaseSearchInputComponent::isCollision(sf::Vector2i mousePos) {
 		}
 	}
 
-	// textBoxSprt.setSelected(true);
+	// textBoxSprt.setSelected(true);*/
 
-	return result;
+    return true;//result;
 }
 
 std::vector<string> convertToVector(string cmd) {
