@@ -37,6 +37,8 @@
 #include "../Game/NetworkRenderCmpnt.h"
 #include"../Game/NetworkInputCmpnt.h"
 
+#include "../Game/PipelineLevelBuilder.h"
+
 using namespace ppc;
 
 
@@ -197,6 +199,8 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	/* NADER: PUT YOUR RENDER COMPONENTS HERE FOR THE GRAPH */
 	//Ask about how are we making networks to be added to the pipeline window.
+	
+	/*
 	Network* net = new Network(3);
 
 	PipelineCharacter Bob;
@@ -218,6 +222,36 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	net->setEdge(0, 1, e1);
 	net->setEdge(1, 2, e2);
+	*/
+
+	Network* net = PipelineLevelBuilder::buildLevelOneNetworkSolution();
+
+	//No Overlapping Edges (Think of this positioning as an 8x8 grid
+	//the number after the * is the row/column number)
+	net->vert(0).setPosition(50 + 50 * 0, 50 + 50 * 0);
+	net->vert(1).setPosition(50 + 50 * 0, 50 + 50 * 7);
+	net->vert(2).setPosition(50 + 50 * 2, 50 + 50 * 1);
+	net->vert(3).setPosition(50 + 50 * 2, 50 + 50 * 6);
+	net->vert(4).setPosition(50 + 50 * 5, 50 + 50 * 1);
+	net->vert(5).setPosition(50 + 50 * 5, 50 + 50 * 6);
+	net->vert(6).setPosition(50 + 50 * 7, 50 + 50 * 0);
+	net->vert(7).setPosition(50 + 50 * 7, 50 + 50 * 7);
+
+
+	/* random positions within bounds (can overlap)
+	std::srand(static_cast<unsigned int>(std::time(0)));
+	for (int i = 0; i < net->size(); ++i) {
+		net->vert(i).setPosition(std::rand() % 400 + 50, std::rand() % 500 + 50);
+	}
+
+	in lines (at an angle with current setup, mess with numbers to change)
+	for (int i = 0; i < net->size()/4; ++i) {
+		for (int j = 0; j < 4; ++j) {
+			if (i % 2 == 0) net->vert(i*4+j).setPosition(150 + 120 * j, 50 + 100 * j);
+			else net->vert(i*4+j).setPosition(50 + 120 * j, 50 + 100 * j);
+		}
+	}
+	*/
 
 	NetworkRenderComponent* networkRender = new NetworkRenderComponent(*net);
 	NetworkInputCmpnt* networkInput = new NetworkInputCmpnt(*net, windowToModify->getInputHandler());

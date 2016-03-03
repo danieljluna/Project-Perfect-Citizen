@@ -23,7 +23,7 @@ public:
 	///                        level.  The player's work is compared
 	///                        against this.
 	///////////////////////////////////////////////////////////////////
-	static Network buildLevelOneNetworkSolution();
+	static Network* buildLevelOneNetworkSolution();
 
 	/*
 	static Network BuildLevelTwoNetwork();

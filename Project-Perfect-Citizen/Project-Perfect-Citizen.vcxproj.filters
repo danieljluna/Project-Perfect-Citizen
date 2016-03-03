@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Code\Engine\component.cpp">
@@ -193,7 +193,6 @@
     <ClCompile Include="Code\Game\photoRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\characterRender.cpp" />
     <ClCompile Include="Code\Engine\Edge.cpp">
       <Filter>Sources\Engine\Graph</Filter>
     </ClCompile>
@@ -204,6 +203,12 @@
       <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\photoRenderComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\PipelineLevelBuilder.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\characterRender.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
   </ItemGroup>
@@ -427,15 +432,16 @@
     <ClInclude Include="Code\Game\PipelineDataRenderComponent.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Game\BootLoader.hpp" />
-    <ClInclude Include="Code\Game\characterRender.hpp" />
-    <ClInclude Include="Code\Game\NetworkInputCmpnt.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Game\NetworkRenderCmpnt.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Game\photoRenderComponent.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\PipelineLevelBuilder.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\BootLoader.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\characterRender.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>
