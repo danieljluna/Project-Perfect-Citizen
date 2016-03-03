@@ -220,10 +220,10 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
 }
 
-void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y) {
+void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string p) {
     if (windowToModify == nullptr) { return; }
     
-    string path = resourcePath() + "Bluebird by Charles Bukowski.txt";
+    string path = resourcePath() + p;
     char lastChar;
     
     if (!path.empty()){

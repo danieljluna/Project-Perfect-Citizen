@@ -52,6 +52,6 @@ void spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Database*
 void spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
         sf::Image& buttonSheet, float x, float y);
     
-void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, NodeState & ns, sf::Image& buttonSheet, float x, float y);
+void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string path);
 };
 

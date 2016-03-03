@@ -2,11 +2,11 @@
   "Desktop": {
     "AP English Curriculum": {
    		"Readings": {
-   			"Catch 22 - Joseph Heller.pdf": "Resources/DesktopContent/Desktop1/Catch 22 - Joseph Heller.pdf",
-   			"CatcherInTheRye - Salinger.pdf": "Resources/DesktopContent/Desktop1/CatcherInTheRye - Salinger.pdf",
-   			"Invisible Man - Ellison.pdf": "Resources/DesktopContent/Desktop1/Invisible Man - Ellison.pdf",
-				"The_Metamorphosis.pdf": "Resources/DesktopContent/Desktop1/The_Metamorphosis.pdf",
- 				"The_Scarlet_Letter.pdf": "Resources/DesktopContent/Desktop1/The_Scarlet_Letter.pdf"
+   			"Catch 22 - Joseph Heller.txt": "Resources/DesktopContent/Desktop1/Catch 22 - Joseph Heller.txt",
+   			"CatcherInTheRye - Salinger.txt": "Resources/DesktopContent/Desktop1/CatcherInTheRye - Salinger.txt",
+   			"Invisible Man - Ellison.txt": "Resources/DesktopContent/Desktop1/Invisible Man - Ellison.txt",
+				"The_Metamorphosis.txt": "Resources/DesktopContent/Desktop1/The_Metamorphosis.txt",
+ 				"The_Scarlet_Letter.txt": "Resources/DesktopContent/Desktop1/The_Scarlet_Letter.txt"
    		},
    		"Syllabus": {
         "TODO": "CONTENT"
@@ -197,15 +197,15 @@
       "TODO": "CONTENT"
     },
    	"Lit": {
-   		"As I Lay Dying - Faulkner.pdf": "Resources/DesktopContent/Desktop1/As I Lay Dying - Faulkner.pdf",
-   		"Bacchae - Euripides.pdf": "Resources/DesktopContent/Desktop1/Bacchae - Euripides.pdf",
-   		"bataille_story_of_eye.pdf": "Resources/DesktopContent/Desktop1/bataille_story_of_eye.pdf",
-  		"Donne - Med 17.pdf": "Resources/DesktopContent/Desktop1/Donne - Med 17.pdf",
-   		"Geek Love by Katherine Dunn - Ch1.pdf": "Resources/DesktopContent/Desktop1/Geek Love by Katherine Dunn - Ch1.pdf",
-   		"Kristeva_-_powers_of_horror.pdf": "Resources/DesktopContent/Desktop1/Kristeva_-_powers_of_horror.pdf",
-  		"LacanMirrorPhase.pdf": "Resources/DesktopContent/Desktop1/LacanMirrorPhase.pdf",
-   		"Lolita - Vladimir Nabokov.pdf": "Resources/DesktopContent/Desktop1/Lolita - Vladimir Nabokov.pdf",
-   		"mulvey-visualpleasure.pdf": "Resources/DesktopContent/Desktop1/mulvey-visualpleasure.pdf"
+   		"As I Lay Dying - Faulkner.txt": "Resources/DesktopContent/Desktop1/As I Lay Dying - Faulkner.txt",
+   		"Bacchae - Euripides.txt": "Resources/DesktopContent/Desktop1/Bacchae - Euripides.txt",
+   		"bataille_story_of_eye.txt": "Resources/DesktopContent/Desktop1/bataille_story_of_eye.txt",
+  		"Donne - Med 17.txt": "Resources/DesktopContent/Desktop1/Donne - Med 17.txt",
+   		"Geek Love by Katherine Dunn - Ch1.txt": "Resources/DesktopContent/Desktop1/Geek Love by Katherine Dunn - Ch1.txt",
+   		"Kristeva_-_powers_of_horror.txt": "Resources/DesktopContent/Desktop1/Kristeva_-_powers_of_horror.txt",
+  		"LacanMirrorPhase.txt": "Resources/DesktopContent/Desktop1/LacanMirrorPhase.txt",
+   		"Lolita - Vladimir Nabokov.txt": "Resources/DesktopContent/Desktop1/Lolita - Vladimir Nabokov.txt",
+   		"mulvey-visualpleasure.txt": "Resources/DesktopContent/Desktop1/mulvey-visualpleasure.txt"
    	},
    	"Photos": {
    		"Family": {
@@ -260,7 +260,7 @@
         "TODO": "CONTENT"
       }
    	},
-   	"Bluebird by Charles Bukowski.pdf": "Resources/DesktopContent/Desktop1/Bluebird by Charles Bukowski",
-   	"Myth of Sisyphus by Albert Camus.pdf": "Resources/DesktopContent/Desktop1/Myth of Sisyphus by Albert Camus"
+   	"Bluebird by Charles Bukowski.txt": "Resources/DesktopContent/Desktop1/Bluebird by Charles Bukowski.txt",
+   	"Myth of Sisyphus by Albert Camus.txt": "Resources/DesktopContent/Desktop1/Myth of Sisyphus by Albert Camus.txt"
   }
 }
