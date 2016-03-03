@@ -25,6 +25,7 @@
 namespace ppc {
 
 class databaseSearchInputComponent : public ppc::InputComponent {
+	using backFunction = bool(*)(sf::Event& ev);
 private:
 	characterRender& render;
 	sf::Sprite& textBoxSprt;
@@ -64,7 +65,7 @@ public:
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Function pointer to back functionality
 	///////////////////////////////////////////////////////////////////////
-	void(*goBack) ();
+	bool goBack(sf::Event& ev);
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Sets the display results to be a hardcoded string
