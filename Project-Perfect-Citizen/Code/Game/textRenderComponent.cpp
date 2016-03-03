@@ -6,6 +6,7 @@
 //  Copyright © 2016 Hyperfocus Games. All rights reserved.
 //
 
+#include "../Engine/debug.h"
 #include "textRenderComponent.hpp"
 
 textRenderComponent::textRenderComponent(sf::Font& f, std::string content, int x, int y, int size):font(f) {
