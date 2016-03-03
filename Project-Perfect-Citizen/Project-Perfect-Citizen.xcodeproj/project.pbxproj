@@ -83,9 +83,7 @@
 		E95FCB9E1C86A14500D1800A /* Project-Perfect-Citizen-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB411C86A14500D1800A /* Project-Perfect-Citizen-Info.plist */; };
 		E95FCB9F1C86A14500D1800A /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB421C86A14500D1800A /* data.json */; };
 		E95FCBA01C86A14500D1800A /* Desktop1.json in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB431C86A14500D1800A /* Desktop1.json */; };
-		E95FCBA11C86A14500D1800A /* dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB441C86A14500D1800A /* dummy.json */; };
 		E95FCBA21C86A14500D1800A /* smsPipeline.json in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB451C86A14500D1800A /* smsPipeline.json */; };
-		E95FCBA31C86A14500D1800A /* TestDesktop.json in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB461C86A14500D1800A /* TestDesktop.json */; };
 		E95FCBA41C86A14500D1800A /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = E95FCB471C86A14500D1800A /* ResourcePath.mm */; };
 		E95FCBA51C86A14500D1800A /* Face_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB481C86A14500D1800A /* Face_Sheet.png */; };
 		E95FCBA61C86A14500D1800A /* Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB491C86A14500D1800A /* Icon_Sheet.png */; };
@@ -108,23 +106,6 @@
 		E9D7E8731C87C1F400010023 /* St. Augustine - Confessions copy.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8191C87C1F400010023 /* St. Augustine - Confessions copy.txt */; };
 		E9D7E8741C87C1F400010023 /* The_Metamorphosis.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E81A1C87C1F400010023 /* The_Metamorphosis.txt */; };
 		E9D7E8751C87C1F400010023 /* The_Scarlet_Letter.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E81B1C87C1F400010023 /* The_Scarlet_Letter.txt */; };
-		E9D7E8761C87C1F400010023 /*  Catch 22 - Joseph Heller.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E81C1C87C1F400010023 /*  Catch 22 - Joseph Heller.pdf */; };
-		E9D7E8771C87C1F400010023 /* As I Lay Dying - Faulkner.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E81D1C87C1F400010023 /* As I Lay Dying - Faulkner.pdf */; };
-		E9D7E8781C87C1F400010023 /* Bacchae - Euripides.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E81E1C87C1F400010023 /* Bacchae - Euripides.pdf */; };
-		E9D7E8791C87C1F400010023 /* bataille_story_of_eye.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E81F1C87C1F400010023 /* bataille_story_of_eye.pdf */; };
-		E9D7E87A1C87C1F400010023 /* Bluebird by Charles Bukowski.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8201C87C1F400010023 /* Bluebird by Charles Bukowski.pdf */; };
-		E9D7E87B1C87C1F400010023 /* CatcherInTheRye - Salinger.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8211C87C1F400010023 /* CatcherInTheRye - Salinger.pdf */; };
-		E9D7E87C1C87C1F400010023 /* Donne - Med 17.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8221C87C1F400010023 /* Donne - Med 17.pdf */; };
-		E9D7E87D1C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8231C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.pdf */; };
-		E9D7E87E1C87C1F400010023 /* Invisible Man - Ellison.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8241C87C1F400010023 /* Invisible Man - Ellison.pdf */; };
-		E9D7E87F1C87C1F400010023 /* Kristeva_-_powers_of_horror.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8251C87C1F400010023 /* Kristeva_-_powers_of_horror.pdf */; };
-		E9D7E8801C87C1F400010023 /* LacanMirrorPhase.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8261C87C1F400010023 /* LacanMirrorPhase.pdf */; };
-		E9D7E8811C87C1F400010023 /* Lolita - Vladimir Nabokov.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8271C87C1F400010023 /* Lolita - Vladimir Nabokov.pdf */; };
-		E9D7E8821C87C1F400010023 /* mulvey-visualpleasure.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8281C87C1F400010023 /* mulvey-visualpleasure.pdf */; };
-		E9D7E8831C87C1F400010023 /* Myth of Sisyphus by Albert Camus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8291C87C1F400010023 /* Myth of Sisyphus by Albert Camus.pdf */; };
-		E9D7E8841C87C1F400010023 /* St. Augustine - Confessions copy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E82A1C87C1F400010023 /* St. Augustine - Confessions copy.pdf */; };
-		E9D7E8851C87C1F400010023 /* The_Metamorphosis.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E82B1C87C1F400010023 /* The_Metamorphosis.pdf */; };
-		E9D7E8861C87C1F400010023 /* The_Scarlet_Letter.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E82C1C87C1F400010023 /* The_Scarlet_Letter.pdf */; };
 		E9D7E8871C87C1F400010023 /* 1-24-08-182.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E82D1C87C1F400010023 /* 1-24-08-182.jpg */; };
 		E9D7E8881C87C1F400010023 /* 2-20-09-431.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E82E1C87C1F400010023 /* 2-20-09-431.jpg */; };
 		E9D7E8891C87C1F400010023 /* 2-23-2011-213.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E82F1C87C1F400010023 /* 2-23-2011-213.jpg */; };
@@ -340,9 +321,7 @@
 		E95FCB411C86A14500D1800A /* Project-Perfect-Citizen-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Project-Perfect-Citizen-Info.plist"; sourceTree = "<group>"; };
 		E95FCB421C86A14500D1800A /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		E95FCB431C86A14500D1800A /* Desktop1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Desktop1.json; sourceTree = "<group>"; };
-		E95FCB441C86A14500D1800A /* dummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummy.json; sourceTree = "<group>"; };
 		E95FCB451C86A14500D1800A /* smsPipeline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = smsPipeline.json; sourceTree = "<group>"; };
-		E95FCB461C86A14500D1800A /* TestDesktop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestDesktop.json; sourceTree = "<group>"; };
 		E95FCB471C86A14500D1800A /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		E95FCB481C86A14500D1800A /* Face_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Face_Sheet.png; sourceTree = "<group>"; };
 		E95FCB491C86A14500D1800A /* Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Sheet.png; sourceTree = "<group>"; };
@@ -365,23 +344,6 @@
 		E9D7E8191C87C1F400010023 /* St. Augustine - Confessions copy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "St. Augustine - Confessions copy.txt"; sourceTree = "<group>"; };
 		E9D7E81A1C87C1F400010023 /* The_Metamorphosis.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = The_Metamorphosis.txt; sourceTree = "<group>"; };
 		E9D7E81B1C87C1F400010023 /* The_Scarlet_Letter.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = The_Scarlet_Letter.txt; sourceTree = "<group>"; };
-		E9D7E81C1C87C1F400010023 /*  Catch 22 - Joseph Heller.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = " Catch 22 - Joseph Heller.pdf"; sourceTree = "<group>"; };
-		E9D7E81D1C87C1F400010023 /* As I Lay Dying - Faulkner.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "As I Lay Dying - Faulkner.pdf"; sourceTree = "<group>"; };
-		E9D7E81E1C87C1F400010023 /* Bacchae - Euripides.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Bacchae - Euripides.pdf"; sourceTree = "<group>"; };
-		E9D7E81F1C87C1F400010023 /* bataille_story_of_eye.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = bataille_story_of_eye.pdf; sourceTree = "<group>"; };
-		E9D7E8201C87C1F400010023 /* Bluebird by Charles Bukowski.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Bluebird by Charles Bukowski.pdf"; sourceTree = "<group>"; };
-		E9D7E8211C87C1F400010023 /* CatcherInTheRye - Salinger.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "CatcherInTheRye - Salinger.pdf"; sourceTree = "<group>"; };
-		E9D7E8221C87C1F400010023 /* Donne - Med 17.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Donne - Med 17.pdf"; sourceTree = "<group>"; };
-		E9D7E8231C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Geek Love by Katherine Dunn - Ch1.pdf"; sourceTree = "<group>"; };
-		E9D7E8241C87C1F400010023 /* Invisible Man - Ellison.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Invisible Man - Ellison.pdf"; sourceTree = "<group>"; };
-		E9D7E8251C87C1F400010023 /* Kristeva_-_powers_of_horror.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Kristeva_-_powers_of_horror.pdf"; sourceTree = "<group>"; };
-		E9D7E8261C87C1F400010023 /* LacanMirrorPhase.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LacanMirrorPhase.pdf; sourceTree = "<group>"; };
-		E9D7E8271C87C1F400010023 /* Lolita - Vladimir Nabokov.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Lolita - Vladimir Nabokov.pdf"; sourceTree = "<group>"; };
-		E9D7E8281C87C1F400010023 /* mulvey-visualpleasure.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "mulvey-visualpleasure.pdf"; sourceTree = "<group>"; };
-		E9D7E8291C87C1F400010023 /* Myth of Sisyphus by Albert Camus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Myth of Sisyphus by Albert Camus.pdf"; sourceTree = "<group>"; };
-		E9D7E82A1C87C1F400010023 /* St. Augustine - Confessions copy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "St. Augustine - Confessions copy.pdf"; sourceTree = "<group>"; };
-		E9D7E82B1C87C1F400010023 /* The_Metamorphosis.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = The_Metamorphosis.pdf; sourceTree = "<group>"; };
-		E9D7E82C1C87C1F400010023 /* The_Scarlet_Letter.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = The_Scarlet_Letter.pdf; sourceTree = "<group>"; };
 		E9D7E82D1C87C1F400010023 /* 1-24-08-182.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-24-08-182.jpg"; sourceTree = "<group>"; };
 		E9D7E82E1C87C1F400010023 /* 2-20-09-431.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-20-09-431.jpg"; sourceTree = "<group>"; };
 		E9D7E82F1C87C1F400010023 /* 2-23-2011-213.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-23-2011-213.jpg"; sourceTree = "<group>"; };
@@ -655,9 +617,7 @@
 				E95FCB3F1C86A14500D1800A /* Engine */,
 				E95FCB421C86A14500D1800A /* data.json */,
 				E95FCB431C86A14500D1800A /* Desktop1.json */,
-				E95FCB441C86A14500D1800A /* dummy.json */,
 				E95FCB451C86A14500D1800A /* smsPipeline.json */,
-				E95FCB461C86A14500D1800A /* TestDesktop.json */,
 				E95FCB471C86A14500D1800A /* ResourcePath.mm */,
 				E95FCB481C86A14500D1800A /* Face_Sheet.png */,
 				E95FCB491C86A14500D1800A /* Icon_Sheet.png */,
@@ -732,23 +692,6 @@
 				E9D7E8191C87C1F400010023 /* St. Augustine - Confessions copy.txt */,
 				E9D7E81A1C87C1F400010023 /* The_Metamorphosis.txt */,
 				E9D7E81B1C87C1F400010023 /* The_Scarlet_Letter.txt */,
-				E9D7E81C1C87C1F400010023 /*  Catch 22 - Joseph Heller.pdf */,
-				E9D7E81D1C87C1F400010023 /* As I Lay Dying - Faulkner.pdf */,
-				E9D7E81E1C87C1F400010023 /* Bacchae - Euripides.pdf */,
-				E9D7E81F1C87C1F400010023 /* bataille_story_of_eye.pdf */,
-				E9D7E8201C87C1F400010023 /* Bluebird by Charles Bukowski.pdf */,
-				E9D7E8211C87C1F400010023 /* CatcherInTheRye - Salinger.pdf */,
-				E9D7E8221C87C1F400010023 /* Donne - Med 17.pdf */,
-				E9D7E8231C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.pdf */,
-				E9D7E8241C87C1F400010023 /* Invisible Man - Ellison.pdf */,
-				E9D7E8251C87C1F400010023 /* Kristeva_-_powers_of_horror.pdf */,
-				E9D7E8261C87C1F400010023 /* LacanMirrorPhase.pdf */,
-				E9D7E8271C87C1F400010023 /* Lolita - Vladimir Nabokov.pdf */,
-				E9D7E8281C87C1F400010023 /* mulvey-visualpleasure.pdf */,
-				E9D7E8291C87C1F400010023 /* Myth of Sisyphus by Albert Camus.pdf */,
-				E9D7E82A1C87C1F400010023 /* St. Augustine - Confessions copy.pdf */,
-				E9D7E82B1C87C1F400010023 /* The_Metamorphosis.pdf */,
-				E9D7E82C1C87C1F400010023 /* The_Scarlet_Letter.pdf */,
 				E9D7E82D1C87C1F400010023 /* 1-24-08-182.jpg */,
 				E9D7E82E1C87C1F400010023 /* 2-20-09-431.jpg */,
 				E9D7E82F1C87C1F400010023 /* 2-23-2011-213.jpg */,
@@ -888,9 +831,7 @@
 				E9D7E8A51C87C1F400010023 /* Crowd29.jpg in Resources */,
 				E95FCB4F1C86A14500D1800A /* DoxygenHelp.txt in Resources */,
 				E9D7E8BD1C87C1F400010023 /* NewCrowd42Fragment.jpg in Resources */,
-				E9D7E8831C87C1F400010023 /* Myth of Sisyphus by Albert Camus.pdf in Resources */,
 				E9D7E8951C87C1F400010023 /* 3191.jpg in Resources */,
-				E95FCBA31C86A14500D1800A /* TestDesktop.json in Resources */,
 				E9D7E8961C87C1F400010023 /* 3573.jpg in Resources */,
 				E9D7E8701C87C1F400010023 /* Kristeva_-_powers_of_horror.txt in Resources */,
 				E9D7E8921C87C1F400010023 /* 8-9-11-0426.jpg in Resources */,
@@ -899,7 +840,6 @@
 				E9D7E86B1C87C1F400010023 /* Bluebird by Charles Bukowski.txt in Resources */,
 				E9D7E8BF1C87C1F400010023 /* NewCrowd52.jpg in Resources */,
 				E9D7E8681C87C1F400010023 /* As I Lay Dying - Faulkner.txt in Resources */,
-				E9D7E8851C87C1F400010023 /* The_Metamorphosis.pdf in Resources */,
 				E9D7E8A91C87C1F400010023 /* Doubt1.jpg in Resources */,
 				E9D7E8A41C87C1F400010023 /* Crowd21.jpg in Resources */,
 				E9D7E8B11C87C1F400010023 /* Epidemic-2.jpg in Resources */,
@@ -909,15 +849,11 @@
 				E9D7E88D1C87C1F400010023 /* 4-14-09-462.jpg in Resources */,
 				E9D7E89E1C87C1F400010023 /* Crowd2.jpg in Resources */,
 				E9D7E8AC1C87C1F400010023 /* Doubt6.jpg in Resources */,
-				E9D7E8771C87C1F400010023 /* As I Lay Dying - Faulkner.pdf in Resources */,
 				E95FCBA01C86A14500D1800A /* Desktop1.json in Resources */,
 				E9D7E8981C87C1F400010023 /* 5678.jpg in Resources */,
-				E9D7E87B1C87C1F400010023 /* CatcherInTheRye - Salinger.pdf in Resources */,
-				E9D7E87D1C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.pdf in Resources */,
 				E9D7E8971C87C1F400010023 /* 4065.jpg in Resources */,
 				E9D7E8731C87C1F400010023 /* St. Augustine - Confessions copy.txt in Resources */,
 				E9D7E8B41C87C1F400010023 /* Fallen2.jpg in Resources */,
-				E9D7E87E1C87C1F400010023 /* Invisible Man - Ellison.pdf in Resources */,
 				E9D7E88B1C87C1F400010023 /* 4-4-12-048.jpg in Resources */,
 				E9D7E86F1C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.txt in Resources */,
 				E9D7E8AA1C87C1F400010023 /* Doubt2.jpg in Resources */,
@@ -929,34 +865,23 @@
 				E9D7E8691C87C1F400010023 /* Bacchae - Euripides.txt in Resources */,
 				E9D7E89C1C87C1F400010023 /* Conversation.jpg in Resources */,
 				E9D7E8911C87C1F400010023 /* 7-29-14-345.jpg in Resources */,
-				E9D7E87F1C87C1F400010023 /* Kristeva_-_powers_of_horror.pdf in Resources */,
-				E9D7E8841C87C1F400010023 /* St. Augustine - Confessions copy.pdf in Resources */,
-				E9D7E8811C87C1F400010023 /* Lolita - Vladimir Nabokov.pdf in Resources */,
 				E95FCB501C86A14500D1800A /* LinkHelp.txt in Resources */,
 				E914F0081C88171F00DF7475 /* gunshot.ogg in Resources */,
 				E9D7E8931C87C1F400010023 /* 9-24-14-195-Edit.jpg in Resources */,
-				E9D7E87C1C87C1F400010023 /* Donne - Med 17.pdf in Resources */,
 				E9D7E8721C87C1F400010023 /* Myth of Sisyphus by Albert Camus.txt in Resources */,
-				E9D7E8781C87C1F400010023 /* Bacchae - Euripides.pdf in Resources */,
 				E9D7E8881C87C1F400010023 /* 2-20-09-431.jpg in Resources */,
-				E9D7E8761C87C1F400010023 /*  Catch 22 - Joseph Heller.pdf in Resources */,
-				E9D7E8861C87C1F400010023 /* The_Scarlet_Letter.pdf in Resources */,
 				E9D7E8891C87C1F400010023 /* 2-23-2011-213.jpg in Resources */,
 				E95FCBA61C86A14500D1800A /* Icon_Sheet.png in Resources */,
-				E9D7E8791C87C1F400010023 /* bataille_story_of_eye.pdf in Resources */,
 				E9D7E88E1C87C1F400010023 /* 4-24-08-152.jpg in Resources */,
-				E9D7E8821C87C1F400010023 /* mulvey-visualpleasure.pdf in Resources */,
 				E9D7E86E1C87C1F400010023 /* Donne - Med 17.txt in Resources */,
 				E9D7E8BC1C87C1F400010023 /* NewCrowd38Fragment.jpg in Resources */,
 				E9D7E8A11C87C1F400010023 /* Crowd8.jpg in Resources */,
-				E9D7E8801C87C1F400010023 /* LacanMirrorPhase.pdf in Resources */,
 				E9D7E8B91C87C1F400010023 /* Journey+Into+Dark.jpg in Resources */,
 				E9D7E8B51C87C1F400010023 /* Fallen5.jpg in Resources */,
 				E9D7E8741C87C1F400010023 /* The_Metamorphosis.txt in Resources */,
 				E95FCB9E1C86A14500D1800A /* Project-Perfect-Citizen-Info.plist in Resources */,
 				E9D7E8941C87C1F400010023 /* 1894.jpg in Resources */,
 				E9D7E8711C87C1F400010023 /* Lolita - Vladimir Nabokov.txt in Resources */,
-				E9D7E87A1C87C1F400010023 /* Bluebird by Charles Bukowski.pdf in Resources */,
 				E95FCBA21C86A14500D1800A /* smsPipeline.json in Resources */,
 				E9D7E8B61C87C1F400010023 /* Fallen7.jpg in Resources */,
 				E9D7E8991C87C1F400010023 /* 6576.jpg in Resources */,
@@ -972,7 +897,6 @@
 				E95FCB9D1C86A14500D1800A /* EngineSettings.ini in Resources */,
 				E9D7E89D1C87C1F400010023 /* Crowd1.jpg in Resources */,
 				E95FCBA51C86A14500D1800A /* Face_Sheet.png in Resources */,
-				E95FCBA11C86A14500D1800A /* dummy.json in Resources */,
 				E9D7E89F1C87C1F400010023 /* Crowd3.jpg in Resources */,
 				E9D7E86A1C87C1F400010023 /* bataille_story_of_eye.txt in Resources */,
 				E9D7E8A21C87C1F400010023 /* Crowd14.jpg in Resources */,
