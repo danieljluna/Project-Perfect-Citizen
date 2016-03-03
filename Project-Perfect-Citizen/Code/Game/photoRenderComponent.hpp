@@ -11,7 +11,7 @@ using namespace std;
 /// @author Brandon Gomez
 /// @details The photoRenderComponent is a basic packaged subclass
 ///     extension of RenderComponent, make specifically to handle
-///     all generic "X" button related drawing/animating parts that
+///     all generic "X" button related drawing parts that
 ///     also broadcast and recieve messages from an input handler.
 ///		Stick this onto an entity to give it this functionality.
 ///////////////////////////////////////////////////////////////////////
