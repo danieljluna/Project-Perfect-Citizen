@@ -139,8 +139,17 @@
     <ClCompile Include="Code\Game\expressionistParser.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\Audio\DesktopAudio.cpp">
+      <Filter>Headers\Engine\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\Audio\AudioLocator.cpp">
+      <Filter>Headers\Engine\Audio</Filter>
+    </ClCompile>
     <ClCompile Include="Code\Game\textOutputRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\Audio\AudioLogger.cpp">
+      <Filter>Headers\Engine\Audio</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\PipelineCharacter.cpp">
       <Filter>Sources\Game</Filter>
@@ -166,6 +175,9 @@
     <ClCompile Include="Code\Game\Database.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\Audio\AudioQueue.cpp">
+      <Filter>Sources\Engine</Filter>
+    </ClCompile>
     <ClCompile Include="Code\Game\BootLoader.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
@@ -178,17 +190,8 @@
     <ClCompile Include="Code\Game\PipelineGraphRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\Audio\AudioQueue.cpp">
-      <Filter>Sources\Engine\Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\Audio\AudioLocator.cpp">
-      <Filter>Sources\Engine\Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\Audio\AudioLogger.cpp">
-      <Filter>Sources\Engine\Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Engine\Audio\DesktopAudio.cpp">
-      <Filter>Sources\Engine\Audio</Filter>
+    <ClCompile Include="Code\Game\photoRenderComponent.cpp">
+      <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\characterRender.cpp" />
     <ClCompile Include="Code\Engine\Edge.cpp">
@@ -367,8 +370,26 @@
     <ClInclude Include="Code\Game\expressionistParser.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\Audio\Audio.h">
+      <Filter>Sources\Engine\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Audio\DesktopAudio.h">
+      <Filter>Sources\Engine\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Audio\AudioLocator.h">
+      <Filter>Sources\Engine\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Audio\NullAudio.h">
+      <Filter>Sources\Engine\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Audio\Sounds.h">
+      <Filter>Sources\Engine\Sound</Filter>
+    </ClInclude>
     <ClInclude Include="Code\Game\textOutputRenderComponent.h">
       <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Audio\AudioLogger.h">
+      <Filter>Sources\Engine\Sound</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\PipelineCharacter.h">
       <Filter>Headers\Game</Filter>
@@ -414,23 +435,8 @@
     <ClInclude Include="Code\Game\NetworkRenderCmpnt.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\Audio\Audio.h">
-      <Filter>Headers\Engine\Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\Audio\AudioLocator.h">
-      <Filter>Headers\Engine\Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\Audio\AudioLogger.h">
-      <Filter>Headers\Engine\Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\Audio\DesktopAudio.h">
-      <Filter>Headers\Engine\Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\Audio\NullAudio.h">
-      <Filter>Headers\Engine\Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\Audio\Sounds.h">
-      <Filter>Headers\Engine\Audio</Filter>
+    <ClInclude Include="Code\Game\photoRenderComponent.hpp">
+      <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -552,9 +558,6 @@
     </Filter>
     <Filter Include="Sources\Engine\Graph">
       <UniqueIdentifier>{dc8c4a5c-745c-490f-aedc-04221bba055f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sources\Engine\Audio">
-      <UniqueIdentifier>{9cb8c1b6-6f6e-4803-a47e-4b3622742079}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
