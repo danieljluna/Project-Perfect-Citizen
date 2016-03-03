@@ -224,7 +224,6 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     if (windowToModify == nullptr) { return; }
     
     string path = resourcePath() + "Bluebird by Charles Bukowski.txt";
-    cout << path;
     char lastChar;
     
     if (!path.empty()){
