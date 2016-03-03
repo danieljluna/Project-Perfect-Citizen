@@ -181,13 +181,26 @@
     <ClCompile Include="Code\Game\BootLoader.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\characterRender.cpp">
-      <Filter>Sources\Game</Filter>
+    <ClCompile Include="Code\Engine\Vertex.cpp">
+      <Filter>Sources\Engine\Graph</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\PipelineDataRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\PipelineGraphRenderComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\photoRenderComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\characterRender.cpp" />
+    <ClCompile Include="Code\Engine\Edge.cpp">
+      <Filter>Sources\Engine\Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\NetworkInputCmpnt.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\NetworkRenderCmpnt.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\photoRenderComponent.cpp">
@@ -408,16 +421,18 @@
     <ClInclude Include="Code\Game\databaseSearchRenderComponent.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Game\BootLoader.hpp">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Game\characterRender.hpp">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Game\PipelineGraphRenderComponent.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\PipelineDataRenderComponent.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\BootLoader.hpp" />
+    <ClInclude Include="Code\Game\characterRender.hpp" />
+    <ClInclude Include="Code\Game\NetworkInputCmpnt.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\NetworkRenderCmpnt.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\photoRenderComponent.hpp">
