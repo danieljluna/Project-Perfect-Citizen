@@ -121,9 +121,10 @@ int main(int argc, char** argv) {
 	testState.setUp();
 	Window* desktopWindow = new Window(1800,1000,sf::Color(0,0,0));
     
-    Desktop myDesktop(*desktopWindow, testState);
-    myDesktop.addBackgroundCmpnt(desktopWindow, S);
-    createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+    Desktop* myDesktop = new Desktop(*desktopWindow, testState);
+    myDesktop->addBackgroundCmpnt(desktopWindow, S);
+    createPlayerDesktop(*myDesktop, *desktopWindow, myDesktop->getInputHandler(), iconSheet, spriteSheet);
+
     //createTeacherDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
     
     //Entity* aCharacter = new Entity();
@@ -167,7 +168,7 @@ int main(int argc, char** argv) {
 				screen.close();
 
 			//Input phase
-			myDesktop.registerInput(event);
+			myDesktop->registerInput(event);
         }
 
         sf::Time elapsed = deltaTime.getElapsedTime();
@@ -179,20 +180,22 @@ int main(int argc, char** argv) {
 			//Update all Windows in the Desktop
 			sf::Time dt = deltaTime.restart();
 
-			myDesktop.update(dt);
+			myDesktop->update(dt);
 
 			elapsed -= framePeriod;
 		}
             //Draw all the Windows in the Desktop
-			myDesktop.refresh();
+			myDesktop->refresh();
 
 			//Logger should not be used in place of passing
 			//the actual drawn Desktop
-			screen.draw(myDesktop);
+			screen.draw(*myDesktop);
 
             //Display the final window
 			screen.display();
     }
+
+	delete myDesktop;
 
     return EXIT_SUCCESS;
 }

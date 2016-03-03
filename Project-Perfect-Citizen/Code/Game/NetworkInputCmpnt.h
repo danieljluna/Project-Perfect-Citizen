@@ -31,7 +31,7 @@ namespace ppc {
 
 		NetworkInputCmpnt(Network&, ppc::InputHandler&);
 
-		~NetworkInputCmpnt();
+		virtual ~NetworkInputCmpnt();
 
 		virtual bool registerInput(sf::Event& ev) override;
 

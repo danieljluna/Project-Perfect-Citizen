@@ -8,7 +8,6 @@ void ppc::NetworkInputCmpnt::selectEdge(sf::Vector2f mPos) {
 				network_->edge(i, j)->getBounds().contains(mPos)) {
 				selectedEdge_ = { i,j };
 				clickedEdge_ = true;
-				DEBUGF("ni", i << " " << j);
 				return;
 			}
 		}
@@ -21,7 +20,6 @@ void ppc::NetworkInputCmpnt::selectVert(sf::Vector2f mPos) {
 		if (network_->vert(i).getLocalBounds().contains(mPos)) {
 			selectedVert_ = i;
 			clickedVert_ = true;
-			DEBUGF("ni", i );
 			return;
 		}
 	}
