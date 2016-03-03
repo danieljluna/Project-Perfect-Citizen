@@ -267,7 +267,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
         new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
     textRender->renderPosition(sf::Vector2f(0, 220));
     
-    Entity *newEnt = new Entity();
+    Entity newEnt;
     
     if(lastChar == 't'){
         sf::Font myFont;
@@ -280,7 +280,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
         string content = buffer.str();
         textRenderComponent* textBox =
             new textRenderComponent(myFont, content, 0, 0, fontSize);
-        newEnt->addComponent(textBox);
+        newEnt.addComponent(textBox);
     }
     
     else if(lastChar == 'g'){
@@ -291,14 +291,14 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
                                (float)photo.getSize().x,
                                (float)windowToModify->getSize().y /
                                (float)photo.getSize().y);
-        newEnt->addComponent(photoRender);
+        newEnt.addComponent(photoRender);
     }
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
     windowToModify->setPosition(x, y);
-    windowToModify->addEntity(*newEnt);
+    windowToModify->addEntity(newEnt);
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
 }

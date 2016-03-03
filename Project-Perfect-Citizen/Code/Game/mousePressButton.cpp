@@ -42,6 +42,22 @@ mousePressButton::mousePressButton(ppc::InputHandler& ih,
 	}
 }
 
+void mousePressButton::clearObservers()
+{
+	for (size_t i = 0; i < observerCount_; ++i) {
+		delete observerArray_[i];
+	}
+}
+
+void mousePressButton::addFunctionObserver(FunctionObserver* fnToAdd, int placeToInsert)
+{
+	if (placeToInsert >= observerCount_) {
+		std::cerr << "Cannot insert into index out of bounds" << std::endl;
+		return;
+	}
+	else observerArray_[placeToInsert] = fnToAdd;
+}
+
 mousePressButton::~mousePressButton() {
 
 	//ignore(inputHandle, sf::Event::MouseButtonPressed);

@@ -6,6 +6,7 @@
 #include "buttonUpdateComponent.h"
 #include "Database.h"
 #include "createButton.h"
+#include "../Game/databaseSearchInputComponent.h"
 
 
 
@@ -19,7 +20,8 @@
 ///////////////////////////////////////////////////////////////////////
 
 namespace ppc {
-
+	//typedef bool (databaseSearchInputComponent::*goBack) (sf::Event&);
+	//using backFunction = bool(databaseSearchInputComponent::*goBack)(sf::Event& ev);
 	///////////////////////////////////////////////////////////////////////
 	///@brief Constructs a console window on the WindowInterface passed.
 	///
