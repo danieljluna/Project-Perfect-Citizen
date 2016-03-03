@@ -46,7 +46,7 @@ void consoleUpdateComponent::update(sf::Time& deltaTime) {
 			commandFunction(fileTree, commandVec);
 			toggleParsing();
 			commandVec.clear();
-		} catch (std::exception e) {
+		} catch (std::runtime_error e) {
 			toggleParsing();
 			commandVec.clear();
 			return;
