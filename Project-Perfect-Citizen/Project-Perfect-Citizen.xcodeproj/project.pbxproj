@@ -74,82 +74,6 @@
 		E95FCAEC1C86A12300D1800A /* WindowBkgndRenderCmpnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCACE1C86A12300D1800A /* WindowBkgndRenderCmpnt.cpp */; };
 		E95FCB4F1C86A14500D1800A /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAEF1C86A14400D1800A /* DoxygenHelp.txt */; };
 		E95FCB501C86A14500D1800A /* LinkHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF01C86A14400D1800A /* LinkHelp.txt */; };
-		E95FCB511C86A14500D1800A /*  Catch 22 - Joseph Heller.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF31C86A14400D1800A /*  Catch 22 - Joseph Heller.pdf */; };
-		E95FCB521C86A14500D1800A /* 1-24-08-182.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF41C86A14400D1800A /* 1-24-08-182.jpg */; };
-		E95FCB531C86A14500D1800A /* 1894.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF51C86A14400D1800A /* 1894.jpg */; };
-		E95FCB541C86A14500D1800A /* 2-20-09-431.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF61C86A14400D1800A /* 2-20-09-431.jpg */; };
-		E95FCB551C86A14500D1800A /* 2-23-2011-213.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF71C86A14400D1800A /* 2-23-2011-213.jpg */; };
-		E95FCB561C86A14500D1800A /* 3-29-12-184.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF81C86A14400D1800A /* 3-29-12-184.jpg */; };
-		E95FCB571C86A14500D1800A /* 3191.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF91C86A14400D1800A /* 3191.jpg */; };
-		E95FCB581C86A14500D1800A /* 3573.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAFA1C86A14400D1800A /* 3573.jpg */; };
-		E95FCB591C86A14500D1800A /* 4-10-08-386.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAFB1C86A14400D1800A /* 4-10-08-386.jpg */; };
-		E95FCB5A1C86A14500D1800A /* 4-14-09-462.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAFC1C86A14400D1800A /* 4-14-09-462.jpg */; };
-		E95FCB5B1C86A14500D1800A /* 4-24-08-152.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAFD1C86A14400D1800A /* 4-24-08-152.jpg */; };
-		E95FCB5C1C86A14500D1800A /* 4-24-08-492.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAFE1C86A14400D1800A /* 4-24-08-492.jpg */; };
-		E95FCB5D1C86A14500D1800A /* 4-4-12-048.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAFF1C86A14400D1800A /* 4-4-12-048.jpg */; };
-		E95FCB5E1C86A14500D1800A /* 4065.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB001C86A14400D1800A /* 4065.jpg */; };
-		E95FCB5F1C86A14500D1800A /* 5678.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB011C86A14400D1800A /* 5678.jpg */; };
-		E95FCB601C86A14500D1800A /* 6576.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB021C86A14400D1800A /* 6576.jpg */; };
-		E95FCB611C86A14500D1800A /* 7-24-12-052.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB031C86A14400D1800A /* 7-24-12-052.jpg */; };
-		E95FCB621C86A14500D1800A /* 7-29-14-345.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB041C86A14400D1800A /* 7-29-14-345.jpg */; };
-		E95FCB631C86A14500D1800A /* 7146.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB051C86A14400D1800A /* 7146.jpg */; };
-		E95FCB641C86A14500D1800A /* 7402.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB061C86A14400D1800A /* 7402.jpg */; };
-		E95FCB651C86A14500D1800A /* 8-9-11-0426.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB071C86A14400D1800A /* 8-9-11-0426.jpg */; };
-		E95FCB661C86A14500D1800A /* 9-24-14-195-Edit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB081C86A14400D1800A /* 9-24-14-195-Edit.jpg */; };
-		E95FCB671C86A14500D1800A /* As I Lay Dying - Faulkner.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB091C86A14400D1800A /* As I Lay Dying - Faulkner.pdf */; };
-		E95FCB681C86A14500D1800A /* Bacchae - Euripides.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB0A1C86A14400D1800A /* Bacchae - Euripides.pdf */; };
-		E95FCB691C86A14500D1800A /* bataille_story_of_eye.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB0B1C86A14400D1800A /* bataille_story_of_eye.pdf */; };
-		E95FCB6A1C86A14500D1800A /* Bluebird by Charles Bukowski.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB0C1C86A14400D1800A /* Bluebird by Charles Bukowski.pdf */; };
-		E95FCB6B1C86A14500D1800A /* CatcherInTheRye - Salinger.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB0D1C86A14400D1800A /* CatcherInTheRye - Salinger.pdf */; };
-		E95FCB6C1C86A14500D1800A /* Conversation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB0E1C86A14400D1800A /* Conversation.jpg */; };
-		E95FCB6D1C86A14500D1800A /* Crowd1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB0F1C86A14400D1800A /* Crowd1.jpg */; };
-		E95FCB6E1C86A14500D1800A /* Crowd14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB101C86A14400D1800A /* Crowd14.jpg */; };
-		E95FCB6F1C86A14500D1800A /* Crowd16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB111C86A14400D1800A /* Crowd16.jpg */; };
-		E95FCB701C86A14500D1800A /* Crowd2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB121C86A14400D1800A /* Crowd2.jpg */; };
-		E95FCB711C86A14500D1800A /* Crowd21.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB131C86A14400D1800A /* Crowd21.jpg */; };
-		E95FCB721C86A14500D1800A /* Crowd29.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB141C86A14400D1800A /* Crowd29.jpg */; };
-		E95FCB731C86A14500D1800A /* Crowd3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB151C86A14400D1800A /* Crowd3.jpg */; };
-		E95FCB741C86A14500D1800A /* Crowd31.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB161C86A14400D1800A /* Crowd31.jpg */; };
-		E95FCB751C86A14500D1800A /* Crowd32.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB171C86A14400D1800A /* Crowd32.jpg */; };
-		E95FCB761C86A14500D1800A /* Crowd35.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB181C86A14400D1800A /* Crowd35.jpg */; };
-		E95FCB771C86A14500D1800A /* Crowd7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB191C86A14400D1800A /* Crowd7.jpg */; };
-		E95FCB781C86A14500D1800A /* Crowd8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB1A1C86A14400D1800A /* Crowd8.jpg */; };
-		E95FCB791C86A14500D1800A /* Donne - Med 17.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB1B1C86A14400D1800A /* Donne - Med 17.pdf */; };
-		E95FCB7A1C86A14500D1800A /* Doubt1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB1C1C86A14400D1800A /* Doubt1.jpg */; };
-		E95FCB7B1C86A14500D1800A /* Doubt11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB1D1C86A14400D1800A /* Doubt11.jpg */; };
-		E95FCB7C1C86A14500D1800A /* Doubt15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB1E1C86A14400D1800A /* Doubt15.jpg */; };
-		E95FCB7D1C86A14500D1800A /* Doubt16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB1F1C86A14400D1800A /* Doubt16.jpg */; };
-		E95FCB7E1C86A14500D1800A /* Doubt2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB201C86A14400D1800A /* Doubt2.jpg */; };
-		E95FCB7F1C86A14500D1800A /* Doubt3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB211C86A14400D1800A /* Doubt3.jpg */; };
-		E95FCB801C86A14500D1800A /* Doubt6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB221C86A14400D1800A /* Doubt6.jpg */; };
-		E95FCB811C86A14500D1800A /* Doubt9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB231C86A14400D1800A /* Doubt9.jpg */; };
-		E95FCB821C86A14500D1800A /* Epidemic-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB241C86A14400D1800A /* Epidemic-2.jpg */; };
-		E95FCB831C86A14500D1800A /* EternalStation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB251C86A14400D1800A /* EternalStation.jpg */; };
-		E95FCB841C86A14500D1800A /* Fallen1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB261C86A14400D1800A /* Fallen1.jpg */; };
-		E95FCB851C86A14500D1800A /* Fallen2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB271C86A14400D1800A /* Fallen2.jpg */; };
-		E95FCB861C86A14500D1800A /* Fallen5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB281C86A14400D1800A /* Fallen5.jpg */; };
-		E95FCB871C86A14500D1800A /* Fallen7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB291C86A14400D1800A /* Fallen7.jpg */; };
-		E95FCB881C86A14500D1800A /* Fata+Morgana.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB2A1C86A14400D1800A /* Fata+Morgana.jpg */; };
-		E95FCB891C86A14500D1800A /* Fragment+Of+Eternity.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB2B1C86A14400D1800A /* Fragment+Of+Eternity.jpg */; };
-		E95FCB8A1C86A14500D1800A /* Geek Love by Katherine Dunn - Ch1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB2C1C86A14400D1800A /* Geek Love by Katherine Dunn - Ch1.pdf */; };
-		E95FCB8B1C86A14500D1800A /* Invisible Man - Ellison.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB2D1C86A14400D1800A /* Invisible Man - Ellison.pdf */; };
-		E95FCB8C1C86A14500D1800A /* Journey+Into+Dark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB2E1C86A14400D1800A /* Journey+Into+Dark.jpg */; };
-		E95FCB8D1C86A14500D1800A /* Kristeva_-_powers_of_horror.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB2F1C86A14400D1800A /* Kristeva_-_powers_of_horror.pdf */; };
-		E95FCB8E1C86A14500D1800A /* LacanMirrorPhase.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB301C86A14400D1800A /* LacanMirrorPhase.pdf */; };
-		E95FCB8F1C86A14500D1800A /* Lolita - Vladimir Nabokov.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB311C86A14400D1800A /* Lolita - Vladimir Nabokov.pdf */; };
-		E95FCB901C86A14500D1800A /* mulvey-visualpleasure.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB321C86A14400D1800A /* mulvey-visualpleasure.pdf */; };
-		E95FCB911C86A14500D1800A /* Myth of Sisyphus by Albert Camus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB331C86A14400D1800A /* Myth of Sisyphus by Albert Camus.pdf */; };
-		E95FCB921C86A14500D1800A /* New+Crowd39.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB341C86A14400D1800A /* New+Crowd39.jpg */; };
-		E95FCB931C86A14500D1800A /* NewCrowd38.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB351C86A14500D1800A /* NewCrowd38.jpg */; };
-		E95FCB941C86A14500D1800A /* NewCrowd38Fragment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB361C86A14500D1800A /* NewCrowd38Fragment.jpg */; };
-		E95FCB951C86A14500D1800A /* NewCrowd42Fragment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB371C86A14500D1800A /* NewCrowd42Fragment.jpg */; };
-		E95FCB961C86A14500D1800A /* NewCrowd46.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB381C86A14500D1800A /* NewCrowd46.jpg */; };
-		E95FCB971C86A14500D1800A /* NewCrowd52.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB391C86A14500D1800A /* NewCrowd52.jpg */; };
-		E95FCB981C86A14500D1800A /* NewCrowd58.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB3A1C86A14500D1800A /* NewCrowd58.jpg */; };
-		E95FCB991C86A14500D1800A /* Sheptune2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB3B1C86A14500D1800A /* Sheptune2.jpg */; };
-		E95FCB9A1C86A14500D1800A /* St. Augustine - Confessions copy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB3C1C86A14500D1800A /* St. Augustine - Confessions copy.pdf */; };
-		E95FCB9B1C86A14500D1800A /* The_Metamorphosis.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB3D1C86A14500D1800A /* The_Metamorphosis.pdf */; };
-		E95FCB9C1C86A14500D1800A /* The_Scarlet_Letter.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB3E1C86A14500D1800A /* The_Scarlet_Letter.pdf */; };
 		E95FCB9D1C86A14500D1800A /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB401C86A14500D1800A /* EngineSettings.ini */; };
 		E95FCB9E1C86A14500D1800A /* Project-Perfect-Citizen-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB411C86A14500D1800A /* Project-Perfect-Citizen-Info.plist */; };
 		E95FCB9F1C86A14500D1800A /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB421C86A14500D1800A /* data.json */; };
@@ -165,6 +89,97 @@
 		E95FCBA91C86A14500D1800A /* Windows_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB4C1C86A14500D1800A /* Windows_Icons.png */; };
 		E95FCBAA1C86A14500D1800A /* Windows_UI.png in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB4D1C86A14500D1800A /* Windows_UI.png */; };
 		E95FCBAB1C86A14500D1800A /* consola.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB4E1C86A14500D1800A /* consola.ttf */; };
+		E9D7E8681C87C1F400010023 /* As I Lay Dying - Faulkner.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E80E1C87C1F400010023 /* As I Lay Dying - Faulkner.txt */; };
+		E9D7E8691C87C1F400010023 /* Bacchae - Euripides.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E80F1C87C1F400010023 /* Bacchae - Euripides.txt */; };
+		E9D7E86A1C87C1F400010023 /* bataille_story_of_eye.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8101C87C1F400010023 /* bataille_story_of_eye.txt */; };
+		E9D7E86B1C87C1F400010023 /* Bluebird by Charles Bukowski.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8111C87C1F400010023 /* Bluebird by Charles Bukowski.txt */; };
+		E9D7E86C1C87C1F400010023 /* Catch 22 - Joseph Heller.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8121C87C1F400010023 /* Catch 22 - Joseph Heller.txt */; };
+		E9D7E86D1C87C1F400010023 /* CatcherInTheRye - Salinger.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8131C87C1F400010023 /* CatcherInTheRye - Salinger.txt */; };
+		E9D7E86E1C87C1F400010023 /* Donne - Med 17.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8141C87C1F400010023 /* Donne - Med 17.txt */; };
+		E9D7E86F1C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8151C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.txt */; };
+		E9D7E8701C87C1F400010023 /* Kristeva_-_powers_of_horror.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8161C87C1F400010023 /* Kristeva_-_powers_of_horror.txt */; };
+		E9D7E8711C87C1F400010023 /* Lolita - Vladimir Nabokov.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8171C87C1F400010023 /* Lolita - Vladimir Nabokov.txt */; };
+		E9D7E8721C87C1F400010023 /* Myth of Sisyphus by Albert Camus.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8181C87C1F400010023 /* Myth of Sisyphus by Albert Camus.txt */; };
+		E9D7E8731C87C1F400010023 /* St. Augustine - Confessions copy.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8191C87C1F400010023 /* St. Augustine - Confessions copy.txt */; };
+		E9D7E8741C87C1F400010023 /* The_Metamorphosis.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E81A1C87C1F400010023 /* The_Metamorphosis.txt */; };
+		E9D7E8751C87C1F400010023 /* The_Scarlet_Letter.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E81B1C87C1F400010023 /* The_Scarlet_Letter.txt */; };
+		E9D7E8761C87C1F400010023 /*  Catch 22 - Joseph Heller.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E81C1C87C1F400010023 /*  Catch 22 - Joseph Heller.pdf */; };
+		E9D7E8771C87C1F400010023 /* As I Lay Dying - Faulkner.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E81D1C87C1F400010023 /* As I Lay Dying - Faulkner.pdf */; };
+		E9D7E8781C87C1F400010023 /* Bacchae - Euripides.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E81E1C87C1F400010023 /* Bacchae - Euripides.pdf */; };
+		E9D7E8791C87C1F400010023 /* bataille_story_of_eye.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E81F1C87C1F400010023 /* bataille_story_of_eye.pdf */; };
+		E9D7E87A1C87C1F400010023 /* Bluebird by Charles Bukowski.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8201C87C1F400010023 /* Bluebird by Charles Bukowski.pdf */; };
+		E9D7E87B1C87C1F400010023 /* CatcherInTheRye - Salinger.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8211C87C1F400010023 /* CatcherInTheRye - Salinger.pdf */; };
+		E9D7E87C1C87C1F400010023 /* Donne - Med 17.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8221C87C1F400010023 /* Donne - Med 17.pdf */; };
+		E9D7E87D1C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8231C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.pdf */; };
+		E9D7E87E1C87C1F400010023 /* Invisible Man - Ellison.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8241C87C1F400010023 /* Invisible Man - Ellison.pdf */; };
+		E9D7E87F1C87C1F400010023 /* Kristeva_-_powers_of_horror.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8251C87C1F400010023 /* Kristeva_-_powers_of_horror.pdf */; };
+		E9D7E8801C87C1F400010023 /* LacanMirrorPhase.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8261C87C1F400010023 /* LacanMirrorPhase.pdf */; };
+		E9D7E8811C87C1F400010023 /* Lolita - Vladimir Nabokov.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8271C87C1F400010023 /* Lolita - Vladimir Nabokov.pdf */; };
+		E9D7E8821C87C1F400010023 /* mulvey-visualpleasure.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8281C87C1F400010023 /* mulvey-visualpleasure.pdf */; };
+		E9D7E8831C87C1F400010023 /* Myth of Sisyphus by Albert Camus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8291C87C1F400010023 /* Myth of Sisyphus by Albert Camus.pdf */; };
+		E9D7E8841C87C1F400010023 /* St. Augustine - Confessions copy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E82A1C87C1F400010023 /* St. Augustine - Confessions copy.pdf */; };
+		E9D7E8851C87C1F400010023 /* The_Metamorphosis.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E82B1C87C1F400010023 /* The_Metamorphosis.pdf */; };
+		E9D7E8861C87C1F400010023 /* The_Scarlet_Letter.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E82C1C87C1F400010023 /* The_Scarlet_Letter.pdf */; };
+		E9D7E8871C87C1F400010023 /* 1-24-08-182.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E82D1C87C1F400010023 /* 1-24-08-182.jpg */; };
+		E9D7E8881C87C1F400010023 /* 2-20-09-431.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E82E1C87C1F400010023 /* 2-20-09-431.jpg */; };
+		E9D7E8891C87C1F400010023 /* 2-23-2011-213.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E82F1C87C1F400010023 /* 2-23-2011-213.jpg */; };
+		E9D7E88A1C87C1F400010023 /* 3-29-12-184.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8301C87C1F400010023 /* 3-29-12-184.jpg */; };
+		E9D7E88B1C87C1F400010023 /* 4-4-12-048.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8311C87C1F400010023 /* 4-4-12-048.jpg */; };
+		E9D7E88C1C87C1F400010023 /* 4-10-08-386.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8321C87C1F400010023 /* 4-10-08-386.jpg */; };
+		E9D7E88D1C87C1F400010023 /* 4-14-09-462.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8331C87C1F400010023 /* 4-14-09-462.jpg */; };
+		E9D7E88E1C87C1F400010023 /* 4-24-08-152.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8341C87C1F400010023 /* 4-24-08-152.jpg */; };
+		E9D7E88F1C87C1F400010023 /* 4-24-08-492.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8351C87C1F400010023 /* 4-24-08-492.jpg */; };
+		E9D7E8901C87C1F400010023 /* 7-24-12-052.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8361C87C1F400010023 /* 7-24-12-052.jpg */; };
+		E9D7E8911C87C1F400010023 /* 7-29-14-345.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8371C87C1F400010023 /* 7-29-14-345.jpg */; };
+		E9D7E8921C87C1F400010023 /* 8-9-11-0426.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8381C87C1F400010023 /* 8-9-11-0426.jpg */; };
+		E9D7E8931C87C1F400010023 /* 9-24-14-195-Edit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8391C87C1F400010023 /* 9-24-14-195-Edit.jpg */; };
+		E9D7E8941C87C1F400010023 /* 1894.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E83A1C87C1F400010023 /* 1894.jpg */; };
+		E9D7E8951C87C1F400010023 /* 3191.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E83B1C87C1F400010023 /* 3191.jpg */; };
+		E9D7E8961C87C1F400010023 /* 3573.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E83C1C87C1F400010023 /* 3573.jpg */; };
+		E9D7E8971C87C1F400010023 /* 4065.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E83D1C87C1F400010023 /* 4065.jpg */; };
+		E9D7E8981C87C1F400010023 /* 5678.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E83E1C87C1F400010023 /* 5678.jpg */; };
+		E9D7E8991C87C1F400010023 /* 6576.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E83F1C87C1F400010023 /* 6576.jpg */; };
+		E9D7E89A1C87C1F400010023 /* 7146.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8401C87C1F400010023 /* 7146.jpg */; };
+		E9D7E89B1C87C1F400010023 /* 7402.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8411C87C1F400010023 /* 7402.jpg */; };
+		E9D7E89C1C87C1F400010023 /* Conversation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8421C87C1F400010023 /* Conversation.jpg */; };
+		E9D7E89D1C87C1F400010023 /* Crowd1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8431C87C1F400010023 /* Crowd1.jpg */; };
+		E9D7E89E1C87C1F400010023 /* Crowd2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8441C87C1F400010023 /* Crowd2.jpg */; };
+		E9D7E89F1C87C1F400010023 /* Crowd3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8451C87C1F400010023 /* Crowd3.jpg */; };
+		E9D7E8A01C87C1F400010023 /* Crowd7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8461C87C1F400010023 /* Crowd7.jpg */; };
+		E9D7E8A11C87C1F400010023 /* Crowd8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8471C87C1F400010023 /* Crowd8.jpg */; };
+		E9D7E8A21C87C1F400010023 /* Crowd14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8481C87C1F400010023 /* Crowd14.jpg */; };
+		E9D7E8A31C87C1F400010023 /* Crowd16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8491C87C1F400010023 /* Crowd16.jpg */; };
+		E9D7E8A41C87C1F400010023 /* Crowd21.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E84A1C87C1F400010023 /* Crowd21.jpg */; };
+		E9D7E8A51C87C1F400010023 /* Crowd29.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E84B1C87C1F400010023 /* Crowd29.jpg */; };
+		E9D7E8A61C87C1F400010023 /* Crowd31.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E84C1C87C1F400010023 /* Crowd31.jpg */; };
+		E9D7E8A71C87C1F400010023 /* Crowd32.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E84D1C87C1F400010023 /* Crowd32.jpg */; };
+		E9D7E8A81C87C1F400010023 /* Crowd35.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E84E1C87C1F400010023 /* Crowd35.jpg */; };
+		E9D7E8A91C87C1F400010023 /* Doubt1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E84F1C87C1F400010023 /* Doubt1.jpg */; };
+		E9D7E8AA1C87C1F400010023 /* Doubt2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8501C87C1F400010023 /* Doubt2.jpg */; };
+		E9D7E8AB1C87C1F400010023 /* Doubt3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8511C87C1F400010023 /* Doubt3.jpg */; };
+		E9D7E8AC1C87C1F400010023 /* Doubt6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8521C87C1F400010023 /* Doubt6.jpg */; };
+		E9D7E8AD1C87C1F400010023 /* Doubt9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8531C87C1F400010023 /* Doubt9.jpg */; };
+		E9D7E8AE1C87C1F400010023 /* Doubt11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8541C87C1F400010023 /* Doubt11.jpg */; };
+		E9D7E8AF1C87C1F400010023 /* Doubt15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8551C87C1F400010023 /* Doubt15.jpg */; };
+		E9D7E8B01C87C1F400010023 /* Doubt16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8561C87C1F400010023 /* Doubt16.jpg */; };
+		E9D7E8B11C87C1F400010023 /* Epidemic-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8571C87C1F400010023 /* Epidemic-2.jpg */; };
+		E9D7E8B21C87C1F400010023 /* EternalStation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8581C87C1F400010023 /* EternalStation.jpg */; };
+		E9D7E8B31C87C1F400010023 /* Fallen1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8591C87C1F400010023 /* Fallen1.jpg */; };
+		E9D7E8B41C87C1F400010023 /* Fallen2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E85A1C87C1F400010023 /* Fallen2.jpg */; };
+		E9D7E8B51C87C1F400010023 /* Fallen5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E85B1C87C1F400010023 /* Fallen5.jpg */; };
+		E9D7E8B61C87C1F400010023 /* Fallen7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E85C1C87C1F400010023 /* Fallen7.jpg */; };
+		E9D7E8B71C87C1F400010023 /* Fata+Morgana.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E85D1C87C1F400010023 /* Fata+Morgana.jpg */; };
+		E9D7E8B81C87C1F400010023 /* Fragment+Of+Eternity.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E85E1C87C1F400010023 /* Fragment+Of+Eternity.jpg */; };
+		E9D7E8B91C87C1F400010023 /* Journey+Into+Dark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E85F1C87C1F400010023 /* Journey+Into+Dark.jpg */; };
+		E9D7E8BA1C87C1F400010023 /* New+Crowd39.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8601C87C1F400010023 /* New+Crowd39.jpg */; };
+		E9D7E8BB1C87C1F400010023 /* NewCrowd38.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8611C87C1F400010023 /* NewCrowd38.jpg */; };
+		E9D7E8BC1C87C1F400010023 /* NewCrowd38Fragment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8621C87C1F400010023 /* NewCrowd38Fragment.jpg */; };
+		E9D7E8BD1C87C1F400010023 /* NewCrowd42Fragment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8631C87C1F400010023 /* NewCrowd42Fragment.jpg */; };
+		E9D7E8BE1C87C1F400010023 /* NewCrowd46.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8641C87C1F400010023 /* NewCrowd46.jpg */; };
+		E9D7E8BF1C87C1F400010023 /* NewCrowd52.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8651C87C1F400010023 /* NewCrowd52.jpg */; };
+		E9D7E8C01C87C1F400010023 /* NewCrowd58.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8661C87C1F400010023 /* NewCrowd58.jpg */; };
+		E9D7E8C11C87C1F400010023 /* Sheptune2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8671C87C1F400010023 /* Sheptune2.jpg */; };
+		E9DC4A461C8786680025A11B /* textRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9DC4A441C8786680025A11B /* textRenderComponent.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -309,82 +324,6 @@
 		E95FCAED1C86A14400D1800A /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		E95FCAEF1C86A14400D1800A /* DoxygenHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoxygenHelp.txt; sourceTree = "<group>"; };
 		E95FCAF01C86A14400D1800A /* LinkHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LinkHelp.txt; sourceTree = "<group>"; };
-		E95FCAF31C86A14400D1800A /*  Catch 22 - Joseph Heller.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = " Catch 22 - Joseph Heller.pdf"; sourceTree = "<group>"; };
-		E95FCAF41C86A14400D1800A /* 1-24-08-182.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-24-08-182.jpg"; sourceTree = "<group>"; };
-		E95FCAF51C86A14400D1800A /* 1894.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1894.jpg; sourceTree = "<group>"; };
-		E95FCAF61C86A14400D1800A /* 2-20-09-431.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-20-09-431.jpg"; sourceTree = "<group>"; };
-		E95FCAF71C86A14400D1800A /* 2-23-2011-213.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-23-2011-213.jpg"; sourceTree = "<group>"; };
-		E95FCAF81C86A14400D1800A /* 3-29-12-184.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3-29-12-184.jpg"; sourceTree = "<group>"; };
-		E95FCAF91C86A14400D1800A /* 3191.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3191.jpg; sourceTree = "<group>"; };
-		E95FCAFA1C86A14400D1800A /* 3573.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3573.jpg; sourceTree = "<group>"; };
-		E95FCAFB1C86A14400D1800A /* 4-10-08-386.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-10-08-386.jpg"; sourceTree = "<group>"; };
-		E95FCAFC1C86A14400D1800A /* 4-14-09-462.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-14-09-462.jpg"; sourceTree = "<group>"; };
-		E95FCAFD1C86A14400D1800A /* 4-24-08-152.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-24-08-152.jpg"; sourceTree = "<group>"; };
-		E95FCAFE1C86A14400D1800A /* 4-24-08-492.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-24-08-492.jpg"; sourceTree = "<group>"; };
-		E95FCAFF1C86A14400D1800A /* 4-4-12-048.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-4-12-048.jpg"; sourceTree = "<group>"; };
-		E95FCB001C86A14400D1800A /* 4065.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4065.jpg; sourceTree = "<group>"; };
-		E95FCB011C86A14400D1800A /* 5678.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5678.jpg; sourceTree = "<group>"; };
-		E95FCB021C86A14400D1800A /* 6576.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6576.jpg; sourceTree = "<group>"; };
-		E95FCB031C86A14400D1800A /* 7-24-12-052.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7-24-12-052.jpg"; sourceTree = "<group>"; };
-		E95FCB041C86A14400D1800A /* 7-29-14-345.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7-29-14-345.jpg"; sourceTree = "<group>"; };
-		E95FCB051C86A14400D1800A /* 7146.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7146.jpg; sourceTree = "<group>"; };
-		E95FCB061C86A14400D1800A /* 7402.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7402.jpg; sourceTree = "<group>"; };
-		E95FCB071C86A14400D1800A /* 8-9-11-0426.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "8-9-11-0426.jpg"; sourceTree = "<group>"; };
-		E95FCB081C86A14400D1800A /* 9-24-14-195-Edit.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "9-24-14-195-Edit.jpg"; sourceTree = "<group>"; };
-		E95FCB091C86A14400D1800A /* As I Lay Dying - Faulkner.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "As I Lay Dying - Faulkner.pdf"; sourceTree = "<group>"; };
-		E95FCB0A1C86A14400D1800A /* Bacchae - Euripides.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Bacchae - Euripides.pdf"; sourceTree = "<group>"; };
-		E95FCB0B1C86A14400D1800A /* bataille_story_of_eye.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = bataille_story_of_eye.pdf; sourceTree = "<group>"; };
-		E95FCB0C1C86A14400D1800A /* Bluebird by Charles Bukowski.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Bluebird by Charles Bukowski.pdf"; sourceTree = "<group>"; };
-		E95FCB0D1C86A14400D1800A /* CatcherInTheRye - Salinger.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "CatcherInTheRye - Salinger.pdf"; sourceTree = "<group>"; };
-		E95FCB0E1C86A14400D1800A /* Conversation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Conversation.jpg; sourceTree = "<group>"; };
-		E95FCB0F1C86A14400D1800A /* Crowd1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd1.jpg; sourceTree = "<group>"; };
-		E95FCB101C86A14400D1800A /* Crowd14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd14.jpg; sourceTree = "<group>"; };
-		E95FCB111C86A14400D1800A /* Crowd16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd16.jpg; sourceTree = "<group>"; };
-		E95FCB121C86A14400D1800A /* Crowd2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd2.jpg; sourceTree = "<group>"; };
-		E95FCB131C86A14400D1800A /* Crowd21.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd21.jpg; sourceTree = "<group>"; };
-		E95FCB141C86A14400D1800A /* Crowd29.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd29.jpg; sourceTree = "<group>"; };
-		E95FCB151C86A14400D1800A /* Crowd3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd3.jpg; sourceTree = "<group>"; };
-		E95FCB161C86A14400D1800A /* Crowd31.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd31.jpg; sourceTree = "<group>"; };
-		E95FCB171C86A14400D1800A /* Crowd32.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd32.jpg; sourceTree = "<group>"; };
-		E95FCB181C86A14400D1800A /* Crowd35.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd35.jpg; sourceTree = "<group>"; };
-		E95FCB191C86A14400D1800A /* Crowd7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd7.jpg; sourceTree = "<group>"; };
-		E95FCB1A1C86A14400D1800A /* Crowd8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd8.jpg; sourceTree = "<group>"; };
-		E95FCB1B1C86A14400D1800A /* Donne - Med 17.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Donne - Med 17.pdf"; sourceTree = "<group>"; };
-		E95FCB1C1C86A14400D1800A /* Doubt1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt1.jpg; sourceTree = "<group>"; };
-		E95FCB1D1C86A14400D1800A /* Doubt11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt11.jpg; sourceTree = "<group>"; };
-		E95FCB1E1C86A14400D1800A /* Doubt15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt15.jpg; sourceTree = "<group>"; };
-		E95FCB1F1C86A14400D1800A /* Doubt16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt16.jpg; sourceTree = "<group>"; };
-		E95FCB201C86A14400D1800A /* Doubt2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt2.jpg; sourceTree = "<group>"; };
-		E95FCB211C86A14400D1800A /* Doubt3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt3.jpg; sourceTree = "<group>"; };
-		E95FCB221C86A14400D1800A /* Doubt6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt6.jpg; sourceTree = "<group>"; };
-		E95FCB231C86A14400D1800A /* Doubt9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt9.jpg; sourceTree = "<group>"; };
-		E95FCB241C86A14400D1800A /* Epidemic-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Epidemic-2.jpg"; sourceTree = "<group>"; };
-		E95FCB251C86A14400D1800A /* EternalStation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EternalStation.jpg; sourceTree = "<group>"; };
-		E95FCB261C86A14400D1800A /* Fallen1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen1.jpg; sourceTree = "<group>"; };
-		E95FCB271C86A14400D1800A /* Fallen2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen2.jpg; sourceTree = "<group>"; };
-		E95FCB281C86A14400D1800A /* Fallen5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen5.jpg; sourceTree = "<group>"; };
-		E95FCB291C86A14400D1800A /* Fallen7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen7.jpg; sourceTree = "<group>"; };
-		E95FCB2A1C86A14400D1800A /* Fata+Morgana.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Fata+Morgana.jpg"; sourceTree = "<group>"; };
-		E95FCB2B1C86A14400D1800A /* Fragment+Of+Eternity.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Fragment+Of+Eternity.jpg"; sourceTree = "<group>"; };
-		E95FCB2C1C86A14400D1800A /* Geek Love by Katherine Dunn - Ch1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Geek Love by Katherine Dunn - Ch1.pdf"; sourceTree = "<group>"; };
-		E95FCB2D1C86A14400D1800A /* Invisible Man - Ellison.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Invisible Man - Ellison.pdf"; sourceTree = "<group>"; };
-		E95FCB2E1C86A14400D1800A /* Journey+Into+Dark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Journey+Into+Dark.jpg"; sourceTree = "<group>"; };
-		E95FCB2F1C86A14400D1800A /* Kristeva_-_powers_of_horror.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Kristeva_-_powers_of_horror.pdf"; sourceTree = "<group>"; };
-		E95FCB301C86A14400D1800A /* LacanMirrorPhase.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LacanMirrorPhase.pdf; sourceTree = "<group>"; };
-		E95FCB311C86A14400D1800A /* Lolita - Vladimir Nabokov.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Lolita - Vladimir Nabokov.pdf"; sourceTree = "<group>"; };
-		E95FCB321C86A14400D1800A /* mulvey-visualpleasure.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "mulvey-visualpleasure.pdf"; sourceTree = "<group>"; };
-		E95FCB331C86A14400D1800A /* Myth of Sisyphus by Albert Camus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Myth of Sisyphus by Albert Camus.pdf"; sourceTree = "<group>"; };
-		E95FCB341C86A14400D1800A /* New+Crowd39.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "New+Crowd39.jpg"; sourceTree = "<group>"; };
-		E95FCB351C86A14500D1800A /* NewCrowd38.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd38.jpg; sourceTree = "<group>"; };
-		E95FCB361C86A14500D1800A /* NewCrowd38Fragment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd38Fragment.jpg; sourceTree = "<group>"; };
-		E95FCB371C86A14500D1800A /* NewCrowd42Fragment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd42Fragment.jpg; sourceTree = "<group>"; };
-		E95FCB381C86A14500D1800A /* NewCrowd46.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd46.jpg; sourceTree = "<group>"; };
-		E95FCB391C86A14500D1800A /* NewCrowd52.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd52.jpg; sourceTree = "<group>"; };
-		E95FCB3A1C86A14500D1800A /* NewCrowd58.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd58.jpg; sourceTree = "<group>"; };
-		E95FCB3B1C86A14500D1800A /* Sheptune2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sheptune2.jpg; sourceTree = "<group>"; };
-		E95FCB3C1C86A14500D1800A /* St. Augustine - Confessions copy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "St. Augustine - Confessions copy.pdf"; sourceTree = "<group>"; };
-		E95FCB3D1C86A14500D1800A /* The_Metamorphosis.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = The_Metamorphosis.pdf; sourceTree = "<group>"; };
-		E95FCB3E1C86A14500D1800A /* The_Scarlet_Letter.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = The_Scarlet_Letter.pdf; sourceTree = "<group>"; };
 		E95FCB401C86A14500D1800A /* EngineSettings.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EngineSettings.ini; sourceTree = "<group>"; };
 		E95FCB411C86A14500D1800A /* Project-Perfect-Citizen-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Project-Perfect-Citizen-Info.plist"; sourceTree = "<group>"; };
 		E95FCB421C86A14500D1800A /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
@@ -400,6 +339,98 @@
 		E95FCB4C1C86A14500D1800A /* Windows_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_Icons.png; sourceTree = "<group>"; };
 		E95FCB4D1C86A14500D1800A /* Windows_UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_UI.png; sourceTree = "<group>"; };
 		E95FCB4E1C86A14500D1800A /* consola.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = consola.ttf; sourceTree = "<group>"; };
+		E9D7E80E1C87C1F400010023 /* As I Lay Dying - Faulkner.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "As I Lay Dying - Faulkner.txt"; sourceTree = "<group>"; };
+		E9D7E80F1C87C1F400010023 /* Bacchae - Euripides.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Bacchae - Euripides.txt"; sourceTree = "<group>"; };
+		E9D7E8101C87C1F400010023 /* bataille_story_of_eye.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bataille_story_of_eye.txt; sourceTree = "<group>"; };
+		E9D7E8111C87C1F400010023 /* Bluebird by Charles Bukowski.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Bluebird by Charles Bukowski.txt"; sourceTree = "<group>"; };
+		E9D7E8121C87C1F400010023 /* Catch 22 - Joseph Heller.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Catch 22 - Joseph Heller.txt"; sourceTree = "<group>"; };
+		E9D7E8131C87C1F400010023 /* CatcherInTheRye - Salinger.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CatcherInTheRye - Salinger.txt"; sourceTree = "<group>"; };
+		E9D7E8141C87C1F400010023 /* Donne - Med 17.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Donne - Med 17.txt"; sourceTree = "<group>"; };
+		E9D7E8151C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Geek Love by Katherine Dunn - Ch1.txt"; sourceTree = "<group>"; };
+		E9D7E8161C87C1F400010023 /* Kristeva_-_powers_of_horror.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Kristeva_-_powers_of_horror.txt"; sourceTree = "<group>"; };
+		E9D7E8171C87C1F400010023 /* Lolita - Vladimir Nabokov.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lolita - Vladimir Nabokov.txt"; sourceTree = "<group>"; };
+		E9D7E8181C87C1F400010023 /* Myth of Sisyphus by Albert Camus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Myth of Sisyphus by Albert Camus.txt"; sourceTree = "<group>"; };
+		E9D7E8191C87C1F400010023 /* St. Augustine - Confessions copy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "St. Augustine - Confessions copy.txt"; sourceTree = "<group>"; };
+		E9D7E81A1C87C1F400010023 /* The_Metamorphosis.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = The_Metamorphosis.txt; sourceTree = "<group>"; };
+		E9D7E81B1C87C1F400010023 /* The_Scarlet_Letter.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = The_Scarlet_Letter.txt; sourceTree = "<group>"; };
+		E9D7E81C1C87C1F400010023 /*  Catch 22 - Joseph Heller.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = " Catch 22 - Joseph Heller.pdf"; sourceTree = "<group>"; };
+		E9D7E81D1C87C1F400010023 /* As I Lay Dying - Faulkner.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "As I Lay Dying - Faulkner.pdf"; sourceTree = "<group>"; };
+		E9D7E81E1C87C1F400010023 /* Bacchae - Euripides.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Bacchae - Euripides.pdf"; sourceTree = "<group>"; };
+		E9D7E81F1C87C1F400010023 /* bataille_story_of_eye.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = bataille_story_of_eye.pdf; sourceTree = "<group>"; };
+		E9D7E8201C87C1F400010023 /* Bluebird by Charles Bukowski.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Bluebird by Charles Bukowski.pdf"; sourceTree = "<group>"; };
+		E9D7E8211C87C1F400010023 /* CatcherInTheRye - Salinger.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "CatcherInTheRye - Salinger.pdf"; sourceTree = "<group>"; };
+		E9D7E8221C87C1F400010023 /* Donne - Med 17.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Donne - Med 17.pdf"; sourceTree = "<group>"; };
+		E9D7E8231C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Geek Love by Katherine Dunn - Ch1.pdf"; sourceTree = "<group>"; };
+		E9D7E8241C87C1F400010023 /* Invisible Man - Ellison.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Invisible Man - Ellison.pdf"; sourceTree = "<group>"; };
+		E9D7E8251C87C1F400010023 /* Kristeva_-_powers_of_horror.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Kristeva_-_powers_of_horror.pdf"; sourceTree = "<group>"; };
+		E9D7E8261C87C1F400010023 /* LacanMirrorPhase.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LacanMirrorPhase.pdf; sourceTree = "<group>"; };
+		E9D7E8271C87C1F400010023 /* Lolita - Vladimir Nabokov.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Lolita - Vladimir Nabokov.pdf"; sourceTree = "<group>"; };
+		E9D7E8281C87C1F400010023 /* mulvey-visualpleasure.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "mulvey-visualpleasure.pdf"; sourceTree = "<group>"; };
+		E9D7E8291C87C1F400010023 /* Myth of Sisyphus by Albert Camus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Myth of Sisyphus by Albert Camus.pdf"; sourceTree = "<group>"; };
+		E9D7E82A1C87C1F400010023 /* St. Augustine - Confessions copy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "St. Augustine - Confessions copy.pdf"; sourceTree = "<group>"; };
+		E9D7E82B1C87C1F400010023 /* The_Metamorphosis.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = The_Metamorphosis.pdf; sourceTree = "<group>"; };
+		E9D7E82C1C87C1F400010023 /* The_Scarlet_Letter.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = The_Scarlet_Letter.pdf; sourceTree = "<group>"; };
+		E9D7E82D1C87C1F400010023 /* 1-24-08-182.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-24-08-182.jpg"; sourceTree = "<group>"; };
+		E9D7E82E1C87C1F400010023 /* 2-20-09-431.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-20-09-431.jpg"; sourceTree = "<group>"; };
+		E9D7E82F1C87C1F400010023 /* 2-23-2011-213.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-23-2011-213.jpg"; sourceTree = "<group>"; };
+		E9D7E8301C87C1F400010023 /* 3-29-12-184.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3-29-12-184.jpg"; sourceTree = "<group>"; };
+		E9D7E8311C87C1F400010023 /* 4-4-12-048.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-4-12-048.jpg"; sourceTree = "<group>"; };
+		E9D7E8321C87C1F400010023 /* 4-10-08-386.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-10-08-386.jpg"; sourceTree = "<group>"; };
+		E9D7E8331C87C1F400010023 /* 4-14-09-462.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-14-09-462.jpg"; sourceTree = "<group>"; };
+		E9D7E8341C87C1F400010023 /* 4-24-08-152.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-24-08-152.jpg"; sourceTree = "<group>"; };
+		E9D7E8351C87C1F400010023 /* 4-24-08-492.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-24-08-492.jpg"; sourceTree = "<group>"; };
+		E9D7E8361C87C1F400010023 /* 7-24-12-052.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7-24-12-052.jpg"; sourceTree = "<group>"; };
+		E9D7E8371C87C1F400010023 /* 7-29-14-345.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7-29-14-345.jpg"; sourceTree = "<group>"; };
+		E9D7E8381C87C1F400010023 /* 8-9-11-0426.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "8-9-11-0426.jpg"; sourceTree = "<group>"; };
+		E9D7E8391C87C1F400010023 /* 9-24-14-195-Edit.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "9-24-14-195-Edit.jpg"; sourceTree = "<group>"; };
+		E9D7E83A1C87C1F400010023 /* 1894.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1894.jpg; sourceTree = "<group>"; };
+		E9D7E83B1C87C1F400010023 /* 3191.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3191.jpg; sourceTree = "<group>"; };
+		E9D7E83C1C87C1F400010023 /* 3573.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3573.jpg; sourceTree = "<group>"; };
+		E9D7E83D1C87C1F400010023 /* 4065.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4065.jpg; sourceTree = "<group>"; };
+		E9D7E83E1C87C1F400010023 /* 5678.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5678.jpg; sourceTree = "<group>"; };
+		E9D7E83F1C87C1F400010023 /* 6576.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6576.jpg; sourceTree = "<group>"; };
+		E9D7E8401C87C1F400010023 /* 7146.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7146.jpg; sourceTree = "<group>"; };
+		E9D7E8411C87C1F400010023 /* 7402.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7402.jpg; sourceTree = "<group>"; };
+		E9D7E8421C87C1F400010023 /* Conversation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Conversation.jpg; sourceTree = "<group>"; };
+		E9D7E8431C87C1F400010023 /* Crowd1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd1.jpg; sourceTree = "<group>"; };
+		E9D7E8441C87C1F400010023 /* Crowd2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd2.jpg; sourceTree = "<group>"; };
+		E9D7E8451C87C1F400010023 /* Crowd3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd3.jpg; sourceTree = "<group>"; };
+		E9D7E8461C87C1F400010023 /* Crowd7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd7.jpg; sourceTree = "<group>"; };
+		E9D7E8471C87C1F400010023 /* Crowd8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd8.jpg; sourceTree = "<group>"; };
+		E9D7E8481C87C1F400010023 /* Crowd14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd14.jpg; sourceTree = "<group>"; };
+		E9D7E8491C87C1F400010023 /* Crowd16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd16.jpg; sourceTree = "<group>"; };
+		E9D7E84A1C87C1F400010023 /* Crowd21.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd21.jpg; sourceTree = "<group>"; };
+		E9D7E84B1C87C1F400010023 /* Crowd29.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd29.jpg; sourceTree = "<group>"; };
+		E9D7E84C1C87C1F400010023 /* Crowd31.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd31.jpg; sourceTree = "<group>"; };
+		E9D7E84D1C87C1F400010023 /* Crowd32.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd32.jpg; sourceTree = "<group>"; };
+		E9D7E84E1C87C1F400010023 /* Crowd35.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd35.jpg; sourceTree = "<group>"; };
+		E9D7E84F1C87C1F400010023 /* Doubt1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt1.jpg; sourceTree = "<group>"; };
+		E9D7E8501C87C1F400010023 /* Doubt2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt2.jpg; sourceTree = "<group>"; };
+		E9D7E8511C87C1F400010023 /* Doubt3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt3.jpg; sourceTree = "<group>"; };
+		E9D7E8521C87C1F400010023 /* Doubt6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt6.jpg; sourceTree = "<group>"; };
+		E9D7E8531C87C1F400010023 /* Doubt9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt9.jpg; sourceTree = "<group>"; };
+		E9D7E8541C87C1F400010023 /* Doubt11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt11.jpg; sourceTree = "<group>"; };
+		E9D7E8551C87C1F400010023 /* Doubt15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt15.jpg; sourceTree = "<group>"; };
+		E9D7E8561C87C1F400010023 /* Doubt16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt16.jpg; sourceTree = "<group>"; };
+		E9D7E8571C87C1F400010023 /* Epidemic-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Epidemic-2.jpg"; sourceTree = "<group>"; };
+		E9D7E8581C87C1F400010023 /* EternalStation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EternalStation.jpg; sourceTree = "<group>"; };
+		E9D7E8591C87C1F400010023 /* Fallen1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen1.jpg; sourceTree = "<group>"; };
+		E9D7E85A1C87C1F400010023 /* Fallen2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen2.jpg; sourceTree = "<group>"; };
+		E9D7E85B1C87C1F400010023 /* Fallen5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen5.jpg; sourceTree = "<group>"; };
+		E9D7E85C1C87C1F400010023 /* Fallen7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen7.jpg; sourceTree = "<group>"; };
+		E9D7E85D1C87C1F400010023 /* Fata+Morgana.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Fata+Morgana.jpg"; sourceTree = "<group>"; };
+		E9D7E85E1C87C1F400010023 /* Fragment+Of+Eternity.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Fragment+Of+Eternity.jpg"; sourceTree = "<group>"; };
+		E9D7E85F1C87C1F400010023 /* Journey+Into+Dark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Journey+Into+Dark.jpg"; sourceTree = "<group>"; };
+		E9D7E8601C87C1F400010023 /* New+Crowd39.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "New+Crowd39.jpg"; sourceTree = "<group>"; };
+		E9D7E8611C87C1F400010023 /* NewCrowd38.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd38.jpg; sourceTree = "<group>"; };
+		E9D7E8621C87C1F400010023 /* NewCrowd38Fragment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd38Fragment.jpg; sourceTree = "<group>"; };
+		E9D7E8631C87C1F400010023 /* NewCrowd42Fragment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd42Fragment.jpg; sourceTree = "<group>"; };
+		E9D7E8641C87C1F400010023 /* NewCrowd46.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd46.jpg; sourceTree = "<group>"; };
+		E9D7E8651C87C1F400010023 /* NewCrowd52.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd52.jpg; sourceTree = "<group>"; };
+		E9D7E8661C87C1F400010023 /* NewCrowd58.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd58.jpg; sourceTree = "<group>"; };
+		E9D7E8671C87C1F400010023 /* Sheptune2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sheptune2.jpg; sourceTree = "<group>"; };
+		E9DC4A441C8786680025A11B /* textRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textRenderComponent.cpp; sourceTree = "<group>"; };
+		E9DC4A451C8786680025A11B /* textRenderComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textRenderComponent.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -521,6 +552,8 @@
 				E95FCACD1C86A12300D1800A /* TreeCommands.h */,
 				E95FCACE1C86A12300D1800A /* WindowBkgndRenderCmpnt.cpp */,
 				E95FCACF1C86A12300D1800A /* WindowBkgndRenderCmpnt.h */,
+				E9DC4A441C8786680025A11B /* textRenderComponent.cpp */,
+				E9DC4A451C8786680025A11B /* textRenderComponent.hpp */,
 			);
 			name = Game;
 			path = Code/Game;
@@ -669,82 +702,96 @@
 		E95FCAF21C86A14400D1800A /* Desktop1 */ = {
 			isa = PBXGroup;
 			children = (
-				E95FCAF31C86A14400D1800A /*  Catch 22 - Joseph Heller.pdf */,
-				E95FCAF41C86A14400D1800A /* 1-24-08-182.jpg */,
-				E95FCAF51C86A14400D1800A /* 1894.jpg */,
-				E95FCAF61C86A14400D1800A /* 2-20-09-431.jpg */,
-				E95FCAF71C86A14400D1800A /* 2-23-2011-213.jpg */,
-				E95FCAF81C86A14400D1800A /* 3-29-12-184.jpg */,
-				E95FCAF91C86A14400D1800A /* 3191.jpg */,
-				E95FCAFA1C86A14400D1800A /* 3573.jpg */,
-				E95FCAFB1C86A14400D1800A /* 4-10-08-386.jpg */,
-				E95FCAFC1C86A14400D1800A /* 4-14-09-462.jpg */,
-				E95FCAFD1C86A14400D1800A /* 4-24-08-152.jpg */,
-				E95FCAFE1C86A14400D1800A /* 4-24-08-492.jpg */,
-				E95FCAFF1C86A14400D1800A /* 4-4-12-048.jpg */,
-				E95FCB001C86A14400D1800A /* 4065.jpg */,
-				E95FCB011C86A14400D1800A /* 5678.jpg */,
-				E95FCB021C86A14400D1800A /* 6576.jpg */,
-				E95FCB031C86A14400D1800A /* 7-24-12-052.jpg */,
-				E95FCB041C86A14400D1800A /* 7-29-14-345.jpg */,
-				E95FCB051C86A14400D1800A /* 7146.jpg */,
-				E95FCB061C86A14400D1800A /* 7402.jpg */,
-				E95FCB071C86A14400D1800A /* 8-9-11-0426.jpg */,
-				E95FCB081C86A14400D1800A /* 9-24-14-195-Edit.jpg */,
-				E95FCB091C86A14400D1800A /* As I Lay Dying - Faulkner.pdf */,
-				E95FCB0A1C86A14400D1800A /* Bacchae - Euripides.pdf */,
-				E95FCB0B1C86A14400D1800A /* bataille_story_of_eye.pdf */,
-				E95FCB0C1C86A14400D1800A /* Bluebird by Charles Bukowski.pdf */,
-				E95FCB0D1C86A14400D1800A /* CatcherInTheRye - Salinger.pdf */,
-				E95FCB0E1C86A14400D1800A /* Conversation.jpg */,
-				E95FCB0F1C86A14400D1800A /* Crowd1.jpg */,
-				E95FCB101C86A14400D1800A /* Crowd14.jpg */,
-				E95FCB111C86A14400D1800A /* Crowd16.jpg */,
-				E95FCB121C86A14400D1800A /* Crowd2.jpg */,
-				E95FCB131C86A14400D1800A /* Crowd21.jpg */,
-				E95FCB141C86A14400D1800A /* Crowd29.jpg */,
-				E95FCB151C86A14400D1800A /* Crowd3.jpg */,
-				E95FCB161C86A14400D1800A /* Crowd31.jpg */,
-				E95FCB171C86A14400D1800A /* Crowd32.jpg */,
-				E95FCB181C86A14400D1800A /* Crowd35.jpg */,
-				E95FCB191C86A14400D1800A /* Crowd7.jpg */,
-				E95FCB1A1C86A14400D1800A /* Crowd8.jpg */,
-				E95FCB1B1C86A14400D1800A /* Donne - Med 17.pdf */,
-				E95FCB1C1C86A14400D1800A /* Doubt1.jpg */,
-				E95FCB1D1C86A14400D1800A /* Doubt11.jpg */,
-				E95FCB1E1C86A14400D1800A /* Doubt15.jpg */,
-				E95FCB1F1C86A14400D1800A /* Doubt16.jpg */,
-				E95FCB201C86A14400D1800A /* Doubt2.jpg */,
-				E95FCB211C86A14400D1800A /* Doubt3.jpg */,
-				E95FCB221C86A14400D1800A /* Doubt6.jpg */,
-				E95FCB231C86A14400D1800A /* Doubt9.jpg */,
-				E95FCB241C86A14400D1800A /* Epidemic-2.jpg */,
-				E95FCB251C86A14400D1800A /* EternalStation.jpg */,
-				E95FCB261C86A14400D1800A /* Fallen1.jpg */,
-				E95FCB271C86A14400D1800A /* Fallen2.jpg */,
-				E95FCB281C86A14400D1800A /* Fallen5.jpg */,
-				E95FCB291C86A14400D1800A /* Fallen7.jpg */,
-				E95FCB2A1C86A14400D1800A /* Fata+Morgana.jpg */,
-				E95FCB2B1C86A14400D1800A /* Fragment+Of+Eternity.jpg */,
-				E95FCB2C1C86A14400D1800A /* Geek Love by Katherine Dunn - Ch1.pdf */,
-				E95FCB2D1C86A14400D1800A /* Invisible Man - Ellison.pdf */,
-				E95FCB2E1C86A14400D1800A /* Journey+Into+Dark.jpg */,
-				E95FCB2F1C86A14400D1800A /* Kristeva_-_powers_of_horror.pdf */,
-				E95FCB301C86A14400D1800A /* LacanMirrorPhase.pdf */,
-				E95FCB311C86A14400D1800A /* Lolita - Vladimir Nabokov.pdf */,
-				E95FCB321C86A14400D1800A /* mulvey-visualpleasure.pdf */,
-				E95FCB331C86A14400D1800A /* Myth of Sisyphus by Albert Camus.pdf */,
-				E95FCB341C86A14400D1800A /* New+Crowd39.jpg */,
-				E95FCB351C86A14500D1800A /* NewCrowd38.jpg */,
-				E95FCB361C86A14500D1800A /* NewCrowd38Fragment.jpg */,
-				E95FCB371C86A14500D1800A /* NewCrowd42Fragment.jpg */,
-				E95FCB381C86A14500D1800A /* NewCrowd46.jpg */,
-				E95FCB391C86A14500D1800A /* NewCrowd52.jpg */,
-				E95FCB3A1C86A14500D1800A /* NewCrowd58.jpg */,
-				E95FCB3B1C86A14500D1800A /* Sheptune2.jpg */,
-				E95FCB3C1C86A14500D1800A /* St. Augustine - Confessions copy.pdf */,
-				E95FCB3D1C86A14500D1800A /* The_Metamorphosis.pdf */,
-				E95FCB3E1C86A14500D1800A /* The_Scarlet_Letter.pdf */,
+				E9D7E80E1C87C1F400010023 /* As I Lay Dying - Faulkner.txt */,
+				E9D7E80F1C87C1F400010023 /* Bacchae - Euripides.txt */,
+				E9D7E8101C87C1F400010023 /* bataille_story_of_eye.txt */,
+				E9D7E8111C87C1F400010023 /* Bluebird by Charles Bukowski.txt */,
+				E9D7E8121C87C1F400010023 /* Catch 22 - Joseph Heller.txt */,
+				E9D7E8131C87C1F400010023 /* CatcherInTheRye - Salinger.txt */,
+				E9D7E8141C87C1F400010023 /* Donne - Med 17.txt */,
+				E9D7E8151C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.txt */,
+				E9D7E8161C87C1F400010023 /* Kristeva_-_powers_of_horror.txt */,
+				E9D7E8171C87C1F400010023 /* Lolita - Vladimir Nabokov.txt */,
+				E9D7E8181C87C1F400010023 /* Myth of Sisyphus by Albert Camus.txt */,
+				E9D7E8191C87C1F400010023 /* St. Augustine - Confessions copy.txt */,
+				E9D7E81A1C87C1F400010023 /* The_Metamorphosis.txt */,
+				E9D7E81B1C87C1F400010023 /* The_Scarlet_Letter.txt */,
+				E9D7E81C1C87C1F400010023 /*  Catch 22 - Joseph Heller.pdf */,
+				E9D7E81D1C87C1F400010023 /* As I Lay Dying - Faulkner.pdf */,
+				E9D7E81E1C87C1F400010023 /* Bacchae - Euripides.pdf */,
+				E9D7E81F1C87C1F400010023 /* bataille_story_of_eye.pdf */,
+				E9D7E8201C87C1F400010023 /* Bluebird by Charles Bukowski.pdf */,
+				E9D7E8211C87C1F400010023 /* CatcherInTheRye - Salinger.pdf */,
+				E9D7E8221C87C1F400010023 /* Donne - Med 17.pdf */,
+				E9D7E8231C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.pdf */,
+				E9D7E8241C87C1F400010023 /* Invisible Man - Ellison.pdf */,
+				E9D7E8251C87C1F400010023 /* Kristeva_-_powers_of_horror.pdf */,
+				E9D7E8261C87C1F400010023 /* LacanMirrorPhase.pdf */,
+				E9D7E8271C87C1F400010023 /* Lolita - Vladimir Nabokov.pdf */,
+				E9D7E8281C87C1F400010023 /* mulvey-visualpleasure.pdf */,
+				E9D7E8291C87C1F400010023 /* Myth of Sisyphus by Albert Camus.pdf */,
+				E9D7E82A1C87C1F400010023 /* St. Augustine - Confessions copy.pdf */,
+				E9D7E82B1C87C1F400010023 /* The_Metamorphosis.pdf */,
+				E9D7E82C1C87C1F400010023 /* The_Scarlet_Letter.pdf */,
+				E9D7E82D1C87C1F400010023 /* 1-24-08-182.jpg */,
+				E9D7E82E1C87C1F400010023 /* 2-20-09-431.jpg */,
+				E9D7E82F1C87C1F400010023 /* 2-23-2011-213.jpg */,
+				E9D7E8301C87C1F400010023 /* 3-29-12-184.jpg */,
+				E9D7E8311C87C1F400010023 /* 4-4-12-048.jpg */,
+				E9D7E8321C87C1F400010023 /* 4-10-08-386.jpg */,
+				E9D7E8331C87C1F400010023 /* 4-14-09-462.jpg */,
+				E9D7E8341C87C1F400010023 /* 4-24-08-152.jpg */,
+				E9D7E8351C87C1F400010023 /* 4-24-08-492.jpg */,
+				E9D7E8361C87C1F400010023 /* 7-24-12-052.jpg */,
+				E9D7E8371C87C1F400010023 /* 7-29-14-345.jpg */,
+				E9D7E8381C87C1F400010023 /* 8-9-11-0426.jpg */,
+				E9D7E8391C87C1F400010023 /* 9-24-14-195-Edit.jpg */,
+				E9D7E83A1C87C1F400010023 /* 1894.jpg */,
+				E9D7E83B1C87C1F400010023 /* 3191.jpg */,
+				E9D7E83C1C87C1F400010023 /* 3573.jpg */,
+				E9D7E83D1C87C1F400010023 /* 4065.jpg */,
+				E9D7E83E1C87C1F400010023 /* 5678.jpg */,
+				E9D7E83F1C87C1F400010023 /* 6576.jpg */,
+				E9D7E8401C87C1F400010023 /* 7146.jpg */,
+				E9D7E8411C87C1F400010023 /* 7402.jpg */,
+				E9D7E8421C87C1F400010023 /* Conversation.jpg */,
+				E9D7E8431C87C1F400010023 /* Crowd1.jpg */,
+				E9D7E8441C87C1F400010023 /* Crowd2.jpg */,
+				E9D7E8451C87C1F400010023 /* Crowd3.jpg */,
+				E9D7E8461C87C1F400010023 /* Crowd7.jpg */,
+				E9D7E8471C87C1F400010023 /* Crowd8.jpg */,
+				E9D7E8481C87C1F400010023 /* Crowd14.jpg */,
+				E9D7E8491C87C1F400010023 /* Crowd16.jpg */,
+				E9D7E84A1C87C1F400010023 /* Crowd21.jpg */,
+				E9D7E84B1C87C1F400010023 /* Crowd29.jpg */,
+				E9D7E84C1C87C1F400010023 /* Crowd31.jpg */,
+				E9D7E84D1C87C1F400010023 /* Crowd32.jpg */,
+				E9D7E84E1C87C1F400010023 /* Crowd35.jpg */,
+				E9D7E84F1C87C1F400010023 /* Doubt1.jpg */,
+				E9D7E8501C87C1F400010023 /* Doubt2.jpg */,
+				E9D7E8511C87C1F400010023 /* Doubt3.jpg */,
+				E9D7E8521C87C1F400010023 /* Doubt6.jpg */,
+				E9D7E8531C87C1F400010023 /* Doubt9.jpg */,
+				E9D7E8541C87C1F400010023 /* Doubt11.jpg */,
+				E9D7E8551C87C1F400010023 /* Doubt15.jpg */,
+				E9D7E8561C87C1F400010023 /* Doubt16.jpg */,
+				E9D7E8571C87C1F400010023 /* Epidemic-2.jpg */,
+				E9D7E8581C87C1F400010023 /* EternalStation.jpg */,
+				E9D7E8591C87C1F400010023 /* Fallen1.jpg */,
+				E9D7E85A1C87C1F400010023 /* Fallen2.jpg */,
+				E9D7E85B1C87C1F400010023 /* Fallen5.jpg */,
+				E9D7E85C1C87C1F400010023 /* Fallen7.jpg */,
+				E9D7E85D1C87C1F400010023 /* Fata+Morgana.jpg */,
+				E9D7E85E1C87C1F400010023 /* Fragment+Of+Eternity.jpg */,
+				E9D7E85F1C87C1F400010023 /* Journey+Into+Dark.jpg */,
+				E9D7E8601C87C1F400010023 /* New+Crowd39.jpg */,
+				E9D7E8611C87C1F400010023 /* NewCrowd38.jpg */,
+				E9D7E8621C87C1F400010023 /* NewCrowd38Fragment.jpg */,
+				E9D7E8631C87C1F400010023 /* NewCrowd42Fragment.jpg */,
+				E9D7E8641C87C1F400010023 /* NewCrowd46.jpg */,
+				E9D7E8651C87C1F400010023 /* NewCrowd52.jpg */,
+				E9D7E8661C87C1F400010023 /* NewCrowd58.jpg */,
+				E9D7E8671C87C1F400010023 /* Sheptune2.jpg */,
 			);
 			path = Desktop1;
 			sourceTree = "<group>";
@@ -815,100 +862,114 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D7E8AB1C87C1F400010023 /* Doubt3.jpg in Resources */,
+				E9D7E86C1C87C1F400010023 /* Catch 22 - Joseph Heller.txt in Resources */,
+				E9D7E8871C87C1F400010023 /* 1-24-08-182.jpg in Resources */,
+				E9D7E89B1C87C1F400010023 /* 7402.jpg in Resources */,
+				E9D7E8AF1C87C1F400010023 /* Doubt15.jpg in Resources */,
+				E9D7E8751C87C1F400010023 /* The_Scarlet_Letter.txt in Resources */,
+				E9D7E8BE1C87C1F400010023 /* NewCrowd46.jpg in Resources */,
+				E9D7E8A51C87C1F400010023 /* Crowd29.jpg in Resources */,
 				E95FCB4F1C86A14500D1800A /* DoxygenHelp.txt in Resources */,
-				E95FCB8F1C86A14500D1800A /* Lolita - Vladimir Nabokov.pdf in Resources */,
-				E95FCB861C86A14500D1800A /* Fallen5.jpg in Resources */,
-				E95FCB9B1C86A14500D1800A /* The_Metamorphosis.pdf in Resources */,
-				E95FCB911C86A14500D1800A /* Myth of Sisyphus by Albert Camus.pdf in Resources */,
-				E95FCB761C86A14500D1800A /* Crowd35.jpg in Resources */,
+				E9D7E8BD1C87C1F400010023 /* NewCrowd42Fragment.jpg in Resources */,
+				E9D7E8831C87C1F400010023 /* Myth of Sisyphus by Albert Camus.pdf in Resources */,
+				E9D7E8951C87C1F400010023 /* 3191.jpg in Resources */,
 				E95FCBA31C86A14500D1800A /* TestDesktop.json in Resources */,
-				E95FCB881C86A14500D1800A /* Fata+Morgana.jpg in Resources */,
-				E95FCB811C86A14500D1800A /* Doubt9.jpg in Resources */,
-				E95FCB5D1C86A14500D1800A /* 4-4-12-048.jpg in Resources */,
-				E95FCB5E1C86A14500D1800A /* 4065.jpg in Resources */,
-				E95FCB771C86A14500D1800A /* Crowd7.jpg in Resources */,
-				E95FCB821C86A14500D1800A /* Epidemic-2.jpg in Resources */,
-				E95FCB981C86A14500D1800A /* NewCrowd58.jpg in Resources */,
+				E9D7E8961C87C1F400010023 /* 3573.jpg in Resources */,
+				E9D7E8701C87C1F400010023 /* Kristeva_-_powers_of_horror.txt in Resources */,
+				E9D7E8921C87C1F400010023 /* 8-9-11-0426.jpg in Resources */,
+				E9D7E8A71C87C1F400010023 /* Crowd32.jpg in Resources */,
+				E9D7E8B31C87C1F400010023 /* Fallen1.jpg in Resources */,
+				E9D7E86B1C87C1F400010023 /* Bluebird by Charles Bukowski.txt in Resources */,
+				E9D7E8BF1C87C1F400010023 /* NewCrowd52.jpg in Resources */,
+				E9D7E8681C87C1F400010023 /* As I Lay Dying - Faulkner.txt in Resources */,
+				E9D7E8851C87C1F400010023 /* The_Metamorphosis.pdf in Resources */,
+				E9D7E8A91C87C1F400010023 /* Doubt1.jpg in Resources */,
+				E9D7E8A41C87C1F400010023 /* Crowd21.jpg in Resources */,
+				E9D7E8B11C87C1F400010023 /* Epidemic-2.jpg in Resources */,
 				E95FCBA91C86A14500D1800A /* Windows_Icons.png in Resources */,
-				E95FCB591C86A14500D1800A /* 4-10-08-386.jpg in Resources */,
-				E95FCB621C86A14500D1800A /* 7-29-14-345.jpg in Resources */,
-				E95FCB741C86A14500D1800A /* Crowd31.jpg in Resources */,
-				E95FCB521C86A14500D1800A /* 1-24-08-182.jpg in Resources */,
-				E95FCB5F1C86A14500D1800A /* 5678.jpg in Resources */,
-				E95FCB611C86A14500D1800A /* 7-24-12-052.jpg in Resources */,
-				E95FCB541C86A14500D1800A /* 2-20-09-431.jpg in Resources */,
-				E95FCB961C86A14500D1800A /* NewCrowd46.jpg in Resources */,
-				E95FCB6F1C86A14500D1800A /* Crowd16.jpg in Resources */,
-				E95FCB8D1C86A14500D1800A /* Kristeva_-_powers_of_horror.pdf in Resources */,
-				E95FCB801C86A14500D1800A /* Doubt6.jpg in Resources */,
+				E9D7E8901C87C1F400010023 /* 7-24-12-052.jpg in Resources */,
+				E9D7E88D1C87C1F400010023 /* 4-14-09-462.jpg in Resources */,
+				E9D7E89E1C87C1F400010023 /* Crowd2.jpg in Resources */,
+				E9D7E8AC1C87C1F400010023 /* Doubt6.jpg in Resources */,
+				E9D7E8771C87C1F400010023 /* As I Lay Dying - Faulkner.pdf in Resources */,
 				E95FCBA01C86A14500D1800A /* Desktop1.json in Resources */,
-				E95FCB601C86A14500D1800A /* 6576.jpg in Resources */,
-				E95FCB751C86A14500D1800A /* Crowd32.jpg in Resources */,
-				E95FCB661C86A14500D1800A /* 9-24-14-195-Edit.jpg in Resources */,
-				E95FCB7A1C86A14500D1800A /* Doubt1.jpg in Resources */,
-				E95FCB7E1C86A14500D1800A /* Doubt2.jpg in Resources */,
+				E9D7E8981C87C1F400010023 /* 5678.jpg in Resources */,
+				E9D7E87B1C87C1F400010023 /* CatcherInTheRye - Salinger.pdf in Resources */,
+				E9D7E87D1C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.pdf in Resources */,
+				E9D7E8971C87C1F400010023 /* 4065.jpg in Resources */,
+				E9D7E8731C87C1F400010023 /* St. Augustine - Confessions copy.txt in Resources */,
+				E9D7E8B41C87C1F400010023 /* Fallen2.jpg in Resources */,
+				E9D7E87E1C87C1F400010023 /* Invisible Man - Ellison.pdf in Resources */,
+				E9D7E88B1C87C1F400010023 /* 4-4-12-048.jpg in Resources */,
+				E9D7E86F1C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.txt in Resources */,
+				E9D7E8AA1C87C1F400010023 /* Doubt2.jpg in Resources */,
+				E9D7E8C01C87C1F400010023 /* NewCrowd58.jpg in Resources */,
+				E9D7E8B71C87C1F400010023 /* Fata+Morgana.jpg in Resources */,
 				E95FCBA71C86A14500D1800A /* kappa.png in Resources */,
-				E95FCB671C86A14500D1800A /* As I Lay Dying - Faulkner.pdf in Resources */,
-				E95FCB951C86A14500D1800A /* NewCrowd42Fragment.jpg in Resources */,
-				E95FCB631C86A14500D1800A /* 7146.jpg in Resources */,
-				E95FCB551C86A14500D1800A /* 2-23-2011-213.jpg in Resources */,
-				E95FCB941C86A14500D1800A /* NewCrowd38Fragment.jpg in Resources */,
-				E95FCB731C86A14500D1800A /* Crowd3.jpg in Resources */,
-				E95FCB571C86A14500D1800A /* 3191.jpg in Resources */,
-				E95FCB931C86A14500D1800A /* NewCrowd38.jpg in Resources */,
-				E95FCB691C86A14500D1800A /* bataille_story_of_eye.pdf in Resources */,
-				E95FCB5C1C86A14500D1800A /* 4-24-08-492.jpg in Resources */,
-				E95FCB8E1C86A14500D1800A /* LacanMirrorPhase.pdf in Resources */,
-				E95FCB791C86A14500D1800A /* Donne - Med 17.pdf in Resources */,
-				E95FCB831C86A14500D1800A /* EternalStation.jpg in Resources */,
+				E9D7E8A01C87C1F400010023 /* Crowd7.jpg in Resources */,
 				E95FCB9F1C86A14500D1800A /* data.json in Resources */,
-				E95FCB581C86A14500D1800A /* 3573.jpg in Resources */,
-				E95FCB9C1C86A14500D1800A /* The_Scarlet_Letter.pdf in Resources */,
-				E95FCB681C86A14500D1800A /* Bacchae - Euripides.pdf in Resources */,
-				E95FCB8C1C86A14500D1800A /* Journey+Into+Dark.jpg in Resources */,
-				E95FCB5B1C86A14500D1800A /* 4-24-08-152.jpg in Resources */,
-				E95FCB7D1C86A14500D1800A /* Doubt16.jpg in Resources */,
-				E95FCB871C86A14500D1800A /* Fallen7.jpg in Resources */,
-				E95FCB6E1C86A14500D1800A /* Crowd14.jpg in Resources */,
-				E95FCB7B1C86A14500D1800A /* Doubt11.jpg in Resources */,
-				E95FCB711C86A14500D1800A /* Crowd21.jpg in Resources */,
+				E9D7E8691C87C1F400010023 /* Bacchae - Euripides.txt in Resources */,
+				E9D7E89C1C87C1F400010023 /* Conversation.jpg in Resources */,
+				E9D7E8911C87C1F400010023 /* 7-29-14-345.jpg in Resources */,
+				E9D7E87F1C87C1F400010023 /* Kristeva_-_powers_of_horror.pdf in Resources */,
+				E9D7E8841C87C1F400010023 /* St. Augustine - Confessions copy.pdf in Resources */,
+				E9D7E8811C87C1F400010023 /* Lolita - Vladimir Nabokov.pdf in Resources */,
 				E95FCB501C86A14500D1800A /* LinkHelp.txt in Resources */,
+				E9D7E8931C87C1F400010023 /* 9-24-14-195-Edit.jpg in Resources */,
+				E9D7E87C1C87C1F400010023 /* Donne - Med 17.pdf in Resources */,
+				E9D7E8721C87C1F400010023 /* Myth of Sisyphus by Albert Camus.txt in Resources */,
+				E9D7E8781C87C1F400010023 /* Bacchae - Euripides.pdf in Resources */,
+				E9D7E8881C87C1F400010023 /* 2-20-09-431.jpg in Resources */,
 				E95FCA781C86A10A00D1800A /* gunshot.ogg in Resources */,
-				E95FCB511C86A14500D1800A /*  Catch 22 - Joseph Heller.pdf in Resources */,
-				E95FCB6D1C86A14500D1800A /* Crowd1.jpg in Resources */,
+				E9D7E8761C87C1F400010023 /*  Catch 22 - Joseph Heller.pdf in Resources */,
+				E9D7E8861C87C1F400010023 /* The_Scarlet_Letter.pdf in Resources */,
+				E9D7E8891C87C1F400010023 /* 2-23-2011-213.jpg in Resources */,
 				E95FCBA61C86A14500D1800A /* Icon_Sheet.png in Resources */,
-				E95FCB991C86A14500D1800A /* Sheptune2.jpg in Resources */,
+				E9D7E8791C87C1F400010023 /* bataille_story_of_eye.pdf in Resources */,
+				E9D7E88E1C87C1F400010023 /* 4-24-08-152.jpg in Resources */,
+				E9D7E8821C87C1F400010023 /* mulvey-visualpleasure.pdf in Resources */,
+				E9D7E86E1C87C1F400010023 /* Donne - Med 17.txt in Resources */,
+				E9D7E8BC1C87C1F400010023 /* NewCrowd38Fragment.jpg in Resources */,
+				E9D7E8A11C87C1F400010023 /* Crowd8.jpg in Resources */,
+				E9D7E8801C87C1F400010023 /* LacanMirrorPhase.pdf in Resources */,
+				E9D7E8B91C87C1F400010023 /* Journey+Into+Dark.jpg in Resources */,
+				E9D7E8B51C87C1F400010023 /* Fallen5.jpg in Resources */,
+				E9D7E8741C87C1F400010023 /* The_Metamorphosis.txt in Resources */,
 				E95FCB9E1C86A14500D1800A /* Project-Perfect-Citizen-Info.plist in Resources */,
-				E95FCB781C86A14500D1800A /* Crowd8.jpg in Resources */,
-				E95FCB561C86A14500D1800A /* 3-29-12-184.jpg in Resources */,
-				E95FCB651C86A14500D1800A /* 8-9-11-0426.jpg in Resources */,
-				E95FCB891C86A14500D1800A /* Fragment+Of+Eternity.jpg in Resources */,
-				E95FCB641C86A14500D1800A /* 7402.jpg in Resources */,
+				E9D7E8941C87C1F400010023 /* 1894.jpg in Resources */,
+				E9D7E8711C87C1F400010023 /* Lolita - Vladimir Nabokov.txt in Resources */,
+				E9D7E87A1C87C1F400010023 /* Bluebird by Charles Bukowski.pdf in Resources */,
 				E95FCBA21C86A14500D1800A /* smsPipeline.json in Resources */,
+				E9D7E8B61C87C1F400010023 /* Fallen7.jpg in Resources */,
+				E9D7E8991C87C1F400010023 /* 6576.jpg in Resources */,
+				E9D7E8B81C87C1F400010023 /* Fragment+Of+Eternity.jpg in Resources */,
+				E9D7E8C11C87C1F400010023 /* Sheptune2.jpg in Resources */,
+				E9D7E8BA1C87C1F400010023 /* New+Crowd39.jpg in Resources */,
+				E9D7E89A1C87C1F400010023 /* 7146.jpg in Resources */,
+				E9D7E88F1C87C1F400010023 /* 4-24-08-492.jpg in Resources */,
+				E9D7E88A1C87C1F400010023 /* 3-29-12-184.jpg in Resources */,
 				E95FCBA81C86A14500D1800A /* Wallpaper.png in Resources */,
-				E95FCB9A1C86A14500D1800A /* St. Augustine - Confessions copy.pdf in Resources */,
-				E95FCB901C86A14500D1800A /* mulvey-visualpleasure.pdf in Resources */,
-				E95FCB841C86A14500D1800A /* Fallen1.jpg in Resources */,
-				E95FCB6C1C86A14500D1800A /* Conversation.jpg in Resources */,
+				E9D7E8AD1C87C1F400010023 /* Doubt9.jpg in Resources */,
+				E9D7E86D1C87C1F400010023 /* CatcherInTheRye - Salinger.txt in Resources */,
 				E95FCB9D1C86A14500D1800A /* EngineSettings.ini in Resources */,
-				E95FCB5A1C86A14500D1800A /* 4-14-09-462.jpg in Resources */,
-				E95FCB531C86A14500D1800A /* 1894.jpg in Resources */,
-				E95FCB8A1C86A14500D1800A /* Geek Love by Katherine Dunn - Ch1.pdf in Resources */,
-				E95FCB8B1C86A14500D1800A /* Invisible Man - Ellison.pdf in Resources */,
-				E95FCB7F1C86A14500D1800A /* Doubt3.jpg in Resources */,
-				E95FCB6A1C86A14500D1800A /* Bluebird by Charles Bukowski.pdf in Resources */,
-				E95FCB721C86A14500D1800A /* Crowd29.jpg in Resources */,
 				E95FCA791C86A10A00D1800A /* gunshots.wav in Resources */,
+				E9D7E89D1C87C1F400010023 /* Crowd1.jpg in Resources */,
 				E95FCBA51C86A14500D1800A /* Face_Sheet.png in Resources */,
-				E95FCB851C86A14500D1800A /* Fallen2.jpg in Resources */,
-				E95FCB701C86A14500D1800A /* Crowd2.jpg in Resources */,
-				E95FCB971C86A14500D1800A /* NewCrowd52.jpg in Resources */,
 				E95FCBA11C86A14500D1800A /* dummy.json in Resources */,
-				E95FCB7C1C86A14500D1800A /* Doubt15.jpg in Resources */,
-				E95FCB921C86A14500D1800A /* New+Crowd39.jpg in Resources */,
-				E95FCB6B1C86A14500D1800A /* CatcherInTheRye - Salinger.pdf in Resources */,
+				E9D7E89F1C87C1F400010023 /* Crowd3.jpg in Resources */,
+				E9D7E86A1C87C1F400010023 /* bataille_story_of_eye.txt in Resources */,
+				E9D7E8A21C87C1F400010023 /* Crowd14.jpg in Resources */,
+				E9D7E8A61C87C1F400010023 /* Crowd31.jpg in Resources */,
+				E9D7E8B21C87C1F400010023 /* EternalStation.jpg in Resources */,
+				E9D7E8B01C87C1F400010023 /* Doubt16.jpg in Resources */,
+				E9D7E88C1C87C1F400010023 /* 4-10-08-386.jpg in Resources */,
 				E95FCBAB1C86A14500D1800A /* consola.ttf in Resources */,
+				E9D7E8A31C87C1F400010023 /* Crowd16.jpg in Resources */,
+				E9D7E8A81C87C1F400010023 /* Crowd35.jpg in Resources */,
+				E9D7E8BB1C87C1F400010023 /* NewCrowd38.jpg in Resources */,
 				E95FCBAA1C86A14500D1800A /* Windows_UI.png in Resources */,
+				E9D7E8AE1C87C1F400010023 /* Doubt11.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -987,6 +1048,7 @@
 				E95FCAE51C86A12300D1800A /* PipelineDataRenderComponent.cpp in Sources */,
 				E95FCADD1C86A12300D1800A /* databaseSearchInputComponent.cpp in Sources */,
 				E95FCA821C86A10A00D1800A /* Entity.cpp in Sources */,
+				E9DC4A461C8786680025A11B /* textRenderComponent.cpp in Sources */,
 				E95FCAD21C86A12300D1800A /* buttonRenderComponent.cpp in Sources */,
 				E95FCAE91C86A12300D1800A /* textInputRenderComponent.cpp in Sources */,
 				E95FCA8E1C86A10A00D1800A /* subject.cpp in Sources */,

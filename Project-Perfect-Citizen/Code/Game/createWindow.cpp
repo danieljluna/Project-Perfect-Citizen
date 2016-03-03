@@ -11,6 +11,7 @@
 #include <SFML/Main.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <sstream>
 
 #include "../Engine/Window.h"
 #include "buttonRenderComponent.h"
@@ -33,6 +34,7 @@
 #include "../Game/PipelineDataRenderComponent.h"
 #include "../Game/PipelineGraphRenderComponent.h"
 #include "../Game/photoRenderComponent.hpp"
+#include "textRenderComponent.hpp"
 
 using namespace ppc;
 
@@ -221,28 +223,48 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y) {
     if (windowToModify == nullptr) { return; }
     
+    string path = resourcePath() + "Bluebird by Charles Bukowski.txt";
+    cout << path;
+    char lastChar;
+    
+    if (!path.empty()){
+        lastChar = *path.rbegin();
+    }
     /////////////////////////////////////////
-    /////// COMPONENTS
+    /////// COMPONENTS & ENTITIES
     ///////////////////////////////////////
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
-    buttonRenderComponent* textRenderComponent =
-    new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
-    textRenderComponent->renderPosition(sf::Vector2f(0, 220));
+    buttonRenderComponent* textRender =
+        new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
+    textRender->renderPosition(sf::Vector2f(0, 220));
     
-    sf::Image photo;
-    photo.loadFromFile(resourcePath() + "kappa.png");
-    photoRenderComponent* photoRender = new photoRenderComponent(photo);
-    photoRender->setImageScale((float)windowToModify->getSize().x /
+    Entity *newEnt = new Entity();
+    
+    if(lastChar == 't'){
+        sf::Font myFont;
+        myFont.loadFromFile(resourcePath() + "consola.ttf");
+        int fontSize = 10;
+        int windowOffset = 5;
+        ifstream t(path);
+        stringstream buffer;
+        buffer << t.rdbuf();
+        string content = buffer.str();
+        textRenderComponent* textBox =
+            new textRenderComponent(myFont, content, 0, 0, fontSize);
+        newEnt->addComponent(textBox);
+    }
+    
+    else if(lastChar == 'g'){
+        sf::Image photo;
+        photo.loadFromFile(path);
+        photoRenderComponent* photoRender = new photoRenderComponent(photo);
+        photoRender->setImageScale((float)windowToModify->getSize().x /
                                (float)photo.getSize().x,
                                (float)windowToModify->getSize().y /
                                (float)photo.getSize().y);
-    
-    /////////////////////////////////////////
-    /////// ENTITIES
-    ///////////////////////////////////////
-    Entity *newEnt = new Entity();
-    newEnt->addComponent(photoRender);
+        newEnt->addComponent(photoRender);
+    }
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
