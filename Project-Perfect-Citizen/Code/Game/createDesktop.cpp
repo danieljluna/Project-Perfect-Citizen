@@ -65,7 +65,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     /////////////////////////////////////////////
     
     Database* theDatabase = new Database();
-    theDatabase->generateFullDatabase(200);
+    theDatabase->generateFullDatabase(10);
     
     
     //////////////////////////////////////////////

@@ -158,6 +158,11 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     resultsBoxEntity->addComponent(searchResults);
     
     Entity backButton;
+	//bool (databaseSearchInputComponent::*backFunction)(sf::Event&); 
+	//backFunction = &databaseSearchInputComponent::goBack;
+	//dSI->*backFunction;
+	//goBack f = &databaseSearchInputComponent::goBack;
+	//backFunction bFunc = dSI->goBack;
     spawnBackButton(backButton, ih, buttonSheet, 0, 0, 0.2f);
     
     /////////////////////////////////////////
