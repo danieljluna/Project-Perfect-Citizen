@@ -48,10 +48,6 @@ ppc::Vertex& ppc::Vertex::operator=(const Vertex& other){
 ppc::Vertex::~Vertex() {
 }
 
-sf::CircleShape & ppc::Vertex::getCircle() {
-	return circ_;
-}
-
 sf::Color ppc::Vertex::getColor() const {
 	return color_;
 }
