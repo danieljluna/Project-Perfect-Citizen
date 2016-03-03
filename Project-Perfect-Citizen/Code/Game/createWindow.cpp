@@ -46,6 +46,8 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     
     /* Check to make sure the window passed isn't null */
     if (windowToModify == nullptr) { return; }
+
+	ns.getDirString();
     
     /////////////////////////////////////////
     /////// COMPONENTS
@@ -61,7 +63,7 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     
     sf::Font myFont;
     myFont.loadFromFile(resourcePath() + "consola.ttf");
-    int fontSize = 24;
+    int fontSize = 20;
     int windowOffset = 5;
     
     textInputRenderComponent* textInputBox =
