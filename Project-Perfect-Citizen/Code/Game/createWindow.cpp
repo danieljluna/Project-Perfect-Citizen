@@ -34,6 +34,9 @@
 #include "../Game/PipelineGraphRenderComponent.h"
 #include "../Game/photoRenderComponent.hpp"
 
+#include "../Game/NetworkRenderCmpnt.h"
+#include"../Game/NetworkInputCmpnt.h"
+
 using namespace ppc;
 
 
@@ -173,49 +176,75 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
 }
 
 void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
-                        sf::Image& buttonSheet, float x, float y) {
-    if (windowToModify == nullptr) { return; }
-    
-    sf::Font myFont;
-    myFont.loadFromFile(resourcePath() + "consola.ttf");
-    int fontSize = 20;
-    int dataWindowX = (2 * windowToModify->getSize().x) / 3;
-    
-    /////////////////////////////////////////
-    /////// COMPONENTS
-    ///////////////////////////////////////
-    
-    /* Create the render components */
-    PipelineDataRenderComponent* dataText = new PipelineDataRenderComponent(myFont,
-                                                                            dataWindowX, 0, fontSize, windowToModify->getSize().x, windowToModify->getSize().y);
-    
-    PipelineGraphRenderComponent* graphBounds = new PipelineGraphRenderComponent(0, 0, dataWindowX,
-                                                                                 windowToModify->getSize().y);
-    
-    /* NADER: PUT YOUR RENDER COMPONENTS HERE FOR THE GRAPH */
-    
-    /* MARK: this is how you display the text in the blue box.
-     Pass a reference of dataText to the thing thats making the PCG SMS
-     stuff call this function, passing your string to this function.*/
-    dataText->updateString("SMS MESSAGE\n\n { Ayy lmao }");
-    
-    /////////////////////////////////////////
-    /////// ENTITIES
-    ///////////////////////////////////////
-    Entity* dataBox = new Entity();
-    dataBox->addComponent(dataText);
-    
-    Entity* graphBox = new Entity();
-    dataBox->addComponent(graphBounds);
-    
-    /////////////////////////////////////////
-    /////// WINDOW CONSTRUCTION
-    ///////////////////////////////////////
-    windowToModify->addEntity(*dataBox);
-    windowToModify->addEntity(*graphBox);
-    windowToModify->setPosition(x, y);
-    windowToModify = new BorderDecorator(*windowToModify);
-    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+	sf::Image& buttonSheet, float x, float y) {
+	if (windowToModify == nullptr) { return; }
+
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 20;
+	int dataWindowX = (2 * windowToModify->getSize().x) / 3;
+
+	/////////////////////////////////////////
+	/////// COMPONENTS 
+	///////////////////////////////////////
+
+	/* Create the render components */
+	PipelineDataRenderComponent* dataText = new PipelineDataRenderComponent(myFont, 
+		dataWindowX, 0, fontSize, windowToModify->getSize().x, windowToModify->getSize().y);
+
+	PipelineGraphRenderComponent* graphBounds = new PipelineGraphRenderComponent(0, 0, dataWindowX,
+		windowToModify->getSize().y);
+
+	/* NADER: PUT YOUR RENDER COMPONENTS HERE FOR THE GRAPH */
+	//Ask about how are we making networks to be added to the pipeline window.
+	Network* net = new Network(3);
+
+	PipelineCharacter Bob;
+	PipelineCharacter Tim;
+	PipelineCharacter Rob;
+
+	net->vert(0).setCharacter(Bob);
+	net->vert(1).setCharacter(Tim);
+	net->vert(2).setCharacter(Rob);
+	net->vert(0).setPosition(100, 50);
+	net->vert(1).setPosition(150, 150);
+	net->vert(2).setPosition(200, 300);
+
+	Edge e1, e2;
+	e1.setColorRed();
+	e2.setColorGreen();
+	e1.setWeight(1);
+	e1.setRelation("");
+
+	net->setEdge(0, 1, e1);
+	net->setEdge(1, 2, e2);
+
+	NetworkRenderComponent* networkRender = new NetworkRenderComponent(*net);
+	NetworkInputCmpnt* networkInput = new NetworkInputCmpnt(*net, windowToModify->getInputHandler());
+	/* MARK: this is how you display the text in the blue box. 
+	Pass a reference of dataText to the thing thats making the PCG SMS
+	stuff call this function, passing your string to this function.*/
+	dataText->updateString("SMS MESSAGE\n\n { Ayy lmao }");
+
+	/////////////////////////////////////////
+	/////// ENTITIES 
+	///////////////////////////////////////
+	Entity* dataBox = new Entity();
+	dataBox->addComponent(dataText);
+
+	Entity* graphBox = new Entity();
+	graphBox->addComponent(graphBounds);
+	graphBox->addComponent(networkRender);
+	graphBox->addComponent(networkInput);
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+	windowToModify->addEntity(*dataBox);
+	windowToModify->addEntity(*graphBox);
+	windowToModify->setPosition(x, y);
+	windowToModify = new BorderDecorator(*windowToModify);
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+
 }
 
 void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y) {
@@ -251,7 +280,6 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     windowToModify->addEntity(*newEnt);
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
-    
 }
 
 

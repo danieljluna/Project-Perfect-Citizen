@@ -8,6 +8,7 @@
 
 #include "Vertex.h"
 #include "Edge.h"
+#include "debug.h"
 
 
 namespace ppc {
