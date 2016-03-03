@@ -1,11 +1,13 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <array>
 
 #include "../Engine/inputComponent.h"
 #include "../Engine/InputHandler.h"
 #include "../Engine/Entity.h"
 #include "../Engine/subject.h"
+#include "../Engine/FunctionObserver.h"
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -36,6 +38,18 @@ public:
 ///Ctor and setter functions instead.
 ///////////////////////////////////////////////////////////////////////
 	mousePressButton(ppc::InputHandler& ih, sf::FloatRect rect, std::string isBeingPressed);
+
+	///////////////////////////////////////////////////////////////////////
+	///@brief Removes all the current observers in the observerArray_
+	///////////////////////////////////////////////////////////////////////
+	void clearObservers();
+
+	///////////////////////////////////////////////////////////////////////
+	///@brief Adds the designated FunctionObserver to the observerArray_
+	///@param the FunctionObserver to add
+	///@param the index in the array to insert the FunctionObserver
+	///////////////////////////////////////////////////////////////////////
+	void addFunctionObserver(FunctionObserver* fnToAdd, int placeToInsert);
 
 ///////////////////////////////////////////////////////////////////////
 //SETTERS
