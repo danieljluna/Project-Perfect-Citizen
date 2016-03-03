@@ -45,6 +45,7 @@
 #include "Game/PipelineCharacter.h"
 #include "Game/Database.h"
 #include "Engine/Audio/AudioQueue.h"
+#include "Engine/Network.h"
 #include "Game/BootLoader.hpp"
 #include "Engine/FunctionObserver.h"
 #include "Game/characterRender.hpp"
@@ -72,6 +73,21 @@ int main(int argc, char** argv) {
 
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
+
+	//////////////////////////SOUND STUFF//////////////////////////////
+	//AudioLocator::initialize();
+	//ppc::NullAudio dAudio;
+	//AudioLocator::assign(&dAudio);
+	//AudioLogger logger(dAudio);
+	//AudioLocator::assign(&logger);
+	//Audio* audio = AudioLocator::getAudio();
+	//audio->playSound(ppc::Sounds::gunshot);
+
+	//AudioQueue aq(5);
+	//int gunshots = aq.addSound("shots", "gunshots.wav");
+	//aq.playSound(gunshots);
+	//aq.popAndPlay();
+	///////////////////////////////////////////////////////////////////
 
     ////////////////// BACKGROUND IMAGE ////////////////////
     sf::Sprite S;
@@ -110,7 +126,7 @@ int main(int argc, char** argv) {
     createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
     //createTeacherDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
     
-    Entity* aCharacter = new Entity();
+    //Entity* aCharacter = new Entity();
     //characterRender* characterRend = new characterRender(faceSheet);
     //aCharacter->addComponent(characterRend);
     
@@ -136,8 +152,6 @@ int main(int argc, char** argv) {
     std::string renderString = "";
     text.setString(renderString);
     
-	
-
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop
 	///////////////////////////////////////////////////////////////////
@@ -153,40 +167,31 @@ int main(int argc, char** argv) {
 				screen.close();
 
 			//Input phase
-			if(hasBooted)myDesktop.registerInput(event);
+			myDesktop.registerInput(event);
         }
 
         sf::Time elapsed = deltaTime.getElapsedTime();
-        while (elapsed > framePeriod) {
+		while (elapsed > framePeriod) {
 
-            // Clear screen
-            screen.clear(sf::Color::Black);
+			// Clear screen
+			screen.clear(sf::Color::Black);
 
-            //Update all Windows in the Desktop
-            sf::Time dt = deltaTime.restart();
-            if(hasBooted)myDesktop.update(dt);
+			//Update all Windows in the Desktop
+			sf::Time dt = deltaTime.restart();
 
-            elapsed -= framePeriod;
-        }
-        //////////////////////////////////////////////////////////
-        ///// I KNOW THIS IS A REALLY GROSS LOOP
-        ///// TEMPORARY BOOT LOADING SCREEN
-        /////////////////////////////////////////////////////////
-        if (!hasBooted) {
-            renderString = bootLoad(step, renderString);
-            if (step == 6300)
-                hasBooted = true;
-            step++;
-            text.setString(renderString);
-            screen.draw(text);
-        } else {
-           myDesktop.refresh();
-           screen.draw(myDesktop);
-        }
+			myDesktop.update(dt);
 
-        //Display final Window
-        screen.display();
+			elapsed -= framePeriod;
+		}
+            //Draw all the Windows in the Desktop
+			myDesktop.refresh();
 
+			//Logger should not be used in place of passing
+			//the actual drawn Desktop
+			screen.draw(myDesktop);
+
+            //Display the final window
+			screen.display();
     }
 
     return EXIT_SUCCESS;
