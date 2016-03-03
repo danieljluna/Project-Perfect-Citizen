@@ -275,4 +275,17 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     
 }
 
+void ppc::spawnDirectory(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image & buttonSheet, sf::Image& spritesheet, float x, float y)
+{
+	Entity *newEnt = new Entity();
+	spawnDirectoryFolderIcon(*newEnt, ih, spritesheet, buttonSheet, "test", 50, 50, 100);
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+	windowToModify->setPosition(x, y);
+	windowToModify->addEntity(*newEnt);
+	windowToModify = new BorderDecorator(*windowToModify);
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+}
+
 

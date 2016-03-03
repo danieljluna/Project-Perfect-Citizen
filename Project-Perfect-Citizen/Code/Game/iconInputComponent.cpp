@@ -17,8 +17,8 @@ const string OPEN_THE_HELP = "OTH";
 const string OPEN_THE_BROWSER = "OTB";
 const string OPEN_THE_EXPLORER = "OTE";
 
-iconInputComponent::iconInputComponent(Desktop& dT, Database* dB, sf::Image& bS) 
-	: theDesktop_(dT), theDatabase_(dB), buttonSheet_(bS) {
+iconInputComponent::iconInputComponent(Desktop& dT, Database* dB, sf::Image& bS, sf::Image& iS) 
+	: theDesktop_(dT), theDatabase_(dB), buttonSheet_(bS), iconSheet_(iS) {
 
 }
 
@@ -68,8 +68,12 @@ void iconInputComponent::recieveMessage(msgType msg) {
 	else if (msg.compare(OPEN_THE_BROWSER) == 0) {
 		cout << "DEBUG: Implement and open the browser" << endl;
 	}
+	//hard drive (for now)
 	else if (msg.compare(OPEN_THE_EXPLORER) == 0) {
 		cout << "DEBUG: Implement and open the explorer" << endl;
+		ppc::WindowInterface* fileExplorer = new ppc::Window(800, 600, sf::Color(200, 200, 200));
+		ppc::spawnDirectory(fileExplorer, fileExplorer->getInputHandler(), this->theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
+		theDesktop_.addWindow(fileExplorer);
 	}
 }
 

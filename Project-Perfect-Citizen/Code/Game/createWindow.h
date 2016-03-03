@@ -6,6 +6,7 @@
 #include "buttonUpdateComponent.h"
 #include "Database.h"
 #include "createButton.h"
+#include "createIcon.h"
 
 
 
@@ -53,5 +54,7 @@ void spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database*
         sf::Image& buttonSheet, float x, float y);
     
 void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, NodeState & ns, sf::Image& buttonSheet, float x, float y);
+
+void spawnDirectory(WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns, sf::Image& buttonSheet, sf::Image& spritesheet, float x, float y);
 };
 

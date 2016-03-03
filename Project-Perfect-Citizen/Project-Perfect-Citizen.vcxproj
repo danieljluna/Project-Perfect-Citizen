@@ -59,6 +59,7 @@
     <ClCompile Include="Code\Game\databaseSearchInputComponent.cpp" />
     <ClCompile Include="Code\Game\databaseSearchRenderComponent.cpp" />
     <ClCompile Include="Code\Game\desktopExtractionComponent.cpp" />
+    <ClCompile Include="Code\Game\DirectoryIconInputComponent.cpp" />
     <ClCompile Include="Code\Game\expressionistParser.cpp" />
     <ClCompile Include="Code\Game\iconInputComponent.cpp" />
     <ClCompile Include="Code\Game\mousePressButton.cpp" />
@@ -70,6 +71,7 @@
     <ClCompile Include="Code\Game\textInputKeys.cpp" />
     <ClCompile Include="Code\Game\textInputRenderComponent.cpp" />
     <ClCompile Include="Code\Game\textOutputRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\textRenderComponent.cpp" />
     <ClCompile Include="Code\Game\TreeCommands.cpp" />
     <ClCompile Include="Code\Game\WindowBkgndRenderCmpnt.cpp" />
     <ClCompile Include="Code\Library\jsoncpp.cpp" />
@@ -138,6 +140,7 @@
     <ClInclude Include="Code\Game\databaseSearchInputComponent.h" />
     <ClInclude Include="Code\Game\databaseSearchRenderComponent.h" />
     <ClInclude Include="Code\Game\desktopExtractionComponent.hpp" />
+    <ClInclude Include="Code\Game\DirectoryIconInputComponent.h" />
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
     <ClInclude Include="Code\Game\iconInputComponent.h" />
     <ClInclude Include="Code\Game\mousePressButton.h" />
@@ -209,12 +212,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\jbaden\Desktop\PPC\SFML-2.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_MARKER;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\jbaden\Desktop\PPC\SFML-2.3.2\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <AdditionalOptions>/ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>

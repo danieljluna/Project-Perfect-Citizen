@@ -7,7 +7,7 @@
 //using namespace std;
 
 namespace ppc {
-	enum FileType { Directory, File};
+	enum FileType { Directory, File };
 	///////////////////////////////////////////////
 	///@brief BaseFileType represents the nodes
 	///of file tree. By default, these nodes can
@@ -129,5 +129,7 @@ namespace ppc {
 		///@brief returns the status of BaseFileType::encrypted
 		///////////////////////////////////////////////
 		virtual bool isEncrypted();
+
+		virtual std::map<std::string, BaseFileType*> getContents();
 	};
 };

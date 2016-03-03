@@ -20,8 +20,9 @@
 #include "buttonRenderComponent.h"
 #include "consoleUpdateComponent.h"
 #include "../Engine/NodeState.h"
-#include "iconInputComponent.h"
+//#include "iconInputComponent.h"
 #include "Database.h"
+#include "DirectoryIconInputComponent.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief A toolkit of functions that turn entities into useable icons
@@ -45,6 +46,8 @@ namespace ppc {
 ///@param The desired animation speed of the icon
 ///////////////////////////////////////////////////////////////////////
 void spawnFolderIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
+
+void spawnDirectoryFolderIcon(Entity& entityToModify, InputHandler& ih, sf::Image& spriteSheet, sf::Image& buttonSheet, string name, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable settings Icon

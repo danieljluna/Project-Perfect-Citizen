@@ -112,4 +112,9 @@ bool ppc::BaseFileType::isEncrypted()
 	return encrypted;
 }
 
+std::map<std::string, ppc::BaseFileType*> ppc::BaseFileType::getContents()
+{
+	return this->contents;
+}
+
 

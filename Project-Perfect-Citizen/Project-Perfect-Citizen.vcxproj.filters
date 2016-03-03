@@ -193,6 +193,12 @@
     <ClCompile Include="Code\Game\photoRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\textRenderComponent.cpp">
+      <Filter>Headers\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\DirectoryIconInputComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -421,6 +427,9 @@
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\photoRenderComponent.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\DirectoryIconInputComponent.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>
