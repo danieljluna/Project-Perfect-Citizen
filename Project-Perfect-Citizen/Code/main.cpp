@@ -126,7 +126,7 @@ int main(int argc, char** argv) {
     createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
     //createTeacherDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
     
-    Entity* aCharacter = new Entity();
+    //Entity* aCharacter = new Entity();
     //characterRender* characterRend = new characterRender(faceSheet);
     //aCharacter->addComponent(characterRend);
     
@@ -167,50 +167,22 @@ int main(int argc, char** argv) {
 				screen.close();
 
 			//Input phase
-			if(hasBooted)myDesktop.registerInput(event);
+			myDesktop.registerInput(event);
         }
 
         sf::Time elapsed = deltaTime.getElapsedTime();
-        while (elapsed > framePeriod) {
+		while (elapsed > framePeriod) {
 
-            // Clear screen
-            screen.clear(sf::Color::Black);
+			// Clear screen
+			screen.clear(sf::Color::Black);
 
-            //Update all Windows in the Desktop
-            sf::Time dt = deltaTime.restart();
-<<<<<<< HEAD
-            //if(hasBooted)
-            myDesktop.update(dt);
-=======
-            if(hasBooted)myDesktop.update(dt);
->>>>>>> refs/remotes/origin/experimental
+			//Update all Windows in the Desktop
+			sf::Time dt = deltaTime.restart();
 
-            elapsed -= framePeriod;
-        }
-        //////////////////////////////////////////////////////////
-        ///// I KNOW THIS IS A REALLY GROSS LOOP
-        ///// TEMPORARY BOOT LOADING SCREEN
-        /////////////////////////////////////////////////////////
-        if (!hasBooted) {
-            renderString = bootLoad(step, renderString);
-            if (step == 6300)
-                hasBooted = true;
-            step++;
-            text.setString(renderString);
-<<<<<<< HEAD
-            screen.draw(text);*/
-        //} else {
-           //myDesktop.refresh();
-           //screen.draw(myDesktop);
-       // }
-=======
-            screen.draw(text);
-        } else {
-           myDesktop.refresh();
-           screen.draw(myDesktop);
-        }
->>>>>>> refs/remotes/origin/experimental
+			myDesktop.update(dt);
 
+			elapsed -= framePeriod;
+		}
             //Draw all the Windows in the Desktop
 			myDesktop.refresh();
 

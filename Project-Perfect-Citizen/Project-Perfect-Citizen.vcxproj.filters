@@ -190,6 +190,19 @@
     <ClCompile Include="Code\Engine\Audio\DesktopAudio.cpp">
       <Filter>Sources\Engine\Audio</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\characterRender.cpp" />
+    <ClCompile Include="Code\Engine\Edge.cpp">
+      <Filter>Sources\Engine\Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\NetworkInputCmpnt.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\NetworkRenderCmpnt.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\photoRenderComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">

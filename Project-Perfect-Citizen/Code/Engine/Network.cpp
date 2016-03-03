@@ -237,7 +237,7 @@ void Network::draw(sf::RenderTarget& target,
     unsigned int lnVerts = 2 * edgeCount_;
 	sf::VertexArray edgeLines(sf::Lines, 2 * edgeCount_);
     unsigned int lnsDrawn = 0;
-
+	
     for (size_t i = 0; i < size_; ++i) {
 
         //For each edge leaving this Vertex
