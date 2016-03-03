@@ -21,6 +21,7 @@
 #include "consoleUpdateComponent.h"
 #include "../Engine/NodeState.h"
 #include "iconInputComponent.h"
+#include "textLabelComponent.hpp"
 #include "Database.h"
 
 ///////////////////////////////////////////////////////////////////////

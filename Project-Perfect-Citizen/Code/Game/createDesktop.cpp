@@ -37,14 +37,14 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	Entity* SettingsIcon = new Entity();
 	Entity* SearchIcon = new Entity();
 
-	spawnConsoleIcon(*ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 50.0f, 0.4f, 0.25f);
-	spawnFolderIcon(*FolderIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 25.0f, 100.0f, 0.4f, 0.25f);
-	spawnBrowserIcon(*BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 25.0f, 150.0f, 0.4f, 0.25f);
-	spawnChatIcon(*ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 200.0f, 0.4f, 0.25f);
-	spawnDataGraphIcon(*DataGraphIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 250.0f, 0.4f, 0.25f);
-	spawnHardDriveIcon(*HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 300.0f, 0.4f, 0.25f);
-	spawnSettingsIcon(*SettingsIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 350.0f, 0.4f, 0.25f);
-	spawnSearchIcon(*SearchIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 400.0f, 0.4f, 0.25f);
+	spawnConsoleIcon(*ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 25.0f, 0.5f, 0.25f);
+	spawnFolderIcon(*FolderIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 25.0f, 110.0f, 0.5f, 0.25f);
+	spawnBrowserIcon(*BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 25.0f, 185.0f, 0.5f, 0.25f);
+	spawnChatIcon(*ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 260.0f, 0.5f, 0.25f);
+	spawnDataGraphIcon(*DataGraphIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 335.0f, 0.5f, 0.25f);
+	spawnHardDriveIcon(*HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 410.0f, 0.5f, 0.25f);
+	spawnSettingsIcon(*SettingsIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 485.0f, 0.5f, 0.25f);
+	spawnSearchIcon(*SearchIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 560.0f, 0.5f, 0.25f);
 
 	desktopWindowToModify.addEntity(*ConsoleIcon);
 	desktopWindowToModify.addEntity(*FolderIcon);
