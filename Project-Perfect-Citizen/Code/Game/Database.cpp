@@ -1,5 +1,5 @@
 #include "Database.h"
-
+#include "../Engine/debug.h"
 
 using namespace ppc;
 
@@ -21,6 +21,11 @@ void Database::generateFullDatabase(int newMaxNumber) {
 		newDatabase.push_back(newCharacter);
 	}
 	databaseState_ = newDatabase;
+}
+
+std::vector<ppc::PipelineCharacter> Database::getDatabaseState()
+{
+	return databaseState_;
 }
 
 std::vector<std::string> Database::getPrintableDatabase(){
@@ -70,6 +75,7 @@ bool Database::filterIsValid(std::string filter) {
 	else if (cleaned.compare("email") == 0) return true;
 	else if (cleaned.compare("phone") == 0) return true;
 	else if (cleaned.compare("job") == 0) return true;
+<<<<<<< HEAD
 
 	if (filter.compare("iq") == 0) return true;
 	else if (filter.compare("age") == 0) return true;
@@ -78,6 +84,8 @@ bool Database::filterIsValid(std::string filter) {
 	else if (filter.compare("email") == 0) return true;
 	else if (filter.compare("phone") == 0) return true;
 	else if (filter.compare("job") == 0) return true;
+=======
+>>>>>>> refs/remotes/origin/experimental
 
 	std::cout << "Error: Invalid filter" << std::endl;
 	return false;

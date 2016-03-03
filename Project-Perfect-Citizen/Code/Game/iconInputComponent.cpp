@@ -1,6 +1,6 @@
+#include "../Engine/debug.h"
 #include "iconInputComponent.h"
 #include <iostream>
-#include <string>
 #include <string>
 
 using namespace ppc;
@@ -34,7 +34,11 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		theDesktop_.addWindow(consoleWindow);
 	}
 	else if (msg.compare(OPEN_THE_FILE) == 0) {
-		cout << "DEBUG: Implement and open the file" << endl;
+        ppc::WindowInterface* FileWindow =
+            new ppc::Window(500, 500, sf::Color(200, 200, 200));
+        ppc:spawnFile(FileWindow, FileWindow->getInputHandler(),
+            theDesktop_.getNodeState(), buttonSheet_, 100, 200);
+        theDesktop_.addWindow(FileWindow);
 	}
 	else if (msg.compare(OPEN_THE_SETTINGS) == 0) {
 		cout << "DEBUG: Implement and open the settings" << endl;

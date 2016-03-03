@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "WindowInterface.h"
 
 using namespace ppc;

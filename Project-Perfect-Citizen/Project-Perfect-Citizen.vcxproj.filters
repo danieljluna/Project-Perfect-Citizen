@@ -190,7 +190,11 @@
     <ClCompile Include="Code\Game\PipelineGraphRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Code\Game\PipelineLevelBuilder.cpp">
+=======
+    <ClCompile Include="Code\Game\photoRenderComponent.cpp">
+>>>>>>> refs/remotes/origin/experimental
       <Filter>Sources\Game</Filter>
     </ClCompile>
   </ItemGroup>
@@ -420,7 +424,11 @@
     <ClInclude Include="Code\Game\PipelineDataRenderComponent.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Code\Game\PipelineLevelBuilder.h">
+=======
+    <ClInclude Include="Code\Game\photoRenderComponent.hpp">
+>>>>>>> refs/remotes/origin/experimental
       <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>

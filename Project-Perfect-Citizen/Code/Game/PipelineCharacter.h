@@ -2,9 +2,10 @@
 
 #include <string>
 #include <iostream>
+#include <SFML/Graphics.hpp>
 
 ///////////////////////////////////////////////////////////////////////
-/// @author Mark Biundo
+/// @author Mark Biundo / Michael Lowe
 /// @brief Procedurally Generated Pipeline Characters
 /// @details contains elements of procedurally generated characters for
 ///  use in pipeline extraction sequences, as well as the function to
@@ -35,7 +36,18 @@ public:
 	std::string getPersOuterLife() const { return persOuterLife_; }
 
 	std::string getJob() const { return job_; }
-
+    
+    int getEyeType() const { return eyeType_;}
+    int getBrowType() const { return browType_;}
+    int getMouthType() const { return mouthType_;}
+    int getNoseType() const { return noseType_;}
+    int getSkinType() const { return skinType_;}
+    int getHairType() const { return hairType_;}
+    int getSkinColorIndex() const { return skinColorIndex_;}
+    int getHairColorIndex() const { return hairColorIndex_;}
+    int getLipColorIndex() const { return lipColorIndex_;}
+    sf::Color getEyeColor() const { return eyeColor_;}
+    sf::Color getShirtColor() const { return shirtColor_;}
 	///////////////////////////////////////////////////////////////////
 	// Setters not needed?
 	// BE CAREFUL IF SETTING PERSONALITY/JOB, MUST CONFIRM IT EXISTS AS
@@ -63,6 +75,7 @@ public:
 
 	PipelineCharacter(const std::string& job);
 
+
 private:
 
 	///////////////////////////////////////////////////////////////////
@@ -84,7 +97,20 @@ private:
 	std::string persOuterLife_;
 
 	std::string job_;
-
+    
+    ////// CHARACTER PROFILES /////
+    int eyeType_;
+    int browType_;
+    int mouthType_;
+    int noseType_;
+    int skinType_;
+    int hairType_;
+    int skinColorIndex_;
+    int hairColorIndex_;
+    int lipColorIndex_;
+    
+    sf::Color eyeColor_;
+    sf::Color shirtColor_;
 };
 
 };

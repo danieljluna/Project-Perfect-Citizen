@@ -4,6 +4,7 @@
 #include "ResourcePath.hpp"
 #endif
 
+#include "../Engine/debug.h"
 #include "createButton.h"
 
 using namespace ppc;

@@ -48,6 +48,7 @@
 #include "Game/BootLoader.hpp"
 #include "Engine/FunctionObserver.h"
 #include "Game/characterRender.hpp"
+#include "Engine/debug.h"
 
 
 
@@ -107,12 +108,13 @@ int main(int argc, char** argv) {
     Desktop myDesktop(*desktopWindow, testState);
     myDesktop.addBackgroundCmpnt(desktopWindow, S);
     createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+    //createTeacherDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
     
     Entity* aCharacter = new Entity();
-    characterRender* characterRend = new characterRender(faceSheet);
-    aCharacter->addComponent(characterRend);
+    //characterRender* characterRend = new characterRender(faceSheet);
+    //aCharacter->addComponent(characterRend);
     
-    desktopWindow->addEntity(*aCharacter);
+    //desktopWindow->addEntity(*aCharacter);
     
     
     
