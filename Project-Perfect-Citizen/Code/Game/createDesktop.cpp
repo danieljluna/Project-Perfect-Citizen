@@ -1,5 +1,7 @@
 #include "../Engine/debug.h"
 #include "createDesktop.h"
+#include "desktopExtractionComponent.hpp"
+#include "../Library/json/json.h"
 using namespace ppc;
 
 void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
@@ -65,7 +67,10 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     /////////////////////////////////////////////
     
     Database* theDatabase = new Database();
-    theDatabase->generateFullDatabase(10);
+    theDatabase->generateFullDatabase(0);
+    
+    desktopExtractionComponent* teacherFiles = new desktopExtractionComponent(desktopToModify.getNodeState());
+    Json::Value parsed = teacherFiles->parseDesktopAsJson("Desktop1.json", "Desktop");
     
     
     //////////////////////////////////////////////
@@ -92,6 +97,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
 	Entity FilmIcon;
     Entity LitIcon;
     Entity PhotosIcon;
+    Entity ConsoleIcon;
     
     spawnBrowserIcon(BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 25.0f, 50.0f, 0.4f, 0.25f);
     spawnChatIcon(ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 100.0f, 0.4f, 0.25f);
@@ -102,6 +108,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     spawnFolderIcon(FilmIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 100.0f, 150.0f, 0.4f, 0.25f);
     spawnFolderIcon(LitIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 100.0f, 200.0f, 0.4f, 0.25f);
     spawnFolderIcon(PhotosIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 100.0f, 250.0f, 0.4f, 0.25f);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 225.0f, 0.5f, 0.25f);
     
     desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);
@@ -112,5 +119,6 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     desktopWindowToModify.addEntity(FilmIcon);
     desktopWindowToModify.addEntity(LitIcon);
     desktopWindowToModify.addEntity(PhotosIcon);
+    desktopWindowToModify.addEntity(ConsoleIcon);
     
 }
