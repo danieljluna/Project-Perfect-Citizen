@@ -67,8 +67,25 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		cdCommand.push_back(cmd.at(1));
 		commandFn newCD = findFunction(cd);
 		newCD(fileTree_, cdCommand);
+		cout << "CD WAS CALLED" << endl;
 	}
-	else if (cmd.at(0) == "make" || cmd.at(0) == "mkdir" || 
+	else if (cmd.at(0) == "mkdir") {
+		std::vector<string> mkdirCommand;
+		string mkdir = "mkdir";
+		mkdirCommand.push_back(mkdir);
+		mkdirCommand.push_back(cmd.at(1));
+		commandFn newCD = findFunction(mkdir);
+		newCD(fileTree_, mkdirCommand);
+	}
+	else if (cmd.at(0) == "make") {
+		std::vector<string> makeCommand;
+		string make = "make";
+		makeCommand.push_back(make);
+		makeCommand.push_back(cmd.at(1));
+		commandFn newCD = findFunction(make);
+		newCD(fileTree_, makeCommand);
+	}
+	else if ( 
 		cmd.at(0) == "decrypt" || cmd.at(0) == "encrypt") {
 	}
 	else { 

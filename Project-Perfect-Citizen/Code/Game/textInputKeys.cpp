@@ -87,9 +87,7 @@ bool textInputKeys::registerInput(sf::Event& ev) {
 					commandVec.push_back(token);
 					last = next + 1;
 				}
-				
-				cup.executeCommand(commandVec);
-		
+					
 				/* Display the result */;
 				textDisplay.updateString(commandVec);
 
