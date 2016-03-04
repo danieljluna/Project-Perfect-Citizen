@@ -38,6 +38,7 @@
 #include"../Game/NetworkInputCmpnt.h"
 
 #include "../Game/PipelineLevelBuilder.h"
+#include "../Game/expressionistParser.hpp"
 
 using namespace ppc;
 
@@ -183,7 +184,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
-	int fontSize = 20;
+	int fontSize = 13;
 	int dataWindowX = (2 * windowToModify->getSize().x) / 3;
 
 	/////////////////////////////////////////
@@ -258,7 +259,50 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	/* MARK: this is how you display the text in the blue box. 
 	Pass a reference of dataText to the thing thats making the PCG SMS
 	stuff call this function, passing your string to this function.*/
-	dataText->updateString("SMS MESSAGE\n\n { Ayy lmao }");
+
+	//NOTE TO SELF - MOVE SMS GENERATION INTO EDGE
+	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson("smsPipeline.json");
+	std::srand(time(0));
+	int senderind = rand() % net->size();
+	int recind = rand() % net->size();
+
+	for (int i = 0; i < net->size(); ++i) {
+		if (senderind == recind) ++recind;
+		recind = recind % net->size();
+		if (net->isAdjacent(senderind, recind)) break;
+	}
+
+	PipelineCharacter sender = net->vert(senderind).getCharacter();
+	PipelineCharacter receiver = net->vert(recind).getCharacter();
+
+	std::string sms = expr::ExpressionistParser::expressWithJson(exprGrammar, sender);
+
+	dataText->appendString("TIMESTAMP: Mon Mar 03 15:23:52 2016 \nFROM: " +
+		sender.getSSN().substr(0, 2) + " TO: " + receiver.getSSN().substr(0, 2) +
+		"\n");
+
+	std::string sub = "";
+
+	while (sms.length() > 0) {
+		if (sms.find_first_of('%') < 30) {
+			sub += sms.substr(0, sms.find_first_of('%'));
+			sms = sms.substr(sms.find_first_of('%'), std::string::npos);
+		}
+		else {
+			if (sms.length() < 30) {
+				sub += sms.substr(0, sms.length());
+				sms = "";
+			}
+			else {
+				sub += sms.substr(0, 30) + '\n';
+				sms = sms.substr(30, std::string::npos);
+			}
+		}
+	}
+	
+	dataText->appendString(sub + "\n\n");
+
+	//dataText->appendString("SMS MESSAGE\n\n { Ayy lmao }");
 
 	/////////////////////////////////////////
 	/////// ENTITIES 

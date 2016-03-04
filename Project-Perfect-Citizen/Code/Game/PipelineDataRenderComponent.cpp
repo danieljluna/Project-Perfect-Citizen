@@ -1,6 +1,8 @@
 #include "../Engine/debug.h"
 #include "PipelineDataRenderComponent.h"
 
+using namespace ppc;
+
 PipelineDataRenderComponent::PipelineDataRenderComponent(sf::Font& f,
 	int x, int y, int size, int backgroundWidth, int backgroundHeight) : font_(f) {
 
@@ -23,13 +25,13 @@ PipelineDataRenderComponent::~PipelineDataRenderComponent() {
 
 }
 
-void PipelineDataRenderComponent::updateString(std::string output) {
+void PipelineDataRenderComponent::appendString(const std::string& output) {
 	/* Set the string now to be rendered in the draw() call.*/
-	text_->setString(output);
+	text_->setString(text_->getString() + output);
 }
 
 void PipelineDataRenderComponent::clearString() {
-	str_.clear();
+	text_->setString("");
 }
 
 

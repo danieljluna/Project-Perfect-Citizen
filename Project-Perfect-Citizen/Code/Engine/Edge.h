@@ -20,6 +20,8 @@ private:
 
 	sf::FloatRect bounds_;
 
+	std::vector<std::string> smsData;
+
 public:
 
 	///////////////////////////////////////////////////////////////////////
