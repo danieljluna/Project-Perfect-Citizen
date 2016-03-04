@@ -89,7 +89,11 @@ void fn_cd(ppc::NodeState& state, const vector<string> words)
 	}
 	if (words.at(1) == "..") {
 		state.setCwd((state.getCwd()->getParent()));
+		if (state.getPwdVector().at(0) == "/") {
+			return;
+		}
 		state.popWorking();
+		return;
 	}
 	std::string filePath = words.at(1);
 	std::vector<std::string> pathVec = split(filePath, "/");
@@ -107,7 +111,12 @@ void fn_cd(ppc::NodeState& state, const vector<string> words)
 			state.popWorking();
 		}
 		else {
-			state.pushWorking(*iter);
+			if (*iter != "..") {
+				state.pushWorking(*iter);
+			}
+			if (*iter == "..") {
+				state.popWorking();
+			}
 		}
 	}
 	if (newDir->isEncrypted()) {
