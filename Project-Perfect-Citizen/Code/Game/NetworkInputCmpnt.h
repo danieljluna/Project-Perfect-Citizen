@@ -3,9 +3,12 @@
 #include <vector>
 #include "../Engine/inputComponent.h"
 #include "../Engine/Network.h"
-#include "../Engine/debug.h"
+
 
 namespace ppc {
+	///////////////////////////////////////////////////////////////////
+	///@brief Class that allows interactability with Network Graphs.
+	///////////////////////////////////////////////////////////////////
 	class NetworkInputCmpnt : public InputComponent {
 
 	private:
@@ -30,6 +33,8 @@ namespace ppc {
 		NetworkInputCmpnt() = delete;
 
 		NetworkInputCmpnt(Network&, ppc::InputHandler&);
+
+		vector<ppc::DraggableInput*>* getDraggables();
 
 		virtual ~NetworkInputCmpnt();
 

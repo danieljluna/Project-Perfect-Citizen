@@ -36,6 +36,7 @@
 
 #include "../Game/NetworkRenderCmpnt.h"
 #include"../Game/NetworkInputCmpnt.h"
+#include"../Game/NetworkUpdateCmpnt.h"
 
 using namespace ppc;
 
@@ -212,9 +213,9 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	NetworkRenderComponent* networkRender = new NetworkRenderComponent(*net);
 	NetworkInputCmpnt* networkInput = new NetworkInputCmpnt(*net, windowToModify->getInputHandler());
-	/* MARK: this is how you display the text in the blue box. 
-	Pass a reference of dataText to the thing thats making the PCG SMS
-	stuff call this function, passing your string to this function.*/
+	NetworkUpdateCmpnt* networkUpdate = new NetworkUpdateCmpnt(*net);
+	networkUpdate->setBounds(graphBounds->getLocalBounds());
+	networkUpdate->setDrags(networkInput->getDraggables());
 	dataText->updateString("SMS MESSAGE\n\n { Ayy lmao }");
 
 	/////////////////////////////////////////
@@ -225,8 +226,10 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	Entity* graphBox = new Entity();
 	graphBox->addComponent(graphBounds);
+	graphBox->addComponent(networkUpdate);
 	graphBox->addComponent(networkRender);
 	graphBox->addComponent(networkInput);
+
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////

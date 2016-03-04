@@ -95,9 +95,10 @@ void ppc::Desktop::addWindow(WindowInterface* wi){
 }
 
 void ppc::Desktop::destroyWindow(WindowInterface* wi) {
-	if (wi == nullptr|| wi == desktopWindow_) return;
+	if (wi == nullptr || wi == desktopWindow_) return;
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 		if (*it == wi) {
+			delete *it;
 			windows_.erase(it);
 			focusWindow(desktopWindow_);
 			return;

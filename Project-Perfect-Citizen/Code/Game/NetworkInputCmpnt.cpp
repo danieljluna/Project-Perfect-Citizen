@@ -52,17 +52,17 @@ ppc::NetworkInputCmpnt::NetworkInputCmpnt(Network& n,
 	selectedEdge_ = { 0,0 };
 
 	//Make every vertex draggable
-	//for (size_t i = 0; i < network_->size(); i++) {
-		DraggableInput* dI = new DraggableInput(network_->vert(0));
-		network_->vert(0).applyDraggable(*dI, handle_);
-		dI->setBounds(network_->vert(0).getLocalBounds());
-		DEBUGF("ni", network_->vert(0).getLocalBounds().left);
-		DEBUGF("ni", network_->vert(0).getLocalBounds().top);
-		DEBUGF("ni", network_->vert(0).getLocalBounds().width);
-		DEBUGF("ni", network_->vert(0).getLocalBounds().height);
+	for (size_t i = 0; i < network_->size(); i++) {
+		DraggableInput* dI = new DraggableInput(network_->vert(i));
+		network_->vert(i).applyDraggable(*dI, handle_);
+		dI->setBounds(network_->vert(i).getLocalBounds());
 		drags_.push_back(dI);
-	//}
+	}
 
+}
+
+vector<ppc::DraggableInput*>* ppc::NetworkInputCmpnt::getDraggables() {
+	return &drags_;
 }
 
 ppc::NetworkInputCmpnt::~NetworkInputCmpnt() {

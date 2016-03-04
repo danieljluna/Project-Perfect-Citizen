@@ -64,10 +64,11 @@ bool DraggableInput::registerInput(sf::Event& ev) {
         if ((ev.mouseButton.button == sf::Mouse::Left) &&
             (bounds_.contains(mousePos))) {
             //Set the flag to true
-			DEBUGF("ni", "x: " << mousePos.x << " y: " << mousePos.y);
+
 			startX_ = ev.mouseButton.x;
 			startY_ = ev.mouseButton.y;
             isDragging_ = true;
+			return false;
         }
 
     //If we have a mouseRelease
@@ -76,15 +77,11 @@ bool DraggableInput::registerInput(sf::Event& ev) {
             isDragging_ = false;
         }
 
+
     } else if (ev.type == ev.MouseMoved) {
 		int endX_ = ev.mouseMove.x;
 		int endY_ = ev.mouseMove.y;
 
-		if (isWindow_ == false) {
-			DEBUGF("ni", isDragging_);
-		} else {
-			DEBUGF("ni", "WHY");
-		}
         //See if we're dragging
         if (isDragging_) {
 		
@@ -104,9 +101,8 @@ bool DraggableInput::registerInput(sf::Event& ev) {
 				startX_ = endX_;
 				startY_ = endY_;
             }
+			return true;
         }
-
-        return false;
     }
 
     return true;

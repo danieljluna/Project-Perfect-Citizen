@@ -66,6 +66,7 @@
     <ClCompile Include="Code\Game\mousePressButton.cpp" />
     <ClCompile Include="Code\Game\NetworkInputCmpnt.cpp" />
     <ClCompile Include="Code\Game\NetworkRenderCmpnt.cpp" />
+    <ClCompile Include="Code\Game\NetworkUpdateCmpnt.cpp" />
     <ClCompile Include="Code\Game\photoRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineCharacter.cpp" />
     <ClCompile Include="Code\Game\PipelineDataRenderComponent.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="Code\Game\mousePressButton.h" />
     <ClInclude Include="Code\Game\NetworkInputCmpnt.h" />
     <ClInclude Include="Code\Game\NetworkRenderCmpnt.h" />
+    <ClInclude Include="Code\Game\NetworkUpdateCmpnt.h" />
     <ClInclude Include="Code\Game\photoRenderComponent.hpp" />
     <ClInclude Include="Code\Game\PipelineCharacter.h" />
     <ClInclude Include="Code\Game\PipelineDataRenderComponent.h" />
