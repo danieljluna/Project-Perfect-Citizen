@@ -37,6 +37,7 @@
     <ClCompile Include="Code\Engine\RenderCmpntDecorator.cpp" />
     <ClCompile Include="Code\Engine\RenderCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\subject.cpp" />
+    <ClCompile Include="Code\Engine\TestFunctionClass.cpp" />
     <ClCompile Include="Code\Engine\UpdateCmpntDecorator.cpp" />
     <ClCompile Include="Code\Engine\UpdateCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\Vertex.cpp" />
@@ -116,6 +117,7 @@
     <ClInclude Include="Code\Engine\RenderCmpntLogger.h" />
     <ClInclude Include="Code\Engine\renderComponent.h" />
     <ClInclude Include="Code\Engine\subject.h" />
+    <ClInclude Include="Code\Engine\TestFunctionClass.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntDecorator.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntLogger.h" />
     <ClInclude Include="Code\Engine\updateComponent.h" />

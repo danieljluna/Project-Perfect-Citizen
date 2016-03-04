@@ -206,6 +206,9 @@
     <ClCompile Include="Code\Game\photoRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\TestFunctionClass.cpp">
+      <Filter>Headers\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -429,14 +432,11 @@
     </ClInclude>
     <ClInclude Include="Code\Game\BootLoader.hpp" />
     <ClInclude Include="Code\Game\characterRender.hpp" />
-    <ClInclude Include="Code\Game\NetworkInputCmpnt.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Game\NetworkRenderCmpnt.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Game\photoRenderComponent.hpp">
       <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\TestFunctionClass.h">
+      <Filter>Sources\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

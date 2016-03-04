@@ -47,10 +47,10 @@
 #include "Engine/Audio/AudioQueue.h"
 #include "Engine/Network.h"
 #include "Game/BootLoader.hpp"
-#include "Engine/FunctionObserver.h"
+//#include "Engine/FunctionObserver.h"
 #include "Game/characterRender.hpp"
 #include "Engine/debug.h"
-
+#include "Engine\TestFunctionClass.h"
 
 
 using namespace ppc;
@@ -72,8 +72,20 @@ int main(int argc, char** argv) {
 	DEBUGF("ac", argc);
 
     // Create the main sf::window
+	sf::Event testEvent;
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
+	TestFunctionClass* cool = new TestFunctionClass();
+	//FunctionObserver<TestFunctionClass> c(&TestFunctionClass::callFunc); //= new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc);
+	FunctionObserver<TestFunctionClass>* c = new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc);
+	bool coolReturnValue = (*cool.*(c->functionPointer))(testEvent);
 
+
+
+
+
+
+
+	//bool coolReturnValue = (*cool.*(c->functionPointer))(sf::Event());
 	//////////////////////////SOUND STUFF//////////////////////////////
 	//AudioLocator::initialize();
 	//ppc::NullAudio dAudio;
