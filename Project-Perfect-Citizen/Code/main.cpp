@@ -77,7 +77,7 @@ int main(int argc, char** argv) {
 	TestFunctionClass* cool = new TestFunctionClass();
 	//FunctionObserver<TestFunctionClass> c(&TestFunctionClass::callFunc); //= new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc);
 	FunctionObserver<TestFunctionClass>* c = new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc);
-	bool coolReturnValue = (*cool.*(c->functionPointer))(testEvent);
+	//bool coolReturnValue = (*cool.*(c->functionPointer))(testEvent);
 
 
 

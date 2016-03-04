@@ -13,7 +13,7 @@ public:
 	virtual bool eventHandler(sf::Event& ev) {
 		std::cout << this->id << std::endl;
 		//(T::functionPointer)(ev);
-		(*T.*(this->functionPointer))(testEvent);
+		//(*T.*(this->functionPointer))(testEvent);
 		return true;
 	}
 };

@@ -86,10 +86,12 @@ void fn_cd(ppc::NodeState& state, const vector<string> words)
 	}
 	if (words.at(1) == "/" || words.at(1).substr(0,1) == "/") {
 		state.moveToRoot();
+		return;
 	}
 	if (words.at(1) == "..") {
 		state.setCwd((state.getCwd()->getParent()));
 		state.popWorking();
+		return;
 	}
 	std::string filePath = words.at(1);
 	std::vector<std::string> pathVec = split(filePath, "/");
