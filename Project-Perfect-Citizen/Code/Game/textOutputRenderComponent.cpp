@@ -51,7 +51,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 	else if (cmd.at(0) == "pwd") {
 		std::vector<std::string> wd = fileTree_.getPwdVector();
 		for (auto iter = wd.begin(); iter != wd.end(); ++iter) {
-			str_ = str_ + (*iter);
+			str_ = str_ + (*iter) + "/";
 		}
 		str_ = str_ + "\n";
 		++numDisplayedLines;
@@ -60,10 +60,16 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		str_.clear();
 		numDisplayedLines = 0;
 	}
-	else if (cmd.at(0) == "cd" || cmd.at(0) == "make" || 
-		cmd.at(0) == "mkdir" || cmd.at(0) == "decrypt" || 
-		cmd.at(0) == "encrypt") {
-		// Print nothing
+	else if (cmd.at(0) == "cd") {
+		std::vector<string> cdCommand;
+		string cd = "cd";
+		cdCommand.push_back(cd);
+		cdCommand.push_back(cmd.at(1));
+		commandFn newCD = findFunction(cd);
+		newCD(fileTree_, cdCommand);
+	}
+	else if (cmd.at(0) == "make" || cmd.at(0) == "mkdir" || 
+		cmd.at(0) == "decrypt" || cmd.at(0) == "encrypt") {
 	}
 	else { 
 		str_ = str_ + "Error: command '" + cmd.at(0) + 
@@ -72,8 +78,10 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 	}
 
 	/* Set the new console display */
+	if (numDisplayedLines > maxDisplayedLines) {
+		// Adjust the output to scroll or move text up here
+	}
 	text_->setString(str_);
-	cout << "NUM LINES DISPLAYED CURRENTLY: " << numDisplayedLines << endl;
 }
 
 void textOutputRenderComponent::clearString() {
