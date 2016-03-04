@@ -60,7 +60,6 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
             executeCommand = findFunction(cd_cmd);
             executeCommand(fileTree_, CMD);
             parseForFileTree(directoryObj, objNames[i]);
-            //return;
         }
         else{
             // name of the path to access content in resources
@@ -73,14 +72,14 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
             executeCommand(fileTree_, CMD);
             std::string pathName = directoryObj[objNames[i]].asString();
             //std::cout << pathName << std::endl;
-            //return;
         }
+        
     }
-    std::vector<std::string> CMD;
+    std::vector<std::string> CMD2;
     std::string cd_cmd = "cd";
     std::string dot_dot = "..";
-    CMD.push_back(cd_cmd);
-    CMD.push_back(dot_dot);
+    CMD2.push_back(cd_cmd);
+    CMD2.push_back(dot_dot);
     commandFn executeCommand = findFunction(cd_cmd);
-    executeCommand(fileTree_, CMD);
+    executeCommand(fileTree_, CMD2);
 }

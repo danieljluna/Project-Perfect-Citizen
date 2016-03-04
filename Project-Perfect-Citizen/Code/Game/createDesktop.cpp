@@ -65,13 +65,14 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     //////////////////////////////////////////////
     //// Create the database (really should take a seed)
     /////////////////////////////////////////////
-    
     Database* theDatabase = new Database();
     theDatabase->generateFullDatabase(0);
     
+    //////////////////////////////////////////////
+    //// Script to create file tree
+    /////////////////////////////////////////////
     desktopExtractionComponent* teacherFiles = new desktopExtractionComponent(desktopToModify.getNodeState());
     Json::Value parsed = teacherFiles->parseDesktopAsJson("Desktop1.json", "Desktop");
-    
     
     //////////////////////////////////////////////
     //// Create the start menu
@@ -84,7 +85,6 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     startToolbar->addEntity(*startButton);
     desktopToModify.addWindow(startToolbar);
     
-    
     ////////////////////////////////
     ///// ICONS ON TEACHER DESKTOP
     ////////////////////////////////
@@ -92,33 +92,33 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     Entity ChatIcon;
     Entity HardDriveIcon;
     Entity SettingsIcon;
+    Entity ConsoleIcon;
     Entity APEnglishIcon;
     Entity ArtGalleryIcon;
 	Entity FilmIcon;
     Entity LitIcon;
     Entity PhotosIcon;
-    Entity ConsoleIcon;
     
-    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 25.0f, 50.0f, 0.4f, 0.25f);
+    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 25.0f, 25.0f, 0.4f, 0.25f);
     spawnChatIcon(ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 100.0f, 0.4f, 0.25f);
-    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 150.0f, 0.4f, 0.25f);
-    spawnSettingsIcon(SettingsIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 200.0f, 0.4f, 0.25f);
-    spawnFolderIcon(APEnglishIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 100.0f, 50.0f, 0.4f, 0.25f);
-    spawnFolderIcon(ArtGalleryIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 100.0f, 100.0f, 0.4f, 0.25f);
-    spawnFolderIcon(FilmIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 100.0f, 150.0f, 0.4f, 0.25f);
-    spawnFolderIcon(LitIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 100.0f, 200.0f, 0.4f, 0.25f);
-    spawnFolderIcon(PhotosIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 100.0f, 250.0f, 0.4f, 0.25f);
-    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 225.0f, 0.5f, 0.25f);
+    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 175.0f, 0.4f, 0.25f);
+    spawnSettingsIcon(SettingsIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 250.0f, 0.4f, 0.25f);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 325.0f, 0.5f, 0.25f);
+    spawnFolderIcon(APEnglishIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 125.0f, 25.0f, 0.4f, 0.25f);
+    spawnFolderIcon(ArtGalleryIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 125.0f, 100.0f, 0.4f, 0.25f);
+    spawnFolderIcon(FilmIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 125.0f, 175.0f, 0.4f, 0.25f);
+    spawnFolderIcon(LitIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 125.0f, 250.0f, 0.4f, 0.25f);
+    spawnFolderIcon(PhotosIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 125.0f, 325.0f, 0.4f, 0.25f);
     
     desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
+    desktopWindowToModify.addEntity(ConsoleIcon);
     desktopWindowToModify.addEntity(APEnglishIcon);
     desktopWindowToModify.addEntity(ArtGalleryIcon);
     desktopWindowToModify.addEntity(FilmIcon);
     desktopWindowToModify.addEntity(LitIcon);
     desktopWindowToModify.addEntity(PhotosIcon);
-    desktopWindowToModify.addEntity(ConsoleIcon);
     
 }
