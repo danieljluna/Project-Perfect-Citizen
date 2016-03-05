@@ -1,3 +1,5 @@
+#include "debug.h"
+
 #include "subject.h"
 #include <iostream>
 using namespace ppc;

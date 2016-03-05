@@ -1,3 +1,4 @@
+#include "../Engine/debug.h"
 #include "TreeCommands.h"
 
 fnMap functionMap{
@@ -14,7 +15,7 @@ commandFn findFunction(const std::string& command) {
 	auto result = functionMap.find(command);
 	if (result == functionMap.end()) {
 		cout << "function not found" << endl;
-		throw std::exception("TreeCommands::findFunction() :function not found");
+		throw std::runtime_error("TreeCommands::findFunction() :function not found");
 	}
 	return result->second;
 }
@@ -87,8 +88,12 @@ void fn_cd(ppc::NodeState& state, const vector<string> words)
 		state.moveToRoot();
 	}
 	if (words.at(1) == "..") {
+		if (state.getCwd() == state.getRoot()) {
+			return;
+		}
 		state.setCwd((state.getCwd()->getParent()));
 		state.popWorking();
+		return;
 	}
 	std::string filePath = words.at(1);
 	std::vector<std::string> pathVec = split(filePath, "/");
@@ -106,7 +111,12 @@ void fn_cd(ppc::NodeState& state, const vector<string> words)
 			state.popWorking();
 		}
 		else {
-			state.pushWorking(*iter);
+			if (*iter != "..") {
+				state.pushWorking(*iter);
+			}
+			if (*iter == "..") {
+				state.popWorking();
+			}
 		}
 	}
 	if (newDir->isEncrypted()) {

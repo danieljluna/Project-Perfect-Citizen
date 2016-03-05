@@ -20,7 +20,9 @@
 #include "buttonRenderComponent.h"
 #include "consoleUpdateComponent.h"
 #include "../Engine/NodeState.h"
+#include "databaseSearchInputComponent.h"
 
+//typedef bool (databaseSearchInputComponent::*backFn)(sf::Event&);
 ///////////////////////////////////////////////////////////////////////
 /// @brief A toolkit of functions that turn entities into useable buttons
 /// @author Alex Vincent 

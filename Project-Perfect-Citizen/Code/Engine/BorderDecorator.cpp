@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "BorderDecorator.h"
 
 #include <SFML/Window/Event.hpp>
@@ -21,20 +22,33 @@ BorderDecorator::BorderDecorator(
     borderTopLeft_.x = borderBottomRight_.x = 
             borderBottomRight_.y = minorBorder;
 	
-    //Set up BorderShape
-    borderShape_.setPosition(win.getPosition().x - minorBorder, 
-                            win.getPosition().y - majorBorder);
+    //Set up BorderShape & Visual Details
+    sf::Vector2f pos(win.getPosition().x - minorBorder,
+                     win.getPosition().y - majorBorder);
+ 
     sf::Vector2f size(float(win.getSize().x + 2 * minorBorder),
-                      float(win.getSize().y + minorBorder + 
+                      float(win.getSize().y + minorBorder +
                                               majorBorder));
+
+                
+    borderShape_.setPosition(pos);
+   
     borderShape_.setSize(size);
-    borderShape_.setFillColor(sf::Color::Red);
+    borderShape_.setFillColor(sf::Color(170,170,170));
 
     //Set up space for buttons
 
     buttonInputs_ = new mousePressButton*[maxButtons_];
     buttonRenders_ = new buttonRenderComponent*[maxButtons_];
     buttonEntities_ = new Entity*[maxButtons_];
+
+    for (size_t i = 0; i < maxButtons_; ++i) {
+        buttonInputs_[i] = nullptr;
+        buttonRenders_[i] = nullptr;
+        buttonEntities_[i] = nullptr;
+    }
+
+    buttonCount_ = 0;
 
     //Set up Bounds
     updateBounds();

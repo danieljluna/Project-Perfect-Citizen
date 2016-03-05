@@ -16,6 +16,7 @@
 
 ////////////////////////////////////////////////////////////////////////
 
+#include "../Engine/debug.h"
 #include "expressionistParser.hpp"
 //#include "../Library/json/json.h"
 #include <iostream>
@@ -25,14 +26,13 @@
 #include <list>
 #include <cstddef>
 
-
 using namespace expr;
 
 ////////////////////////////////////////////////////////////////////////
 ///parsing out the JSON file
 ////////////////////////////////////////////////////////////////////////
 
-Json::Value expr::parseExpressionistAsJson(std::string file) {
+Json::Value expr::ExpressionistParser::parseExpressionistAsJson(std::string file) {
 	Json::Reader reader;
 	Json::Value value;
 	std::ifstream doc(resourcePath() + file, std::ifstream::binary);
@@ -40,7 +40,7 @@ Json::Value expr::parseExpressionistAsJson(std::string file) {
 	return value;
 }
 
-std::string expr::expressWithJson(const Json::Value& exprOutput, const ppc::PipelineCharacter& speaker) {
+std::string expr::ExpressionistParser::expressWithJson(const Json::Value& exprOutput, const ppc::PipelineCharacter& speaker) {
 	size_t i = 0;		
 	Json::Value nonTerminalObj = exprOutput["nonterminals"];
 	std::vector<std::string> terminalNames = nonTerminalObj.getMemberNames();
@@ -56,7 +56,7 @@ std::string expr::expressWithJson(const Json::Value& exprOutput, const ppc::Pipe
 
 }
 
-std::pair<std::string, bool> expr::expandWithJson(const Json::Value& exprOutput, const Json::Value& symbol, const ppc::PipelineCharacter& speaker) {
+std::pair<std::string, bool> expr::ExpressionistParser::expandWithJson(const Json::Value& exprOutput, const Json::Value& symbol, const ppc::PipelineCharacter& speaker) {
 
 	if (symbol["complete"].asBool() == false) return std::make_pair("", false);
 
@@ -68,7 +68,7 @@ std::pair<std::string, bool> expr::expandWithJson(const Json::Value& exprOutput,
 
 	std::vector<Json::Value> unvisited;
 
-	for (size_t i = 0; i < symbol["rules"].size(); ++i) {
+	for (unsigned int i = 0; i < symbol["rules"].size(); ++i) {
 		Json::Value rule = symbol["rules"][i];
 		unvisited.push_back(rule);
 	}
@@ -115,7 +115,7 @@ size_t trimBraces(std::string& str) {
 	return std::string::npos;
 }
 
-std::pair<std::string, bool> expr::fireWithJson(const Json::Value& exprOutput, const Json::Value& rule, const ppc::PipelineCharacter& speaker) {
+std::pair<std::string, bool> expr::ExpressionistParser::fireWithJson(const Json::Value& exprOutput, const Json::Value& rule, const ppc::PipelineCharacter& speaker) {
 	std::string result = "";
 	std::string teststring = "";
 
@@ -126,7 +126,7 @@ std::pair<std::string, bool> expr::fireWithJson(const Json::Value& exprOutput, c
 	//std::cout << rule["expansion"][0].asString() << std::endl;
 
 	//go through all strings in expansion
-	for (size_t i = 0; i < rule["expansion"].size(); ++i) {
+	for (unsigned int i = 0; i < rule["expansion"].size(); ++i) {
 		std::string currExp = rule["expansion"][i].asString();
 		size_t braceCount = trimBraces(currExp);
 		if (braceCount == 0) {
@@ -193,7 +193,7 @@ bool makeComparison(const int& int1, const int& int2, const std::string& oper) {
 	return false;
 }
 
-bool expr::checkMarkUpPreconditions(const Json::Value& markup, const ppc::PipelineCharacter& speaker) {
+bool expr::ExpressionistParser::checkMarkUpPreconditions(const Json::Value& markup, const ppc::PipelineCharacter& speaker) {
 	std::vector<std::string> markupNames = markup.getMemberNames();
 	for (size_t i = 0; i < markup.size(); ++i) {
 		Json::Value currMark = markup[markupNames[i]];
@@ -201,7 +201,7 @@ bool expr::checkMarkUpPreconditions(const Json::Value& markup, const ppc::Pipeli
 		std::string req;
 		std::string value;
 
-		for (size_t j = 0; j < currMark.size(); ++j) {
+		for (unsigned int j = 0; j < currMark.size(); ++j) {
 			std::string currCond = currMark[j].asString();
 			//std::cout << "CurrCond = " << currCond << " markupNames[i] = " << markupNames[i] << std::endl;
 			size_t firstspace = currCond.find_first_of(" ");
@@ -216,7 +216,7 @@ bool expr::checkMarkUpPreconditions(const Json::Value& markup, const ppc::Pipeli
 			}
 			else if (markupNames[i].compare("decisions") == 0){
 				//std::cout << "making decisions comparison" << std::endl;
-				if (makeComparison(speaker.getPersDecision(), value, oper) == false) return false;
+				if (makeComparison(speaker.getPersDecisions(), value, oper) == false) return false;
 				continue;
 			}
 			else if (markupNames[i].compare("iqPreconditions") == 0) {
@@ -231,7 +231,7 @@ bool expr::checkMarkUpPreconditions(const Json::Value& markup, const ppc::Pipeli
 			}
 			else if (markupNames[i].compare("outerLife") == 0) {
 				//std::cout << "making outerLife comparison" << std::endl;
-				if (makeComparison(speaker.getPersStructure(), value, oper) == false) return false;
+				if (makeComparison(speaker.getPersOuterLife(), value, oper) == false) return false;
 				continue;
 			}
 			else if (markupNames[i].compare("relationship") == 0) {
@@ -241,12 +241,12 @@ bool expr::checkMarkUpPreconditions(const Json::Value& markup, const ppc::Pipeli
 			}
 			else if (markupNames[i].compare("social") == 0) {
 				//std::cout << "making social comparison" << std::endl;
-				if (makeComparison(speaker.getPersOutgoing(), value, oper) == false) return false;
+				if (makeComparison(speaker.getPersSocial(), value, oper) == false) return false;
 				continue;
 			}
 			else if (markupNames[i].compare("takeIn") == 0) {
 				//std::cout << "making takeIn comparison" << std::endl;
-				if (makeComparison(speaker.getPersInfo(), value, oper) == false) return false;
+				if (makeComparison(speaker.getPersTakeIn(), value, oper) == false) return false;
 				continue;
 			}
 		}

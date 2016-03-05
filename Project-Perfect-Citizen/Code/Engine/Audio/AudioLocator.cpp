@@ -1,3 +1,4 @@
+#include "../debug.h"
 #include "AudioLocator.h"
 
 ppc::Audio* ppc::AudioLocator::service_;

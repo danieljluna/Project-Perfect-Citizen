@@ -22,15 +22,18 @@
 ///          the keyboard. This will mainly be used in combination
 ///          with a text input box render component.
 ///////////////////////////////////////////////////////////////////////
+namespace ppc {
 
 class databaseSearchInputComponent : public ppc::InputComponent {
+	using backFunction = bool(*)(sf::Event& ev);
 private:
-
+	characterRender& render;
 	sf::Sprite& textBoxSprt;
 	databaseSearchRenderComponent& textBox;
 	databaseDisplayRenderComponent& textDisplay;
 	ppc::InputHandler& inputHandle;
-	//std::stack<Database&> searchHistory;
+	std::stack<Database*> searchHistory;
+	std::vector<std::string> displayResults_;
 	sf::Clock mouseClock;
 	std::string str;
 	float mouseTime;
@@ -45,9 +48,42 @@ public:
 	/// @param ih is the input handler
 	/// @param s is the render component where the text will be drawn
 	///////////////////////////////////////////////////////////////////////
-	databaseSearchInputComponent(ppc::InputHandler& ih, databaseSearchRenderComponent& t,
-		databaseDisplayRenderComponent& d, sf::Sprite& s);
+	databaseSearchInputComponent(Database* iDB, ppc::InputHandler& ih, databaseSearchRenderComponent& t,
+		databaseDisplayRenderComponent& d, sf::Sprite& s, characterRender& r);
+
+	///////////////////////////////////////////////////////////////////////
+	/// @brief Updates the display output in the database
+	/// @param A vector containing the strings of the new output
+	///////////////////////////////////////////////////////////////////////
+	void updateDisplayOutput(std::vector<std::string> newOut);
+
+	///////////////////////////////////////////////////////////////////////
+	/// @brief Clears the existing string of the database search input
+	///////////////////////////////////////////////////////////////////////
+	void clearSearchBox();
+
+	///////////////////////////////////////////////////////////////////////
+	/// @brief Function pointer to back functionality
+	///////////////////////////////////////////////////////////////////////
+	bool goBack(sf::Event& ev);
+
+	///////////////////////////////////////////////////////////////////////
+	/// @brief Sets the display results to be a hardcoded string
+	/// @param Vector that will be interpreted and passed to main display
+	/// @param hardcoded string to pass into
+	///////////////////////////////////////////////////////////////////////
+	void updateDisplayResults(std::vector<std::string> displayVec, std::string newDisplay);
+
+	///////////////////////////////////////////////////////////////////////
+	/// @brief Default ctor
+	///////////////////////////////////////////////////////////////////////
 	virtual ~databaseSearchInputComponent();
+
+	///////////////////////////////////////////////////////////////////////
+	/// @brief Inherited input component function
+	///////////////////////////////////////////////////////////////////////
 	virtual bool registerInput(sf::Event& ev) override;
+
+};
 
 };

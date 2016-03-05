@@ -45,7 +45,14 @@
 #include "Game/PipelineCharacter.h"
 #include "Game/Database.h"
 #include "Engine/Audio/AudioQueue.h"
+#include "Engine/Network.h"
+#include "Game/BootLoader.hpp"
 #include "Engine/FunctionObserver.h"
+#include "Game/characterRender.hpp"
+#include "Engine/debug.h"
+
+
+
 using namespace ppc;
 
 using testFunc = bool(*)(sf::Event&);
@@ -67,6 +74,21 @@ int main(int argc, char** argv) {
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
+	//////////////////////////SOUND STUFF//////////////////////////////
+	//AudioLocator::initialize();
+	//ppc::NullAudio dAudio;
+	//AudioLocator::assign(&dAudio);
+	//AudioLogger logger(dAudio);
+	//AudioLocator::assign(&logger);
+	//Audio* audio = AudioLocator::getAudio();
+	//audio->playSound(ppc::Sounds::gunshot);
+
+	//AudioQueue aq(5);
+	//int gunshots = aq.addSound("shots", "gunshots.wav");
+	//aq.playSound(gunshots);
+	//aq.popAndPlay();
+	///////////////////////////////////////////////////////////////////
+
     ////////////////// BACKGROUND IMAGE ////////////////////
     sf::Sprite S;
     sf::Texture T;
@@ -86,6 +108,10 @@ int main(int argc, char** argv) {
 	spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
+    sf::Image faceSheet;
+    faceSheet.loadFromFile(resourcePath() + "Face_Sheet.png");
+
+    
 	//////////////////////////////////////////////////////
 
 	//////////////////////////////////////////////////////////
@@ -93,19 +119,49 @@ int main(int argc, char** argv) {
 	/////////////////////////////////////////////////////////
 	ppc::NodeState testState;
 	testState.setUp();
-	Window* desktopWindow = new Window(1800,1000,sf::Color(200, 200, 200));
+	Window* desktopWindow = new Window(1800,1000,sf::Color(0,0,0));
+    
+    Desktop* myDesktop = new Desktop(*desktopWindow, testState);
+    myDesktop->addBackgroundCmpnt(desktopWindow, S);
+    createPlayerDesktop(*myDesktop, *desktopWindow, myDesktop->getInputHandler(), iconSheet, spriteSheet);
 
-	Desktop myDesktop(*desktopWindow, testState);
-	myDesktop.addBackgroundCmpnt(desktopWindow, S);
-	createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+    //createTeacherDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+    
+    //Entity* aCharacter = new Entity();
+    //characterRender* characterRend = new characterRender(faceSheet);
+    //aCharacter->addComponent(characterRend);
+    
+    //desktopWindow->addEntity(*aCharacter);
+    
+    
+    
+    
+    //////////////////////////////////////////////////////////
+    ///// TEMPORARY BOOT LOADING SCREEN SETUP
+    /////////////////////////////////////////////////////////
+    bool hasBooted = true;
+    int step = 0;
+    
+    sf::Font font;
+    font.loadFromFile(resourcePath() + "consola.ttf");
+    sf::Text text;
+    text.setPosition(0, 0);
+    text.setColor(sf::Color::Green);
+    text.setCharacterSize(18);
+    text.setFont(font);
 
+    std::string renderString = "";
+    text.setString(renderString);
+    
     ///////////////////////////////////////////////////////////////////
 	// Start the game loop
 	///////////////////////////////////////////////////////////////////
 	sf::Clock deltaTime; //define deltaTime
+	
     //Used to keep track time
     sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
     while (screen.isOpen()) {
+		bool doneUpdate = false;
         //Process sf::events
         sf::Event event;
         while (screen.pollEvent(event)) {
@@ -114,33 +170,39 @@ int main(int argc, char** argv) {
 				screen.close();
 
 			//Input phase
-			myDesktop.registerInput(event);
+			myDesktop->registerInput(event);
         }
 
         sf::Time elapsed = deltaTime.getElapsedTime();
-        while (elapsed > framePeriod) {
+		while (elapsed > framePeriod) {
 
-            // Clear screen
-            screen.clear(sf::Color::White);
+			// Clear screen
+			screen.clear(sf::Color::Black);
 
-            //Update all Windows in the Desktop
-            sf::Time dt = deltaTime.restart();
-            myDesktop.update(dt);
+			//Update all Windows in the Desktop
+			sf::Time dt = deltaTime.restart();
 
-            elapsed -= framePeriod;
-        }
-
-            //Draw all the Windows in the Desktop
-			myDesktop.refresh();
+			myDesktop->update(dt);
+			doneUpdate = true;
+			elapsed -= framePeriod;
+		}
+		if (doneUpdate) {
+			//Draw all the Windows in the Desktop
+			myDesktop->refresh();
 
 			//Logger should not be used in place of passing
 			//the actual drawn Desktop
-			screen.draw(myDesktop);
+			screen.draw(*myDesktop);
 
-            //Display final Window
+			//Display the final window
 			screen.display();
-
+		}
     }
+
+	delete myDesktop;
 
     return EXIT_SUCCESS;
 }
+
+
+

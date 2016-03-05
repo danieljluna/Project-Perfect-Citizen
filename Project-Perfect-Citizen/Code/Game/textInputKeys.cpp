@@ -1,3 +1,4 @@
+#include "../Engine/debug.h"
 #include "textInputKeys.hpp"
 #include <iostream>
 #include <string>
@@ -91,15 +92,16 @@ bool textInputKeys::registerInput(sf::Event& ev) {
 					commandVec.push_back(token);
 					last = next + 1;
 				}
-
+				
 				cup.executeCommand(commandVec);
-
+		
 				/* Reset the command line - keeping the prompt */
 				str.erase(2, str.length());
 				textBox.updateString(str);
 
 				/* Display the result */;
 				textDisplay.updateString(commandVec);
+
 			}
         }
     }

@@ -1,5 +1,7 @@
 #include "ComponentObsvr.h"
 #include "inputComponent.h"
+#include "debug.h"
+
 
 using namespace ppc;
 

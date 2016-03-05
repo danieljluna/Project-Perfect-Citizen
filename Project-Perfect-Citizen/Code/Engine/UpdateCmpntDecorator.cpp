@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "UpdateCmpntDecorator.h"
 
 using namespace ppc;

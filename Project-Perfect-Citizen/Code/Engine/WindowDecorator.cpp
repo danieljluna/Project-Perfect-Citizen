@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "WindowDecorator.h"
 
 using namespace ppc;

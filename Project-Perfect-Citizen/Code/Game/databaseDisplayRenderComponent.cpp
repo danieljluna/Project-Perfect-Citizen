@@ -1,12 +1,15 @@
+#include "../Engine/debug.h"
 
 #include "databaseDisplayRenderComponent.h"
 
 const string TEXT_KEY_INPUT = "TKI";
 
 databaseDisplayRenderComponent::databaseDisplayRenderComponent(sf::Font& f,
-	int x, int y, int size) :font_(f) {
+                                                               sf::Image& faceSheet,
+                                                               int x, int y, int size) :font_(f)  {
 
-	this->text_ = new sf::Text();
+    render = new characterRender(faceSheet);
+    this->text_ = new sf::Text();
 
 	//font.loadFromFile(resourcePath() + "Consolas.ttf");
 	text_->setFont(font_);
@@ -24,8 +27,12 @@ databaseDisplayRenderComponent::~databaseDisplayRenderComponent() {
 
 void databaseDisplayRenderComponent::updateString(std::vector<string> cmd) {
 	/* Print out what was just typed */
+	string output = "";
+	for (auto iter = cmd.begin(); iter != cmd.end(); ++iter) {
+		output.append(*iter);
+	}
 	// STUB: LOOP OVER THE VECTOR YOU JUST GOT AND PRINT IT OUT
-	text_->setString(str_);
+	text_->setString(output);
 }
 
 void databaseDisplayRenderComponent::clearString() {
@@ -37,6 +44,7 @@ void databaseDisplayRenderComponent::clearString() {
 void databaseDisplayRenderComponent::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
 	target.draw(*(this->text_), states);
+    target.draw(*render, states);
 }
 
 void databaseDisplayRenderComponent::recieveMessage(msgType code) {

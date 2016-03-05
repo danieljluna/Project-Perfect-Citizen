@@ -99,6 +99,7 @@ private:
 
     //Stores the rectangle that is used to display the border.
     sf::RectangleShape borderShape_;
+    sf::RectangleShape borderTitle_;
 
     //Stores the input Component that allows the Window to be dragged 
     //  via the BorderDecorator.
