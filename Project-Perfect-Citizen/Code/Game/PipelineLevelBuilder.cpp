@@ -1,6 +1,8 @@
 #include "PipelineLevelBuilder.h"
 
 #include "../Engine/Edge.h"
+#include "../Game/expressionistParser.hpp"
+
 
 #include <random>
 #include <ctime>
@@ -9,6 +11,7 @@ using namespace ppc;
 
 const int LEVEL_ONE_NUM_NODES = 8;
 const int LEVEL_ONE_NUM_EDGES = 8;
+const int SMS_MESSAGES_PER_EDGE = 3;
 
 Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	Network* myNetwork = new Network(LEVEL_ONE_NUM_NODES);
@@ -18,10 +21,13 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 		//add char to database here I think
 	}
 
-	populateLevelEdges(0, (LEVEL_ONE_NUM_NODES - 1) / 2,(LEVEL_ONE_NUM_EDGES) / 2, *myNetwork, 0);
+	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson("smsPipeline.json");
+
+	populateLevelEdges(0, (LEVEL_ONE_NUM_NODES - 1) / 2,(LEVEL_ONE_NUM_EDGES) / 2, 
+		*myNetwork, 0, exprGrammar);
 
 	populateLevelEdges((LEVEL_ONE_NUM_NODES) / 2, LEVEL_ONE_NUM_NODES - 1,
-		LEVEL_ONE_NUM_EDGES / 2, *myNetwork, 1);
+		LEVEL_ONE_NUM_EDGES / 2, *myNetwork, 1, exprGrammar);
 
 	std::random_device rd;
 	std::mt19937 gen(rd());
@@ -47,7 +53,8 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 //Goes through a range of vertices and populates them with random edges
 //Useful for creating clusters of closely related nodes.  Set a susp
 //value of 0 or 1 for all nodes, or use -1 to determine randomly.
-void PipelineLevelBuilder::populateLevelEdges(int start, int end, int numEdges, Network& net, int suspLevel) {
+void PipelineLevelBuilder::populateLevelEdges(int start, int end, int numEdges, 
+	Network& net, int suspLevel, const Json::Value& exprGrammar) {
 	int i = 0;
 	std::random_device rd;
 	std::mt19937 gen(rd());
@@ -76,10 +83,41 @@ void PipelineLevelBuilder::populateLevelEdges(int start, int end, int numEdges, 
 			else thisedge.setColorRed();
 		}
 
+		for (int i = 0; i < SMS_MESSAGES_PER_EDGE; ++i) {
+			addSmsMessageToEdge(thisedge, net.vert(first).getCharacter(),
+				net.vert(second).getCharacter(), exprGrammar);
+		}
 
 		net.setEdge(first, second, thisedge);
 		net.setEdge(second, first, thisedge);
 		++i;
 	}
 
+}
+
+void PipelineLevelBuilder::addSmsMessageToEdge(Edge& anEdge, const PipelineCharacter& sender, 
+	const PipelineCharacter& receiver, const Json::Value& exprGrammar) {
+	std::string exprOutput = expr::ExpressionistParser::expressWithJson(exprGrammar, sender);
+	
+	std::string withmeta = "";
+
+	int numloops = 0;
+	while (exprOutput.length() > 0) {
+		if (numloops % 2 == 0) {
+			withmeta += "FROM: " + sender.getSSN() + " TO: " + receiver.getSSN() + "\n";
+		}
+		else {
+			withmeta += "FROM: " + receiver.getSSN() + " TO: " + sender.getSSN() + "\n";
+		}
+		withmeta += exprOutput.substr(0, exprOutput.find_first_of('%'));
+		if (exprOutput.find_first_of('%') < std::string::npos) {
+			exprOutput = exprOutput.substr(exprOutput.find_first_of('%'), std::string::npos);
+		}
+		else {
+			exprOutput = "";
+		}
+
+		++numloops;
+	}
+	anEdge.pushSmsData(withmeta);
 }

@@ -2,6 +2,7 @@
 
 #include "../Engine/Network.h"
 #include "../Engine/debug.h"
+#include "../Library/JSON/json.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// @author Mark Biundo
@@ -32,9 +33,10 @@ public:
 private:
 
 	static void populateLevelEdges(int start, int end, int numEdges, 
-		Network& net, int suspLevel);
+		Network& net, int suspLevel, const Json::Value& exprGrammar);
 
-
+	static void addSmsMessageToEdge(Edge& anEdge, const PipelineCharacter& sender,
+		const PipelineCharacter& receiver, const Json::Value& exprGrammar);
 
 };
 

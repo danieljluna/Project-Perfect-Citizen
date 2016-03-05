@@ -140,7 +140,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
      fontSize);*/
     
     characterRender* render = new characterRender(faceSheet);
-    float x1 =  windowToModify->getSize().x/2;
+    float x1 =  static_cast<float>(windowToModify->getSize().x/2);
     render->setOrigin(x1, 100);
     /* Create the update components */
     
@@ -260,47 +260,18 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	Pass a reference of dataText to the thing thats making the PCG SMS
 	stuff call this function, passing your string to this function.*/
 
-	//NOTE TO SELF - MOVE SMS GENERATION INTO EDGE
-	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson("smsPipeline.json");
-	std::srand(time(0));
-	int senderind = rand() % net->size();
-	int recind = rand() % net->size();
 
-	for (int i = 0; i < net->size(); ++i) {
-		if (senderind == recind) ++recind;
-		recind = recind % net->size();
-		if (net->isAdjacent(senderind, recind)) break;
-	}
-
-	PipelineCharacter sender = net->vert(senderind).getCharacter();
-	PipelineCharacter receiver = net->vert(recind).getCharacter();
-
-	std::string sms = expr::ExpressionistParser::expressWithJson(exprGrammar, sender);
-
-	dataText->appendString("TIMESTAMP: Mon Mar 03 15:23:52 2016 \nFROM: " +
-		sender.getSSN().substr(0, 2) + " TO: " + receiver.getSSN().substr(0, 2) +
-		"\n");
-
-	std::string sub = "";
-
-	while (sms.length() > 0) {
-		if (sms.find_first_of('%') < 30) {
-			sub += sms.substr(0, sms.find_first_of('%'));
-			sms = sms.substr(sms.find_first_of('%'), std::string::npos);
-		}
-		else {
-			if (sms.length() < 30) {
-				sub += sms.substr(0, sms.length());
-				sms = "";
+	int somevert = std::rand() % 8;
+	for (unsigned int i = 0; i < net->size(); ++i) {
+		if (net->isAdjacent(somevert, i)) {
+			std::vector<std::string> smsvec = net->edge(somevert, i)->getSmsData();
+			
+			for (unsigned int j = 0; j < smsvec.size(); ++j) {
+				dataText->appendString(smsvec[j] + "\n\n");
 			}
-			else {
-				sub += sms.substr(0, 30) + '\n';
-				sms = sms.substr(30, std::string::npos);
-			}
+			break;
 		}
 	}
-	
-	dataText->appendString(sub + "\n\n");
 
 	//dataText->appendString("SMS MESSAGE\n\n { Ayy lmao }");
 

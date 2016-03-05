@@ -1,5 +1,7 @@
 #include "Edge.h"
 
+using namespace ppc;
+
 ppc::Edge::Edge() {
 	weight_ = 0;
 	relationship_ = "";
@@ -65,6 +67,12 @@ void ppc::Edge::constructBounds(sf::Vector2f p1, sf::Vector2f p2) {
 	}
 }
 
+void Edge::pushSmsData(const std::string& data) {
+	smsData_.push_back(data);
+}
 
+std::vector<std::string> Edge::getSmsData() {
+	return smsData_;
+}
 
 
