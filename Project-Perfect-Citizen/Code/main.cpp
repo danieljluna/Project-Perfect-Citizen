@@ -76,9 +76,9 @@ int main(int argc, char** argv) {
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 	TestFunctionClass* cool = new TestFunctionClass();
 	//FunctionObserver<TestFunctionClass> c(&TestFunctionClass::callFunc); //= new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc);
-	FunctionObserver<TestFunctionClass>* c = new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc);
+	FunctionObserver<TestFunctionClass>* c = new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc, cool);
 	//bool coolReturnValue = (*cool.*(c->functionPointer))(testEvent);
-
+	c->eventHandler(testEvent);
 
 
 
