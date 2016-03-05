@@ -8,6 +8,11 @@ const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
 consoleUpdateComponent::consoleUpdateComponent(ppc::NodeState& ns) 
 	: fileTree(ns) {
 	canParse = false;
+	std::vector<string> firstLsCommand;
+	string ls = "ls";
+	firstLsCommand.push_back(ls);
+	commandFn firstLs = findFunction(ls);
+	firstLs(fileTree, firstLsCommand);
 }
 
 consoleUpdateComponent::~consoleUpdateComponent() {
@@ -21,6 +26,7 @@ void consoleUpdateComponent::toggleParsing() {
 void consoleUpdateComponent::executeCommand(std::vector<string> cmd) {
 	toggleParsing();
 	commandVec = cmd;
+	cout << commandVec.at(0) << endl;
 	//lastCommand = str;
     /*string delimiter = " ";
     size_t last = 0;
@@ -38,10 +44,9 @@ void consoleUpdateComponent::update(sf::Time& deltaTime) {
 		try {
 			commandFn commandFunction = findFunction(commandVec.at(0));
 			commandFunction(fileTree, commandVec);
-			cout << endl;
 			toggleParsing();
 			commandVec.clear();
-		} catch (std::exception e) {
+		} catch (std::runtime_error e) {
 			toggleParsing();
 			commandVec.clear();
 			return;

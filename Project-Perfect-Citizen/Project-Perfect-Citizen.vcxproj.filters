@@ -206,7 +206,12 @@
     <ClCompile Include="Code\Game\photoRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\NetworkUpdateCmpnt.cpp" />
+    <ClCompile Include="Code\Game\textLabelComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\textRenderComponent.cpp">
+      <Filter>Headers\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -436,7 +441,7 @@
     <ClInclude Include="Code\Game\NetworkInputCmpnt.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Game\NetworkRenderCmpnt.h">
+    <ClInclude Include="Code\Game\textLabelComponent.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\NetworkUpdateCmpnt.h">

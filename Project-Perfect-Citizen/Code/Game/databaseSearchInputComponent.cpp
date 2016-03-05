@@ -84,6 +84,26 @@ void databaseSearchInputComponent::clearSearchBox() {
 	textBox.updateString(str);
 }
 
+bool databaseSearchInputComponent::goBack(sf::Event& ev) {
+		std::vector<string> displayVec;
+		clearSearchBox();
+		if (searchHistory.size() > 1) {
+			if (searchHistory.size() == 2) {
+				searchHistory.pop();
+				updateDisplayResults(displayVec, "Enter a filter and query to begin searching");
+				textDisplay.updateString(displayResults_);
+				return true;
+			}
+			else {
+				searchHistory.pop();
+				updateDisplayOutput(searchHistory.top()->getPrintableDatabase());
+				textDisplay.updateString(displayResults_);
+				return true;
+			}
+		}
+		return true;
+}
+
 void databaseSearchInputComponent::updateDisplayResults(vector<string> displayVec, string newDisplay) {
 	displayVec.push_back(newDisplay);
 	updateDisplayOutput(displayVec);
@@ -126,7 +146,7 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 				string query = "";
 
 
-				/* Temp back functionality: Will turn into function pointer */
+				/* Temp back functionality: Will turn into function pointer
 				if (commandVec.at(0) == "back") {
 					clearSearchBox();
 					if (searchHistory.size() > 1) {
@@ -142,7 +162,7 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 							return true;
 						}	
 					}
-				}
+				}*/
 
 				/* Assign good input to corresponding values */
 				if (commandVec.size() == 2) {

@@ -6,6 +6,7 @@
 #include "buttonUpdateComponent.h"
 #include "Database.h"
 #include "createButton.h"
+#include "../Game/databaseSearchInputComponent.h"
 
 
 
@@ -19,7 +20,8 @@
 ///////////////////////////////////////////////////////////////////////
 
 namespace ppc {
-
+	//typedef bool (databaseSearchInputComponent::*goBack) (sf::Event&);
+	//using backFunction = bool(databaseSearchInputComponent::*goBack)(sf::Event& ev);
 	///////////////////////////////////////////////////////////////////////
 	///@brief Constructs a console window on the WindowInterface passed.
 	///
@@ -52,6 +54,6 @@ void spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Database*
 void spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
         sf::Image& buttonSheet, float x, float y);
     
-void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, NodeState & ns, sf::Image& buttonSheet, float x, float y);
+void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string path);
 };
 
