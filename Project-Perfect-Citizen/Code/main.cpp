@@ -92,7 +92,7 @@ int main(int argc, char** argv) {
     ////////////////// BACKGROUND IMAGE ////////////////////
     sf::Sprite S;
     sf::Texture T;
-    if (!(T.loadFromFile(resourcePath() + "NewCrowd52.jpg"))) {
+    if (!(T.loadFromFile(resourcePath() + "Wallpaper.png"))) {
         //Test for failure
         cerr << "COULD NOT LOAD\n";
         std::system("PAUSE");
@@ -100,7 +100,7 @@ int main(int argc, char** argv) {
     };
     S.setTexture(T);
     S.setPosition(0, 0);
-    S.setScale(2.0f, 2.0f);
+    S.setScale(0.5f, 0.5f);
 	///////////////////////////////////////////////////////
 
 	///////////// Load Spritesheets/Textures //////////////

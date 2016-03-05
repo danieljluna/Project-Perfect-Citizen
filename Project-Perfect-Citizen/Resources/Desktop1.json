@@ -224,13 +224,16 @@
    		},
    		"Friends": {
    			"Chandler's_Road_Trip": {
-          "TODO": "CONTENT"
+                "TODO": "CONTENT"
    			},
    			"Greg's_Wedding": {
-          "TODO": "CONTENT"   							
+                "TODO": "CONTENT"
    			},
    			"Nights_Out": {
-   				"Other": {
+   				      "TODO": "CONTENT"
+        },
+   			"Robert's_Party": {
+          "Other": {
             "Stop": {
               "Please": {
                 "Remember_Vows": {
@@ -248,9 +251,6 @@
           "Party_Pics": {
             "TODO": "CONTENT"
           }
-        },
-   			"Robert's_Party": {
-          "TODO": "CONTENT"
    			},
    			"Soccer_Day": {
           "TODO": "CONTENT"
