@@ -193,7 +193,6 @@
     <ClCompile Include="Code\Game\photoRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\characterRender.cpp" />
     <ClCompile Include="Code\Engine\Edge.cpp">
       <Filter>Sources\Engine\Graph</Filter>
     </ClCompile>
@@ -211,6 +210,12 @@
     </ClCompile>
     <ClCompile Include="Code\Game\textRenderComponent.cpp">
       <Filter>Headers\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\NetworkUpdateCmpnt.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\characterRender.cpp">
+      <Filter>Sources\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -433,8 +438,6 @@
     <ClInclude Include="Code\Game\PipelineDataRenderComponent.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Game\BootLoader.hpp" />
-    <ClInclude Include="Code\Game\characterRender.hpp" />
     <ClInclude Include="Code\Game\photoRenderComponent.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
@@ -445,6 +448,18 @@
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\NetworkUpdateCmpnt.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\NetworkRenderCmpnt.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\textRenderComponent.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\BootLoader.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\characterRender.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>
