@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
 		C82E61731C810E67001860CC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E61721C810E67001860CC /* main.cpp */; };
+		E93F18C01C8A5B9D001F9C23 /* NewCrowd52.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E93F18BF1C8A5B9D001F9C23 /* NewCrowd52.jpg */; };
 		E95FCB4F1C86A14500D1800A /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAEF1C86A14400D1800A /* DoxygenHelp.txt */; };
 		E95FCB501C86A14500D1800A /* LinkHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF01C86A14400D1800A /* LinkHelp.txt */; };
 		E95FCB9D1C86A14500D1800A /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB401C86A14500D1800A /* EngineSettings.ini */; };
@@ -163,7 +164,6 @@
 		E9D7E8BC1C87C1F400010023 /* NewCrowd38Fragment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8621C87C1F400010023 /* NewCrowd38Fragment.jpg */; };
 		E9D7E8BD1C87C1F400010023 /* NewCrowd42Fragment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8631C87C1F400010023 /* NewCrowd42Fragment.jpg */; };
 		E9D7E8BE1C87C1F400010023 /* NewCrowd46.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8641C87C1F400010023 /* NewCrowd46.jpg */; };
-		E9D7E8BF1C87C1F400010023 /* NewCrowd52.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8651C87C1F400010023 /* NewCrowd52.jpg */; };
 		E9D7E8C01C87C1F400010023 /* NewCrowd58.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8661C87C1F400010023 /* NewCrowd58.jpg */; };
 		E9D7E8C11C87C1F400010023 /* Sheptune2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8671C87C1F400010023 /* Sheptune2.jpg */; };
 /* End PBXBuildFile section */
@@ -174,6 +174,7 @@
 		C82E60741C810DCB001860CC /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		C82E60751C810DCB001860CC /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
 		C82E61721C810E67001860CC /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
+		E93F18BF1C8A5B9D001F9C23 /* NewCrowd52.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd52.jpg; sourceTree = "<group>"; };
 		E95FCAED1C86A14400D1800A /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		E95FCAEF1C86A14400D1800A /* DoxygenHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoxygenHelp.txt; sourceTree = "<group>"; };
 		E95FCAF01C86A14400D1800A /* LinkHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LinkHelp.txt; sourceTree = "<group>"; };
@@ -403,7 +404,6 @@
 		E9D7E8621C87C1F400010023 /* NewCrowd38Fragment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd38Fragment.jpg; sourceTree = "<group>"; };
 		E9D7E8631C87C1F400010023 /* NewCrowd42Fragment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd42Fragment.jpg; sourceTree = "<group>"; };
 		E9D7E8641C87C1F400010023 /* NewCrowd46.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd46.jpg; sourceTree = "<group>"; };
-		E9D7E8651C87C1F400010023 /* NewCrowd52.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd52.jpg; sourceTree = "<group>"; };
 		E9D7E8661C87C1F400010023 /* NewCrowd58.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd58.jpg; sourceTree = "<group>"; };
 		E9D7E8671C87C1F400010023 /* Sheptune2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sheptune2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -722,10 +722,10 @@
 				E9D7E85F1C87C1F400010023 /* Journey+Into+Dark.jpg */,
 				E9D7E8601C87C1F400010023 /* New+Crowd39.jpg */,
 				E9D7E8611C87C1F400010023 /* NewCrowd38.jpg */,
+				E93F18BF1C8A5B9D001F9C23 /* NewCrowd52.jpg */,
 				E9D7E8621C87C1F400010023 /* NewCrowd38Fragment.jpg */,
 				E9D7E8631C87C1F400010023 /* NewCrowd42Fragment.jpg */,
 				E9D7E8641C87C1F400010023 /* NewCrowd46.jpg */,
-				E9D7E8651C87C1F400010023 /* NewCrowd52.jpg */,
 				E9D7E8661C87C1F400010023 /* NewCrowd58.jpg */,
 				E9D7E8671C87C1F400010023 /* Sheptune2.jpg */,
 			);
@@ -844,7 +844,6 @@
 				E9D7E8A71C87C1F400010023 /* Crowd32.jpg in Resources */,
 				E9D7E8B31C87C1F400010023 /* Fallen1.jpg in Resources */,
 				E9D7E86B1C87C1F400010023 /* Bluebird by Charles Bukowski.txt in Resources */,
-				E9D7E8BF1C87C1F400010023 /* NewCrowd52.jpg in Resources */,
 				E9D7E8681C87C1F400010023 /* As I Lay Dying - Faulkner.txt in Resources */,
 				E9D7E8A91C87C1F400010023 /* Doubt1.jpg in Resources */,
 				E9D7E8A41C87C1F400010023 /* Crowd21.jpg in Resources */,
@@ -876,6 +875,7 @@
 				E9D7E8881C87C1F400010023 /* 2-20-09-431.jpg in Resources */,
 				E9D7E8891C87C1F400010023 /* 2-23-2011-213.jpg in Resources */,
 				E95FCBA61C86A14500D1800A /* Icon_Sheet.png in Resources */,
+				E93F18C01C8A5B9D001F9C23 /* NewCrowd52.jpg in Resources */,
 				E9D7E88E1C87C1F400010023 /* 4-24-08-152.jpg in Resources */,
 				E9D7E86E1C87C1F400010023 /* Donne - Med 17.txt in Resources */,
 				E9D7E8BC1C87C1F400010023 /* NewCrowd38Fragment.jpg in Resources */,
