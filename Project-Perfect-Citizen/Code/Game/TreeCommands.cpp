@@ -88,10 +88,10 @@ void fn_cd(ppc::NodeState& state, const vector<string> words)
 		state.moveToRoot();
 	}
 	if (words.at(1) == "..") {
-		state.setCwd((state.getCwd()->getParent()));
-		if (state.getPwdVector().at(0) == "/") {
+		if (state.getCwd() == state.getRoot()) {
 			return;
 		}
+		state.setCwd((state.getCwd()->getParent()));
 		state.popWorking();
 		return;
 	}
