@@ -118,6 +118,7 @@
     <ClInclude Include="Code\Engine\RenderCmpntDecorator.h" />
     <ClInclude Include="Code\Engine\RenderCmpntLogger.h" />
     <ClInclude Include="Code\Engine\renderComponent.h" />
+    <ClInclude Include="Code\Engine\ScrollBarDeco.h" />
     <ClInclude Include="Code\Engine\subject.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntDecorator.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntLogger.h" />

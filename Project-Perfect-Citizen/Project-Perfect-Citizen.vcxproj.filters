@@ -462,6 +462,9 @@
     <ClInclude Include="Code\Game\characterRender.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\ScrollBarDeco.h">
+      <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\BaseFileType.h" />
