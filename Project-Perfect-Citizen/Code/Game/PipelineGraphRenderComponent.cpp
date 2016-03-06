@@ -15,6 +15,10 @@ PipelineGraphRenderComponent::~PipelineGraphRenderComponent() {
 
 }
 
+sf::FloatRect PipelineGraphRenderComponent::getLocalBounds() {
+	return graphBoxBackground_.getLocalBounds();
+}
+
 void PipelineGraphRenderComponent::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
 	target.draw(graphBoxBackground_, states);

@@ -149,7 +149,7 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 				string query = "";
 
 
-				/* Temp back functionality: Will turn into function pointer
+				// Temp back functionality: Will turn into function pointer
 				if (commandVec.at(0) == "back") {
 					clearSearchBox();
 					if (searchHistory.size() > 1) {
@@ -165,7 +165,7 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 							return true;
 						}	
 					}
-				}*/
+				}
 
 				/* Assign good input to corresponding values */
 				if (commandVec.size() == 2) {
