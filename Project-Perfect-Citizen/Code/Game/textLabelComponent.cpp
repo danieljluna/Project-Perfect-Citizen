@@ -24,7 +24,7 @@ textLabelComponent::textLabelComponent(sf::Font& f,
     text->setFont(font);
     text->setPosition(x, y);
     text->setCharacterSize(s);
-    text->setColor(sf::Color::Black);
+    text->setColor(sf::Color(0,0,0));
     text->setString(labelString);
     
 }
