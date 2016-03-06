@@ -80,6 +80,7 @@
 		E93F19971C8A6886001F9C23 /* textRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93F19721C8A6886001F9C23 /* textRenderComponent.cpp */; };
 		E93F19981C8A6886001F9C23 /* TreeCommands.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93F19741C8A6886001F9C23 /* TreeCommands.cpp */; };
 		E93F19991C8A6886001F9C23 /* WindowBkgndRenderCmpnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93F19761C8A6886001F9C23 /* WindowBkgndRenderCmpnt.cpp */; };
+		E93F199B1C8A6F8F001F9C23 /* Email1.json in Resources */ = {isa = PBXBuildFile; fileRef = E93F199A1C8A6F8F001F9C23 /* Email1.json */; };
 		E95FCB4F1C86A14500D1800A /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAEF1C86A14400D1800A /* DoxygenHelp.txt */; };
 		E95FCB501C86A14500D1800A /* LinkHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF01C86A14400D1800A /* LinkHelp.txt */; };
 		E95FCB9D1C86A14500D1800A /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB401C86A14500D1800A /* EngineSettings.ini */; };
@@ -321,6 +322,7 @@
 		E93F19751C8A6886001F9C23 /* TreeCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeCommands.h; sourceTree = "<group>"; };
 		E93F19761C8A6886001F9C23 /* WindowBkgndRenderCmpnt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowBkgndRenderCmpnt.cpp; sourceTree = "<group>"; };
 		E93F19771C8A6886001F9C23 /* WindowBkgndRenderCmpnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowBkgndRenderCmpnt.h; sourceTree = "<group>"; };
+		E93F199A1C8A6F8F001F9C23 /* Email1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Email1.json; sourceTree = "<group>"; };
 		E95FCAED1C86A14400D1800A /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		E95FCAEF1C86A14400D1800A /* DoxygenHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoxygenHelp.txt; sourceTree = "<group>"; };
 		E95FCAF01C86A14400D1800A /* LinkHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LinkHelp.txt; sourceTree = "<group>"; };
@@ -630,6 +632,7 @@
 				E95FCB451C86A14500D1800A /* smsPipeline.json */,
 				E95FCB471C86A14500D1800A /* ResourcePath.mm */,
 				E95FCB481C86A14500D1800A /* Face_Sheet.png */,
+				E93F199A1C8A6F8F001F9C23 /* Email1.json */,
 				E95FCB491C86A14500D1800A /* Icon_Sheet.png */,
 				E95FCB4A1C86A14500D1800A /* kappa.png */,
 				E95FCB4B1C86A14500D1800A /* Wallpaper.png */,
@@ -857,6 +860,7 @@
 				E9D7E8901C87C1F400010023 /* 7-24-12-052.jpg in Resources */,
 				E9D7E88D1C87C1F400010023 /* 4-14-09-462.jpg in Resources */,
 				E9D7E89E1C87C1F400010023 /* Crowd2.jpg in Resources */,
+				E93F199B1C8A6F8F001F9C23 /* Email1.json in Resources */,
 				E9D7E8AC1C87C1F400010023 /* Doubt6.jpg in Resources */,
 				E95FCBA01C86A14500D1800A /* Desktop1.json in Resources */,
 				E9D7E8981C87C1F400010023 /* 5678.jpg in Resources */,

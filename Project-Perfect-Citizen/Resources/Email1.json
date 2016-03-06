@@ -18,15 +18,11 @@
 				Mr. Goodwin"
         },
 		"Email_2": { 
-			"To" : "TODO",
-			"From" : "Murphy Goodwin <mgoodwin@corpora.com>",
+			"To" : "Murphy Goodwin <mgoodwin@corpora.com>",
+			"From" : "<JBaaten@studentportal.com>",
 			"On" : "On Thu, Jan 28, 2016 at 9:54 AM",
-			"Subject": "TODO",
-			"Body" : "Hi Jessica,
-
-				Let’s meet after class today to talk over your attendance.
-				On Jan 28, 2016 9:48 AM, <JBaaten@studentportal.com> wrote:
-				Hello Mr. Goodwin,
+            "Subject": "Let’s meet after class today to talk over your attendance.",
+			"Body" : "Hello Mr. Goodwin,
 				I’ve missed a lot of class this quarter, and I was hoping we could talk so I’d have a chance to explain myself.
 
 				Thanks,
