@@ -34,7 +34,7 @@
 #include "../Game/PipelineDataRenderComponent.h"
 #include "../Game/PipelineGraphRenderComponent.h"
 #include "../Game/photoRenderComponent.hpp"
-#include "textRenderComponent.hpp"
+#include "../Game/textRenderComponent.hpp"
 
 #include "../Game/NetworkRenderCmpnt.h"
 #include"../Game/NetworkInputCmpnt.h"
@@ -318,9 +318,9 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     ///////////////////////////////////////
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
-    buttonRenderComponent* textRenderComponent =
+    buttonRenderComponent* textRenderCmpnt =
         new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
-    textRenderComponent->renderPosition(sf::Vector2f(0, 220));
+    textRenderCmpnt->renderPosition(sf::Vector2f(0, 220));
     
     Entity newEnt;
     

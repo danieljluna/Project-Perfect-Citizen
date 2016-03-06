@@ -9,6 +9,8 @@
 #include "../Engine/debug.h"
 #include "textRenderComponent.hpp"
 
+using namespace ppc;
+
 textRenderComponent::textRenderComponent(sf::Font& f, std::string content, int x, int y, int size):font(f) {
     this->text = new sf::Text();
     text->setFont(font);
