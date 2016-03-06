@@ -2,6 +2,9 @@
 #define SCROLLBAR_DECO_H
 
 #include "WindowDecorator.h"
+#include "../Game/buttonRenderComponent.h"
+#include "../Game/mousePressButton.h"
+#include "Entity.h"
 
 
 namespace ppc {
@@ -24,6 +27,21 @@ public:
 
 
   /////////////////////////////////////////////////////////////////////
+  // Window Overrides
+  /////////////////////////////////////////////////////////////////////
+
+    sf::Vector2u getSize() override;
+
+    void setSize(unsigned int x, unsigned int y) override;
+
+    sf::FloatRect getBounds() override;
+
+    void setPosition(float x, float y) override;
+
+    void move(float dx, float dy) override;
+
+
+  /////////////////////////////////////////////////////////////////////
   // View Manipulation
   /////////////////////////////////////////////////////////////////////
 
@@ -34,6 +52,17 @@ public:
     void setViewCenter(const sf::Vector2f& center);
 
     void setViewPosition(const sf::Vector2f& center);
+
+    void setBarSize(float barSize);
+
+    void setBarSprite(const sf::Sprite& barSpr);
+
+    void setButtonSprite(const sf::Sprite& buttonSpr);
+
+
+protected:
+
+    void draw(sf::RenderTarget& target, sf::RenderStates) const override;
 
 
 private:
@@ -51,7 +80,11 @@ private:
   // Private Variables
   /////////////////////////////////////////////////////////////////////
 
+    float barSize_;
+
     
+
+    sf::Shape buttonSprite_;
 
 
 };

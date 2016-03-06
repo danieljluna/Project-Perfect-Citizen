@@ -1,12 +1,6 @@
 #ifndef BORDER_DECORATOR_H
 #define BORDER_DECORATOR_H
 
-#ifdef WINDOWS_MARKER
-#define resourcePath() string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
-
 #include "WindowDecorator.h"
 #include "DraggableInput.h"
 #include "../Game/buttonRenderComponent.h"
