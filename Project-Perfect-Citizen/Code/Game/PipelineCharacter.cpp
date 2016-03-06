@@ -81,6 +81,7 @@ void PipelineCharacter::generate() {
 	char second = letterd(gen) + 'A';
 	ssn_ = first;
 	ssn_ += second;
+	ssn_ += '-';
 	ssn_ += std::to_string(threed(gen));
 	ssn_ += '-';
 	ssn_ += std::to_string(threed(gen));

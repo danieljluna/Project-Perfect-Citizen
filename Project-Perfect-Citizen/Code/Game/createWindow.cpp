@@ -34,11 +34,14 @@
 #include "../Game/PipelineDataRenderComponent.h"
 #include "../Game/PipelineGraphRenderComponent.h"
 #include "../Game/photoRenderComponent.hpp"
-#include "textRenderComponent.hpp"
+#include "../Game/textRenderComponent.hpp"
 
 #include "../Game/NetworkRenderCmpnt.h"
 #include"../Game/NetworkInputCmpnt.h"
-#include"../Game/NetworkUpdateCmpnt.h"
+#include "../Game/NetworkUpdateCmpnt.h"
+
+#include "../Game/PipelineLevelBuilder.h"
+#include "../Game/expressionistParser.hpp"
 
 using namespace ppc;
 
@@ -140,7 +143,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
      fontSize);*/
     
     characterRender* render = new characterRender(faceSheet);
-    float x1 =  windowToModify->getSize().x/2;
+    float x1 =  static_cast<float>(windowToModify->getSize().x/2);
     render->setOrigin(x1, 100);
     /* Create the update components */
     
@@ -184,7 +187,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
-	int fontSize = 20;
+	int fontSize = 13;
 	int dataWindowX = (2 * windowToModify->getSize().x) / 3;
 
 	/////////////////////////////////////////
@@ -200,6 +203,8 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	/* NADER: PUT YOUR RENDER COMPONENTS HERE FOR THE GRAPH */
 	//Ask about how are we making networks to be added to the pipeline window.
+	
+	/*
 	Network* net = new Network(3);
 
 	PipelineCharacter Bob;
@@ -213,12 +218,68 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	net->vert(1).setPosition(150, 150);
 	net->vert(2).setPosition(200, 300);
 
+	Edge e1, e2;
+	e1.setColorRed();
+	e2.setColorGreen();
+	e1.setWeight(1);
+	e1.setRelation("");
+
+	net->setEdge(0, 1, e1);
+	net->setEdge(1, 2, e2);
+	*/
+
+	Network* net = PipelineLevelBuilder::buildLevelOneNetworkSolution();
+
+	//No Overlapping Edges (Think of this positioning as an 8x8 grid
+	//the number after the * is the row/column number)
+	net->vert(0).setPosition(50 + 50 * 0, 50 + 50 * 0);
+	net->vert(1).setPosition(50 + 50 * 0, 50 + 50 * 7);
+	net->vert(2).setPosition(50 + 50 * 2, 50 + 50 * 1);
+	net->vert(3).setPosition(50 + 50 * 2, 50 + 50 * 6);
+	net->vert(4).setPosition(50 + 50 * 5, 50 + 50 * 1);
+	net->vert(5).setPosition(50 + 50 * 5, 50 + 50 * 6);
+	net->vert(6).setPosition(50 + 50 * 7, 50 + 50 * 0);
+	net->vert(7).setPosition(50 + 50 * 7, 50 + 50 * 7);
+
+
+	/* random positions within bounds (can overlap)
+	std::srand(static_cast<unsigned int>(std::time(0)));
+	for (int i = 0; i < net->size(); ++i) {
+		net->vert(i).setPosition(std::rand() % 400 + 50, std::rand() % 500 + 50);
+	}
+
+	in lines (at an angle with current setup, mess with numbers to change)
+	for (int i = 0; i < net->size()/4; ++i) {
+		for (int j = 0; j < 4; ++j) {
+			if (i % 2 == 0) net->vert(i*4+j).setPosition(150 + 120 * j, 50 + 100 * j);
+			else net->vert(i*4+j).setPosition(50 + 120 * j, 50 + 100 * j);
+		}
+	}
+	*/
+
 	NetworkRenderComponent* networkRender = new NetworkRenderComponent(*net);
 	NetworkInputCmpnt* networkInput = new NetworkInputCmpnt(*net, windowToModify->getInputHandler());
-	NetworkUpdateCmpnt* networkUpdate = new NetworkUpdateCmpnt(*net);
+    NetworkUpdateCmpnt* networkUpdate = new NetworkUpdateCmpnt(*net);
 	networkUpdate->setBounds(graphBounds->getLocalBounds());
 	networkUpdate->setDrags(networkInput->getDraggables());
-	dataText->updateString("SMS MESSAGE\n\n { Ayy lmao }");
+	/* MARK: this is how you display the text in the blue box. 
+	Pass a reference of dataText to the thing thats making the PCG SMS
+	stuff call this function, passing your string to this function.*/
+
+
+	int somevert = std::rand() % 8;
+	for (unsigned int i = 0; i < net->size(); ++i) {
+		if (net->isAdjacent(somevert, i)) {
+			std::vector<std::string> smsvec = net->edge(somevert, i)->getSmsData();
+			
+			for (unsigned int j = 0; j < smsvec.size(); ++j) {
+				dataText->appendString(smsvec[j] + "\n\n");
+			}
+			break;
+		}
+	}
+
+	//dataText->appendString("SMS MESSAGE\n\n { Ayy lmao }");
 
 	/////////////////////////////////////////
 	/////// ENTITIES 
@@ -228,10 +289,10 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	Entity* graphBox = new Entity();
 	graphBox->addComponent(graphBounds);
-	graphBox->addComponent(networkUpdate);
+    graphBox->addComponent(networkUpdate);
 	graphBox->addComponent(networkRender);
 	graphBox->addComponent(networkInput);
-
+    
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
@@ -257,13 +318,13 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     ///////////////////////////////////////
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
-    buttonRenderComponent* textRender =
+    buttonRenderComponent* textRenderCmpnt =
         new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
-    textRender->renderPosition(sf::Vector2f(0, 220));
+    textRenderCmpnt->renderPosition(sf::Vector2f(0, 220));
     
     Entity newEnt;
     
-    if(lastChar == 't'){
+    if (lastChar == 't'){
         sf::Font myFont;
         myFont.loadFromFile(resourcePath() + "consola.ttf");
         int fontSize = 10;
@@ -276,17 +337,18 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
             new textRenderComponent(myFont, content, 0, 0, fontSize);
         newEnt.addComponent(textBox);
     }
-    
     else if(lastChar == 'g'){
         sf::Image photo;
         photo.loadFromFile(path);
         photoRenderComponent* photoRender = new photoRenderComponent(photo);
         photoRender->setImageScale((float)windowToModify->getSize().x /
-                               (float)photo.getSize().x,
-                               (float)windowToModify->getSize().y /
-                               (float)photo.getSize().y);
+                                   (float)photo.getSize().x,
+                                   (float)windowToModify->getSize().y /
+                                   (float)photo.getSize().y);
         newEnt.addComponent(photoRender);
     }
+    
+
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
@@ -296,5 +358,4 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
 }
-
 
