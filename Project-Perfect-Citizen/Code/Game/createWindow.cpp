@@ -11,6 +11,7 @@
 #include <SFML/Main.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <sstream>
 
 #include "../Engine/Window.h"
 #include "buttonRenderComponent.h"
@@ -33,9 +34,11 @@
 #include "../Game/PipelineDataRenderComponent.h"
 #include "../Game/PipelineGraphRenderComponent.h"
 #include "../Game/photoRenderComponent.hpp"
+#include "textRenderComponent.hpp"
 
 #include "../Game/NetworkRenderCmpnt.h"
 #include"../Game/NetworkInputCmpnt.h"
+#include "../Game/NetworkUpdateCmpnt.h"
 
 #include "../Game/PipelineLevelBuilder.h"
 #include "../Game/expressionistParser.hpp"
@@ -256,6 +259,9 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	NetworkRenderComponent* networkRender = new NetworkRenderComponent(*net);
 	NetworkInputCmpnt* networkInput = new NetworkInputCmpnt(*net, windowToModify->getInputHandler());
+    NetworkUpdateCmpnt* networkUpdate = new NetworkUpdateCmpnt(*net);
+	networkUpdate->setBounds(graphBounds->getLocalBounds());
+	networkUpdate->setDrags(networkInput->getDraggables());
 	/* MARK: this is how you display the text in the blue box. 
 	Pass a reference of dataText to the thing thats making the PCG SMS
 	stuff call this function, passing your string to this function.*/
@@ -283,8 +289,10 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	Entity* graphBox = new Entity();
 	graphBox->addComponent(graphBounds);
+    graphBox->addComponent(networkUpdate);
 	graphBox->addComponent(networkRender);
 	graphBox->addComponent(networkInput);
+    
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
@@ -296,39 +304,58 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 }
 
-void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y) {
+void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string p) {
     if (windowToModify == nullptr) { return; }
     
+    string path = resourcePath() + p;
+    char lastChar;
+    
+    if (!path.empty()){
+        lastChar = *path.rbegin();
+    }
     /////////////////////////////////////////
-    /////// COMPONENTS
+    /////// COMPONENTS & ENTITIES
     ///////////////////////////////////////
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
     buttonRenderComponent* textRenderComponent =
-    new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
+        new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
     textRenderComponent->renderPosition(sf::Vector2f(0, 220));
     
-    sf::Image photo;
-    photo.loadFromFile(resourcePath() + "kappa.png");
-    photoRenderComponent* photoRender = new photoRenderComponent(photo);
-    photoRender->setImageScale((float)windowToModify->getSize().x /
-                               (float)photo.getSize().x,
-                               (float)windowToModify->getSize().y /
-                               (float)photo.getSize().y);
+    Entity newEnt;
     
-    /////////////////////////////////////////
-    /////// ENTITIES
-    ///////////////////////////////////////
-    Entity *newEnt = new Entity();
-    newEnt->addComponent(photoRender);
+    if (lastChar == 't'){
+        sf::Font myFont;
+        myFont.loadFromFile(resourcePath() + "consola.ttf");
+        int fontSize = 10;
+        int windowOffset = 5;
+        ifstream t(path);
+        stringstream buffer;
+        buffer << t.rdbuf();
+        string content = buffer.str();
+        textRenderComponent* textBox =
+            new textRenderComponent(myFont, content, 0, 0, fontSize);
+        newEnt.addComponent(textBox);
+    }
+    else if(lastChar == 'g'){
+        sf::Image photo;
+        photo.loadFromFile(path);
+        photoRenderComponent* photoRender = new photoRenderComponent(photo);
+        photoRender->setImageScale((float)windowToModify->getSize().x /
+                                   (float)photo.getSize().x,
+                                   (float)windowToModify->getSize().y /
+                                   (float)photo.getSize().y);
+        newEnt.addComponent(photoRender);
+    }
+    
+
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
     windowToModify->setPosition(x, y);
-    windowToModify->addEntity(*newEnt);
+    windowToModify->addEntity(newEnt);
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
 }
-
 
