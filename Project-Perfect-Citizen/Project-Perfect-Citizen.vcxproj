@@ -66,6 +66,7 @@
     <ClCompile Include="Code\Game\mousePressButton.cpp" />
     <ClCompile Include="Code\Game\NetworkInputCmpnt.cpp" />
     <ClCompile Include="Code\Game\NetworkRenderCmpnt.cpp" />
+    <ClCompile Include="Code\Game\NetworkUpdateCmpnt.cpp" />
     <ClCompile Include="Code\Game\photoRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineCharacter.cpp" />
     <ClCompile Include="Code\Game\PipelineDataRenderComponent.cpp" />
@@ -74,7 +75,9 @@
     <ClCompile Include="Code\Game\testRenderSprite.cpp" />
     <ClCompile Include="Code\Game\textInputKeys.cpp" />
     <ClCompile Include="Code\Game\textInputRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\textLabelComponent.cpp" />
     <ClCompile Include="Code\Game\textOutputRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\textRenderComponent.cpp" />
     <ClCompile Include="Code\Game\TreeCommands.cpp" />
     <ClCompile Include="Code\Game\WindowBkgndRenderCmpnt.cpp" />
     <ClCompile Include="Code\Library\jsoncpp.cpp" />
@@ -116,6 +119,7 @@
     <ClInclude Include="Code\Engine\RenderCmpntDecorator.h" />
     <ClInclude Include="Code\Engine\RenderCmpntLogger.h" />
     <ClInclude Include="Code\Engine\renderComponent.h" />
+    <ClInclude Include="Code\Engine\ScrollBarDeco.h" />
     <ClInclude Include="Code\Engine\subject.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntDecorator.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntLogger.h" />
@@ -146,6 +150,9 @@
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
     <ClInclude Include="Code\Game\iconInputComponent.h" />
     <ClInclude Include="Code\Game\mousePressButton.h" />
+    <ClInclude Include="Code\Game\NetworkInputCmpnt.h" />
+    <ClInclude Include="Code\Game\NetworkRenderCmpnt.h" />
+    <ClInclude Include="Code\Game\NetworkUpdateCmpnt.h" />
     <ClInclude Include="Code\Game\photoRenderComponent.hpp" />
     <ClInclude Include="Code\Game\PipelineCharacter.h" />
     <ClInclude Include="Code\Game\PipelineDataRenderComponent.h" />
@@ -154,7 +161,9 @@
     <ClInclude Include="Code\Game\testRenderSprite.h" />
     <ClInclude Include="Code\Game\textInputKeys.hpp" />
     <ClInclude Include="Code\Game\textInputRenderComponent.hpp" />
+    <ClInclude Include="Code\Game\textLabelComponent.hpp" />
     <ClInclude Include="Code\Game\textOutputRenderComponent.h" />
+    <ClInclude Include="Code\Game\textRenderComponent.hpp" />
     <ClInclude Include="Code\Game\TreeCommands.h" />
     <ClInclude Include="Code\Game\WindowBkgndRenderCmpnt.h" />
     <ClInclude Include="Code\Library\json\json-forwards.h" />

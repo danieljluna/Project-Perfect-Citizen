@@ -9,154 +9,13 @@
 /* Begin PBXBuildFile section */
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
 		C82E61731C810E67001860CC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E61721C810E67001860CC /* main.cpp */; };
-		E95FCA741C86A10A00D1800A /* AudioLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA291C86A10A00D1800A /* AudioLocator.cpp */; };
-		E95FCA751C86A10A00D1800A /* AudioLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA2B1C86A10A00D1800A /* AudioLogger.cpp */; };
-		E95FCA761C86A10A00D1800A /* AudioQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA2D1C86A10A00D1800A /* AudioQueue.cpp */; };
-		E95FCA771C86A10A00D1800A /* DesktopAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA2F1C86A10A00D1800A /* DesktopAudio.cpp */; };
-		E95FCA781C86A10A00D1800A /* gunshot.ogg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCA331C86A10A00D1800A /* gunshot.ogg */; };
-		E95FCA791C86A10A00D1800A /* gunshots.wav in Resources */ = {isa = PBXBuildFile; fileRef = E95FCA341C86A10A00D1800A /* gunshots.wav */; };
-		E95FCA7A1C86A10A00D1800A /* BaseFileType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA361C86A10A00D1800A /* BaseFileType.cpp */; };
-		E95FCA7B1C86A10A00D1800A /* BorderDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA381C86A10A00D1800A /* BorderDecorator.cpp */; };
-		E95FCA7C1C86A10A00D1800A /* component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA3A1C86A10A00D1800A /* component.cpp */; };
-		E95FCA7D1C86A10A00D1800A /* ComponentObsvr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA3C1C86A10A00D1800A /* ComponentObsvr.cpp */; };
-		E95FCA7E1C86A10A00D1800A /* debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA3E1C86A10A00D1800A /* debug.cpp */; };
-		E95FCA7F1C86A10A00D1800A /* desktop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA401C86A10A00D1800A /* desktop.cpp */; };
-		E95FCA801C86A10A00D1800A /* DesktopLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA421C86A10A00D1800A /* DesktopLogger.cpp */; };
-		E95FCA811C86A10A00D1800A /* DraggableInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA441C86A10A00D1800A /* DraggableInput.cpp */; };
-		E95FCA821C86A10A00D1800A /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA471C86A10A00D1800A /* Entity.cpp */; };
-		E95FCA831C86A10A00D1800A /* EntityDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA491C86A10A00D1800A /* EntityDecorator.cpp */; };
-		E95FCA841C86A10A00D1800A /* EntityLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA4B1C86A10A00D1800A /* EntityLogger.cpp */; };
-		E95FCA851C86A10A00D1800A /* FunctionObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA4E1C86A10A00D1800A /* FunctionObserver.cpp */; };
-		E95FCA861C86A10A00D1800A /* InputCmpntLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA501C86A10A00D1800A /* InputCmpntLogger.cpp */; };
-		E95FCA871C86A10A00D1800A /* inputComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA521C86A10A00D1800A /* inputComponent.cpp */; };
-		E95FCA881C86A10A00D1800A /* InputHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA541C86A10A00D1800A /* InputHandler.cpp */; };
-		E95FCA891C86A10A00D1800A /* Network.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA561C86A10A00D1800A /* Network.cpp */; };
-		E95FCA8A1C86A10A00D1800A /* NodeState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA581C86A10A00D1800A /* NodeState.cpp */; };
-		E95FCA8B1C86A10A00D1800A /* observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA5B1C86A10A00D1800A /* observer.cpp */; };
-		E95FCA8C1C86A10A00D1800A /* RenderCmpntDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA5D1C86A10A00D1800A /* RenderCmpntDecorator.cpp */; };
-		E95FCA8D1C86A10A00D1800A /* RenderCmpntLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA5F1C86A10A00D1800A /* RenderCmpntLogger.cpp */; };
-		E95FCA8E1C86A10A00D1800A /* subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA621C86A10A00D1800A /* subject.cpp */; };
-		E95FCA8F1C86A10A00D1800A /* UpdateCmpntDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA641C86A10A00D1800A /* UpdateCmpntDecorator.cpp */; };
-		E95FCA901C86A10A00D1800A /* UpdateCmpntLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA661C86A10A00D1800A /* UpdateCmpntLogger.cpp */; };
-		E95FCA911C86A10A00D1800A /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA6A1C86A10A00D1800A /* Window.cpp */; };
-		E95FCA921C86A10A00D1800A /* WindowDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA6C1C86A10A00D1800A /* WindowDecorator.cpp */; };
-		E95FCA931C86A10A00D1800A /* WindowInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA6E1C86A10A00D1800A /* WindowInterface.cpp */; };
-		E95FCA941C86A10A00D1800A /* WindowLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA701C86A10A00D1800A /* WindowLogger.cpp */; };
-		E95FCA951C86A10A00D1800A /* world.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA721C86A10A00D1800A /* world.cpp */; };
-		E95FCAD01C86A12300D1800A /* animatorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA961C86A12300D1800A /* animatorComponent.cpp */; };
-		E95FCAD11C86A12300D1800A /* BootLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA981C86A12300D1800A /* BootLoader.cpp */; };
-		E95FCAD21C86A12300D1800A /* buttonRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA9A1C86A12300D1800A /* buttonRenderComponent.cpp */; };
-		E95FCAD31C86A12300D1800A /* buttonUpdateComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA9C1C86A12300D1800A /* buttonUpdateComponent.cpp */; };
-		E95FCAD41C86A12300D1800A /* characterRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCA9E1C86A12300D1800A /* characterRender.cpp */; };
-		E95FCAD51C86A12300D1800A /* consoleIconRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAA01C86A12300D1800A /* consoleIconRenderComponent.cpp */; };
-		E95FCAD61C86A12300D1800A /* consoleUpdateComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAA21C86A12300D1800A /* consoleUpdateComponent.cpp */; };
-		E95FCAD71C86A12300D1800A /* createButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAA41C86A12300D1800A /* createButton.cpp */; };
-		E95FCAD81C86A12300D1800A /* createDesktop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAA61C86A12300D1800A /* createDesktop.cpp */; };
-		E95FCAD91C86A12300D1800A /* createIcon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAA81C86A12300D1800A /* createIcon.cpp */; };
-		E95FCADA1C86A12300D1800A /* createWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAAA1C86A12300D1800A /* createWindow.cpp */; };
-		E95FCADB1C86A12300D1800A /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAAC1C86A12300D1800A /* Database.cpp */; };
-		E95FCADC1C86A12300D1800A /* databaseDisplayRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAAE1C86A12300D1800A /* databaseDisplayRenderComponent.cpp */; };
-		E95FCADD1C86A12300D1800A /* databaseSearchInputComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAB01C86A12300D1800A /* databaseSearchInputComponent.cpp */; };
-		E95FCADE1C86A12300D1800A /* databaseSearchRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAB21C86A12300D1800A /* databaseSearchRenderComponent.cpp */; };
-		E95FCADF1C86A12300D1800A /* desktopExtractionComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAB41C86A12300D1800A /* desktopExtractionComponent.cpp */; };
-		E95FCAE01C86A12300D1800A /* expressionistParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAB61C86A12300D1800A /* expressionistParser.cpp */; };
-		E95FCAE11C86A12300D1800A /* iconInputComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAB81C86A12300D1800A /* iconInputComponent.cpp */; };
-		E95FCAE21C86A12300D1800A /* mousePressButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCABA1C86A12300D1800A /* mousePressButton.cpp */; };
-		E95FCAE31C86A12300D1800A /* photoRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCABC1C86A12300D1800A /* photoRenderComponent.cpp */; };
-		E95FCAE41C86A12300D1800A /* PipelineCharacter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCABE1C86A12300D1800A /* PipelineCharacter.cpp */; };
-		E95FCAE51C86A12300D1800A /* PipelineDataRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAC01C86A12300D1800A /* PipelineDataRenderComponent.cpp */; };
-		E95FCAE61C86A12300D1800A /* PipelineGraphRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAC21C86A12300D1800A /* PipelineGraphRenderComponent.cpp */; };
-		E95FCAE71C86A12300D1800A /* testRenderSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAC41C86A12300D1800A /* testRenderSprite.cpp */; };
-		E95FCAE81C86A12300D1800A /* textInputKeys.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAC61C86A12300D1800A /* textInputKeys.cpp */; };
-		E95FCAE91C86A12300D1800A /* textInputRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCAC81C86A12300D1800A /* textInputRenderComponent.cpp */; };
-		E95FCAEA1C86A12300D1800A /* textOutputRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCACA1C86A12300D1800A /* textOutputRenderComponent.cpp */; };
-		E95FCAEB1C86A12300D1800A /* TreeCommands.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCACC1C86A12300D1800A /* TreeCommands.cpp */; };
-		E95FCAEC1C86A12300D1800A /* WindowBkgndRenderCmpnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95FCACE1C86A12300D1800A /* WindowBkgndRenderCmpnt.cpp */; };
 		E95FCB4F1C86A14500D1800A /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAEF1C86A14400D1800A /* DoxygenHelp.txt */; };
 		E95FCB501C86A14500D1800A /* LinkHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF01C86A14400D1800A /* LinkHelp.txt */; };
-		E95FCB511C86A14500D1800A /*  Catch 22 - Joseph Heller.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF31C86A14400D1800A /*  Catch 22 - Joseph Heller.pdf */; };
-		E95FCB521C86A14500D1800A /* 1-24-08-182.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF41C86A14400D1800A /* 1-24-08-182.jpg */; };
-		E95FCB531C86A14500D1800A /* 1894.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF51C86A14400D1800A /* 1894.jpg */; };
-		E95FCB541C86A14500D1800A /* 2-20-09-431.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF61C86A14400D1800A /* 2-20-09-431.jpg */; };
-		E95FCB551C86A14500D1800A /* 2-23-2011-213.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF71C86A14400D1800A /* 2-23-2011-213.jpg */; };
-		E95FCB561C86A14500D1800A /* 3-29-12-184.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF81C86A14400D1800A /* 3-29-12-184.jpg */; };
-		E95FCB571C86A14500D1800A /* 3191.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF91C86A14400D1800A /* 3191.jpg */; };
-		E95FCB581C86A14500D1800A /* 3573.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAFA1C86A14400D1800A /* 3573.jpg */; };
-		E95FCB591C86A14500D1800A /* 4-10-08-386.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAFB1C86A14400D1800A /* 4-10-08-386.jpg */; };
-		E95FCB5A1C86A14500D1800A /* 4-14-09-462.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAFC1C86A14400D1800A /* 4-14-09-462.jpg */; };
-		E95FCB5B1C86A14500D1800A /* 4-24-08-152.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAFD1C86A14400D1800A /* 4-24-08-152.jpg */; };
-		E95FCB5C1C86A14500D1800A /* 4-24-08-492.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAFE1C86A14400D1800A /* 4-24-08-492.jpg */; };
-		E95FCB5D1C86A14500D1800A /* 4-4-12-048.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAFF1C86A14400D1800A /* 4-4-12-048.jpg */; };
-		E95FCB5E1C86A14500D1800A /* 4065.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB001C86A14400D1800A /* 4065.jpg */; };
-		E95FCB5F1C86A14500D1800A /* 5678.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB011C86A14400D1800A /* 5678.jpg */; };
-		E95FCB601C86A14500D1800A /* 6576.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB021C86A14400D1800A /* 6576.jpg */; };
-		E95FCB611C86A14500D1800A /* 7-24-12-052.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB031C86A14400D1800A /* 7-24-12-052.jpg */; };
-		E95FCB621C86A14500D1800A /* 7-29-14-345.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB041C86A14400D1800A /* 7-29-14-345.jpg */; };
-		E95FCB631C86A14500D1800A /* 7146.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB051C86A14400D1800A /* 7146.jpg */; };
-		E95FCB641C86A14500D1800A /* 7402.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB061C86A14400D1800A /* 7402.jpg */; };
-		E95FCB651C86A14500D1800A /* 8-9-11-0426.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB071C86A14400D1800A /* 8-9-11-0426.jpg */; };
-		E95FCB661C86A14500D1800A /* 9-24-14-195-Edit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB081C86A14400D1800A /* 9-24-14-195-Edit.jpg */; };
-		E95FCB671C86A14500D1800A /* As I Lay Dying - Faulkner.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB091C86A14400D1800A /* As I Lay Dying - Faulkner.pdf */; };
-		E95FCB681C86A14500D1800A /* Bacchae - Euripides.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB0A1C86A14400D1800A /* Bacchae - Euripides.pdf */; };
-		E95FCB691C86A14500D1800A /* bataille_story_of_eye.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB0B1C86A14400D1800A /* bataille_story_of_eye.pdf */; };
-		E95FCB6A1C86A14500D1800A /* Bluebird by Charles Bukowski.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB0C1C86A14400D1800A /* Bluebird by Charles Bukowski.pdf */; };
-		E95FCB6B1C86A14500D1800A /* CatcherInTheRye - Salinger.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB0D1C86A14400D1800A /* CatcherInTheRye - Salinger.pdf */; };
-		E95FCB6C1C86A14500D1800A /* Conversation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB0E1C86A14400D1800A /* Conversation.jpg */; };
-		E95FCB6D1C86A14500D1800A /* Crowd1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB0F1C86A14400D1800A /* Crowd1.jpg */; };
-		E95FCB6E1C86A14500D1800A /* Crowd14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB101C86A14400D1800A /* Crowd14.jpg */; };
-		E95FCB6F1C86A14500D1800A /* Crowd16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB111C86A14400D1800A /* Crowd16.jpg */; };
-		E95FCB701C86A14500D1800A /* Crowd2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB121C86A14400D1800A /* Crowd2.jpg */; };
-		E95FCB711C86A14500D1800A /* Crowd21.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB131C86A14400D1800A /* Crowd21.jpg */; };
-		E95FCB721C86A14500D1800A /* Crowd29.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB141C86A14400D1800A /* Crowd29.jpg */; };
-		E95FCB731C86A14500D1800A /* Crowd3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB151C86A14400D1800A /* Crowd3.jpg */; };
-		E95FCB741C86A14500D1800A /* Crowd31.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB161C86A14400D1800A /* Crowd31.jpg */; };
-		E95FCB751C86A14500D1800A /* Crowd32.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB171C86A14400D1800A /* Crowd32.jpg */; };
-		E95FCB761C86A14500D1800A /* Crowd35.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB181C86A14400D1800A /* Crowd35.jpg */; };
-		E95FCB771C86A14500D1800A /* Crowd7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB191C86A14400D1800A /* Crowd7.jpg */; };
-		E95FCB781C86A14500D1800A /* Crowd8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB1A1C86A14400D1800A /* Crowd8.jpg */; };
-		E95FCB791C86A14500D1800A /* Donne - Med 17.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB1B1C86A14400D1800A /* Donne - Med 17.pdf */; };
-		E95FCB7A1C86A14500D1800A /* Doubt1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB1C1C86A14400D1800A /* Doubt1.jpg */; };
-		E95FCB7B1C86A14500D1800A /* Doubt11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB1D1C86A14400D1800A /* Doubt11.jpg */; };
-		E95FCB7C1C86A14500D1800A /* Doubt15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB1E1C86A14400D1800A /* Doubt15.jpg */; };
-		E95FCB7D1C86A14500D1800A /* Doubt16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB1F1C86A14400D1800A /* Doubt16.jpg */; };
-		E95FCB7E1C86A14500D1800A /* Doubt2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB201C86A14400D1800A /* Doubt2.jpg */; };
-		E95FCB7F1C86A14500D1800A /* Doubt3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB211C86A14400D1800A /* Doubt3.jpg */; };
-		E95FCB801C86A14500D1800A /* Doubt6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB221C86A14400D1800A /* Doubt6.jpg */; };
-		E95FCB811C86A14500D1800A /* Doubt9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB231C86A14400D1800A /* Doubt9.jpg */; };
-		E95FCB821C86A14500D1800A /* Epidemic-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB241C86A14400D1800A /* Epidemic-2.jpg */; };
-		E95FCB831C86A14500D1800A /* EternalStation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB251C86A14400D1800A /* EternalStation.jpg */; };
-		E95FCB841C86A14500D1800A /* Fallen1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB261C86A14400D1800A /* Fallen1.jpg */; };
-		E95FCB851C86A14500D1800A /* Fallen2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB271C86A14400D1800A /* Fallen2.jpg */; };
-		E95FCB861C86A14500D1800A /* Fallen5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB281C86A14400D1800A /* Fallen5.jpg */; };
-		E95FCB871C86A14500D1800A /* Fallen7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB291C86A14400D1800A /* Fallen7.jpg */; };
-		E95FCB881C86A14500D1800A /* Fata+Morgana.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB2A1C86A14400D1800A /* Fata+Morgana.jpg */; };
-		E95FCB891C86A14500D1800A /* Fragment+Of+Eternity.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB2B1C86A14400D1800A /* Fragment+Of+Eternity.jpg */; };
-		E95FCB8A1C86A14500D1800A /* Geek Love by Katherine Dunn - Ch1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB2C1C86A14400D1800A /* Geek Love by Katherine Dunn - Ch1.pdf */; };
-		E95FCB8B1C86A14500D1800A /* Invisible Man - Ellison.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB2D1C86A14400D1800A /* Invisible Man - Ellison.pdf */; };
-		E95FCB8C1C86A14500D1800A /* Journey+Into+Dark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB2E1C86A14400D1800A /* Journey+Into+Dark.jpg */; };
-		E95FCB8D1C86A14500D1800A /* Kristeva_-_powers_of_horror.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB2F1C86A14400D1800A /* Kristeva_-_powers_of_horror.pdf */; };
-		E95FCB8E1C86A14500D1800A /* LacanMirrorPhase.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB301C86A14400D1800A /* LacanMirrorPhase.pdf */; };
-		E95FCB8F1C86A14500D1800A /* Lolita - Vladimir Nabokov.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB311C86A14400D1800A /* Lolita - Vladimir Nabokov.pdf */; };
-		E95FCB901C86A14500D1800A /* mulvey-visualpleasure.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB321C86A14400D1800A /* mulvey-visualpleasure.pdf */; };
-		E95FCB911C86A14500D1800A /* Myth of Sisyphus by Albert Camus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB331C86A14400D1800A /* Myth of Sisyphus by Albert Camus.pdf */; };
-		E95FCB921C86A14500D1800A /* New+Crowd39.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB341C86A14400D1800A /* New+Crowd39.jpg */; };
-		E95FCB931C86A14500D1800A /* NewCrowd38.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB351C86A14500D1800A /* NewCrowd38.jpg */; };
-		E95FCB941C86A14500D1800A /* NewCrowd38Fragment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB361C86A14500D1800A /* NewCrowd38Fragment.jpg */; };
-		E95FCB951C86A14500D1800A /* NewCrowd42Fragment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB371C86A14500D1800A /* NewCrowd42Fragment.jpg */; };
-		E95FCB961C86A14500D1800A /* NewCrowd46.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB381C86A14500D1800A /* NewCrowd46.jpg */; };
-		E95FCB971C86A14500D1800A /* NewCrowd52.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB391C86A14500D1800A /* NewCrowd52.jpg */; };
-		E95FCB981C86A14500D1800A /* NewCrowd58.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB3A1C86A14500D1800A /* NewCrowd58.jpg */; };
-		E95FCB991C86A14500D1800A /* Sheptune2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB3B1C86A14500D1800A /* Sheptune2.jpg */; };
-		E95FCB9A1C86A14500D1800A /* St. Augustine - Confessions copy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB3C1C86A14500D1800A /* St. Augustine - Confessions copy.pdf */; };
-		E95FCB9B1C86A14500D1800A /* The_Metamorphosis.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB3D1C86A14500D1800A /* The_Metamorphosis.pdf */; };
-		E95FCB9C1C86A14500D1800A /* The_Scarlet_Letter.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB3E1C86A14500D1800A /* The_Scarlet_Letter.pdf */; };
 		E95FCB9D1C86A14500D1800A /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB401C86A14500D1800A /* EngineSettings.ini */; };
 		E95FCB9E1C86A14500D1800A /* Project-Perfect-Citizen-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB411C86A14500D1800A /* Project-Perfect-Citizen-Info.plist */; };
 		E95FCB9F1C86A14500D1800A /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB421C86A14500D1800A /* data.json */; };
 		E95FCBA01C86A14500D1800A /* Desktop1.json in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB431C86A14500D1800A /* Desktop1.json */; };
-		E95FCBA11C86A14500D1800A /* dummy.json in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB441C86A14500D1800A /* dummy.json */; };
 		E95FCBA21C86A14500D1800A /* smsPipeline.json in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB451C86A14500D1800A /* smsPipeline.json */; };
-		E95FCBA31C86A14500D1800A /* TestDesktop.json in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB461C86A14500D1800A /* TestDesktop.json */; };
 		E95FCBA41C86A14500D1800A /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = E95FCB471C86A14500D1800A /* ResourcePath.mm */; };
 		E95FCBA51C86A14500D1800A /* Face_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB481C86A14500D1800A /* Face_Sheet.png */; };
 		E95FCBA61C86A14500D1800A /* Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB491C86A14500D1800A /* Icon_Sheet.png */; };
@@ -165,6 +24,148 @@
 		E95FCBA91C86A14500D1800A /* Windows_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB4C1C86A14500D1800A /* Windows_Icons.png */; };
 		E95FCBAA1C86A14500D1800A /* Windows_UI.png in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB4D1C86A14500D1800A /* Windows_UI.png */; };
 		E95FCBAB1C86A14500D1800A /* consola.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB4E1C86A14500D1800A /* consola.ttf */; };
+		E9D1C7211C88F83400F16FF2 /* AudioLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6D41C88F83400F16FF2 /* AudioLocator.cpp */; };
+		E9D1C7221C88F83400F16FF2 /* AudioLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6D61C88F83400F16FF2 /* AudioLogger.cpp */; };
+		E9D1C7231C88F83400F16FF2 /* AudioQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6D81C88F83400F16FF2 /* AudioQueue.cpp */; };
+		E9D1C7241C88F83400F16FF2 /* DesktopAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6DA1C88F83400F16FF2 /* DesktopAudio.cpp */; };
+		E9D1C7251C88F83400F16FF2 /* gunshot.ogg in Resources */ = {isa = PBXBuildFile; fileRef = E9D1C6DE1C88F83400F16FF2 /* gunshot.ogg */; };
+		E9D1C7261C88F83400F16FF2 /* gunshots.wav in Resources */ = {isa = PBXBuildFile; fileRef = E9D1C6DF1C88F83400F16FF2 /* gunshots.wav */; };
+		E9D1C7271C88F83400F16FF2 /* BaseFileType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6E11C88F83400F16FF2 /* BaseFileType.cpp */; };
+		E9D1C7281C88F83400F16FF2 /* BorderDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6E31C88F83400F16FF2 /* BorderDecorator.cpp */; };
+		E9D1C7291C88F83400F16FF2 /* component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6E51C88F83400F16FF2 /* component.cpp */; };
+		E9D1C72A1C88F83400F16FF2 /* ComponentObsvr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6E71C88F83400F16FF2 /* ComponentObsvr.cpp */; };
+		E9D1C72B1C88F83400F16FF2 /* debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6E91C88F83400F16FF2 /* debug.cpp */; };
+		E9D1C72C1C88F83400F16FF2 /* desktop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6EB1C88F83400F16FF2 /* desktop.cpp */; };
+		E9D1C72D1C88F83400F16FF2 /* DesktopLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6ED1C88F83400F16FF2 /* DesktopLogger.cpp */; };
+		E9D1C72E1C88F83400F16FF2 /* DraggableInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6EF1C88F83400F16FF2 /* DraggableInput.cpp */; };
+		E9D1C72F1C88F83400F16FF2 /* Edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6F11C88F83400F16FF2 /* Edge.cpp */; };
+		E9D1C7301C88F83400F16FF2 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6F31C88F83400F16FF2 /* Entity.cpp */; };
+		E9D1C7311C88F83400F16FF2 /* EntityDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6F51C88F83400F16FF2 /* EntityDecorator.cpp */; };
+		E9D1C7321C88F83400F16FF2 /* EntityLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6F71C88F83400F16FF2 /* EntityLogger.cpp */; };
+		E9D1C7331C88F83400F16FF2 /* FunctionObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6FA1C88F83400F16FF2 /* FunctionObserver.cpp */; };
+		E9D1C7341C88F83400F16FF2 /* InputCmpntLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6FC1C88F83400F16FF2 /* InputCmpntLogger.cpp */; };
+		E9D1C7351C88F83400F16FF2 /* inputComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C6FE1C88F83400F16FF2 /* inputComponent.cpp */; };
+		E9D1C7361C88F83400F16FF2 /* InputHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7001C88F83400F16FF2 /* InputHandler.cpp */; };
+		E9D1C7371C88F83400F16FF2 /* Network.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7021C88F83400F16FF2 /* Network.cpp */; };
+		E9D1C7381C88F83400F16FF2 /* NodeState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7041C88F83400F16FF2 /* NodeState.cpp */; };
+		E9D1C7391C88F83400F16FF2 /* observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7071C88F83400F16FF2 /* observer.cpp */; };
+		E9D1C73A1C88F83400F16FF2 /* RenderCmpntDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7091C88F83400F16FF2 /* RenderCmpntDecorator.cpp */; };
+		E9D1C73B1C88F83400F16FF2 /* RenderCmpntLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C70B1C88F83400F16FF2 /* RenderCmpntLogger.cpp */; };
+		E9D1C73C1C88F83400F16FF2 /* subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C70E1C88F83400F16FF2 /* subject.cpp */; };
+		E9D1C73D1C88F83400F16FF2 /* UpdateCmpntDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7101C88F83400F16FF2 /* UpdateCmpntDecorator.cpp */; };
+		E9D1C73E1C88F83400F16FF2 /* UpdateCmpntLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7121C88F83400F16FF2 /* UpdateCmpntLogger.cpp */; };
+		E9D1C73F1C88F83400F16FF2 /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7151C88F83400F16FF2 /* Vertex.cpp */; };
+		E9D1C7401C88F83400F16FF2 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7171C88F83400F16FF2 /* Window.cpp */; };
+		E9D1C7411C88F83400F16FF2 /* WindowDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7191C88F83400F16FF2 /* WindowDecorator.cpp */; };
+		E9D1C7421C88F83400F16FF2 /* WindowInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C71B1C88F83400F16FF2 /* WindowInterface.cpp */; };
+		E9D1C7431C88F83400F16FF2 /* WindowLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C71D1C88F83400F16FF2 /* WindowLogger.cpp */; };
+		E9D1C7441C88F83400F16FF2 /* world.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C71F1C88F83400F16FF2 /* world.cpp */; };
+		E9D1C7871C88F84900F16FF2 /* animatorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7451C88F84900F16FF2 /* animatorComponent.cpp */; };
+		E9D1C7881C88F84900F16FF2 /* BootLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7471C88F84900F16FF2 /* BootLoader.cpp */; };
+		E9D1C7891C88F84900F16FF2 /* buttonRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7491C88F84900F16FF2 /* buttonRenderComponent.cpp */; };
+		E9D1C78A1C88F84900F16FF2 /* buttonUpdateComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C74B1C88F84900F16FF2 /* buttonUpdateComponent.cpp */; };
+		E9D1C78B1C88F84900F16FF2 /* characterRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C74D1C88F84900F16FF2 /* characterRender.cpp */; };
+		E9D1C78C1C88F84900F16FF2 /* consoleIconRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C74F1C88F84900F16FF2 /* consoleIconRenderComponent.cpp */; };
+		E9D1C78D1C88F84900F16FF2 /* consoleUpdateComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7511C88F84900F16FF2 /* consoleUpdateComponent.cpp */; };
+		E9D1C78E1C88F84900F16FF2 /* createButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7531C88F84900F16FF2 /* createButton.cpp */; };
+		E9D1C78F1C88F84900F16FF2 /* createDesktop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7551C88F84900F16FF2 /* createDesktop.cpp */; };
+		E9D1C7901C88F84900F16FF2 /* createIcon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7571C88F84900F16FF2 /* createIcon.cpp */; };
+		E9D1C7911C88F84900F16FF2 /* createWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7591C88F84900F16FF2 /* createWindow.cpp */; };
+		E9D1C7921C88F84900F16FF2 /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C75B1C88F84900F16FF2 /* Database.cpp */; };
+		E9D1C7931C88F84900F16FF2 /* databaseDisplayRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C75D1C88F84900F16FF2 /* databaseDisplayRenderComponent.cpp */; };
+		E9D1C7941C88F84900F16FF2 /* databaseSearchInputComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C75F1C88F84900F16FF2 /* databaseSearchInputComponent.cpp */; };
+		E9D1C7951C88F84900F16FF2 /* databaseSearchRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7611C88F84900F16FF2 /* databaseSearchRenderComponent.cpp */; };
+		E9D1C7961C88F84900F16FF2 /* desktopExtractionComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7631C88F84900F16FF2 /* desktopExtractionComponent.cpp */; };
+		E9D1C7971C88F84900F16FF2 /* expressionistParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7651C88F84900F16FF2 /* expressionistParser.cpp */; };
+		E9D1C7981C88F84900F16FF2 /* iconInputComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7671C88F84900F16FF2 /* iconInputComponent.cpp */; };
+		E9D1C7991C88F84900F16FF2 /* mousePressButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7691C88F84900F16FF2 /* mousePressButton.cpp */; };
+		E9D1C79A1C88F84900F16FF2 /* NetworkInputCmpnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C76B1C88F84900F16FF2 /* NetworkInputCmpnt.cpp */; };
+		E9D1C79B1C88F84900F16FF2 /* NetworkRenderCmpnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C76D1C88F84900F16FF2 /* NetworkRenderCmpnt.cpp */; };
+		E9D1C79C1C88F84900F16FF2 /* photoRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C76F1C88F84900F16FF2 /* photoRenderComponent.cpp */; };
+		E9D1C79D1C88F84900F16FF2 /* PipelineCharacter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7711C88F84900F16FF2 /* PipelineCharacter.cpp */; };
+		E9D1C79E1C88F84900F16FF2 /* PipelineDataRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7731C88F84900F16FF2 /* PipelineDataRenderComponent.cpp */; };
+		E9D1C79F1C88F84900F16FF2 /* PipelineGraphRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7751C88F84900F16FF2 /* PipelineGraphRenderComponent.cpp */; };
+		E9D1C7A01C88F84900F16FF2 /* testRenderSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7771C88F84900F16FF2 /* testRenderSprite.cpp */; };
+		E9D1C7A11C88F84900F16FF2 /* textInputKeys.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7791C88F84900F16FF2 /* textInputKeys.cpp */; };
+		E9D1C7A21C88F84900F16FF2 /* textInputRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C77B1C88F84900F16FF2 /* textInputRenderComponent.cpp */; };
+		E9D1C7A31C88F84900F16FF2 /* textLabelComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C77D1C88F84900F16FF2 /* textLabelComponent.cpp */; };
+		E9D1C7A41C88F84900F16FF2 /* textOutputRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C77F1C88F84900F16FF2 /* textOutputRenderComponent.cpp */; };
+		E9D1C7A51C88F84900F16FF2 /* textRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7811C88F84900F16FF2 /* textRenderComponent.cpp */; };
+		E9D1C7A61C88F84900F16FF2 /* TreeCommands.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7831C88F84900F16FF2 /* TreeCommands.cpp */; };
+		E9D1C7A71C88F84900F16FF2 /* WindowBkgndRenderCmpnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9D1C7851C88F84900F16FF2 /* WindowBkgndRenderCmpnt.cpp */; };
+		E9D7E8681C87C1F400010023 /* As I Lay Dying - Faulkner.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E80E1C87C1F400010023 /* As I Lay Dying - Faulkner.txt */; };
+		E9D7E8691C87C1F400010023 /* Bacchae - Euripides.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E80F1C87C1F400010023 /* Bacchae - Euripides.txt */; };
+		E9D7E86A1C87C1F400010023 /* bataille_story_of_eye.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8101C87C1F400010023 /* bataille_story_of_eye.txt */; };
+		E9D7E86B1C87C1F400010023 /* Bluebird by Charles Bukowski.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8111C87C1F400010023 /* Bluebird by Charles Bukowski.txt */; };
+		E9D7E86C1C87C1F400010023 /* Catch 22 - Joseph Heller.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8121C87C1F400010023 /* Catch 22 - Joseph Heller.txt */; };
+		E9D7E86D1C87C1F400010023 /* CatcherInTheRye - Salinger.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8131C87C1F400010023 /* CatcherInTheRye - Salinger.txt */; };
+		E9D7E86E1C87C1F400010023 /* Donne - Med 17.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8141C87C1F400010023 /* Donne - Med 17.txt */; };
+		E9D7E86F1C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8151C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.txt */; };
+		E9D7E8701C87C1F400010023 /* Kristeva_-_powers_of_horror.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8161C87C1F400010023 /* Kristeva_-_powers_of_horror.txt */; };
+		E9D7E8711C87C1F400010023 /* Lolita - Vladimir Nabokov.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8171C87C1F400010023 /* Lolita - Vladimir Nabokov.txt */; };
+		E9D7E8721C87C1F400010023 /* Myth of Sisyphus by Albert Camus.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8181C87C1F400010023 /* Myth of Sisyphus by Albert Camus.txt */; };
+		E9D7E8731C87C1F400010023 /* St. Augustine - Confessions copy.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8191C87C1F400010023 /* St. Augustine - Confessions copy.txt */; };
+		E9D7E8741C87C1F400010023 /* The_Metamorphosis.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E81A1C87C1F400010023 /* The_Metamorphosis.txt */; };
+		E9D7E8751C87C1F400010023 /* The_Scarlet_Letter.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E81B1C87C1F400010023 /* The_Scarlet_Letter.txt */; };
+		E9D7E8871C87C1F400010023 /* 1-24-08-182.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E82D1C87C1F400010023 /* 1-24-08-182.jpg */; };
+		E9D7E8881C87C1F400010023 /* 2-20-09-431.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E82E1C87C1F400010023 /* 2-20-09-431.jpg */; };
+		E9D7E8891C87C1F400010023 /* 2-23-2011-213.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E82F1C87C1F400010023 /* 2-23-2011-213.jpg */; };
+		E9D7E88A1C87C1F400010023 /* 3-29-12-184.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8301C87C1F400010023 /* 3-29-12-184.jpg */; };
+		E9D7E88B1C87C1F400010023 /* 4-4-12-048.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8311C87C1F400010023 /* 4-4-12-048.jpg */; };
+		E9D7E88C1C87C1F400010023 /* 4-10-08-386.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8321C87C1F400010023 /* 4-10-08-386.jpg */; };
+		E9D7E88D1C87C1F400010023 /* 4-14-09-462.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8331C87C1F400010023 /* 4-14-09-462.jpg */; };
+		E9D7E88E1C87C1F400010023 /* 4-24-08-152.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8341C87C1F400010023 /* 4-24-08-152.jpg */; };
+		E9D7E88F1C87C1F400010023 /* 4-24-08-492.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8351C87C1F400010023 /* 4-24-08-492.jpg */; };
+		E9D7E8901C87C1F400010023 /* 7-24-12-052.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8361C87C1F400010023 /* 7-24-12-052.jpg */; };
+		E9D7E8911C87C1F400010023 /* 7-29-14-345.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8371C87C1F400010023 /* 7-29-14-345.jpg */; };
+		E9D7E8921C87C1F400010023 /* 8-9-11-0426.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8381C87C1F400010023 /* 8-9-11-0426.jpg */; };
+		E9D7E8931C87C1F400010023 /* 9-24-14-195-Edit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8391C87C1F400010023 /* 9-24-14-195-Edit.jpg */; };
+		E9D7E8941C87C1F400010023 /* 1894.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E83A1C87C1F400010023 /* 1894.jpg */; };
+		E9D7E8951C87C1F400010023 /* 3191.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E83B1C87C1F400010023 /* 3191.jpg */; };
+		E9D7E8961C87C1F400010023 /* 3573.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E83C1C87C1F400010023 /* 3573.jpg */; };
+		E9D7E8971C87C1F400010023 /* 4065.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E83D1C87C1F400010023 /* 4065.jpg */; };
+		E9D7E8981C87C1F400010023 /* 5678.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E83E1C87C1F400010023 /* 5678.jpg */; };
+		E9D7E8991C87C1F400010023 /* 6576.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E83F1C87C1F400010023 /* 6576.jpg */; };
+		E9D7E89A1C87C1F400010023 /* 7146.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8401C87C1F400010023 /* 7146.jpg */; };
+		E9D7E89B1C87C1F400010023 /* 7402.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8411C87C1F400010023 /* 7402.jpg */; };
+		E9D7E89C1C87C1F400010023 /* Conversation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8421C87C1F400010023 /* Conversation.jpg */; };
+		E9D7E89D1C87C1F400010023 /* Crowd1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8431C87C1F400010023 /* Crowd1.jpg */; };
+		E9D7E89E1C87C1F400010023 /* Crowd2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8441C87C1F400010023 /* Crowd2.jpg */; };
+		E9D7E89F1C87C1F400010023 /* Crowd3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8451C87C1F400010023 /* Crowd3.jpg */; };
+		E9D7E8A01C87C1F400010023 /* Crowd7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8461C87C1F400010023 /* Crowd7.jpg */; };
+		E9D7E8A11C87C1F400010023 /* Crowd8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8471C87C1F400010023 /* Crowd8.jpg */; };
+		E9D7E8A21C87C1F400010023 /* Crowd14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8481C87C1F400010023 /* Crowd14.jpg */; };
+		E9D7E8A31C87C1F400010023 /* Crowd16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8491C87C1F400010023 /* Crowd16.jpg */; };
+		E9D7E8A41C87C1F400010023 /* Crowd21.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E84A1C87C1F400010023 /* Crowd21.jpg */; };
+		E9D7E8A51C87C1F400010023 /* Crowd29.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E84B1C87C1F400010023 /* Crowd29.jpg */; };
+		E9D7E8A61C87C1F400010023 /* Crowd31.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E84C1C87C1F400010023 /* Crowd31.jpg */; };
+		E9D7E8A71C87C1F400010023 /* Crowd32.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E84D1C87C1F400010023 /* Crowd32.jpg */; };
+		E9D7E8A81C87C1F400010023 /* Crowd35.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E84E1C87C1F400010023 /* Crowd35.jpg */; };
+		E9D7E8A91C87C1F400010023 /* Doubt1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E84F1C87C1F400010023 /* Doubt1.jpg */; };
+		E9D7E8AA1C87C1F400010023 /* Doubt2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8501C87C1F400010023 /* Doubt2.jpg */; };
+		E9D7E8AB1C87C1F400010023 /* Doubt3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8511C87C1F400010023 /* Doubt3.jpg */; };
+		E9D7E8AC1C87C1F400010023 /* Doubt6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8521C87C1F400010023 /* Doubt6.jpg */; };
+		E9D7E8AD1C87C1F400010023 /* Doubt9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8531C87C1F400010023 /* Doubt9.jpg */; };
+		E9D7E8AE1C87C1F400010023 /* Doubt11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8541C87C1F400010023 /* Doubt11.jpg */; };
+		E9D7E8AF1C87C1F400010023 /* Doubt15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8551C87C1F400010023 /* Doubt15.jpg */; };
+		E9D7E8B01C87C1F400010023 /* Doubt16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8561C87C1F400010023 /* Doubt16.jpg */; };
+		E9D7E8B11C87C1F400010023 /* Epidemic-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8571C87C1F400010023 /* Epidemic-2.jpg */; };
+		E9D7E8B21C87C1F400010023 /* EternalStation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8581C87C1F400010023 /* EternalStation.jpg */; };
+		E9D7E8B31C87C1F400010023 /* Fallen1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8591C87C1F400010023 /* Fallen1.jpg */; };
+		E9D7E8B41C87C1F400010023 /* Fallen2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E85A1C87C1F400010023 /* Fallen2.jpg */; };
+		E9D7E8B51C87C1F400010023 /* Fallen5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E85B1C87C1F400010023 /* Fallen5.jpg */; };
+		E9D7E8B61C87C1F400010023 /* Fallen7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E85C1C87C1F400010023 /* Fallen7.jpg */; };
+		E9D7E8B71C87C1F400010023 /* Fata+Morgana.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E85D1C87C1F400010023 /* Fata+Morgana.jpg */; };
+		E9D7E8B81C87C1F400010023 /* Fragment+Of+Eternity.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E85E1C87C1F400010023 /* Fragment+Of+Eternity.jpg */; };
+		E9D7E8B91C87C1F400010023 /* Journey+Into+Dark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E85F1C87C1F400010023 /* Journey+Into+Dark.jpg */; };
+		E9D7E8BA1C87C1F400010023 /* New+Crowd39.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8601C87C1F400010023 /* New+Crowd39.jpg */; };
+		E9D7E8BB1C87C1F400010023 /* NewCrowd38.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8611C87C1F400010023 /* NewCrowd38.jpg */; };
+		E9D7E8BC1C87C1F400010023 /* NewCrowd38Fragment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8621C87C1F400010023 /* NewCrowd38Fragment.jpg */; };
+		E9D7E8BD1C87C1F400010023 /* NewCrowd42Fragment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8631C87C1F400010023 /* NewCrowd42Fragment.jpg */; };
+		E9D7E8BE1C87C1F400010023 /* NewCrowd46.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8641C87C1F400010023 /* NewCrowd46.jpg */; };
+		E9D7E8BF1C87C1F400010023 /* NewCrowd52.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8651C87C1F400010023 /* NewCrowd52.jpg */; };
+		E9D7E8C01C87C1F400010023 /* NewCrowd58.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8661C87C1F400010023 /* NewCrowd58.jpg */; };
+		E9D7E8C11C87C1F400010023 /* Sheptune2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9D7E8671C87C1F400010023 /* Sheptune2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,225 +174,14 @@
 		C82E60741C810DCB001860CC /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		C82E60751C810DCB001860CC /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
 		C82E61721C810E67001860CC /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
-		E95FCA281C86A10A00D1800A /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
-		E95FCA291C86A10A00D1800A /* AudioLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioLocator.cpp; sourceTree = "<group>"; };
-		E95FCA2A1C86A10A00D1800A /* AudioLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioLocator.h; sourceTree = "<group>"; };
-		E95FCA2B1C86A10A00D1800A /* AudioLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioLogger.cpp; sourceTree = "<group>"; };
-		E95FCA2C1C86A10A00D1800A /* AudioLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioLogger.h; sourceTree = "<group>"; };
-		E95FCA2D1C86A10A00D1800A /* AudioQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioQueue.cpp; sourceTree = "<group>"; };
-		E95FCA2E1C86A10A00D1800A /* AudioQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioQueue.h; sourceTree = "<group>"; };
-		E95FCA2F1C86A10A00D1800A /* DesktopAudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DesktopAudio.cpp; sourceTree = "<group>"; };
-		E95FCA301C86A10A00D1800A /* DesktopAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopAudio.h; sourceTree = "<group>"; };
-		E95FCA311C86A10A00D1800A /* NullAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullAudio.h; sourceTree = "<group>"; };
-		E95FCA331C86A10A00D1800A /* gunshot.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = gunshot.ogg; sourceTree = "<group>"; };
-		E95FCA341C86A10A00D1800A /* gunshots.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gunshots.wav; sourceTree = "<group>"; };
-		E95FCA351C86A10A00D1800A /* Sounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sounds.h; sourceTree = "<group>"; };
-		E95FCA361C86A10A00D1800A /* BaseFileType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseFileType.cpp; sourceTree = "<group>"; };
-		E95FCA371C86A10A00D1800A /* BaseFileType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseFileType.h; sourceTree = "<group>"; };
-		E95FCA381C86A10A00D1800A /* BorderDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BorderDecorator.cpp; sourceTree = "<group>"; };
-		E95FCA391C86A10A00D1800A /* BorderDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderDecorator.h; sourceTree = "<group>"; };
-		E95FCA3A1C86A10A00D1800A /* component.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = component.cpp; sourceTree = "<group>"; };
-		E95FCA3B1C86A10A00D1800A /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
-		E95FCA3C1C86A10A00D1800A /* ComponentObsvr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentObsvr.cpp; sourceTree = "<group>"; };
-		E95FCA3D1C86A10A00D1800A /* ComponentObsvr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentObsvr.h; sourceTree = "<group>"; };
-		E95FCA3E1C86A10A00D1800A /* debug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = debug.cpp; sourceTree = "<group>"; };
-		E95FCA3F1C86A10A00D1800A /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
-		E95FCA401C86A10A00D1800A /* desktop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = desktop.cpp; sourceTree = "<group>"; };
-		E95FCA411C86A10A00D1800A /* desktop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = desktop.h; sourceTree = "<group>"; };
-		E95FCA421C86A10A00D1800A /* DesktopLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DesktopLogger.cpp; sourceTree = "<group>"; };
-		E95FCA431C86A10A00D1800A /* DesktopLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopLogger.h; sourceTree = "<group>"; };
-		E95FCA441C86A10A00D1800A /* DraggableInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DraggableInput.cpp; sourceTree = "<group>"; };
-		E95FCA451C86A10A00D1800A /* DraggableInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableInput.h; sourceTree = "<group>"; };
-		E95FCA461C86A10A00D1800A /* Edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Edge.h; sourceTree = "<group>"; };
-		E95FCA471C86A10A00D1800A /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
-		E95FCA481C86A10A00D1800A /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
-		E95FCA491C86A10A00D1800A /* EntityDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityDecorator.cpp; sourceTree = "<group>"; };
-		E95FCA4A1C86A10A00D1800A /* EntityDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityDecorator.h; sourceTree = "<group>"; };
-		E95FCA4B1C86A10A00D1800A /* EntityLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityLogger.cpp; sourceTree = "<group>"; };
-		E95FCA4C1C86A10A00D1800A /* EntityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityLogger.h; sourceTree = "<group>"; };
-		E95FCA4D1C86A10A00D1800A /* event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event.h; sourceTree = "<group>"; };
-		E95FCA4E1C86A10A00D1800A /* FunctionObserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FunctionObserver.cpp; sourceTree = "<group>"; };
-		E95FCA4F1C86A10A00D1800A /* FunctionObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionObserver.h; sourceTree = "<group>"; };
-		E95FCA501C86A10A00D1800A /* InputCmpntLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputCmpntLogger.cpp; sourceTree = "<group>"; };
-		E95FCA511C86A10A00D1800A /* InputCmpntLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCmpntLogger.h; sourceTree = "<group>"; };
-		E95FCA521C86A10A00D1800A /* inputComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = inputComponent.cpp; sourceTree = "<group>"; };
-		E95FCA531C86A10A00D1800A /* inputComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputComponent.h; sourceTree = "<group>"; };
-		E95FCA541C86A10A00D1800A /* InputHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputHandler.cpp; sourceTree = "<group>"; };
-		E95FCA551C86A10A00D1800A /* InputHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputHandler.h; sourceTree = "<group>"; };
-		E95FCA561C86A10A00D1800A /* Network.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Network.cpp; sourceTree = "<group>"; };
-		E95FCA571C86A10A00D1800A /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
-		E95FCA581C86A10A00D1800A /* NodeState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodeState.cpp; sourceTree = "<group>"; };
-		E95FCA591C86A10A00D1800A /* NodeState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeState.h; sourceTree = "<group>"; };
-		E95FCA5A1C86A10A00D1800A /* ObjectPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectPool.h; sourceTree = "<group>"; };
-		E95FCA5B1C86A10A00D1800A /* observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = observer.cpp; sourceTree = "<group>"; };
-		E95FCA5C1C86A10A00D1800A /* observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = observer.h; sourceTree = "<group>"; };
-		E95FCA5D1C86A10A00D1800A /* RenderCmpntDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderCmpntDecorator.cpp; sourceTree = "<group>"; };
-		E95FCA5E1C86A10A00D1800A /* RenderCmpntDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderCmpntDecorator.h; sourceTree = "<group>"; };
-		E95FCA5F1C86A10A00D1800A /* RenderCmpntLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderCmpntLogger.cpp; sourceTree = "<group>"; };
-		E95FCA601C86A10A00D1800A /* RenderCmpntLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderCmpntLogger.h; sourceTree = "<group>"; };
-		E95FCA611C86A10A00D1800A /* renderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = renderComponent.h; sourceTree = "<group>"; };
-		E95FCA621C86A10A00D1800A /* subject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = subject.cpp; sourceTree = "<group>"; };
-		E95FCA631C86A10A00D1800A /* subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subject.h; sourceTree = "<group>"; };
-		E95FCA641C86A10A00D1800A /* UpdateCmpntDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UpdateCmpntDecorator.cpp; sourceTree = "<group>"; };
-		E95FCA651C86A10A00D1800A /* UpdateCmpntDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateCmpntDecorator.h; sourceTree = "<group>"; };
-		E95FCA661C86A10A00D1800A /* UpdateCmpntLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UpdateCmpntLogger.cpp; sourceTree = "<group>"; };
-		E95FCA671C86A10A00D1800A /* UpdateCmpntLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateCmpntLogger.h; sourceTree = "<group>"; };
-		E95FCA681C86A10A00D1800A /* updateComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = updateComponent.h; sourceTree = "<group>"; };
-		E95FCA691C86A10A00D1800A /* Vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
-		E95FCA6A1C86A10A00D1800A /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
-		E95FCA6B1C86A10A00D1800A /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
-		E95FCA6C1C86A10A00D1800A /* WindowDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowDecorator.cpp; sourceTree = "<group>"; };
-		E95FCA6D1C86A10A00D1800A /* WindowDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowDecorator.h; sourceTree = "<group>"; };
-		E95FCA6E1C86A10A00D1800A /* WindowInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowInterface.cpp; sourceTree = "<group>"; };
-		E95FCA6F1C86A10A00D1800A /* WindowInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowInterface.h; sourceTree = "<group>"; };
-		E95FCA701C86A10A00D1800A /* WindowLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowLogger.cpp; sourceTree = "<group>"; };
-		E95FCA711C86A10A00D1800A /* WindowLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowLogger.h; sourceTree = "<group>"; };
-		E95FCA721C86A10A00D1800A /* world.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = world.cpp; sourceTree = "<group>"; };
-		E95FCA731C86A10A00D1800A /* world.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = world.h; sourceTree = "<group>"; };
-		E95FCA961C86A12300D1800A /* animatorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = animatorComponent.cpp; sourceTree = "<group>"; };
-		E95FCA971C86A12300D1800A /* animatorComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = animatorComponent.hpp; sourceTree = "<group>"; };
-		E95FCA981C86A12300D1800A /* BootLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BootLoader.cpp; sourceTree = "<group>"; };
-		E95FCA991C86A12300D1800A /* BootLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BootLoader.hpp; sourceTree = "<group>"; };
-		E95FCA9A1C86A12300D1800A /* buttonRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buttonRenderComponent.cpp; sourceTree = "<group>"; };
-		E95FCA9B1C86A12300D1800A /* buttonRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buttonRenderComponent.h; sourceTree = "<group>"; };
-		E95FCA9C1C86A12300D1800A /* buttonUpdateComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buttonUpdateComponent.cpp; sourceTree = "<group>"; };
-		E95FCA9D1C86A12300D1800A /* buttonUpdateComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buttonUpdateComponent.h; sourceTree = "<group>"; };
-		E95FCA9E1C86A12300D1800A /* characterRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = characterRender.cpp; sourceTree = "<group>"; };
-		E95FCA9F1C86A12300D1800A /* characterRender.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = characterRender.hpp; sourceTree = "<group>"; };
-		E95FCAA01C86A12300D1800A /* consoleIconRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = consoleIconRenderComponent.cpp; sourceTree = "<group>"; };
-		E95FCAA11C86A12300D1800A /* consoleIconRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = consoleIconRenderComponent.h; sourceTree = "<group>"; };
-		E95FCAA21C86A12300D1800A /* consoleUpdateComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = consoleUpdateComponent.cpp; sourceTree = "<group>"; };
-		E95FCAA31C86A12300D1800A /* consoleUpdateComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = consoleUpdateComponent.h; sourceTree = "<group>"; };
-		E95FCAA41C86A12300D1800A /* createButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = createButton.cpp; sourceTree = "<group>"; };
-		E95FCAA51C86A12300D1800A /* createButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = createButton.h; sourceTree = "<group>"; };
-		E95FCAA61C86A12300D1800A /* createDesktop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = createDesktop.cpp; sourceTree = "<group>"; };
-		E95FCAA71C86A12300D1800A /* createDesktop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = createDesktop.h; sourceTree = "<group>"; };
-		E95FCAA81C86A12300D1800A /* createIcon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = createIcon.cpp; sourceTree = "<group>"; };
-		E95FCAA91C86A12300D1800A /* createIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = createIcon.h; sourceTree = "<group>"; };
-		E95FCAAA1C86A12300D1800A /* createWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = createWindow.cpp; sourceTree = "<group>"; };
-		E95FCAAB1C86A12300D1800A /* createWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = createWindow.h; sourceTree = "<group>"; };
-		E95FCAAC1C86A12300D1800A /* Database.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Database.cpp; sourceTree = "<group>"; };
-		E95FCAAD1C86A12300D1800A /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
-		E95FCAAE1C86A12300D1800A /* databaseDisplayRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = databaseDisplayRenderComponent.cpp; sourceTree = "<group>"; };
-		E95FCAAF1C86A12300D1800A /* databaseDisplayRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = databaseDisplayRenderComponent.h; sourceTree = "<group>"; };
-		E95FCAB01C86A12300D1800A /* databaseSearchInputComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = databaseSearchInputComponent.cpp; sourceTree = "<group>"; };
-		E95FCAB11C86A12300D1800A /* databaseSearchInputComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = databaseSearchInputComponent.h; sourceTree = "<group>"; };
-		E95FCAB21C86A12300D1800A /* databaseSearchRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = databaseSearchRenderComponent.cpp; sourceTree = "<group>"; };
-		E95FCAB31C86A12300D1800A /* databaseSearchRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = databaseSearchRenderComponent.h; sourceTree = "<group>"; };
-		E95FCAB41C86A12300D1800A /* desktopExtractionComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = desktopExtractionComponent.cpp; sourceTree = "<group>"; };
-		E95FCAB51C86A12300D1800A /* desktopExtractionComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = desktopExtractionComponent.hpp; sourceTree = "<group>"; };
-		E95FCAB61C86A12300D1800A /* expressionistParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = expressionistParser.cpp; sourceTree = "<group>"; };
-		E95FCAB71C86A12300D1800A /* expressionistParser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = expressionistParser.hpp; sourceTree = "<group>"; };
-		E95FCAB81C86A12300D1800A /* iconInputComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iconInputComponent.cpp; sourceTree = "<group>"; };
-		E95FCAB91C86A12300D1800A /* iconInputComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iconInputComponent.h; sourceTree = "<group>"; };
-		E95FCABA1C86A12300D1800A /* mousePressButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mousePressButton.cpp; sourceTree = "<group>"; };
-		E95FCABB1C86A12300D1800A /* mousePressButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mousePressButton.h; sourceTree = "<group>"; };
-		E95FCABC1C86A12300D1800A /* photoRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = photoRenderComponent.cpp; sourceTree = "<group>"; };
-		E95FCABD1C86A12300D1800A /* photoRenderComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = photoRenderComponent.hpp; sourceTree = "<group>"; };
-		E95FCABE1C86A12300D1800A /* PipelineCharacter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PipelineCharacter.cpp; sourceTree = "<group>"; };
-		E95FCABF1C86A12300D1800A /* PipelineCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PipelineCharacter.h; sourceTree = "<group>"; };
-		E95FCAC01C86A12300D1800A /* PipelineDataRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PipelineDataRenderComponent.cpp; sourceTree = "<group>"; };
-		E95FCAC11C86A12300D1800A /* PipelineDataRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PipelineDataRenderComponent.h; sourceTree = "<group>"; };
-		E95FCAC21C86A12300D1800A /* PipelineGraphRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PipelineGraphRenderComponent.cpp; sourceTree = "<group>"; };
-		E95FCAC31C86A12300D1800A /* PipelineGraphRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PipelineGraphRenderComponent.h; sourceTree = "<group>"; };
-		E95FCAC41C86A12300D1800A /* testRenderSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testRenderSprite.cpp; sourceTree = "<group>"; };
-		E95FCAC51C86A12300D1800A /* testRenderSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testRenderSprite.h; sourceTree = "<group>"; };
-		E95FCAC61C86A12300D1800A /* textInputKeys.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textInputKeys.cpp; sourceTree = "<group>"; };
-		E95FCAC71C86A12300D1800A /* textInputKeys.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textInputKeys.hpp; sourceTree = "<group>"; };
-		E95FCAC81C86A12300D1800A /* textInputRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textInputRenderComponent.cpp; sourceTree = "<group>"; };
-		E95FCAC91C86A12300D1800A /* textInputRenderComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textInputRenderComponent.hpp; sourceTree = "<group>"; };
-		E95FCACA1C86A12300D1800A /* textOutputRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textOutputRenderComponent.cpp; sourceTree = "<group>"; };
-		E95FCACB1C86A12300D1800A /* textOutputRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = textOutputRenderComponent.h; sourceTree = "<group>"; };
-		E95FCACC1C86A12300D1800A /* TreeCommands.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TreeCommands.cpp; sourceTree = "<group>"; };
-		E95FCACD1C86A12300D1800A /* TreeCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeCommands.h; sourceTree = "<group>"; };
-		E95FCACE1C86A12300D1800A /* WindowBkgndRenderCmpnt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowBkgndRenderCmpnt.cpp; sourceTree = "<group>"; };
-		E95FCACF1C86A12300D1800A /* WindowBkgndRenderCmpnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowBkgndRenderCmpnt.h; sourceTree = "<group>"; };
 		E95FCAED1C86A14400D1800A /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		E95FCAEF1C86A14400D1800A /* DoxygenHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoxygenHelp.txt; sourceTree = "<group>"; };
 		E95FCAF01C86A14400D1800A /* LinkHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LinkHelp.txt; sourceTree = "<group>"; };
-		E95FCAF31C86A14400D1800A /*  Catch 22 - Joseph Heller.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = " Catch 22 - Joseph Heller.pdf"; sourceTree = "<group>"; };
-		E95FCAF41C86A14400D1800A /* 1-24-08-182.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-24-08-182.jpg"; sourceTree = "<group>"; };
-		E95FCAF51C86A14400D1800A /* 1894.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1894.jpg; sourceTree = "<group>"; };
-		E95FCAF61C86A14400D1800A /* 2-20-09-431.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-20-09-431.jpg"; sourceTree = "<group>"; };
-		E95FCAF71C86A14400D1800A /* 2-23-2011-213.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-23-2011-213.jpg"; sourceTree = "<group>"; };
-		E95FCAF81C86A14400D1800A /* 3-29-12-184.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3-29-12-184.jpg"; sourceTree = "<group>"; };
-		E95FCAF91C86A14400D1800A /* 3191.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3191.jpg; sourceTree = "<group>"; };
-		E95FCAFA1C86A14400D1800A /* 3573.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3573.jpg; sourceTree = "<group>"; };
-		E95FCAFB1C86A14400D1800A /* 4-10-08-386.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-10-08-386.jpg"; sourceTree = "<group>"; };
-		E95FCAFC1C86A14400D1800A /* 4-14-09-462.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-14-09-462.jpg"; sourceTree = "<group>"; };
-		E95FCAFD1C86A14400D1800A /* 4-24-08-152.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-24-08-152.jpg"; sourceTree = "<group>"; };
-		E95FCAFE1C86A14400D1800A /* 4-24-08-492.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-24-08-492.jpg"; sourceTree = "<group>"; };
-		E95FCAFF1C86A14400D1800A /* 4-4-12-048.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-4-12-048.jpg"; sourceTree = "<group>"; };
-		E95FCB001C86A14400D1800A /* 4065.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4065.jpg; sourceTree = "<group>"; };
-		E95FCB011C86A14400D1800A /* 5678.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5678.jpg; sourceTree = "<group>"; };
-		E95FCB021C86A14400D1800A /* 6576.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6576.jpg; sourceTree = "<group>"; };
-		E95FCB031C86A14400D1800A /* 7-24-12-052.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7-24-12-052.jpg"; sourceTree = "<group>"; };
-		E95FCB041C86A14400D1800A /* 7-29-14-345.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7-29-14-345.jpg"; sourceTree = "<group>"; };
-		E95FCB051C86A14400D1800A /* 7146.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7146.jpg; sourceTree = "<group>"; };
-		E95FCB061C86A14400D1800A /* 7402.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7402.jpg; sourceTree = "<group>"; };
-		E95FCB071C86A14400D1800A /* 8-9-11-0426.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "8-9-11-0426.jpg"; sourceTree = "<group>"; };
-		E95FCB081C86A14400D1800A /* 9-24-14-195-Edit.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "9-24-14-195-Edit.jpg"; sourceTree = "<group>"; };
-		E95FCB091C86A14400D1800A /* As I Lay Dying - Faulkner.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "As I Lay Dying - Faulkner.pdf"; sourceTree = "<group>"; };
-		E95FCB0A1C86A14400D1800A /* Bacchae - Euripides.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Bacchae - Euripides.pdf"; sourceTree = "<group>"; };
-		E95FCB0B1C86A14400D1800A /* bataille_story_of_eye.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = bataille_story_of_eye.pdf; sourceTree = "<group>"; };
-		E95FCB0C1C86A14400D1800A /* Bluebird by Charles Bukowski.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Bluebird by Charles Bukowski.pdf"; sourceTree = "<group>"; };
-		E95FCB0D1C86A14400D1800A /* CatcherInTheRye - Salinger.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "CatcherInTheRye - Salinger.pdf"; sourceTree = "<group>"; };
-		E95FCB0E1C86A14400D1800A /* Conversation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Conversation.jpg; sourceTree = "<group>"; };
-		E95FCB0F1C86A14400D1800A /* Crowd1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd1.jpg; sourceTree = "<group>"; };
-		E95FCB101C86A14400D1800A /* Crowd14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd14.jpg; sourceTree = "<group>"; };
-		E95FCB111C86A14400D1800A /* Crowd16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd16.jpg; sourceTree = "<group>"; };
-		E95FCB121C86A14400D1800A /* Crowd2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd2.jpg; sourceTree = "<group>"; };
-		E95FCB131C86A14400D1800A /* Crowd21.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd21.jpg; sourceTree = "<group>"; };
-		E95FCB141C86A14400D1800A /* Crowd29.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd29.jpg; sourceTree = "<group>"; };
-		E95FCB151C86A14400D1800A /* Crowd3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd3.jpg; sourceTree = "<group>"; };
-		E95FCB161C86A14400D1800A /* Crowd31.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd31.jpg; sourceTree = "<group>"; };
-		E95FCB171C86A14400D1800A /* Crowd32.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd32.jpg; sourceTree = "<group>"; };
-		E95FCB181C86A14400D1800A /* Crowd35.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd35.jpg; sourceTree = "<group>"; };
-		E95FCB191C86A14400D1800A /* Crowd7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd7.jpg; sourceTree = "<group>"; };
-		E95FCB1A1C86A14400D1800A /* Crowd8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd8.jpg; sourceTree = "<group>"; };
-		E95FCB1B1C86A14400D1800A /* Donne - Med 17.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Donne - Med 17.pdf"; sourceTree = "<group>"; };
-		E95FCB1C1C86A14400D1800A /* Doubt1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt1.jpg; sourceTree = "<group>"; };
-		E95FCB1D1C86A14400D1800A /* Doubt11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt11.jpg; sourceTree = "<group>"; };
-		E95FCB1E1C86A14400D1800A /* Doubt15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt15.jpg; sourceTree = "<group>"; };
-		E95FCB1F1C86A14400D1800A /* Doubt16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt16.jpg; sourceTree = "<group>"; };
-		E95FCB201C86A14400D1800A /* Doubt2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt2.jpg; sourceTree = "<group>"; };
-		E95FCB211C86A14400D1800A /* Doubt3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt3.jpg; sourceTree = "<group>"; };
-		E95FCB221C86A14400D1800A /* Doubt6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt6.jpg; sourceTree = "<group>"; };
-		E95FCB231C86A14400D1800A /* Doubt9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt9.jpg; sourceTree = "<group>"; };
-		E95FCB241C86A14400D1800A /* Epidemic-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Epidemic-2.jpg"; sourceTree = "<group>"; };
-		E95FCB251C86A14400D1800A /* EternalStation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EternalStation.jpg; sourceTree = "<group>"; };
-		E95FCB261C86A14400D1800A /* Fallen1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen1.jpg; sourceTree = "<group>"; };
-		E95FCB271C86A14400D1800A /* Fallen2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen2.jpg; sourceTree = "<group>"; };
-		E95FCB281C86A14400D1800A /* Fallen5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen5.jpg; sourceTree = "<group>"; };
-		E95FCB291C86A14400D1800A /* Fallen7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen7.jpg; sourceTree = "<group>"; };
-		E95FCB2A1C86A14400D1800A /* Fata+Morgana.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Fata+Morgana.jpg"; sourceTree = "<group>"; };
-		E95FCB2B1C86A14400D1800A /* Fragment+Of+Eternity.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Fragment+Of+Eternity.jpg"; sourceTree = "<group>"; };
-		E95FCB2C1C86A14400D1800A /* Geek Love by Katherine Dunn - Ch1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Geek Love by Katherine Dunn - Ch1.pdf"; sourceTree = "<group>"; };
-		E95FCB2D1C86A14400D1800A /* Invisible Man - Ellison.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Invisible Man - Ellison.pdf"; sourceTree = "<group>"; };
-		E95FCB2E1C86A14400D1800A /* Journey+Into+Dark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Journey+Into+Dark.jpg"; sourceTree = "<group>"; };
-		E95FCB2F1C86A14400D1800A /* Kristeva_-_powers_of_horror.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Kristeva_-_powers_of_horror.pdf"; sourceTree = "<group>"; };
-		E95FCB301C86A14400D1800A /* LacanMirrorPhase.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LacanMirrorPhase.pdf; sourceTree = "<group>"; };
-		E95FCB311C86A14400D1800A /* Lolita - Vladimir Nabokov.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Lolita - Vladimir Nabokov.pdf"; sourceTree = "<group>"; };
-		E95FCB321C86A14400D1800A /* mulvey-visualpleasure.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "mulvey-visualpleasure.pdf"; sourceTree = "<group>"; };
-		E95FCB331C86A14400D1800A /* Myth of Sisyphus by Albert Camus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Myth of Sisyphus by Albert Camus.pdf"; sourceTree = "<group>"; };
-		E95FCB341C86A14400D1800A /* New+Crowd39.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "New+Crowd39.jpg"; sourceTree = "<group>"; };
-		E95FCB351C86A14500D1800A /* NewCrowd38.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd38.jpg; sourceTree = "<group>"; };
-		E95FCB361C86A14500D1800A /* NewCrowd38Fragment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd38Fragment.jpg; sourceTree = "<group>"; };
-		E95FCB371C86A14500D1800A /* NewCrowd42Fragment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd42Fragment.jpg; sourceTree = "<group>"; };
-		E95FCB381C86A14500D1800A /* NewCrowd46.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd46.jpg; sourceTree = "<group>"; };
-		E95FCB391C86A14500D1800A /* NewCrowd52.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd52.jpg; sourceTree = "<group>"; };
-		E95FCB3A1C86A14500D1800A /* NewCrowd58.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd58.jpg; sourceTree = "<group>"; };
-		E95FCB3B1C86A14500D1800A /* Sheptune2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sheptune2.jpg; sourceTree = "<group>"; };
-		E95FCB3C1C86A14500D1800A /* St. Augustine - Confessions copy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "St. Augustine - Confessions copy.pdf"; sourceTree = "<group>"; };
-		E95FCB3D1C86A14500D1800A /* The_Metamorphosis.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = The_Metamorphosis.pdf; sourceTree = "<group>"; };
-		E95FCB3E1C86A14500D1800A /* The_Scarlet_Letter.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = The_Scarlet_Letter.pdf; sourceTree = "<group>"; };
 		E95FCB401C86A14500D1800A /* EngineSettings.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EngineSettings.ini; sourceTree = "<group>"; };
 		E95FCB411C86A14500D1800A /* Project-Perfect-Citizen-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Project-Perfect-Citizen-Info.plist"; sourceTree = "<group>"; };
 		E95FCB421C86A14500D1800A /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		E95FCB431C86A14500D1800A /* Desktop1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Desktop1.json; sourceTree = "<group>"; };
-		E95FCB441C86A14500D1800A /* dummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dummy.json; sourceTree = "<group>"; };
 		E95FCB451C86A14500D1800A /* smsPipeline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = smsPipeline.json; sourceTree = "<group>"; };
-		E95FCB461C86A14500D1800A /* TestDesktop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestDesktop.json; sourceTree = "<group>"; };
 		E95FCB471C86A14500D1800A /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		E95FCB481C86A14500D1800A /* Face_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Face_Sheet.png; sourceTree = "<group>"; };
 		E95FCB491C86A14500D1800A /* Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Sheet.png; sourceTree = "<group>"; };
@@ -400,6 +190,222 @@
 		E95FCB4C1C86A14500D1800A /* Windows_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_Icons.png; sourceTree = "<group>"; };
 		E95FCB4D1C86A14500D1800A /* Windows_UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_UI.png; sourceTree = "<group>"; };
 		E95FCB4E1C86A14500D1800A /* consola.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = consola.ttf; sourceTree = "<group>"; };
+		E9D1C6D31C88F83400F16FF2 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
+		E9D1C6D41C88F83400F16FF2 /* AudioLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioLocator.cpp; sourceTree = "<group>"; };
+		E9D1C6D51C88F83400F16FF2 /* AudioLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioLocator.h; sourceTree = "<group>"; };
+		E9D1C6D61C88F83400F16FF2 /* AudioLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioLogger.cpp; sourceTree = "<group>"; };
+		E9D1C6D71C88F83400F16FF2 /* AudioLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioLogger.h; sourceTree = "<group>"; };
+		E9D1C6D81C88F83400F16FF2 /* AudioQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioQueue.cpp; sourceTree = "<group>"; };
+		E9D1C6D91C88F83400F16FF2 /* AudioQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioQueue.h; sourceTree = "<group>"; };
+		E9D1C6DA1C88F83400F16FF2 /* DesktopAudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DesktopAudio.cpp; sourceTree = "<group>"; };
+		E9D1C6DB1C88F83400F16FF2 /* DesktopAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopAudio.h; sourceTree = "<group>"; };
+		E9D1C6DC1C88F83400F16FF2 /* NullAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullAudio.h; sourceTree = "<group>"; };
+		E9D1C6DE1C88F83400F16FF2 /* gunshot.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = gunshot.ogg; sourceTree = "<group>"; };
+		E9D1C6DF1C88F83400F16FF2 /* gunshots.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gunshots.wav; sourceTree = "<group>"; };
+		E9D1C6E01C88F83400F16FF2 /* Sounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sounds.h; sourceTree = "<group>"; };
+		E9D1C6E11C88F83400F16FF2 /* BaseFileType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseFileType.cpp; sourceTree = "<group>"; };
+		E9D1C6E21C88F83400F16FF2 /* BaseFileType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseFileType.h; sourceTree = "<group>"; };
+		E9D1C6E31C88F83400F16FF2 /* BorderDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BorderDecorator.cpp; sourceTree = "<group>"; };
+		E9D1C6E41C88F83400F16FF2 /* BorderDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderDecorator.h; sourceTree = "<group>"; };
+		E9D1C6E51C88F83400F16FF2 /* component.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = component.cpp; sourceTree = "<group>"; };
+		E9D1C6E61C88F83400F16FF2 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
+		E9D1C6E71C88F83400F16FF2 /* ComponentObsvr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentObsvr.cpp; sourceTree = "<group>"; };
+		E9D1C6E81C88F83400F16FF2 /* ComponentObsvr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentObsvr.h; sourceTree = "<group>"; };
+		E9D1C6E91C88F83400F16FF2 /* debug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = debug.cpp; sourceTree = "<group>"; };
+		E9D1C6EA1C88F83400F16FF2 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
+		E9D1C6EB1C88F83400F16FF2 /* desktop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = desktop.cpp; sourceTree = "<group>"; };
+		E9D1C6EC1C88F83400F16FF2 /* desktop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = desktop.h; sourceTree = "<group>"; };
+		E9D1C6ED1C88F83400F16FF2 /* DesktopLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DesktopLogger.cpp; sourceTree = "<group>"; };
+		E9D1C6EE1C88F83400F16FF2 /* DesktopLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopLogger.h; sourceTree = "<group>"; };
+		E9D1C6EF1C88F83400F16FF2 /* DraggableInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DraggableInput.cpp; sourceTree = "<group>"; };
+		E9D1C6F01C88F83400F16FF2 /* DraggableInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableInput.h; sourceTree = "<group>"; };
+		E9D1C6F11C88F83400F16FF2 /* Edge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Edge.cpp; sourceTree = "<group>"; };
+		E9D1C6F21C88F83400F16FF2 /* Edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Edge.h; sourceTree = "<group>"; };
+		E9D1C6F31C88F83400F16FF2 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		E9D1C6F41C88F83400F16FF2 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		E9D1C6F51C88F83400F16FF2 /* EntityDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityDecorator.cpp; sourceTree = "<group>"; };
+		E9D1C6F61C88F83400F16FF2 /* EntityDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityDecorator.h; sourceTree = "<group>"; };
+		E9D1C6F71C88F83400F16FF2 /* EntityLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityLogger.cpp; sourceTree = "<group>"; };
+		E9D1C6F81C88F83400F16FF2 /* EntityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityLogger.h; sourceTree = "<group>"; };
+		E9D1C6F91C88F83400F16FF2 /* event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event.h; sourceTree = "<group>"; };
+		E9D1C6FA1C88F83400F16FF2 /* FunctionObserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FunctionObserver.cpp; sourceTree = "<group>"; };
+		E9D1C6FB1C88F83400F16FF2 /* FunctionObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionObserver.h; sourceTree = "<group>"; };
+		E9D1C6FC1C88F83400F16FF2 /* InputCmpntLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputCmpntLogger.cpp; sourceTree = "<group>"; };
+		E9D1C6FD1C88F83400F16FF2 /* InputCmpntLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCmpntLogger.h; sourceTree = "<group>"; };
+		E9D1C6FE1C88F83400F16FF2 /* inputComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = inputComponent.cpp; sourceTree = "<group>"; };
+		E9D1C6FF1C88F83400F16FF2 /* inputComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputComponent.h; sourceTree = "<group>"; };
+		E9D1C7001C88F83400F16FF2 /* InputHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputHandler.cpp; sourceTree = "<group>"; };
+		E9D1C7011C88F83400F16FF2 /* InputHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputHandler.h; sourceTree = "<group>"; };
+		E9D1C7021C88F83400F16FF2 /* Network.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Network.cpp; sourceTree = "<group>"; };
+		E9D1C7031C88F83400F16FF2 /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
+		E9D1C7041C88F83400F16FF2 /* NodeState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodeState.cpp; sourceTree = "<group>"; };
+		E9D1C7051C88F83400F16FF2 /* NodeState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeState.h; sourceTree = "<group>"; };
+		E9D1C7061C88F83400F16FF2 /* ObjectPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectPool.h; sourceTree = "<group>"; };
+		E9D1C7071C88F83400F16FF2 /* observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = observer.cpp; sourceTree = "<group>"; };
+		E9D1C7081C88F83400F16FF2 /* observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = observer.h; sourceTree = "<group>"; };
+		E9D1C7091C88F83400F16FF2 /* RenderCmpntDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderCmpntDecorator.cpp; sourceTree = "<group>"; };
+		E9D1C70A1C88F83400F16FF2 /* RenderCmpntDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderCmpntDecorator.h; sourceTree = "<group>"; };
+		E9D1C70B1C88F83400F16FF2 /* RenderCmpntLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderCmpntLogger.cpp; sourceTree = "<group>"; };
+		E9D1C70C1C88F83400F16FF2 /* RenderCmpntLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderCmpntLogger.h; sourceTree = "<group>"; };
+		E9D1C70D1C88F83400F16FF2 /* renderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = renderComponent.h; sourceTree = "<group>"; };
+		E9D1C70E1C88F83400F16FF2 /* subject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = subject.cpp; sourceTree = "<group>"; };
+		E9D1C70F1C88F83400F16FF2 /* subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subject.h; sourceTree = "<group>"; };
+		E9D1C7101C88F83400F16FF2 /* UpdateCmpntDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UpdateCmpntDecorator.cpp; sourceTree = "<group>"; };
+		E9D1C7111C88F83400F16FF2 /* UpdateCmpntDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateCmpntDecorator.h; sourceTree = "<group>"; };
+		E9D1C7121C88F83400F16FF2 /* UpdateCmpntLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UpdateCmpntLogger.cpp; sourceTree = "<group>"; };
+		E9D1C7131C88F83400F16FF2 /* UpdateCmpntLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateCmpntLogger.h; sourceTree = "<group>"; };
+		E9D1C7141C88F83400F16FF2 /* updateComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = updateComponent.h; sourceTree = "<group>"; };
+		E9D1C7151C88F83400F16FF2 /* Vertex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vertex.cpp; sourceTree = "<group>"; };
+		E9D1C7161C88F83400F16FF2 /* Vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
+		E9D1C7171C88F83400F16FF2 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
+		E9D1C7181C88F83400F16FF2 /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
+		E9D1C7191C88F83400F16FF2 /* WindowDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowDecorator.cpp; sourceTree = "<group>"; };
+		E9D1C71A1C88F83400F16FF2 /* WindowDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowDecorator.h; sourceTree = "<group>"; };
+		E9D1C71B1C88F83400F16FF2 /* WindowInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowInterface.cpp; sourceTree = "<group>"; };
+		E9D1C71C1C88F83400F16FF2 /* WindowInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowInterface.h; sourceTree = "<group>"; };
+		E9D1C71D1C88F83400F16FF2 /* WindowLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowLogger.cpp; sourceTree = "<group>"; };
+		E9D1C71E1C88F83400F16FF2 /* WindowLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowLogger.h; sourceTree = "<group>"; };
+		E9D1C71F1C88F83400F16FF2 /* world.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = world.cpp; sourceTree = "<group>"; };
+		E9D1C7201C88F83400F16FF2 /* world.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = world.h; sourceTree = "<group>"; };
+		E9D1C7451C88F84900F16FF2 /* animatorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = animatorComponent.cpp; sourceTree = "<group>"; };
+		E9D1C7461C88F84900F16FF2 /* animatorComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = animatorComponent.hpp; sourceTree = "<group>"; };
+		E9D1C7471C88F84900F16FF2 /* BootLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BootLoader.cpp; sourceTree = "<group>"; };
+		E9D1C7481C88F84900F16FF2 /* BootLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BootLoader.hpp; sourceTree = "<group>"; };
+		E9D1C7491C88F84900F16FF2 /* buttonRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buttonRenderComponent.cpp; sourceTree = "<group>"; };
+		E9D1C74A1C88F84900F16FF2 /* buttonRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buttonRenderComponent.h; sourceTree = "<group>"; };
+		E9D1C74B1C88F84900F16FF2 /* buttonUpdateComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buttonUpdateComponent.cpp; sourceTree = "<group>"; };
+		E9D1C74C1C88F84900F16FF2 /* buttonUpdateComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buttonUpdateComponent.h; sourceTree = "<group>"; };
+		E9D1C74D1C88F84900F16FF2 /* characterRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = characterRender.cpp; sourceTree = "<group>"; };
+		E9D1C74E1C88F84900F16FF2 /* characterRender.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = characterRender.hpp; sourceTree = "<group>"; };
+		E9D1C74F1C88F84900F16FF2 /* consoleIconRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = consoleIconRenderComponent.cpp; sourceTree = "<group>"; };
+		E9D1C7501C88F84900F16FF2 /* consoleIconRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = consoleIconRenderComponent.h; sourceTree = "<group>"; };
+		E9D1C7511C88F84900F16FF2 /* consoleUpdateComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = consoleUpdateComponent.cpp; sourceTree = "<group>"; };
+		E9D1C7521C88F84900F16FF2 /* consoleUpdateComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = consoleUpdateComponent.h; sourceTree = "<group>"; };
+		E9D1C7531C88F84900F16FF2 /* createButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = createButton.cpp; sourceTree = "<group>"; };
+		E9D1C7541C88F84900F16FF2 /* createButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = createButton.h; sourceTree = "<group>"; };
+		E9D1C7551C88F84900F16FF2 /* createDesktop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = createDesktop.cpp; sourceTree = "<group>"; };
+		E9D1C7561C88F84900F16FF2 /* createDesktop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = createDesktop.h; sourceTree = "<group>"; };
+		E9D1C7571C88F84900F16FF2 /* createIcon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = createIcon.cpp; sourceTree = "<group>"; };
+		E9D1C7581C88F84900F16FF2 /* createIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = createIcon.h; sourceTree = "<group>"; };
+		E9D1C7591C88F84900F16FF2 /* createWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = createWindow.cpp; sourceTree = "<group>"; };
+		E9D1C75A1C88F84900F16FF2 /* createWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = createWindow.h; sourceTree = "<group>"; };
+		E9D1C75B1C88F84900F16FF2 /* Database.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Database.cpp; sourceTree = "<group>"; };
+		E9D1C75C1C88F84900F16FF2 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
+		E9D1C75D1C88F84900F16FF2 /* databaseDisplayRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = databaseDisplayRenderComponent.cpp; sourceTree = "<group>"; };
+		E9D1C75E1C88F84900F16FF2 /* databaseDisplayRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = databaseDisplayRenderComponent.h; sourceTree = "<group>"; };
+		E9D1C75F1C88F84900F16FF2 /* databaseSearchInputComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = databaseSearchInputComponent.cpp; sourceTree = "<group>"; };
+		E9D1C7601C88F84900F16FF2 /* databaseSearchInputComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = databaseSearchInputComponent.h; sourceTree = "<group>"; };
+		E9D1C7611C88F84900F16FF2 /* databaseSearchRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = databaseSearchRenderComponent.cpp; sourceTree = "<group>"; };
+		E9D1C7621C88F84900F16FF2 /* databaseSearchRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = databaseSearchRenderComponent.h; sourceTree = "<group>"; };
+		E9D1C7631C88F84900F16FF2 /* desktopExtractionComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = desktopExtractionComponent.cpp; sourceTree = "<group>"; };
+		E9D1C7641C88F84900F16FF2 /* desktopExtractionComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = desktopExtractionComponent.hpp; sourceTree = "<group>"; };
+		E9D1C7651C88F84900F16FF2 /* expressionistParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = expressionistParser.cpp; sourceTree = "<group>"; };
+		E9D1C7661C88F84900F16FF2 /* expressionistParser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = expressionistParser.hpp; sourceTree = "<group>"; };
+		E9D1C7671C88F84900F16FF2 /* iconInputComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iconInputComponent.cpp; sourceTree = "<group>"; };
+		E9D1C7681C88F84900F16FF2 /* iconInputComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iconInputComponent.h; sourceTree = "<group>"; };
+		E9D1C7691C88F84900F16FF2 /* mousePressButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mousePressButton.cpp; sourceTree = "<group>"; };
+		E9D1C76A1C88F84900F16FF2 /* mousePressButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mousePressButton.h; sourceTree = "<group>"; };
+		E9D1C76B1C88F84900F16FF2 /* NetworkInputCmpnt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkInputCmpnt.cpp; sourceTree = "<group>"; };
+		E9D1C76C1C88F84900F16FF2 /* NetworkInputCmpnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInputCmpnt.h; sourceTree = "<group>"; };
+		E9D1C76D1C88F84900F16FF2 /* NetworkRenderCmpnt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkRenderCmpnt.cpp; sourceTree = "<group>"; };
+		E9D1C76E1C88F84900F16FF2 /* NetworkRenderCmpnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkRenderCmpnt.h; sourceTree = "<group>"; };
+		E9D1C76F1C88F84900F16FF2 /* photoRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = photoRenderComponent.cpp; sourceTree = "<group>"; };
+		E9D1C7701C88F84900F16FF2 /* photoRenderComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = photoRenderComponent.hpp; sourceTree = "<group>"; };
+		E9D1C7711C88F84900F16FF2 /* PipelineCharacter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PipelineCharacter.cpp; sourceTree = "<group>"; };
+		E9D1C7721C88F84900F16FF2 /* PipelineCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PipelineCharacter.h; sourceTree = "<group>"; };
+		E9D1C7731C88F84900F16FF2 /* PipelineDataRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PipelineDataRenderComponent.cpp; sourceTree = "<group>"; };
+		E9D1C7741C88F84900F16FF2 /* PipelineDataRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PipelineDataRenderComponent.h; sourceTree = "<group>"; };
+		E9D1C7751C88F84900F16FF2 /* PipelineGraphRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PipelineGraphRenderComponent.cpp; sourceTree = "<group>"; };
+		E9D1C7761C88F84900F16FF2 /* PipelineGraphRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PipelineGraphRenderComponent.h; sourceTree = "<group>"; };
+		E9D1C7771C88F84900F16FF2 /* testRenderSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testRenderSprite.cpp; sourceTree = "<group>"; };
+		E9D1C7781C88F84900F16FF2 /* testRenderSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testRenderSprite.h; sourceTree = "<group>"; };
+		E9D1C7791C88F84900F16FF2 /* textInputKeys.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textInputKeys.cpp; sourceTree = "<group>"; };
+		E9D1C77A1C88F84900F16FF2 /* textInputKeys.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textInputKeys.hpp; sourceTree = "<group>"; };
+		E9D1C77B1C88F84900F16FF2 /* textInputRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textInputRenderComponent.cpp; sourceTree = "<group>"; };
+		E9D1C77C1C88F84900F16FF2 /* textInputRenderComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textInputRenderComponent.hpp; sourceTree = "<group>"; };
+		E9D1C77D1C88F84900F16FF2 /* textLabelComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textLabelComponent.cpp; sourceTree = "<group>"; };
+		E9D1C77E1C88F84900F16FF2 /* textLabelComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textLabelComponent.hpp; sourceTree = "<group>"; };
+		E9D1C77F1C88F84900F16FF2 /* textOutputRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textOutputRenderComponent.cpp; sourceTree = "<group>"; };
+		E9D1C7801C88F84900F16FF2 /* textOutputRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = textOutputRenderComponent.h; sourceTree = "<group>"; };
+		E9D1C7811C88F84900F16FF2 /* textRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textRenderComponent.cpp; sourceTree = "<group>"; };
+		E9D1C7821C88F84900F16FF2 /* textRenderComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textRenderComponent.hpp; sourceTree = "<group>"; };
+		E9D1C7831C88F84900F16FF2 /* TreeCommands.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TreeCommands.cpp; sourceTree = "<group>"; };
+		E9D1C7841C88F84900F16FF2 /* TreeCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeCommands.h; sourceTree = "<group>"; };
+		E9D1C7851C88F84900F16FF2 /* WindowBkgndRenderCmpnt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowBkgndRenderCmpnt.cpp; sourceTree = "<group>"; };
+		E9D1C7861C88F84900F16FF2 /* WindowBkgndRenderCmpnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowBkgndRenderCmpnt.h; sourceTree = "<group>"; };
+		E9D7E80E1C87C1F400010023 /* As I Lay Dying - Faulkner.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "As I Lay Dying - Faulkner.txt"; sourceTree = "<group>"; };
+		E9D7E80F1C87C1F400010023 /* Bacchae - Euripides.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Bacchae - Euripides.txt"; sourceTree = "<group>"; };
+		E9D7E8101C87C1F400010023 /* bataille_story_of_eye.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bataille_story_of_eye.txt; sourceTree = "<group>"; };
+		E9D7E8111C87C1F400010023 /* Bluebird by Charles Bukowski.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Bluebird by Charles Bukowski.txt"; sourceTree = "<group>"; };
+		E9D7E8121C87C1F400010023 /* Catch 22 - Joseph Heller.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Catch 22 - Joseph Heller.txt"; sourceTree = "<group>"; };
+		E9D7E8131C87C1F400010023 /* CatcherInTheRye - Salinger.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CatcherInTheRye - Salinger.txt"; sourceTree = "<group>"; };
+		E9D7E8141C87C1F400010023 /* Donne - Med 17.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Donne - Med 17.txt"; sourceTree = "<group>"; };
+		E9D7E8151C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Geek Love by Katherine Dunn - Ch1.txt"; sourceTree = "<group>"; };
+		E9D7E8161C87C1F400010023 /* Kristeva_-_powers_of_horror.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Kristeva_-_powers_of_horror.txt"; sourceTree = "<group>"; };
+		E9D7E8171C87C1F400010023 /* Lolita - Vladimir Nabokov.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lolita - Vladimir Nabokov.txt"; sourceTree = "<group>"; };
+		E9D7E8181C87C1F400010023 /* Myth of Sisyphus by Albert Camus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Myth of Sisyphus by Albert Camus.txt"; sourceTree = "<group>"; };
+		E9D7E8191C87C1F400010023 /* St. Augustine - Confessions copy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "St. Augustine - Confessions copy.txt"; sourceTree = "<group>"; };
+		E9D7E81A1C87C1F400010023 /* The_Metamorphosis.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = The_Metamorphosis.txt; sourceTree = "<group>"; };
+		E9D7E81B1C87C1F400010023 /* The_Scarlet_Letter.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = The_Scarlet_Letter.txt; sourceTree = "<group>"; };
+		E9D7E82D1C87C1F400010023 /* 1-24-08-182.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-24-08-182.jpg"; sourceTree = "<group>"; };
+		E9D7E82E1C87C1F400010023 /* 2-20-09-431.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-20-09-431.jpg"; sourceTree = "<group>"; };
+		E9D7E82F1C87C1F400010023 /* 2-23-2011-213.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-23-2011-213.jpg"; sourceTree = "<group>"; };
+		E9D7E8301C87C1F400010023 /* 3-29-12-184.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3-29-12-184.jpg"; sourceTree = "<group>"; };
+		E9D7E8311C87C1F400010023 /* 4-4-12-048.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-4-12-048.jpg"; sourceTree = "<group>"; };
+		E9D7E8321C87C1F400010023 /* 4-10-08-386.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-10-08-386.jpg"; sourceTree = "<group>"; };
+		E9D7E8331C87C1F400010023 /* 4-14-09-462.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-14-09-462.jpg"; sourceTree = "<group>"; };
+		E9D7E8341C87C1F400010023 /* 4-24-08-152.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-24-08-152.jpg"; sourceTree = "<group>"; };
+		E9D7E8351C87C1F400010023 /* 4-24-08-492.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-24-08-492.jpg"; sourceTree = "<group>"; };
+		E9D7E8361C87C1F400010023 /* 7-24-12-052.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7-24-12-052.jpg"; sourceTree = "<group>"; };
+		E9D7E8371C87C1F400010023 /* 7-29-14-345.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7-29-14-345.jpg"; sourceTree = "<group>"; };
+		E9D7E8381C87C1F400010023 /* 8-9-11-0426.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "8-9-11-0426.jpg"; sourceTree = "<group>"; };
+		E9D7E8391C87C1F400010023 /* 9-24-14-195-Edit.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "9-24-14-195-Edit.jpg"; sourceTree = "<group>"; };
+		E9D7E83A1C87C1F400010023 /* 1894.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1894.jpg; sourceTree = "<group>"; };
+		E9D7E83B1C87C1F400010023 /* 3191.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3191.jpg; sourceTree = "<group>"; };
+		E9D7E83C1C87C1F400010023 /* 3573.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3573.jpg; sourceTree = "<group>"; };
+		E9D7E83D1C87C1F400010023 /* 4065.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4065.jpg; sourceTree = "<group>"; };
+		E9D7E83E1C87C1F400010023 /* 5678.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5678.jpg; sourceTree = "<group>"; };
+		E9D7E83F1C87C1F400010023 /* 6576.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6576.jpg; sourceTree = "<group>"; };
+		E9D7E8401C87C1F400010023 /* 7146.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7146.jpg; sourceTree = "<group>"; };
+		E9D7E8411C87C1F400010023 /* 7402.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7402.jpg; sourceTree = "<group>"; };
+		E9D7E8421C87C1F400010023 /* Conversation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Conversation.jpg; sourceTree = "<group>"; };
+		E9D7E8431C87C1F400010023 /* Crowd1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd1.jpg; sourceTree = "<group>"; };
+		E9D7E8441C87C1F400010023 /* Crowd2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd2.jpg; sourceTree = "<group>"; };
+		E9D7E8451C87C1F400010023 /* Crowd3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd3.jpg; sourceTree = "<group>"; };
+		E9D7E8461C87C1F400010023 /* Crowd7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd7.jpg; sourceTree = "<group>"; };
+		E9D7E8471C87C1F400010023 /* Crowd8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd8.jpg; sourceTree = "<group>"; };
+		E9D7E8481C87C1F400010023 /* Crowd14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd14.jpg; sourceTree = "<group>"; };
+		E9D7E8491C87C1F400010023 /* Crowd16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd16.jpg; sourceTree = "<group>"; };
+		E9D7E84A1C87C1F400010023 /* Crowd21.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd21.jpg; sourceTree = "<group>"; };
+		E9D7E84B1C87C1F400010023 /* Crowd29.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd29.jpg; sourceTree = "<group>"; };
+		E9D7E84C1C87C1F400010023 /* Crowd31.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd31.jpg; sourceTree = "<group>"; };
+		E9D7E84D1C87C1F400010023 /* Crowd32.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd32.jpg; sourceTree = "<group>"; };
+		E9D7E84E1C87C1F400010023 /* Crowd35.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd35.jpg; sourceTree = "<group>"; };
+		E9D7E84F1C87C1F400010023 /* Doubt1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt1.jpg; sourceTree = "<group>"; };
+		E9D7E8501C87C1F400010023 /* Doubt2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt2.jpg; sourceTree = "<group>"; };
+		E9D7E8511C87C1F400010023 /* Doubt3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt3.jpg; sourceTree = "<group>"; };
+		E9D7E8521C87C1F400010023 /* Doubt6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt6.jpg; sourceTree = "<group>"; };
+		E9D7E8531C87C1F400010023 /* Doubt9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt9.jpg; sourceTree = "<group>"; };
+		E9D7E8541C87C1F400010023 /* Doubt11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt11.jpg; sourceTree = "<group>"; };
+		E9D7E8551C87C1F400010023 /* Doubt15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt15.jpg; sourceTree = "<group>"; };
+		E9D7E8561C87C1F400010023 /* Doubt16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt16.jpg; sourceTree = "<group>"; };
+		E9D7E8571C87C1F400010023 /* Epidemic-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Epidemic-2.jpg"; sourceTree = "<group>"; };
+		E9D7E8581C87C1F400010023 /* EternalStation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EternalStation.jpg; sourceTree = "<group>"; };
+		E9D7E8591C87C1F400010023 /* Fallen1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen1.jpg; sourceTree = "<group>"; };
+		E9D7E85A1C87C1F400010023 /* Fallen2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen2.jpg; sourceTree = "<group>"; };
+		E9D7E85B1C87C1F400010023 /* Fallen5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen5.jpg; sourceTree = "<group>"; };
+		E9D7E85C1C87C1F400010023 /* Fallen7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen7.jpg; sourceTree = "<group>"; };
+		E9D7E85D1C87C1F400010023 /* Fata+Morgana.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Fata+Morgana.jpg"; sourceTree = "<group>"; };
+		E9D7E85E1C87C1F400010023 /* Fragment+Of+Eternity.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Fragment+Of+Eternity.jpg"; sourceTree = "<group>"; };
+		E9D7E85F1C87C1F400010023 /* Journey+Into+Dark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Journey+Into+Dark.jpg"; sourceTree = "<group>"; };
+		E9D7E8601C87C1F400010023 /* New+Crowd39.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "New+Crowd39.jpg"; sourceTree = "<group>"; };
+		E9D7E8611C87C1F400010023 /* NewCrowd38.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd38.jpg; sourceTree = "<group>"; };
+		E9D7E8621C87C1F400010023 /* NewCrowd38Fragment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd38Fragment.jpg; sourceTree = "<group>"; };
+		E9D7E8631C87C1F400010023 /* NewCrowd42Fragment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd42Fragment.jpg; sourceTree = "<group>"; };
+		E9D7E8641C87C1F400010023 /* NewCrowd46.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd46.jpg; sourceTree = "<group>"; };
+		E9D7E8651C87C1F400010023 /* NewCrowd52.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd52.jpg; sourceTree = "<group>"; };
+		E9D7E8661C87C1F400010023 /* NewCrowd58.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd58.jpg; sourceTree = "<group>"; };
+		E9D7E8671C87C1F400010023 /* Sheptune2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sheptune2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -463,64 +469,72 @@
 		C82E60B91C810E3F001860CC /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				E95FCA961C86A12300D1800A /* animatorComponent.cpp */,
-				E95FCA971C86A12300D1800A /* animatorComponent.hpp */,
-				E95FCA981C86A12300D1800A /* BootLoader.cpp */,
-				E95FCA991C86A12300D1800A /* BootLoader.hpp */,
-				E95FCA9A1C86A12300D1800A /* buttonRenderComponent.cpp */,
-				E95FCA9B1C86A12300D1800A /* buttonRenderComponent.h */,
-				E95FCA9C1C86A12300D1800A /* buttonUpdateComponent.cpp */,
-				E95FCA9D1C86A12300D1800A /* buttonUpdateComponent.h */,
-				E95FCA9E1C86A12300D1800A /* characterRender.cpp */,
-				E95FCA9F1C86A12300D1800A /* characterRender.hpp */,
-				E95FCAA01C86A12300D1800A /* consoleIconRenderComponent.cpp */,
-				E95FCAA11C86A12300D1800A /* consoleIconRenderComponent.h */,
-				E95FCAA21C86A12300D1800A /* consoleUpdateComponent.cpp */,
-				E95FCAA31C86A12300D1800A /* consoleUpdateComponent.h */,
-				E95FCAA41C86A12300D1800A /* createButton.cpp */,
-				E95FCAA51C86A12300D1800A /* createButton.h */,
-				E95FCAA61C86A12300D1800A /* createDesktop.cpp */,
-				E95FCAA71C86A12300D1800A /* createDesktop.h */,
-				E95FCAA81C86A12300D1800A /* createIcon.cpp */,
-				E95FCAA91C86A12300D1800A /* createIcon.h */,
-				E95FCAAA1C86A12300D1800A /* createWindow.cpp */,
-				E95FCAAB1C86A12300D1800A /* createWindow.h */,
-				E95FCAAC1C86A12300D1800A /* Database.cpp */,
-				E95FCAAD1C86A12300D1800A /* Database.h */,
-				E95FCAAE1C86A12300D1800A /* databaseDisplayRenderComponent.cpp */,
-				E95FCAAF1C86A12300D1800A /* databaseDisplayRenderComponent.h */,
-				E95FCAB01C86A12300D1800A /* databaseSearchInputComponent.cpp */,
-				E95FCAB11C86A12300D1800A /* databaseSearchInputComponent.h */,
-				E95FCAB21C86A12300D1800A /* databaseSearchRenderComponent.cpp */,
-				E95FCAB31C86A12300D1800A /* databaseSearchRenderComponent.h */,
-				E95FCAB41C86A12300D1800A /* desktopExtractionComponent.cpp */,
-				E95FCAB51C86A12300D1800A /* desktopExtractionComponent.hpp */,
-				E95FCAB61C86A12300D1800A /* expressionistParser.cpp */,
-				E95FCAB71C86A12300D1800A /* expressionistParser.hpp */,
-				E95FCAB81C86A12300D1800A /* iconInputComponent.cpp */,
-				E95FCAB91C86A12300D1800A /* iconInputComponent.h */,
-				E95FCABA1C86A12300D1800A /* mousePressButton.cpp */,
-				E95FCABB1C86A12300D1800A /* mousePressButton.h */,
-				E95FCABC1C86A12300D1800A /* photoRenderComponent.cpp */,
-				E95FCABD1C86A12300D1800A /* photoRenderComponent.hpp */,
-				E95FCABE1C86A12300D1800A /* PipelineCharacter.cpp */,
-				E95FCABF1C86A12300D1800A /* PipelineCharacter.h */,
-				E95FCAC01C86A12300D1800A /* PipelineDataRenderComponent.cpp */,
-				E95FCAC11C86A12300D1800A /* PipelineDataRenderComponent.h */,
-				E95FCAC21C86A12300D1800A /* PipelineGraphRenderComponent.cpp */,
-				E95FCAC31C86A12300D1800A /* PipelineGraphRenderComponent.h */,
-				E95FCAC41C86A12300D1800A /* testRenderSprite.cpp */,
-				E95FCAC51C86A12300D1800A /* testRenderSprite.h */,
-				E95FCAC61C86A12300D1800A /* textInputKeys.cpp */,
-				E95FCAC71C86A12300D1800A /* textInputKeys.hpp */,
-				E95FCAC81C86A12300D1800A /* textInputRenderComponent.cpp */,
-				E95FCAC91C86A12300D1800A /* textInputRenderComponent.hpp */,
-				E95FCACA1C86A12300D1800A /* textOutputRenderComponent.cpp */,
-				E95FCACB1C86A12300D1800A /* textOutputRenderComponent.h */,
-				E95FCACC1C86A12300D1800A /* TreeCommands.cpp */,
-				E95FCACD1C86A12300D1800A /* TreeCommands.h */,
-				E95FCACE1C86A12300D1800A /* WindowBkgndRenderCmpnt.cpp */,
-				E95FCACF1C86A12300D1800A /* WindowBkgndRenderCmpnt.h */,
+				E9D1C7451C88F84900F16FF2 /* animatorComponent.cpp */,
+				E9D1C7461C88F84900F16FF2 /* animatorComponent.hpp */,
+				E9D1C7471C88F84900F16FF2 /* BootLoader.cpp */,
+				E9D1C7481C88F84900F16FF2 /* BootLoader.hpp */,
+				E9D1C7491C88F84900F16FF2 /* buttonRenderComponent.cpp */,
+				E9D1C74A1C88F84900F16FF2 /* buttonRenderComponent.h */,
+				E9D1C74B1C88F84900F16FF2 /* buttonUpdateComponent.cpp */,
+				E9D1C74C1C88F84900F16FF2 /* buttonUpdateComponent.h */,
+				E9D1C74D1C88F84900F16FF2 /* characterRender.cpp */,
+				E9D1C74E1C88F84900F16FF2 /* characterRender.hpp */,
+				E9D1C74F1C88F84900F16FF2 /* consoleIconRenderComponent.cpp */,
+				E9D1C7501C88F84900F16FF2 /* consoleIconRenderComponent.h */,
+				E9D1C7511C88F84900F16FF2 /* consoleUpdateComponent.cpp */,
+				E9D1C7521C88F84900F16FF2 /* consoleUpdateComponent.h */,
+				E9D1C7531C88F84900F16FF2 /* createButton.cpp */,
+				E9D1C7541C88F84900F16FF2 /* createButton.h */,
+				E9D1C7551C88F84900F16FF2 /* createDesktop.cpp */,
+				E9D1C7561C88F84900F16FF2 /* createDesktop.h */,
+				E9D1C7571C88F84900F16FF2 /* createIcon.cpp */,
+				E9D1C7581C88F84900F16FF2 /* createIcon.h */,
+				E9D1C7591C88F84900F16FF2 /* createWindow.cpp */,
+				E9D1C75A1C88F84900F16FF2 /* createWindow.h */,
+				E9D1C75B1C88F84900F16FF2 /* Database.cpp */,
+				E9D1C75C1C88F84900F16FF2 /* Database.h */,
+				E9D1C75D1C88F84900F16FF2 /* databaseDisplayRenderComponent.cpp */,
+				E9D1C75E1C88F84900F16FF2 /* databaseDisplayRenderComponent.h */,
+				E9D1C75F1C88F84900F16FF2 /* databaseSearchInputComponent.cpp */,
+				E9D1C7601C88F84900F16FF2 /* databaseSearchInputComponent.h */,
+				E9D1C7611C88F84900F16FF2 /* databaseSearchRenderComponent.cpp */,
+				E9D1C7621C88F84900F16FF2 /* databaseSearchRenderComponent.h */,
+				E9D1C7631C88F84900F16FF2 /* desktopExtractionComponent.cpp */,
+				E9D1C7641C88F84900F16FF2 /* desktopExtractionComponent.hpp */,
+				E9D1C7651C88F84900F16FF2 /* expressionistParser.cpp */,
+				E9D1C7661C88F84900F16FF2 /* expressionistParser.hpp */,
+				E9D1C7671C88F84900F16FF2 /* iconInputComponent.cpp */,
+				E9D1C7681C88F84900F16FF2 /* iconInputComponent.h */,
+				E9D1C7691C88F84900F16FF2 /* mousePressButton.cpp */,
+				E9D1C76A1C88F84900F16FF2 /* mousePressButton.h */,
+				E9D1C76B1C88F84900F16FF2 /* NetworkInputCmpnt.cpp */,
+				E9D1C76C1C88F84900F16FF2 /* NetworkInputCmpnt.h */,
+				E9D1C76D1C88F84900F16FF2 /* NetworkRenderCmpnt.cpp */,
+				E9D1C76E1C88F84900F16FF2 /* NetworkRenderCmpnt.h */,
+				E9D1C76F1C88F84900F16FF2 /* photoRenderComponent.cpp */,
+				E9D1C7701C88F84900F16FF2 /* photoRenderComponent.hpp */,
+				E9D1C7711C88F84900F16FF2 /* PipelineCharacter.cpp */,
+				E9D1C7721C88F84900F16FF2 /* PipelineCharacter.h */,
+				E9D1C7731C88F84900F16FF2 /* PipelineDataRenderComponent.cpp */,
+				E9D1C7741C88F84900F16FF2 /* PipelineDataRenderComponent.h */,
+				E9D1C7751C88F84900F16FF2 /* PipelineGraphRenderComponent.cpp */,
+				E9D1C7761C88F84900F16FF2 /* PipelineGraphRenderComponent.h */,
+				E9D1C7771C88F84900F16FF2 /* testRenderSprite.cpp */,
+				E9D1C7781C88F84900F16FF2 /* testRenderSprite.h */,
+				E9D1C7791C88F84900F16FF2 /* textInputKeys.cpp */,
+				E9D1C77A1C88F84900F16FF2 /* textInputKeys.hpp */,
+				E9D1C77B1C88F84900F16FF2 /* textInputRenderComponent.cpp */,
+				E9D1C77C1C88F84900F16FF2 /* textInputRenderComponent.hpp */,
+				E9D1C77D1C88F84900F16FF2 /* textLabelComponent.cpp */,
+				E9D1C77E1C88F84900F16FF2 /* textLabelComponent.hpp */,
+				E9D1C77F1C88F84900F16FF2 /* textOutputRenderComponent.cpp */,
+				E9D1C7801C88F84900F16FF2 /* textOutputRenderComponent.h */,
+				E9D1C7811C88F84900F16FF2 /* textRenderComponent.cpp */,
+				E9D1C7821C88F84900F16FF2 /* textRenderComponent.hpp */,
+				E9D1C7831C88F84900F16FF2 /* TreeCommands.cpp */,
+				E9D1C7841C88F84900F16FF2 /* TreeCommands.h */,
+				E9D1C7851C88F84900F16FF2 /* WindowBkgndRenderCmpnt.cpp */,
+				E9D1C7861C88F84900F16FF2 /* WindowBkgndRenderCmpnt.h */,
 			);
 			name = Game;
 			path = Code/Game;
@@ -529,69 +543,71 @@
 		C82E61021C810E4B001860CC /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				E95FCA271C86A10A00D1800A /* Audio */,
-				E95FCA361C86A10A00D1800A /* BaseFileType.cpp */,
-				E95FCA371C86A10A00D1800A /* BaseFileType.h */,
-				E95FCA381C86A10A00D1800A /* BorderDecorator.cpp */,
-				E95FCA391C86A10A00D1800A /* BorderDecorator.h */,
-				E95FCA3A1C86A10A00D1800A /* component.cpp */,
-				E95FCA3B1C86A10A00D1800A /* Component.h */,
-				E95FCA3C1C86A10A00D1800A /* ComponentObsvr.cpp */,
-				E95FCA3D1C86A10A00D1800A /* ComponentObsvr.h */,
-				E95FCA3E1C86A10A00D1800A /* debug.cpp */,
-				E95FCA3F1C86A10A00D1800A /* debug.h */,
-				E95FCA401C86A10A00D1800A /* desktop.cpp */,
-				E95FCA411C86A10A00D1800A /* desktop.h */,
-				E95FCA421C86A10A00D1800A /* DesktopLogger.cpp */,
-				E95FCA431C86A10A00D1800A /* DesktopLogger.h */,
-				E95FCA441C86A10A00D1800A /* DraggableInput.cpp */,
-				E95FCA451C86A10A00D1800A /* DraggableInput.h */,
-				E95FCA461C86A10A00D1800A /* Edge.h */,
-				E95FCA471C86A10A00D1800A /* Entity.cpp */,
-				E95FCA481C86A10A00D1800A /* Entity.h */,
-				E95FCA491C86A10A00D1800A /* EntityDecorator.cpp */,
-				E95FCA4A1C86A10A00D1800A /* EntityDecorator.h */,
-				E95FCA4B1C86A10A00D1800A /* EntityLogger.cpp */,
-				E95FCA4C1C86A10A00D1800A /* EntityLogger.h */,
-				E95FCA4D1C86A10A00D1800A /* event.h */,
-				E95FCA4E1C86A10A00D1800A /* FunctionObserver.cpp */,
-				E95FCA4F1C86A10A00D1800A /* FunctionObserver.h */,
-				E95FCA501C86A10A00D1800A /* InputCmpntLogger.cpp */,
-				E95FCA511C86A10A00D1800A /* InputCmpntLogger.h */,
-				E95FCA521C86A10A00D1800A /* inputComponent.cpp */,
-				E95FCA531C86A10A00D1800A /* inputComponent.h */,
-				E95FCA541C86A10A00D1800A /* InputHandler.cpp */,
-				E95FCA551C86A10A00D1800A /* InputHandler.h */,
-				E95FCA561C86A10A00D1800A /* Network.cpp */,
-				E95FCA571C86A10A00D1800A /* Network.h */,
-				E95FCA581C86A10A00D1800A /* NodeState.cpp */,
-				E95FCA591C86A10A00D1800A /* NodeState.h */,
-				E95FCA5A1C86A10A00D1800A /* ObjectPool.h */,
-				E95FCA5B1C86A10A00D1800A /* observer.cpp */,
-				E95FCA5C1C86A10A00D1800A /* observer.h */,
-				E95FCA5D1C86A10A00D1800A /* RenderCmpntDecorator.cpp */,
-				E95FCA5E1C86A10A00D1800A /* RenderCmpntDecorator.h */,
-				E95FCA5F1C86A10A00D1800A /* RenderCmpntLogger.cpp */,
-				E95FCA601C86A10A00D1800A /* RenderCmpntLogger.h */,
-				E95FCA611C86A10A00D1800A /* renderComponent.h */,
-				E95FCA621C86A10A00D1800A /* subject.cpp */,
-				E95FCA631C86A10A00D1800A /* subject.h */,
-				E95FCA641C86A10A00D1800A /* UpdateCmpntDecorator.cpp */,
-				E95FCA651C86A10A00D1800A /* UpdateCmpntDecorator.h */,
-				E95FCA661C86A10A00D1800A /* UpdateCmpntLogger.cpp */,
-				E95FCA671C86A10A00D1800A /* UpdateCmpntLogger.h */,
-				E95FCA681C86A10A00D1800A /* updateComponent.h */,
-				E95FCA691C86A10A00D1800A /* Vertex.h */,
-				E95FCA6A1C86A10A00D1800A /* Window.cpp */,
-				E95FCA6B1C86A10A00D1800A /* Window.h */,
-				E95FCA6C1C86A10A00D1800A /* WindowDecorator.cpp */,
-				E95FCA6D1C86A10A00D1800A /* WindowDecorator.h */,
-				E95FCA6E1C86A10A00D1800A /* WindowInterface.cpp */,
-				E95FCA6F1C86A10A00D1800A /* WindowInterface.h */,
-				E95FCA701C86A10A00D1800A /* WindowLogger.cpp */,
-				E95FCA711C86A10A00D1800A /* WindowLogger.h */,
-				E95FCA721C86A10A00D1800A /* world.cpp */,
-				E95FCA731C86A10A00D1800A /* world.h */,
+				E9D1C6D21C88F83400F16FF2 /* Audio */,
+				E9D1C6E11C88F83400F16FF2 /* BaseFileType.cpp */,
+				E9D1C6E21C88F83400F16FF2 /* BaseFileType.h */,
+				E9D1C6E31C88F83400F16FF2 /* BorderDecorator.cpp */,
+				E9D1C6E41C88F83400F16FF2 /* BorderDecorator.h */,
+				E9D1C6E51C88F83400F16FF2 /* component.cpp */,
+				E9D1C6E61C88F83400F16FF2 /* Component.h */,
+				E9D1C6E71C88F83400F16FF2 /* ComponentObsvr.cpp */,
+				E9D1C6E81C88F83400F16FF2 /* ComponentObsvr.h */,
+				E9D1C6E91C88F83400F16FF2 /* debug.cpp */,
+				E9D1C6EA1C88F83400F16FF2 /* debug.h */,
+				E9D1C6EB1C88F83400F16FF2 /* desktop.cpp */,
+				E9D1C6EC1C88F83400F16FF2 /* desktop.h */,
+				E9D1C6ED1C88F83400F16FF2 /* DesktopLogger.cpp */,
+				E9D1C6EE1C88F83400F16FF2 /* DesktopLogger.h */,
+				E9D1C6EF1C88F83400F16FF2 /* DraggableInput.cpp */,
+				E9D1C6F01C88F83400F16FF2 /* DraggableInput.h */,
+				E9D1C6F11C88F83400F16FF2 /* Edge.cpp */,
+				E9D1C6F21C88F83400F16FF2 /* Edge.h */,
+				E9D1C6F31C88F83400F16FF2 /* Entity.cpp */,
+				E9D1C6F41C88F83400F16FF2 /* Entity.h */,
+				E9D1C6F51C88F83400F16FF2 /* EntityDecorator.cpp */,
+				E9D1C6F61C88F83400F16FF2 /* EntityDecorator.h */,
+				E9D1C6F71C88F83400F16FF2 /* EntityLogger.cpp */,
+				E9D1C6F81C88F83400F16FF2 /* EntityLogger.h */,
+				E9D1C6F91C88F83400F16FF2 /* event.h */,
+				E9D1C6FA1C88F83400F16FF2 /* FunctionObserver.cpp */,
+				E9D1C6FB1C88F83400F16FF2 /* FunctionObserver.h */,
+				E9D1C6FC1C88F83400F16FF2 /* InputCmpntLogger.cpp */,
+				E9D1C6FD1C88F83400F16FF2 /* InputCmpntLogger.h */,
+				E9D1C6FE1C88F83400F16FF2 /* inputComponent.cpp */,
+				E9D1C6FF1C88F83400F16FF2 /* inputComponent.h */,
+				E9D1C7001C88F83400F16FF2 /* InputHandler.cpp */,
+				E9D1C7011C88F83400F16FF2 /* InputHandler.h */,
+				E9D1C7021C88F83400F16FF2 /* Network.cpp */,
+				E9D1C7031C88F83400F16FF2 /* Network.h */,
+				E9D1C7041C88F83400F16FF2 /* NodeState.cpp */,
+				E9D1C7051C88F83400F16FF2 /* NodeState.h */,
+				E9D1C7061C88F83400F16FF2 /* ObjectPool.h */,
+				E9D1C7071C88F83400F16FF2 /* observer.cpp */,
+				E9D1C7081C88F83400F16FF2 /* observer.h */,
+				E9D1C7091C88F83400F16FF2 /* RenderCmpntDecorator.cpp */,
+				E9D1C70A1C88F83400F16FF2 /* RenderCmpntDecorator.h */,
+				E9D1C70B1C88F83400F16FF2 /* RenderCmpntLogger.cpp */,
+				E9D1C70C1C88F83400F16FF2 /* RenderCmpntLogger.h */,
+				E9D1C70D1C88F83400F16FF2 /* renderComponent.h */,
+				E9D1C70E1C88F83400F16FF2 /* subject.cpp */,
+				E9D1C70F1C88F83400F16FF2 /* subject.h */,
+				E9D1C7101C88F83400F16FF2 /* UpdateCmpntDecorator.cpp */,
+				E9D1C7111C88F83400F16FF2 /* UpdateCmpntDecorator.h */,
+				E9D1C7121C88F83400F16FF2 /* UpdateCmpntLogger.cpp */,
+				E9D1C7131C88F83400F16FF2 /* UpdateCmpntLogger.h */,
+				E9D1C7141C88F83400F16FF2 /* updateComponent.h */,
+				E9D1C7151C88F83400F16FF2 /* Vertex.cpp */,
+				E9D1C7161C88F83400F16FF2 /* Vertex.h */,
+				E9D1C7171C88F83400F16FF2 /* Window.cpp */,
+				E9D1C7181C88F83400F16FF2 /* Window.h */,
+				E9D1C7191C88F83400F16FF2 /* WindowDecorator.cpp */,
+				E9D1C71A1C88F83400F16FF2 /* WindowDecorator.h */,
+				E9D1C71B1C88F83400F16FF2 /* WindowInterface.cpp */,
+				E9D1C71C1C88F83400F16FF2 /* WindowInterface.h */,
+				E9D1C71D1C88F83400F16FF2 /* WindowLogger.cpp */,
+				E9D1C71E1C88F83400F16FF2 /* WindowLogger.h */,
+				E9D1C71F1C88F83400F16FF2 /* world.cpp */,
+				E9D1C7201C88F83400F16FF2 /* world.h */,
 			);
 			name = Engine;
 			path = Code/Engine;
@@ -606,9 +622,7 @@
 				E95FCB3F1C86A14500D1800A /* Engine */,
 				E95FCB421C86A14500D1800A /* data.json */,
 				E95FCB431C86A14500D1800A /* Desktop1.json */,
-				E95FCB441C86A14500D1800A /* dummy.json */,
 				E95FCB451C86A14500D1800A /* smsPipeline.json */,
-				E95FCB461C86A14500D1800A /* TestDesktop.json */,
 				E95FCB471C86A14500D1800A /* ResourcePath.mm */,
 				E95FCB481C86A14500D1800A /* Face_Sheet.png */,
 				E95FCB491C86A14500D1800A /* Icon_Sheet.png */,
@@ -620,34 +634,6 @@
 			);
 			path = Resources;
 			sourceTree = SOURCE_ROOT;
-		};
-		E95FCA271C86A10A00D1800A /* Audio */ = {
-			isa = PBXGroup;
-			children = (
-				E95FCA281C86A10A00D1800A /* Audio.h */,
-				E95FCA291C86A10A00D1800A /* AudioLocator.cpp */,
-				E95FCA2A1C86A10A00D1800A /* AudioLocator.h */,
-				E95FCA2B1C86A10A00D1800A /* AudioLogger.cpp */,
-				E95FCA2C1C86A10A00D1800A /* AudioLogger.h */,
-				E95FCA2D1C86A10A00D1800A /* AudioQueue.cpp */,
-				E95FCA2E1C86A10A00D1800A /* AudioQueue.h */,
-				E95FCA2F1C86A10A00D1800A /* DesktopAudio.cpp */,
-				E95FCA301C86A10A00D1800A /* DesktopAudio.h */,
-				E95FCA311C86A10A00D1800A /* NullAudio.h */,
-				E95FCA321C86A10A00D1800A /* Sounds */,
-				E95FCA351C86A10A00D1800A /* Sounds.h */,
-			);
-			path = Audio;
-			sourceTree = "<group>";
-		};
-		E95FCA321C86A10A00D1800A /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-				E95FCA331C86A10A00D1800A /* gunshot.ogg */,
-				E95FCA341C86A10A00D1800A /* gunshots.wav */,
-			);
-			path = Sounds;
-			sourceTree = "<group>";
 		};
 		E95FCAEE1C86A14400D1800A /* Coding Reference */ = {
 			isa = PBXGroup;
@@ -669,82 +655,79 @@
 		E95FCAF21C86A14400D1800A /* Desktop1 */ = {
 			isa = PBXGroup;
 			children = (
-				E95FCAF31C86A14400D1800A /*  Catch 22 - Joseph Heller.pdf */,
-				E95FCAF41C86A14400D1800A /* 1-24-08-182.jpg */,
-				E95FCAF51C86A14400D1800A /* 1894.jpg */,
-				E95FCAF61C86A14400D1800A /* 2-20-09-431.jpg */,
-				E95FCAF71C86A14400D1800A /* 2-23-2011-213.jpg */,
-				E95FCAF81C86A14400D1800A /* 3-29-12-184.jpg */,
-				E95FCAF91C86A14400D1800A /* 3191.jpg */,
-				E95FCAFA1C86A14400D1800A /* 3573.jpg */,
-				E95FCAFB1C86A14400D1800A /* 4-10-08-386.jpg */,
-				E95FCAFC1C86A14400D1800A /* 4-14-09-462.jpg */,
-				E95FCAFD1C86A14400D1800A /* 4-24-08-152.jpg */,
-				E95FCAFE1C86A14400D1800A /* 4-24-08-492.jpg */,
-				E95FCAFF1C86A14400D1800A /* 4-4-12-048.jpg */,
-				E95FCB001C86A14400D1800A /* 4065.jpg */,
-				E95FCB011C86A14400D1800A /* 5678.jpg */,
-				E95FCB021C86A14400D1800A /* 6576.jpg */,
-				E95FCB031C86A14400D1800A /* 7-24-12-052.jpg */,
-				E95FCB041C86A14400D1800A /* 7-29-14-345.jpg */,
-				E95FCB051C86A14400D1800A /* 7146.jpg */,
-				E95FCB061C86A14400D1800A /* 7402.jpg */,
-				E95FCB071C86A14400D1800A /* 8-9-11-0426.jpg */,
-				E95FCB081C86A14400D1800A /* 9-24-14-195-Edit.jpg */,
-				E95FCB091C86A14400D1800A /* As I Lay Dying - Faulkner.pdf */,
-				E95FCB0A1C86A14400D1800A /* Bacchae - Euripides.pdf */,
-				E95FCB0B1C86A14400D1800A /* bataille_story_of_eye.pdf */,
-				E95FCB0C1C86A14400D1800A /* Bluebird by Charles Bukowski.pdf */,
-				E95FCB0D1C86A14400D1800A /* CatcherInTheRye - Salinger.pdf */,
-				E95FCB0E1C86A14400D1800A /* Conversation.jpg */,
-				E95FCB0F1C86A14400D1800A /* Crowd1.jpg */,
-				E95FCB101C86A14400D1800A /* Crowd14.jpg */,
-				E95FCB111C86A14400D1800A /* Crowd16.jpg */,
-				E95FCB121C86A14400D1800A /* Crowd2.jpg */,
-				E95FCB131C86A14400D1800A /* Crowd21.jpg */,
-				E95FCB141C86A14400D1800A /* Crowd29.jpg */,
-				E95FCB151C86A14400D1800A /* Crowd3.jpg */,
-				E95FCB161C86A14400D1800A /* Crowd31.jpg */,
-				E95FCB171C86A14400D1800A /* Crowd32.jpg */,
-				E95FCB181C86A14400D1800A /* Crowd35.jpg */,
-				E95FCB191C86A14400D1800A /* Crowd7.jpg */,
-				E95FCB1A1C86A14400D1800A /* Crowd8.jpg */,
-				E95FCB1B1C86A14400D1800A /* Donne - Med 17.pdf */,
-				E95FCB1C1C86A14400D1800A /* Doubt1.jpg */,
-				E95FCB1D1C86A14400D1800A /* Doubt11.jpg */,
-				E95FCB1E1C86A14400D1800A /* Doubt15.jpg */,
-				E95FCB1F1C86A14400D1800A /* Doubt16.jpg */,
-				E95FCB201C86A14400D1800A /* Doubt2.jpg */,
-				E95FCB211C86A14400D1800A /* Doubt3.jpg */,
-				E95FCB221C86A14400D1800A /* Doubt6.jpg */,
-				E95FCB231C86A14400D1800A /* Doubt9.jpg */,
-				E95FCB241C86A14400D1800A /* Epidemic-2.jpg */,
-				E95FCB251C86A14400D1800A /* EternalStation.jpg */,
-				E95FCB261C86A14400D1800A /* Fallen1.jpg */,
-				E95FCB271C86A14400D1800A /* Fallen2.jpg */,
-				E95FCB281C86A14400D1800A /* Fallen5.jpg */,
-				E95FCB291C86A14400D1800A /* Fallen7.jpg */,
-				E95FCB2A1C86A14400D1800A /* Fata+Morgana.jpg */,
-				E95FCB2B1C86A14400D1800A /* Fragment+Of+Eternity.jpg */,
-				E95FCB2C1C86A14400D1800A /* Geek Love by Katherine Dunn - Ch1.pdf */,
-				E95FCB2D1C86A14400D1800A /* Invisible Man - Ellison.pdf */,
-				E95FCB2E1C86A14400D1800A /* Journey+Into+Dark.jpg */,
-				E95FCB2F1C86A14400D1800A /* Kristeva_-_powers_of_horror.pdf */,
-				E95FCB301C86A14400D1800A /* LacanMirrorPhase.pdf */,
-				E95FCB311C86A14400D1800A /* Lolita - Vladimir Nabokov.pdf */,
-				E95FCB321C86A14400D1800A /* mulvey-visualpleasure.pdf */,
-				E95FCB331C86A14400D1800A /* Myth of Sisyphus by Albert Camus.pdf */,
-				E95FCB341C86A14400D1800A /* New+Crowd39.jpg */,
-				E95FCB351C86A14500D1800A /* NewCrowd38.jpg */,
-				E95FCB361C86A14500D1800A /* NewCrowd38Fragment.jpg */,
-				E95FCB371C86A14500D1800A /* NewCrowd42Fragment.jpg */,
-				E95FCB381C86A14500D1800A /* NewCrowd46.jpg */,
-				E95FCB391C86A14500D1800A /* NewCrowd52.jpg */,
-				E95FCB3A1C86A14500D1800A /* NewCrowd58.jpg */,
-				E95FCB3B1C86A14500D1800A /* Sheptune2.jpg */,
-				E95FCB3C1C86A14500D1800A /* St. Augustine - Confessions copy.pdf */,
-				E95FCB3D1C86A14500D1800A /* The_Metamorphosis.pdf */,
-				E95FCB3E1C86A14500D1800A /* The_Scarlet_Letter.pdf */,
+				E9D7E80E1C87C1F400010023 /* As I Lay Dying - Faulkner.txt */,
+				E9D7E80F1C87C1F400010023 /* Bacchae - Euripides.txt */,
+				E9D7E8101C87C1F400010023 /* bataille_story_of_eye.txt */,
+				E9D7E8111C87C1F400010023 /* Bluebird by Charles Bukowski.txt */,
+				E9D7E8121C87C1F400010023 /* Catch 22 - Joseph Heller.txt */,
+				E9D7E8131C87C1F400010023 /* CatcherInTheRye - Salinger.txt */,
+				E9D7E8141C87C1F400010023 /* Donne - Med 17.txt */,
+				E9D7E8151C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.txt */,
+				E9D7E8161C87C1F400010023 /* Kristeva_-_powers_of_horror.txt */,
+				E9D7E8171C87C1F400010023 /* Lolita - Vladimir Nabokov.txt */,
+				E9D7E8181C87C1F400010023 /* Myth of Sisyphus by Albert Camus.txt */,
+				E9D7E8191C87C1F400010023 /* St. Augustine - Confessions copy.txt */,
+				E9D7E81A1C87C1F400010023 /* The_Metamorphosis.txt */,
+				E9D7E81B1C87C1F400010023 /* The_Scarlet_Letter.txt */,
+				E9D7E82D1C87C1F400010023 /* 1-24-08-182.jpg */,
+				E9D7E82E1C87C1F400010023 /* 2-20-09-431.jpg */,
+				E9D7E82F1C87C1F400010023 /* 2-23-2011-213.jpg */,
+				E9D7E8301C87C1F400010023 /* 3-29-12-184.jpg */,
+				E9D7E8311C87C1F400010023 /* 4-4-12-048.jpg */,
+				E9D7E8321C87C1F400010023 /* 4-10-08-386.jpg */,
+				E9D7E8331C87C1F400010023 /* 4-14-09-462.jpg */,
+				E9D7E8341C87C1F400010023 /* 4-24-08-152.jpg */,
+				E9D7E8351C87C1F400010023 /* 4-24-08-492.jpg */,
+				E9D7E8361C87C1F400010023 /* 7-24-12-052.jpg */,
+				E9D7E8371C87C1F400010023 /* 7-29-14-345.jpg */,
+				E9D7E8381C87C1F400010023 /* 8-9-11-0426.jpg */,
+				E9D7E8391C87C1F400010023 /* 9-24-14-195-Edit.jpg */,
+				E9D7E83A1C87C1F400010023 /* 1894.jpg */,
+				E9D7E83B1C87C1F400010023 /* 3191.jpg */,
+				E9D7E83C1C87C1F400010023 /* 3573.jpg */,
+				E9D7E83D1C87C1F400010023 /* 4065.jpg */,
+				E9D7E83E1C87C1F400010023 /* 5678.jpg */,
+				E9D7E83F1C87C1F400010023 /* 6576.jpg */,
+				E9D7E8401C87C1F400010023 /* 7146.jpg */,
+				E9D7E8411C87C1F400010023 /* 7402.jpg */,
+				E9D7E8421C87C1F400010023 /* Conversation.jpg */,
+				E9D7E8431C87C1F400010023 /* Crowd1.jpg */,
+				E9D7E8441C87C1F400010023 /* Crowd2.jpg */,
+				E9D7E8451C87C1F400010023 /* Crowd3.jpg */,
+				E9D7E8461C87C1F400010023 /* Crowd7.jpg */,
+				E9D7E8471C87C1F400010023 /* Crowd8.jpg */,
+				E9D7E8481C87C1F400010023 /* Crowd14.jpg */,
+				E9D7E8491C87C1F400010023 /* Crowd16.jpg */,
+				E9D7E84A1C87C1F400010023 /* Crowd21.jpg */,
+				E9D7E84B1C87C1F400010023 /* Crowd29.jpg */,
+				E9D7E84C1C87C1F400010023 /* Crowd31.jpg */,
+				E9D7E84D1C87C1F400010023 /* Crowd32.jpg */,
+				E9D7E84E1C87C1F400010023 /* Crowd35.jpg */,
+				E9D7E84F1C87C1F400010023 /* Doubt1.jpg */,
+				E9D7E8501C87C1F400010023 /* Doubt2.jpg */,
+				E9D7E8511C87C1F400010023 /* Doubt3.jpg */,
+				E9D7E8521C87C1F400010023 /* Doubt6.jpg */,
+				E9D7E8531C87C1F400010023 /* Doubt9.jpg */,
+				E9D7E8541C87C1F400010023 /* Doubt11.jpg */,
+				E9D7E8551C87C1F400010023 /* Doubt15.jpg */,
+				E9D7E8561C87C1F400010023 /* Doubt16.jpg */,
+				E9D7E8571C87C1F400010023 /* Epidemic-2.jpg */,
+				E9D7E8581C87C1F400010023 /* EternalStation.jpg */,
+				E9D7E8591C87C1F400010023 /* Fallen1.jpg */,
+				E9D7E85A1C87C1F400010023 /* Fallen2.jpg */,
+				E9D7E85B1C87C1F400010023 /* Fallen5.jpg */,
+				E9D7E85C1C87C1F400010023 /* Fallen7.jpg */,
+				E9D7E85D1C87C1F400010023 /* Fata+Morgana.jpg */,
+				E9D7E85E1C87C1F400010023 /* Fragment+Of+Eternity.jpg */,
+				E9D7E85F1C87C1F400010023 /* Journey+Into+Dark.jpg */,
+				E9D7E8601C87C1F400010023 /* New+Crowd39.jpg */,
+				E9D7E8611C87C1F400010023 /* NewCrowd38.jpg */,
+				E9D7E8621C87C1F400010023 /* NewCrowd38Fragment.jpg */,
+				E9D7E8631C87C1F400010023 /* NewCrowd42Fragment.jpg */,
+				E9D7E8641C87C1F400010023 /* NewCrowd46.jpg */,
+				E9D7E8651C87C1F400010023 /* NewCrowd52.jpg */,
+				E9D7E8661C87C1F400010023 /* NewCrowd58.jpg */,
+				E9D7E8671C87C1F400010023 /* Sheptune2.jpg */,
 			);
 			path = Desktop1;
 			sourceTree = "<group>";
@@ -756,6 +739,34 @@
 				E95FCB411C86A14500D1800A /* Project-Perfect-Citizen-Info.plist */,
 			);
 			path = Engine;
+			sourceTree = "<group>";
+		};
+		E9D1C6D21C88F83400F16FF2 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				E9D1C6D31C88F83400F16FF2 /* Audio.h */,
+				E9D1C6D41C88F83400F16FF2 /* AudioLocator.cpp */,
+				E9D1C6D51C88F83400F16FF2 /* AudioLocator.h */,
+				E9D1C6D61C88F83400F16FF2 /* AudioLogger.cpp */,
+				E9D1C6D71C88F83400F16FF2 /* AudioLogger.h */,
+				E9D1C6D81C88F83400F16FF2 /* AudioQueue.cpp */,
+				E9D1C6D91C88F83400F16FF2 /* AudioQueue.h */,
+				E9D1C6DA1C88F83400F16FF2 /* DesktopAudio.cpp */,
+				E9D1C6DB1C88F83400F16FF2 /* DesktopAudio.h */,
+				E9D1C6DC1C88F83400F16FF2 /* NullAudio.h */,
+				E9D1C6DD1C88F83400F16FF2 /* Sounds */,
+				E9D1C6E01C88F83400F16FF2 /* Sounds.h */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		E9D1C6DD1C88F83400F16FF2 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				E9D1C6DE1C88F83400F16FF2 /* gunshot.ogg */,
+				E9D1C6DF1C88F83400F16FF2 /* gunshots.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -815,100 +826,95 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D7E8AB1C87C1F400010023 /* Doubt3.jpg in Resources */,
+				E9D7E86C1C87C1F400010023 /* Catch 22 - Joseph Heller.txt in Resources */,
+				E9D7E8871C87C1F400010023 /* 1-24-08-182.jpg in Resources */,
+				E9D7E89B1C87C1F400010023 /* 7402.jpg in Resources */,
+				E9D7E8AF1C87C1F400010023 /* Doubt15.jpg in Resources */,
+				E9D7E8751C87C1F400010023 /* The_Scarlet_Letter.txt in Resources */,
+				E9D1C7251C88F83400F16FF2 /* gunshot.ogg in Resources */,
+				E9D7E8BE1C87C1F400010023 /* NewCrowd46.jpg in Resources */,
+				E9D7E8A51C87C1F400010023 /* Crowd29.jpg in Resources */,
 				E95FCB4F1C86A14500D1800A /* DoxygenHelp.txt in Resources */,
-				E95FCB8F1C86A14500D1800A /* Lolita - Vladimir Nabokov.pdf in Resources */,
-				E95FCB861C86A14500D1800A /* Fallen5.jpg in Resources */,
-				E95FCB9B1C86A14500D1800A /* The_Metamorphosis.pdf in Resources */,
-				E95FCB911C86A14500D1800A /* Myth of Sisyphus by Albert Camus.pdf in Resources */,
-				E95FCB761C86A14500D1800A /* Crowd35.jpg in Resources */,
-				E95FCBA31C86A14500D1800A /* TestDesktop.json in Resources */,
-				E95FCB881C86A14500D1800A /* Fata+Morgana.jpg in Resources */,
-				E95FCB811C86A14500D1800A /* Doubt9.jpg in Resources */,
-				E95FCB5D1C86A14500D1800A /* 4-4-12-048.jpg in Resources */,
-				E95FCB5E1C86A14500D1800A /* 4065.jpg in Resources */,
-				E95FCB771C86A14500D1800A /* Crowd7.jpg in Resources */,
-				E95FCB821C86A14500D1800A /* Epidemic-2.jpg in Resources */,
-				E95FCB981C86A14500D1800A /* NewCrowd58.jpg in Resources */,
+				E9D7E8BD1C87C1F400010023 /* NewCrowd42Fragment.jpg in Resources */,
+				E9D7E8951C87C1F400010023 /* 3191.jpg in Resources */,
+				E9D7E8961C87C1F400010023 /* 3573.jpg in Resources */,
+				E9D7E8701C87C1F400010023 /* Kristeva_-_powers_of_horror.txt in Resources */,
+				E9D7E8921C87C1F400010023 /* 8-9-11-0426.jpg in Resources */,
+				E9D7E8A71C87C1F400010023 /* Crowd32.jpg in Resources */,
+				E9D7E8B31C87C1F400010023 /* Fallen1.jpg in Resources */,
+				E9D7E86B1C87C1F400010023 /* Bluebird by Charles Bukowski.txt in Resources */,
+				E9D7E8BF1C87C1F400010023 /* NewCrowd52.jpg in Resources */,
+				E9D7E8681C87C1F400010023 /* As I Lay Dying - Faulkner.txt in Resources */,
+				E9D7E8A91C87C1F400010023 /* Doubt1.jpg in Resources */,
+				E9D7E8A41C87C1F400010023 /* Crowd21.jpg in Resources */,
+				E9D7E8B11C87C1F400010023 /* Epidemic-2.jpg in Resources */,
 				E95FCBA91C86A14500D1800A /* Windows_Icons.png in Resources */,
-				E95FCB591C86A14500D1800A /* 4-10-08-386.jpg in Resources */,
-				E95FCB621C86A14500D1800A /* 7-29-14-345.jpg in Resources */,
-				E95FCB741C86A14500D1800A /* Crowd31.jpg in Resources */,
-				E95FCB521C86A14500D1800A /* 1-24-08-182.jpg in Resources */,
-				E95FCB5F1C86A14500D1800A /* 5678.jpg in Resources */,
-				E95FCB611C86A14500D1800A /* 7-24-12-052.jpg in Resources */,
-				E95FCB541C86A14500D1800A /* 2-20-09-431.jpg in Resources */,
-				E95FCB961C86A14500D1800A /* NewCrowd46.jpg in Resources */,
-				E95FCB6F1C86A14500D1800A /* Crowd16.jpg in Resources */,
-				E95FCB8D1C86A14500D1800A /* Kristeva_-_powers_of_horror.pdf in Resources */,
-				E95FCB801C86A14500D1800A /* Doubt6.jpg in Resources */,
+				E9D7E8901C87C1F400010023 /* 7-24-12-052.jpg in Resources */,
+				E9D7E88D1C87C1F400010023 /* 4-14-09-462.jpg in Resources */,
+				E9D7E89E1C87C1F400010023 /* Crowd2.jpg in Resources */,
+				E9D7E8AC1C87C1F400010023 /* Doubt6.jpg in Resources */,
 				E95FCBA01C86A14500D1800A /* Desktop1.json in Resources */,
-				E95FCB601C86A14500D1800A /* 6576.jpg in Resources */,
-				E95FCB751C86A14500D1800A /* Crowd32.jpg in Resources */,
-				E95FCB661C86A14500D1800A /* 9-24-14-195-Edit.jpg in Resources */,
-				E95FCB7A1C86A14500D1800A /* Doubt1.jpg in Resources */,
-				E95FCB7E1C86A14500D1800A /* Doubt2.jpg in Resources */,
+				E9D7E8981C87C1F400010023 /* 5678.jpg in Resources */,
+				E9D7E8971C87C1F400010023 /* 4065.jpg in Resources */,
+				E9D7E8731C87C1F400010023 /* St. Augustine - Confessions copy.txt in Resources */,
+				E9D7E8B41C87C1F400010023 /* Fallen2.jpg in Resources */,
+				E9D7E88B1C87C1F400010023 /* 4-4-12-048.jpg in Resources */,
+				E9D7E86F1C87C1F400010023 /* Geek Love by Katherine Dunn - Ch1.txt in Resources */,
+				E9D7E8AA1C87C1F400010023 /* Doubt2.jpg in Resources */,
+				E9D7E8C01C87C1F400010023 /* NewCrowd58.jpg in Resources */,
+				E9D7E8B71C87C1F400010023 /* Fata+Morgana.jpg in Resources */,
 				E95FCBA71C86A14500D1800A /* kappa.png in Resources */,
-				E95FCB671C86A14500D1800A /* As I Lay Dying - Faulkner.pdf in Resources */,
-				E95FCB951C86A14500D1800A /* NewCrowd42Fragment.jpg in Resources */,
-				E95FCB631C86A14500D1800A /* 7146.jpg in Resources */,
-				E95FCB551C86A14500D1800A /* 2-23-2011-213.jpg in Resources */,
-				E95FCB941C86A14500D1800A /* NewCrowd38Fragment.jpg in Resources */,
-				E95FCB731C86A14500D1800A /* Crowd3.jpg in Resources */,
-				E95FCB571C86A14500D1800A /* 3191.jpg in Resources */,
-				E95FCB931C86A14500D1800A /* NewCrowd38.jpg in Resources */,
-				E95FCB691C86A14500D1800A /* bataille_story_of_eye.pdf in Resources */,
-				E95FCB5C1C86A14500D1800A /* 4-24-08-492.jpg in Resources */,
-				E95FCB8E1C86A14500D1800A /* LacanMirrorPhase.pdf in Resources */,
-				E95FCB791C86A14500D1800A /* Donne - Med 17.pdf in Resources */,
-				E95FCB831C86A14500D1800A /* EternalStation.jpg in Resources */,
+				E9D7E8A01C87C1F400010023 /* Crowd7.jpg in Resources */,
 				E95FCB9F1C86A14500D1800A /* data.json in Resources */,
-				E95FCB581C86A14500D1800A /* 3573.jpg in Resources */,
-				E95FCB9C1C86A14500D1800A /* The_Scarlet_Letter.pdf in Resources */,
-				E95FCB681C86A14500D1800A /* Bacchae - Euripides.pdf in Resources */,
-				E95FCB8C1C86A14500D1800A /* Journey+Into+Dark.jpg in Resources */,
-				E95FCB5B1C86A14500D1800A /* 4-24-08-152.jpg in Resources */,
-				E95FCB7D1C86A14500D1800A /* Doubt16.jpg in Resources */,
-				E95FCB871C86A14500D1800A /* Fallen7.jpg in Resources */,
-				E95FCB6E1C86A14500D1800A /* Crowd14.jpg in Resources */,
-				E95FCB7B1C86A14500D1800A /* Doubt11.jpg in Resources */,
-				E95FCB711C86A14500D1800A /* Crowd21.jpg in Resources */,
+				E9D7E8691C87C1F400010023 /* Bacchae - Euripides.txt in Resources */,
+				E9D7E89C1C87C1F400010023 /* Conversation.jpg in Resources */,
+				E9D7E8911C87C1F400010023 /* 7-29-14-345.jpg in Resources */,
 				E95FCB501C86A14500D1800A /* LinkHelp.txt in Resources */,
-				E95FCA781C86A10A00D1800A /* gunshot.ogg in Resources */,
-				E95FCB511C86A14500D1800A /*  Catch 22 - Joseph Heller.pdf in Resources */,
-				E95FCB6D1C86A14500D1800A /* Crowd1.jpg in Resources */,
+				E9D7E8931C87C1F400010023 /* 9-24-14-195-Edit.jpg in Resources */,
+				E9D7E8721C87C1F400010023 /* Myth of Sisyphus by Albert Camus.txt in Resources */,
+				E9D7E8881C87C1F400010023 /* 2-20-09-431.jpg in Resources */,
+				E9D7E8891C87C1F400010023 /* 2-23-2011-213.jpg in Resources */,
 				E95FCBA61C86A14500D1800A /* Icon_Sheet.png in Resources */,
-				E95FCB991C86A14500D1800A /* Sheptune2.jpg in Resources */,
+				E9D7E88E1C87C1F400010023 /* 4-24-08-152.jpg in Resources */,
+				E9D7E86E1C87C1F400010023 /* Donne - Med 17.txt in Resources */,
+				E9D7E8BC1C87C1F400010023 /* NewCrowd38Fragment.jpg in Resources */,
+				E9D7E8A11C87C1F400010023 /* Crowd8.jpg in Resources */,
+				E9D7E8B91C87C1F400010023 /* Journey+Into+Dark.jpg in Resources */,
+				E9D7E8B51C87C1F400010023 /* Fallen5.jpg in Resources */,
+				E9D7E8741C87C1F400010023 /* The_Metamorphosis.txt in Resources */,
 				E95FCB9E1C86A14500D1800A /* Project-Perfect-Citizen-Info.plist in Resources */,
-				E95FCB781C86A14500D1800A /* Crowd8.jpg in Resources */,
-				E95FCB561C86A14500D1800A /* 3-29-12-184.jpg in Resources */,
-				E95FCB651C86A14500D1800A /* 8-9-11-0426.jpg in Resources */,
-				E95FCB891C86A14500D1800A /* Fragment+Of+Eternity.jpg in Resources */,
-				E95FCB641C86A14500D1800A /* 7402.jpg in Resources */,
+				E9D7E8941C87C1F400010023 /* 1894.jpg in Resources */,
+				E9D7E8711C87C1F400010023 /* Lolita - Vladimir Nabokov.txt in Resources */,
 				E95FCBA21C86A14500D1800A /* smsPipeline.json in Resources */,
+				E9D7E8B61C87C1F400010023 /* Fallen7.jpg in Resources */,
+				E9D7E8991C87C1F400010023 /* 6576.jpg in Resources */,
+				E9D7E8B81C87C1F400010023 /* Fragment+Of+Eternity.jpg in Resources */,
+				E9D7E8C11C87C1F400010023 /* Sheptune2.jpg in Resources */,
+				E9D7E8BA1C87C1F400010023 /* New+Crowd39.jpg in Resources */,
+				E9D7E89A1C87C1F400010023 /* 7146.jpg in Resources */,
+				E9D7E88F1C87C1F400010023 /* 4-24-08-492.jpg in Resources */,
+				E9D7E88A1C87C1F400010023 /* 3-29-12-184.jpg in Resources */,
 				E95FCBA81C86A14500D1800A /* Wallpaper.png in Resources */,
-				E95FCB9A1C86A14500D1800A /* St. Augustine - Confessions copy.pdf in Resources */,
-				E95FCB901C86A14500D1800A /* mulvey-visualpleasure.pdf in Resources */,
-				E95FCB841C86A14500D1800A /* Fallen1.jpg in Resources */,
-				E95FCB6C1C86A14500D1800A /* Conversation.jpg in Resources */,
+				E9D7E8AD1C87C1F400010023 /* Doubt9.jpg in Resources */,
+				E9D7E86D1C87C1F400010023 /* CatcherInTheRye - Salinger.txt in Resources */,
 				E95FCB9D1C86A14500D1800A /* EngineSettings.ini in Resources */,
-				E95FCB5A1C86A14500D1800A /* 4-14-09-462.jpg in Resources */,
-				E95FCB531C86A14500D1800A /* 1894.jpg in Resources */,
-				E95FCB8A1C86A14500D1800A /* Geek Love by Katherine Dunn - Ch1.pdf in Resources */,
-				E95FCB8B1C86A14500D1800A /* Invisible Man - Ellison.pdf in Resources */,
-				E95FCB7F1C86A14500D1800A /* Doubt3.jpg in Resources */,
-				E95FCB6A1C86A14500D1800A /* Bluebird by Charles Bukowski.pdf in Resources */,
-				E95FCB721C86A14500D1800A /* Crowd29.jpg in Resources */,
-				E95FCA791C86A10A00D1800A /* gunshots.wav in Resources */,
+				E9D7E89D1C87C1F400010023 /* Crowd1.jpg in Resources */,
 				E95FCBA51C86A14500D1800A /* Face_Sheet.png in Resources */,
-				E95FCB851C86A14500D1800A /* Fallen2.jpg in Resources */,
-				E95FCB701C86A14500D1800A /* Crowd2.jpg in Resources */,
-				E95FCB971C86A14500D1800A /* NewCrowd52.jpg in Resources */,
-				E95FCBA11C86A14500D1800A /* dummy.json in Resources */,
-				E95FCB7C1C86A14500D1800A /* Doubt15.jpg in Resources */,
-				E95FCB921C86A14500D1800A /* New+Crowd39.jpg in Resources */,
-				E95FCB6B1C86A14500D1800A /* CatcherInTheRye - Salinger.pdf in Resources */,
+				E9D7E89F1C87C1F400010023 /* Crowd3.jpg in Resources */,
+				E9D7E86A1C87C1F400010023 /* bataille_story_of_eye.txt in Resources */,
+				E9D7E8A21C87C1F400010023 /* Crowd14.jpg in Resources */,
+				E9D7E8A61C87C1F400010023 /* Crowd31.jpg in Resources */,
+				E9D7E8B21C87C1F400010023 /* EternalStation.jpg in Resources */,
+				E9D7E8B01C87C1F400010023 /* Doubt16.jpg in Resources */,
+				E9D7E88C1C87C1F400010023 /* 4-10-08-386.jpg in Resources */,
 				E95FCBAB1C86A14500D1800A /* consola.ttf in Resources */,
+				E9D7E8A31C87C1F400010023 /* Crowd16.jpg in Resources */,
+				E9D7E8A81C87C1F400010023 /* Crowd35.jpg in Resources */,
+				E9D1C7261C88F83400F16FF2 /* gunshots.wav in Resources */,
+				E9D7E8BB1C87C1F400010023 /* NewCrowd38.jpg in Resources */,
 				E95FCBAA1C86A14500D1800A /* Windows_UI.png in Resources */,
+				E9D7E8AE1C87C1F400010023 /* Doubt11.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,70 +941,76 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E95FCAD71C86A12300D1800A /* createButton.cpp in Sources */,
-				E95FCAE41C86A12300D1800A /* PipelineCharacter.cpp in Sources */,
-				E95FCA7D1C86A10A00D1800A /* ComponentObsvr.cpp in Sources */,
-				E95FCAEA1C86A12300D1800A /* textOutputRenderComponent.cpp in Sources */,
-				E95FCAE21C86A12300D1800A /* mousePressButton.cpp in Sources */,
-				E95FCA8C1C86A10A00D1800A /* RenderCmpntDecorator.cpp in Sources */,
-				E95FCA901C86A10A00D1800A /* UpdateCmpntLogger.cpp in Sources */,
-				E95FCAE31C86A12300D1800A /* photoRenderComponent.cpp in Sources */,
-				E95FCADC1C86A12300D1800A /* databaseDisplayRenderComponent.cpp in Sources */,
-				E95FCA771C86A10A00D1800A /* DesktopAudio.cpp in Sources */,
-				E95FCAEC1C86A12300D1800A /* WindowBkgndRenderCmpnt.cpp in Sources */,
-				E95FCA931C86A10A00D1800A /* WindowInterface.cpp in Sources */,
-				E95FCAD61C86A12300D1800A /* consoleUpdateComponent.cpp in Sources */,
-				E95FCAE01C86A12300D1800A /* expressionistParser.cpp in Sources */,
-				E95FCAD81C86A12300D1800A /* createDesktop.cpp in Sources */,
-				E95FCA921C86A10A00D1800A /* WindowDecorator.cpp in Sources */,
-				E95FCA941C86A10A00D1800A /* WindowLogger.cpp in Sources */,
-				E95FCAD01C86A12300D1800A /* animatorComponent.cpp in Sources */,
-				E95FCA881C86A10A00D1800A /* InputHandler.cpp in Sources */,
-				E95FCA8F1C86A10A00D1800A /* UpdateCmpntDecorator.cpp in Sources */,
-				E95FCA7E1C86A10A00D1800A /* debug.cpp in Sources */,
-				E95FCAD91C86A12300D1800A /* createIcon.cpp in Sources */,
-				E95FCA861C86A10A00D1800A /* InputCmpntLogger.cpp in Sources */,
-				E95FCAD31C86A12300D1800A /* buttonUpdateComponent.cpp in Sources */,
-				E95FCA891C86A10A00D1800A /* Network.cpp in Sources */,
-				E95FCADA1C86A12300D1800A /* createWindow.cpp in Sources */,
+				E9D1C7301C88F83400F16FF2 /* Entity.cpp in Sources */,
+				E9D1C7891C88F84900F16FF2 /* buttonRenderComponent.cpp in Sources */,
+				E9D1C7321C88F83400F16FF2 /* EntityLogger.cpp in Sources */,
+				E9D1C7271C88F83400F16FF2 /* BaseFileType.cpp in Sources */,
+				E9D1C7281C88F83400F16FF2 /* BorderDecorator.cpp in Sources */,
+				E9D1C78E1C88F84900F16FF2 /* createButton.cpp in Sources */,
+				E9D1C72A1C88F83400F16FF2 /* ComponentObsvr.cpp in Sources */,
+				E9D1C7411C88F83400F16FF2 /* WindowDecorator.cpp in Sources */,
+				E9D1C78F1C88F84900F16FF2 /* createDesktop.cpp in Sources */,
+				E9D1C78B1C88F84900F16FF2 /* characterRender.cpp in Sources */,
+				E9D1C7341C88F83400F16FF2 /* InputCmpntLogger.cpp in Sources */,
+				E9D1C7931C88F84900F16FF2 /* databaseDisplayRenderComponent.cpp in Sources */,
 				C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */,
-				E95FCAE61C86A12300D1800A /* PipelineGraphRenderComponent.cpp in Sources */,
-				E95FCAE81C86A12300D1800A /* textInputKeys.cpp in Sources */,
-				E95FCAD51C86A12300D1800A /* consoleIconRenderComponent.cpp in Sources */,
-				E95FCA8A1C86A10A00D1800A /* NodeState.cpp in Sources */,
-				E95FCA871C86A10A00D1800A /* inputComponent.cpp in Sources */,
-				E95FCA751C86A10A00D1800A /* AudioLogger.cpp in Sources */,
-				E95FCAD11C86A12300D1800A /* BootLoader.cpp in Sources */,
-				E95FCA811C86A10A00D1800A /* DraggableInput.cpp in Sources */,
-				E95FCA851C86A10A00D1800A /* FunctionObserver.cpp in Sources */,
-				E95FCA8B1C86A10A00D1800A /* observer.cpp in Sources */,
-				E95FCA7C1C86A10A00D1800A /* component.cpp in Sources */,
-				E95FCA7B1C86A10A00D1800A /* BorderDecorator.cpp in Sources */,
-				E95FCAD41C86A12300D1800A /* characterRender.cpp in Sources */,
-				E95FCA761C86A10A00D1800A /* AudioQueue.cpp in Sources */,
-				E95FCA951C86A10A00D1800A /* world.cpp in Sources */,
-				E95FCAE71C86A12300D1800A /* testRenderSprite.cpp in Sources */,
-				E95FCAEB1C86A12300D1800A /* TreeCommands.cpp in Sources */,
+				E9D1C73B1C88F83400F16FF2 /* RenderCmpntLogger.cpp in Sources */,
+				E9D1C79F1C88F84900F16FF2 /* PipelineGraphRenderComponent.cpp in Sources */,
+				E9D1C72C1C88F83400F16FF2 /* desktop.cpp in Sources */,
+				E9D1C7A61C88F84900F16FF2 /* TreeCommands.cpp in Sources */,
+				E9D1C72E1C88F83400F16FF2 /* DraggableInput.cpp in Sources */,
+				E9D1C7921C88F84900F16FF2 /* Database.cpp in Sources */,
+				E9D1C73D1C88F83400F16FF2 /* UpdateCmpntDecorator.cpp in Sources */,
+				E9D1C7391C88F83400F16FF2 /* observer.cpp in Sources */,
+				E9D1C7431C88F83400F16FF2 /* WindowLogger.cpp in Sources */,
+				E9D1C7951C88F84900F16FF2 /* databaseSearchRenderComponent.cpp in Sources */,
+				E9D1C7351C88F83400F16FF2 /* inputComponent.cpp in Sources */,
+				E9D1C79E1C88F84900F16FF2 /* PipelineDataRenderComponent.cpp in Sources */,
+				E9D1C7A51C88F84900F16FF2 /* textRenderComponent.cpp in Sources */,
+				E9D1C72B1C88F83400F16FF2 /* debug.cpp in Sources */,
+				E9D1C72D1C88F83400F16FF2 /* DesktopLogger.cpp in Sources */,
+				E9D1C7231C88F83400F16FF2 /* AudioQueue.cpp in Sources */,
+				E9D1C7401C88F83400F16FF2 /* Window.cpp in Sources */,
+				E9D1C78A1C88F84900F16FF2 /* buttonUpdateComponent.cpp in Sources */,
+				E9D1C7361C88F83400F16FF2 /* InputHandler.cpp in Sources */,
+				E9D1C7441C88F83400F16FF2 /* world.cpp in Sources */,
+				E9D1C7971C88F84900F16FF2 /* expressionistParser.cpp in Sources */,
+				E9D1C7961C88F84900F16FF2 /* desktopExtractionComponent.cpp in Sources */,
+				E9D1C79A1C88F84900F16FF2 /* NetworkInputCmpnt.cpp in Sources */,
+				E9D1C7981C88F84900F16FF2 /* iconInputComponent.cpp in Sources */,
+				E9D1C79D1C88F84900F16FF2 /* PipelineCharacter.cpp in Sources */,
+				E9D1C7311C88F83400F16FF2 /* EntityDecorator.cpp in Sources */,
+				E9D1C7871C88F84900F16FF2 /* animatorComponent.cpp in Sources */,
+				E9D1C7901C88F84900F16FF2 /* createIcon.cpp in Sources */,
+				E9D1C7A21C88F84900F16FF2 /* textInputRenderComponent.cpp in Sources */,
 				E95FCBA41C86A14500D1800A /* ResourcePath.mm in Sources */,
-				E95FCA8D1C86A10A00D1800A /* RenderCmpntLogger.cpp in Sources */,
-				E95FCADE1C86A12300D1800A /* databaseSearchRenderComponent.cpp in Sources */,
-				E95FCADF1C86A12300D1800A /* desktopExtractionComponent.cpp in Sources */,
-				E95FCA841C86A10A00D1800A /* EntityLogger.cpp in Sources */,
-				E95FCAE51C86A12300D1800A /* PipelineDataRenderComponent.cpp in Sources */,
-				E95FCADD1C86A12300D1800A /* databaseSearchInputComponent.cpp in Sources */,
-				E95FCA821C86A10A00D1800A /* Entity.cpp in Sources */,
-				E95FCAD21C86A12300D1800A /* buttonRenderComponent.cpp in Sources */,
-				E95FCAE91C86A12300D1800A /* textInputRenderComponent.cpp in Sources */,
-				E95FCA8E1C86A10A00D1800A /* subject.cpp in Sources */,
-				E95FCA911C86A10A00D1800A /* Window.cpp in Sources */,
-				E95FCA801C86A10A00D1800A /* DesktopLogger.cpp in Sources */,
-				E95FCADB1C86A12300D1800A /* Database.cpp in Sources */,
-				E95FCA7A1C86A10A00D1800A /* BaseFileType.cpp in Sources */,
-				E95FCA831C86A10A00D1800A /* EntityDecorator.cpp in Sources */,
-				E95FCAE11C86A12300D1800A /* iconInputComponent.cpp in Sources */,
-				E95FCA741C86A10A00D1800A /* AudioLocator.cpp in Sources */,
-				E95FCA7F1C86A10A00D1800A /* desktop.cpp in Sources */,
+				E9D1C7421C88F83400F16FF2 /* WindowInterface.cpp in Sources */,
+				E9D1C72F1C88F83400F16FF2 /* Edge.cpp in Sources */,
+				E9D1C73E1C88F83400F16FF2 /* UpdateCmpntLogger.cpp in Sources */,
+				E9D1C7221C88F83400F16FF2 /* AudioLogger.cpp in Sources */,
+				E9D1C7881C88F84900F16FF2 /* BootLoader.cpp in Sources */,
+				E9D1C7291C88F83400F16FF2 /* component.cpp in Sources */,
+				E9D1C7A41C88F84900F16FF2 /* textOutputRenderComponent.cpp in Sources */,
+				E9D1C73A1C88F83400F16FF2 /* RenderCmpntDecorator.cpp in Sources */,
+				E9D1C7A71C88F84900F16FF2 /* WindowBkgndRenderCmpnt.cpp in Sources */,
 				C82E61731C810E67001860CC /* main.cpp in Sources */,
+				E9D1C7381C88F83400F16FF2 /* NodeState.cpp in Sources */,
+				E9D1C7241C88F83400F16FF2 /* DesktopAudio.cpp in Sources */,
+				E9D1C7211C88F83400F16FF2 /* AudioLocator.cpp in Sources */,
+				E9D1C7A11C88F84900F16FF2 /* textInputKeys.cpp in Sources */,
+				E9D1C7331C88F83400F16FF2 /* FunctionObserver.cpp in Sources */,
+				E9D1C79B1C88F84900F16FF2 /* NetworkRenderCmpnt.cpp in Sources */,
+				E9D1C73F1C88F83400F16FF2 /* Vertex.cpp in Sources */,
+				E9D1C78D1C88F84900F16FF2 /* consoleUpdateComponent.cpp in Sources */,
+				E9D1C7371C88F83400F16FF2 /* Network.cpp in Sources */,
+				E9D1C7911C88F84900F16FF2 /* createWindow.cpp in Sources */,
+				E9D1C7A01C88F84900F16FF2 /* testRenderSprite.cpp in Sources */,
+				E9D1C73C1C88F83400F16FF2 /* subject.cpp in Sources */,
+				E9D1C7941C88F84900F16FF2 /* databaseSearchInputComponent.cpp in Sources */,
+				E9D1C79C1C88F84900F16FF2 /* photoRenderComponent.cpp in Sources */,
+				E9D1C7A31C88F84900F16FF2 /* textLabelComponent.cpp in Sources */,
+				E9D1C78C1C88F84900F16FF2 /* consoleIconRenderComponent.cpp in Sources */,
+				E9D1C7991C88F84900F16FF2 /* mousePressButton.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
