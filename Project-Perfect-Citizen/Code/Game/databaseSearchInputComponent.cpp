@@ -1,3 +1,4 @@
+#include "../Engine/debug.h"
 #include "databaseSearchInputComponent.h"
 #include <iostream>
 #include <string>
@@ -12,8 +13,8 @@ const int ENTER_UNICODE = 10;
 const int CARRIAGE_RETURN_UNICODE = 13;
 
 databaseSearchInputComponent::databaseSearchInputComponent(Database* initialDB, ppc::InputHandler& ih, databaseSearchRenderComponent& t,
-	databaseDisplayRenderComponent& d, sf::Sprite& s)
-	: InputComponent(2), textBoxSprt(s), textBox(t), textDisplay(d), inputHandle(ih) {
+	databaseDisplayRenderComponent& d, sf::Sprite& s, characterRender& r)
+	: InputComponent(2), textBoxSprt(s), textBox(t), textDisplay(d), inputHandle(ih), render(r) {
 
 	ih.addHandle(sf::Event::TextEntered);
 	ih.addHandle(sf::Event::KeyPressed);
@@ -83,6 +84,26 @@ void databaseSearchInputComponent::clearSearchBox() {
 	textBox.updateString(str);
 }
 
+bool databaseSearchInputComponent::goBack(sf::Event& ev) {
+		std::vector<string> displayVec;
+		clearSearchBox();
+		if (searchHistory.size() > 1) {
+			if (searchHistory.size() == 2) {
+				searchHistory.pop();
+				updateDisplayResults(displayVec, "Enter a filter and query to begin searching");
+				textDisplay.updateString(displayResults_);
+				return true;
+			}
+			else {
+				searchHistory.pop();
+				updateDisplayOutput(searchHistory.top()->getPrintableDatabase());
+				textDisplay.updateString(displayResults_);
+				return true;
+			}
+		}
+		return true;
+}
+
 void databaseSearchInputComponent::updateDisplayResults(vector<string> displayVec, string newDisplay) {
 	displayVec.push_back(newDisplay);
 	updateDisplayOutput(displayVec);
@@ -90,6 +111,8 @@ void databaseSearchInputComponent::updateDisplayResults(vector<string> displayVe
 
 bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 	if (getEntity() != nullptr) {
+
+		int lookAt = 0;
 
 		/* Ignore CNTRL, BS, ENTR/LF, CR symbols*/
 		if (ev.type == sf::Event::TextEntered) {
@@ -123,7 +146,7 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 				string query = "";
 
 
-				/* Temp back functionality: Will turn into function pointer */
+				/* Temp back functionality: Will turn into function pointer
 				if (commandVec.at(0) == "back") {
 					clearSearchBox();
 					if (searchHistory.size() > 1) {
@@ -139,7 +162,7 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 							return true;
 						}	
 					}
-				}
+				}*/
 
 				/* Assign good input to corresponding values */
 				if (commandVec.size() == 2) {
@@ -155,14 +178,24 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 					return true;
 				}
 				
-				if (searchHistory.top()->filterIsValid(filter)) {
+
+				/* Clean the filter term of any caps*/
+				string cleaned = "";
+				for (unsigned int i = 0; i < filter.length(); ++i) {
+					cleaned.push_back(tolower(filter.at(i)));
+
+				}
+
+
+				if (searchHistory.top()->filterIsValid(cleaned)) {
 					Database* filteredDatabase;
-					filteredDatabase = &(searchHistory.top()->sortBy(filter, query));
+					filteredDatabase = &(searchHistory.top()->sortBy(cleaned, query));
 					cout << filteredDatabase->getDatabaseSize() << endl;
 					if (filteredDatabase->isEmpty()) { 
 						updateDisplayResults(displayVec, "No results found");
 					}
 					else {
+						render.applyCharacterValues(filteredDatabase->getDatabaseState().at(lookAt));
 						searchHistory.emplace(filteredDatabase);
 						updateDisplayOutput(searchHistory.top()->getPrintableDatabase());
 					}

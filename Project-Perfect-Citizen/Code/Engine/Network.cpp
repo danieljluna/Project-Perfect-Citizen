@@ -1,4 +1,6 @@
 #include "Network.h"
+#include "debug.h"
+
 
 #include <cassert>
 
@@ -227,21 +229,16 @@ size_t Network::size() const {
 
 void Network::draw(sf::RenderTarget& target,
     sf::RenderStates states) const {
-    //Define Vertex Shape:
-    sf::CircleShape vertShape(vertSize_);
-    vertShape.setOrigin(vertSize_, vertSize_);
+	//Define Vertex Shape:
+	//sf::CircleShape vertShape(vertSize_);
+	//vertShape.setOrigin(vertSize_, vertSize_);
 
     //Define vars for lines
     unsigned int lnVerts = 2 * edgeCount_;
-    sf::VertexArray edgeLines(sf::Lines, 2 * edgeCount_);
+	sf::VertexArray edgeLines(sf::Lines, 2 * edgeCount_);
     unsigned int lnsDrawn = 0;
-
-    //For each Vertex
+	
     for (size_t i = 0; i < size_; ++i) {
-        //Draw that Vertex
-        vertShape.setPosition(vertexData_[i].pos);
-        vertShape.setFillColor(vertexData_[i].color);
-        target.draw(vertShape, states);
 
         //For each edge leaving this Vertex
         for (size_t j = 0; (lnsDrawn < lnVerts) && (j < size_); ++j) {
@@ -249,19 +246,32 @@ void Network::draw(sf::RenderTarget& target,
             size_t edgeIndex = getEdgeIndex(i, j);
             if (edgeMat_[edgeIndex] != nullptr) {
                 //Add point i to the edgeLines to draw
-                edgeLines[lnsDrawn].position = vertexData_[i].pos;
-                edgeLines[lnsDrawn].color = edgeMat_[edgeIndex]->color;
+                edgeLines[lnsDrawn].position = vertexData_[i].getPosCenter();
+                edgeLines[lnsDrawn].color = edgeMat_[edgeIndex]->getColor();
+
                 //Add point j to the edgeLines to draw
-                edgeLines[++lnsDrawn].position = vertexData_[j].pos;
-                edgeLines[lnsDrawn].color = edgeMat_[edgeIndex]->color;
+				edgeLines[++lnsDrawn].position = vertexData_[j].getPosCenter();
+                edgeLines[lnsDrawn].color = edgeMat_[edgeIndex]->getColor();
                 ++lnsDrawn;
+				
+				//Adjust the bounds of the edge based on
+				//where it is drawn.
+				edgeMat_[edgeIndex]->constructBounds(
+					vertexData_[i].getPosCenter(),
+					vertexData_[j].getPosCenter());
             }
         }
 
     }
 
-    //Draw the edges
-    target.draw(edgeLines, states);
+	//Draw the edges
+	target.draw(edgeLines, states);
+
+	//For each Vertex
+	for (size_t i = 0; i < size_; ++i) {
+		//Draw that Vertex
+		target.draw(vertexData_[i], states);
+	}
 
 }
 

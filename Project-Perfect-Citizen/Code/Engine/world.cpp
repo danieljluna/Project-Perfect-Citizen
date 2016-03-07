@@ -1,6 +1,7 @@
 //World.cpp
 //Nader Sleem
 #include "world.h"
+#include "debug.h"
 
 
 std::vector<ppc::World*> ppc::World::worldsVector;

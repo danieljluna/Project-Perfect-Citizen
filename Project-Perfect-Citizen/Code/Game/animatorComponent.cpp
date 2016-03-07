@@ -1,4 +1,4 @@
-
+#include "../Engine/debug.h"
 #include "animatorComponent.hpp"
 
 

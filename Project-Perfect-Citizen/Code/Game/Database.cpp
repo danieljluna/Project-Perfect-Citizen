@@ -1,5 +1,5 @@
 #include "Database.h"
-
+#include "../Engine/debug.h"
 
 using namespace ppc;
 
@@ -21,6 +21,11 @@ void Database::generateFullDatabase(int newMaxNumber) {
 		newDatabase.push_back(newCharacter);
 	}
 	databaseState_ = newDatabase;
+}
+
+std::vector<ppc::PipelineCharacter> Database::getDatabaseState()
+{
+	return databaseState_;
 }
 
 std::vector<std::string> Database::getPrintableDatabase(){

@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "component.h"
 #include "entity.h"
 

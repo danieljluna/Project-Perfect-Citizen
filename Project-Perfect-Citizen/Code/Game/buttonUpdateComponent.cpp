@@ -1,3 +1,4 @@
+#include "../Engine/debug.h"
 #include "buttonUpdateComponent.h"
 
 buttonUpdateComponent::buttonUpdateComponent(buttonRenderComponent& bRC)

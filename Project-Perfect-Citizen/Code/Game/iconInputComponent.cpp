@@ -1,6 +1,6 @@
+#include "../Engine/debug.h"
 #include "iconInputComponent.h"
 #include <iostream>
-#include <string>
 #include <string>
 
 using namespace ppc;
@@ -34,7 +34,11 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		theDesktop_.addWindow(consoleWindow);
 	}
 	else if (msg.compare(OPEN_THE_FILE) == 0) {
-		cout << "DEBUG: Implement and open the file" << endl;
+        ppc::WindowInterface* FileWindow =
+            new ppc::Window(400, 400, sf::Color(255, 255, 255));
+        spawnFile(FileWindow, FileWindow->getInputHandler(),
+            theDesktop_.getNodeState(), buttonSheet_, 100, 200, "Resources/DesktopContent/Desktop1/3-29-12-184.jpg");
+        theDesktop_.addWindow(FileWindow);
 	}
 	else if (msg.compare(OPEN_THE_SETTINGS) == 0) {
 		cout << "DEBUG: Implement and open the settings" << endl;
@@ -53,6 +57,10 @@ void iconInputComponent::recieveMessage(msgType msg) {
 	}
 	else if (msg.compare(OPEN_THE_PIPELINE) == 0) {
 		cout << "DEBUG: Implement and open the pipeline" << endl;
+		ppc::WindowInterface* piplineWindow =
+			new ppc::Window(800, 600, sf::Color(200, 200, 200));
+		ppc::spawnPipeline(piplineWindow, piplineWindow->getInputHandler(), theDatabase_, buttonSheet_, 100, 200);
+		theDesktop_.addWindow(piplineWindow);
 	}
 	else if (msg.compare(OPEN_THE_HELP) == 0) {
 		cout << "DEBUG: Implement and open the help" << endl;
