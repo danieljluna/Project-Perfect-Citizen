@@ -40,6 +40,8 @@
 #include"../Game/NetworkInputCmpnt.h"
 #include"../Game/NetworkUpdateCmpnt.h"
 
+#include "../Game/PipelineLevelBuilder.h"
+
 using namespace ppc;
 
 
@@ -145,7 +147,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
      fontSize);*/
     
     characterRender* render = new characterRender(faceSheet);
-    float x1 =  windowToModify->getSize().x/2;
+    float x1 =  static_cast<float>(windowToModify->getSize().x/2);
     render->setOrigin(x1, 100);
     /* Create the update components */
     

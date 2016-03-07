@@ -220,6 +220,12 @@
     <ClCompile Include="Code\Game\NetworkUpdateCmpnt.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\FreeFunctionObserver.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\TestFunctionClass.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -469,6 +475,12 @@
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\ScrollBarDeco.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\FreeFunctionObserver.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\TestFunctionClass.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>
