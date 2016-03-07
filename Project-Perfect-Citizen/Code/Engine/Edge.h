@@ -20,6 +20,8 @@ private:
 
 	sf::FloatRect bounds_;
 
+	std::vector<std::string> smsData_;
+
 public:
 
 	///////////////////////////////////////////////////////////////////////
@@ -82,6 +84,10 @@ public:
 	/// position of the edge.
 	///////////////////////////////////////////////////////////////////////
 	void constructBounds(sf::Vector2f,sf::Vector2f);
+
+	void pushSmsData(const std::string& data);
+
+	std::vector<std::string> getSmsData();
 
 };
 

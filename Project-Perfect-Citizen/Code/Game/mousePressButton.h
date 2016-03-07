@@ -49,7 +49,7 @@ public:
 	///@param the FunctionObserver to add
 	///@param the index in the array to insert the FunctionObserver
 	///////////////////////////////////////////////////////////////////////
-	void addFunctionObserver(FunctionObserver* fnToAdd, int placeToInsert);
+	void addFunctionObserver(bool (*fnToAdd)(sf::Event &ev), mousePressButton* mpb, unsigned int placeToInsert);
 
 ///////////////////////////////////////////////////////////////////////
 //SETTERS

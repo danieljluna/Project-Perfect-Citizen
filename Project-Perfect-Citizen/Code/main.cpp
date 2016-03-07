@@ -47,18 +47,20 @@
 #include "Engine/Audio/AudioQueue.h"
 #include "Engine/Network.h"
 #include "Game/BootLoader.hpp"
-#include "Engine/FunctionObserver.h"
+//#include "Engine/FunctionObserver.h"
 #include "Game/characterRender.hpp"
 #include "Engine/debug.h"
-
+#include "Engine\TestFunctionClass.h"
+#include "Engine\FreeFunctionObserver.h"
 
 
 using namespace ppc;
 
-using testFunc = bool(*)(sf::Event&);
+//using testFunc = bool(*)(sf::Event&);
 
-bool printFunc(sf::Event& ev) {
+bool printFunc(TestFunctionClass* tfc, sf::Event& ev) {
 	std::cout << "inside printFunc" << std::endl;
+	tfc->callFunc(ev);
 	return true;
 }
 
@@ -72,8 +74,23 @@ int main(int argc, char** argv) {
 	DEBUGF("ac", argc);
 
     // Create the main sf::window
+	sf::Event testEvent;
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
+	////////////////////////////////////////////FUNCTION OBSERVER TESTING/////////////////////////////////
+	TestFunctionClass* cool = new TestFunctionClass();
+	//FunctionObserver<TestFunctionClass> c(&TestFunctionClass::callFunc); //= new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc);
+	//FunctionObserver<TestFunctionClass>* c = new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc, cool);
+	//bool coolReturnValue = (*cool.*(c->functionPointer))(testEvent);
+	//c->eventHandler(testEvent);
 
+	FreeFunctionObserver<TestFunctionClass>* d = new FreeFunctionObserver<TestFunctionClass>(&printFunc, cool);
+	d->eventHandler(testEvent);
+	////////////////////////////////////////////FUNCTION OBSERVER TESTING/////////////////////////////////
+
+
+
+
+	//bool coolReturnValue = (*cool.*(c->functionPointer))(sf::Event());
 	//////////////////////////SOUND STUFF//////////////////////////////
 	//AudioLocator::initialize();
 	//ppc::NullAudio dAudio;
@@ -121,9 +138,10 @@ int main(int argc, char** argv) {
 	testState.setUp();
 	Window* desktopWindow = new Window(1800,1000,sf::Color(0,0,0));
     
-    Desktop myDesktop(*desktopWindow, testState);
-    myDesktop.addBackgroundCmpnt(desktopWindow, S);
-    createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+    Desktop* myDesktop = new Desktop(*desktopWindow, testState);
+    myDesktop->addBackgroundCmpnt(desktopWindow, S);
+    createPlayerDesktop(*myDesktop, *desktopWindow, myDesktop->getInputHandler(), iconSheet, spriteSheet);
+
     //createTeacherDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
     
     //Entity* aCharacter = new Entity();
@@ -156,9 +174,11 @@ int main(int argc, char** argv) {
 	// Start the game loop
 	///////////////////////////////////////////////////////////////////
 	sf::Clock deltaTime; //define deltaTime
+	
     //Used to keep track time
     sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
     while (screen.isOpen()) {
+		bool doneUpdate = false;
         //Process sf::events
         sf::Event event;
         while (screen.pollEvent(event)) {
@@ -167,7 +187,7 @@ int main(int argc, char** argv) {
 				screen.close();
 
 			//Input phase
-			myDesktop.registerInput(event);
+			myDesktop->registerInput(event);
         }
 
         sf::Time elapsed = deltaTime.getElapsedTime();
@@ -179,20 +199,24 @@ int main(int argc, char** argv) {
 			//Update all Windows in the Desktop
 			sf::Time dt = deltaTime.restart();
 
-			myDesktop.update(dt);
-
+			myDesktop->update(dt);
+			doneUpdate = true;
 			elapsed -= framePeriod;
 		}
-            //Draw all the Windows in the Desktop
-			myDesktop.refresh();
+		if (doneUpdate) {
+			//Draw all the Windows in the Desktop
+			myDesktop->refresh();
 
 			//Logger should not be used in place of passing
 			//the actual drawn Desktop
-			screen.draw(myDesktop);
+			screen.draw(*myDesktop);
 
-            //Display the final window
+			//Display the final window
 			screen.display();
+		}
     }
+
+	delete myDesktop;
 
     return EXIT_SUCCESS;
 }

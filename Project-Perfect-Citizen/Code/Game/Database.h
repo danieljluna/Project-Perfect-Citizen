@@ -33,7 +33,7 @@ public:
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Creates a fresh database of the max limit and sets it to
-	// the current state of the database
+	/// the current state of the database
 	/// @param the max limit of the new database
 	///////////////////////////////////////////////////////////////////////
 	void generateFullDatabase(int newMaxNumber);

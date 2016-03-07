@@ -28,6 +28,8 @@ public:
     
     ~textInputRenderComponent();
     
+    sf::Sprite* getSprite() const {return sprite;}
+    
     ////////////////////////////////////////////////////////////////////
     /// @brief updateString recieves a string from an input component to
     ///        display.
