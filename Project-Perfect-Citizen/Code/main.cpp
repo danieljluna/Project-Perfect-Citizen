@@ -51,15 +51,16 @@
 #include "Game/characterRender.hpp"
 #include "Engine/debug.h"
 #include "Engine\TestFunctionClass.h"
+#include "Engine\FreeFunctionObserver.h"
 
 
 using namespace ppc;
 
-using testFunc = bool(*)(sf::Event&);
+//using testFunc = bool(*)(sf::Event&);
 
-bool printFunc(sf::Event& ev) {
+void printFunc(TestFunctionClass* tfc, sf::Event& ev) {
 	std::cout << "inside printFunc" << std::endl;
-	return true;
+	tfc->callFunc(ev);
 }
 
 //Note that this is placeholder for now
@@ -74,13 +75,16 @@ int main(int argc, char** argv) {
     // Create the main sf::window
 	sf::Event testEvent;
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
+	////////////////////////////////////////////FUNCTION OBSERVER TESTING/////////////////////////////////
 	TestFunctionClass* cool = new TestFunctionClass();
 	//FunctionObserver<TestFunctionClass> c(&TestFunctionClass::callFunc); //= new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc);
-	FunctionObserver<TestFunctionClass>* c = new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc, cool);
+	//FunctionObserver<TestFunctionClass>* c = new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc, cool);
 	//bool coolReturnValue = (*cool.*(c->functionPointer))(testEvent);
-	c->eventHandler(testEvent);
+	//c->eventHandler(testEvent);
 
-
+	FreeFunctionObserver<TestFunctionClass>* d = new FreeFunctionObserver<TestFunctionClass>(&printFunc, cool);
+	d->eventHandler(testEvent);
+	////////////////////////////////////////////FUNCTION OBSERVER TESTING/////////////////////////////////
 
 
 

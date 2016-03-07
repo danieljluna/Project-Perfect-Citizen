@@ -1,7 +1,11 @@
 #pragma once
 #include "FunctionObserver.h"
-
-//using testFunc = bool(*)(sf::Event&);
+///WRITTEN BY ANDY BADEN
+////////////////////////////////////////////////////
+///@brief TestFunctionClass is just that...
+///a class used to test the capabillities of the 
+///function observers
+////////////////////////////////////////////////////
 class TestFunctionClass {
 private:
 	int x;
