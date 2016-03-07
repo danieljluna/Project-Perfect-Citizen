@@ -3,9 +3,12 @@
 #include <vector>
 #include "../Engine/inputComponent.h"
 #include "../Engine/Network.h"
-#include "../Engine/debug.h"
+
 
 namespace ppc {
+	///////////////////////////////////////////////////////////////////
+	///@brief Class that allows interactability with Network Graphs.
+	///////////////////////////////////////////////////////////////////
 	class NetworkInputCmpnt : public InputComponent {
 
 	private:
@@ -16,13 +19,24 @@ namespace ppc {
 
 		vector<ppc::DraggableInput*> drags_;
 
+		size_t selectedVert_;
+		std::pair<size_t,size_t> selectedEdge_;
+		bool clickedVert_;
+		bool clickedEdge_;
+
+		void selectEdge(sf::Vector2f);
+		void selectVert(sf::Vector2f);
+		void loopEdgeColor();
+
 	public:
 
 		NetworkInputCmpnt() = delete;
 
 		NetworkInputCmpnt(Network&, ppc::InputHandler&);
 
-		~NetworkInputCmpnt();
+		vector<ppc::DraggableInput*>* getDraggables();
+
+		virtual ~NetworkInputCmpnt();
 
 		virtual bool registerInput(sf::Event& ev) override;
 

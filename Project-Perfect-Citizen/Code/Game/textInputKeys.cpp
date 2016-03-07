@@ -8,9 +8,9 @@ const string TEXT_KEY_INPUT = "TKI";
 
 const float DOUBLE_CLICK_TIME = 500;
 
-textInputKeys::textInputKeys(ppc::InputHandler& ih, sf::Sprite& s, 
+textInputKeys::textInputKeys(ppc::InputHandler& ih,
 	textInputRenderComponent& r, textOutputRenderComponent& r2,
-	consoleUpdateComponent& c) : InputComponent(2), textBoxSprt(s), 
+	consoleUpdateComponent& c) : InputComponent(2),
 	textBox(r), textDisplay(r2), inputHandle(ih), cup(c){
 
 
@@ -37,7 +37,11 @@ textInputKeys::~textInputKeys() {
 }
 
 bool textInputKeys::isCollision(sf::Vector2i mousePos) {
-    sf::Vector2f sprtBoxPos = { textBoxSprt.getGlobalBounds().left ,
+
+    // Temporarily removing collisions on Text Inputs.
+    // May not be necessary to have them
+    
+    /* sf::Vector2f sprtBoxPos = { textBoxSprt.getGlobalBounds().left ,
         textBoxSprt.getGlobalBounds().top };
   
     sf::Vector2f sprtBoxDim = { textBoxSprt.getGlobalBounds().width,
@@ -50,11 +54,13 @@ bool textInputKeys::isCollision(sf::Vector2i mousePos) {
             mousePos.y <= sprtBoxPos.y + sprtBoxDim.y) {
             result = true;
         }
-    }
+    }*/
+    
+    
     
     // textBoxSprt.setSelected(true);
     
-    return result;
+    return true;//result;
 }
 
 bool textInputKeys::registerInput(sf::Event& ev) {
@@ -92,15 +98,16 @@ bool textInputKeys::registerInput(sf::Event& ev) {
 					commandVec.push_back(token);
 					last = next + 1;
 				}
-
+				
 				cup.executeCommand(commandVec);
-
+		
 				/* Reset the command line - keeping the prompt */
 				str.erase(2, str.length());
 				textBox.updateString(str);
 
 				/* Display the result */;
 				textDisplay.updateString(commandVec);
+
 			}
         }
     }

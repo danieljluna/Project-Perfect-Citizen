@@ -6,6 +6,8 @@ const string TEXT_KEY_INPUT = "TKI";
 textOutputRenderComponent::textOutputRenderComponent(sf::Font& f, 
 	ppc::NodeState& fT, int x, int y, int size) :font_(f),fileTree_(fT) {
 
+	numDisplayedLines = 0;
+
 	this->text_ = new sf::Text();
 
 	//font.loadFromFile(resourcePath() + "Consolas.ttf");
@@ -25,16 +27,26 @@ textOutputRenderComponent::~textOutputRenderComponent() {
 void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 	
 	/* Print out what was just typed */
+	str_ = str_ + "> ";
 	for (auto iter = cmd.begin(); iter != cmd.end(); ++iter) {
 		str_ = str_ + " " + (*iter);
 	}
 	str_ = str_ + "\n";
+	++numDisplayedLines;
 
 
 	/* Determine what to send based on the command given */
 	if (cmd.at(0) == "ls") {
+		std::vector<string> firstLsCommand;
+		string ls = "ls";
+		firstLsCommand.push_back(ls);
+		commandFn firstLs = findFunction(ls);
+		firstLs(fileTree_, firstLsCommand);
+		
 		str_ = str_ + fileTree_.getDirString() + "\n";
-		cout << fileTree_.getDirString() << "here" << endl;
+		int numLines = std::count(str_.begin(), str_.end(), '@');
+		std::replace(str_.begin(), str_.end(), '@', '\n');
+		numDisplayedLines += numLines;
 	}
 	else if (cmd.at(0) == "pwd") {
 		std::vector<std::string> wd = fileTree_.getPwdVector();
@@ -42,9 +54,11 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 			str_ = str_ + (*iter);
 		}
 		str_ = str_ + "\n";
+		++numDisplayedLines;
 	}
 	else if (cmd.at(0) == "clear") {
 		str_.clear();
+		numDisplayedLines = 0;
 	}
 	else if (cmd.at(0) == "cd" || cmd.at(0) == "make" || 
 		cmd.at(0) == "mkdir" || cmd.at(0) == "decrypt" || 
@@ -54,10 +68,12 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 	else { 
 		str_ = str_ + "Error: command '" + cmd.at(0) + 
 			"' not found" + "\n"; 
+		++numDisplayedLines;
 	}
 
 	/* Set the new console display */
 	text_->setString(str_);
+	cout << "NUM LINES DISPLAYED CURRENTLY: " << numDisplayedLines << endl;
 }
 
 void textOutputRenderComponent::clearString() {

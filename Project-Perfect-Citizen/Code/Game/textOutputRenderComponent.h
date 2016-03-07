@@ -4,7 +4,9 @@
 #include <SFML/Graphics.hpp>
 #include "../Engine/renderComponent.h"
 #include "../Engine/NodeState.h"
+#include "../Game/TreeCommands.h"
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -42,12 +44,24 @@ private:
 	string str_;
 	static const int size = 128;
 
+	////////////////////////////////////////////////////////////////////
+	/// @brief Keeps track of how many lines are currently printed
+	////////////////////////////////////////////////////////////////////
+	int numDisplayedLines;
+
+	////////////////////////////////////////////////////////////////////
+	/// @brief The maximum amount of lines that can be displayed
+	////////////////////////////////////////////////////////////////////
+	static const int maxDisplayedLines = 21;
+
 public:
 
 	textOutputRenderComponent(sf::Font& f, ppc::NodeState& fileTree, 
 		int x, int y, int size);
 
 	~textOutputRenderComponent();
+    
+    sf::Vector2f getPosition() const {return text_->getPosition();}
 
 	////////////////////////////////////////////////////////////////////
 	/// @brief updateString recieves a string from an input component to

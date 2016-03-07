@@ -193,7 +193,6 @@
     <ClCompile Include="Code\Game\photoRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\characterRender.cpp" />
     <ClCompile Include="Code\Engine\Edge.cpp">
       <Filter>Sources\Engine\Graph</Filter>
     </ClCompile>
@@ -211,6 +210,18 @@
     </ClCompile>
     <ClCompile Include="Code\Engine\FreeFunctionObserver.cpp">
       <Filter>Sources\Engine\Input</Filter>
+      </ClCompile>
+    <ClCompile Include="Code\Game\textLabelComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\textRenderComponent.cpp">
+      <Filter>Headers\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\NetworkUpdateCmpnt.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\characterRender.cpp">
+      <Filter>Sources\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -443,6 +454,33 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\FreeFunctionObserver.h">
       <Filter>Headers\Engine\Input</Filter>
+      </ClInclude>
+    <ClInclude Include="Code\Game\photoRenderComponent.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\NetworkInputCmpnt.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\textLabelComponent.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\NetworkUpdateCmpnt.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\NetworkRenderCmpnt.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\textRenderComponent.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\BootLoader.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\characterRender.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ScrollBarDeco.h">
+      <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

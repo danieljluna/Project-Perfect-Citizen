@@ -11,6 +11,7 @@
 #include <SFML/Main.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <sstream>
 
 #include "../Engine/Window.h"
 #include "buttonRenderComponent.h"
@@ -33,9 +34,11 @@
 #include "../Game/PipelineDataRenderComponent.h"
 #include "../Game/PipelineGraphRenderComponent.h"
 #include "../Game/photoRenderComponent.hpp"
+#include "textRenderComponent.hpp"
 
 #include "../Game/NetworkRenderCmpnt.h"
 #include"../Game/NetworkInputCmpnt.h"
+#include"../Game/NetworkUpdateCmpnt.h"
 
 using namespace ppc;
 
@@ -55,9 +58,7 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
     //sf::Image buttonSheet;
     //buttonSheet.loadFromFile(resourcePath() + "Windows_UI.png");
-    buttonRenderComponent* textRenderComponent =
-    new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
-    textRenderComponent->renderPosition(sf::Vector2f(0, 220));
+    
     
     sf::Font myFont;
     myFont.loadFromFile(resourcePath() + "consola.ttf");
@@ -66,36 +67,39 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     
     textInputRenderComponent* textInputBox =
     new textInputRenderComponent(myFont, 0,
+             
                                  windowToModify->getSize().y - (fontSize+windowOffset),
                                  fontSize);
     textOutputRenderComponent* textDisplayBox =
     new textOutputRenderComponent(myFont, ns, 0, 0, fontSize);
     
+    
+    
     /* Create the update component */
     consoleUpdateComponent* cup = new consoleUpdateComponent(ns);
     
     /* Create the input components */
-    textInputKeys* tik = new textInputKeys(ih,
-                                           *textRenderComponent->getSprite(), *textInputBox,
+    textInputKeys* tik = new textInputKeys(ih, *textInputBox,
                                            *textDisplayBox, *cup);
     
     /////////////////////////////////////////
     /////// ENTITIES
     ///////////////////////////////////////
-    Entity* textBox = new Entity();
-    textBox->addComponent(textInputBox);
-    textBox->addComponent(tik);
-    textBox->addComponent(cup);
+    Entity textBox;
+    textBox.addComponent(textInputBox);
+   // textBox.addComponent(textRenderComponent);
+    textBox.addComponent(tik);
+    textBox.addComponent(cup);
     
-    Entity* textDisplay = new Entity();
-    textDisplay->addComponent(textDisplayBox);
+    Entity textDisplay;
+    textDisplay.addComponent(textDisplayBox);
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
     windowToModify->setPosition(x, y);
-    windowToModify->addEntity(*textBox);
-    windowToModify->addEntity(*textDisplay);
+    windowToModify->addEntity(textBox);
+    windowToModify->addEntity(textDisplay);
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
     
@@ -120,9 +124,13 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     
     sf::Image faceSheet;
     faceSheet.loadFromFile(resourcePath() + "Face_Sheet.png");
-    buttonRenderComponent* textRenderComponent =
+    
+    
+    // We probably do not need these
+    
+   /* buttonRenderComponent* textRenderComponent =
     new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
-    textRenderComponent->renderPosition(sf::Vector2f(0, 220));
+    textRenderComponent->renderPosition(sf::Vector2f(0, 220));*/
     
     
     databaseDisplayRenderComponent* searchResults =
@@ -143,23 +151,23 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     
     /* Create the input components */
     databaseSearchInputComponent* dSI = new databaseSearchInputComponent(db, ih, *searchBox, *searchResults,
-                                                                         *textRenderComponent->getSprite(), *render);
+                                                                          *render);
     
     
     
     /////////////////////////////////////////
     /////// ENTITIES
     ///////////////////////////////////////
-    Entity* characterProfile = new Entity();
-    characterProfile->addComponent(render);
+    Entity characterProfile;
+    characterProfile.addComponent(render);
     
-    Entity* searchBoxEntity = new Entity();
-    searchBoxEntity->addComponent(searchBox);
-    searchBoxEntity->addComponent(dSI);
+    Entity searchBoxEntity;
+    searchBoxEntity.addComponent(searchBox);
+    searchBoxEntity.addComponent(dSI);
     
-    Entity* resultsBoxEntity = new Entity();
-    resultsBoxEntity->addComponent(searchResults);
-    
+    Entity resultsBoxEntity;
+    resultsBoxEntity.addComponent(searchResults);
+
     Entity backButton;
     spawnBackButton(backButton, ih, buttonSheet, 0, 0, 0.2f);
     
@@ -167,9 +175,9 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
     windowToModify->setPosition(x, y);
-    windowToModify->addEntity(*searchBoxEntity);
-    windowToModify->addEntity(*resultsBoxEntity);
-    windowToModify->addEntity(*characterProfile);
+    windowToModify->addEntity(searchBoxEntity);
+    windowToModify->addEntity(resultsBoxEntity);
+    windowToModify->addEntity(characterProfile);
     windowToModify->addEntity(backButton);
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
@@ -210,74 +218,87 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	net->vert(1).setPosition(150, 150);
 	net->vert(2).setPosition(200, 300);
 
-	Edge e1, e2;
-	e1.setColorRed();
-	e2.setColorGreen();
-	e1.setWeight(1);
-	e1.setRelation("");
-
-	net->setEdge(0, 1, e1);
-	net->setEdge(1, 2, e2);
-
 	NetworkRenderComponent* networkRender = new NetworkRenderComponent(*net);
 	NetworkInputCmpnt* networkInput = new NetworkInputCmpnt(*net, windowToModify->getInputHandler());
-	/* MARK: this is how you display the text in the blue box. 
-	Pass a reference of dataText to the thing thats making the PCG SMS
-	stuff call this function, passing your string to this function.*/
+	NetworkUpdateCmpnt* networkUpdate = new NetworkUpdateCmpnt(*net);
+	networkUpdate->setBounds(graphBounds->getLocalBounds());
+	networkUpdate->setDrags(networkInput->getDraggables());
 	dataText->updateString("SMS MESSAGE\n\n { Ayy lmao }");
 
 	/////////////////////////////////////////
 	/////// ENTITIES 
 	///////////////////////////////////////
-	Entity* dataBox = new Entity();
-	dataBox->addComponent(dataText);
+	Entity dataBox;
+	dataBox.addComponent(dataText);
 
-	Entity* graphBox = new Entity();
-	graphBox->addComponent(graphBounds);
-	graphBox->addComponent(networkRender);
-	graphBox->addComponent(networkInput);
+
+	Entity graphBox;
+	graphBox.addComponent(graphBounds);
+	graphBox.addComponent(networkRender);
+	graphBox.addComponent(networkInput);
+
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
-	windowToModify->addEntity(*dataBox);
-	windowToModify->addEntity(*graphBox);
+	windowToModify->addEntity(dataBox);
+	windowToModify->addEntity(graphBox);
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
 
 }
 
-void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y) {
+void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string p) {
     if (windowToModify == nullptr) { return; }
     
+    string path = resourcePath() + p;
+    char lastChar;
+    
+    if (!path.empty()){
+        lastChar = *path.rbegin();
+    }
     /////////////////////////////////////////
-    /////// COMPONENTS
+    /////// COMPONENTS & ENTITIES
     ///////////////////////////////////////
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
-    buttonRenderComponent* textRenderComponent =
+
+   /*buttonRenderComponent* textRenderComponent =
     new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
-    textRenderComponent->renderPosition(sf::Vector2f(0, 220));
+    textRenderComponent->renderPosition(sf::Vector2f(0, 220));*/
     
-    sf::Image photo;
-    photo.loadFromFile(resourcePath() + "kappa.png");
-    photoRenderComponent* photoRender = new photoRenderComponent(photo);
-    photoRender->setImageScale((float)windowToModify->getSize().x /
+    Entity newEnt;
+    
+    if(lastChar == 't'){
+        sf::Font myFont;
+        myFont.loadFromFile(resourcePath() + "consola.ttf");
+        int fontSize = 10;
+        int windowOffset = 5;
+        ifstream t(path);
+        stringstream buffer;
+        buffer << t.rdbuf();
+        string content = buffer.str();
+        textRenderComponent* textBox =
+            new textRenderComponent(myFont, content, 0, 0, fontSize);
+        newEnt.addComponent(textBox);
+    }
+    
+    else if(lastChar == 'g'){
+        sf::Image photo;
+        photo.loadFromFile(path);
+        photoRenderComponent* photoRender = new photoRenderComponent(photo);
+        photoRender->setImageScale((float)windowToModify->getSize().x /
                                (float)photo.getSize().x,
                                (float)windowToModify->getSize().y /
                                (float)photo.getSize().y);
-    
-    /////////////////////////////////////////
-    /////// ENTITIES
-    ///////////////////////////////////////
-    Entity *newEnt = new Entity();
-    newEnt->addComponent(photoRender);
+        newEnt.addComponent(photoRender);
+    }
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
     windowToModify->setPosition(x, y);
-    windowToModify->addEntity(*newEnt);
+    windowToModify->addEntity(newEnt);
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
 }
