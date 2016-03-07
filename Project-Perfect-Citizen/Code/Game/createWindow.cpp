@@ -39,7 +39,7 @@
 #include "../Game/NetworkRenderCmpnt.h"
 #include"../Game/NetworkInputCmpnt.h"
 #include"../Game/NetworkUpdateCmpnt.h"
-
+#include"../Game/PipelineLevelBuilder.h"
 using namespace ppc;
 
 
