@@ -23,7 +23,7 @@ public:
 		this->target = comfyTarget;
 	}
 	virtual bool eventHandler(sf::Event& ev) {
-		std::cout << this->id << std::endl;
+		std::count << this->id << std::endl;
 		(*target.*(this->functionPointer))(ev);
 		return true;
 	}
