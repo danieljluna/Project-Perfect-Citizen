@@ -51,7 +51,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 	else if (cmd.at(0) == "pwd") {
 		std::vector<std::string> wd = fileTree_.getPwdVector();
 		for (auto iter = wd.begin(); iter != wd.end(); ++iter) {
-			str_ = str_ + (*iter);
+			str_ = str_ + (*iter) + "/";
 		}
 		str_ = str_ + "\n";
 		++numDisplayedLines;
