@@ -39,7 +39,7 @@
 #include "../Game/NetworkRenderCmpnt.h"
 #include"../Game/NetworkInputCmpnt.h"
 #include"../Game/NetworkUpdateCmpnt.h"
-
+#include"../Game/PipelineLevelBuilder.h"
 using namespace ppc;
 
 
@@ -205,6 +205,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	/* NADER: PUT YOUR RENDER COMPONENTS HERE FOR THE GRAPH */
 	//Ask about how are we making networks to be added to the pipeline window.
+    /*
 	Network* net = new Network(3);
 
 	PipelineCharacter Bob;
@@ -217,13 +218,38 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	net->vert(0).setPosition(100, 50);
 	net->vert(1).setPosition(150, 150);
 	net->vert(2).setPosition(200, 300);
+    */
+    
+    Network* net = PipelineLevelBuilder::buildLevelOneNetworkSolution();
+
+	//No Overlapping Edges (Think of this positioning as an 8x8 grid
+	//the number after the * is the row/column number)
+	net->vert(0).setPosition(50 + 50 * 0, 50 + 50 * 0);
+	net->vert(1).setPosition(50 + 50 * 0, 50 + 50 * 7);
+	net->vert(2).setPosition(50 + 50 * 2, 50 + 50 * 1);
+	net->vert(3).setPosition(50 + 50 * 2, 50 + 50 * 6);
+	net->vert(4).setPosition(50 + 50 * 5, 50 + 50 * 1);
+	net->vert(5).setPosition(50 + 50 * 5, 50 + 50 * 6);
+	net->vert(6).setPosition(50 + 50 * 7, 50 + 50 * 0);
+	net->vert(7).setPosition(50 + 50 * 7, 50 + 50 * 7);
 
 	NetworkRenderComponent* networkRender = new NetworkRenderComponent(*net);
 	NetworkInputCmpnt* networkInput = new NetworkInputCmpnt(*net, windowToModify->getInputHandler());
 	NetworkUpdateCmpnt* networkUpdate = new NetworkUpdateCmpnt(*net);
 	networkUpdate->setBounds(graphBounds->getLocalBounds());
 	networkUpdate->setDrags(networkInput->getDraggables());
-	dataText->updateString("SMS MESSAGE\n\n { Ayy lmao }");
+	
+    int somevert = std::rand() % 8;
+	for (unsigned int i = 0; i < net->size(); ++i) {
+		if (net->isAdjacent(somevert, i)) {
+			std::vector<std::string> smsvec = net->edge(somevert, i)->getSmsData();
+			
+			for (unsigned int j = 0; j < smsvec.size(); ++j) {
+				dataText->appendString(smsvec[j] + "\n\n");
+			}
+			break;
+		}
+	}
 
 	/////////////////////////////////////////
 	/////// ENTITIES 

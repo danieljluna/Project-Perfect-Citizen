@@ -7,7 +7,7 @@
 #include <string>
 #include <stack>
 
-using namespace std;
+namespace ppc {
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Renders the pipeline meta data information
@@ -38,12 +38,6 @@ private:
 	////////////////////////////////////////////////////////////////////
 	sf::RectangleShape dataBoxBackground_;
 
-	////////////////////////////////////////////////////////////////////
-	/// @brief The pool of output to be displayed via a string
-	////////////////////////////////////////////////////////////////////
-	string str_;
-	static const int size = 128;
-
 public:
 
 
@@ -68,7 +62,7 @@ public:
 	///        display.
 	/// @param string to be rendered to the screen
 	////////////////////////////////////////////////////////////////////
-	void updateString(std::string output);
+	void appendString(const std::string& output);
 
 	////////////////////////////////////////////////////////////////////
 	/// @brief clearString deletes the contents of a string
@@ -86,5 +80,7 @@ public:
 	/// @brief Inherited recieveMessage function from render component
 	////////////////////////////////////////////////////////////////////
 	virtual void recieveMessage(msgType code) override;
+
+};
 
 };
