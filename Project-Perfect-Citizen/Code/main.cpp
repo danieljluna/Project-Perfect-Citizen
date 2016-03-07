@@ -77,14 +77,14 @@ int main(int argc, char** argv) {
 	sf::Event testEvent;
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 	////////////////////////////////////////////FUNCTION OBSERVER TESTING/////////////////////////////////
-	TestFunctionClass* cool = new TestFunctionClass();
+	TestFunctionClass cool;
 	//FunctionObserver<TestFunctionClass> c(&TestFunctionClass::callFunc); //= new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc);
 	//FunctionObserver<TestFunctionClass>* c = new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc, cool);
 	//bool coolReturnValue = (*cool.*(c->functionPointer))(testEvent);
 	//c->eventHandler(testEvent);
 
-	FreeFunctionObserver<TestFunctionClass>* d = new FreeFunctionObserver<TestFunctionClass>(&printFunc, cool);
-	d->eventHandler(testEvent);
+	FreeFunctionObserver<TestFunctionClass> d(&printFunc, &cool);
+	d.eventHandler(testEvent);
 	////////////////////////////////////////////FUNCTION OBSERVER TESTING/////////////////////////////////
 
 
