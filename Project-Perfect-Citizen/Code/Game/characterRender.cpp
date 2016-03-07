@@ -230,7 +230,7 @@ void characterRender::initializeTones() {
     skinTones.push_back(sf::Color(187,109, 74));
     skinTones.push_back(sf::Color(189,151,120));
     skinTones.push_back(sf::Color(225,173,164));
-
+    
 	hairTones.push_back(sf::Color(9, 8, 6));
 	hairTones.push_back(sf::Color(44, 34, 43));
 	hairTones.push_back(sf::Color(113, 99, 90));
