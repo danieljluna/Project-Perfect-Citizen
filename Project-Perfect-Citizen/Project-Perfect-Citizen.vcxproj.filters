@@ -205,6 +205,12 @@
     <ClCompile Include="Code\Game\photoRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\TestFunctionClass.cpp">
+      <Filter>Headers\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\FreeFunctionObserver.cpp">
+      <Filter>Sources\Engine\Input</Filter>
+      </ClCompile>
     <ClCompile Include="Code\Game\textLabelComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
@@ -438,6 +444,17 @@
     <ClInclude Include="Code\Game\PipelineDataRenderComponent.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Game\BootLoader.hpp" />
+    <ClInclude Include="Code\Game\characterRender.hpp" />
+    <ClInclude Include="Code\Game\photoRenderComponent.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\TestFunctionClass.h">
+      <Filter>Sources\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\FreeFunctionObserver.h">
+      <Filter>Headers\Engine\Input</Filter>
+      </ClInclude>
     <ClInclude Include="Code\Game\photoRenderComponent.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
