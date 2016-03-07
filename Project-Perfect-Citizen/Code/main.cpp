@@ -50,8 +50,8 @@
 //#include "Engine/FunctionObserver.h"
 #include "Game/characterRender.hpp"
 #include "Engine/debug.h"
-#include "Engine\TestFunctionClass.h"
-#include "Engine\FreeFunctionObserver.h"
+#include "Engine/TestFunctionClass.h"
+#include "Engine/FreeFunctionObserver.h"
 
 
 using namespace ppc;
