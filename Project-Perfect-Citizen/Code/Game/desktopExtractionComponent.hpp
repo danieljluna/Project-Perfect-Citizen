@@ -14,6 +14,7 @@
 #include <vector>
 
 #include "../Library/json/json.h"
+#include "../Engine/NodeState.h"
 
 namespace ppc {
     
@@ -24,7 +25,7 @@ namespace ppc {
         ///////////////////////////////////////////////////////////////////
         ///@brief constructor for crearting desktop data
         ///////////////////////////////////////////////////////////////////
-        desktopExtractionComponent();
+        desktopExtractionComponent(NodeState &fileTree_);
         
         ////////////////////////////////////////////////////////////////////
         /// @brief Builds Json::Value Object containing Desktop content and
@@ -36,7 +37,7 @@ namespace ppc {
         /// @param[in]  string              Json file name containing an
         ///                                 expressionist grammar
         ////////////////////////////////////////////////////////////////////
-        Json::Value parseDesktopAsJson(std::string file);
+        Json::Value parseDesktopAsJson(std::string file, std::string obj);
         
         ///////////////////////////////////////////////////////////////////
         /// @brief parses the JSON file and gets the appropiate file name
@@ -49,7 +50,7 @@ namespace ppc {
         void parseForFileTree(Json::Value obj, std::string folder);
         
     private:
-        
+        NodeState &fileTree_;
     };
     
 };
