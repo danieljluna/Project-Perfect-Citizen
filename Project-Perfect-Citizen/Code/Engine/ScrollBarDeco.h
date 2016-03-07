@@ -82,9 +82,11 @@ private:
 
     float barSize_;
 
-    
+    sf::RectangleShape rectangleSprite_;
 
-    sf::Shape buttonSprite_;
+    sf::RectangleShape buttonSprite_;
+
+    bool isHorizontal;
 
 
 };
