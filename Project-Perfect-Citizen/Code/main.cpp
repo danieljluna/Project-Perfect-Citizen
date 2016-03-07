@@ -47,18 +47,20 @@
 #include "Engine/Audio/AudioQueue.h"
 #include "Engine/Network.h"
 #include "Game/BootLoader.hpp"
-#include "Engine/FunctionObserver.h"
+//#include "Engine/FunctionObserver.h"
 #include "Game/characterRender.hpp"
 #include "Engine/debug.h"
-
+#include "Engine/TestFunctionClass.h"
+#include "Engine/FreeFunctionObserver.h"
 
 
 using namespace ppc;
 
-using testFunc = bool(*)(sf::Event&);
+//using testFunc = bool(*)(sf::Event&);
 
-bool printFunc(sf::Event& ev) {
+bool printFunc(TestFunctionClass* tfc, sf::Event& ev) {
 	std::cout << "inside printFunc" << std::endl;
+	tfc->callFunc(ev);
 	return true;
 }
 
@@ -72,8 +74,23 @@ int main(int argc, char** argv) {
 	DEBUGF("ac", argc);
 
     // Create the main sf::window
+	sf::Event testEvent;
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
+	////////////////////////////////////////////FUNCTION OBSERVER TESTING/////////////////////////////////
+	TestFunctionClass* cool = new TestFunctionClass();
+	//FunctionObserver<TestFunctionClass> c(&TestFunctionClass::callFunc); //= new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc);
+	//FunctionObserver<TestFunctionClass>* c = new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc, cool);
+	//bool coolReturnValue = (*cool.*(c->functionPointer))(testEvent);
+	//c->eventHandler(testEvent);
 
+	FreeFunctionObserver<TestFunctionClass>* d = new FreeFunctionObserver<TestFunctionClass>(&printFunc, cool);
+	d->eventHandler(testEvent);
+	////////////////////////////////////////////FUNCTION OBSERVER TESTING/////////////////////////////////
+
+
+
+
+	//bool coolReturnValue = (*cool.*(c->functionPointer))(sf::Event());
 	//////////////////////////SOUND STUFF//////////////////////////////
 	//AudioLocator::initialize();
 	//ppc::NullAudio dAudio;
