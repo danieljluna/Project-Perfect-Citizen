@@ -213,6 +213,7 @@
     </ClCompile>
     <ClCompile Include="Code\Game\textRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
+      <Filter>Headers\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\textLabelComponent.cpp">
       <Filter>Sources\Game</Filter>
@@ -464,6 +465,7 @@
     </ClInclude>
     <ClInclude Include="Code\Game\textRenderComponent.hpp">
       <Filter>Headers\Game</Filter>
+      <Filter>Headers\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\textLabelComponent.hpp">
       <Filter>Headers\Game</Filter>
