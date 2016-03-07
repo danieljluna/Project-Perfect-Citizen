@@ -1,5 +1,6 @@
 #pragma once
 #include "observer.h"
+#include <iostream>
 //WRITTEN BY ANDY BADEN
 ////////////////////////////////////////////////////////////////////
 ///@brief FreeFunctionObserver is a templated observer child dedicated to
