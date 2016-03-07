@@ -58,9 +58,10 @@ using namespace ppc;
 
 //using testFunc = bool(*)(sf::Event&);
 
-void printFunc(TestFunctionClass* tfc, sf::Event& ev) {
+bool printFunc(TestFunctionClass* tfc, sf::Event& ev) {
 	std::cout << "inside printFunc" << std::endl;
 	tfc->callFunc(ev);
+	return true;
 }
 
 //Note that this is placeholder for now

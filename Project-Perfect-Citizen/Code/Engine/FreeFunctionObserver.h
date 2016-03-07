@@ -21,7 +21,7 @@ private:
 	///@brief function pointer to a function that accepts a class pointer T
 	/// and an sf::Event&
 	////////////////////////////////////////////////////////////////////
-	void(*functionPointer)(T*, sf::Event&);
+	bool(*functionPointer)(T*, sf::Event&);
 public:
 	////////////////////////////////////////////////////////////////////
 	///@brief constructor for FreeFunctionObserver. Passes in the address
@@ -33,7 +33,7 @@ public:
 	///@param comfyTarget: object to be embedded in the class. Used to call
 	///myfunction inside FreeFunctionObserver::EventHandler
 	////////////////////////////////////////////////////////////////////
-	FreeFunctionObserver(void(*myFunction)(T*, sf::Event& ev), T* comfyTarget) {
+	FreeFunctionObserver(bool(*myFunction)(T*, sf::Event& ev), T* comfyTarget) {
 		this->functionPointer = myFunction;
 		this->target = comfyTarget;
 	}

@@ -1,9 +1,13 @@
 #ifndef VERTEX_H
 #define VERTEX_H
 
+
+#include <SFML/Graphics/Sprite.hpp>
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 #include "DraggableInput.h"
+
 #include "../Game/PipelineCharacter.h"
 
 namespace ppc {
@@ -24,6 +28,10 @@ private:
 	sf::Text text_;
 	sf::Font font_;
 	static const int fontSize_;
+
+
+	PipelineCharacter pipechar;
+	
 
 	PipelineCharacter char_;
 
@@ -111,6 +119,7 @@ public:
 	///////////////////////////////////////////////////////////////////////
 	virtual void draw(sf::RenderTarget& target,
 		sf::RenderStates states) const override;
+
 };
 
 
