@@ -26,17 +26,6 @@ void consoleUpdateComponent::toggleParsing() {
 void consoleUpdateComponent::executeCommand(std::vector<string> cmd) {
 	toggleParsing();
 	commandVec = cmd;
-	cout << commandVec.at(0) << endl;
-	//lastCommand = str;
-    /*string delimiter = " ";
-    size_t last = 0;
-    size_t next = 0;
-    string token;
-    while ((next = lastCommand.find(delimiter, last)) != string::npos) {
-        token = lastCommand.substr(last, next-last);
-        commandVec.push_back(token);
-        last = next + 1;
-    }*/
 }
 
 void consoleUpdateComponent::update(sf::Time& deltaTime) {
