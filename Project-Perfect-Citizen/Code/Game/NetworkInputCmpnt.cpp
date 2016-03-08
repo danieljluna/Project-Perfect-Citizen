@@ -53,11 +53,32 @@ void ppc::NetworkInputCmpnt::updateDataText() {
 	pipeRender_->clearString();
 	for (unsigned int i = 0; i < solution_->size(); ++i) {
 		if (solution_->isAdjacent(selectedVert_, i)) {
-			std::vector<std::string> smsvec = 
+			std::vector<std::vector<std::string>> smsvec = 
 				solution_->edge(selectedVert_, i)->getSmsData();
 
 			for (unsigned int j = 0; j < smsvec.size(); ++j) {
-				pipeRender_->appendString(smsvec[j] + "\n\n");
+				int charlimit = 32;
+				int currchars = 0;
+				std::string buff = "";
+				for (unsigned int k = 0; k < smsvec[j].size(); ++k) {
+					if (smsvec[j][k] == "\n") {
+						pipeRender_->appendString(buff + '\n');
+						buff = "";
+						currchars = 0;
+						continue;
+					}
+					if (currchars + smsvec[j][k].size() < charlimit) {
+						buff += smsvec[j][k] + ' ';
+						currchars += smsvec[j][k].size() + 1;
+					}
+					else {
+						pipeRender_->appendString(buff + '\n');
+						buff = smsvec[j][k] + ' ';
+						currchars = buff.size();
+					}
+				}
+				if (currchars != 0) pipeRender_->appendString(buff + "\n\n");
+				else pipeRender_->appendString("\n\n");
 			}
 		}
 	}
