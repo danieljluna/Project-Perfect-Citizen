@@ -45,6 +45,7 @@ ppc::Vertex& ppc::Vertex::operator=(const Vertex& other){
 		text_ = other.text_;
 		font_ = other.font_;
 		isSelected_ = other.isSelected_;
+		bounds_ = other.bounds_;
 	}
 	return *this;
 }
