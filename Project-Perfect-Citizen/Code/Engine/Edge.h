@@ -19,8 +19,8 @@ private:
 	sf::Color color_;
 
 	sf::FloatRect bounds_;
-	float minWidth_ = 20.f;
-	float minHeight_ = 20.f;
+	float minWidth_ = 30.f;
+	float minHeight_ = 30.f;
 
 	std::vector<std::vector<std::string>> smsData_;
 
