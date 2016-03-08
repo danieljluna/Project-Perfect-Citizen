@@ -58,12 +58,20 @@ void ppc::Edge::constructBounds(sf::Vector2f p1, sf::Vector2f p2) {
 		bounds_.width = p1.x - p2.x;
 	}
 
+	if (bounds_.width < minWidth_) {
+		bounds_.width = minWidth_;
+	}
+
 	if (p1.y < p2.y) {
 		bounds_.top = p1.y;
 		bounds_.height = p2.y - p1.y;
 	} else {
 		bounds_.top = p2.y;
 		bounds_.height = p1.y - p2.y;
+	}
+
+	if (bounds_.height < minHeight_) {
+		bounds_.height = minHeight_;
 	}
 }
 

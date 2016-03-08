@@ -3,7 +3,7 @@
 #include <vector>
 #include "../Engine/inputComponent.h"
 #include "../Engine/Network.h"
-
+#include "PipelineDataRenderComponent.h"
 
 namespace ppc {
 	///////////////////////////////////////////////////////////////////
@@ -28,6 +28,9 @@ namespace ppc {
 		void selectVert(sf::Vector2f);
 		void loopEdgeColor();
 
+		PipelineDataRenderComponent* pipeRender_;
+		void updateDataText();
+
 	public:
 
 		NetworkInputCmpnt() = delete;
@@ -35,6 +38,8 @@ namespace ppc {
 		NetworkInputCmpnt(Network&, ppc::InputHandler&);
 
 		vector<ppc::DraggableInput*>* getDraggables();
+
+		void setPipelineData(PipelineDataRenderComponent&);
 
 		virtual ~NetworkInputCmpnt();
 
