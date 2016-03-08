@@ -40,8 +40,19 @@
 #include "../Game/NetworkRenderCmpnt.h"
 #include"../Game/NetworkInputCmpnt.h"
 #include"../Game/NetworkUpdateCmpnt.h"
+
+#include "../Game/PipelineLevelBuilder.h"
+
 #include"../Game/PipelineLevelBuilder.h"
+#include"../Engine/TestFunctionClass.h"
+#include"../Engine/FreeFunctionObserver.h"
+
 using namespace ppc;
+
+bool testBackFunction(TestFunctionClass* tfc, sf::Event& ev) {
+	//tfc->callFunc(ev);
+	return true;
+}
 
 
 void ppc::spawnConsole(WindowInterface*& windowToModify,
@@ -87,7 +98,7 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     ///////////////////////////////////////
     Entity textBox;
     textBox.addComponent(textInputBox);
-   // textBox.addComponent(textRenderComponent);
+    // textBox.addComponent(textRenderComponent);
     textBox.addComponent(tik);
     textBox.addComponent(cup);
     
@@ -128,7 +139,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     
     // We probably do not need these
     
-   /* buttonRenderComponent* textRenderComponent =
+    /* buttonRenderComponent* textRenderComponent =
     new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
     textRenderComponent->renderPosition(sf::Vector2f(0, 220));*/
     
@@ -145,7 +156,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
      fontSize);*/
     
     characterRender* render = new characterRender(faceSheet);
-    float x1 =  windowToModify->getSize().x/2;
+    float x1 =  static_cast<float>(windowToModify->getSize().x/2);
     render->setOrigin(x1, 100);
     /* Create the update components */
     
@@ -169,7 +180,10 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     resultsBoxEntity.addComponent(searchResults);
 
     Entity backButton;
-    spawnBackButton(backButton, ih, buttonSheet, 0, 0, 0.2f);
+	//TODO FIX THIS
+	TestFunctionClass* cool = new TestFunctionClass();
+
+    spawnBackButton<TestFunctionClass>(backButton, ih, buttonSheet, 0, 0, 0.2f, &testBackFunction, cool);
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
@@ -204,6 +218,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 		windowToModify->getSize().y);
     
     Network* net = PipelineLevelBuilder::buildLevelOneNetworkSolution();
+
 
 	//No Overlapping Edges (Think of this positioning as an 8x8 grid
 	//the number after the * is the row/column number)

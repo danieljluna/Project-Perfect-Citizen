@@ -6,8 +6,20 @@
 
 #include <random>
 #include <ctime>
+#include <map>
+#include <string>
 
 using namespace ppc;
+
+std::map<std::string, bool> NAME_MAP = {
+	{ "A", false },{ "B", false },{ "C", false },{ "D", false },
+	{ "E", false },{ "F", false },{ "G", false },{ "H", false },
+	{ "I", false },{ "J", false },{ "K", false },{ "L", false },
+	{ "M", false },{ "N", false },{ "O", false },{ "P", false },
+	{ "Q", false },{ "R", false },{ "S", false },{ "T", false },
+	{ "U", false },{ "V", false },{ "W", false },{ "X", false },
+	{ "Y", false },{ "Z", false }
+};
 
 const int LEVEL_ONE_NUM_NODES = 8;
 const int LEVEL_ONE_NUM_EDGES = 8;
@@ -15,10 +27,16 @@ const int SMS_MESSAGES_PER_EDGE = 3;
 
 Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	Network* myNetwork = new Network(LEVEL_ONE_NUM_NODES);
-	for (int i = 0; i < LEVEL_ONE_NUM_NODES; ++i) {
+	
+	std::map<std::string, bool> usednames = NAME_MAP;
+	for (int i = 0; i < LEVEL_ONE_NUM_NODES;) {
 		PipelineCharacter newpc;
-		myNetwork->vert(i).setCharacter(newpc);
-		//add char to database here I think
+		if (usednames[newpc.getSSN().substr(0, 1)] == false) {
+			myNetwork->vert(i).setCharacter(newpc);
+			usednames[newpc.getSSN().substr(0, 1)] = true;
+			++i;
+			//add char to database here I think
+		}
 	}
 
 	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson("smsPipeline.json");
@@ -35,9 +53,10 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 
 	//int first = std::rand() % ((LEVEL_ONE_NUM_NODES - 1) / 2);
 	//int second = std::rand() % ((LEVEL_ONE_NUM_NODES) / 2) + (LEVEL_ONE_NUM_NODES - 1) / 2;
-	int first = dis(gen);
-	int second = dis(gen) + LEVEL_ONE_NUM_NODES / 2;
+	unsigned int first = dis(gen);
+	unsigned int second = dis(gen) + LEVEL_ONE_NUM_NODES / 2;
 
+	myNetwork->setCenter(first);
 
 	if (first == second) second += 1;
 
@@ -72,13 +91,13 @@ void PipelineLevelBuilder::populateLevelEdges(int start, int end, int numEdges,
 		
 		Edge thisedge;
 		if (suspLevel == -1) {
-			int weight = static_cast<float>(std::rand() % 1);
+			int weight = std::rand() % 1;
 			thisedge.setWeight(weight);
 			if (weight == 0) thisedge.setColorGreen();
 			else thisedge.setColorRed();
 		} 
 		else {
-			thisedge.setWeight(static_cast<float>(suspLevel));
+			thisedge.setWeight(suspLevel);
 			if (suspLevel == 0) thisedge.setColorGreen();
 			else thisedge.setColorRed();
 		}
