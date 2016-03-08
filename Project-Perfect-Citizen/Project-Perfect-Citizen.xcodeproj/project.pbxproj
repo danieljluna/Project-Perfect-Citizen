@@ -82,6 +82,8 @@
 		C8A5938E1C8E3AFE00036C1D /* TreeCommands.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8A593421C8E3AFE00036C1D /* TreeCommands.cpp */; };
 		C8A5938F1C8E3AFE00036C1D /* WindowBkgndRenderCmpnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8A593441C8E3AFE00036C1D /* WindowBkgndRenderCmpnt.cpp */; };
 		C8A593901C8E3AFE00036C1D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8A593461C8E3AFE00036C1D /* main.cpp */; };
+		C8A593931C8E401300036C1D /* bootLoadingAnimationRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8A593911C8E401300036C1D /* bootLoadingAnimationRender.cpp */; };
+		C8A593961C8E403900036C1D /* bootLoadingUpdateComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8A593941C8E403900036C1D /* bootLoadingUpdateComponent.cpp */; };
 		E95FCB4F1C86A14500D1800A /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAEF1C86A14400D1800A /* DoxygenHelp.txt */; };
 		E95FCB501C86A14500D1800A /* LinkHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E95FCAF01C86A14400D1800A /* LinkHelp.txt */; };
 		E95FCB9D1C86A14500D1800A /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = E95FCB401C86A14500D1800A /* EngineSettings.ini */; };
@@ -330,6 +332,10 @@
 		C8A593441C8E3AFE00036C1D /* WindowBkgndRenderCmpnt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowBkgndRenderCmpnt.cpp; sourceTree = "<group>"; };
 		C8A593451C8E3AFE00036C1D /* WindowBkgndRenderCmpnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowBkgndRenderCmpnt.h; sourceTree = "<group>"; };
 		C8A593461C8E3AFE00036C1D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
+		C8A593911C8E401300036C1D /* bootLoadingAnimationRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bootLoadingAnimationRender.cpp; sourceTree = "<group>"; };
+		C8A593921C8E401300036C1D /* bootLoadingAnimationRender.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = bootLoadingAnimationRender.hpp; sourceTree = "<group>"; };
+		C8A593941C8E403900036C1D /* bootLoadingUpdateComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bootLoadingUpdateComponent.cpp; sourceTree = "<group>"; };
+		C8A593951C8E403900036C1D /* bootLoadingUpdateComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = bootLoadingUpdateComponent.hpp; sourceTree = "<group>"; };
 		E95FCAED1C86A14400D1800A /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		E95FCAEF1C86A14400D1800A /* DoxygenHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoxygenHelp.txt; sourceTree = "<group>"; };
 		E95FCAF01C86A14400D1800A /* LinkHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LinkHelp.txt; sourceTree = "<group>"; };
@@ -680,6 +686,10 @@
 				C8A593431C8E3AFE00036C1D /* TreeCommands.h */,
 				C8A593441C8E3AFE00036C1D /* WindowBkgndRenderCmpnt.cpp */,
 				C8A593451C8E3AFE00036C1D /* WindowBkgndRenderCmpnt.h */,
+				C8A593911C8E401300036C1D /* bootLoadingAnimationRender.cpp */,
+				C8A593921C8E401300036C1D /* bootLoadingAnimationRender.hpp */,
+				C8A593941C8E403900036C1D /* bootLoadingUpdateComponent.cpp */,
+				C8A593951C8E403900036C1D /* bootLoadingUpdateComponent.hpp */,
 			);
 			name = Game;
 			path = Code/Game;
@@ -990,6 +1000,7 @@
 				C8A593751C8E3AFE00036C1D /* createDesktop.cpp in Sources */,
 				C8A5937F1C8E3AFE00036C1D /* mousePressButton.cpp in Sources */,
 				C8A593861C8E3AFE00036C1D /* PipelineGraphRenderComponent.cpp in Sources */,
+				C8A593931C8E401300036C1D /* bootLoadingAnimationRender.cpp in Sources */,
 				C8A593581C8E3AFE00036C1D /* EntityLogger.cpp in Sources */,
 				C8A5936B1C8E3AFE00036C1D /* WindowLogger.cpp in Sources */,
 				C8A5938F1C8E3AFE00036C1D /* WindowBkgndRenderCmpnt.cpp in Sources */,
@@ -1033,6 +1044,7 @@
 				C8A593881C8E3AFE00036C1D /* testRenderSprite.cpp in Sources */,
 				C8A5936C1C8E3AFE00036C1D /* world.cpp in Sources */,
 				C8A5936A1C8E3AFE00036C1D /* WindowInterface.cpp in Sources */,
+				C8A593961C8E403900036C1D /* bootLoadingUpdateComponent.cpp in Sources */,
 				C8A5935F1C8E3AFE00036C1D /* NodeState.cpp in Sources */,
 				C8A5938B1C8E3AFE00036C1D /* textLabelComponent.cpp in Sources */,
 				C8A593781C8E3AFE00036C1D /* Database.cpp in Sources */,
