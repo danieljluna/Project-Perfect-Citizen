@@ -20,6 +20,9 @@
 ///////////////////////////////////////////////////////////////////////
 
 
+namespace ppc {
+
+
 class mousePressButton: public ppc::InputComponent {
 private:
 
@@ -44,21 +47,8 @@ public:
 	///////////////////////////////////////////////////////////////////////
 	void clearObservers();
 
-	///////////////////////////////////////////////////////////////////////
-	///@brief Adds the designated FunctionObserver to the observerArray_
-	///@param the FunctionObserver to add
-	///@param the index in the array to insert the FunctionObserver
-	///////////////////////////////////////////////////////////////////////
-	template<class T>
-	void addFunctionObserver(bool(*obsFunction)(T* functionOject, sf::Event& ev), mousePressButton* mpb, unsigned int placeToInsert)
-	{
-		FreeFunctionObserver<T>* obsvrToAdd = new FreeFunctionObserver<T>(obsFunction, mpb);
-		if (placeToInsert >= observerCount_) {
-			std::cerr << "Cannot insert into index out of bounds" << std::endl;
-			return;
-		}
-		else observerArray_[placeToInsert] = obsvrToAdd;
-	}
+    template <class T>
+    friend void setOnPress(mousePressButton* mpb, T* type, bool(*onPress)(T*, sf::Event&));
 
 ///////////////////////////////////////////////////////////////////////
 //SETTERS
@@ -80,5 +70,18 @@ public:
 
 	virtual ~mousePressButton();
 	virtual bool registerInput(sf::Event& ev) override;
+
+};
+
+template<class T>
+inline void setOnPress(mousePressButton* mpb, T * type, bool(*onPress)(T *, sf::Event &)) {
+    auto currObserver = mpb->observerArray_[0];
+    ppc::Subject* sub = currObserver->watching_;
+
+    sub->addObserver(new FreeFunctionObserver(T, onPress));
+
+}
+
+
 
 };
