@@ -36,6 +36,13 @@ namespace ppc {
 
 		NetworkInputCmpnt() = delete;
 
+		///////////////////////////////////////////////////////////////
+		///@brief Ctor
+		///@param net The player's version of the Network
+		///@param sol The solution Network.
+		///@param ih The input handle of the Window the graph is going
+		///	to be in.
+		///////////////////////////////////////////////////////////////
 		NetworkInputCmpnt(Network&, Network&, ppc::InputHandler&);
 
 		vector<ppc::DraggableInput*>* getDraggables();
