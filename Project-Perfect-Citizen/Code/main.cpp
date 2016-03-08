@@ -53,6 +53,9 @@
 #include "Engine/TestFunctionClass.h"
 #include "Engine/FreeFunctionObserver.h"
 
+#include "Game/bootLoadingUpdateComponent.hpp"
+#include "Game/bootLoadingAnimationRender.hpp"
+
 
 using namespace ppc;
 
@@ -184,6 +187,31 @@ int main(int argc, char** argv) {
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
 	///////////////////////////////////////////////////////////////////
 
+    //------------------------------------------------------------------
+    // UNCOMMENT THIS BLOCK FOR BOOT WINDOW
+    //------------------------------------------------------------------
+    
+    /*Window* bootWindow = new Window(1800,1000,sf::Color(30,32,33));
+    
+    Entity loading;
+    
+    bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(spriteSheet,7,5);
+    buttonRenderComponent* dcps =  new buttonRenderComponent(spriteSheet, 6, 6, 1, 0);
+    dcps->setImageScale(2.0f, 2.0f);
+    dcps->renderPosition(sf::Vector2f(355,200));
+
+    
+    bootLoadingUpdateComponent* bootUpdate = new bootLoadingUpdateComponent(*bootRender,*dcps,0.1f);
+    loading.addComponent(bootRender);
+    loading.addComponent(bootUpdate);
+    loading.addComponent(dcps);
+    bootWindow->addEntity(loading);
+    
+    myDesktop.addWindow(bootWindow);*/
+    
+    //------------------------------------------------------------------
+    
+    
     //////////////////////////////////////////////////////////
     ///// TEMPORARY BOOT LOADING SCREEN SETUP
     /////////////////////////////////////////////////////////
