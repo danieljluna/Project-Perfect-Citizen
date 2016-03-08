@@ -33,6 +33,10 @@ private:
     sf::Int32 mouseTime;
 	bool isCollision(sf::Vector2i);
 
+    Subject onPress_;
+    Subject onDoublePress_;
+    Subject onRelease_;
+
 public:
 
 	mousePressButton();
@@ -74,16 +78,19 @@ public:
 	virtual ~mousePressButton();
 	virtual bool registerInput(sf::Event& ev) override;
 
+
+    Subject& onClick() { return onPress_; };
+    Subject& onDblClick() { return onDoublePress_; };
+    Subject& onRelease() { return onRelease_; };
+
 };
 
 template<class T>
 inline void setOnPress(mousePressButton* mpb, T * objPtr, bool(*onPress)(T *, sf::Event &)) {
-    auto currObserver = mpb->observerArray_[0];
-    ppc::Subject* sub = currObserver->isWatching();
 
     FreeFunctionObserver<T>* fnObsvr = new FreeFunctionObserver<T>(onPress, objPtr);
 
-    sub->addObserver(fnObsvr);
+    mpb->onRelease().addObserver(fnObsvr);
 
 }
 
