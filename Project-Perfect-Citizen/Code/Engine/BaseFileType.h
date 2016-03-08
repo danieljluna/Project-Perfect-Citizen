@@ -4,6 +4,7 @@
 #include <vector>
 #include <map>
 #include <String>
+#include "subject.h"
 //using namespace std;
 
 namespace ppc {
@@ -67,7 +68,13 @@ namespace ppc {
 		///encrypted
 		///////////////////////////////////////////////
 		bool encrypted = false;
+		//////////////////////////////////////////////
+		///@brief string representation of what
+		///ls will output
+		//////////////////////////////////////////////
 		std::string baseDirString = "";
+		ppc::Subject* fileSubject = nullptr;
+		bool sealed = true;
 	public:
 		///////////////////////////////////////////////
 		///@brief assigns Json string to jSonString;
@@ -129,5 +136,7 @@ namespace ppc {
 		///@brief returns the status of BaseFileType::encrypted
 		///////////////////////////////////////////////
 		virtual bool isEncrypted();
+		
+		virtual ppc::Subject* getSubject() { return fileSubject; };
 	};
 };

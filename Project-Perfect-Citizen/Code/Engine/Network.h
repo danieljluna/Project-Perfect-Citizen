@@ -44,6 +44,31 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////
         ~Network();
 
+		///////////////////////////////////////////////////////////////////
+		// Solution Checking
+		///////////////////////////////////////////////////////////////////
+
+		///////////////////////////////////////////////////////////////////
+		/// @brief Center Equality Check
+		/// @details compares another network graph to this one, and checks
+		///     if their node labled "center" is the same.  Naive checking
+		///     currently.  Only checks if the graphs are same size and have
+		///     the same center index.  Does not investigate content of nodes
+		///     so it's up to the programmer to make sure the graphs being
+		///     compared make sense.
+		/// @param [in] other A network graph
+		///////////////////////////////////////////////////////////////////
+		bool checkCenterEquality(const Network& other);
+
+		///////////////////////////////////////////////////////////////////
+		/// @brief Edge Equality Check
+		/// @details Loops through all nodes, looking at all edges attached
+		///     to that node in both graphs.  Assumes equivalent nodes have 
+		///     same indeces in both graphs.  Assumes the player has run a
+		///     Center Equality Check.
+		/// @param [in] other A network graph
+		///////////////////////////////////////////////////////////////////
+		float checkEdgeEquality(const Network& other);
 
 		///////////////////////////////////////////////////////////////
         // Vertex Manipulation
@@ -58,6 +83,11 @@ namespace ppc {
 		///@brief Return a new copy of this network with only the vertices
 		///////////////////////////////////////////////////////////////
 		Network* copyNetworkByVerts();
+
+		///////////////////////////////////////////////////////////////////
+		/// @brief Set the index for the network's "Center"
+		///////////////////////////////////////////////////////////////////
+		void setCenter(unsigned int cent);
 
 		///////////////////////////////////////////////////////////////
         // Edge Manipulation
@@ -179,6 +209,11 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////
         size_t size() const;
 
+		///////////////////////////////////////////////////////////////////
+		/// @brief Returns the index of the graph's "center"
+		///////////////////////////////////////////////////////////////////
+		unsigned int getCenter() const;
+
 
     private:
 
@@ -224,6 +259,7 @@ namespace ppc {
 
         unsigned int edgeCount_;
 
+		unsigned int center_;
 
     };
 

@@ -27,6 +27,7 @@
 #include "../Game/databaseSearchRenderComponent.h"
 #include "../Game/databaseSearchInputComponent.h"
 #include "../Game/databaseDisplayRenderComponent.h"
+#include "../Game/Inbox.h"
 
 #include "../Engine/debug.h"
 #include "../Game/characterRender.hpp"
@@ -39,8 +40,19 @@
 #include "../Game/NetworkRenderCmpnt.h"
 #include"../Game/NetworkInputCmpnt.h"
 #include"../Game/NetworkUpdateCmpnt.h"
+
+#include "../Game/PipelineLevelBuilder.h"
+
 #include"../Game/PipelineLevelBuilder.h"
+#include"../Engine/TestFunctionClass.h"
+#include"../Engine/FreeFunctionObserver.h"
+
 using namespace ppc;
+
+bool testBackFunction(TestFunctionClass* tfc, sf::Event& ev) {
+	//tfc->callFunc(ev);
+	return true;
+}
 
 
 void ppc::spawnConsole(WindowInterface*& windowToModify,
@@ -86,7 +98,7 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     ///////////////////////////////////////
     Entity textBox;
     textBox.addComponent(textInputBox);
-   // textBox.addComponent(textRenderComponent);
+    // textBox.addComponent(textRenderComponent);
     textBox.addComponent(tik);
     textBox.addComponent(cup);
     
@@ -127,7 +139,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     
     // We probably do not need these
     
-   /* buttonRenderComponent* textRenderComponent =
+    /* buttonRenderComponent* textRenderComponent =
     new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
     textRenderComponent->renderPosition(sf::Vector2f(0, 220));*/
     
@@ -144,7 +156,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
      fontSize);*/
     
     characterRender* render = new characterRender(faceSheet);
-    float x1 =  windowToModify->getSize().x/2;
+    float x1 =  static_cast<float>(windowToModify->getSize().x/2);
     render->setOrigin(x1, 100);
     /* Create the update components */
     
@@ -168,7 +180,10 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     resultsBoxEntity.addComponent(searchResults);
 
     Entity backButton;
-    spawnBackButton(backButton, ih, buttonSheet, 0, 0, 0.2f);
+	//TODO FIX THIS
+	TestFunctionClass* cool = new TestFunctionClass();
+
+    spawnBackButton<TestFunctionClass>(backButton, ih, buttonSheet, 0, 0, 0.2f, &testBackFunction, cool);
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
@@ -202,8 +217,10 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	PipelineGraphRenderComponent* graphBounds = new PipelineGraphRenderComponent(0, 0, dataWindowX,
 		windowToModify->getSize().y);
     
+
     Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 	Network* playNet = solNet->copyNetworkByVerts();
+
 	//No Overlapping Edges (Think of this positioning as an 8x8 grid
 	//the number after the * is the row/column number)
 	playNet->vert(0).setPosition(50 + 50 * 0, 50 + 50 * 0);
@@ -304,4 +321,75 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
 }
 
+void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y) {
+	/* Check to make sure the window passed isn't null */
+	if (windowToModify == nullptr) { return; }
+
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 20;
+	int windowOffset = 5;
+	int emailBoxElementWidth = windowToModify->getSize().x;
+	int emailBoxElementHeight = 50;
+
+
+	Inbox theInbox;
+	Email testEmail1("alex", "brandon", "Long time no see!", "hello there friend!", "image.jpg");
+	Email testEmail2("brandon", "alex", "RE: Long time no see!", "hi how are you?", "image2.jpg");
+	Email testEmail3("alex", "brandon", "RE: RE: Long time no see!", "great! got to go!", "image3.jpg");
+	
+	theInbox.addEmailToList(testEmail1);
+	theInbox.addEmailToList(testEmail2);
+	theInbox.addEmailToList(testEmail3);
+
+	/////////////////////////////////////////
+	/////// ENTITIES
+	///////////////////////////////////////
+	/* Create an email list element entity for each email in the inbox*/
+	for (int i = 0; i < theInbox.getInboxSize(); ++i) {
+		Entity emailListElement;
+		createEmailListElement(
+			emailListElement, dT, buttonSheet, ih, myFont, theInbox.getEmailAt(i), 0, (i * 100),
+			emailBoxElementWidth, emailBoxElementHeight, 0, (i * 100), fontSize);
+		windowToModify->addEntity(emailListElement);
+	}
+
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+
+	windowToModify = new BorderDecorator(*windowToModify);
+	windowToModify->setPosition(x, y);
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+
+}
+void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email& mail, sf::Image& buttonSheet, float x, float y) {
+	/* Check to make sure the window passed isn't null */
+	if (windowToModify == nullptr) { return; }
+
+	/////////////////////////////////////////
+	/////// COMPONENTS
+	///////////////////////////////////////
+	
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 20;
+	int windowOffset = 5;
+
+	emailMessageRenderComponent* eMRC = new emailMessageRenderComponent(myFont, mail, 0, 0, fontSize);
+
+
+	/////////////////////////////////////////
+	/////// ENTITIES
+	///////////////////////////////////////
+	Entity emailMessageDisplayBox;
+	emailMessageDisplayBox.addComponent(eMRC);
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+	windowToModify->addEntity(emailMessageDisplayBox);
+	windowToModify->setPosition(x, y);
+	windowToModify = new BorderDecorator(*windowToModify);
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+}
 

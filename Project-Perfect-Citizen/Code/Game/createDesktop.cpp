@@ -32,17 +32,15 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	////////////////////////////////
 	Entity ConsoleIcon;
 	Entity FolderIcon;
-	Entity BrowserIcon;
-	Entity ChatIcon;
 	Entity DataGraphIcon;
 	Entity HardDriveIcon;
 	Entity SettingsIcon;
 	Entity SearchIcon;
+	Entity EmailIcon;
 
 	spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 25.0f, 0.5f, 0.25f);
 	spawnFolderIcon(FolderIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 25.0f, 110.0f, 0.5f, 0.25f);
-	spawnBrowserIcon(BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 25.0f, 185.0f, 0.5f, 0.25f);
-	spawnChatIcon(ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 260.0f, 0.5f, 0.25f);
+	spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 185.0f, 0.5f, 0.25f);
 	spawnDataGraphIcon(DataGraphIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 335.0f, 0.5f, 0.25f);
 	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 410.0f, 0.5f, 0.25f);
 	spawnSettingsIcon(SettingsIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 485.0f, 0.5f, 0.25f);
@@ -50,12 +48,11 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 
 	desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(FolderIcon);
-	desktopWindowToModify.addEntity(BrowserIcon);
-	desktopWindowToModify.addEntity(ChatIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
 	desktopWindowToModify.addEntity(HardDriveIcon);
 	desktopWindowToModify.addEntity(SettingsIcon);
 	desktopWindowToModify.addEntity(SearchIcon);
+	desktopWindowToModify.addEntity(EmailIcon);
 
 }
 

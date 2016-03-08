@@ -160,5 +160,20 @@ void spawnHardDriveIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, D
 ///////////////////////////////////////////////////////////////////////
 void spawnConsoleIcon(Entity& entityToModify, Desktop& dt, InputHandler& ih, Database& db, sf::Image& spriteSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
 
+//////////////////////////////////////////////////////////////////////
+/// @brief Turns the passed entity into a useable email Icon
+///
+///@param The newly created entity to add components to.
+///@param The desktop in which to link the file tree to the console
+///@param The input handler of desktop window
+///@param The spritesheet from which to load the icon
+///@param The spritesheet of the new window's buttons in the border
+///@param The desired x position of the icon
+///@param The desired y position of the icon
+///@param The desired scaled size of the icon
+///@param The desired animation speed of the icon
+///////////////////////////////////////////////////////////////////////
+void spawnEmailIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed);
+
 };
 

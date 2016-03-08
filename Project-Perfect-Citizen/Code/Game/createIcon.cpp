@@ -243,5 +243,32 @@ void ppc::spawnConsoleIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih
 
 }
 
+void ppc::spawnEmailIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+
+
+	/// Label Component ///
+	sf::Font font;
+	font.loadFromFile(resourcePath() + "consola.ttf");
+
+	textLabelComponent* label = new textLabelComponent(font, x, y + size * 128, 20, "Email");
+
+	/// Render Component ///
+	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 10, 1, 2);
+	IconRender->setImageScale(size, size);
+	IconRender->renderPosition(sf::Vector2f(x, y));
+
+	// Animator (Update) Component ///
+	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
+
+	/// Input Components ///
+	mousePressButton* mpbIcon = new mousePressButton(ih, IconRender->getSprite()->getGlobalBounds(), "emailIcon");
+	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, buttonSheet);
+	entityToModify.addComponent(IconRender);
+	entityToModify.addComponent(label);
+	entityToModify.addComponent(animator);
+	entityToModify.addComponent(mpbIcon);
+	entityToModify.addComponent(iconInputComp);
+
+}
 
 

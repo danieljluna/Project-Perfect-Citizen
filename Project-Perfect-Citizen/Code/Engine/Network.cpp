@@ -34,6 +34,26 @@ Network::~Network() {
     delete[] vertexData_;
 }
 
+///////////////////////////////////////////////////////////////////
+// Solution Checking
+///////////////////////////////////////////////////////////////////
+bool Network::checkCenterEquality(const Network& other) {
+	if (size_ != other.size()) return false;
+	return (center_ == other.getCenter());
+}
+
+float Network::checkEdgeEquality(const Network& other) {
+	float numEdges = 0.f;
+	float numVisited = 0.f;
+	for (unsigned int i = 0; i < size_; ++i) {
+		for (unsigned int j = i + 1; j < size_; ++j) {
+			numVisited += 1;
+			if (isAdjacent(i, j) == other.isAdjacent(i, j)) numEdges += 1;
+		}
+	}
+	return numEdges/numVisited;
+}
+
 
 
 
@@ -87,6 +107,11 @@ Network * ppc::Network::copyNetworkByVerts() {
 		newNet->vert(i) = vert(i);
 	}
 	return newNet;
+}
+
+
+void Network::setCenter(unsigned int cent) {
+	center_ = cent;
 }
 
 
@@ -228,7 +253,9 @@ size_t Network::size() const {
     return size_;
 }
 
-
+unsigned int Network::getCenter() const {
+	return center_;
+}
 
 
 ///////////////////////////////////////////////////////////////////////
