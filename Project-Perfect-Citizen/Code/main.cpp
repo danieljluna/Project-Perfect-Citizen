@@ -89,8 +89,9 @@ bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
 				// Boots player to teacher desktop
 				//return false;
 			//}
-			if (event.type == sf::Event::Closed)
+			if (event.type == sf::Event::Closed) {
 				screen.close();
+			}	
 
 			//Input phase
 			myDesktop.registerInput(event);
@@ -107,7 +108,7 @@ bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
 		screen.draw(myDesktop);
 		screen.display();
 	}
-	return true;
+	return false;
 
 }
 
@@ -144,7 +145,7 @@ bool runTargetDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
 			screen.draw(myDesktop);
 			screen.display();
 		}
-		return true;
+		return false;
 }
 
 int main(int argc, char** argv) {
