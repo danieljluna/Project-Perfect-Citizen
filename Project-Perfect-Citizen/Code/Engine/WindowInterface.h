@@ -268,7 +268,7 @@ public:
     ///////////////////////////////////////////////////////////////////
     void close() { closed_ = true; };
 
-    bool isOpen() const { return closed_; };
+    bool isOpen() const { return !closed_; };
 
 
 protected:
