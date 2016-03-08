@@ -16,6 +16,7 @@ const string OPEN_THE_PIPELINE = "OTP";
 const string OPEN_THE_HELP = "OTH";
 const string OPEN_THE_BROWSER = "OTB";
 const string OPEN_THE_EXPLORER = "OTE";
+const string OPEN_THE_EMAIL = "OTEM";
 
 const float DOUBLE_CLICK_TIME = 500.0f;
 
@@ -106,39 +107,33 @@ bool mousePressButton::registerInput(sf::Event& ev) {
                 } else if (mouseTime < DOUBLE_CLICK_TIME) {
 					if (isBeingPressed == "folderIcon") {
 						getEntity()->broadcastMessage(OPEN_THE_FILE);
-						cout << "double clicked a file folder" << endl;
 					}
 					else if (isBeingPressed == "settingsIcon") {
 						getEntity()->broadcastMessage(OPEN_THE_SETTINGS);
-						cout << "double clicked settings" << endl;
 					}
 					else if (isBeingPressed == "chatIcon") {
 						getEntity()->broadcastMessage(OPEN_THE_CHAT);
-						cout << "double clicked chat" << endl;
 					}
 					else if (isBeingPressed == "searchIcon") {
 						getEntity()->broadcastMessage(OPEN_THE_SEARCH);
-						cout << "double clicked search" << endl;	
 					}
 					else if (isBeingPressed == "dataGraphIcon") {
 						getEntity()->broadcastMessage(OPEN_THE_PIPELINE);
-						cout << "double clicked datagraph" << endl;
 					}
 					else if (isBeingPressed == "helpIcon") {
 						getEntity()->broadcastMessage(OPEN_THE_HELP);
-						cout << "double clicked help" << endl;
 					}
 					else if (isBeingPressed == "browserIcon") {
 						getEntity()->broadcastMessage(OPEN_THE_BROWSER);
-						cout << "double clicked browser" << endl;
 					}
 					else if (isBeingPressed == "hardDriveIcon") {
 						getEntity()->broadcastMessage(OPEN_THE_EXPLORER);
-						cout << "double clicked hard drive" << endl;
 					}
 					else if (isBeingPressed == "consoleIcon") {
 						getEntity()->broadcastMessage(OPEN_THE_CONSOLE);
-						cout << "double clicked console" << endl;
+					}
+					else if (isBeingPressed == "emailIcon") {
+						getEntity()->broadcastMessage(OPEN_THE_EMAIL);
 					}
                     //cout << "Double clicked on an entity with MPB!" << endl;
                     getEntity()->broadcastMessage(

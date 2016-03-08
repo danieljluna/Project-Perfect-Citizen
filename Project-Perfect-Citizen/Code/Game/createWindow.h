@@ -7,6 +7,8 @@
 #include "Database.h"
 #include "createButton.h"
 #include "../Game/databaseSearchInputComponent.h"
+#include "createListElement.h"
+#include "emailMessageRenderComponent.h"
 
 
 
@@ -53,7 +55,42 @@ void spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Database*
 ///////////////////////////////////////////////////////////////////////
 void spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
         sf::Image& buttonSheet, float x, float y);
-    
+
+///////////////////////////////////////////////////////////////////////
+///@brief Constructs a file window on the WindowInterface passed.
+///
+///@param The newly created window to add components/entities to.
+///@param The input handler of the listened-to window.
+///@param The file tree to read from
+///@param Sprite sheet of it's border component's buttons
+///@param The x position of the new window
+///@param The y position of the new window
+///@param The resource path to load the new file
+///////////////////////////////////////////////////////////////////////
 void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string path);
+
+///////////////////////////////////////////////////////////////////////
+///@brief Constructs an inbox window on the WindowInterface passed.
+///
+///@param The desktop to make new email windows unto
+///@param The newly created window to add components/entities to.
+///@param The input handler of the listened-to window.
+///@param Sprite sheet of it's border component's buttons
+///@param The x position of the new window
+///@param The y position of the new window
+///////////////////////////////////////////////////////////////////////
+void spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y);
+
+///////////////////////////////////////////////////////////////////////
+///@brief Constructs a generic email window on the WindowInterface passed.
+///
+///@param The newly created window to add components/entities to.
+///@param The input handler of the listened-to window.
+///@param The email object to read the contents of
+///@param Sprite sheet of it's border component's buttons
+///@param The x position of the new window
+///@param The y position of the new window
+///////////////////////////////////////////////////////////////////////
+void spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email& eM, sf::Image& buttonSheet, float x, float y);
 };
 
