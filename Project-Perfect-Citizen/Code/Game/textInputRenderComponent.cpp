@@ -11,8 +11,8 @@
 
 const string TEXT_KEY_INPUT = "TKI";
 
-textInputRenderComponent::textInputRenderComponent(sf::Font& f, 
-	int x, int y, int size):font(f) {
+textInputRenderComponent::textInputRenderComponent(ppc::NodeState& fT, sf::Font& f, 
+	int x, int y, int size): fileTree_(fT), font(f) {
 
 	this->text = new sf::Text();
     
@@ -30,7 +30,15 @@ textInputRenderComponent::~textInputRenderComponent() {
 }
 
 void textInputRenderComponent::updateString(string s) {
-    str = s;
+	str = s;
+	vector<string> pwd_vector = fileTree_.getPwdVector();
+	string pwd = "C:/";
+
+	for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {
+		pwd += *iter;
+		pwd.push_back('/');
+	}
+	str = pwd + str;
 	text->setString(str + "|");
 }
 
@@ -41,7 +49,7 @@ void textInputRenderComponent::draw( sf::RenderTarget& target,
 
 void textInputRenderComponent::recieveMessage(msgType code) {
   
-    if(code.compare(TEXT_KEY_INPUT) == 0){
-        
+    if(code.compare("UPDATEPROMPT") == 0){
+		updateString("> ");
     }
 }

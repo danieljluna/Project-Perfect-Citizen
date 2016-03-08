@@ -69,12 +69,11 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     
     sf::Font myFont;
     myFont.loadFromFile(resourcePath() + "consola.ttf");
-    int fontSize = 24;
+    int fontSize = 20;
     int windowOffset = 5;
     
     textInputRenderComponent* textInputBox =
-    new textInputRenderComponent(myFont, 0,
-             
+    new textInputRenderComponent(ns, myFont, 0,
                                  windowToModify->getSize().y - (fontSize+windowOffset),
                                  fontSize);
     textOutputRenderComponent* textDisplayBox =
