@@ -27,6 +27,7 @@
 #include "../Game/databaseSearchRenderComponent.h"
 #include "../Game/databaseSearchInputComponent.h"
 #include "../Game/databaseDisplayRenderComponent.h"
+#include "../Game/Inbox.h"
 
 #include "../Engine/debug.h"
 #include "../Game/characterRender.hpp"
@@ -39,9 +40,13 @@
 #include "../Game/NetworkRenderCmpnt.h"
 #include"../Game/NetworkInputCmpnt.h"
 #include"../Game/NetworkUpdateCmpnt.h"
+
+#include "../Game/PipelineLevelBuilder.h"
+
 #include"../Game/PipelineLevelBuilder.h"
 #include"../Engine/TestFunctionClass.h"
 #include"../Engine/FreeFunctionObserver.h"
+
 using namespace ppc;
 
 bool testBackFunction(TestFunctionClass* tfc, sf::Event& ev) {
@@ -93,7 +98,7 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     ///////////////////////////////////////
     Entity textBox;
     textBox.addComponent(textInputBox);
-   // textBox.addComponent(textRenderComponent);
+    // textBox.addComponent(textRenderComponent);
     textBox.addComponent(tik);
     textBox.addComponent(cup);
     
@@ -132,7 +137,6 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     faceSheet.loadFromFile(resourcePath() + "Face_Sheet.png");
     
     
-    
     databaseDisplayRenderComponent* searchResults =
     new databaseDisplayRenderComponent(myFont, faceSheet, 0, fontSize + 5, fontSize - 10);
     
@@ -141,7 +145,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     databaseSearchRenderComponent* searchBox = new databaseSearchRenderComponent(myFont, 75, 0, fontSize);
     
     characterRender* render = new characterRender(faceSheet);
-    float x1 =  windowToModify->getSize().x/2;
+    float x1 =  static_cast<float>(windowToModify->getSize().x/2);
     render->setOrigin(x1, 100);
     /* Create the update components */
     
@@ -188,7 +192,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
-	int fontSize = 20;
+	int fontSize = 14;
 	int dataWindowX = (2 * windowToModify->getSize().x) / 3;
 
 	/////////////////////////////////////////
@@ -201,55 +205,34 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	PipelineGraphRenderComponent* graphBounds = new PipelineGraphRenderComponent(0, 0, dataWindowX,
 		windowToModify->getSize().y);
-
-	/* NADER: PUT YOUR RENDER COMPONENTS HERE FOR THE GRAPH */
-	//Ask about how are we making networks to be added to the pipeline window.
-    /*
-	Network* net = new Network(3);
-
-	PipelineCharacter Bob;
-	PipelineCharacter Tim;
-	PipelineCharacter Rob;
-
-	net->vert(0).setCharacter(Bob);
-	net->vert(1).setCharacter(Tim);
-	net->vert(2).setCharacter(Rob);
-	net->vert(0).setPosition(100, 50);
-	net->vert(1).setPosition(150, 150);
-	net->vert(2).setPosition(200, 300);
-    */
     
-    Network* net = PipelineLevelBuilder::buildLevelOneNetworkSolution();
+
+    Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
+	Network* playNet = solNet->copyNetworkByVerts();
+	playNet->setCenter(0);
 
 	//No Overlapping Edges (Think of this positioning as an 8x8 grid
 	//the number after the * is the row/column number)
-	net->vert(0).setPosition(50 + 50 * 0, 50 + 50 * 0);
-	net->vert(1).setPosition(50 + 50 * 0, 50 + 50 * 7);
-	net->vert(2).setPosition(50 + 50 * 2, 50 + 50 * 1);
-	net->vert(3).setPosition(50 + 50 * 2, 50 + 50 * 6);
-	net->vert(4).setPosition(50 + 50 * 5, 50 + 50 * 1);
-	net->vert(5).setPosition(50 + 50 * 5, 50 + 50 * 6);
-	net->vert(6).setPosition(50 + 50 * 7, 50 + 50 * 0);
-	net->vert(7).setPosition(50 + 50 * 7, 50 + 50 * 7);
+	playNet->vert(0).setPosition(50 + 50 * 0, 50 + 50 * 0);
+	playNet->vert(1).setPosition(50 + 50 * 0, 50 + 50 * 7);
+	playNet->vert(2).setPosition(50 + 50 * 2, 50 + 50 * 1);
+	playNet->vert(3).setPosition(50 + 50 * 2, 50 + 50 * 6);
+	playNet->vert(4).setPosition(50 + 50 * 5, 50 + 50 * 1);
+	playNet->vert(5).setPosition(50 + 50 * 5, 50 + 50 * 6);
+	playNet->vert(6).setPosition(50 + 50 * 7, 50 + 50 * 0);
+	playNet->vert(7).setPosition(50 + 50 * 7, 50 + 50 * 7);
 
-	NetworkRenderComponent* networkRender = new NetworkRenderComponent(*net);
-	NetworkInputCmpnt* networkInput = new NetworkInputCmpnt(*net, windowToModify->getInputHandler());
-	NetworkUpdateCmpnt* networkUpdate = new NetworkUpdateCmpnt(*net);
+	NetworkRenderComponent* networkRender = 
+		new NetworkRenderComponent(*playNet);
+	NetworkInputCmpnt* networkInput = 
+		new NetworkInputCmpnt(*playNet, *solNet, windowToModify->getInputHandler());
+	//Always need to call this setter.
+	networkInput->setPipelineData(*dataText);
+	NetworkUpdateCmpnt* networkUpdate = new NetworkUpdateCmpnt(*playNet);
+	//Always need to call these setters
 	networkUpdate->setBounds(graphBounds->getLocalBounds());
 	networkUpdate->setDrags(networkInput->getDraggables());
 	
-    int somevert = std::rand() % 8;
-	for (unsigned int i = 0; i < net->size(); ++i) {
-		if (net->isAdjacent(somevert, i)) {
-			std::vector<std::string> smsvec = net->edge(somevert, i)->getSmsData();
-			
-			for (unsigned int j = 0; j < smsvec.size(); ++j) {
-				dataText->appendString(smsvec[j] + "\n\n");
-			}
-			break;
-		}
-	}
-
 	/////////////////////////////////////////
 	/////// ENTITIES 
 	///////////////////////////////////////
@@ -261,7 +244,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	graphBox.addComponent(graphBounds);
 	graphBox.addComponent(networkRender);
 	graphBox.addComponent(networkInput);
-
+	graphBox.addComponent(networkUpdate);
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
@@ -328,4 +311,75 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
 }
 
+void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y) {
+	/* Check to make sure the window passed isn't null */
+	if (windowToModify == nullptr) { return; }
+
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 20;
+	int windowOffset = 5;
+	int emailBoxElementWidth = windowToModify->getSize().x;
+	int emailBoxElementHeight = 50;
+
+
+	Inbox theInbox;
+	Email testEmail1("alex", "brandon", "Long time no see!", "hello there friend!", "image.jpg");
+	Email testEmail2("brandon", "alex", "RE: Long time no see!", "hi how are you?", "image2.jpg");
+	Email testEmail3("alex", "brandon", "RE: RE: Long time no see!", "great! got to go!", "image3.jpg");
+	
+	theInbox.addEmailToList(testEmail1);
+	theInbox.addEmailToList(testEmail2);
+	theInbox.addEmailToList(testEmail3);
+
+	/////////////////////////////////////////
+	/////// ENTITIES
+	///////////////////////////////////////
+	/* Create an email list element entity for each email in the inbox*/
+	for (int i = 0; i < theInbox.getInboxSize(); ++i) {
+		Entity emailListElement;
+		createEmailListElement(
+			emailListElement, dT, buttonSheet, ih, myFont, theInbox.getEmailAt(i), 0, (i * 100),
+			emailBoxElementWidth, emailBoxElementHeight, 0, (i * 100), fontSize);
+		windowToModify->addEntity(emailListElement);
+	}
+
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+
+	windowToModify = new BorderDecorator(*windowToModify);
+	windowToModify->setPosition(x, y);
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+
+}
+void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email& mail, sf::Image& buttonSheet, float x, float y) {
+	/* Check to make sure the window passed isn't null */
+	if (windowToModify == nullptr) { return; }
+
+	/////////////////////////////////////////
+	/////// COMPONENTS
+	///////////////////////////////////////
+	
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 20;
+	int windowOffset = 5;
+
+	emailMessageRenderComponent* eMRC = new emailMessageRenderComponent(myFont, mail, 0, 0, fontSize);
+
+
+	/////////////////////////////////////////
+	/////// ENTITIES
+	///////////////////////////////////////
+	Entity emailMessageDisplayBox;
+	emailMessageDisplayBox.addComponent(eMRC);
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+	windowToModify->addEntity(emailMessageDisplayBox);
+	windowToModify->setPosition(x, y);
+	windowToModify = new BorderDecorator(*windowToModify);
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+}
 

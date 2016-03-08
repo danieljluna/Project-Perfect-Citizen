@@ -7,7 +7,9 @@ PipelineGraphRenderComponent::PipelineGraphRenderComponent(
 	/* The background */
 	graphBoxBackground_.setPosition(sf::Vector2f(x, y));
 	graphBoxBackground_.setSize(sf::Vector2f(backgroundWidth, backgroundHeight));
-	graphBoxBackground_.setFillColor(sf::Color::Black);
+
+	//Want the color for this to be 0x80F6FF.
+	graphBoxBackground_.setFillColor(sf::Color(0x80F6FF));
 }
 
 
