@@ -8,6 +8,7 @@
 #include "../Engine/Entity.h"
 #include "../Engine/subject.h"
 #include "../Engine/FunctionObserver.h"
+#include "../Engine/FreeFunctionObserver.h"
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -48,7 +49,9 @@ public:
 	void clearObservers();
 
     template <class T>
-    friend void setOnPress(mousePressButton* mpb, T* type, bool(*onPress)(T*, sf::Event&));
+    friend void setOnPress(mousePressButton* mpb,
+                           T* objPtr,
+                           bool(*onPress)(T*, sf::Event&));
 
 ///////////////////////////////////////////////////////////////////////
 //SETTERS
@@ -74,11 +77,13 @@ public:
 };
 
 template<class T>
-inline void setOnPress(mousePressButton* mpb, T * type, bool(*onPress)(T *, sf::Event &)) {
+inline void setOnPress(mousePressButton* mpb, T * objPtr, bool(*onPress)(T *, sf::Event &)) {
     auto currObserver = mpb->observerArray_[0];
-    ppc::Subject* sub = currObserver->watching_;
+    ppc::Subject* sub = currObserver->isWatching();
 
-    sub->addObserver(new FreeFunctionObserver(T, onPress));
+    FreeFunctionObserver<T>* fnObsvr = new FreeFunctionObserver<T>(onPress, objPtr);
+
+    sub->addObserver(fnObsvr);
 
 }
 

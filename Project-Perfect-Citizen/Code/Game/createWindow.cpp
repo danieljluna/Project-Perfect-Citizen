@@ -132,12 +132,6 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     faceSheet.loadFromFile(resourcePath() + "Face_Sheet.png");
     
     
-    // We probably do not need these
-    
-   /* buttonRenderComponent* textRenderComponent =
-    new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
-    textRenderComponent->renderPosition(sf::Vector2f(0, 220));*/
-    
     
     databaseDisplayRenderComponent* searchResults =
     new databaseDisplayRenderComponent(myFont, faceSheet, 0, fontSize + 5, fontSize - 10);
@@ -145,10 +139,6 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     
     /* Create the input components */
     databaseSearchRenderComponent* searchBox = new databaseSearchRenderComponent(myFont, 75, 0, fontSize);
-    
-    /*databaseSearchRenderComponent* searchBox = new databaseSearchRenderComponent(myFont, 0,
-     windowToModify->getSize().y - (fontSize + windowOffset),
-     fontSize);*/
     
     characterRender* render = new characterRender(faceSheet);
     float x1 =  windowToModify->getSize().x/2;
@@ -178,7 +168,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
 	//TODO FIX THIS
 	TestFunctionClass* cool = new TestFunctionClass();
 
-    spawnBackButton<TestFunctionClass>(backButton, ih, buttonSheet, 0, 0, 0.2f, &testBackFunction, cool);
+    spawnBackButton(dSI, backButton, ih, buttonSheet, 0, 0, 0.2f);
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
