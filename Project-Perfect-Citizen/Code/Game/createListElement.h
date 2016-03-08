@@ -1,7 +1,8 @@
 #pragma once
 
-#include "mousePressButton.h"
+#include "../Engine/InputHandler.h"
 #include "emailListElementRenderComponent.h"
+#include "emailListElementInputComponent.h"
 #include "../Engine/Entity.h"
 
 ///////////////////////////////////////////////////////////////////////
@@ -15,6 +16,6 @@
 
 namespace ppc {
 	
-	void createEmailListElement(ppc::Entity& entityToModify, sf::Font& f, std::string subjectLine, int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size);
+	void createEmailListElement(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Font& f, std::string subjectLine, int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size);
 
 }

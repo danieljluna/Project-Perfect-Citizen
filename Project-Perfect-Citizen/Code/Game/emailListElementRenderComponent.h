@@ -24,6 +24,8 @@ namespace ppc {
 
 		~emailListElementRenderComponent();
 
+		sf::FloatRect getListElementBoxBounds();
+
 		virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
 
 		virtual void recieveMessage(msgType code) override;

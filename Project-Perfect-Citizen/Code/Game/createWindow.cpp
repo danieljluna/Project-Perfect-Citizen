@@ -357,7 +357,7 @@ void ppc::spawnInbox(WindowInterface*& windowToModify, InputHandler& ih, sf::Ima
 	for (int i = 0; i < theInbox.getInboxSize(); ++i) {
 		Entity emailListElement;
 		createEmailListElement(
-			emailListElement, myFont, theInbox.getEmailAt(i).getSubjectField(), 0, (i * 100), 
+			emailListElement, ih, myFont, theInbox.getEmailAt(i).getSubjectField(), 0, (i * 100), 
 			emailBoxElementWidth, emailBoxElementHeight, 0, (i * 100), fontSize);
 		windowToModify->addEntity(emailListElement);
 	}

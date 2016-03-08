@@ -21,6 +21,9 @@ emailListElementRenderComponent::~emailListElementRenderComponent() {
 
 }
 
+sf::FloatRect emailListElementRenderComponent::getListElementBoxBounds() {
+	return emailListElementBox.getGlobalBounds();
+}
 
 void emailListElementRenderComponent::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
