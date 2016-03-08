@@ -112,7 +112,7 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     windowToModify->addEntity(textBox);
     windowToModify->addEntity(textDisplay);
     windowToModify = new BorderDecorator(*windowToModify);
-    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
     
 }
 
@@ -183,7 +183,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     windowToModify->addEntity(characterProfile);
     windowToModify->addEntity(backButton);
     windowToModify = new BorderDecorator(*windowToModify);
-    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
 
 void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
@@ -252,7 +252,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	windowToModify->addEntity(graphBox);
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
-	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 
 }
 
@@ -308,7 +308,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     windowToModify->setPosition(x, y);
     windowToModify->addEntity(newEnt);
     windowToModify = new BorderDecorator(*windowToModify);
-    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
 
 void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y) {
@@ -350,7 +350,7 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 
 	windowToModify = new BorderDecorator(*windowToModify);
 	windowToModify->setPosition(x, y);
-	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 
 }
 void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email& mail, sf::Image& buttonSheet, float x, float y) {
@@ -380,6 +380,6 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	windowToModify->addEntity(emailMessageDisplayBox);
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
-	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
 
