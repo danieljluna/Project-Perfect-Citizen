@@ -35,7 +35,7 @@ private:
 	static void populateLevelEdges(int start, int end, int numEdges, 
 		Network& net, int suspLevel, const Json::Value& exprGrammar);
 
-	static void addSmsMessageToEdge(Edge& anEdge, const PipelineCharacter& sender,
+	static void addSmsMessagesToEdge(Edge& anEdge, unsigned int numMessages, const PipelineCharacter& sender,
 		const PipelineCharacter& receiver, const Json::Value& exprGrammar);
 
 };

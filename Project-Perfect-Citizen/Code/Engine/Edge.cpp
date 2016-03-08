@@ -77,11 +77,11 @@ void ppc::Edge::constructBounds(sf::Vector2f p1, sf::Vector2f p2) {
 	}
 }
 
-void Edge::pushSmsData(const std::string& data) {
+void Edge::pushSmsData(const std::vector<std::string>& data) {
 	smsData_.push_back(data);
 }
 
-std::vector<std::string> Edge::getSmsData() {
+std::vector<std::vector<std::string>> Edge::getSmsData() {
 	return smsData_;
 }
 

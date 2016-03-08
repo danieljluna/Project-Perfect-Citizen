@@ -22,7 +22,7 @@ private:
 	float minWidth_ = 30.f;
 	float minHeight_ = 30.f;
 
-	std::vector<std::string> smsData_;
+	std::vector<std::vector<std::string>> smsData_;
 
 public:
 
@@ -87,9 +87,9 @@ public:
 	///////////////////////////////////////////////////////////////////////
 	void constructBounds(sf::Vector2f,sf::Vector2f);
 
-	void pushSmsData(const std::string& data);
+	void pushSmsData(const std::vector<std::string>& data);
 
-	std::vector<std::string> getSmsData();
+	std::vector<std::vector<std::string>> getSmsData();
 
 };
 
