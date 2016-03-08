@@ -166,7 +166,7 @@ int main(int argc, char** argv) {
 	//c->eventHandler(testEvent);
 
 
-	FreeFunctionObserver<TestFunctionClass> d(&printFunc, &cool);
+	FreeFunctionObserver<TestFunctionClass> d(printFunc, &cool);
 	d.eventHandler(testEvent);
 	////////////////////////////////////////////FUNCTION OBSERVER TESTING/////////////////////////////////
 

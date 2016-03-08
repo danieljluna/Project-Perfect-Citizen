@@ -3,20 +3,22 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-const string MOUSE_DOWN_CODE = "MDC";
-const string MOUSE_RELEASED_CODE = "MRC";
-const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
-const string OPEN_THE_CONSOLE = "OTC";
-const string OPEN_THE_FILE = "OTF";
-const string OPEN_THE_SETTINGS = "OTS";
-const string OPEN_THE_CHAT = "OTCH";
-const string OPEN_THE_SEARCH = "OTSER";
-const string OPEN_THE_PIPELINE = "OTP";
-const string OPEN_THE_HELP = "OTH";
-const string OPEN_THE_BROWSER = "OTB";
-const string OPEN_THE_EXPLORER = "OTE";
-const string OPEN_THE_EMAIL = "OTEM";
+#include "../Engine/FreeFunctionObserver.h"
+
+using namespace ppc;
+const std::string MOUSE_DOWN_CODE = "MDC";
+const std::string MOUSE_RELEASED_CODE = "MRC";
+const std::string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
+const std::string OPEN_THE_CONSOLE = "OTC";
+const std::string OPEN_THE_FILE = "OTF";
+const std::string OPEN_THE_SETTINGS = "OTS";
+const std::string OPEN_THE_CHAT = "OTCH";
+const std::string OPEN_THE_SEARCH = "OTSER";
+const std::string OPEN_THE_PIPELINE = "OTP";
+const std::string OPEN_THE_HELP = "OTH";
+const std::string OPEN_THE_BROWSER = "OTB";
+const std::string OPEN_THE_EXPLORER = "OTE";
+const std::string OPEN_THE_EMAIL = "OTEM";
 
 const float DOUBLE_CLICK_TIME = 500.0f;
 
@@ -27,7 +29,7 @@ mousePressButton::mousePressButton() :
 
 
 mousePressButton::mousePressButton(ppc::InputHandler& ih, 
-	sf::FloatRect rect, std::string iBP): 
+	sf::FloatRect rect, std::string iBP) : 
 	InputComponent(2), buttonRect(rect), isBeingPressed(iBP){
 
 	//add a new subject that is tied to the event
@@ -49,6 +51,7 @@ void mousePressButton::clearObservers()
 		delete observerArray_[i];
 	}
 }
+
 
 //void mousePressButton::addFunctionObserver(bool(*fnToAdd)(sf::Event &ev), mousePressButton* mpb, unsigned int placeToInsert)
 
@@ -149,19 +152,12 @@ bool mousePressButton::registerInput(sf::Event& ev) {
                 /* Send the mouse release message regardless*/
                 getEntity()->broadcastMessage(MOUSE_RELEASED_CODE);
 				if (isBeingPressed == "localCloseButton") {
-					// STUB: CLOSE THE WINDOW
-                    std::cout << "localClose" << endl;
 				}
             }
         }
-		/* Case: Mouse Moved Event*/
-		else if (ev.type == sf::Event::MouseMoved) {
-			if (!buttonRect.contains(float(ev.mouseMove.x), float(ev.mouseMove.y)) && 
-				ev.mouseButton.button == sf::Mouse::Left) {
-				cout << "left the button" << endl;
-			}
-		}
     }
 
     return true;
 }
+
+
