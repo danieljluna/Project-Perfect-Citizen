@@ -76,7 +76,8 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     Json::Value parsed = teacherFiles->parseDesktopAsJson("Desktop1.json", "Desktop");
     
     emailExtraction* inbox = new emailExtraction();
-    inbox->parseEmailAsJson("Email1.json", "Email");
+    inbox->parseEmailAsJson("Email1.json");
+    std::cout << inbox->checkSizeOfAll();
     
     //////////////////////////////////////////////
     //// Create the start menu

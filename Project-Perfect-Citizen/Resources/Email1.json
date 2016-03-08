@@ -3,7 +3,6 @@
    		"Email_1": {
    			"To" : "TODO",
 			"From" : "TODO",
-			"On" : "TODO",
           	"Subject" : "TODO",
           	"Body" : "Hello John, 
             	I’ve looked over your essay. It reads well. Just a few things need adjustment:
@@ -20,7 +19,6 @@
 		"Email_2": { 
 			"To" : "Murphy Goodwin <mgoodwin@corpora.com>",
 			"From" : "<JBaaten@studentportal.com>",
-			"On" : "On Thu, Jan 28, 2016 at 9:54 AM",
             "Subject": "Let’s meet after class today to talk over your attendance.",
 			"Body" : "Hello Mr. Goodwin,
 				I’ve missed a lot of class this quarter, and I was hoping we could talk so I’d have a chance to explain myself.
@@ -31,7 +29,6 @@
 		"Email_3": {
 			"To" : "TODO",
 			"From" : "TODO",
-			"On" : "TODO", 
 			"Subject": "TODO",
 			"Body" : "Dear Students,
 
@@ -53,7 +50,6 @@
 		"Email_4": { 
 			"To" : "cgarvey@fellowship.net",
 			"From" : "TODO",
-			"On" : "TODO",
 			"Subject": "Struggling",
 			"Body" : "Chandler,
 
@@ -78,7 +74,6 @@
 		"Email_5": { 
 			"To" : "chandler",
 			"From" : "TODO",
-			"On" : "TODO",
 			"Subject": "Coming clean",
 			"Body" : "
 				
@@ -94,7 +89,6 @@
 		"Email_6": { 
 			"To" : "mgoodwin@corpora.com, yada yada, blah blah, more random emails, perhas of people who were in the Pipeline Extraction",
 			"From" : "cgarvey@fellowship.net",
-			"On" : "TODO",
 			"Subject": "TODO",
 			"Body" : "Hello All,
 
@@ -109,7 +103,6 @@
 		"Email_7": { 
 			"To" : "Vanita Goodwin <vgoodwin@colonade.com>",
 			"From" : "TODO",
-			"On" : "TODO",
 			"Subject": "Good News Mom! New Pictures of Jessie!",
 			"Body" : " Hi Mom,
 

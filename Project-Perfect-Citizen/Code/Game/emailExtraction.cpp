@@ -28,12 +28,12 @@ emailExtraction::emailExtraction(){
     
 }
 
-Json::Value emailExtraction::parseEmailAsJson(std::string file, std::string obj) {
+Json::Value emailExtraction::parseEmailAsJson(std::string file) {
     Json::Reader reader;
     Json::Value value;
     std::ifstream doc(resourcePath() + file, std::ifstream::binary);
     reader.parse(doc, value);
-    parseEmailForInbox(value, obj);
+    parseEmailForInbox(value, "Email");
     return value;
 }
 
@@ -44,12 +44,27 @@ void emailExtraction::parseEmailForInbox(Json::Value value, std::string folder) 
         auto contentObj = directoryObj[objNames[i]];
         std::string objName = objNames[i];
         if(contentObj.size() > 0){
-            addSubject(objNames[i]);
             parseEmailForInbox(directoryObj, objNames[i]);
         }
         else{
-            std::string body = directoryObj[objNames[i]].asString();
-            addContent(body);
+            std::string content = directoryObj[objNames[i]].asString();
+            //std::cout << objName+""+content << std::endl;
+            if(objName == "Subject"){
+                addSubject(content);
+            }
+            else if(objName == "To"){
+                addTo(content);
+            }
+            else if(objName == "From"){
+                addFrom(content);
+            }
+            else if(objName == "Body"){
+                addBody(content);
+
+            }
+            else{
+                std::cout << "ERROR" << std::endl;
+            }
         }
     }
 }
