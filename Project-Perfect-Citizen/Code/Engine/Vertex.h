@@ -28,16 +28,13 @@ private:
 	sf::Text text_;
 	sf::Font font_;
 	static const int fontSize_;
-
-
-	PipelineCharacter pipechar;
 	
-
 	PipelineCharacter char_;
 
 	sf::CircleShape circ_;
 	static const float radius_;
 	sf::FloatRect bounds_;
+	bool isSelected_;
 
 public:
 	///////////////////////////////////////////////////////////////////////
@@ -113,6 +110,13 @@ public:
 	///@param ih InputHandler to be associated with the DraggableInput.
 	///////////////////////////////////////////////////////////////////////
 	void applyDraggable(ppc::DraggableInput&,ppc::InputHandler&);
+
+
+	void selectVert();
+
+	void deselectVert();
+
+	bool isSelected();
 
 	///////////////////////////////////////////////////////////////////////
 	///@brief Definition of how to draw a Vertex.

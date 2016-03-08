@@ -27,6 +27,8 @@ namespace ppc {
 		NetworkUpdateCmpnt(Network&);
 		NetworkUpdateCmpnt(Network&, sf::FloatRect);
 
+		virtual ~NetworkUpdateCmpnt() {};
+
 		void setBounds(sf::FloatRect);
 
 		void setDrags(vector<ppc::DraggableInput*>*);
