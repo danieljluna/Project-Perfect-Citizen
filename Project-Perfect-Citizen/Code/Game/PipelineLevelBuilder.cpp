@@ -35,9 +35,10 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 
 	//int first = std::rand() % ((LEVEL_ONE_NUM_NODES - 1) / 2);
 	//int second = std::rand() % ((LEVEL_ONE_NUM_NODES) / 2) + (LEVEL_ONE_NUM_NODES - 1) / 2;
-	int first = dis(gen);
-	int second = dis(gen) + LEVEL_ONE_NUM_NODES / 2;
+	unsigned int first = dis(gen);
+	unsigned int second = dis(gen) + LEVEL_ONE_NUM_NODES / 2;
 
+	myNetwork->setCenter(first);
 
 	if (first == second) second += 1;
 

@@ -39,15 +39,13 @@
 #include "../Game/NetworkRenderCmpnt.h"
 #include"../Game/NetworkInputCmpnt.h"
 #include"../Game/NetworkUpdateCmpnt.h"
-<<<<<<< HEAD
 
 #include "../Game/PipelineLevelBuilder.h"
 
-=======
 #include"../Game/PipelineLevelBuilder.h"
 #include"../Engine/TestFunctionClass.h"
 #include"../Engine/FreeFunctionObserver.h"
->>>>>>> origin/MarkBranch2
+
 using namespace ppc;
 
 bool testBackFunction(TestFunctionClass* tfc, sf::Event& ev) {
@@ -99,7 +97,7 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     ///////////////////////////////////////
     Entity textBox;
     textBox.addComponent(textInputBox);
-   // textBox.addComponent(textRenderComponent);
+    // textBox.addComponent(textRenderComponent);
     textBox.addComponent(tik);
     textBox.addComponent(cup);
     
@@ -140,7 +138,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     
     // We probably do not need these
     
-   /* buttonRenderComponent* textRenderComponent =
+    /* buttonRenderComponent* textRenderComponent =
     new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
     textRenderComponent->renderPosition(sf::Vector2f(0, 220));*/
     
@@ -236,6 +234,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
     */
     
     Network* net = PipelineLevelBuilder::buildLevelOneNetworkSolution();
+
 
 	//No Overlapping Edges (Think of this positioning as an 8x8 grid
 	//the number after the * is the row/column number)
