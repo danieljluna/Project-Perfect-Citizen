@@ -27,6 +27,7 @@
 #include "../Game/databaseSearchRenderComponent.h"
 #include "../Game/databaseSearchInputComponent.h"
 #include "../Game/databaseDisplayRenderComponent.h"
+#include "../Game/Inbox.h"
 
 #include "../Engine/debug.h"
 #include "../Game/characterRender.hpp"
@@ -326,6 +327,49 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     windowToModify->addEntity(newEnt);
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+}
+
+void ppc::spawnInbox(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y) {
+	/* Check to make sure the window passed isn't null */
+	if (windowToModify == nullptr) { return; }
+
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 20;
+	int windowOffset = 5;
+	int emailBoxElementWidth = windowToModify->getSize().x;
+	int emailBoxElementHeight = 50;
+
+
+	Inbox theInbox;
+	Email testEmail1("alex", "brandon", "Long time no see!", "hello there friend!", "image.jpg");
+	Email testEmail2("brandon", "alex", "RE: Long time no see!", "hi how are you?", "image2.jpg");
+	Email testEmail3("alex", "brandon", "RE: RE: Long time no see!", "great! got to go!", "image3.jpg");
+	
+	theInbox.addEmailToList(testEmail1);
+	theInbox.addEmailToList(testEmail2);
+	theInbox.addEmailToList(testEmail3);
+
+	/////////////////////////////////////////
+	/////// ENTITIES
+	///////////////////////////////////////
+	/* Create an email list element entity for each email in the inbox*/
+	for (int i = 0; i < theInbox.getInboxSize(); ++i) {
+		Entity emailListElement;
+		createEmailListElement(
+			emailListElement, myFont, theInbox.getEmailAt(i).getSubjectField(), 0, (i * 100), 
+			emailBoxElementWidth, emailBoxElementHeight, 0, (i * 100), fontSize);
+		windowToModify->addEntity(emailListElement);
+	}
+
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+
+	windowToModify = new BorderDecorator(*windowToModify);
+	windowToModify->setPosition(x, y);
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+
 }
 
 

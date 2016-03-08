@@ -7,6 +7,7 @@
 #include "Database.h"
 #include "createButton.h"
 #include "../Game/databaseSearchInputComponent.h"
+#include "createListElement.h"
 
 
 
@@ -55,5 +56,7 @@ void spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database*
         sf::Image& buttonSheet, float x, float y);
     
 void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string path);
+
+void spawnInbox(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y);
 };
 
