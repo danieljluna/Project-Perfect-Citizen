@@ -201,23 +201,6 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	PipelineGraphRenderComponent* graphBounds = new PipelineGraphRenderComponent(0, 0, dataWindowX,
 		windowToModify->getSize().y);
-
-	/* NADER: PUT YOUR RENDER COMPONENTS HERE FOR THE GRAPH */
-	//Ask about how are we making networks to be added to the pipeline window.
-    /*
-	Network* net = new Network(3);
-
-	PipelineCharacter Bob;
-	PipelineCharacter Tim;
-	PipelineCharacter Rob;
-
-	net->vert(0).setCharacter(Bob);
-	net->vert(1).setCharacter(Tim);
-	net->vert(2).setCharacter(Rob);
-	net->vert(0).setPosition(100, 50);
-	net->vert(1).setPosition(150, 150);
-	net->vert(2).setPosition(200, 300);
-    */
     
     Network* net = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 
@@ -234,6 +217,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	NetworkRenderComponent* networkRender = new NetworkRenderComponent(*net);
 	NetworkInputCmpnt* networkInput = new NetworkInputCmpnt(*net, windowToModify->getInputHandler());
+	networkInput->setPipelineData(*dataText);
 	NetworkUpdateCmpnt* networkUpdate = new NetworkUpdateCmpnt(*net);
 	networkUpdate->setBounds(graphBounds->getLocalBounds());
 	networkUpdate->setDrags(networkInput->getDraggables());
@@ -246,10 +230,8 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 			for (unsigned int j = 0; j < smsvec.size(); ++j) {
 				dataText->appendString(smsvec[j] + "\n\n");
 			}
-			break;
 		}
 	}
-
 	/////////////////////////////////////////
 	/////// ENTITIES 
 	///////////////////////////////////////
@@ -261,7 +243,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	graphBox.addComponent(graphBounds);
 	graphBox.addComponent(networkRender);
 	graphBox.addComponent(networkInput);
-
+	graphBox.addComponent(networkUpdate);
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////

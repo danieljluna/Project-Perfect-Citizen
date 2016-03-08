@@ -152,8 +152,8 @@ int main(int argc, char** argv) {
     //------------------------------------------------------------------
     // UNCOMMENT THIS BLOCK FOR BOOT WINDOW
     //------------------------------------------------------------------
-    /*
-    Window* bootWindow = new Window(1800,1000,sf::Color(30,32,33));
+    
+    /*Window* bootWindow = new Window(1800,1000,sf::Color(30,32,33));
     
     Entity loading;
     
@@ -163,13 +163,13 @@ int main(int argc, char** argv) {
     dcps->renderPosition(sf::Vector2f(355,200));
 
     
-    bootLoadingUpdateComponent* bootUpdate = new bootLoadingUpdateComponent(*bootRender,0.1f);
+    bootLoadingUpdateComponent* bootUpdate = new bootLoadingUpdateComponent(*bootRender,*dcps,0.1f);
     loading.addComponent(bootRender);
     loading.addComponent(bootUpdate);
     loading.addComponent(dcps);
     bootWindow->addEntity(loading);
     
-    myDesktop->addWindow(bootWindow);*/
+    myDesktop.addWindow(bootWindow);*/
     
     //------------------------------------------------------------------
     
@@ -201,6 +201,7 @@ int main(int argc, char** argv) {
     //Used to keep track time
     sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
     while (screen.isOpen()) {
+		bool doneUpdate = false;
         //Process sf::events
         sf::Event event;
         while (screen.pollEvent(event)) {
@@ -222,18 +223,20 @@ int main(int argc, char** argv) {
 			sf::Time dt = deltaTime.restart();
 
 			myDesktop.update(dt);
-
+			doneUpdate = true;
 			elapsed -= framePeriod;
 		}
-            //Draw all the Windows in the Desktop
+		if (doneUpdate) {
+			//Draw all the Windows in the Desktop
 			myDesktop.refresh();
 
 			//Logger should not be used in place of passing
 			//the actual drawn Desktop
 			screen.draw(myDesktop);
 
-            //Display the final window
+			//Display the final window
 			screen.display();
+		}     
     }
 
     return EXIT_SUCCESS;
