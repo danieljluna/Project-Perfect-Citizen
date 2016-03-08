@@ -102,6 +102,7 @@ bool mousePressButton::registerInput(sf::Event& ev) {
 
                 /* Send the mouse down message regardless */
                 getEntity()->broadcastMessage(MOUSE_DOWN_CODE);
+                onPress_.sendEvent(ev);
 
                 /* Handle Double Click Register */
                 mouseTime = mouseClock.getElapsedTime().asMilliseconds();
@@ -141,6 +142,7 @@ bool mousePressButton::registerInput(sf::Event& ev) {
                     //cout << "Double clicked on an entity with MPB!" << endl;
                     getEntity()->broadcastMessage(
                             MOUSE_DOUBLE_CLICK_CODE);
+                    onDoublePress_.sendEvent(ev);
                 }
             }
         }
@@ -151,6 +153,7 @@ bool mousePressButton::registerInput(sf::Event& ev) {
 
                 /* Send the mouse release message regardless*/
                 getEntity()->broadcastMessage(MOUSE_RELEASED_CODE);
+                onRelease_.sendEvent(ev);
 				if (isBeingPressed == "localCloseButton") {
 				}
             }
