@@ -84,7 +84,7 @@ int main(int argc, char** argv) {
 	//c->eventHandler(testEvent);
 
 	FreeFunctionObserver<TestFunctionClass>* d = new FreeFunctionObserver<TestFunctionClass>(&printFunc, cool);
-	d->eventHandler(testEvent);
+	//d->eventHandler(testEvent);
 	////////////////////////////////////////////FUNCTION OBSERVER TESTING/////////////////////////////////
 
 

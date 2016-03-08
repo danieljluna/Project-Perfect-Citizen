@@ -10,22 +10,8 @@
 using namespace ppc;
 
 typedef bool (databaseSearchInputComponent::*backFn)(sf::Event&);
-void spawnBackButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size)  {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 0, 0, 2, 1);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
+//template<class T>
 
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "backButton");
-	//mpb->clearObservers();
-
-	//FunctionObserver* backFunction = new FunctionObserver(theBackFn);
-	//mpb->addFunctionObserver(backFunction, 0);
-
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
-}
 
 void spawnStartButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
 	/* Render Component */
