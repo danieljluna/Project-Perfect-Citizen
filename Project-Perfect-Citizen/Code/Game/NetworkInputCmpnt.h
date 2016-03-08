@@ -14,6 +14,7 @@ namespace ppc {
 	private:
 
 		Network* network_;
+		Network* solution_;
 
 		ppc::InputHandler& handle_;
 
@@ -35,7 +36,7 @@ namespace ppc {
 
 		NetworkInputCmpnt() = delete;
 
-		NetworkInputCmpnt(Network&, ppc::InputHandler&);
+		NetworkInputCmpnt(Network&, Network&, ppc::InputHandler&);
 
 		vector<ppc::DraggableInput*>* getDraggables();
 

@@ -81,6 +81,14 @@ void Network::setSize(size_t size) {
 
 }
 
+Network * ppc::Network::copyNetworkByVerts() {
+	Network* newNet = new Network(size_);
+	for (unsigned int i = 0; i < size_; ++i) {
+		newNet->vert(i) = vert(i);
+	}
+	return newNet;
+}
+
 
 
 

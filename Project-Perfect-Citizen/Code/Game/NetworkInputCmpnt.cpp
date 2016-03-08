@@ -51,10 +51,10 @@ void ppc::NetworkInputCmpnt::loopEdgeColor() {
 void ppc::NetworkInputCmpnt::updateDataText() {
 	if (pipeRender_ == nullptr) return;
 	pipeRender_->clearString();
-	for (unsigned int i = 0; i < network_->size(); ++i) {
-		if (network_->isAdjacent(selectedVert_, i)) {
+	for (unsigned int i = 0; i < solution_->size(); ++i) {
+		if (solution_->isAdjacent(selectedVert_, i)) {
 			std::vector<std::string> smsvec = 
-				network_->edge(selectedVert_, i)->getSmsData();
+				solution_->edge(selectedVert_, i)->getSmsData();
 
 			for (unsigned int j = 0; j < smsvec.size(); ++j) {
 				pipeRender_->appendString(smsvec[j] + "\n\n");
@@ -63,9 +63,9 @@ void ppc::NetworkInputCmpnt::updateDataText() {
 	}
 }
 
-ppc::NetworkInputCmpnt::NetworkInputCmpnt(Network& n,
-	ppc::InputHandler& ih) : 
-	InputComponent(3), network_(&n), handle_(ih)
+ppc::NetworkInputCmpnt::NetworkInputCmpnt(Network& net,
+	Network& sol, ppc::InputHandler& ih) : 
+	InputComponent(3), network_(&net), solution_(&sol), handle_(ih)
 {
 	this->watch(handle_, sf::Event::KeyPressed);
 	this->watch(handle_, sf::Event::MouseButtonPressed);
@@ -105,16 +105,15 @@ ppc::NetworkInputCmpnt::~NetworkInputCmpnt() {
 bool ppc::NetworkInputCmpnt::registerInput(sf::Event& ev) {
 	sf::Vector2f mousePos(float(ev.mouseButton.x),
 		float(ev.mouseButton.y));
-	//If left click, select an edge
+	//If left click, select a vertex/edge
 	if (ev.type == ev.MouseButtonPressed) {
 		if (ev.mouseButton.button == sf::Mouse::Left) {
+			selectVert(mousePos);
 			selectEdge(mousePos);
 		}
-		//If right click, select a vertex
+		//If right click
 		else if (ev.mouseButton.button == sf::Mouse::Right) {
-			if (clickedVert_ == false) {
-				selectVert(mousePos);
-			} else {
+			if (clickedVert_ == true) {
 				size_t temp = selectedVert_;
 				selectVert(mousePos);
 				if (selectedVert_ != temp && 
