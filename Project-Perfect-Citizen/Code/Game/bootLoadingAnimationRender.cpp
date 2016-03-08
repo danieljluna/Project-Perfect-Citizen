@@ -81,6 +81,7 @@ bootLoadingAnimationRender::bootLoadingAnimationRender(sf::Image& img, int x, in
     sprites.push_back(sprite30);
     
     loadX = 0;
+
     
     for (int i=0; i < 30; i++) {
         sprites.at(i)->setPosition(loadX, 720);
@@ -91,6 +92,9 @@ bootLoadingAnimationRender::bootLoadingAnimationRender(sf::Image& img, int x, in
     }
     
     frame = 0;
+    opacity = 255;
+    
+
 }
 
 
@@ -132,7 +136,7 @@ bootLoadingAnimationRender::~bootLoadingAnimationRender() {
 }
 void bootLoadingAnimationRender::draw( sf::RenderTarget& target,
                                  sf::RenderStates states) const {
-    target.draw(*sprite, states);
+
     target.draw(*sprite1, states);
     target.draw(*sprite2, states);
     target.draw(*sprite3, states);
@@ -164,13 +168,31 @@ void bootLoadingAnimationRender::draw( sf::RenderTarget& target,
     target.draw(*sprite29, states);
     target.draw(*sprite30, states);
     target.draw(*spriteLoaded, states);
+    target.draw(*sprite, states);
 }
 
 void bootLoadingAnimationRender::animate() {
     if (frame < 30) {
         sprites.at(frame)->setColor(sf::Color(195,204,207));
         frame += 1;
-    } 
+    } else if (frame == 30){
+        for (int i = 0; i < 30; i++) {
+            sprites.at(i)->setColor(sf::Color(0,0,0,0));
+        }
+        texture->loadFromImage(image,sf::IntRect(0,0,6*128,7*128));
+        sprite->setTextureRect(sf::IntRect(0,6*128,6*128,128));
+        sprite->setTexture(*texture);
+        sprite->setPosition(100, 100);
+        frame +=1;
+    } else if (frame > 30 && frame <61) {
+        sprite->setColor(sf::Color(195,204,207,opacity));
+        if (opacity != 0) opacity -= 8;
+
+        frame +=1;
+    }
+    else {
+       sprite->setColor(sf::Color(195,204,207,0));
+    }
     
 }
 

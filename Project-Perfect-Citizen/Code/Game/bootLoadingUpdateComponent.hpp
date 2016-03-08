@@ -11,6 +11,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "bootLoadingAnimationRender.hpp"
+#include "buttonRenderComponent.h"
 #include "../Engine/updateComponent.h"
 
 
@@ -27,6 +28,7 @@ class bootLoadingUpdateComponent: public ppc::UpdateComponent{
 
 private:
     bootLoadingAnimationRender *render;
+    buttonRenderComponent& button;
     float speed;
     sf::Time counter;
     sf::Time framePeriod;
@@ -34,7 +36,7 @@ public:
     ////////////////////////////////////////////////////////////////////
     /// @brief Constructor for bootLoadingUpdateComponent
     ////////////////////////////////////////////////////////////////////
-    bootLoadingUpdateComponent(bootLoadingAnimationRender& r, float s);
+    bootLoadingUpdateComponent(bootLoadingAnimationRender& r,buttonRenderComponent& b, float s);
     
     
     ////////////////////////////////////////////////////////////////////

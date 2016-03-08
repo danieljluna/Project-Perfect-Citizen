@@ -68,7 +68,7 @@ private:
     sf::Image& image;
     
     float loadX;
-    int frame;
+    int frame, opacity;
 
     
 public:
