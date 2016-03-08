@@ -1,10 +1,8 @@
 #include "Inbox.h"
 
-
 using namespace ppc;
 
-Inbox::Inbox() {
-}
+Inbox::Inbox() {}
 
 bool Inbox::isEmpty() { return messageList.empty(); }
 

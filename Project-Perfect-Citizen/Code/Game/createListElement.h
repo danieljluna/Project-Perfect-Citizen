@@ -17,6 +17,26 @@
 
 namespace ppc {
 	
+	///////////////////////////////////////////////////////////////////////
+	/// @brief Creates one element of an email list inside of the inbox
+	/// @author Alex Vincent 
+	/// @details A box with text in it that listens for clicks.
+	/// @note Apologies for the monstrous parameter list - it's not a
+	/// class so we can't have a default constructor behavior
+	/// @param The naked entity to augment into an emailListElement
+	/// @param A reference to the desktop so this element can spawn new windows
+	/// @param A reference to the close button sprite sheet 
+	/// @param A reference to the window's input handler 
+	/// @param A reference to the element's textfield
+	/// @param A reference to the email to eventually display
+	/// @param An integer specifying the box's X position
+	/// @param An integer specifying the box's Y position
+	/// @param An integer specifying the box's Width
+	/// @param An integer specifying the box's Height
+	/// @param An integer specifying the text's x position
+	/// @param An integer specifying the text's y position
+	/// @param An integer specifying the text/font's size
+	///////////////////////////////////////////////////////////////////////
 	void createEmailListElement(ppc::Entity& entityToModify, Desktop& dt, sf::Image& buttonSheet, ppc::InputHandler& ih, 
 		sf::Font& f, Email& eM, int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size);
 

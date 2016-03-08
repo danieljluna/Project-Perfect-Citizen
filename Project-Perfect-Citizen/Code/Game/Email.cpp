@@ -1,6 +1,5 @@
 #include "Email.h"
 
-
 using namespace ppc;
 
 Email::Email(std::string to, std::string from, std::string subject,
@@ -23,4 +22,4 @@ std::string Email::getContentField() { return this->content; }
 
 std::string Email::getAttachmentField() { return this->attachment; }
 
-void Email::setRead() { this->read = true; }
+void Email::setRead() { this->read = !read; }

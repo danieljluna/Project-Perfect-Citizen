@@ -13,18 +13,48 @@ namespace ppc {
 
 	class emailListElementRenderComponent : public ppc::RenderComponent {
 	private:
+		///////////////////////////////////////////////////////////////////////
+		/// @brief The bounding box containing the emailListElement
+		///////////////////////////////////////////////////////////////////////
 		sf::RectangleShape emailListElementBox;
+
+		///////////////////////////////////////////////////////////////////////
+		/// @brief The sprite holding the text
+		///////////////////////////////////////////////////////////////////////
 		sf::Sprite* sprite;
+
+		///////////////////////////////////////////////////////////////////////
+		/// @brief The drawable text element
+		///////////////////////////////////////////////////////////////////////
 		sf::Text* text;
+
+		///////////////////////////////////////////////////////////////////////
+		/// @brief The font of the drawable text element
+		///////////////////////////////////////////////////////////////////////
 		sf::Font font;
 		static const int size = 128;
 
 	public:
+		///////////////////////////////////////////////////////////////////////
+		/// @brief The font of the drawable text element
+		/// @param The reference to the drawable font
+		/// @param A reference to the email to display
+		/// @param An integer specifying the box's X position
+		/// @param An integer specifying the box's Y position
+		/// @param An integer specifying the box's Width
+		/// @param An integer specifying the box's Height
+		/// @param An integer specifying the text's x position
+		/// @param An integer specifying the text's y position
+		/// @param An integer specifying the text/font's size
+		///////////////////////////////////////////////////////////////////////
 		emailListElementRenderComponent(sf::Font& f, Email& email,
 			int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size);
 
 		~emailListElementRenderComponent();
 
+		///////////////////////////////////////////////////////////////////////
+		/// @brief Simple getter returning the bounds of the element box
+		///////////////////////////////////////////////////////////////////////
 		sf::FloatRect getListElementBoxBounds();
 
 		virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;

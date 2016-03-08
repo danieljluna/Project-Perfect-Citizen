@@ -4,9 +4,10 @@
 #include "Email.h"
 
 ///////////////////////////////////////////////////////////////////////
-/// @brief Designated render component for an email block in the inbox 
+/// @brief Designated render component for the contents of an email
 /// @author Alex Vincent 
-/// @details Consists of a box, text, and an email sprite
+/// @details Reads from an email, formats the string to be rendered
+/// and then renders it
 ///////////////////////////////////////////////////////////////////////
 
 namespace ppc {
@@ -19,6 +20,15 @@ namespace ppc {
 		static const int size = 128;
 
 	public:
+
+		///////////////////////////////////////////////////////////////////////
+		/// @brief Constructor
+		/// @param The font of the text to be rendered
+		/// @param The email to read the contents of
+		/// @param The x position of the rendered text
+		/// @param The y position of the rendered text
+		/// @param The font size of the text
+		///////////////////////////////////////////////////////////////////////
 		emailMessageRenderComponent(sf::Font& f, Email& email, int x, int y, int size);
 
 		~emailMessageRenderComponent();
