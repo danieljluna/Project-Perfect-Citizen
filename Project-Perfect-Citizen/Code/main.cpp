@@ -153,7 +153,7 @@ int main(int argc, char** argv) {
     // UNCOMMENT THIS BLOCK FOR BOOT WINDOW
     //------------------------------------------------------------------
     
-    Window* bootWindow = new Window(1800,1000,sf::Color(30,32,33));
+    /*Window* bootWindow = new Window(1800,1000,sf::Color(30,32,33));
     
     Entity loading;
     
@@ -169,7 +169,7 @@ int main(int argc, char** argv) {
     loading.addComponent(dcps);
     bootWindow->addEntity(loading);
     
-    myDesktop.addWindow(bootWindow);
+    myDesktop.addWindow(bootWindow);*/
     
     //------------------------------------------------------------------
     
