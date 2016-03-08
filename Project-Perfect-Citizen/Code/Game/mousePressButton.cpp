@@ -6,19 +6,19 @@
 #include "../Engine/FreeFunctionObserver.h"
 
 using namespace ppc;
-const string MOUSE_DOWN_CODE = "MDC";
-const string MOUSE_RELEASED_CODE = "MRC";
-const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
-const string OPEN_THE_CONSOLE = "OTC";
-const string OPEN_THE_FILE = "OTF";
-const string OPEN_THE_SETTINGS = "OTS";
-const string OPEN_THE_CHAT = "OTCH";
-const string OPEN_THE_SEARCH = "OTSER";
-const string OPEN_THE_PIPELINE = "OTP";
-const string OPEN_THE_HELP = "OTH";
-const string OPEN_THE_BROWSER = "OTB";
-const string OPEN_THE_EXPLORER = "OTE";
-const string OPEN_THE_EMAIL = "OTEM";
+const std::string MOUSE_DOWN_CODE = "MDC";
+const std::string MOUSE_RELEASED_CODE = "MRC";
+const std::string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
+const std::string OPEN_THE_CONSOLE = "OTC";
+const std::string OPEN_THE_FILE = "OTF";
+const std::string OPEN_THE_SETTINGS = "OTS";
+const std::string OPEN_THE_CHAT = "OTCH";
+const std::string OPEN_THE_SEARCH = "OTSER";
+const std::string OPEN_THE_PIPELINE = "OTP";
+const std::string OPEN_THE_HELP = "OTH";
+const std::string OPEN_THE_BROWSER = "OTB";
+const std::string OPEN_THE_EXPLORER = "OTE";
+const std::string OPEN_THE_EMAIL = "OTEM";
 
 const float DOUBLE_CLICK_TIME = 500.0f;
 
