@@ -233,6 +233,8 @@ void BorderDecorator::updateButton(size_t i) {
 
 bool ppc::closeWindow(WindowInterface* win, sf::Event& ev) {
     win->close();
+
+    return true;
 }
 
 
