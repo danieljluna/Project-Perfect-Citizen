@@ -49,14 +49,8 @@ void mousePressButton::clearObservers()
 	}
 }
 
-void mousePressButton::addFunctionObserver(FunctionObserver* fnToAdd, int placeToInsert)
-{
-	if (placeToInsert >= observerCount_) {
-		std::cerr << "Cannot insert into index out of bounds" << std::endl;
-		return;
-	}
-	else observerArray_[placeToInsert] = fnToAdd;
-}
+//void mousePressButton::addFunctionObserver(bool(*fnToAdd)(sf::Event &ev), mousePressButton* mpb, unsigned int placeToInsert)
+
 
 mousePressButton::~mousePressButton() {
 

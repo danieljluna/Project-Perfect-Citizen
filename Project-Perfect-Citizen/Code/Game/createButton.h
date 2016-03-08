@@ -21,6 +21,9 @@
 #include "consoleUpdateComponent.h"
 #include "../Engine/NodeState.h"
 #include "databaseSearchInputComponent.h"
+#include "../Engine/TestFunctionClass.h"
+
+
 
 //typedef bool (databaseSearchInputComponent::*backFn)(sf::Event&);
 ///////////////////////////////////////////////////////////////////////
@@ -36,7 +39,26 @@
 /// Pass it the entity, a shared input handler, a spritesheet with 
 /// the button animations at (0, 3, 1), (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
-void spawnBackButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
+template <class T>
+void spawnBackButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet,
+	float x, float y, float size, bool(*obsFunction)(T* functionOject, sf::Event& ev), T* nestedObject ) 
+ {
+	/* Render Component */
+	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 0, 0, 2, 1);
+	buttonRender->setImageScale(size, size);
+	buttonRender->renderPosition(sf::Vector2f(x, y));
+
+	/* Input Component*/
+	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "backButton");
+	//this is deleting the observer thats in charge of clicking the button
+	//mpb->clearObservers();
+
+	FreeFunctionObserver<T>* backFunction = new FreeFunctionObserver<T>(obsFunction, nestedObject);
+	//mpb->addFunctionObserver<T>(obsFunction, mpb, 0);
+
+	entityToModify.addComponent(buttonRender);
+	entityToModify.addComponent(mpb);
+}
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable start button

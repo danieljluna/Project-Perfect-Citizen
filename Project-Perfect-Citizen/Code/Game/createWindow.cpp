@@ -39,10 +39,21 @@
 #include "../Game/NetworkRenderCmpnt.h"
 #include"../Game/NetworkInputCmpnt.h"
 #include"../Game/NetworkUpdateCmpnt.h"
+<<<<<<< HEAD
 
 #include "../Game/PipelineLevelBuilder.h"
 
+=======
+#include"../Game/PipelineLevelBuilder.h"
+#include"../Engine/TestFunctionClass.h"
+#include"../Engine/FreeFunctionObserver.h"
+>>>>>>> origin/MarkBranch2
 using namespace ppc;
+
+bool testBackFunction(TestFunctionClass* tfc, sf::Event& ev) {
+	//tfc->callFunc(ev);
+	return true;
+}
 
 
 void ppc::spawnConsole(WindowInterface*& windowToModify,
@@ -64,12 +75,11 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     
     sf::Font myFont;
     myFont.loadFromFile(resourcePath() + "consola.ttf");
-    int fontSize = 24;
+    int fontSize = 20;
     int windowOffset = 5;
     
     textInputRenderComponent* textInputBox =
-    new textInputRenderComponent(myFont, 0,
-             
+    new textInputRenderComponent(ns, myFont, 0,
                                  windowToModify->getSize().y - (fontSize+windowOffset),
                                  fontSize);
     textOutputRenderComponent* textDisplayBox =
@@ -171,7 +181,10 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     resultsBoxEntity.addComponent(searchResults);
 
     Entity backButton;
-    spawnBackButton(backButton, ih, buttonSheet, 0, 0, 0.2f);
+	//TODO FIX THIS
+	TestFunctionClass* cool = new TestFunctionClass();
+
+    spawnBackButton<TestFunctionClass>(backButton, ih, buttonSheet, 0, 0, 0.2f, &testBackFunction, cool);
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION

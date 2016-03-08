@@ -17,14 +17,9 @@ textInputKeys::textInputKeys(ppc::InputHandler& ih,
     ih.addHandle(sf::Event::TextEntered);
     ih.addHandle(sf::Event::KeyPressed);
     
-    if (watch(ih, sf::Event::TextEntered)) {
-        cout << "Text Entered Watched" << endl;
-    }
+	watch(ih, sf::Event::TextEntered);
+	watch(ih, sf::Event::KeyPressed);
     
-    if (watch(ih, sf::Event::KeyPressed)) {
-        cout << "Key Pressed Watched" << endl;
-    }
-
 	str.push_back((char)'>');
 	str.push_back((char)' ');
 	textBox.updateString(str);
@@ -98,16 +93,13 @@ bool textInputKeys::registerInput(sf::Event& ev) {
 					commandVec.push_back(token);
 					last = next + 1;
 				}
-				
-				cup.executeCommand(commandVec);
-		
-				/* Reset the command line - keeping the prompt */
-				str.erase(2, str.length());
-				textBox.updateString(str);
-
+					
 				/* Display the result */;
 				textDisplay.updateString(commandVec);
 
+				/* Reset the command line - keeping the prompt */
+				str.erase(2, str.length());
+				textBox.updateString(str);
 			}
         }
     }

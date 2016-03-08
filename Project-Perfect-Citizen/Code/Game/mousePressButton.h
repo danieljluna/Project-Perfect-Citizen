@@ -49,7 +49,16 @@ public:
 	///@param the FunctionObserver to add
 	///@param the index in the array to insert the FunctionObserver
 	///////////////////////////////////////////////////////////////////////
-	void addFunctionObserver(FunctionObserver* fnToAdd, int placeToInsert);
+	template<class T>
+	void addFunctionObserver(bool(*obsFunction)(T* functionOject, sf::Event& ev), mousePressButton* mpb, unsigned int placeToInsert)
+	{
+		FreeFunctionObserver<T>* obsvrToAdd = new FreeFunctionObserver<T>(obsFunction, mpb);
+		if (placeToInsert >= observerCount_) {
+			std::cerr << "Cannot insert into index out of bounds" << std::endl;
+			return;
+		}
+		else observerArray_[placeToInsert] = obsvrToAdd;
+	}
 
 ///////////////////////////////////////////////////////////////////////
 //SETTERS
