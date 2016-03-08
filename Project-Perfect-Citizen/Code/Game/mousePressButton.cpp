@@ -3,7 +3,9 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
+#include "../Engine/FreeFunctionObserver.h"
+
+using namespace ppc;
 const string MOUSE_DOWN_CODE = "MDC";
 const string MOUSE_RELEASED_CODE = "MRC";
 const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
@@ -27,7 +29,7 @@ mousePressButton::mousePressButton() :
 
 
 mousePressButton::mousePressButton(ppc::InputHandler& ih, 
-	sf::FloatRect rect, std::string iBP): 
+	sf::FloatRect rect, std::string iBP) : 
 	InputComponent(2), buttonRect(rect), isBeingPressed(iBP){
 
 	//add a new subject that is tied to the event
@@ -49,6 +51,7 @@ void mousePressButton::clearObservers()
 		delete observerArray_[i];
 	}
 }
+
 
 //void mousePressButton::addFunctionObserver(bool(*fnToAdd)(sf::Event &ev), mousePressButton* mpb, unsigned int placeToInsert)
 
@@ -149,19 +152,12 @@ bool mousePressButton::registerInput(sf::Event& ev) {
                 /* Send the mouse release message regardless*/
                 getEntity()->broadcastMessage(MOUSE_RELEASED_CODE);
 				if (isBeingPressed == "localCloseButton") {
-					// STUB: CLOSE THE WINDOW
-                    std::cout << "localClose" << endl;
 				}
             }
         }
-		/* Case: Mouse Moved Event*/
-		else if (ev.type == sf::Event::MouseMoved) {
-			if (!buttonRect.contains(float(ev.mouseMove.x), float(ev.mouseMove.y)) && 
-				ev.mouseButton.button == sf::Mouse::Left) {
-				cout << "left the button" << endl;
-			}
-		}
     }
 
     return true;
 }
+
+

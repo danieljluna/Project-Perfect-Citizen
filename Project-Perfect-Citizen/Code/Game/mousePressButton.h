@@ -8,6 +8,7 @@
 #include "../Engine/Entity.h"
 #include "../Engine/subject.h"
 #include "../Engine/FunctionObserver.h"
+#include "../Engine/FreeFunctionObserver.h"
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -18,6 +19,9 @@
 ///     all generic "X" button related sfml event parts. 
 ///		Stick this onto an entity to give it this functionality.
 ///////////////////////////////////////////////////////////////////////
+
+
+namespace ppc {
 
 
 class mousePressButton: public ppc::InputComponent {
@@ -44,21 +48,10 @@ public:
 	///////////////////////////////////////////////////////////////////////
 	void clearObservers();
 
-	///////////////////////////////////////////////////////////////////////
-	///@brief Adds the designated FunctionObserver to the observerArray_
-	///@param the FunctionObserver to add
-	///@param the index in the array to insert the FunctionObserver
-	///////////////////////////////////////////////////////////////////////
-	template<class T>
-	void addFunctionObserver(bool(*obsFunction)(T* functionOject, sf::Event& ev), mousePressButton* mpb, unsigned int placeToInsert)
-	{
-		FreeFunctionObserver<T>* obsvrToAdd = new FreeFunctionObserver<T>(obsFunction, mpb);
-		if (placeToInsert >= observerCount_) {
-			std::cerr << "Cannot insert into index out of bounds" << std::endl;
-			return;
-		}
-		else observerArray_[placeToInsert] = obsvrToAdd;
-	}
+    template <class T>
+    friend void setOnPress(mousePressButton* mpb,
+                           T* objPtr,
+                           bool(*onPress)(T*, sf::Event&));
 
 ///////////////////////////////////////////////////////////////////////
 //SETTERS
@@ -80,5 +73,20 @@ public:
 
 	virtual ~mousePressButton();
 	virtual bool registerInput(sf::Event& ev) override;
+
+};
+
+template<class T>
+inline void setOnPress(mousePressButton* mpb, T * objPtr, bool(*onPress)(T *, sf::Event &)) {
+    auto currObserver = mpb->observerArray_[0];
+    ppc::Subject* sub = currObserver->isWatching();
+
+    FreeFunctionObserver<T>* fnObsvr = new FreeFunctionObserver<T>(onPress, objPtr);
+
+    sub->addObserver(fnObsvr);
+
+}
+
+
 
 };
