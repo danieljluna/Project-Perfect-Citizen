@@ -87,7 +87,7 @@ void databaseSearchInputComponent::clearSearchBox() {
 	textBox.updateString(str);
 }
 
-bool databaseSearchInputComponent::goBack(sf::Event& ev) {
+void databaseSearchInputComponent::goBack() {
 		std::vector<string> displayVec;
 		clearSearchBox();
 		if (searchHistory.size() > 1) {
@@ -95,16 +95,13 @@ bool databaseSearchInputComponent::goBack(sf::Event& ev) {
 				searchHistory.pop();
 				updateDisplayResults(displayVec, "Enter a filter and query to begin searching");
 				textDisplay.updateString(displayResults_);
-				return true;
 			}
 			else {
 				searchHistory.pop();
 				updateDisplayOutput(searchHistory.top()->getPrintableDatabase());
 				textDisplay.updateString(displayResults_);
-				return true;
 			}
 		}
-		return true;
 }
 
 void databaseSearchInputComponent::updateDisplayResults(vector<string> displayVec, string newDisplay) {
@@ -211,3 +208,24 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 	}
 	return true;
 }
+
+
+
+
+
+
+
+
+
+
+bool ppc::goBackFn(databaseSearchInputComponent* ptr, sf::Event& ev) {
+    ptr->goBack();
+    return true;
+}
+
+
+
+
+
+
+
