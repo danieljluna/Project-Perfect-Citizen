@@ -130,12 +130,22 @@ bool ppc::NetworkInputCmpnt::registerInput(sf::Event& ev) {
 			}
 		}
 	} else if (ev.type == sf::Event::KeyPressed) {
+
+		if (ev.key.code == sf::Keyboard::S && clickedVert_) {
+			DEBUGF("ni", "HERE");
+			network_->vert(network_->getCenter()).setColor(sf::Color::Yellow);
+			network_->setCenter(selectedVert_);
+			network_->vert(selectedVert_).setColor(sf::Color::Red);
+			return false;
+		}
+
+
 		if (clickedEdge_ == false) return false;
 
 		switch (ev.key.code) {
 
-		case sf::Keyboard::Delete: 
-			network_->removeEdge(selectedEdge_.first, 
+		case sf::Keyboard::Delete:
+			network_->removeEdge(selectedEdge_.first,
 				selectedEdge_.second);
 			network_->removeEdge(selectedEdge_.second,
 				selectedEdge_.first);

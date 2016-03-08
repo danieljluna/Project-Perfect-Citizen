@@ -203,7 +203,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
-	int fontSize = 20;
+	int fontSize = 14;
 	int dataWindowX = (2 * windowToModify->getSize().x) / 3;
 
 	/////////////////////////////////////////
@@ -220,6 +220,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
     Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 	Network* playNet = solNet->copyNetworkByVerts();
+	playNet->setCenter(0);
 
 	//No Overlapping Edges (Think of this positioning as an 8x8 grid
 	//the number after the * is the row/column number)
