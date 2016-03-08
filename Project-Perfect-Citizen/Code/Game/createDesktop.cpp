@@ -1,6 +1,7 @@
 #include "../Engine/debug.h"
 #include "createDesktop.h"
 #include "desktopExtractionComponent.hpp"
+#include "../Game/emailExtraction.hpp"
 #include "../Library/json/json.h"
 using namespace ppc;
 
@@ -73,6 +74,9 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     /////////////////////////////////////////////
     desktopExtractionComponent* teacherFiles = new desktopExtractionComponent(desktopToModify.getNodeState());
     Json::Value parsed = teacherFiles->parseDesktopAsJson("Desktop1.json", "Desktop");
+    
+    emailExtraction* inbox = new emailExtraction();
+    inbox->parseEmailAsJson("Email1.json", "Email");
     
     //////////////////////////////////////////////
     //// Create the start menu
