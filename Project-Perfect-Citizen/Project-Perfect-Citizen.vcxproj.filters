@@ -238,6 +238,9 @@
     <ClCompile Include="Code\Game\emailListElementInputComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\emailMessageRenderComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -505,6 +508,9 @@
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\emailListElementInputComponent.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\emailMessageRenderComponent.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>

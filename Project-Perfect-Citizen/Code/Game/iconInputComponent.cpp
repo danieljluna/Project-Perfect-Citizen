@@ -71,7 +71,7 @@ void iconInputComponent::recieveMessage(msgType msg) {
 	else if (msg.compare(OPEN_THE_EMAIL) == 0) {
 		ppc::WindowInterface* inboxWindow =
 			new ppc::Window(600, 400, sf::Color(200, 200, 200));
-		ppc::spawnInbox(inboxWindow, inboxWindow->getInputHandler(), buttonSheet_, 100, 200);
+		ppc::spawnInbox(theDesktop_, inboxWindow, inboxWindow->getInputHandler(), buttonSheet_, 100, 200);
 		theDesktop_.addWindow(inboxWindow);
 	}
 }

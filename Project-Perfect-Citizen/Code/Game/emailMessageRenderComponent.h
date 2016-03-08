@@ -11,21 +11,17 @@
 
 namespace ppc {
 
-	class emailListElementRenderComponent : public ppc::RenderComponent {
+	class emailMessageRenderComponent : public ppc::RenderComponent {
 	private:
-		sf::RectangleShape emailListElementBox;
 		sf::Sprite* sprite;
 		sf::Text* text;
 		sf::Font font;
 		static const int size = 128;
 
 	public:
-		emailListElementRenderComponent(sf::Font& f, Email& email,
-			int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size);
+		emailMessageRenderComponent(sf::Font& f, Email& email, int x, int y, int size);
 
-		~emailListElementRenderComponent();
-
-		sf::FloatRect getListElementBoxBounds();
+		~emailMessageRenderComponent();
 
 		virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
 

@@ -7,6 +7,9 @@
 #include "../Engine/inputComponent.h"
 #include "../Engine/InputHandler.h"
 #include "../Engine/Entity.h"
+#include "../Game/Email.h"
+#include "../Engine/desktop.h"
+#include "createWindow.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Input Component for an email element in the inbox
@@ -22,19 +25,22 @@ class emailListElementInputComponent : public ppc::InputComponent {
 private:
 
 	sf::FloatRect boxRect;
+	sf::Image& buttonSheet;
 	sf::Clock mouseClock;
 	sf::Int32 mouseTime;
 	bool isCollision(sf::Vector2i);
+	ppc::Email emailToOpen;
+	ppc::Desktop& theDesktop;
 
 public:
 
-	emailListElementInputComponent();
+	emailListElementInputComponent() = delete;
 
 	///////////////////////////////////////////////////////////////////////
 	///@brief This Ctor will be depricated soon. Please use the default 
 	///Ctor and setter functions instead.
 	///////////////////////////////////////////////////////////////////////
-	emailListElementInputComponent(ppc::InputHandler& ih, sf::FloatRect rect);
+	emailListElementInputComponent(ppc::Desktop& dT, ppc::InputHandler& ih, ppc::Email eM, sf::Image& buttonSheet, sf::FloatRect rect);
 
 
 	///////////////////////////////////////////////////////////////////////

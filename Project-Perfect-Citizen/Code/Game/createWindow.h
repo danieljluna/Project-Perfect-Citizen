@@ -8,6 +8,7 @@
 #include "createButton.h"
 #include "../Game/databaseSearchInputComponent.h"
 #include "createListElement.h"
+#include "emailMessageRenderComponent.h"
 
 
 
@@ -57,6 +58,8 @@ void spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database*
     
 void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string path);
 
-void spawnInbox(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y);
+void spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y);
+
+void spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email& eM, sf::Image& buttonSheet, float x, float y);
 };
 

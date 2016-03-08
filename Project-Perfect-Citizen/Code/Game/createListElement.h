@@ -4,6 +4,7 @@
 #include "emailListElementRenderComponent.h"
 #include "emailListElementInputComponent.h"
 #include "../Engine/Entity.h"
+#include "Email.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief A toolkit of functions that sets up a list element in an app
@@ -16,6 +17,7 @@
 
 namespace ppc {
 	
-	void createEmailListElement(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Font& f, std::string subjectLine, int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size);
+	void createEmailListElement(ppc::Entity& entityToModify, Desktop& dt, sf::Image& buttonSheet, ppc::InputHandler& ih, 
+		sf::Font& f, Email& eM, int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size);
 
 }

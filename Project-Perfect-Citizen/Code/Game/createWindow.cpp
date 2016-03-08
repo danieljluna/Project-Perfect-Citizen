@@ -329,7 +329,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
 }
 
-void ppc::spawnInbox(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y) {
+void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y) {
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
 
@@ -357,7 +357,7 @@ void ppc::spawnInbox(WindowInterface*& windowToModify, InputHandler& ih, sf::Ima
 	for (int i = 0; i < theInbox.getInboxSize(); ++i) {
 		Entity emailListElement;
 		createEmailListElement(
-			emailListElement, ih, myFont, theInbox.getEmailAt(i).getSubjectField(), 0, (i * 100), 
+			emailListElement, dT, buttonSheet, ih, myFont, theInbox.getEmailAt(i), 0, (i * 100),
 			emailBoxElementWidth, emailBoxElementHeight, 0, (i * 100), fontSize);
 		windowToModify->addEntity(emailListElement);
 	}
@@ -371,5 +371,33 @@ void ppc::spawnInbox(WindowInterface*& windowToModify, InputHandler& ih, sf::Ima
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
 
 }
+void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email& mail, sf::Image& buttonSheet, float x, float y) {
+	/* Check to make sure the window passed isn't null */
+	if (windowToModify == nullptr) { return; }
 
+	/////////////////////////////////////////
+	/////// COMPONENTS
+	///////////////////////////////////////
+	
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 20;
+	int windowOffset = 5;
+
+	emailMessageRenderComponent* eMRC = new emailMessageRenderComponent(myFont, mail, 0, 0, fontSize);
+
+
+	/////////////////////////////////////////
+	/////// ENTITIES
+	///////////////////////////////////////
+	Entity emailMessageDisplayBox;
+	emailMessageDisplayBox.addComponent(eMRC);
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+	windowToModify->addEntity(emailMessageDisplayBox);
+	windowToModify->setPosition(x, y);
+	windowToModify = new BorderDecorator(*windowToModify);
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+}
 

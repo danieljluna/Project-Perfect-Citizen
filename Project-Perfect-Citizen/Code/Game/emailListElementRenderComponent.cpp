@@ -2,14 +2,14 @@
 
 using namespace ppc;
 
-emailListElementRenderComponent::emailListElementRenderComponent(sf::Font& f, std::string subjectLine, int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size) : font(f) {
+emailListElementRenderComponent::emailListElementRenderComponent(sf::Font& f, Email& email, int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size) : font(f) {
 	
 	this->text = new sf::Text();
 	text->setFont(font);
 	text->setColor(sf::Color::Black);
 	text->setPosition(float(x), float(y));
 	text->setCharacterSize(size);
-	text->setString(subjectLine);
+	text->setString(email.getSubjectField());
 
 	emailListElementBox.setPosition(sf::Vector2f(boxX, boxY));
 	emailListElementBox.setSize(sf::Vector2f(boxWidth, boxHeight));

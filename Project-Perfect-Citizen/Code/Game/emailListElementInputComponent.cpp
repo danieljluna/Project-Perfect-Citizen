@@ -9,13 +9,9 @@ const string MOUSE_RELEASED_CODE = "MRC";
 const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
 const float DOUBLE_CLICK_TIME = 500.0f;
 
-emailListElementInputComponent::emailListElementInputComponent() :
-	InputComponent(2) {
-}
 
-
-emailListElementInputComponent::emailListElementInputComponent(ppc::InputHandler& ih,
-	sf::FloatRect rect) : InputComponent(2), boxRect(rect) {
+emailListElementInputComponent::emailListElementInputComponent(ppc::Desktop& dT, ppc::InputHandler& ih,
+	ppc::Email eM, sf::Image& bS, sf::FloatRect rect) : InputComponent(2), boxRect(rect), buttonSheet(bS), emailToOpen(eM), theDesktop(dT) {
 
 	//add a new subject that is tied to the event
 	ih.addHandle(sf::Event::MouseButtonPressed);
@@ -70,7 +66,10 @@ bool emailListElementInputComponent::registerInput(sf::Event& ev) {
 					mouseClock.restart();
 				}
 				else if (mouseTime < DOUBLE_CLICK_TIME) {
-					cout << "Double clicked on an email list element: Open the corresponding window" << endl;
+					ppc::WindowInterface* emailWindow =
+						new ppc::Window(600, 400, sf::Color(200, 200, 200));
+					spawnEmailMessage(emailWindow, emailWindow->getInputHandler(), emailToOpen, buttonSheet, 200, 200);
+					theDesktop.addWindow(emailWindow);
 					getEntity()->broadcastMessage(MOUSE_DOUBLE_CLICK_CODE);
 				}
 			}
