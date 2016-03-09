@@ -79,6 +79,17 @@ public:
 
     virtual void setSize(unsigned int width, unsigned int height) override;
 
+    /////////////////////////////////////////////////////////////////////
+    // View Manipulation
+    /////////////////////////////////////////////////////////////////////
+
+    sf::FloatRect getView() const override;
+    void resetView(const sf::FloatRect& view) override;
+    void setViewSize(const sf::Vector2f& size) override;
+    void setViewCenter(const sf::Vector2f& center) override;
+    void setViewPosition(const sf::Vector2f& pos) override;
+    void moveView(const sf::Vector2f& delta) override;
+    
     // Transformation Setters
 
     virtual void setPosition(float x, float y) override;

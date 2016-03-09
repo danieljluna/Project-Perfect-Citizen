@@ -40,11 +40,6 @@ public:
 
     void move(float dx, float dy) override;
 
-
-  /////////////////////////////////////////////////////////////////////
-  // View Manipulation
-  /////////////////////////////////////////////////////////////////////
-
     void resetView(const sf::FloatRect& view);
 
     void setViewSize(const sf::Vector2f& size);
@@ -52,6 +47,11 @@ public:
     void setViewCenter(const sf::Vector2f& center);
 
     void setViewPosition(const sf::Vector2f& center);
+
+
+  /////////////////////////////////////////////////////////////////////
+  // View Manipulation
+  /////////////////////////////////////////////////////////////////////
 
     void setBarSize(float barSize);
 
