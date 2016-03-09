@@ -85,43 +85,19 @@ public:
     ///////////////////////////////////////////////////////////////////
     /// @brief Returns the FloatRect that represents the View.
     ///////////////////////////////////////////////////////////////////
-    virtual sf::FloatRect getView() const = 0;
+    virtual const sf::View& getView() const = 0;
   
     ///////////////////////////////////////////////////////////////////
-    /// @brief Resets the view of the Window to the given FloatRect
+    /// @brief Sets the view of the Window
     ///
-    /// @param view The desired view in WindowSpace.
+    /// @param view The desired view for the Window.
     ///////////////////////////////////////////////////////////////////
-    virtual void resetView(const sf::FloatRect& view) = 0;
-
+    virtual void setView(const sf::View& view) = 0;
+    
     ///////////////////////////////////////////////////////////////////
-    /// @brief Sets the size of the View for the Window.
-    ///
-    /// @param size The desired Size of the View.
+    /// @brief Resets the view of the Window to the entire Window
     ///////////////////////////////////////////////////////////////////
-    virtual void setViewSize(const sf::Vector2f& size) = 0;
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Sets the position of the View for the Window given the 
-    ///     passed center.
-    ///
-    /// @param center The desired center of the View.
-    ///////////////////////////////////////////////////////////////////
-    virtual void setViewCenter(const sf::Vector2f& center) = 0;
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Sets the position of the View for the Window.
-    ///
-    /// @param pos The desired position of the View's top-left corner.
-    ///////////////////////////////////////////////////////////////////
-    virtual void setViewPosition(const sf::Vector2f& pos) = 0;
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Offsets the position of the View for the Window.
-    ///
-    /// @param delta The offset to shift the view by.
-    ///////////////////////////////////////////////////////////////////
-    virtual void moveView(const sf::Vector2f& delta) = 0;
+    virtual const sf::View& getDefaultView() = 0;
     
     
   /////////////////////////////////////////////////////////////////////

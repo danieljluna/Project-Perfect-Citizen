@@ -91,6 +91,30 @@ void Window::setSize(unsigned int width, unsigned int height) {
 }
 
 
+
+/////////////////////////////////////////////////////////////////////
+// View Manipulation
+/////////////////////////////////////////////////////////////////////
+
+const sf::View& Window::getView() const {
+    return windowSpace_.getView();
+}
+
+
+
+void Window::setView(const sf::View& view) {
+    windowSpace_.setView(view);
+}
+
+
+
+const sf::View& Window::getDefaultView() {
+    return windowSpace_.getDefaultView();
+}
+
+
+
+
 ///////////////////////////////////////////////////////////////////////
 // Transformation Setters
 ///////////////////////////////////////////////////////////////////////

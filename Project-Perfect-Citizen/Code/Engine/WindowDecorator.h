@@ -52,6 +52,12 @@ public:
 
     virtual void setSize(unsigned int width, unsigned int height) override;
 
+    // View Manipulation
+
+    const sf::View& getView() const override;
+    void setView(const sf::View& view) override;
+    const sf::View& getDefaultView() override;
+    
     // Transformation Setters
 
     virtual void setPosition(float x, float y) override;

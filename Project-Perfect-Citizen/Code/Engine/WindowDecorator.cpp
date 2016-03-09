@@ -85,6 +85,24 @@ sf::Vector2f WindowDecorator::getScale() const {
 }
 
 
+
+///////////////////////////////////////////////////////////////////////
+// View Manipulation
+///////////////////////////////////////////////////////////////////////
+
+const sf::View& WindowDecorator::getView() const {
+    return windowHandle_->getView();
+}
+
+void WindowDecorator::setView(const sf::View& view) {
+    windowHandle_->setView(view);
+}
+
+const sf::View& WindowDecorator::getDefaultView() {
+    return windowHandle_->getDefaultView();
+}
+
+
 ///////////////////////////////////////////////////////////////////////
 // Component Manipulation
 ///////////////////////////////////////////////////////////////////////
