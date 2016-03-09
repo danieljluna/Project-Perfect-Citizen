@@ -79,7 +79,10 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		theDesktop_.addWindow(ErrorMsgWindow);
 	}
 	else if (msg.compare(OPEN_THE_EXPLORER) == 0) {
-		cout << "DEBUG: Implement and open the explorer" << endl;
+		ppc::WindowInterface* explorerWindow =
+			new ppc::Window(500, 250, sf::Color(255, 255, 255));
+		spawnExplorer(explorerWindow, explorerWindow->getInputHandler(), theDesktop_.getNodeState(), buttonSheet_, 100, 200);
+		theDesktop_.addWindow(explorerWindow);
 	}
 	else if (msg.compare(OPEN_THE_EMAIL) == 0) {
 		ppc::WindowInterface* inboxWindow =

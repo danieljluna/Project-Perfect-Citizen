@@ -29,6 +29,7 @@
 #include "../Game/databaseDisplayRenderComponent.h"
 #include "../Game/Inbox.h"
 #include "../Game/errorMessageRenderComponent.h"
+#include "../Game/Explorer.h"
 
 #include "../Engine/debug.h"
 #include "../Game/characterRender.hpp"
@@ -424,3 +425,34 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
+
+void ppc::spawnExplorer(WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns,
+	sf::Image& buttonSheet, float x, float y) {
+	/* Check to make sure the window passed isn't null */
+	if (windowToModify == nullptr) { return; }
+
+	/////////////////////////////////////////
+	/////// COMPONENTS
+	///////////////////////////////////////
+
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 14;
+
+	Explorer theExplorer(windowToModify, ns, buttonSheet);
+
+	/////////////////////////////////////////
+	/////// ENTITIES
+	///////////////////////////////////////
+	
+
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+
+	windowToModify->setPosition(x, y);
+	windowToModify = new BorderDecorator(*windowToModify);
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+}
+
+

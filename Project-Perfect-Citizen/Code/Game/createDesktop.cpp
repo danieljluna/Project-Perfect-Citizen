@@ -6,7 +6,12 @@
 using namespace ppc;
 
 void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet) {
-
+	
+	std::vector<string> firstLsCommand;
+	string ls = "ls";
+	firstLsCommand.push_back(ls);
+	commandFn firstLs = findFunction(ls);
+	firstLs(desktopToModify.getNodeState(), firstLsCommand);
 	
 	//////////////////////////////////////////////
 	//// Create the database (really should take a seed)
