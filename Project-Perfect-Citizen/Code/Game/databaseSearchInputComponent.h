@@ -41,6 +41,8 @@ private:
 
 public:
 
+    friend bool goBackFn(databaseSearchInputComponent*, sf::Event&);
+
 	databaseSearchInputComponent() = delete;
 
 	///////////////////////////////////////////////////////////////////////
@@ -65,7 +67,7 @@ public:
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Function pointer to back functionality
 	///////////////////////////////////////////////////////////////////////
-	bool goBack(sf::Event& ev);
+	void goBack();
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Sets the display results to be a hardcoded string
@@ -85,5 +87,7 @@ public:
 	virtual bool registerInput(sf::Event& ev) override;
 
 };
+
+
 
 };

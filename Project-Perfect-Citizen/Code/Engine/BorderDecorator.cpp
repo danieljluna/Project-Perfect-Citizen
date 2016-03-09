@@ -78,7 +78,8 @@ BorderDecorator::~BorderDecorator() {
 
 
 
-void BorderDecorator::addButton(sf::Image& buttonImage, std::string buttonFn) {
+void BorderDecorator::addButton(sf::Image& buttonImage, 
+                                bool(*buttonFn)(WindowInterface*, sf::Event&)) {
     if (buttonCount_ < maxButtons_) {
         //Push back the button render cmpnt
         buttonRenders_[buttonCount_] = new buttonRenderComponent(buttonImage, 0, 3, 1, 1);
@@ -97,7 +98,7 @@ void BorderDecorator::addButton(sf::Image& buttonImage, std::string buttonFn) {
         //Set button input values
         buttonInputs_[buttonCount_]->setInputHandle(getInputHandler());
         buttonInputs_[buttonCount_]->setFloatRect(clickSpace);
-        buttonInputs_[buttonCount_]->setIsBeingPressed(buttonFn);
+        setOnPress(buttonInputs_[buttonCount_], getUniversalTarget(), closeWindow);
 
         //Push back the button entity
         buttonEntities_[buttonCount_] = new Entity();
@@ -225,3 +226,15 @@ void BorderDecorator::updateButton(size_t i) {
     sf::Vector2f ButtonPos(left, top);
     buttonRenders_[i]->renderPosition(ButtonPos);
 }
+
+
+
+
+
+bool ppc::closeWindow(WindowInterface* win, sf::Event& ev) {
+    win->close();
+
+    return true;
+}
+
+

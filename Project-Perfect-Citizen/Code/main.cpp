@@ -165,7 +165,8 @@ int main(int argc, char** argv) {
 	//bool coolReturnValue = (*cool.*(c->functionPointer))(testEvent);
 	//c->eventHandler(testEvent);
 
-	FreeFunctionObserver<TestFunctionClass> d(&printFunc, &cool);
+
+	FreeFunctionObserver<TestFunctionClass> d(printFunc, &cool);
 	d.eventHandler(testEvent);
 	////////////////////////////////////////////FUNCTION OBSERVER TESTING/////////////////////////////////
 

@@ -40,11 +40,21 @@
 #include "../Game/NetworkRenderCmpnt.h"
 #include"../Game/NetworkInputCmpnt.h"
 #include"../Game/NetworkUpdateCmpnt.h"
+
 #include"../Game/PipelineLevelBuilder.h"
 #include "../Game/createListElement.h"
 #include "../Game/emailExtraction.hpp"
 #include "../Library/json/json.h"
+#include"../Engine/TestFunctionClass.h"
+#include"../Engine/FreeFunctionObserver.h"
+
+>>>>>>> experimental
 using namespace ppc;
+
+bool testBackFunction(TestFunctionClass* tfc, sf::Event& ev) {
+	//tfc->callFunc(ev);
+	return true;
+}
 
 
 void ppc::spawnConsole(WindowInterface*& windowToModify,
@@ -90,7 +100,7 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     ///////////////////////////////////////
     Entity textBox;
     textBox.addComponent(textInputBox);
-   // textBox.addComponent(textRenderComponent);
+    // textBox.addComponent(textRenderComponent);
     textBox.addComponent(tik);
     textBox.addComponent(cup);
     
@@ -104,7 +114,7 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     windowToModify->addEntity(textBox);
     windowToModify->addEntity(textDisplay);
     windowToModify = new BorderDecorator(*windowToModify);
-    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
     
 }
 
@@ -129,13 +139,6 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     faceSheet.loadFromFile(resourcePath() + "Face_Sheet.png");
     
     
-    // We probably do not need these
-    
-   /* buttonRenderComponent* textRenderComponent =
-    new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
-    textRenderComponent->renderPosition(sf::Vector2f(0, 220));*/
-    
-    
     databaseDisplayRenderComponent* searchResults =
     new databaseDisplayRenderComponent(myFont, faceSheet, 0, fontSize + 5, fontSize - 10);
     
@@ -143,12 +146,8 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     /* Create the input components */
     databaseSearchRenderComponent* searchBox = new databaseSearchRenderComponent(myFont, 75, 0, fontSize);
     
-    /*databaseSearchRenderComponent* searchBox = new databaseSearchRenderComponent(myFont, 0,
-     windowToModify->getSize().y - (fontSize + windowOffset),
-     fontSize);*/
-    
     characterRender* render = new characterRender(faceSheet);
-    float x1 =  windowToModify->getSize().x/2;
+    float x1 =  static_cast<float>(windowToModify->getSize().x/2);
     render->setOrigin(x1, 100);
     /* Create the update components */
     
@@ -172,7 +171,10 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     resultsBoxEntity.addComponent(searchResults);
 
     Entity backButton;
-    spawnBackButton(backButton, ih, buttonSheet, 0, 0, 0.2f);
+	//TODO FIX THIS
+	TestFunctionClass* cool = new TestFunctionClass();
+
+    spawnBackButton(dSI, backButton, ih, buttonSheet, 0, 0, 0.2f);
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
@@ -183,7 +185,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     windowToModify->addEntity(characterProfile);
     windowToModify->addEntity(backButton);
     windowToModify = new BorderDecorator(*windowToModify);
-    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
 
 void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
@@ -192,7 +194,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
-	int fontSize = 20;
+	int fontSize = 14;
 	int dataWindowX = (2 * windowToModify->getSize().x) / 3;
 
 	/////////////////////////////////////////
@@ -206,36 +208,33 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	PipelineGraphRenderComponent* graphBounds = new PipelineGraphRenderComponent(0, 0, dataWindowX,
 		windowToModify->getSize().y);
     
-    Network* net = PipelineLevelBuilder::buildLevelOneNetworkSolution();
+
+    Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
+	Network* playNet = solNet->copyNetworkByVerts();
+	playNet->setCenter(0);
 
 	//No Overlapping Edges (Think of this positioning as an 8x8 grid
 	//the number after the * is the row/column number)
-	net->vert(0).setPosition(50 + 50 * 0, 50 + 50 * 0);
-	net->vert(1).setPosition(50 + 50 * 0, 50 + 50 * 7);
-	net->vert(2).setPosition(50 + 50 * 2, 50 + 50 * 1);
-	net->vert(3).setPosition(50 + 50 * 2, 50 + 50 * 6);
-	net->vert(4).setPosition(50 + 50 * 5, 50 + 50 * 1);
-	net->vert(5).setPosition(50 + 50 * 5, 50 + 50 * 6);
-	net->vert(6).setPosition(50 + 50 * 7, 50 + 50 * 0);
-	net->vert(7).setPosition(50 + 50 * 7, 50 + 50 * 7);
+	playNet->vert(0).setPosition(50 + 50 * 0, 50 + 50 * 0);
+	playNet->vert(1).setPosition(50 + 50 * 0, 50 + 50 * 7);
+	playNet->vert(2).setPosition(50 + 50 * 2, 50 + 50 * 1);
+	playNet->vert(3).setPosition(50 + 50 * 2, 50 + 50 * 6);
+	playNet->vert(4).setPosition(50 + 50 * 5, 50 + 50 * 1);
+	playNet->vert(5).setPosition(50 + 50 * 5, 50 + 50 * 6);
+	playNet->vert(6).setPosition(50 + 50 * 7, 50 + 50 * 0);
+	playNet->vert(7).setPosition(50 + 50 * 7, 50 + 50 * 7);
 
-	NetworkRenderComponent* networkRender = new NetworkRenderComponent(*net);
-	NetworkInputCmpnt* networkInput = new NetworkInputCmpnt(*net, windowToModify->getInputHandler());
+	NetworkRenderComponent* networkRender = 
+		new NetworkRenderComponent(*playNet);
+	NetworkInputCmpnt* networkInput = 
+		new NetworkInputCmpnt(*playNet, *solNet, windowToModify->getInputHandler());
+	//Always need to call this setter.
 	networkInput->setPipelineData(*dataText);
-	NetworkUpdateCmpnt* networkUpdate = new NetworkUpdateCmpnt(*net);
+	NetworkUpdateCmpnt* networkUpdate = new NetworkUpdateCmpnt(*playNet);
+	//Always need to call these setters
 	networkUpdate->setBounds(graphBounds->getLocalBounds());
 	networkUpdate->setDrags(networkInput->getDraggables());
 	
-    int somevert = std::rand() % 8;
-	for (unsigned int i = 0; i < net->size(); ++i) {
-		if (net->isAdjacent(somevert, i)) {
-			std::vector<std::string> smsvec = net->edge(somevert, i)->getSmsData();
-			
-			for (unsigned int j = 0; j < smsvec.size(); ++j) {
-				dataText->appendString(smsvec[j] + "\n\n");
-			}
-		}
-	}
 	/////////////////////////////////////////
 	/////// ENTITIES 
 	///////////////////////////////////////
@@ -255,7 +254,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	windowToModify->addEntity(graphBox);
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
-	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 
 }
 
@@ -311,7 +310,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     windowToModify->setPosition(x, y);
     windowToModify->addEntity(newEnt);
     windowToModify = new BorderDecorator(*windowToModify);
-    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
 
 void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, Inbox& inbox) {
@@ -343,7 +342,7 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 
 	windowToModify = new BorderDecorator(*windowToModify);
 	windowToModify->setPosition(x, y);
-	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 
 }
 void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email& mail, sf::Image& buttonSheet, float x, float y) {
@@ -373,6 +372,6 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	windowToModify->addEntity(emailMessageDisplayBox);
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
-	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
 
