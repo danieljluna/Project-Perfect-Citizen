@@ -49,6 +49,7 @@ namespace ppc {
         ///////////////////////////////////////////////////////////////////
         void parseForFileTree(Json::Value obj, std::string folder);
         
+        
     private:
         NodeState &fileTree_;
     };
