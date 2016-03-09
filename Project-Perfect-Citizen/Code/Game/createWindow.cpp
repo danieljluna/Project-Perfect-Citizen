@@ -23,6 +23,7 @@
 #include "textInputRenderComponent.hpp"
 #include "textInputKeys.hpp"
 #include "../Engine/BorderDecorator.h"
+#include "../Engine/ScrollBarDeco.h"
 #include "../Game/textOutputRenderComponent.h"
 #include "../Game/databaseSearchRenderComponent.h"
 #include "../Game/databaseSearchInputComponent.h"
@@ -114,6 +115,7 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     windowToModify->addEntity(textDisplay);
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+    windowToModify = new ScrollBarDecorator(*windowToModify);
     
 }
 

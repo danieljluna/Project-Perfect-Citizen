@@ -33,11 +33,11 @@ WindowDecorator::~WindowDecorator() {
 // Space Getters
 ///////////////////////////////////////////////////////////////////////
 
-sf::Vector2u WindowDecorator::getSize() {
+sf::Vector2u WindowDecorator::getSize() const {
     return windowHandle_->getSize();
 }
 
-sf::FloatRect WindowDecorator::getBounds() {
+sf::FloatRect WindowDecorator::getBounds() const {
     return windowHandle_->getBounds();
 }
 

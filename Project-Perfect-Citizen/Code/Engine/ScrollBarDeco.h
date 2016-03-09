@@ -4,6 +4,7 @@
 #include "WindowDecorator.h"
 #include "../Game/buttonRenderComponent.h"
 #include "../Game/mousePressButton.h"
+#include "DraggableInput.h"
 #include "Entity.h"
 
 
@@ -21,7 +22,7 @@ public:
 
     ScrollBarDecorator(WindowInterface& win);
 
-    ScrollBarDecorator(WindowInterface& win, sf::FloatRect& view);
+    ScrollBarDecorator(WindowInterface& win, const sf::View& view);
 
     virtual ~ScrollBarDecorator();
 
@@ -30,24 +31,19 @@ public:
   // Window Overrides
   /////////////////////////////////////////////////////////////////////
 
-    sf::Vector2u getSize() override;
+    sf::Vector2u getSize() const override;
 
     void setSize(unsigned int x, unsigned int y) override;
 
-    sf::FloatRect getBounds() override;
+    sf::FloatRect getBounds() const override;
 
     void setPosition(float x, float y) override;
 
     void move(float dx, float dy) override;
 
-    void resetView(const sf::FloatRect& view);
+    void setView(const sf::View& view) override;
 
-    void setViewSize(const sf::Vector2f& size);
-
-    void setViewCenter(const sf::Vector2f& center);
-
-    void setViewPosition(const sf::Vector2f& center);
-
+    
 
   /////////////////////////////////////////////////////////////////////
   // View Manipulation
@@ -56,6 +52,8 @@ public:
     void setBarSize(float barSize);
 
     void setBarSprite(const sf::Sprite& barSpr);
+
+    void setBarBkgrndSprite(const sf::Sprite& bkgrndSpr);
 
     void setButtonSprite(const sf::Sprite& buttonSpr);
 
@@ -73,9 +71,15 @@ private:
   // Helper Functions
   /////////////////////////////////////////////////////////////////////
 
+    void repositionSliders();
+
+    void updateInput();
+    
     void updateSliders();
 
     void updateView();
+
+    void initialize();
 
 
   /////////////////////////////////////////////////////////////////////
@@ -84,11 +88,22 @@ private:
 
     float barSize_;
 
-    sf::RectangleShape rectangleSprite_;
+    //Array of ScrollBar Rectangles
+    sf::RectangleShape scrollBars_[2];
+    //Stores the input Component that allows the Window to be dragged 
+    //  via the BorderDecorator.
+    DraggableInput* draggableInputs_[2];
+    //Array of ScrollBar Backgrounds
+    sf::RectangleShape scrollBackgrounds_[2];
+    
 
-    sf::RectangleShape buttonSprite_;
 
-    bool isHorizontal;
+    //Array of buttonRenderComponents
+    buttonRenderComponent* buttonRenders_[4];
+    //Array of buttonInputComponents
+    mousePressButton* buttonInputs_[4];
+    //Array of button Entities
+    Entity buttonEntities_[4];
 
 
 };

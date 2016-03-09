@@ -416,25 +416,25 @@
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
-      <Filter>Sources\Engine\Sound</Filter>
+      <Filter>Headers\Engine\Sound</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\Audio\DesktopAudio.h">
-      <Filter>Sources\Engine\Sound</Filter>
+      <Filter>Headers\Engine\Sound</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\Audio\AudioLocator.h">
-      <Filter>Sources\Engine\Sound</Filter>
+      <Filter>Headers\Engine\Sound</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\Audio\NullAudio.h">
-      <Filter>Sources\Engine\Sound</Filter>
+      <Filter>Headers\Engine\Sound</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\Audio\Sounds.h">
-      <Filter>Sources\Engine\Sound</Filter>
+      <Filter>Headers\Engine\Sound</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\textOutputRenderComponent.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\Audio\AudioLogger.h">
-      <Filter>Sources\Engine\Sound</Filter>
+      <Filter>Headers\Engine\Sound</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\PipelineCharacter.h">
       <Filter>Headers\Game</Filter>
@@ -518,9 +518,6 @@
     <ClInclude Include="Code\Game\emailMessageRenderComponent.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\ScrollBarDeco.h">
-      <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Game\emailExtraction.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
@@ -529,6 +526,9 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\FreeFunctionObserver.h">
       <Filter>Headers\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ScrollBarDeco.h">
+      <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -639,9 +639,6 @@
     <Filter Include="Sources\Game">
       <UniqueIdentifier>{8a64dff5-ecb4-44d7-8311-ec366f68d802}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Engine\Sound">
-      <UniqueIdentifier>{5fad2e51-2510-4c24-b96d-6d5ad9dc5b89}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Headers\Engine\Audio">
       <UniqueIdentifier>{d24e0cd5-1bae-453f-a081-d9ac5308b296}</UniqueIdentifier>
     </Filter>
@@ -650,6 +647,9 @@
     </Filter>
     <Filter Include="Sources\Engine\Graph">
       <UniqueIdentifier>{dc8c4a5c-745c-490f-aedc-04221bba055f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Sound">
+      <UniqueIdentifier>{5fad2e51-2510-4c24-b96d-6d5ad9dc5b89}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

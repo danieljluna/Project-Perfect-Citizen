@@ -64,14 +64,14 @@ Window::~Window() {
 // Space Getters
 ///////////////////////////////////////////////////////////////////////
 
-sf::Vector2u Window::getSize() {
+sf::Vector2u Window::getSize() const {
     return windowSpace_.getSize();
 }
 
 
 
 
-sf::FloatRect Window::getBounds() {
+sf::FloatRect Window::getBounds() const {
     sf::FloatRect result;
     result.left = transform_.getPosition().x;
     result.top = transform_.getPosition().y;

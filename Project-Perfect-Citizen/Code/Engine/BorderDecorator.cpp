@@ -120,7 +120,7 @@ void BorderDecorator::addButton(sf::Image& buttonImage,
 // Decorated Functionality
 ///////////////////////////////////////////////////////////////////////
 
-sf::Vector2u BorderDecorator::getSize() {
+sf::Vector2u BorderDecorator::getSize() const {
     sf::Vector2u size = WindowDecorator::getSize();
 
     size.x += borderBottomRight_.x + borderTopLeft_.x;
@@ -181,7 +181,7 @@ void BorderDecorator::draw(sf::RenderTarget& target,
 
 
 
-sf::FloatRect BorderDecorator::getBounds() {
+sf::FloatRect BorderDecorator::getBounds() const {
     sf::FloatRect result = WindowDecorator::getBounds();
 
     result.left -= borderTopLeft_.x;

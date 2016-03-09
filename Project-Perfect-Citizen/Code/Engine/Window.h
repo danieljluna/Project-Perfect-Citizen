@@ -72,8 +72,8 @@ public:
 
     // Space Getters
 
-    virtual sf::Vector2u getSize() override;
-    virtual sf::FloatRect getBounds() override;
+    virtual sf::Vector2u getSize() const override;
+    virtual sf::FloatRect getBounds() const override;
     
     // Space Setters
 

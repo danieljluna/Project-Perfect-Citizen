@@ -59,7 +59,7 @@ public:
   // Decorated Functionality
   /////////////////////////////////////////////////////////////////////
 
-    virtual sf::Vector2u getSize() override;
+    virtual sf::Vector2u getSize() const override;
 
     virtual void setSize(unsigned int x, unsigned int y) override;
 
@@ -67,7 +67,7 @@ public:
 
     virtual void move(float x, float y) override;
 
-    virtual sf::FloatRect getBounds() override;
+    virtual sf::FloatRect getBounds() const override;
 
 
 protected:
@@ -97,7 +97,6 @@ private:
 
     //Stores the rectangle that is used to display the border.
     sf::RectangleShape borderShape_;
-    sf::RectangleShape borderTitle_;
 
     //Stores the input Component that allows the Window to be dragged 
     //  via the BorderDecorator.
