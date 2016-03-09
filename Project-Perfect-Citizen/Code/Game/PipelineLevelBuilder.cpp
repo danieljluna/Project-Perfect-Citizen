@@ -63,6 +63,8 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	Edge thisedge;
 	thisedge.setWeight(1);
 	thisedge.setColorRed();
+	addSmsMessagesToEdge(thisedge, SMS_MESSAGES_PER_EDGE, myNetwork->vert(first).getCharacter(),
+		myNetwork->vert(second).getCharacter(), exprGrammar);
 
 	myNetwork->setEdge(first, second, thisedge);
 	myNetwork->setEdge(second, first, thisedge);
@@ -102,10 +104,8 @@ void PipelineLevelBuilder::populateLevelEdges(int start, int end, int numEdges,
 			else thisedge.setColorRed();
 		}
 
-		for (int i = 0; i < SMS_MESSAGES_PER_EDGE; ++i) {
-			addSmsMessageToEdge(thisedge, net.vert(first).getCharacter(),
-				net.vert(second).getCharacter(), exprGrammar);
-		}
+		addSmsMessagesToEdge(thisedge, SMS_MESSAGES_PER_EDGE, net.vert(first).getCharacter(),
+			net.vert(second).getCharacter(), exprGrammar);
 
 		net.setEdge(first, second, thisedge);
 		net.setEdge(second, first, thisedge);
@@ -114,29 +114,52 @@ void PipelineLevelBuilder::populateLevelEdges(int start, int end, int numEdges,
 
 }
 
-void PipelineLevelBuilder::addSmsMessageToEdge(Edge& anEdge, const PipelineCharacter& sender, 
+void PipelineLevelBuilder::addSmsMessagesToEdge(Edge& anEdge, unsigned int numMessages, const PipelineCharacter& sender, 
 	const PipelineCharacter& receiver, const Json::Value& exprGrammar) {
-	std::string exprOutput = expr::ExpressionistParser::expressWithJson(exprGrammar, sender);
-	
-	std::string withmeta = "";
 
-	int numloops = 0;
-	while (exprOutput.length() > 0) {
-		if (numloops % 2 == 0) {
-			withmeta += "FROM: " + sender.getSSN() + " TO: " + receiver.getSSN() + "\n";
-		}
-		else {
-			withmeta += "FROM: " + receiver.getSSN() + " TO: " + sender.getSSN() + "\n";
-		}
-		withmeta += exprOutput.substr(0, exprOutput.find_first_of('%'));
-		if (exprOutput.find_first_of('%') < std::string::npos) {
-			exprOutput = exprOutput.substr(exprOutput.find_first_of('%'), std::string::npos);
-		}
-		else {
-			exprOutput = "";
-		}
+	for (unsigned int i = 0; i < numMessages; ++i) {
+		std::string exprOutput = expr::ExpressionistParser::expressWithJson(exprGrammar, sender);
 
-		++numloops;
+		std::vector<std::string> withmeta;
+		std::string exprOutputSub;
+
+		int numloops = 0;
+		while (exprOutput.length() > 0) {
+			if (numloops % 2 == 0) {
+				withmeta.push_back("FROM:");
+				withmeta.push_back(sender.getSSN());
+				withmeta.push_back("TO:");
+				withmeta.push_back(receiver.getSSN());
+				withmeta.push_back("\n");
+			}
+			else {
+				withmeta.push_back("FROM:");
+				withmeta.push_back(receiver.getSSN());
+				withmeta.push_back("TO:");
+				withmeta.push_back(sender.getSSN());
+				withmeta.push_back("\n");
+			}
+			exprOutputSub = exprOutput.substr(0, exprOutput.find_first_of('%'));
+			while (exprOutputSub.length() > 0) {
+				size_t firstSpace = exprOutputSub.find_first_of(' ');
+				if (firstSpace < string::npos) {
+					withmeta.push_back(exprOutputSub.substr(0, firstSpace));
+					exprOutputSub = exprOutputSub.substr(firstSpace + 1, std::string::npos);
+				}
+				else {
+					withmeta.push_back(exprOutputSub);
+					exprOutputSub = "";
+				}
+			}
+			if (exprOutput.find_first_of('%') < std::string::npos) {
+				exprOutput = exprOutput.substr(exprOutput.find_first_of('%'), std::string::npos);
+			}
+			else {
+				exprOutput = "";
+			}
+
+			++numloops;
+		}
+		anEdge.pushSmsData(withmeta);
 	}
-	anEdge.pushSmsData(withmeta);
 }

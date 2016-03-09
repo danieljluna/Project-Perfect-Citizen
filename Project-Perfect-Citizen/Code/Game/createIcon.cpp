@@ -6,9 +6,10 @@
 
 #include "../Engine/debug.h"
 #include "createIcon.h"
+#include "../Game/emailExtraction.hpp"
 using namespace ppc;
 
-void ppc::spawnFolderIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnFolderIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed, ppc::Inbox* inbox) {
 
     // Label Component //
     sf::Font font;
@@ -20,7 +21,7 @@ void ppc::spawnFolderIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih,
 	IconRender->renderPosition(sf::Vector2f(x, y));
 	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
 	mousePressButton* mpbFolder = new mousePressButton(ih, IconRender->getSprite()->getGlobalBounds(), "folderIcon");
-	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, buttonSheet);
+	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, *inbox, buttonSheet);
 
 	entityToModify.addComponent(IconRender);
     entityToModify.addComponent(label);
@@ -29,7 +30,7 @@ void ppc::spawnFolderIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih,
 	entityToModify.addComponent(mpbFolder);
 }
 
-void ppc::spawnSettingsIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnSettingsIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed, ppc::Inbox* inbox) {
     
 
     // Label Component //
@@ -47,7 +48,7 @@ void ppc::spawnSettingsIcon(Entity& entityToModify, Desktop& dT, InputHandler& i
 
 	/// Input Component ///
 	mousePressButton* mpbIcon = new mousePressButton(ih, IconRender->getSprite()->getGlobalBounds(), "settingsIcon");
-	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, buttonSheet);
+	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, *inbox, buttonSheet);
 
 	entityToModify.addComponent(IconRender);
     entityToModify.addComponent(label);
@@ -57,7 +58,7 @@ void ppc::spawnSettingsIcon(Entity& entityToModify, Desktop& dT, InputHandler& i
 
 }
 
-void ppc::spawnChatIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnChatIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed, ppc::Inbox* inbox) {
     
     // Label Component //
     sf::Font font;
@@ -75,7 +76,7 @@ void ppc::spawnChatIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, D
 
 	/// Input Component ///
 	mousePressButton* mpbIcon = new mousePressButton(ih, IconRender->getSprite()->getGlobalBounds(), "chatIcon");
-	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, buttonSheet);
+	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, *inbox, buttonSheet);
 
 	entityToModify.addComponent(IconRender);
     entityToModify.addComponent(label);
@@ -84,7 +85,7 @@ void ppc::spawnChatIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, D
 	entityToModify.addComponent(mpbIcon);
 }
 
-void ppc::spawnSearchIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database* db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnSearchIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database* db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed, ppc::Inbox* inbox) {
     
     /// Label Component ///
     sf::Font font;
@@ -101,7 +102,7 @@ void ppc::spawnSearchIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih,
 
 	/// Input Component ///
 	mousePressButton* mpbIcon = new mousePressButton(ih, IconRender->getSprite()->getGlobalBounds(), "searchIcon");
-	iconInputComponent* iconInputComp = new iconInputComponent(dT, db, buttonSheet);
+	iconInputComponent* iconInputComp = new iconInputComponent(dT, db, *inbox, buttonSheet);
 
 	entityToModify.addComponent(IconRender);
     entityToModify.addComponent(label);
@@ -110,7 +111,7 @@ void ppc::spawnSearchIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih,
 	entityToModify.addComponent(mpbIcon);
 }
 
-void ppc::spawnDataGraphIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnDataGraphIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed, ppc::Inbox* inbox) {
     
     // Label Component //
     sf::Font font;
@@ -127,7 +128,7 @@ void ppc::spawnDataGraphIcon(Entity& entityToModify, Desktop& dT, InputHandler& 
 
 	/// Input Component ///
 	mousePressButton* mpbIcon = new mousePressButton(ih, IconRender->getSprite()->getGlobalBounds(), "dataGraphIcon");
-	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, buttonSheet);
+	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, *inbox, buttonSheet);
 
 	entityToModify.addComponent(IconRender);
     entityToModify.addComponent(label);
@@ -136,7 +137,7 @@ void ppc::spawnDataGraphIcon(Entity& entityToModify, Desktop& dT, InputHandler& 
 	entityToModify.addComponent(mpbIcon);
 }
 
-void ppc::spawnHelpIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnHelpIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed, ppc::Inbox* inbox) {
     
     // Label Component //
     sf::Font font;
@@ -153,7 +154,7 @@ void ppc::spawnHelpIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, D
 
 	/// Input Component ///
 	mousePressButton* mpbIcon = new mousePressButton(ih, IconRender->getSprite()->getGlobalBounds(), "helpIcon");
-	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, buttonSheet);
+	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, *inbox, buttonSheet);
 
 	entityToModify.addComponent(IconRender);
     entityToModify.addComponent(label);
@@ -162,7 +163,7 @@ void ppc::spawnHelpIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, D
 	entityToModify.addComponent(mpbIcon);
 }
 
-void ppc::spawnBrowserIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnBrowserIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed, ppc::Inbox* inbox) {
     
     // Label Component //
     sf::Font font;
@@ -179,7 +180,7 @@ void ppc::spawnBrowserIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih
 
 	/// Input Component ///
 	mousePressButton* mpbIcon = new mousePressButton(ih, IconRender->getSprite()->getGlobalBounds(), "browserIcon");
-	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, buttonSheet);
+	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, *inbox, buttonSheet);
 
 	entityToModify.addComponent(IconRender);
     entityToModify.addComponent(label);
@@ -188,7 +189,7 @@ void ppc::spawnBrowserIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih
 	entityToModify.addComponent(mpbIcon);
 }
 
-void ppc::spawnHardDriveIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnHardDriveIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed, ppc::Inbox* inbox) {
     
     // Label Component //
     sf::Font font;
@@ -205,7 +206,7 @@ void ppc::spawnHardDriveIcon(Entity& entityToModify, Desktop& dT, InputHandler& 
 
 	/// Input Component ///
 	mousePressButton* mpbIcon = new mousePressButton(ih, IconRender->getSprite()->getGlobalBounds(), "hardDriveIcon");
-	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, buttonSheet);
+	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, *inbox, buttonSheet);
 
 	entityToModify.addComponent(IconRender);
     entityToModify.addComponent(label);
@@ -214,7 +215,7 @@ void ppc::spawnHardDriveIcon(Entity& entityToModify, Desktop& dT, InputHandler& 
 	entityToModify.addComponent(mpbIcon);
 }
 
-void ppc::spawnConsoleIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed) {
+void ppc::spawnConsoleIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed, ppc::Inbox* inbox) {
     
     
     /// Label Component ///
@@ -233,7 +234,7 @@ void ppc::spawnConsoleIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih
 
 	/// Input Components ///
 	mousePressButton* mpbIcon = new mousePressButton(ih, IconRender->getSprite()->getGlobalBounds(), "consoleIcon");
-	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, buttonSheet);
+	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, *inbox, buttonSheet);
 	entityToModify.addComponent(IconRender);
     entityToModify.addComponent(label);
 	entityToModify.addComponent(animator);
@@ -243,5 +244,32 @@ void ppc::spawnConsoleIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih
 
 }
 
+void ppc::spawnEmailIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed, ppc::Inbox* inbox) {
+
+
+	/// Label Component ///
+	sf::Font font;
+	font.loadFromFile(resourcePath() + "consola.ttf");
+
+	textLabelComponent* label = new textLabelComponent(font, x, y + size * 128, 20, "Email");
+
+	/// Render Component ///
+	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 10, 1, 2);
+	IconRender->setImageScale(size, size);
+	IconRender->renderPosition(sf::Vector2f(x, y));
+
+	// Animator (Update) Component ///
+	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
+
+	/// Input Components ///
+	mousePressButton* mpbIcon = new mousePressButton(ih, IconRender->getSprite()->getGlobalBounds(), "emailIcon");
+	iconInputComponent* iconInputComp = new iconInputComponent(dT, &db, *inbox, buttonSheet);
+	entityToModify.addComponent(IconRender);
+	entityToModify.addComponent(label);
+	entityToModify.addComponent(animator);
+	entityToModify.addComponent(mpbIcon);
+	entityToModify.addComponent(iconInputComp);
+
+}
 
 

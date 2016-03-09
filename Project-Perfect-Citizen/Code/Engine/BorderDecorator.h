@@ -54,7 +54,11 @@ public:
   // Button Manipulation
   /////////////////////////////////////////////////////////////////////
 
-    void addButton(sf::Image& buttonImage, std::string buttonFn);
+    void addButton(sf::Image& buttonImage, 
+                   bool (*buttonFn)(WindowInterface*, sf::Event&));
+
+
+    friend bool closeWindow(WindowInterface* winInterface, sf::Event& ev);
 
 
   /////////////////////////////////////////////////////////////////////

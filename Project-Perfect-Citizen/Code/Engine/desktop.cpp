@@ -152,8 +152,17 @@ void ppc::Desktop::registerInput(sf::Event& ev) {
 
 void ppc::Desktop::update(sf::Time& deltaTime){
 	//No reverse itors needed
-	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-		(*it)->update(deltaTime);
+	for (size_t i = 0; i < windows_.size(); ) {
+		windows_.at(i)->update(deltaTime);
+		if (!windows_.at(i)->isOpen()) {
+			delete windows_.at(i);
+			windows_.erase(windows_.begin() + i);
+			focusWindow(desktopWindow_);
+		} else {
+			++i;
+		}
+
+		//dont increment if you delete it
 	}
 }
 

@@ -68,7 +68,6 @@ bool DraggableInput::registerInput(sf::Event& ev) {
 			startX_ = ev.mouseButton.x;
 			startY_ = ev.mouseButton.y;
             isDragging_ = true;
-			return false;
         }
 
     //If we have a mouseRelease

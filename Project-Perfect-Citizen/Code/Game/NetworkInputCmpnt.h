@@ -3,7 +3,7 @@
 #include <vector>
 #include "../Engine/inputComponent.h"
 #include "../Engine/Network.h"
-
+#include "PipelineDataRenderComponent.h"
 
 namespace ppc {
 	///////////////////////////////////////////////////////////////////
@@ -14,6 +14,7 @@ namespace ppc {
 	private:
 
 		Network* network_;
+		Network* solution_;
 
 		ppc::InputHandler& handle_;
 
@@ -28,13 +29,25 @@ namespace ppc {
 		void selectVert(sf::Vector2f);
 		void loopEdgeColor();
 
+		PipelineDataRenderComponent* pipeRender_;
+		void updateDataText();
+
 	public:
 
 		NetworkInputCmpnt() = delete;
 
-		NetworkInputCmpnt(Network&, ppc::InputHandler&);
+		///////////////////////////////////////////////////////////////
+		///@brief Ctor
+		///@param net The player's version of the Network
+		///@param sol The solution Network.
+		///@param ih The input handle of the Window the graph is going
+		///	to be in.
+		///////////////////////////////////////////////////////////////
+		NetworkInputCmpnt(Network&, Network&, ppc::InputHandler&);
 
 		vector<ppc::DraggableInput*>* getDraggables();
+
+		void setPipelineData(PipelineDataRenderComponent&);
 
 		virtual ~NetworkInputCmpnt();
 

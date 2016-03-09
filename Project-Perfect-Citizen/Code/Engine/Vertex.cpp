@@ -21,8 +21,10 @@ ppc::Vertex::Vertex(){
 	circ_.setRadius(radius_);
 	circ_.setFillColor(color_);
 	circ_.setPosition(0, 0);
+	circ_.setOutlineColor(sf::Color::White);
 	text_.setPosition(radius_ / 2.f, radius_ / 2.f);
 	setTextFontLoad(resourcePath() + "consola.ttf");
+	isSelected_ = false;
 }
 
 ppc::Vertex::Vertex(const Vertex & other){
@@ -31,6 +33,7 @@ ppc::Vertex::Vertex(const Vertex & other){
 	circ_ = other.circ_;
 	text_ = other.text_;
 	font_ = other.font_;
+	isSelected_ = other.isSelected_;
 
 }
 
@@ -41,6 +44,8 @@ ppc::Vertex& ppc::Vertex::operator=(const Vertex& other){
 		circ_ = other.circ_;
 		text_ = other.text_;
 		font_ = other.font_;
+		isSelected_ = other.isSelected_;
+		bounds_ = other.bounds_;
 	}
 	return *this;
 }
@@ -108,11 +113,25 @@ void ppc::Vertex::applyDraggable(ppc::DraggableInput &di, ppc::InputHandler &ih)
 	di.watch(ih, sf::Event::MouseMoved);
 }
 
+void ppc::Vertex::selectVert() {
+	isSelected_ = true;
+	circ_.setOutlineThickness(3.f);
+}
+
+void ppc::Vertex::deselectVert() {
+	isSelected_ = false;
+	circ_.setOutlineThickness(0.f);
+}
+
+bool ppc::Vertex::isSelected() {
+	return isSelected_;
+}
+
 void ppc::Vertex::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
 
 	states.transform *= getTransform();
-	
+
 	target.draw(circ_, states);
 	target.draw(text_, states);
 }
