@@ -41,12 +41,14 @@
 #include"../Game/NetworkInputCmpnt.h"
 #include"../Game/NetworkUpdateCmpnt.h"
 
-#include "../Game/PipelineLevelBuilder.h"
-
 #include"../Game/PipelineLevelBuilder.h"
+#include "../Game/createListElement.h"
+#include "../Game/emailExtraction.hpp"
+#include "../Library/json/json.h"
 #include"../Engine/TestFunctionClass.h"
 #include"../Engine/FreeFunctionObserver.h"
 
+>>>>>>> experimental
 using namespace ppc;
 
 bool testBackFunction(TestFunctionClass* tfc, sf::Event& ev) {
@@ -311,7 +313,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
 
-void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y) {
+void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, Inbox& inbox) {
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
 
@@ -321,25 +323,15 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	int windowOffset = 5;
 	int emailBoxElementWidth = windowToModify->getSize().x;
 	int emailBoxElementHeight = 50;
-
-
-	Inbox theInbox;
-	Email testEmail1("alex", "brandon", "Long time no see!", "hello there friend!", "image.jpg");
-	Email testEmail2("brandon", "alex", "RE: Long time no see!", "hi how are you?", "image2.jpg");
-	Email testEmail3("alex", "brandon", "RE: RE: Long time no see!", "great! got to go!", "image3.jpg");
-	
-	theInbox.addEmailToList(testEmail1);
-	theInbox.addEmailToList(testEmail2);
-	theInbox.addEmailToList(testEmail3);
-
+    
 	/////////////////////////////////////////
 	/////// ENTITIES
 	///////////////////////////////////////
 	/* Create an email list element entity for each email in the inbox*/
-	for (int i = 0; i < theInbox.getInboxSize(); ++i) {
+	for (int i = 0; i < inbox.getInboxSize(); ++i) {
 		Entity emailListElement;
-		createEmailListElement(
-			emailListElement, dT, buttonSheet, ih, myFont, theInbox.getEmailAt(i), 0, (i * 100),
+        createEmailListElement(
+			emailListElement, dT, buttonSheet, ih, myFont, inbox.getEmailAt(i), 0, (i * 100),
 			emailBoxElementWidth, emailBoxElementHeight, 0, (i * 100), fontSize);
 		windowToModify->addEntity(emailListElement);
 	}
