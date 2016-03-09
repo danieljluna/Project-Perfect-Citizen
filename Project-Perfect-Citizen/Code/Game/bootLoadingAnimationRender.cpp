@@ -181,17 +181,18 @@ void bootLoadingAnimationRender::animate() {
         }
         texture->loadFromImage(image,sf::IntRect(0,0,6*128,7*128));
         sprite->setTextureRect(sf::IntRect(0,6*128,6*128,128));
+        sprite->setColor(sf::Color(73,238,7));
         sprite->setTexture(*texture);
         sprite->setPosition(100, 100);
         frame +=1;
     } else if (frame > 30 && frame <61) {
-        sprite->setColor(sf::Color(195,204,207,opacity));
+        sprite->setColor(sf::Color(73,238,7,opacity));
         if (opacity != 0) opacity -= 8;
 
         frame +=1;
     }
     else {
-       sprite->setColor(sf::Color(195,204,207,0));
+       sprite->setColor(sf::Color(73,238,7,0));
     }
     
 }

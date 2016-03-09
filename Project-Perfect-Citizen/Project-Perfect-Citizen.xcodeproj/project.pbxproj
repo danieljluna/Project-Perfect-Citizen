@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C825BD3F1C8F6E1300106E93 /* interpolateUpdateComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C825BD3D1C8F6E1300106E93 /* interpolateUpdateComponent.cpp */; };
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
 		C8A593471C8E3AFE00036C1D /* AudioLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8A592AD1C8E3AFE00036C1D /* AudioLocator.cpp */; };
 		C8A593481C8E3AFE00036C1D /* AudioLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8A592AF1C8E3AFE00036C1D /* AudioLogger.cpp */; };
@@ -176,6 +177,8 @@
 
 /* Begin PBXFileReference section */
 		C8058A631C4D679D005E23BA /* Project-Perfect-Citizen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-Perfect-Citizen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C825BD3D1C8F6E1300106E93 /* interpolateUpdateComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = interpolateUpdateComponent.cpp; sourceTree = "<group>"; };
+		C825BD3E1C8F6E1300106E93 /* interpolateUpdateComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = interpolateUpdateComponent.hpp; sourceTree = "<group>"; };
 		C82E60731C810DCB001860CC /* json-forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "json-forwards.h"; sourceTree = "<group>"; };
 		C82E60741C810DCB001860CC /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		C82E60751C810DCB001860CC /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
@@ -690,6 +693,8 @@
 				C8A593921C8E401300036C1D /* bootLoadingAnimationRender.hpp */,
 				C8A593941C8E403900036C1D /* bootLoadingUpdateComponent.cpp */,
 				C8A593951C8E403900036C1D /* bootLoadingUpdateComponent.hpp */,
+				C825BD3D1C8F6E1300106E93 /* interpolateUpdateComponent.cpp */,
+				C825BD3E1C8F6E1300106E93 /* interpolateUpdateComponent.hpp */,
 			);
 			name = Game;
 			path = Code/Game;
@@ -1036,6 +1041,7 @@
 				C8A593791C8E3AFE00036C1D /* databaseDisplayRenderComponent.cpp in Sources */,
 				C8A5935D1C8E3AFE00036C1D /* InputHandler.cpp in Sources */,
 				C8A593871C8E3AFE00036C1D /* PipelineLevelBuilder.cpp in Sources */,
+				C825BD3F1C8F6E1300106E93 /* interpolateUpdateComponent.cpp in Sources */,
 				C8A593521C8E3AFE00036C1D /* desktop.cpp in Sources */,
 				C8A5935E1C8E3AFE00036C1D /* Network.cpp in Sources */,
 				C8A593681C8E3AFE00036C1D /* Window.cpp in Sources */,

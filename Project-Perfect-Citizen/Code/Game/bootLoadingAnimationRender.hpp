@@ -67,6 +67,7 @@ private:
     sf::Texture* texture;
     sf::Image& image;
     
+    
     float loadX;
     int frame, opacity;
 

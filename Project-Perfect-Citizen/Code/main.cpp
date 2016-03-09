@@ -52,6 +52,7 @@
 #include "Engine/debug.h"
 #include "Engine/TestFunctionClass.h"
 #include "Engine/FreeFunctionObserver.h"
+#include "Game/interpolateUpdateComponent.hpp"
 
 #include "Game/bootLoadingUpdateComponent.hpp"
 #include "Game/bootLoadingAnimationRender.hpp"
@@ -153,7 +154,7 @@ int main(int argc, char** argv) {
     // UNCOMMENT THIS BLOCK FOR BOOT WINDOW
     //------------------------------------------------------------------
     
-    /*Window* bootWindow = new Window(1800,1000,sf::Color(30,32,33));
+    Window* bootWindow = new Window(1800,1000,sf::Color(30,32,33));
     
     Entity loading;
     
@@ -162,14 +163,18 @@ int main(int argc, char** argv) {
     dcps->setImageScale(2.0f, 2.0f);
     dcps->renderPosition(sf::Vector2f(355,200));
 
+    Interpolate* inter = new Interpolate(20,0,0.2f);
+    inter->begin();
+    
     
     bootLoadingUpdateComponent* bootUpdate = new bootLoadingUpdateComponent(*bootRender,*dcps,0.1f);
     loading.addComponent(bootRender);
+    loading.addComponent(inter);
     loading.addComponent(bootUpdate);
     loading.addComponent(dcps);
     bootWindow->addEntity(loading);
     
-    myDesktop.addWindow(bootWindow);*/
+    myDesktop.addWindow(bootWindow);
     
     //------------------------------------------------------------------
     
