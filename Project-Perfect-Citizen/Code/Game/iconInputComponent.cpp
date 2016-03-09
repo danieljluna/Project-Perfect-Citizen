@@ -32,7 +32,7 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		WindowInterface* consoleWindow = 
 			new Window(600, 500, sf::Color(51, 50, 161));
 		spawnConsole(consoleWindow, consoleWindow->getInputHandler(), 
-			theDesktop_.getNodeState(), buttonSheet_, 300, 400);
+			theDesktop_.getNodeState(), buttonSheet_, 200, 200);
 		theDesktop_.addWindow(consoleWindow);
 	}
 	else if (msg.compare(OPEN_THE_FILE) == 0) {

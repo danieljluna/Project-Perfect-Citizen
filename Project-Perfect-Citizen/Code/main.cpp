@@ -236,8 +236,8 @@ int main(int argc, char** argv) {
     std::string renderString = "";
     text.setString(renderString);
 
-	//while (runPlayerDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
-	while (runTargetDesktop(*&screen, teacherIconSheet, spriteSheet, teacherWallpaper)) {}
+	while (runPlayerDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
+	//while (runTargetDesktop(*&screen, teacherIconSheet, spriteSheet, teacherWallpaper)) {}
     
     return EXIT_SUCCESS;
 }

@@ -43,6 +43,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		commandFn firstLs = findFunction(ls);
 		firstLs(fileTree_, firstLsCommand);
 		
+		cout << fileTree_.getDirString() << endl;
 		str_ = str_ + fileTree_.getDirString() + "\n";
 		int numLines = std::count(str_.begin(), str_.end(), '@');
 		std::replace(str_.begin(), str_.end(), '@', '\n');

@@ -63,6 +63,9 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     
     /* Check to make sure the window passed isn't null */
     if (windowToModify == nullptr) { return; }
+
+	/* Reset the current directory to the root */
+	ns.moveToRoot();
     
     /////////////////////////////////////////
     /////// COMPONENTS
