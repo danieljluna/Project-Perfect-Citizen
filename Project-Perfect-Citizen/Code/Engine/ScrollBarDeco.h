@@ -60,6 +60,8 @@ public:
     void setButtonSprite(const sf::Sprite& buttonSpr);
 
 
+
+
 protected:
 
     void draw(sf::RenderTarget& target, sf::RenderStates) const override;
