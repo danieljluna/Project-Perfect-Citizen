@@ -6,21 +6,27 @@ using namespace ppc;
 // Constructors & Destructors
 ///////////////////////////////////////////////////////////////////////
 
-ScrollBarDecorator::ScrollBarDecorator(WindowInterface& win) : 
+ScrollBarDecorator::ScrollBarDecorator(WindowInterface& win,
+                                       sf::Image& img) :
         WindowDecorator(win) {
-    initialize();
+    initialize(img);
+
+    repositionSliders();
 }
 
 
 
 
 ScrollBarDecorator::ScrollBarDecorator(WindowInterface& win, 
+                                       sf::Image& img,
                                        const sf::View& view) :
         WindowDecorator(win) {
-    
-    initialize();
+    initialize(img);
 
-    setView(view);
+    
+    WindowDecorator::setView(view);
+
+    repositionSliders();
 }
 
 
@@ -28,10 +34,6 @@ ScrollBarDecorator::ScrollBarDecorator(WindowInterface& win,
 
 ScrollBarDecorator::~ScrollBarDecorator() {
     for (unsigned int i = 0; i < 4; ++i) {
-        if (i < 2) {
-            delete draggableInputs_[i];
-        } 
-        delete buttonInputs_[i];
         delete buttonRenders_[i];
     }
 
@@ -56,6 +58,7 @@ sf::Vector2u ScrollBarDecorator::getSize() const {
 
 
 void ScrollBarDecorator::setSize(unsigned int x, unsigned int y) {
+    WindowDecorator::setSize(x, y);
     updateSliders();
 }
 
@@ -75,12 +78,14 @@ sf::FloatRect ScrollBarDecorator::getBounds() const {
 
 void ScrollBarDecorator::setPosition(float x, float y) {
     WindowDecorator::setPosition(x, y);
+    repositionSliders();
 }
 
 
 
 void ScrollBarDecorator::move(float dx, float dy) {
     WindowDecorator::move(dx, dy);
+    repositionSliders();
 }
 
 
@@ -131,7 +136,6 @@ void ScrollBarDecorator::draw(sf::RenderTarget& target,
 
     WindowDecorator::draw(target, states);
 
-    /*
     for (unsigned int i = 0; i < 4; ++i) {
         if (i < 2) {
             target.draw(scrollBackgrounds_[i]);
@@ -139,7 +143,7 @@ void ScrollBarDecorator::draw(sf::RenderTarget& target,
         }
         target.draw(*buttonRenders_[i]);
     }
-    */
+
 }
 
 
@@ -152,10 +156,10 @@ void ScrollBarDecorator::draw(sf::RenderTarget& target,
 
 void ScrollBarDecorator::repositionSliders() {
     sf::View currView = WindowDecorator::getView();
-    sf::View normalView = WindowDecorator::getDefaultView();
+    sf::Vector2u winSize = WindowDecorator::getSize();
     sf::Vector2f viewRatio{
-        currView.getSize().x / normalView.getSize().x,
-        currView.getSize().y / normalView.getSize().y };
+        currView.getSize().x / float(winSize.x),
+        currView.getSize().y / float(winSize.y) };
     sf::FloatRect winBounds = WindowDecorator::getBounds();
 
     sf::FloatRect tempBounds;
@@ -173,9 +177,9 @@ void ScrollBarDecorator::repositionSliders() {
     scrollBackgrounds_[0].setSize(vertBkgrnd);
 
     //Set up ScrollBar
-    scrollBars_[0].setPosition(winRight, scrollBars_[0].getPosition().y);
+    scrollBars_[0].setPosition(winRight + 1.0f, scrollBars_[0].getPosition().y);
     float vertBarLen = viewRatio.y * scrollBackgrounds_[0].getSize().y;
-    scrollBars_[0].setSize({ barSize_, vertBarLen });
+    scrollBars_[0].setSize({ barSize_ - 2.0f, vertBarLen });
 
     //Set up Buttons
     buttonRenders_[0]->renderPosition({ winRight, winBounds.top });
@@ -191,41 +195,31 @@ void ScrollBarDecorator::repositionSliders() {
     scrollBackgrounds_[1].setSize(horBkgrnd);
 
     //Set up ScrollBar
-    scrollBars_[1].setPosition(scrollBars_[1].getPosition().x, winBottom);
+    scrollBars_[1].setPosition(scrollBars_[1].getPosition().x, winBottom + 1.0f);
     float horBarLen = viewRatio.y * scrollBackgrounds_[1].getSize().x;
-    scrollBars_[1].setSize({ horBarLen, barSize_ });
+    scrollBars_[1].setSize({ horBarLen, barSize_ - 2.0f });
 
     //Set up Buttons
-    buttonRenders_[2]->renderPosition({ winRight, winBounds.top });
-    buttonRenders_[3]->renderPosition({ winRight, winBottom - barSize_ });
+    buttonRenders_[2]->renderPosition({ winRight - barSize_, winBottom });
+    buttonRenders_[3]->renderPosition({ winBounds.left, winBottom });
 
 
   //-----------------------------------------------------------------//
 
-    //Update Input to match visuals
-    updateInput();
+    updateButtons();
+    updateDraggable();
+    updateSliders();
+
 }
 
 
 
-void ScrollBarDecorator::updateInput() {
-    float buttonScale = barSize_ / buttonRenders_[0]->getSprite()->getTextureRect().width;
+void ScrollBarDecorator::updateButtons() {
     sf::FloatRect tempBounds;
 
     //Update Inputs
     for (unsigned int i = 0; i < 4; ++i) {
-        //Draggables
-        if (i < 2) {
-            //Update Draggable
-            tempBounds.left = scrollBars_[i].getPosition().x;
-            tempBounds.top = scrollBars_[i].getPosition().y;
-            tempBounds.width = scrollBars_[i].getSize().x;
-            tempBounds.height = scrollBars_[i].getSize().y;
-            draggableInputs_[i]->setBounds(tempBounds);
-        }
-
         //ButtonInputs
-        buttonRenders_[i]->setButtonScale(buttonScale);
         tempBounds.left = buttonRenders_[i]->getEntity()->getPosition().x;
         tempBounds.top = buttonRenders_[i]->getEntity()->getPosition().y;
         tempBounds.height = tempBounds.width = barSize_;
@@ -235,10 +229,38 @@ void ScrollBarDecorator::updateInput() {
 
 
 
+void ScrollBarDecorator::updateDraggable() {
+    sf::FloatRect tempBounds;
+
+    //Draggables
+    for (unsigned int i = 0; i < 2; ++i) {
+        //Update Draggable
+        tempBounds.left = scrollBars_[i].getPosition().x -
+                    WindowDecorator::getPosition().x;
+        tempBounds.top = scrollBars_[i].getPosition().y -
+                    WindowDecorator::getPosition().y;
+        tempBounds.width = scrollBars_[i].getSize().x;
+        tempBounds.height = scrollBars_[i].getSize().y;
+        draggableInputs_[i]->setBounds(tempBounds);
+    }
+}
+
+
+
 
 void ScrollBarDecorator::updateSliders() {
-    sf::View currView = WindowDecorator::getView();
+    sf::FloatRect currView = WindowDecorator::getView().getViewport();
+    sf::FloatRect defaultView = WindowDecorator::getDefaultView().getViewport();
+    sf::Vector2f pos = WindowDecorator::getPosition();
+    pos.x += barSize_;
+    pos.y += barSize_;
 
+    float bary = currView.top / defaultView.height *
+                    scrollBackgrounds_[0].getSize().y + pos.y;
+    scrollBars_[0].setPosition(scrollBars_[0].getPosition().x, bary);
+    float barx = currView.left / defaultView.width * 
+                    scrollBackgrounds_[1].getSize().x + pos.x;
+    scrollBars_[1].setPosition(barx, scrollBars_[1].getPosition().y);
 
 }
 
@@ -246,14 +268,52 @@ void ScrollBarDecorator::updateSliders() {
 
 
 void ScrollBarDecorator::updateView() {
+    sf::Vector2f viewSize = { float(WindowDecorator::getSize().x),
+                              float(WindowDecorator::getSize().x) };
 
+    float viewx = scrollBars_[1].getPosition().x + 
+                    scrollBars_[1].getSize().x / 2.0f;
+    viewx /= scrollBackgrounds_[1].getSize().x;
+    viewx *= viewSize.x;
+
+    float viewy = scrollBars_[0].getPosition().y +
+                    scrollBars_[0].getSize().y / 2.0f;
+    viewy /= scrollBackgrounds_[0].getSize().y;
+    viewy *= viewSize.y;
+
+    WindowDecorator::setSize(viewx, viewy);
 }
 
 
 
 
-void ScrollBarDecorator::initialize() {
-    repositionSliders();
-    updateSliders();
+void ScrollBarDecorator::initialize(sf::Image img) {
+
+    for (unsigned int i = 0; i < 4; ++i) {
+        if (i < 2) {
+            scrollBars_[i].setFillColor({ 110, 110, 110 });
+            draggableInputs_[i] = new DraggableInput(scrollBars_[i]);
+            //Set up Draggable Input Observers
+            draggableInputs_[i]->watch(WindowDecorator::getInputHandler(),
+                                       sf::Event::MouseButtonPressed);
+            draggableInputs_[i]->watch(WindowDecorator::getInputHandler(),
+                                       sf::Event::MouseButtonReleased);
+            draggableInputs_[i]->watch(WindowDecorator::getInputHandler(),
+                                       sf::Event::MouseMoved);
+            WindowDecorator::addInputComponent(draggableInputs_[i]);
+        } else {
+            scrollBackgrounds_[i - 2].setFillColor({ 200, 200, 200 });
+        }
+        buttonRenders_[i] = new buttonRenderComponent(img, 2 * i, 4, 1, 1);
+        float buttonScale = barSize_ / buttonRenders_[i]->getSprite()->getTextureRect().width;
+        buttonRenders_[i]->setImageScale(buttonScale, buttonScale);
+
+        buttonInputs_[i] = new mousePressButton(WindowDecorator::getInputHandler(), sf::FloatRect(), "");
+        buttonInputs_[i]->setInputHandle(WindowDecorator::getInputHandler());
+
+        buttonEntities_[i].addComponent(buttonRenders_[i]);
+        buttonEntities_[i].addComponent(buttonInputs_[i]);
+        WindowDecorator::addInputComponent(buttonInputs_[i]);
+    }
 }
 

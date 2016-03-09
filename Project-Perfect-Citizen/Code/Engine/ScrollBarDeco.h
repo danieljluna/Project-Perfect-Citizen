@@ -20,9 +20,10 @@ public:
 
     ScrollBarDecorator() = delete;
 
-    ScrollBarDecorator(WindowInterface& win);
+    ScrollBarDecorator(WindowInterface& win, sf::Image& img);
 
-    ScrollBarDecorator(WindowInterface& win, const sf::View& view);
+    ScrollBarDecorator(WindowInterface& win, sf::Image& img, 
+                       const sf::View& view);
 
     virtual ~ScrollBarDecorator();
 
@@ -73,20 +74,22 @@ private:
 
     void repositionSliders();
 
-    void updateInput();
+    void updateButtons();
+
+    void updateDraggable();
     
     void updateSliders();
 
     void updateView();
 
-    void initialize();
+    void initialize(sf::Image img);
 
 
   /////////////////////////////////////////////////////////////////////
   // Private Variables
   /////////////////////////////////////////////////////////////////////
 
-    float barSize_;
+    float barSize_ = 20.0f;
 
     //Array of ScrollBar Rectangles
     sf::RectangleShape scrollBars_[2];

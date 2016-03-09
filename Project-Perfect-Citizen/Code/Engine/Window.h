@@ -116,6 +116,11 @@ public:
     virtual void registerInput(sf::Event&) override;
     virtual void refresh(sf::RenderStates states = sf::RenderStates()) override;
 
+    // Close State
+
+    void close() override { closed_ = true; };
+    bool isOpen() const override { return !closed_; };
+
 
 private:
 
@@ -172,6 +177,9 @@ private:
 
     //Stores the Transformation applicable to the Window
     sf::Transformable transform_;
+
+    //Tells us if the Window is closeds
+    bool closed_ = false;
 
 
 };

@@ -113,9 +113,15 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     windowToModify->setPosition(x, y);
     windowToModify->addEntity(textBox);
     windowToModify->addEntity(textDisplay);
+    sf::FloatRect viewRect = {
+            0.0f,
+            0.0f,
+            float(windowToModify->getSize().x / 2),
+            float(windowToModify->getSize().y / 2)
+    };
+    windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     windowToModify = new BorderDecorator(*windowToModify);
-    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
-    windowToModify = new ScrollBarDecorator(*windowToModify);
+    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);    
     
 }
 

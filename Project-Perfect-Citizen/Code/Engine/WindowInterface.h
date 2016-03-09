@@ -288,12 +288,12 @@ public:
     ///////////////////////////////////////////////////////////////////
     /// @brief Sets Window State
     ///////////////////////////////////////////////////////////////////
-    void close() { closed_ = true; };
+    virtual void close() = 0;
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Gets Window State
     ///////////////////////////////////////////////////////////////////
-    bool isOpen() const { return !closed_; };
+    virtual bool isOpen() const = 0;
 
 
 protected:
@@ -320,10 +320,6 @@ protected:
     virtual void draw(sf::RenderTarget& target,
                       sf::RenderStates states) const override = 0;
 
-
-    private:
-
-        bool closed_ = false;
 
 };
 

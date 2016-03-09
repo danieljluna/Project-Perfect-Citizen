@@ -87,6 +87,11 @@ public:
 	virtual void registerInput(sf::Event&) override;
 	virtual void refresh(sf::RenderStates states = sf::RenderStates()) override;
 
+    // Close State
+
+    void close() override;
+    bool isOpen() const override;
+
     ///////////////////////////////////////////////////////////////////
     /// @brief Returns a pointer to the WindowInterface that is being
     ///     decorated.

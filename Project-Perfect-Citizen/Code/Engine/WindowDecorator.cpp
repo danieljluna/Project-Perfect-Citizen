@@ -153,6 +153,22 @@ void WindowDecorator::refresh(sf::RenderStates states) {
 	windowHandle_->refresh(states);
 }
 
+///////////////////////////////////////////////////////////////////////
+// Close State
+///////////////////////////////////////////////////////////////////////
+
+void WindowDecorator::close() {
+    windowHandle_->close();
+}
+
+bool WindowDecorator::isOpen() const {
+    return windowHandle_->isOpen();
+}
+
+///////////////////////////////////////////////////////////////////////
+// Draw Function
+///////////////////////////////////////////////////////////////////////
+
 void WindowDecorator::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const  {
 	target.draw(*windowHandle_, states);
