@@ -28,6 +28,7 @@
 #include "../Game/databaseSearchInputComponent.h"
 #include "../Game/databaseDisplayRenderComponent.h"
 #include "../Game/Inbox.h"
+#include "../Game/errorMessageRenderComponent.h"
 
 #include "../Engine/debug.h"
 #include "../Game/characterRender.hpp"
@@ -246,11 +247,18 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	graphBox.addComponent(networkRender);
 	graphBox.addComponent(networkInput);
 	graphBox.addComponent(networkUpdate);
+
+	Entity submitButton;
+	float buttonScale = 0.25f;
+	int buttonSize = 256;
+	spawnNetworkOkayButton(submitButton, windowToModify->getInputHandler(), buttonSheet, 
+		( ( graphBounds->getLocalBounds().width - (buttonSize * buttonScale) ) / 2 ), windowToModify->getSize().y-50, buttonScale);
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 	windowToModify->addEntity(dataBox);
 	windowToModify->addEntity(graphBox);
+	windowToModify->addEntity(submitButton);
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
@@ -355,10 +363,8 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 20;
-	int windowOffset = 5;
 
 	emailMessageRenderComponent* eMRC = new emailMessageRenderComponent(myFont, mail, 0, 0, fontSize);
-
 
 	/////////////////////////////////////////
 	/////// ENTITIES
@@ -374,3 +380,44 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
 
+
+void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message) {
+	/* Check to make sure the window passed isn't null */
+	if (windowToModify == nullptr) { return; }
+
+	/////////////////////////////////////////
+	/////// COMPONENTS
+	///////////////////////////////////////
+
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 14;
+
+	errorMessageRenderComponent* eMRC = new errorMessageRenderComponent(myFont, message, 
+		windowToModify->getSize().x/3, windowToModify->getSize().y/3, fontSize);
+
+
+	/////////////////////////////////////////
+	/////// ENTITIES
+	///////////////////////////////////////
+	Entity alertIcon;
+	float alertScale = 0.5f;
+	float alertWidth = 128.0;
+	float windowWidth = windowToModify->getSize().x;
+	float windowHeight = windowToModify->getSize().y;
+	float alertX = windowWidth - ((alertWidth * alertScale) + (3 * (windowWidth / 4)));
+	float alertY = (windowHeight - (alertWidth * alertScale)) / 3;
+	spawnAlertIcon(alertIcon, ih, buttonSheet, alertX, alertY, 0.5f);
+
+	Entity errorMessageDisplayBox;
+	errorMessageDisplayBox.addComponent(eMRC);
+
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+	windowToModify->addEntity(errorMessageDisplayBox);
+	windowToModify->addEntity(alertIcon);
+	windowToModify->setPosition(x, y);
+	windowToModify = new BorderDecorator(*windowToModify);
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+}

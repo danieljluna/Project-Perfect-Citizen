@@ -28,7 +28,7 @@ databaseSearchInputComponent::databaseSearchInputComponent(Database* initialDB, 
 	str += "Search: ";
 	textBox.updateString(str);
 
-	displayResults_.push_back("Enter a filter and query to begin searching");
+	displayResults_.push_back("No filters entered. Please enter a filter and query to begin searching.");
 	textDisplay.updateString(displayResults_);
 
 }
@@ -93,7 +93,7 @@ void databaseSearchInputComponent::goBack() {
 		if (searchHistory.size() > 1) {
 			if (searchHistory.size() == 2) {
 				searchHistory.pop();
-				updateDisplayResults(displayVec, "Enter a filter and query to begin searching");
+				updateDisplayResults(displayVec, "No filters entered. Please enter a filter and query to begin searching.");
 				textDisplay.updateString(displayResults_);
 			}
 			else {
@@ -146,7 +146,7 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 				string query = "";
 
 
-				// Temp back functionality: Will turn into function pointer
+				/*// Temp back functionality: Will turn into function pointer
 				if (commandVec.at(0) == "back") {
 					clearSearchBox();
 					if (searchHistory.size() > 1) {
@@ -162,7 +162,7 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 							return true;
 						}	
 					}
-				}
+				}*/
 
 				/* Assign good input to corresponding values */
 				if (commandVec.size() == 2) {
@@ -192,7 +192,8 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 					filteredDatabase = &(searchHistory.top()->sortBy(cleaned, query));
 					cout << filteredDatabase->getDatabaseSize() << endl;
 					if (filteredDatabase->isEmpty()) { 
-						updateDisplayResults(displayVec, "No results found");
+						searchHistory.emplace(filteredDatabase);
+						updateDisplayResults(displayVec, "No results found. Please go back and try another query.");
 					}
 					else {
 						render.applyCharacterValues(filteredDatabase->getDatabaseState().at(lookAt));
@@ -202,6 +203,7 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 				}
 				
 				clearSearchBox();
+				cout << searchHistory.size() << endl;
 				textDisplay.updateString(displayResults_);
 			}
 		}

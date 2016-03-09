@@ -69,11 +69,11 @@ bool printFunc(TestFunctionClass* tfc, sf::Event& ev) {
 
 
 bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
-	ppc::NodeState testState;
-	testState.setUp();
+	ppc::NodeState* testState = new NodeState();
+	testState->setUp();
 	Window* desktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
 
-	Desktop myDesktop(*desktopWindow, testState);
+	Desktop myDesktop(*desktopWindow, *testState);
 	myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
 	createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
 
@@ -178,15 +178,20 @@ int main(int argc, char** argv) {
 	sf::Texture playerWallpaperTexture;
 	sf::Texture teacherWallpaperTexture;
 	playerWallpaperTexture.loadFromFile(resourcePath() + "Wallpaper.png");
-	teacherWallpaperTexture.loadFromFile(resourcePath() + "Wallpaper.png");
+	teacherWallpaperTexture.loadFromFile(resourcePath() + "Teacher_Wallpaper.png");
 
 	playerWallpaper.setTexture(playerWallpaperTexture);
 	teacherWallpaper.setTexture(teacherWallpaperTexture);
+
+	playerWallpaper.setScale(0.7f, 0.7f);
+	playerWallpaper.setPosition(0, 0);
 
     sf::Image spriteSheet;
 	spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
+	sf::Image teacherIconSheet;
+	teacherIconSheet.loadFromFile(resourcePath() + "Teacher_Icon_Sheet.png");
 	///////////////////////////////////////////////////////////////////
 
     //------------------------------------------------------------------
@@ -231,8 +236,8 @@ int main(int argc, char** argv) {
     std::string renderString = "";
     text.setString(renderString);
 
-	while (runPlayerDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
-	while (runTargetDesktop(*&screen, iconSheet, spriteSheet, teacherWallpaper)) {}
+	//while (runPlayerDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
+	while (runTargetDesktop(*&screen, teacherIconSheet, spriteSheet, teacherWallpaper)) {}
     
     return EXIT_SUCCESS;
 }

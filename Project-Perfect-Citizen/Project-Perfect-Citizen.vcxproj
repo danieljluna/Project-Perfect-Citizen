@@ -69,6 +69,7 @@
     <ClCompile Include="Code\Game\emailListElementInputComponent.cpp" />
     <ClCompile Include="Code\Game\emailListElementRenderComponent.cpp" />
     <ClCompile Include="Code\Game\emailMessageRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\errorMessageRenderComponent.cpp" />
     <ClCompile Include="Code\Game\expressionistParser.cpp" />
     <ClCompile Include="Code\Game\iconInputComponent.cpp" />
     <ClCompile Include="Code\Game\Inbox.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Code\Game\emailListElementInputComponent.h" />
     <ClInclude Include="Code\Game\emailListElementRenderComponent.h" />
     <ClInclude Include="Code\Game\emailMessageRenderComponent.h" />
+    <ClInclude Include="Code\Game\errorMessageRenderComponent.h" />
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
     <ClInclude Include="Code\Game\iconInputComponent.h" />
     <ClInclude Include="Code\Game\Inbox.h" />
