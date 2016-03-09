@@ -76,6 +76,14 @@ bool Database::filterIsValid(std::string filter) {
 	else if (cleaned.compare("phone") == 0) return true;
 	else if (cleaned.compare("job") == 0) return true;
 
+	if (filter.compare("iq") == 0) return true;
+	else if (filter.compare("age") == 0) return true;
+	else if (filter.compare("credit score") == 0) return true;
+	else if (filter.compare("ssn") == 0) return true;
+	else if (filter.compare("email") == 0) return true;
+	else if (filter.compare("phone") == 0) return true;
+	else if (filter.compare("job") == 0) return true;
+
 	std::cout << "Error: Invalid filter" << std::endl;
 	return false;
 	

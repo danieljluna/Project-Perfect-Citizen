@@ -205,16 +205,40 @@
     <ClCompile Include="Code\Game\photoRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\textLabelComponent.cpp">
+    <ClCompile Include="Code\Game\PipelineLevelBuilder.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\characterRender.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\textRenderComponent.cpp">
+      <Filter>Sources\Game</Filter>
       <Filter>Headers\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\textLabelComponent.cpp">
+      <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\NetworkUpdateCmpnt.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\characterRender.cpp">
+    <ClCompile Include="Code\Engine\FreeFunctionObserver.cpp" />
+    <ClCompile Include="Code\Engine\TestFunctionClass.cpp" />
+    <ClCompile Include="Code\Game\Inbox.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\Email.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\createListElement.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\emailListElementRenderComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\emailListElementInputComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\emailMessageRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
   </ItemGroup>
@@ -441,19 +465,7 @@
     <ClInclude Include="Code\Game\photoRenderComponent.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Game\NetworkInputCmpnt.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Game\textLabelComponent.hpp">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Game\NetworkUpdateCmpnt.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Game\NetworkRenderCmpnt.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Game\textRenderComponent.hpp">
+    <ClInclude Include="Code\Game\PipelineLevelBuilder.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\BootLoader.hpp">
@@ -462,8 +474,44 @@
     <ClInclude Include="Code\Game\characterRender.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Game\NetworkInputCmpnt.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\NetworkRenderCmpnt.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\NetworkUpdateCmpnt.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\textRenderComponent.hpp">
+      <Filter>Headers\Game</Filter>
+      <Filter>Headers\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\textLabelComponent.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
     <ClInclude Include="Code\Engine\ScrollBarDeco.h">
-      <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\FreeFunctionObserver.h" />
+    <ClInclude Include="Code\Engine\TestFunctionClass.h" />
+    <ClInclude Include="Code\Game\Inbox.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\Email.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\createListElement.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\emailListElementRenderComponent.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\emailListElementInputComponent.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\emailMessageRenderComponent.h">
+      <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

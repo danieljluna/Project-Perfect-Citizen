@@ -13,8 +13,8 @@ const int ENTER_UNICODE = 10;
 const int CARRIAGE_RETURN_UNICODE = 13;
 
 databaseSearchInputComponent::databaseSearchInputComponent(Database* initialDB, ppc::InputHandler& ih, databaseSearchRenderComponent& t,
-	databaseDisplayRenderComponent& d, sf::Sprite& s, characterRender& r)
-	: InputComponent(2), textBoxSprt(s), textBox(t), textDisplay(d), inputHandle(ih), render(r) {
+	databaseDisplayRenderComponent& d, characterRender& r)
+	: InputComponent(2),  textBox(t), textDisplay(d), inputHandle(ih), render(r) {
 
 	ih.addHandle(sf::Event::TextEntered);
 	ih.addHandle(sf::Event::KeyPressed);
@@ -39,7 +39,10 @@ databaseSearchInputComponent::~databaseSearchInputComponent() {
 }
 
 bool databaseSearchInputComponent::isCollision(sf::Vector2i mousePos) {
-	sf::Vector2f sprtBoxPos = { textBoxSprt.getGlobalBounds().left ,
+	
+    // Temporarily(?) removing collisions. May not be necessary
+    
+    /*sf::Vector2f sprtBoxPos = { textBoxSprt.getGlobalBounds().left ,
 		textBoxSprt.getGlobalBounds().top };
 
 	sf::Vector2f sprtBoxDim = { textBoxSprt.getGlobalBounds().width,
@@ -54,9 +57,9 @@ bool databaseSearchInputComponent::isCollision(sf::Vector2i mousePos) {
 		}
 	}
 
-	// textBoxSprt.setSelected(true);
+	// textBoxSprt.setSelected(true);*/
 
-	return result;
+    return true;//result;
 }
 
 std::vector<string> convertToVector(string cmd) {
@@ -84,7 +87,7 @@ void databaseSearchInputComponent::clearSearchBox() {
 	textBox.updateString(str);
 }
 
-bool databaseSearchInputComponent::goBack(sf::Event& ev) {
+void databaseSearchInputComponent::goBack() {
 		std::vector<string> displayVec;
 		clearSearchBox();
 		if (searchHistory.size() > 1) {
@@ -92,16 +95,13 @@ bool databaseSearchInputComponent::goBack(sf::Event& ev) {
 				searchHistory.pop();
 				updateDisplayResults(displayVec, "Enter a filter and query to begin searching");
 				textDisplay.updateString(displayResults_);
-				return true;
 			}
 			else {
 				searchHistory.pop();
 				updateDisplayOutput(searchHistory.top()->getPrintableDatabase());
 				textDisplay.updateString(displayResults_);
-				return true;
 			}
 		}
-		return true;
 }
 
 void databaseSearchInputComponent::updateDisplayResults(vector<string> displayVec, string newDisplay) {
@@ -146,7 +146,7 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 				string query = "";
 
 
-				/* Temp back functionality: Will turn into function pointer
+				// Temp back functionality: Will turn into function pointer
 				if (commandVec.at(0) == "back") {
 					clearSearchBox();
 					if (searchHistory.size() > 1) {
@@ -162,7 +162,7 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 							return true;
 						}	
 					}
-				}*/
+				}
 
 				/* Assign good input to corresponding values */
 				if (commandVec.size() == 2) {
@@ -208,3 +208,24 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 	}
 	return true;
 }
+
+
+
+
+
+
+
+
+
+
+bool ppc::goBackFn(databaseSearchInputComponent* ptr, sf::Event& ev) {
+    ptr->goBack();
+    return true;
+}
+
+
+
+
+
+
+

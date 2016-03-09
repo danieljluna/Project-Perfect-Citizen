@@ -47,93 +47,171 @@
 #include "Engine/Audio/AudioQueue.h"
 #include "Engine/Network.h"
 #include "Game/BootLoader.hpp"
-#include "Engine/FunctionObserver.h"
+//#include "Engine/FunctionObserver.h"
 #include "Game/characterRender.hpp"
 #include "Engine/debug.h"
+#include "Engine/TestFunctionClass.h"
+#include "Engine/FreeFunctionObserver.h"
 
+#include "Game/bootLoadingUpdateComponent.hpp"
+#include "Game/bootLoadingAnimationRender.hpp"
 
 
 using namespace ppc;
 
-using testFunc = bool(*)(sf::Event&);
+//using testFunc = bool(*)(sf::Event&);
 
-bool printFunc(sf::Event& ev) {
+bool printFunc(TestFunctionClass* tfc, sf::Event& ev) {
 	std::cout << "inside printFunc" << std::endl;
+	tfc->callFunc(ev);
 	return true;
 }
 
-//Note that this is placeholder for now
+
+bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
+	ppc::NodeState testState;
+	testState.setUp();
+	Window* desktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+
+	Desktop myDesktop(*desktopWindow, testState);
+	myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
+	createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+
+	// Go into main game loop
+	sf::Clock deltaTime; 
+	sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
+	while (screen.isOpen()) {
+		//Process sf::events
+		sf::Event event;
+		while (screen.pollEvent(event)) {
+			// Close window: exit
+			//if (event.type == sf::Event::MouseButtonReleased) {
+				// Boots player to teacher desktop
+				//return false;
+			//}
+			if (event.type == sf::Event::Closed) {
+				screen.close();
+			}	
+
+			//Input phase
+			myDesktop.registerInput(event);
+		}
+
+		sf::Time elapsed = deltaTime.getElapsedTime();
+		while (elapsed > framePeriod) {
+			screen.clear(sf::Color::Black);
+			sf::Time dt = deltaTime.restart();
+			myDesktop.update(dt);
+			elapsed -= framePeriod;
+		}
+		myDesktop.refresh();
+		screen.draw(myDesktop);
+		screen.display();
+	}
+	return false;
+
+}
+
+
+bool runTargetDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
+		ppc::NodeState testState;
+		testState.setUp();
+		Window* desktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+
+		Desktop myDesktop(*desktopWindow, testState);
+		myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
+		createTeacherDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+
+		// Go into main game loop
+		sf::Clock deltaTime; 
+		sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
+		while (screen.isOpen()) {
+			//Process sf::events
+			sf::Event event;
+			while (screen.pollEvent(event)) {
+				if (event.type == sf::Event::Closed)
+					screen.close();
+				myDesktop.registerInput(event);
+			}
+
+			sf::Time elapsed = deltaTime.getElapsedTime();
+			while (elapsed > framePeriod) {
+				screen.clear(sf::Color::Black);
+				sf::Time dt = deltaTime.restart();
+				myDesktop.update(dt);
+				elapsed -= framePeriod;
+			}
+			myDesktop.refresh();
+			screen.draw(myDesktop);
+			screen.display();
+		}
+		return false;
+}
+
 int main(int argc, char** argv) {
 
     DBG_INIT();
-
 	//Scans Debug Flags
 	Debug::scanOpts(argc, argv);
 	DEBUGF("ac", argc);
 
     // Create the main sf::window
+	sf::Event testEvent;
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
+	////////////////////////////////////////////FUNCTION OBSERVER TESTING/////////////////////////////////
+	TestFunctionClass cool;
+	//FunctionObserver<TestFunctionClass> c(&TestFunctionClass::callFunc); //= new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc);
+	//FunctionObserver<TestFunctionClass>* c = new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc, cool);
+	//bool coolReturnValue = (*cool.*(c->functionPointer))(testEvent);
+	//c->eventHandler(testEvent);
 
-	//////////////////////////SOUND STUFF//////////////////////////////
-	//AudioLocator::initialize();
-	//ppc::NullAudio dAudio;
-	//AudioLocator::assign(&dAudio);
-	//AudioLogger logger(dAudio);
-	//AudioLocator::assign(&logger);
-	//Audio* audio = AudioLocator::getAudio();
-	//audio->playSound(ppc::Sounds::gunshot);
 
-	//AudioQueue aq(5);
-	//int gunshots = aq.addSound("shots", "gunshots.wav");
-	//aq.playSound(gunshots);
-	//aq.popAndPlay();
-	///////////////////////////////////////////////////////////////////
+	FreeFunctionObserver<TestFunctionClass> d(printFunc, &cool);
+	d.eventHandler(testEvent);
+	////////////////////////////////////////////FUNCTION OBSERVER TESTING/////////////////////////////////
 
-    ////////////////// BACKGROUND IMAGE ////////////////////
-    sf::Sprite S;
-    sf::Texture T;
-    if (!(T.loadFromFile(resourcePath() + "Wallpaper.png"))) {
-        //Test for failure
-        cerr << "COULD NOT LOAD\n";
-        std::system("PAUSE");
-        return -1;
-    };
-    S.setTexture(T);
-    S.setPosition(0, 0);
-    S.setScale(0.7f, 0.7f);
-	///////////////////////////////////////////////////////
+	//bool coolReturnValue = (*cool.*(c->functionPointer))(sf::Event());
 
-	///////////// Load Spritesheets/Textures //////////////
+	///////////// Load Spritesheets/Textures/Background Images ////////
+	sf::Sprite playerWallpaper;
+	sf::Sprite teacherWallpaper;
+	sf::Texture playerWallpaperTexture;
+	sf::Texture teacherWallpaperTexture;
+	playerWallpaperTexture.loadFromFile(resourcePath() + "Wallpaper.png");
+	teacherWallpaperTexture.loadFromFile(resourcePath() + "Wallpaper.png");
+
+	playerWallpaper.setTexture(playerWallpaperTexture);
+	teacherWallpaper.setTexture(teacherWallpaperTexture);
+
     sf::Image spriteSheet;
 	spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
-    sf::Image faceSheet;
-    faceSheet.loadFromFile(resourcePath() + "Face_Sheet.png");
+	///////////////////////////////////////////////////////////////////
+
+    //------------------------------------------------------------------
+    // UNCOMMENT THIS BLOCK FOR BOOT WINDOW
+    //------------------------------------------------------------------
+    
+    /*Window* bootWindow = new Window(1800,1000,sf::Color(30,32,33));
+    
+    Entity loading;
+    
+    bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(spriteSheet,7,5);
+    buttonRenderComponent* dcps =  new buttonRenderComponent(spriteSheet, 6, 6, 1, 0);
+    dcps->setImageScale(2.0f, 2.0f);
+    dcps->renderPosition(sf::Vector2f(355,200));
 
     
-	//////////////////////////////////////////////////////
-
-	//////////////////////////////////////////////////////////
-	///// CREATE THE PLAYER DESKTOP
-	/////////////////////////////////////////////////////////
-	ppc::NodeState testState;
-	testState.setUp();
-	Window* desktopWindow = new Window(1800,1000,sf::Color(0,0,0));
+    bootLoadingUpdateComponent* bootUpdate = new bootLoadingUpdateComponent(*bootRender,*dcps,0.1f);
+    loading.addComponent(bootRender);
+    loading.addComponent(bootUpdate);
+    loading.addComponent(dcps);
+    bootWindow->addEntity(loading);
     
-    Desktop* myDesktop = new Desktop(*desktopWindow, testState);
-    myDesktop->addBackgroundCmpnt(desktopWindow, S);
-    createPlayerDesktop(*myDesktop, *desktopWindow, myDesktop->getInputHandler(), iconSheet, spriteSheet);
-
-    //createTeacherDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+    myDesktop.addWindow(bootWindow);*/
     
-    //Entity* aCharacter = new Entity();
-    //characterRender* characterRend = new characterRender(faceSheet);
-    //aCharacter->addComponent(characterRend);
-    
-    //desktopWindow->addEntity(*aCharacter);
-    
-    
+    //------------------------------------------------------------------
     
     
     //////////////////////////////////////////////////////////
@@ -152,55 +230,10 @@ int main(int argc, char** argv) {
 
     std::string renderString = "";
     text.setString(renderString);
+
+	while (runPlayerDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
+	while (runTargetDesktop(*&screen, iconSheet, spriteSheet, teacherWallpaper)) {}
     
-    ///////////////////////////////////////////////////////////////////
-	// Start the game loop
-	///////////////////////////////////////////////////////////////////
-	sf::Clock deltaTime; //define deltaTime
-	
-    //Used to keep track time
-    sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
-    while (screen.isOpen()) {
-		bool doneUpdate = false;
-        //Process sf::events
-        sf::Event event;
-        while (screen.pollEvent(event)) {
-            // Close window: exit
-            if (event.type == sf::Event::Closed)
-				screen.close();
-
-			//Input phase
-			myDesktop->registerInput(event);
-        }
-
-        sf::Time elapsed = deltaTime.getElapsedTime();
-		while (elapsed > framePeriod) {
-
-			// Clear screen
-			screen.clear(sf::Color::Black);
-
-			//Update all Windows in the Desktop
-			sf::Time dt = deltaTime.restart();
-
-			myDesktop->update(dt);
-			doneUpdate = true;
-			elapsed -= framePeriod;
-		}
-		if (doneUpdate) {
-			//Draw all the Windows in the Desktop
-			myDesktop->refresh();
-
-			//Logger should not be used in place of passing
-			//the actual drawn Desktop
-			screen.draw(*myDesktop);
-
-			//Display the final window
-			screen.display();
-		}
-    }
-
-	delete myDesktop;
-
     return EXIT_SUCCESS;
 }
 

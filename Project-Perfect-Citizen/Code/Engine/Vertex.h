@@ -1,9 +1,13 @@
 #ifndef VERTEX_H
 #define VERTEX_H
 
+
+#include <SFML/Graphics/Sprite.hpp>
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 #include "DraggableInput.h"
+
 #include "../Game/PipelineCharacter.h"
 
 namespace ppc {
@@ -24,12 +28,13 @@ private:
 	sf::Text text_;
 	sf::Font font_;
 	static const int fontSize_;
-
+	
 	PipelineCharacter char_;
 
 	sf::CircleShape circ_;
 	static const float radius_;
 	sf::FloatRect bounds_;
+	bool isSelected_;
 
 public:
 	///////////////////////////////////////////////////////////////////////
@@ -106,11 +111,19 @@ public:
 	///////////////////////////////////////////////////////////////////////
 	void applyDraggable(ppc::DraggableInput&,ppc::InputHandler&);
 
+
+	void selectVert();
+
+	void deselectVert();
+
+	bool isSelected();
+
 	///////////////////////////////////////////////////////////////////////
 	///@brief Definition of how to draw a Vertex.
 	///////////////////////////////////////////////////////////////////////
 	virtual void draw(sf::RenderTarget& target,
 		sf::RenderStates states) const override;
+
 };
 
 

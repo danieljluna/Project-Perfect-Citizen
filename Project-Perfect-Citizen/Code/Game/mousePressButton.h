@@ -8,6 +8,7 @@
 #include "../Engine/Entity.h"
 #include "../Engine/subject.h"
 #include "../Engine/FunctionObserver.h"
+#include "../Engine/FreeFunctionObserver.h"
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -20,6 +21,9 @@
 ///////////////////////////////////////////////////////////////////////
 
 
+namespace ppc {
+
+
 class mousePressButton: public ppc::InputComponent {
 private:
 
@@ -28,6 +32,10 @@ private:
 	sf::Clock mouseClock;
     sf::Int32 mouseTime;
 	bool isCollision(sf::Vector2i);
+
+    Subject onPress_;
+    Subject onDoublePress_;
+    Subject onRelease_;
 
 public:
 
@@ -44,12 +52,10 @@ public:
 	///////////////////////////////////////////////////////////////////////
 	void clearObservers();
 
-	///////////////////////////////////////////////////////////////////////
-	///@brief Adds the designated FunctionObserver to the observerArray_
-	///@param the FunctionObserver to add
-	///@param the index in the array to insert the FunctionObserver
-	///////////////////////////////////////////////////////////////////////
-	void addFunctionObserver(FunctionObserver* fnToAdd, int placeToInsert);
+    template <class T>
+    friend void setOnPress(mousePressButton* mpb,
+                           T* objPtr,
+                           bool(*onPress)(T*, sf::Event&));
 
 ///////////////////////////////////////////////////////////////////////
 //SETTERS
@@ -71,5 +77,23 @@ public:
 
 	virtual ~mousePressButton();
 	virtual bool registerInput(sf::Event& ev) override;
+
+
+    Subject& onClick() { return onPress_; };
+    Subject& onDblClick() { return onDoublePress_; };
+    Subject& onRelease() { return onRelease_; };
+
+};
+
+template<class T>
+inline void setOnPress(mousePressButton* mpb, T * objPtr, bool(*onPress)(T *, sf::Event &)) {
+
+    FreeFunctionObserver<T>* fnObsvr = new FreeFunctionObserver<T>(onPress, objPtr);
+
+    mpb->onRelease().addObserver(fnObsvr);
+
+}
+
+
 
 };

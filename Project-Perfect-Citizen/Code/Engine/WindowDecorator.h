@@ -81,8 +81,6 @@ public:
 	virtual void registerInput(sf::Event&) override;
 	virtual void refresh(sf::RenderStates states = sf::RenderStates()) override;
 
-protected:
-
     ///////////////////////////////////////////////////////////////////
     /// @brief Returns a pointer to the WindowInterface that is being
     ///     decorated.
@@ -93,7 +91,11 @@ protected:
     /// @brief Returns a pointer to the outermost Decorator to the
     ///     Window.
     ///////////////////////////////////////////////////////////////////
-    WindowInterface* getUniversalTarget() const {return univHandle_;};
+    WindowInterface* getUniversalTarget() const { return univHandle_; };
+
+
+
+protected:
 
 	virtual void draw(sf::RenderTarget& target,
 		              sf::RenderStates states) const override;

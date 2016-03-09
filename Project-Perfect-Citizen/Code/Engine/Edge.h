@@ -19,6 +19,10 @@ private:
 	sf::Color color_;
 
 	sf::FloatRect bounds_;
+	float minWidth_ = 30.f;
+	float minHeight_ = 30.f;
+
+	std::vector<std::vector<std::string>> smsData_;
 
 public:
 
@@ -82,6 +86,10 @@ public:
 	/// position of the edge.
 	///////////////////////////////////////////////////////////////////////
 	void constructBounds(sf::Vector2f,sf::Vector2f);
+
+	void pushSmsData(const std::vector<std::string>& data);
+
+	std::vector<std::vector<std::string>> getSmsData();
 
 };
 

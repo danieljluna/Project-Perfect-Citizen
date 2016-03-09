@@ -28,7 +28,7 @@ class databaseSearchInputComponent : public ppc::InputComponent {
 	using backFunction = bool(*)(sf::Event& ev);
 private:
 	characterRender& render;
-	sf::Sprite& textBoxSprt;
+	//sf::Sprite& textBoxSprt;
 	databaseSearchRenderComponent& textBox;
 	databaseDisplayRenderComponent& textDisplay;
 	ppc::InputHandler& inputHandle;
@@ -41,6 +41,8 @@ private:
 
 public:
 
+    friend bool goBackFn(databaseSearchInputComponent*, sf::Event&);
+
 	databaseSearchInputComponent() = delete;
 
 	///////////////////////////////////////////////////////////////////////
@@ -49,7 +51,7 @@ public:
 	/// @param s is the render component where the text will be drawn
 	///////////////////////////////////////////////////////////////////////
 	databaseSearchInputComponent(Database* iDB, ppc::InputHandler& ih, databaseSearchRenderComponent& t,
-		databaseDisplayRenderComponent& d, sf::Sprite& s, characterRender& r);
+		databaseDisplayRenderComponent& d, characterRender& r);
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Updates the display output in the database
@@ -65,7 +67,7 @@ public:
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Function pointer to back functionality
 	///////////////////////////////////////////////////////////////////////
-	bool goBack(sf::Event& ev);
+	void goBack();
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Sets the display results to be a hardcoded string
@@ -85,5 +87,7 @@ public:
 	virtual bool registerInput(sf::Event& ev) override;
 
 };
+
+
 
 };

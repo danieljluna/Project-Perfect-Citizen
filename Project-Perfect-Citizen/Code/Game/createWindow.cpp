@@ -27,6 +27,7 @@
 #include "../Game/databaseSearchRenderComponent.h"
 #include "../Game/databaseSearchInputComponent.h"
 #include "../Game/databaseDisplayRenderComponent.h"
+#include "../Game/Inbox.h"
 
 #include "../Engine/debug.h"
 #include "../Game/characterRender.hpp"
@@ -40,7 +41,18 @@
 #include"../Game/NetworkInputCmpnt.h"
 #include"../Game/NetworkUpdateCmpnt.h"
 
+#include "../Game/PipelineLevelBuilder.h"
+
+#include"../Game/PipelineLevelBuilder.h"
+#include"../Engine/TestFunctionClass.h"
+#include"../Engine/FreeFunctionObserver.h"
+
 using namespace ppc;
+
+bool testBackFunction(TestFunctionClass* tfc, sf::Event& ev) {
+	//tfc->callFunc(ev);
+	return true;
+}
 
 
 void ppc::spawnConsole(WindowInterface*& windowToModify,
@@ -58,49 +70,49 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
     //sf::Image buttonSheet;
     //buttonSheet.loadFromFile(resourcePath() + "Windows_UI.png");
-    buttonRenderComponent* textRenderComponent =
-    new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
-    textRenderComponent->renderPosition(sf::Vector2f(0, 220));
+    
     
     sf::Font myFont;
     myFont.loadFromFile(resourcePath() + "consola.ttf");
-    int fontSize = 24;
+    int fontSize = 20;
     int windowOffset = 5;
     
     textInputRenderComponent* textInputBox =
-    new textInputRenderComponent(myFont, 0,
+    new textInputRenderComponent(ns, myFont, 0,
                                  windowToModify->getSize().y - (fontSize+windowOffset),
                                  fontSize);
     textOutputRenderComponent* textDisplayBox =
     new textOutputRenderComponent(myFont, ns, 0, 0, fontSize);
     
+    
+    
     /* Create the update component */
     consoleUpdateComponent* cup = new consoleUpdateComponent(ns);
     
     /* Create the input components */
-    textInputKeys* tik = new textInputKeys(ih,
-                                           *textRenderComponent->getSprite(), *textInputBox,
+    textInputKeys* tik = new textInputKeys(ih, *textInputBox,
                                            *textDisplayBox, *cup);
     
     /////////////////////////////////////////
     /////// ENTITIES
     ///////////////////////////////////////
-    Entity* textBox = new Entity();
-    textBox->addComponent(textInputBox);
-    textBox->addComponent(tik);
-    textBox->addComponent(cup);
+    Entity textBox;
+    textBox.addComponent(textInputBox);
+    // textBox.addComponent(textRenderComponent);
+    textBox.addComponent(tik);
+    textBox.addComponent(cup);
     
-    Entity* textDisplay = new Entity();
-    textDisplay->addComponent(textDisplayBox);
+    Entity textDisplay;
+    textDisplay.addComponent(textDisplayBox);
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
     windowToModify->setPosition(x, y);
-    windowToModify->addEntity(*textBox);
-    windowToModify->addEntity(*textDisplay);
+    windowToModify->addEntity(textBox);
+    windowToModify->addEntity(textDisplay);
     windowToModify = new BorderDecorator(*windowToModify);
-    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
     
 }
 
@@ -123,9 +135,6 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     
     sf::Image faceSheet;
     faceSheet.loadFromFile(resourcePath() + "Face_Sheet.png");
-    buttonRenderComponent* textRenderComponent =
-    new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
-    textRenderComponent->renderPosition(sf::Vector2f(0, 220));
     
     
     databaseDisplayRenderComponent* searchResults =
@@ -135,47 +144,46 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     /* Create the input components */
     databaseSearchRenderComponent* searchBox = new databaseSearchRenderComponent(myFont, 75, 0, fontSize);
     
-    /*databaseSearchRenderComponent* searchBox = new databaseSearchRenderComponent(myFont, 0,
-     windowToModify->getSize().y - (fontSize + windowOffset),
-     fontSize);*/
-    
     characterRender* render = new characterRender(faceSheet);
-    float x1 =  windowToModify->getSize().x/2;
+    float x1 =  static_cast<float>(windowToModify->getSize().x/2);
     render->setOrigin(x1, 100);
     /* Create the update components */
     
     /* Create the input components */
     databaseSearchInputComponent* dSI = new databaseSearchInputComponent(db, ih, *searchBox, *searchResults,
-                                                                         *textRenderComponent->getSprite(), *render);
+                                                                          *render);
     
     
     
     /////////////////////////////////////////
     /////// ENTITIES
     ///////////////////////////////////////
-    Entity* characterProfile = new Entity();
-    characterProfile->addComponent(render);
+    Entity characterProfile;
+    characterProfile.addComponent(render);
     
-    Entity* searchBoxEntity = new Entity();
-    searchBoxEntity->addComponent(searchBox);
-    searchBoxEntity->addComponent(dSI);
+    Entity searchBoxEntity;
+    searchBoxEntity.addComponent(searchBox);
+    searchBoxEntity.addComponent(dSI);
     
-    Entity* resultsBoxEntity = new Entity();
-    resultsBoxEntity->addComponent(searchResults);
-    
+    Entity resultsBoxEntity;
+    resultsBoxEntity.addComponent(searchResults);
+
     Entity backButton;
-    spawnBackButton(backButton, ih, buttonSheet, 0, 0, 0.2f);
+	//TODO FIX THIS
+	TestFunctionClass* cool = new TestFunctionClass();
+
+    spawnBackButton(dSI, backButton, ih, buttonSheet, 0, 0, 0.2f);
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
     windowToModify->setPosition(x, y);
-    windowToModify->addEntity(*searchBoxEntity);
-    windowToModify->addEntity(*resultsBoxEntity);
-    windowToModify->addEntity(*characterProfile);
+    windowToModify->addEntity(searchBoxEntity);
+    windowToModify->addEntity(resultsBoxEntity);
+    windowToModify->addEntity(characterProfile);
     windowToModify->addEntity(backButton);
     windowToModify = new BorderDecorator(*windowToModify);
-    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
 
 void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
@@ -184,7 +192,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
-	int fontSize = 20;
+	int fontSize = 14;
 	int dataWindowX = (2 * windowToModify->getSize().x) / 3;
 
 	/////////////////////////////////////////
@@ -197,49 +205,54 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	PipelineGraphRenderComponent* graphBounds = new PipelineGraphRenderComponent(0, 0, dataWindowX,
 		windowToModify->getSize().y);
+    
 
-	/* NADER: PUT YOUR RENDER COMPONENTS HERE FOR THE GRAPH */
-	//Ask about how are we making networks to be added to the pipeline window.
-	Network* net = new Network(3);
+    Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
+	Network* playNet = solNet->copyNetworkByVerts();
+	playNet->setCenter(0);
 
-	PipelineCharacter Bob;
-	PipelineCharacter Tim;
-	PipelineCharacter Rob;
+	//No Overlapping Edges (Think of this positioning as an 8x8 grid
+	//the number after the * is the row/column number)
+	playNet->vert(0).setPosition(50 + 50 * 0, 50 + 50 * 0);
+	playNet->vert(1).setPosition(50 + 50 * 0, 50 + 50 * 7);
+	playNet->vert(2).setPosition(50 + 50 * 2, 50 + 50 * 1);
+	playNet->vert(3).setPosition(50 + 50 * 2, 50 + 50 * 6);
+	playNet->vert(4).setPosition(50 + 50 * 5, 50 + 50 * 1);
+	playNet->vert(5).setPosition(50 + 50 * 5, 50 + 50 * 6);
+	playNet->vert(6).setPosition(50 + 50 * 7, 50 + 50 * 0);
+	playNet->vert(7).setPosition(50 + 50 * 7, 50 + 50 * 7);
 
-	net->vert(0).setCharacter(Bob);
-	net->vert(1).setCharacter(Tim);
-	net->vert(2).setCharacter(Rob);
-	net->vert(0).setPosition(100, 50);
-	net->vert(1).setPosition(150, 150);
-	net->vert(2).setPosition(200, 300);
-
-	NetworkRenderComponent* networkRender = new NetworkRenderComponent(*net);
-	NetworkInputCmpnt* networkInput = new NetworkInputCmpnt(*net, windowToModify->getInputHandler());
-	NetworkUpdateCmpnt* networkUpdate = new NetworkUpdateCmpnt(*net);
+	NetworkRenderComponent* networkRender = 
+		new NetworkRenderComponent(*playNet);
+	NetworkInputCmpnt* networkInput = 
+		new NetworkInputCmpnt(*playNet, *solNet, windowToModify->getInputHandler());
+	//Always need to call this setter.
+	networkInput->setPipelineData(*dataText);
+	NetworkUpdateCmpnt* networkUpdate = new NetworkUpdateCmpnt(*playNet);
+	//Always need to call these setters
 	networkUpdate->setBounds(graphBounds->getLocalBounds());
 	networkUpdate->setDrags(networkInput->getDraggables());
-	dataText->updateString("SMS MESSAGE\n\n { Ayy lmao }");
-
+	
 	/////////////////////////////////////////
 	/////// ENTITIES 
 	///////////////////////////////////////
-	Entity* dataBox = new Entity();
-	dataBox->addComponent(dataText);
+	Entity dataBox;
+	dataBox.addComponent(dataText);
 
-	Entity* graphBox = new Entity();
-	graphBox->addComponent(graphBounds);
-	graphBox->addComponent(networkUpdate);
-	graphBox->addComponent(networkRender);
-	graphBox->addComponent(networkInput);
 
+	Entity graphBox;
+	graphBox.addComponent(graphBounds);
+	graphBox.addComponent(networkRender);
+	graphBox.addComponent(networkInput);
+	graphBox.addComponent(networkUpdate);
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
-	windowToModify->addEntity(*dataBox);
-	windowToModify->addEntity(*graphBox);
+	windowToModify->addEntity(dataBox);
+	windowToModify->addEntity(graphBox);
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
-	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 
 }
 
@@ -257,9 +270,10 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     ///////////////////////////////////////
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
-    buttonRenderComponent* textRender =
-        new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
-    textRender->renderPosition(sf::Vector2f(0, 220));
+
+   /*buttonRenderComponent* textRenderComponent =
+    new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
+    textRenderComponent->renderPosition(sf::Vector2f(0, 220));*/
     
     Entity newEnt;
     
@@ -294,7 +308,78 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     windowToModify->setPosition(x, y);
     windowToModify->addEntity(newEnt);
     windowToModify = new BorderDecorator(*windowToModify);
-    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, "localCloseButton");
+    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
 
+void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y) {
+	/* Check to make sure the window passed isn't null */
+	if (windowToModify == nullptr) { return; }
+
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 20;
+	int windowOffset = 5;
+	int emailBoxElementWidth = windowToModify->getSize().x;
+	int emailBoxElementHeight = 50;
+
+
+	Inbox theInbox;
+	Email testEmail1("alex", "brandon", "Long time no see!", "hello there friend!", "image.jpg");
+	Email testEmail2("brandon", "alex", "RE: Long time no see!", "hi how are you?", "image2.jpg");
+	Email testEmail3("alex", "brandon", "RE: RE: Long time no see!", "great! got to go!", "image3.jpg");
+	
+	theInbox.addEmailToList(testEmail1);
+	theInbox.addEmailToList(testEmail2);
+	theInbox.addEmailToList(testEmail3);
+
+	/////////////////////////////////////////
+	/////// ENTITIES
+	///////////////////////////////////////
+	/* Create an email list element entity for each email in the inbox*/
+	for (int i = 0; i < theInbox.getInboxSize(); ++i) {
+		Entity emailListElement;
+		createEmailListElement(
+			emailListElement, dT, buttonSheet, ih, myFont, theInbox.getEmailAt(i), 0, (i * 100),
+			emailBoxElementWidth, emailBoxElementHeight, 0, (i * 100), fontSize);
+		windowToModify->addEntity(emailListElement);
+	}
+
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+
+	windowToModify = new BorderDecorator(*windowToModify);
+	windowToModify->setPosition(x, y);
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+
+}
+void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email& mail, sf::Image& buttonSheet, float x, float y) {
+	/* Check to make sure the window passed isn't null */
+	if (windowToModify == nullptr) { return; }
+
+	/////////////////////////////////////////
+	/////// COMPONENTS
+	///////////////////////////////////////
+	
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 20;
+	int windowOffset = 5;
+
+	emailMessageRenderComponent* eMRC = new emailMessageRenderComponent(myFont, mail, 0, 0, fontSize);
+
+
+	/////////////////////////////////////////
+	/////// ENTITIES
+	///////////////////////////////////////
+	Entity emailMessageDisplayBox;
+	emailMessageDisplayBox.addComponent(eMRC);
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+	windowToModify->addEntity(emailMessageDisplayBox);
+	windowToModify->setPosition(x, y);
+	windowToModify = new BorderDecorator(*windowToModify);
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+}
 
