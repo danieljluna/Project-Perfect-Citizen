@@ -38,6 +38,6 @@ namespace ppc {
 	/// @param An integer specifying the text/font's size
 	///////////////////////////////////////////////////////////////////////
 	void createEmailListElement(ppc::Entity& entityToModify, Desktop& dt, sf::Image& buttonSheet, ppc::InputHandler& ih, 
-		sf::Font& f, Email& eM, int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size);
+		sf::Font& f, Email eM, int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size);
 
 }
