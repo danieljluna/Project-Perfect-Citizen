@@ -11,6 +11,7 @@
 #include "../Engine/Window.h"
 #include "../Engine/WindowInterface.h"
 #include "Database.h"
+#include "Inbox.h"
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -27,6 +28,7 @@ private:
 	ppc::Desktop& theDesktop_;
 	sf::Image& buttonSheet_;
 	Database* theDatabase_;
+    Inbox& theInbox_;
 
 public:
 
@@ -38,7 +40,7 @@ public:
 	///@param The newly created icon entity to add components to.
 	///@param The buttonSheet of the window it will create's buttons.
 	///////////////////////////////////////////////////////////////////////
-	iconInputComponent(Desktop& theDesktop, Database* db, sf::Image& buttonSheet_);
+	iconInputComponent(Desktop& theDesktop, Database* db, Inbox& ib, sf::Image& buttonSheet_);
 	virtual ~iconInputComponent();
 	virtual bool registerInput(sf::Event& ev) override;
 	virtual void recieveMessage(msgType message) override;
