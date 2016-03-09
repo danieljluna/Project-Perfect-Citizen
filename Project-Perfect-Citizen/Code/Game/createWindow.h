@@ -9,7 +9,7 @@
 #include "../Game/databaseSearchInputComponent.h"
 #include "createListElement.h"
 #include "emailMessageRenderComponent.h"
-
+#include "Inbox.h"
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -79,7 +79,7 @@ void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, NodeState & n
 ///@param The x position of the new window
 ///@param The y position of the new window
 ///////////////////////////////////////////////////////////////////////
-void spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y);
+void spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, Inbox& ib);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Constructs a generic email window on the WindowInterface passed.
