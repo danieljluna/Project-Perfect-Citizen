@@ -48,7 +48,6 @@
 #include"../Engine/TestFunctionClass.h"
 #include"../Engine/FreeFunctionObserver.h"
 
->>>>>>> experimental
 using namespace ppc;
 
 bool testBackFunction(TestFunctionClass* tfc, sf::Event& ev) {
