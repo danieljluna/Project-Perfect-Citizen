@@ -241,6 +241,9 @@
     <ClCompile Include="Code\Game\emailMessageRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\ScrollBarDeco.cpp">
+      <Filter>Sources\Engine\Windows / Desktop\Decorators</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
