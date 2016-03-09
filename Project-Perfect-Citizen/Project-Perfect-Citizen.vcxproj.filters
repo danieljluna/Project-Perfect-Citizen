@@ -490,9 +490,6 @@
     <ClInclude Include="Code\Game\textLabelComponent.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\ScrollBarDeco.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\FreeFunctionObserver.h" />
     <ClInclude Include="Code\Engine\TestFunctionClass.h" />
     <ClInclude Include="Code\Game\Inbox.h">
@@ -512,6 +509,9 @@
     </ClInclude>
     <ClInclude Include="Code\Game\emailMessageRenderComponent.h">
       <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ScrollBarDeco.h">
+      <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
