@@ -66,6 +66,7 @@
     <ClCompile Include="Code\Game\databaseSearchRenderComponent.cpp" />
     <ClCompile Include="Code\Game\desktopExtractionComponent.cpp" />
     <ClCompile Include="Code\Game\Email.cpp" />
+    <ClCompile Include="Code\Game\emailExtraction.cpp" />
     <ClCompile Include="Code\Game\emailListElementInputComponent.cpp" />
     <ClCompile Include="Code\Game\emailListElementRenderComponent.cpp" />
     <ClCompile Include="Code\Game\emailMessageRenderComponent.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="Code\Game\databaseSearchRenderComponent.h" />
     <ClInclude Include="Code\Game\desktopExtractionComponent.hpp" />
     <ClInclude Include="Code\Game\Email.h" />
+    <ClInclude Include="Code\Game\emailExtraction.hpp" />
     <ClInclude Include="Code\Game\emailListElementInputComponent.h" />
     <ClInclude Include="Code\Game\emailListElementRenderComponent.h" />
     <ClInclude Include="Code\Game\emailMessageRenderComponent.h" />
