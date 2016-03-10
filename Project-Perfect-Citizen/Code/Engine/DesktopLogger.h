@@ -17,12 +17,12 @@ namespace ppc {
 	private:
 
 		Desktop *loggedDesktop_;
-		ostream& out_;
+		std::ostream& out_;
 
 	public:
 
 		DesktopLogger() = delete;
-		DesktopLogger(Desktop&, ostream&);
+		DesktopLogger(Desktop&, std::ostream&);
 
 		~DesktopLogger();
 
