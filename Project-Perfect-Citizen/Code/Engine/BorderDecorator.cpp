@@ -42,8 +42,8 @@ BorderDecorator::BorderDecorator(
     borderBlack_.setPosition(pos);
     borderBlack_.setFillColor(sf::Color::Black);
                 
-    borderWhite_.setSize(size);
-    borderWhite_.setPosition(pos.x-2, pos.y-2);
+    borderWhite_.setSize(sf::Vector2f(size.x+1,size.y+1));
+    borderWhite_.setPosition(pos.x-1,pos.y-1);
     borderWhite_.setFillColor(sf::Color::White);
 
     //Set up space for buttons
@@ -161,8 +161,8 @@ void BorderDecorator::setPosition(float x, float y) {
                              y - borderTopLeft_.y);
     borderBlack_.setPosition(x - borderTopLeft_.x,
                              y - borderTopLeft_.y);
-    borderWhite_.setPosition(x - borderTopLeft_.x,
-                             y - borderTopLeft_.y);
+    borderWhite_.setPosition(x - borderTopLeft_.x-1,
+                             y - borderTopLeft_.y-1);
 
     WindowDecorator::setPosition(x, y);
 
