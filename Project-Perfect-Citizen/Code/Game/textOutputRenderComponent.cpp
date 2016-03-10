@@ -43,6 +43,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		commandFn firstLs = findFunction(ls);
 		firstLs(fileTree_, firstLsCommand);
 		
+		cout << fileTree_.getDirString() << endl;
 		str_ = str_ + fileTree_.getDirString() + "\n";
 		int numLines = std::count(str_.begin(), str_.end(), '@');
 		std::replace(str_.begin(), str_.end(), '@', '\n');
@@ -61,29 +62,46 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		numDisplayedLines = 0;
 	}
 	else if (cmd.at(0) == "cd") {
-		std::vector<string> cdCommand;
-		string cd = "cd";
-		cdCommand.push_back(cd);
-		cdCommand.push_back(cmd.at(1));
-		commandFn newCD = findFunction(cd);
-		newCD(fileTree_, cdCommand);
-		cout << "CD WAS CALLED" << endl;
+		if (cmd.size() < 2) {
+			str_ = str_ + "Error: 'cd' requires one parameter\n";
+		}
+		else {
+			std::vector<string> cdCommand;
+			string cd = "cd";
+			cdCommand.push_back(cd);
+			cdCommand.push_back(cmd.at(1));
+			commandFn newCD = findFunction(cd);
+			newCD(fileTree_, cdCommand);
+		}
+		
 	}
 	else if (cmd.at(0) == "mkdir") {
-		std::vector<string> mkdirCommand;
-		string mkdir = "mkdir";
-		mkdirCommand.push_back(mkdir);
-		mkdirCommand.push_back(cmd.at(1));
-		commandFn newCD = findFunction(mkdir);
-		newCD(fileTree_, mkdirCommand);
+		if (cmd.size() < 2) {
+			str_ = str_ + "Error: 'mkdir' requires one parameter\n";
+		}
+		else {
+			std::vector<string> mkdirCommand;
+			string mkdir = "mkdir";
+			mkdirCommand.push_back(mkdir);
+			mkdirCommand.push_back(cmd.at(1));
+			commandFn newCD = findFunction(mkdir);
+			newCD(fileTree_, mkdirCommand);
+		}
+		
 	}
 	else if (cmd.at(0) == "make") {
-		std::vector<string> makeCommand;
-		string make = "make";
-		makeCommand.push_back(make);
-		makeCommand.push_back(cmd.at(1));
-		commandFn newCD = findFunction(make);
-		newCD(fileTree_, makeCommand);
+		if (cmd.size() < 2) {
+			str_ = str_ + "Error: 'make' requires one parameter\n";
+		}
+		else {
+			std::vector<string> makeCommand;
+			string make = "make";
+			makeCommand.push_back(make);
+			makeCommand.push_back(cmd.at(1));
+			commandFn newCD = findFunction(make);
+			newCD(fileTree_, makeCommand);
+		}
+		
 	}
 	else if ( 
 		cmd.at(0) == "decrypt" || cmd.at(0) == "encrypt") {

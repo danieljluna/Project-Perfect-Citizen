@@ -7,8 +7,9 @@
 //
 
 #include "bootLoadingAnimationRender.hpp"
+#include <math.h>
 
-bootLoadingAnimationRender::bootLoadingAnimationRender(sf::Image& img, int x, int y):image(img){
+bootLoadingAnimationRender::bootLoadingAnimationRender(sf::Image& img,textLabelComponent& l, int x, int y):image(img), textLabel(l){
 
     this->sprite = new sf::Sprite();
     this->sprite1 = new sf::Sprite();
@@ -41,10 +42,15 @@ bootLoadingAnimationRender::bootLoadingAnimationRender(sf::Image& img, int x, in
     this->sprite28 = new sf::Sprite();
     this->sprite29 = new sf::Sprite();
     this->sprite30 = new sf::Sprite();
+
+    this->dcps = new sf::Sprite();
     
     this->spriteLoaded = new sf::Sprite();
     this->texture = new sf::Texture();
-        
+    
+    
+    
+    
     /* Check that the file exists in the path */
     if (!texture->loadFromImage(image, sf::IntRect(x*128,y*128,128,128)))
         std::exit(-1);
@@ -130,8 +136,10 @@ bootLoadingAnimationRender::~bootLoadingAnimationRender() {
     delete sprite28;
     delete sprite29;
     delete sprite30;
-    sprites.clear();
+    delete dcps;
     delete spriteLoaded;
+    sprites.clear();
+    
     //delete loadedRect;
 }
 void bootLoadingAnimationRender::draw( sf::RenderTarget& target,
@@ -168,31 +176,62 @@ void bootLoadingAnimationRender::draw( sf::RenderTarget& target,
     target.draw(*sprite29, states);
     target.draw(*sprite30, states);
     target.draw(*spriteLoaded, states);
+    target.draw(*dcps, states);
     target.draw(*sprite, states);
 }
 
+string bootLoadingAnimationRender::getRandomString(int stringLength) {
+    std::string text = "";
+    std::string possible = "ABCDEFGHIJKLMNOPQRST!@#$%^&*/_+=UVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for (int i = 0; i < stringLength; ++i) {
+        text += possible[floor(rand() % possible.length())];
+    }
+    return text;
+}
+
+
 void bootLoadingAnimationRender::animate() {
     if (frame < 30) {
-        sprites.at(frame)->setColor(sf::Color(195,204,207));
+        sprites.at(frame)->setColor(sf::Color::Green);
+        string temp = textLabel.getString();
+        textLabel.updateLabelString(temp + getRandomString(90) + "\n");
+
         frame += 1;
     } else if (frame == 30){
         for (int i = 0; i < 30; i++) {
             sprites.at(i)->setColor(sf::Color(0,0,0,0));
         }
-        texture->loadFromImage(image,sf::IntRect(0,0,6*128,7*128));
+        textLabel.updateLabelString("");
+        texture->loadFromImage(image,sf::IntRect(0,0,1022,1024));
         sprite->setTextureRect(sf::IntRect(0,6*128,6*128,128));
+        sprite->setColor(sf::Color(255,255,255,opacity));
         sprite->setTexture(*texture);
         sprite->setPosition(100, 100);
-        frame +=1;
-    } else if (frame > 30 && frame <61) {
-        sprite->setColor(sf::Color(195,204,207,opacity));
-        if (opacity != 0) opacity -= 8;
+        
+        dcps->setColor(sf::Color(255,255,255,opacity));
+        dcps->setPosition(350, 300);
+        dcps->setTextureRect(sf::IntRect(6*128,6*128,128,128));
+        dcps->setTexture(*texture);
+        dcps->setScale(2.0f, 2.0f);
 
         frame +=1;
+    } else if (frame < 62) {
+        if (opacity != 0) opacity -= 8;
+        sprite->setColor(sf::Color(255,255,255,opacity));
+        dcps->setColor(sf::Color(255,255,255,opacity));
+        frame +=1;
+    } else  if (frame < 70){
+        opacity = 0;
+        sprite->setColor(sf::Color(255,255,255,opacity));
+        dcps->setColor(sf::Color(255,255,255,opacity));
+        
+       frame +=1;
+    } else {
+        
+        dcps->setTextureRect(sf::IntRect(0,7*128,6*128,128));
+        dcps->setScale(1.0f, 1.0f);
+        dcps->setPosition(100, 300);
+        dcps->setColor(sf::Color(255,255,255));
     }
-    else {
-       sprite->setColor(sf::Color(195,204,207,0));
-    }
-    
 }
 

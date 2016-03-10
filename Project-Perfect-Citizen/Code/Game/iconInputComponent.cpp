@@ -19,8 +19,8 @@ const string OPEN_THE_BROWSER = "OTB";
 const string OPEN_THE_EXPLORER = "OTE";
 const string OPEN_THE_EMAIL = "OTEM";
 
-iconInputComponent::iconInputComponent(Desktop& dT, Database* dB, Inbox& ib, sf::Image& bS)
-	: theDesktop_(dT), theDatabase_(dB), theInbox_(ib), buttonSheet_(bS) {
+iconInputComponent::iconInputComponent(Desktop& dT, Database* dB, Inbox& ib, sf::Image& bS, sf::Image& iS)
+	: theDesktop_(dT), theDatabase_(dB), theInbox_(ib), buttonSheet_(bS), iconSheet_(iS) {
 
 }
 
@@ -32,7 +32,7 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		WindowInterface* consoleWindow = 
 			new Window(600, 500, sf::Color(51, 50, 161));
 		spawnConsole(consoleWindow, consoleWindow->getInputHandler(), 
-			theDesktop_.getNodeState(), buttonSheet_, 300, 400);
+			theDesktop_.getNodeState(), buttonSheet_, 200, 200);
 		theDesktop_.addWindow(consoleWindow);
 	}
 	else if (msg.compare(OPEN_THE_FILE) == 0) {
@@ -43,10 +43,16 @@ void iconInputComponent::recieveMessage(msgType msg) {
         theDesktop_.addWindow(FileWindow);
 	}
 	else if (msg.compare(OPEN_THE_SETTINGS) == 0) {
-		cout << "DEBUG: Implement and open the settings" << endl;
+		ppc::WindowInterface* ErrorMsgWindow =
+			new ppc::Window(500, 150, sf::Color(255, 255, 255));
+		spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
+		theDesktop_.addWindow(ErrorMsgWindow);
 	}
 	else if (msg.compare(OPEN_THE_CHAT) == 0) {
-		cout << "DEBUG: Implement and open the chat" << endl;
+		ppc::WindowInterface* ErrorMsgWindow =
+			new ppc::Window(500, 150, sf::Color(255, 255, 255));
+		spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
+		theDesktop_.addWindow(ErrorMsgWindow);
 	}
 	else if (msg.compare(OPEN_THE_SEARCH) == 0) {
 		WindowInterface* databaseWindow =
@@ -61,13 +67,22 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		theDesktop_.addWindow(piplineWindow);
 	}
 	else if (msg.compare(OPEN_THE_HELP) == 0) {
-		cout << "DEBUG: Implement and open the help" << endl;
+		ppc::WindowInterface* ErrorMsgWindow =
+			new ppc::Window(500, 150, sf::Color(255, 255, 255));
+		spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
+		theDesktop_.addWindow(ErrorMsgWindow);
 	}
 	else if (msg.compare(OPEN_THE_BROWSER) == 0) {
-		cout << "DEBUG: Implement and open the browser" << endl;
+		ppc::WindowInterface* ErrorMsgWindow =
+			new ppc::Window(500, 150, sf::Color(255, 255, 255));
+		spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
+		theDesktop_.addWindow(ErrorMsgWindow);
 	}
 	else if (msg.compare(OPEN_THE_EXPLORER) == 0) {
-		cout << "DEBUG: Implement and open the explorer" << endl;
+		ppc::WindowInterface* explorerWindow =
+			new ppc::Window(500, 250, sf::Color(255, 255, 255));
+		spawnExplorer(explorerWindow, explorerWindow->getInputHandler(), theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
+		theDesktop_.addWindow(explorerWindow);
 	}
 	else if (msg.compare(OPEN_THE_EMAIL) == 0) {
 		ppc::WindowInterface* inboxWindow =
