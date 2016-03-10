@@ -21,9 +21,8 @@ ScrollBarDecorator::ScrollBarDecorator(WindowInterface& win,
                                        sf::Image& img,
                                        const sf::View& view) :
         WindowDecorator(win) {
-    initialize(img);
-
     
+    initialize(img);
     WindowDecorator::setView(view);
 
     repositionSliders();
@@ -249,8 +248,14 @@ void ScrollBarDecorator::updateDraggable() {
 
 
 void ScrollBarDecorator::updateSliders() {
-    sf::FloatRect currView = WindowDecorator::getView().getViewport();
-    sf::FloatRect defaultView = WindowDecorator::getDefaultView().getViewport();
+    sf::FloatRect currView;
+    sf::FloatRect defaultView = WindowDecorator::getBounds();
+    currView.width = WindowDecorator::getView().getSize().x;
+    currView.height = WindowDecorator::getView().getSize().y;
+    currView.left = WindowDecorator::getView().getCenter().x - 
+                        currView.width / 2.0f;
+    currView.left = WindowDecorator::getView().getCenter().y -
+                        currView.height / 2.0f;
     sf::Vector2f pos = WindowDecorator::getPosition();
     pos.x += barSize_;
     pos.y += barSize_;

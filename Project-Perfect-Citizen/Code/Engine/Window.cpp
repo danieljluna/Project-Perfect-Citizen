@@ -17,9 +17,6 @@ Window::Window(unsigned int width,
             windowSpace_() {
     windowSpace_.create(width, height);
     backgroundColor_ = col;
-    windowView_.reset(sf::FloatRect(0.0, 0.0, 
-                                    float(width), float(height)));
-    windowView_.setViewport(sf::FloatRect(0.f, 0.f, 1, 1));
 	inputHandler_ = InputHandler();
 }
 
@@ -251,15 +248,10 @@ void Window::refresh(sf::RenderStates states) {
     //Clear Window to Background Color
     windowSpace_.clear(backgroundColor_);
 
-    //Apply the view
-    windowSpace_.setView(windowView_);
-
     //Draws all objects in the window
     for (RenderComponent* c : rendercmpnts_) {
         windowSpace_.draw(*c, states);
     }
-
-    windowSpace_.setView(windowSpace_.getDefaultView());
 
     windowSpace_.display();
 }

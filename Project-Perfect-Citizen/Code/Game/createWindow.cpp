@@ -117,7 +117,7 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
             0.0f,
             0.0f,
             float(windowToModify->getSize().x / 2),
-            float(windowToModify->getSize().y / 2)
+            float(windowToModify->getSize().y)
     };
     windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     windowToModify = new BorderDecorator(*windowToModify);

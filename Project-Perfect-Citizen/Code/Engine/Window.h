@@ -152,10 +152,6 @@ private:
     //The background color of the window
     sf::Color backgroundColor_;
 
-    //The view of the Texture used when drawing the Window.
-    //Not in use yet.
-    sf::View windowView_;
-
     //Used to pass Events to inputComponents which are part of the 
     //  Window
     InputHandler inputHandler_;
