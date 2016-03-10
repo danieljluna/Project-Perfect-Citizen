@@ -39,6 +39,8 @@ characterRender::characterRender(sf::Image& image): faceImage(image) {
     
     
     initializeTones();
+    shouldDraw_ = true;
+    
    }
 
 characterRender::~characterRender() {
@@ -61,6 +63,7 @@ void characterRender::setOrigin(float x, float y){
 
 void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
     
+    shouldDraw_ = true;
     ////////////////////////////////////
     /// DRAWING THE BODY
     ////////////////////////////////////
@@ -252,22 +255,27 @@ void characterRender::initializeTones() {
 	lipTones.push_back(sf::Color(227, 93, 106));
 }
 
-
+void characterRender::setShouldDraw(bool d) {
+    shouldDraw_ = d;
+}
 
 
 void characterRender::draw( sf::RenderTarget& target,
                            sf::RenderStates states) const {
-    target.draw(*body, states);
-    target.draw(*hair, states);
-    target.draw(*shirt, states);
-    target.draw(*nose, states);
-    target.draw(*irisL, states);
-    target.draw(*irisR, states);
-    target.draw(*eyeL, states);
-    target.draw(*eyeR, states);
-    target.draw(*browR, states);
-    target.draw(*browL, states);
-    target.draw(*mouth, states);
+    if (shouldDraw_) {
+        target.draw(*body, states);
+        target.draw(*hair, states);
+        target.draw(*shirt, states);
+        target.draw(*nose, states);
+        target.draw(*irisL, states);
+        target.draw(*irisR, states);
+        target.draw(*eyeL, states);
+        target.draw(*eyeR, states);
+        target.draw(*browR, states);
+        target.draw(*browL, states);
+        target.draw(*mouth, states);
+    }
+    
     
 }
 

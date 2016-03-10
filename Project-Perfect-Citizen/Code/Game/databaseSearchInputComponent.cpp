@@ -93,12 +93,14 @@ void databaseSearchInputComponent::goBack() {
 		if (searchHistory.size() > 1) {
 			if (searchHistory.size() == 2) {
 				searchHistory.pop();
+                render.setShouldDraw(false);
 				updateDisplayResults(displayVec, "Enter a filter and query to begin searching");
 				textDisplay.updateString(displayResults_);
 			}
 			else {
 				searchHistory.pop();
 				updateDisplayOutput(searchHistory.top()->getPrintableDatabase());
+                render.applyCharacterValues(searchHistory.top()->getDatabaseState().at(0));
 				textDisplay.updateString(displayResults_);
 			}
 		}
@@ -152,6 +154,7 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 					if (searchHistory.size() > 1) {
 						if (searchHistory.size() == 2) {
 							searchHistory.pop();
+                            render.setShouldDraw(false);
 							updateDisplayResults(displayVec, "Enter a filter and query to begin searching");
 							textDisplay.updateString(displayResults_);
 							return true;
@@ -159,6 +162,7 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 							searchHistory.pop();
 							updateDisplayOutput(searchHistory.top()->getPrintableDatabase());
 							textDisplay.updateString(displayResults_);
+                            render.applyCharacterValues(searchHistory.top()->getDatabaseState().at(lookAt));
 							return true;
 						}	
 					}
@@ -171,8 +175,9 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 				}
 
 				/* Otherwise reset it */
-				else { 
+				else {
 					clearSearchBox();
+                    render.setShouldDraw(false);
 					updateDisplayResults(displayVec, "Invalid input");
 					textDisplay.updateString(displayResults_);
 					return true;
@@ -219,6 +224,7 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 
 
 bool ppc::goBackFn(databaseSearchInputComponent* ptr, sf::Event& ev) {
+
     ptr->goBack();
     return true;
 }
