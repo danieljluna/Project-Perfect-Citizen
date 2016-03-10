@@ -427,7 +427,7 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 }
 
 void ppc::spawnExplorer(WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns,
-	sf::Image& buttonSheet, float x, float y) {
+	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y) {
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
 
@@ -439,7 +439,7 @@ void ppc::spawnExplorer(WindowInterface*& windowToModify, InputHandler& ih, Node
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 14;
 
-	Explorer theExplorer(windowToModify, ns, buttonSheet);
+	Explorer theExplorer(windowToModify, ns, buttonSheet, iconSheet);
 
 	/////////////////////////////////////////
 	/////// ENTITIES

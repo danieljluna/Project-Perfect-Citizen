@@ -19,8 +19,8 @@ const string OPEN_THE_BROWSER = "OTB";
 const string OPEN_THE_EXPLORER = "OTE";
 const string OPEN_THE_EMAIL = "OTEM";
 
-iconInputComponent::iconInputComponent(Desktop& dT, Database* dB, Inbox& ib, sf::Image& bS)
-	: theDesktop_(dT), theDatabase_(dB), theInbox_(ib), buttonSheet_(bS) {
+iconInputComponent::iconInputComponent(Desktop& dT, Database* dB, Inbox& ib, sf::Image& bS, sf::Image& iS)
+	: theDesktop_(dT), theDatabase_(dB), theInbox_(ib), buttonSheet_(bS), iconSheet_(iS) {
 
 }
 
@@ -81,7 +81,7 @@ void iconInputComponent::recieveMessage(msgType msg) {
 	else if (msg.compare(OPEN_THE_EXPLORER) == 0) {
 		ppc::WindowInterface* explorerWindow =
 			new ppc::Window(500, 250, sf::Color(255, 255, 255));
-		spawnExplorer(explorerWindow, explorerWindow->getInputHandler(), theDesktop_.getNodeState(), buttonSheet_, 100, 200);
+		spawnExplorer(explorerWindow, explorerWindow->getInputHandler(), theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
 		theDesktop_.addWindow(explorerWindow);
 	}
 	else if (msg.compare(OPEN_THE_EMAIL) == 0) {

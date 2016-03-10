@@ -26,16 +26,17 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		///@brief Default constructor
 		///////////////////////////////////////////////////////////////////////
-		Explorer(WindowInterface*& windowToWorkOn, NodeState& ns, sf::Image& buttonSheet);
+		Explorer(WindowInterface*& windowToWorkOn, NodeState& ns, sf::Image& buttonSheet, sf::Image& iconSheet);
 
 		
 	private:
 		WindowInterface*& windowToWorkOn_;
 		NodeState& theFileTree_;
 		sf::Image& buttonSheet_;
+		sf::Image& iconSheet_;
 		std::stack<std::vector<ppc::Entity>> explorerHistory_;
 
-		vector<Entity> createVectorFrame();
+		vector<Entity> createVectorFrame(vector<string> filenames);
 
 		void renderTopFrame();
 	};
