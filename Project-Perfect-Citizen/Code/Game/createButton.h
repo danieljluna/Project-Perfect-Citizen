@@ -64,6 +64,10 @@ void spawnNextButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Ima
 ///////////////////////////////////////////////////////////////////////
 void spawnBlankLargeButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
+
+// * THIS IS TEMPORARY FOR FIRST PLAYABLE *//
+void spawnNetworkOkayButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
+
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a okay button
 /// Pass it the entity, a shared input handler, a spritesheet with 

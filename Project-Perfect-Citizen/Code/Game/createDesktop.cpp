@@ -6,7 +6,12 @@
 using namespace ppc;
 
 void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet) {
-
+	
+	std::vector<string> firstLsCommand;
+	string ls = "ls";
+	firstLsCommand.push_back(ls);
+	commandFn firstLs = findFunction(ls);
+	firstLs(desktopToModify.getNodeState(), firstLsCommand);
 	
 	//////////////////////////////////////////////
 	//// Create the database (really should take a seed)
@@ -43,30 +48,33 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	Entity FolderIcon;
 	Entity DataGraphIcon;
 	Entity HardDriveIcon;
-	Entity SettingsIcon;
 	Entity SearchIcon;
 	Entity EmailIcon;
 
-	spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 25.0f, 0.5f, 0.25f, theInbox);
-	spawnFolderIcon(FolderIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 25.0f, 110.0f, 0.5f, 0.25f, theInbox);
-	spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 185.0f, 0.5f, 0.25f, theInbox);
-	spawnDataGraphIcon(DataGraphIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 335.0f, 0.5f, 0.25f, theInbox);
-	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 410.0f, 0.5f, 0.25f, theInbox);
-	spawnSettingsIcon(SettingsIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 485.0f, 0.5f, 0.25f, theInbox);
-	spawnSearchIcon(SearchIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 560.0f, 0.5f, 0.25f, theInbox);
+	spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 425.0f, 110.0f, 0.5f, 0.25f, theInbox);
+
+	spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 225.0f, 0.5f, 0.25f, theInbox);
+	spawnDataGraphIcon(DataGraphIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 625.0f, 225.0f, 0.5f, 0.25f, theInbox);
+
+	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 425.0f, 0.5f, 0.25f, theInbox);
+	spawnSearchIcon(SearchIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 625.0f, 425.0f, 0.5f, 0.25f, theInbox);
+	
+	spawnFolderIcon(FolderIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 425.0f, 525.0f, 0.5f, 0.25f, theInbox);
+	
+	
+	
+	
 
 	desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(FolderIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
 	desktopWindowToModify.addEntity(HardDriveIcon);
-	desktopWindowToModify.addEntity(SettingsIcon);
 	desktopWindowToModify.addEntity(SearchIcon);
 	desktopWindowToModify.addEntity(EmailIcon);
 
 }
 
 void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
-    
     
     //////////////////////////////////////////////
     //// Create the database (really should take a seed)
@@ -79,7 +87,6 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     emailExtraction* inbox = new emailExtraction();
     inbox->parseEmailAsJson("Email1.json");
     
-    //Inbox thnbox;
     for(int i = 0; i < inbox->getSubject().size(); i++){
         Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), "image.jpg");
         theInbox->addEmailToList(testEmail1);
@@ -119,17 +126,25 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     Entity PhotosIcon;
     Entity EmailIcon;
     
-    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 25.0f, 25.0f, 0.4f, 0.25f, theInbox);
-    spawnChatIcon(ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 100.0f, 0.4f, 0.25f, theInbox);
-    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 175.0f, 0.4f, 0.25f, theInbox);
-    spawnSettingsIcon(SettingsIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 250.0f, 0.4f, 0.25f, theInbox);
-    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 325.0f, 0.5f, 0.25f, theInbox);
-    spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 400.0f, 0.5f, 0.25f, theInbox);
-    spawnFolderIcon(APEnglishIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 125.0f, 25.0f, 0.4f, 0.25f, theInbox);
-    spawnFolderIcon(ArtGalleryIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 125.0f, 100.0f, 0.4f, 0.25f, theInbox);
-    spawnFolderIcon(FilmIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 125.0f, 175.0f, 0.4f, 0.25f, theInbox);
-    spawnFolderIcon(LitIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 125.0f, 250.0f, 0.4f, 0.25f, theInbox);
-    spawnFolderIcon(PhotosIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 125.0f, 325.0f, 0.4f, 0.25f, theInbox);
+    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 425.0f, 25.0f, 0.4f, 0.25f, theInbox);
+
+	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 125.0f, 175.0f, 0.4f, 0.25f, theInbox);
+	spawnFolderIcon(APEnglishIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 750.0f, 55.0f, 0.4f, 0.25f, theInbox);
+	spawnFolderIcon(ArtGalleryIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 325.0f, 100.0f, 0.4f, 0.25f, theInbox);
+	
+	spawnFolderIcon(FilmIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 125.0f, 450.0f, 0.4f, 0.25f, theInbox);
+	spawnFolderIcon(LitIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 425.0f, 450.0f, 0.4f, 0.25f, theInbox);
+	spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 525.0f, 200.0f, 0.5f, 0.25f, theInbox);
+
+    spawnChatIcon(ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 300.0f, 0.4f, 0.25f, theInbox);
+	spawnFolderIcon(PhotosIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 625.0f, 325.0f, 0.4f, 0.25f, theInbox);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 725.0f, 450.0f, 0.5f, 0.25f, theInbox);
+    
+    
+    
+    
+   
+   
     
     desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);
