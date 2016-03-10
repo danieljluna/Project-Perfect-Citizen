@@ -137,6 +137,10 @@ namespace ppc {
 		///////////////////////////////////////////////
 		virtual bool isEncrypted();
 		
+		virtual std::map<std::string, BaseFileType*> getContents();
+
 		virtual ppc::Subject* getSubject() { return fileSubject; };
+
+		//virtual void addFileObserver(sf::Event& ev, bool(*obFunction)(T*, sf::Event&);
 	};
 };
