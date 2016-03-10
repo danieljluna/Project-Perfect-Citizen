@@ -250,9 +250,6 @@
     <ClCompile Include="Code\Game\Explorer.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\explorerFolderRenderComponent.cpp">
-      <Filter>Sources\Game</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -532,9 +529,6 @@
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\Explorer.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Game\explorerFolderRenderComponent.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>
