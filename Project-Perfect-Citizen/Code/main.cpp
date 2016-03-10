@@ -69,6 +69,78 @@ bool printFunc(TestFunctionClass* tfc, sf::Event& ev) {
 }
 
 
+
+bool runBootDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
+    ppc::NodeState testState;
+    testState.setUp();
+    Window* desktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+    
+    Desktop myDesktop(*desktopWindow, testState);
+    myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
+    //createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+    
+    Window* bootWindow = new Window(1800,1000,sf::Color(30,32,33));
+    
+    Entity loading;
+    
+    sf::Font font;
+    font.loadFromFile(resourcePath() + "consola.ttf");
+    
+    textLabelComponent* textLabel = new textLabelComponent(font,sf::Color::Green, 0,0, 20, " PCOS(C) , UNMOS. UNAUTHORIZED USE OF THIS TERMINAL CAN RESULT IN PENALTY BY DEATH. \n   Beginning File System Initialization \n");
+    
+    bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(spriteSheet,*textLabel,7,5);
+    buttonRenderComponent* dcps =  new buttonRenderComponent(spriteSheet, 6, 6, 1, 0);
+    //dcps->setImageScale(2.0f, 2.0f);
+    //dcps->renderPosition(sf::Vector2f(355,200));
+
+    
+    bootLoadingUpdateComponent* bootUpdate = new bootLoadingUpdateComponent(*bootRender,*dcps,0.1f);
+    loading.addComponent(bootRender);
+    loading.addComponent(bootUpdate);
+    loading.addComponent(textLabel);
+    //loading.addComponent(dcps);
+    bootWindow->addEntity(loading);
+    
+    myDesktop.addWindow(bootWindow);
+    
+    // Go into main game loop
+    sf::Clock deltaTime;
+    sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
+    while (screen.isOpen()) {
+        //Process sf::events
+        sf::Event event;
+        while (screen.pollEvent(event)) {
+            // Close window: exit
+            if (event.type == sf::Event::KeyPressed) {
+              if (event.key.code == sf::Keyboard::Return){
+                // Boots player to teacher desktop
+                return false;
+              }
+            }
+            if (event.type == sf::Event::Closed) {
+                screen.close();
+            }
+            
+            //Input phase
+            myDesktop.registerInput(event);
+        }
+        
+        sf::Time elapsed = deltaTime.getElapsedTime();
+        while (elapsed > framePeriod) {
+            screen.clear(sf::Color::Black);
+            sf::Time dt = deltaTime.restart();
+            myDesktop.update(dt);
+            elapsed -= framePeriod;
+        }
+        myDesktop.refresh();
+        screen.draw(myDesktop);
+        screen.display();
+    }
+    return false;
+    
+}
+
+
 bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
 	ppc::NodeState testState;
 	testState.setUp();
@@ -190,52 +262,8 @@ int main(int argc, char** argv) {
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
 	///////////////////////////////////////////////////////////////////
 
-    //------------------------------------------------------------------
-    // UNCOMMENT THIS BLOCK FOR BOOT WINDOW
-    //------------------------------------------------------------------
     
-    /*Window* bootWindow = new Window(1800,1000,sf::Color(30,32,33));
-    
-    Entity loading;
-    
-    bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(spriteSheet,7,5);
-    buttonRenderComponent* dcps =  new buttonRenderComponent(spriteSheet, 6, 6, 1, 0);
-    dcps->setImageScale(2.0f, 2.0f);
-    dcps->renderPosition(sf::Vector2f(355,200));
-
-    Interpolate* inter = new Interpolate(20,0,0.2f);
-    inter->begin();
-    
-    
-    bootLoadingUpdateComponent* bootUpdate = new bootLoadingUpdateComponent(*bootRender,*dcps,0.1f);
-    loading.addComponent(bootRender);
-    loading.addComponent(inter);
-    loading.addComponent(bootUpdate);
-    loading.addComponent(dcps);
-    bootWindow->addEntity(loading);
-    
-    myDesktop.addWindow(bootWindow);*/
-    
-    //------------------------------------------------------------------
-    
-    
-    //////////////////////////////////////////////////////////
-    ///// TEMPORARY BOOT LOADING SCREEN SETUP
-    /////////////////////////////////////////////////////////
-    bool hasBooted = true;
-    int step = 0;
-    
-    sf::Font font;
-    font.loadFromFile(resourcePath() + "consola.ttf");
-    sf::Text text;
-    text.setPosition(0, 0);
-    text.setColor(sf::Color::Green);
-    text.setCharacterSize(18);
-    text.setFont(font);
-
-    std::string renderString = "";
-    text.setString(renderString);
-
+    while (runBootDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
 	while (runPlayerDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
 	while (runTargetDesktop(*&screen, iconSheet, spriteSheet, teacherWallpaper)) {}
     

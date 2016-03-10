@@ -15,6 +15,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "../Engine/renderComponent.h"
+#include "textLabelComponent.hpp"
 #include <string>
 #include <vector>
 
@@ -64,9 +65,12 @@ private:
     sf::Sprite* sprite29;
     sf::Sprite* sprite30;
     sf::Sprite* spriteLoaded;
+    sf::Sprite* dcps;
     sf::Texture* texture;
     sf::Image& image;
     
+    textLabelComponent& textLabel;
+
     
     float loadX;
     int frame, opacity;
@@ -82,8 +86,10 @@ public:
     /// @param x is the x index of the target sprite
     /// @param y is the y index of the target sprite
     ///////////////////////////////////////////////////////////////////////
-    bootLoadingAnimationRender(sf::Image& img, int x, int y);
+    bootLoadingAnimationRender(sf::Image& img,textLabelComponent& l, int x, int y);
     ~bootLoadingAnimationRender();
+    
+    string getRandomString(int stringLength);
     
     
     ///////////////////////////////////////////////////////////////////////
