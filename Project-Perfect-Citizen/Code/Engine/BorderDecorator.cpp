@@ -25,16 +25,26 @@ BorderDecorator::BorderDecorator(
     //Set up BorderShape & Visual Details
     sf::Vector2f pos(win.getPosition().x - minorBorder,
                      win.getPosition().y - majorBorder);
- 
+            
+    sf::Vector2f posW(pos.x-2, pos.y-2);
+                
     sf::Vector2f size(float(win.getSize().x + 2 * minorBorder),
                       float(win.getSize().y + minorBorder +
                                               majorBorder));
-
+            
                 
     borderShape_.setPosition(pos);
    
     borderShape_.setSize(size);
     borderShape_.setFillColor(sf::Color(170,170,170));
+                
+    borderBlack_.setSize(sf::Vector2f(size.x+2, size.y+2));
+    borderBlack_.setPosition(pos);
+    borderBlack_.setFillColor(sf::Color::Black);
+                
+    borderWhite_.setSize(size);
+    borderWhite_.setPosition(pos.x-2, pos.y-2);
+    borderWhite_.setFillColor(sf::Color::White);
 
     //Set up space for buttons
 
@@ -149,6 +159,10 @@ void BorderDecorator::setSize(unsigned int x, unsigned int y) {
 void BorderDecorator::setPosition(float x, float y) {
     borderShape_.setPosition(x - borderTopLeft_.x, 
                              y - borderTopLeft_.y);
+    borderBlack_.setPosition(x - borderTopLeft_.x,
+                             y - borderTopLeft_.y);
+    borderWhite_.setPosition(x - borderTopLeft_.x,
+                             y - borderTopLeft_.y);
 
     WindowDecorator::setPosition(x, y);
 
@@ -160,7 +174,8 @@ void BorderDecorator::setPosition(float x, float y) {
 
 void BorderDecorator::move(float x, float y) {
     borderShape_.move(x, y);
-
+    borderBlack_.move(x, y);
+    borderWhite_.move(x, y);
     WindowDecorator::move(x, y);
 
     updateBounds();
@@ -171,7 +186,10 @@ void BorderDecorator::move(float x, float y) {
 
 void BorderDecorator::draw(sf::RenderTarget& target,
                            sf::RenderStates states) const {
+    target.draw(borderBlack_, states);
+    target.draw(borderWhite_, states);
     target.draw(borderShape_, states);
+    
     WindowDecorator::draw(target, states);
     for (size_t i = 0; i < buttonCount_; ++i) {
         target.draw(*buttonRenders_[i], states);
