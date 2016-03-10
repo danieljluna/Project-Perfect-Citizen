@@ -42,7 +42,7 @@ vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
 	for (int i = 0, j = 0 ; i < filenames.size(); ++i) {
 			Entity example;
 			buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet_, 0, 9, 1, 1);
-			textLabelComponent* label = new textLabelComponent(font, i * 100, j * 100 + 0.5 * 128, 12, filenames.at(i));
+			textLabelComponent* label = new textLabelComponent(font, sf::Color::Black, i * 100, j * 100 + 0.5 * 128, 12, filenames.at(i));
 			IconRender->renderPosition(sf::Vector2f(i*100, j*100));
 			example.addComponent(IconRender);
 			example.addComponent(label);
