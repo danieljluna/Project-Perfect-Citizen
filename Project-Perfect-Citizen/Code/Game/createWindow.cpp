@@ -52,6 +52,10 @@
 
 using namespace ppc;
 
+const string PNG = ".png";
+const string JPG = ".jpg";
+const string TXT = ".txt";
+
 bool testBackFunction(TestFunctionClass* tfc, sf::Event& ev) {
 	//tfc->callFunc(ev);
 	return true;
@@ -273,10 +277,10 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     if (windowToModify == nullptr) { return; }
     
     string path = resourcePath() + p;
-    char lastChar;
+    string dotEnd;
     
     if (!path.empty()){
-        lastChar = *path.rbegin();
+        dotEnd = path.substr(path.length() - 4);
     }
     /////////////////////////////////////////
     /////// COMPONENTS & ENTITIES
@@ -290,7 +294,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     
     Entity newEnt;
     
-    if(lastChar == 't'){
+    if(dotEnd == TXT){
         sf::Font myFont;
         myFont.loadFromFile(resourcePath() + "consola.ttf");
         int fontSize = 10;
@@ -304,7 +308,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
         newEnt.addComponent(textBox);
     }
     
-    else if(lastChar == 'g'){
+    else if(dotEnd == PNG || dotEnd == JPG){
         sf::Image photo;
         photo.loadFromFile(path);
         photoRenderComponent* photoRender = new photoRenderComponent(photo);

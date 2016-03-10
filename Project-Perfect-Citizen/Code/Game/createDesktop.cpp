@@ -21,13 +21,15 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	theDatabase->generateFullDatabase(200);
 
     Inbox* theInbox = new Inbox();
-    Email testEmail1("alex", "brandon", "Long time no see!", "hello there friend!", "image.jpg");
-    Email testEmail2("brandon", "alex", "RE: Long time no see!", "hi how are you?", "image2.jpg");
-    Email testEmail3("alex", "brandon", "RE: RE: Long time no see!", "great! got to go!", "image3.jpg");
     
-    theInbox->addEmailToList(testEmail1);
-    theInbox->addEmailToList(testEmail2);
-    theInbox->addEmailToList(testEmail3);
+    emailExtraction* inbox = new emailExtraction();
+    inbox->parseEmailAsJson("PlayerEmail.json");
+    
+    //Inbox thnbox;
+    for(int i = 0; i < inbox->getSubject().size(); i++){
+        Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), "image.jpg");
+        theInbox->addEmailToList(testEmail1);
+    }
     
 	//////////////////////////////////////////////
 	//// Create the start menu
@@ -91,8 +93,6 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
         Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), "image.jpg");
         theInbox->addEmailToList(testEmail1);
     }
-    
-    
     
     //////////////////////////////////////////////
     //// Script to create file tree

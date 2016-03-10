@@ -66,11 +66,12 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
             std::vector<std::string> CMD;
             std::string mk_cmd = "make";
             std::string directory_name = objName;
+            std::string pathName = directoryObj[objNames[i]].asString();
             CMD.push_back(mk_cmd);
             CMD.push_back(directory_name);
+            CMD.push_back(pathName);
             commandFn executeCommand = findFunction(mk_cmd);
             executeCommand(fileTree_, CMD);
-            std::string pathName = directoryObj[objNames[i]].asString();
             //std::cout << pathName << std::endl;
         }
         
