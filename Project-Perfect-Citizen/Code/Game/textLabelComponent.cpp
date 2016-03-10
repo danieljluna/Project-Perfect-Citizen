@@ -11,7 +11,7 @@
 
 using namespace std;
 
-textLabelComponent::textLabelComponent(sf::Font& f,
+textLabelComponent::textLabelComponent(sf::Font& f,sf::Color c,
                                        int x,
                                        int y,
                                        int s,
@@ -24,7 +24,7 @@ textLabelComponent::textLabelComponent(sf::Font& f,
     text->setFont(font);
     text->setPosition(x, y);
     text->setCharacterSize(s);
-    text->setColor(sf::Color(0,0,0));
+    text->setColor(c);
     text->setString(labelString);
     
 }
@@ -43,6 +43,7 @@ void textLabelComponent::updateLabelSize(int s) {
 
 void textLabelComponent::updateLabelString(string str) {
     labelString = str;
+    text->setString(labelString);
 }
 
 void textLabelComponent::draw( sf::RenderTarget& target,

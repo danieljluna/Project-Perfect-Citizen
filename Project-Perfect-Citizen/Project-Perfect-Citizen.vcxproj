@@ -49,6 +49,8 @@
     <ClCompile Include="Code\Engine\world.cpp" />
     <ClCompile Include="Code\Game\animatorComponent.cpp" />
     <ClCompile Include="Code\Game\BootLoader.cpp" />
+    <ClCompile Include="Code\Game\bootLoadingAnimationRender.cpp" />
+    <ClCompile Include="Code\Game\bootLoadingUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\buttonRenderComponent.cpp" />
     <ClCompile Include="Code\Game\buttonUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\characterRender.cpp" />
@@ -69,6 +71,9 @@
     <ClCompile Include="Code\Game\emailListElementInputComponent.cpp" />
     <ClCompile Include="Code\Game\emailListElementRenderComponent.cpp" />
     <ClCompile Include="Code\Game\emailMessageRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\errorMessageRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\Explorer.cpp" />
+    <ClCompile Include="Code\Game\explorerFolderInputComponent.cpp" />
     <ClCompile Include="Code\Game\expressionistParser.cpp" />
     <ClCompile Include="Code\Game\iconInputComponent.cpp" />
     <ClCompile Include="Code\Game\Inbox.cpp" />
@@ -144,6 +149,8 @@
     <ClInclude Include="Code\Engine\world.h" />
     <ClInclude Include="Code\Game\animatorComponent.hpp" />
     <ClInclude Include="Code\Game\BootLoader.hpp" />
+    <ClInclude Include="Code\Game\bootLoadingAnimationRender.hpp" />
+    <ClInclude Include="Code\Game\bootLoadingUpdateComponent.hpp" />
     <ClInclude Include="Code\Game\buttonRenderComponent.h" />
     <ClInclude Include="Code\Game\buttonUpdateComponent.h" />
     <ClInclude Include="Code\Game\characterRender.hpp" />
@@ -164,6 +171,9 @@
     <ClInclude Include="Code\Game\emailListElementInputComponent.h" />
     <ClInclude Include="Code\Game\emailListElementRenderComponent.h" />
     <ClInclude Include="Code\Game\emailMessageRenderComponent.h" />
+    <ClInclude Include="Code\Game\errorMessageRenderComponent.h" />
+    <ClInclude Include="Code\Game\Explorer.h" />
+    <ClInclude Include="Code\Game\explorerFolderInputComponent.h" />
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
     <ClInclude Include="Code\Game\iconInputComponent.h" />
     <ClInclude Include="Code\Game\Inbox.h" />
