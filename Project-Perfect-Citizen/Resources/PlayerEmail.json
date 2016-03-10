@@ -1,0 +1,57 @@
+{
+	"Email": {
+   		"Email_1": {
+   			"To" : "PLAYER_NAME",
+			"From" : "DCPS automated system",
+          	"Subject" : "Welcome to Project Perfect Citizen",
+          	"Body" :"Project Perfect Citizen is the first
+    extensive program initiated by the Department of
+    Cyber Police and Security tasked with the job of
+    detecting and eradicating cyber criminal threats
+    within our great nation's network. This network,
+    the SecureNetowrk, is a series of interconnected
+    links between every electronic telecommunications
+    device internationally that controls the channels
+    through which information is passed on."
+        },
+		"Email_2": { 
+			"To" : "PLAYER_NAME",
+			"From" : "CT",
+            "Subject": "Hey there!",
+			"Body" :"Hello newbie, 
+    I Just wanted to drop by and say hi! Just take it
+    easy and don't worry if things seem overwhelming 
+    at first and I'm sure that your first task will be
+    an easy one. Just remember, I know everything."
+		},
+		"Email_3": {
+			"To" : "PLAYER_NAME",
+			"From" : "JP",
+			"Subject": "First Things First",
+			"Body" : "Hello there,
+    So you are the new personnel here at the DCPS?
+    Well you are going to enjoy your time here, I know
+    it. Anyways, I'm JP and I am your boss.
+    
+    The first thinngs first is to open the Graph
+    application and start your first assignment.
+            
+    We have suspicious of these groups of people and
+    your job is to look through these poeple's sms 
+    messages and find the one who seems the most
+    suspicious. Theses poeple are usualy the ones who
+    just seem to spew suggestive content.
+            
+    Once you find your person, we will give you
+    persmision to look into his desktop. Inside, it is
+    your job to try to find content that proves that
+    he his guilty, and that is it. Don't worry about 
+    the them, they are going to a special place.
+            
+    With every bust, we get closer to our goal of the
+    Perfect Citizen.
+            
+    JP"
+		}
+   	}
+}
