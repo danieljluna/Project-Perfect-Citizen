@@ -72,8 +72,8 @@ sf::FloatRect Window::getBounds() const {
     sf::FloatRect result;
     result.left = transform_.getPosition().x;
     result.top = transform_.getPosition().y;
-    result.width = float(windowSpace_.getSize().x);
-    result.height = float(windowSpace_.getSize().y);
+    result.width = float(windowSpace_.getView().getSize().x);
+    result.height = float(windowSpace_.getView().getSize().y);
     return result;
 }
 
@@ -101,6 +101,7 @@ const sf::View& Window::getView() const {
 
 void Window::setView(const sf::View& view) {
     windowSpace_.setView(view);
+
 }
 
 
@@ -238,6 +239,25 @@ void Window::update(sf::Time& deltaTime) {
 
 
 void Window::registerInput(sf::Event& ev) {
+    sf::Vector2f click;
+    sf::View currView = windowSpace_.getView();
+
+    switch (ev.type) {
+    case sf::Event::MouseButtonPressed:
+    case sf::Event::MouseButtonReleased:
+        click = {float(ev.mouseButton.x), float(ev.mouseButton.y) };
+        currView.getTransform().transformPoint(click);
+        ev.mouseButton.x = click.x;
+        ev.mouseButton.y = click.y;
+        break;
+    case sf::Event::MouseMoved:
+        click = { float(ev.mouseMove.x), float(ev.mouseMove.y) };
+        currView.getTransform().transformPoint(click);
+        ev.mouseMove.x = click.x;
+        ev.mouseMove.y = click.y;
+        break;
+    }
+
     inputHandler_.registerEvent(ev);
 }
 
@@ -262,7 +282,13 @@ void Window::refresh(sf::RenderStates states) {
 void Window::draw(sf::RenderTarget& target,
                   sf::RenderStates states) const {
     //Create a sprite off of the windowSpace_
-    sf::Sprite spr(windowSpace_.getTexture());
+    sf::Sprite spr;
+    spr.setTexture(windowSpace_.getTexture());
+    sf::Vector2f viewSize = windowSpace_.getView().getSize();
+    sf::Vector2f viewScale;
+    viewScale.x = viewSize.x / windowSpace_.getSize().x;
+    viewScale.y = viewSize.y / windowSpace_.getSize().y;
+    spr.scale(viewScale);
 
     states.transform *= transform_.getTransform();
 

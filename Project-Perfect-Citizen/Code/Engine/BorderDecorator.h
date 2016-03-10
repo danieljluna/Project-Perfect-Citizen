@@ -63,6 +63,8 @@ public:
 
     virtual void setSize(unsigned int x, unsigned int y) override;
 
+    virtual void setView(const sf::View& view) override;
+
     virtual void setPosition(float x, float y) override;
 
     virtual void move(float x, float y) override;
@@ -78,9 +80,14 @@ protected:
 
 private:
 
+    //Updates the bounds
     void updateBounds();
 
+    //Updates the ith Button's position
     void updateButton(size_t i);
+
+    //Updates the borderRect
+    void updateBorder();
 
 
   /////////////////////////////////////////////////////////////////////

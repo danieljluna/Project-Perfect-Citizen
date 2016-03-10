@@ -23,17 +23,7 @@ BorderDecorator::BorderDecorator(
             borderBottomRight_.y = minorBorder;
 	
     //Set up BorderShape & Visual Details
-    sf::Vector2f pos(win.getPosition().x - minorBorder,
-                     win.getPosition().y - majorBorder);
- 
-    sf::Vector2f size(float(win.getSize().x + 2 * minorBorder),
-                      float(win.getSize().y + minorBorder +
-                                              majorBorder));
-
-                
-    borderShape_.setPosition(pos);
-   
-    borderShape_.setSize(size);
+    updateBorder();
     borderShape_.setFillColor(sf::Color(170,170,170));
 
     //Set up space for buttons
@@ -84,20 +74,14 @@ void BorderDecorator::addButton(sf::Image& buttonImage,
         //Push back the button render cmpnt
         buttonRenders_[buttonCount_] = new buttonRenderComponent(buttonImage, 0, 3, 1, 1);
         buttonRenders_[buttonCount_]->setImageScale(0.2f, 0.2f);
-        updateButton(buttonCount_);
 
         //Push back the button input cmpnt
         buttonInputs_[buttonCount_] = new mousePressButton();
 
-        //Calculate Button Click FloatRect
-        sf::FloatRect clickSpace = buttonRenders_[buttonCount_]->getSprite()->getGlobalBounds();
-        clickSpace.left = WindowDecorator::getSize().x;
-        clickSpace.left -= float(buttonCount_ + 1) * (borderBottomRight_.x + clickSpace.width);
-        clickSpace.top = float(borderBottomRight_.y) - float(borderTopLeft_.y);
+        updateButton(buttonCount_);
 
         //Set button input values
         buttonInputs_[buttonCount_]->setInputHandle(getInputHandler());
-        buttonInputs_[buttonCount_]->setFloatRect(clickSpace);
         setOnPress(buttonInputs_[buttonCount_], getUniversalTarget(), closeWindow);
 
         //Push back the button entity
@@ -141,6 +125,16 @@ void BorderDecorator::setSize(unsigned int x, unsigned int y) {
     if (y <= borderHeight) { y = 1; } else { y -= borderHeight; }
     
     WindowDecorator::setSize(x, y);
+}
+
+
+
+
+void BorderDecorator::setView(const sf::View& view) {
+    WindowDecorator::setView(view);
+
+    updateBorder();
+    updateBounds();
 }
 
 
@@ -218,6 +212,26 @@ void BorderDecorator::updateBounds() {
 
 
 
+
+void BorderDecorator::updateBorder() {
+    sf::Vector2f pos;
+    pos.x = WindowDecorator::getPosition().x - borderTopLeft_.x;
+    pos.y = WindowDecorator::getPosition().y - borderTopLeft_.y;
+
+    sf::Vector2f size;
+    size.x = float(WindowDecorator::getBounds().width + 
+            borderBottomRight_.x + borderTopLeft_.x);
+    size.y = float(WindowDecorator::getBounds().height +
+            borderBottomRight_.y + borderTopLeft_.y);
+
+
+    borderShape_.setPosition(pos);
+
+    borderShape_.setSize(size);
+}
+
+
+
 void BorderDecorator::updateButton(size_t i) {
     float left = borderShape_.getPosition().x + borderShape_.getSize().x;
     left = left - float(i + 1) * (borderBottomRight_.y + buttonRenders_[i]->getSprite()->getGlobalBounds().width);
@@ -225,6 +239,15 @@ void BorderDecorator::updateButton(size_t i) {
 
     sf::Vector2f ButtonPos(left, top);
     buttonRenders_[i]->renderPosition(ButtonPos);
+
+    //Calculate Button Click FloatRect
+    sf::FloatRect clickSpace = buttonRenders_[i]->getSprite()->getGlobalBounds();
+    sf::View currView = WindowDecorator::getView();
+    clickSpace.left = currView.getCenter().x + currView.getSize().x / 2.0f;
+    clickSpace.left -= float(i + 1) * (borderBottomRight_.x + clickSpace.width);
+    clickSpace.top = currView.getCenter().y - currView.getSize().y / 2.0f;
+    clickSpace.top += float(borderBottomRight_.y) - float(borderTopLeft_.y);
+    buttonInputs_[i]->setFloatRect(clickSpace);
 }
 
 

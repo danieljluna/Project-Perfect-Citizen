@@ -73,6 +73,8 @@ public:
 ///////////////////////////////////////////////////////////////////////
 	void setFloatRect(sf::FloatRect rect);
 
+    sf::FloatRect getFloatRect() const;
+
 	void setIsBeingPressed(std::string iBP);
 
 	virtual ~mousePressButton();

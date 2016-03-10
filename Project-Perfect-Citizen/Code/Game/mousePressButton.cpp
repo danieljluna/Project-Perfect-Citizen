@@ -76,6 +76,11 @@ void mousePressButton::setFloatRect(sf::FloatRect rect) {
 	buttonRect = rect;
 }
 
+
+sf::FloatRect mousePressButton::getFloatRect() const {
+    return buttonRect;
+}
+
 void mousePressButton::setIsBeingPressed(std::string iBP) {
 	isBeingPressed = iBP;
 }
