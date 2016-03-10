@@ -8,10 +8,6 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 
-#include "Window.h"
-#include "InputHandler.h"
-#include "NodeState.h"
-#include "BaseFileType.h"
 #include "../Game/WindowBkgndRenderCmpnt.h"
 
 //temporary typedefs for classes/types not defined yet
@@ -19,6 +15,11 @@ typedef int OSStyle;
 
 
 namespace ppc {
+
+	class WindowInterface;
+	class NodeState;
+	class InputHandler;
+
 ///////////////////////////////////////////////////////////////////////
 ///@brief Manages a series of Windows, an associated file tree and
 /// OS style.
