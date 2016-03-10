@@ -1,0 +1,106 @@
+#include "../Engine/debug.h"
+#include "explorerFolderInputComponent.h"
+#include <iostream>
+#include <string>
+
+#include "../Engine/FreeFunctionObserver.h"
+
+using namespace ppc;
+
+
+const std::string MOUSE_DOWN_CODE = "MDC";
+const std::string MOUSE_RELEASED_CODE = "MRC";
+const float DOUBLE_CLICK_TIME = 500.0f;
+
+
+explorerFolderInputComponent::explorerFolderInputComponent(ppc::InputHandler& ih, NodeState& ns, sf::FloatRect rect, std::string dN) :
+	InputComponent(2), theFileTree_(ns), buttonRect(rect), directoryName(dN) {
+
+	//add a new subject that is tied to the event
+	ih.addHandle(sf::Event::MouseButtonPressed);
+	ih.addHandle(sf::Event::MouseButtonReleased);
+
+	//add an observer to the subject we just added
+	watch(ih, sf::Event::MouseButtonPressed);
+	watch(ih, sf::Event::MouseButtonReleased);
+		
+}
+
+void explorerFolderInputComponent::clearObservers()
+{
+	for (size_t i = 0; i < observerCount_; ++i) {
+		delete observerArray_[i];
+	}
+}
+
+
+//void mousePressButton::addFunctionObserver(bool(*fnToAdd)(sf::Event &ev), mousePressButton* mpb, unsigned int placeToInsert)
+
+
+explorerFolderInputComponent::~explorerFolderInputComponent() {
+
+	//ignore(inputHandle, sf::Event::MouseButtonPressed);
+	//ignore(inputHandle, sf::Event::MouseButtonReleased);
+}
+
+void explorerFolderInputComponent::setInputHandle(ppc::InputHandler& ih) {
+
+	ih.addHandle(sf::Event::MouseButtonPressed);
+	ih.addHandle(sf::Event::MouseButtonReleased);
+
+	watch(ih, sf::Event::MouseButtonPressed);
+	watch(ih, sf::Event::MouseButtonReleased);
+
+}
+
+void explorerFolderInputComponent::setFloatRect(sf::FloatRect rect) {
+	buttonRect = rect;
+}
+
+
+bool explorerFolderInputComponent::isCollision(sf::Vector2i mousePos) {
+	//Gets the position as a Float Vector
+	sf::Vector2f mouseFloatPos(float(mousePos.x), float(mousePos.y));
+
+	//Returns if point is in foatRect
+	return buttonRect.contains(mouseFloatPos);
+}
+
+
+bool explorerFolderInputComponent::registerInput(sf::Event& ev) {
+	if (getEntity() != nullptr) {
+
+		/* Case: Mouse Pressed Event*/
+		if (ev.type == sf::Event::MouseButtonPressed) {
+			if (ev.mouseButton.button == sf::Mouse::Left &&
+				isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
+
+				/* Send the mouse down message regardless */
+				getEntity()->broadcastMessage(MOUSE_DOWN_CODE);
+				onPress_.sendEvent(ev);
+
+				/* Handle Double Click Register */
+				mouseTime = mouseClock.getElapsedTime().asMilliseconds();
+				if (mouseTime > DOUBLE_CLICK_TIME) {
+					mouseClock.restart();
+				}
+				else if (mouseTime < DOUBLE_CLICK_TIME) {
+					std::vector<string> cdCommand;
+					string cd = "cd";
+					cdCommand.push_back(cd);
+					cdCommand.push_back(directoryName);
+					commandFn newCD = findFunction(cd);
+					newCD(theFileTree_, cdCommand);
+					//theExplorer_.updateExplorerDisplay();
+					cout << "call the cd command here on " << directoryName << endl;
+				}
+			}
+		}
+		/* Case: Mouse Released Event*/
+		else if (ev.type == sf::Event::MouseButtonReleased) {
+			
+		}
+	}
+
+	return true;
+}

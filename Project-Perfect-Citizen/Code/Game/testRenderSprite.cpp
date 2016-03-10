@@ -1,3 +1,4 @@
+#include "../Engine/debug.h"
 #include "testRenderSprite.h"
 
 TestRenderSprite::TestRenderSprite(sf::Image& image, int x, int y,

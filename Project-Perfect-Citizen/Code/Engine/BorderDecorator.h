@@ -54,7 +54,11 @@ public:
   // Button Manipulation
   /////////////////////////////////////////////////////////////////////
 
-    void addButton(sf::Image& buttonImage, std::string buttonFn);
+    void addButton(sf::Image& buttonImage, 
+                   bool (*buttonFn)(WindowInterface*, sf::Event&));
+
+
+    friend bool closeWindow(WindowInterface* winInterface, sf::Event& ev);
 
 
   /////////////////////////////////////////////////////////////////////
@@ -100,8 +104,13 @@ private:
     //Stores the rectangle that is used to display the border.
     sf::RectangleShape borderShape_;
     sf::RectangleShape borderTitle_;
+    sf::RectangleShape borderBlack_;
+    sf::RectangleShape borderWhite_;
 
-    //Stores the input Component that allows the Window to be dragged 
+
+    
+    
+    //Stores the input Component that allows the Window to be dragged
     //  via the BorderDecorator.
     DraggableInput draggableInput_;
 
@@ -119,6 +128,7 @@ private:
 
 };
     
+    bool closeWindow(WindowInterface* winInterface, sf::Event& ev);
 
 };      //End namespace ppc
 

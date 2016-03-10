@@ -1,4 +1,6 @@
 #include "Network.h"
+#include "debug.h"
+
 
 #include <cassert>
 
@@ -30,6 +32,26 @@ Network::Network(size_t size) {
 Network::~Network() {
     delete[] edgeMat_;
     delete[] vertexData_;
+}
+
+///////////////////////////////////////////////////////////////////
+// Solution Checking
+///////////////////////////////////////////////////////////////////
+bool Network::checkCenterEquality(const Network& other) {
+	if (size_ != other.size()) return false;
+	return (center_ == other.getCenter());
+}
+
+float Network::checkEdgeEquality(const Network& other) {
+	float numEdges = 0.f;
+	float numVisited = 0.f;
+	for (unsigned int i = 0; i < size_; ++i) {
+		for (unsigned int j = i + 1; j < size_; ++j) {
+			numVisited += 1;
+			if (isAdjacent(i, j) == other.isAdjacent(i, j)) numEdges += 1;
+		}
+	}
+	return numEdges/numVisited;
 }
 
 
@@ -77,6 +99,19 @@ void Network::setSize(size_t size) {
     edgeMat_ = newEdgeMat;
     vertexData_ = newVertexData;
 
+}
+
+Network * ppc::Network::copyNetworkByVerts() {
+	Network* newNet = new Network(size_);
+	for (unsigned int i = 0; i < size_; ++i) {
+		newNet->vert(i) = vert(i);
+	}
+	return newNet;
+}
+
+
+void Network::setCenter(unsigned int cent) {
+	center_ = cent;
 }
 
 
@@ -218,7 +253,9 @@ size_t Network::size() const {
     return size_;
 }
 
-
+unsigned int Network::getCenter() const {
+	return center_;
+}
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -227,21 +264,16 @@ size_t Network::size() const {
 
 void Network::draw(sf::RenderTarget& target,
     sf::RenderStates states) const {
-    //Define Vertex Shape:
-    sf::CircleShape vertShape(vertSize_);
-    vertShape.setOrigin(vertSize_, vertSize_);
+	//Define Vertex Shape:
+	//sf::CircleShape vertShape(vertSize_);
+	//vertShape.setOrigin(vertSize_, vertSize_);
 
     //Define vars for lines
     unsigned int lnVerts = 2 * edgeCount_;
-    sf::VertexArray edgeLines(sf::Lines, 2 * edgeCount_);
+	sf::VertexArray edgeLines(sf::Lines, 2 * edgeCount_);
     unsigned int lnsDrawn = 0;
-
-    //For each Vertex
+	
     for (size_t i = 0; i < size_; ++i) {
-        //Draw that Vertex
-        vertShape.setPosition(vertexData_[i].pos);
-        vertShape.setFillColor(vertexData_[i].color);
-        target.draw(vertShape, states);
 
         //For each edge leaving this Vertex
         for (size_t j = 0; (lnsDrawn < lnVerts) && (j < size_); ++j) {
@@ -249,19 +281,32 @@ void Network::draw(sf::RenderTarget& target,
             size_t edgeIndex = getEdgeIndex(i, j);
             if (edgeMat_[edgeIndex] != nullptr) {
                 //Add point i to the edgeLines to draw
-                edgeLines[lnsDrawn].position = vertexData_[i].pos;
-                edgeLines[lnsDrawn].color = edgeMat_[edgeIndex]->color;
+                edgeLines[lnsDrawn].position = vertexData_[i].getPosCenter();
+                edgeLines[lnsDrawn].color = edgeMat_[edgeIndex]->getColor();
+
                 //Add point j to the edgeLines to draw
-                edgeLines[++lnsDrawn].position = vertexData_[j].pos;
-                edgeLines[lnsDrawn].color = edgeMat_[edgeIndex]->color;
+				edgeLines[++lnsDrawn].position = vertexData_[j].getPosCenter();
+                edgeLines[lnsDrawn].color = edgeMat_[edgeIndex]->getColor();
                 ++lnsDrawn;
+				
+				//Adjust the bounds of the edge based on
+				//where it is drawn.
+				edgeMat_[edgeIndex]->constructBounds(
+					vertexData_[i].getPosCenter(),
+					vertexData_[j].getPosCenter());
             }
         }
 
     }
 
-    //Draw the edges
-    target.draw(edgeLines, states);
+	//Draw the edges
+	target.draw(edgeLines, states);
+
+	//For each Vertex
+	for (size_t i = 0; i < size_; ++i) {
+		//Draw that Vertex
+		target.draw(vertexData_[i], states);
+	}
 
 }
 

@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "WindowLogger.h"
 
 using namespace ppc;

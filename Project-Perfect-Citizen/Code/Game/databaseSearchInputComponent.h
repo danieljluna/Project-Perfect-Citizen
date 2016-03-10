@@ -25,9 +25,10 @@
 namespace ppc {
 
 class databaseSearchInputComponent : public ppc::InputComponent {
+	using backFunction = bool(*)(sf::Event& ev);
 private:
-
-	sf::Sprite& textBoxSprt;
+	characterRender& render;
+	//sf::Sprite& textBoxSprt;
 	databaseSearchRenderComponent& textBox;
 	databaseDisplayRenderComponent& textDisplay;
 	ppc::InputHandler& inputHandle;
@@ -40,6 +41,8 @@ private:
 
 public:
 
+    friend bool goBackFn(databaseSearchInputComponent*, sf::Event&);
+
 	databaseSearchInputComponent() = delete;
 
 	///////////////////////////////////////////////////////////////////////
@@ -48,7 +51,7 @@ public:
 	/// @param s is the render component where the text will be drawn
 	///////////////////////////////////////////////////////////////////////
 	databaseSearchInputComponent(Database* iDB, ppc::InputHandler& ih, databaseSearchRenderComponent& t,
-		databaseDisplayRenderComponent& d, sf::Sprite& s);
+		databaseDisplayRenderComponent& d, characterRender& r);
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Updates the display output in the database
@@ -64,14 +67,14 @@ public:
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Function pointer to back functionality
 	///////////////////////////////////////////////////////////////////////
-	void(*goBack) ();
+	void goBack();
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Sets the display results to be a hardcoded string
 	/// @param Vector that will be interpreted and passed to main display
 	/// @param hardcoded string to pass into
 	///////////////////////////////////////////////////////////////////////
-	void databaseSearchInputComponent::updateDisplayResults(std::vector<std::string> displayVec, std::string newDisplay);
+	void updateDisplayResults(std::vector<std::string> displayVec, std::string newDisplay);
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Default ctor
@@ -85,4 +88,7 @@ public:
 
 };
 
+
+    bool goBackFn(databaseSearchInputComponent*, sf::Event&);
+    
 };

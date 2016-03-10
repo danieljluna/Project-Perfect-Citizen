@@ -4,22 +4,33 @@
 #include "ResourcePath.hpp"
 #endif
 
+#include "../Engine/debug.h"
 #include "createButton.h"
+#include "databaseSearchInputComponent.h"
 
 using namespace ppc;
 
-void spawnBackButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 0, 0, 2, 1);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
+typedef bool (databaseSearchInputComponent::*backFn)(sf::Event&);
 
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "backButton");
+void spawnBackButton(databaseSearchInputComponent* db, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet,
+    float x, float y, float size)
+{
+    /* Render Component */
+    buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 0, 0, 2, 1);
+    buttonRender->setImageScale(size, size);
+    buttonRender->renderPosition(sf::Vector2f(x, y));
 
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
+    /* Input Component*/
+    mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "backButton");
+
+    setOnPress(mpb, db, &(ppc::goBackFn));
+
+    entityToModify.addComponent(buttonRender);
+    entityToModify.addComponent(mpb);
 }
+
+
+
 
 void spawnStartButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
 	/* Render Component */
@@ -57,6 +68,20 @@ void spawnBlankLargeButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, s
 
 	/* Input Component*/
 	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "blankLargeButton");
+
+	entityToModify.addComponent(buttonRender);
+	entityToModify.addComponent(mpb);
+}
+
+// * THIS IS TEMPORARY FOR FIRST PLAYABLE *//
+void spawnNetworkOkayButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
+	/* Render Component */
+	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 0, 2, 2, 1);
+	buttonRender->setImageScale(size, size);
+	buttonRender->renderPosition(sf::Vector2f(x, y));
+
+	/* Input Component*/
+	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "okayButton");
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);

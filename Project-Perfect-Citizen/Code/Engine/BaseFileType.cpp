@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "BaseFileType.h"
 
 ppc::BaseFileType::BaseFileType(ppc::FileType type)
@@ -51,6 +52,9 @@ void ppc::BaseFileType::printDir()
 {
 	this->baseDirString = "";
 	for (auto iter = this->contents.begin(); iter != this->contents.end(); iter++) {
+		if (iter->second->hidden == true) {
+			continue;
+		}
 		std::cout << iter->first << std::endl;
 		this->baseDirString += (iter->first + "@");
 		std::cout << baseDirString << std::endl;

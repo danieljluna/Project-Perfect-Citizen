@@ -1,3 +1,4 @@
+#include "../Engine/debug.h"
 #include "buttonRenderComponent.h"
 
 using namespace std;
@@ -51,7 +52,7 @@ void buttonRenderComponent::setImageScale(float ScaleX, float ScaleY) {
 }
 
 sf::Sprite*  buttonRenderComponent::getSprite() {
-	return this->sprite;
+	return sprite;
 }
 
 void buttonRenderComponent::setSprite(int x, int y, int r) {

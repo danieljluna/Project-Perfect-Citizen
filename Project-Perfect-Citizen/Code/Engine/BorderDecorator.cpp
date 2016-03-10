@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "BorderDecorator.h"
 
 #include <SFML/Window/Event.hpp>
@@ -24,22 +25,40 @@ BorderDecorator::BorderDecorator(
     //Set up BorderShape & Visual Details
     sf::Vector2f pos(win.getPosition().x - minorBorder,
                      win.getPosition().y - majorBorder);
- 
+            
+    sf::Vector2f posW(pos.x-2, pos.y-2);
+                
     sf::Vector2f size(float(win.getSize().x + 2 * minorBorder),
                       float(win.getSize().y + minorBorder +
                                               majorBorder));
-
+            
                 
     borderShape_.setPosition(pos);
    
     borderShape_.setSize(size);
     borderShape_.setFillColor(sf::Color(170,170,170));
+                
+    borderBlack_.setSize(sf::Vector2f(size.x+2, size.y+2));
+    borderBlack_.setPosition(pos);
+    borderBlack_.setFillColor(sf::Color::Black);
+                
+    borderWhite_.setSize(sf::Vector2f(size.x+1,size.y+1));
+    borderWhite_.setPosition(pos.x-1,pos.y-1);
+    borderWhite_.setFillColor(sf::Color::White);
 
     //Set up space for buttons
 
     buttonInputs_ = new mousePressButton*[maxButtons_];
     buttonRenders_ = new buttonRenderComponent*[maxButtons_];
     buttonEntities_ = new Entity*[maxButtons_];
+
+    for (size_t i = 0; i < maxButtons_; ++i) {
+        buttonInputs_[i] = nullptr;
+        buttonRenders_[i] = nullptr;
+        buttonEntities_[i] = nullptr;
+    }
+
+    buttonCount_ = 0;
 
     //Set up Bounds
     updateBounds();
@@ -69,7 +88,8 @@ BorderDecorator::~BorderDecorator() {
 
 
 
-void BorderDecorator::addButton(sf::Image& buttonImage, std::string buttonFn) {
+void BorderDecorator::addButton(sf::Image& buttonImage, 
+                                bool(*buttonFn)(WindowInterface*, sf::Event&)) {
     if (buttonCount_ < maxButtons_) {
         //Push back the button render cmpnt
         buttonRenders_[buttonCount_] = new buttonRenderComponent(buttonImage, 0, 3, 1, 1);
@@ -88,7 +108,7 @@ void BorderDecorator::addButton(sf::Image& buttonImage, std::string buttonFn) {
         //Set button input values
         buttonInputs_[buttonCount_]->setInputHandle(getInputHandler());
         buttonInputs_[buttonCount_]->setFloatRect(clickSpace);
-        buttonInputs_[buttonCount_]->setIsBeingPressed(buttonFn);
+        setOnPress(buttonInputs_[buttonCount_], getUniversalTarget(), closeWindow);
 
         //Push back the button entity
         buttonEntities_[buttonCount_] = new Entity();
@@ -139,6 +159,10 @@ void BorderDecorator::setSize(unsigned int x, unsigned int y) {
 void BorderDecorator::setPosition(float x, float y) {
     borderShape_.setPosition(x - borderTopLeft_.x, 
                              y - borderTopLeft_.y);
+    borderBlack_.setPosition(x - borderTopLeft_.x,
+                             y - borderTopLeft_.y);
+    borderWhite_.setPosition(x - borderTopLeft_.x-1,
+                             y - borderTopLeft_.y-1);
 
     WindowDecorator::setPosition(x, y);
 
@@ -150,7 +174,8 @@ void BorderDecorator::setPosition(float x, float y) {
 
 void BorderDecorator::move(float x, float y) {
     borderShape_.move(x, y);
-
+    borderBlack_.move(x, y);
+    borderWhite_.move(x, y);
     WindowDecorator::move(x, y);
 
     updateBounds();
@@ -161,7 +186,10 @@ void BorderDecorator::move(float x, float y) {
 
 void BorderDecorator::draw(sf::RenderTarget& target,
                            sf::RenderStates states) const {
+    target.draw(borderBlack_, states);
+    target.draw(borderWhite_, states);
     target.draw(borderShape_, states);
+    
     WindowDecorator::draw(target, states);
     for (size_t i = 0; i < buttonCount_; ++i) {
         target.draw(*buttonRenders_[i], states);
@@ -216,3 +244,15 @@ void BorderDecorator::updateButton(size_t i) {
     sf::Vector2f ButtonPos(left, top);
     buttonRenders_[i]->renderPosition(ButtonPos);
 }
+
+
+
+
+
+bool ppc::closeWindow(WindowInterface* win, sf::Event& ev) {
+    win->close();
+
+    return true;
+}
+
+

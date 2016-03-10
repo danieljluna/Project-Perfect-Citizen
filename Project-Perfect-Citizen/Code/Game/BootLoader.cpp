@@ -5,7 +5,7 @@
 //  Created by Michael Lowe on 2/28/16.
 //  Copyright © 2016 Hyperfocus Games. All rights reserved.
 //
-
+#include "../Engine/debug.h"
 #include "BootLoader.hpp"
 #include <string>
 #include <algorithm>

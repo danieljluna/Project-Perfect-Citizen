@@ -1,13 +1,16 @@
-#include "FunctionObserver.h"
-#include <iostream>
-#include <string>
-FunctionObserver::FunctionObserver(bool(*myFunction)(sf::Event &))
-{
-	this->obsFunc = myFunction;
-}
+//#include "debug.h"
+//#include "FunctionObserver.h"
+//#include <iostream>
+//#include <string>
+//template<class T>
+//FunctionObserver<T>::FunctionObserver(bool(T::*myFunction)(sf::Event &))
+//{
+	//this->functionPointer = myFunction;
+//}
 
-bool FunctionObserver::eventHandler(sf::Event & ev)
-{
-	std::cout << this->id << std::endl;
-	return obsFunc(ev);
-}
+//template<class T>
+//bool FunctionObserver<T>::eventHandler(sf::Event & ev)
+//{
+	//std::cout << this->id << std::endl;
+	//return T::obsFunc(ev);
+//}

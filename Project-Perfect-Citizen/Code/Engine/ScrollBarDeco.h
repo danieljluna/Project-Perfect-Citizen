@@ -1,0 +1,63 @@
+#ifndef SCROLLBAR_DECO_H
+#define SCROLLBAR_DECO_H
+
+#include "WindowDecorator.h"
+
+
+namespace ppc {
+
+
+class ScrollBarDecorator : public ppc::WindowDecorator {
+public:
+
+  /////////////////////////////////////////////////////////////////////
+  // Constructors & Destructor
+  /////////////////////////////////////////////////////////////////////
+
+    ScrollBarDecorator() = delete;
+
+    ScrollBarDecorator(WindowInterface& win);
+
+    ScrollBarDecorator(WindowInterface& win, sf::FloatRect& view);
+
+    virtual ~ScrollBarDecorator();
+
+
+  /////////////////////////////////////////////////////////////////////
+  // View Manipulation
+  /////////////////////////////////////////////////////////////////////
+
+    void resetView(const sf::FloatRect& view);
+
+    void setViewSize(const sf::Vector2f& size);
+
+    void setViewCenter(const sf::Vector2f& center);
+
+    void setViewPosition(const sf::Vector2f& center);
+
+
+private:
+
+  /////////////////////////////////////////////////////////////////////
+  // Helper Functions
+  /////////////////////////////////////////////////////////////////////
+
+    void updateSliders();
+
+    void updateView();
+
+
+  /////////////////////////////////////////////////////////////////////
+  // Private Variables
+  /////////////////////////////////////////////////////////////////////
+
+    
+
+
+};
+
+
+};
+
+
+#endif  //End Scrollbar Deco
