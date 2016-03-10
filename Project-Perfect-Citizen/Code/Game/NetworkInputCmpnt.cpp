@@ -1,18 +1,45 @@
 #include "NetworkInputCmpnt.h"
 #include "../Engine/debug.h"
+#include <cmath>
+
+const float MAX_DISTANCE_TO_EDGE = 8.f;
 
 void ppc::NetworkInputCmpnt::selectEdge(sf::Vector2f mPos) {
+	std::vector<std::pair<int, int>> edgeList;
+
 	for (size_t i = 0; i < network_->size(); i++) {
-		for (size_t j = 0; j < network_->size(); j++) {
-			if (network_->edge(i, j) != nullptr &&
+		for (size_t j = i+1; j < network_->size(); j++) {
+			if (network_->isAdjacent(i, j) &&
 				network_->edge(i, j)->getBounds().contains(mPos)) {
-				selectedEdge_ = { i,j };
-				clickedEdge_ = true;
-				return;
+				
+				edgeList.push_back(std::make_pair(i, j));
+
+				//selectedEdge_ = { i,j };
+				//clickedEdge_ = true;
+				//return;
 			}
 		}
 	}
-	clickedEdge_ = false;
+
+	std::pair<int, int> closest = { -1, -1 };
+	float closestDist = FLT_MAX;
+	for (size_t i = 0; i < edgeList.size(); ++i) {
+		sf::Vector2f p1 = network_->vert(edgeList.at(i).first).getPosCenter();
+		sf::Vector2f p2 = network_->vert(edgeList.at(i).second).getPosCenter();
+		float dist = (abs((p2.y - p1.y) * mPos.x - (p2.x - p1.x) * mPos.y + p2.x*p1.y - p2.y*p1.x))/
+			         (std::sqrtf(std::pow(p2.y - p1.y, 2) + std::pow(p2.x - p1.x, 2)));
+		if (dist < closestDist && dist < MAX_DISTANCE_TO_EDGE) {
+			closestDist = dist;
+			closest = std::make_pair(edgeList.at(i).first, edgeList.at(i).second);
+		}
+	}
+	if (closest != std::make_pair(-1, -1)) {
+		selectedEdge_ = closest;
+		clickedEdge_ = true;
+		clickedVert_ = false;
+		return;
+	}
+	//clickedEdge_ = false;
 }
 
 void ppc::NetworkInputCmpnt::selectVert(sf::Vector2f mPos) {
@@ -22,6 +49,7 @@ void ppc::NetworkInputCmpnt::selectVert(sf::Vector2f mPos) {
 			selectedVert_ = i;
 			network_->vert(selectedVert_).selectVert();
 			clickedVert_ = true;
+			clickedEdge_ = false;
 			updateDataText();
 			return;
 		}
@@ -57,8 +85,8 @@ void ppc::NetworkInputCmpnt::updateDataText() {
 				solution_->edge(selectedVert_, i)->getSmsData();
 
 			for (unsigned int j = 0; j < smsvec.size(); ++j) {
-				int charlimit = 32;
-				int currchars = 0;
+				unsigned int charlimit = 32; // THIS SHOULD BE DYNAMIC BASED ON WINDOW AND FONT SIZE
+				unsigned int currchars = 0;
 				std::string buff = "";
 				for (unsigned int k = 0; k < smsvec[j].size(); ++k) {
 					if (smsvec[j][k] == "\n") {
