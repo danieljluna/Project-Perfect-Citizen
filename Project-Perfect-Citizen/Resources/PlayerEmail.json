@@ -19,12 +19,13 @@
 		"Email_2": { 
 			"To" : "PLAYER_NAME",
 			"From" : "CT",
-            "Subject": "Hey there!",
-			"Body" :"Hello newbie, 
-    I Just wanted to drop by and say hi! Just take it
-    easy and don't worry if things seem overwhelming 
-    at first and I'm sure that your first task will be
-    an easy one. Just remember, I know everything.
+            "Subject": "Welcome!",
+			"Body" :"Hey new guy,
+    I wanted to drop by and say hi! Just take it easy
+    the next few days and don't worry if things start 
+    to seem overwhelming and I'm sure that your first 
+    assignment will be an easy one. Just remember, I
+    know everything.
             
     CT"
 		},
@@ -37,11 +38,11 @@
     Well you are going to enjoy your time here, I know
     it. Anyways, I'm JP and I am your boss here.
     
-    First objective is to open the Graph application
-    and start your first assignment.
+    Your first objective is to open the Graph
+    application and start your assignment.
             
-    We have suspicions of these groups of people and
-    it is your job to look through these poeple's sms
+    We have suspicions of a group of people and it is
+    your job to look through these poeple's sms
     messages and find the main conductor, the one who
     seems to spew the most suggestive content.
             
