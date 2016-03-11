@@ -138,6 +138,7 @@ bootLoadingAnimationRender::~bootLoadingAnimationRender() {
     delete sprite30;
     delete dcps;
     delete spriteLoaded;
+    delete texture;
     sprites.clear();
     
     //delete loadedRect;
