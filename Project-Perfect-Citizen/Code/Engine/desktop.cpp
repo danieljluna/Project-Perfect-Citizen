@@ -1,5 +1,8 @@
 //desktop.cpp
 // Nader Sleem
+#include "Window.h"
+#include "NodeState.h"
+#include "BaseFileType.h"
 
 #include "desktop.h"
 #include "debug.h"

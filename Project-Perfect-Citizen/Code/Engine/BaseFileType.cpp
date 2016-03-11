@@ -1,9 +1,10 @@
 #include "debug.h"
 #include "BaseFileType.h"
-
+#include "desktop.h"
+#include "../../Code/Game/createWindow.h"
 ppc::BaseFileType::BaseFileType(ppc::FileType type)
 {
-	switch (filetype) {
+	switch (type) {
 	case FileType::Directory:
 		this->filetype = ppc::FileType::Directory;
 		break;
@@ -35,16 +36,25 @@ void ppc::BaseFileType::uploadJson(std::string jString)
 {
 	this->jSonString = jString;
 }
-
-void ppc::BaseFileType::readFile()
+//void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string p) {
+void ppc::BaseFileType::readFile(ppc::Desktop& desk, sf::Image& im, std::string path)
 {
+	ppc::WindowInterface* FileWindow;
 	if (this->encrypted) {
 		return;
 	}
 	switch (this->filetype) {
 	case FileType::File:
-		std::cout << this->data << std::endl;
-
+		FileWindow = new ppc::Window(400, 400, sf::Color(255, 255, 255));
+		spawnFile(FileWindow, FileWindow->getInputHandler(), desk.getNodeState(), im, 100, 200, path);
+		desk.addWindow(FileWindow);
+		std::cout << path << std::endl;
+		break;
+	case FileType::Directory:
+		std::cout << "use CD instead" << endl;
+		break;
+	default:
+		break;
 	}
 }
 
@@ -52,7 +62,7 @@ void ppc::BaseFileType::printDir()
 {
 	this->baseDirString = "";
 	for (auto iter = this->contents.begin(); iter != this->contents.end(); iter++) {
-		if (iter->second->hidden = true) {
+		if (iter->second->hidden == true) {
 			continue;
 		}
 		std::cout << iter->first << std::endl;
@@ -64,6 +74,7 @@ void ppc::BaseFileType::printDir()
 void ppc::BaseFileType::makeFile(std::string filename, std::string content)
 {
 	BaseFileType* newFile = new BaseFileType(ppc::FileType::File);
+	newFile->fileData = content;
 	this->contents[filename] = newFile;
 }
 
@@ -113,6 +124,16 @@ bool ppc::BaseFileType::isHidden()
 bool ppc::BaseFileType::isEncrypted()
 {
 	return encrypted;
+}
+
+std::map<std::string, ppc::BaseFileType*> ppc::BaseFileType::getContents()
+{
+	return this->contents;
+}
+
+std::string ppc::BaseFileType::getFileData()
+{
+	return this->fileData;
 }
 
 

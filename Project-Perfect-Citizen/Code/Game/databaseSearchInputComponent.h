@@ -89,5 +89,6 @@ public:
 };
 
 
+    bool goBackFn(databaseSearchInputComponent*, sf::Event&);
 
 };

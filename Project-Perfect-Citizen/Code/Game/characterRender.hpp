@@ -21,6 +21,8 @@ using namespace ppc;
 class characterRender : public ppc::RenderComponent{
 private:
     
+    bool shouldDraw_;
+    
     sf::Texture* texture;
     sf::Image& faceImage;
     
@@ -65,6 +67,10 @@ public:
     
     ~characterRender();
     
+    bool shouldDraw() const {return shouldDraw_;}
+    
+    void setShouldDraw(bool d);
+    
 	void setOrigin(float x, float y);
     
     ////////////////////////////////////////////////////////////////////
@@ -75,8 +81,6 @@ public:
     void applyCharacterValues(PipelineCharacter& myCharacter);
     
  
-  
-    
 	////////////////////////////////////////////////////////////////////
 	/// @brief initializes vector of skin, hair, and lip tones
 	////////////////////////////////////////////////////////////////////
