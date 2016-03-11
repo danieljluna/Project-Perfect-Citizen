@@ -310,6 +310,8 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
         myFont.loadFromFile(resourcePath() + "consola.ttf");
         int fontSize = 20;
         int windowOffset = 5;
+        int textMuliplier = 23;
+        int maxWindowScroll = 16284;
         
         ifstream t(path);
         stringstream buffer;
@@ -318,14 +320,16 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
         
         ifstream f(path);
         char c;
-        int i = 0;
-        while (f.get(c))
-            if (c == '\n')
-                ++i;
+        int windowScrollHeight = 0;
+        while (f.get(c)){
+            if (c == '\n'){
+                ++windowScrollHeight;
+            }
+        }
 
-        i = i * 22;
-        if(i > 16284){
-            i = 16384;
+        windowScrollHeight = windowScrollHeight * textMuliplier;
+        if(windowScrollHeight > maxWindowScroll){
+            windowScrollHeight = maxWindowScroll;
         }
         
         textRenderComponent* textBox =
@@ -333,7 +337,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
         
         newEnt.addComponent(textBox);
         
-        windowToModify->setSize(windowToModify->getSize().x, i);
+        windowToModify->setSize(windowToModify->getSize().x, windowScrollHeight);
         sf::FloatRect viewRect = {
             0.0f,
             0.0f,
@@ -392,7 +396,7 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 
 	int newHeight = (totalEmailsLoaded) * (emailBoxElementHeight + emailBoxPadding);
 	int newWidth = windowToModify->getSize().x;
-	windowToModify->setSize(sf::Vector2u(newWidth, newHeight));
+	windowToModify->setSize(newWidth, newHeight);
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
