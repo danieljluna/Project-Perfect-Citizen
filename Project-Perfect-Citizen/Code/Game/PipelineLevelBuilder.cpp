@@ -140,10 +140,10 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 		unsigned int othervert = dis(gen) + LEVEL_ONE_NUM_NODES / 2;
 		if (othervert == second) {
 			othervert++;
-			if (othervert > LEVEL_ONE_NUM_NODES) othervert = LEVEL_ONE_NUM_NODES / 2;
+			if (othervert >= LEVEL_ONE_NUM_NODES) othervert = LEVEL_ONE_NUM_NODES / 2;
 			if (othervert == third) {
 				othervert++;
-				if (othervert > LEVEL_ONE_NUM_NODES) othervert = LEVEL_ONE_NUM_NODES / 2;
+				if (othervert >= LEVEL_ONE_NUM_NODES) othervert = LEVEL_ONE_NUM_NODES / 2;
 			}
 		}
 		Edge thisedge;
