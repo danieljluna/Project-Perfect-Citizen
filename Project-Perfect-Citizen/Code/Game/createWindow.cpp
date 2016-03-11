@@ -52,13 +52,17 @@
 
 using namespace ppc;
 
+const string PNG = ".png";
+const string JPG = ".jpg";
+const string TXT = ".txt";
+
 bool testBackFunction(TestFunctionClass* tfc, sf::Event& ev) {
 	//tfc->callFunc(ev);
 	return true;
 }
 
 
-void ppc::spawnConsole(WindowInterface*& windowToModify,
+void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
                        InputHandler & ih, NodeState & ns,
                        sf::Image& buttonSheet, float x, float y) {
     
@@ -88,7 +92,7 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
                                  windowToModify->getSize().y - (fontSize+windowOffset),
                                  fontSize);
     textOutputRenderComponent* textDisplayBox =
-    new textOutputRenderComponent(myFont, ns, 0, 0, fontSize);
+    new textOutputRenderComponent(dt, buttonSheet, myFont, ns, 0, 0, fontSize);
     
     
     
@@ -276,10 +280,10 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     if (windowToModify == nullptr) { return; }
     
     string path = resourcePath() + p;
-    char lastChar;
+    string dotEnd;
     
     if (!path.empty()){
-        lastChar = *path.rbegin();
+        dotEnd = path.substr(path.length() - 4);
     }
     /////////////////////////////////////////
     /////// COMPONENTS & ENTITIES
@@ -293,7 +297,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     
     Entity newEnt;
     
-    if(lastChar == 't'){
+    if(dotEnd == TXT){
         sf::Font myFont;
         myFont.loadFromFile(resourcePath() + "consola.ttf");
         int fontSize = 10;
@@ -307,7 +311,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
         newEnt.addComponent(textBox);
     }
     
-    else if(lastChar == 'g'){
+    else if(dotEnd == PNG || dotEnd == JPG){
         sf::Image photo;
         photo.loadFromFile(path);
         photoRenderComponent* photoRender = new photoRenderComponent(photo);

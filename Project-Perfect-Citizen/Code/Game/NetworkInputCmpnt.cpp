@@ -1,8 +1,8 @@
 #include "NetworkInputCmpnt.h"
 #include "../Engine/debug.h"
 #include <cmath>
-
-const float MAX_DISTANCE_TO_EDGE = 8.f;
+#include <cfloat>
+const float MAX_DISTANCE_TO_EDGE = 10.f;
 
 void ppc::NetworkInputCmpnt::selectEdge(sf::Vector2f mPos) {
 	std::vector<std::pair<int, int>> edgeList;
@@ -11,12 +11,7 @@ void ppc::NetworkInputCmpnt::selectEdge(sf::Vector2f mPos) {
 		for (size_t j = i+1; j < network_->size(); j++) {
 			if (network_->isAdjacent(i, j) &&
 				network_->edge(i, j)->getBounds().contains(mPos)) {
-				
 				edgeList.push_back(std::make_pair(i, j));
-
-				//selectedEdge_ = { i,j };
-				//clickedEdge_ = true;
-				//return;
 			}
 		}
 	}
@@ -39,7 +34,6 @@ void ppc::NetworkInputCmpnt::selectEdge(sf::Vector2f mPos) {
 		clickedVert_ = false;
 		return;
 	}
-	//clickedEdge_ = false;
 }
 
 void ppc::NetworkInputCmpnt::selectVert(sf::Vector2f mPos) {

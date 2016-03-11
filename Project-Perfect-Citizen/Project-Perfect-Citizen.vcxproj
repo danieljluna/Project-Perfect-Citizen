@@ -71,6 +71,8 @@
     <ClCompile Include="Code\Game\emailListElementInputComponent.cpp" />
     <ClCompile Include="Code\Game\emailListElementRenderComponent.cpp" />
     <ClCompile Include="Code\Game\emailMessageRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\endAnimationUpdateComponent.cpp" />
+    <ClCompile Include="Code\Game\endingAnimationRender.cpp" />
     <ClCompile Include="Code\Game\errorMessageRenderComponent.cpp" />
     <ClCompile Include="Code\Game\Explorer.cpp" />
     <ClCompile Include="Code\Game\explorerFolderInputComponent.cpp" />
@@ -171,6 +173,8 @@
     <ClInclude Include="Code\Game\emailListElementInputComponent.h" />
     <ClInclude Include="Code\Game\emailListElementRenderComponent.h" />
     <ClInclude Include="Code\Game\emailMessageRenderComponent.h" />
+    <ClInclude Include="Code\Game\endAnimationUpdateComponent.hpp" />
+    <ClInclude Include="Code\Game\endingAnimationRender.hpp" />
     <ClInclude Include="Code\Game\errorMessageRenderComponent.h" />
     <ClInclude Include="Code\Game\Explorer.h" />
     <ClInclude Include="Code\Game\explorerFolderInputComponent.h" />
@@ -252,12 +256,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Andy\Desktop\Folders\UCSC\CMPS 17X\SFML-2.3.2\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_MARKER;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Andy\Desktop\Folders\UCSC\CMPS 17X\SFML-2.3.2\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <AdditionalOptions>/ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>

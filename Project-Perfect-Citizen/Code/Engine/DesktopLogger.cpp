@@ -4,7 +4,7 @@
 using namespace ppc;
 
 
-DesktopLogger::DesktopLogger(Desktop& d,ostream& o): 
+DesktopLogger::DesktopLogger(Desktop& d,std::ostream& o): 
 	loggedDesktop_(&d), out_(o){}
 
 DesktopLogger::~DesktopLogger() {
