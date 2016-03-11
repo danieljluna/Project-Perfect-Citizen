@@ -33,7 +33,7 @@ private:
     sf::Int32 mouseTime;
 	bool isCollision(sf::Vector2i);
     
-    bool wasPressed_;
+    bool wasPressed_ = false;
     Subject onPress_;
     Subject onDoublePress_;
     Subject onRelease_;
