@@ -40,7 +40,11 @@ ScrollBarDecorator::ScrollBarDecorator(WindowInterface& win,
 ScrollBarDecorator::~ScrollBarDecorator() {
     for (unsigned int i = 0; i < 4; ++i) {
         delete buttonRenders_[i];
+        delete obsvrs_[i];
     }
+
+    delete obsvrs_[4];
+    delete obsvrs_[5];
 
 }
 
