@@ -261,7 +261,8 @@ void Window::registerInput(sf::Event& ev) {
     case sf::Event::MouseMoved:
         if (mouseInView_) {
             click = { float(ev.mouseMove.x), float(ev.mouseMove.y) };
-            click = currView.getTransform().transformPoint(click);
+            click -= currView.getCenter();
+            click += defView.getCenter();
             ev.mouseMove.x = click.x;
             ev.mouseMove.y = click.y;
         }
