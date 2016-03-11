@@ -248,7 +248,10 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 		new NetworkInputCmpnt(*playNet, *solNet, windowToModify->getInputHandler());
 	//Always need to call this setter.
 	networkInput->setPipelineData(*dataText);
-    networkInput->setClampBounds(graphBounds->getLocalBounds());
+    sf::FloatRect temp = graphBounds->getLocalBounds();
+    temp.width -= 60;
+    temp.height -= 60;
+    networkInput->setClampBounds(temp);
 	
 	/////////////////////////////////////////
 	/////// ENTITIES 

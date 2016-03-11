@@ -69,7 +69,6 @@ bool printFunc(TestFunctionClass* tfc, sf::Event& ev) {
 
 bool runBootDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
     ppc::NodeState testState;
-    testState.setUp();
     Window* desktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
     
     Desktop myDesktop(*desktopWindow, testState);
@@ -86,16 +85,12 @@ bool runBootDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& s
     textLabelComponent* textLabel = new textLabelComponent(font,sf::Color::Green, 0,0, 20, " PCOS(C) , UNMOS. UNAUTHORIZED USE OF THIS TERMINAL CAN RESULT IN PENALTY BY DEATH. \n   Beginning File System Initialization \n");
     
     bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(spriteSheet,*textLabel,7,5);
-    buttonRenderComponent* dcps =  new buttonRenderComponent(spriteSheet, 6, 6, 1, 0);
-    //dcps->setImageScale(2.0f, 2.0f);
-    //dcps->renderPosition(sf::Vector2f(355,200));
 
     
-    bootLoadingUpdateComponent* bootUpdate = new bootLoadingUpdateComponent(*bootRender,*dcps,0.1f);
+    bootLoadingUpdateComponent* bootUpdate = new bootLoadingUpdateComponent(*bootRender,0.1f);
     loading.addComponent(bootRender);
     loading.addComponent(bootUpdate);
     loading.addComponent(textLabel);
-    //loading.addComponent(dcps);
     bootWindow->addEntity(loading);
     
     myDesktop.addWindow(bootWindow);
@@ -137,11 +132,11 @@ bool runBootDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& s
 
 
 bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
-	ppc::NodeState* testState = new NodeState();
-	testState->setUp();
+    ppc::NodeState testState;
+    testState.setUp();
 	Window* desktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
 
-	Desktop myDesktop(*desktopWindow, *testState);
+	Desktop myDesktop(*desktopWindow, testState);
 	myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
 	createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
 
