@@ -29,7 +29,7 @@ vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
 	int padding = 100;
 	vector<Entity> explorerFrame;
 	int numRows = 1;
-	for (int i = 0, j = 0, k = 0; i < filenames.size(); ++i, ++k) {
+	for (unsigned int i = 0, j = 0, k = 0; i < filenames.size(); ++i, ++k) {
 		if (filenames.at(i).compare("CP") == 0) cout << "BOOT TO TITLE SCREEN" << endl;
 		if (k % 5 == 0 && k != 0) {
 			++j;
@@ -40,8 +40,8 @@ vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
 			/* Case: FILE*/
 			if (hasEnding(filenames.at(i), ".txt") || hasEnding(filenames.at(i), ".jpg")) {
 				buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet_, 0, 0, 1, 3);
-				IconRender->renderPosition(sf::Vector2f(k * padding, j * padding));
-				textLabelComponent* label = new textLabelComponent(font, sf::Color::Black, k * padding, j * padding + 0.5 * 128, 10, filenames.at(i));
+				IconRender->renderPosition(sf::Vector2f(static_cast<float>(k * padding), static_cast<float>(j * padding)));
+				textLabelComponent* label = new textLabelComponent(font, sf::Color::Black, k * padding, static_cast<int>(j * padding + 0.5 * 128), 10, filenames.at(i));
 				explorerFileInputComponent* IconInput = new explorerFileInputComponent(theDesktop_, windowToWorkOn_->getInputHandler(), 
 					theFileTree_, buttonSheet_, IconRender->getSprite()->getGlobalBounds(), filenames.at(i));
 				example.addComponent(IconRender);
@@ -51,8 +51,8 @@ vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
 			/* Case: FOLDER*/
 			else {
 				buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet_, 0, 9, 1, 1);
-				IconRender->renderPosition(sf::Vector2f(k * padding, j * padding));
-				textLabelComponent* label = new textLabelComponent(font, sf::Color::Black, k * padding, j * padding + 0.5 * 128, 12, filenames.at(i));
+				IconRender->renderPosition(sf::Vector2f(static_cast<float>(k * padding), static_cast<float>(j * padding)));
+				textLabelComponent* label = new textLabelComponent(font, sf::Color::Black, k * padding, static_cast<int>(j * padding + 0.5 * 128), 12, filenames.at(i));
 				explorerFolderInputComponent* IconInput = new explorerFolderInputComponent(theDesktop_, windowToWorkOn_, windowToWorkOn_->getInputHandler(),
 					theFileTree_, buttonSheet_, iconSheet_, IconRender->getSprite()->getGlobalBounds(), filenames.at(i));
 				example.addComponent(IconRender);
@@ -62,12 +62,12 @@ vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
 			explorerFrame.push_back(example);
 
 	}
-	windowToWorkOn_->setSize(sf::Vector2u(windowToWorkOn_->getSize().x, numRows * 100));
+	windowToWorkOn_->setSize(windowToWorkOn_->getSize().x, numRows * 100);
 	return explorerFrame;
 }
 
 void Explorer::renderTopFrame() {
-	for (int i = 0; i < explorerHistory_.top().size(); ++i) {
+	for (unsigned int i = 0; i < explorerHistory_.top().size(); ++i) {
 		windowToWorkOn_->addEntity(explorerHistory_.top().at(i));
 	}
 }

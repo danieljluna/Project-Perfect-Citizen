@@ -37,7 +37,7 @@ void iconInputComponent::recieveMessage(msgType msg) {
 	}
 	else if (msg.compare(OPEN_THE_FILE) == 0) {
         ppc::WindowInterface* FileWindow =
-            new ppc::Window(400, 400, sf::Color(255, 255, 255));
+            new ppc::Window(500, 500, sf::Color(255, 255, 255));
         spawnFile(FileWindow, FileWindow->getInputHandler(),
             theDesktop_.getNodeState(), buttonSheet_, 100, 200, "DesktopContent/Desktop1/3-29-12-184.jpg");
         theDesktop_.addWindow(FileWindow);

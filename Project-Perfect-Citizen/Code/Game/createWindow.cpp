@@ -227,13 +227,12 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
     Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 	Network* playNet = solNet->copyNetworkByVerts();
-	playNet->setCenter(0);
+	playNet->setCenter(-1);  //TEST THIS
 
-	//No Overlapping Edges (Think of this positioning as an 8x8 grid
-	//the number after the * is the row/column number)
 	std::vector<int> indexVec {0, 1, 2, 3, 4, 5, 6, 7};
 	std::random_shuffle(indexVec.begin(), indexVec.end());
-
+	//No Overlapping Edges (Think of this positioning as an 8x8 grid
+	//the number after the * is the row/column number)
 	playNet->vert(indexVec[0]).setPosition(50 + 50 * 0, 50 + 50 * 0);
 	playNet->vert(indexVec[1]).setPosition(50 + 50 * 0, 50 + 50 * 7);
 	playNet->vert(indexVec[2]).setPosition(50 + 50 * 2, 50 + 50 * 1);
@@ -267,7 +266,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	float buttonScale = 0.25f;
 	int buttonSize = 256;
 	spawnNetworkOkayButton(playNet,submitButton, windowToModify->getInputHandler(), buttonSheet, 
-		( ( graphBounds->getLocalBounds().width - (buttonSize * buttonScale) ) / 2 ), windowToModify->getSize().y-50, buttonScale);
+		( ( graphBounds->getLocalBounds().width - (buttonSize * buttonScale) ) / 2 ), static_cast<float>(windowToModify->getSize().y-50), buttonScale);
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
@@ -304,20 +303,50 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     if(dotEnd == TXT){
         sf::Font myFont;
         myFont.loadFromFile(resourcePath() + "consola.ttf");
-        int fontSize = 10;
+        int fontSize = 20;
         int windowOffset = 5;
-        ifstream t(path);
-        stringstream buffer;
-        buffer << t.rdbuf();
-        string content = buffer.str();
+        
+        int textMuliplier = 23;
+        int maxWindowScroll = 16284;
+        int maxWindowLines = 700;
+        int windowScrollHeight = 0;
+        ifstream f(path);
+        std::string line;
+        string content;
+        while (std::getline(f, line)){
+            if(windowScrollHeight < maxWindowLines){
+                ++windowScrollHeight;
+                content += line + "\n";
+            }
+            else if(windowScrollHeight > maxWindowLines){
+                break;
+            }
+        }
+
+        windowScrollHeight = windowScrollHeight * textMuliplier;
+        if(windowScrollHeight > maxWindowScroll){
+            windowScrollHeight = maxWindowScroll;
+        }
+        
         textRenderComponent* textBox =
             new textRenderComponent(myFont, content, 0, 0, fontSize);
+        
         newEnt.addComponent(textBox);
+        
+        windowToModify->setSize(windowToModify->getSize().x, windowScrollHeight);
+        sf::FloatRect viewRect = {
+            0.0f,
+            0.0f,
+            float(windowToModify->getSize().x),
+            float(windowToModify->getSize().x)
+        };
+        windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     }
     
     else if(dotEnd == PNG || dotEnd == JPG){
         sf::Image photo;
         photo.loadFromFile(path);
+        windowToModify->setSize(photo.getSize().x/2, photo.getSize().y/2);
         photoRenderComponent* photoRender = new photoRenderComponent(photo);
         photoRender->setImageScale((float)windowToModify->getSize().x /
                                (float)photo.getSize().x,
@@ -356,14 +385,14 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 		Entity emailListElement;
         createEmailListElement(
 			emailListElement, dT, buttonSheet, ih, myFont, inbox.getEmailAt(i), 0, (i * (emailBoxElementHeight+emailBoxPadding)),
-			emailBoxElementWidth, emailBoxElementHeight, 0, (i * (1.5*emailBoxElementHeight)), fontSize);
+			emailBoxElementWidth, emailBoxElementHeight, 0, static_cast<int>((i * (1.5*emailBoxElementHeight))), fontSize);
 		windowToModify->addEntity(emailListElement);
 		++totalEmailsLoaded;
 	}
 
 	int newHeight = (totalEmailsLoaded) * (emailBoxElementHeight + emailBoxPadding);
 	int newWidth = windowToModify->getSize().x;
-	windowToModify->setSize(sf::Vector2u(newWidth, newHeight));
+	windowToModify->setSize(newWidth, newHeight);
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
@@ -391,7 +420,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
-	int fontSize = 12;
+	int fontSize = 20;
 
 	emailMessageRenderComponent* eMRC = new emailMessageRenderComponent(myFont, mail, 0, 0, fontSize);
 
@@ -403,6 +432,28 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
+    string content = mail.getContentField();
+    int lineCount = 1;
+    int lineMultiplier = 23;
+    int preLineCount = 6;
+    for (unsigned int i = 0; i < content.size(); i++){
+        if (content[i] == '\n') {
+            lineCount++;
+        }
+    }
+    lineCount += preLineCount;
+    lineCount = lineCount*lineMultiplier;
+    
+    windowToModify->setSize(windowToModify->getSize().x, lineCount);
+    if(static_cast<unsigned int>(lineCount) > windowToModify->getSize().x){
+        sf::FloatRect viewRect = {
+            0.0f,
+            0.0f,
+            float(windowToModify->getSize().x),
+            float(windowToModify->getSize().x)
+        };
+        windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
+    }
 	windowToModify->addEntity(emailMessageDisplayBox);
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
@@ -432,8 +483,8 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	Entity alertIcon;
 	float alertScale = 0.5f;
 	float alertWidth = 128.0;
-	float windowWidth = windowToModify->getSize().x;
-	float windowHeight = windowToModify->getSize().y;
+	float windowWidth = static_cast<float>(windowToModify->getSize().x);
+	float windowHeight = static_cast<float>(windowToModify->getSize().y);
 	float alertX = windowWidth - ((alertWidth * alertScale) + (3 * (windowWidth / 4)));
 	float alertY = (windowHeight - (alertWidth * alertScale)) / 3;
 	spawnAlertIcon(alertIcon, ih, buttonSheet, alertX, alertY, 0.5f);
