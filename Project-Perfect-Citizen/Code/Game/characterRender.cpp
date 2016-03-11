@@ -52,7 +52,11 @@ characterRender::~characterRender() {
     delete irisR;
     delete eyeL;
     delete eyeR;
+    delete browL;
+    delete browR;
     delete mouth;
+   
+    
     //delete rectSourceSprite;
 }
 
