@@ -312,18 +312,19 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
         int windowOffset = 5;
         int textMuliplier = 23;
         int maxWindowScroll = 16284;
-        
-        ifstream t(path);
-        stringstream buffer;
-        buffer << t.rdbuf();
-        string content = buffer.str();
+        int maxWindowLines = 700;
         
         ifstream f(path);
-        char c;
+        std::string line;
         int windowScrollHeight = 0;
-        while (f.get(c)){
-            if (c == '\n'){
+        string content;
+        while (std::getline(f, line)){
+            if(windowScrollHeight < maxWindowLines){
                 ++windowScrollHeight;
+                content += line + "\n";
+            }
+            else{
+                break;
             }
         }
 
