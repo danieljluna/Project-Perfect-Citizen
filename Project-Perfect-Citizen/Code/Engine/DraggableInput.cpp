@@ -117,7 +117,7 @@ bool DraggableInput::registerInput(sf::Event& ev) {
 // Subject Functionality
 ///////////////////////////////////////////////////////////////////////
 
-Subject& DraggableInput::getSubject() {
+Subject& DraggableInput::onDrag() {
     return onDrag_;
 }
 

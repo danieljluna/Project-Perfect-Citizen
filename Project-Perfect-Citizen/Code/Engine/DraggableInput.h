@@ -66,7 +66,7 @@ public:
   // Subject Functionality
   /////////////////////////////////////////////////////////////////////
 
-    Subject& getSubject();
+    Subject& onDrag();
 
 
 private:
