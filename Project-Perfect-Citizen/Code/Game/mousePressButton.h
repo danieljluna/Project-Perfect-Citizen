@@ -32,7 +32,8 @@ private:
 	sf::Clock mouseClock;
     sf::Int32 mouseTime;
 	bool isCollision(sf::Vector2i);
-
+    
+    bool wasPressed_;
     Subject onPress_;
     Subject onDoublePress_;
     Subject onRelease_;
@@ -72,6 +73,8 @@ public:
 ///@details Must pass in the globad bounds of the sprite.
 ///////////////////////////////////////////////////////////////////////
 	void setFloatRect(sf::FloatRect rect);
+
+    sf::FloatRect getFloatRect() const;
 
 	void setIsBeingPressed(std::string iBP);
 

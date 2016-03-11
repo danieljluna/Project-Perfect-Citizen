@@ -106,9 +106,9 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     ppc::WindowInterface* startToolbar =
     new ppc::Window(1000, 60, sf::Color(128, 128, 128));
     startToolbar->setPosition(0, 750);
-    Entity* startButton = new Entity();
-    spawnStartButton(*startButton, startToolbar->getInputHandler(), buttonSheet, 0, 0, 0.4f);
-    startToolbar->addEntity(*startButton);
+    Entity startButton = Entity();
+    spawnStartButton(startButton, startToolbar->getInputHandler(), buttonSheet, 0, 0, 0.4f);
+    startToolbar->addEntity(startButton);
     desktopToModify.addWindow(startToolbar);
     
     ////////////////////////////////

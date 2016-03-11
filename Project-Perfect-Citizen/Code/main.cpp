@@ -47,7 +47,6 @@
 #include "Engine/Audio/AudioQueue.h"
 #include "Engine/Network.h"
 #include "Game/BootLoader.hpp"
-//#include "Engine/FunctionObserver.h"
 #include "Game/characterRender.hpp"
 #include "Engine/debug.h"
 #include "Engine/TestFunctionClass.h"
@@ -59,8 +58,6 @@
 
 
 using namespace ppc;
-
-//using testFunc = bool(*)(sf::Event&);
 
 bool printFunc(TestFunctionClass* tfc, sf::Event& ev) {
 	std::cout << "inside printFunc" << std::endl;

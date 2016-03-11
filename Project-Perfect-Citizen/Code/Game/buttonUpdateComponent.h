@@ -8,7 +8,7 @@
 #include "../Engine/NodeState.h"
 #include <iostream>
 
-using namespace std;
+namespace ppc {
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Update Component for a button
@@ -48,3 +48,7 @@ public:
 	void update(sf::Time& deltaTime) override;
 
 };
+
+
+};
+
