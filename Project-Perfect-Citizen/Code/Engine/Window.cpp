@@ -17,9 +17,6 @@ Window::Window(unsigned int width,
             windowSpace_() {
     windowSpace_.create(width, height);
     backgroundColor_ = col;
-    windowView_.reset(sf::FloatRect(0.0, 0.0, 
-                                    float(width), float(height)));
-    windowView_.setViewport(sf::FloatRect(0.f, 0.f, 1, 1));
 	inputHandler_ = InputHandler();
 }
 
@@ -64,19 +61,19 @@ Window::~Window() {
 // Space Getters
 ///////////////////////////////////////////////////////////////////////
 
-sf::Vector2u Window::getSize() {
+sf::Vector2u Window::getSize() const {
     return windowSpace_.getSize();
 }
 
 
 
 
-sf::FloatRect Window::getBounds() {
+sf::FloatRect Window::getBounds() const {
     sf::FloatRect result;
     result.left = transform_.getPosition().x;
     result.top = transform_.getPosition().y;
-    result.width = float(windowSpace_.getSize().x);
-    result.height = float(windowSpace_.getSize().y);
+    result.width = float(windowSpace_.getView().getSize().x);
+    result.height = float(windowSpace_.getView().getSize().y);
     return result;
 }
 
@@ -89,6 +86,31 @@ void Window::setSize(unsigned int width, unsigned int height) {
     windowSpace_.create(width, height);
     trimEntities();
 }
+
+
+
+/////////////////////////////////////////////////////////////////////
+// View Manipulation
+/////////////////////////////////////////////////////////////////////
+
+const sf::View& Window::getView() const {
+    return windowSpace_.getView();
+}
+
+
+
+void Window::setView(const sf::View& view) {
+    windowSpace_.setView(view);
+
+}
+
+
+
+const sf::View& Window::getDefaultView() {
+    return windowSpace_.getDefaultView();
+}
+
+
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -217,6 +239,35 @@ void Window::update(sf::Time& deltaTime) {
 
 
 void Window::registerInput(sf::Event& ev) {
+    sf::Vector2f click;
+    sf::FloatRect viewRect;
+    sf::View currView = windowSpace_.getView();
+    sf::View defView = windowSpace_.getDefaultView();
+
+    switch (ev.type) {
+    case sf::Event::MouseButtonPressed:
+    case sf::Event::MouseButtonReleased:
+        click = {float(ev.mouseButton.x), float(ev.mouseButton.y) };
+        viewRect.width = currView.getSize().x;
+        viewRect.height = currView.getSize().y;
+        mouseInView_ = viewRect.contains(click);
+        if (mouseInView_) {
+            click -= currView.getCenter();
+            click += defView.getCenter();
+            ev.mouseButton.x = click.x;
+            ev.mouseButton.y = click.y;
+        }
+        break;
+    case sf::Event::MouseMoved:
+        if (mouseInView_) {
+            click = { float(ev.mouseMove.x), float(ev.mouseMove.y) };
+            click = currView.getTransform().transformPoint(click);
+            ev.mouseMove.x = click.x;
+            ev.mouseMove.y = click.y;
+        }
+        break;
+    }
+
     inputHandler_.registerEvent(ev);
 }
 
@@ -227,15 +278,10 @@ void Window::refresh(sf::RenderStates states) {
     //Clear Window to Background Color
     windowSpace_.clear(backgroundColor_);
 
-    //Apply the view
-    windowSpace_.setView(windowView_);
-
     //Draws all objects in the window
     for (RenderComponent* c : rendercmpnts_) {
         windowSpace_.draw(*c, states);
     }
-
-    windowSpace_.setView(windowSpace_.getDefaultView());
 
     windowSpace_.display();
 }
@@ -246,7 +292,13 @@ void Window::refresh(sf::RenderStates states) {
 void Window::draw(sf::RenderTarget& target,
                   sf::RenderStates states) const {
     //Create a sprite off of the windowSpace_
-    sf::Sprite spr(windowSpace_.getTexture());
+    sf::Sprite spr;
+    spr.setTexture(windowSpace_.getTexture());
+    sf::Vector2f viewSize = windowSpace_.getView().getSize();
+    sf::Vector2f viewScale;
+    viewScale.x = viewSize.x / windowSpace_.getSize().x;
+    viewScale.y = viewSize.y / windowSpace_.getSize().y;
+    spr.scale(viewScale);
 
     states.transform *= transform_.getTransform();
 

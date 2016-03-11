@@ -33,11 +33,11 @@ WindowDecorator::~WindowDecorator() {
 // Space Getters
 ///////////////////////////////////////////////////////////////////////
 
-sf::Vector2u WindowDecorator::getSize() {
+sf::Vector2u WindowDecorator::getSize() const {
     return windowHandle_->getSize();
 }
 
-sf::FloatRect WindowDecorator::getBounds() {
+sf::FloatRect WindowDecorator::getBounds() const {
     return windowHandle_->getBounds();
 }
 
@@ -82,6 +82,24 @@ sf::Vector2f WindowDecorator::getPosition() const {
 
 sf::Vector2f WindowDecorator::getScale() const {
     return windowHandle_->getScale();
+}
+
+
+
+///////////////////////////////////////////////////////////////////////
+// View Manipulation
+///////////////////////////////////////////////////////////////////////
+
+const sf::View& WindowDecorator::getView() const {
+    return windowHandle_->getView();
+}
+
+void WindowDecorator::setView(const sf::View& view) {
+    windowHandle_->setView(view);
+}
+
+const sf::View& WindowDecorator::getDefaultView() {
+    return windowHandle_->getDefaultView();
 }
 
 
@@ -134,6 +152,22 @@ void WindowDecorator::registerInput(sf::Event& ev) {
 void WindowDecorator::refresh(sf::RenderStates states) {
 	windowHandle_->refresh(states);
 }
+
+///////////////////////////////////////////////////////////////////////
+// Close State
+///////////////////////////////////////////////////////////////////////
+
+void WindowDecorator::close() {
+    windowHandle_->close();
+}
+
+bool WindowDecorator::isOpen() const {
+    return windowHandle_->isOpen();
+}
+
+///////////////////////////////////////////////////////////////////////
+// Draw Function
+///////////////////////////////////////////////////////////////////////
 
 void WindowDecorator::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const  {
