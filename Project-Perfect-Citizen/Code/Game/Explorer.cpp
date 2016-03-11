@@ -14,6 +14,15 @@ Explorer::Explorer(WindowInterface*& win, NodeState& ns, sf::Image& bS, sf::Imag
 
 }
 
+bool hasEnding(std::string const &fileName, std::string const &extension) {
+	if (fileName.length() >= extension.length()) {
+		return (0 == fileName.compare(fileName.length() - extension.length(), extension.length(), extension));
+	}
+	else {
+		return false;
+	}
+}
+
 vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
 
 	sf::Font font;
@@ -22,14 +31,24 @@ vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
 	vector<Entity> explorerFrame;
 	for (int i = 0, j = 0 ; i < filenames.size(); ++i) {
 			Entity example;
-			buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet_, 0, 9, 1, 1);
-			IconRender->renderPosition(sf::Vector2f(i * 100, j * 100));
-
-			textLabelComponent* label = new textLabelComponent(font, sf::Color::Black, i * 100, j * 100 + 0.5 * 128, 12, filenames.at(i));
-			explorerFolderInputComponent* IconInput = new explorerFolderInputComponent(windowToWorkOn_->getInputHandler(), theFileTree_, IconRender->getSprite()->getGlobalBounds(), filenames.at(i));
-			example.addComponent(IconRender);
-			example.addComponent(label);
-			example.addComponent(IconInput);
+			if (hasEnding(filenames.at(i), ".txt") || hasEnding(filenames.at(i), ".jpg")) {
+				buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet_, 0, 0, 1, 3);
+				IconRender->renderPosition(sf::Vector2f(i * 100, j * 100));
+				textLabelComponent* label = new textLabelComponent(font, sf::Color::Black, i * 100, j * 100 + 0.5 * 128, 12, filenames.at(i));
+				explorerFolderInputComponent* IconInput = new explorerFolderInputComponent(windowToWorkOn_->getInputHandler(), theFileTree_, IconRender->getSprite()->getGlobalBounds(), filenames.at(i));
+				example.addComponent(IconRender);
+				example.addComponent(label);
+				example.addComponent(IconInput);
+			}
+			else {
+				buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet_, 0, 9, 1, 1);
+				IconRender->renderPosition(sf::Vector2f(i * 100, j * 100));
+				textLabelComponent* label = new textLabelComponent(font, sf::Color::Black, i * 100, j * 100 + 0.5 * 128, 12, filenames.at(i));
+				explorerFolderInputComponent* IconInput = new explorerFolderInputComponent(windowToWorkOn_->getInputHandler(), theFileTree_, IconRender->getSprite()->getGlobalBounds(), filenames.at(i));
+				example.addComponent(IconRender);
+				example.addComponent(label);
+				example.addComponent(IconInput);
+			}
 			explorerFrame.push_back(example);
 
 	}
