@@ -308,20 +308,50 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     if(dotEnd == TXT){
         sf::Font myFont;
         myFont.loadFromFile(resourcePath() + "consola.ttf");
-        int fontSize = 10;
+        int fontSize = 20;
         int windowOffset = 5;
-        ifstream t(path);
-        stringstream buffer;
-        buffer << t.rdbuf();
-        string content = buffer.str();
+        
+        int textMuliplier = 23;
+        int maxWindowScroll = 16284;
+        int maxWindowLines = 700;
+        int windowScrollHeight = 0;
+        ifstream f(path);
+        std::string line;
+        string content;
+        while (std::getline(f, line)){
+            if(windowScrollHeight < maxWindowLines){
+                ++windowScrollHeight;
+                content += line + "\n";
+            }
+            else if(windowScrollHeight > maxWindowLines){
+                break;
+            }
+        }
+
+        windowScrollHeight = windowScrollHeight * textMuliplier;
+        if(windowScrollHeight > maxWindowScroll){
+            windowScrollHeight = maxWindowScroll;
+        }
+        
         textRenderComponent* textBox =
             new textRenderComponent(myFont, content, 0, 0, fontSize);
+        
         newEnt.addComponent(textBox);
+        
+        windowToModify->setSize(windowToModify->getSize().x, windowScrollHeight);
+        sf::FloatRect viewRect = {
+            0.0f,
+            0.0f,
+            float(windowToModify->getSize().x),
+            float(windowToModify->getSize().x)
+        };
+        windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     }
     
     else if(dotEnd == PNG || dotEnd == JPG){
         sf::Image photo;
         photo.loadFromFile(path);
+        windowToModify->setSize(photo.getSize().x/2, photo.getSize().y/2);
         photoRenderComponent* photoRender = new photoRenderComponent(photo);
         photoRender->setImageScale((float)windowToModify->getSize().x /
                                (float)photo.getSize().x,
@@ -367,7 +397,7 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 
 	int newHeight = (totalEmailsLoaded) * (emailBoxElementHeight + emailBoxPadding);
 	int newWidth = windowToModify->getSize().x;
-	windowToModify->setSize(sf::Vector2u(newWidth, newHeight));
+	windowToModify->setSize(newWidth, newHeight);
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
@@ -395,7 +425,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
-	int fontSize = 12;
+	int fontSize = 20;
 
 	emailMessageRenderComponent* eMRC = new emailMessageRenderComponent(myFont, mail, 0, 0, fontSize);
 
@@ -407,6 +437,28 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
+    string content = mail.getContentField();
+    int lineCount = 1;
+    int lineMultiplier = 23;
+    int preLineCount = 6;
+    for (int i = 0; i < content.size(); i++){
+        if (content[i] == '\n') {
+            lineCount++;
+        }
+    }
+    lineCount += preLineCount;
+    lineCount = lineCount*lineMultiplier;
+    
+    windowToModify->setSize(windowToModify->getSize().x, lineCount);
+    if(lineCount > windowToModify->getSize().x){
+        sf::FloatRect viewRect = {
+            0.0f,
+            0.0f,
+            float(windowToModify->getSize().x),
+            float(windowToModify->getSize().x)
+        };
+        windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
+    }
 	windowToModify->addEntity(emailMessageDisplayBox);
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);

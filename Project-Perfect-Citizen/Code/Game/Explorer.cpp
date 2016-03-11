@@ -72,7 +72,7 @@ vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
 			explorerFrame.push_back(example);
 
 	}
-	windowToWorkOn_->setSize(sf::Vector2u(windowToWorkOn_->getSize().x, numRows * 100));
+	windowToWorkOn_->setSize(windowToWorkOn_->getSize().x, numRows * 100);
 	return explorerFrame;
 }
 
