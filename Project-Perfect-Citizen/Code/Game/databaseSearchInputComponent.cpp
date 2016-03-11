@@ -1,3 +1,4 @@
+#include "../Engine/debug.h"
 #include "databaseSearchInputComponent.h"
 #include <iostream>
 #include <string>
@@ -12,8 +13,8 @@ const int ENTER_UNICODE = 10;
 const int CARRIAGE_RETURN_UNICODE = 13;
 
 databaseSearchInputComponent::databaseSearchInputComponent(Database* initialDB, ppc::InputHandler& ih, databaseSearchRenderComponent& t,
-	databaseDisplayRenderComponent& d, sf::Sprite& s)
-	: InputComponent(2), textBoxSprt(s), textBox(t), textDisplay(d), inputHandle(ih) {
+	databaseDisplayRenderComponent& d, characterRender& r)
+	: InputComponent(2),  textBox(t), textDisplay(d), inputHandle(ih), render(r) {
 
 	ih.addHandle(sf::Event::TextEntered);
 	ih.addHandle(sf::Event::KeyPressed);
@@ -27,7 +28,7 @@ databaseSearchInputComponent::databaseSearchInputComponent(Database* initialDB, 
 	str += "Search: ";
 	textBox.updateString(str);
 
-	displayResults_.push_back("Enter a filter and query to begin searching");
+	displayResults_.push_back("No filters entered. Please enter a filter and query to begin searching.");
 	textDisplay.updateString(displayResults_);
 
 }
@@ -38,7 +39,10 @@ databaseSearchInputComponent::~databaseSearchInputComponent() {
 }
 
 bool databaseSearchInputComponent::isCollision(sf::Vector2i mousePos) {
-	sf::Vector2f sprtBoxPos = { textBoxSprt.getGlobalBounds().left ,
+	
+    // Temporarily(?) removing collisions. May not be necessary
+    
+    /*sf::Vector2f sprtBoxPos = { textBoxSprt.getGlobalBounds().left ,
 		textBoxSprt.getGlobalBounds().top };
 
 	sf::Vector2f sprtBoxDim = { textBoxSprt.getGlobalBounds().width,
@@ -53,9 +57,9 @@ bool databaseSearchInputComponent::isCollision(sf::Vector2i mousePos) {
 		}
 	}
 
-	// textBoxSprt.setSelected(true);
+	// textBoxSprt.setSelected(true);*/
 
-	return result;
+    return true;//result;
 }
 
 std::vector<string> convertToVector(string cmd) {
@@ -83,6 +87,26 @@ void databaseSearchInputComponent::clearSearchBox() {
 	textBox.updateString(str);
 }
 
+void databaseSearchInputComponent::goBack() {
+		std::vector<string> displayVec;
+		clearSearchBox();
+		if (searchHistory.size() > 1) {
+			if (searchHistory.size() == 2) {
+				searchHistory.pop();
+                render.setShouldDraw(false);
+				updateDisplayResults(displayVec, "No filters entered. Please enter a filter and query to begin searching.");
+				textDisplay.updateString(displayResults_);
+			}
+			else {
+				searchHistory.pop();
+				updateDisplayOutput(searchHistory.top()->getPrintableDatabase());
+				if (searchHistory.top()->getDatabaseState().size() > 0) render.applyCharacterValues(searchHistory.top()->getDatabaseState().at(0));
+				else render.setShouldDraw(false);
+				textDisplay.updateString(displayResults_);
+			}
+		}
+}
+
 void databaseSearchInputComponent::updateDisplayResults(vector<string> displayVec, string newDisplay) {
 	displayVec.push_back(newDisplay);
 	updateDisplayOutput(displayVec);
@@ -90,6 +114,8 @@ void databaseSearchInputComponent::updateDisplayResults(vector<string> displayVe
 
 bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 	if (getEntity() != nullptr) {
+
+		int lookAt = 0;
 
 		/* Ignore CNTRL, BS, ENTR/LF, CR symbols*/
 		if (ev.type == sf::Event::TextEntered) {
@@ -123,12 +149,13 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 				string query = "";
 
 
-				/* Temp back functionality: Will turn into function pointer */
+				/*// Temp back functionality: Will turn into function pointer
 				if (commandVec.at(0) == "back") {
 					clearSearchBox();
 					if (searchHistory.size() > 1) {
 						if (searchHistory.size() == 2) {
 							searchHistory.pop();
+                            render.setShouldDraw(false);
 							updateDisplayResults(displayVec, "Enter a filter and query to begin searching");
 							textDisplay.updateString(displayResults_);
 							return true;
@@ -136,10 +163,11 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 							searchHistory.pop();
 							updateDisplayOutput(searchHistory.top()->getPrintableDatabase());
 							textDisplay.updateString(displayResults_);
+                            render.applyCharacterValues(searchHistory.top()->getDatabaseState().at(lookAt));
 							return true;
 						}	
 					}
-				}
+				}*/
 
 				/* Assign good input to corresponding values */
 				if (commandVec.size() == 2) {
@@ -148,30 +176,65 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 				}
 
 				/* Otherwise reset it */
-				else { 
+				else {
 					clearSearchBox();
+                    render.setShouldDraw(false);
 					updateDisplayResults(displayVec, "Invalid input");
 					textDisplay.updateString(displayResults_);
 					return true;
 				}
 				
-				if (searchHistory.top()->filterIsValid(filter)) {
+
+				/* Clean the filter term of any caps*/
+				string cleaned = "";
+				for (unsigned int i = 0; i < filter.length(); ++i) {
+					cleaned.push_back(tolower(filter.at(i)));
+
+				}
+
+
+				if (searchHistory.top()->filterIsValid(cleaned)) {
 					Database* filteredDatabase;
-					filteredDatabase = &(searchHistory.top()->sortBy(filter, query));
+					filteredDatabase = &(searchHistory.top()->sortBy(cleaned, query));
 					cout << filteredDatabase->getDatabaseSize() << endl;
 					if (filteredDatabase->isEmpty()) { 
-						updateDisplayResults(displayVec, "No results found");
+						searchHistory.emplace(filteredDatabase);
+						updateDisplayResults(displayVec, "No results found. Please go back and try another query.");
 					}
 					else {
+						render.applyCharacterValues(filteredDatabase->getDatabaseState().at(lookAt));
 						searchHistory.emplace(filteredDatabase);
 						updateDisplayOutput(searchHistory.top()->getPrintableDatabase());
 					}
 				}
 				
 				clearSearchBox();
+				cout << searchHistory.size() << endl;
 				textDisplay.updateString(displayResults_);
 			}
 		}
 	}
 	return true;
 }
+
+
+
+
+
+
+
+
+
+
+bool ppc::goBackFn(databaseSearchInputComponent* ptr, sf::Event& ev) {
+
+    ptr->goBack();
+    return true;
+}
+
+
+
+
+
+
+

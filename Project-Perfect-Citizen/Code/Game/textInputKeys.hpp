@@ -23,7 +23,7 @@ class consoleUpdateComponent;
 class textInputKeys: public ppc::InputComponent {
 private:
     
-    sf::Sprite& textBoxSprt;
+    //sf::Sprite& textBoxSprt;
     textInputRenderComponent& textBox;
 	textOutputRenderComponent& textDisplay;
     ppc::InputHandler& inputHandle;
@@ -42,7 +42,7 @@ public:
     /// @param ih is the input handler
     /// @param s is the render component where the text will be drawn
     ///////////////////////////////////////////////////////////////////////
-    textInputKeys(ppc::InputHandler& ih, sf::Sprite& s, 
+    textInputKeys(ppc::InputHandler& ih,
 		textInputRenderComponent &r, textOutputRenderComponent& r2, 
 		consoleUpdateComponent& c);
     virtual ~textInputKeys();

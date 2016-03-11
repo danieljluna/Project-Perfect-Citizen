@@ -1,3 +1,4 @@
+#include "../Engine/debug.h"
 
 #include "databaseSearchRenderComponent.h"
 
@@ -28,6 +29,7 @@ void databaseSearchRenderComponent::updateString(string s) {
 void databaseSearchRenderComponent::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
 	target.draw(*(this->text), states);
+
 }
 
 void databaseSearchRenderComponent::recieveMessage(msgType code) {

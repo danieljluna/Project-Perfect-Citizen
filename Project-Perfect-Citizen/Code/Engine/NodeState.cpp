@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "NodeState.h"
 
 void ppc::NodeState::popWorking()
@@ -34,6 +35,7 @@ void ppc::NodeState::setUp()
 	this->root = newRoot;
 	this->cwd = newRoot;
 	this->lastLsNode = newRoot;
+     
 }
 
 void ppc::NodeState::setCwd(ppc::BaseFileType* newCwd)
