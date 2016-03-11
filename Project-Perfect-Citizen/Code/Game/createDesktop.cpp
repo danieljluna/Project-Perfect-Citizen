@@ -26,7 +26,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     inbox->parseEmailAsJson("PlayerEmail.json");
     
     //Inbox thnbox;
-    for(int i = 0; i < inbox->getSubject().size(); i++){
+    for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
         Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), "image.jpg");
         theInbox->addEmailToList(testEmail1);
     }
@@ -82,7 +82,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     emailExtraction* inbox = new emailExtraction();
     inbox->parseEmailAsJson("Email1.json");
     
-    for(int i = 0; i < inbox->getSubject().size(); i++){
+    for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
         Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), "image.jpg");
         theInbox->addEmailToList(testEmail1);
     }
