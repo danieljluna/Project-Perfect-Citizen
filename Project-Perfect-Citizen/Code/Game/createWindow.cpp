@@ -249,10 +249,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 		new NetworkInputCmpnt(*playNet, *solNet, windowToModify->getInputHandler());
 	//Always need to call this setter.
 	networkInput->setPipelineData(*dataText);
-	NetworkUpdateCmpnt* networkUpdate = new NetworkUpdateCmpnt(*playNet);
-	//Always need to call these setters
-	networkUpdate->setBounds(graphBounds->getLocalBounds());
-	networkUpdate->setDrags(networkInput->getDraggables());
+    networkInput->setClampBounds(graphBounds->getLocalBounds());
 	
 	/////////////////////////////////////////
 	/////// ENTITIES 
@@ -265,7 +262,6 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	graphBox.addComponent(graphBounds);
 	graphBox.addComponent(networkRender);
 	graphBox.addComponent(networkInput);
-	graphBox.addComponent(networkUpdate);
 
 	Entity submitButton;
 	float buttonScale = 0.25f;

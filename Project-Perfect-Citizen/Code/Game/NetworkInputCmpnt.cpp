@@ -220,3 +220,25 @@ bool ppc::NetworkInputCmpnt::registerInput(sf::Event& ev) {
 
 	return false;
 }
+
+
+
+
+
+
+void ppc::NetworkInputCmpnt::setClampBounds(const sf::FloatRect clampBounds) {
+    for (ppc::DraggableInput* di : drags_) {
+        di->setClampBounds(clampBounds);
+    }
+}
+
+
+
+
+void ppc::NetworkInputCmpnt::unBoundDraggables() {
+    for (ppc::DraggableInput* di : drags_) {
+        di->removeClamp();
+    }
+}
+
+
