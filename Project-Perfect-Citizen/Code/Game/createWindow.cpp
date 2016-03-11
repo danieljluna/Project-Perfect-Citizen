@@ -310,10 +310,12 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
         myFont.loadFromFile(resourcePath() + "consola.ttf");
         int fontSize = 20;
         int windowOffset = 5;
+        
         ifstream t(path);
         stringstream buffer;
         buffer << t.rdbuf();
         string content = buffer.str();
+        
         textRenderComponent* textBox =
             new textRenderComponent(myFont, content, 0, 0, fontSize);
         newEnt.addComponent(textBox);
@@ -322,6 +324,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     else if(dotEnd == PNG || dotEnd == JPG){
         sf::Image photo;
         photo.loadFromFile(path);
+        windowToModify->setSize(photo.getSize().x/2, photo.getSize().y/2);
         photoRenderComponent* photoRender = new photoRenderComponent(photo);
         photoRender->setImageScale((float)windowToModify->getSize().x /
                                (float)photo.getSize().x,
