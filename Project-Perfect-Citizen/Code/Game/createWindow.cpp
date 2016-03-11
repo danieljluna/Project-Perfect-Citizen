@@ -62,7 +62,7 @@ bool testBackFunction(TestFunctionClass* tfc, sf::Event& ev) {
 }
 
 
-void ppc::spawnConsole(WindowInterface*& windowToModify,
+void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
                        InputHandler & ih, NodeState & ns,
                        sf::Image& buttonSheet, float x, float y) {
     
@@ -92,7 +92,7 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
                                  windowToModify->getSize().y - (fontSize+windowOffset),
                                  fontSize);
     textOutputRenderComponent* textDisplayBox =
-    new textOutputRenderComponent(myFont, ns, 0, 0, fontSize);
+    new textOutputRenderComponent(dt, buttonSheet, myFont, ns, 0, 0, fontSize);
     
     
     

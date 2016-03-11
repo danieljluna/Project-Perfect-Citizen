@@ -1,10 +1,11 @@
 
 #include "textOutputRenderComponent.h"
+#include "createWindow.h"
 
 const string TEXT_KEY_INPUT = "TKI";
 
-textOutputRenderComponent::textOutputRenderComponent(sf::Font& f, 
-	ppc::NodeState& fT, int x, int y, int size) :font_(f),fileTree_(fT) {
+textOutputRenderComponent::textOutputRenderComponent(ppc::Desktop& dt, sf::Image& bs, sf::Font& f,
+	ppc::NodeState& fT, int x, int y, int size) :font_(f),fileTree_(fT), theDesktop_(dt), buttonSheet_(bs) {
 
 	numDisplayedLines = 0;
 
@@ -57,6 +58,15 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		str_ = str_ + "\n";
 		++numDisplayedLines;
 	}
+    else if (cmd.at(0) == "open") {
+        if(cmd.size() > 2){
+            // do nothing
+        }
+        string fileResourcePath = fileTree_.getCwd()->findElement(cmd.at(1))->getFileData();
+        cout << fileResourcePath << endl;
+        fileTree_.getCwd()->findElement(cmd.at(1))->readFile(theDesktop_, buttonSheet_, fileResourcePath);
+        numDisplayedLines++;
+    }
 	else if (cmd.at(0) == "clear") {
 		str_.clear();
 		numDisplayedLines = 0;

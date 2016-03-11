@@ -56,8 +56,6 @@
 
 #include "Game/bootLoadingUpdateComponent.hpp"
 #include "Game/bootLoadingAnimationRender.hpp"
-#include "Game/endingAnimationRender.hpp"
-#include "Game/endAnimationUpdateComponent.hpp"
 
 
 using namespace ppc;
@@ -118,78 +116,6 @@ bool runBootDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& s
                 // Boots player to teacher desktop
                 return false;
               }
-            }
-            if (event.type == sf::Event::Closed) {
-                screen.close();
-            }
-            
-            //Input phase
-            myDesktop.registerInput(event);
-        }
-        
-        sf::Time elapsed = deltaTime.getElapsedTime();
-        while (elapsed > framePeriod) {
-            screen.clear(sf::Color::Black);
-            sf::Time dt = deltaTime.restart();
-            myDesktop.update(dt);
-            elapsed -= framePeriod;
-        }
-        myDesktop.refresh();
-        screen.draw(myDesktop);
-        screen.display();
-    }
-    return false;
-    
-}
-
-
-
-bool runEndDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
-    ppc::NodeState testState;
-    testState.setUp();
-    Window* desktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-    
-    Desktop myDesktop(*desktopWindow, testState);
-    myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
-    //createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
-    
-    Window* endWindow = new Window(1800,1000,sf::Color(30,32,33));
-    
-    Entity ending;
-    
-    sf::Image pixelTitle;
-    pixelTitle.loadFromFile(resourcePath() + "Pixel_Title.png");
-    
-    endingAnimationRender* endAnimation = new endingAnimationRender(pixelTitle);
-    endAnimationUpdateComponent* endUpdate = new endAnimationUpdateComponent(*endAnimation, 0.1f);
-    
-    ending.addComponent(endAnimation);
-    ending.addComponent(endUpdate);
-    
-    sf::Font font;
-    font.loadFromFile(resourcePath() + "consola.ttf");
-       //dcps->renderPosition(sf::Vector2f(355,200));
-    
-
-    //loading.addComponent(dcps);
-    endWindow->addEntity(ending);
-    
-    
-    myDesktop.addWindow(endWindow);
-    
-    // Go into main game loop
-    sf::Clock deltaTime;
-    sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
-    while (screen.isOpen()) {
-        //Process sf::events
-        sf::Event event;
-        while (screen.pollEvent(event)) {
-            // Close window: exit
-            if (event.type == sf::Event::KeyPressed) {
-                if (event.key.code == sf::Keyboard::Return){
-                    // Boots player to teacher desktop
-                    return false;
-                }
             }
             if (event.type == sf::Event::Closed) {
                 screen.close();
@@ -341,10 +267,10 @@ int main(int argc, char** argv) {
 	teacherIconSheet.loadFromFile(resourcePath() + "Teacher_Icon_Sheet.png");
 	///////////////////////////////////////////////////////////////////
 
-    while (runBootDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
+    
+    //while (runBootDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
 	while (runPlayerDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
 	//while (runTargetDesktop(*&screen, teacherIconSheet, spriteSheet, teacherWallpaper)) {}
-    while (runEndDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
     
     return EXIT_SUCCESS;
 }
