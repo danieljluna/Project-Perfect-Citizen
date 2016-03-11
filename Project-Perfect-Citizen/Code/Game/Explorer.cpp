@@ -1,5 +1,5 @@
 #include "Explorer.h"
-#include "WindowInterface.h"
+#include "../Engine/WindowInterface.h"
 
 #ifdef WINDOWS_MARKER
 #define resourcePath() string("Resources/")
