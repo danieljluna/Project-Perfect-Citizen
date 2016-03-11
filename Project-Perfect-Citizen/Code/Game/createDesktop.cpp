@@ -22,12 +22,12 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 
     Inbox* theInbox = new Inbox();
     
-    emailExtraction* inbox = new emailExtraction();
-    inbox->parseEmailAsJson("PlayerEmail.json");
+    emailExtraction inbox;// = new emailExtraction();
+    inbox.parseEmailAsJson("PlayerEmail.json");
     
-    //Inbox thnbox;
-    for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
-        Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), "image.jpg");
+
+    for(int i = 0; i < inbox.getSubject().size(); i++){
+        Email testEmail1(inbox.getTo().at(i), inbox.getFrom().at(i), inbox.getSubject().at(i), inbox.getBody().at(i), "image.jpg");
         theInbox->addEmailToList(testEmail1);
     }
     
