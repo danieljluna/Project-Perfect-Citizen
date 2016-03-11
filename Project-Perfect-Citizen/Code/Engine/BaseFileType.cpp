@@ -4,7 +4,7 @@
 #include "../../Code/Game/createWindow.h"
 ppc::BaseFileType::BaseFileType(ppc::FileType type)
 {
-	switch (filetype) {
+	switch (type) {
 	case FileType::Directory:
 		this->filetype = ppc::FileType::Directory;
 		break;

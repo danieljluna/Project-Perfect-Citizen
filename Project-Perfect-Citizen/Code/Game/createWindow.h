@@ -32,7 +32,7 @@ namespace ppc {
 	///@param The filetree for which the console will work on.
 	///@param Sprite sheet of it's border component's buttons
 	///////////////////////////////////////////////////////////////////////
-void spawnConsole(WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns, 
+void spawnConsole(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns,
 	sf::Image& buttonSheet, float x, float y);
 
 ///////////////////////////////////////////////////////////////////////
