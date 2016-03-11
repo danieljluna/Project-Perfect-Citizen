@@ -26,6 +26,9 @@
 #include <list>
 #include <cstddef>
 
+#include "../Game/PipelineCharacter.h"
+#include "../Engine/Edge.h"
+
 using namespace expr;
 
 ////////////////////////////////////////////////////////////////////////
@@ -40,7 +43,7 @@ Json::Value expr::ExpressionistParser::parseExpressionistAsJson(std::string file
 	return value;
 }
 
-std::string expr::ExpressionistParser::expressWithJson(const Json::Value& exprOutput, const ppc::PipelineCharacter& speaker) {
+std::string expr::ExpressionistParser::expressWithJson(const Json::Value& exprOutput, const ppc::PipelineCharacter& speaker, const ppc::Edge& link) {
 	size_t i = 0;		
 	Json::Value nonTerminalObj = exprOutput["nonterminals"];
 	std::vector<std::string> terminalNames = nonTerminalObj.getMemberNames();
@@ -48,7 +51,7 @@ std::string expr::ExpressionistParser::expressWithJson(const Json::Value& exprOu
 		if (exprOutput["nonterminals"][terminalNames[i]]["deep"].asBool() == true) break;
 	}
 
-	std::pair<std::string, bool> result = expandWithJson(exprOutput, exprOutput["nonterminals"][terminalNames[i]], speaker);
+	std::pair<std::string, bool> result = expandWithJson(exprOutput, exprOutput["nonterminals"][terminalNames[i]], speaker, link);
 	if (result.second == true) return result.first;
 
 	return "";
@@ -56,13 +59,13 @@ std::string expr::ExpressionistParser::expressWithJson(const Json::Value& exprOu
 
 }
 
-std::pair<std::string, bool> expr::ExpressionistParser::expandWithJson(const Json::Value& exprOutput, const Json::Value& symbol, const ppc::PipelineCharacter& speaker) {
+std::pair<std::string, bool> expr::ExpressionistParser::expandWithJson(const Json::Value& exprOutput, const Json::Value& symbol, const ppc::PipelineCharacter& speaker, const ppc::Edge& link) {
 
 	if (symbol["complete"].asBool() == false) return std::make_pair("", false);
 
 	
 	std::string teststring = "";
-	if (checkMarkUpPreconditions(symbol["markup"], speaker) == false) { return std::make_pair("", false) ; } 
+	if (checkMarkUpPreconditions(symbol["markup"], speaker, link) == false) { return std::make_pair("", false) ; } 
 
 
 
@@ -89,7 +92,7 @@ std::pair<std::string, bool> expr::ExpressionistParser::expandWithJson(const Jso
 		for (; i < unvisited.size(); ++i) {
 			currAppRate -= unvisited[i]["app_rate"].asInt();
 			if (currAppRate <= 0) {
-				std::pair<std::string, bool> fireResult = fireWithJson(exprOutput, unvisited[i], speaker);
+				std::pair<std::string, bool> fireResult = fireWithJson(exprOutput, unvisited[i], speaker, link);
 				if (fireResult.second == true) {
 					return fireResult;
 				}
@@ -115,11 +118,11 @@ size_t trimBraces(std::string& str) {
 	return std::string::npos;
 }
 
-std::pair<std::string, bool> expr::ExpressionistParser::fireWithJson(const Json::Value& exprOutput, const Json::Value& rule, const ppc::PipelineCharacter& speaker) {
+std::pair<std::string, bool> expr::ExpressionistParser::fireWithJson(const Json::Value& exprOutput, const Json::Value& rule, const ppc::PipelineCharacter& speaker, const ppc::Edge& link) {
 	std::string result = "";
 	std::string teststring = "";
 
-	if (checkMarkUpPreconditions(rule["markup"], speaker) == false) {
+	if (checkMarkUpPreconditions(rule["markup"], speaker, link) == false) {
 		//std::cout << "Markup check failed in Fire." << std::endl;
 		return std::make_pair("", false);
 	}
@@ -138,7 +141,7 @@ std::pair<std::string, bool> expr::ExpressionistParser::fireWithJson(const Json:
 		} else if (braceCount == 2) {
 			Json::Value newExp = exprOutput["nonterminals"][currExp];
 			//recursively expands upon a new non terminal symbol (newExp), yielding a valid result if one is possible
-			std::pair<std::string, bool> subResult = expandWithJson(exprOutput, newExp, speaker);
+			std::pair<std::string, bool> subResult = expandWithJson(exprOutput, newExp, speaker, link);
 			if (subResult.second == true) result += subResult.first;
 			
 			//if there were no valid expansions, this rule cannot be completed
@@ -193,7 +196,7 @@ bool makeComparison(const int& int1, const int& int2, const std::string& oper) {
 	return false;
 }
 
-bool expr::ExpressionistParser::checkMarkUpPreconditions(const Json::Value& markup, const ppc::PipelineCharacter& speaker) {
+bool expr::ExpressionistParser::checkMarkUpPreconditions(const Json::Value& markup, const ppc::PipelineCharacter& speaker, const ppc::Edge& link) {
 	std::vector<std::string> markupNames = markup.getMemberNames();
 	for (size_t i = 0; i < markup.size(); ++i) {
 		Json::Value currMark = markup[markupNames[i]];
@@ -225,8 +228,16 @@ bool expr::ExpressionistParser::checkMarkUpPreconditions(const Json::Value& mark
 				continue;
 			}
 			else if (markupNames[i].compare("linkSuspicion") == 0) {
-				//unused currently
-				//needs target or link info
+				if (link.getWeight() == 1) {
+					if (!(makeComparison("Ambiguous", value, oper) ||
+						makeComparison("Suggestive", value, oper) ||
+						makeComparison("ClearlySuspicious", value, oper))) return false;
+				}
+				else {
+					if (!(makeComparison("ClearlyClean", value, oper) ||
+						makeComparison("SlightlySuspicious", value, oper) ||
+						makeComparison("Ambiguous", value, oper))) return false;
+				}
 				continue;
 			}
 			else if (markupNames[i].compare("outerLife") == 0) {
