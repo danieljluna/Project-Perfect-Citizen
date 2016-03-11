@@ -316,9 +316,31 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
         buffer << t.rdbuf();
         string content = buffer.str();
         
+        ifstream f(path);
+        char c;
+        int i = 0;
+        while (f.get(c))
+            if (c == '\n')
+                ++i;
+
+        i = i * 22;
+        if(i > 16284){
+            i = 16384;
+        }
+        
         textRenderComponent* textBox =
             new textRenderComponent(myFont, content, 0, 0, fontSize);
+        
         newEnt.addComponent(textBox);
+        
+        windowToModify->setSize(windowToModify->getSize().x, i);
+        sf::FloatRect viewRect = {
+            0.0f,
+            0.0f,
+            float(windowToModify->getSize().x),
+            float(500.0)
+        };
+        windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     }
     
     else if(dotEnd == PNG || dotEnd == JPG){
