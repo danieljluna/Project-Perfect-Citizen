@@ -52,6 +52,7 @@
 #include "Engine/TestFunctionClass.h"
 #include "Engine/FreeFunctionObserver.h"
 #include "Game/interpolateUpdateComponent.hpp"
+#include "Engine/FreeFunctionObserver.h"
 
 #include "Game/bootLoadingUpdateComponent.hpp"
 #include "Game/bootLoadingAnimationRender.hpp"
@@ -135,6 +136,12 @@ bool runBootDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& s
     
 }
 
+//struct A {
+	//bool b;
+//};
+
+//bool(*triggerEnd)(BaseFileType& obj, sf::Event& ev);
+
 
 bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
 	ppc::NodeState* testState = new NodeState();
@@ -145,17 +152,21 @@ bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
 	myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
 	createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
 
+	//FreeFunctionObserver <A>(&BaseFileType, triggerEnd);
+	//myDesktop.getNodeState().getDirString()
 	// Go into main game loop
 	sf::Clock deltaTime; 
 	sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
 	while (screen.isOpen()) {
 		//Process sf::events
+		//cout << "from main: " << myDesktop.getNodeState().getDirString() << endl;
 		sf::Event event;
 		while (screen.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
                 screen.close();
             } else if (event.type == sf::Event::KeyPressed) {
                 //Close
+				cout << "from main: " << myDesktop.getNodeState().getDirString() << endl;
                 if ((event.key.code == sf::Keyboard::Tilde) && (event.key.control)) {
                     return false;
                 }
@@ -188,6 +199,7 @@ bool runTargetDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
 
 		Desktop myDesktop(*desktopWindow, testState);
 		myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
+
 		createTeacherDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
 
 		// Go into main game loop
