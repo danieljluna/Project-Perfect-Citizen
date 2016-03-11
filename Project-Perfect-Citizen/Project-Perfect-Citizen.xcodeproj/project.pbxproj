@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C8101F4D1C938AB8009956CE /* Pixel_Title.png in Resources */ = {isa = PBXBuildFile; fileRef = C8101F4C1C938AB8009956CE /* Pixel_Title.png */; };
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
 		C8A593901C8E3AFE00036C1D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8A593461C8E3AFE00036C1D /* main.cpp */; };
 		E9E1F5921C91F506006AE0FB /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5301C91F506006AE0FB /* DoxygenHelp.txt */; };
@@ -198,6 +199,7 @@
 
 /* Begin PBXFileReference section */
 		C8058A631C4D679D005E23BA /* Project-Perfect-Citizen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-Perfect-Citizen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8101F4C1C938AB8009956CE /* Pixel_Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pixel_Title.png; sourceTree = "<group>"; };
 		C82E60731C810DCB001860CC /* json-forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "json-forwards.h"; sourceTree = "<group>"; };
 		C82E60741C810DCB001860CC /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		C82E60751C810DCB001860CC /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
@@ -563,6 +565,7 @@
 				E9E1F58D1C91F506006AE0FB /* Teacher_Wallpaper.png */,
 				E9E1F58E1C91F506006AE0FB /* Wallpaper.png */,
 				E9E1F58F1C91F506006AE0FB /* Windows_Icons.png */,
+				C8101F4C1C938AB8009956CE /* Pixel_Title.png */,
 				E9E1F5901C91F506006AE0FB /* Windows_UI.png */,
 				E9E1F5911C91F506006AE0FB /* consola.ttf */,
 			);
@@ -1001,6 +1004,7 @@
 				E9E1F5941C91F506006AE0FB /* 1-24-08-182.jpg in Resources */,
 				E9E1F5E21C91F506006AE0FB /* data.json in Resources */,
 				E9E1F5C61C91F506006AE0FB /* EternalStation.jpg in Resources */,
+				C8101F4D1C938AB8009956CE /* Pixel_Title.png in Resources */,
 				E9E1F5931C91F506006AE0FB /* LinkHelp.txt in Resources */,
 				E9E1F5CF1C91F506006AE0FB /* Journey+Into+Dark.jpg in Resources */,
 				E9E1F59B1C91F506006AE0FB /* 4-10-08-386.jpg in Resources */,
