@@ -2,13 +2,15 @@
 #define SCROLLBAR_DECO_H
 
 #include "WindowDecorator.h"
-#include "../Game/buttonRenderComponent.h"
-#include "../Game/mousePressButton.h"
-#include "DraggableInput.h"
 #include "Entity.h"
+#include "FreeFunctionObserver.h"
 
 
 namespace ppc {
+
+class DraggableInput;
+class mousePressButton;
+class buttonRenderComponent;
 
 
 class ScrollBarDecorator : public ppc::WindowDecorator {
@@ -84,6 +86,12 @@ private:
 
     void initialize(sf::Image img);
 
+    friend bool onSliderDrag(ScrollBarDecorator*, sf::Event&);
+    friend bool onButtonUp(ScrollBarDecorator*, sf::Event&);
+    friend bool onButtonDown(ScrollBarDecorator*, sf::Event&);
+    friend bool onButtonLeft(ScrollBarDecorator*, sf::Event&);
+    friend bool onButtonRight(ScrollBarDecorator*, sf::Event&);
+
 
   /////////////////////////////////////////////////////////////////////
   // Private Variables
@@ -98,6 +106,8 @@ private:
     DraggableInput* draggableInputs_[2];
     //Array of ScrollBar Backgrounds
     sf::RectangleShape scrollBackgrounds_[2];
+    //Function Observers for ScrollBars
+    FreeFunctionObserver<ScrollBarDecorator> *obsvrs_[6];
     
 
 
@@ -110,6 +120,25 @@ private:
 
 
 };
+
+
+
+bool onSliderDrag(ScrollBarDecorator*, sf::Event&);
+
+bool onButtonUp(ScrollBarDecorator*, sf::Event&);
+
+bool onButtonDown(ScrollBarDecorator*, sf::Event&);
+
+bool onButtonLeft(ScrollBarDecorator*, sf::Event&);
+
+bool onButtonRight(ScrollBarDecorator*, sf::Event&);
+
+
+
+
+
+
+
 
 
 };

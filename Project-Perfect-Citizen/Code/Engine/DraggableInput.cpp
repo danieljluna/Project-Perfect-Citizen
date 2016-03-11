@@ -12,6 +12,7 @@ DraggableInput::DraggableInput(WindowInterface& win) :
     //Set Private Variables
     isDragging_ = false;
     isWindow_ = true;
+    isClamped_ = false;
     win_ = &win;
     startX_ = 0;
     startY_ = 0;
@@ -97,7 +98,10 @@ bool DraggableInput::registerInput(sf::Event& ev) {
                                float(endY_ - startY_));
             
             drag(shift);
-            clamp
+            clamp();
+            
+            onDrag_.sendEvent(ev);
+
 			return true;
         }
     }
@@ -107,6 +111,23 @@ bool DraggableInput::registerInput(sf::Event& ev) {
 
 
 
+
+
+///////////////////////////////////////////////////////////////////////
+// Subject Functionality
+///////////////////////////////////////////////////////////////////////
+
+Subject& DraggableInput::getSubject() {
+    return onDrag_;
+}
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////
+// Private Helpers
+///////////////////////////////////////////////////////////////////////
 
 void DraggableInput::clamp() {
     if (isClamped_) {
@@ -143,7 +164,7 @@ void DraggableInput::drag(const sf::Vector2f& delta) {
         trans_->move(delta);
         bounds_.left += delta.x;
         bounds_.top += delta.y;
-        startX_ += delta.y;
+        startX_ += delta.x;
         startY_ += delta.y;
     }
 }

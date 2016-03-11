@@ -1,4 +1,7 @@
 #include "ScrollBarDeco.h"
+#include "../Game/mousePressButton.h"
+#include "../Game/buttonRenderComponent.h"
+#include "DraggableInput.h"
 
 using namespace ppc;
 
@@ -219,9 +222,9 @@ void ScrollBarDecorator::updateButtons() {
     //Update Inputs
     for (unsigned int i = 0; i < 4; ++i) {
         //ButtonInputs
-        tempBounds.left = buttonRenders_[i]->getEntity()->getPosition().x;
-        tempBounds.top = buttonRenders_[i]->getEntity()->getPosition().y;
-        tempBounds.height = tempBounds.width = barSize_;
+        tempBounds = buttonRenders_[i]->getSprite()->getGlobalBounds();
+        tempBounds.left += WindowDecorator::getPosition().x;
+        tempBounds.top += WindowDecorator::getPosition().y;
         buttonInputs_[i]->setFloatRect(tempBounds);
     }
 }
@@ -241,6 +244,21 @@ void ScrollBarDecorator::updateDraggable() {
         tempBounds.width = scrollBars_[i].getSize().x;
         tempBounds.height = scrollBars_[i].getSize().y;
         draggableInputs_[i]->setBounds(tempBounds);
+
+        tempBounds.left = scrollBackgrounds_[i].getPosition().x;
+        tempBounds.top = scrollBackgrounds_[i].getPosition().y;
+        if (i == 0) {
+            tempBounds.left += 1;
+            tempBounds.width = 0;
+            tempBounds.height = scrollBackgrounds_[i].getSize().y - 
+                                    scrollBars_[i].getSize().y;
+        } else if (i == 1) {
+            tempBounds.top += 1;
+            tempBounds.height = 0;
+            tempBounds.width = scrollBackgrounds_[i].getSize().x - 
+                                    scrollBars_[i].getSize().x;
+        }
+        draggableInputs_[i]->setClampBounds(tempBounds);
     }
 }
 
@@ -273,20 +291,23 @@ void ScrollBarDecorator::updateSliders() {
 
 
 void ScrollBarDecorator::updateView() {
-    sf::Vector2f viewSize = { float(WindowDecorator::getSize().x),
-                              float(WindowDecorator::getSize().x) };
+    sf::View v = WindowDecorator::getView();
 
-    float viewx = scrollBars_[1].getPosition().x + 
-                    scrollBars_[1].getSize().x / 2.0f;
-    viewx /= scrollBackgrounds_[1].getSize().x;
-    viewx *= viewSize.x;
+    float centerX = scrollBars_[1].getPosition().x -
+        scrollBackgrounds_[1].getPosition().x;
+    centerX += scrollBars_[1].getSize().x / 2.0f;
+    centerX *= float(WindowDecorator::getSize().x) / (v.getSize().x - 
+                                                    2.0f * barSize_);
 
-    float viewy = scrollBars_[0].getPosition().y +
-                    scrollBars_[0].getSize().y / 2.0f;
-    viewy /= scrollBackgrounds_[0].getSize().y;
-    viewy *= viewSize.y;
+    float centerY = scrollBars_[0].getPosition().y -
+        scrollBackgrounds_[0].getPosition().y;
+    centerY += scrollBars_[0].getSize().y / 2.0f;
+    centerY *= float(WindowDecorator::getSize().y) / (v.getSize().y - 
+                                                    2.0f * barSize_);
 
-    WindowDecorator::setSize(viewx, viewy);
+    v.setCenter(centerX, centerY);
+
+    WindowDecorator::setView(v);
 }
 
 
@@ -294,31 +315,119 @@ void ScrollBarDecorator::updateView() {
 
 void ScrollBarDecorator::initialize(sf::Image img) {
 
+    //Set up Observers
+    obsvrs_[2] = new FreeFunctionObserver<ScrollBarDecorator>(
+        onButtonUp, this);
+    obsvrs_[3] = new FreeFunctionObserver<ScrollBarDecorator>(
+        onButtonDown, this);
+    obsvrs_[4] = new FreeFunctionObserver<ScrollBarDecorator>(
+        onButtonRight, this);
+    obsvrs_[5] = new FreeFunctionObserver<ScrollBarDecorator>(
+        onButtonLeft, this);
+
+
     for (unsigned int i = 0; i < 4; ++i) {
         if (i < 2) {
+            //Set ScrollBar Color
             scrollBars_[i].setFillColor({ 110, 110, 110 });
+
+            //Set Draggables Up For Bars
             draggableInputs_[i] = new DraggableInput(scrollBars_[i]);
-            //Set up Draggable Input Observers
             draggableInputs_[i]->watch(WindowDecorator::getInputHandler(),
                                        sf::Event::MouseButtonPressed);
             draggableInputs_[i]->watch(WindowDecorator::getInputHandler(),
                                        sf::Event::MouseButtonReleased);
             draggableInputs_[i]->watch(WindowDecorator::getInputHandler(),
                                        sf::Event::MouseMoved);
+
+            //Add Draggables to Window
             WindowDecorator::addInputComponent(draggableInputs_[i]);
+
+            //Add Observer to Draggable
+            obsvrs_[i] = new FreeFunctionObserver<ScrollBarDecorator>(
+                                onSliderDrag, this);
+            draggableInputs_[i]->getSubject().addObserver(obsvrs_[i]);
+
         } else {
+            //Define Background Bar Color
             scrollBackgrounds_[i - 2].setFillColor({ 200, 200, 200 });
         }
+
+        //Define Button Shape / Image
         buttonRenders_[i] = new buttonRenderComponent(img, 2 * i, 4, 1, 1);
-        float buttonScale = barSize_ / buttonRenders_[i]->getSprite()->getTextureRect().width;
+        float buttonScale = buttonRenders_[i]->getSprite()->
+                                getTextureRect().width;
+        buttonScale = barSize_ / buttonScale;
         buttonRenders_[i]->setImageScale(buttonScale, buttonScale);
 
-        buttonInputs_[i] = new mousePressButton(WindowDecorator::getInputHandler(), sf::FloatRect(), "");
+        //Define Button Input
+        buttonInputs_[i] = new mousePressButton(
+                    WindowDecorator::getInputHandler(), 
+                    sf::FloatRect(), 
+                    "");
         buttonInputs_[i]->setInputHandle(WindowDecorator::getInputHandler());
 
+        //Create Entity and Push to Window
         buttonEntities_[i].addComponent(buttonRenders_[i]);
         buttonEntities_[i].addComponent(buttonInputs_[i]);
         WindowDecorator::addInputComponent(buttonInputs_[i]);
-    }
+
+        //Add Observer to Buttons
+        buttonInputs_[i]->onRelease().addObserver(obsvrs_[i]);
+
+    }   //End For Loop
+
+}
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////
+// Other Functions
+///////////////////////////////////////////////////////////////////////
+
+bool ppc::onSliderDrag(ScrollBarDecorator* sb, sf::Event& ev) {
+    sb->updateView();
+
+    return true;
+}
+
+bool ppc::onButtonUp(ScrollBarDecorator* sb, sf::Event& ev) {
+    sf::View v = sb->getView();
+    v.move({ 0.0f, -10.0f });
+    sb->setView(v);
+    sb->updateSliders();
+
+    return true;
+}
+
+bool ppc::onButtonDown(ScrollBarDecorator* sb, sf::Event& ev) {
+    sf::View v = sb->getView();
+    v.move({ 0.0f, 10.0f });
+    sb->setView(v);
+    sb->updateSliders();
+
+    return true;
+}
+
+bool ppc::onButtonLeft(ScrollBarDecorator* sb, sf::Event& ev) {
+    sf::View v = sb->getView();
+    v.move({ -10.0f, 0.0f });
+    sb->setView(v);
+    sb->updateSliders();
+
+    return true;
+}
+
+bool ppc::onButtonRight(ScrollBarDecorator* sb, sf::Event& ev) {
+    sf::View v = sb->getView();
+    v.move({ 10.0f, 0.0f });
+    sb->setView(v);
+    sb->updateSliders();
+
+    return true;
 }
 
