@@ -307,8 +307,8 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
         int windowOffset = 5;
         
         int textMuliplier = 23;
-        int maxWindowScroll = 10284;
-        int maxWindowLines = 700;
+        int maxWindowScroll = 8192;
+        int maxWindowLines = 350;
         int windowScrollHeight = 0;
         ifstream f(path);
         std::string line;
@@ -340,6 +340,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
             float(windowToModify->getSize().x),
             float(windowToModify->getSize().x)
         };
+		cout << windowScrollHeight << endl;
         windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     }
     
