@@ -373,13 +373,13 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 
-	/*sf::FloatRect viewRect = {
+	sf::FloatRect viewRect = {
 		0.0f,
 		0.0f,
 		float(windowToModify->getSize().x),
 		float(windowToModify->getSize().y / 2)
 	};
-	windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));*/
+	windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
 	windowToModify = new BorderDecorator(*windowToModify);
 	windowToModify->setPosition(x, y);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
