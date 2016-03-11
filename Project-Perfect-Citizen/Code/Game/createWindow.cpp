@@ -227,7 +227,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
     Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 	Network* playNet = solNet->copyNetworkByVerts();
-	playNet->setCenter(-1);  //TEST THIS
+	playNet->setCenter(-1);
 
 	std::vector<int> indexVec {0, 1, 2, 3, 4, 5, 6, 7};
 	std::random_shuffle(indexVec.begin(), indexVec.end());
