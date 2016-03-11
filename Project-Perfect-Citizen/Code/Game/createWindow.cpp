@@ -85,7 +85,7 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
     
     sf::Font myFont;
     myFont.loadFromFile(resourcePath() + "consola.ttf");
-    int fontSize = 20;
+    int fontSize = 14;
     int windowOffset = 5;
     
     textInputRenderComponent* textInputBox =
@@ -126,7 +126,7 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
             0.0f,
             0.0f,
             float(windowToModify->getSize().x),
-            float(windowToModify->getSize().y / 2.0f)
+            float(windowToModify->getSize().y / 2)
     };
     windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     windowToModify = new BorderDecorator(*windowToModify);
@@ -266,7 +266,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	Entity submitButton;
 	float buttonScale = 0.25f;
 	int buttonSize = 256;
-	spawnNetworkOkayButton(submitButton, windowToModify->getInputHandler(), buttonSheet, 
+	spawnNetworkOkayButton(playNet,submitButton, windowToModify->getInputHandler(), buttonSheet, 
 		( ( graphBounds->getLocalBounds().width - (buttonSize * buttonScale) ) / 2 ), windowToModify->getSize().y-50, buttonScale);
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
@@ -345,7 +345,9 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	int windowOffset = 5;
 	int emailBoxElementWidth = windowToModify->getSize().x;
 	int emailBoxElementHeight = 50;
+	int emailBoxPadding = 25;
     
+	int totalEmailsLoaded = 0;
 	/////////////////////////////////////////
 	/////// ENTITIES
 	///////////////////////////////////////
@@ -353,15 +355,27 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	for (int i = 0; i < inbox.getInboxSize(); ++i) {
 		Entity emailListElement;
         createEmailListElement(
-			emailListElement, dT, buttonSheet, ih, myFont, inbox.getEmailAt(i), 0, (i * 100),
-			emailBoxElementWidth, emailBoxElementHeight, 0, (i * 100), fontSize);
+			emailListElement, dT, buttonSheet, ih, myFont, inbox.getEmailAt(i), 0, (i * (emailBoxElementHeight+emailBoxPadding)),
+			emailBoxElementWidth, emailBoxElementHeight, 0, (i * (1.5*emailBoxElementHeight)), fontSize);
 		windowToModify->addEntity(emailListElement);
+		++totalEmailsLoaded;
 	}
+
+	int newHeight = (totalEmailsLoaded) * (emailBoxElementHeight + emailBoxPadding);
+	int newWidth = windowToModify->getSize().x;
+	windowToModify->setSize(sf::Vector2u(newWidth, newHeight));
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 
+	/*sf::FloatRect viewRect = {
+		0.0f,
+		0.0f,
+		float(windowToModify->getSize().x),
+		float(windowToModify->getSize().y / 2)
+	};
+	windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));*/
 	windowToModify = new BorderDecorator(*windowToModify);
 	windowToModify->setPosition(x, y);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
@@ -377,7 +391,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
-	int fontSize = 20;
+	int fontSize = 12;
 
 	emailMessageRenderComponent* eMRC = new emailMessageRenderComponent(myFont, mail, 0, 0, fontSize);
 
@@ -437,7 +451,7 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
 
-void ppc::spawnExplorer(WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns,
+void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns,
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y) {
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
@@ -450,7 +464,7 @@ void ppc::spawnExplorer(WindowInterface*& windowToModify, InputHandler& ih, Node
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 14;
 
-	Explorer theExplorer(windowToModify, ns, buttonSheet, iconSheet);
+	Explorer theExplorer(dt, windowToModify, ns, buttonSheet, iconSheet);
 
 	/////////////////////////////////////////
 	/////// ENTITIES

@@ -1,5 +1,5 @@
 #include "../Engine/debug.h"
-#include "explorerFolderInputComponent.h"
+#include "explorerFileInputComponent.h"
 #include <iostream>
 #include <string>
 
@@ -13,8 +13,8 @@ const std::string MOUSE_RELEASED_CODE = "MRC";
 const float DOUBLE_CLICK_TIME = 500.0f;
 
 
-explorerFolderInputComponent::explorerFolderInputComponent(Desktop& dt, WindowInterface* cW, ppc::InputHandler& ih, NodeState& ns, sf::Image& bS, sf::Image& iS, sf::FloatRect rect, std::string dN) :
-	InputComponent(2), theDesktop_(dt), containingWindow_(cW), theFileTree_(ns), buttonSheet_(bS), iconSheet_(iS),buttonRect(rect), directoryName(dN) {
+explorerFileInputComponent::explorerFileInputComponent(Desktop& dt, ppc::InputHandler& ih, NodeState& ns, sf::Image& bS, sf::FloatRect rect, std::string fN) :
+	InputComponent(2), theDesktop_(dt), theFileTree_(ns), buttonSheet_(bS), buttonRect(rect), fileName(fN) {
 
 	//add a new subject that is tied to the event
 	ih.addHandle(sf::Event::MouseButtonPressed);
@@ -23,10 +23,10 @@ explorerFolderInputComponent::explorerFolderInputComponent(Desktop& dt, WindowIn
 	//add an observer to the subject we just added
 	watch(ih, sf::Event::MouseButtonPressed);
 	watch(ih, sf::Event::MouseButtonReleased);
-		
+
 }
 
-void explorerFolderInputComponent::clearObservers()
+void explorerFileInputComponent::clearObservers()
 {
 	for (size_t i = 0; i < observerCount_; ++i) {
 		delete observerArray_[i];
@@ -37,13 +37,13 @@ void explorerFolderInputComponent::clearObservers()
 //void mousePressButton::addFunctionObserver(bool(*fnToAdd)(sf::Event &ev), mousePressButton* mpb, unsigned int placeToInsert)
 
 
-explorerFolderInputComponent::~explorerFolderInputComponent() {
+explorerFileInputComponent::~explorerFileInputComponent() {
 
 	//ignore(inputHandle, sf::Event::MouseButtonPressed);
 	//ignore(inputHandle, sf::Event::MouseButtonReleased);
 }
 
-void explorerFolderInputComponent::setInputHandle(ppc::InputHandler& ih) {
+void explorerFileInputComponent::setInputHandle(ppc::InputHandler& ih) {
 
 	ih.addHandle(sf::Event::MouseButtonPressed);
 	ih.addHandle(sf::Event::MouseButtonReleased);
@@ -53,12 +53,12 @@ void explorerFolderInputComponent::setInputHandle(ppc::InputHandler& ih) {
 
 }
 
-void explorerFolderInputComponent::setFloatRect(sf::FloatRect rect) {
+void explorerFileInputComponent::setFloatRect(sf::FloatRect rect) {
 	buttonRect = rect;
 }
 
 
-bool explorerFolderInputComponent::isCollision(sf::Vector2i mousePos) {
+bool explorerFileInputComponent::isCollision(sf::Vector2i mousePos) {
 	//Gets the position as a Float Vector
 	sf::Vector2f mouseFloatPos(float(mousePos.x), float(mousePos.y));
 
@@ -67,7 +67,7 @@ bool explorerFolderInputComponent::isCollision(sf::Vector2i mousePos) {
 }
 
 
-bool explorerFolderInputComponent::registerInput(sf::Event& ev) {
+bool explorerFileInputComponent::registerInput(sf::Event& ev) {
 	if (getEntity() != nullptr) {
 
 		/* Case: Mouse Pressed Event*/
@@ -85,23 +85,14 @@ bool explorerFolderInputComponent::registerInput(sf::Event& ev) {
 					mouseClock.restart();
 				}
 				else if (mouseTime < DOUBLE_CLICK_TIME) {
-					std::vector<string> cdCommand;
-					string cd = "cd";
-					cdCommand.push_back(cd);
-					cdCommand.push_back(directoryName);
-					commandFn newCD = findFunction(cd);
-					newCD(theFileTree_, cdCommand);
-					ppc::WindowInterface* explorerWindow =
-						new ppc::Window(600, 350, sf::Color(255, 255, 255));
-					spawnExplorer(theDesktop_, explorerWindow, explorerWindow->getInputHandler(), theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
-					theDesktop_.addWindow(explorerWindow);
-                    containingWindow_->close();
+					string fileResourcePath = theFileTree_.getCwd()->findElement(fileName)->getFileData();
+					theFileTree_.getCwd()->findElement(fileName)->readFile(theDesktop_, buttonSheet_, fileResourcePath);
 				}
 			}
 		}
 		/* Case: Mouse Released Event*/
 		else if (ev.type == sf::Event::MouseButtonReleased) {
-			
+
 		}
 	}
 

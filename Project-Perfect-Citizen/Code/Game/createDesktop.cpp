@@ -63,10 +63,6 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	
 	spawnFolderIcon(FolderIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 425.0f, 525.0f, 0.5f, 0.25f, theInbox);
 	
-	
-	
-	
-
 	desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(FolderIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);

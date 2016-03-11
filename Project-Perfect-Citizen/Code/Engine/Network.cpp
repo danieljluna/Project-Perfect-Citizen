@@ -27,8 +27,6 @@ Network::Network(size_t size) {
 }
 
 
-
-
 Network::~Network() {
     delete[] edgeMat_;
     delete[] vertexData_;
@@ -350,5 +348,20 @@ void Network::removeEdge(size_t index) {
     }
 }
 
+
+bool ppc::runSubmitCheck(Network* network, sf::Event& ev) {
+	bool CenterEquality = network->checkCenterEquality(*network); //*network needs to be OTHER network
+	float EdgeEquality = network->checkEdgeEquality(*network);    //for both of these
+
+	if (CenterEquality) cout << "Selected is correct" << endl;
+
+	if (CenterEquality && EdgeEquality >= .5) {
+		cout << "You won! Move to Desktop Extraction" << endl;
+	}
+	else {
+		cout << "Incorrect. Try again." << endl;
+	}
+	return true;
+}
 
 

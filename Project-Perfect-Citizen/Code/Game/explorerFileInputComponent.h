@@ -5,27 +5,23 @@
 #include <iostream>
 
 
-
 ///////////////////////////////////////////////////////////////////////
-/// @brief Designated input component for explorer folders
+/// @brief Designated input component for explorer files
 /// @author Alex Vincent 
-/// @details Functionality: when clicked, finds it's position in the
-/// filetree and calls a new command on the nodestate
+/// @details Functionality: when clicked opens the corresponding file 
 ///////////////////////////////////////////////////////////////////////
 
 namespace ppc {
 
-	class explorerFolderInputComponent : public ppc::InputComponent {
+	class explorerFileInputComponent : public ppc::InputComponent {
 
 	private:
 
-		WindowInterface* containingWindow_;
-		NodeState& theFileTree_;
 		Desktop& theDesktop_;
-		sf::Image& buttonSheet_;
-		sf::Image& iconSheet_;
+		NodeState& theFileTree_;
 		sf::FloatRect buttonRect;
-		std::string directoryName;
+		sf::Image& buttonSheet_;
+		std::string fileName;
 		sf::Clock mouseClock;
 		sf::Int32 mouseTime;
 		bool isCollision(sf::Vector2i);
@@ -36,11 +32,11 @@ namespace ppc {
 
 	public:
 
-		explorerFolderInputComponent() = delete;
+		explorerFileInputComponent() = delete;
 		///////////////////////////////////////////////////////////////////////
 		///@brief Ctor
 		///////////////////////////////////////////////////////////////////////
-		explorerFolderInputComponent(Desktop& dt, WindowInterface* cW, ppc::InputHandler& ih, NodeState& ns, sf::Image& bS, sf::Image& iS, sf::FloatRect rect, std::string directoryName);
+		explorerFileInputComponent(Desktop& dt, ppc::InputHandler& ih, NodeState& ns, sf::Image& bS, sf::FloatRect rect, std::string directoryName);
 
 		///////////////////////////////////////////////////////////////////////
 		///@brief Removes all the current observers in the observerArray_
@@ -48,7 +44,7 @@ namespace ppc {
 		void clearObservers();
 
 		template <class T>
-		friend void setOnPress(explorerFolderInputComponent* mpb,
+		friend void setOnPress(explorerFileInputComponent* mpb,
 			T* objPtr,
 			bool(*onPress)(T*, sf::Event&));
 
@@ -68,7 +64,7 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		void setFloatRect(sf::FloatRect rect);
 
-		virtual ~explorerFolderInputComponent();
+		virtual ~explorerFileInputComponent();
 		virtual bool registerInput(sf::Event& ev) override;
 
 
@@ -79,7 +75,7 @@ namespace ppc {
 	};
 
 	template<class T>
-	inline void setOnPress(explorerFolderInputComponent* eFIC, T * objPtr, bool(*onPress)(T *, sf::Event &)) {
+	inline void setOnPress(explorerFileInputComponent* eFIC, T * objPtr, bool(*onPress)(T *, sf::Event &)) {
 
 		FreeFunctionObserver<T>* fnObsvr = new FreeFunctionObserver<T>(onPress, objPtr);
 
