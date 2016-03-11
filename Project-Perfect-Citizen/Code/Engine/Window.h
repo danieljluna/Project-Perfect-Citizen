@@ -177,6 +177,8 @@ private:
     //Tells us if the Window is closeds
     bool closed_ = false;
 
+    bool mouseInView_ = false;
+
 
 };
 

@@ -108,6 +108,7 @@ bool mousePressButton::registerInput(sf::Event& ev) {
                 /* Send the mouse down message regardless */
                 getEntity()->broadcastMessage(MOUSE_DOWN_CODE);
                 onPress_.sendEvent(ev);
+                wasPressed_ = true;
 
                 /* Handle Double Click Register */
                 mouseTime = mouseClock.getElapsedTime().asMilliseconds();
@@ -152,13 +153,14 @@ bool mousePressButton::registerInput(sf::Event& ev) {
             }
         }
         /* Case: Mouse Released Event*/
-        else if (ev.type == sf::Event::MouseButtonReleased) {
+        else if ((wasPressed_) && (ev.type == sf::Event::MouseButtonReleased)) {
             if (ev.mouseButton.button == sf::Mouse::Left &&
                 isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
 
                 /* Send the mouse release message regardless*/
                 getEntity()->broadcastMessage(MOUSE_RELEASED_CODE);
                 onRelease_.sendEvent(ev);
+                wasPressed_ = false;
 				if (isBeingPressed == "localCloseButton") {
 				}
             }

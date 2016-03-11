@@ -195,7 +195,7 @@ void ScrollBarDecorator::repositionSliders() {
 
     //Set up ScrollBar
     scrollBars_[1].setPosition(scrollBars_[1].getPosition().x, winBottom + 1.0f);
-    float horBarLen = viewRatio.y * scrollBackgrounds_[1].getSize().x;
+    float horBarLen = viewRatio.x * scrollBackgrounds_[1].getSize().x;
     scrollBars_[1].setSize({ horBarLen, barSize_ - 2.0f });
 
     //Set up Buttons

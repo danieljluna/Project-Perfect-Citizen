@@ -240,21 +240,31 @@ void Window::update(sf::Time& deltaTime) {
 
 void Window::registerInput(sf::Event& ev) {
     sf::Vector2f click;
+    sf::FloatRect viewRect;
     sf::View currView = windowSpace_.getView();
+    sf::View defView = windowSpace_.getDefaultView();
 
     switch (ev.type) {
     case sf::Event::MouseButtonPressed:
     case sf::Event::MouseButtonReleased:
         click = {float(ev.mouseButton.x), float(ev.mouseButton.y) };
-        currView.getTransform().transformPoint(click);
-        ev.mouseButton.x = click.x;
-        ev.mouseButton.y = click.y;
+        viewRect.width = currView.getSize().x;
+        viewRect.height = currView.getSize().y;
+        mouseInView_ = viewRect.contains(click);
+        if (mouseInView_) {
+            click -= currView.getCenter();
+            click += defView.getCenter();
+            ev.mouseButton.x = click.x;
+            ev.mouseButton.y = click.y;
+        }
         break;
     case sf::Event::MouseMoved:
-        click = { float(ev.mouseMove.x), float(ev.mouseMove.y) };
-        currView.getTransform().transformPoint(click);
-        ev.mouseMove.x = click.x;
-        ev.mouseMove.y = click.y;
+        if (mouseInView_) {
+            click = { float(ev.mouseMove.x), float(ev.mouseMove.y) };
+            click = currView.getTransform().transformPoint(click);
+            ev.mouseMove.x = click.x;
+            ev.mouseMove.y = click.y;
+        }
         break;
     }
 
