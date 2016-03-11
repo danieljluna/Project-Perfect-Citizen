@@ -23,6 +23,7 @@
 #include "../Engine/NodeState.h"
 #include "databaseSearchInputComponent.h"
 #include "../Engine/TestFunctionClass.h"
+#include "../Engine/Network.h"
 
 
 //typedef bool (databaseSearchInputComponent::*backFn)(sf::Event&);
@@ -64,9 +65,8 @@ void spawnNextButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Ima
 ///////////////////////////////////////////////////////////////////////
 void spawnBlankLargeButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
-
 // * THIS IS TEMPORARY FOR FIRST PLAYABLE *//
-void spawnNetworkOkayButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
+void spawnNetworkOkayButton(ppc::Network* theNetwork_, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a okay button

@@ -270,7 +270,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	Entity submitButton;
 	float buttonScale = 0.25f;
 	int buttonSize = 256;
-	spawnNetworkOkayButton(submitButton, windowToModify->getInputHandler(), buttonSheet, 
+	spawnNetworkOkayButton(playNet,submitButton, windowToModify->getInputHandler(), buttonSheet, 
 		( ( graphBounds->getLocalBounds().width - (buttonSize * buttonScale) ) / 2 ), windowToModify->getSize().y-50, buttonScale);
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
