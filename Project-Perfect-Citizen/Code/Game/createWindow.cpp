@@ -310,8 +310,8 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
         int windowOffset = 5;
         
         int textMuliplier = 23;
-        int maxWindowScroll = 16284;
-        int maxWindowLines = 700;
+        int maxWindowScroll = 8192;
+        int maxWindowLines = 350;
         int windowScrollHeight = 0;
         ifstream f(path);
         std::string line;
