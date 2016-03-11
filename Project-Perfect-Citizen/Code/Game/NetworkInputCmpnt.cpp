@@ -152,7 +152,7 @@ bool ppc::NetworkInputCmpnt::registerInput(sf::Event& ev) {
 	if (ev.type == ev.MouseButtonPressed) {
 		if (ev.mouseButton.button == sf::Mouse::Left) {
 			selectVert(mousePos);
-			selectEdge(mousePos);
+			if(clickedVert_ == false) selectEdge(mousePos);
 		}
 		//If right click
 		else if (ev.mouseButton.button == sf::Mouse::Right) {
@@ -168,7 +168,6 @@ bool ppc::NetworkInputCmpnt::registerInput(sf::Event& ev) {
 					e.setRelation("");
 					network_->setEdge(temp, selectedVert_, e);
 					network_->setEdge(selectedVert_, temp, e);
-					clickedVert_ = false;
 				}
 			}
 		}
