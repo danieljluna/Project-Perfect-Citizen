@@ -297,7 +297,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     if(dotEnd == TXT){
         sf::Font myFont;
         myFont.loadFromFile(resourcePath() + "consola.ttf");
-        int fontSize = 10;
+        int fontSize = 20;
         int windowOffset = 5;
         ifstream t(path);
         stringstream buffer;
