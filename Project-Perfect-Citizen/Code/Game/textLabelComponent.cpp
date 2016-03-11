@@ -21,6 +21,21 @@ textLabelComponent::textLabelComponent(sf::Font& f,sf::Color c,
     
     labelString = str;
 
+	size_t pos = 0;
+
+	for (int i = 0, j = 0; i < labelString.size(); ++i, ++j) {
+		if (labelString.at(i) == '_' && j > 5) {
+			labelString.insert(i, "\n");
+			i++;
+			j = 0;
+		}
+	}
+	/*if (labelString.size() > 10) {
+		while ((pos = labelString.find('_')) != string::npos) {
+			labelString.insert(pos, "\n");
+			cout << "ran" << endl;
+		}
+	}*/
     text->setFont(font);
     text->setPosition(x, y);
     text->setCharacterSize(s);

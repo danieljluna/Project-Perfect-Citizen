@@ -115,7 +115,7 @@ void spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::I
 ///@param The x position of the new window
 ///@param The y position of the new window
 ///////////////////////////////////////////////////////////////////////
-void spawnExplorer(WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns,
+void spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns,
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y);
 
 };

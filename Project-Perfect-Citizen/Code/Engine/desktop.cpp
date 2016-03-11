@@ -102,6 +102,7 @@ void ppc::Desktop::destroyWindow(WindowInterface* wi) {
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 		if (*it == wi) {
 			delete *it;
+			cout << "found and deleted" << endl;
 			windows_.erase(it);
 			focusWindow(desktopWindow_);
 			return;

@@ -84,7 +84,7 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
     
     sf::Font myFont;
     myFont.loadFromFile(resourcePath() + "consola.ttf");
-    int fontSize = 20;
+    int fontSize = 14;
     int windowOffset = 5;
     
     textInputRenderComponent* textInputBox =
@@ -373,7 +373,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
-	int fontSize = 20;
+	int fontSize = 12;
 
 	emailMessageRenderComponent* eMRC = new emailMessageRenderComponent(myFont, mail, 0, 0, fontSize);
 
@@ -433,7 +433,7 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
 
-void ppc::spawnExplorer(WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns,
+void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns,
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y) {
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
@@ -446,7 +446,7 @@ void ppc::spawnExplorer(WindowInterface*& windowToModify, InputHandler& ih, Node
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 14;
 
-	Explorer theExplorer(windowToModify, ns, buttonSheet, iconSheet);
+	Explorer theExplorer(dt, windowToModify, ns, buttonSheet, iconSheet);
 
 	/////////////////////////////////////////
 	/////// ENTITIES

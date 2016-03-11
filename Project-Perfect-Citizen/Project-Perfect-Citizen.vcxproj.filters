@@ -265,6 +265,9 @@
     <ClCompile Include="Code\Game\endAnimationUpdateComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\explorerFileInputComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\component.h">
@@ -559,6 +562,9 @@
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\endingAnimationRender.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\explorerFileInputComponent.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>

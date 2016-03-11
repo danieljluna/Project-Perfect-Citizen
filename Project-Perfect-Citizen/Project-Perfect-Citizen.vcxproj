@@ -75,6 +75,7 @@
     <ClCompile Include="Code\Game\endingAnimationRender.cpp" />
     <ClCompile Include="Code\Game\errorMessageRenderComponent.cpp" />
     <ClCompile Include="Code\Game\Explorer.cpp" />
+    <ClCompile Include="Code\Game\explorerFileInputComponent.cpp" />
     <ClCompile Include="Code\Game\explorerFolderInputComponent.cpp" />
     <ClCompile Include="Code\Game\expressionistParser.cpp" />
     <ClCompile Include="Code\Game\iconInputComponent.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Code\Game\endingAnimationRender.hpp" />
     <ClInclude Include="Code\Game\errorMessageRenderComponent.h" />
     <ClInclude Include="Code\Game\Explorer.h" />
+    <ClInclude Include="Code\Game\explorerFileInputComponent.h" />
     <ClInclude Include="Code\Game\explorerFolderInputComponent.h" />
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
     <ClInclude Include="Code\Game\iconInputComponent.h" />

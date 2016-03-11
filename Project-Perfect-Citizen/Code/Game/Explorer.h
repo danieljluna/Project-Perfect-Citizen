@@ -8,6 +8,7 @@
 #include "../Engine/WindowInterface.h"
 #include "../Game/createIcon.h"
 #include "../Game/explorerFolderInputComponent.h"
+#include "../Game/explorerFileInputComponent.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// @author Alex Vincent
@@ -27,7 +28,7 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		///@brief Default constructor
 		///////////////////////////////////////////////////////////////////////
-		Explorer(WindowInterface*& windowToWorkOn, NodeState& ns, sf::Image& buttonSheet, sf::Image& iconSheet);
+		Explorer(Desktop& dt, WindowInterface* windowToWorkOn, NodeState& ns, sf::Image& buttonSheet, sf::Image& iconSheet);
 
 		///////////////////////////////////////////////////////////////////////
 		///@brief Re-grabs the file state from the tree
@@ -41,7 +42,8 @@ namespace ppc {
 
 		
 	private:
-		WindowInterface*& windowToWorkOn_;
+		Desktop& theDesktop_;
+		WindowInterface* windowToWorkOn_;
 		NodeState& theFileTree_;
 		sf::Image& buttonSheet_;
 		sf::Image& iconSheet_;
