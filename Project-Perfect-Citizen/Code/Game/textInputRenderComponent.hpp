@@ -3,6 +3,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "../Engine/renderComponent.h"
+#include "../Engine/NodeState.h"
 #include <string>
 
 using namespace std;
@@ -14,6 +15,7 @@ using namespace std;
 ///////////////////////////////////////////////////////////////////////
 class textInputRenderComponent : public ppc::RenderComponent{
 private:
+	ppc::NodeState& fileTree_;
     sf::Sprite* sprite;
     sf::Text* text;
     sf::Font font;
@@ -22,9 +24,11 @@ private:
 
 public:
     
-    textInputRenderComponent(sf::Font& f, int x, int y, int size);
+    textInputRenderComponent(ppc::NodeState& fT, sf::Font& f, int x, int y, int size);
     
     ~textInputRenderComponent();
+    
+    sf::Sprite* getSprite() const {return sprite;}
     
     ////////////////////////////////////////////////////////////////////
     /// @brief updateString recieves a string from an input component to

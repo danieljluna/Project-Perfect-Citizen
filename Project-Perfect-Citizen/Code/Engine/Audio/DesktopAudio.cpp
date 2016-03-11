@@ -1,3 +1,4 @@
+#include "../debug.h"
 #include "DesktopAudio.h"
 
 ppc::DesktopAudio::DesktopAudio()

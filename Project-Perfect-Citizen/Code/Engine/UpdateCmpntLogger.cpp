@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "updateCmpntLogger.h"
 
 using namespace ppc;

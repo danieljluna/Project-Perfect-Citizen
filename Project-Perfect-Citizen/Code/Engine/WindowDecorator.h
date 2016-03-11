@@ -44,14 +44,20 @@ public:
 
     // Space Getters
 
-    virtual sf::Vector2u getSize() override;
+    virtual sf::Vector2u getSize() const override;
 
-    virtual sf::FloatRect getBounds() override;
+    virtual sf::FloatRect getBounds() const override;
     
     // Space Setters
 
     virtual void setSize(unsigned int width, unsigned int height) override;
 
+    // View Manipulation
+
+    const sf::View& getView() const override;
+    void setView(const sf::View& view) override;
+    const sf::View& getDefaultView() override;
+    
     // Transformation Setters
 
     virtual void setPosition(float x, float y) override;
@@ -81,7 +87,10 @@ public:
 	virtual void registerInput(sf::Event&) override;
 	virtual void refresh(sf::RenderStates states = sf::RenderStates()) override;
 
-protected:
+    // Close State
+
+    void close() override;
+    bool isOpen() const override;
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Returns a pointer to the WindowInterface that is being
@@ -93,7 +102,11 @@ protected:
     /// @brief Returns a pointer to the outermost Decorator to the
     ///     Window.
     ///////////////////////////////////////////////////////////////////
-    WindowInterface* getUniversalTarget() const {return univHandle_;};
+    WindowInterface* getUniversalTarget() const { return univHandle_; };
+
+
+
+protected:
 
 	virtual void draw(sf::RenderTarget& target,
 		              sf::RenderStates states) const override;
