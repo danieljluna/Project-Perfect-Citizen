@@ -223,14 +223,17 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	//No Overlapping Edges (Think of this positioning as an 8x8 grid
 	//the number after the * is the row/column number)
-	playNet->vert(0).setPosition(50 + 50 * 0, 50 + 50 * 0);
-	playNet->vert(1).setPosition(50 + 50 * 0, 50 + 50 * 7);
-	playNet->vert(2).setPosition(50 + 50 * 2, 50 + 50 * 1);
-	playNet->vert(3).setPosition(50 + 50 * 2, 50 + 50 * 6);
-	playNet->vert(4).setPosition(50 + 50 * 5, 50 + 50 * 1);
-	playNet->vert(5).setPosition(50 + 50 * 5, 50 + 50 * 6);
-	playNet->vert(6).setPosition(50 + 50 * 7, 50 + 50 * 0);
-	playNet->vert(7).setPosition(50 + 50 * 7, 50 + 50 * 7);
+	std::vector<int> indexVec {0, 1, 2, 3, 4, 5, 6, 7};
+	std::random_shuffle(indexVec.begin(), indexVec.end());
+
+	playNet->vert(indexVec[0]).setPosition(50 + 50 * 0, 50 + 50 * 0);
+	playNet->vert(indexVec[1]).setPosition(50 + 50 * 0, 50 + 50 * 7);
+	playNet->vert(indexVec[2]).setPosition(50 + 50 * 2, 50 + 50 * 1);
+	playNet->vert(indexVec[3]).setPosition(50 + 50 * 2, 50 + 50 * 6);
+	playNet->vert(indexVec[4]).setPosition(50 + 50 * 5, 50 + 50 * 1);
+	playNet->vert(indexVec[5]).setPosition(50 + 50 * 5, 50 + 50 * 6);
+	playNet->vert(indexVec[6]).setPosition(50 + 50 * 7, 50 + 50 * 0);
+	playNet->vert(indexVec[7]).setPosition(50 + 50 * 7, 50 + 50 * 7);
 
 	NetworkRenderComponent* networkRender = 
 		new NetworkRenderComponent(*playNet);
