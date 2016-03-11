@@ -244,7 +244,7 @@ namespace ppc {
         //Removes the edge if it exists
         void removeEdge(size_t index);
 
-
+		
 		///////////////////////////////////////////////////////////////
         // Private Variables
 		///////////////////////////////////////////////////////////////
@@ -263,8 +263,10 @@ namespace ppc {
 
     };
 
+	//Submit button functionality
+	bool runSubmitCheck(Network*, sf::Event&);
 
 };      //End namespace mdg
 
-
+		
 #endif  //End NETWORK_H

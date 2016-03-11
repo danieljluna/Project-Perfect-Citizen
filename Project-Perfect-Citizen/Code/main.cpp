@@ -225,6 +225,8 @@ int main(int argc, char** argv) {
 	Debug::scanOpts(argc, argv);
 	DEBUGF("ac", argc);
 
+
+	bool BootToTitleCard = false; 
     // Create the main sf::window
 	sf::Event testEvent;
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
