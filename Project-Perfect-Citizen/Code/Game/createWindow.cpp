@@ -23,6 +23,7 @@
 #include "textInputRenderComponent.hpp"
 #include "textInputKeys.hpp"
 #include "../Engine/BorderDecorator.h"
+#include "../Engine/ScrollBarDeco.h"
 #include "../Game/textOutputRenderComponent.h"
 #include "../Game/databaseSearchRenderComponent.h"
 #include "../Game/databaseSearchInputComponent.h"
@@ -121,8 +122,15 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
     windowToModify->setPosition(x, y);
     windowToModify->addEntity(textBox);
     windowToModify->addEntity(textDisplay);
+    sf::FloatRect viewRect = {
+            0.0f,
+            0.0f,
+            float(windowToModify->getSize().x),
+            float(windowToModify->getSize().y / 2)
+    };
+    windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     windowToModify = new BorderDecorator(*windowToModify);
-    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);    
     
 }
 
@@ -341,7 +349,9 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	int windowOffset = 5;
 	int emailBoxElementWidth = windowToModify->getSize().x;
 	int emailBoxElementHeight = 50;
+	int emailBoxPadding = 25;
     
+	int totalEmailsLoaded = 0;
 	/////////////////////////////////////////
 	/////// ENTITIES
 	///////////////////////////////////////
@@ -349,15 +359,27 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	for (int i = 0; i < inbox.getInboxSize(); ++i) {
 		Entity emailListElement;
         createEmailListElement(
-			emailListElement, dT, buttonSheet, ih, myFont, inbox.getEmailAt(i), 0, (i * 100),
-			emailBoxElementWidth, emailBoxElementHeight, 0, (i * 100), fontSize);
+			emailListElement, dT, buttonSheet, ih, myFont, inbox.getEmailAt(i), 0, (i * (emailBoxElementHeight+emailBoxPadding)),
+			emailBoxElementWidth, emailBoxElementHeight, 0, (i * (1.5*emailBoxElementHeight)), fontSize);
 		windowToModify->addEntity(emailListElement);
+		++totalEmailsLoaded;
 	}
+
+	int newHeight = (totalEmailsLoaded) * (emailBoxElementHeight + emailBoxPadding);
+	int newWidth = windowToModify->getSize().x;
+	windowToModify->setSize(sf::Vector2u(newWidth, newHeight));
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 
+	/*sf::FloatRect viewRect = {
+		0.0f,
+		0.0f,
+		float(windowToModify->getSize().x),
+		float(windowToModify->getSize().y / 2)
+	};
+	windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));*/
 	windowToModify = new BorderDecorator(*windowToModify);
 	windowToModify->setPosition(x, y);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);

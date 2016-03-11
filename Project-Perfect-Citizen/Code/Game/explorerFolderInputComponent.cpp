@@ -92,7 +92,7 @@ bool explorerFolderInputComponent::registerInput(sf::Event& ev) {
 					commandFn newCD = findFunction(cd);
 					newCD(theFileTree_, cdCommand);
 					ppc::WindowInterface* explorerWindow =
-						new ppc::Window(500, 250, sf::Color(255, 255, 255));
+						new ppc::Window(600, 350, sf::Color(255, 255, 255));
 					spawnExplorer(theDesktop_, explorerWindow, explorerWindow->getInputHandler(), theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
 					theDesktop_.addWindow(explorerWindow);
 					theDesktop_.destroyWindow(containingWindow_);

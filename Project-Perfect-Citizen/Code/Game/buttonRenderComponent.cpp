@@ -1,10 +1,10 @@
 #include "../Engine/debug.h"
 #include "buttonRenderComponent.h"
 
-using namespace std;
-const string MOUSE_DOWN_CODE = "MDC";
-const string MOUSE_RELEASED_CODE = "MRC";
-const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
+using namespace ppc;
+const std::string MOUSE_DOWN_CODE = "MDC";
+const std::string MOUSE_RELEASED_CODE = "MRC";
+const std::string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
 
 buttonRenderComponent::buttonRenderComponent( sf::Image& image, 
 	int x, int y, int r, int f) : buttonImage(image) {

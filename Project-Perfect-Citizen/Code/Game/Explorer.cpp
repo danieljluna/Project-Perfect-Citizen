@@ -28,9 +28,12 @@ vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
 
 	int padding = 100;
 	vector<Entity> explorerFrame;
+	int numRows = 1;
 	for (int i = 0, j = 0, k = 0; i < filenames.size(); ++i, ++k) {
+		if (filenames.at(i).compare("CP") == 0) cout << "BOOT TO TITLE SCREEN" << endl;
 		if (k % 5 == 0 && k != 0) {
 			++j;
+			numRows++;
 			k = 0;
 		}
 			Entity example;
@@ -59,6 +62,7 @@ vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
 			explorerFrame.push_back(example);
 
 	}
+	windowToWorkOn_->setSize(sf::Vector2u(windowToWorkOn_->getSize().x, numRows * 100));
 	return explorerFrame;
 }
 
