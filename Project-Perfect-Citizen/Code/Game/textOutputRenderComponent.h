@@ -38,6 +38,11 @@ private:
 	////////////////////////////////////////////////////////////////////
 	ppc::NodeState& fileTree_;
 
+    
+    ppc::Desktop& theDesktop_;
+    
+    sf::Image& buttonSheet_;
+    
 	////////////////////////////////////////////////////////////////////
 	/// @brief The pool of output to be displayed via a string
 	////////////////////////////////////////////////////////////////////
@@ -56,7 +61,7 @@ private:
 
 public:
 
-	textOutputRenderComponent(sf::Font& f, ppc::NodeState& fileTree, 
+    textOutputRenderComponent(ppc::Desktop& dt, sf::Image& bs, sf::Font& f, ppc::NodeState& fileTree,
 		int x, int y, int size);
 
 	~textOutputRenderComponent();

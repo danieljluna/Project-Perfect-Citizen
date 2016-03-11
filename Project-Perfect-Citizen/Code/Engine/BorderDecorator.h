@@ -127,7 +127,7 @@ private:
 
 
 };
-    
+
     bool closeWindow(WindowInterface* winInterface, sf::Event& ev);
 
 };      //End namespace ppc
