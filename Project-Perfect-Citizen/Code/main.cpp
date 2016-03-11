@@ -109,10 +109,8 @@ bool runBootDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& s
         while (screen.pollEvent(event)) {
             // Close window: exit
             if (event.type == sf::Event::KeyPressed) {
-              if (event.key.code == sf::Keyboard::Return){
                 // Boots player to teacher desktop
                 return false;
-              }
             }
             if (event.type == sf::Event::Closed) {
                 screen.close();
@@ -154,14 +152,14 @@ bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
 		//Process sf::events
 		sf::Event event;
 		while (screen.pollEvent(event)) {
-			// Close window: exit
-			//if (event.type == sf::Event::MouseButtonReleased) {
-				// Boots player to teacher desktop
-				//return false;
-			//}
-			if (event.type == sf::Event::Closed) {
-				screen.close();
-			}	
+            if (event.type == sf::Event::Closed) {
+                screen.close();
+            } else if (event.type == sf::Event::KeyPressed) {
+                //Close
+                if ((event.key.code == sf::Keyboard::Tilde) && (event.key.control)) {
+                    return false;
+                }
+            }
 
 			//Input phase
 			myDesktop.registerInput(event);
@@ -198,11 +196,19 @@ bool runTargetDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
 		while (screen.isOpen()) {
 			//Process sf::events
 			sf::Event event;
-			while (screen.pollEvent(event)) {
-				if (event.type == sf::Event::Closed)
-					screen.close();
-				myDesktop.registerInput(event);
-			}
+            while (screen.pollEvent(event)) {
+                if (event.type == sf::Event::Closed) {
+                    screen.close();
+                } else if (event.type == sf::Event::KeyPressed) {
+                    //Close
+                    if ((event.key.code == sf::Keyboard::Tilde) && (event.key.alt)) {
+                        return false;
+                    }
+                }
+
+                //Input phase
+                myDesktop.registerInput(event);
+            }
 
 			sf::Time elapsed = deltaTime.getElapsedTime();
 			while (elapsed > framePeriod) {
@@ -267,9 +273,9 @@ int main(int argc, char** argv) {
 	///////////////////////////////////////////////////////////////////
 
     
-    //while (runBootDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
+    while (runBootDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
 	while (runPlayerDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
-	//while (runTargetDesktop(*&screen, teacherIconSheet, spriteSheet, teacherWallpaper)) {}
+	while (runTargetDesktop(*&screen, teacherIconSheet, spriteSheet, teacherWallpaper)) {}
     
     return EXIT_SUCCESS;
 }

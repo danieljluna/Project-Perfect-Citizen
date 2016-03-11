@@ -155,6 +155,13 @@ void DraggableInput::clamp() {
 
 
 
+void DraggableInput::removeClamp() {
+    isClamped_ = false;
+}
+
+
+
+
 void DraggableInput::drag(const sf::Vector2f& delta) {
     //If we're pointing to a Window:
     if (isWindow_) {
