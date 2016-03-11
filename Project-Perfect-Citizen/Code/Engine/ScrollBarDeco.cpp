@@ -16,7 +16,7 @@ ScrollBarDecorator::ScrollBarDecorator(WindowInterface& win,
 
     //TODO: Find out why this needs to be called twice on init / drag before scroll
     repositionSliders();
-    repositionSliders();
+    move(0, 0);
 }
 
 
@@ -31,7 +31,7 @@ ScrollBarDecorator::ScrollBarDecorator(WindowInterface& win,
     WindowDecorator::setView(view);
 
     repositionSliders();
-    repositionSliders();
+    move(0, 0);
 }
 
 

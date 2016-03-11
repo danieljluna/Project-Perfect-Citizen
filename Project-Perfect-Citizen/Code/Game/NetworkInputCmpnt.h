@@ -50,6 +50,10 @@ namespace ppc {
 
 		void setPipelineData(PipelineDataRenderComponent&);
 
+        void setClampBounds(const sf::FloatRect clampBounds);
+
+        void unBoundDraggables();
+
 		virtual ~NetworkInputCmpnt();
 
 		virtual bool registerInput(sf::Event& ev) override;
