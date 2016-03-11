@@ -47,7 +47,7 @@ over your attendance.",
             Jessica"
         },
 		"Email_4": {
-			"To" : "students_english <students_english@studentportal.com>",
+			"To" : "students <students@studentportal.com>",
 			"From" : "Murphy Goodwin <mgoodwin@corpora.com>",
 			"Subject": "Regarding Your New English Teacher",
 			"Body" : "Dear Students,
@@ -74,9 +74,9 @@ over your attendance.",
     Mr. Goodwin
 
     --
-    Murphy Goodwin  |  PhD Comparative Literature   |
-    |  English Department  |  Frederick Douglas High |
-    |  (415) 886-3712  |  mgoodwin@corpora.com |"
+    Murphy Goodwin  |  PhD Comparative Literature  |
+    |  English Department  |  Frederick Douglas High  |
+    |  (415) 886-3712  |  mgoodwin@corpora.com  |"
 		},
 		"Email_5": {
 			"To" : "Chandler Garvey <cgarvey@fellowship.net>",

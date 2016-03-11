@@ -425,7 +425,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
-	int fontSize = 12;
+	int fontSize = 20;
 
 	emailMessageRenderComponent* eMRC = new emailMessageRenderComponent(myFont, mail, 0, 0, fontSize);
 
@@ -437,6 +437,28 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
+    string content = mail.getContentField();
+    int lineCount = 1;
+    int lineMultiplier = 23;
+    int preLineCount = 6;
+    for (int i = 0; i < content.size(); i++){
+        if (content[i] == '\n') {
+            lineCount++;
+        }
+    }
+    lineCount += preLineCount;
+    lineCount = lineCount*lineMultiplier;
+    
+    windowToModify->setSize(windowToModify->getSize().x, lineCount);
+    if(lineCount > windowToModify->getSize().x){
+        sf::FloatRect viewRect = {
+            0.0f,
+            0.0f,
+            float(windowToModify->getSize().x),
+            float(windowToModify->getSize().x)
+        };
+        windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
+    }
 	windowToModify->addEntity(emailMessageDisplayBox);
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
