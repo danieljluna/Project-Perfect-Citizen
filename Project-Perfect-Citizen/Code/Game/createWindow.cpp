@@ -266,7 +266,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	float buttonScale = 0.25f;
 	int buttonSize = 256;
 	spawnNetworkOkayButton(playNet,submitButton, windowToModify->getInputHandler(), buttonSheet, 
-		( ( graphBounds->getLocalBounds().width - (buttonSize * buttonScale) ) / 2 ), windowToModify->getSize().y-50, buttonScale);
+		( ( graphBounds->getLocalBounds().width - (buttonSize * buttonScale) ) / 2 ), static_cast<float>(windowToModify->getSize().y-50), buttonScale);
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
@@ -385,7 +385,7 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 		Entity emailListElement;
         createEmailListElement(
 			emailListElement, dT, buttonSheet, ih, myFont, inbox.getEmailAt(i), 0, (i * (emailBoxElementHeight+emailBoxPadding)),
-			emailBoxElementWidth, emailBoxElementHeight, 0, (i * (1.5*emailBoxElementHeight)), fontSize);
+			emailBoxElementWidth, emailBoxElementHeight, 0, static_cast<int>((i * (1.5*emailBoxElementHeight))), fontSize);
 		windowToModify->addEntity(emailListElement);
 		++totalEmailsLoaded;
 	}
@@ -436,7 +436,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
     int lineCount = 1;
     int lineMultiplier = 23;
     int preLineCount = 6;
-    for (int i = 0; i < content.size(); i++){
+    for (unsigned int i = 0; i < content.size(); i++){
         if (content[i] == '\n') {
             lineCount++;
         }
@@ -445,7 +445,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
     lineCount = lineCount*lineMultiplier;
     
     windowToModify->setSize(windowToModify->getSize().x, lineCount);
-    if(lineCount > windowToModify->getSize().x){
+    if(static_cast<unsigned int>(lineCount) > windowToModify->getSize().x){
         sf::FloatRect viewRect = {
             0.0f,
             0.0f,
@@ -483,8 +483,8 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	Entity alertIcon;
 	float alertScale = 0.5f;
 	float alertWidth = 128.0;
-	float windowWidth = windowToModify->getSize().x;
-	float windowHeight = windowToModify->getSize().y;
+	float windowWidth = static_cast<float>(windowToModify->getSize().x);
+	float windowHeight = static_cast<float>(windowToModify->getSize().y);
 	float alertX = windowWidth - ((alertWidth * alertScale) + (3 * (windowWidth / 4)));
 	float alertY = (windowHeight - (alertWidth * alertScale)) / 3;
 	spawnAlertIcon(alertIcon, ih, buttonSheet, alertX, alertY, 0.5f);
