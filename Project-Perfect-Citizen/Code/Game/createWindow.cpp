@@ -188,7 +188,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
 
     Entity backButton;
 	//TODO FIX THIS
-	TestFunctionClass* cool = new TestFunctionClass();
+//    TestFunctionClass cool = new TestFunctionClass();
 
     spawnBackButton(dSI, backButton, ih, buttonSheet, 0, 0, 0.2f);
     
