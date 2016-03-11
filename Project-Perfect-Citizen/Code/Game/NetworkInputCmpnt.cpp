@@ -176,7 +176,8 @@ bool ppc::NetworkInputCmpnt::registerInput(sf::Event& ev) {
 
 		if (ev.key.code == sf::Keyboard::S && clickedVert_) {
 			DEBUGF("ni", "HERE");
-			network_->vert(network_->getCenter()).setColor(sf::Color::Yellow);
+			if (network_->getCenter() != -1) 
+				network_->vert(network_->getCenter()).setColor(sf::Color::Yellow);
 			network_->setCenter(selectedVert_);
 			network_->vert(selectedVert_).setColor(sf::Color::Red);
 			return false;

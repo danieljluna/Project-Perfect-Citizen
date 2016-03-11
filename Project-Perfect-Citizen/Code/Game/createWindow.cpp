@@ -227,13 +227,12 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
     Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 	Network* playNet = solNet->copyNetworkByVerts();
-	playNet->setCenter(0);
+	playNet->setCenter(-1);  //TEST THIS
 
-	//No Overlapping Edges (Think of this positioning as an 8x8 grid
-	//the number after the * is the row/column number)
 	std::vector<int> indexVec {0, 1, 2, 3, 4, 5, 6, 7};
 	std::random_shuffle(indexVec.begin(), indexVec.end());
-
+	//No Overlapping Edges (Think of this positioning as an 8x8 grid
+	//the number after the * is the row/column number)
 	playNet->vert(indexVec[0]).setPosition(50 + 50 * 0, 50 + 50 * 0);
 	playNet->vert(indexVec[1]).setPosition(50 + 50 * 0, 50 + 50 * 7);
 	playNet->vert(indexVec[2]).setPosition(50 + 50 * 2, 50 + 50 * 1);
