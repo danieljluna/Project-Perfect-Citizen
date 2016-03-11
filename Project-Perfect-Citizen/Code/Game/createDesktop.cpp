@@ -63,10 +63,6 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	
 	spawnFolderIcon(FolderIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 425.0f, 525.0f, 0.5f, 0.25f, theInbox);
 	
-	
-	
-	
-
 	desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(FolderIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
@@ -106,9 +102,9 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     ppc::WindowInterface* startToolbar =
     new ppc::Window(1000, 60, sf::Color(128, 128, 128));
     startToolbar->setPosition(0, 750);
-    Entity* startButton = new Entity();
-    spawnStartButton(*startButton, startToolbar->getInputHandler(), buttonSheet, 0, 0, 0.4f);
-    startToolbar->addEntity(*startButton);
+    Entity startButton = Entity();
+    spawnStartButton(startButton, startToolbar->getInputHandler(), buttonSheet, 0, 0, 0.4f);
+    startToolbar->addEntity(startButton);
     desktopToModify.addWindow(startToolbar);
     
     ////////////////////////////////

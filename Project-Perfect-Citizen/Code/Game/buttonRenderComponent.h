@@ -5,7 +5,7 @@
 #include "../Engine/renderComponent.h"
 #include <string>
 
-using namespace std;
+namespace ppc {
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Render Component for a generic window 'X' button
@@ -98,4 +98,7 @@ public:
 
 	virtual void recieveMessage(msgType code) override;
 	
+};
+
+
 };

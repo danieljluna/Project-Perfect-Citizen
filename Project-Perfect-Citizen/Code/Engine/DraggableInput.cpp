@@ -12,6 +12,7 @@ DraggableInput::DraggableInput(WindowInterface& win) :
     //Set Private Variables
     isDragging_ = false;
     isWindow_ = true;
+    isClamped_ = false;
     win_ = &win;
     startX_ = 0;
     startY_ = 0;
@@ -25,6 +26,7 @@ DraggableInput::DraggableInput(sf::Transformable& trans) :
     //Set Private Variables
     isDragging_ = false;
     isWindow_ = false;
+    isClamped_ = false;
     trans_ = &trans;
 }
 
@@ -44,6 +46,14 @@ DraggableInput::~DraggableInput() {
 
 void DraggableInput::setBounds(const sf::FloatRect& bounds) {
     bounds_ = bounds;
+}
+
+
+
+
+void DraggableInput::setClampBounds(const sf::FloatRect& clamp) {
+    clamp_ = clamp;
+    isClamped_ = true;
 }
 
 
@@ -86,23 +96,75 @@ bool DraggableInput::registerInput(sf::Event& ev) {
 		
             sf::Vector2f shift(float(endX_ - startX_),
                                float(endY_ - startY_));
-            //If we're pointing to a Window:
-			
-            if (isWindow_) {
-                win_->move(shift);
-                startX_ = endX_ - shift.x;
-                startY_ = endY_ - shift.y;
-            //Else if we're pointing to a Transformable
-            } else {
-				trans_->move(shift);
-				bounds_.left += shift.x;
-				bounds_.top += shift.y;
-				startX_ = endX_;
-				startY_ = endY_;
-            }
+            
+            drag(shift);
+            clamp();
+            
+            onDrag_.sendEvent(ev);
+
 			return true;
         }
     }
 
     return true;
+}
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////
+// Subject Functionality
+///////////////////////////////////////////////////////////////////////
+
+Subject& DraggableInput::onDrag() {
+    return onDrag_;
+}
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////
+// Private Helpers
+///////////////////////////////////////////////////////////////////////
+
+void DraggableInput::clamp() {
+    if (isClamped_) {
+        sf::Vector2f pos;
+        if (isWindow_) {
+            pos = win_->getPosition();
+        } else {
+            pos = trans_->getPosition();
+        }
+
+        if (pos.x < clamp_.left) {
+            drag({ clamp_.left - pos.x, 0.0f });
+        } else if (pos.x > clamp_.left + clamp_.width) {
+            drag({ clamp_.left + clamp_.width - pos.x, 0.0f});
+        }
+
+        if (pos.y < clamp_.top) {
+            drag({ 0.0f, clamp_.top - pos.y });
+        } else if (pos.y > clamp_.top + clamp_.height) {
+            drag({ 0.0f, clamp_.top + clamp_.height - pos.y });
+        }
+    }
+}
+
+
+
+
+void DraggableInput::drag(const sf::Vector2f& delta) {
+    //If we're pointing to a Window:
+    if (isWindow_) {
+        win_->move(delta);
+    //Else if we're pointing to a Transformable
+    } else {
+        trans_->move(delta);
+        bounds_.left += delta.x;
+        bounds_.top += delta.y;
+        startX_ += delta.x;
+        startY_ += delta.y;
+    }
 }

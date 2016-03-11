@@ -6,7 +6,7 @@
 #include "../Engine/updateComponent.h"
 #include "buttonRenderComponent.h"
 
-using namespace std;
+namespace ppc {
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Animator Component for an animated Button Renderer
@@ -46,6 +46,9 @@ public:
     ///        render update by the engine.
     ////////////////////////////////////////////////////////////////////
     void update(sf::Time& deltaTime) override;
+
+};
+
 
 };
 
