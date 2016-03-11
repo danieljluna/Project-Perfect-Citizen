@@ -12,7 +12,14 @@ class DraggableInput;
 class mousePressButton;
 class buttonRenderComponent;
 
-
+///////////////////////////////////////////////////////////////////////
+/// @brief Scroll Bar Decorator for Windows
+/// @details Creates a horizontal and vertical scrollbar for easy 
+///     manipulation of the view for the given Window. The scrollbars
+///     are draggable and have arrow keys for manipulation.
+///
+/// @todo Add mouse wheel input functionality
+///////////////////////////////////////////////////////////////////////
 class ScrollBarDecorator : public ppc::WindowDecorator {
 public:
 
@@ -22,11 +29,33 @@ public:
 
     ScrollBarDecorator() = delete;
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Constructor
+    /// @details Creates a new ScrollBarDecorator wrapping the given
+    ///     window. The view is assumed to be the entire Window.
+    ///
+    /// @param win The given WindowInterface to decorate.
+    /// @param img The Image to get the buttons from. Use layout 
+    ///     matching Windows_UI.png for now.
+    ///////////////////////////////////////////////////////////////////
     ScrollBarDecorator(WindowInterface& win, sf::Image& img);
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Constructor
+    /// @details Creates a new ScrollBarDecorator wrapping the given
+    ///     window. The view is passed in as well.
+    ///
+    /// @param win The given WindowInterface to decorate.
+    /// @param img The Image to get the buttons from. Use layout 
+    ///     matching Windows_UI.png for now.
+    /// @param view The desired inital view for the ScrollBarDecorator.
+    ///////////////////////////////////////////////////////////////////
     ScrollBarDecorator(WindowInterface& win, sf::Image& img, 
                        const sf::View& view);
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Virtual Destructor
+    ///////////////////////////////////////////////////////////////////
     virtual ~ScrollBarDecorator();
 
 
@@ -52,15 +81,38 @@ public:
   // View Manipulation
   /////////////////////////////////////////////////////////////////////
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the width of the bars.
+    /// @details UNTESTED.
+    ///
+    /// @todo IMPLEMENT.
+    ///////////////////////////////////////////////////////////////////
     void setBarSize(float barSize);
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the Sprite to be used by the bars.
+    /// @details UNTESTED.
+    ///
+    /// @todo IMPLEMENT.
+    ///////////////////////////////////////////////////////////////////
     void setBarSprite(const sf::Sprite& barSpr);
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the Sprite to be used by the background of the 
+    ///     bars.
+    /// @details UNTESTED.
+    ///
+    /// @todo IMPLEMENT.
+    ///////////////////////////////////////////////////////////////////
     void setBarBkgrndSprite(const sf::Sprite& bkgrndSpr);
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the Sprite to be used by the buttons.
+    /// @details UNTESTED.
+    ///
+    /// @todo IMPLEMENT.
+    ///////////////////////////////////////////////////////////////////
     void setButtonSprite(const sf::Sprite& buttonSpr);
-
-
 
 
 protected:
@@ -74,14 +126,19 @@ private:
   // Helper Functions
   /////////////////////////////////////////////////////////////////////
 
+    //Repositions the Sliders based on the new position
     void repositionSliders();
 
+    //Updates the button inputs
     void updateButtons();
 
+    //Updates the Draggabe inputs
     void updateDraggable();
     
+    //Updates the Bars based on the View position
     void updateSliders();
 
+    //Updates the View based on the bars position
     void updateView();
 
     void initialize(sf::Image img);
