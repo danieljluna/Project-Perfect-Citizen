@@ -1,12 +1,6 @@
 #ifndef BORDER_DECORATOR_H
 #define BORDER_DECORATOR_H
 
-#ifdef WINDOWS_MARKER
-#define resourcePath() string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
-
 #include "WindowDecorator.h"
 #include "DraggableInput.h"
 #include "../Game/buttonRenderComponent.h"
@@ -54,22 +48,28 @@ public:
   // Button Manipulation
   /////////////////////////////////////////////////////////////////////
 
-    void addButton(sf::Image& buttonImage, std::string buttonFn);
+    void addButton(sf::Image& buttonImage, 
+                   bool (*buttonFn)(WindowInterface*, sf::Event&));
+
+
+    friend bool closeWindow(WindowInterface* winInterface, sf::Event& ev);
 
 
   /////////////////////////////////////////////////////////////////////
   // Decorated Functionality
   /////////////////////////////////////////////////////////////////////
 
-    virtual sf::Vector2u getSize() override;
+    virtual sf::Vector2u getSize() const override;
 
     virtual void setSize(unsigned int x, unsigned int y) override;
+
+    virtual void setView(const sf::View& view) override;
 
     virtual void setPosition(float x, float y) override;
 
     virtual void move(float x, float y) override;
 
-    virtual sf::FloatRect getBounds() override;
+    virtual sf::FloatRect getBounds() const override;
 
 
 protected:
@@ -80,9 +80,14 @@ protected:
 
 private:
 
+    //Updates the bounds
     void updateBounds();
 
+    //Updates the ith Button's position
     void updateButton(size_t i);
+
+    //Updates the borderRect
+    void updateBorder();
 
 
   /////////////////////////////////////////////////////////////////////
@@ -99,9 +104,10 @@ private:
 
     //Stores the rectangle that is used to display the border.
     sf::RectangleShape borderShape_;
-    sf::RectangleShape borderTitle_;
 
-    //Stores the input Component that allows the Window to be dragged 
+    
+    
+    //Stores the input Component that allows the Window to be dragged
     //  via the BorderDecorator.
     DraggableInput draggableInput_;
 
@@ -118,7 +124,8 @@ private:
 
 
 };
-    
+
+    bool closeWindow(WindowInterface* winInterface, sf::Event& ev);
 
 };      //End namespace ppc
 
