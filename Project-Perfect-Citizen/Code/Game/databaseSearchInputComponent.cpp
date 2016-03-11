@@ -100,7 +100,8 @@ void databaseSearchInputComponent::goBack() {
 			else {
 				searchHistory.pop();
 				updateDisplayOutput(searchHistory.top()->getPrintableDatabase());
-                render.applyCharacterValues(searchHistory.top()->getDatabaseState().at(0));
+				if (searchHistory.top()->getDatabaseState().size() > 0) render.applyCharacterValues(searchHistory.top()->getDatabaseState().at(0));
+				else render.setShouldDraw(false);
 				textDisplay.updateString(displayResults_);
 			}
 		}
