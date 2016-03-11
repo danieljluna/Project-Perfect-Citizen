@@ -14,6 +14,8 @@ ScrollBarDecorator::ScrollBarDecorator(WindowInterface& win,
         WindowDecorator(win) {
     initialize(img);
 
+    //TODO: Find out why this needs to be called twice on init / drag before scroll
+    repositionSliders();
     repositionSliders();
 }
 
@@ -28,6 +30,7 @@ ScrollBarDecorator::ScrollBarDecorator(WindowInterface& win,
     initialize(img);
     WindowDecorator::setView(view);
 
+    repositionSliders();
     repositionSliders();
 }
 
@@ -267,12 +270,14 @@ void ScrollBarDecorator::updateDraggable() {
 
 void ScrollBarDecorator::updateSliders() {
     sf::FloatRect currView;
-    sf::FloatRect defaultView = WindowDecorator::getBounds();
+    sf::FloatRect defaultView;
+    defaultView.width = WindowDecorator::getSize().x;
+    defaultView.height = WindowDecorator::getSize().y;
     currView.width = WindowDecorator::getView().getSize().x;
     currView.height = WindowDecorator::getView().getSize().y;
     currView.left = WindowDecorator::getView().getCenter().x - 
                         currView.width / 2.0f;
-    currView.left = WindowDecorator::getView().getCenter().y -
+    currView.top = WindowDecorator::getView().getCenter().y -
                         currView.height / 2.0f;
     sf::Vector2f pos = WindowDecorator::getPosition();
     pos.x += barSize_;
@@ -346,7 +351,7 @@ void ScrollBarDecorator::initialize(sf::Image img) {
             //Add Observer to Draggable
             obsvrs_[i] = new FreeFunctionObserver<ScrollBarDecorator>(
                                 onSliderDrag, this);
-            draggableInputs_[i]->getSubject().addObserver(obsvrs_[i]);
+            draggableInputs_[i]->onDrag().addObserver(obsvrs_[i]);
 
         } else {
             //Define Background Bar Color
