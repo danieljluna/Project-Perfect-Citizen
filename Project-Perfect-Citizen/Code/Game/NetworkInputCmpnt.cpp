@@ -168,7 +168,6 @@ bool ppc::NetworkInputCmpnt::registerInput(sf::Event& ev) {
 					e.setRelation("");
 					network_->setEdge(temp, selectedVert_, e);
 					network_->setEdge(selectedVert_, temp, e);
-					clickedVert_ = false;
 				}
 			}
 		}
