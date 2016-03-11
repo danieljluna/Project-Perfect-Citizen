@@ -310,20 +310,20 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
         myFont.loadFromFile(resourcePath() + "consola.ttf");
         int fontSize = 20;
         int windowOffset = 5;
+        
         int textMuliplier = 23;
         int maxWindowScroll = 16284;
         int maxWindowLines = 700;
-        
+        int windowScrollHeight = 0;
         ifstream f(path);
         std::string line;
-        int windowScrollHeight = 0;
         string content;
         while (std::getline(f, line)){
             if(windowScrollHeight < maxWindowLines){
                 ++windowScrollHeight;
                 content += line + "\n";
             }
-            else{
+            else if(windowScrollHeight > maxWindowLines){
                 break;
             }
         }
@@ -343,7 +343,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
             0.0f,
             0.0f,
             float(windowToModify->getSize().x),
-            float(500.0)
+            float(windowToModify->getSize().x)
         };
         windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     }
