@@ -23,6 +23,7 @@
 #include "textInputRenderComponent.hpp"
 #include "textInputKeys.hpp"
 #include "../Engine/BorderDecorator.h"
+#include "../Engine/ScrollBarDeco.h"
 #include "../Game/textOutputRenderComponent.h"
 #include "../Game/databaseSearchRenderComponent.h"
 #include "../Game/databaseSearchInputComponent.h"
@@ -62,7 +63,7 @@ bool testBackFunction(TestFunctionClass* tfc, sf::Event& ev) {
 }
 
 
-void ppc::spawnConsole(WindowInterface*& windowToModify,
+void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
                        InputHandler & ih, NodeState & ns,
                        sf::Image& buttonSheet, float x, float y) {
     
@@ -84,7 +85,7 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     
     sf::Font myFont;
     myFont.loadFromFile(resourcePath() + "consola.ttf");
-    int fontSize = 20;
+    int fontSize = 14;
     int windowOffset = 5;
     
     textInputRenderComponent* textInputBox =
@@ -92,7 +93,7 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
                                  windowToModify->getSize().y - (fontSize+windowOffset),
                                  fontSize);
     textOutputRenderComponent* textDisplayBox =
-    new textOutputRenderComponent(myFont, ns, 0, 0, fontSize);
+    new textOutputRenderComponent(dt, buttonSheet, myFont, ns, 0, 0, fontSize);
     
     
     
@@ -121,8 +122,15 @@ void ppc::spawnConsole(WindowInterface*& windowToModify,
     windowToModify->setPosition(x, y);
     windowToModify->addEntity(textBox);
     windowToModify->addEntity(textDisplay);
+    sf::FloatRect viewRect = {
+            0.0f,
+            0.0f,
+            float(windowToModify->getSize().x),
+            float(windowToModify->getSize().y / 2)
+    };
+    windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     windowToModify = new BorderDecorator(*windowToModify);
-    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);    
     
 }
 
@@ -219,18 +227,20 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
     Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 	Network* playNet = solNet->copyNetworkByVerts();
-	playNet->setCenter(0);
+	playNet->setCenter(-1);  //TEST THIS
 
+	std::vector<int> indexVec {0, 1, 2, 3, 4, 5, 6, 7};
+	std::random_shuffle(indexVec.begin(), indexVec.end());
 	//No Overlapping Edges (Think of this positioning as an 8x8 grid
 	//the number after the * is the row/column number)
-	playNet->vert(0).setPosition(50 + 50 * 0, 50 + 50 * 0);
-	playNet->vert(1).setPosition(50 + 50 * 0, 50 + 50 * 7);
-	playNet->vert(2).setPosition(50 + 50 * 2, 50 + 50 * 1);
-	playNet->vert(3).setPosition(50 + 50 * 2, 50 + 50 * 6);
-	playNet->vert(4).setPosition(50 + 50 * 5, 50 + 50 * 1);
-	playNet->vert(5).setPosition(50 + 50 * 5, 50 + 50 * 6);
-	playNet->vert(6).setPosition(50 + 50 * 7, 50 + 50 * 0);
-	playNet->vert(7).setPosition(50 + 50 * 7, 50 + 50 * 7);
+	playNet->vert(indexVec[0]).setPosition(50 + 50 * 0, 50 + 50 * 0);
+	playNet->vert(indexVec[1]).setPosition(50 + 50 * 0, 50 + 50 * 7);
+	playNet->vert(indexVec[2]).setPosition(50 + 50 * 2, 50 + 50 * 1);
+	playNet->vert(indexVec[3]).setPosition(50 + 50 * 2, 50 + 50 * 6);
+	playNet->vert(indexVec[4]).setPosition(50 + 50 * 5, 50 + 50 * 1);
+	playNet->vert(indexVec[5]).setPosition(50 + 50 * 5, 50 + 50 * 6);
+	playNet->vert(indexVec[6]).setPosition(50 + 50 * 7, 50 + 50 * 0);
+	playNet->vert(indexVec[7]).setPosition(50 + 50 * 7, 50 + 50 * 7);
 
 	NetworkRenderComponent* networkRender = 
 		new NetworkRenderComponent(*playNet);
@@ -238,10 +248,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 		new NetworkInputCmpnt(*playNet, *solNet, windowToModify->getInputHandler());
 	//Always need to call this setter.
 	networkInput->setPipelineData(*dataText);
-	NetworkUpdateCmpnt* networkUpdate = new NetworkUpdateCmpnt(*playNet);
-	//Always need to call these setters
-	networkUpdate->setBounds(graphBounds->getLocalBounds());
-	networkUpdate->setDrags(networkInput->getDraggables());
+    networkInput->setClampBounds(graphBounds->getLocalBounds());
 	
 	/////////////////////////////////////////
 	/////// ENTITIES 
@@ -254,12 +261,11 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	graphBox.addComponent(graphBounds);
 	graphBox.addComponent(networkRender);
 	graphBox.addComponent(networkInput);
-	graphBox.addComponent(networkUpdate);
 
 	Entity submitButton;
 	float buttonScale = 0.25f;
 	int buttonSize = 256;
-	spawnNetworkOkayButton(submitButton, windowToModify->getInputHandler(), buttonSheet, 
+	spawnNetworkOkayButton(playNet,submitButton, windowToModify->getInputHandler(), buttonSheet, 
 		( ( graphBounds->getLocalBounds().width - (buttonSize * buttonScale) ) / 2 ), windowToModify->getSize().y-50, buttonScale);
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
@@ -297,20 +303,50 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     if(dotEnd == TXT){
         sf::Font myFont;
         myFont.loadFromFile(resourcePath() + "consola.ttf");
-        int fontSize = 10;
+        int fontSize = 20;
         int windowOffset = 5;
-        ifstream t(path);
-        stringstream buffer;
-        buffer << t.rdbuf();
-        string content = buffer.str();
+        
+        int textMuliplier = 23;
+        int maxWindowScroll = 16284;
+        int maxWindowLines = 700;
+        int windowScrollHeight = 0;
+        ifstream f(path);
+        std::string line;
+        string content;
+        while (std::getline(f, line)){
+            if(windowScrollHeight < maxWindowLines){
+                ++windowScrollHeight;
+                content += line + "\n";
+            }
+            else if(windowScrollHeight > maxWindowLines){
+                break;
+            }
+        }
+
+        windowScrollHeight = windowScrollHeight * textMuliplier;
+        if(windowScrollHeight > maxWindowScroll){
+            windowScrollHeight = maxWindowScroll;
+        }
+        
         textRenderComponent* textBox =
             new textRenderComponent(myFont, content, 0, 0, fontSize);
+        
         newEnt.addComponent(textBox);
+        
+        windowToModify->setSize(windowToModify->getSize().x, windowScrollHeight);
+        sf::FloatRect viewRect = {
+            0.0f,
+            0.0f,
+            float(windowToModify->getSize().x),
+            float(windowToModify->getSize().x)
+        };
+        windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     }
     
     else if(dotEnd == PNG || dotEnd == JPG){
         sf::Image photo;
         photo.loadFromFile(path);
+        windowToModify->setSize(photo.getSize().x/2, photo.getSize().y/2);
         photoRenderComponent* photoRender = new photoRenderComponent(photo);
         photoRender->setImageScale((float)windowToModify->getSize().x /
                                (float)photo.getSize().x,
@@ -338,7 +374,9 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	int windowOffset = 5;
 	int emailBoxElementWidth = windowToModify->getSize().x;
 	int emailBoxElementHeight = 50;
+	int emailBoxPadding = 25;
     
+	int totalEmailsLoaded = 0;
 	/////////////////////////////////////////
 	/////// ENTITIES
 	///////////////////////////////////////
@@ -346,15 +384,27 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	for (int i = 0; i < inbox.getInboxSize(); ++i) {
 		Entity emailListElement;
         createEmailListElement(
-			emailListElement, dT, buttonSheet, ih, myFont, inbox.getEmailAt(i), 0, (i * 100),
-			emailBoxElementWidth, emailBoxElementHeight, 0, (i * 100), fontSize);
+			emailListElement, dT, buttonSheet, ih, myFont, inbox.getEmailAt(i), 0, (i * (emailBoxElementHeight+emailBoxPadding)),
+			emailBoxElementWidth, emailBoxElementHeight, 0, (i * (1.5*emailBoxElementHeight)), fontSize);
 		windowToModify->addEntity(emailListElement);
+		++totalEmailsLoaded;
 	}
+
+	int newHeight = (totalEmailsLoaded) * (emailBoxElementHeight + emailBoxPadding);
+	int newWidth = windowToModify->getSize().x;
+	windowToModify->setSize(newWidth, newHeight);
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 
+	/*sf::FloatRect viewRect = {
+		0.0f,
+		0.0f,
+		float(windowToModify->getSize().x),
+		float(windowToModify->getSize().y / 2)
+	};
+	windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));*/
 	windowToModify = new BorderDecorator(*windowToModify);
 	windowToModify->setPosition(x, y);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
@@ -382,6 +432,28 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
+    string content = mail.getContentField();
+    int lineCount = 1;
+    int lineMultiplier = 23;
+    int preLineCount = 6;
+    for (int i = 0; i < content.size(); i++){
+        if (content[i] == '\n') {
+            lineCount++;
+        }
+    }
+    lineCount += preLineCount;
+    lineCount = lineCount*lineMultiplier;
+    
+    windowToModify->setSize(windowToModify->getSize().x, lineCount);
+    if(lineCount > windowToModify->getSize().x){
+        sf::FloatRect viewRect = {
+            0.0f,
+            0.0f,
+            float(windowToModify->getSize().x),
+            float(windowToModify->getSize().x)
+        };
+        windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
+    }
 	windowToModify->addEntity(emailMessageDisplayBox);
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
@@ -430,7 +502,7 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
 
-void ppc::spawnExplorer(WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns,
+void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns,
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y) {
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
@@ -443,7 +515,7 @@ void ppc::spawnExplorer(WindowInterface*& windowToModify, InputHandler& ih, Node
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 14;
 
-	Explorer theExplorer(windowToModify, ns, buttonSheet, iconSheet);
+	Explorer theExplorer(dt, windowToModify, ns, buttonSheet, iconSheet);
 
 	/////////////////////////////////////////
 	/////// ENTITIES

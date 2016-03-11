@@ -1,11 +1,11 @@
 {
 	"Email": {
    		"Email_1": {
-   			"To" : "TODO",
-			"From" : "TODO",
-          	"Subject" : "TODO",
+   			"To" : "Jessica Baaten <JBaaten@studentportal.com>",
+			"From" : "Murphy Goodwin <mgoodwin@corpora.com>",
+          	"Subject" : "<No_Subject>",
           	"Body" :"Hello John,
-            
+    
     I've looked over your essay. It reads well. Just
     a few things need adjustment:
 
@@ -23,23 +23,33 @@
     Mr. Goodwin"
         },
 		"Email_2": { 
-			"To" : "Murphy Goodwin <mgoodwin@corpora.com>",
-			"From" : "<JBaaten@studentportal.com>",
+			"To" : "Jessica Baaten <JBaaten@studentportal.com>",
+			"From" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "Subject": "Let's meet after class today to talk over
 your attendance.",
-			"Body" :"Hello Mr. Goodwin,
+            "Body" :"Hi Jessica,
             
-    I've missed a lot of class this quarter, and I
-    was hoping we could talk so I'd have a chance to
-    explain myself.
-
-    Thanks,
-    Jessica"
+    Let's meet after class today to talk
+    over your attendance."
 		},
-		"Email_3": {
-			"To" : "TODO",
-			"From" : "TODO",
-			"Subject": "TODO",
+        "Email_3": {
+            "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
+            "From" : "Jessica <JBaaten@studentportal.com>",
+            "Subject": "RE: Let's meet after class today to talk 
+over your attendance.",
+            "Body" :"Hello Mr. Goodwin,
+            
+    I've missed a lot of class this 
+    quarter, and I was hoping we could
+    talk so I'd have a chance to explain myself.
+            
+            Thanks,
+            Jessica"
+        },
+		"Email_4": {
+			"To" : "students <students@studentportal.com>",
+			"From" : "Murphy Goodwin <mgoodwin@corpora.com>",
+			"Subject": "Regarding Your New English Teacher",
 			"Body" : "Dear Students,
 
     This is Murphy Goodwin, your new English
@@ -50,8 +60,8 @@ your attendance.",
 
     A few reminders/notifications:
     Summer Reading must be complete before the
-    quarter's start: The reading list is attached
-    below. This class will challenge you: If you
+    quarter's start: The reading list is attached
+    below. This class will challenge you: If you
     need any assistance regarding the readings
     required this quarter, we have plenty of learning
     support resources available. Please email me
@@ -64,13 +74,13 @@ your attendance.",
     Mr. Goodwin
 
     --
-    Murphy Goodwin  |  PhD Comparative Literature   |
-    |  English Department  |  Frederick Douglas High |
-    |  (415) 886-3712  |  mgoodwin@corpora.com |"
+    Murphy Goodwin  |  PhD Comparative Literature  |
+    |  English Department  |  Frederick Douglas High  |
+    |  (415) 886-3712  |  mgoodwin@corpora.com  |"
 		},
-		"Email_4": { 
-			"To" : "cgarvey@fellowship.net",
-			"From" : "TODO",
+		"Email_5": {
+			"To" : "Chandler Garvey <cgarvey@fellowship.net>",
+			"From" : "Murphy Goodwin <mgoodwin@corpora.com>",
 			"Subject": "Struggling",
 			"Body" : "Chandler,
 
@@ -107,9 +117,9 @@ your attendance.",
     Thanks,
     Murphy"
 		},
-		"Email_5": { 
-			"To" : "chandler",
-			"From" : "TODO",
+		"Email_6": {
+			"To" : "Chandler Garvey <cgarvey@fellowship.net>",
+			"From" : "Murphy Goodwin <mgoodwin@corpora.com>",
 			"Subject": "Coming clean",
 			"Body" : "
 				
@@ -131,12 +141,10 @@ your attendance.",
     Thanks,
     Murphy"
 		},
-		"Email_6": { 
-			"To" : "mgoodwin@corpora.com, yada yada, blah blah, 
-more random emails, perhas of people who were in the Pipeline
-Extraction",
-			"From" : "cgarvey@fellowship.net",
-			"Subject": "TODO",
+		"Email_7": {
+			"To" : "Murphy Goodwin <mgoodwin@corpora.com>",
+			"From" : "Chandler Garvey <cgarvey@fellowship.net>",
+			"Subject": "<No_Subject>",
 			"Body" : "Hello All,
 
     I hate to deliver this news.
@@ -153,9 +161,9 @@ Extraction",
 
     C. Garvey"
 		},
-		"Email_7": { 
+		"Email_8": {
 			"To" : "Vanita Goodwin <vgoodwin@colonade.com>",
-			"From" : "TODO",
+			"From" : "Murphy Goodwin <mgoodwin@corpora.com>",
 			"Subject": "Good News Mom! New Pictures of Jessie!",
 			"Body" : " Hi Mom,
 

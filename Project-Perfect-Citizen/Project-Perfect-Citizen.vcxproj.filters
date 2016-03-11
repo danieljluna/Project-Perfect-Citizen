@@ -221,8 +221,6 @@
     <ClCompile Include="Code\Game\NetworkUpdateCmpnt.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\FreeFunctionObserver.cpp" />
-    <ClCompile Include="Code\Engine\TestFunctionClass.cpp" />
     <ClCompile Include="Code\Game\Inbox.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
@@ -241,14 +239,17 @@
     <ClCompile Include="Code\Game\emailMessageRenderComponent.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\ScrollBarDeco.cpp">
+      <Filter>Sources\Engine\Windows / Desktop\Decorators</Filter>
+    </ClCompile>
     <ClCompile Include="Code\Game\emailExtraction.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\errorMessageRenderComponent.cpp">
-      <Filter>Sources\Game</Filter>
+    <ClCompile Include="Code\Engine\FreeFunctionObserver.cpp">
+      <Filter>Sources\Engine\Input</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\Explorer.cpp">
-      <Filter>Sources\Game</Filter>
+    <ClCompile Include="Code\Engine\TestFunctionClass.cpp">
+      <Filter>Sources\Engine\Input</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\bootLoadingAnimationRender.cpp">
       <Filter>Sources\Game</Filter>
@@ -257,6 +258,19 @@
       <Filter>Sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\explorerFolderInputComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\Explorer.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\endAnimationUpdateComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\explorerFileInputComponent.cpp">
+    <ClCompile Include="Code\Game\errorMessageRenderComponent.cpp">
+      <Filter>Sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\endingAnimationRender.cpp">
       <Filter>Sources\Game</Filter>
     </ClCompile>
   </ItemGroup>
@@ -424,25 +438,25 @@
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
-      <Filter>Sources\Engine\Sound</Filter>
+      <Filter>Headers\Engine\Sound</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\Audio\DesktopAudio.h">
-      <Filter>Sources\Engine\Sound</Filter>
+      <Filter>Headers\Engine\Sound</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\Audio\AudioLocator.h">
-      <Filter>Sources\Engine\Sound</Filter>
+      <Filter>Headers\Engine\Sound</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\Audio\NullAudio.h">
-      <Filter>Sources\Engine\Sound</Filter>
+      <Filter>Headers\Engine\Sound</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\Audio\Sounds.h">
-      <Filter>Sources\Engine\Sound</Filter>
+      <Filter>Headers\Engine\Sound</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\textOutputRenderComponent.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\Audio\AudioLogger.h">
-      <Filter>Sources\Engine\Sound</Filter>
+      <Filter>Headers\Engine\Sound</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\PipelineCharacter.h">
       <Filter>Headers\Game</Filter>
@@ -508,11 +522,6 @@
     <ClInclude Include="Code\Game\textLabelComponent.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\ScrollBarDeco.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\FreeFunctionObserver.h" />
-    <ClInclude Include="Code\Engine\TestFunctionClass.h" />
     <ClInclude Include="Code\Game\Inbox.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
@@ -534,16 +543,32 @@
     <ClInclude Include="Code\Game\emailExtraction.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Game\errorMessageRenderComponent.h">
-      <Filter>Headers\Game</Filter>
+    <ClInclude Include="Code\Engine\TestFunctionClass.h">
+      <Filter>Headers\Engine\Input</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Game\Explorer.h">
-      <Filter>Headers\Game</Filter>
+    <ClInclude Include="Code\Engine\FreeFunctionObserver.h">
+      <Filter>Headers\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\ScrollBarDeco.h">
+      <Filter>Headers\Engine\Windows / Desktop\Decorators</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\bootLoadingAnimationRender.hpp">
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\bootLoadingUpdateComponent.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\endAnimationUpdateComponent.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\endingAnimationRender.hpp">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\explorerFileInputComponent.h">
+    <ClInclude Include="Code\Game\errorMessageRenderComponent.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\Explorer.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\explorerFolderInputComponent.h">
@@ -658,9 +683,6 @@
     <Filter Include="Sources\Game">
       <UniqueIdentifier>{8a64dff5-ecb4-44d7-8311-ec366f68d802}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Engine\Sound">
-      <UniqueIdentifier>{5fad2e51-2510-4c24-b96d-6d5ad9dc5b89}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Headers\Engine\Audio">
       <UniqueIdentifier>{d24e0cd5-1bae-453f-a081-d9ac5308b296}</UniqueIdentifier>
     </Filter>
@@ -669,6 +691,9 @@
     </Filter>
     <Filter Include="Sources\Engine\Graph">
       <UniqueIdentifier>{dc8c4a5c-745c-490f-aedc-04221bba055f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Sound">
+      <UniqueIdentifier>{5fad2e51-2510-4c24-b96d-6d5ad9dc5b89}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

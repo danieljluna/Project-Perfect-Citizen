@@ -67,7 +67,7 @@ bool emailListElementInputComponent::registerInput(sf::Event& ev) {
 				}
 				else if (mouseTime < DOUBLE_CLICK_TIME) {
 					ppc::WindowInterface* emailWindow =
-						new ppc::Window(600, 400, sf::Color(200, 200, 200));
+						new ppc::Window(600, 500, sf::Color(200, 200, 200));
 					spawnEmailMessage(emailWindow, emailWindow->getInputHandler(), emailToOpen, buttonSheet, 200, 50);
 					theDesktop.addWindow(emailWindow);
 					getEntity()->broadcastMessage(MOUSE_DOUBLE_CLICK_CODE);

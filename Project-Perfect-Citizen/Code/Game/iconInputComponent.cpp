@@ -31,13 +31,13 @@ void iconInputComponent::recieveMessage(msgType msg) {
 	if (msg.compare(OPEN_THE_CONSOLE) == 0) {
 		WindowInterface* consoleWindow = 
 			new Window(600, 500, sf::Color(51, 50, 161));
-		spawnConsole(consoleWindow, consoleWindow->getInputHandler(), 
+		spawnConsole(theDesktop_, consoleWindow, consoleWindow->getInputHandler(),
 			theDesktop_.getNodeState(), buttonSheet_, 200, 200);
 		theDesktop_.addWindow(consoleWindow);
 	}
 	else if (msg.compare(OPEN_THE_FILE) == 0) {
         ppc::WindowInterface* FileWindow =
-            new ppc::Window(400, 400, sf::Color(255, 255, 255));
+            new ppc::Window(500, 500, sf::Color(255, 255, 255));
         spawnFile(FileWindow, FileWindow->getInputHandler(),
             theDesktop_.getNodeState(), buttonSheet_, 100, 200, "DesktopContent/Desktop1/3-29-12-184.jpg");
         theDesktop_.addWindow(FileWindow);
@@ -80,8 +80,8 @@ void iconInputComponent::recieveMessage(msgType msg) {
 	}
 	else if (msg.compare(OPEN_THE_EXPLORER) == 0) {
 		ppc::WindowInterface* explorerWindow =
-			new ppc::Window(500, 250, sf::Color(255, 255, 255));
-		spawnExplorer(explorerWindow, explorerWindow->getInputHandler(), theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
+			new ppc::Window(600, 350, sf::Color(255, 255, 255));
+		spawnExplorer(theDesktop_, explorerWindow, explorerWindow->getInputHandler(), theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
 		theDesktop_.addWindow(explorerWindow);
 	}
 	else if (msg.compare(OPEN_THE_EMAIL) == 0) {

@@ -1,54 +1,63 @@
+//
+//  endAnimationUpdateComponent.hpp
+//  Project-Perfect-Citizen
+//
+//  Created by Michael Lowe on 3/10/16.
+//  Copyright © 2016 Hyperfocus Games. All rights reserved.
+//
 
-#pragma once
+#ifndef endAnimationUpdateComponent_hpp
+#define endAnimationUpdateComponent_hpp
+
+#include <stdio.h>
+
 
 #include <SFML/Graphics.hpp>
-
-#include "../Engine/updateComponent.h"
+#include "endingAnimationRender.hpp"
 #include "buttonRenderComponent.h"
+#include "../Engine/updateComponent.h"
 
-namespace ppc {
+
+
+using namespace ppc;
 
 ///////////////////////////////////////////////////////////////////////
-/// @brief Designated Animator Component for an animated Button Renderer
+/// @brief Designated Animator Update Component for Boot Loading Screen
 /// @author Michael Lowe
 /// @details The Animator Component updates the frame for
-///          Button Render Components that have more than two states
+///          Boot Loading Animation Render
 ///////////////////////////////////////////////////////////////////////
-
-class animatorComponent : public ppc::UpdateComponent {
+class endAnimationUpdateComponent: public ppc::UpdateComponent{
     
 private:
-    buttonRenderComponent *render;
+    endingAnimationRender *render;
     float speed;
     sf::Time counter;
     sf::Time framePeriod;
 public:
     ////////////////////////////////////////////////////////////////////
-    /// @brief Constructor for animatorComponent
+    /// @brief Constructor for bootLoadingUpdateComponent
     ////////////////////////////////////////////////////////////////////
-    animatorComponent();
+    endAnimationUpdateComponent(endingAnimationRender& r, float s);
+    
     
     ////////////////////////////////////////////////////////////////////
-    /// @brief Constructor for animatorComponent
-    /// @param r is the render component we wish to animate
-    /// @param s is the speed of the animate as a function of frame rate
+    /// @brief Destructor for bootLoadingUpdateComponent
     ////////////////////////////////////////////////////////////////////
-    animatorComponent(buttonRenderComponent& r, float s);
+    ~endAnimationUpdateComponent();
+    
+    
     
     ////////////////////////////////////////////////////////////////////
-    /// @brief Destructor for animatorComponent
-    ////////////////////////////////////////////////////////////////////
-    ~animatorComponent();
-    
-    ////////////////////////////////////////////////////////////////////
-    /// @brief update method for animatorComponent
+    /// @brief update method for bootLoadingUpdateComponent
     /// @param deltaTime is the time that has passed since the last
     ///        render update by the engine.
     ////////////////////////////////////////////////////////////////////
     void update(sf::Time& deltaTime) override;
-
+    
 };
 
 
-};
 
+
+#endif /* endAnimationUpdateComponent_hpp */

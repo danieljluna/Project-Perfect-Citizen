@@ -63,10 +63,6 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	
 	spawnFolderIcon(FolderIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 425.0f, 525.0f, 0.5f, 0.25f, theInbox);
 	
-	
-	
-	
-
 	desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(FolderIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
@@ -106,9 +102,9 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     ppc::WindowInterface* startToolbar =
     new ppc::Window(1000, 60, sf::Color(128, 128, 128));
     startToolbar->setPosition(0, 750);
-    Entity* startButton = new Entity();
-    spawnStartButton(*startButton, startToolbar->getInputHandler(), buttonSheet, 0, 0, 0.4f);
-    startToolbar->addEntity(*startButton);
+    Entity startButton = Entity();
+    spawnStartButton(startButton, startToolbar->getInputHandler(), buttonSheet, 0, 0, 0.4f);
+    startToolbar->addEntity(startButton);
     desktopToModify.addWindow(startToolbar);
     
     ////////////////////////////////
@@ -119,43 +115,19 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     Entity HardDriveIcon;
     Entity SettingsIcon;
     Entity ConsoleIcon;
-    Entity APEnglishIcon;
-    Entity ArtGalleryIcon;
-	Entity FilmIcon;
-    Entity LitIcon;
-    Entity PhotosIcon;
     Entity EmailIcon;
     
     spawnBrowserIcon(BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 425.0f, 25.0f, 0.4f, 0.25f, theInbox);
-
 	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 125.0f, 175.0f, 0.4f, 0.25f, theInbox);
-	spawnFolderIcon(APEnglishIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 750.0f, 55.0f, 0.4f, 0.25f, theInbox);
-	spawnFolderIcon(ArtGalleryIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 325.0f, 100.0f, 0.4f, 0.25f, theInbox);
-	
-	spawnFolderIcon(FilmIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 125.0f, 450.0f, 0.4f, 0.25f, theInbox);
-	spawnFolderIcon(LitIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 425.0f, 450.0f, 0.4f, 0.25f, theInbox);
 	spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 525.0f, 200.0f, 0.5f, 0.25f, theInbox);
-
     spawnChatIcon(ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 300.0f, 0.4f, 0.25f, theInbox);
-	spawnFolderIcon(PhotosIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 625.0f, 325.0f, 0.4f, 0.25f, theInbox);
     spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 725.0f, 450.0f, 0.5f, 0.25f, theInbox);
-    
-    
-    
-    
-   
-   
     
     desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
-    desktopWindowToModify.addEntity(APEnglishIcon);
-    desktopWindowToModify.addEntity(ArtGalleryIcon);
-    desktopWindowToModify.addEntity(FilmIcon);
-    desktopWindowToModify.addEntity(LitIcon);
-    desktopWindowToModify.addEntity(PhotosIcon);
     desktopWindowToModify.addEntity(EmailIcon);
     
 }
