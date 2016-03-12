@@ -55,6 +55,48 @@
     achieving the Perfect Citizen.
             
     JP"
-		}
-   	}
+		},
+        "Email_4": {
+			"To" : "PLAYER_NAME",
+			"From" : "DCPS automated system",
+			"Subject": "Graph App Instructions",
+			"Body" : 
+    "
+    Node Selection: Left Click on a node, 
+    node will be highlighted. (Edges will 
+    be deselected)
+    
+    Edge Selection: Left click on an edge 
+    (Nodes will be deselected)
+            
+    Node Position: Click and drag a node
+    to reposition it.  Edges are updated
+    automatically.  Node position is to help
+    you work towards a solution, and does not
+    affect correctness.
+            
+    Change Color of Selected Edge: 
+    Z - Black, X - Red,
+    C - Green, Space - Cycle Color.
+    
+    Edge Color Significance:
+    Black - Unknown, Red - Suspicious,
+    Green - Clean.
+            
+    Create an Edge: Select a node, then right
+    click the node you want to connect it to.
+    
+    Delete an Edge: Select the edge, press DEL
+    
+    Mark Center of Graph - S
+    
+    Submit for Approval - Okay Button
+    
+    For this first trial you will simply be 
+    searching for the person with the highest 
+    total number of connections.  You must 
+    still fill out the rest of the network 
+    with high accuracy to receive approval."
+        }
+    }
 }
