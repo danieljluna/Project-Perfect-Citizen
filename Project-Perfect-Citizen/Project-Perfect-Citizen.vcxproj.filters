@@ -90,6 +90,8 @@
     <ClCompile Include="Code\Game\WindowBkgndRenderCmpnt.cpp" />
     <ClCompile Include="Code\Library\jsoncpp.cpp" />
     <ClCompile Include="Code\main.cpp" />
+    <ClCompile Include="Code\Game\NetworkCheckFunctor.cpp" />
+    <ClCompile Include="Code\Game\Quitter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h" />
@@ -189,6 +191,8 @@
     <ClInclude Include="Code\Library\json\json-forwards.h" />
     <ClInclude Include="Code\Library\json\json.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Code\Game\NetworkCheckFunctor.h" />
+    <ClInclude Include="Code\Game\Quitter.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Project-Perfect-Citizen.rc" />

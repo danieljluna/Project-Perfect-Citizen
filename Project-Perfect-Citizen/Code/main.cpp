@@ -57,6 +57,7 @@
 #include "Game/bootLoadingAnimationRender.hpp"
 #include "Game/endAnimationUpdateComponent.hpp"
 #include "Game/endingAnimationRender.hpp"
+#include "Game/Quitter.h"
 
 
 using namespace ppc;
@@ -209,6 +210,9 @@ bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
 	sf::Clock deltaTime; 
 	sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
 	while (screen.isOpen()) {
+        if (quitter) {
+            return false;
+        }
 		//Process sf::events
 		sf::Event event;
 		while (screen.pollEvent(event)) {
@@ -216,7 +220,7 @@ bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
                 screen.close();
             } else if (event.type == sf::Event::KeyPressed) {
                 //Close
-                if ((event.key.code == sf::Keyboard::Tilde) && (event.key.control)) {
+                if ((event.key.code == sf::Keyboard::Period) && (event.key.control)) {
                     return false;
                 }
             }
@@ -254,6 +258,9 @@ bool runTargetDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
 		sf::Clock deltaTime; 
 		sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
 		while (screen.isOpen()) {
+            if (quitter) {
+                return false;
+            }
 			//Process sf::events
 			sf::Event event;
             while (screen.pollEvent(event)) {
@@ -261,7 +268,7 @@ bool runTargetDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
                     screen.close();
                 } else if (event.type == sf::Event::KeyPressed) {
                     //Close
-                    if ((event.key.code == sf::Keyboard::Tilde) && (event.key.alt)) {
+                    if ((event.key.code == sf::Keyboard::Period) && (event.key.alt)) {
                         return false;
                     }
                 }
@@ -335,7 +342,9 @@ int main(int argc, char** argv) {
 	///////////////////////////////////////////////////////////////////
 
     while (runBootDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
+    quitter = false;
 	while (runPlayerDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
+    quitter = false;
 	while (runTargetDesktop(*&screen, teacherIconSheet, spriteSheet, teacherWallpaper)) {}
     while (runEndDesktop(*&screen, iconSheet, pixelSheet, playerWallpaper)) {}
     
