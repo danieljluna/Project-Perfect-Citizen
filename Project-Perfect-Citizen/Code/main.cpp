@@ -52,6 +52,7 @@
 #include "Engine/TestFunctionClass.h"
 #include "Engine/FreeFunctionObserver.h"
 #include "Game/interpolateUpdateComponent.hpp"
+#include "Engine/FreeFunctionObserver.h"
 
 #include "Game/bootLoadingUpdateComponent.hpp"
 #include "Game/bootLoadingAnimationRender.hpp"
@@ -133,6 +134,12 @@ bool runBootDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& s
     
 }
 
+//struct A {
+	//bool b;
+//};
+
+//bool(*triggerEnd)(BaseFileType& obj, sf::Event& ev);
+
 
 
 bool runEndDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
@@ -206,6 +213,8 @@ bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
 	myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
 	createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
 
+	//FreeFunctionObserver <A>(&BaseFileType, triggerEnd);
+	//myDesktop.getNodeState().getDirString()
 	// Go into main game loop
 	sf::Clock deltaTime; 
 	sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
@@ -214,6 +223,7 @@ bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
             return false;
         }
 		//Process sf::events
+		//cout << "from main: " << myDesktop.getNodeState().getDirString() << endl;
 		sf::Event event;
 		while (screen.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
@@ -252,6 +262,7 @@ bool runTargetDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
 
 		Desktop myDesktop(*desktopWindow, testState);
 		myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
+
 		createTeacherDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
 
 		// Go into main game loop
@@ -340,6 +351,7 @@ int main(int argc, char** argv) {
 	sf::Image teacherIconSheet;
 	teacherIconSheet.loadFromFile(resourcePath() + "Teacher_Icon_Sheet.png");
 	///////////////////////////////////////////////////////////////////
+
 
     while (runBootDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
     quitter = false;
