@@ -33,10 +33,10 @@ std::vector<std::string> Database::getPrintableDatabase(){
 	std::string temp = "";
 	for (auto iter = this->databaseState_.begin(); iter != this->databaseState_.end(); ++iter) {
 		temp.append("Result: ");
-		temp.append(std::to_string(iter->getIQ()) + " ");
-		temp.append(std::to_string(iter->getAge()) + " ");
-		temp.append(std::to_string(iter->getCreditScore()) + " ");
+		//temp.append(std::to_string(iter->getIQ()) + " ");		
 		temp.append(iter->getSSN() + " ");
+		temp.append("AGE: " + std::to_string(iter->getAge()) + " ");
+		temp.append("CS: " + std::to_string(iter->getCreditScore()) + " ");
 		temp.append(iter->getEmail() + " ");
 		temp.append(iter->getPhoneNum() + " ");
 		temp.append(iter->getJob());

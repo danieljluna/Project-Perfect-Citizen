@@ -218,6 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json" />
+    <None Include="Resources\PlayerEmail.json" />
     <None Include="Resources\smsPipeline.json" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

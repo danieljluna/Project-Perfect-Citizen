@@ -9,7 +9,7 @@
  				"The_Scarlet_Letter.txt": "DesktopContent/Desktop1/The_Scarlet_Letter.txt"
             },
             "Syllabus": {
-                "TODO": "CONTENT"
+                "ap_english_composition_syllabus.txt": "DesktopContent/Desktop1/ap_english_composition_syllabus.txt"
             }
         },
         "Art_Gallery": {
@@ -78,15 +78,12 @@
             }
         },
         "Film": {
-            "'Girl_Hunt_Ballet'_—_Fred_Astaire_and_Cyd_Charisse,_1953.mp4": "",
+            "Girl_Hunt_Ballet_—_Fred_Astaire_and_Cyd_Charisse,_1953.mp4": "",
 	 		"Charles_Bukowski_(dinosauria,_we).mp4": "",
 	 		"Gasman_(1998)_Short_Film.mp4": "",
 	 		"Lynne_Ramsay_-_Swimmer.mp4": "",
 	 		"Maya_Deren_&_Alexander_Hamid_-_Meshes_of_the_afternoon.mp4": "",
 	 		"MOON-Un_Chien_Andalou.mp4": ""
-        },
-        "Internet_Browser": {
-            "TODO": "CONTENT"
         },
         "Lit": {
             "As_I_Lay_Dying_-_Faulkner.txt": "DesktopContent/Desktop1/As I Lay Dying - Faulkner.txt",
@@ -102,27 +99,27 @@
         "Photos": {
             "Family": {
                 "Jessica's_Baptism": {
-                    "TODO": "CONTENT"
+                    "TODO": ""
                 },
                 "Jessica's_First_Steps": {
-                    "TODO": "CONTENT"
+                    "TODO": ""
                 },
                 "Summer_Vacation": {
-                    "TODO": "CONTENT"
+                    "TODO": ""
                 },
                 "Wedding_Memorries!": {
-                    "TODO": "CONTENT"
+                    "TODO": ""
                 }
             },
             "Friends": {
                 "Chandler's_Road_Trip": {
-                    "TODO": "CONTENT"
+                    "TODO": ""
                 },
                 "Greg's_Wedding": {
-                    "TODO": "CONTENT"
+                    "TODO": ""
                 },
                 "Nights_Out": {
-                    "TODO": "CONTENT"
+                    "TODO": ""
                 },
                 "Robert's_Party": {
                     "Other": {
@@ -132,7 +129,7 @@
                                     "Don't_Do_This": {
                                         "Shame": {
                                             "CP": {
-                                                "TODO": "CONTENT"
+                                                "TODO": ""
                                             }
                                         }
                                     }
@@ -141,15 +138,15 @@
                         }
                     },
                     "Party_Pics": {
-                        "TODO": "CONTENT"
+                        "TODO": ""
                     }
                 },
                 "Soccer_Day": {
-                    "TODO": "CONTENT"
+                    "TODO": ""
                 }
             },
             "School": {
-                "TODO": "CONTENT"
+                "TODO": ""
             }
         },
         "Bluebird_by_Charles_Bukowski.txt": "DesktopContent/Desktop1/Bluebird by Charles Bukowski.txt",

@@ -204,6 +204,7 @@
   <ItemGroup>
     <None Include="Resources\data.json" />
     <None Include="Resources\smsPipeline.json" />
+    <None Include="Resources\PlayerEmail.json" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />

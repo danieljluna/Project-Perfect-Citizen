@@ -189,7 +189,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
 
     Entity backButton;
 	//TODO FIX THIS
-	TestFunctionClass* cool = new TestFunctionClass();
+//    TestFunctionClass cool = new TestFunctionClass();
 
     spawnBackButton(dSI, backButton, ih, buttonSheet, 0, 0, 0.2f);
     
@@ -228,6 +228,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
     Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 	Network* playNet = solNet->copyNetworkByVerts();
+
     NetworkCheckFunctor *ncf = new NetworkCheckFunctor(*solNet, *playNet);
 	playNet->setCenter(-1);  //TEST THIS
 
@@ -312,8 +313,8 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
         int windowOffset = 5;
         
         int textMuliplier = 23;
-        int maxWindowScroll = 16284;
-        int maxWindowLines = 700;
+        int maxWindowScroll = 8192;
+        int maxWindowLines = 350;
         int windowScrollHeight = 0;
         ifstream f(path);
         std::string line;
