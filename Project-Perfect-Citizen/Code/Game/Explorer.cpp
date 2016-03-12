@@ -1,5 +1,6 @@
 #include "Explorer.h"
 #include "../Engine/WindowInterface.h"
+#include "Quitter.h"
 
 #ifdef WINDOWS_MARKER
 #define resourcePath() string("Resources/")
@@ -44,7 +45,7 @@ vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
 		//}
 
 	for (unsigned int i = 0, j = 0, k = 0; i < filenames.size(); ++i, ++k) {
-		if (filenames.at(i).compare("CP") == 0) cout << "BOOT TO TITLE SCREEN" << endl;
+        if (filenames.at(i).compare("CP") == 0) { quitSection(); }
 		if (k % 5 == 0 && k != 0) {
 			++j;
 			numRows++;
