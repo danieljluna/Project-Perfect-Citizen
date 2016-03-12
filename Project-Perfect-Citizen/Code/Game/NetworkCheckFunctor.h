@@ -30,11 +30,7 @@ private:
 };
 
 
-bool runSubmitCheck(NetworkCheckFunctor* ncf, sf::Event& ev) {
-    (*ncf)();
-
-    return true;
-}
+bool runSubmitCheck(NetworkCheckFunctor* ncf, sf::Event& ev);
 
 
 };

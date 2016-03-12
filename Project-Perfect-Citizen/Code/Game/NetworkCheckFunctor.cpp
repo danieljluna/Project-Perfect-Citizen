@@ -19,3 +19,13 @@ bool NetworkCheckFunctor::operator()() {
 
     return false;
 }
+
+
+
+
+bool ppc::runSubmitCheck(NetworkCheckFunctor* ncf, sf::Event& ev) {
+    (*ncf)();
+
+    return true;
+}
+
