@@ -164,7 +164,7 @@ bool ppc::NetworkInputCmpnt::registerInput(sf::Event& ev) {
 				{
 					Edge e;
 					e.setWeight(0);
-					e.setColorRed();
+					e.setColorBlack();
 					e.setRelation("");
 					network_->setEdge(temp, selectedVert_, e);
 					network_->setEdge(selectedVert_, temp, e);
