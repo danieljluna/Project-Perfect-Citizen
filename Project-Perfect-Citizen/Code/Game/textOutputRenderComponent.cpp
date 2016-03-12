@@ -1,6 +1,7 @@
 
 #include "textOutputRenderComponent.h"
 #include "createWindow.h"
+#include "Quitter.h"
 
 const string TEXT_KEY_INPUT = "TKI";
 
@@ -43,7 +44,8 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		firstLsCommand.push_back(ls);
 		commandFn firstLs = findFunction(ls);
 		firstLs(fileTree_, firstLsCommand);
-		
+
+	
 		cout << fileTree_.getDirString() << endl;
 		str_ = str_ + fileTree_.getDirString() + "\n";
 		int numLines = std::count(str_.begin(), str_.end(), '@');
@@ -75,6 +77,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		if (cmd.size() < 2) {
 			str_ = str_ + "Error: 'cd' requires one parameter\n";
 		}
+		if (cmd.at(1).compare("CP") == 0) { quitSection(); }
 		else {
 			std::vector<string> cdCommand;
 			string cd = "cd";
