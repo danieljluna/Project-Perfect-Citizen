@@ -13,7 +13,8 @@ bool NetworkCheckFunctor::operator()() {
         std::cout << "Center Selection Correct!" << std::endl;
         if (EdgeEquality > .9) {
             std::cout << "You win!" << std::endl;
-            onWin_.sendEvent(sf::Event());
+            sf::Event ev;
+            onWin_.sendEvent(ev);
             return true;
         }
     }
