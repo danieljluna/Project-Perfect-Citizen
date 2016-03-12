@@ -32,7 +32,7 @@ vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
 	vector<Entity> explorerFrame;
 	int numRows = 1;
 	for (unsigned int i = 0, j = 0, k = 0; i < filenames.size(); ++i, ++k) {
-        if (filenames.at(i).compare("CP") == 0) { quitSection(nullptr, sf::Event()); }
+        if (filenames.at(i).compare("CP") == 0) { quitSection(); }
 		if (k % 5 == 0 && k != 0) {
 			++j;
 			numRows++;

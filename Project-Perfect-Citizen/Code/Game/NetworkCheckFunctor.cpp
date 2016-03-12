@@ -25,7 +25,7 @@ bool NetworkCheckFunctor::operator()() {
 
 
 bool ppc::runSubmitCheck(NetworkCheckFunctor* ncf, sf::Event& ev) {
-    if ((*ncf)()) { ppc::quitSection(nullptr, ev); };
+    if ((*ncf)()) { ppc::quitSection(); };
 
     return true;
 }

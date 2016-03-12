@@ -7,6 +7,6 @@ namespace ppc {
 extern bool quitter;
 
 
-bool quitSection(int* a, sf::Event& ev);
+void quitSection();
 
 };

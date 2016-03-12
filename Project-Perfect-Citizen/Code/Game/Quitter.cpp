@@ -7,8 +7,7 @@ bool ppc::quitter = false;
 
 
 
-bool ppc::quitSection(int* a, sf::Event& ev) {
+void ppc::quitSection() {
     quitter = true;
-    return true;
 }
 
