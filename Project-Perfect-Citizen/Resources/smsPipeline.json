@@ -8,9 +8,10 @@
     "decisions": [
       "speaker.decisions == Feeling",
       "speaker.decisions == Thinking",
-      "speaker.decisions == Middle"
+      "speaker.decisions == MiddleGround"
     ],
     "iqPrecondition": [
+
       "speaker.iq < 114",
       "speaker.iq < 129",
       "speaker.iq < 69",
@@ -18,28 +19,31 @@
       "speaker.iq < 144"
     ],
     "linkSuspicion": [
-      "speaker.linkSuspicion == clearySuspicious",
-      "speaker.linkSuspicion == slightlySuspicious",
-      "speaker.linkSuspicion == clearlyClean",
-      "speaker.linkSuspicion == suggestive",
-      "speaker.linkSuspicion == ambiguous"
+      "speaker.linkSuspicion == Suggestive",
+      "speaker.linkSuspicion == Ambiguous",
+      "speaker.linkSuspicion == SlightlySuspicious",
+      "speaker.linkSuspicion == ClearlyClean",
+      "speaker.linkSuspicion == ClearySuspicious"
     ],
     "outerLife": [
+
       "speaker.outerLife == Perceiving",
       "speaker.outerLife == Judging",
-      "speaker.outerLife == Middle"
+      "speaker.outerLife == MiddleGround"
     ],
     "relationship": [
-      "speaker.relationship == friends",
-      "speaker.relationship == communities",
-      "speaker.relationship == school",
-      "speaker.relationship == family",
-      "speaker.relationship == work"
+      "speaker.relationship == Friends",
+      "speaker.relationship == School",
+      "speaker.relationship == Family",
+      "speaker.relationship == Communities",
+      "speaker.relationship == Work"
+
     ],
     "social": [
       "speaker.social == Ambivert",
-      "speaker.social == Extravert",
-      "speaker.social == Introvert"
+      "speaker.social == Extraversion",
+      "speaker.social == Introversion"
+
     ],
     "takeIn": [
       "speaker.takeIn == Intuition",
@@ -47,7 +51,8 @@
       "speaker.takeIn == Sensing"
     ]
   },
-  "nonterminals": {
+  "nonterminals": 
+  {
     "Alright": {
       "complete": true,
       "deep": false,
@@ -55,37 +60,27 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Alright" ],
-          "markup": { }
+          "expansion": [ "Alright" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Fine" ],
-          "markup": { }
+          "expansion": [ "Fine" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Okay" ],
-          "markup": { }
+          "expansion": [ "Okay" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Okie" ],
-          "markup": {
-            "agePrecondition": [ "speaker.age < 24" ],
-            "iqPrecondition": [ "speaker.iq < 114" ],
-            "social": [ "speaker.social == Extravert" ]
-          }
+          "expansion": [ "Okie" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Ok" ],
-          "markup": { }
+          "expansion": [ "Ok" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Got it" ],
-          "markup": { }
+          "expansion": [ "Got it" ]
         }
       ]
     },
@@ -96,23 +91,19 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Cool" ],
-          "markup": { }
+          "expansion": [ "Cool" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Ooo" ],
-          "markup": { }
+          "expansion": [ "Ooo" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Awesome" ],
-          "markup": { }
+          "expansion": [ "Awesome" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Woah" ],
-          "markup": { }
+          "expansion": [ "Woah" ]
         }
       ]
     },
@@ -123,18 +114,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Cut the shit" ],
-          "markup": { }
+          "expansion": [ "Cut the shit" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Stop it" ],
-          "markup": { }
+          "expansion": [ "Stop it" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Fuck you" ],
-          "markup": { }
+          "expansion": [ "Fuck you" ]
         }
       ]
     },
@@ -145,13 +133,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Do" ],
-          "markup": { }
-        },
-        {
-          "app_rate": 1,
-          "expansion": [ "Did" ],
-          "markup": { }
+          "expansion": [ "Do" ]
         }
       ]
     },
@@ -162,18 +144,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Do not" ],
-          "markup": { }
+          "expansion": [ "Do not" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Don't" ],
-          "markup": { }
+          "expansion": [ "Don't" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Dont" ],
-          "markup": { }
+          "expansion": [ "Dont" ]
         }
       ]
     },
@@ -184,18 +163,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Do not ask any questions" ],
-          "markup": { }
+          "expansion": [ "Do not ask any questions" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[Do not]]", " ask anything" ],
-          "markup": { }
+          "expansion": [ "[[Do not]]", " ask anything" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Doesn't matter" ],
-          "markup": { }
+          "expansion": [ "Doesn't matter" ]
         }
       ]
     },
@@ -206,8 +182,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[Do not]]", " tell ", "[[anyone]]", " what ", "[[happened]]" ],
-          "markup": { }
+          "expansion": [ "[[Do not]]", " tell ", "[[anyone]]", " what ", "[[happened]]" ]
         }
       ]
     },
@@ -218,13 +193,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Do ", "[[you or u]]", " remember" ],
-          "markup": { }
+          "expansion": [ "Do ", "[[you or u]]", " remember" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Remember" ],
-          "markup": { }
+          "expansion": [ "Remember" ]
         }
       ]
     },
@@ -235,13 +208,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "How many" ],
-          "markup": { }
+          "expansion": [ "How many" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "How many different types" ],
-          "markup": { }
+          "expansion": [ "How many different types" ]
         }
       ]
     },
@@ -252,13 +223,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " am sorry but" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " am sorry but" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "We are deeply sorry but" ],
-          "markup": { }
+          "expansion": [ "We are deeply sorry but" ]
         }
       ]
     },
@@ -269,13 +238,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "I" ],
-          "markup": { }
+          "expansion": [ "I" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "i" ],
-          "markup": { }
+          "expansion": [ "i" ]
         }
       ]
     },
@@ -286,23 +253,19 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "We can" ],
-          "markup": { }
+          "expansion": [ "We can" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "I will" ],
-          "markup": { }
+          "expansion": [ "I will" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "I can" ],
-          "markup": { }
+          "expansion": [ "I can" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "We will" ],
-          "markup": { }
+          "expansion": [ "We will" ]
         }
       ]
     },
@@ -313,18 +276,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "I'm" ],
-          "markup": { }
+          "expansion": [ "I'm" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Im" ],
-          "markup": { }
+          "expansion": [ "Im" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "I am" ],
-          "markup": { }
+          "expansion": [ "I am" ]
         }
       ]
     },
@@ -335,18 +295,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "In need call me" ],
-          "markup": { }
+          "expansion": [ "In need call me" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "In need" ],
-          "markup": { }
+          "expansion": [ "In need" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "I need some, call me" ],
-          "markup": { }
+          "expansion": [ "I need some, call me" ]
         }
       ]
     },
@@ -357,13 +314,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "It was" ],
-          "markup": { }
+          "expansion": [ "It is so" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "It was so" ],
-          "markup": { }
+          "expansion": [ "It is" ]
         }
       ]
     },
@@ -374,18 +329,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Just got informed" ],
-          "markup": { }
+          "expansion": [ "Just got informed" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Just got told" ],
-          "markup": { }
+          "expansion": [ "Just got told" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " just got noticed" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " just got noticed" ]
         }
       ]
     },
@@ -396,13 +348,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Make sure to bring the" ],
-          "markup": { }
+          "expansion": [ "Make sure to bring the" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Make sure to bring that" ],
-          "markup": { }
+          "expansion": [ "Bring the" ]
         }
       ]
     },
@@ -413,23 +363,19 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "No" ],
-          "markup": { }
+          "expansion": [ "No" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "No way" ],
-          "markup": { }
+          "expansion": [ "No way" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Nope" ],
-          "markup": { }
+          "expansion": [ "Nope" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Nu" ],
-          "markup": { }
+          "expansion": [ "Nu" ]
         }
       ]
     },
@@ -440,13 +386,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Out" ],
-          "markup": { }
+          "expansion": [ "Out" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Gone" ],
-          "markup": { }
+          "expansion": [ "Gone" ]
         }
       ]
     },
@@ -457,18 +401,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Shipping" ],
-          "markup": { }
+          "expansion": [ "Shipping" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Sending" ],
-          "markup": { }
+          "expansion": [ "Sending" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Delivering" ],
-          "markup": { }
+          "expansion": [ "Delivering" ]
         }
       ]
     },
@@ -479,13 +420,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "The" ],
-          "markup": { }
+          "expansion": [ "The" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Our" ],
-          "markup": { }
+          "expansion": [ "Our" ]
         }
       ]
     },
@@ -496,18 +435,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "This" ],
-          "markup": { }
+          "expansion": [ "This" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "this" ],
-          "markup": { }
+          "expansion": [ "this" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "The" ],
-          "markup": { }
+          "expansion": [ "The" ]
         }
       ]
     },
@@ -518,13 +454,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "We need more ", "[[volunteers]]", " for this" ],
-          "markup": { }
+          "expansion": [ "We need more ", "[[volunteers]]", " for this" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "We need ", "[[volunteers]]", " for this" ],
-          "markup": { }
+          "expansion": [ "We need ", "[[volunteers]]", " for this" ]
         }
       ]
     },
@@ -535,13 +469,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "What is going on" ],
-          "markup": { }
+          "expansion": [ "What is going on" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "What is happening" ],
-          "markup": { }
+          "expansion": [ "What is happening" ]
         }
       ]
     },
@@ -552,13 +484,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "What is this" ],
-          "markup": { }
+          "expansion": [ "What is this" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "What" ],
-          "markup": { }
+          "expansion": [ "What" ]
         }
       ]
     },
@@ -569,28 +499,23 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Why" ],
-          "markup": { }
+          "expansion": [ "Why" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "What" ],
-          "markup": { }
+          "expansion": [ "What" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "What the" ],
-          "markup": { }
+          "expansion": [ "What the" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Uh" ],
-          "markup": { }
+          "expansion": [ "Uh" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Uhh" ],
-          "markup": { }
+          "expansion": [ "Uhh" ]
         }
       ]
     },
@@ -601,18 +526,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "a lot" ],
-          "markup": { }
+          "expansion": [ "a lot" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "tons" ],
-          "markup": { }
+          "expansion": [ "tons" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "quite a few" ],
-          "markup": { }
+          "expansion": [ "quite a few" ]
         }
       ]
     },
@@ -623,23 +545,19 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Oh shit" ],
-          "markup": { }
+          "expansion": [ "Oh shit" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Fuck" ],
-          "markup": { }
+          "expansion": [ "Fuck" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Shoot" ],
-          "markup": { }
+          "expansion": [ "Shoot" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Oh shoot" ],
-          "markup": { }
+          "expansion": [ "Oh shoot" ]
         }
       ]
     },
@@ -650,23 +568,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "!" ],
-          "markup": { }
+          "expansion": [ "!" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "!!" ],
-          "markup": { }
+          "expansion": [ "!!" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "!!!" ],
-          "markup": { }
-        },
-        {
-          "app_rate": 1,
-          "expansion": [ " " ],
-          "markup": { }
+          "expansion": [ "!!!" ]
         }
       ]
     },
@@ -677,33 +587,27 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "alright" ],
-          "markup": { }
+          "expansion": [ "alright" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "okay" ],
-          "markup": { }
+          "expansion": [ "okay" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "cool" ],
-          "markup": { }
+          "expansion": [ "cool" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "got it" ],
-          "markup": { }
+          "expansion": [ "got it" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "fine" ],
-          "markup": { }
+          "expansion": [ "fine" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "yes" ],
-          "markup": { }
+          "expansion": [ "yes" ]
         }
       ]
     },
@@ -714,23 +618,19 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "2nd time" ],
-          "markup": { }
+          "expansion": [ "2nd time" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "4rd time" ],
-          "markup": { }
+          "expansion": [ "4rd time" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "3rd time" ],
-          "markup": { }
+          "expansion": [ "3rd time" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "5th time" ],
-          "markup": { }
+          "expansion": [ "5th time" ]
         }
       ]
     },
@@ -741,13 +641,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "about 10" ],
-          "markup": { }
+          "expansion": [ "about 10" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "about ", "[[number]]" ],
-          "markup": { }
+          "expansion": [ "about ", "[[number]]" ]
         }
       ]
     },
@@ -758,18 +656,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "and" ],
-          "markup": { }
+          "expansion": [ "and" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "&" ],
-          "markup": { }
+          "expansion": [ "&" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "n" ],
-          "markup": { }
+          "expansion": [ "n" ]
         }
       ]
     },
@@ -780,18 +675,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "how has your day been" ],
-          "markup": { }
+          "expansion": [ "how has your day been" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "how has it been" ],
-          "markup": { }
+          "expansion": [ "how has it been" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "hope things are going great" ],
-          "markup": { }
+          "expansion": [ "hope things are going great" ]
         }
       ]
     },
@@ -802,13 +694,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "anyone" ],
-          "markup": { }
+          "expansion": [ "anyone" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "a soul" ],
-          "markup": { }
+          "expansion": [ "a soul" ]
         }
       ]
     },
@@ -819,8 +709,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " would do anything for ", "[[you or u]]" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " would do anything for ", "[[you or u]]" ]
         }
       ]
     },
@@ -831,13 +720,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[are or r]]", " going to be insane" ],
-          "markup": { }
+          "expansion": [ "[[are or r]]", " going to be insane" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[are or r]]", " going to go crazy" ],
-          "markup": { }
+          "expansion": [ "[[are or r]]", " going to go crazy" ]
         }
       ]
     },
@@ -848,13 +735,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "are" ],
-          "markup": { }
+          "expansion": [ "are" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "r" ],
-          "markup": { }
+          "expansion": [ "r" ]
         }
       ]
     },
@@ -865,13 +750,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[are or r]]", " going to" ],
-          "markup": { }
+          "expansion": [ "[[are or r]]", " going to" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[are or r]]", " we headed to" ],
-          "markup": { }
+          "expansion": [ "[[are or r]]", " we headed to" ]
         }
       ]
     },
@@ -882,18 +765,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "also" ],
-          "markup": { }
+          "expansion": [ "also" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "aswell" ],
-          "markup": { }
+          "expansion": [ "aswell" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "too" ],
-          "markup": { }
+          "expansion": [ "too" ]
         }
       ]
     },
@@ -904,13 +784,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "at" ],
-          "markup": { }
+          "expansion": [ "at" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "@" ],
-          "markup": { }
+          "expansion": [ "@" ]
         }
       ]
     },
@@ -921,18 +799,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "bad" ],
-          "markup": { }
+          "expansion": [ "bad" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "serious" ],
-          "markup": { }
+          "expansion": [ "serious" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "terrible" ],
-          "markup": { }
+          "expansion": [ "terrible" ]
         }
       ]
     },
@@ -943,13 +818,23 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "okay" ],
-          "markup": { }
+          "expansion": [ "okay" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "poorly" ],
-          "markup": { }
+          "expansion": [ "poorly" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "atrocious" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "awful" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "horrible" ]
         }
       ]
     },
@@ -960,13 +845,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " have some bad news" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " have some bad news" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " got something to tell you" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " got something to tell you" ]
         }
       ]
     },
@@ -977,13 +860,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "those bad people" ],
-          "markup": { }
+          "expansion": [ "those bad people" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "those crooks" ],
-          "markup": { }
+          "expansion": [ "those crooks" ]
         }
       ]
     },
@@ -994,13 +875,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "be able to help me" ],
-          "markup": { }
+          "expansion": [ "be able to help me" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "be able to work on it with me" ],
-          "markup": { }
+          "expansion": [ "be able to work on it with me" ]
         }
       ]
     },
@@ -1011,13 +890,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "have been working on a" ],
-          "markup": { }
+          "expansion": [ "have been working on a" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "have been busy with a" ],
-          "markup": { }
+          "expansion": [ "have been busy with a" ]
         }
       ]
     },
@@ -1028,13 +905,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "before" ],
-          "markup": { }
+          "expansion": [ "before" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "by" ],
-          "markup": { }
+          "expansion": [ "by" ]
         }
       ]
     },
@@ -1045,13 +920,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "believe this is happening" ],
-          "markup": { }
+          "expansion": [ "believe this is happening" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "believe this going to happen" ],
-          "markup": { }
+          "expansion": [ "believe this going to happen" ]
         }
       ]
     },
@@ -1062,13 +935,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "better not see it" ],
-          "markup": { }
+          "expansion": [ "better not see it" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "better not see that thing" ],
-          "markup": { }
+          "expansion": [ "better not see that thing" ]
         }
       ]
     },
@@ -1079,13 +950,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "boss" ],
-          "markup": { }
+          "expansion": [ "boss" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "big guy" ],
-          "markup": { }
+          "expansion": [ "big guy" ]
         }
       ]
     },
@@ -1096,18 +965,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "cannot" ],
-          "markup": { }
+          "expansion": [ "cannot" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "can't" ],
-          "markup": { }
+          "expansion": [ "can't" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "cant" ],
-          "markup": { }
+          "expansion": [ "cant" ]
         }
       ]
     },
@@ -1118,33 +984,27 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "bank" ],
-          "markup": { }
+          "expansion": [ "bank" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "money" ],
-          "markup": { }
+          "expansion": [ "money" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "mulla" ],
-          "markup": { }
+          "expansion": [ "mulla" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "cash money" ],
-          "markup": { }
+          "expansion": [ "cash money" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "some big ones" ],
-          "markup": { }
+          "expansion": [ "some big ones" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "hunnas" ],
-          "markup": { }
+          "expansion": [ "hunnas" ]
         }
       ]
     },
@@ -1155,23 +1015,131 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "math class" ],
-          "markup": { }
+          "expansion": [ "math class" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "english" ],
-          "markup": { }
+          "expansion": [ "english" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "algebra" ],
-          "markup": { }
+          "expansion": [ "algebra" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "economics" ],
-          "markup": { }
+          "expansion": [ "economics" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "geometry" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "trigonometry" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "trig" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "calculus" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "calc" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "stats" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "statistics" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "biology" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "bio" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "chemistry" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "chem" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "astronomy" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "physics" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "comp sci" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "history" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "economics " ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "econ" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "civics" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "AP gov" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "psychology" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "psych" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Spanish" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "French" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "German" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Latin" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "art" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "driver's ed" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "AP lit" ]
         }
       ]
     },
@@ -1182,40 +1150,34 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "," ],
-          "markup": { }
+          "expansion": [ "," ]
         }
       ]
     },
     "communities": {
       "complete": true,
       "deep": false,
-      "markup": { "relationship": [ "speaker.relationship == communities" ] },
+      "markup": { "relationship": [ "speaker.relationship == Communities" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[communities clearly clean]]" ],
-          "markup": { }
+          "expansion": [ "[[communities clearly clean]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[communities slightly questionable]]" ],
-          "markup": { }
+          "expansion": [ "[[communities slightly questionable]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[communities ambiguous]]" ],
-          "markup": { }
+          "expansion": [ "[[communities ambiguous]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[communities suggestive]]" ],
-          "markup": { }
+          "expansion": [ "[[communities suggestive]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[communities clearly suspicious]]" ],
-          "markup": { }
+          "expansion": [ "[[communities clearly suspicious]]" ]
         }
       ]
     },
@@ -1226,8 +1188,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[haha]]", "[[comma]]", " ", "[[you or u]]", " ", "[[group]]", " ", "[[are or r]]", " ", "[[fun]]", "[[comma]]", " ", "[[I or i]]", " ", "[[hope it did not scare]]", " ", "[[you or u]]", " ", "[[and]]", " ", "[[group]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[haha]]", "[[comma]]", " ", "[[they]]", " ", "[[are or r]]", " ", "[[pretty adj]]", " ", "[[fun]]", "[[comma]]", " ", "[[I or i]]", " ", "[[hope it did not scare]]", " ", "[[you or u]]", " ", "[[and]]", " ", "[[group]]", " ", "[[last]]", " ", "[[day]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -1238,20 +1199,18 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[It was so]]", " ", "[[fun]]", " ", "[[to know that]]", " ", "[[group]]", " ", "[[knows about]]", " ", "[[you or u]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[It was so]]", " ", "[[fun]]", " ", "[[to know that]]", " ", "[[group]]", " ", "[[knows about]]", " ", "[[you or u]]", "[[alert punctuation]]" ]
         }
       ]
     },
     "communities ambiguous": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ambiguous" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == Ambiguous" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[communities a intro]]", " ", "[[communities a close]]" ],
-          "markup": { }
+          "expansion": [ "[[communities a intro]]", "%", "[[communities a close]]" ]
         }
       ]
     },
@@ -1262,8 +1221,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[sounds good]]", " ", "[[will see you there]]", "[[alert punctuation]]", " ", "[[emoticon]]" ],
-          "markup": { }
+          "expansion": [ "[[sounds good]]", " ", "[[will see you there]]", "[[alert punctuation]]", " ", "[[emoticon]]" ]
         }
       ]
     },
@@ -1274,8 +1232,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[greeting word]]", " ", "[[would you like to go to]]", " ", "[[community event]]", "[[question punctuation]]", " ", "[[there will be]]", " ", "[[things to do at event]]", " ", "[[and]]", " ", "[[things to do event]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[greeting word]]", " ", "[[would you like to go to]]", " ", "[[community event]]", "[[alert punctuation]]", " ", "[[there will be]]", " ", "[[things to do at event]]", " ", "[[and]]", " ", "[[things to do event]]", "[[alert punctuation]]" ]
         }
       ]
     },
@@ -1286,32 +1243,29 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[yes]]", "[[comma]]", " ", "[[that sounds]]", " ", "[[fun]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[yes]]", "[[comma]]", " ", "[[that sounds]]", " ", "[[fun]]", "[[alert punctuation]]" ]
         }
       ]
     },
     "communities clearly clean": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearlyClean" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearlyClean" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[communities cc intro]]", " ", "[[communities cc response]]", " ", "[[communities cc close]]" ],
-          "markup": { }
+          "expansion": [ "[[communities cc intro]]", "%", "[[communities cc response]]", "%", "[[communities cc close]]" ]
         }
       ]
     },
     "communities clearly suspicious": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearySuspicious" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearySuspicious" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[communities cs intro]]", " ", "[[communities cs close]]" ],
-          "markup": { }
+          "expansion": [ "[[communities cs intro]]", "%", "[[communities cs close]]" ]
         }
       ]
     },
@@ -1322,8 +1276,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I will]]", " ", "[[fix it]]", "[[comma]]", " ", "[[meet you at your place]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[I will]]", " ", "[[fix it]]", "[[comma]]", " ", "[[meet you at your place]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -1334,8 +1287,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[In need call me]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[In need call me]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -1346,8 +1298,31 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]" ],
-          "markup": { }
+          "expansion": [ "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[num]]", "[[num]]", "[[num]]", "[[num]]" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]", "[[num]]" ]
         }
       ]
     },
@@ -1358,20 +1333,18 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[Shipping]]", " ", "[[a lot]]", " ", "[[this]]", " ", "[[week]]", " ", "[[need]]", " ", "[[drug]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[Shipping]]", " ", "[[a lot]]", " ", "[[this]]", " ", "[[week]]", " ", "[[need]]", " ", "[[drug]]", "[[regular punctuation]]" ]
         }
       ]
     },
     "communities slightly questionable": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == slightlySuspicious" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == SlightlySuspicious" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[communities sq intro]]", " ", "[[communities sq response]]", " ", "[[communities sq sender response]]", " ", "[[communities sq close]]" ],
-          "markup": { }
+          "expansion": [ "[[communities sq intro]]", "%", "[[communities sq response]]", "%", "[[communities sq sender response]]", "%", "[[communities sq close]]" ]
         }
       ]
     },
@@ -1382,8 +1355,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[haha]]", "[[comma]]", " ", "[[I or i]]", " ", "[[cannot]]", " ", "[[tell]]", " ", "[[you or u]]", "[[alert punctuation]]", " ", "[[emoticon]]" ],
-          "markup": { }
+          "expansion": [ "[[haha]]", "[[comma]]", " ", "[[I or i]]", " ", "[[cannot]]", " ", "[[tell]]", " ", "[[you or u]]", "[[alert punctuation]]", " ", "[[emoticon]]" ]
         }
       ]
     },
@@ -1394,8 +1366,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[We need more volunteers]]", " ", "[[time span]]", "s ", "[[community event]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[We need more volunteers]]", " ", "[[time span]]", "s ", "[[community event]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -1406,8 +1377,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[Alright]]", "[[comma]]", " ", "[[I or i]]", " ", "[[may arrive late]]", "[[comma]]", " ", "[[I or i]]", " ", "[[been working on a]]", " ", "[[project]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[Alright]]", "[[comma]]", " ", "[[I or i]]", " ", "[[may arrive late]]", "[[comma]]", " ", "[[I or i]]", " ", "[[been working on a]]", " ", "[[project]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -1418,20 +1388,18 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[Cool]]", "[[alert punctuation]]", " ", "[[What is this]]", " ", "[[project]]", " thing", "[[question punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[Cool]]", "[[alert punctuation]]", " ", "[[What is this]]", " ", "[[project]]", "[[question punctuation]]" ]
         }
       ]
     },
     "communities suggestive": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == suggestive" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == Suggestive" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[communities s intro]]", " ", "[[communities s close]]" ],
-          "markup": { }
+          "expansion": [ "[[communities s intro]]", "%", "[[communities s close]]" ]
         }
       ]
     },
@@ -1442,13 +1410,35 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "a developers event" ],
-          "markup": { }
+          "expansion": [ "a developers event" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "the book club's yearly meetup" ],
-          "markup": { }
+          "expansion": [ "the book club's yearly meetup" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "dance off" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "walk-a-thon" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "walk in the woods" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "gardening event" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "coding jam" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "picture taking contest" ]
         }
       ]
     },
@@ -1459,38 +1449,31 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Monday" ],
-          "markup": { }
+          "expansion": [ "Monday" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Tuesday" ],
-          "markup": { }
+          "expansion": [ "Tuesday" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Wednesday" ],
-          "markup": { }
+          "expansion": [ "Wednesday" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Thursday" ],
-          "markup": { }
+          "expansion": [ "Thursday" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Friday" ],
-          "markup": { }
+          "expansion": [ "Friday" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Saturday" ],
-          "markup": { }
+          "expansion": [ "Saturday" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Sunday" ],
-          "markup": { }
+          "expansion": [ "Sunday" ]
         }
       ]
     },
@@ -1501,18 +1484,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "did not" ],
-          "markup": { }
+          "expansion": [ "did not" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "didn't" ],
-          "markup": { }
+          "expansion": [ "didn't" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "didnt" ],
-          "markup": { }
+          "expansion": [ "didnt" ]
         }
       ]
     },
@@ -1523,13 +1503,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "but ", "[[I or i]]", " did not have enough time to finish it" ],
-          "markup": { }
+          "expansion": [ "but ", "[[I or i]]", " did not have enough time to finish it" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "but ", "[[I or i]]", " have been extremely busy" ],
-          "markup": { }
+          "expansion": [ "but ", "[[I or i]]", " have been extremely busy" ]
         }
       ]
     },
@@ -1540,13 +1518,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "gross" ],
-          "markup": { }
+          "expansion": [ "gross" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "disgusting" ],
-          "markup": { }
+          "expansion": [ "disgusting" ]
         }
       ]
     },
@@ -1557,18 +1533,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "distributing the" ],
-          "markup": { }
+          "expansion": [ "distributing the" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "sending the" ],
-          "markup": { }
+          "expansion": [ "sending the" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "selling the" ],
-          "markup": { }
+          "expansion": [ "selling the" ]
         }
       ]
     },
@@ -1579,8 +1552,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "do" ],
-          "markup": { }
+          "expansion": [ "do" ]
         }
       ]
     },
@@ -1591,13 +1563,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "do ", "[[you or u]]", " want to skip" ],
-          "markup": { }
+          "expansion": [ "do ", "[[you or u]]", " want to skip" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "do ", "[[you or u]]", " want to cut" ],
-          "markup": { }
+          "expansion": [ "do ", "[[you or u]]", " want to cut" ]
         }
       ]
     },
@@ -1608,23 +1578,95 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Spot" ],
-          "markup": { }
+          "expansion": [ "Spot" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Yeller" ],
-          "markup": { }
+          "expansion": [ "Yeller" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Lucky" ],
-          "markup": { }
+          "expansion": [ "Lucky" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Shadow" ],
-          "markup": { }
+          "expansion": [ "Shadow" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Bailey" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Max" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Charlie" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Buddy" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Bella" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Lucy" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Molly" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Daisy" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Rocky" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Maggie" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Jake" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Sophie" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Jack" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Sadie" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Toby" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Chloe" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Cody" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Buster" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Lola" ]
         }
       ]
     },
@@ -1635,13 +1677,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Fix" ],
-          "markup": { }
+          "expansion": [ "Fix" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Things" ],
-          "markup": { }
+          "expansion": [ "Things" ]
         }
       ]
     },
@@ -1652,23 +1692,19 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "dude" ],
-          "markup": { }
+          "expansion": [ "dude" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "stranger" ],
-          "markup": { }
+          "expansion": [ "stranger" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "creep" ],
-          "markup": { }
+          "expansion": [ "creep" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "wierdo" ],
-          "markup": { }
+          "expansion": [ "wierdo" ]
         }
       ]
     },
@@ -1679,13 +1715,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "bright ", "[[and]]", " early" ],
-          "markup": { }
+          "expansion": [ "bright ", "[[and]]", " early" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "early" ],
-          "markup": { }
+          "expansion": [ "early" ]
         }
       ]
     },
@@ -1696,38 +1730,55 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ ":)" ],
-          "markup": { }
+          "expansion": [ ":)" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ ":p" ],
-          "markup": { }
+          "expansion": [ ":p" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ ":D" ],
-          "markup": { }
+          "expansion": [ ":D" ]
+        },
+        {
+          "app_rate": 10,
+          "expansion": [ " " ]
         },
         {
           "app_rate": 1,
-          "expansion": [ " " ],
-          "markup": { }
+          "expansion": [ ":^)" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ ":^)" ],
-          "markup": { }
+          "expansion": [ ":3" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ ":3" ],
-          "markup": { }
+          "expansion": [ "^-^" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "^-^" ],
-          "markup": { }
+          "expansion": [ ":o)" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ ":>" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ ":c)" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ ":}" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "=)" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "8)" ]
         }
       ]
     },
@@ -1738,18 +1789,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "the movies" ],
-          "markup": { }
+          "expansion": [ "the movies" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "the party" ],
-          "markup": { }
+          "expansion": [ "the party" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "the carnival" ],
-          "markup": { }
+          "expansion": [ "the carnival" ]
         }
       ]
     },
@@ -1760,13 +1808,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "exactly" ],
-          "markup": { }
+          "expansion": [ "exactly" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "that is a no no" ],
-          "markup": { }
+          "expansion": [ "that is a no no" ]
         }
       ]
     },
@@ -1777,18 +1823,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "It is going to be so fun" ],
-          "markup": { }
+          "expansion": [ "It is going to be so fun" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "It is going to be a blast" ],
-          "markup": { }
+          "expansion": [ "It is going to be a blast" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " cannot wait" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " cannot wait" ]
         }
       ]
     },
@@ -1799,45 +1842,38 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "because ", "[[I or i]]", " had a family emergency" ],
-          "markup": { }
+          "expansion": [ "because ", "[[I or i]]", " had a family emergency" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "because ", "[[I or i]]", " had to take my wife to the hospital" ],
-          "markup": { }
+          "expansion": [ "because ", "[[I or i]]", " had to take my wife to the hospital" ]
         }
       ]
     },
     "family": {
       "complete": true,
       "deep": false,
-      "markup": { "relationship": [ "speaker.relationship == family" ] },
+      "markup": { "relationship": [ "speaker.relationship == Family" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[family clearly clean]]" ],
-          "markup": { }
+          "expansion": [ "[[family clearly clean]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[family slightly questionable]]" ],
-          "markup": { }
+          "expansion": [ "[[family slightly questionable]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[family ambiguous]]" ],
-          "markup": { }
+          "expansion": [ "[[family ambiguous]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[family suggestive]]" ],
-          "markup": { }
+          "expansion": [ "[[family suggestive]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[family clearly suspicious]]" ],
-          "markup": { }
+          "expansion": [ "[[family clearly suspicious]]" ]
         }
       ]
     },
@@ -1848,8 +1884,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[you or u]]", " ", "[[wont]]", " ", "[[I or i]]", " ", "[[put away]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[you or u]]", " ", "[[wont]]", " ", "[[I or i]]", " ", "[[put away]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -1860,20 +1895,18 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " ", "[[better not see it]]", " ", "[[when]]", " ", "[[I or i]]", " ", "[[get home]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " ", "[[better not see it]]", " ", "[[when]]", " ", "[[I or i]]", " ", "[[get home]]", "[[alert punctuation]]" ]
         }
       ]
     },
     "family ambiguous": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ambiguous" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == Ambiguous" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[family a intro]]", " ", "[[family a close]]" ],
-          "markup": { }
+          "expansion": [ "[[family a intro]]", "%", "[[family a close]]" ]
         }
       ]
     },
@@ -1884,8 +1917,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[headed over]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[headed over]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -1896,8 +1928,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[sad greeting]]", " ", "[[bad news]]", "[[regular punctuation]]", " ", "[[dog name]]", " ", "[[has died]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[sad greeting]]", " ", "[[bad news]]", "[[regular punctuation]]", " ", "[[dog name]]", " ", "[[has died]]", "[[regular punctuation]]" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[sad greeting]]", " ", "[[bad news]]", "[[regular punctuation]]", " ", "[[dog name]]", "[[comma]]", " ", "[[the dog]]", " ", "[[has died]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -1908,8 +1943,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[sad response]]", " ", "[[family check in question]]", "[[question punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[sad response]]", " ", "[[family check in question]]", "[[question punctuation]]" ]
         }
       ]
     },
@@ -1920,8 +1954,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[family is devastated]]", "[[regular punctuation]]", " ", "[[you should come over]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[family is devastated]]", "[[regular punctuation]]", " ", "[[you should come over]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -1932,37 +1965,29 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "How has the family been" ],
-          "markup": { }
-        },
-        {
-          "app_rate": 1,
-          "expansion": [ "How has everyone been" ],
-          "markup": { }
+          "expansion": [ "How has the ", "[[family group]]", " been" ]
         }
       ]
     },
     "family clearly clean": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearlyClean" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearlyClean" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[family cc intro]]", " ", "[[family cc response]]", " ", "[[family cc sender response]]", " ", "[[family cc close]]" ],
-          "markup": { }
+          "expansion": [ "[[family cc intro]]", "%", "[[family cc response]]", "%", "[[family cc sender response]]", "%", "[[family cc close]]" ]
         }
       ]
     },
     "family clearly suspicious": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearySuspicious" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearySuspicious" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[family cs intro]]", " ", "[[family cs response]]", " ", "[[family cs close]]" ],
-          "markup": { }
+          "expansion": [ "[[family cs intro]]", "%", "[[family cs response]]", "%", "[[family cs close]]" ]
         }
       ]
     },
@@ -1973,8 +1998,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[day]]", "[[comma]]", " ", "[[time of day]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[day]]", "[[comma]]", " ", "[[time of day]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -1985,8 +2009,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[family member]]", " ", "[[wants]]", " ", "[[help]]", " ", "[[distributing the]]", " ", "[[drug]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[family member]]", " ", "[[wants]]", " ", "[[help]]", " ", "[[distributing the]]", " ", "[[drug]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -1997,8 +2020,30 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[Alright]]", "[[comma]]", " ", "[[when will they drop off the]]", " ", "[[drug]]", "[[question punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[Alright]]", "[[comma]]", " ", "[[when will they drop off the]]", " ", "[[drug]]", "[[question punctuation]]" ]
+        }
+      ]
+    },
+    "family group": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "family" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "group" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "house" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "household" ]
         }
       ]
     },
@@ -2009,8 +2054,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "The family is doing ", "[[bad condition]]" ],
-          "markup": { }
+          "expansion": [ "The ", "[[family group]]", " is doing ", "[[bad condition]]" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "The ", "[[family group]]", " is ", "[[bad condition]]" ]
         }
       ]
     },
@@ -2021,38 +2069,67 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Dad" ],
-          "markup": { }
+          "expansion": [ "Dad" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Mom" ],
-          "markup": { }
+          "expansion": [ "Mom" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Your sister" ],
-          "markup": { }
+          "expansion": [ "Your sister" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Your brother" ],
-          "markup": { }
+          "expansion": [ "Your brother" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Your cousin" ],
-          "markup": { }
+          "expansion": [ "Your cousin" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Your uncle" ],
-          "markup": { }
+          "expansion": [ "Your uncle" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Your aunt" ],
-          "markup": { }
+          "expansion": [ "Your aunt" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Your father" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Your mother" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Mum" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Granddad" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Your grandfather" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Grandma" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Your grandma" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Your sister-in-law" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Your brother-in-law" ]
         }
       ]
     },
@@ -2063,8 +2140,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[yes]]", "[[comma]]", " ", "[[no more]]", " ", "[[poor aspect]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[yes]]", "[[comma]]", " ", "[[no more]]", " ", "[[poor aspect]]", "[[alert punctuation]]" ]
         }
       ]
     },
@@ -2075,8 +2151,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[Alright]]", "[[comma]]", " ", "[[you or u]]", " ", "[[have to get up]]", " ", "[[early]]", " ", "[[day]]", "[[comma]]", " ", "[[we have a big day ahead of us]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[Alright]]", "[[comma]]", " ", "[[you or u]]", " ", "[[have to get up]]", " ", "[[early]]", " ", "[[day]]", "[[comma]]", " ", "[[we have a big day ahead of us]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -2087,20 +2162,18 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " ", "[[cannot]]", " ", "[[believe this is happening]]", "[[comma]]", " ", "[[we]]", " ", "[[are or r]]", " ", "[[going to be so]]", " ", "[[rich]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " ", "[[cannot]]", " ", "[[believe this is happening]]", "[[comma]]", " ", "[[we]]", " ", "[[are or r]]", " ", "[[going to be so]]", " ", "[[rich]]", "[[alert punctuation]]" ]
         }
       ]
     },
     "family slightly questionable": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == slightlySuspicious" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == SlightlySuspicious" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[family sq intro]]", " ", "[[family sq response]]", " ", "[[family sq close]]" ],
-          "markup": { }
+          "expansion": [ "[[family sq intro]]", "%", "[[family sq response]]", "%", "[[family sq close]]" ]
         }
       ]
     },
@@ -2111,8 +2184,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[Do not ask any questions]]", "[[comma]]", " ", "[[just come over]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[Do not ask any questions]]", "[[comma]]", " ", "[[just come over]]", "[[alert punctuation]]" ]
         }
       ]
     },
@@ -2123,8 +2195,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[family member]]", " ", "[[wants you home]]", " ", "[[immediately]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[family member]]", " ", "[[wants you home]]", " ", "[[immediately]]", "[[alert punctuation]]" ]
         }
       ]
     },
@@ -2135,20 +2206,18 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[Why]]", "[[question punctuation]]", " ", "[[What is going on]]", "[[question punctuation]]", "\n" ],
-          "markup": { }
+          "expansion": [ "[[Why]]", "[[question punctuation]]", " ", "[[What is going on]]", "[[question punctuation]]", "\n" ]
         }
       ]
     },
     "family suggestive": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == suggestive" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == Suggestive" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[family s intro]]", " ", "[[family s response]]", " ", "[[family s close]]" ],
-          "markup": { }
+          "expansion": [ "[[family s intro]]", "%", "[[family s response]]", "%", "[[family s close]]" ]
         }
       ]
     },
@@ -2159,13 +2228,77 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "finish" ],
-          "markup": { }
+          "expansion": [ "finish" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "complete" ],
-          "markup": { }
+          "expansion": [ "complete" ]
+        }
+      ]
+    },
+    "first": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "first" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "immediately" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "right away" ]
+        }
+      ]
+    },
+    "fix": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "Fix" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Adjust" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Correct" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Overhaul" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Patch" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Rebuild" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Regulate" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Restore" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Revamp" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Amend" ]
         }
       ]
     },
@@ -2176,13 +2309,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Fix it" ],
-          "markup": { }
+          "expansion": [ "Fix it" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Help it" ],
-          "markup": { }
+          "expansion": [ "Help it" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Help" ]
         }
       ]
     },
@@ -2193,28 +2328,99 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "burgers" ],
-          "markup": { }
+          "expansion": [ "burgers" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "tacos" ],
-          "markup": { }
+          "expansion": [ "tacos" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "burritos" ],
-          "markup": { }
+          "expansion": [ "burritos" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "hot dogs" ],
-          "markup": { }
+          "expansion": [ "hot dogs" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "pizza" ],
-          "markup": { }
+          "expansion": [ "pizza" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "New York-style pizza" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Hoppin' John" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "tasso ham" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Maine lobster" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "shrimp and hushpuppies" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "barbecue ribs" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "fish tacos" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "cheese curds" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "philly cheese steak" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "burrito bowls" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "breakfast burritos" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "barbecue sandwich" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "low country boil" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "clam chowder" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "buffalo burgers" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "eggs benedict" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "pastrami on rye" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "corned beef and cabbage" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "carne asada" ]
         }
       ]
     },
@@ -2225,50 +2431,42 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "forgot about it" ],
-          "markup": { }
+          "expansion": [ "forgot about it" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "forgot about that shit" ],
-          "markup": { }
+          "expansion": [ "forgot about that shit" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "completely forgot about it" ],
-          "markup": { }
+          "expansion": [ "completely forgot about it" ]
         }
       ]
     },
     "friends": {
       "complete": true,
       "deep": false,
-      "markup": { "relationship": [ "speaker.relationship == friends" ] },
+      "markup": { "relationship": [ "speaker.relationship == Friends" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[friends clearly clean]]" ],
-          "markup": { }
+          "expansion": [ "[[friends clearly clean]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[friends slightly questionable]]" ],
-          "markup": { }
+          "expansion": [ "[[friends slightly questionable]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[friends ambiguous]]" ],
-          "markup": { }
+          "expansion": [ "[[friends ambiguous]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[friends suggestive]]" ],
-          "markup": { }
+          "expansion": [ "[[friends suggestive]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[friends clearly suspicious]]" ],
-          "markup": { }
+          "expansion": [ "[[friends clearly suspicious]]" ]
         }
       ]
     },
@@ -2279,8 +2477,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[haha]]", " ", "[[emoticon]]", " ", "[[if you say so]]", " ", "[[I or i]]", " ", "[[will pick them up]]", " ", "[[tonight]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[haha]]", " ", "[[emoticon]]", " ", "[[if you say so]]", " ", "[[I or i]]", " ", "[[will pick them up]]", " ", "[[tonight]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -2291,8 +2488,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[How many]]", " ", "[[do]]", " ", "[[you or u]]", " ", "[[have]]", "[[question punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[How many]]", " ", "[[do]]", " ", "[[you or u]]", " ", "[[have]]", "[[question punctuation]]" ]
         }
       ]
     },
@@ -2303,20 +2499,18 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " ", "[[have]]", " ", "[[amount num]]", "[[regular punctuation]]", " ", "[[why]]", "[[question punctuation]]", " ", "[[do]]", " ", "[[you or u]]", " ", "[[want any]]", "[[question punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " ", "[[have]]", " ", "[[amount num]]", "[[regular punctuation]]", " ", "[[why]]", "[[question punctuation]]", " ", "[[do]]", " ", "[[you or u]]", " ", "[[want any]]", "[[question punctuation]]" ]
         }
       ]
     },
     "friends ambiguous": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ambiguous" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == Ambiguous" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[friends a intro]]", " ", "[[friends a response]]", " ", "[[friends a close]]" ],
-          "markup": { }
+          "expansion": [ "[[friends a intro]]", "%", "[[friends a response]]", "%", "[[friends a close]]" ]
         }
       ]
     },
@@ -2327,8 +2521,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[greeting word]]", " ", "[[are we going to]]", " ", "[[event]]", " ", "[[tonight]]", "[[question punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[greeting word]]", " ", "[[are we going to]]", " ", "[[event]]", " ", "[[tonight]]", "[[question punctuation]]" ]
         }
       ]
     },
@@ -2339,32 +2532,29 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[yes]]", " ", "[[will get ready]]", "[[regular punctuation]]", " ", "[[excitement]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[yes]]", " ", "[[will get ready]]", "[[regular punctuation]]", " ", "[[excitement]]", "[[alert punctuation]]" ]
         }
       ]
     },
     "friends clearly clean": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearlyClean" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearlyClean" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[friends cc intro]]", " ", "[[friends cc response]]" ],
-          "markup": { }
+          "expansion": [ "[[friends cc intro]]", "%", "[[friends cc response]]" ]
         }
       ]
     },
     "friends clearly suspicious": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearySuspicious" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearySuspicious" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[friends cs intro]]", " ", "[[friends cs close]]" ],
-          "markup": { }
+          "expansion": [ "[[friends cs intro]]", "%", "[[friends cs close]]" ]
         }
       ]
     },
@@ -2375,8 +2565,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[yes]]", "[[comma]]", " ", "[[we hitting up {REDACTED}]]", "" ],
-          "markup": { }
+          "expansion": [ "[[yes]]", "[[comma]]", " ", "[[we hitting up {REDACTED}]]" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[yes]]", "[[comma]]", " ", "[[we gotta pick up some]]", " ", "[[drug]]", " ", "[[first]]", "[[alert punctuation]]" ]
         }
       ]
     },
@@ -2387,8 +2580,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[greeting word]]", "[[comma]]", " ", "[[we going to party this]]", " ", "[[weekend]]" ],
-          "markup": { }
+          "expansion": [ "[[greeting word]]", "[[comma]]", " ", "[[we going to party this]]", " ", "[[weekend]]" ]
         }
       ]
     },
@@ -2399,8 +2591,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " ", "[[have no idea what]]", " ", "[[you or u]]", " ", "[[mean]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " ", "[[have no idea what]]", " ", "[[you or u]]", " ", "[[mean]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -2411,20 +2602,18 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[Cut the shit]]", "[[comma]]", " ", "[[tell me who it is]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[Cut the shit]]", "[[comma]]", " ", "[[tell me who it is]]", "[[alert punctuation]]" ]
         }
       ]
     },
     "friends slightly questionable": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == slightlySuspicious" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == SlightlySuspicious" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[friends sq intro]]", " ", "[[friends sq close]]" ],
-          "markup": { }
+          "expansion": [ "[[friends sq intro]]", "%", "[[friends sq close]]" ]
         }
       ]
     },
@@ -2435,8 +2624,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[Alright]]", "[[comma]]", " ", "[[need to stop by the]]", " ", "[[store]]", " ", "[[tonight]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[Alright]]", "[[comma]]", " ", "[[need to stop by the]]", " ", "[[store]]", " ", "[[tonight]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -2447,20 +2635,18 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[greeting word]]", " ", "[[food]]", " ", "[[tonight]]", "[[question punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[greeting word]]", " ", "[[food]]", " ", "[[tonight]]", "[[question punctuation]]" ]
         }
       ]
     },
     "friends suggestive": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == suggestive" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == Suggestive" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[friends s intro]]", " ", "[[friends s close]]" ],
-          "markup": { }
+          "expansion": [ "[[friends s intro]]", "%", "[[friends s close]]" ]
         }
       ]
     },
@@ -2471,28 +2657,23 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "fun" ],
-          "markup": { }
+          "expansion": [ "fun" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "exciting" ],
-          "markup": { }
+          "expansion": [ "exciting" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "great" ],
-          "markup": { }
+          "expansion": [ "great" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "cool" ],
-          "markup": { }
+          "expansion": [ "cool" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "awesome" ],
-          "markup": { }
+          "expansion": [ "awesome" ]
         }
       ]
     },
@@ -2503,13 +2684,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "fuss was all about" ],
-          "markup": { }
-        },
-        {
-          "app_rate": 1,
-          "expansion": [ "talking was about" ],
-          "markup": { }
+          "expansion": [ "fuss was all about" ]
         }
       ]
     },
@@ -2520,18 +2695,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "him" ],
-          "markup": { }
+          "expansion": [ "him" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "her" ],
-          "markup": { }
+          "expansion": [ "her" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "them" ],
-          "markup": { }
+          "expansion": [ "them" ]
         }
       ]
     },
@@ -2542,13 +2714,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "get home" ],
-          "markup": { }
+          "expansion": [ "get home" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "arrive" ],
-          "markup": { }
+          "expansion": [ "arrive" ]
         }
       ]
     },
@@ -2559,13 +2729,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " have been struggling real bad", "[[comma]]" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " have been struggling real bad", "[[comma]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " am in serious debt" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " am in serious debt" ]
         }
       ]
     },
@@ -2576,13 +2744,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "going to be so" ],
-          "markup": { }
+          "expansion": [ "going to be so" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "going to be" ],
-          "markup": { }
+          "expansion": [ "going to be" ]
         }
       ]
     },
@@ -2593,13 +2759,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Goodbye" ],
-          "markup": { }
+          "expansion": [ "Goodbye" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[I'm or Im]]", " sorry" ],
-          "markup": { }
+          "expansion": [ "[[I'm or Im]]", " sorry" ]
         }
       ]
     },
@@ -2610,13 +2774,27 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " have a family to feed" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " have a family to feed" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " have to pay for medical bills" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " have to pay for medical bills" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " have bills" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " can't survive without a job" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " am barely making enough money to live" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[I or i]]", " am in serious debt" ]
         }
       ]
     },
@@ -2627,53 +2805,39 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Hello" ],
-          "markup": { }
+          "expansion": [ "Hello" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "hello" ],
-          "markup": { }
+          "expansion": [ "hello" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Hi" ],
-          "markup": { }
+          "expansion": [ "Hi" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "hi" ],
-          "markup": { }
+          "expansion": [ "hi" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Hey" ],
-          "markup": { }
+          "expansion": [ "Hey" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "hey" ],
-          "markup": { }
+          "expansion": [ "hey" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Yo" ],
-          "markup": { }
+          "expansion": [ "Yo" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "yo" ],
-          "markup": { }
+          "expansion": [ "yo" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Hello," ],
-          "markup": { }
-        },
-        {
-          "app_rate": 1,
-          "expansion": [ "Hiii" ],
-          "markup": { }
+          "expansion": [ "Hiii" ]
         }
       ]
     },
@@ -2684,13 +2848,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "the group" ],
-          "markup": { }
+          "expansion": [ "the group" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "the guys" ],
-          "markup": { }
+          "expansion": [ "the guys" ]
         }
       ]
     },
@@ -2701,18 +2863,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "had no idea" ],
-          "markup": { }
+          "expansion": [ "had no idea" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "had no clue" ],
-          "markup": { }
+          "expansion": [ "had no clue" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "was so confused" ],
-          "markup": { }
+          "expansion": [ "was so confused" ]
         }
       ]
     },
@@ -2723,18 +2882,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Haha" ],
-          "markup": { }
+          "expansion": [ "Haha" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Hehe" ],
-          "markup": { }
+          "expansion": [ "Hehe" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Lol" ],
-          "markup": { }
+          "expansion": [ "Lol" ]
         }
       ]
     },
@@ -2745,13 +2901,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "happened" ],
-          "markup": { }
+          "expansion": [ "happened" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "occurred " ],
-          "markup": { }
+          "expansion": [ "occurred " ]
         }
       ]
     },
@@ -2762,8 +2916,7 @@
       "rules": [
         {
           "app_rate": 2,
-          "expansion": [ "happens to us" ],
-          "markup": { }
+          "expansion": [ "happens to us" ]
         }
       ]
     },
@@ -2774,18 +2927,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "has been so" ],
-          "markup": { }
+          "expansion": [ "has been so" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "has been" ],
-          "markup": { }
+          "expansion": [ "has been" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "is being" ],
-          "markup": { }
+          "expansion": [ "is being" ]
         }
       ]
     },
@@ -2796,18 +2946,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "passed away" ],
-          "markup": { }
+          "expansion": [ "passed away" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "has died" ],
-          "markup": { }
+          "expansion": [ "has died" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "is dead" ],
-          "markup": { }
+          "expansion": [ "is dead" ]
         }
       ]
     },
@@ -2818,13 +2965,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "have" ],
-          "markup": { }
+          "expansion": [ "have" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "currently have" ],
-          "markup": { }
+          "expansion": [ "currently have" ]
         }
       ]
     },
@@ -2835,18 +2980,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "have a question on it" ],
-          "markup": { }
+          "expansion": [ "have a question on it" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "completely dont understand it" ],
-          "markup": { }
+          "expansion": [ "completely dont understand it" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "don't get it" ],
-          "markup": { }
+          "expansion": [ "don't get it" ]
         }
       ]
     },
@@ -2857,18 +2999,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "have no idea" ],
-          "markup": { }
+          "expansion": [ "have no idea" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "dont know" ],
-          "markup": { }
+          "expansion": [ "dont know" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "dont understand" ],
-          "markup": { }
+          "expansion": [ "dont understand" ]
         }
       ]
     },
@@ -2879,13 +3018,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "have to get up" ],
-          "markup": { }
+          "expansion": [ "have to get up" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "have to wake up" ],
-          "markup": { }
+          "expansion": [ "have to wake up" ]
         }
       ]
     },
@@ -2896,13 +3033,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I'm or Im]]", " headed over" ],
-          "markup": { }
+          "expansion": [ "[[I'm or Im]]", " headed over" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " will be there soon" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " will be there soon" ]
         }
       ]
     },
@@ -2913,13 +3048,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "help" ],
-          "markup": { }
+          "expansion": [ "help" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "assistance" ],
-          "markup": { }
+          "expansion": [ "assistance" ]
         }
       ]
     },
@@ -2930,18 +3063,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "let's hope for the best" ],
-          "markup": { }
+          "expansion": [ "let's hope for the best" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "let's hope the punishment isn't that bad" ],
-          "markup": { }
+          "expansion": [ "let's hope the punishment isn't that bad" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "let's prey for the best" ],
-          "markup": { }
+          "expansion": [ "let's prey for the best" ]
         }
       ]
     },
@@ -2952,13 +3082,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "hope it ", "[[did not]]", " scare" ],
-          "markup": { }
+          "expansion": [ "hope it ", "[[did not]]", " scare" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "hope it ", "[[did not]]", " alert" ],
-          "markup": { }
+          "expansion": [ "hope it ", "[[did not]]", " alert" ]
         }
       ]
     },
@@ -2969,8 +3097,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "if ", "[[you or u]]", " say so" ],
-          "markup": { }
+          "expansion": [ "if ", "[[you or u]]", " say so" ]
         }
       ]
     },
@@ -2981,13 +3108,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "imagine what the ", "[[boss]]", " will think of it" ],
-          "markup": { }
+          "expansion": [ "imagine what the ", "[[boss]]", " will think of it" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "think if the consequences if the ", "[[boss]]", " finds out" ],
-          "markup": { }
+          "expansion": [ "think if the consequences if the ", "[[boss]]", " finds out" ]
         }
       ]
     },
@@ -2998,18 +3123,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "immediately" ],
-          "markup": { }
+          "expansion": [ "immediately" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "now" ],
-          "markup": { }
+          "expansion": [ "now" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "ASAP" ],
-          "markup": { }
+          "expansion": [ "ASAP" ]
         }
       ]
     },
@@ -3020,18 +3142,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "is on my ass" ],
-          "markup": { }
+          "expansion": [ "is on my ass" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "is pushing on me hard" ],
-          "markup": { }
+          "expansion": [ "is pushing on me hard" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "is running me down" ],
-          "markup": { }
+          "expansion": [ "is running me down" ]
         }
       ]
     },
@@ -3042,18 +3161,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "just come over" ],
-          "markup": { }
+          "expansion": [ "just come over" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "just come by" ],
-          "markup": { }
+          "expansion": [ "just come by" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "just get ready" ],
-          "markup": { }
+          "expansion": [ "just get ready" ]
         }
       ]
     },
@@ -3064,23 +3180,19 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "kids" ],
-          "markup": { }
+          "expansion": [ "kids" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "children" ],
-          "markup": { }
+          "expansion": [ "children" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "people" ],
-          "markup": { }
+          "expansion": [ "people" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "young ones" ],
-          "markup": { }
+          "expansion": [ "young ones" ]
         }
       ]
     },
@@ -3091,23 +3203,19 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "know but we need the money...I need the money" ],
-          "markup": { }
+          "expansion": [ "know but we need the money...I need the money" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "know but we need the money" ],
-          "markup": { }
+          "expansion": [ "know but we need the money" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "know but I need the money" ],
-          "markup": { }
+          "expansion": [ "know but I need the money" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "know but I am going throught a crisis" ],
-          "markup": { }
+          "expansion": [ "know but I am going throught a crisis" ]
         }
       ]
     },
@@ -3118,18 +3226,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "know right" ],
-          "markup": { }
+          "expansion": [ "know right" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "know right, like" ],
-          "markup": { }
-        },
-        {
-          "app_rate": 1,
-          "expansion": [ "also think about it" ],
-          "markup": { }
+          "expansion": [ "know right, like" ]
         }
       ]
     },
@@ -3140,13 +3241,22 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "knows about" ],
-          "markup": { }
+          "expansion": [ "knows about" ]
+        }
+      ]
+    },
+    "last": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "last" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "is informed about" ],
-          "markup": { }
+          "expansion": [ "the previous" ]
         }
       ]
     },
@@ -3157,13 +3267,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "but this will be the last time" ],
-          "markup": { }
+          "expansion": [ "but this will be the last time" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "but we are done after this" ],
-          "markup": { }
+          "expansion": [ "but we are done after this" ]
         }
       ]
     },
@@ -3174,13 +3282,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Let's just hope" ],
-          "markup": { }
+          "expansion": [ "Let's just hope" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Let's just pray" ],
-          "markup": { }
+          "expansion": [ "Let's just pray" ]
         }
       ]
     },
@@ -3191,18 +3297,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "like that get their time" ],
-          "markup": { }
+          "expansion": [ "get their time" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "like that get their earned consequence" ],
-          "markup": { }
+          "expansion": [ "get their earned consequence" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "like that serve their time" ],
-          "markup": { }
+          "expansion": [ "serve their time" ]
         }
       ]
     },
@@ -3213,18 +3316,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "may arrive late" ],
-          "markup": { }
+          "expansion": [ "may arrive late" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "may be there late" ],
-          "markup": { }
+          "expansion": [ "may be there late" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "may not be there" ],
-          "markup": { }
+          "expansion": [ "may not be there" ]
         }
       ]
     },
@@ -3235,18 +3335,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "mean" ],
-          "markup": { }
+          "expansion": [ "mean" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[are or r]]", " saying" ],
-          "markup": { }
+          "expansion": [ "[[are or r]]", " saying" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[are or r]]", " talking about" ],
-          "markup": { }
+          "expansion": [ "[[are or r]]", " talking about" ]
         }
       ]
     },
@@ -3257,18 +3354,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "meet" ],
-          "markup": { }
+          "expansion": [ "meet" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "let's meet" ],
-          "markup": { }
+          "expansion": [ "let's meet" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "rondevu" ],
-          "markup": { }
+          "expansion": [ "rondevu" ]
         }
       ]
     },
@@ -3279,8 +3373,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "meet ", "[[you or u]]", " at ", "[[place]]" ],
-          "markup": { }
+          "expansion": [ "meet ", "[[you or u]]", " at ", "[[place]]" ]
         }
       ]
     },
@@ -3291,13 +3384,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "need" ],
-          "markup": { }
+          "expansion": [ "need" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "want" ],
-          "markup": { }
+          "expansion": [ "want" ]
         }
       ]
     },
@@ -3308,18 +3399,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "need to stop by the" ],
-          "markup": { }
+          "expansion": [ "need to stop by the" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "need to go to the" ],
-          "markup": { }
+          "expansion": [ "need to go to the" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "need to buy something at the" ],
-          "markup": { }
+          "expansion": [ "need to buy something at the" ]
         }
       ]
     },
@@ -3330,8 +3418,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "next ", "[[day]]" ],
-          "markup": { }
+          "expansion": [ "next ", "[[day]]" ]
         }
       ]
     },
@@ -3342,8 +3429,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "no more" ],
-          "markup": { }
+          "expansion": [ "no more" ]
         }
       ]
     },
@@ -3354,8 +3440,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "that nothing" ],
-          "markup": { }
+          "expansion": [ "that nothing" ]
         }
       ]
     },
@@ -3366,18 +3451,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "now" ],
-          "markup": { }
+          "expansion": [ "now" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "tonight" ],
-          "markup": { }
+          "expansion": [ "tonight" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "right now" ],
-          "markup": { }
+          "expansion": [ "right now" ]
         }
       ]
     },
@@ -3388,83 +3470,251 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "0" ],
-          "markup": { }
+          "expansion": [ "0" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "1" ],
-          "markup": { }
+          "expansion": [ "1" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "2" ],
-          "markup": { }
+          "expansion": [ "2" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "3" ],
-          "markup": { }
+          "expansion": [ "3" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "4" ],
-          "markup": { }
+          "expansion": [ "4" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "5" ],
-          "markup": { }
+          "expansion": [ "5" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "6" ],
-          "markup": { }
+          "expansion": [ "6" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "7" ],
-          "markup": { }
+          "expansion": [ "7" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "8" ],
-          "markup": { }
+          "expansion": [ "8" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "9" ],
-          "markup": { }
+          "expansion": [ "9" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "A" ],
-          "markup": { }
+          "expansion": [ "A" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "B" ],
-          "markup": { }
+          "expansion": [ "B" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "C" ],
-          "markup": { }
+          "expansion": [ "C" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "D" ],
-          "markup": { }
+          "expansion": [ "D" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "E" ],
-          "markup": { }
+          "expansion": [ "E" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "F" ],
-          "markup": { }
+          "expansion": [ "F" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "G" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "H" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "I" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "J" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "K" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "L" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "M" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "N" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "O" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "P" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Q" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "R" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "S" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "T" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "U" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "V" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "W" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "X" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Y" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "Z" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "a" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "b" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "c" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "d" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "e" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "f" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "g" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "h" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "i" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "j" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "k" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "l" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "m" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "n" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "o" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "p" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "q" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "r" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "s" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "t" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "u" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "v" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "w" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "x" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "y" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "z" ]
         }
       ]
     },
@@ -3475,23 +3725,47 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "2" ],
-          "markup": { }
+          "expansion": [ "2" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "3" ],
-          "markup": { }
+          "expansion": [ "3" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "4" ],
-          "markup": { }
+          "expansion": [ "4" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "5" ],
-          "markup": { }
+          "expansion": [ "5" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "6" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "7" ]
+        },
+        {
+          "app_rate": 3,
+          "expansion": [ "a dozen" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "8" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "a baker's donzen" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "9" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "10" ]
         }
       ]
     },
@@ -3502,13 +3776,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "offerred us some" ],
-          "markup": { }
+          "expansion": [ "offerred us some" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "wanted to give us some" ],
-          "markup": { }
+          "expansion": [ "wanted to give us some" ]
         }
       ]
     },
@@ -3519,13 +3791,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "party" ],
-          "markup": { }
+          "expansion": [ "party" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "to get lit" ],
-          "markup": { }
+          "expansion": [ "to get lit" ]
         }
       ]
     },
@@ -3536,13 +3806,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "people like us to do this" ],
-          "markup": { }
+          "expansion": [ "people like us to do this" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "kids like us to do this" ],
-          "markup": { }
+          "expansion": [ "kids like us to do this" ]
         }
       ]
     },
@@ -3553,23 +3821,35 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "your place" ],
-          "markup": { }
+          "expansion": [ "your place" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "my place" ],
-          "markup": { }
+          "expansion": [ "my place" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "at the park" ],
-          "markup": { }
+          "expansion": [ "at the park" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "in the alley" ],
-          "markup": { }
+          "expansion": [ "in the alley" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "at the mall" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "behind the grocery store" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "in the woods" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "at the secret place" ]
         }
       ]
     },
@@ -3580,18 +3860,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Please don't do this" ],
-          "markup": { }
+          "expansion": [ "Please don't do this" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Please don't", "[[comma]]" ],
-          "markup": { }
+          "expansion": [ "Please don't", "[[comma]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Don't do this to me", "[[comma]]" ],
-          "markup": { }
+          "expansion": [ "Don't do this to me", "[[comma]]" ]
         }
       ]
     },
@@ -3602,18 +3879,30 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "sleeping in the park" ],
-          "markup": { }
+          "expansion": [ "sleeping in the park" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "sleeping where we make food" ],
-          "markup": { }
+          "expansion": [ "sleeping where we make food" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "single bedroom" ],
-          "markup": { }
+          "expansion": [ "single bedroom" ]
+        }
+      ]
+    },
+    "pretty adj": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "pretty" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "really" ]
         }
       ]
     },
@@ -3624,13 +3913,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "the previous" ],
-          "markup": { }
+          "expansion": [ "the previous" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "last" ],
-          "markup": { }
+          "expansion": [ "last" ]
         }
       ]
     },
@@ -3641,18 +3928,23 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "project" ],
-          "markup": { }
+          "expansion": [ "project" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "thing" ],
-          "markup": { }
+          "expansion": [ "thing" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "something secretive" ],
-          "markup": { }
+          "expansion": [ "job" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "plan" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "design" ]
         }
       ]
     },
@@ -3663,13 +3955,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "fire ", "[[you or u]]" ],
-          "markup": { }
+          "expansion": [ "fire ", "[[you or u]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "suspend ", "[[you or u]]" ],
-          "markup": { }
+          "expansion": [ "suspend ", "[[you or u]]" ]
         }
       ]
     },
@@ -3680,23 +3970,19 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "already put them away" ],
-          "markup": { }
+          "expansion": [ "already put them away" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "already got rid of them" ],
-          "markup": { }
+          "expansion": [ "already got rid of them" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "already threw them away" ],
-          "markup": { }
+          "expansion": [ "already threw them away" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "already gave them away" ],
-          "markup": { }
+          "expansion": [ "already gave them away" ]
         }
       ]
     },
@@ -3707,18 +3993,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "?" ],
-          "markup": { }
+          "expansion": [ "?" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ " " ],
-          "markup": { }
-        },
-        {
-          "app_rate": 1,
-          "expansion": [ "!?" ],
-          "markup": { }
+          "expansion": [ "!?" ]
         }
       ]
     },
@@ -3729,13 +4008,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "?" ],
-          "markup": { }
-        },
-        {
-          "app_rate": 1,
-          "expansion": [ " " ],
-          "markup": { }
+          "expansion": [ "?" ]
         }
       ]
     },
@@ -3746,13 +4019,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "." ],
-          "markup": { }
-        },
-        {
-          "app_rate": 1,
-          "expansion": [ " " ],
-          "markup": { }
+          "expansion": [ "." ]
         }
       ]
     },
@@ -3763,8 +4030,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "TPS report" ],
-          "markup": { }
+          "expansion": [ "TPS report" ]
         }
       ]
     },
@@ -3775,23 +4041,19 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "rich" ],
-          "markup": { }
+          "expansion": [ "rich" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "filthy rich" ],
-          "markup": { }
+          "expansion": [ "filthy rich" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "flithy stinken rich" ],
-          "markup": { }
+          "expansion": [ "flithy stinken rich" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "swimming in mulla" ],
-          "markup": { }
+          "expansion": [ "swimming in mulla" ]
         }
       ]
     },
@@ -3802,8 +4064,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ ":(" ],
-          "markup": { }
+          "expansion": [ ":(" ]
         }
       ]
     },
@@ -3814,55 +4075,46 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "What", "[[comma]]", " ", "[[are or r]]", " ", "[[you or u]]", " serious", "[[question punctuation]]" ],
-          "markup": { }
+          "expansion": [ "What", "[[comma]]", " ", "[[are or r]]", " ", "[[you or u]]", " serious", "[[question punctuation]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Oh no", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "Oh no", "[[regular punctuation]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "This can't be", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "This can't be", "[[regular punctuation]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "No", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "No", "[[alert punctuation]]" ]
         }
       ]
     },
     "school": {
       "complete": true,
       "deep": false,
-      "markup": { "relationship": [ "speaker.relationship == school" ] },
+      "markup": { "relationship": [ "speaker.relationship == School" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[school clearly clean]]" ],
-          "markup": { }
+          "expansion": [ "[[school clearly clean]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[school slightly questionable]]" ],
-          "markup": { }
+          "expansion": [ "[[school slightly questionable]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[school ambiguous]]" ],
-          "markup": { }
+          "expansion": [ "[[school ambiguous]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[school suggestive]]" ],
-          "markup": { }
+          "expansion": [ "[[school suggestive]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[school clearly suspicious]]" ],
-          "markup": { }
+          "expansion": [ "[[school clearly suspicious]]" ]
         }
       ]
     },
@@ -3873,8 +4125,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[lets just hope]]", " ", "[[nothing]]", " ", "[[bad]]", " ", "[[happens to us]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[lets just hope]]", " ", "[[nothing]]", " ", "[[bad]]", " ", "[[happens to us]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -3885,8 +4136,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " ", "[[wonder what]]", " ", "[[that or the]]", " ", "[[fuss was all about]]", "[[question punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " ", "[[wonder what]]", " ", "[[that or the]]", " ", "[[fuss was all about]]", "[[question punctuation]]" ]
         }
       ]
     },
@@ -3897,20 +4147,18 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " ", "[[know right]]", "[[comma]]", " ", "[[I or i]]", " ", "[[had no idea]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " ", "[[know right]]", "[[comma]]", " ", "[[I or i]]", " ", "[[had no idea]]", "[[regular punctuation]]" ]
         }
       ]
     },
     "school ambiguous": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ambiguous" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == Ambiguous" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[school a intro]]", " ", "[[school a response]]", " ", "[[school a close]]" ],
-          "markup": { }
+          "expansion": [ "[[school a intro]]", "%", "[[school a response]]", "%", "[[school a close]]" ]
         }
       ]
     },
@@ -3921,8 +4169,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[alert intro response]]", "[[alert punctuation]]", " ", "[[yes response]]", "[[regular punctuation]]", " ", "[[anything for you]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[alert intro response]]", "[[alert punctuation]]", " ", "[[yes response]]", "[[regular punctuation]]", " ", "[[anything for you]]", "[[regular punctuation]]" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[alert intro response]]", "[[alert punctuation]]", " ", "[[yes response]]", "[[regular punctuation]]", " ", "[[anything for you]]", "[[regular punctuation]]", " ", "[[emoticon]]" ]
         }
       ]
     },
@@ -3933,8 +4184,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[greeting word]]", " how far ", "[[are or r]]", " ", "[[you or u]]", " in the ", "[[school work]]", "[[question punctiuation]]" ],
-          "markup": { }
+          "expansion": [ "[[greeting word]]", " how far ", "[[are or r]]", " ", "[[you or u]]", " in the ", "[[school work]]", "[[question punctiuation]]" ]
         }
       ]
     },
@@ -3945,32 +4195,29 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[alert intro response]]", "[[alert punctuation]]", " ", "[[I or i]]", " ", "[[forgot about it]]", "[[alert punctuation]]", " ", "[[I or i]]", " ", "[[start working on hw]]", "[[regular punctuation]]", " If ", "[[I or i]]", " ", "[[have a question]]", "[[comma]]", " will ", "[[you or u]]", " ", "[[be able to help me]]", "[[question punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[alert intro response]]", "[[alert punctuation]]", " ", "[[I or i]]", " ", "[[forgot about it]]", "[[alert punctuation]]", " ", "[[I or i]]", " ", "[[start working on hw]]", "[[regular punctuation]]", " If ", "[[I or i]]", " ", "[[have a question]]", "[[comma]]", " will ", "[[you or u]]", " ", "[[be able to help me]]", "[[question punctuation]]" ]
         }
       ]
     },
     "school clearly clean": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearlyClean" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearlyClean" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[school cc intro]]", " \\n ", "[[school cc response]]", " \\n ", "[[school cc close]]" ],
-          "markup": { }
+          "expansion": [ "[[school cc intro]]", "%", "[[school cc response]]", "%", "[[school cc close]]" ]
         }
       ]
     },
     "school clearly suspicious": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearySuspicious" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearySuspicious" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[school cs intro]]", " ", "[[school cs response]]", " ", "[[school cs close]]" ],
-          "markup": { }
+          "expansion": [ "[[school cs intro]]", "%", "[[school cs response]]", "%", "[[school cs close]]" ]
         }
       ]
     },
@@ -3981,8 +4228,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[haha]]", "[[comma]]", " ", "[[these]]", " ", "[[kids]]", " ", "[[are going to be crazy]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[haha]]", "[[comma]]", " ", "[[these]]", " ", "[[kids]]", " ", "[[are going to be crazy]]", "[[alert punctuation]]" ]
         }
       ]
     },
@@ -3993,8 +4239,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[greeting word]]", " ", "[[do you want to cut]]", " ", "[[class name]]", " ", "[[to sell our the]]", " ", "[[drug]]", "[[question punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[greeting word]]", " ", "[[do you want to cut]]", " ", "[[class name]]", " ", "[[to sell our the]]", " ", "[[drug]]", "[[question punctuation]]" ]
         }
       ]
     },
@@ -4005,8 +4250,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[haha]]", " ", "[[alright]]", "[[comma]]", " ", "[[we about to make bank]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[haha]]", " ", "[[alright]]", "[[comma]]", " ", "[[we about to make bank]]", "[[alert punctuation]]" ]
         }
       ]
     },
@@ -4017,8 +4261,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[No]]", "[[comma]]", " ", "[[they would never expect]]", " ", "[[people like us to do this]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[No]]", "[[comma]]", " ", "[[they would never expect]]", " ", "[[people like us to do this]]", "[[alert punctuation]]" ]
         }
       ]
     },
@@ -4029,8 +4272,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[Make sure to bring the]]", " ", "[[drug]]", " ", "[[to.]]", " ", "[[class name]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[Make sure to bring the]]", " ", "[[drug]]", " ", "[[to.]]", " ", "[[class name]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -4041,20 +4283,18 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[Alright]]", "[[alert punctuation]]", " ", "[[Do]]", " ", "[[you or u]]", " ", "[[think we will be caught]]", "[[question punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[Alright]]", "[[alert punctuation]]", " ", "[[Do]]", " ", "[[you or u]]", " ", "[[think we will be caught]]", "[[question punctuation]]" ]
         }
       ]
     },
     "school slightly questionable": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == slightlySuspicious" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == SlightlySuspicious" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[school sq intro]]", " ", "[[school sq response]]", " ", "[[school sq close]]" ],
-          "markup": { }
+          "expansion": [ "[[school sq intro]]", "%", "[[school sq response]]", "%", "[[school sq close]]" ]
         }
       ]
     },
@@ -4065,8 +4305,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[lets just hope]]", " ", "[[bad people]]", " ", "[[like that get their earned consequence]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[lets just hope]]", " ", "[[bad people]]", " ", "[[like that get their earned consequence]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -4077,8 +4316,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[Do you remember]]", " ", "[[that time]]", " ", "[[when that]]", " ", "[[dude]]", " ", "[[offered us some]]", " ", "[[drug]]", "[[question punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[Do you remember]]", " ", "[[that time]]", " ", "[[when that]]", " ", "[[dude]]", " ", "[[offered us some]]", " ", "[[drug]]", "[[question punctuation]]" ]
         }
       ]
     },
@@ -4089,20 +4327,18 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[yes]]", "[[comma]]", " ", "[[that was so gross]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[yes]]", "[[comma]]", " ", "[[that was so gross]]", "[[alert punctuation]]" ]
         }
       ]
     },
     "school suggestive": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == suggestive" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == Suggestive" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[school s intro]]", " ", "[[school s response]]", " ", "[[school s close]]" ],
-          "markup": { }
+          "expansion": [ "[[school s intro]]", "%", "[[school s response]]", "%", "[[school s close]]" ]
         }
       ]
     },
@@ -4113,74 +4349,54 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "math homework" ],
-          "markup": { }
+          "expansion": [ "math homework" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "hw" ],
-          "markup": { }
+          "expansion": [ "hw" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "homework" ],
-          "markup": { }
+          "expansion": [ "homework" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "english homework" ],
-          "markup": { }
+          "expansion": [ "english homework" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "English homework" ],
-          "markup": { }
+          "expansion": [ "English homework" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "algebra homework" ],
-          "markup": { }
+          "expansion": [ "algebra homework" ]
         }
       ]
     },
     "sms messages": {
       "complete": true,
       "deep": true,
-      "markup": {
-        "agePrecondition": [
-        
-        ],
-        "decisions": [  ],
-        "iqPrecondition": [  ],
-        "outerLife": [  ],
-        "social": [  ],
-        "takeIn": [  ]
-      },
+      "markup": { },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[communities]]" ],
-          "markup": { }
+          "expansion": [ "[[communities]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[family]]" ],
-          "markup": { }
+          "expansion": [ "[[family]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[friends]]" ],
-          "markup": { }
+          "expansion": [ "[[friends]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[school]]" ],
-          "markup": { }
+          "expansion": [ "[[school]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[work]]" ],
-          "markup": { }
+          "expansion": [ "[[work]]" ]
         }
       ]
     },
@@ -4191,13 +4407,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "sorry to tell ", "[[you or u]]" ],
-          "markup": { }
+          "expansion": [ "sorry to tell ", "[[you or u]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "sorry to inform ", "[[you or u]]" ],
-          "markup": { }
+          "expansion": [ "sorry to inform ", "[[you or u]]" ]
         }
       ]
     },
@@ -4208,18 +4422,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Sounds good" ],
-          "markup": { }
+          "expansion": [ "Sounds good" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Great" ],
-          "markup": { }
+          "expansion": [ "Great" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Awesome" ],
-          "markup": { }
+          "expansion": [ "Awesome" ]
         }
       ]
     },
@@ -4230,13 +4441,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "should start working on it immediately" ],
-          "markup": { }
+          "expansion": [ "should start working on it immediately" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "should start it" ],
-          "markup": { }
+          "expansion": [ "should start it" ]
         }
       ]
     },
@@ -4247,18 +4456,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "store" ],
-          "markup": { }
+          "expansion": [ "store" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "general store" ],
-          "markup": { }
+          "expansion": [ "general store" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "connivence store" ],
-          "markup": { }
+          "expansion": [ "connivence store" ]
         }
       ]
     },
@@ -4269,13 +4475,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "tell" ],
-          "markup": { }
+          "expansion": [ "tell" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "inform" ],
-          "markup": { }
+          "expansion": [ "inform" ]
         }
       ]
     },
@@ -4286,18 +4490,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "tell me who it is" ],
-          "markup": { }
+          "expansion": [ "tell me who it is" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "tell me" ],
-          "markup": { }
+          "expansion": [ "tell me" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "I know who you are associated with" ],
-          "markup": { }
+          "expansion": [ "I know who you are associated with" ]
         }
       ]
     },
@@ -4308,8 +4509,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "that" ],
-          "markup": { }
+          "expansion": [ "that" ]
         }
       ]
     },
@@ -4320,13 +4520,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "that" ],
-          "markup": { }
+          "expansion": [ "that" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "the" ],
-          "markup": { }
+          "expansion": [ "the" ]
         }
       ]
     },
@@ -4337,18 +4535,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "that sounds" ],
-          "markup": { }
+          "expansion": [ "that sounds" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "that seems" ],
-          "markup": { }
+          "expansion": [ "that seems" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "that will be" ],
-          "markup": { }
+          "expansion": [ "that will be" ]
         }
       ]
     },
@@ -4359,8 +4554,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "that the" ],
-          "markup": { }
+          "expansion": [ "that the" ]
         }
       ]
     },
@@ -4371,18 +4565,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "that one time" ],
-          "markup": { }
+          "expansion": [ "that one time" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "that time" ],
-          "markup": { }
+          "expansion": [ "that time" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "that instance" ],
-          "markup": { }
+          "expansion": [ "that instance" ]
         }
       ]
     },
@@ -4393,13 +4584,26 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "that was so ", "[[disgusting]]" ],
-          "markup": { }
+          "expansion": [ "that was so ", "[[disgusting]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "that was so rude" ],
-          "markup": { }
+          "expansion": [ "that was so rude" ]
+        }
+      ]
+    },
+    "the dog": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "the dog" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "the cat" ]
         }
       ]
     },
@@ -4410,13 +4614,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "There will be" ],
-          "markup": { }
+          "expansion": [ "There will be" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "The event will have" ],
-          "markup": { }
+          "expansion": [ "The event will have" ]
         }
       ]
     },
@@ -4427,13 +4629,22 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "these" ],
-          "markup": { }
+          "expansion": [ "these" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "the" ],
-          "markup": { }
+          "expansion": [ "the" ]
+        }
+      ]
+    },
+    "they": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "they" ]
         }
       ]
     },
@@ -4444,13 +4655,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "they would never expect" ],
-          "markup": { }
+          "expansion": [ "they would never expect" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "they can never see" ],
-          "markup": { }
+          "expansion": [ "they can never see" ]
         }
       ]
     },
@@ -4461,13 +4670,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "thing" ],
-          "markup": { }
+          "expansion": [ "thing" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "item" ],
-          "markup": { }
+          "expansion": [ "item" ]
         }
       ]
     },
@@ -4478,33 +4685,27 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "snacks" ],
-          "markup": { }
+          "expansion": [ "snacks" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "food" ],
-          "markup": { }
+          "expansion": [ "food" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "free food" ],
-          "markup": { }
+          "expansion": [ "free food" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "drinks" ],
-          "markup": { }
+          "expansion": [ "drinks" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "music" ],
-          "markup": { }
+          "expansion": [ "music" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "a special guest" ],
-          "markup": { }
+          "expansion": [ "a special guest" ]
         }
       ]
     },
@@ -4515,13 +4716,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "a preview of what is to come" ],
-          "markup": { }
+          "expansion": [ "a preview of what is to come" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "free items" ],
-          "markup": { }
+          "expansion": [ "free items" ]
         }
       ]
     },
@@ -4532,13 +4731,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "think we will be caught" ],
-          "markup": { }
+          "expansion": [ "think we will be caught" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "think we will get in trouble" ],
-          "markup": { }
+          "expansion": [ "think we will get in trouble" ]
         }
       ]
     },
@@ -4549,13 +4746,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "this" ],
-          "markup": { }
-        },
-        {
-          "app_rate": 1,
-          "expansion": [ "next" ],
-          "markup": { }
+          "expansion": [ "this" ]
         }
       ]
     },
@@ -4566,8 +4757,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "This is the" ],
-          "markup": { }
+          "expansion": [ "This is the" ]
         }
       ]
     },
@@ -4578,18 +4768,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "thought we were done with that type of stuff" ],
-          "markup": { }
+          "expansion": [ "thought we were done with that type of stuff" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "thought we were finished" ],
-          "markup": { }
+          "expansion": [ "thought we were finished" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "didn't know we were going to make more" ],
-          "markup": { }
+          "expansion": [ "didn't know we were going to make more" ]
         }
       ]
     },
@@ -4600,23 +4787,19 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "morning" ],
-          "markup": { }
+          "expansion": [ "morning" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "evening" ],
-          "markup": { }
+          "expansion": [ "evening" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "night" ],
-          "markup": { }
+          "expansion": [ "night" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "afternoon" ],
-          "markup": { }
+          "expansion": [ "afternoon" ]
         }
       ]
     },
@@ -4627,13 +4810,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "month" ],
-          "markup": { }
+          "expansion": [ "month" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "week" ],
-          "markup": { }
+          "expansion": [ "week" ]
         }
       ]
     },
@@ -4644,13 +4825,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "to" ],
-          "markup": { }
+          "expansion": [ "to" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "to immediately" ],
-          "markup": { }
+          "expansion": [ "to immediately" ]
         }
       ]
     },
@@ -4661,8 +4840,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "to know that" ],
-          "markup": { }
+          "expansion": [ "to know that" ]
         }
       ]
     },
@@ -4673,13 +4851,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "to sell our" ],
-          "markup": { }
+          "expansion": [ "to sell our" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "to sell the" ],
-          "markup": { }
+          "expansion": [ "to sell the" ]
         }
       ]
     },
@@ -4690,8 +4866,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "to" ],
-          "markup": { }
+          "expansion": [ "to" ]
         }
       ]
     },
@@ -4701,24 +4876,48 @@
       "markup": { },
       "rules": [
         {
-          "app_rate": 1,
-          "expansion": [ "tonight" ],
-          "markup": { }
+          "app_rate": 5,
+          "expansion": [ "tonight" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[at or @]]", " 7" ],
-          "markup": { }
+          "expansion": [ "[[at or @]]", " 7" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[at or @]]", " 8" ],
-          "markup": { }
+          "expansion": [ "[[at or @]]", " 8" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[at or @]]", " 9" ],
-          "markup": { }
+          "expansion": [ "[[at or @]]", " 9" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[at or @]]", " 10" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[at or @]]", " 11" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[at or @]]", " 12" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[at or @]]", " 1" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[at or @]]", " 2" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[at or @]]", " 3" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "[[at or @]]", " 4" ]
         }
       ]
     },
@@ -4729,13 +4928,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "until" ],
-          "markup": { }
+          "expansion": [ "until" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "by" ],
-          "markup": { }
+          "expansion": [ "by" ]
         }
       ]
     },
@@ -4746,18 +4943,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "volunteers" ],
-          "markup": { }
+          "expansion": [ "volunteers" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "people" ],
-          "markup": { }
+          "expansion": [ "people" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "helpers" ],
-          "markup": { }
+          "expansion": [ "helpers" ]
         }
       ]
     },
@@ -4768,13 +4962,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "want any" ],
-          "markup": { }
+          "expansion": [ "want any" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "need any" ],
-          "markup": { }
+          "expansion": [ "need any" ]
         }
       ]
     },
@@ -4785,13 +4977,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "wants" ],
-          "markup": { }
+          "expansion": [ "wants" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "needs" ],
-          "markup": { }
+          "expansion": [ "needs" ]
         }
       ]
     },
@@ -4802,13 +4992,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "wants ", "[[you or u]]", " here" ],
-          "markup": { }
+          "expansion": [ "wants ", "[[you or u]]", " here" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "wants ", "[[you or u]]", " home" ],
-          "markup": { }
+          "expansion": [ "wants ", "[[you or u]]", " home" ]
         }
       ]
     },
@@ -4819,8 +5007,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "we" ],
-          "markup": { }
+          "expansion": [ "we" ]
         }
       ]
     },
@@ -4831,8 +5018,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "we ", "[[are or r]]", " about to make ", "[[cash]]" ],
-          "markup": { }
+          "expansion": [ "we ", "[[are or r]]", " going to make ", "[[cash]]" ]
         }
       ]
     },
@@ -4843,13 +5029,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "we ", "[[are or r]]", " booked" ],
-          "markup": { }
+          "expansion": [ "we ", "[[are or r]]", " booked" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "we ", "[[are or r]]", " busy" ],
-          "markup": { }
+          "expansion": [ "we ", "[[are or r]]", " busy" ]
         }
       ]
     },
@@ -4860,8 +5044,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "we ", "[[are or r]]", " going to" ],
-          "markup": { }
+          "expansion": [ "we ", "[[are or r]]", " going to" ]
         }
       ]
     },
@@ -4872,13 +5055,26 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[are or r]]", " we going to ", "[[party]]", " this" ],
-          "markup": { }
+          "expansion": [ "[[are or r]]", " we going to ", "[[party]]", " this" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[are or r]]", " we going to the ", "[[party]]", " this" ],
-          "markup": { }
+          "expansion": [ "[[are or r]]", " we going to the ", "[[party]]", " this" ]
+        }
+      ]
+    },
+    "we gotta pick up some": {
+      "complete": true,
+      "deep": false,
+      "markup": { },
+      "rules": [
+        {
+          "app_rate": 1,
+          "expansion": [ "we gotta pick up some" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "He have to get the" ]
         }
       ]
     },
@@ -4889,13 +5085,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "we have a big day ahead of us" ],
-          "markup": { }
+          "expansion": [ "we have a big day ahead of us" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "we have to deliver so many ", "[[drug]]", " tomorrow " ],
-          "markup": { }
+          "expansion": [ "we have to deliver so many ", "[[drug]]", " tomorrow " ]
         }
       ]
     },
@@ -4906,13 +5100,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "we hittin up {REDACTED}" ],
-          "markup": { }
+          "expansion": [ "we hittin up {REDACTED}" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "we going to get some {REDACTED} ", "[[aswell]]" ],
-          "markup": { }
+          "expansion": [ "we going to get some {REDACTED} ", "[[aswell]]" ]
         }
       ]
     },
@@ -4923,23 +5115,19 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "we should make more" ],
-          "markup": { }
+          "expansion": [ "we should make more" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "we should make the" ],
-          "markup": { }
+          "expansion": [ "we should make the" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "we need to make more" ],
-          "markup": { }
+          "expansion": [ "we need to make more" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "we need to make" ],
-          "markup": { }
+          "expansion": [ "we need to make" ]
         }
       ]
     },
@@ -4950,18 +5138,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "We won't have it by then" ],
-          "markup": { }
+          "expansion": [ "We won't have it by then" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "We won't make it by then" ],
-          "markup": { }
+          "expansion": [ "We won't make it by then" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "We have any by then" ],
-          "markup": { }
+          "expansion": [ "We won't have any by then" ]
         }
       ]
     },
@@ -4972,18 +5157,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "week" ],
-          "markup": { }
+          "expansion": [ "week" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "weekend" ],
-          "markup": { }
+          "expansion": [ "weekend" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[day]]" ],
-          "markup": { }
+          "expansion": [ "[[day]]" ]
         }
       ]
     },
@@ -4994,18 +5176,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "weekend" ],
-          "markup": { }
+          "expansion": [ "weekend" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "week" ],
-          "markup": { }
+          "expansion": [ "week" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "night" ],
-          "markup": { }
+          "expansion": [ "[[day]]" ]
         }
       ]
     },
@@ -5016,8 +5195,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "when" ],
-          "markup": { }
+          "expansion": [ "when" ]
         }
       ]
     },
@@ -5028,13 +5206,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "when that" ],
-          "markup": { }
+          "expansion": [ "when that" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "when the" ],
-          "markup": { }
+          "expansion": [ "when the" ]
         }
       ]
     },
@@ -5045,13 +5221,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "when will they drop the" ],
-          "markup": { }
+          "expansion": [ "when will they drop the" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "when will they give me the" ],
-          "markup": { }
+          "expansion": [ "when will they give me the" ]
+        },
+        {
+          "app_rate": 1,
+          "expansion": [ "when will they drop off the" ]
         }
       ]
     },
@@ -5062,13 +5240,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Why" ],
-          "markup": { }
+          "expansion": [ "Why" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Why do ", "[[you or u]]", " ask" ],
-          "markup": { }
+          "expansion": [ "Why do ", "[[you or u]]", " ask" ]
         }
       ]
     },
@@ -5079,13 +5255,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " will start getting ready" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " will start getting ready" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " will start getting dressed" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " will start getting dressed" ]
         }
       ]
     },
@@ -5096,18 +5270,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "will not" ],
-          "markup": { }
+          "expansion": [ "will not" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "won't" ],
-          "markup": { }
+          "expansion": [ "won't" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "wont" ],
-          "markup": { }
+          "expansion": [ "wont" ]
         }
       ]
     },
@@ -5118,13 +5289,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "will pick them up" ],
-          "markup": { }
+          "expansion": [ "will pick them up" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "will be ready" ],
-          "markup": { }
+          "expansion": [ "will be ready" ]
         }
       ]
     },
@@ -5135,13 +5304,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "we will see ", "[[you or u]]", " there" ],
-          "markup": { }
+          "expansion": [ "we will see ", "[[you or u]]", " there" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "see ", "[[you or u]]", " there" ],
-          "markup": { }
+          "expansion": [ "see ", "[[you or u]]", " there" ]
         }
       ]
     },
@@ -5152,13 +5319,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "will tell" ],
-          "markup": { }
+          "expansion": [ "will tell" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "will inform" ],
-          "markup": { }
+          "expansion": [ "will inform" ]
         }
       ]
     },
@@ -5169,13 +5334,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "wonder what" ],
-          "markup": { }
-        },
-        {
-          "app_rate": 1,
-          "expansion": [ "sometimes think what" ],
-          "markup": { }
+          "expansion": [ "wonder what" ]
         }
       ]
     },
@@ -5186,50 +5345,42 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "wont" ],
-          "markup": { }
+          "expansion": [ "wont" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "will not see any" ],
-          "markup": { }
+          "expansion": [ "will not see any" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "won't" ],
-          "markup": { }
+          "expansion": [ "won't" ]
         }
       ]
     },
     "work": {
       "complete": true,
       "deep": false,
-      "markup": { "relationship": [ "speaker.relationship == work" ] },
+      "markup": { "relationship": [ "speaker.relationship == Work" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[work clearly clean]]" ],
-          "markup": { }
+          "expansion": [ "[[work clearly clean]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[work slightly questionable]]" ],
-          "markup": { }
+          "expansion": [ "[[work slightly questionable]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[work ambiguous]]" ],
-          "markup": { }
+          "expansion": [ "[[work ambiguous]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[work suggestive]]" ],
-          "markup": { }
+          "expansion": [ "[[work suggestive]]" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[work clearly suspicious]]" ],
-          "markup": { }
+          "expansion": [ "[[work clearly suspicious]]" ]
         }
       ]
     },
@@ -5240,8 +5391,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " ", "[[will tell]]", " ", "[[gender]]", " ", "[[that]]", "[[comma]]", " ", "[[hope for the best]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " ", "[[will tell]]", " ", "[[gender]]", " ", "[[that]]", "[[comma]]", " ", "[[hope for the best]]", "[[alert punctuation]]" ]
         }
       ]
     },
@@ -5252,8 +5402,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[Just got informed]]", " ", "[[that the]]", " ", "[[boss]]", " ", "[[wants]]", " ", "[[that or the]]", " ", "[[thing]]", " ", "[[before]]", " ", "[[day]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[Just got informed]]", " ", "[[that the]]", " ", "[[boss]]", " ", "[[wants]]", " ", "[[that or the]]", " ", "[[thing]]", " ", "[[before]]", " ", "[[day]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -5264,20 +5413,18 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[alert intro response]]", " ", "[[we are booked]]", " ", "[[until the]]", " ", "[[next day]]", "[[alert punctuation]]", " ", "[[we won't have it by then]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[alert intro response]]", " ", "[[we are booked]]", " ", "[[until the]]", " ", "[[next day]]", "[[alert punctuation]]", " ", "[[we won't have it by then]]", "[[alert punctuation]]" ]
         }
       ]
     },
     "work ambiguous": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ambiguous" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == Ambiguous" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[work a intro]]", " ", "[[work a response]]", " ", "[[work a close]]" ],
-          "markup": { }
+          "expansion": [ "[[work a intro]]", "%", "[[work a response]]", "%", "[[work a close]]" ]
         }
       ]
     },
@@ -5288,8 +5435,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[greeting word]]", "[[comma]]", " ", "[[another greeting]]", "[[regular punctuation]]", " Did ", "[[you or u]]", " ", "[[finish]]", " that ", "[[report name]]", "[[question punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[greeting word]]", "[[comma]]", " ", "[[another greeting]]", "[[regular punctuation]]", " Did ", "[[you or u]]", " ", "[[finish]]", " that ", "[[report name]]", "[[question punctuation]]" ]
         }
       ]
     },
@@ -5300,8 +5446,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[greeting word]]", "[[regular punctuation]]", " ", "[[sorry to tell you]]", " ", "[[did not have time to]]", " ", "[[excuse]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[greeting word]]", "[[regular punctuation]]", " ", "[[sorry to tell you]]", " ", "[[did not have time to]]", " ", "[[excuse]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -5312,8 +5457,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[please do not]]", " ", "[[going through struggles]]", " ", "[[got a family to feed]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[please do not]]", " ", "[[going through struggles]]", " ", "[[got a family to feed]]", "[[alert punctuation]]" ]
         }
       ]
     },
@@ -5324,32 +5468,29 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[this is the]]", " ", "[[amount]]", " this ", "[[time span]]", "[[regular punctuation]]", " ", "[[I am sorry but]]", " ", "[[we are going to]]", " ", "[[punishment]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[this is the]]", " ", "[[amount]]", " this ", "[[time span]]", "[[regular punctuation]]", " ", "[[I am sorry but]]", " ", "[[we are going to]]", " ", "[[punishment]]", "[[regular punctuation]]" ]
         }
       ]
     },
     "work clearly clean": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearlyClean" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearlyClean" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[work cc intro]]", " ", "[[work cc response]]", " ", "[[work cc sender response]]", " ", "[[work cc response 2]]", "]]]]]]]]]]] ", "[[work close]]" ],
-          "markup": { }
+          "expansion": [ "[[work cc intro]]", "%", "[[work cc response]]", "%", "[[work cc sender response]]", "%", "[[work cc response 2]]", "%", "[[work close]]" ]
         }
       ]
     },
     "work clearly suspicious": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == clearySuspicious" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearySuspicious" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[work cs intro]]", " ", "[[work cs response]]", " ", "[[work cs sender response]]", " ", "[[work cs close]]" ],
-          "markup": { }
+          "expansion": [ "[[work cs intro]]", "%", "[[work cs response]]", "%", "[[work cs sender response]]", "%", "[[work cs close]]" ]
         }
       ]
     },
@@ -5360,8 +5501,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[goodbye]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[goodbye]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -5372,8 +5512,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[Alright]]", "[[comma]]", " ", "[[last time]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[Alright]]", "[[comma]]", " ", "[[last time]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -5384,8 +5523,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[This]]", " ", "[[time span]]", " ", "[[has been so]]", " ", "[[bad]]", "[[comma]]", " ", "[[we should make more]]", " ", "[[drug]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[This]]", " ", "[[time span]]", " ", "[[has been so]]", " ", "[[bad]]", "[[comma]]", " ", "[[we should make more]]", " ", "[[drug]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -5396,8 +5534,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " ", "[[thought we were done]]", "[[question punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " ", "[[thought we were done]]", "[[question punctuation]]" ]
         }
       ]
     },
@@ -5408,8 +5545,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " ", "[[know but we need the money]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " ", "[[know but we need the money]]", "[[regular punctuation]]" ]
         }
       ]
     },
@@ -5420,8 +5556,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[Out]]", " ", "[[now]]", "[[comma]]", " ", "[[meet]]", " ", "[[day]]", "[[question punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[Out]]", " ", "[[now]]", "[[comma]]", " ", "[[meet]]", " ", "[[day]]", "[[question punctuation]]" ]
         }
       ]
     },
@@ -5432,20 +5567,18 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[The]]", " ", "[[boss]]", " ", "[[is on my ass]]", "[[comma]]", " ", "[[I or i]]", " ", "[[need]]", " ", "[[to]]", " ", "[[drug]]", " ", "[[this]]", "[[regular punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[The]]", " ", "[[boss]]", " ", "[[is on my ass]]", "[[comma]]", " ", "[[I or i]]", " ", "[[need]]", " ", "[[to]]", " ", "[[fix]]", " ", "[[this]]", "[[regular punctuation]]" ]
         }
       ]
     },
     "work slightly questionable": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == slightlySuspicious" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == SlightlySuspicious" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[work sq intro]]", " ", "[[work sq response]]", " ", "[[work sq close]]" ],
-          "markup": { }
+          "expansion": [ "[[work sq intro]]", "%", "[[work sq response]]", "%", "[[work sq close]]" ]
         }
       ]
     },
@@ -5456,8 +5589,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[haha]]", " ", "[[exactly]]", "[[alert punctuation]]", " ", "[[emoticon]]" ],
-          "markup": { }
+          "expansion": [ "[[haha]]", " ", "[[exactly]]", "[[alert punctuation]]", " ", "[[emoticon]]" ]
         }
       ]
     },
@@ -5468,8 +5600,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[Do not tell anyone what happened]]", " ", "[[previous]]", " ", "[[day]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[Do not tell anyone what happened]]", " ", "[[previous]]", " ", "[[day]]", "[[alert punctuation]]" ]
         }
       ]
     },
@@ -5480,20 +5611,18 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[I or i]]", " ", "[[will not]]", "[[comma]]", " ", "[[imagine what the boss will think of it]]", "[[alert punctuation]]" ],
-          "markup": { }
+          "expansion": [ "[[I or i]]", " ", "[[will not]]", "[[comma]]", " ", "[[imagine what the boss will think of it]]", "[[alert punctuation]]" ]
         }
       ]
     },
     "work suggestive": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == suggestive" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == Suggestive" ] },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[work s intro]]", " ", "[[work s close]]" ],
-          "markup": { }
+          "expansion": [ "[[work s intro]]", "%", "[[work s close]]" ]
         }
       ]
     },
@@ -5504,45 +5633,47 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "would ", "[[you or u]]", " like to go" ],
-          "markup": { }
+          "expansion": [ "would ", "[[you or u]]", " like to go to the" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "[[you or u]]", " ", "[[are or r]]", " invited to go" ],
-          "markup": { }
+          "expansion": [ "[[you or u]]", " ", "[[are or r]]", " invited to go to the" ]
         }
       ]
     },
     "yes": {
       "complete": true,
       "deep": false,
-      "markup": { },
+      "markup": {
+        "agePrecondition": [ "speaker.age < 44", "speaker.age < 24", "speaker.age < 64" ],
+        "decisions": [ "speaker.decisions == MiddleGround", "speaker.decisions == Thinking", "speaker.decisions == Feeling" ],
+        "iqPrecondition": [ "speaker.iq < 144", "speaker.iq < 84", "speaker.iq < 69", "speaker.iq < 129", "speaker.iq < 114" ],
+        "linkSuspicion": [ "speaker.linkSuspicion == Ambiguous", "speaker.linkSuspicion == Suggestive", "speaker.linkSuspicion == ClearlyClean", "speaker.linkSuspicion == SlightlySuspicious", "speaker.linkSuspicion == ClearySuspicious" ],
+        "outerLife": [ "speaker.outerLife == MiddleGround", "speaker.outerLife == Judging", "speaker.outerLife == Perceiving" ],
+        "relationship": [ "speaker.relationship == Work", "speaker.relationship == Family", "speaker.relationship == Communities", "speaker.relationship == Friends", "speaker.relationship == School" ],
+        "social": [ "speaker.social == Introversion", "speaker.social == Extraversion", "speaker.social == Ambivert" ],
+        "takeIn": [ "speaker.takeIn == Sensing", "speaker.takeIn == Middle", "speaker.takeIn == Intuition" ]
+      },
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Yes" ],
-          "markup": { }
+          "expansion": [ "Yes" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Most definetly" ],
-          "markup": { }
+          "expansion": [ "Most definetly" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Ye" ],
-          "markup": { }
+          "expansion": [ "Ye" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Mhm" ],
-          "markup": { }
+          "expansion": [ "Mhm" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "Yeah" ],
-          "markup": { }
+          "expansion": [ "Yeah" ]
         }
       ]
     },
@@ -5553,8 +5684,7 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "Yeah", "[[comma]]", " just come over whenever ", "[[you or u]]", " want" ],
-          "markup": { }
+          "expansion": [ "Yeah", "[[comma]]", " just come over whenever ", "[[you or u]]", " want" ]
         }
       ]
     },
@@ -5565,13 +5695,11 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "you" ],
-          "markup": { }
+          "expansion": [ "you" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "u" ],
-          "markup": { }
+          "expansion": [ "u" ]
         }
       ]
     },
@@ -5582,18 +5710,15 @@
       "rules": [
         {
           "app_rate": 1,
-          "expansion": [ "[[you or u]]", " should come over" ],
-          "markup": { }
+          "expansion": [ "[[you or u]]", " should come over" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "maybe ", "[[you or u]]", " should come and try to comfort them" ],
-          "markup": { }
+          "expansion": [ "maybe ", "[[you or u]]", " should come and try to comfort them" ]
         },
         {
           "app_rate": 1,
-          "expansion": [ "we need you here ASAP" ],
-          "markup": { }
+          "expansion": [ "we need you here ASAP" ]
         }
       ]
     }

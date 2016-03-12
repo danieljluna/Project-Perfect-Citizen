@@ -4,6 +4,7 @@
 #include <vector>
 #include <map>
 #include <String>
+#include "subject.h"
 //using namespace std;
 
 namespace ppc {
@@ -20,6 +21,7 @@ namespace ppc {
 	///them in child classes. I recommend redefining 
 	///readFile to suit your Json however. 
 	///////////////////////////////////////////////
+	class Desktop;
 	class BaseFileType {
 		friend class NodeState;
 	protected:
@@ -67,7 +69,17 @@ namespace ppc {
 		///encrypted
 		///////////////////////////////////////////////
 		bool encrypted = false;
+		//////////////////////////////////////////////
+		///@brief string representation of what
+		///ls will output
+		//////////////////////////////////////////////
 		std::string baseDirString = "";
+		ppc::Subject* fileSubject = nullptr;
+		//////////////////////////////////////////////
+		///@brief has the file ever been opened?
+		//////////////////////////////////////////////
+		bool sealed = true;
+		std::string fileData = "";
 	public:
 		///////////////////////////////////////////////
 		///@brief assigns Json string to jSonString;
@@ -79,7 +91,7 @@ namespace ppc {
 		///@brief Prints the data from a text file
 		///Returns if the target isnt a file. 
 		///////////////////////////////////////////////
-		virtual void readFile();
+		virtual void readFile(Desktop& desk, sf::Image& im, std::string path);
 		///////////////////////////////////////////////
 		///@brief Prints the directory of the node. 
 		///////////////////////////////////////////////
@@ -129,5 +141,12 @@ namespace ppc {
 		///@brief returns the status of BaseFileType::encrypted
 		///////////////////////////////////////////////
 		virtual bool isEncrypted();
+		
+		virtual std::map<std::string, BaseFileType*> getContents();
+
+		virtual ppc::Subject* getSubject() { return fileSubject; };
+
+		virtual std::string getFileData();
+		//virtual void addFileObserver(sf::Event& ev, bool(*obFunction)(T*, sf::Event&);
 	};
 };

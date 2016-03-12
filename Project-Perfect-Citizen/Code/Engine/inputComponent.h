@@ -98,15 +98,12 @@ protected:
     ///     InputComponent.
     ///////////////////////////////////////////////////////////////////
     InputComponent(size_t observerCount = 1);
-
+	BaseObserver** observerArray_;
+	size_t observerCount_;
 
 private:
 
     size_t findNextObserver();
-
-    BaseObserver** observerArray_;
-
-    size_t observerCount_;
 
 };
 

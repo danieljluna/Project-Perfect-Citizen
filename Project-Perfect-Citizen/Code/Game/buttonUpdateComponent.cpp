@@ -1,4 +1,7 @@
+#include "../Engine/debug.h"
 #include "buttonUpdateComponent.h"
+
+using namespace ppc;
 
 buttonUpdateComponent::buttonUpdateComponent(buttonRenderComponent& bRC)
 	: buttonToUpdate_(bRC) {

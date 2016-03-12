@@ -1,5 +1,5 @@
 #include "Database.h"
-
+#include "../Engine/debug.h"
 
 using namespace ppc;
 
@@ -23,15 +23,20 @@ void Database::generateFullDatabase(int newMaxNumber) {
 	databaseState_ = newDatabase;
 }
 
+std::vector<ppc::PipelineCharacter> Database::getDatabaseState()
+{
+	return databaseState_;
+}
+
 std::vector<std::string> Database::getPrintableDatabase(){
 	std::vector<std::string> printable;
 	std::string temp = "";
 	for (auto iter = this->databaseState_.begin(); iter != this->databaseState_.end(); ++iter) {
 		temp.append("Result: ");
-		temp.append(std::to_string(iter->getIQ()) + " ");
-		temp.append(std::to_string(iter->getAge()) + " ");
-		temp.append(std::to_string(iter->getCreditScore()) + " ");
+		//temp.append(std::to_string(iter->getIQ()) + " ");		
 		temp.append(iter->getSSN() + " ");
+		temp.append("AGE: " + std::to_string(iter->getAge()) + " ");
+		temp.append("CS: " + std::to_string(iter->getCreditScore()) + " ");
 		temp.append(iter->getEmail() + " ");
 		temp.append(iter->getPhoneNum() + " ");
 		temp.append(iter->getJob());
@@ -70,6 +75,14 @@ bool Database::filterIsValid(std::string filter) {
 	else if (cleaned.compare("email") == 0) return true;
 	else if (cleaned.compare("phone") == 0) return true;
 	else if (cleaned.compare("job") == 0) return true;
+
+	if (filter.compare("iq") == 0) return true;
+	else if (filter.compare("age") == 0) return true;
+	else if (filter.compare("credit score") == 0) return true;
+	else if (filter.compare("ssn") == 0) return true;
+	else if (filter.compare("email") == 0) return true;
+	else if (filter.compare("phone") == 0) return true;
+	else if (filter.compare("job") == 0) return true;
 
 	std::cout << "Error: Invalid filter" << std::endl;
 	return false;

@@ -17,9 +17,14 @@
 
 #include "../Library/json/json.h"
 
-#include "PipelineCharacter.h"
+//#include "PipelineCharacter.h"
+namespace ppc {
+	class PipelineCharacter;
+	class Edge;
+};
 
 namespace expr {
+
 
 class ExpressionistParser {
 public:
@@ -47,13 +52,13 @@ public:
 	/// @param[in]  const Json::Value&  A Json based object containing an
 	///                                 expressionist grammar
 	///////////////////////////////////////////////////////////////////////
-	static std::string expressWithJson(const Json::Value& exprOutput, const ppc::PipelineCharacter& speaker);
+	static std::string expressWithJson(const Json::Value& exprOutput, const ppc::PipelineCharacter& speaker, const ppc::Edge& link);
 private:
-	static std::pair<std::string, bool> expandWithJson(const Json::Value& exprOutput, const Json::Value& symbol, const ppc::PipelineCharacter& speaker);
+	static std::pair<std::string, bool> expandWithJson(const Json::Value& exprOutput, const Json::Value& symbol, const ppc::PipelineCharacter& speaker, const ppc::Edge& link);
 
-	static std::pair<std::string, bool> fireWithJson(const Json::Value& exprOutput, const Json::Value& rule, const ppc::PipelineCharacter& speaker);
+	static std::pair<std::string, bool> fireWithJson(const Json::Value& exprOutput, const Json::Value& rule, const ppc::PipelineCharacter& speaker, const ppc::Edge& link);
 
-	static bool checkMarkUpPreconditions(const Json::Value & markup, const ppc::PipelineCharacter & speaker);
+	static bool checkMarkUpPreconditions(const Json::Value & markup, const ppc::PipelineCharacter & speaker, const ppc::Edge& link);
 
 };
 

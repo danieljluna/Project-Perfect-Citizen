@@ -1,0 +1,155 @@
+{
+    "Desktop": {
+        "AP_English_Curriculum": {
+            "Readings": {
+                "Catch_22_-_Joseph_Heller.txt": "DesktopContent/Desktop1/Catch 22 - Joseph Heller.txt",
+                "CatcherInTheRye_-_Salinger.txt": "DesktopContent/Desktop1/CatcherInTheRye - Salinger.txt",
+                "Invisible_Man_-_Ellison.txt": "DesktopContent/Desktop1/Invisible Man - Ellison.txt",
+                "The_Metamorphosis.txt": "DesktopContent/Desktop1/The_Metamorphosis.txt",
+ 				"The_Scarlet_Letter.txt": "DesktopContent/Desktop1/The_Scarlet_Letter.txt"
+            },
+            "Syllabus": {
+                "ap_english_composition_syllabus.txt": "DesktopContent/Desktop1/ap_english_composition_syllabus.txt"
+            }
+        },
+        "Art_Gallery": {
+            "Connie_Imboden": {
+                "1-24-08-182.jpg": "DesktopContent/Desktop1/1-24-08-182.jpg",
+                "1894.jpg": "DesktopContent/Desktop1/1894.jpg",
+                "2-20-09-431.jpg": "DesktopContent/Desktop1/2-20-09-431.jpg",
+                "2-23-2011-213.jpg": "DesktopContent/Desktop1/2-23-2011-213.jpg",
+                "3-29-12-184.jpg": "DesktopContent/Desktop1/3-29-12-184.jpg",
+                "3191.jpg": "DesktopContent/Desktop1/3191.jpg",
+                "3573.jpg": "DesktopContent/Desktop1/3573.jpg",
+                "4-10-08-386.jpg": "DesktopContent/Desktop1/4-10-08-386.jpg",
+                "4-14-09-462.jpg": "DesktopContent/Desktop1/4-14-09-462.jpg",
+                "4-24-08-152.jpg": "DesktopContent/Desktop1/4-24-08-152.jpg",
+                "4-24-08-492.jpg": "DesktopContent/Desktop1/4-24-08-492.jpg",
+                "4-4-12-048.jpg": "DesktopContent/Desktop1/4-4-12-048.jpg",
+                "4065.jpg": "DesktopContent/Desktop1/4065.jpg",
+                "5678.jpg": "DesktopContent/Desktop1/5678.jpg",
+                "6576.jpg": "DesktopContent/Desktop1/6576.jpg",
+                "7-24-12-052.jpg": "DesktopContent/Desktop1/7-24-12-052.jpg",
+                "7-29-14-345.jpg": "DesktopContent/Desktop1/7-29-14-345.jpg",
+                "7146.jpg": "DesktopContent/Desktop1/7146.jpg",
+                "7402.jpg": "DesktopContent/Desktop1/7402.jpg",
+                "8-9-11-0426.jpg": "DesktopContent/Desktop1/8-9-11-0426.jpg",
+                "9-24-14-195-Edit.jpg": "DesktopContent/Desktop1/9-24-14-195-Edit.jpg"
+            },
+            "Misha_Gordin" : {
+                "Conversation.jpg": "DesktopContent/Desktop1/Conversation.jpg",
+                "Crowd1.jpg": "DesktopContent/Desktop1/Crowd1.jpg",
+                "Crowd14.jpg": "DesktopContent/Desktop1/Crowd14.jpg",
+                "Crowd16.jpg": "DesktopContent/Desktop1/Crowd16.jpg",
+                "Crowd2.jpg": "DesktopContent/Desktop1/Crowd2.jpg",
+                "Crowd21.jpg": "DesktopContent/Desktop1/Crowd21.jpg",
+                "Crowd29.jpg": "DesktopContent/Desktop1/Crowd29.jpg",
+                "Crowd3.jpg": "DesktopContent/Desktop1/Crowd3.jpg",
+                "Crowd31.jpg": "DesktopContent/Desktop1/Crowd31.jpg",
+                "Crowd32.jpg": "DesktopContent/Desktop1/Crowd32.jpg",
+                "Crowd35.jpg": "DesktopContent/Desktop1/Crowd35.jpg",
+                "Crowd7.jpg": "DesktopContent/Desktop1/Crowd7.jpg",
+                "Crowd8.jpg": "DesktopContent/Desktop1/Crowd8.jpg",
+                "Doubt1.jpg": "DesktopContent/Desktop1/Doubt1.jpg",
+                "Doubt11.jpg": "DesktopContent/Desktop1/Doubt11.jpg",
+                "Doubt15.jpg": "DesktopContent/Desktop1/Doubt15.jpg",
+                "Doubt16.jpg": "DesktopContent/Desktop1/Doubt16.jpg",
+                "Doubt2.jpg": "DesktopContent/Desktop1/Doubt2.jpg",
+                "Doubt3.jpg": "DesktopContent/Desktop1/Doubt3.jpg",
+                "Doubt6.jpg": "DesktopContent/Desktop1/Doubt6.jpg",
+                "Doubt9.jpg": "DesktopContent/Desktop1/Doubt9.jpg",
+                "Epidemic-2.jpg": "DesktopContent/Desktop1/Epidemic-2.jpg",
+                "EternalStation.jpg": "DesktopContent/Desktop1/EternalStation.jpg",
+                "Fallen1.jpg": "DesktopContent/Desktop1/Fallen1.jpg",
+                "Fallen2.jpg": "DesktopContent/Desktop1/Fallen2.jpg",
+                "Fallen5.jpg": "DesktopContent/Desktop1/Fallen5.jpg",
+                "Fallen7.jpg": "DesktopContent/Desktop1/Fallen7.jpg",
+                "Fata+Morgana.jpg": "DesktopContent/Desktop1/Fata+Morgana.jpg",
+                "Fragment+Of+Eternity.jpg": "DesktopContent/Desktop1/Fragment+Of+Eternity.jpg",
+                "Journey+Into+Dark.jpg": "DesktopContent/Desktop1/Journey+Into+Dark.jpg",
+                "New+Crowd39.jpg": "DesktopContent/Desktop1/New+Crowd39.jpg",
+                "NewCrowd38.jpg": "DesktopContent/Desktop1/NewCrowd38.jpg",
+                "NewCrowd38Fragment.jpg": "DesktopContent/Desktop1/NewCrowd38Fragment.jpg",
+                "NewCrowd42Fragment.jpg": "NewCrowd42Fragment.jpg",
+                "NewCrowd46.jpg": "DesktopContent/Desktop1/NewCrowd46.jpg",
+                "NewCrowd52.jpg": "DesktopContent/Desktop1/NewCrowd52.jpg",
+                "NewCrowd58.jpg": "DesktopContent/Desktop1/NewCrowd58.jpg",
+                "Sheptune2.jpg": "DesktopContent/Desktop1/Sheptune2.jpg"
+            }
+        },
+        "Film": {
+            "Girl_Hunt_Ballet_—_Fred_Astaire_and_Cyd_Charisse,_1953.mp4": "",
+	 		"Charles_Bukowski_(dinosauria,_we).mp4": "",
+	 		"Gasman_(1998)_Short_Film.mp4": "",
+	 		"Lynne_Ramsay_-_Swimmer.mp4": "",
+	 		"Maya_Deren_&_Alexander_Hamid_-_Meshes_of_the_afternoon.mp4": "",
+	 		"MOON-Un_Chien_Andalou.mp4": ""
+        },
+        "Lit": {
+            "As_I_Lay_Dying_-_Faulkner.txt": "DesktopContent/Desktop1/As I Lay Dying - Faulkner.txt",
+            "Bacchae_-_Euripides.txt": "DesktopContent/Desktop1/Bacchae - Euripides.txt",
+            "bataille_story_of_eye.txt": "DesktopContent/Desktop1/bataille_story_of_eye.txt",
+            "Donne_-_Med_17.txt": "DesktopContent/Desktop1/Donne - Med 17.txt",
+            "Geek_Love_by_Katherine_Dunn_-_Ch1.txt": "DesktopContent/Desktop1/Geek Love by Katherine Dunn - Ch1.txt",
+            "Kristeva_-_powers_of_horror.txt": "DesktopContent/Desktop1/Kristeva_-_powers_of_horror.txt",
+            "LacanMirrorPhase.txt": "DesktopContent/Desktop1/LacanMirrorPhase.txt",
+            "Lolita_-_Vladimir Nabokov.txt": "DesktopContent/Desktop1/Lolita - Vladimir Nabokov.txt",
+            "mulvey-visualpleasure.txt": "DesktopContent/Desktop1/mulvey-visualpleasure.txt"
+        },
+        "Photos": {
+            "Family": {
+                "Jessica's_Baptism": {
+                    "TODO": ""
+                },
+                "Jessica's_First_Steps": {
+                    "TODO": ""
+                },
+                "Summer_Vacation": {
+                    "TODO": ""
+                },
+                "Wedding_Memorries!": {
+                    "TODO": ""
+                }
+            },
+            "Friends": {
+                "Chandler's_Road_Trip": {
+                    "TODO": ""
+                },
+                "Greg's_Wedding": {
+                    "TODO": ""
+                },
+                "Nights_Out": {
+                    "TODO": ""
+                },
+                "Robert's_Party": {
+                    "Other": {
+                        "Stop": {
+                            "Please": {
+                                "Remember_Vows": {
+                                    "Don't_Do_This": {
+                                        "Shame": {
+                                            "CP": {
+                                                "TODO": ""
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Party_Pics": {
+                        "TODO": ""
+                    }
+                },
+                "Soccer_Day": {
+                    "TODO": ""
+                }
+            },
+            "School": {
+                "TODO": ""
+            }
+        },
+        "Bluebird_by_Charles_Bukowski.txt": "DesktopContent/Desktop1/Bluebird by Charles Bukowski.txt",
+        "Myth_of_Sisyphus_by_Albert_Camus.txt": "DesktopContent/Desktop1/Myth of Sisyphus by Albert Camus.txt",
+    }
+}

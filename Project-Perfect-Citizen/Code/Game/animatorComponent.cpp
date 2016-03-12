@@ -1,6 +1,8 @@
-
+#include "../Engine/debug.h"
 #include "animatorComponent.hpp"
 
+
+using namespace ppc;
 
 const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
 
