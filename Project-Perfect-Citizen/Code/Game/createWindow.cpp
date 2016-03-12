@@ -31,6 +31,7 @@
 #include "../Game/Inbox.h"
 #include "../Game/errorMessageRenderComponent.h"
 #include "../Game/Explorer.h"
+#include "NetworkCheckFunctor.h"
 
 #include "../Engine/debug.h"
 #include "../Game/characterRender.hpp"
@@ -227,6 +228,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
     Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 	Network* playNet = solNet->copyNetworkByVerts();
+    NetworkCheckFunctor *ncf = new NetworkCheckFunctor(*solNet, *playNet);
 	playNet->setCenter(-1);  //TEST THIS
 
 	std::vector<int> indexVec {0, 1, 2, 3, 4, 5, 6, 7};
@@ -269,7 +271,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	float buttonScale = 0.25f;
 	int buttonSize = 256;
 	spawnNetworkOkayButton(playNet,submitButton, windowToModify->getInputHandler(), buttonSheet, 
-		( ( graphBounds->getLocalBounds().width - (buttonSize * buttonScale) ) / 2 ), static_cast<float>(windowToModify->getSize().y-50), buttonScale);
+		( ( graphBounds->getLocalBounds().width - (buttonSize * buttonScale) ) / 2 ), static_cast<float>(windowToModify->getSize().y-50), buttonScale, ncf);
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////

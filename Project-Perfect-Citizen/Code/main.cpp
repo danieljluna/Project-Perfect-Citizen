@@ -151,7 +151,7 @@ bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
                 screen.close();
             } else if (event.type == sf::Event::KeyPressed) {
                 //Close
-                if ((event.key.code == sf::Keyboard::Tilde) && (event.key.control)) {
+                if ((event.key.code == sf::Keyboard::Period) && (event.key.control)) {
                     return false;
                 }
             }
@@ -196,7 +196,7 @@ bool runTargetDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
                     screen.close();
                 } else if (event.type == sf::Event::KeyPressed) {
                     //Close
-                    if ((event.key.code == sf::Keyboard::Tilde) && (event.key.alt)) {
+                    if ((event.key.code == sf::Keyboard::Period) && (event.key.alt)) {
                         return false;
                     }
                 }

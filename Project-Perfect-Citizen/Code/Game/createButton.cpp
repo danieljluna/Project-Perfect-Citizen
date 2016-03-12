@@ -8,6 +8,7 @@
 #include "createButton.h"
 #include "databaseSearchInputComponent.h"
 #include "../Engine/Network.h"
+#include "NetworkCheckFunctor.h"
 
 using namespace ppc;
 
@@ -75,7 +76,7 @@ void spawnBlankLargeButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, s
 }
 
 // * THIS IS TEMPORARY FOR FIRST PLAYABLE *//
-void spawnNetworkOkayButton(ppc::Network* nw, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
+void spawnNetworkOkayButton(ppc::Network* nw, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size, NetworkCheckFunctor* ncf) {
 	/* Render Component */
 	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 0, 2, 2, 1);
 	buttonRender->setImageScale(size, size);
@@ -84,7 +85,7 @@ void spawnNetworkOkayButton(ppc::Network* nw, ppc::Entity& entityToModify, ppc::
 	/* Input Component*/
 	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "okayButton");
 
-	setOnPress(mpb, nw, &(ppc::runSubmitCheck));
+	setOnPress(mpb, ncf, &(ppc::runSubmitCheck));
 
 	entityToModify.addComponent(buttonRender);
 	entityToModify.addComponent(mpb);
