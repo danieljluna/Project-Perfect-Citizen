@@ -10,7 +10,7 @@
 #include "bootLoadingUpdateComponent.hpp"
 
 
-bootLoadingUpdateComponent::bootLoadingUpdateComponent(bootLoadingAnimationRender& r,buttonRenderComponent& b, float s):button(b){
+bootLoadingUpdateComponent::bootLoadingUpdateComponent(bootLoadingAnimationRender& r, float s){
     render = &r;
     speed = s;
     framePeriod = sf::seconds(speed);
@@ -21,9 +21,7 @@ bootLoadingUpdateComponent::~bootLoadingUpdateComponent() {
 }
 
 void bootLoadingUpdateComponent::update(sf::Time& deltaTime) {
-    if (render->getFrame() == 30) {
-        button.getSprite()->setColor(sf::Color(0,0,0,0));
-    }
+ 
     counter += deltaTime;
     
     if (counter >= framePeriod) {

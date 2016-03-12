@@ -22,12 +22,12 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 
     Inbox* theInbox = new Inbox();
     
-    emailExtraction* inbox = new emailExtraction();
-    inbox->parseEmailAsJson("PlayerEmail.json");
+    emailExtraction inbox;// = new emailExtraction();
+    inbox.parseEmailAsJson("PlayerEmail.json");
     
-    //Inbox thnbox;
-    for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
-        Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), "image.jpg");
+
+    for(int i = 0; i < inbox.getSubject().size(); i++){
+        Email testEmail1(inbox.getTo().at(i), inbox.getFrom().at(i), inbox.getSubject().at(i), inbox.getBody().at(i), "image.jpg");
         theInbox->addEmailToList(testEmail1);
     }
     
@@ -47,7 +47,6 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	///// ICONS ON PLAYER DESKTOP
 	////////////////////////////////
 	Entity ConsoleIcon;
-	Entity FolderIcon;
 	Entity DataGraphIcon;
 	Entity HardDriveIcon;
 	Entity SearchIcon;
@@ -61,10 +60,8 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 425.0f, 0.5f, 0.25f, theInbox);
 	spawnSearchIcon(SearchIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 625.0f, 425.0f, 0.5f, 0.25f, theInbox);
 	
-	spawnFolderIcon(FolderIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 425.0f, 525.0f, 0.5f, 0.25f, theInbox);
 	
 	desktopWindowToModify.addEntity(ConsoleIcon);
-	desktopWindowToModify.addEntity(FolderIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
 	desktopWindowToModify.addEntity(HardDriveIcon);
 	desktopWindowToModify.addEntity(SearchIcon);
