@@ -82,6 +82,7 @@
     <ClCompile Include="Code\Game\iconInputComponent.cpp" />
     <ClCompile Include="Code\Game\Inbox.cpp" />
     <ClCompile Include="Code\Game\mousePressButton.cpp" />
+    <ClCompile Include="Code\Game\NetworkCheckFunctor.cpp" />
     <ClCompile Include="Code\Game\NetworkInputCmpnt.cpp" />
     <ClCompile Include="Code\Game\NetworkRenderCmpnt.cpp" />
     <ClCompile Include="Code\Game\NetworkUpdateCmpnt.cpp" />
@@ -90,6 +91,7 @@
     <ClCompile Include="Code\Game\PipelineDataRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineGraphRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineLevelBuilder.cpp" />
+    <ClCompile Include="Code\Game\Quitter.cpp" />
     <ClCompile Include="Code\Game\testRenderSprite.cpp" />
     <ClCompile Include="Code\Game\textInputKeys.cpp" />
     <ClCompile Include="Code\Game\textInputRenderComponent.cpp" />
@@ -185,6 +187,7 @@
     <ClInclude Include="Code\Game\iconInputComponent.h" />
     <ClInclude Include="Code\Game\Inbox.h" />
     <ClInclude Include="Code\Game\mousePressButton.h" />
+    <ClInclude Include="Code\Game\NetworkCheckFunctor.h" />
     <ClInclude Include="Code\Game\NetworkInputCmpnt.h" />
     <ClInclude Include="Code\Game\NetworkRenderCmpnt.h" />
     <ClInclude Include="Code\Game\NetworkUpdateCmpnt.h" />
@@ -193,6 +196,7 @@
     <ClInclude Include="Code\Game\PipelineDataRenderComponent.h" />
     <ClInclude Include="Code\Game\PipelineGraphRenderComponent.h" />
     <ClInclude Include="Code\Game\PipelineLevelBuilder.h" />
+    <ClInclude Include="Code\Game\Quitter.h" />
     <ClInclude Include="Code\Game\testRenderSprite.h" />
     <ClInclude Include="Code\Game\textInputKeys.hpp" />
     <ClInclude Include="Code\Game\textInputRenderComponent.hpp" />

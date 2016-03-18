@@ -31,6 +31,7 @@
 #include "../Game/Inbox.h"
 #include "../Game/errorMessageRenderComponent.h"
 #include "../Game/Explorer.h"
+#include "NetworkCheckFunctor.h"
 
 #include "../Engine/debug.h"
 #include "../Game/characterRender.hpp"
@@ -227,7 +228,9 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
     Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 	Network* playNet = solNet->copyNetworkByVerts();
-	playNet->setCenter(-1);
+
+    NetworkCheckFunctor *ncf = new NetworkCheckFunctor(*solNet, *playNet);
+	playNet->setCenter(-1);  //TEST THIS
 
 	std::vector<int> indexVec {0, 1, 2, 3, 4, 5, 6, 7};
 	std::random_shuffle(indexVec.begin(), indexVec.end());
@@ -269,7 +272,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	float buttonScale = 0.25f;
 	int buttonSize = 256;
 	spawnNetworkOkayButton(playNet,submitButton, windowToModify->getInputHandler(), buttonSheet, 
-		( ( graphBounds->getLocalBounds().width - (buttonSize * buttonScale) ) / 2 ), static_cast<float>(windowToModify->getSize().y-50), buttonScale);
+		( ( graphBounds->getLocalBounds().width - (buttonSize * buttonScale) ) / 2 ), static_cast<float>(windowToModify->getSize().y-50), buttonScale, ncf);
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
@@ -343,6 +346,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
             float(windowToModify->getSize().x),
             float(windowToModify->getSize().x)
         };
+		cout << windowScrollHeight << endl;
         windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     }
     
@@ -401,13 +405,13 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 
-	/*sf::FloatRect viewRect = {
+	sf::FloatRect viewRect = {
 		0.0f,
 		0.0f,
 		float(windowToModify->getSize().x),
 		float(windowToModify->getSize().y / 2)
 	};
-	windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));*/
+	windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
 	windowToModify = new BorderDecorator(*windowToModify);
 	windowToModify->setPosition(x, y);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
