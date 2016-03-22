@@ -73,13 +73,15 @@ void ppc::BaseFileType::printDir()
 
 void ppc::BaseFileType::makeFile(std::string filename, std::string content)
 {
-	BaseFileType* newFile = new BaseFileType(ppc::FileType::File);
+	//TODO: FIX MEMORY LEAKS!
+    BaseFileType* newFile = new BaseFileType(ppc::FileType::File);
 	newFile->fileData = content;
 	this->contents[filename] = newFile;
 }
 
 ppc::BaseFileType* ppc::BaseFileType::makeDir(std::string filename)
 {
+    //TODO: FIX MEMORY LEAKS!
 	BaseFileType* newDir = new BaseFileType(ppc::FileType::Directory);
 	newDir->contents["."] = newDir;
 	newDir->contents[".."] = this;

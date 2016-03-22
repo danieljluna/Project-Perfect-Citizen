@@ -17,16 +17,18 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	//// Create the database (really should take a seed)
 	/////////////////////////////////////////////
 
-	Database* theDatabase = new Database();
+	//TODO: FIX MEMORY LEAK
+    Database* theDatabase = new Database();
 	theDatabase->generateFullDatabase(200);
 
+    //TODO: FIX MEMORY LEAK
     Inbox* theInbox = new Inbox();
     
     emailExtraction inbox;// = new emailExtraction();
     inbox.parseEmailAsJson("PlayerEmail.json");
     
 
-    for(int i = 0; i < inbox.getSubject().size(); i++){
+    for(unsigned int i = 0; i < inbox.getSubject().size(); i++){
         Email testEmail1(inbox.getTo().at(i), inbox.getFrom().at(i), inbox.getSubject().at(i), inbox.getBody().at(i), "image.jpg");
         theInbox->addEmailToList(testEmail1);
     }
@@ -74,11 +76,14 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     //////////////////////////////////////////////
     //// Create the database (really should take a seed)
     /////////////////////////////////////////////
+    //TODO: FIX MEMORY LEAK
     Database* theDatabase = new Database();
     theDatabase->generateFullDatabase(0);
     
+    //TODO: FIX MEMORY LEAK
     Inbox* theInbox = new Inbox();
     
+    //TODO: FIX MEMORY LEAK
     emailExtraction* inbox = new emailExtraction();
     inbox->parseEmailAsJson("Email1.json");
     

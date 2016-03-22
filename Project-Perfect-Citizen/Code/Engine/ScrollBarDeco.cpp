@@ -58,8 +58,8 @@ ScrollBarDecorator::~ScrollBarDecorator() {
 sf::Vector2u ScrollBarDecorator::getSize() const {
     sf::Vector2u size = WindowDecorator::getSize();
 
-    size.x += barSize_;
-    size.y += barSize_;
+    size.x += int(barSize_);
+    size.y += int(barSize_);
 
     return size;
 }
@@ -275,14 +275,14 @@ void ScrollBarDecorator::updateDraggable() {
 void ScrollBarDecorator::updateSliders() {
     sf::FloatRect currView;
     sf::FloatRect defaultView;
-    defaultView.width = WindowDecorator::getSize().x;
-    defaultView.height = WindowDecorator::getSize().y;
-    currView.width = WindowDecorator::getView().getSize().x;
-    currView.height = WindowDecorator::getView().getSize().y;
-    currView.left = WindowDecorator::getView().getCenter().x - 
-                        currView.width / 2.0f;
-    currView.top = WindowDecorator::getView().getCenter().y -
-                        currView.height / 2.0f;
+    defaultView.width = float(WindowDecorator::getSize().x);
+    defaultView.height = float(WindowDecorator::getSize().y);
+    currView.width = float(WindowDecorator::getView().getSize().x);
+    currView.height = float(WindowDecorator::getView().getSize().y);
+    currView.left = float(WindowDecorator::getView().getCenter().x - 
+                        currView.width / 2.0f);
+    currView.top = float(WindowDecorator::getView().getCenter().y -
+                        currView.height / 2.0f);
     sf::Vector2f pos = WindowDecorator::getPosition();
     pos.x += barSize_;
     pos.y += barSize_;

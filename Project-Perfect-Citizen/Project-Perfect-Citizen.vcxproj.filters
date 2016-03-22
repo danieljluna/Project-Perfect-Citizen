@@ -767,9 +767,4 @@
       <Filter>Resources</Filter>
     </Image>
   </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Project-Perfect-Citizen.rc">
-      <Filter>Resources</Filter>
-    </ResourceCompile>
-  </ItemGroup>
 </Project>

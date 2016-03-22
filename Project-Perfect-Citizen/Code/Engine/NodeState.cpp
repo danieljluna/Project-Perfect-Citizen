@@ -29,6 +29,7 @@ void ppc::NodeState::printWorking()
 void ppc::NodeState::setUp()
 {
 	this->workingDirectory.push_back("/");
+    //TODO: FIX MEMORY LEAK! (This one is particularly massive per leak)
 	BaseFileType* newRoot = new BaseFileType(ppc::FileType::Directory);
 	newRoot->contents["."] = newRoot;
 	newRoot->contents[".."] = newRoot;

@@ -1,5 +1,7 @@
 #include "../Engine/debug.h"
 #include "DraggableInput.h"
+#include "WindowInterface.h"
+#include <iostream>
 
 using namespace ppc;
 
@@ -171,7 +173,7 @@ void DraggableInput::drag(const sf::Vector2f& delta) {
         trans_->move(delta);
         bounds_.left += delta.x;
         bounds_.top += delta.y;
-        startX_ += delta.x;
-        startY_ += delta.y;
+        startX_ += int(delta.x);
+        startY_ += int(delta.y);
     }
 }

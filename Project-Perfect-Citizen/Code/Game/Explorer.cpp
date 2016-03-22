@@ -50,7 +50,7 @@ vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
 			if (hasEnding(filenames.at(i), ".txt") || hasEnding(filenames.at(i), ".jpg")) {
 				buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet_, 0, 0, 1, 3);
 				IconRender->renderPosition(sf::Vector2f(static_cast<float>(k * padding), static_cast<float>(j * padding)));
-				textLabelComponent* label = new textLabelComponent(font, sf::Color::Black, k * padding, static_cast<int>(j * padding + 0.5 * 128), 10, filenames.at(i));
+				textLabelComponent* label = new textLabelComponent(font, sf::Color::Black, float(k * padding), float(j * padding + 0.5 * 128), 10, filenames.at(i));
 				explorerFileInputComponent* IconInput = new explorerFileInputComponent(theDesktop_, windowToWorkOn_->getInputHandler(), 
 					theFileTree_, buttonSheet_, IconRender->getSprite()->getGlobalBounds(), filenames.at(i));
 				example.addComponent(IconRender);
@@ -61,7 +61,7 @@ vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
 			else {
 				buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet_, 0, 9, 1, 1);
 				IconRender->renderPosition(sf::Vector2f(static_cast<float>(k * padding), static_cast<float>(j * padding)));
-				textLabelComponent* label = new textLabelComponent(font, sf::Color::Black, k * padding, static_cast<int>(j * padding + 0.5 * 128), 12, filenames.at(i));
+				textLabelComponent* label = new textLabelComponent(font, sf::Color::Black, float(k * padding), float(j * padding + 0.5 * 128), 12, filenames.at(i));
 				explorerFolderInputComponent* IconInput = new explorerFolderInputComponent(theDesktop_, windowToWorkOn_, windowToWorkOn_->getInputHandler(),
 					theFileTree_, buttonSheet_, iconSheet_, IconRender->getSprite()->getGlobalBounds(), filenames.at(i));
 				example.addComponent(IconRender);

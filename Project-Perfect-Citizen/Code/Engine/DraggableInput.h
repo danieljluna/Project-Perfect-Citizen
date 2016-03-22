@@ -2,12 +2,15 @@
 #define DRAGGABLE_INPUT_H
 
 #include "inputComponent.h"
-#include "WindowInterface.h"
-#include <iostream>
+#include "subject.h"
 
+namespace sf {
+    class Transformable;
+}
 
 namespace ppc {
 
+class WindowInterface;
 
 class DraggableInput : public InputComponent {
 public:

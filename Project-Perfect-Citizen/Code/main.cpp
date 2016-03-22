@@ -304,7 +304,6 @@ int main(int argc, char** argv) {
 
 	bool BootToTitleCard = false; 
     // Create the main sf::window
-	sf::Event testEvent;
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
 	//bool coolReturnValue = (*cool.*(c->functionPointer))(sf::Event());

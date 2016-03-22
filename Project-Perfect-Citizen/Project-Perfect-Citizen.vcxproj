@@ -210,9 +210,6 @@
     <Image Include="Resources\kappa.png" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Project-Perfect-Citizen.rc" />
-  </ItemGroup>
-  <ItemGroup>
     <Font Include="Resources\Consolas.ttf" />
   </ItemGroup>
   <ItemGroup>
