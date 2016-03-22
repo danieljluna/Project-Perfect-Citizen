@@ -14,7 +14,6 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "Library/json/json.h"
-#include "Game/testRenderSprite.h"
 #include "Engine/InputHandler.h"
 #include "Engine/subject.h"
 #include "Engine/debug.h"
@@ -49,7 +48,6 @@
 #include "Game/BootLoader.hpp"
 #include "Game/characterRender.hpp"
 #include "Engine/debug.h"
-#include "Engine/TestFunctionClass.h"
 #include "Engine/FreeFunctionObserver.h"
 #include "Game/interpolateUpdateComponent.hpp"
 #include "Engine/FreeFunctionObserver.h"
@@ -62,12 +60,6 @@
 
 
 using namespace ppc;
-
-bool printFunc(TestFunctionClass* tfc, sf::Event& ev) {
-	std::cout << "inside printFunc" << std::endl;
-	tfc->callFunc(ev);
-	return true;
-}
 
 
 
@@ -314,17 +306,6 @@ int main(int argc, char** argv) {
     // Create the main sf::window
 	sf::Event testEvent;
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
-	////////////////////////////////////////////FUNCTION OBSERVER TESTING/////////////////////////////////
-	TestFunctionClass cool;
-	//FunctionObserver<TestFunctionClass> c(&TestFunctionClass::callFunc); //= new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc);
-	//FunctionObserver<TestFunctionClass>* c = new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc, cool);
-	//bool coolReturnValue = (*cool.*(c->functionPointer))(testEvent);
-	//c->eventHandler(testEvent);
-
-
-	FreeFunctionObserver<TestFunctionClass> d(printFunc, &cool);
-	d.eventHandler(testEvent);
-	////////////////////////////////////////////FUNCTION OBSERVER TESTING/////////////////////////////////
 
 	//bool coolReturnValue = (*cool.*(c->functionPointer))(sf::Event());
 
