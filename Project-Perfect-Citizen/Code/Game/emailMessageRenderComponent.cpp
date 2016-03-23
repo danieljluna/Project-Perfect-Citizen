@@ -1,4 +1,8 @@
 #include "emailMessageRenderComponent.h"
+#include <SFML/Graphics/Font.hpp>
+#include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/RenderStates.hpp>
 
 using namespace ppc;
 

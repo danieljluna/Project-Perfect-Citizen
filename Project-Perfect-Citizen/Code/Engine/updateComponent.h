@@ -1,8 +1,7 @@
 //Update Component 
 // Nader Sleem
 #pragma once
-#include <vector>
-#include <SFML/Graphics.hpp>
+
 #include "Component.h"
 
 using namespace std;
