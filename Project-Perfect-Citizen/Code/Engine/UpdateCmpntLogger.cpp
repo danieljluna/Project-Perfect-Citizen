@@ -1,5 +1,6 @@
 #include "debug.h"
 #include "updateCmpntLogger.h"
+#include <SFML/System/Time.hpp>
 
 using namespace ppc;
 

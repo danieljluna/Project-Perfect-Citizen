@@ -3,8 +3,9 @@
 #pragma once
 
 #include "Component.h"
-
-using namespace std;
+namespace sf {
+    class Time;
+};
 
 namespace ppc {
 
