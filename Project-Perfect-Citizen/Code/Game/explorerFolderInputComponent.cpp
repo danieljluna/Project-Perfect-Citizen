@@ -4,6 +4,7 @@
 #include <string>
 
 #include "../Engine/FreeFunctionObserver.h"
+#include "TreeCommands.h"
 
 using namespace ppc;
 

@@ -2,6 +2,7 @@
 #include "DraggableInput.h"
 #include "WindowInterface.h"
 #include <iostream>
+#include <SFML/Graphics/Transformable.hpp>
 
 using namespace ppc;
 

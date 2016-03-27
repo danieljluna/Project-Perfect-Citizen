@@ -3,6 +3,7 @@
 
 #include "inputComponent.h"
 #include "subject.h"
+#include <SFML/Graphics/Rect.hpp>
 
 namespace sf {
     class Transformable;

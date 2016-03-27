@@ -1,6 +1,7 @@
 #include "Explorer.h"
 #include "../Engine/WindowInterface.h"
 #include "Quitter.h"
+#include "TreeCommands.h"
 
 #ifdef WINDOWS_MARKER
 #define resourcePath() string("Resources/")

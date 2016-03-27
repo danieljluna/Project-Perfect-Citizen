@@ -1,8 +1,13 @@
+#include <iostream>
+#include <vector>
 #include "debug.h"
 #include "BaseFileType.h"
 #include "desktop.h"
 #include "../../Code/Game/createWindow.h"
-ppc::BaseFileType::BaseFileType(ppc::FileType type)
+
+using namespace ppc;
+
+BaseFileType::BaseFileType(ppc::FileType type)
 {
 	switch (type) {
 	case FileType::Directory:
@@ -17,7 +22,7 @@ ppc::BaseFileType::BaseFileType(ppc::FileType type)
 	}
 }
 
-ppc::BaseFileType::~BaseFileType() {
+BaseFileType::~BaseFileType() {
     if (filetype == FileType::Directory) {
         //Remove Default Folders
         contents.erase(".");
@@ -32,12 +37,14 @@ ppc::BaseFileType::~BaseFileType() {
     }
 }
 
-void ppc::BaseFileType::uploadJson(std::string jString)
+void BaseFileType::uploadJson(std::string jString)
 {
 	this->jSonString = jString;
 }
+
 //void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string p) {
-void ppc::BaseFileType::readFile(ppc::Desktop& desk, sf::Image& im, std::string path)
+
+void BaseFileType::readFile(ppc::Desktop& desk, sf::Image& im, std::string path)
 {
 	ppc::WindowInterface* FileWindow;
 	if (this->encrypted) {
@@ -58,7 +65,7 @@ void ppc::BaseFileType::readFile(ppc::Desktop& desk, sf::Image& im, std::string 
 	}
 }
 
-void ppc::BaseFileType::printDir()
+void BaseFileType::printDir()
 {
 	this->baseDirString = "";
 	for (auto iter = this->contents.begin(); iter != this->contents.end(); iter++) {
@@ -71,7 +78,7 @@ void ppc::BaseFileType::printDir()
 	}
 }
 
-void ppc::BaseFileType::makeFile(std::string filename, std::string content)
+void BaseFileType::makeFile(std::string filename, std::string content)
 {
 	//TODO: FIX MEMORY LEAKS!
     BaseFileType* newFile = new BaseFileType(ppc::FileType::File);
@@ -79,7 +86,7 @@ void ppc::BaseFileType::makeFile(std::string filename, std::string content)
 	this->contents[filename] = newFile;
 }
 
-ppc::BaseFileType* ppc::BaseFileType::makeDir(std::string filename)
+BaseFileType* BaseFileType::makeDir(std::string filename)
 {
     //TODO: FIX MEMORY LEAKS!
 	BaseFileType* newDir = new BaseFileType(ppc::FileType::Directory);
@@ -99,41 +106,41 @@ ppc::BaseFileType * ppc::BaseFileType::findElement(std::string filename)
 	return nullptr;
 }
 
-ppc::BaseFileType * ppc::BaseFileType::getParent()
+BaseFileType* BaseFileType::getParent()
 {
 	return this->findElement("..");
 }
 
-ppc::FileType ppc::BaseFileType::getFileType()
+FileType BaseFileType::getFileType()
 {
 	return this->filetype;
 }
 
-void ppc::BaseFileType::setVisibility(bool flag)
+void BaseFileType::setVisibility(bool flag)
 {
 	this->hidden = flag;
 }
 
-void ppc::BaseFileType::setEncryption(bool flag) {
+void BaseFileType::setEncryption(bool flag) {
 	this->encrypted = flag;
 }
 
-bool ppc::BaseFileType::isHidden()
+bool BaseFileType::isHidden()
 {
 	return hidden;
 }
 
-bool ppc::BaseFileType::isEncrypted()
+bool BaseFileType::isEncrypted()
 {
 	return encrypted;
 }
 
-std::map<std::string, ppc::BaseFileType*> ppc::BaseFileType::getContents()
+std::map<std::string, BaseFileType*> BaseFileType::getContents()
 {
 	return this->contents;
 }
 
-std::string ppc::BaseFileType::getFileData()
+std::string BaseFileType::getFileData()
 {
 	return this->fileData;
 }

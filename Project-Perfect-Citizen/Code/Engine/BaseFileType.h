@@ -1,11 +1,12 @@
 #pragma once
 //implemented by Andy
-#include <iostream>
-#include <vector>
 #include <map>
 #include <String>
 #include "subject.h"
-//using namespace std;
+
+namespace sf {
+    class Image;
+};
 
 namespace ppc {
 	enum FileType { Directory, File};

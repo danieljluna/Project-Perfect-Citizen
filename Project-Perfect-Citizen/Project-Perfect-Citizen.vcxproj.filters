@@ -399,12 +399,6 @@
     <ClInclude Include="Code\Engine\event.h">
       <Filter>Headers\Engine\Observer System</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\EntityDecorator.h">
-      <Filter>Headers\Engine\Entities / Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\EntityLogger.h">
-      <Filter>Headers\Engine\Entities / Components</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Game\errorMessageRenderComponent.h">
       <Filter>Headers\Game Specific\Error Messages</Filter>
     </ClInclude>
@@ -431,9 +425,6 @@
     </ClInclude>
     <ClInclude Include="Code\Game\Inbox.h">
       <Filter>Headers\Game Specific\Email</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\InputCmpntLogger.h">
-      <Filter>Headers\Engine\Entities / Components</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\inputComponent.h">
       <Filter>Headers\Engine\Entities / Components</Filter>
@@ -507,12 +498,6 @@
     <ClInclude Include="Code\Game\Quitter.h">
       <Filter>Headers\Game Specific\Temporary</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\RenderCmpntDecorator.h">
-      <Filter>Headers\Engine\Entities / Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\RenderCmpntLogger.h">
-      <Filter>Headers\Engine\Entities / Components</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\renderComponent.h">
       <Filter>Headers\Engine\Entities / Components</Filter>
     </ClInclude>
@@ -524,9 +509,6 @@
     </ClInclude>
     <ClInclude Include="Code\Game\WindowBkgndRenderCmpnt.h">
       <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\WindowLogger.h">
-      <Filter>Headers\Engine\Windows</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\Audio\Sounds.h">
       <Filter>Headers\Engine\Audio</Filter>
@@ -549,12 +531,6 @@
     <ClInclude Include="Code\Game\textRenderComponent.hpp">
       <Filter>Headers\Game Specific\Text</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\UpdateCmpntDecorator.h">
-      <Filter>Headers\Engine\Entities / Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\UpdateCmpntLogger.h">
-      <Filter>Headers\Engine\Entities / Components</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\updateComponent.h">
       <Filter>Headers\Engine\Entities / Components</Filter>
     </ClInclude>
@@ -563,6 +539,33 @@
     </ClInclude>
     <ClInclude Include="Code\Game\testRenderSprite.h">
       <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Engine.h">
+      <Filter>Headers\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\EntityDecorator.h">
+      <Filter>Headers\Engine\Entities / Components\Loggers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\EntityLogger.h">
+      <Filter>Headers\Engine\Entities / Components\Loggers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\InputCmpntLogger.h">
+      <Filter>Headers\Engine\Entities / Components\Loggers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\RenderCmpntDecorator.h">
+      <Filter>Headers\Engine\Entities / Components\Loggers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\RenderCmpntLogger.h">
+      <Filter>Headers\Engine\Entities / Components\Loggers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\UpdateCmpntDecorator.h">
+      <Filter>Headers\Engine\Entities / Components\Loggers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\UpdateCmpntLogger.h">
+      <Filter>Headers\Engine\Entities / Components\Loggers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\WindowLogger.h">
+      <Filter>Headers\Engine\Windows\Decorators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -755,6 +758,9 @@
     </Filter>
     <Filter Include="Sources\Game Specific\Pipeline Extraction\Network">
       <UniqueIdentifier>{e9c65c3c-4ced-48ba-a1ea-d60f015b8102}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Engine\Entities / Components\Loggers">
+      <UniqueIdentifier>{eb854185-fed9-4713-b223-736db3282716}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

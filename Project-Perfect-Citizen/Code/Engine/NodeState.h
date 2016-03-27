@@ -1,9 +1,6 @@
 #pragma once
-#include <iostream>
 #include <vector>
-#include "baseFileType.h"
 
-using namespace std;
 ///////////////////////////////////////////////
 ///Class node state is a class used to monitor
 ///a single tree. It contains links to the 
@@ -14,6 +11,8 @@ using namespace std;
 ///is updated when CDing around the tree
 ///////////////////////////////////////////////
 namespace ppc {
+    class BaseFileType;
+
 	class NodeState {
 		friend class BaseFileType;
 	private:
@@ -28,7 +27,7 @@ namespace ppc {
 		///////////////////////////////////////////////
 		///@brief vector of strings that keeps track of
 		///the current working directory
-		vector<string> workingDirectory;
+        std::vector<std::string> workingDirectory;
 		///////////////////////////////////////////////
 		///@brief the last node to be "printed by ls"
 		///used in pairing with dirString
@@ -54,7 +53,7 @@ namespace ppc {
 		///Do not imput a filePath, only a directory
 		///name
 		///////////////////////////////////////////////
-		void pushWorking(string filename);
+		void pushWorking(std::string filename);
 		///////////////////////////////////////////////
 		///@brief Prints the current working directory
 		/// "/" is considered root. 
@@ -107,6 +106,6 @@ namespace ppc {
 		///this->lastLSNode's directory. Every element is
 		///seperated by '@' and must be parsed out
 		///////////////////////////////////////////////
-		string getDirString();
+        std::string getDirString();
 	};
 }; //end ppc namespace

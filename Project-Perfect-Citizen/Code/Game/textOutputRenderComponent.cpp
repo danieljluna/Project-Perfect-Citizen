@@ -3,7 +3,17 @@
 #include "createWindow.h"
 #include "Quitter.h"
 
+#include <iostream>
+#include <SFML/Graphics.hpp>
+#include "../Engine/renderComponent.h"
+#include "../Engine/NodeState.h"
+#include "../Game/TreeCommands.h"
+#include <string>
+#include <algorithm>
+
 const string TEXT_KEY_INPUT = "TKI";
+
+using namespace ppc;
 
 textOutputRenderComponent::textOutputRenderComponent(ppc::Desktop& dt, sf::Image& bs, sf::Font& f,
 	ppc::NodeState& fT, int x, int y, int size) :font_(f),fileTree_(fT), theDesktop_(dt), buttonSheet_(bs) {
@@ -134,6 +144,10 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 
 void textOutputRenderComponent::clearString() {
 	str_.clear();
+}
+
+sf::Vector2f textOutputRenderComponent::getPosition() const {
+    return text_->getPosition();
 }
 
 

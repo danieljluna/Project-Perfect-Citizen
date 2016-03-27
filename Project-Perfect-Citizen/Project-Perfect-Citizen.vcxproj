@@ -123,6 +123,7 @@
     <ClInclude Include="Code\Engine\DesktopLogger.h" />
     <ClInclude Include="Code\Engine\DraggableInput.h" />
     <ClInclude Include="Code\Engine\Edge.h" />
+    <ClInclude Include="Code\Engine\Engine.h" />
     <ClInclude Include="Code\Engine\entity.h" />
     <ClInclude Include="Code\Engine\EntityDecorator.h" />
     <ClInclude Include="Code\Engine\EntityLogger.h" />

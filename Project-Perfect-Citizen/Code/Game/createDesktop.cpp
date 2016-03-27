@@ -1,14 +1,37 @@
-#include "../Engine/debug.h"
+#ifdef WINDOWS_MARKER
+#define resourcePath() string("Resources/")
+#else
+#include "ResourcePath.hpp"
+#endif
+
 #include "createDesktop.h"
+
+#include "createWindow.h"
+
+#include <iostream>
+#include <fstream>
+
+#include "../Engine/Engine.h"
+
+#include "buttonRenderComponent.h"
+#include "consoleUpdateComponent.h"
+#include "textInputRenderComponent.hpp"
+#include "textInputKeys.hpp"
+#include "createIcon.h"
+#include "createButton.h"
+#include "Database.h"
 #include "desktopExtractionComponent.hpp"
-#include "../Game/emailExtraction.hpp"
+#include "emailExtraction.hpp"
+#include "TreeCommands.h"
+
 #include "../Library/json/json.h"
+
 using namespace ppc;
 
 void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet) {
 	
-	std::vector<string> firstLsCommand;
-	string ls = "ls";
+	std::vector<std::string> firstLsCommand;
+	std::string ls = "ls";
 	firstLsCommand.push_back(ls);
 	commandFn firstLs = findFunction(ls);
 	firstLs(desktopToModify.getNodeState(), firstLsCommand);

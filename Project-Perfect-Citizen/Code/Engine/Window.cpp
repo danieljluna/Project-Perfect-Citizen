@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics/RenderTexture.hpp>
 #include <cstddef>
+#include <SFML/Graphics/Sprite.hpp>
 
 using namespace ppc;
 

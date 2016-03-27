@@ -4,6 +4,7 @@
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
+#include <SFML/Graphics/View.hpp>
 
 #include "inputComponent.h"
 #include "updateComponent.h"
