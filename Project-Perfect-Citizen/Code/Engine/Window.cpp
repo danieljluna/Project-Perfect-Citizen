@@ -1,9 +1,13 @@
 #include "debug.h"
 #include "Window.h"
 
-#include <SFML/Graphics/RenderTexture.hpp>
 #include <cstddef>
 #include <SFML/Graphics/Sprite.hpp>
+#include <SFML/System/Time.hpp>
+
+#include "inputComponent.h"
+#include "updateComponent.h"
+#include "renderComponent.h"
 
 using namespace ppc;
 

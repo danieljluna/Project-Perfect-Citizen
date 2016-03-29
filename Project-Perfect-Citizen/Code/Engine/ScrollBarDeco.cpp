@@ -364,8 +364,8 @@ void ScrollBarDecorator::initialize(sf::Image img) {
 
         //Define Button Shape / Image
         buttonRenders_[i] = new buttonRenderComponent(img, 2 * i, 4, 1, 1);
-        float buttonScale = buttonRenders_[i]->getSprite()->
-                                getTextureRect().width;
+        float buttonScale = float(buttonRenders_[i]->getSprite()->
+                                getTextureRect().width);
         buttonScale = barSize_ / buttonScale;
         buttonRenders_[i]->setImageScale(buttonScale, buttonScale);
 
