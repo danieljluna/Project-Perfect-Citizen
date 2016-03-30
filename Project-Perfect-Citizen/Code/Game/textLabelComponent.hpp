@@ -40,7 +40,7 @@ public:
     /// @param x is the x position of the font relative to the entity
     /// @param y is the y position of the font relative to the entity
     ///////////////////////////////////////////////////////////////////////
-    textLabelComponent(sf::Font& f, sf::Color c, int x, int y, int s, string str);
+    textLabelComponent(sf::Font& f, sf::Color c, float x, float y, int s, string str);
     
     ~textLabelComponent();
     

@@ -3,6 +3,10 @@
 #include "UpdateCmpntDecorator.h"
 #include <iostream>
 
+namespace sf {
+    class Time;
+};
+
 namespace ppc {
 	///////////////////////////////////////////////////////////////////
 	///@brief A decorator for Update Cmpnts that logs data when 

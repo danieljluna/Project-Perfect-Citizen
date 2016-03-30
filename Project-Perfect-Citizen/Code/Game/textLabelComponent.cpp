@@ -12,8 +12,8 @@
 using namespace std;
 
 textLabelComponent::textLabelComponent(sf::Font& f,sf::Color c,
-                                       int x,
-                                       int y,
+                                       float x,
+                                       float y,
                                        int s,
                                        string str): font(f) {
     
@@ -23,7 +23,7 @@ textLabelComponent::textLabelComponent(sf::Font& f,sf::Color c,
 
 	size_t pos = 0;
 
-	for (int i = 0, j = 0; i < labelString.size(); ++i, ++j) {
+	for (unsigned int i = 0, j = 0; i < labelString.size(); ++i, ++j) {
 		if (labelString.at(i) == '_' && j > 5) {
 			labelString.insert(i, "\n");
 			i++;

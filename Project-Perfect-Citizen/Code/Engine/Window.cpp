@@ -1,8 +1,13 @@
 #include "debug.h"
 #include "Window.h"
 
-#include <SFML/Graphics/RenderTexture.hpp>
 #include <cstddef>
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/System/Time.hpp>
+
+#include "inputComponent.h"
+#include "updateComponent.h"
+#include "renderComponent.h"
 
 using namespace ppc;
 
@@ -256,8 +261,8 @@ void Window::registerInput(sf::Event& ev) {
         if (mouseInView_) {
             click -= defaultViewPos;
             click += currView.getCenter();
-            ev.mouseButton.x = click.x;
-            ev.mouseButton.y = click.y;
+            ev.mouseButton.x = int(click.x);
+            ev.mouseButton.y = int(click.y);
         }
         break;
     case sf::Event::MouseMoved:
@@ -265,8 +270,8 @@ void Window::registerInput(sf::Event& ev) {
             click = { float(ev.mouseMove.x), float(ev.mouseMove.y) };
             click -= defaultViewPos;
             click += currView.getCenter();
-            ev.mouseMove.x = click.x;
-            ev.mouseMove.y = click.y;
+            ev.mouseMove.x = int(click.x);
+            ev.mouseMove.y = int(click.y);
         }
         break;
     }

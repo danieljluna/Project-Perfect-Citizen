@@ -2,8 +2,7 @@
 #define PPC_CMPNT_RENDER
 
 #include "Component.h"
-#include <SFML/Graphics.hpp>
-#include <vector>
+#include <SFML/Graphics/Drawable.hpp>
 
 
 namespace ppc {

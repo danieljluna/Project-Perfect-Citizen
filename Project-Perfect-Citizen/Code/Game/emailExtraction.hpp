@@ -9,12 +9,12 @@
 #ifndef emailExtraction_hpp
 #define emailExtraction_hpp
 
-#include <stdio.h>
-#include <string>
 #include <vector>
 
-#include "../Library/json/json.h"
-#include "../Engine/NodeState.h"
+
+namespace Json {
+    class Value;
+};
 
 namespace ppc {
     
@@ -52,7 +52,7 @@ namespace ppc {
         /// @param[in] string               String name to be pushed
         ///                                 into TO vector
         ///////////////////////////////////////////////////////////////////
-        void addTo(string content){
+        void addTo(std::string content){
             to_.push_back(content);
         }
         
@@ -61,7 +61,7 @@ namespace ppc {
         /// @param[in] string               String name to be pushed
         ///                                 into FROM vector
         ///////////////////////////////////////////////////////////////////
-        void addFrom(string content){
+        void addFrom(std::string content){
             from_.push_back(content);
         }
         
@@ -70,7 +70,7 @@ namespace ppc {
         /// @param[in] string               String name to be pushed
         ///                                 into SUBJECT vector
         ///////////////////////////////////////////////////////////////////
-        void addSubject(string content){
+        void addSubject(std::string content){
             subject_.push_back(content);
         }
         
@@ -79,7 +79,7 @@ namespace ppc {
         /// @param[in] string               String name to be pushed
         ///                                 into BODY vector
         ///////////////////////////////////////////////////////////////////
-        void addBody(string content){
+        void addBody(std::string content){
             body_.push_back(content);
         }
         
@@ -88,7 +88,7 @@ namespace ppc {
         /// @param[out] vector<string>      Vector containing all TO
         ///                                 strings
         ///////////////////////////////////////////////////////////////////
-        vector<string> getTo(){
+        std::vector<std::string> getTo(){
             return to_;
         }
         
@@ -97,7 +97,7 @@ namespace ppc {
         /// @param[out] vector<string>      Vector containing all FROM
         ///                                 strings
         ///////////////////////////////////////////////////////////////////
-        vector<string> getFrom(){
+        std::vector<std::string> getFrom(){
             return from_;
         }
         
@@ -106,7 +106,7 @@ namespace ppc {
         /// @param[out] vector<string>      Vector containing all SUBJECT
         ///                                 strings
         ///////////////////////////////////////////////////////////////////
-        vector<string> getSubject(){
+        std::vector<std::string> getSubject(){
             return subject_;
         }
         
@@ -115,7 +115,7 @@ namespace ppc {
         /// @param[out] vector<string>      Vector containing all BODY
         ///                                 strings
         ///////////////////////////////////////////////////////////////////
-        vector<string> getBody(){
+        std::vector<std::string> getBody(){
             return body_;
         }
         
@@ -131,10 +131,10 @@ namespace ppc {
         }
         
     private:
-        vector<string> to_;
-        vector<string> from_;
-        vector<string> subject_;
-        vector<string> body_;
+        std::vector<std::string> to_;
+        std::vector<std::string> from_;
+        std::vector<std::string> subject_;
+        std::vector<std::string> body_;
     };
     
 };

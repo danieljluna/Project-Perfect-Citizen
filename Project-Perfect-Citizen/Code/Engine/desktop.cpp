@@ -1,11 +1,19 @@
 //desktop.cpp
 // Nader Sleem
 #include "Window.h"
+
+#include <string>
+
+#include <SFML/System/Time.hpp>
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Window/Event.hpp>
+
 #include "NodeState.h"
 #include "BaseFileType.h"
-
 #include "desktop.h"
 #include "debug.h"
+
+#include "../Game/WindowBkgndRenderCmpnt.h"
 
 ppc::Desktop::Desktop(WindowInterface& bkgndWin, NodeState& n) {
 	style_ = nullptr;

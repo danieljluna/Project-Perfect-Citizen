@@ -1,5 +1,6 @@
 #include "debug.h"
 #include "EntityLogger.h"
+#include <iostream>
 
 using namespace ppc;
 

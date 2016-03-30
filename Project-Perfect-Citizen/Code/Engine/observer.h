@@ -1,6 +1,8 @@
 #pragma once
-#include "event.h"
-#include <SFML/Graphics.hpp>
+
+namespace sf {
+    class Event;
+};
 
 
 namespace ppc {

@@ -2,6 +2,7 @@
 #include "../Engine/debug.h"
 #include <cmath>
 #include <cfloat>
+#include "../Engine/DraggableInput.h"
 const float MAX_DISTANCE_TO_EDGE = 10.f;
 
 void ppc::NetworkInputCmpnt::selectEdge(sf::Vector2f mPos) {
@@ -131,7 +132,7 @@ ppc::NetworkInputCmpnt::NetworkInputCmpnt(Network& net,
 
 }
 
-vector<ppc::DraggableInput*>* ppc::NetworkInputCmpnt::getDraggables() {
+std::vector<ppc::DraggableInput*>* ppc::NetworkInputCmpnt::getDraggables() {
 	return &drags_;
 }
 
