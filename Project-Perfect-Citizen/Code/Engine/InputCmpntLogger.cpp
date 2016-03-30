@@ -1,5 +1,6 @@
 #include "debug.h"
 #include "InputCmpntLogger.h"
+#include <iostream>
 
 using namespace ppc;
 

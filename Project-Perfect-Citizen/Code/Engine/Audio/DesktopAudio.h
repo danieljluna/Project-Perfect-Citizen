@@ -1,7 +1,13 @@
 #pragma once
 #include "Audio.h"
-#include <iostream>
-#include "SFML/Audio.hpp"
+
+//Prototypes/////////////////////////
+namespace sf {
+    class Sound;
+    class SoundBuffer;
+};
+/////////////////////////////////////
+
 namespace ppc {
 	//////////////////////////////////////////////////
 	///@brief Pretty much an example child class of

@@ -29,6 +29,7 @@ namespace ppc {
 		sf::Clock mouseClock;
 		sf::Int32 mouseTime;
 		bool isCollision(sf::Vector2i);
+		bool hasBeenClicked;
 
 		Subject onPress_;
 		Subject onDoublePress_;

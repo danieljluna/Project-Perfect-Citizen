@@ -1,7 +1,10 @@
 #pragma once
-#include "Audio.h"
-#include "NullAudio.h"
+
 namespace ppc {
+
+    class Audio;
+    class NullAudio;
+
 	//////////////////////////////////////////////////
 	///@brief AudioLocator class. Acts almost like a
 	///singleton. The purpose of AudioLocator is to 

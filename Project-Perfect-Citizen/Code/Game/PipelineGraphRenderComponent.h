@@ -33,7 +33,7 @@ public:
 	/// @param backgroundWidth is the width of the box to be rendered
 	/// @param backgroundHeight is the height of the box to be rendered
 	////////////////////////////////////////////////////////////////////
-	PipelineGraphRenderComponent(int x, int y, int backgroundWidth, int backgroundHeight);
+	PipelineGraphRenderComponent(float x, float y, float backgroundWidth, float backgroundHeight);
 
 	sf::FloatRect getLocalBounds();
 
