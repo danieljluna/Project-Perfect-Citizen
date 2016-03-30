@@ -4,7 +4,13 @@
 #include "WindowDecorator.h"
 #include "Entity.h"
 #include "FreeFunctionObserver.h"
+#include <SFML/Graphics/Rect.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
 
+namespace sf {
+    class Image;
+    class Sprite;
+};
 
 namespace ppc {
 

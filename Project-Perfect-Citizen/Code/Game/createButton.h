@@ -22,7 +22,6 @@
 #include "consoleUpdateComponent.h"
 #include "../Engine/NodeState.h"
 #include "databaseSearchInputComponent.h"
-#include "../Engine/TestFunctionClass.h"
 #include "../Engine/Network.h"
 #include "NetworkCheckFunctor.h"
 

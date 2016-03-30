@@ -1,7 +1,5 @@
 #pragma once
 #include "Audio.h"
-#include <iostream>
-#include <string>
 namespace ppc {
 	//////////////////////////////////////////////////
 	///@brief AudioLogger class, child of ppc::Audio

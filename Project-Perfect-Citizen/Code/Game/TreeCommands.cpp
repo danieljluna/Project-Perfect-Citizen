@@ -1,5 +1,8 @@
 #include "../Engine/debug.h"
 #include "TreeCommands.h"
+#include "../Engine/NodeState.h"
+
+using namespace ppc;
 
 fnMap functionMap{
 	{ "cd"		,	fn_cd },
@@ -11,26 +14,26 @@ fnMap functionMap{
 	{"pwd"      ,   fn_pwd }
 };
 
-commandFn findFunction(const std::string& command) {
+commandFn ppc::findFunction(const std::string& command) {
 	auto result = functionMap.find(command);
 	if (result == functionMap.end()) {
-		cout << "function not found" << endl;
+        std::cout << "function not found" << std::endl;
 		throw std::runtime_error("TreeCommands::findFunction() :function not found");
 	}
 	return result->second;
 }
 
-void fn_mkfile(ppc::NodeState& state, const vector<string> words)
+void ppc::fn_mkfile(ppc::NodeState& state, const std::vector<std::string> words)
 {
-	string filename = words.at(1);
-	string content = "";
+    std::string filename = words.at(1);
+    std::string content = "";
 	if (words.size() >= 3) {
 		content = words.at(2);
 	}
 	state.getCwd()->makeFile(filename, content);
 }
 
-void fn_ls(ppc::NodeState& state, const vector<string> words)
+void ppc::fn_ls(ppc::NodeState& state, const std::vector<std::string> words)
 {
 	if (words.size() == 1) {
 		state.printWorking();
@@ -60,12 +63,12 @@ void fn_ls(ppc::NodeState& state, const vector<string> words)
 		if (tempCwd == nullptr) {
 			return;
 		}
-		if (tempCwd->getFileType() == ppc::FileType::File) {
+		if (tempCwd->getFileType() == FileType::File) {
 			return;
 		}
 	}
 	if (tempCwd->isEncrypted()) {
-		std::cout << "Access Denied: Directory Encrypted" << endl;
+		std::cout << "Access Denied: Directory Encrypted" << std::endl;
 		return;
 	}
 	if (tempCwd->isHidden()) {
@@ -76,7 +79,7 @@ void fn_ls(ppc::NodeState& state, const vector<string> words)
 	state.setLastLsNode(tempCwd);
 }
 
-void fn_cd(ppc::NodeState& state, const vector<string> words)
+void ppc::fn_cd(ppc::NodeState& state, const std::vector<std::string> words)
 {
 	if (words.size() == 1) {
 		return;
@@ -121,13 +124,13 @@ void fn_cd(ppc::NodeState& state, const vector<string> words)
 		}
 	}
 	if (newDir->isEncrypted()) {
-		cout << "Access Denied: Directory is Encrypted" << endl;
+        std::cout << "Access Denied: Directory is Encrypted" << std::endl;
 		return;
 	}
 	state.setCwd(newDir);
 }
 
-void fn_mkDir(ppc::NodeState& state, const vector<string> words)
+void ppc::fn_mkDir(ppc::NodeState& state, const std::vector<std::string> words)
 {
 	if (words.size() == 1) {
 		return;
@@ -150,7 +153,7 @@ void fn_mkDir(ppc::NodeState& state, const vector<string> words)
 	}
 }
 
-void fn_decrypt(ppc::NodeState & state, const vector<std::string> words)
+void ppc::fn_decrypt(ppc::NodeState & state, const std::vector<std::string> words)
 {
 	if (words.size() == 1) {
 		return;
@@ -162,7 +165,7 @@ void fn_decrypt(ppc::NodeState & state, const vector<std::string> words)
 	else {
 		tempCWD = state.getCwd();
 	}
-	string filepath = words.at(1);
+    std::string filepath = words.at(1);
 	std::vector<std::string> pathVec = split(filepath, "/");
 	int i = 0;
 	for (auto iter = pathVec.begin(); iter != pathVec.end(); iter++) {
@@ -177,28 +180,28 @@ void fn_decrypt(ppc::NodeState & state, const vector<std::string> words)
 	
 }
 
-void fn_pwd(ppc::NodeState& state, const vector<string> words) {
+void ppc::fn_pwd(ppc::NodeState& state, const std::vector<std::string> words) {
     state.printWorking();
 }
 
 
-std::vector<string> split(std::string line, std::string delimiter)
+std::vector<std::string> ppc::split(std::string line, std::string delimiter)
 {
 	size_t end = 0;
-	std::vector<string> results;
+	std::vector<std::string> results;
 	std::string token;
 	for (;;) {
 		size_t start = line.find_first_not_of(delimiter, end);
-		if (start == string::npos) break;
+		if (start == std::string::npos) break;
 		end = line.find_first_of(delimiter, start);
 		results.push_back(line.substr(start, end - start));
 	}
 	return results;
 }
 
-void printVector(std::vector<std::string> vec)
+void ppc::printVector(std::vector<std::string> vec)
 {
-	cout << "Printing vector" << endl;
+    std::cout << "Printing vector" << std::endl;
 	for (auto iter = vec.begin(); iter != vec.end(); iter++) {
 		std::cout << *iter << std::endl;
 	}

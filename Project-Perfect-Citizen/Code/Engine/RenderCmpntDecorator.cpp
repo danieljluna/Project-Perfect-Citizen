@@ -1,5 +1,7 @@
 #include "debug.h"
 #include "RenderCmpntDecorator.h"
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/RenderStates.hpp>
 
 using namespace ppc;
 

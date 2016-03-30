@@ -39,7 +39,6 @@
     <ClCompile Include="Code\Engine\RenderCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\ScrollBarDeco.cpp" />
     <ClCompile Include="Code\Engine\subject.cpp" />
-    <ClCompile Include="Code\Engine\TestFunctionClass.cpp" />
     <ClCompile Include="Code\Engine\UpdateCmpntDecorator.cpp" />
     <ClCompile Include="Code\Engine\UpdateCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\Vertex.cpp" />
@@ -124,6 +123,7 @@
     <ClInclude Include="Code\Engine\DesktopLogger.h" />
     <ClInclude Include="Code\Engine\DraggableInput.h" />
     <ClInclude Include="Code\Engine\Edge.h" />
+    <ClInclude Include="Code\Engine\Engine.h" />
     <ClInclude Include="Code\Engine\entity.h" />
     <ClInclude Include="Code\Engine\EntityDecorator.h" />
     <ClInclude Include="Code\Engine\EntityLogger.h" />
@@ -142,7 +142,6 @@
     <ClInclude Include="Code\Engine\renderComponent.h" />
     <ClInclude Include="Code\Engine\ScrollBarDeco.h" />
     <ClInclude Include="Code\Engine\subject.h" />
-    <ClInclude Include="Code\Engine\TestFunctionClass.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntDecorator.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntLogger.h" />
     <ClInclude Include="Code\Engine\updateComponent.h" />
@@ -207,13 +206,9 @@
     <ClInclude Include="Code\Game\WindowBkgndRenderCmpnt.h" />
     <ClInclude Include="Code\Library\json\json-forwards.h" />
     <ClInclude Include="Code\Library\json\json.h" />
-    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\kappa.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Project-Perfect-Citizen.rc" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Resources\Consolas.ttf" />

@@ -1,5 +1,14 @@
-#include "debug.h"
 #include "DesktopLogger.h"
+
+#include <string>
+#include <iostream>
+
+#include <SFML/System/Time.hpp>
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Window/Event.hpp>
+
+#include "debug.h"
+#include "../Game/WindowBkgndRenderCmpnt.h"
 
 using namespace ppc;
 

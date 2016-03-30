@@ -1,14 +1,21 @@
 #pragma once
 
-#include <iostream>
-#include <SFML/Graphics.hpp>
 #include "../Engine/renderComponent.h"
-#include "../Engine/NodeState.h"
-#include "../Game/TreeCommands.h"
-#include <string>
-#include <algorithm>
+#include <SFML/Graphics/Font.hpp>
+#include <vector>
 
-using namespace std;
+namespace sf {
+    class Sprite;
+    class Text;
+    class Image;
+};
+
+
+
+namespace ppc {
+
+    class Desktop;
+    class NodeState;
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Render Component for an Text Output Box
@@ -46,7 +53,7 @@ private:
 	////////////////////////////////////////////////////////////////////
 	/// @brief The pool of output to be displayed via a string
 	////////////////////////////////////////////////////////////////////
-	string str_;
+	std::string str_;
 	static const int size = 128;
 
 	////////////////////////////////////////////////////////////////////
@@ -66,14 +73,14 @@ public:
 
 	~textOutputRenderComponent();
     
-    sf::Vector2f getPosition() const {return text_->getPosition();}
+    sf::Vector2f getPosition() const;
 
 	////////////////////////////////////////////////////////////////////
 	/// @brief updateString recieves a string from an input component to
 	///        display.
 	/// @param s is the string recieved from the input component
 	////////////////////////////////////////////////////////////////////
-	void updateString(std::vector<string> cmd);
+	void updateString(std::vector<std::string> cmd);
 
 	////////////////////////////////////////////////////////////////////
 	/// @brief clearString deletes the contents of a string
@@ -86,5 +93,8 @@ public:
 
 	//virtual void registerInput(sf::Event& ev) override;
 	virtual void recieveMessage(msgType code) override;
+
+};
+
 
 };
