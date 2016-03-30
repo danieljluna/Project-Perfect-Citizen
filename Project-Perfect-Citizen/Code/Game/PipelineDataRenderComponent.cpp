@@ -15,8 +15,8 @@ PipelineDataRenderComponent::PipelineDataRenderComponent(sf::Font& f,
 	//text_->setString("");
 
 	/* The background */
-	dataBoxBackground_.setPosition(sf::Vector2f(x, y));
-	dataBoxBackground_.setSize(sf::Vector2f(backgroundWidth, backgroundHeight));
+	dataBoxBackground_.setPosition(sf::Vector2f(float(x), float(y)));
+	dataBoxBackground_.setSize(sf::Vector2f(float(backgroundWidth), float(backgroundHeight)));
 	dataBoxBackground_.setFillColor(sf::Color::Blue);
 }
 

@@ -2,6 +2,7 @@
 #include "consoleUpdateComponent.h"
 #include "TreeCommands.h"
 
+using namespace ppc;
 
 const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
 

@@ -4,15 +4,14 @@
 #include "iconInputComponent.h"
 #include <iostream>
 
-
-///////////////////////////////////////////////////////////////////////
-/// @brief Designated input component for explorer files
-/// @author Alex Vincent 
-/// @details Functionality: when clicked opens the corresponding file 
-///////////////////////////////////////////////////////////////////////
-
 namespace ppc {
 
+
+    ///////////////////////////////////////////////////////////////////////
+    /// @brief Designated input component for explorer files
+    /// @author Alex Vincent 
+    /// @details Functionality: when clicked opens the corresponding file 
+    ///////////////////////////////////////////////////////////////////////
 	class explorerFileInputComponent : public ppc::InputComponent {
 
 	private:

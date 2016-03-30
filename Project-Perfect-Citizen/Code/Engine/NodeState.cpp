@@ -1,4 +1,6 @@
 #include "debug.h"
+#include <iostream>
+#include "baseFileType.h"
 #include "NodeState.h"
 
 void ppc::NodeState::popWorking()
@@ -6,14 +8,14 @@ void ppc::NodeState::popWorking()
 	this->workingDirectory.pop_back();
 }
 
-void ppc::NodeState::pushWorking(string filename)
+void ppc::NodeState::pushWorking(std::string filename)
 {
 	this->workingDirectory.push_back(filename);
 }
 
 void ppc::NodeState::printWorking()
 {
-	string pwd = "";
+    std::string pwd = "";
 	for (auto& iter: this->workingDirectory) {
 		if (iter != "/") {
 			pwd += (iter + "/");
@@ -29,6 +31,7 @@ void ppc::NodeState::printWorking()
 void ppc::NodeState::setUp()
 {
 	this->workingDirectory.push_back("/");
+    //TODO: FIX MEMORY LEAK! (This one is particularly massive per leak)
 	BaseFileType* newRoot = new BaseFileType(ppc::FileType::Directory);
 	newRoot->contents["."] = newRoot;
 	newRoot->contents[".."] = newRoot;
@@ -71,7 +74,7 @@ void ppc::NodeState::setLastLsNode(BaseFileType * node)
 	this->dirString = node->baseDirString;
 }
 
-string ppc::NodeState::getDirString()
+std::string ppc::NodeState::getDirString()
 {
 	return this->dirString;
 }

@@ -2,6 +2,13 @@
 
 #include "../Engine/renderComponent.h"
 #include "Email.h"
+#include <SFML/Graphics/Font.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
+
+namespace sf {
+    class Sprite;
+    class Text;
+};
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated render component for an email block in the inbox 

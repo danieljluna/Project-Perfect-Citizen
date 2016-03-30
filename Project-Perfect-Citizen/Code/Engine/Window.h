@@ -5,18 +5,22 @@
 
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderTexture.hpp>
-#include <SFML/System/Time.hpp>
 #include <SFML/Graphics/Transformable.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 
 #include "windowInterface.h"
-#include "inputComponent.h"
-#include "updateComponent.h"
-#include "renderComponent.h"
 #include "InputHandler.h"
+
+namespace sf {
+    class Time;
+};
 
 
 namespace ppc {
+
+    class RenderComponent;
+    class InputComponent;
+    class UpdateComponent;
 
 
 ///////////////////////////////////////////////////////////////////////

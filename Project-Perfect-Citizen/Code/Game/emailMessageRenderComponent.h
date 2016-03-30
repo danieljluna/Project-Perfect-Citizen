@@ -2,6 +2,12 @@
 
 #include "../Engine/renderComponent.h"
 #include "Email.h"
+#include <SFML/Graphics/Font.hpp>
+
+namespace sf {
+    class Sprite;
+    class Text;
+};
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated render component for the contents of an email

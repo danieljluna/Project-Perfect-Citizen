@@ -16,9 +16,11 @@
 ///////////////////////////////////////////////////////////
 
 #include "emailExtraction.hpp"
+#include "../Engine/NodeState.h"
 #include "../Engine/debug.h"
 #include "../Library/json/json.h"
 #include "../Game/TreeCommands.h"
+#include <stdio.h>
 #include <iostream>
 #include <fstream>
 
