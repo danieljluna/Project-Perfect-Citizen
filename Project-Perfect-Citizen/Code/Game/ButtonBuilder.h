@@ -19,7 +19,7 @@ namespace ppc {
 		int sheetY;
 		int width;
 		int frames;
-		int size;
+		float size;
 
 		float posX;
 		float posY;
@@ -43,6 +43,8 @@ namespace ppc {
 		/// @brief Set the down and up sprite when the button is pressed
 		///////////////////////////////////////////////////////////////////////
 		void setSpritesByIndicies(int x, int y, int r, int f);
+
+		void setSize(float s);
 
 		///////////////////////////////////////////////////////////////////////
 		/// @brief Set the down and up sprite when the button is pressed
