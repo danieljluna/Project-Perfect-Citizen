@@ -263,8 +263,6 @@ namespace ppc {
 
     };
 
-	//Submit button functionality
-	bool runSubmitCheck(Network*, sf::Event&);
 
 };      //End namespace mdg
 

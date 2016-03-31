@@ -4,6 +4,7 @@
 #include <string>
 
 #include "../Engine/FreeFunctionObserver.h"
+#include "TreeCommands.h"
 
 using namespace ppc;
 
@@ -23,6 +24,9 @@ explorerFolderInputComponent::explorerFolderInputComponent(Desktop& dt, WindowIn
 	//add an observer to the subject we just added
 	watch(ih, sf::Event::MouseButtonPressed);
 	watch(ih, sf::Event::MouseButtonReleased);
+
+	hasBeenClicked = false;
+
 		
 }
 
@@ -83,8 +87,10 @@ bool explorerFolderInputComponent::registerInput(sf::Event& ev) {
 				mouseTime = mouseClock.getElapsedTime().asMilliseconds();
 				if (mouseTime > DOUBLE_CLICK_TIME) {
 					mouseClock.restart();
+					hasBeenClicked = true;
 				}
-				else if (mouseTime < DOUBLE_CLICK_TIME) {
+				else if (mouseTime < DOUBLE_CLICK_TIME && hasBeenClicked) {
+					mouseClock.restart();
 					std::vector<string> cdCommand;
 					string cd = "cd";
 					cdCommand.push_back(cd);
@@ -97,7 +103,7 @@ bool explorerFolderInputComponent::registerInput(sf::Event& ev) {
 					theDesktop_.addWindow(explorerWindow);
                     containingWindow_->close();
 				}
-			}
+			} 
 		}
 		/* Case: Mouse Released Event*/
 		else if (ev.type == sf::Event::MouseButtonReleased) {

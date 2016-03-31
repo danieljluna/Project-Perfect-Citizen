@@ -1,8 +1,13 @@
 #include "debug.h"
 #include "Window.h"
 
-#include <SFML/Graphics/RenderTexture.hpp>
 #include <cstddef>
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/System/Time.hpp>
+
+#include "inputComponent.h"
+#include "updateComponent.h"
+#include "renderComponent.h"
 
 using namespace ppc;
 
@@ -242,7 +247,9 @@ void Window::registerInput(sf::Event& ev) {
     sf::Vector2f click;
     sf::FloatRect viewRect;
     sf::View currView = windowSpace_.getView();
-    sf::View defView = windowSpace_.getDefaultView();
+    sf::Vector2f defaultViewPos = windowSpace_.getView().getSize();
+    defaultViewPos.x /= 2.0f;
+    defaultViewPos.y /= 2.0f;
 
     switch (ev.type) {
     case sf::Event::MouseButtonPressed:
@@ -252,18 +259,19 @@ void Window::registerInput(sf::Event& ev) {
         viewRect.height = currView.getSize().y;
         mouseInView_ = viewRect.contains(click);
         if (mouseInView_) {
-            click -= currView.getCenter();
-            click += defView.getCenter();
-            ev.mouseButton.x = click.x;
-            ev.mouseButton.y = click.y;
+            click -= defaultViewPos;
+            click += currView.getCenter();
+            ev.mouseButton.x = int(click.x);
+            ev.mouseButton.y = int(click.y);
         }
         break;
     case sf::Event::MouseMoved:
         if (mouseInView_) {
             click = { float(ev.mouseMove.x), float(ev.mouseMove.y) };
-            click = currView.getTransform().transformPoint(click);
-            ev.mouseMove.x = click.x;
-            ev.mouseMove.y = click.y;
+            click -= defaultViewPos;
+            click += currView.getCenter();
+            ev.mouseMove.x = int(click.x);
+            ev.mouseMove.y = int(click.y);
         }
         break;
     }

@@ -2,6 +2,7 @@
 // Nader Sleem
 
 #include "debug.h"
+#include <string>
 
 using namespace ppc;
 

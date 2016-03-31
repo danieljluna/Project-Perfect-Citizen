@@ -138,6 +138,7 @@ bootLoadingAnimationRender::~bootLoadingAnimationRender() {
     delete sprite30;
     delete dcps;
     delete spriteLoaded;
+    delete texture;
     sprites.clear();
     
     //delete loadedRect;
@@ -184,7 +185,7 @@ string bootLoadingAnimationRender::getRandomString(int stringLength) {
     std::string text = "";
     std::string possible = "ABCDEFGHIJKLMNOPQRST!@#$%^&*/_+=UVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     for (int i = 0; i < stringLength; ++i) {
-        text += possible[floor(rand() % possible.length())];
+        text += possible[unsigned int(floor(rand() % possible.length()))];
     }
     return text;
 }

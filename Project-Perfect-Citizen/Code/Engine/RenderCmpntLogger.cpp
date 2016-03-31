@@ -1,5 +1,8 @@
 #include "debug.h"
 #include "RenderCmpntLogger.h"
+#include <iostream>
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/RenderStates.hpp>
 
 using namespace ppc;
 

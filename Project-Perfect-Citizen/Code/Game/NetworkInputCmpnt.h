@@ -19,7 +19,7 @@ namespace ppc {
 
 		ppc::InputHandler& handle_;
 
-		vector<ppc::DraggableInput*> drags_;
+		std::vector<ppc::DraggableInput*> drags_;
 
 		size_t selectedVert_;
 		std::pair<size_t,size_t> selectedEdge_;
@@ -46,9 +46,13 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////
 		NetworkInputCmpnt(Network&, Network&, ppc::InputHandler&);
 
-		vector<ppc::DraggableInput*>* getDraggables();
+		std::vector<ppc::DraggableInput*>* getDraggables();
 
 		void setPipelineData(PipelineDataRenderComponent&);
+
+        void setClampBounds(const sf::FloatRect clampBounds);
+
+        void unBoundDraggables();
 
 		virtual ~NetworkInputCmpnt();
 

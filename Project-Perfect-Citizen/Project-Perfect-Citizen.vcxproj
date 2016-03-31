@@ -39,7 +39,6 @@
     <ClCompile Include="Code\Engine\RenderCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\ScrollBarDeco.cpp" />
     <ClCompile Include="Code\Engine\subject.cpp" />
-    <ClCompile Include="Code\Engine\TestFunctionClass.cpp" />
     <ClCompile Include="Code\Engine\UpdateCmpntDecorator.cpp" />
     <ClCompile Include="Code\Engine\UpdateCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\Vertex.cpp" />
@@ -52,6 +51,7 @@
     <ClCompile Include="Code\Game\BootLoader.cpp" />
     <ClCompile Include="Code\Game\bootLoadingAnimationRender.cpp" />
     <ClCompile Include="Code\Game\bootLoadingUpdateComponent.cpp" />
+    <ClCompile Include="Code\Game\ButtonBuilder.cpp" />
     <ClCompile Include="Code\Game\buttonRenderComponent.cpp" />
     <ClCompile Include="Code\Game\buttonUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\characterRender.cpp" />
@@ -82,6 +82,7 @@
     <ClCompile Include="Code\Game\iconInputComponent.cpp" />
     <ClCompile Include="Code\Game\Inbox.cpp" />
     <ClCompile Include="Code\Game\mousePressButton.cpp" />
+    <ClCompile Include="Code\Game\NetworkCheckFunctor.cpp" />
     <ClCompile Include="Code\Game\NetworkInputCmpnt.cpp" />
     <ClCompile Include="Code\Game\NetworkRenderCmpnt.cpp" />
     <ClCompile Include="Code\Game\NetworkUpdateCmpnt.cpp" />
@@ -90,6 +91,7 @@
     <ClCompile Include="Code\Game\PipelineDataRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineGraphRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineLevelBuilder.cpp" />
+    <ClCompile Include="Code\Game\Quitter.cpp" />
     <ClCompile Include="Code\Game\testRenderSprite.cpp" />
     <ClCompile Include="Code\Game\textInputKeys.cpp" />
     <ClCompile Include="Code\Game\textInputRenderComponent.cpp" />
@@ -122,6 +124,7 @@
     <ClInclude Include="Code\Engine\DesktopLogger.h" />
     <ClInclude Include="Code\Engine\DraggableInput.h" />
     <ClInclude Include="Code\Engine\Edge.h" />
+    <ClInclude Include="Code\Engine\Engine.h" />
     <ClInclude Include="Code\Engine\entity.h" />
     <ClInclude Include="Code\Engine\EntityDecorator.h" />
     <ClInclude Include="Code\Engine\EntityLogger.h" />
@@ -140,7 +143,6 @@
     <ClInclude Include="Code\Engine\renderComponent.h" />
     <ClInclude Include="Code\Engine\ScrollBarDeco.h" />
     <ClInclude Include="Code\Engine\subject.h" />
-    <ClInclude Include="Code\Engine\TestFunctionClass.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntDecorator.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntLogger.h" />
     <ClInclude Include="Code\Engine\updateComponent.h" />
@@ -155,6 +157,7 @@
     <ClInclude Include="Code\Game\BootLoader.hpp" />
     <ClInclude Include="Code\Game\bootLoadingAnimationRender.hpp" />
     <ClInclude Include="Code\Game\bootLoadingUpdateComponent.hpp" />
+    <ClInclude Include="Code\Game\ButtonBuilder.h" />
     <ClInclude Include="Code\Game\buttonRenderComponent.h" />
     <ClInclude Include="Code\Game\buttonUpdateComponent.h" />
     <ClInclude Include="Code\Game\characterRender.hpp" />
@@ -185,6 +188,7 @@
     <ClInclude Include="Code\Game\iconInputComponent.h" />
     <ClInclude Include="Code\Game\Inbox.h" />
     <ClInclude Include="Code\Game\mousePressButton.h" />
+    <ClInclude Include="Code\Game\NetworkCheckFunctor.h" />
     <ClInclude Include="Code\Game\NetworkInputCmpnt.h" />
     <ClInclude Include="Code\Game\NetworkRenderCmpnt.h" />
     <ClInclude Include="Code\Game\NetworkUpdateCmpnt.h" />
@@ -193,6 +197,7 @@
     <ClInclude Include="Code\Game\PipelineDataRenderComponent.h" />
     <ClInclude Include="Code\Game\PipelineGraphRenderComponent.h" />
     <ClInclude Include="Code\Game\PipelineLevelBuilder.h" />
+    <ClInclude Include="Code\Game\Quitter.h" />
     <ClInclude Include="Code\Game\testRenderSprite.h" />
     <ClInclude Include="Code\Game\textInputKeys.hpp" />
     <ClInclude Include="Code\Game\textInputRenderComponent.hpp" />
@@ -203,19 +208,16 @@
     <ClInclude Include="Code\Game\WindowBkgndRenderCmpnt.h" />
     <ClInclude Include="Code\Library\json\json-forwards.h" />
     <ClInclude Include="Code\Library\json\json.h" />
-    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\kappa.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Project-Perfect-Citizen.rc" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Resources\Consolas.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json" />
+    <None Include="Resources\PlayerEmail.json" />
     <None Include="Resources\smsPipeline.json" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

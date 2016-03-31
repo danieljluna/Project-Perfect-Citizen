@@ -2,6 +2,7 @@
 #include "../Engine/debug.h"
 #include <cmath>
 #include <cfloat>
+#include "../Engine/DraggableInput.h"
 const float MAX_DISTANCE_TO_EDGE = 10.f;
 
 void ppc::NetworkInputCmpnt::selectEdge(sf::Vector2f mPos) {
@@ -131,7 +132,7 @@ ppc::NetworkInputCmpnt::NetworkInputCmpnt(Network& net,
 
 }
 
-vector<ppc::DraggableInput*>* ppc::NetworkInputCmpnt::getDraggables() {
+std::vector<ppc::DraggableInput*>* ppc::NetworkInputCmpnt::getDraggables() {
 	return &drags_;
 }
 
@@ -152,7 +153,7 @@ bool ppc::NetworkInputCmpnt::registerInput(sf::Event& ev) {
 	if (ev.type == ev.MouseButtonPressed) {
 		if (ev.mouseButton.button == sf::Mouse::Left) {
 			selectVert(mousePos);
-			selectEdge(mousePos);
+			if(clickedVert_ == false) selectEdge(mousePos);
 		}
 		//If right click
 		else if (ev.mouseButton.button == sf::Mouse::Right) {
@@ -164,11 +165,10 @@ bool ppc::NetworkInputCmpnt::registerInput(sf::Event& ev) {
 				{
 					Edge e;
 					e.setWeight(0);
-					e.setColorRed();
+					e.setColorBlack();
 					e.setRelation("");
 					network_->setEdge(temp, selectedVert_, e);
 					network_->setEdge(selectedVert_, temp, e);
-					clickedVert_ = false;
 				}
 			}
 		}
@@ -176,7 +176,8 @@ bool ppc::NetworkInputCmpnt::registerInput(sf::Event& ev) {
 
 		if (ev.key.code == sf::Keyboard::S && clickedVert_) {
 			DEBUGF("ni", "HERE");
-			network_->vert(network_->getCenter()).setColor(sf::Color::Yellow);
+			if (network_->getCenter() != -1) 
+				network_->vert(network_->getCenter()).setColor(sf::Color::Yellow);
 			network_->setCenter(selectedVert_);
 			network_->vert(selectedVert_).setColor(sf::Color::Red);
 			return false;
@@ -220,3 +221,25 @@ bool ppc::NetworkInputCmpnt::registerInput(sf::Event& ev) {
 
 	return false;
 }
+
+
+
+
+
+
+void ppc::NetworkInputCmpnt::setClampBounds(const sf::FloatRect clampBounds) {
+    for (ppc::DraggableInput* di : drags_) {
+        di->setClampBounds(clampBounds);
+    }
+}
+
+
+
+
+void ppc::NetworkInputCmpnt::unBoundDraggables() {
+    for (ppc::DraggableInput* di : drags_) {
+        di->removeClamp();
+    }
+}
+
+

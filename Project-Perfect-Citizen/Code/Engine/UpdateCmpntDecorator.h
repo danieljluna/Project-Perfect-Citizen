@@ -2,6 +2,10 @@
 
 #include "updateComponent.h"
 
+namespace sf {
+    class Time;
+};
+
 namespace ppc {
 	///////////////////////////////////////////////////////////////////
 	///@brief Decorator class for Update Components.

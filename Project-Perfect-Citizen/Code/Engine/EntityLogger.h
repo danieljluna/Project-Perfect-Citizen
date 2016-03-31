@@ -1,7 +1,6 @@
 #pragma once
 
 #include "EntityDecorator.h"
-#include <iostream>
 
 namespace ppc {
 	///////////////////////////////////////////////////////////////////

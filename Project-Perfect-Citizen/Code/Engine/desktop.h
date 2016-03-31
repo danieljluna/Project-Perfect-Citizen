@@ -5,10 +5,13 @@
 
 #include <vector>
 #include <map>
-#include <string>
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Drawable.hpp>
 
-#include "../Game/WindowBkgndRenderCmpnt.h"
+namespace sf {
+    class Event;
+    class Sprite;
+    class Time;
+};
 
 //temporary typedefs for classes/types not defined yet
 typedef int OSStyle;

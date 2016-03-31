@@ -14,18 +14,18 @@
 #include "Inbox.h"
 
 
+namespace ppc {
+
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated non-mouse input handling for desktop icons
 /// @author Alex Vincent 
 /// @details Functionality: opens windows and places them on the desktop
 /// by listening for double clicks from the mouse input
 ///////////////////////////////////////////////////////////////////////
-namespace ppc {
-
-class iconInputComponent : public ppc::InputComponent {
+class iconInputComponent : public InputComponent {
 private:
 
-	ppc::Desktop& theDesktop_;
+	Desktop& theDesktop_;
 	sf::Image& buttonSheet_;
 	sf::Image& iconSheet_;
 	Database* theDatabase_;

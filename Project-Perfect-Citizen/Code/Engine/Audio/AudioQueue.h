@@ -1,10 +1,17 @@
 #pragma once
 #include "Audio.h"
-#include "SFML/Audio.hpp"
-#include <iostream>
-#include <utility>
 #include <queue>
-class AudioQueue : public ppc::Audio {
+
+//Prototypes///////////////
+namespace sf {
+    class SoundBuffer;
+    class Sound;
+};
+///////////////////////////
+
+namespace ppc {
+
+class AudioQueue : public Audio {
 private:
 	typedef std::vector < std::pair<bool, sf::SoundBuffer>> bVec;
 	typedef std::vector < std::pair<std::string, sf::SoundBuffer>> ssVector;
@@ -25,3 +32,7 @@ public:
 	void popAndPlay();
 	int addSound(std::string name, std::string filename);
 };
+
+
+};  //End namespace ppc
+

@@ -140,10 +140,10 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 		unsigned int othervert = dis(gen) + LEVEL_ONE_NUM_NODES / 2;
 		if (othervert == second) {
 			othervert++;
-			if (othervert > LEVEL_ONE_NUM_NODES) othervert = LEVEL_ONE_NUM_NODES / 2;
+			if (othervert >= LEVEL_ONE_NUM_NODES) othervert = LEVEL_ONE_NUM_NODES / 2;
 			if (othervert == third) {
 				othervert++;
-				if (othervert > LEVEL_ONE_NUM_NODES) othervert = LEVEL_ONE_NUM_NODES / 2;
+				if (othervert >= LEVEL_ONE_NUM_NODES) othervert = LEVEL_ONE_NUM_NODES / 2;
 			}
 		}
 		Edge thisedge;
@@ -229,7 +229,7 @@ void PipelineLevelBuilder::addSmsMessagesToEdge(Edge& anEdge, unsigned int numMe
 			exprOutputSub = exprOutput.substr(0, exprOutput.find_first_of('%'));
 			while (exprOutputSub.length() > 0) {
 				size_t firstSpace = exprOutputSub.find_first_of(' ');
-				if (firstSpace < string::npos) {
+				if (firstSpace < std::string::npos) {
 					withmeta.push_back(exprOutputSub.substr(0, firstSpace));
 					exprOutputSub = exprOutputSub.substr(firstSpace + 1, std::string::npos);
 				}
