@@ -2,8 +2,8 @@
 #define ENTITY_H
 
 #include <cstddef>
-#include <SFML/Graphics/Transformable.hpp>
 #include <string>
+#include <SFML/System/Vector2.hpp>
 
 typedef std::string msgType;
 
@@ -12,7 +12,6 @@ namespace ppc {
 class Component;
 
 
-//TODO: Finish Entity Interface
 ///////////////////////////////////////////////////////////////////////
 /// @brief Uses a collection of Components to define a Entity.
 /// @author Daniel Luna

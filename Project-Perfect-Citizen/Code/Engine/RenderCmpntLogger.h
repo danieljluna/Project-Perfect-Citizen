@@ -2,8 +2,6 @@
 
 #include "RenderCmpntDecorator.h"
 
-#include <iostream>
-
 namespace ppc {
 	///////////////////////////////////////////////////////////////////
 	///@brief A decorator for Render Cmpnts that logs data when 

@@ -11,7 +11,7 @@ namespace ppc {
 	///////////////////////////////////////////////////////////////////
 	class WindowLogger : public WindowDecorator {
 	private:
-		ostream& out_;
+        std::ostream& out_;
 		
 	protected:
 
@@ -20,7 +20,7 @@ namespace ppc {
 
 	public:
 		WindowLogger() = delete;
-		WindowLogger(WindowInterface& windowPtr, ostream& out);
+		WindowLogger(WindowInterface& windowPtr, std::ostream& out);
 		virtual ~WindowLogger();
 
 		virtual void setSize(sf::Vector2u& size);

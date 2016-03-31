@@ -10,6 +10,7 @@
 #include "consoleUpdateComponent.h"
 #include "textOutputRenderComponent.h"
 
+namespace ppc {
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Input Component for a generic window 'X' button
@@ -48,4 +49,7 @@ public:
     virtual ~textInputKeys();
     virtual bool registerInput(sf::Event& ev) override;
     
+};
+
+
 };

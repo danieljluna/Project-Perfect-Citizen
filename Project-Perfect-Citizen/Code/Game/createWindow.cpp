@@ -49,7 +49,6 @@
 #include "../Game/createListElement.h"
 #include "../Game/emailExtraction.hpp"
 #include "../Library/json/json.h"
-#include"../Engine/TestFunctionClass.h"
 #include"../Engine/FreeFunctionObserver.h"
 
 using namespace ppc;
@@ -57,12 +56,6 @@ using namespace ppc;
 const string PNG = ".png";
 const string JPG = ".jpg";
 const string TXT = ".txt";
-
-bool testBackFunction(TestFunctionClass* tfc, sf::Event& ev) {
-	//tfc->callFunc(ev);
-	return true;
-}
-
 
 void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
                        InputHandler & ih, NodeState & ns,
@@ -212,7 +205,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 14;
-	int dataWindowX = (2 * windowToModify->getSize().x) / 3;
+	float dataWindowX = float(2 * windowToModify->getSize().x) / 3.0f;
 
 	/////////////////////////////////////////
 	/////// COMPONENTS 
@@ -223,7 +216,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 		dataWindowX, 0, fontSize, windowToModify->getSize().x, windowToModify->getSize().y);
 
 	PipelineGraphRenderComponent* graphBounds = new PipelineGraphRenderComponent(0, 0, dataWindowX,
-		windowToModify->getSize().y);
+		float(windowToModify->getSize().y));
     
 
     Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();

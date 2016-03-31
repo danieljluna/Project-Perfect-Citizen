@@ -1,6 +1,14 @@
 #include "../debug.h"
 #include "AudioQueue.h"
+#include "SFML/Audio.hpp"
 #include <string>
+#include <iostream>
+#include <utility>
+#include <queue>
+
+
+using namespace ppc;
+
 sf::Sound* AudioQueue::findOpenSound()
 {
 

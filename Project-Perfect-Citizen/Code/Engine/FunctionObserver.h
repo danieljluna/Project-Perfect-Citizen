@@ -1,6 +1,5 @@
 #pragma once
 #include "observer.h"
-#include <iostream>
 //WRITTEN BY ANDY BADEN
 ////////////////////////////////////////////////////////////////////
 ///@brief FreeFunctionObserver is a templated observer child dedicated to
@@ -24,7 +23,6 @@ public:
 		this->target = comfyTarget;
 	}
 	virtual bool eventHandler(sf::Event& ev) {
-		std::cout << this->id << std::endl;
 		(*target.*(this->functionPointer))(ev);
 		return true;
 	}

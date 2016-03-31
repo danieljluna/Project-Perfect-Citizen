@@ -24,7 +24,7 @@ std::string getRandomString(int stringLength) {
     std::string text = "";
     std::string possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     for (int i = 0; i < stringLength; ++i) {
-        text += possible[floor(rand() % possible.length())];
+        text += possible[unsigned int(floor(rand() % possible.length()))];
     }
     return text;
 }

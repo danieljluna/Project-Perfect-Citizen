@@ -6,7 +6,6 @@
 
 #include <iostream>
 #include <bitset>
-#include <string>
 #include <vector>
 
 namespace ppc {

@@ -7,7 +7,7 @@
 #include "textInputKeys.hpp"
 #include "../Engine/NodeState.h"
 
-using namespace std;
+namespace ppc {
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Update Component for Console window
@@ -15,7 +15,7 @@ using namespace std;
 /// @details Parses and executes commands of the filetree
 ///////////////////////////////////////////////////////////////////////
 
-class consoleUpdateComponent : public ppc::UpdateComponent {
+class consoleUpdateComponent : public UpdateComponent {
 
 private:
 	ppc::NodeState& fileTree;
@@ -55,5 +55,8 @@ public:
 	/// Sends the vector command to the fileTree to be run.
 	///////////////////////////////////////////////////////////////////////
 	void update(sf::Time& deltaTime) override;
+
+};
+
 
 };

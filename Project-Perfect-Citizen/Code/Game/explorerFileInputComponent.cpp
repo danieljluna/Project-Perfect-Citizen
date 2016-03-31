@@ -4,6 +4,7 @@
 #include <string>
 
 #include "../Engine/FreeFunctionObserver.h"
+#include "../Engine/BaseFileType.h"
 
 using namespace ppc;
 
@@ -85,7 +86,7 @@ bool explorerFileInputComponent::registerInput(sf::Event& ev) {
 					mouseClock.restart();
 				}
 				else if (mouseTime < DOUBLE_CLICK_TIME) {
-					string fileResourcePath = theFileTree_.getCwd()->findElement(fileName)->getFileData();
+					std::string fileResourcePath = theFileTree_.getCwd()->findElement(fileName)->getFileData();
 					theFileTree_.getCwd()->findElement(fileName)->readFile(theDesktop_, buttonSheet_, fileResourcePath);
 				}
 			}
