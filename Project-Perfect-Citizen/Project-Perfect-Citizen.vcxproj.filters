@@ -274,6 +274,7 @@
     <ClCompile Include="Code\Game\ButtonBuilder.cpp">
       <Filter>Sources\Game Specific\Button</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\IconBuilder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Game\photoRenderComponent.hpp">
