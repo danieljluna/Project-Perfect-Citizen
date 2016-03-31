@@ -193,7 +193,6 @@
 		E9A0ADE91C939E660035CCE1 /* RenderCmpntLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A0ADB41C939E660035CCE1 /* RenderCmpntLogger.cpp */; };
 		E9A0ADEA1C939E660035CCE1 /* ScrollBarDeco.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A0ADB71C939E660035CCE1 /* ScrollBarDeco.cpp */; };
 		E9A0ADEB1C939E660035CCE1 /* subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A0ADB91C939E660035CCE1 /* subject.cpp */; };
-		E9A0ADEC1C939E660035CCE1 /* TestFunctionClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A0ADBB1C939E660035CCE1 /* TestFunctionClass.cpp */; };
 		E9A0ADED1C939E660035CCE1 /* UpdateCmpntDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A0ADBD1C939E660035CCE1 /* UpdateCmpntDecorator.cpp */; };
 		E9A0ADEE1C939E660035CCE1 /* UpdateCmpntLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A0ADBF1C939E660035CCE1 /* UpdateCmpntLogger.cpp */; };
 		E9A0ADEF1C939E660035CCE1 /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A0ADC21C939E660035CCE1 /* Vertex.cpp */; };
@@ -500,8 +499,6 @@
 		E9A0ADB81C939E660035CCE1 /* ScrollBarDeco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollBarDeco.h; sourceTree = "<group>"; };
 		E9A0ADB91C939E660035CCE1 /* subject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = subject.cpp; sourceTree = "<group>"; };
 		E9A0ADBA1C939E660035CCE1 /* subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subject.h; sourceTree = "<group>"; };
-		E9A0ADBB1C939E660035CCE1 /* TestFunctionClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestFunctionClass.cpp; sourceTree = "<group>"; };
-		E9A0ADBC1C939E660035CCE1 /* TestFunctionClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFunctionClass.h; sourceTree = "<group>"; };
 		E9A0ADBD1C939E660035CCE1 /* UpdateCmpntDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UpdateCmpntDecorator.cpp; sourceTree = "<group>"; };
 		E9A0ADBE1C939E660035CCE1 /* UpdateCmpntDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateCmpntDecorator.h; sourceTree = "<group>"; };
 		E9A0ADBF1C939E660035CCE1 /* UpdateCmpntLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UpdateCmpntLogger.cpp; sourceTree = "<group>"; };
@@ -681,8 +678,6 @@
 				E9A0ADB81C939E660035CCE1 /* ScrollBarDeco.h */,
 				E9A0ADB91C939E660035CCE1 /* subject.cpp */,
 				E9A0ADBA1C939E660035CCE1 /* subject.h */,
-				E9A0ADBB1C939E660035CCE1 /* TestFunctionClass.cpp */,
-				E9A0ADBC1C939E660035CCE1 /* TestFunctionClass.h */,
 				E9A0ADBD1C939E660035CCE1 /* UpdateCmpntDecorator.cpp */,
 				E9A0ADBE1C939E660035CCE1 /* UpdateCmpntDecorator.h */,
 				E9A0ADBF1C939E660035CCE1 /* UpdateCmpntLogger.cpp */,
@@ -1249,7 +1244,6 @@
 				E9E1F5E71C91F506006AE0FB /* ResourcePath.mm in Sources */,
 				E9A0AD6D1C939E4F0035CCE1 /* PipelineDataRenderComponent.cpp in Sources */,
 				E9A0AD591C939E4F0035CCE1 /* emailListElementInputComponent.cpp in Sources */,
-				E9A0ADEC1C939E660035CCE1 /* TestFunctionClass.cpp in Sources */,
 				E9A0ADE31C939E660035CCE1 /* inputComponent.cpp in Sources */,
 				E9A0AD761C939E4F0035CCE1 /* textRenderComponent.cpp in Sources */,
 				E9A0ADD81C939E660035CCE1 /* debug.cpp in Sources */,
