@@ -158,7 +158,6 @@ void BorderDecorator::move(float x, float y) {
 void BorderDecorator::draw(sf::RenderTarget& target,
                            sf::RenderStates states) const {
     target.draw(borderShape_, states);
-    
     WindowDecorator::draw(target, states);
     for (size_t i = 0; i < buttonCount_; ++i) {
         target.draw(*buttonRenders_[i], states);
