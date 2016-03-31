@@ -51,6 +51,7 @@
     <ClCompile Include="Code\Game\BootLoader.cpp" />
     <ClCompile Include="Code\Game\bootLoadingAnimationRender.cpp" />
     <ClCompile Include="Code\Game\bootLoadingUpdateComponent.cpp" />
+    <ClCompile Include="Code\Game\ButtonBuilder.cpp" />
     <ClCompile Include="Code\Game\buttonRenderComponent.cpp" />
     <ClCompile Include="Code\Game\buttonUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\characterRender.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Code\Game\BootLoader.hpp" />
     <ClInclude Include="Code\Game\bootLoadingAnimationRender.hpp" />
     <ClInclude Include="Code\Game\bootLoadingUpdateComponent.hpp" />
+    <ClInclude Include="Code\Game\ButtonBuilder.h" />
     <ClInclude Include="Code\Game\buttonRenderComponent.h" />
     <ClInclude Include="Code\Game\buttonUpdateComponent.h" />
     <ClInclude Include="Code\Game\characterRender.hpp" />
