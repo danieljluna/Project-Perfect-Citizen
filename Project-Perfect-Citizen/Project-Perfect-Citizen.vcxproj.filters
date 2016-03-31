@@ -271,6 +271,9 @@
     <ClCompile Include="Code\Game\WindowBkgndRenderCmpnt.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\ButtonBuilder.cpp">
+      <Filter>Sources\Game Specific\Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Game\photoRenderComponent.hpp">
@@ -566,6 +569,9 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\WindowLogger.h">
       <Filter>Headers\Engine\Windows\Decorators</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\ButtonBuilder.h">
+      <Filter>Headers\Game Specific\Button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
