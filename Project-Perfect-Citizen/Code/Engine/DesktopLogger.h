@@ -27,7 +27,8 @@ namespace ppc {
 
 		void addWindow(WindowInterface*);
 		void destroyWindow(WindowInterface*);
-		void setStyle(OSStyle*);
+		void setIconSheet(sf::Image& sheet);
+		sf::Image* getIconSheet();
 		NodeState& getNodeState();
 		void addBackgroundCmpnt(WindowInterface*, sf::Sprite&);
 		void registerInput(sf::Event& ev);

@@ -117,9 +117,14 @@ void ppc::Desktop::destroyWindow(WindowInterface* wi) {
 	}
 }
 
-void ppc::Desktop::setStyle(OSStyle* oss) {
-	style_ = oss;
+void ppc::Desktop::setIconSheet(sf::Image & sheet) {
+	this->iconSheet = &sheet;
 }
+
+sf::Image * ppc::Desktop::getIconSheet() {
+	return iconSheet;
+}
+
 
 ppc::NodeState& ppc::Desktop::getNodeState() {
 	return *nodeState_;

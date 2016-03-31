@@ -13,6 +13,11 @@ ppc::ButtonBuilder::ButtonBuilder()
 	posX = 0.f;
 	posY = 0.f;
 
+	sprtUp = nullptr;
+	sprtDown = nullptr;
+
+	spriteSheet = nullptr;
+	inputHandle = nullptr;
 }
 
 ppc::ButtonBuilder::~ButtonBuilder()

@@ -573,6 +573,9 @@
     <ClInclude Include="Code\Game\ButtonBuilder.h">
       <Filter>Headers\Game Specific\Button</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Game\IconBuilder.h">
+      <Filter>Headers\Game Specific\Icons</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json">
@@ -650,9 +653,6 @@
     </Filter>
     <Filter Include="Headers\Game Specific\Desktop Extraction">
       <UniqueIdentifier>{0ef984a8-bb14-437d-9554-36fc2ed903fa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\Game Specific\Input">
-      <UniqueIdentifier>{752b2f34-3b3a-481d-a907-0acad8962ad7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Headers\Game Specific\Pipeline Extraction">
       <UniqueIdentifier>{5b22c889-f4cb-408e-8662-5fb1f6fa5e2e}</UniqueIdentifier>
@@ -767,6 +767,15 @@
     </Filter>
     <Filter Include="Headers\Engine\Entities / Components\Loggers">
       <UniqueIdentifier>{eb854185-fed9-4713-b223-736db3282716}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Game Specific\Icons">
+      <UniqueIdentifier>{ee5eb113-9078-4b58-badf-0c57130509fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Game Specific\Icons">
+      <UniqueIdentifier>{9479ff6c-2e9e-47a7-a9a3-598188b2fd37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Game Specific\Input">
+      <UniqueIdentifier>{752b2f34-3b3a-481d-a907-0acad8962ad7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -185,6 +185,7 @@
     <ClInclude Include="Code\Game\explorerFileInputComponent.h" />
     <ClInclude Include="Code\Game\explorerFolderInputComponent.h" />
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
+    <ClInclude Include="Code\Game\IconBuilder.h" />
     <ClInclude Include="Code\Game\iconInputComponent.h" />
     <ClInclude Include="Code\Game\Inbox.h" />
     <ClInclude Include="Code\Game\mousePressButton.h" />
