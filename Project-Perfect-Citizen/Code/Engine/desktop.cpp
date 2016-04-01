@@ -106,7 +106,7 @@ void ppc::Desktop::addWindow(WindowInterface* wi){
 }
 
 bool ppc::Desktop::isWindow(WindowInterface* wi) {
-    return (std::find(windows_.cbegin(), windows_.cend(), wi) == windows_.cend());
+    return (std::find(windows_.cbegin(), windows_.cend(), wi) != windows_.cend());
 }
 
 void ppc::Desktop::destroyWindow(WindowInterface* wi) {
