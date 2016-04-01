@@ -23,8 +23,8 @@ std::map<std::string, bool> NAME_MAP = {
 
 const int LEVEL_ONE_NUM_NODES = 8;
 const int LEVEL_ONE_NUM_EDGES = 8;
-const int LEVEL_ONE_NODES_LOW = LEVEL_ONE_NUM_NODES - 1 / 2; // 0 - 3
-const int LEVEL_ONE_NODES_HIGH = LEVEL_ONE_NUM_NODES / 2;    // 4 - 7
+const int LEVEL_ONE_NODES_LOW = (LEVEL_ONE_NUM_NODES - 1) / 2; // 0 - 3
+const int LEVEL_ONE_NODES_HIGH = (LEVEL_ONE_NUM_NODES / 2);    // 4 - 7
 const int SMS_MESSAGES_PER_EDGE = 1;
 
 Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
@@ -53,6 +53,11 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	populateLevelEdges(LEVEL_ONE_NODES_HIGH, LEVEL_ONE_NUM_NODES - 1,
 		LEVEL_ONE_NUM_EDGES / 2, *myNetwork, 1, exprGrammar);
 
+	std::pair<int, int> centerAndTarget = designateCenter(0, LEVEL_ONE_NODES_LOW, *myNetwork);
+	myNetwork->setCenter(centerAndTarget.first);
+	addEdge(centerAndTarget.first, centerAndTarget.second, *myNetwork, 1, exprGrammar);
+
+	/*
 	//Pick a random node to be the "center" from the first half of nodes
 	std::random_device rd;
 	std::mt19937 gen(rd());
@@ -160,18 +165,22 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 		myNetwork->setEdge(i, othervert, thisedge);
 		myNetwork->setEdge(othervert, i, thisedge);
 	}
+	*/
+
 	return myNetwork;
 }
 
-int PipelineLevelBuilder::designateCenter(int start, int end, Network& net) {
-	std::vector<unsigned int> vertEdgeCounts;
-	for (unsigned int i = 0; i < net.size(); ++i) {
-		vertEdgeCounts.push_back(0);
-	}
+
+// Finds a valid vertex in range [start, end] designates it as center,
+// adds an edge between it and the other side of the graph
+// Needs to be updated to reflect suspicion level if link suspicion is used
+// for puzzle solving
+std::pair<int, int> PipelineLevelBuilder::designateCenter(unsigned int start, unsigned int end, Network& net) {
+	std::vector<unsigned int> vertEdgeCounts (net.size(), 0);
 	for (unsigned int i = 0; i < net.size(); ++i) {
 		unsigned int edgeCount = 0;
 		for (unsigned int j = 0; j < net.size(); j++) {
-			if (i = j) continue;
+			if (i == j) continue;
 			if (net.isAdjacent(i, j)) {
 				edgeCount++;
 			}
@@ -203,10 +212,49 @@ int PipelineLevelBuilder::designateCenter(int start, int end, Network& net) {
 	unsigned int center = centerTargets[std::rand() % centerTargets.size()];
 
 
+	//Needs to be updated to reflect suspicion level if link suspicion is used
+	//for puzzle solving
+	std::vector<unsigned int> validTargets;
+	std::vector<unsigned int> needsEdgeRemoved;
+	for (unsigned int i = 0; i < net.size(); ++i) {
+		if (i == center) continue;
+		if (vertEdgeCounts[i] > centerEdges) needsEdgeRemoved.push_back(i);
+		if (i < start || i > end) {
+			if (vertEdgeCounts[i] < centerEdges) validTargets.push_back(i);
+		}
+	}
 	
+	for (unsigned int i = 0; i < needsEdgeRemoved.size(); ++i) {
+		//remove edges
+	}
 
+	unsigned int target = validTargets[std::rand() % validTargets.size()];
 
+	return std::make_pair(center, target);
 
+}
+
+void PipelineLevelBuilder::addEdge(int first, int second, Network& net, int suspLevel, const Json::Value& exprGrammar) {
+	Edge thisedge;
+	//Color here is unused by the player, but is useful for checking
+	//correctness of a solution
+	if (suspLevel == -1) {
+		int weight = std::rand() % 1;
+		thisedge.setWeight(weight);
+		if (weight == 0) thisedge.setColorGreen();
+		else thisedge.setColorRed();
+	}
+	else {
+		thisedge.setWeight(suspLevel);
+		if (suspLevel == 0) thisedge.setColorGreen();
+		else thisedge.setColorRed();
+	}
+
+	addSmsMessagesToEdge(thisedge, SMS_MESSAGES_PER_EDGE, net.vert(first).getCharacter(),
+		net.vert(second).getCharacter(), exprGrammar);
+
+	net.setEdge(first, second, thisedge);
+	net.setEdge(second, first, thisedge);
 }
 
 //Goes through a range of vertices and populates them with random edges
@@ -231,26 +279,7 @@ void PipelineLevelBuilder::populateLevelEdges(int start, int end, int numEdges,
 		}
 		if (net.isAdjacent(first, second)) continue;
 		
-		Edge thisedge;
-		//Color here is unused by the player, but is useful for checking
-		//correctness of a solution
-		if (suspLevel == -1) {
-			int weight = std::rand() % 1;
-			thisedge.setWeight(weight);
-			if (weight == 0) thisedge.setColorGreen();
-			else thisedge.setColorRed();
-		} 
-		else {
-			thisedge.setWeight(suspLevel);
-			if (suspLevel == 0) thisedge.setColorGreen();
-			else thisedge.setColorRed();
-		}
-
-		addSmsMessagesToEdge(thisedge, SMS_MESSAGES_PER_EDGE, net.vert(first).getCharacter(),
-			net.vert(second).getCharacter(), exprGrammar);
-
-		net.setEdge(first, second, thisedge);
-		net.setEdge(second, first, thisedge);
+		addEdge(first, second, net, suspLevel, exprGrammar);
 		++i;
 	}
 
