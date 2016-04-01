@@ -5,6 +5,8 @@ using namespace ppc;
 const std::string MOUSE_DOWN_CODE = "MDC";
 const std::string MOUSE_RELEASED_CODE = "MRC";
 const std::string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
+const std::string ICON_TYPE = "ICON";
+const std::string BUTTON_TYPE = "BUTTON";
 
 buttonRenderComponent::buttonRenderComponent( sf::Image& image, 
 	int x, int y, int r, int f) : buttonImage(image) {
@@ -17,11 +19,10 @@ buttonRenderComponent::buttonRenderComponent( sf::Image& image,
     xIndex = x;
     yIndex = y;
     
-    if (frameCount == 1) _isStatic = true;
-    else {
-        _isStatic = false;
-        _willAnimate = false;
-    }
+
+    _buttonType = BUTTON_TYPE;
+    _willAnimate = false;
+
     
     rectSourceSprite = new sf::IntRect(xIndex*size,
                                        yIndex*size,
@@ -41,6 +42,11 @@ buttonRenderComponent::~buttonRenderComponent() {
 	delete texture;
 	delete sprite;
     delete rectSourceSprite;
+}
+
+void buttonRenderComponent::setButtonType(std::string t) {
+    if (t == ICON_TYPE) _buttonType = t;
+    else if (t == BUTTON_TYPE) _buttonType = t;
 }
 
 void buttonRenderComponent::renderPosition(sf::Vector2f pos) {
@@ -91,7 +97,7 @@ void buttonRenderComponent::draw( sf::RenderTarget& target,
 }
 
 void buttonRenderComponent::recieveMessage(msgType code) {
-    if (_isStatic) {
+    if (buttonType == BUTTON_TYPE) {
         if(code.compare(MOUSE_DOWN_CODE) == 0)
             setSprite(xIndex+width, yIndex, width);
         if(code.compare(MOUSE_RELEASED_CODE) == 0)
