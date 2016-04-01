@@ -93,7 +93,7 @@ bool runBootDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
         sf::Event event;
         while (screen.pollEvent(event)) {
             // Close window: exit
-            if (event.type == sf::Event::KeyPressed) {
+            if (event.type == sf::Event::MouseButtonPressed) {
                 // Boots player to teacher desktop
                 return false;
             }
@@ -119,12 +119,6 @@ bool runBootDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
     return false;
     
 }
-
-//struct A {
-	//bool b;
-//};
-
-//bool(*triggerEnd)(BaseFileType& obj, sf::Event& ev);
 
 
 

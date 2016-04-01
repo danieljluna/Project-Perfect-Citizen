@@ -23,7 +23,8 @@ private:
     sf::IntRect* rectSourceSprite;
 	sf::Image& buttonImage;
     int frameCount, width, xIndex, yIndex;
-    bool _isStatic, _willAnimate;
+    bool _willAnimate;
+    std::string _buttonType;
 	static const int size = 128;
 
 public:
@@ -61,6 +62,16 @@ public:
 	/// @param r: Designates the WIDTH (range) of the sprite sheet loaded
 	///////////////////////////////////////////////////////////////////////
 	void setSprite(int x, int y, int r);
+    
+    ///////////////////////////////////////////////////////////////////////
+    /// @brief Updates the button type (Icon / Button)
+    ///////////////////////////////////////////////////////////////////////
+    void setButtonType(std::string t);
+    
+    ///////////////////////////////////////////////////////////////////////
+    /// @brief Returns button type
+    ///////////////////////////////////////////////////////////////////////
+    std::string getButtonType() const {return _buttonType;}
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Updates the scale (width) of the sprite
