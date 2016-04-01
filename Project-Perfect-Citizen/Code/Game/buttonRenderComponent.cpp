@@ -83,9 +83,7 @@ void buttonRenderComponent::animate() {
     }
 }
 
-bool buttonRenderComponent::isStatic() {
-    return _isStatic;
-}
+
 
 bool buttonRenderComponent::willAnimate() {
     return _willAnimate;
@@ -97,7 +95,7 @@ void buttonRenderComponent::draw( sf::RenderTarget& target,
 }
 
 void buttonRenderComponent::recieveMessage(msgType code) {
-    if (buttonType == BUTTON_TYPE) {
+    if (_buttonType == BUTTON_TYPE) {
         if(code.compare(MOUSE_DOWN_CODE) == 0)
             setSprite(xIndex+width, yIndex, width);
         if(code.compare(MOUSE_RELEASED_CODE) == 0)
