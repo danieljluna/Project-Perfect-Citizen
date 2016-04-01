@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C8101F4D1C938AB8009956CE /* Pixel_Title.png in Resources */ = {isa = PBXBuildFile; fileRef = C8101F4C1C938AB8009956CE /* Pixel_Title.png */; };
+		C8270D9D1CADCB7900232367 /* Mouse_Down.wav in Resources */ = {isa = PBXBuildFile; fileRef = C8270D9B1CADCB7900232367 /* Mouse_Down.wav */; };
+		C8270D9E1CADCB7900232367 /* Mouse_Up.wav in Resources */ = {isa = PBXBuildFile; fileRef = C8270D9C1CADCB7900232367 /* Mouse_Up.wav */; };
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
 		C8A593901C8E3AFE00036C1D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8A593461C8E3AFE00036C1D /* main.cpp */; };
 		E9A0AC761C939A290035CCE1 /* 1-24-08-182.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC121C939A290035CCE1 /* 1-24-08-182.jpg */; };
@@ -225,6 +227,9 @@
 /* Begin PBXFileReference section */
 		C8058A631C4D679D005E23BA /* Project-Perfect-Citizen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-Perfect-Citizen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8101F4C1C938AB8009956CE /* Pixel_Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pixel_Title.png; sourceTree = "<group>"; };
+		C8270D9A1CADCA3800232367 /* SoundTrack_Extraction.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoundTrack_Extraction.ogg; sourceTree = "<group>"; };
+		C8270D9B1CADCB7900232367 /* Mouse_Down.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Mouse_Down.wav; sourceTree = "<group>"; };
+		C8270D9C1CADCB7900232367 /* Mouse_Up.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Mouse_Up.wav; sourceTree = "<group>"; };
 		C82E60731C810DCB001860CC /* json-forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "json-forwards.h"; sourceTree = "<group>"; };
 		C82E60741C810DCB001860CC /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		C82E60751C810DCB001860CC /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
@@ -836,6 +841,9 @@
 		E9A0AD841C939E660035CCE1 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				C8270D9B1CADCB7900232367 /* Mouse_Down.wav */,
+				C8270D9C1CADCB7900232367 /* Mouse_Up.wav */,
+				C8270D9A1CADCA3800232367 /* SoundTrack_Extraction.ogg */,
 				E9A0AD851C939E660035CCE1 /* gunshot.ogg */,
 				E9A0AD861C939E660035CCE1 /* gunshots.wav */,
 			);
@@ -1120,6 +1128,7 @@
 				E9A0ACD51C939A290035CCE1 /* Donne - Med 17.txt in Resources */,
 				E9E1F5E11C91F506006AE0FB /* Project-Perfect-Citizen-Info.plist in Resources */,
 				E9A0AC8F1C939A290035CCE1 /* high_school_classroom.preview.jpg in Resources */,
+				C8270D9D1CADCB7900232367 /* Mouse_Down.wav in Resources */,
 				E9A0ACB51C939A290035CCE1 /* Crowd7.jpg in Resources */,
 				E9A0ACC11C939A290035CCE1 /* NewCrowd38Fragment.jpg in Resources */,
 				E9E1F5E01C91F506006AE0FB /* EngineSettings.ini in Resources */,
@@ -1144,6 +1153,7 @@
 				E9A0ACCC1C939A290035CCE1 /* As I Lay Dying - Faulkner.txt in Resources */,
 				E9A0ACCE1C939A290035CCE1 /* The_Metamorphosis.txt in Resources */,
 				E9A0ACCA1C939A290035CCE1 /* Fallen1.jpg in Resources */,
+				C8270D9E1CADCB7900232367 /* Mouse_Up.wav in Resources */,
 				E9E1F5E61C91F506006AE0FB /* smsPipeline.json in Resources */,
 				E9A0ACD81C939A290035CCE1 /* Doubt1.jpg in Resources */,
 				E9A0ACA21C939A290035CCE1 /* mulvey-visualpleasure.txt in Resources */,
