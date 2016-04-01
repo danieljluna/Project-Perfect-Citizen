@@ -77,10 +77,9 @@ void Subject::printObservers()
 void Subject::sendEvent(sf::Event& event)
 {
     BaseObserver* currentObserver = this->observerHead;
-	if (observerHead == nullptr) {
-		std::cout << "no observers connected to this object!" << std::endl;
-		return;
-	}
+    if (observerHead == nullptr) {
+        DEBUGS("sj", "No observers connected to this object!";)
+    }
 
 	while (currentObserver != nullptr) {
         if (!currentObserver->eventHandler(event)) {

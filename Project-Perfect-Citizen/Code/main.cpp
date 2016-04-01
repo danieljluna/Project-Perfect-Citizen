@@ -126,12 +126,6 @@ bool runBootDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& s
     
 }
 
-//struct A {
-	//bool b;
-//};
-
-//bool(*triggerEnd)(BaseFileType& obj, sf::Event& ev);
-
 
 
 bool runEndDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
@@ -323,8 +317,8 @@ int main(int argc, char** argv) {
 	playerWallpaper.setScale(0.7f, 0.7f);
 	playerWallpaper.setPosition(0, 0);
 
-    sf::Image spriteSheet;
-	spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
+    sf::Image buttonSheet;
+	buttonSheet.loadFromFile(resourcePath() + "Windows_UI.png");
     sf::Image pixelSheet;
     pixelSheet.loadFromFile(resourcePath() + "Pixel_Title.png");
     sf::Image iconSheet;
@@ -334,12 +328,11 @@ int main(int argc, char** argv) {
 	///////////////////////////////////////////////////////////////////
 
 
-    while (runBootDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
+    while (runBootDesktop(*&screen, iconSheet, buttonSheet, playerWallpaper)) {}
     quitter = false;
-	
-    while (runPlayerDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
+	while (runPlayerDesktop(*&screen, iconSheet, buttonSheet, playerWallpaper)) {}
     quitter = false;
-	while (runTargetDesktop(*&screen, teacherIconSheet, spriteSheet, teacherWallpaper)) {}
+	while (runTargetDesktop(*&screen, teacherIconSheet, buttonSheet, teacherWallpaper)) {}
     while (runEndDesktop(*&screen, iconSheet, pixelSheet, playerWallpaper)) {}
     
     return EXIT_SUCCESS;
