@@ -99,7 +99,7 @@ bool runBootDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& s
         sf::Event event;
         while (screen.pollEvent(event)) {
             // Close window: exit
-            if (event.type == sf::Event::KeyPressed) {
+            if (event.type == sf::Event::MouseButtonPressed) {
                 // Boots player to teacher desktop
                 return false;
             }
