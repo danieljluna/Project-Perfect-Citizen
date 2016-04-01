@@ -13,6 +13,11 @@ ppc::ButtonBuilder::ButtonBuilder()
 	posX = 0.f;
 	posY = 0.f;
 
+	sprtUp = nullptr;
+	sprtDown = nullptr;
+
+	spriteSheet = nullptr;
+	inputHandle = nullptr;
 }
 
 ppc::ButtonBuilder::~ButtonBuilder()
@@ -27,9 +32,16 @@ void ppc::ButtonBuilder::setSpritesByIndicies(int x, int y, int r, int f)
 	frames = f;
 }
 
+void ppc::ButtonBuilder::setSize(float s) {
+	size = s;
+}
+
 void ppc::ButtonBuilder::setSprites(sf::Sprite&, sf::Sprite&)
 {
 
+}
+
+void ppc::ButtonBuilder::setFunction() {
 }
 
 void ppc::ButtonBuilder::setButtonPosition(float x, float y)
