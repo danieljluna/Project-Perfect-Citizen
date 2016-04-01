@@ -336,7 +336,8 @@ int main(int argc, char** argv) {
 
     while (runBootDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
     quitter = false;
-	while (runPlayerDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
+	
+    while (runPlayerDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
     quitter = false;
 	while (runTargetDesktop(*&screen, teacherIconSheet, spriteSheet, teacherWallpaper)) {}
     while (runEndDesktop(*&screen, iconSheet, pixelSheet, playerWallpaper)) {}
