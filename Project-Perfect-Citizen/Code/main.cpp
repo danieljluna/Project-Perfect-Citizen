@@ -257,6 +257,7 @@ bool runTargetDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
 
 		createTeacherDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
 
+
 		// Go into main game loop
 		sf::Clock deltaTime; 
 		sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
