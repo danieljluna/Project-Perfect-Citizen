@@ -60,10 +60,10 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	//// Create the start menu
 	/////////////////////////////////////////////
 	ppc::WindowInterface* startToolbar =
-		new ppc::Window(1000, 60, sf::Color(128, 128, 128));
-	startToolbar->setPosition(0, 750);
+		new ppc::Window(1000, 65, sf::Color(195, 195, 195));
+	startToolbar->setPosition(0, 745);
 	Entity startButton;
-	spawnStartButton(startButton, startToolbar->getInputHandler(), buttonSheet, 0, 0, 0.4f);
+	spawnStartButton(startButton, startToolbar->getInputHandler(), buttonSheet, 0, 2, 0.4f);
 	startToolbar->addEntity(startButton);
 	desktopToModify.addWindow(startToolbar);
 
@@ -77,13 +77,13 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	Entity SearchIcon;
 	Entity EmailIcon;
 
-	spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 425.0f, 110.0f, 0.5f, 0.25f, theInbox);
+	spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 425.0f, 525.0f, 0.5f, 0.30f, theInbox);
 
-	spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 225.0f, 0.5f, 0.25f, theInbox);
-	spawnDataGraphIcon(DataGraphIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 625.0f, 225.0f, 0.5f, 0.25f, theInbox);
+	spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 175.0f, 375.0f, 0.5f, 0.30f, theInbox);
+	spawnDataGraphIcon(DataGraphIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 675.0f, 375.0f, 0.5f, 0.30f, theInbox);
 
-	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 425.0f, 0.5f, 0.25f, theInbox);
-	spawnSearchIcon(SearchIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 625.0f, 425.0f, 0.5f, 0.25f, theInbox);
+	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 250.0f, 475.0f, 0.5f, 0.30f, theInbox);
+	spawnSearchIcon(SearchIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 600.0f, 475.0f, 0.5f, 0.30f, theInbox);
 	
 	
 	desktopWindowToModify.addEntity(ConsoleIcon);

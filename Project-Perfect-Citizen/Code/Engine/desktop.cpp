@@ -18,7 +18,7 @@
 ppc::Desktop::Desktop(WindowInterface& bkgndWin, NodeState& n) {
 	style_ = nullptr;
 	nodeState_ = new NodeState(n);
-
+	iconSheet = nullptr;
 	windows_.push_back(&bkgndWin);
 	desktopWindow_ = &bkgndWin;
 	focused_ = desktopWindow_;
@@ -31,6 +31,7 @@ ppc::Desktop::Desktop(const Desktop& other) {
 	this->windows_ = other.windows_;
 	this->desktopWindow_ = other.desktopWindow_;
 	this->focused_ = other.focused_;
+	this->iconSheet = other.iconSheet;
 
 }
 
@@ -121,9 +122,14 @@ void ppc::Desktop::destroyWindow(WindowInterface* wi) {
 	}
 }
 
-void ppc::Desktop::setStyle(OSStyle* oss) {
-	style_ = oss;
+void ppc::Desktop::setIconSheet(sf::Image & sheet) {
+	this->iconSheet = &sheet;
 }
+
+sf::Image * ppc::Desktop::getIconSheet() {
+	return iconSheet;
+}
+
 
 ppc::NodeState& ppc::Desktop::getNodeState() {
 	return *nodeState_;
