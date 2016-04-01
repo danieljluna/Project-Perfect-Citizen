@@ -24,8 +24,6 @@ iconInputComponent::iconInputComponent(Desktop& dT, Database* dB, Inbox& ib, sf:
 
 }
 
-
-
 void iconInputComponent::recieveMessage(msgType msg) {
 	// Case: Double Clicked Console Icon
 	if (msg.compare(OPEN_THE_CONSOLE) == 0) {
