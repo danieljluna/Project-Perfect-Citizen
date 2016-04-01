@@ -23,12 +23,16 @@ std::map<std::string, bool> NAME_MAP = {
 
 const int LEVEL_ONE_NUM_NODES = 8;
 const int LEVEL_ONE_NUM_EDGES = 8;
+const int LEVEL_ONE_NODES_LOW = LEVEL_ONE_NUM_NODES - 1 / 2; // 0 - 3
+const int LEVEL_ONE_NODES_HIGH = LEVEL_ONE_NUM_NODES / 2;    // 4 - 7
 const int SMS_MESSAGES_PER_EDGE = 1;
 
 Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	Network* myNetwork = new Network(LEVEL_ONE_NUM_NODES);
 	
 	std::map<std::string, bool> usednames = NAME_MAP;
+	//These characters are randomly generated here, but should be more
+	//specific in practice
 	for (int i = 0; i < LEVEL_ONE_NUM_NODES;) {
 		PipelineCharacter newpc;
 		if (usednames[newpc.getSSN().substr(0, 1)] == false) {
@@ -41,18 +45,19 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 
 	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson("smsPipeline.json");
 
-	populateLevelEdges(0, (LEVEL_ONE_NUM_NODES - 1) / 2,(LEVEL_ONE_NUM_EDGES) / 2, 
+	//Fill random edges on low side - non suspicious
+	populateLevelEdges(0, LEVEL_ONE_NODES_LOW, (LEVEL_ONE_NUM_EDGES) / 2, 
 		*myNetwork, 0, exprGrammar);
 
-	populateLevelEdges((LEVEL_ONE_NUM_NODES) / 2, LEVEL_ONE_NUM_NODES - 1,
+	//Fill random edges on high side - suspicious
+	populateLevelEdges(LEVEL_ONE_NODES_HIGH, LEVEL_ONE_NUM_NODES - 1,
 		LEVEL_ONE_NUM_EDGES / 2, *myNetwork, 1, exprGrammar);
 
+	//Pick a random node to be the "center" from the first half of nodes
 	std::random_device rd;
 	std::mt19937 gen(rd());
-	std::uniform_int_distribution<> dis(0, (LEVEL_ONE_NUM_NODES - 1)/2);
+	std::uniform_int_distribution<> dis(0, LEVEL_ONE_NODES_LOW);
 
-	//int first = std::rand() % ((LEVEL_ONE_NUM_NODES - 1) / 2);
-	//int second = std::rand() % ((LEVEL_ONE_NUM_NODES) / 2) + (LEVEL_ONE_NUM_NODES - 1) / 2;
 	
 	unsigned int first = 0;
 	unsigned int numFirstEdges = 0;
@@ -158,6 +163,52 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	return myNetwork;
 }
 
+int PipelineLevelBuilder::designateCenter(int start, int end, Network& net) {
+	std::vector<unsigned int> vertEdgeCounts;
+	for (unsigned int i = 0; i < net.size(); ++i) {
+		vertEdgeCounts.push_back(0);
+	}
+	for (unsigned int i = 0; i < net.size(); ++i) {
+		unsigned int edgeCount = 0;
+		for (unsigned int j = 0; j < net.size(); j++) {
+			if (i = j) continue;
+			if (net.isAdjacent(i, j)) {
+				edgeCount++;
+			}
+		}
+		vertEdgeCounts[i] = edgeCount;
+	}
+
+	std::vector<unsigned int> centerTargets;
+	std::vector<unsigned int> strayNodes;
+	unsigned int centerEdges = 0;
+	for (unsigned int i = 0; i < net.size(); ++i) {
+		if (i >= start && i <= end) {
+			if (vertEdgeCounts[i] > centerEdges) {
+				centerEdges = vertEdgeCounts[i];
+				centerTargets.clear();
+				centerTargets.push_back(i);
+			}		
+			if (vertEdgeCounts[i] == centerEdges) {
+				centerTargets.push_back(i);
+			}
+		}
+
+		if (vertEdgeCounts[i] == 0) {
+			strayNodes.push_back(i);
+		}
+	}
+
+	//Okay that edges are tied here, going to be adding one to center anyway
+	unsigned int center = centerTargets[std::rand() % centerTargets.size()];
+
+
+	
+
+
+
+}
+
 //Goes through a range of vertices and populates them with random edges
 //Useful for creating clusters of closely related nodes.  Set a susp
 //value of 0 or 1 for all nodes, or use -1 to determine randomly.
@@ -168,10 +219,12 @@ void PipelineLevelBuilder::populateLevelEdges(int start, int end, int numEdges,
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> dis(start, end);
 	while (i < numEdges) {
-		//int first = std::rand() % (end - start + 1) + start;
+		//Pick two random nodes, if they have an edge between them
+		//retry, otherwise create one
+
 		int first = dis(gen);
-		//int second = std::rand() % (end - start + 1) + start;
 		int second = dis(gen);
+
 		if (first == second) {
 			if (first == end) first = start;
 			else first += 1;
@@ -179,6 +232,8 @@ void PipelineLevelBuilder::populateLevelEdges(int start, int end, int numEdges,
 		if (net.isAdjacent(first, second)) continue;
 		
 		Edge thisedge;
+		//Color here is unused by the player, but is useful for checking
+		//correctness of a solution
 		if (suspLevel == -1) {
 			int weight = std::rand() % 1;
 			thisedge.setWeight(weight);
@@ -201,6 +256,9 @@ void PipelineLevelBuilder::populateLevelEdges(int start, int end, int numEdges,
 
 }
 
+
+//Using the link information contained in anEdge, as well as the sender's details,
+//Build an Expression, format it for display, and append each word to a vector
 void PipelineLevelBuilder::addSmsMessagesToEdge(Edge& anEdge, unsigned int numMessages, const PipelineCharacter& sender, 
 	const PipelineCharacter& receiver, const Json::Value& exprGrammar) {
 

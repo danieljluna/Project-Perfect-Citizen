@@ -26,6 +26,8 @@ public:
 	///////////////////////////////////////////////////////////////////
 	static Network* buildLevelOneNetworkSolution();
 
+
+
 	/*
 	static Network BuildLevelTwoNetwork();
 	*/
@@ -38,6 +40,7 @@ private:
 	static void addSmsMessagesToEdge(Edge& anEdge, unsigned int numMessages, const PipelineCharacter& sender,
 		const PipelineCharacter& receiver, const Json::Value& exprGrammar);
 
+	static int designateCenter(int start, int end, Network & net);
 };
 
 };
