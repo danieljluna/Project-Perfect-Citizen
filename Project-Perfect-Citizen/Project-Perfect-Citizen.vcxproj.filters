@@ -588,6 +588,9 @@
     <None Include="Resources\smsPipeline.json">
       <Filter>Resources</Filter>
     </None>
+    <None Include="Resources\suspiciontest.json">
+      <Filter>Resources</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">

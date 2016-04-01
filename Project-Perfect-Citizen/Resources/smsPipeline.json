@@ -23,7 +23,7 @@
       "speaker.linkSuspicion == Ambiguous",
       "speaker.linkSuspicion == SlightlySuspicious",
       "speaker.linkSuspicion == ClearlyClean",
-      "speaker.linkSuspicion == ClearySuspicious"
+      "speaker.linkSuspicion == ClearlySuspicious"
     ],
     "outerLife": [
 
@@ -1261,7 +1261,7 @@
     "communities clearly suspicious": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearySuspicious" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearlySuspicious" ] },
       "rules": [
         {
           "app_rate": 1,
@@ -1983,7 +1983,7 @@
     "family clearly suspicious": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearySuspicious" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearlySuspicious" ] },
       "rules": [
         {
           "app_rate": 1,
@@ -2550,7 +2550,7 @@
     "friends clearly suspicious": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearySuspicious" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearlySuspicious" ] },
       "rules": [
         {
           "app_rate": 1,
@@ -4213,7 +4213,7 @@
     "school clearly suspicious": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearySuspicious" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearlySuspicious" ] },
       "rules": [
         {
           "app_rate": 1,
@@ -5486,7 +5486,7 @@
     "work clearly suspicious": {
       "complete": true,
       "deep": false,
-      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearySuspicious" ] },
+      "markup": { "linkSuspicion": [ "speaker.linkSuspicion == ClearlySuspicious" ] },
       "rules": [
         {
           "app_rate": 1,
@@ -5648,7 +5648,7 @@
         "agePrecondition": [ "speaker.age < 44", "speaker.age < 24", "speaker.age < 64" ],
         "decisions": [ "speaker.decisions == MiddleGround", "speaker.decisions == Thinking", "speaker.decisions == Feeling" ],
         "iqPrecondition": [ "speaker.iq < 144", "speaker.iq < 84", "speaker.iq < 69", "speaker.iq < 129", "speaker.iq < 114" ],
-        "linkSuspicion": [ "speaker.linkSuspicion == Ambiguous", "speaker.linkSuspicion == Suggestive", "speaker.linkSuspicion == ClearlyClean", "speaker.linkSuspicion == SlightlySuspicious", "speaker.linkSuspicion == ClearySuspicious" ],
+        "linkSuspicion": [ "speaker.linkSuspicion == Ambiguous", "speaker.linkSuspicion == Suggestive", "speaker.linkSuspicion == ClearlyClean", "speaker.linkSuspicion == SlightlySuspicious", "speaker.linkSuspicion == ClearlySuspicious" ],
         "outerLife": [ "speaker.outerLife == MiddleGround", "speaker.outerLife == Judging", "speaker.outerLife == Perceiving" ],
         "relationship": [ "speaker.relationship == Work", "speaker.relationship == Family", "speaker.relationship == Communities", "speaker.relationship == Friends", "speaker.relationship == School" ],
         "social": [ "speaker.social == Introversion", "speaker.social == Extraversion", "speaker.social == Ambivert" ],

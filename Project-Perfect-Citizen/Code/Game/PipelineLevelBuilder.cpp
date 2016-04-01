@@ -43,7 +43,7 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 		}
 	}
 
-	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson("smsPipeline.json");
+	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson("suspiciontest.json");
 
 	//Fill random edges on low side - non suspicious
 	populateLevelEdges(0, LEVEL_ONE_NODES_LOW, (LEVEL_ONE_NUM_EDGES) / 2, 
@@ -56,116 +56,6 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	std::pair<int, int> centerAndTarget = designateCenter(0, LEVEL_ONE_NODES_LOW, *myNetwork);
 	myNetwork->setCenter(centerAndTarget.first);
 	addEdge(centerAndTarget.first, centerAndTarget.second, *myNetwork, 1, exprGrammar);
-
-	/*
-	//Pick a random node to be the "center" from the first half of nodes
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_int_distribution<> dis(0, LEVEL_ONE_NODES_LOW);
-
-	
-	unsigned int first = 0;
-	unsigned int numFirstEdges = 0;
-	for (unsigned int i = 0; i < (LEVEL_ONE_NUM_NODES - 1) / 2; ++i) {
-		unsigned int currNumEdges = 0;
-		for (unsigned int j = 0; j < myNetwork->size(); ++j) {
-			if (i == j) continue;
-			if (myNetwork->isAdjacent(i, j)) {
-				currNumEdges++;
-			}
-		}
-		if (currNumEdges > numFirstEdges) {
-			first = i;
-			numFirstEdges = currNumEdges;
-		}
-	}
-
-	unsigned int second = dis(gen) + LEVEL_ONE_NUM_NODES / 2;
-
-	//experimental excuse magic number (a 3 here means center has minimum 4 edges)
-	//this will be encapuslated as a function call if this method continues to be used
-	int third = dis(gen) + LEVEL_ONE_NUM_NODES / 2;
-	if (numFirstEdges < 3) {
-		if (third == second) {
-			third++;
-			if (third > (LEVEL_ONE_NUM_NODES - 1)) third = LEVEL_ONE_NUM_NODES / 2;
-		}
-
-		unsigned int thirdEdgeCount = 0;
-		for (unsigned int i = LEVEL_ONE_NUM_NODES / 2; i < LEVEL_ONE_NUM_NODES; ++i) {
-			if (i == third) continue;
-			if (myNetwork->isAdjacent(i, second)) ++thirdEdgeCount;
-		}
-		while (thirdEdgeCount >= numFirstEdges) {
-			unsigned int vert = dis(gen) + LEVEL_ONE_NUM_NODES / 2;
-			if (vert == third) continue;
-			if (myNetwork->isAdjacent(third, vert)) {
-				myNetwork->removeEdge(third, vert);
-				myNetwork->removeEdge(vert, third);
-				thirdEdgeCount--;
-			}
-		}
-
-		Edge thisedge;
-		thisedge.setWeight(1);
-		thisedge.setColorRed();
-		addSmsMessagesToEdge(thisedge, SMS_MESSAGES_PER_EDGE, myNetwork->vert(first).getCharacter(),
-			myNetwork->vert(third).getCharacter(), exprGrammar);
-
-		myNetwork->setEdge(first, third, thisedge);
-		myNetwork->setEdge(third, first, thisedge);
-	}
-	
-	unsigned int secondEdgeCount = 0;
-	for (unsigned int i = LEVEL_ONE_NUM_NODES / 2; i < LEVEL_ONE_NUM_NODES; ++i) {
-		if (i == second) continue;
-		if (myNetwork->isAdjacent(i, second)) ++secondEdgeCount;
-	}
-	while (secondEdgeCount >= numFirstEdges) {
-		unsigned int vert = dis(gen) + LEVEL_ONE_NUM_NODES / 2;
-		if (vert == second) continue;
-		if (myNetwork->isAdjacent(second, vert)) {
-			myNetwork->removeEdge(second, vert);
-			myNetwork->removeEdge(vert, second);
-			secondEdgeCount--;
-		}
-	}
-
-	myNetwork->setCenter(first);
-	Edge thisedge;
-	thisedge.setWeight(1);
-	thisedge.setColorRed();
-	addSmsMessagesToEdge(thisedge, SMS_MESSAGES_PER_EDGE, myNetwork->vert(first).getCharacter(),
-		myNetwork->vert(second).getCharacter(), exprGrammar);
-
-	myNetwork->setEdge(first, second, thisedge);
-	myNetwork->setEdge(second, first, thisedge);
-
-	for (unsigned int i = LEVEL_ONE_NUM_NODES / 2; i < LEVEL_ONE_NUM_NODES; ++i) {
-		if (myNetwork->isAdjacent(i, first)) break;
-
-		for (unsigned int j = i + 1; j < LEVEL_ONE_NUM_NODES; ++j) {
-			if (myNetwork->isAdjacent(i, j)) break;
-		}
-		unsigned int othervert = dis(gen) + LEVEL_ONE_NUM_NODES / 2;
-		if (othervert == second) {
-			othervert++;
-			if (othervert >= LEVEL_ONE_NUM_NODES) othervert = LEVEL_ONE_NUM_NODES / 2;
-			if (othervert == third) {
-				othervert++;
-				if (othervert >= LEVEL_ONE_NUM_NODES) othervert = LEVEL_ONE_NUM_NODES / 2;
-			}
-		}
-		Edge thisedge;
-		thisedge.setWeight(1);
-		thisedge.setColorRed();
-		addSmsMessagesToEdge(thisedge, SMS_MESSAGES_PER_EDGE, myNetwork->vert(i).getCharacter(),
-			myNetwork->vert(othervert).getCharacter(), exprGrammar);
-
-		myNetwork->setEdge(i, othervert, thisedge);
-		myNetwork->setEdge(othervert, i, thisedge);
-	}
-	*/
 
 	return myNetwork;
 }
