@@ -75,20 +75,6 @@ namespace ppc {
 		//map<string, (WindowInterface*) (Node*)> extensionMap_;
 
 ///////////////////////////////////////////////////////////////////////
-///@brief Brings the desired Window into focus.
-///@details To be called when a specificed Window should be 
-/// drawn above all others. The Window is then moved to the
-/// front of the Window container, ahead of all other Windows,
-/// but the ordering of the remaining Windows is kept.
-/// @param wi A WindowInterface* which points to the Window that
-/// is to be focused on.
-///@return Returns True if the Window successfuly focused. Returns
-/// False if the argument was nullptr, the Desktop's Window, or if
-/// the argument is not a Window in the Desktop.
-///////////////////////////////////////////////////////////////////////
-		bool focusWindow(WindowInterface*);
-
-///////////////////////////////////////////////////////////////////////
 ///@brief Draws the Desktop & all its Windows.
 ///
 ///@param in target The object that is to be drawn on.
@@ -147,6 +133,23 @@ namespace ppc {
 ///@post Desktop contains 1 more Window.
 ///////////////////////////////////////////////////////////////////////
 		virtual void addWindow(WindowInterface*);
+
+
+        ///////////////////////////////////////////////////////////////////////
+        ///@brief Brings the desired Window into focus.
+        ///@details To be called when a specificed Window should be 
+        /// drawn above all others. The Window is then moved to the
+        /// front of the Window container, ahead of all other Windows,
+        /// but the ordering of the remaining Windows is kept.
+        /// @param wi A WindowInterface* which points to the Window that
+        /// is to be focused on.
+        ///@return Returns True if the Window successfuly focused. Returns
+        /// False if the argument was nullptr, the Desktop's Window, or if
+        /// the argument is not a Window in the Desktop.
+        ///////////////////////////////////////////////////////////////////////
+        bool focusWindow(WindowInterface*);
+
+        bool isWindow(WindowInterface*);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Removes a Window from the Desktop.

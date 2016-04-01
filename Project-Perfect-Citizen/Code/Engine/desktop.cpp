@@ -97,12 +97,16 @@ void ppc::Desktop::addWindow(WindowInterface* wi){
 
 	//If the Window is already in the Desktop, we merely need
 	//to focus it.
-	if (focusWindow(wi)) return;
+	if (isWindow(wi)) return;
 
 	//Otherwise, if wi is not a window in the desktop,
 	//automatically put it at the front,
 	//and focused is set to what was added
 	focused_ = *(windows_.insert(windows_.begin(), wi));
+}
+
+bool ppc::Desktop::isWindow(WindowInterface* wi) {
+    return (std::find(windows_.cbegin(), windows_.cend(), wi) == windows_.cend());
 }
 
 void ppc::Desktop::destroyWindow(WindowInterface* wi) {
