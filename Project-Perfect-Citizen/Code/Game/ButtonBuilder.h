@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../Engine/renderComponent.h"
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "../Engine/renderComponent.h"

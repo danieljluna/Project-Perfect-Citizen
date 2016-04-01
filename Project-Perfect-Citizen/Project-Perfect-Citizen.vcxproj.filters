@@ -274,6 +274,21 @@
     <ClCompile Include="Code\Game\ButtonBuilder.cpp">
       <Filter>Sources\Game Specific\Button</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\TextDisplayBuilder.cpp">
+      <Filter>Sources\Game Specific\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\TextDisplayRenderComponent.cpp">
+      <Filter>Sources\Game Specific\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\TextBoxBuilder.cpp">
+      <Filter>Sources\Game Specific\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\TextBoxInputComponent.cpp">
+      <Filter>Sources\Game Specific\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\TextBoxRenderComponent.cpp">
+      <Filter>Sources\Game Specific\Text</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Game\photoRenderComponent.hpp">
@@ -572,6 +587,21 @@
     </ClInclude>
     <ClInclude Include="Code\Game\ButtonBuilder.h">
       <Filter>Headers\Game Specific\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\TextDisplayBuilder.h">
+      <Filter>Headers\Game Specific\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\TextDisplayRenderComponent.h">
+      <Filter>Headers\Game Specific\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\TextBoxBuilder.h">
+      <Filter>Headers\Game Specific\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\TextBoxInputComponent.h">
+      <Filter>Headers\Game Specific\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\TextBoxRenderComponent.h">
+      <Filter>Headers\Game Specific\Text</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

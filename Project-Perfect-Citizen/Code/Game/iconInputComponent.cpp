@@ -34,6 +34,7 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		spawnConsole(theDesktop_, consoleWindow, consoleWindow->getInputHandler(),
 			theDesktop_.getNodeState(), buttonSheet_, 200, 200);
 		theDesktop_.addWindow(consoleWindow);
+		openedWindow = consoleWindow;
 	}
 	else if (msg.compare(OPEN_THE_FILE) == 0) {
         ppc::WindowInterface* FileWindow =
@@ -41,54 +42,63 @@ void iconInputComponent::recieveMessage(msgType msg) {
         spawnFile(FileWindow, FileWindow->getInputHandler(),
             theDesktop_.getNodeState(), buttonSheet_, 100, 200, "DesktopContent/Desktop1/3-29-12-184.jpg");
         theDesktop_.addWindow(FileWindow);
+		openedWindow = FileWindow;
 	}
 	else if (msg.compare(OPEN_THE_SETTINGS) == 0) {
 		ppc::WindowInterface* ErrorMsgWindow =
 			new ppc::Window(500, 150, sf::Color(255, 255, 255));
 		spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
 		theDesktop_.addWindow(ErrorMsgWindow);
+		openedWindow = ErrorMsgWindow;
 	}
 	else if (msg.compare(OPEN_THE_CHAT) == 0) {
 		ppc::WindowInterface* ErrorMsgWindow =
 			new ppc::Window(500, 150, sf::Color(255, 255, 255));
 		spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
 		theDesktop_.addWindow(ErrorMsgWindow);
+		openedWindow = ErrorMsgWindow;
 	}
 	else if (msg.compare(OPEN_THE_SEARCH) == 0) {
 		WindowInterface* databaseWindow =
 			new Window(800, 600, sf::Color(200, 200, 200));
 		spawnDatabase(databaseWindow, databaseWindow->getInputHandler(), theDatabase_, buttonSheet_, 100, 200);
 		theDesktop_.addWindow(databaseWindow);
+		openedWindow = databaseWindow;
 	}
 	else if (msg.compare(OPEN_THE_PIPELINE) == 0) {
 		ppc::WindowInterface* piplineWindow =
 			new ppc::Window(800, 600, sf::Color(200, 200, 200));
 		ppc::spawnPipeline(piplineWindow, piplineWindow->getInputHandler(), theDatabase_, buttonSheet_, 100, 200);
 		theDesktop_.addWindow(piplineWindow);
+		openedWindow = piplineWindow;
 	}
 	else if (msg.compare(OPEN_THE_HELP) == 0) {
 		ppc::WindowInterface* ErrorMsgWindow =
 			new ppc::Window(500, 150, sf::Color(255, 255, 255));
 		spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
 		theDesktop_.addWindow(ErrorMsgWindow);
+		openedWindow = ErrorMsgWindow;
 	}
 	else if (msg.compare(OPEN_THE_BROWSER) == 0) {
 		ppc::WindowInterface* ErrorMsgWindow =
 			new ppc::Window(500, 150, sf::Color(255, 255, 255));
 		spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
 		theDesktop_.addWindow(ErrorMsgWindow);
+		openedWindow = ErrorMsgWindow;
 	}
 	else if (msg.compare(OPEN_THE_EXPLORER) == 0) {
 		ppc::WindowInterface* explorerWindow =
 			new ppc::Window(600, 350, sf::Color(255, 255, 255));
 		spawnExplorer(theDesktop_, explorerWindow, explorerWindow->getInputHandler(), theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
 		theDesktop_.addWindow(explorerWindow);
+		openedWindow = explorerWindow;
 	}
 	else if (msg.compare(OPEN_THE_EMAIL) == 0) {
 		ppc::WindowInterface* inboxWindow =
 			new ppc::Window(600, 400, sf::Color(200, 200, 200));
 		ppc::spawnInbox(theDesktop_, inboxWindow, inboxWindow->getInputHandler(), buttonSheet_, 100, 200, theInbox_);
 		theDesktop_.addWindow(inboxWindow);
+		openedWindow = inboxWindow;
 	}
 }
 

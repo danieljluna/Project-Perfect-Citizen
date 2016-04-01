@@ -20,7 +20,7 @@ private:
     sf::Text* text;
     sf::Font font;
     string str;
-    static const int size = 128;
+    int textSize_;
 
 public:
     
@@ -36,6 +36,14 @@ public:
     /// @param s is the string recieved from the input component
     ////////////////////////////////////////////////////////////////////
     void updateString(string s);
+
+	////////////////////////////////////////////////////////////////////
+	/// @brief Updates the console prompt position in the window based
+	/// on the amount of current lines
+	/// @param integer specifying the amount of currently displayed 
+	/// lines. This will draw it one line below these number of lines
+	////////////////////////////////////////////////////////////////////
+	void updatePosition(int currentLineNum);
 
     virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
     
