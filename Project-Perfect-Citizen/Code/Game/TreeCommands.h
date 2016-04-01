@@ -1,9 +1,14 @@
 #pragma once
 #include "../Engine/NodeState.h"
+#include "../Engine/BaseFileType.h"
+#include <map>
 
 
-using commandFn = void(*)(ppc::NodeState& state, const vector<string> words);
-using fnMap = std::map<string, commandFn>;
+namespace ppc {
+
+using commandFn = void(*)(ppc::NodeState& state, const std::vector<std::string> words);
+using fnMap = std::map<std::string, commandFn>;
+
 ///////////////////////////////////////////////
 ///@brief used in combination with the fnMap
 ///to find the correct command to call from the
@@ -19,7 +24,7 @@ commandFn findFunction(const std::string& command);
 ///@param words are the commands being passed
 ///from the console
 ///////////////////////////////////////////////
-void fn_mkfile(ppc::NodeState& state, const vector<string> words);
+void fn_mkfile(ppc::NodeState& state, const std::vector<std::string> words);
 ///////////////////////////////////////////////
 ///@brief prints the directory at targeted
 ///filepath. Error if the path is anything 
@@ -29,7 +34,7 @@ void fn_mkfile(ppc::NodeState& state, const vector<string> words);
 ///from the console. words(1) is the filepath
 ///words(2) is the contents of the textfile
 ///////////////////////////////////////////////
-void fn_ls(ppc::NodeState& state, const vector<string> words);
+void fn_ls(ppc::NodeState& state, const std::vector<std::string> words);
 ///////////////////////////////////////////////
 ///@brief Moves you to the targeted directory
 ///does nothing if the directory doesnt exist
@@ -44,14 +49,14 @@ void fn_ls(ppc::NodeState& state, const vector<string> words);
 ///@param words are the commands being passed
 ///from the console
 ///////////////////////////////////////////////
-void fn_cd(ppc::NodeState& state, const vector<string> words);
+void fn_cd(ppc::NodeState& state, const std::vector<std::string> words);
 ///////////////////////////////////////////////
 ///@brief 
 ///@param inode state for the tree in question
 ///@param words are the commands being passed
 ///from the console
 ///////////////////////////////////////////////
-void fn_mkDir(ppc::NodeState& state, const vector<string> words);
+void fn_mkDir(ppc::NodeState& state, const std::vector<std::string> words);
 ///////////////////////////////////////////////
 ///@brief Helper function that splits a string
 ///by a delimiter. Returns a string vector
@@ -59,10 +64,10 @@ void fn_mkDir(ppc::NodeState& state, const vector<string> words);
 ///@param delimiter That the string is split up
 ///by
 ///////////////////////////////////////////////
-std::vector<string> split(std::string line, std::string delimiter);
+std::vector<std::string> split(std::string line, std::string delimiter);
 
-void fn_decrypt(ppc::NodeState& state, const vector<std::string>words);
-void fn_pwd(ppc::NodeState& state, const vector<string> words);
+void fn_decrypt(ppc::NodeState& state, const std::vector<std::string>words);
+void fn_pwd(ppc::NodeState& state, const std::vector<std::string> words);
 
 ///////////////////////////////////////////////
 ///@brief helper function that prints a 
@@ -70,3 +75,6 @@ void fn_pwd(ppc::NodeState& state, const vector<string> words);
 ///@param vec: string vector to be printed
 ///////////////////////////////////////////////
 void printVector(std::vector<std::string> vec);
+
+
+};

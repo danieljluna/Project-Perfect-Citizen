@@ -1,4 +1,8 @@
 #include "emailListElementRenderComponent.h"
+#include <SFML/Graphics/Font.hpp>
+#include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/RenderStates.hpp>
 
 using namespace ppc;
 
@@ -11,8 +15,8 @@ emailListElementRenderComponent::emailListElementRenderComponent(sf::Font& f, Em
 	text->setCharacterSize(size);
 	text->setString(email.getSubjectField());
 
-	emailListElementBox.setPosition(sf::Vector2f(boxX, boxY));
-	emailListElementBox.setSize(sf::Vector2f(boxWidth, boxHeight));
+	emailListElementBox.setPosition(sf::Vector2f(float(boxX), float(boxY)));
+	emailListElementBox.setSize(sf::Vector2f(float(boxWidth), float(boxHeight)));
 	emailListElementBox.setFillColor(sf::Color::White);
 	
 }

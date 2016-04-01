@@ -6,13 +6,13 @@
 #include <SFML/Window/Event.hpp>
 
 #include "Component.h"
-#include "ComponentObsvr.h"
-#include "subject.h"
+#include "observer.h"
 
 
 namespace ppc {
 
 class InputHandler;
+class Subject;
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Base Class for all Components handling Input

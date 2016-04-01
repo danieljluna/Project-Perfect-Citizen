@@ -1,5 +1,14 @@
-#include "debug.h"
 #include "DesktopLogger.h"
+
+#include <string>
+#include <iostream>
+
+#include <SFML/System/Time.hpp>
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Window/Event.hpp>
+
+#include "debug.h"
+#include "../Game/WindowBkgndRenderCmpnt.h"
 
 using namespace ppc;
 
@@ -27,12 +36,14 @@ void DesktopLogger::destroyWindow(WindowInterface* wi) {
 	out_ << "DesktopLogger: Finished Destroying Window" << std::endl;
 }
 
-void DesktopLogger::setStyle(OSStyle* oss) {
-	out_ << "DesktopLogger: Setting Style" << std::endl;
+void ppc::DesktopLogger::setIconSheet(sf::Image & sheet) {
+	out_ << "DesktopLogger: Setting Icon Sheet" << std::endl;
+	loggedDesktop_->setIconSheet(sheet);
+}
 
-	loggedDesktop_->setStyle(oss);
-
-	out_ << "DesktopLogger: Finished Setting Style" << std::endl;
+sf::Image * ppc::DesktopLogger::getIconSheet() {
+	out_ << "DesktopLogger: Getting Icon Sheet" << std::endl;
+	return loggedDesktop_->getIconSheet();
 }
 
 NodeState& DesktopLogger::getNodeState() {

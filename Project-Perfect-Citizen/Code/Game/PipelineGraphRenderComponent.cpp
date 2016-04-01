@@ -2,7 +2,7 @@
 #include "PipelineGraphRenderComponent.h"
 
 PipelineGraphRenderComponent::PipelineGraphRenderComponent(
-	int x, int y, int backgroundWidth, int backgroundHeight) {
+	float x, float y, float backgroundWidth, float backgroundHeight) {
 
 	/* The background */
 	graphBoxBackground_.setPosition(sf::Vector2f(x, y));

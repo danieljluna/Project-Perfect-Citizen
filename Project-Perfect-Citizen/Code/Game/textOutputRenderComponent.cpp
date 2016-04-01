@@ -1,8 +1,19 @@
 
 #include "textOutputRenderComponent.h"
 #include "createWindow.h"
+#include "Quitter.h"
+
+#include <iostream>
+#include <SFML/Graphics.hpp>
+#include "../Engine/renderComponent.h"
+#include "../Engine/NodeState.h"
+#include "../Game/TreeCommands.h"
+#include <string>
+#include <algorithm>
 
 const string TEXT_KEY_INPUT = "TKI";
+
+using namespace ppc;
 
 textOutputRenderComponent::textOutputRenderComponent(ppc::Desktop& dt, sf::Image& bs, sf::Font& f,
 	ppc::NodeState& fT, int x, int y, int size) :font_(f),fileTree_(fT), theDesktop_(dt), buttonSheet_(bs) {
@@ -43,7 +54,8 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		firstLsCommand.push_back(ls);
 		commandFn firstLs = findFunction(ls);
 		firstLs(fileTree_, firstLsCommand);
-		
+
+	
 		cout << fileTree_.getDirString() << endl;
 		str_ = str_ + fileTree_.getDirString() + "\n";
 		int numLines = std::count(str_.begin(), str_.end(), '@');
@@ -75,6 +87,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		if (cmd.size() < 2) {
 			str_ = str_ + "Error: 'cd' requires one parameter\n";
 		}
+		if (cmd.at(1).compare("CP") == 0) { quitSection(); }
 		else {
 			std::vector<string> cdCommand;
 			string cd = "cd";
@@ -131,6 +144,10 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 
 void textOutputRenderComponent::clearString() {
 	str_.clear();
+}
+
+sf::Vector2f textOutputRenderComponent::getPosition() const {
+    return text_->getPosition();
 }
 
 

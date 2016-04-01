@@ -1,9 +1,13 @@
 //Programmed by Andy
 #pragma once
-#include "observer.h"
-#include <SFML/Graphics.hpp>
+
+namespace sf {
+    class Event;
+};
 
 namespace ppc {
+
+    class BaseObserver;
 
 ///////////////////////////////////////////////
 ///@brief This is the subject  class. Stick a

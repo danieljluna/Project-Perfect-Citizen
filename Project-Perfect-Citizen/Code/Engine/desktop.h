@@ -5,10 +5,14 @@
 
 #include <vector>
 #include <map>
-#include <string>
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Drawable.hpp>
 
-#include "../Game/WindowBkgndRenderCmpnt.h"
+namespace sf {
+    class Event;
+    class Sprite;
+    class Time;
+	class Image;
+};
 
 //temporary typedefs for classes/types not defined yet
 typedef int OSStyle;
@@ -40,6 +44,11 @@ namespace ppc {
 ///@brief The OS style of this Desktop
 ///////////////////////////////////////////////////////////////////////
 		OSStyle* style_;
+
+///////////////////////////////////////////////////////////////////////
+///@brief The sprite sheet for a Desktop's Icons
+///////////////////////////////////////////////////////////////////////
+		sf::Image* iconSheet;
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief The FileTree structure of this Desktop
@@ -156,10 +165,15 @@ namespace ppc {
 		virtual void destroyWindow(WindowInterface*);
 
 ///////////////////////////////////////////////////////////////////////
-///@brief Sets the Desktop to the given OS style.
-///@param oss The style the Desktop is to be associated with.
+///@brief Sets the icon spritesheet to the Desktop.
+///@param sheet The spritesheet containing the icons for the Desktop.
 ///////////////////////////////////////////////////////////////////////
-		virtual void setStyle(OSStyle*);
+		virtual void setIconSheet(sf::Image& sheet);
+
+///////////////////////////////////////////////////////////////////////
+///@brief Gets the icon spritesheet to the Desktop.
+///////////////////////////////////////////////////////////////////////
+		virtual sf::Image* getIconSheet();
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Returns a reference of the NodeState in the Desktop.

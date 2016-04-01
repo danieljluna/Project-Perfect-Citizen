@@ -14,7 +14,6 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "Library/json/json.h"
-#include "Game/testRenderSprite.h"
 #include "Engine/InputHandler.h"
 #include "Engine/subject.h"
 #include "Engine/debug.h"
@@ -49,9 +48,9 @@
 #include "Game/BootLoader.hpp"
 #include "Game/characterRender.hpp"
 #include "Engine/debug.h"
-#include "Engine/TestFunctionClass.h"
 #include "Engine/FreeFunctionObserver.h"
 #include "Game/interpolateUpdateComponent.hpp"
+#include "Engine/FreeFunctionObserver.h"
 
 #include "Game/bootLoadingUpdateComponent.hpp"
 #include "Game/bootLoadingAnimationRender.hpp"
@@ -61,12 +60,6 @@
 
 
 using namespace ppc;
-
-bool printFunc(TestFunctionClass* tfc, sf::Event& ev) {
-	std::cout << "inside printFunc" << std::endl;
-	tfc->callFunc(ev);
-	return true;
-}
 
 
 
@@ -132,6 +125,12 @@ bool runBootDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& s
     return false;
     
 }
+
+//struct A {
+	//bool b;
+//};
+
+//bool(*triggerEnd)(BaseFileType& obj, sf::Event& ev);
 
 
 
@@ -206,6 +205,8 @@ bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
 	myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
 	createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
 
+	//FreeFunctionObserver <A>(&BaseFileType, triggerEnd);
+	//myDesktop.getNodeState().getDirString()
 	// Go into main game loop
 	sf::Clock deltaTime; 
 	sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
@@ -214,6 +215,7 @@ bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
             return false;
         }
 		//Process sf::events
+		//cout << "from main: " << myDesktop.getNodeState().getDirString() << endl;
 		sf::Event event;
 		while (screen.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
@@ -252,7 +254,9 @@ bool runTargetDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
 
 		Desktop myDesktop(*desktopWindow, testState);
 		myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
+
 		createTeacherDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+
 
 		// Go into main game loop
 		sf::Clock deltaTime; 
@@ -301,19 +305,7 @@ int main(int argc, char** argv) {
 
 	bool BootToTitleCard = false; 
     // Create the main sf::window
-	sf::Event testEvent;
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
-	////////////////////////////////////////////FUNCTION OBSERVER TESTING/////////////////////////////////
-	TestFunctionClass cool;
-	//FunctionObserver<TestFunctionClass> c(&TestFunctionClass::callFunc); //= new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc);
-	//FunctionObserver<TestFunctionClass>* c = new FunctionObserver<TestFunctionClass>(&TestFunctionClass::callFunc, cool);
-	//bool coolReturnValue = (*cool.*(c->functionPointer))(testEvent);
-	//c->eventHandler(testEvent);
-
-
-	FreeFunctionObserver<TestFunctionClass> d(printFunc, &cool);
-	d.eventHandler(testEvent);
-	////////////////////////////////////////////FUNCTION OBSERVER TESTING/////////////////////////////////
 
 	//bool coolReturnValue = (*cool.*(c->functionPointer))(sf::Event());
 
@@ -340,6 +332,7 @@ int main(int argc, char** argv) {
 	sf::Image teacherIconSheet;
 	teacherIconSheet.loadFromFile(resourcePath() + "Teacher_Icon_Sheet.png");
 	///////////////////////////////////////////////////////////////////
+
 
     while (runBootDesktop(*&screen, iconSheet, spriteSheet, playerWallpaper)) {}
     quitter = false;
