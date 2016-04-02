@@ -70,3 +70,17 @@ int AudioQueue::addSound(std::string name, std::string filename)
 	return tempInt;
 }
 
+bool ppc::AudioQueue::addBgm(std::string filename)
+{
+	if (!bgm.openFromFile(this->filepath + filename))
+		return false; // error
+	 //SoundTrack_Extraction.ogg
+	return true;
+}
+
+void ppc::AudioQueue::playBgm()
+{
+	bgm.play();
+}
+
+
