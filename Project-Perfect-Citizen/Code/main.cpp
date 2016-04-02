@@ -65,7 +65,7 @@ using namespace ppc;
 
 bool runBootDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
     ppc::NodeState testState;
-    Window* desktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+    Window* desktopWindow = new Window(1000, 800, sf::Color(0, 0, 0));
     
     Desktop myDesktop(*desktopWindow, testState);
     myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
@@ -130,7 +130,7 @@ bool runBootDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& s
 
 bool runEndDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
     ppc::NodeState testState;
-    Window* desktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+    Window* desktopWindow = new Window(1000, 800, sf::Color(0, 0, 0));
     
     Desktop myDesktop(*desktopWindow, testState);
     myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
@@ -193,7 +193,7 @@ bool runEndDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& sp
 bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
     ppc::NodeState testState;
     testState.setUp();
-	Window* desktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+	Window* desktopWindow = new Window(1000, 800, sf::Color(0, 0, 0));
 
 	Desktop myDesktop(*desktopWindow, testState);
 	myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
@@ -244,7 +244,7 @@ bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
 bool runTargetDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
 		ppc::NodeState testState;
 		testState.setUp();
-		Window* desktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+		Window* desktopWindow = new Window(1000, 800, sf::Color(0, 0, 0));
 
 		Desktop myDesktop(*desktopWindow, testState);
 		myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
