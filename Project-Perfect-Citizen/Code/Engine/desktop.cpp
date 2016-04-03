@@ -126,6 +126,14 @@ sf::Image * ppc::Desktop::getIconSheet() {
 	return iconSheet;
 }
 
+void ppc::Desktop::setButtonSheet(sf::Image & sheet) {
+	this->buttonSheet = &sheet;
+}
+
+sf::Image * ppc::Desktop::getButtonSheet() {
+	return buttonSheet;
+}
+
 
 ppc::NodeState& ppc::Desktop::getNodeState() {
 	return *nodeState_;
@@ -133,6 +141,10 @@ ppc::NodeState& ppc::Desktop::getNodeState() {
 
 ppc::InputHandler& ppc::Desktop::getInputHandler() {
 	return desktopWindow_->getInputHandler();
+}
+
+ppc::WindowInterface* ppc::Desktop::getDesktopWindow() {
+	return desktopWindow_;
 }
 
 void ppc::Desktop::addBackgroundCmpnt(WindowInterface* wi, sf::Sprite& s) {
