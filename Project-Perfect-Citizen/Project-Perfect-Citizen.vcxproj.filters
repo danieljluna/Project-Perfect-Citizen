@@ -256,9 +256,6 @@
     <ClCompile Include="Code\Engine\Vertex.cpp">
       <Filter>Sources\Game Specific\Pipeline Extraction\Network</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\world.cpp">
-      <Filter>Sources\Engine\World</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Game\photoRenderComponent.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
@@ -456,9 +453,6 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\observer.h">
       <Filter>Headers\Engine\Observer System</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\world.h">
-      <Filter>Headers\Engine\World</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\Window.h">
       <Filter>Headers\Engine\Windows</Filter>

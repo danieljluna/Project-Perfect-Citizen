@@ -46,7 +46,6 @@
     <ClCompile Include="Code\Engine\WindowDecorator.cpp" />
     <ClCompile Include="Code\Engine\WindowInterface.cpp" />
     <ClCompile Include="Code\Engine\WindowLogger.cpp" />
-    <ClCompile Include="Code\Engine\world.cpp" />
     <ClCompile Include="Code\Game\animatorComponent.cpp" />
     <ClCompile Include="Code\Game\BootLoader.cpp" />
     <ClCompile Include="Code\Game\bootLoadingAnimationRender.cpp" />
@@ -153,7 +152,6 @@
     <ClInclude Include="Code\Engine\WindowDecorator.h" />
     <ClInclude Include="Code\Engine\WindowInterface.h" />
     <ClInclude Include="Code\Engine\WindowLogger.h" />
-    <ClInclude Include="Code\Engine\world.h" />
     <ClInclude Include="Code\Game\animatorComponent.hpp" />
     <ClInclude Include="Code\Game\BootLoader.hpp" />
     <ClInclude Include="Code\Game\bootLoadingAnimationRender.hpp" />
