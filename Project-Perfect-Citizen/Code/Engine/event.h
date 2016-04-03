@@ -25,9 +25,9 @@ namespace ppc {
 
 		enum EventTypes
 		{
-			RenderEventType,
-			InputEventType,
-			UpdateEventType,
+			ButtonType,
+			TransformationType,
+			ScrollbarType,
 
 			Count
 		};
