@@ -116,7 +116,9 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
     };
     windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     windowToModify = new BorderDecorator(*windowToModify);
-    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);    
+    BorderDecorator* border = dynamic_cast<BorderDecorator*>(windowToModify);
+    border->addButton(buttonSheet, closeWindow);    
+    border->setCaption("Console");
     
 }
 

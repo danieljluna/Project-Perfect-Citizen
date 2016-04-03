@@ -38,6 +38,8 @@ BorderDecorator::BorderDecorator(
         buttonEntities_[i] = nullptr;
     }
 
+    caption_.updateSize(20);
+    
     buttonCount_ = 0;
 
     //Set up Bounds
@@ -226,7 +228,8 @@ void BorderDecorator::updateBounds() {
     bounds.left = 0.0f - borderTopLeft_.x;
     draggableInput_.setBounds(bounds);
 
-    caption_.updatePosition(bounds.left, bounds.top);
+    caption_.updatePosition(WindowDecorator::getPosition().x, 
+                            WindowDecorator::getPosition().y - bounds.height * 0.9);
 
     //Re-position the buttons
     for (size_t i = 0; i < buttonCount_; ++i) {
