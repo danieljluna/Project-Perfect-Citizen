@@ -10,6 +10,8 @@ namespace ppc {
 	class Event
 	{
 	public:
+		sf::Event sfEvent;
+
 		struct Buttons {
 			bool isPushed;
 		};
@@ -28,7 +30,7 @@ namespace ppc {
 			ButtonType,
 			TransformationType,
 			ScrollbarType,
-
+			sfEventType,
 			Count
 		};
 
