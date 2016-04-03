@@ -76,7 +76,7 @@ void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
                                      0*grid_size,
                                      5*grid_size,
                                      5*grid_size));
-    body->setScale(0.6f, 0.6f);
+    body->setScale(0.16f, 0.16f);
 
     body->setColor(skinTones.at(myCharacter.getSkinColorIndex()));
     body->setPosition(origin);
@@ -91,7 +91,7 @@ void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
                                      5*grid_size,
                                      5*grid_size,
                                      5*grid_size));
-    shirt->setScale(0.6f, 0.6f);
+    shirt->setScale(0.16f, 0.16f);
     
     shirt->setColor(myCharacter.getShirtColor());
     shirt->setPosition(origin);
@@ -106,14 +106,14 @@ void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
                                      0*grid_size,
                                      3*grid_size,
                                      2*grid_size));
-    hair->setScale(0.6f, 0.6f);
+    hair->setScale(0.16f, 0.16f);
     if (myCharacter.getHairType() == 2) {
         hair->setColor(sf::Color(0,0,0,0));
     } else {
         hair->setColor(hairTones.at(myCharacter.
                                     getHairColorIndex()));
     }
-    hair->setPosition(origin.x+70, origin.y-5);
+    hair->setPosition(origin.x+18, origin.y+2);
     
     
     ////////////////////////////////////
@@ -125,8 +125,8 @@ void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
                                       grid_size,
                                       grid_size));
     irisL->setColor(myCharacter.getEyeColor());
-    irisL->setPosition(origin.x + 125, origin.y + 110);
-    irisL->setScale(0.4f, 0.4f);
+    irisL->setPosition(origin.x + 32, origin.y + 32);
+    irisL->setScale(0.12f, 0.12f);
     
     irisR->setTexture(*texture);
     irisR->setTextureRect(sf::IntRect(1*grid_size,
@@ -134,8 +134,8 @@ void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
                                       grid_size,
                                       grid_size));
     irisR->setColor(myCharacter.getEyeColor());
-    irisR->setPosition(origin.x + 195, origin.y + 110);
-    irisR->setScale(0.4f, 0.4f);
+    irisR->setPosition(origin.x + 52, origin.y + 32);
+    irisR->setScale(0.12f, 0.12f);
     
     
     ////////////////////////////////////
@@ -147,16 +147,16 @@ void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
                                      myCharacter.getEyeType()*grid_size,
                                      grid_size,
                                      grid_size));
-    eyeL->setPosition(origin.x + 125, origin.y + 110);
-    eyeL->setScale(0.4f, 0.4f);
+    eyeL->setPosition(origin.x + 32, origin.y + 32);
+    eyeL->setScale(0.12f, 0.12f);
     
     eyeR->setTexture(*texture);
     eyeR->setTextureRect(sf::IntRect(1*grid_size,
                                       myCharacter.getEyeType()*grid_size,
                                      grid_size,
                                      grid_size));
-    eyeR->setPosition(origin.x + 195, origin.y + 110);
-    eyeR->setScale(0.4f, 0.4f);
+    eyeR->setPosition(origin.x + 52, origin.y + 32);
+    eyeR->setScale(0.12f, 0.12f);
     
     
     
@@ -165,9 +165,9 @@ void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
                                       myCharacter.getBrowType()*grid_size,
                                      grid_size,
                                      grid_size));
-    browR->setPosition(origin.x + 193, origin.y +76);
+    browR->setPosition(origin.x + 52, origin.y + 25);
     browR->setColor(hairTones.at(myCharacter.getHairColorIndex()));
-    browR->setScale(0.5f, 0.5f);
+    browR->setScale(0.12f, 0.12f);
     
     
     
@@ -176,9 +176,9 @@ void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
                                        myCharacter.getBrowType()*grid_size,
                                       grid_size,
                                       grid_size));
-    browL->setPosition(origin.x + 122, origin.y + 76);
+    browL->setPosition(origin.x + 32, origin.y + 25);
     browL->setColor(hairTones.at(myCharacter.getHairColorIndex()));
-    browL->setScale(0.5f, 0.5f);
+    browL->setScale(0.12f, 0.12f);
     
     
     
@@ -190,9 +190,9 @@ void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
                                        myCharacter.getMouthType()*grid_size,
                                       2*grid_size,
                                       grid_size));
-    mouth->setPosition(origin.x + 147, origin.y + 200);
+    mouth->setPosition(origin.x + 40, origin.y + 55);
     mouth->setColor(lipTones.at(myCharacter.getLipColorIndex()));
-    mouth->setScale(0.3f, 0.3f);
+    mouth->setScale(0.08f, 0.08f);
     
     
     
@@ -205,9 +205,9 @@ void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
                                       2*grid_size,
                                       1*grid_size));
     nose->setRotation(90);
-    nose->setPosition(origin.x + 210, origin.y + 115);
+    nose->setPosition(origin.x + 56, origin.y + 36);
     
-    nose->setScale(0.35f, 0.35f);
+    nose->setScale(0.09f, 0.09f);
     
     
 }
