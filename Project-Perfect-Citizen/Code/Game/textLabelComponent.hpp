@@ -29,6 +29,7 @@ using namespace std;
 class textLabelComponent : public ppc::RenderComponent{
 private:
     sf::Text* text;
+	sf::Text* outline;
     sf::Font font;
     string labelString;
     

@@ -1,5 +1,6 @@
 #include "Explorer.h"
 #include "../Engine/WindowInterface.h"
+#include "../Engine/ScrollBarDeco.h"
 #include "Quitter.h"
 #include "TreeCommands.h"
 
@@ -80,6 +81,7 @@ void Explorer::renderTopFrame() {
 	for (unsigned int i = 0; i < explorerHistory_.top().size(); ++i) {
 		windowToWorkOn_->addEntity(explorerHistory_.top().at(i));
 	}
+ 
 }
 
 void Explorer::updateExplorerDisplay() {

@@ -60,7 +60,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		str_ = str_ + fileTree_.getDirString() + "\n";
 		int numLines = std::count(str_.begin(), str_.end(), '@');
 		std::replace(str_.begin(), str_.end(), '@', '\n');
-		numDisplayedLines += numLines;
+		numDisplayedLines += numLines + 1;
 	}
 	else if (cmd.at(0) == "pwd") {
 		std::vector<std::string> wd = fileTree_.getPwdVector();
@@ -86,6 +86,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 	else if (cmd.at(0) == "cd") {
 		if (cmd.size() < 2) {
 			str_ = str_ + "Error: 'cd' requires one parameter\n";
+			numDisplayedLines++;
 		}
 		if (cmd.at(1).compare("CP") == 0) { quitSection(); }
 		else {
@@ -95,12 +96,14 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 			cdCommand.push_back(cmd.at(1));
 			commandFn newCD = findFunction(cd);
 			newCD(fileTree_, cdCommand);
+			numDisplayedLines++;
 		}
 		
 	}
 	else if (cmd.at(0) == "mkdir") {
 		if (cmd.size() < 2) {
 			str_ = str_ + "Error: 'mkdir' requires one parameter\n";
+			numDisplayedLines++;
 		}
 		else {
 			std::vector<string> mkdirCommand;
@@ -109,12 +112,14 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 			mkdirCommand.push_back(cmd.at(1));
 			commandFn newCD = findFunction(mkdir);
 			newCD(fileTree_, mkdirCommand);
+			numDisplayedLines++;
 		}
 		
 	}
 	else if (cmd.at(0) == "make") {
 		if (cmd.size() < 2) {
 			str_ = str_ + "Error: 'make' requires one parameter\n";
+			numDisplayedLines++;
 		}
 		else {
 			std::vector<string> makeCommand;
@@ -123,6 +128,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 			makeCommand.push_back(cmd.at(1));
 			commandFn newCD = findFunction(make);
 			newCD(fileTree_, makeCommand);
+			numDisplayedLines++;
 		}
 		
 	}
@@ -132,7 +138,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 	else { 
 		str_ = str_ + "Error: command '" + cmd.at(0) + 
 			"' not found" + "\n"; 
-		++numDisplayedLines;
+		numDisplayedLines++;
 	}
 
 	/* Set the new console display */
@@ -140,6 +146,10 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		// Adjust the output to scroll or move text up here
 	}
 	text_->setString(str_);
+}
+
+int textOutputRenderComponent::getNumLines() {
+	return numDisplayedLines;
 }
 
 void textOutputRenderComponent::clearString() {
