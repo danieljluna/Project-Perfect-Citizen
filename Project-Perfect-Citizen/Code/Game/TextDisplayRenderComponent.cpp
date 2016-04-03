@@ -1,45 +1,82 @@
 #include "../Engine/debug.h"
 #include "TextDisplayRenderComponent.h"
 
+#ifdef WINDOWS_MARKER
+    #define resourcePath() std::string("Resources/")
+#else
+    #include "ResourcePath.hpp"
+#endif
 
-using namespace std;
+using namespace ppc;
+
+sf::Font TextDisplayRenderComponent::defaultFont;
+bool TextDisplayRenderComponent::isLoaded = false;
+
+TextDisplayRenderComponent::TextDisplayRenderComponent() {
+    //Load default Font
+    if (!isLoaded) {
+        defaultFont.loadFromFile(resourcePath() + "consola.ttf");
+        isLoaded = true;
+    }
+
+    labelString_ = "";
+    text_.setFont(defaultFont);
+    text_.setPosition(0, 0);
+    text_.setCharacterSize(12);
+    text_.setColor(sf::Color{ 0,0,0 });
+    text_.setString(labelString_);
+
+}
+
+
 
 TextDisplayRenderComponent::TextDisplayRenderComponent(sf::Font& f, sf::Color c,
 	float x,
 	float y,
-	int s,
-	string str) : font(f) {
+	unsigned int s,
+	std::string str) : font_(f) {
 
-	this->text = new sf::Text();
+    //Load default Font
+    if (!isLoaded) {
+        defaultFont.loadFromFile(resourcePath() + "consola.ttf");
+        isLoaded = true;
+    }
 
-	labelString = str;
+	labelString_ = str;
 	
-	text->setFont(font);
-	text->setPosition(x, y);
-	text->setCharacterSize(s);
-	text->setColor(c);
-	text->setString(labelString);
+	text_.setFont(font_);
+	text_.setPosition(x, y);
+	text_.setCharacterSize(s);
+	text_.setColor(c);
+	text_.setString(labelString_);
 
 }
 
 TextDisplayRenderComponent::~TextDisplayRenderComponent() {
-	delete text;
 }
 
 void TextDisplayRenderComponent::updatePosition(float x, float y) {
-	text->setPosition(x, y);
+	text_.setPosition(x, y);
 }
 
-void TextDisplayRenderComponent::updateSize(int s) {
-	text->setCharacterSize(s);
+void TextDisplayRenderComponent::updateSize(unsigned int s) {
+	text_.setCharacterSize(s);
 }
 
-void TextDisplayRenderComponent::updateString(string str) {
-	labelString = str;
-	text->setString(labelString);
+void TextDisplayRenderComponent::updateString(std::string str) {
+	labelString_ = str;
+	text_.setString(labelString_);
+}
+
+void TextDisplayRenderComponent::updateFont(sf::Font f) {
+    text_.setFont(f);
+}
+
+void TextDisplayRenderComponent::updateColor(sf::Color c) {
+    text_.setColor(c);
 }
 
 void TextDisplayRenderComponent::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
-	target.draw(*(this->text), states);
+	target.draw(text_, states);
 }

@@ -6,9 +6,9 @@
 #include "../Game/buttonRenderComponent.h"
 #include "Entity.h"
 #include "../Game/mousePressButton.h"
+#include "../Game/TextDisplayRenderComponent.h"
 
 namespace ppc {
-
 
 class BorderDecorator : public WindowDecorator {
 public:
@@ -73,6 +73,17 @@ public:
 
 
   /////////////////////////////////////////////////////////////////////
+  // Caption Functionality
+  /////////////////////////////////////////////////////////////////////
+
+    void setCaption(std::string text);
+
+    void setCaptionFont(sf::Font font, unsigned int size = 12);
+
+    void setCaptionColor(sf::Color col);
+
+
+  /////////////////////////////////////////////////////////////////////
   // Decorated Functionality
   /////////////////////////////////////////////////////////////////////
 
@@ -127,6 +138,9 @@ private:
     //Stores the input Component that allows the Window to be dragged
     //  via the BorderDecorator.
     DraggableInput draggableInput_;
+
+    //Holds the window caption.
+    TextDisplayRenderComponent caption_;
 
     //Array of buttonRenderComponents
 	buttonRenderComponent** buttonRenders_;

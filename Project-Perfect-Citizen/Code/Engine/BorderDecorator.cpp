@@ -111,6 +111,26 @@ void BorderDecorator::setClampBounds(const sf::FloatRect& clamp) {
 
 
 ///////////////////////////////////////////////////////////////////////
+// Caption Functionality
+///////////////////////////////////////////////////////////////////////
+
+void BorderDecorator::setCaption(std::string text) {
+    caption_.updateString(text);
+}
+
+void BorderDecorator::setCaptionFont(sf::Font font, unsigned int size) {
+    caption_.updateFont(font);
+    caption_.updateSize(size);
+}
+
+void BorderDecorator::setCaptionColor(sf::Color col) {
+    caption_.updateColor(col);
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////////
 // Decorated Functionality
 ///////////////////////////////////////////////////////////////////////
 
@@ -171,6 +191,7 @@ void BorderDecorator::draw(sf::RenderTarget& target,
     WindowDecorator::draw(target, states);
     for (size_t i = 0; i < buttonCount_; ++i) {
         target.draw(*buttonRenders_[i], states);
+        target.draw(caption_, states);
     }
 }
 
@@ -204,6 +225,8 @@ void BorderDecorator::updateBounds() {
     bounds.top = 0.0f - borderTopLeft_.y;
     bounds.left = 0.0f - borderTopLeft_.x;
     draggableInput_.setBounds(bounds);
+
+    caption_.updatePosition(bounds.left, bounds.top);
 
     //Re-position the buttons
     for (size_t i = 0; i < buttonCount_; ++i) {
