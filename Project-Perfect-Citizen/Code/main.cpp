@@ -179,7 +179,6 @@ bool runEndDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
 
 
 bool runPlayerDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
-
 	createPlayerDesktop(myDesktop, *myDesktop.getDesktopWindow(), 
 		myDesktop.getInputHandler(), *myDesktop.getIconSheet(), *myDesktop.getButtonSheet());
 
@@ -226,7 +225,6 @@ bool runPlayerDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
 
 
 bool runTargetDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
-
 	createTeacherDesktop(myDesktop, *myDesktop.getDesktopWindow(),
 		myDesktop.getInputHandler(), *myDesktop.getIconSheet(), *myDesktop.getButtonSheet());
 
