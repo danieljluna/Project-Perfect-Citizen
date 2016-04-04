@@ -8,14 +8,11 @@ Event::Event(sf::Event ev) {
     sfEvent = ev;
 }
 
-Event::operator sf::Event() const {
-    sf::Event ev;
-    if (type == sfEventType) {
-        ev = sfEvent;
-    } else {
+Event::operator sf::Event&() {
+    if (type != sfEventType) {
         //Set return type to bogus event type
-        ev.type = sf::Event::Count;
+        sfEvent.type = sf::Event::Count;
     }
 
-    return ev;
+    return sfEvent;
 }

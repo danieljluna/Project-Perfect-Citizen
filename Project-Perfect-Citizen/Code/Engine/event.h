@@ -12,7 +12,7 @@ namespace ppc {
 	public:
         Event(sf::Event ev);
 
-        operator sf::Event() const;
+        operator sf::Event&();
 
 
 		struct Buttons {
