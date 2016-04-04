@@ -286,6 +286,12 @@
     <ClCompile Include="Code\Game\TextBoxRenderComponent.cpp">
       <Filter>Sources\Game Specific\Text</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\World.cpp">
+      <Filter>Sources\Engine\World</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\IconBuilder.cpp">
+      <Filter>Sources\Game Specific\Icons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Game\photoRenderComponent.hpp">
@@ -596,6 +602,12 @@
     </ClInclude>
     <ClInclude Include="Code\Game\TextBoxRenderComponent.h">
       <Filter>Headers\Game Specific\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\World.h">
+      <Filter>Headers\Engine\World</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\IconBuilder.h">
+      <Filter>Headers\Game Specific\Icons</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
