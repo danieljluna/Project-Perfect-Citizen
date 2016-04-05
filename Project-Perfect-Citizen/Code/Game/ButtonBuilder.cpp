@@ -1,6 +1,7 @@
 #include "ButtonBuilder.h"
 #include "buttonRenderComponent.h"
 #include "../Game/mousePressButton.h"
+#include <ostream>
 
 ppc::ButtonBuilder::ButtonBuilder() 
 {
@@ -8,7 +9,7 @@ ppc::ButtonBuilder::ButtonBuilder()
 	sheetY = 0;
 	width = 0;
 	frames = 0;
-	size = 0;
+	size = 1;
 
 	posX = 0.f;
 	posY = 0.f;
@@ -80,6 +81,8 @@ void ppc::ButtonBuilder::create(Entity& e)
 	e.addComponent(buttonRender);
 	e.addComponent(mpb);
 	buttonRender->renderPosition(sf::Vector2f(posX, posY));
+
+	std::cout << "built!";
 
 }
 

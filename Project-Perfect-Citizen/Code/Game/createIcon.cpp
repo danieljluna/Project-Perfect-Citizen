@@ -13,7 +13,8 @@ void ppc::spawnFolderIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih,
 
     // Label Component //
     sf::Font font;
-    font.loadFromFile(resourcePath() + "consola.ttf");
+    //font.loadFromFile(resourcePath() + "consola.ttf");
+	font.loadFromFile(resourcePath() + "VT323-Regular.ttf");
     textLabelComponent* label = new textLabelComponent(font,sf::Color::White, x, y + size*128, 20, "Folder");
     
     buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
@@ -38,7 +39,8 @@ void ppc::spawnSettingsIcon(Entity& entityToModify, Desktop& dT, InputHandler& i
 
     // Label Component //
     sf::Font font;
-    font.loadFromFile(resourcePath() + "consola.ttf");
+    //font.loadFromFile(resourcePath() + "serife.ttf");
+	font.loadFromFile(resourcePath() + "VT323-Regular.ttf");
     textLabelComponent* label = new textLabelComponent(font, sf::Color::White, x, y + size*128, 20, "Settings");
     
 	/// Render Component ///
@@ -67,7 +69,8 @@ void ppc::spawnChatIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, D
     
     // Label Component //
     sf::Font font;
-    font.loadFromFile(resourcePath() + "consola.ttf");
+    //font.loadFromFile(resourcePath() + "consola.ttf");
+	font.loadFromFile(resourcePath() + "VT323-Regular.ttf");
     textLabelComponent* label = new textLabelComponent(font, sf::Color::White, x, y + size*128, 20, "Chat");
     
     
@@ -96,7 +99,8 @@ void ppc::spawnSearchIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih,
     
     /// Label Component ///
     sf::Font font;
-    font.loadFromFile(resourcePath() + "consola.ttf");
+    //font.loadFromFile(resourcePath() + "consola.ttf");
+	font.loadFromFile(resourcePath() + "VT323-Regular.ttf");
     textLabelComponent* label = new textLabelComponent(font, sf::Color::White, x, y + size*128, 20, "Database");
     
 	/// Render Component ///
@@ -124,7 +128,8 @@ void ppc::spawnDataGraphIcon(Entity& entityToModify, Desktop& dT, InputHandler& 
     
     // Label Component //
     sf::Font font;
-    font.loadFromFile(resourcePath() + "consola.ttf");
+    //font.loadFromFile(resourcePath() + "consola.ttf");
+	font.loadFromFile(resourcePath() + "VT323-Regular.ttf");
     textLabelComponent* label = new textLabelComponent(font, sf::Color::White, x, y + size*128, 20, "Graph");
     
 	/// Render Component ///
@@ -152,7 +157,8 @@ void ppc::spawnHelpIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, D
     
     // Label Component //
     sf::Font font;
-    font.loadFromFile(resourcePath() + "consola.ttf");
+    //font.loadFromFile(resourcePath() + "consola.ttf");
+	font.loadFromFile(resourcePath() + "VT323-Regular.ttf");
     textLabelComponent* label = new textLabelComponent(font, sf::Color::White, x, y + size*128, 20, "Help");
     
 	/// Render Component ///
@@ -180,7 +186,8 @@ void ppc::spawnBrowserIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih
     
     // Label Component //
     sf::Font font;
-    font.loadFromFile(resourcePath() + "consola.ttf");
+    //font.loadFromFile(resourcePath() + "consola.ttf");
+	font.loadFromFile(resourcePath() + "VT323-Regular.ttf");
     textLabelComponent* label = new textLabelComponent(font, sf::Color::White, x, y + size*128, 20, "Internet");
     
 	/// Render Component ///
@@ -208,7 +215,8 @@ void ppc::spawnHardDriveIcon(Entity& entityToModify, Desktop& dT, InputHandler& 
     
     // Label Component //
     sf::Font font;
-    font.loadFromFile(resourcePath() + "consola.ttf");
+    //font.loadFromFile(resourcePath() + "consola.ttf");
+	font.loadFromFile(resourcePath() + "VT323-Regular.ttf");
     textLabelComponent* label = new textLabelComponent(font, sf::Color::White, x, y + size*128, 20, "My Files");
     
 	/// Render Component ///
@@ -237,7 +245,8 @@ void ppc::spawnConsoleIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih
     
     /// Label Component ///
     sf::Font font;
-    font.loadFromFile(resourcePath() + "consola.ttf");
+    //font.loadFromFile(resourcePath() + "consola.ttf");
+	font.loadFromFile(resourcePath() + "VT323-Regular.ttf");
     
     textLabelComponent* label = new textLabelComponent(font, sf::Color::White, x, y + size*128, 20, "Console");
 
@@ -267,7 +276,8 @@ void ppc::spawnEmailIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, 
 
 	/// Label Component ///
 	sf::Font font;
-	font.loadFromFile(resourcePath() + "consola.ttf");
+	//font.loadFromFile(resourcePath() + "consola.ttf");
+	font.loadFromFile(resourcePath() + "VT323-Regular.ttf");
 
 	textLabelComponent* label = new textLabelComponent(font, sf::Color::White, x, y + size * 128, 20, "Email");
 

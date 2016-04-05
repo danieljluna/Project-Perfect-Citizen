@@ -10,6 +10,11 @@ namespace ppc {
 	class Event
 	{
 	public:
+        Event(sf::Event ev);
+
+        operator sf::Event&();
+
+
 		struct Buttons {
 			bool isPushed;
 		};
@@ -25,10 +30,10 @@ namespace ppc {
 
 		enum EventTypes
 		{
-			RenderEventType,
-			InputEventType,
-			UpdateEventType,
-
+			ButtonType,
+			TransformationType,
+			ScrollbarType,
+			sfEventType,
 			Count
 		};
 
@@ -38,6 +43,7 @@ namespace ppc {
 			Buttons buttons;
 			Transformations transformations;
 			Scrollbar scrollbar;
+            sf::Event sfEvent;
 		};
 	};
 } //end of ppc namespace

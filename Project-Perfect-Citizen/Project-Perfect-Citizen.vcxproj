@@ -27,6 +27,7 @@
     <ClCompile Include="Code\Engine\entity.cpp" />
     <ClCompile Include="Code\Engine\EntityDecorator.cpp" />
     <ClCompile Include="Code\Engine\EntityLogger.cpp" />
+    <ClCompile Include="Code\Engine\event.cpp" />
     <ClCompile Include="Code\Engine\FreeFunctionObserver.cpp" />
     <ClCompile Include="Code\Engine\FunctionObserver.cpp" />
     <ClCompile Include="Code\Engine\InputCmpntLogger.cpp" />
@@ -46,7 +47,7 @@
     <ClCompile Include="Code\Engine\WindowDecorator.cpp" />
     <ClCompile Include="Code\Engine\WindowInterface.cpp" />
     <ClCompile Include="Code\Engine\WindowLogger.cpp" />
-    <ClCompile Include="Code\Engine\world.cpp" />
+    <ClCompile Include="Code\Engine\World.cpp" />
     <ClCompile Include="Code\Game\animatorComponent.cpp" />
     <ClCompile Include="Code\Game\BootLoader.cpp" />
     <ClCompile Include="Code\Game\bootLoadingAnimationRender.cpp" />
@@ -94,6 +95,11 @@
     <ClCompile Include="Code\Game\PipelineLevelBuilder.cpp" />
     <ClCompile Include="Code\Game\Quitter.cpp" />
     <ClCompile Include="Code\Game\testRenderSprite.cpp" />
+    <ClCompile Include="Code\Game\TextBoxBuilder.cpp" />
+    <ClCompile Include="Code\Game\TextBoxInputComponent.cpp" />
+    <ClCompile Include="Code\Game\TextBoxRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\TextDisplayBuilder.cpp" />
+    <ClCompile Include="Code\Game\TextDisplayRenderComponent.cpp" />
     <ClCompile Include="Code\Game\textInputKeys.cpp" />
     <ClCompile Include="Code\Game\textInputRenderComponent.cpp" />
     <ClCompile Include="Code\Game\textLabelComponent.cpp" />
@@ -153,7 +159,7 @@
     <ClInclude Include="Code\Engine\WindowDecorator.h" />
     <ClInclude Include="Code\Engine\WindowInterface.h" />
     <ClInclude Include="Code\Engine\WindowLogger.h" />
-    <ClInclude Include="Code\Engine\world.h" />
+    <ClInclude Include="Code\Engine\World.h" />
     <ClInclude Include="Code\Game\animatorComponent.hpp" />
     <ClInclude Include="Code\Game\BootLoader.hpp" />
     <ClInclude Include="Code\Game\bootLoadingAnimationRender.hpp" />
@@ -201,6 +207,11 @@
     <ClInclude Include="Code\Game\PipelineLevelBuilder.h" />
     <ClInclude Include="Code\Game\Quitter.h" />
     <ClInclude Include="Code\Game\testRenderSprite.h" />
+    <ClInclude Include="Code\Game\TextBoxBuilder.h" />
+    <ClInclude Include="Code\Game\TextBoxInputComponent.h" />
+    <ClInclude Include="Code\Game\TextBoxRenderComponent.h" />
+    <ClInclude Include="Code\Game\TextDisplayBuilder.h" />
+    <ClInclude Include="Code\Game\TextDisplayRenderComponent.h" />
     <ClInclude Include="Code\Game\textInputKeys.hpp" />
     <ClInclude Include="Code\Game\textInputRenderComponent.hpp" />
     <ClInclude Include="Code\Game\textLabelComponent.hpp" />
@@ -263,12 +274,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Andy\Desktop\Folders\UCSC\CMPS 17X\SFML-2.3.2\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_MARKER;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Andy\Desktop\Folders\UCSC\CMPS 17X\SFML-2.3.2\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <AdditionalOptions>/ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>

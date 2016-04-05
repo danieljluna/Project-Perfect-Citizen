@@ -1,6 +1,8 @@
 #include "../Engine/debug.h"
 #include "testRenderSprite.h"
 
+using namespace ppc;
+
 TestRenderSprite::TestRenderSprite(sf::Image& image, int x, int y,
                                    int r) {
     this->texture = new sf::Texture();

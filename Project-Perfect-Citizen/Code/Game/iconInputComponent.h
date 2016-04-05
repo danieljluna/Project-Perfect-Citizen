@@ -30,6 +30,7 @@ private:
 	sf::Image& iconSheet_;
 	Database* theDatabase_;
     Inbox& theInbox_;
+	WindowInterface* openedWindow;
 
 public:
 
