@@ -6,7 +6,7 @@
 
 void ppc::AudioLogger::log(const std::string message)
 {
-	std::cout << message << std::endl;
+	DEBUGF("au", message);
 }
 
 void ppc::AudioLogger::playSound(int sound)

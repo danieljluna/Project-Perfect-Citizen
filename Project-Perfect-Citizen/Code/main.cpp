@@ -183,8 +183,6 @@ bool runPlayerDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
 	createPlayerDesktop(myDesktop, *myDesktop.getDesktopWindow(), 
 		myDesktop.getInputHandler(), *myDesktop.getIconSheet(), *myDesktop.getButtonSheet());
 
-	//FreeFunctionObserver <A>(&BaseFileType, triggerEnd);
-	//myDesktop.getNodeState().getDirString()
 	// Go into main game loop
 	sf::Clock deltaTime; 
 	sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
@@ -193,7 +191,6 @@ bool runPlayerDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
             return false;
         }
 		//Process sf::events
-		//cout << "from main: " << myDesktop.getNodeState().getDirString() << endl;
 		sf::Event event;
 		while (screen.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
@@ -227,8 +224,7 @@ bool runPlayerDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
 
 bool runTargetDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
 
-	createTeacherDesktop(myDesktop, *myDesktop.getDesktopWindow(),
-		myDesktop.getInputHandler(), *myDesktop.getIconSheet(), *myDesktop.getButtonSheet());
+	createTeacherDesktop(myDesktop);
 
 		// Go into main game loop
 		sf::Clock deltaTime; 
@@ -354,12 +350,12 @@ int main(int argc, char** argv) {
 	/////////////////////////////////////////////
 	
 	//Main Loops for each Desktops
-    while (runBootDesktop(*&screen, *&bootDesktop)) {}
+    while (runBootDesktop(screen, bootDesktop)) {}
     quitter = false;
-	while (runPlayerDesktop(*&screen, *&playerDesktop)) {}
+	while (runPlayerDesktop(screen, playerDesktop)) {}
     quitter = false;
-	while (runTargetDesktop(*&screen, *&targetDesktop)) {}
-    while (runEndDesktop(*&screen, *&endDesktop)) {}
+	while (runTargetDesktop(screen, targetDesktop)) {}
+    while (runEndDesktop(screen, endDesktop)) {}
 
     return EXIT_SUCCESS;
 }
