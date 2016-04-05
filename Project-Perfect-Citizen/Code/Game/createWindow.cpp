@@ -182,6 +182,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     windowToModify->addEntity(backButton);
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("DCPS Database v.2.4528");
 }
 
 void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
@@ -260,7 +261,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
-
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("DCPS Pipeline Application v.3.762");
 }
 
 void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string p) {
@@ -343,6 +344,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     windowToModify->addEntity(newEnt);
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(p);
 }
 
 void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, Inbox& inbox) {
@@ -388,6 +390,7 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	windowToModify = new BorderDecorator(*windowToModify);
 	windowToModify->setPosition(x, y);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("My Messages");
 
 }
 void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email& mail, sf::Image& buttonSheet, float x, float y) {
@@ -400,7 +403,22 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 20;
 
-	emailMessageRenderComponent* eMRC = new emailMessageRenderComponent(myFont, mail, 0, 0, fontSize);
+	string content = mail.getContentField();
+	int lineCount = 1;
+	int lineMultiplier = 23;
+	int preLineCount = 6;
+	for (unsigned int i = 0; i < content.size(); i++) {
+		if (content[i] == '\n') {
+			lineCount++;
+		}
+	}
+	lineCount += preLineCount;
+	lineCount = lineCount*lineMultiplier;
+
+	windowToModify->setSize(windowToModify->getSize().x, lineCount);
+
+	emailMessageRenderComponent* eMRC = new emailMessageRenderComponent(myFont, mail, 0, 0, fontSize,
+		windowToModify->getSize().x, windowToModify->getSize().y);
 
 	/////////////////////////////////////////
 	/////// ENTITIES
@@ -411,19 +429,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
-    string content = mail.getContentField();
-    int lineCount = 1;
-    int lineMultiplier = 23;
-    int preLineCount = 6;
-    for (unsigned int i = 0; i < content.size(); i++){
-        if (content[i] == '\n') {
-            lineCount++;
-        }
-    }
-    lineCount += preLineCount;
-    lineCount = lineCount*lineMultiplier;
     
-    windowToModify->setSize(windowToModify->getSize().x, lineCount);
     if(static_cast<unsigned int>(lineCount) > windowToModify->getSize().x){
         sf::FloatRect viewRect = {
             0.0f,
@@ -437,6 +443,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(mail.getAbbrevSubjectField());
 }
 
 
@@ -477,6 +484,7 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Error");
 }
 
 void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns,
@@ -505,6 +513,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("My Files");
 }
 
 

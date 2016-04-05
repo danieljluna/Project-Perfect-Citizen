@@ -7,6 +7,9 @@ using namespace std;
 const string MOUSE_DOWN_CODE = "MDC";
 const string MOUSE_RELEASED_CODE = "MRC";
 const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
+const string OPEN_EMAIL = "OE";
+const string SELECT_EMAIL = "SE";
+const string DESELECT_EMAIL = "DSE";
 const float DOUBLE_CLICK_TIME = 500.0f;
 
 
@@ -64,6 +67,7 @@ bool emailListElementInputComponent::registerInput(sf::Event& ev) {
 				mouseTime = mouseClock.getElapsedTime().asMilliseconds();
 				if (mouseTime > DOUBLE_CLICK_TIME) {
 					mouseClock.restart();
+					getEntity()->broadcastMessage(SELECT_EMAIL);
 				}
 				else if (mouseTime < DOUBLE_CLICK_TIME) {
 					ppc::WindowInterface* emailWindow =
@@ -71,7 +75,12 @@ bool emailListElementInputComponent::registerInput(sf::Event& ev) {
 					spawnEmailMessage(emailWindow, emailWindow->getInputHandler(), emailToOpen, buttonSheet, 200, 50);
 					theDesktop.addWindow(emailWindow);
 					getEntity()->broadcastMessage(MOUSE_DOUBLE_CLICK_CODE);
+					getEntity()->broadcastMessage(OPEN_EMAIL);
+					emailToOpen.setRead();
 				}
+			}
+			else {
+				getEntity()->broadcastMessage(DESELECT_EMAIL);
 			}
 		}
 		/* Case: Mouse Released Event*/

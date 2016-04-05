@@ -7,6 +7,9 @@ const std::string MOUSE_RELEASED_CODE = "MRC";
 const std::string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
 const std::string ICON_TYPE = "ICON";
 const std::string BUTTON_TYPE = "BUTTON";
+const std::string OPEN_EMAIL = "OE";
+const std::string SELECT_EMAIL = "SE";
+const std::string DESELECT_EMAIL = "DSE";
 
 buttonRenderComponent::buttonRenderComponent( sf::Image& image, 
 	int x, int y, int r, int f) : buttonImage(image) {
@@ -107,4 +110,7 @@ void buttonRenderComponent::recieveMessage(msgType code) {
        if(code.compare(MOUSE_DOUBLE_CLICK_CODE) == 0)
            _willAnimate = true;
     }
+	if (code == OPEN_EMAIL) {
+		setSprite(xIndex + width, yIndex, width);
+	}
 }
