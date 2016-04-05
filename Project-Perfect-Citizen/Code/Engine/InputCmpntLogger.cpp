@@ -33,6 +33,7 @@ void inputCmpntLogger::recieveMessage(msgType message) {
 }
 
 bool inputCmpntLogger::registerInput(sf::Event& ev) {
+	std::cout << "ADADAWFAFAWFDAWFAW" << std::endl;
 	out_ << "InputCmpntLogger: Registering Event in Cmpnt: " <<
 		iCmpntHandle_ << std::endl;
 	return iCmpntHandle_->registerInput(ev);

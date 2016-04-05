@@ -31,5 +31,5 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 void createPlayerDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& desktopWindowToModify, ppc::InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet);
 
-void createTeacherDesktop(ppc::Desktop& desktopToModify);
+void createTeacherDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& desktopWindowToModify, ppc::InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet);
 

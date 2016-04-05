@@ -69,7 +69,7 @@ void Subject::printObservers()
 {
     BaseObserver* currentObserver = this->observerHead;
 	while (currentObserver != nullptr) {
-		DEBUGF("ob", "identifier is "<< currentObserver->id << std::endl);
+		std::cout << "identifier is "<< currentObserver->id << std::endl;
 		currentObserver = currentObserver->next;
 	}
 }
@@ -78,7 +78,7 @@ void Subject::sendEvent(sf::Event& event)
 {
     BaseObserver* currentObserver = this->observerHead;
     if (observerHead == nullptr) {
-        DEBUGS("ob", "No observers connected to this object!";)
+        DEBUGS("sj", "No observers connected to this object!";)
     }
 
 	while (currentObserver != nullptr) {
