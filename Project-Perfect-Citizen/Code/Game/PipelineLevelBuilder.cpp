@@ -11,7 +11,7 @@
 
 using namespace ppc;
 
-std::map<std::string, bool> NAME_MAP = {
+const std::map<std::string, bool> NAME_MAP = {
 	{ "A", false },{ "B", false },{ "C", false },{ "D", false },
 	{ "E", false },{ "F", false },{ "G", false },{ "H", false },
 	{ "I", false },{ "J", false },{ "K", false },{ "L", false },

@@ -30,10 +30,10 @@ public:
 	std::string getEmail() const { return email_; }
 	std::string getPhoneNum() const { return phoneNumber_; }
 
-	std::string getPersSocial() const { return persSocial_; }
-	std::string getPersTakeIn() const { return persTakeIn_; }
-	std::string getPersDecisions() const { return persDecisions_; }
-	std::string getPersOuterLife() const { return persOuterLife_; }
+	//std::string getPersSocial() const { return persSocial_; }
+	//std::string getPersTakeIn() const { return persTakeIn_; }
+	//std::string getPersDecisions() const { return persDecisions_; }
+	//std::string getPersOuterLife() const { return persOuterLife_; }
 
 	std::string getJob() const { return job_; }
     
@@ -75,6 +75,16 @@ public:
 
 	PipelineCharacter(const std::string& job);
 
+	///////////////////////////////////////////////////////////////////
+	/// @brief Specific constructor, generates a character with a
+	///			specified job, age, and criminality
+	/// @param [in] job a string corresponding to a specific job type,
+	///                 must be one of the jobs listed in JOBS in
+	///                 PipelineCharacter.cpp
+	///////////////////////////////////////////////////////////////////
+
+	PipelineCharacter(const std::string& job, int age, bool criminal);
+
 
 private:
 
@@ -83,18 +93,39 @@ private:
 	///////////////////////////////////////////////////////////////////
 	void generate();
 
+	///////////////////////////////////////////////////////////////////
+	/// @brief Sets income level, credit score, and criminality based
+	///        on previously generated factors
+	///////////////////////////////////////////////////////////////////
+	void calcIncomeAndCrim();
+
 	int iq_;
 	int age_;
 	int creditScore_;
 
+	// 0 - < HIGH SCHOOL, 1 - HIGH SCHOOL GRADUATE/SOME COLLEGE,
+	// 2 - BACHELORS DEGREE, 3 - POST GRADUATE TRAINING
+	// 4 - GRADUATE DEGREE
+	int educationLevel_;
+
+	int annualIncome_;
+
+	bool criminal_;
+
+	//Range 0 - 4, where 4 is most close to the descriptive word
+	//ex. for persJerk: 4 = asshole, 0 = sweet/kindly
+	int persAssertive_;
+	int persJerk_;
+	int persDirectness_;
+	
 	std::string ssn_;
 	std::string email_;
 	std::string phoneNumber_;
 
-	std::string persSocial_;
-	std::string persTakeIn_;
-	std::string persDecisions_;
-	std::string persOuterLife_;
+	//std::string persSocial_;
+	//std::string persTakeIn_;
+	//std::string persDecisions_;
+	//std::string persOuterLife_;
 
 	std::string job_;
     

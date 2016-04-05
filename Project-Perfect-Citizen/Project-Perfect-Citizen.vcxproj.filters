@@ -608,6 +608,9 @@
       <Filter>Headers\Game Specific\Text</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\IconBuilder.h" />
+    <ClInclude Include="Code\Game\PipelineJobsAndIncomes.h">
+      <Filter>Headers\Game Specific\PCG</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json">

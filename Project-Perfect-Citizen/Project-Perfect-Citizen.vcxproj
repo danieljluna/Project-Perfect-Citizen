@@ -204,6 +204,7 @@
     <ClInclude Include="Code\Game\PipelineCharacter.h" />
     <ClInclude Include="Code\Game\PipelineDataRenderComponent.h" />
     <ClInclude Include="Code\Game\PipelineGraphRenderComponent.h" />
+    <ClInclude Include="Code\Game\PipelineJobsAndIncomes.h" />
     <ClInclude Include="Code\Game\PipelineLevelBuilder.h" />
     <ClInclude Include="Code\Game\Quitter.h" />
     <ClInclude Include="Code\Game\testRenderSprite.h" />
