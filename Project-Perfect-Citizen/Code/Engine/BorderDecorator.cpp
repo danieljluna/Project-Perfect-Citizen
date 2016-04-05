@@ -26,6 +26,12 @@ BorderDecorator::BorderDecorator(
     updateBorder();
 
     borderShape_.setFillColor(sf::Color(170,170,170));
+        
+    line[0] = sf::Vertex(sf::Vector2f(10, 10));
+    line[1] = sf::Vertex(sf::Vector2f(150, 150));
+
+
+    
 
     //Set up space for buttons
     buttonInputs_ = new mousePressButton*[maxButtons_];
