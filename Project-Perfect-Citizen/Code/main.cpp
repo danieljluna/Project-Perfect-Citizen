@@ -63,13 +63,7 @@ using namespace ppc;
 
 
 
-bool runBootDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
-    ppc::NodeState testState;
-    Window* desktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-    
-    Desktop myDesktop(*desktopWindow, testState);
-    myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
-    //createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+bool runBootDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
     
     Window* bootWindow = new Window(1800,1000,sf::Color(30,32,33));
     
@@ -80,7 +74,7 @@ bool runBootDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& s
     
     textLabelComponent* textLabel = new textLabelComponent(font,sf::Color::Green, 0,0, 20, " PCOS(C) , UNMOS. UNAUTHORIZED USE OF THIS TERMINAL CAN RESULT IN PENALTY BY DEATH. \n   Beginning File System Initialization \n");
     
-    bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(spriteSheet,*textLabel,7,5);
+    bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(*myDesktop.getButtonSheet(),*textLabel,7,5);
 
     
     bootLoadingUpdateComponent* bootUpdate = new bootLoadingUpdateComponent(*bootRender,0.1f);
@@ -128,14 +122,8 @@ bool runBootDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& s
 
 
 
-bool runEndDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
-    ppc::NodeState testState;
-    Window* desktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-    
-    Desktop myDesktop(*desktopWindow, testState);
-    myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
-    //createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
-    
+bool runEndDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
+
     Window* endWindow = new Window(1800,1000,sf::Color(30,32,33));
     
     Entity ending;
@@ -143,7 +131,7 @@ bool runEndDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& sp
     sf::Font font;
     font.loadFromFile(resourcePath() + "consola.ttf");
     
-    endingAnimationRender* endRender = new endingAnimationRender(spriteSheet);
+    endingAnimationRender* endRender = new endingAnimationRender(*myDesktop.getButtonSheet());
     endAnimationUpdateComponent* endUpdate = new endAnimationUpdateComponent(*endRender, 0.1f);
     
     
@@ -190,14 +178,9 @@ bool runEndDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& sp
 }
 
 
-bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
-    ppc::NodeState testState;
-    testState.setUp();
-	Window* desktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-
-	Desktop myDesktop(*desktopWindow, testState);
-	myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
-	createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
+bool runPlayerDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
+	createPlayerDesktop(myDesktop, *myDesktop.getDesktopWindow(), 
+		myDesktop.getInputHandler(), *myDesktop.getIconSheet(), *myDesktop.getButtonSheet());
 
 	//FreeFunctionObserver <A>(&BaseFileType, triggerEnd);
 	//myDesktop.getNodeState().getDirString()
@@ -241,16 +224,9 @@ bool runPlayerDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image&
 }
 
 
-bool runTargetDesktop(sf::RenderWindow& screen, sf::Image& iconSheet, sf::Image& spriteSheet, sf::Sprite& wallpaper) {
-		ppc::NodeState testState;
-		testState.setUp();
-		Window* desktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-
-		Desktop myDesktop(*desktopWindow, testState);
-		myDesktop.addBackgroundCmpnt(desktopWindow, wallpaper);
-
-		createTeacherDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
-
+bool runTargetDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
+	createTeacherDesktop(myDesktop, *myDesktop.getDesktopWindow(),
+		myDesktop.getInputHandler(), *myDesktop.getIconSheet(), *myDesktop.getButtonSheet());
 
 		// Go into main game loop
 		sf::Clock deltaTime; 
@@ -300,6 +276,10 @@ int main(int argc, char** argv) {
 	bool BootToTitleCard = false; 
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
+	AudioQueue audiotest(5);
+	audiotest.addBgm("SoundTrack_Extraction.ogg");
+	audiotest.playBgm();
+
 
 	//bool coolReturnValue = (*cool.*(c->functionPointer))(sf::Event());
 
@@ -328,13 +308,61 @@ int main(int argc, char** argv) {
 	///////////////////////////////////////////////////////////////////
 
 
-    while (runBootDesktop(*&screen, iconSheet, buttonSheet, playerWallpaper)) {}
+	//////////////////////////////////////////////
+	//Assuming Builders Should Eventually Go Here
+	/////////////////////////////////////////////
+	//Placeholder stuff for now.
+
+	//runBootDesktop
+	ppc::NodeState bootState;
+	Window* bootWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+	Desktop bootDesktop(*bootWindow, bootState);
+	bootDesktop.setIconSheet(iconSheet);
+	bootDesktop.setButtonSheet(buttonSheet);
+	bootDesktop.addBackgroundCmpnt(bootWindow, playerWallpaper);
+
+	//runPlayerDesktop
+	ppc::NodeState playerState;
+	playerState.setUp();
+	Window* playerDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+
+	Desktop playerDesktop(*playerDesktopWindow, playerState);
+	playerDesktop.setIconSheet(iconSheet);
+	playerDesktop.setButtonSheet(buttonSheet);
+	playerDesktop.addBackgroundCmpnt(playerDesktopWindow, playerWallpaper);
+
+	//runTargetDesktop
+	ppc::NodeState targetState;
+	targetState.setUp();
+	Window* targetDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+
+	Desktop targetDesktop(*targetDesktopWindow, targetState);
+	targetDesktop.setIconSheet(iconSheet);
+	targetDesktop.setButtonSheet(buttonSheet);
+	targetDesktop.addBackgroundCmpnt(targetDesktopWindow, teacherWallpaper);
+
+	//runEndDesktop
+	ppc::NodeState endState;
+	Window* endWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+
+	Desktop endDesktop(*endWindow, endState);
+	endDesktop.setIconSheet(iconSheet);
+	endDesktop.setButtonSheet(pixelSheet);
+	endDesktop.addBackgroundCmpnt(endWindow, playerWallpaper);
+
+
+	/////////////////////////////////////////////
+	//Assuming Builders End Here
+	/////////////////////////////////////////////
+	
+	//Main Loops for each Desktops
+    while (runBootDesktop(*&screen, *&bootDesktop)) {}
     quitter = false;
-	while (runPlayerDesktop(*&screen, iconSheet, buttonSheet, playerWallpaper)) {}
+	while (runPlayerDesktop(*&screen, *&playerDesktop)) {}
     quitter = false;
-	while (runTargetDesktop(*&screen, teacherIconSheet, buttonSheet, teacherWallpaper)) {}
-    while (runEndDesktop(*&screen, iconSheet, pixelSheet, playerWallpaper)) {}
-    
+	while (runTargetDesktop(*&screen, *&targetDesktop)) {}
+    while (runEndDesktop(*&screen, *&endDesktop)) {}
+
     return EXIT_SUCCESS;
 }
 

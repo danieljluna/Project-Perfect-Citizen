@@ -46,6 +46,14 @@ sf::Image * ppc::DesktopLogger::getIconSheet() {
 	return loggedDesktop_->getIconSheet();
 }
 
+void ppc::DesktopLogger::setButtonSheet(sf::Image & sheet) {
+	loggedDesktop_->setButtonSheet(sheet);
+}
+
+sf::Image * ppc::DesktopLogger::getButtonSheet() {
+	return loggedDesktop_->getButtonSheet();
+}
+
 NodeState& DesktopLogger::getNodeState() {
 	out_ << "DesktopLogger: Getting Root" << std::endl;
 
