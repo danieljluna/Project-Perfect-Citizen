@@ -40,7 +40,9 @@ private:
 	static void addSmsMessagesToEdge(Edge& anEdge, unsigned int numMessages, const PipelineCharacter& sender,
 		const PipelineCharacter& receiver, const Json::Value& exprGrammar);
 
-	static int designateCenter(int start, int end, Network & net);
+	static std::pair<int,int> designateCenter(unsigned int start, unsigned int end, Network & net);
+	
+	static void addEdge(int first, int second, Network & net, int suspLevel, const Json::Value & exprGrammar);
 };
 
 };
