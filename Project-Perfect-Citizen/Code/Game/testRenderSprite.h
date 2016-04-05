@@ -3,7 +3,7 @@
 #include "../Engine/renderComponent.h"
 #include <string>
 
-using namespace std;
+namespace ppc {
 
 /////////////////////////////////////////////////////////////
 /// @brief and example class inheiritng from RenderComponent!
@@ -46,6 +46,9 @@ public:
 ///////////////////////////////////////////////////////////////////////
 	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const ;
 
+
+
+};
 
 
 };

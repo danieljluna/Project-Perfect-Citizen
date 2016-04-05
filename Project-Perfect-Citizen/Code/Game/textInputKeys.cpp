@@ -100,6 +100,10 @@ bool textInputKeys::registerInput(sf::Event& ev) {
 				/* Reset the command line - keeping the prompt */
 				str.erase(2, str.length());
 				textBox.updateString(str);
+
+				/* Move the prompt if needed */
+				textBox.updatePosition(textDisplay.getNumLines());
+				cout << "NUMBER OF LINES IS NOW: "<< textDisplay.getNumLines() << endl;
 			}
         }
     }

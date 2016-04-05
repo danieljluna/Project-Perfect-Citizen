@@ -4,7 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include "../Engine/renderComponent.h"
 
-using namespace std;
+
+namespace ppc {
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Render Component for a generic window 'X' button
@@ -43,6 +44,9 @@ public:
     ///////////////////////////////////////////////////////////////////////
     virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
     
+};
+
+
 };
 
 #endif /* photoRenderComponent_hpp */

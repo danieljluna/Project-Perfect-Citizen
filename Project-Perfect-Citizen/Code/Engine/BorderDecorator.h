@@ -6,9 +6,9 @@
 #include "../Game/buttonRenderComponent.h"
 #include "Entity.h"
 #include "../Game/mousePressButton.h"
+#include "../Game/TextDisplayRenderComponent.h"
 
 namespace ppc {
-
 
 class BorderDecorator : public WindowDecorator {
 public:
@@ -45,14 +45,42 @@ public:
 
 
   /////////////////////////////////////////////////////////////////////
+  // Draggable Manipulation
+  /////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the clamp on this Window's Draggable.
+    /// @details See DraggableInput.h
+    ///
+    /// @param clamp The area in Desktop space to clamp to.
+    ///////////////////////////////////////////////////////////////////
+    void setClampBounds(const sf::FloatRect& clamp);
+    
+  /////////////////////////////////////////////////////////////////////
   // Button Manipulation
   /////////////////////////////////////////////////////////////////////
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Adds a button to the Border of this Window.
+    /// 
+    /// @param buttonImage The desired image for the button.
+    /// @param buttonFn The desired action when the button is pressed.
+    ///////////////////////////////////////////////////////////////////
     void addButton(sf::Image& buttonImage, 
                    bool (*buttonFn)(WindowInterface*, sf::Event&));
 
-
     friend bool closeWindow(WindowInterface* winInterface, sf::Event& ev);
+
+
+  /////////////////////////////////////////////////////////////////////
+  // Caption Functionality
+  /////////////////////////////////////////////////////////////////////
+
+    void setCaption(std::string text);
+
+    void setCaptionFont(sf::Font font, unsigned int size = 20);
+
+    void setCaptionColor(sf::Color col);
 
 
   /////////////////////////////////////////////////////////////////////
@@ -111,6 +139,9 @@ private:
     //  via the BorderDecorator.
     DraggableInput draggableInput_;
 
+    //Holds the window caption.
+    TextDisplayRenderComponent caption_;
+
     //Array of buttonRenderComponents
 	buttonRenderComponent** buttonRenders_;
     //Array of buttonInputComponents
@@ -125,6 +156,12 @@ private:
 
 };
 
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Closes the passed window.
+    /// @details Fits the format for function observers, but doesn't
+    ///     make sue of the sf::Event as of now.
+    ///////////////////////////////////////////////////////////////////
     bool closeWindow(WindowInterface* winInterface, sf::Event& ev);
 
 };      //End namespace ppc
