@@ -1,5 +1,5 @@
 #include "World.h"
-#include "desktop.h"
+#include "desktop.h" //remember to remove this if including in .h
 #include "../Game/Quitter.h"
 
 ppc::World::World() {
