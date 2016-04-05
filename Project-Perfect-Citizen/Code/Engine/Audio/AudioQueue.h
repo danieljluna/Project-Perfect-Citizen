@@ -1,12 +1,11 @@
 #pragma once
 #include "Audio.h"
 #include <queue>
-
 //Prototypes///////////////
-namespace sf {
-    class SoundBuffer;
-    class Sound;
-};
+//namespace sf {
+    //class SoundBuffer;
+  //  class Sound;
+//};
 ///////////////////////////
 
 namespace ppc {
@@ -23,6 +22,7 @@ private:
 	int soundCount = 0;
 	std::queue<int> soundQueue;
 	std::string filepath = "Code/Engine/Audio/Sounds/";
+	sf::Music bgm;
 protected:
 	sf::Sound* findOpenSound();
 public:
@@ -31,6 +31,8 @@ public:
 	virtual void stopSound(int sound);
 	void popAndPlay();
 	int addSound(std::string name, std::string filename);
+	bool addBgm(std::string filename);
+	void playBgm();
 };
 
 

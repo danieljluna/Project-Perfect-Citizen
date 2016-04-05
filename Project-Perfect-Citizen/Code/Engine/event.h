@@ -1,42 +1,49 @@
 #pragma once
 //Programmed by Andy
+#include <SFML/Graphics.hpp>
 
 namespace ppc {
 	//This is the event struct. You can add events here
 	//if you need them. Nothing here is final except
 	//the template. 
-	struct Event
+
+	class Event
 	{
-		struct RenderStruct {
-			int testRenderEventInt;
-			double testRenderEventDouble;
+	public:
+        Event(sf::Event ev);
+
+        operator sf::Event&();
+
+
+		struct Buttons {
+			bool isPushed;
 		};
 
-		struct InputStruct {
-			char testInputEventChar;
-			float testInputEventFloat;
+		struct Transformations {
+			sf::Vector2f newPos;
 		};
 
-		struct UpdateStruct {
-			int testUpdateInt;
-			int testUpdateIntTwo;
+		struct Scrollbar {
+			float start;
+			float end;
 		};
 
 		enum EventTypes
 		{
-			RenderEventType,
-			InputEventType,
-			UpdateEventType,
-
+			ButtonType,
+			TransformationType,
+			ScrollbarType,
+			sfEventType,
 			Count
 		};
 
 		EventTypes type;
 
 		union {
-			RenderStruct renderStruct;
-			InputStruct inputStruct;
-			UpdateStruct updateStruct;
+			Buttons buttons;
+			Transformations transformations;
+			Scrollbar scrollbar;
+            sf::Event sfEvent;
 		};
 	};
 } //end of ppc namespace

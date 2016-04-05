@@ -14,6 +14,7 @@ const string TEXT_KEY_INPUT = "TKI";
 textInputRenderComponent::textInputRenderComponent(ppc::NodeState& fT, sf::Font& f, 
 	int x, int y, int size): fileTree_(fT), font(f) {
 
+	this->textSize_ = size;
 	this->text = new sf::Text();
     
     text->setFont(font);
@@ -40,6 +41,10 @@ void textInputRenderComponent::updateString(string s) {
 	}
 	str = pwd + str;
 	text->setString(str + "|");
+}
+
+void textInputRenderComponent::updatePosition(int currentLineNum) {
+	this->text->setPosition(text->getPosition().x, ((textSize_*1.15) * currentLineNum));
 }
 
 void textInputRenderComponent::draw( sf::RenderTarget& target,

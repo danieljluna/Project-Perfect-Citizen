@@ -51,6 +51,11 @@ namespace ppc {
 		sf::Image* iconSheet;
 
 ///////////////////////////////////////////////////////////////////////
+///@brief The sprite sheet for a Desktop's Icons
+///////////////////////////////////////////////////////////////////////
+		sf::Image* buttonSheet;
+
+///////////////////////////////////////////////////////////////////////
 ///@brief The FileTree structure of this Desktop
 ///////////////////////////////////////////////////////////////////////
 		NodeState* nodeState_;
@@ -79,20 +84,6 @@ namespace ppc {
 		//maps strings to function pointers of functions that take in 
 		// Node* and return WindowInterface*
 		//map<string, (WindowInterface*) (Node*)> extensionMap_;
-
-///////////////////////////////////////////////////////////////////////
-///@brief Brings the desired Window into focus.
-///@details To be called when a specificed Window should be 
-/// drawn above all others. The Window is then moved to the
-/// front of the Window container, ahead of all other Windows,
-/// but the ordering of the remaining Windows is kept.
-/// @param wi A WindowInterface* which points to the Window that
-/// is to be focused on.
-///@return Returns True if the Window successfuly focused. Returns
-/// False if the argument was nullptr, the Desktop's Window, or if
-/// the argument is not a Window in the Desktop.
-///////////////////////////////////////////////////////////////////////
-		bool focusWindow(WindowInterface*);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Draws the Desktop & all its Windows.
@@ -154,6 +145,23 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 		virtual void addWindow(WindowInterface*);
 
+
+        ///////////////////////////////////////////////////////////////////////
+        ///@brief Brings the desired Window into focus.
+        ///@details To be called when a specificed Window should be 
+        /// drawn above all others. The Window is then moved to the
+        /// front of the Window container, ahead of all other Windows,
+        /// but the ordering of the remaining Windows is kept.
+        /// @param wi A WindowInterface* which points to the Window that
+        /// is to be focused on.
+        ///@return Returns True if the Window successfuly focused. Returns
+        /// False if the argument was nullptr, the Desktop's Window, or if
+        /// the argument is not a Window in the Desktop.
+        ///////////////////////////////////////////////////////////////////////
+        bool focusWindow(WindowInterface*);
+
+        bool isWindow(WindowInterface*);
+
 ///////////////////////////////////////////////////////////////////////
 ///@brief Removes a Window from the Desktop.
 ///@details After a window is closed, the desktopWindow is the new 
@@ -176,6 +184,17 @@ namespace ppc {
 		virtual sf::Image* getIconSheet();
 
 ///////////////////////////////////////////////////////////////////////
+///@brief Sets the icon spritesheet to the Desktop.
+///@param sheet The spritesheet containing the icons for the Desktop.
+///////////////////////////////////////////////////////////////////////
+		virtual void setButtonSheet(sf::Image& sheet);
+
+///////////////////////////////////////////////////////////////////////
+///@brief Gets the icon spritesheet to the Desktop.
+///////////////////////////////////////////////////////////////////////
+		virtual sf::Image* getButtonSheet();
+
+///////////////////////////////////////////////////////////////////////
 ///@brief Returns a reference of the NodeState in the Desktop.
 ///@return A reference to the NodeState in the Desktop
 ///////////////////////////////////////////////////////////////////////
@@ -186,6 +205,11 @@ namespace ppc {
 ///@return A reference to the InputHandler of desktopWindow_
 ///////////////////////////////////////////////////////////////////////
 		virtual InputHandler& getInputHandler();
+
+///////////////////////////////////////////////////////////////////////
+///@brief Returns the pointer to the desktopWindow
+///////////////////////////////////////////////////////////////////////
+		virtual WindowInterface* getDesktopWindow();
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Adds a background render cmpnt to the given Window

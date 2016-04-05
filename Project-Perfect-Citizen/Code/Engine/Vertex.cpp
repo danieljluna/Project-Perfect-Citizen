@@ -17,12 +17,24 @@ const float ppc::Vertex::radius_ = 30.f;
 ppc::Vertex::Vertex(){
 
 	color_ = sf::Color::Yellow;
+    
+    sf::Image face_sheet;
+    face_sheet.loadFromFile(resourcePath() + "Face_Sheet.png");
+    rend_ = new characterRender(face_sheet);
+    
+    
+    
+    rect_.setSize(sf::Vector2f(100,100));
+    rect_.setFillColor(sf::Color(180,180,180));
+    rect_.setOutlineColor(sf::Color::Black);
+    rend_->setOrigin(rect_.getOrigin().x, rect_.getOrigin().y);
 
 	circ_.setRadius(radius_);
 	circ_.setFillColor(color_);
 	circ_.setPosition(0, 0);
 	circ_.setOutlineColor(sf::Color::White);
-	text_.setPosition(radius_ / 2.f, radius_ / 2.f);
+	//text_.setPosition(radius_ / 2.f, radius_ / 2.f);
+    text_.setPosition(50, rect_.getSize().y+10);
 	setTextFontLoad(resourcePath() + "consola.ttf");
 	isSelected_ = false;
 }
@@ -31,6 +43,8 @@ ppc::Vertex::Vertex(const Vertex & other){
 	color_ = other.color_;
 	char_ = other.char_;
 	circ_ = other.circ_;
+    rect_ = other.rect_;
+    rend_ = other.rend_;
 	text_ = other.text_;
 	font_ = other.font_;
 	isSelected_ = other.isSelected_;
@@ -42,6 +56,8 @@ ppc::Vertex& ppc::Vertex::operator=(const Vertex& other){
 		color_ = other.color_;
 		char_ = other.char_;
 		circ_ = other.circ_;
+        rect_ = other.rect_;
+        rend_ = other.rend_;
 		text_ = other.text_;
 		font_ = other.font_;
 		isSelected_ = other.isSelected_;
@@ -60,26 +76,30 @@ sf::Color ppc::Vertex::getColor() const {
 void ppc::Vertex::setColor(sf::Color col) {
 	color_ = col;
 	circ_.setFillColor(color_);
+    rect_.setFillColor(color_);
 }
 
 sf::Vector2f ppc::Vertex::getPosCenter() const {
 	sf::Vector2f p = getPosition();
-	sf::FloatRect f = circ_.getGlobalBounds();
+	//sf::FloatRect f = circ_.getGlobalBounds();
+    sf::FloatRect f = rect_.getGlobalBounds();
 	p.x += (f.width / 2.f);
 	p.y += (f.height / 2.f);
 	return p;
 }
 
 sf::FloatRect ppc::Vertex::getLocalBounds() const {
-	sf::FloatRect fRect = circ_.getLocalBounds();
+//	sf::FloatRect fRect = circ_.getLocalBounds();
+    sf::FloatRect fRect = rect_.getLocalBounds();
 	fRect.left = getPosition().x;
 	fRect.top = getPosition().y;
 	return fRect;
 }
 
 sf::FloatRect ppc::Vertex::getGlobalBounds() const {
-	sf::FloatRect fRect = circ_.getGlobalBounds();
-	fRect.left = getPosition().x;
+//	sf::FloatRect fRect = circ_.getGlobalBounds();
+	sf::FloatRect fRect = rect_.getGlobalBounds();
+    fRect.left = getPosition().x;
 	fRect.top = getPosition().y;
 	return fRect;
 }
@@ -90,6 +110,8 @@ ppc::PipelineCharacter ppc::Vertex::getCharacter() const {
 
 void ppc::Vertex::setCharacter(ppc::PipelineCharacter ch) {
 	char_ = ch;
+    rend_->applyCharacterValues(char_);
+    rend_->setShouldDraw(true);
 
 	text_.setString(char_.getSSN().substr(0, 2));
 }
@@ -116,11 +138,15 @@ void ppc::Vertex::applyDraggable(ppc::DraggableInput &di, ppc::InputHandler &ih)
 void ppc::Vertex::selectVert() {
 	isSelected_ = true;
 	circ_.setOutlineThickness(3.f);
+    rect_.setOutlineThickness(3.f);
+    rend_->setOrigin(rect_.getOrigin().x, rect_.getOrigin().y);
+
 }
 
 void ppc::Vertex::deselectVert() {
 	isSelected_ = false;
 	circ_.setOutlineThickness(0.f);
+	rect_.setOutlineThickness(0.f);
 }
 
 bool ppc::Vertex::isSelected() {
@@ -132,6 +158,8 @@ void ppc::Vertex::draw(sf::RenderTarget& target,
 
 	states.transform *= getTransform();
 
-	target.draw(circ_, states);
+	target.draw(rect_, states);
 	target.draw(text_, states);
+    target.draw(*rend_, states);
+
 }

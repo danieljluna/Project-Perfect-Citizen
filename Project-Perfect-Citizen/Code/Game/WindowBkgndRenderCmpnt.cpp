@@ -1,7 +1,7 @@
 #include "../Engine/debug.h"
 #include "WindowBkgndRenderCmpnt.h"
 
-
+using namespace ppc;
 
 WindowBkgndRenderCmpnt::WindowBkgndRenderCmpnt(sf::Sprite& s):
 	sprt(s) {
