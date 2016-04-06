@@ -49,13 +49,19 @@ void AudioQueue::playSound(int sound)
 {
 	soundQueue.push(sound);
 }
-
 void AudioQueue::readySound(int sound) {
 	soundQueue.push(sound);
 }
 
 void AudioQueue::stopSound(int sound)
 {
+
+}
+
+void AudioQueue::stopAllSounds() {
+	for (auto iter = soundStorage.begin(); iter != soundStorage.end(); iter++) {
+		iter->second.stop();
+	}
 }
 
 void AudioQueue::popAndPlay()

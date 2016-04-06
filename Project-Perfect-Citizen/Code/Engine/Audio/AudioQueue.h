@@ -28,9 +28,22 @@ protected:
 	void releaseSound(int element);
 public:
 	AudioQueue(int number);
+	/////////////////////////////////////////
+	///@brief dont use this
+	/////////////////////////////////////////
 	virtual void playSound(int sound);
+	/////////////////////////////////////////
+	///@brief primes a sound to be played
+	///Does not play the sound. Sounds must be
+	///primed before popAndPlay() will work
+	///@param integer representation of sound
+	///to be player. This int is returned by
+	/// addSound().
+	////////////////////////////////////////
 	void readySound(int sound);
+	////////////////////////////////////////
 	virtual void stopSound(int sound);
+	void stopAllSounds();
 	void popAndPlay();
 	int addSound(std::string name, std::string filename);
 	bool addBgm(std::string filename);
