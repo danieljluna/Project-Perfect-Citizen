@@ -72,6 +72,7 @@ bool runBootDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
     sf::Font font;
     font.loadFromFile(resourcePath() + "consola.ttf");
     
+   
     textLabelComponent* textLabel = new textLabelComponent(font,sf::Color::Green, 0,0, 20, " PCOS(C) , UNMOS. UNAUTHORIZED USE OF THIS TERMINAL CAN RESULT IN PENALTY BY DEATH. \n   Beginning File System Initialization \n");
     
     bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(*myDesktop.getButtonSheet(),*textLabel,7,5);
@@ -182,6 +183,11 @@ bool runPlayerDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
 	createPlayerDesktop(myDesktop, *myDesktop.getDesktopWindow(), 
 		myDesktop.getInputHandler(), *myDesktop.getIconSheet(), *myDesktop.getButtonSheet());
 
+    AudioQueue audiotest(5);
+    audiotest.addBgm(resourcePath() + "SoundTrack_Extraction.ogg");
+    audiotest.playBgm();
+    
+    
 	//FreeFunctionObserver <A>(&BaseFileType, triggerEnd);
 	//myDesktop.getNodeState().getDirString()
 	// Go into main game loop
@@ -276,9 +282,7 @@ int main(int argc, char** argv) {
 	bool BootToTitleCard = false; 
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
-	AudioQueue audiotest(5);
-	audiotest.addBgm(resourcePath() + "SoundTrack_Extraction.ogg");
-	audiotest.playBgm();
+	
 
 
 	//bool coolReturnValue = (*cool.*(c->functionPointer))(sf::Event());

@@ -94,7 +94,7 @@ int AudioQueue::addSound(std::string name, std::string filename)
 
 bool ppc::AudioQueue::addBgm(std::string filename)
 {
-	if (!bgm.openFromFile(this->filepath + filename))
+	if (!bgm.openFromFile(filename))
 		return false; // error
 	 //SoundTrack_Extraction.ogg
 	return true;
