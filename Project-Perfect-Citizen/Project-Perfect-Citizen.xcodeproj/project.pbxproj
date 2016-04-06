@@ -11,6 +11,8 @@
 		C8270D9D1CADCB7900232367 /* Mouse_Down.wav in Resources */ = {isa = PBXBuildFile; fileRef = C8270D9B1CADCB7900232367 /* Mouse_Down.wav */; };
 		C8270D9E1CADCB7900232367 /* Mouse_Up.wav in Resources */ = {isa = PBXBuildFile; fileRef = C8270D9C1CADCB7900232367 /* Mouse_Up.wav */; };
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
+		C83719D41CB437EF00088759 /* TextDisplayBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C83719D01CB437EF00088759 /* TextDisplayBuilder.cpp */; };
+		C83719D51CB437EF00088759 /* TextDisplayRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C83719D21CB437EF00088759 /* TextDisplayRenderComponent.cpp */; };
 		C8A593901C8E3AFE00036C1D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8A593461C8E3AFE00036C1D /* main.cpp */; };
 		E9A0AC761C939A290035CCE1 /* 1-24-08-182.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC121C939A290035CCE1 /* 1-24-08-182.jpg */; };
 		E9A0AC771C939A290035CCE1 /* 2-20-09-431.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC131C939A290035CCE1 /* 2-20-09-431.jpg */; };
@@ -234,6 +236,11 @@
 		C82E60731C810DCB001860CC /* json-forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "json-forwards.h"; sourceTree = "<group>"; };
 		C82E60741C810DCB001860CC /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		C82E60751C810DCB001860CC /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
+		C83719D01CB437EF00088759 /* TextDisplayBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextDisplayBuilder.cpp; sourceTree = "<group>"; };
+		C83719D11CB437EF00088759 /* TextDisplayBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextDisplayBuilder.h; sourceTree = "<group>"; };
+		C83719D21CB437EF00088759 /* TextDisplayRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextDisplayRenderComponent.cpp; sourceTree = "<group>"; };
+		C83719D31CB437EF00088759 /* TextDisplayRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextDisplayRenderComponent.h; sourceTree = "<group>"; };
+		C83A6CA41CB4774100A34590 /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VT323-Regular.ttf"; sourceTree = "<group>"; };
 		C8A593461C8E3AFE00036C1D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
 		E9A0AC121C939A290035CCE1 /* 1-24-08-182.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-24-08-182.jpg"; sourceTree = "<group>"; };
 		E9A0AC131C939A290035CCE1 /* 2-20-09-431.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-20-09-431.jpg"; sourceTree = "<group>"; };
@@ -621,6 +628,7 @@
 				E9E1F58A1C91F506006AE0FB /* Icon_Sheet.png */,
 				E9E1F58B1C91F506006AE0FB /* kappa.png */,
 				E9E1F58C1C91F506006AE0FB /* Teacher_Icon_Sheet.png */,
+				C83A6CA41CB4774100A34590 /* VT323-Regular.ttf */,
 				E9E1F58D1C91F506006AE0FB /* Teacher_Wallpaper.png */,
 				E9E1F58E1C91F506006AE0FB /* Wallpaper.png */,
 				E9E1F58F1C91F506006AE0FB /* Windows_Icons.png */,
@@ -800,6 +808,10 @@
 				E9A0AD301C939E4F0035CCE1 /* PipelineLevelBuilder.cpp */,
 				E9A0AD311C939E4F0035CCE1 /* PipelineLevelBuilder.h */,
 				E9A0AD321C939E4F0035CCE1 /* Quitter.cpp */,
+				C83719D01CB437EF00088759 /* TextDisplayBuilder.cpp */,
+				C83719D11CB437EF00088759 /* TextDisplayBuilder.h */,
+				C83719D21CB437EF00088759 /* TextDisplayRenderComponent.cpp */,
+				C83719D31CB437EF00088759 /* TextDisplayRenderComponent.h */,
 				E9A0AD331C939E4F0035CCE1 /* Quitter.h */,
 				E9A0AD341C939E4F0035CCE1 /* testRenderSprite.cpp */,
 				E9A0AD351C939E4F0035CCE1 /* testRenderSprite.h */,
@@ -1209,6 +1221,7 @@
 				E9A0ADF41C939E660035CCE1 /* world.cpp in Sources */,
 				E9A0AD6B1C939E4F0035CCE1 /* photoRenderComponent.cpp in Sources */,
 				E9A0AD4E1C939E4F0035CCE1 /* createDesktop.cpp in Sources */,
+				C83719D41CB437EF00088759 /* TextDisplayBuilder.cpp in Sources */,
 				E9A0ADD01C939E660035CCE1 /* AudioQueue.cpp in Sources */,
 				E9A0AD451C939E4F0035CCE1 /* BootLoader.cpp in Sources */,
 				E9A0AD691C939E4F0035CCE1 /* NetworkRenderCmpnt.cpp in Sources */,
@@ -1219,6 +1232,7 @@
 				E9A0AD651C939E4F0035CCE1 /* interpolateUpdateComponent.cpp in Sources */,
 				E9A0ADD91C939E660035CCE1 /* desktop.cpp in Sources */,
 				E9A0AD621C939E4F0035CCE1 /* expressionistParser.cpp in Sources */,
+				C83719D51CB437EF00088759 /* TextDisplayRenderComponent.cpp in Sources */,
 				E9A0AD501C939E4F0035CCE1 /* createListElement.cpp in Sources */,
 				E9A0ADEA1C939E660035CCE1 /* ScrollBarDeco.cpp in Sources */,
 				E9A0AD4B1C939E4F0035CCE1 /* consoleIconRenderComponent.cpp in Sources */,
