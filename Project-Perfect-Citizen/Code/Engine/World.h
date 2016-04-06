@@ -1,7 +1,6 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-//#include "desktop.h"
 #include <iostream>
 #include <fstream>
 
@@ -35,6 +34,8 @@ namespace ppc {
 		void setGameScreen(sf::RenderWindow&);
 
 		void setCurrDesktop(ppc::Desktop&);
+
+		sf::RenderWindow* getGameScreen();
 
 		Desktop* getCurrDesktop();
 
