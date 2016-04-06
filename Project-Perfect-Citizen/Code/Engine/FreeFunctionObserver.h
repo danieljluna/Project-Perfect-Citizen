@@ -1,6 +1,9 @@
 #pragma once
 #include "observer.h"
 //WRITTEN BY ANDY BADEN
+
+namespace ppc {
+
 ////////////////////////////////////////////////////////////////////
 ///@brief FreeFunctionObserver is a templated observer child dedicated to
 ///calling non-member functions or "free functions". 
@@ -9,7 +12,7 @@
 ///Dont forget to define what T is when instantiating this class!
 ////////////////////////////////////////////////////////////////////
 template <class T>
-class FreeFunctionObserver : public ppc::BaseObserver {
+class FreeFunctionObserver : public BaseObserver {
 private:
 	////////////////////////////////////////////////////////////////////
 	///@brief Pointer of an object type. This is used to call functions
@@ -19,9 +22,9 @@ private:
 	T* target;
 	////////////////////////////////////////////////////////////////////
 	///@brief function pointer to a function that accepts a class pointer T
-	/// and an sf::Event&
+	/// and an Event
 	////////////////////////////////////////////////////////////////////
-	bool(*functionPointer)(T*, sf::Event&);
+	bool(*functionPointer)(T*, Event);
 public:
 	////////////////////////////////////////////////////////////////////
 	///@brief constructor for FreeFunctionObserver. Passes in the address
@@ -29,11 +32,11 @@ public:
 	///type used to call the relevent functions inside the freeFunction.
 	///make sure you use define the template perameters when defining
 	///the function. 
-	///@param myFunction: function pointer of type void(*)(T*, sf::Event&)
+	///@param myFunction: function pointer of type void(*)(T*, Event)
 	///@param comfyTarget: object to be embedded in the class. Used to call
 	///myfunction inside FreeFunctionObserver::EventHandler
 	////////////////////////////////////////////////////////////////////
-	FreeFunctionObserver(bool(*myFunction)(T*, sf::Event& ev), T* comfyTarget) {
+	FreeFunctionObserver(bool(*myFunction)(T*, Event ev), T* comfyTarget) {
 		this->functionPointer = myFunction;
 		this->target = comfyTarget;
 	}
@@ -42,8 +45,11 @@ public:
 	///ppc::baseObserver. Calls the embedded function in the class. 
 	///@param event recieved. 
 	////////////////////////////////////////////////////////////////////
-	virtual bool eventHandler(sf::Event& ev) {
+	bool eventHandler(Event ev) override {
 		functionPointer(target, ev);
 		return true;
 	}
+};
+
+
 };

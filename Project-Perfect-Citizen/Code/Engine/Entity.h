@@ -10,6 +10,7 @@ typedef std::string msgType;
 namespace ppc {
 
 class Component;
+class Event;
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -147,6 +148,15 @@ public:
     /// @param message Denotes the message to send.
     ///////////////////////////////////////////////////////////////////
 	virtual void broadcastMessage(msgType message);
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Broadcasts a message to each Component in the Entity
+    /// @todo Create a union or enum specifically for this messaging
+    ///     system.
+    ///
+    /// @param message Denotes the message to send.
+    ///////////////////////////////////////////////////////////////////
+    virtual void broadcastMessage(Event message);
 
 
   /////////////////////////////////////////////////////////////////////

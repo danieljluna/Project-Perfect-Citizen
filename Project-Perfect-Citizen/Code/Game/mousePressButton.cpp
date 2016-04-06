@@ -97,7 +97,7 @@ bool mousePressButton::isCollision(sf::Vector2i mousePos) {
 }
 
 
-bool mousePressButton::registerInput(sf::Event& ev) {
+bool mousePressButton::registerInput(sf::Event ev) {
     if (getEntity() != nullptr) {
 
         /* Case: Mouse Pressed Event*/

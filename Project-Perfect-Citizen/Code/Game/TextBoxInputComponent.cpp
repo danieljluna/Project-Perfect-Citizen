@@ -54,7 +54,7 @@ string TextBoxInputComponent::getString() {
 	return str;
 }
 
-bool TextBoxInputComponent::registerInput(sf::Event& ev) {
+bool TextBoxInputComponent::registerInput(sf::Event ev) {
 	if (getEntity() != nullptr) {
 		if (ev.type == sf::Event::TextEntered) {
 			/* Ignore CNTRL, BS, ENTR/LF, CR */
