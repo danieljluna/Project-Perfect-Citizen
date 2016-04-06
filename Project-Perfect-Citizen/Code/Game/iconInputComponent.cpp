@@ -30,7 +30,7 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		WindowInterface* consoleWindow = 
 			new Window(600, 500, sf::Color(51, 50, 161));
 		spawnConsole(theDesktop_, consoleWindow, consoleWindow->getInputHandler(),
-			theDesktop_.getNodeState(), buttonSheet_, 200, 200);
+			*theDesktop_.getNodeState(), buttonSheet_, 200, 200);
 		theDesktop_.addWindow(consoleWindow);
 		openedWindow = consoleWindow;
 	}
@@ -38,7 +38,7 @@ void iconInputComponent::recieveMessage(msgType msg) {
         ppc::WindowInterface* FileWindow =
             new ppc::Window(500, 500, sf::Color(255, 255, 255));
         spawnFile(FileWindow, FileWindow->getInputHandler(),
-            theDesktop_.getNodeState(), buttonSheet_, 100, 200, "DesktopContent/Desktop1/3-29-12-184.jpg");
+            *theDesktop_.getNodeState(), buttonSheet_, 100, 200, "DesktopContent/Desktop1/3-29-12-184.jpg");
         theDesktop_.addWindow(FileWindow);
 		openedWindow = FileWindow;
 	}
@@ -87,7 +87,7 @@ void iconInputComponent::recieveMessage(msgType msg) {
 	else if (msg.compare(OPEN_THE_EXPLORER) == 0) {
 		ppc::WindowInterface* explorerWindow =
 			new ppc::Window(600, 350, sf::Color(255, 255, 255));
-		spawnExplorer(theDesktop_, explorerWindow, explorerWindow->getInputHandler(), theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
+		spawnExplorer(theDesktop_, explorerWindow, explorerWindow->getInputHandler(), *theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
 		theDesktop_.addWindow(explorerWindow);
 		openedWindow = explorerWindow;
 	}

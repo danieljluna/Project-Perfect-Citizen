@@ -47,9 +47,6 @@ namespace ppc {
 
 		bool runCurrDesktop();
 
-		// operator<< 
-		friend std::ostream& operator<<(std::ostream& out, const World& world);
-
 		// operator>>
 		friend std::istream& operator>>(std::istream& in, const World& world);
 

@@ -54,7 +54,7 @@ sf::Image * ppc::DesktopLogger::getButtonSheet() {
 	return loggedDesktop_->getButtonSheet();
 }
 
-NodeState& DesktopLogger::getNodeState() {
+NodeState* DesktopLogger::getNodeState() {
 	out_ << "DesktopLogger: Getting Root" << std::endl;
 
 	return loggedDesktop_->getNodeState();

@@ -1,5 +1,5 @@
 #include "World.h"
-#include "desktop.h" //remember to remove this if including in .h
+#include "desktop.h" 
 #include "../Game/Quitter.h"
 
 ppc::World::World() {
@@ -76,14 +76,17 @@ bool ppc::World::runCurrDesktop() {
 	return runDesktop(*(this->currDesktop_));
 }
 
-std::ostream& ppc::operator<<(std::ostream& out, const World& world) {
-	if (world.currDesktop_ == nullptr) return out;
-	//write to out
-	return out;
-}
-
 std::istream& ppc::operator>>(std::istream& in, const World& world) {
-	if (world.currDesktop_ != nullptr) {}
-	//read from in. ask if we need to make the new Desktop here or not?
+	if (world.currDesktop_ == nullptr) {
+		
+
+
+	} else if (world.currDesktop_ != nullptr) {
+
+
+
+	}
+
+
 	return in;
 }

@@ -153,8 +153,8 @@ sf::Image * ppc::Desktop::getButtonSheet() {
 }
 
 
-ppc::NodeState& ppc::Desktop::getNodeState() {
-	return *nodeState_;
+ppc::NodeState* ppc::Desktop::getNodeState() {
+	return nodeState_;
 }
 
 ppc::InputHandler& ppc::Desktop::getInputHandler() {
