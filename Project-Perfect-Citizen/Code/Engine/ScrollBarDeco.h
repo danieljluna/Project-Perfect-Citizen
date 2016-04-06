@@ -149,11 +149,11 @@ private:
 
     void initialize(sf::Image img);
 
-    friend bool onSliderDrag(ScrollBarDecorator*, sf::Event&);
-    friend bool onButtonUp(ScrollBarDecorator*, sf::Event&);
-    friend bool onButtonDown(ScrollBarDecorator*, sf::Event&);
-    friend bool onButtonLeft(ScrollBarDecorator*, sf::Event&);
-    friend bool onButtonRight(ScrollBarDecorator*, sf::Event&);
+    friend bool onSliderDrag(ScrollBarDecorator*, Event);
+    friend bool onButtonUp(ScrollBarDecorator*, Event);
+    friend bool onButtonDown(ScrollBarDecorator*, Event);
+    friend bool onButtonLeft(ScrollBarDecorator*, Event);
+    friend bool onButtonRight(ScrollBarDecorator*, Event);
 
 
   /////////////////////////////////////////////////////////////////////
@@ -186,15 +186,15 @@ private:
 
 
 
-bool onSliderDrag(ScrollBarDecorator*, sf::Event&);
+bool onSliderDrag(ScrollBarDecorator*, Event);
 
-bool onButtonUp(ScrollBarDecorator*, sf::Event&);
+bool onButtonUp(ScrollBarDecorator*, Event);
 
-bool onButtonDown(ScrollBarDecorator*, sf::Event&);
+bool onButtonDown(ScrollBarDecorator*, Event);
 
-bool onButtonLeft(ScrollBarDecorator*, sf::Event&);
+bool onButtonLeft(ScrollBarDecorator*, Event);
 
-bool onButtonRight(ScrollBarDecorator*, sf::Event&);
+bool onButtonRight(ScrollBarDecorator*, Event);
 
 
 

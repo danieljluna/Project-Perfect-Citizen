@@ -104,7 +104,7 @@ iconInputComponent::~iconInputComponent() {
 
 }
 
-bool iconInputComponent::registerInput(sf::Event& ev) {
+bool iconInputComponent::registerInput(sf::Event ev) {
 	return true;
 }
 

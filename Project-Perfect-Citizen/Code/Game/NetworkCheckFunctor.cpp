@@ -14,6 +14,7 @@ bool NetworkCheckFunctor::operator()() {
         if (EdgeEquality > .9) {
             std::cout << "You win!" << std::endl;
             sf::Event ev;
+            ev.type = sf::Event::Count;
             onWin_.sendEvent(ev);
             return true;
         }
@@ -25,7 +26,7 @@ bool NetworkCheckFunctor::operator()() {
 
 
 
-bool ppc::runSubmitCheck(NetworkCheckFunctor* ncf, sf::Event& ev) {
+bool ppc::runSubmitCheck(NetworkCheckFunctor* ncf, Event ev) {
     if ((*ncf)()) { ppc::quitSection(); };
 
     return true;
