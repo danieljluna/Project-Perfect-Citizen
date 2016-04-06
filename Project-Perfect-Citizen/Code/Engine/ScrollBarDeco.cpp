@@ -398,13 +398,13 @@ void ScrollBarDecorator::initialize(sf::Image img) {
 // Other Functions
 ///////////////////////////////////////////////////////////////////////
 
-bool ppc::onSliderDrag(ScrollBarDecorator* sb, sf::Event& ev) {
+bool ppc::onSliderDrag(ScrollBarDecorator* sb, Event ev) {
     sb->updateView();
 
     return true;
 }
 
-bool ppc::onButtonUp(ScrollBarDecorator* sb, sf::Event& ev) {
+bool ppc::onButtonUp(ScrollBarDecorator* sb, Event ev) {
     sf::View v = sb->getView();
     v.move({ 0.0f, -10.0f });
     sb->setView(v);
@@ -413,7 +413,7 @@ bool ppc::onButtonUp(ScrollBarDecorator* sb, sf::Event& ev) {
     return true;
 }
 
-bool ppc::onButtonDown(ScrollBarDecorator* sb, sf::Event& ev) {
+bool ppc::onButtonDown(ScrollBarDecorator* sb, Event ev) {
     sf::View v = sb->getView();
     v.move({ 0.0f, 10.0f });
     sb->setView(v);
@@ -422,7 +422,7 @@ bool ppc::onButtonDown(ScrollBarDecorator* sb, sf::Event& ev) {
     return true;
 }
 
-bool ppc::onButtonLeft(ScrollBarDecorator* sb, sf::Event& ev) {
+bool ppc::onButtonLeft(ScrollBarDecorator* sb, Event ev) {
     sf::View v = sb->getView();
     v.move({ -10.0f, 0.0f });
     sb->setView(v);
@@ -431,7 +431,7 @@ bool ppc::onButtonLeft(ScrollBarDecorator* sb, sf::Event& ev) {
     return true;
 }
 
-bool ppc::onButtonRight(ScrollBarDecorator* sb, sf::Event& ev) {
+bool ppc::onButtonRight(ScrollBarDecorator* sb, Event ev) {
     sf::View v = sb->getView();
     v.move({ 10.0f, 0.0f });
     sb->setView(v);

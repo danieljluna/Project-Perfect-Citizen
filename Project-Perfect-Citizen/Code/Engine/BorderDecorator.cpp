@@ -71,7 +71,7 @@ BorderDecorator::~BorderDecorator() {
 
 
 void BorderDecorator::addButton(sf::Image& buttonImage, 
-                                bool(*buttonFn)(WindowInterface*, sf::Event&)) {
+                                bool(*buttonFn)(WindowInterface*, Event)) {
     if (buttonCount_ < maxButtons_) {
         //Push back the button render cmpnt
         buttonRenders_[buttonCount_] = new buttonRenderComponent(buttonImage, 0, 3, 1, 1);
@@ -279,7 +279,7 @@ void BorderDecorator::updateButton(size_t i) {
 
 
 
-bool ppc::closeWindow(WindowInterface* win, sf::Event& ev) {
+bool ppc::closeWindow(WindowInterface* win, Event ev) {
     win->close();
 
     return true;

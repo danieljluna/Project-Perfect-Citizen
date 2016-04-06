@@ -146,7 +146,7 @@ ppc::NetworkInputCmpnt::~NetworkInputCmpnt() {
 	}
 }
 
-bool ppc::NetworkInputCmpnt::registerInput(sf::Event& ev) {
+bool ppc::NetworkInputCmpnt::registerInput(sf::Event ev) {
 	sf::Vector2f mousePos(float(ev.mouseButton.x),
 		float(ev.mouseButton.y));
 	//If left click, select a vertex/edge
