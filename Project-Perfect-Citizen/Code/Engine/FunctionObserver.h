@@ -9,21 +9,25 @@
 ///Dont forget to define what T is when instantiating this class!
 ////////////////////////////////////////////////////////////////////
 
+namespace ppc {
+
 //THIS CLASS IS BASICALLY THE SAME AS FreeFunctionObserver
 //LOOK THERE FOR MORE INFO ON INDIVIDUAL FUNCTIONS
 template<class T>
-class MemberFunctionObserver : public ppc::BaseObserver {
+class MemberFunctionObserver : public BaseObserver {
 private:
 	T* target;
 public:
-	bool(T::*functionPointer)(sf::Event&);
+	bool(T::*functionPointer)(Event);
 
-	MemberFunctionObserver(bool(T::*myFunction)(sf::Event&), T* comfyTarget) {
+	MemberFunctionObserver(bool(T::*myFunction)(Event), T* comfyTarget) {
 		this->functionPointer = myFunction;
 		this->target = comfyTarget;
 	}
-	virtual bool eventHandler(sf::Event& ev) {
+	virtual bool eventHandler(Event ev) {
 		(*target.*(this->functionPointer))(ev);
 		return true;
 	}
+};
+
 };

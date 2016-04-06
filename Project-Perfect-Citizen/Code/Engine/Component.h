@@ -9,6 +9,7 @@ namespace ppc {
 
 
 class Entity;
+class Event;
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Parent Class of all Component types.
@@ -72,6 +73,19 @@ public:
     ///     passed to this Component.
     ///////////////////////////////////////////////////////////////////
     virtual void recieveMessage(msgType message) {};
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Recieves a message broadcast from the Entity.
+    /// @details If a Component requires a message from another 
+    ///     Component, this function should be overlaoded to react
+    ///     appropriately to the message.
+    /// @todo Create a union or enum specifically for this messaging
+    ///     system.
+    /// 
+    /// @param message This parameter denotes what message is being
+    ///     passed to this Component.
+    ///////////////////////////////////////////////////////////////////
+    virtual void recieveMessage(Event message);
 
 
 protected:

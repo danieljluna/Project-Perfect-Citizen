@@ -51,7 +51,7 @@ namespace ppc {
 		template <class T>
 		friend void setOnPress(explorerFolderInputComponent* mpb,
 			T* objPtr,
-			bool(*onPress)(T*, sf::Event&));
+			bool(*onPress)(T*, Event));
 
 		///////////////////////////////////////////////////////////////////////
 		//SETTERS
@@ -70,7 +70,7 @@ namespace ppc {
 		void setFloatRect(sf::FloatRect rect);
 
 		virtual ~explorerFolderInputComponent();
-		virtual bool registerInput(sf::Event& ev) override;
+		virtual bool registerInput(sf::Event ev) override;
 
 
 		Subject& onClick() { return onPress_; };

@@ -73,7 +73,7 @@ public:
 	virtual void draw(sf::RenderTarget & target,
 		sf::RenderStates states) const;
 
-	//virtual void registerInput(sf::Event& ev) override;
+	//virtual void registerInput(sf::Event ev) override;
 	virtual void recieveMessage(msgType code) override;
 
 };

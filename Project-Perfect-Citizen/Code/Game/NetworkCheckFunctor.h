@@ -30,7 +30,7 @@ private:
 };
 
 
-bool runSubmitCheck(NetworkCheckFunctor* ncf, sf::Event& ev);
+bool runSubmitCheck(NetworkCheckFunctor* ncf, Event ev);
 
 
 };
