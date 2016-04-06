@@ -1,5 +1,6 @@
 #pragma once
 #include "observer.h"
+#include "event.h"
 //WRITTEN BY ANDY BADEN
 
 namespace ppc {
