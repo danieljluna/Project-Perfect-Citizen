@@ -27,9 +27,12 @@ namespace ppc {
 	class World {
 
 	private:
+      /////////////////////////////////////////////////////////////////
+      // Private Variables
+      /////////////////////////////////////////////////////////////////
 
-		sf::RenderWindow* screen;
-		//ppc::Desktop* currDesktop;
+		sf::RenderWindow* screen_;
+		ppc::Desktop* currDesktop_;
 
 	public:
 
