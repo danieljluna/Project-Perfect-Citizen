@@ -277,7 +277,7 @@ int main(int argc, char** argv) {
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 	AudioQueue audiotest(5);
-	audiotest.addBgm("SoundTrack_Extraction.ogg");
+	audiotest.addBgm(resourcePath() + "SoundTrack_Extraction.ogg");
 	audiotest.playBgm();
 
 
