@@ -9,19 +9,35 @@
 
 using namespace ppc;
 
-sf::Sound* AudioQueue::findOpenSound()
+std::pair<int, sf::Sound*> AudioQueue::findOpenSound()
 {
-
+	int i = 0;
+	std::pair<int, sf::Sound*> returnPair;
 	for (auto iter = soundStorage.begin(); iter != soundStorage.end(); iter++) {
 		if (iter->first == false) {
-			return &(iter->second);
+			iter->first = true;
+			returnPair.first = i;
+			returnPair.second = &(iter->second);
+			return returnPair;
 		}
+		i++;
 	}
-	return nullptr;
+	returnPair.first = -1;
+	returnPair.second = nullptr;
+	return returnPair;
+}
+void ppc::AudioQueue::releaseSound(int element)
+{
+	soundStorage.at(element).first = false;
 }
 AudioQueue::AudioQueue(int number)
 {
-	for (int i = 0; i < number; i++) {
+	int tempNumber = number;
+	if (tempNumber > maxSounds) {
+		tempNumber = maxSounds;
+		std::cout << "max sounds exceeded defaulting to maximum number" << std::endl;
+	}
+	for (int i = 0; i < tempNumber; i++) {
 		std::pair<bool, sf::Sound> newSoundPair;
 		sf::Sound newSound;
 		newSoundPair.first = false;
@@ -34,6 +50,10 @@ void AudioQueue::playSound(int sound)
 	soundQueue.push(sound);
 }
 
+void AudioQueue::readySound(int sound) {
+	soundQueue.push(sound);
+}
+
 void AudioQueue::stopSound(int sound)
 {
 }
@@ -41,13 +61,15 @@ void AudioQueue::stopSound(int sound)
 void AudioQueue::popAndPlay()
 {
 	int front = soundQueue.front();
-	sf::Sound* tempSound = findOpenSound();
-	if (tempSound == nullptr) {
+	std::pair<int, sf::Sound*> findPair;
+	findPair = findOpenSound();
+	if (findPair.second == nullptr) {
 		return;
 	}
-	tempSound->setBuffer(this->bufferStorage.at(front).second);
-	tempSound->play();
+	findPair.second->setBuffer(bufferStorage.at(front).second);
+	findPair.second->play();
 	soundQueue.pop();
+	releaseSound(findPair.first);
 
 }
 
