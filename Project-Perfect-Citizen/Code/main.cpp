@@ -184,7 +184,7 @@ bool runPlayerDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
 		myDesktop.getInputHandler(), *myDesktop.getIconSheet(), *myDesktop.getButtonSheet());
 
     AudioQueue audiotest(5);
-    audiotest.addBgm(resourcePath() + "SoundTrack_Extraction.ogg");
+    audiotest.addBgm("SoundTrack_Extraction.ogg");
     audiotest.playBgm();
     
     

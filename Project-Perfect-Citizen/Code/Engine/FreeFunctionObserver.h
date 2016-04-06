@@ -1,5 +1,6 @@
 #pragma once
 #include "observer.h"
+#include "event.h"
 //WRITTEN BY ANDY BADEN
 
 namespace ppc {
@@ -45,7 +46,7 @@ public:
 	///ppc::baseObserver. Calls the embedded function in the class. 
 	///@param event recieved. 
 	////////////////////////////////////////////////////////////////////
-	bool eventHandler(Event ev) override {
+    bool eventHandler(Event ev) override {
 		functionPointer(target, ev);
 		return true;
 	}
