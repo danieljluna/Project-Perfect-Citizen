@@ -144,7 +144,7 @@ void ScrollBarDecorator::draw(sf::RenderTarget& target,
                               sf::RenderStates states) const {
 
     WindowDecorator::draw(target, states);
-
+    
     for (unsigned int i = 0; i < 4; ++i) {
         if (i < 2) {
             target.draw(scrollBackgrounds_[i]);

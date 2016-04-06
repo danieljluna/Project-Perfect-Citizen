@@ -47,7 +47,7 @@ buttonRenderComponent::~buttonRenderComponent() {
 void buttonRenderComponent::setButtonType(std::string t) {
     if (t == ICON_TYPE) {
         _buttonType = t;
-        sprite->setScale(0.55, 0.55);
+        sprite->setScale(0.5, 0.5);
     }
     else if (t == BUTTON_TYPE) _buttonType = t;
 }
