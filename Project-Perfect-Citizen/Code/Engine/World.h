@@ -13,8 +13,8 @@ namespace ppc {
 		//graph solution
 		//saved password -- ???
 		//checkpoints -- ???
-		//received emails
-		//player stats -- 
+		//received emails -- not implemented yet according to brandon, ask alex
+		//player stats -- worry about this later?
 	};
 
 
