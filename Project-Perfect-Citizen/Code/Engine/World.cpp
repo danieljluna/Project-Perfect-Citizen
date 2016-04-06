@@ -10,11 +10,24 @@ ppc::World::World(sf::RenderWindow& gameScreen) {
 	screen = &gameScreen;
 }
 
+ppc::World::World(sf::RenderWindow& gameScreen, ppc::Desktop& d) {
+	screen = &gameScreen;
+	currDesktop = &d;
+}
+
 ppc::World::~World() {
 }
 
 void ppc::World::setGameScreen(sf::RenderWindow& gameScreen) {
 	screen = &gameScreen;
+}
+
+void ppc::World::setCurrDesktop(ppc::Desktop &d) {
+	currDesktop = &d;
+}
+
+ppc::Desktop* ppc::World::getCurrDesktop() {
+	return currDesktop;
 }
 
 bool ppc::World::runDesktop(ppc::Desktop &myDesktop) {
@@ -55,4 +68,20 @@ bool ppc::World::runDesktop(ppc::Desktop &myDesktop) {
 		screen->display();
 	}
 	return false;
+}
+
+bool ppc::World::runCurrDesktop() {
+	return runDesktop(*(this->currDesktop));
+}
+
+std::ostream& ppc::operator<<(std::ostream& out, const World& world) {
+	if (world.currDesktop == nullptr) return out;
+	//write to out
+	return out;
+}
+
+std::istream& ppc::operator>>(std::istream& in, const World& world) {
+	if (world.currDesktop != nullptr) {}
+	//read from in. ask if we need to make the new Desktop here or not?
+	return in;
 }
