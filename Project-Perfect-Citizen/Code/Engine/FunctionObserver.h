@@ -18,13 +18,13 @@ class MemberFunctionObserver : public BaseObserver {
 private:
 	T* target;
 public:
-	bool(T::*functionPointer)(Event&);
+	bool(T::*functionPointer)(Event);
 
-	MemberFunctionObserver(bool(T::*myFunction)(Event&), T* comfyTarget) {
+	MemberFunctionObserver(bool(T::*myFunction)(Event), T* comfyTarget) {
 		this->functionPointer = myFunction;
 		this->target = comfyTarget;
 	}
-	virtual bool eventHandler(Event& ev) {
+	virtual bool eventHandler(Event ev) {
 		(*target.*(this->functionPointer))(ev);
 		return true;
 	}

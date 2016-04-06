@@ -61,7 +61,7 @@ NodeState& DesktopLogger::getNodeState() {
 
 }
 
-void DesktopLogger::registerInput(sf::Event& ev) {
+void DesktopLogger::registerInput(sf::Event ev) {
 	out_ << "DesktopLogger: Registering Input Event: " <<
 		ev.type << std::endl;
 

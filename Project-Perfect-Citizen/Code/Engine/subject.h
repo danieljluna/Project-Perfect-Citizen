@@ -1,9 +1,14 @@
 //Programmed by Andy
 #pragma once
 
+#include "event.h"
+
+namespace sf {
+    class Event;
+}
+
 namespace ppc {
 
-    class Event;
     class BaseObserver;
 
 ///////////////////////////////////////////////
@@ -72,7 +77,7 @@ public:
 	BaseObserver* getObserverHead();
 	void printObservers();
 
-	void sendEvent(Event& event);
+	void sendEvent(Event event);
 
 
 private:
