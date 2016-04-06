@@ -254,11 +254,7 @@ void spawnConfirmedIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::
 	buttonRender->setImageScale(size, size);
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "confirmedIcon");
-
 	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
 }
 
 void spawnAlertIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
@@ -267,9 +263,5 @@ void spawnAlertIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Imag
 	buttonRender->setImageScale(size, size);
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "alertIcon");
-
 	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
 }

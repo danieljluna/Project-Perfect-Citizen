@@ -471,16 +471,33 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	float windowHeight = static_cast<float>(windowToModify->getSize().y);
 	float alertX = windowWidth - ((alertWidth * alertScale) + (3 * (windowWidth / 4)));
 	float alertY = (windowHeight - (alertWidth * alertScale)) / 3;
+	float buttonScale = 0.25f;
+	float buttonX = ((windowWidth - (alertWidth * buttonScale)) / 2);
+	float buttonY = (2 * (windowHeight / 3));
 	spawnAlertIcon(alertIcon, ih, buttonSheet, alertX, alertY, 0.5f);
 
 	Entity errorMessageDisplayBox;
 	errorMessageDisplayBox.addComponent(eMRC);
+
+	// Button Test
+	ButtonBuilder builder;
+	builder.setButtonPosition(sf::Vector2f(buttonX, buttonY));
+	builder.setInputHandle(ih);
+	builder.setSize(0.25f);
+	builder.setSpritesByIndicies(0, 2, 2, 1);
+	builder.setSpriteSheet(buttonSheet);
+	builder.setLabelMessage("MY TEST MSG");
+	builder.setLabelFont(myFont);
+	builder.setLabelSize(12);
+	Entity ent;
+	builder.create(ent);
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 	windowToModify->addEntity(errorMessageDisplayBox);
 	windowToModify->addEntity(alertIcon);
+	windowToModify->addEntity(ent);
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);

@@ -17,7 +17,7 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 class TextDisplayRenderComponent : public RenderComponent {
 private:
-	sf::Text text_;
+	sf::Text* text_;
 	sf::Font font_;
 	std::string labelString_;
 
@@ -43,9 +43,9 @@ public:
 
 	~TextDisplayRenderComponent();
 
-	sf::Vector2f getTextPosition() const { return text_.getPosition(); }
+	sf::Vector2f getTextPosition() const { return text_->getPosition(); }
 
-	std::string getString() const { return text_.getString(); }
+	std::string getString() const { return text_->getString(); }
 
 	void updateString(std::string str);
 

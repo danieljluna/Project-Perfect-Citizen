@@ -59,7 +59,7 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		}
 		else {
 			ppc::WindowInterface* ErrorMsgWindow =
-				new ppc::Window(500, 150, sf::Color(255, 255, 255));
+				new ppc::Window(500, 150, sf::Color(170, 170, 170));
 			spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
 			theDesktop_.addWindow(ErrorMsgWindow);
 			openedWindow = ErrorMsgWindow;
@@ -71,7 +71,7 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		}
 		else {
 			ppc::WindowInterface* ErrorMsgWindow =
-				new ppc::Window(500, 150, sf::Color(255, 255, 255));
+				new ppc::Window(500, 150, sf::Color(170, 170, 170));
 			spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
 			theDesktop_.addWindow(ErrorMsgWindow);
 			openedWindow = ErrorMsgWindow;
@@ -107,7 +107,7 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		}
 		else {
 			ppc::WindowInterface* ErrorMsgWindow =
-				new ppc::Window(500, 150, sf::Color(255, 255, 255));
+				new ppc::Window(500, 150, sf::Color(170, 170, 170));
 			spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
 			theDesktop_.addWindow(ErrorMsgWindow);
 			openedWindow = ErrorMsgWindow;
@@ -119,7 +119,7 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		}
 		else {
 			ppc::WindowInterface* ErrorMsgWindow =
-				new ppc::Window(500, 150, sf::Color(255, 255, 255));
+				new ppc::Window(500, 150, sf::Color(170, 170, 170));
 			spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
 			theDesktop_.addWindow(ErrorMsgWindow);
 			openedWindow = ErrorMsgWindow;

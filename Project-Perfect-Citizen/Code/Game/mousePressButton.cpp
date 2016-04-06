@@ -4,6 +4,7 @@
 #include <string>
 
 #include "../Engine/FreeFunctionObserver.h"
+#include "../Engine/event.h"
 
 using namespace ppc;
 const std::string MOUSE_DOWN_CODE = "MDC";
@@ -116,38 +117,116 @@ bool mousePressButton::registerInput(sf::Event ev) {
                     mouseClock.restart();
                 } else if (mouseTime < DOUBLE_CLICK_TIME) {
 					if (isBeingPressed == "folderIcon") {
+
+						// Send string (legacy code)
 						getEntity()->broadcastMessage(OPEN_THE_FILE);
+
+						// Send struct event (new event system)
+						ppc::Event ppcEv(ev);
+						ppcEv.type = ppc::Event::ButtonType;
+						ppcEv.buttons.isPushed = true;
+						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "settingsIcon") {
+
+						// Send string (legacy code)
 						getEntity()->broadcastMessage(OPEN_THE_SETTINGS);
+
+						// Send struct event (new event system)
+						ppc::Event ppcEv(ev);
+						ppcEv.type = ppc::Event::ButtonType;
+						ppcEv.buttons.isPushed = true;
+						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "chatIcon") {
+
+						// Send string (legacy code)
 						getEntity()->broadcastMessage(OPEN_THE_CHAT);
+
+						// Send struct event (new event system)
+						ppc::Event ppcEv(ev);
+						ppcEv.type = ppc::Event::ButtonType;
+						ppcEv.buttons.isPushed = true;
+						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "searchIcon") {
+
+						// Send string (legacy code)
 						getEntity()->broadcastMessage(OPEN_THE_SEARCH);
+
+						// Send struct event (new event system)
+						ppc::Event ppcEv(ev);
+						ppcEv.type = ppc::Event::ButtonType;
+						ppcEv.buttons.isPushed = true;
+						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "dataGraphIcon") {
+
+						// Send string (legacy code)
 						getEntity()->broadcastMessage(OPEN_THE_PIPELINE);
+
+						// Send struct event (new event system)
+						ppc::Event ppcEv(ev);
+						ppcEv.type = ppc::Event::ButtonType;
+						ppcEv.buttons.isPushed = true;
+						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "helpIcon") {
+
+						// Send string (legacy code)
 						getEntity()->broadcastMessage(OPEN_THE_HELP);
+
+						// Send struct event (new event system)
+						ppc::Event ppcEv(ev);
+						ppcEv.type = ppc::Event::ButtonType;
+						ppcEv.buttons.isPushed = true;
+						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "browserIcon") {
+
+						// Send string (legacy code)
 						getEntity()->broadcastMessage(OPEN_THE_BROWSER);
+
+						// Send struct event (new event system)
+						ppc::Event ppcEv(ev);
+						ppcEv.type = ppc::Event::ButtonType;
+						ppcEv.buttons.isPushed = true;
+						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "hardDriveIcon") {
+
+						// Send string (legacy code)
 						getEntity()->broadcastMessage(OPEN_THE_EXPLORER);
+
+						// Send struct event (new event system)
+						ppc::Event ppcEv(ev);
+						ppcEv.type = ppc::Event::ButtonType;
+						ppcEv.buttons.isPushed = true;
+						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "consoleIcon") {
+
+						// Send string (legacy code)
 						getEntity()->broadcastMessage(OPEN_THE_CONSOLE);
+
+						// Send struct event (new event system)
+						ppc::Event ppcEv(ev);
+						ppcEv.type = ppc::Event::ButtonType;
+						ppcEv.buttons.isPushed = true;
+						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "emailIcon") {
+
+						// Send string (legacy code)
 						getEntity()->broadcastMessage(OPEN_THE_EMAIL);
+
+						// Send struct event (new event system)
+						ppc::Event ppcEv(ev);
+						ppcEv.type = ppc::Event::ButtonType;
+						ppcEv.buttons.isPushed = true;
+						getEntity()->broadcastMessage(ppcEv);
 					}
-                    //cout << "Double clicked on an entity with MPB!" << endl;
-                    getEntity()->broadcastMessage(
-                            MOUSE_DOUBLE_CLICK_CODE);
+                    getEntity()->broadcastMessage(MOUSE_DOUBLE_CLICK_CODE);
                     onDoublePress_.sendEvent(ev);
                 }
             }
@@ -161,8 +240,6 @@ bool mousePressButton::registerInput(sf::Event ev) {
                 getEntity()->broadcastMessage(MOUSE_RELEASED_CODE);
                 onRelease_.sendEvent(ev);
                 wasPressed_ = false;
-				if (isBeingPressed == "localCloseButton") {
-				}
             }
         }
     }
