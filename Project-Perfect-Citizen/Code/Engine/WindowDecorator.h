@@ -84,7 +84,7 @@ public:
     //Game Loop Functionality
 
 	virtual void update(sf::Time& deltaTime) override;
-	virtual void registerInput(sf::Event&) override;
+	virtual void registerInput(sf::Event) override;
 	virtual void refresh(sf::RenderStates states = sf::RenderStates()) override;
 
     // Close State

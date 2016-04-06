@@ -33,7 +33,7 @@ namespace ppc {
 		sf::Image* getButtonSheet();
 		NodeState& getNodeState();
 		void addBackgroundCmpnt(WindowInterface*, sf::Sprite&);
-		void registerInput(sf::Event& ev);
+		void registerInput(sf::Event ev);
 		void update(sf::Time&);
 		void refresh(sf::RenderStates states = sf::RenderStates());
 	};

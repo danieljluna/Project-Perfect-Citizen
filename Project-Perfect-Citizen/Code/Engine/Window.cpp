@@ -243,7 +243,7 @@ void Window::update(sf::Time& deltaTime) {
 
 
 
-void Window::registerInput(sf::Event& ev) {
+void Window::registerInput(sf::Event ev) {
     sf::Vector2f click;
     sf::FloatRect viewRect;
     sf::View currView = windowSpace_.getView();
