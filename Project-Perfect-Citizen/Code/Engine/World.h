@@ -17,21 +17,30 @@ namespace ppc {
 
 	private:
 
-		sf::RenderWindow* screen;
-		ppc::Desktop* currDesktop;
+		sf::RenderWindow* screen_;
+		ppc::Desktop* currDesktop_;
 
-	public:
+    public:
 
 		World();
 		World(sf::RenderWindow&);
 		World(sf::RenderWindow&, ppc::Desktop&);
+
 		~World();
+
+      /////////////////////////////////////////////////////////////////
+      // Setters
+      /////////////////////////////////////////////////////////////////
 
 		void setGameScreen(sf::RenderWindow&);
 
 		void setCurrDesktop(ppc::Desktop&);
 
 		Desktop* getCurrDesktop();
+
+		/////////////////////////////////////////////////////////////////
+		// Desktop Manipulation
+		/////////////////////////////////////////////////////////////////
 
 		bool runDesktop(ppc::Desktop&);
 
@@ -42,5 +51,7 @@ namespace ppc {
 
 		// operator>>
 		friend std::istream& operator>>(std::istream& in, const World& world);
+
+
 	};
 };

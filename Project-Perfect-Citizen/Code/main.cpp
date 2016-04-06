@@ -135,9 +135,6 @@ int main(int argc, char** argv) {
 	audiotest.addBgm("SoundTrack_Extraction.ogg");
 	audiotest.playBgm();
 
-
-	//bool coolReturnValue = (*cool.*(c->functionPointer))(sf::Event());
-
 	///////////// Load Spritesheets/Textures/Background Images ////////
 	sf::Sprite playerWallpaper;
 	sf::Sprite teacherWallpaper;
@@ -210,7 +207,7 @@ int main(int argc, char** argv) {
 	//Assuming Builders End Here
 	/////////////////////////////////////////////
 	
-	World* gameWorld = new World(*&screen);
+	World* gameWorld = new World(screen);
 
 	//Main Loops for each Desktops
 	runBootDesktop(*bootDesktop);
