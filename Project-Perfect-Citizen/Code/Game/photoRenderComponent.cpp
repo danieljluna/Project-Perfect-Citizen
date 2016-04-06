@@ -9,7 +9,7 @@
 #include "../Engine/debug.h"
 #include "photoRenderComponent.hpp"
 
-using namespace std;
+using namespace ppc;
 
 photoRenderComponent::photoRenderComponent(sf::Image& image) : image(image){
     

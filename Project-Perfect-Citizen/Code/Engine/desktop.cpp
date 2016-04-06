@@ -1,6 +1,7 @@
 //desktop.cpp
 // Nader Sleem
 #include "Window.h"
+#include "BorderDecorator.h"
 
 #include <string>
 
@@ -98,12 +99,29 @@ void ppc::Desktop::addWindow(WindowInterface* wi){
 
 	//If the Window is already in the Desktop, we merely need
 	//to focus it.
-	if (focusWindow(wi)) return;
+    if (!isWindow(wi)) {
+        //Otherwise, if wi is not a window in the desktop,
+        //automatically put it at the front,
+        //and focused is set to what was added
+        BorderDecorator* borderOfWi = dynamic_cast<BorderDecorator*>(wi);
+        if (borderOfWi != nullptr) {
+            //The following creates bounds for dragging Windows.
+            sf::FloatRect desktopBounds = desktopWindow_->getBounds();
+            sf::FloatRect wiBounds = wi->getBounds();
+            sf::FloatRect bounds(desktopBounds);
+            bounds.left += 5;
+            bounds.top += 34;
+            bounds.width -= wiBounds.width;
+            bounds.height -= wiBounds.height;
+            borderOfWi->setClampBounds(bounds);
+        }
 
-	//Otherwise, if wi is not a window in the desktop,
-	//automatically put it at the front,
-	//and focused is set to what was added
-	focused_ = *(windows_.insert(windows_.begin(), wi));
+        focused_ = *(windows_.insert(windows_.begin(), wi));
+    }
+}
+
+bool ppc::Desktop::isWindow(WindowInterface* wi) {
+    return (std::find(windows_.cbegin(), windows_.cend(), wi) != windows_.cend());
 }
 
 void ppc::Desktop::destroyWindow(WindowInterface* wi) {
