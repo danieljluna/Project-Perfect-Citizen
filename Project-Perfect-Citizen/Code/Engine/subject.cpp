@@ -74,7 +74,7 @@ void Subject::printObservers()
 	}
 }
 
-void Subject::sendEvent(sf::Event& event)
+void Subject::sendEvent(Event& event)
 {
     BaseObserver* currentObserver = this->observerHead;
     if (observerHead == nullptr) {

@@ -1,12 +1,9 @@
 #pragma once
 
-namespace sf {
-    class Event;
-};
-
 
 namespace ppc {
 
+    class Event;
     class Subject;
 
 ///////////////////////////////////////////////////////////////////////
@@ -42,7 +39,7 @@ public:
 	///@param event The event this Observer was notified of.
     ///@return Denotes whether this observer propogates the event.
     ///////////////////////////////////////////////////////////////////
-	virtual bool eventHandler(sf::Event& ev) = 0;
+	virtual bool eventHandler(Event& ev) = 0;
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Returns if this Observer is in use by a Subject
