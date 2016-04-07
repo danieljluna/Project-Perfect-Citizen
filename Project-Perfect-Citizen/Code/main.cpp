@@ -127,6 +127,9 @@ int main(int argc, char** argv) {
 	Debug::scanOpts(argc, argv);
 	DEBUGF("ac", argc);
 
+	World testWorld;
+	ifstream ifs("Saves/Desktop.ini", std::ifstream::in);
+	ifs >> testWorld;
 
 	bool BootToTitleCard = false; 
     // Create the main sf::window

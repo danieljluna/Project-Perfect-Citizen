@@ -1,6 +1,17 @@
+#ifdef WINDOWS_MARKER
+	#define resourcePath() std::string("Resources/")
+#else
+	#include "ResourcePath.hpp"
+#endif
+
+#include <fstream>
+#include <string>
 #include "World.h"
 #include "desktop.h" 
 #include "../Game/Quitter.h"
+#include "../Game/ButtonBuilder.h"
+#include "../Game/IconBuilder.h"
+#include "debug.h"
 
 ppc::World::World() {
 	screen_ = nullptr;
@@ -76,12 +87,46 @@ bool ppc::World::runCurrDesktop() {
 	return runDesktop(*(this->currDesktop_));
 }
 
-std::istream& ppc::operator>>(std::istream& in, const World& world) {
-	if (world.currDesktop_ == nullptr) {
-		
+
+std::istream& ppc::operator>>(std::istream& in, World& world) {
+	std::string line;
+	ppc::Desktop* importDesktop = new Desktop();
+	Window* bkgndWindow =
+		new Window(1800, 1000, sf::Color(0, 0, 0));
+	importDesktop->addBkgndWindow(bkgndWindow);
+	if (world.getCurrDesktop() == nullptr) {
+		while (std::getline(in,line)) {
+			size_t pos = line.find_first_of(":");
+			std::string key = line.substr(0, pos);
+			std::string file = line.substr(pos + 2);
+			DEBUGF("wc", key << ": " << file);
+			//remember to tell everyone to use new for Images, 
+			//Sprites, etc for Desktop stuff because now Desktop now expects it.
+			if (key == "Icons") {
+				sf::Image* iconSheet = new sf::Image();
+				iconSheet->loadFromFile(resourcePath() + file);
+				importDesktop->setIconSheet(*iconSheet);
+			} else if (key == "Buttons") {
+				sf::Image* buttonSheet = new sf::Image();
+				buttonSheet->loadFromFile(resourcePath() + file);
+				importDesktop->setButtonSheet(*buttonSheet);
+			} else if (key == "Background") {
+				sf::Sprite* wallpaper = new sf::Sprite();
+				sf::Texture* bkgndTexture = new sf::Texture();
+				bkgndTexture->loadFromFile(resourcePath() + file);
+				wallpaper->setTexture(*bkgndTexture);
+				wallpaper->setScale(0.7f, 0.7f);
+				wallpaper->setPosition(0.f, 0.f);
+				importDesktop->addBackgroundCmpnt(bkgndWindow, *wallpaper);
+			} else if (key == "Filetree") {
+
+			}
+			
+		}
 
 
-	} else if (world.currDesktop_ != nullptr) {
+
+	} else if (world.getCurrDesktop() != nullptr) {
 
 
 

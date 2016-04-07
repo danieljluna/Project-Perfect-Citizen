@@ -41,6 +41,11 @@ void ppc::DesktopLogger::setIconSheet(sf::Image & sheet) {
 	loggedDesktop_->setIconSheet(sheet);
 }
 
+void ppc::DesktopLogger::addBkgndWindow(WindowInterface * bkgndWin) {
+
+	loggedDesktop_->addBkgndWindow(bkgndWin);
+}
+
 sf::Image * ppc::DesktopLogger::getIconSheet() {
 	out_ << "DesktopLogger: Getting Icon Sheet" << std::endl;
 	return loggedDesktop_->getIconSheet();

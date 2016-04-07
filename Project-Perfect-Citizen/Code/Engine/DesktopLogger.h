@@ -28,6 +28,7 @@ namespace ppc {
 		void addWindow(WindowInterface*);
 		void destroyWindow(WindowInterface*);
 		void setIconSheet(sf::Image& sheet);
+		void addBkgndWindow(WindowInterface*);
 		sf::Image* getIconSheet();
 		void setButtonSheet(sf::Image& sheet);
 		sf::Image* getButtonSheet();

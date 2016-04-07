@@ -2,7 +2,6 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include <fstream>
 
 namespace ppc {
 
@@ -47,9 +46,10 @@ namespace ppc {
 
 		bool runCurrDesktop();
 
-		// operator>>
-		friend std::istream& operator>>(std::istream& in, const World& world);
-
-
 	};
+
+	// operator>>
+	//NOT part of the world class so that the call can look like:
+	//	in >> world (instead of world >> in, which is confusing)
+	std::istream& operator>>(std::istream& in, World& world);
 };

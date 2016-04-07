@@ -16,10 +16,20 @@
 
 #include "../Game/WindowBkgndRenderCmpnt.h"
 
+ppc::Desktop::Desktop() {
+	style_ = nullptr;
+	nodeState_ = nullptr;
+	iconSheet_ = nullptr;
+	buttonSheet_ = nullptr;
+	desktopWindow_ = nullptr;
+	focused_ = nullptr;
+}
+
 ppc::Desktop::Desktop(WindowInterface& bkgndWin, NodeState& n) {
 	style_ = nullptr;
 	nodeState_ = new NodeState(n);
-	iconSheet = nullptr;
+	iconSheet_ = nullptr;
+	buttonSheet_ = nullptr;
 	windows_.push_back(&bkgndWin);
 	desktopWindow_ = &bkgndWin;
 	focused_ = desktopWindow_;
@@ -32,7 +42,7 @@ ppc::Desktop::Desktop(const Desktop& other) {
 	this->windows_ = other.windows_;
 	this->desktopWindow_ = other.desktopWindow_;
 	this->focused_ = other.focused_;
-	this->iconSheet = other.iconSheet;
+	this->iconSheet_ = other.iconSheet_;
 
 }
 
@@ -45,6 +55,8 @@ ppc::Desktop::~Desktop() {
 	focused_ = nullptr;
 	desktopWindow_ = nullptr;
 	windows_.clear();
+	//if (iconSheet_ != nullptr) delete iconSheet_;
+	//if (buttonSheet_ != nullptr) delete buttonSheet_;
 }
 
 
@@ -136,20 +148,26 @@ void ppc::Desktop::destroyWindow(WindowInterface* wi) {
 	}
 }
 
+void ppc::Desktop::addBkgndWindow(WindowInterface* bkgndWin) {
+	windows_.push_back(bkgndWin);
+	desktopWindow_ = bkgndWin;
+	focused_ = desktopWindow_;
+}
+
 void ppc::Desktop::setIconSheet(sf::Image & sheet) {
-	this->iconSheet = &sheet;
+	this->iconSheet_ = &sheet;
 }
 
 sf::Image * ppc::Desktop::getIconSheet() {
-	return iconSheet;
+	return iconSheet_;
 }
 
 void ppc::Desktop::setButtonSheet(sf::Image & sheet) {
-	this->buttonSheet = &sheet;
+	this->buttonSheet_ = &sheet;
 }
 
 sf::Image * ppc::Desktop::getButtonSheet() {
-	return buttonSheet;
+	return buttonSheet_;
 }
 
 
@@ -166,6 +184,7 @@ ppc::WindowInterface* ppc::Desktop::getDesktopWindow() {
 }
 
 void ppc::Desktop::addBackgroundCmpnt(WindowInterface* wi, sf::Sprite& s) {
+	if (wi == nullptr) return;
 	WindowBkgndRenderCmpnt* wBRC = new WindowBkgndRenderCmpnt(s);
 	wi->addRenderComponent(wBRC);
 }
