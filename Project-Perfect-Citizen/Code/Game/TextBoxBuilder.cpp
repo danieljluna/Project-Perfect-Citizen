@@ -2,6 +2,7 @@
 #include "../Engine/renderComponent.h"
 #include "../Game/TextBoxInputComponent.h"
 #include "../Game/TextBoxRenderComponent.h"
+#include "../Game/TextFieldRenderComponent.hpp"
 #include "../Engine/Entity.h"
 
 ppc::TextBoxBuilder::TextBoxBuilder() {
@@ -38,9 +39,14 @@ void ppc::TextBoxBuilder::setInputHandle(ppc::InputHandler& inputHandle) {
 }
 
 void ppc::TextBoxBuilder::create(Entity& e) {
-	TextBoxRenderComponent* r = new TextBoxRenderComponent(*f, *c, xPos, yPos, s, "> ");
+	TextBoxRenderComponent* r = new TextBoxRenderComponent(*f, *c, xPos, yPos, s, stringToRender);
 	TextBoxInputComponent* i = new TextBoxInputComponent(*ih, *r);
-
+    TextFieldRenderComponent* fr = new TextFieldRenderComponent(xPos, yPos, 300, 36);
+   
+    e.addComponent(fr);
+    e.addComponent(i);
 	e.addComponent(r);
-	e.addComponent(i);
+    r->updatePosition(xPos, yPos);
+	
+
 }

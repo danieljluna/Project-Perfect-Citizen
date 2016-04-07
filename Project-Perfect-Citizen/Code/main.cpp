@@ -73,6 +73,7 @@ bool runBootDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
     font.loadFromFile(resourcePath() + "consola.ttf");
     
    
+   
     textLabelComponent* textLabel = new textLabelComponent(font,sf::Color::Green, 0,0, 20, " PCOS(C) , UNMOS. UNAUTHORIZED USE OF THIS TERMINAL CAN RESULT IN PENALTY BY DEATH. \n   Beginning File System Initialization \n");
     
     bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(*myDesktop.getButtonSheet(),*textLabel,7,5);
@@ -183,9 +184,12 @@ bool runPlayerDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
 	createPlayerDesktop(myDesktop, *myDesktop.getDesktopWindow(), 
 		myDesktop.getInputHandler(), *myDesktop.getIconSheet(), *myDesktop.getButtonSheet());
 
+
+    
     AudioQueue audiotest(5);
-    audiotest.addBgm("SoundTrack_Extraction.ogg");
+    audiotest.addBgm("SoundTrack_Pipeline.ogg");
     audiotest.playBgm();
+    
     
     
 	//FreeFunctionObserver <A>(&BaseFileType, triggerEnd);
@@ -234,6 +238,10 @@ bool runTargetDesktop(sf::RenderWindow& screen, ppc::Desktop& myDesktop) {
 	createTeacherDesktop(myDesktop, *myDesktop.getDesktopWindow(),
 		myDesktop.getInputHandler(), *myDesktop.getIconSheet(), *myDesktop.getButtonSheet());
 
+    AudioQueue audiotest(5);
+    audiotest.addBgm("SoundTrack_Extraction.ogg");
+    audiotest.playBgm();
+    
 		// Go into main game loop
 		sf::Clock deltaTime; 
 		sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
@@ -354,7 +362,7 @@ int main(int argc, char** argv) {
 	endDesktop.setButtonSheet(pixelSheet);
 	endDesktop.addBackgroundCmpnt(endWindow, playerWallpaper);
 
-
+   
 	/////////////////////////////////////////////
 	//Assuming Builders End Here
 	/////////////////////////////////////////////

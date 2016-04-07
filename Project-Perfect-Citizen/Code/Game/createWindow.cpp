@@ -54,6 +54,8 @@
 #include "../Game/ButtonBuilder.h"
 #include "../Game/TextDisplayBuilder.h"
 
+#include "../Game/TextBoxBuilder.h"
+
 using namespace ppc;
 
 const string PNG = ".png";
@@ -163,6 +165,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     Entity searchBoxEntity;
     searchBoxEntity.addComponent(searchBox);
     searchBoxEntity.addComponent(dSI);
+
     
     Entity resultsBoxEntity;
     resultsBoxEntity.addComponent(searchResults);
@@ -172,17 +175,76 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
 //    TestFunctionClass cool = new TestFunctionClass();
     spawnBackButton(dSI, backButton, ih, buttonSheet, 0, 0, 0.2f);
     
+    
+    Entity tbox;
+    TextBoxBuilder tbuilder;
+    tbuilder.setPosition(sf::Vector2f(200,200));
+    sf::Font thefont;
+    thefont.loadFromFile(resourcePath() + "consola.ttf");
+    tbuilder.setFont(thefont);
+    tbuilder.setString("text box");
+    tbuilder.setSize(12);
+    tbuilder.setColor(sf::Color::Black);
+    tbuilder.setInputHandle(ih);
+    tbuilder.create(tbox);
+
+    
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
     windowToModify->setPosition(x, y);
+    windowToModify->addEntity(tbox);
     windowToModify->addEntity(searchBoxEntity);
     windowToModify->addEntity(resultsBoxEntity);
     windowToModify->addEntity(characterProfile);
     windowToModify->addEntity(backButton);
+ 
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
+
+
+void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
+                        sf::Image& buttonSheet, float x, float y) {
+    if (windowToModify == nullptr) { return; }
+    
+    /////////////////////////////////////////
+    /////// COMPONENTS
+    ///////////////////////////////////////
+    sf::Font myFont;
+    myFont.loadFromFile(resourcePath() + "consola.ttf");
+    int fontSize = 20;
+    int windowOffset = 5;
+    
+    /* Create the render components */
+    sf::Image iconSheet;
+    iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
+      /////////////////////////////////////////
+    /////// ENTITIES
+    ///////////////////////////////////////
+    
+    Entity tbox;
+    TextBoxBuilder tbuilder;
+    tbuilder.setFont(myFont);
+    tbuilder.setSize(20);
+    tbuilder.setPosition(sf::Vector2f(200,200));
+    tbuilder.setColor(sf::Color::Black);
+    tbuilder.setString("text box");
+    tbuilder.setInputHandle(ih);
+    tbuilder.create(tbox);
+    
+    
+    /////////////////////////////////////////
+    /////// WINDOW CONSTRUCTION
+    ///////////////////////////////////////
+    windowToModify->setPosition(x, y);
+    windowToModify->addEntity(tbox);
+      
+    windowToModify = new BorderDecorator(*windowToModify);
+    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+}
+
+
 
 void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
 	sf::Image& buttonSheet, float x, float y) {
@@ -487,6 +549,8 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
+    
+    
 
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
