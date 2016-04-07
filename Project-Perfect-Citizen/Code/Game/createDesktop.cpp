@@ -20,6 +20,7 @@
 #include "createIcon.h"
 #include "createButton.h"
 #include "Database.h"
+#include "TextBoxBuilder.h"
 #include "desktopExtractionComponent.hpp"
 #include "emailExtraction.hpp"
 #include "TreeCommands.h"
@@ -84,9 +85,9 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 
 	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 250.0f, 475.0f, 0.5f, 0.30f, theInbox);
 	spawnSearchIcon(SearchIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 600.0f, 475.0f, 0.5f, 0.30f, theInbox);
-	
-	
-	desktopWindowToModify.addEntity(ConsoleIcon);
+
+    
+    desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
 	desktopWindowToModify.addEntity(HardDriveIcon);
 	desktopWindowToModify.addEntity(SearchIcon);
