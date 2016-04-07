@@ -22,18 +22,16 @@ public:
 	///////////////////////////////////////////////////////////////////
 	// Getters
 	///////////////////////////////////////////////////////////////////
-	int getIQ() const { return iq_;  }
 	int getAge() const { return age_; }
-	int getCreditScore() const { return creditScore_; }
 
 	std::string getSSN() const { return ssn_; }
 	std::string getEmail() const { return email_; }
 	std::string getPhoneNum() const { return phoneNumber_; }
 
-	//std::string getPersSocial() const { return persSocial_; }
-	//std::string getPersTakeIn() const { return persTakeIn_; }
-	//std::string getPersDecisions() const { return persDecisions_; }
-	//std::string getPersOuterLife() const { return persOuterLife_; }
+	int getPersAssertive() const { return persAssertive_; }
+	int getPersDirectness() const { return persDirectness_; }
+	int getPersJerk() const { return persJerk_; }
+
 
 	std::string getJob() const { return job_; }
     
@@ -94,18 +92,16 @@ private:
 	void generate();
 
 	///////////////////////////////////////////////////////////////////
-	/// @brief Sets income level, credit score, and criminality based
+	/// @brief Sets income level and criminality based
 	///        on previously generated factors
 	///////////////////////////////////////////////////////////////////
 	void calcIncomeAndCrim();
 
-	int iq_;
 	int age_;
-	int creditScore_;
 
-	// 0 - < HIGH SCHOOL, 1 - HIGH SCHOOL GRADUATE/SOME COLLEGE,
-	// 2 - BACHELORS DEGREE, 3 - POST GRADUATE TRAINING
-	// 4 - GRADUATE DEGREE
+	// 0 - DID NOT GRADUATE HIGH SCHOOL, 1 - HIGH SCHOOL GRADUATE
+	// 2 - ASSOCIATE DEGREE, 3 - BACHELORS DEGREE, 
+	// 4 - MASTERS DEGREE, 5 - DOCTORATE
 	int educationLevel_;
 
 	int annualIncome_;

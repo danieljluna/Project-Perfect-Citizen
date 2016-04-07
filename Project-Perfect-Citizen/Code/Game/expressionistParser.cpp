@@ -217,12 +217,6 @@ bool expr::ExpressionistParser::checkMarkUpPreconditions(const Json::Value& mark
 				if (makeComparison(speaker.getAge(), std::stoi(value), oper) == false) return false;
 				continue;
 			}
-
-			else if (markupNames[i].compare("iqPreconditions") == 0) {
-				//std::cout << "Making IQ comparison" << std::endl;
-				if (makeComparison(speaker.getIQ(), std::stoi(value), oper) == false) return false;
-				continue;
-			}
 			else if (markupNames[i].compare("linkSuspicion") == 0) {
 				if (link.getWeight() == 1) {
 					if (!(makeComparison("Ambiguous", value, oper) ||
@@ -241,28 +235,18 @@ bool expr::ExpressionistParser::checkMarkUpPreconditions(const Json::Value& mark
 				//needs target as well as speaker? or just link?
 				continue;
 			}
-			/*  NEED TO EDIT IN FOR NEW MARKUP NAMES
-			else if (markupNames[i].compare("social") == 0) {
-				//std::cout << "making social comparison" << std::endl;
-				if (makeComparison(speaker.getPersSocial(), value, oper) == false) return false;
-				continue;
-			}			
-			else if (markupNames[i].compare("outerLife") == 0) {
-				//std::cout << "making outerLife comparison" << std::endl;
-				if (makeComparison(speaker.getPersOuterLife(), value, oper) == false) return false;
-				continue;
-			}			
-			else if (markupNames[i].compare("decisions") == 0){
-				//std::cout << "making decisions comparison" << std::endl;
-				if (makeComparison(speaker.getPersDecisions(), value, oper) == false) return false;
+			else if (markupNames[i].compare("assertiveness") == 0) {
+				if (makeComparison(speaker.getPersAssertive(), std::stoi(value), oper) == false) return false;
 				continue;
 			}
-			else if (markupNames[i].compare("takeIn") == 0) {
-				//std::cout << "making takeIn comparison" << std::endl;
-				if (makeComparison(speaker.getPersTakeIn(), value, oper) == false) return false;
+			else if (markupNames[i].compare("directness") == 0) {
+				if (makeComparison(speaker.getPersDirectness(), std::stoi(value), oper) == false) return false;
 				continue;
 			}
-			*/
+			else if (markupNames[i].compare("jerk") == 0) {
+				if (makeComparison(speaker.getPersJerk(), std::stoi(value), oper) == false) return false;
+				continue;
+			}
 		}
 	}
 	
