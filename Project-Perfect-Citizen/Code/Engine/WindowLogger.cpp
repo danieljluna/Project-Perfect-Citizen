@@ -55,7 +55,7 @@ void WindowLogger::update(sf::Time& deltaTime) {
 	out_ << "Window Logger: Finished Updating Window" << std::endl;
 }
 
-void WindowLogger::registerInput(sf::Event& ev) {
+void WindowLogger::registerInput(sf::Event ev) {
 	out_ << "Window Logger: Registering Event: " << ev.type << std::endl;
 	this->getDecoTarget()->registerInput(ev);
 	out_ << "Window Logger: Finished Registering Event" << std::endl;

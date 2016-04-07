@@ -1,3 +1,11 @@
+//Used to get XCODE working/////////////////////////////////
+
+#ifdef WINDOWS_MARKER
+#define resourcePath() std::string("Resources/")
+#else
+#include "ResourcePath.hpp"
+#endif
+
 #include "../debug.h"
 #include "AudioQueue.h"
 #include "SFML/Audio.hpp"
@@ -9,19 +17,35 @@
 
 using namespace ppc;
 
-sf::Sound* AudioQueue::findOpenSound()
+std::pair<int, sf::Sound*> AudioQueue::findOpenSound()
 {
-
+	int i = 0;
+	std::pair<int, sf::Sound*> returnPair;
 	for (auto iter = soundStorage.begin(); iter != soundStorage.end(); iter++) {
 		if (iter->first == false) {
-			return &(iter->second);
+			iter->first = true;
+			returnPair.first = i;
+			returnPair.second = &(iter->second);
+			return returnPair;
 		}
+		i++;
 	}
-	return nullptr;
+	returnPair.first = -1;
+	returnPair.second = nullptr;
+	return returnPair;
+}
+void ppc::AudioQueue::releaseSound(int element)
+{
+	soundStorage.at(element).first = false;
 }
 AudioQueue::AudioQueue(int number)
 {
-	for (int i = 0; i < number; i++) {
+	int tempNumber = number;
+	if (tempNumber > maxSounds) {
+		tempNumber = maxSounds;
+		std::cout << "max sounds exceeded defaulting to maximum number" << std::endl;
+	}
+	for (int i = 0; i < tempNumber; i++) {
 		std::pair<bool, sf::Sound> newSoundPair;
 		sf::Sound newSound;
 		newSoundPair.first = false;
@@ -33,21 +57,33 @@ void AudioQueue::playSound(int sound)
 {
 	soundQueue.push(sound);
 }
+void AudioQueue::readySound(int sound) {
+	soundQueue.push(sound);
+}
 
 void AudioQueue::stopSound(int sound)
 {
+
+}
+
+void AudioQueue::stopAllSounds() {
+	for (auto iter = soundStorage.begin(); iter != soundStorage.end(); iter++) {
+		iter->second.stop();
+	}
 }
 
 void AudioQueue::popAndPlay()
 {
 	int front = soundQueue.front();
-	sf::Sound* tempSound = findOpenSound();
-	if (tempSound == nullptr) {
+	std::pair<int, sf::Sound*> findPair;
+	findPair = findOpenSound();
+	if (findPair.second == nullptr) {
 		return;
 	}
-	tempSound->setBuffer(this->bufferStorage.at(front).second);
-	tempSound->play();
+	findPair.second->setBuffer(bufferStorage.at(front).second);
+	findPair.second->play();
 	soundQueue.pop();
+	releaseSound(findPair.first);
 
 }
 
@@ -61,7 +97,7 @@ int AudioQueue::addSound(std::string name, std::string filename)
 	sf::SoundBuffer newBuffer;
 	std::pair<std::string, sf::SoundBuffer> newPair;
 
-	newBuffer.loadFromFile(filepath + filename);
+	newBuffer.loadFromFile(resourcePath() + filename);
 	newPair.first = name;
 	newPair.second = newBuffer;
 	bufferStorage.push_back(newPair);
@@ -72,7 +108,7 @@ int AudioQueue::addSound(std::string name, std::string filename)
 
 bool ppc::AudioQueue::addBgm(std::string filename)
 {
-	if (!bgm.openFromFile(this->filepath + filename))
+	if (!bgm.openFromFile(resourcePath() + filename))
 		return false; // error
 	 //SoundTrack_Extraction.ogg
 	return true;

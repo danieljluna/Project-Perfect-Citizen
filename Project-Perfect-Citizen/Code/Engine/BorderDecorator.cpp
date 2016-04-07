@@ -26,8 +26,7 @@ BorderDecorator::BorderDecorator(
     updateBorder();
 
     borderShape_.setFillColor(sf::Color(170,170,170));
-
-    //Set up space for buttons
+       //Set up space for buttons
     buttonInputs_ = new mousePressButton*[maxButtons_];
     buttonRenders_ = new buttonRenderComponent*[maxButtons_];
     buttonEntities_ = new Entity*[maxButtons_];
@@ -71,7 +70,7 @@ BorderDecorator::~BorderDecorator() {
 
 
 void BorderDecorator::addButton(sf::Image& buttonImage, 
-                                bool(*buttonFn)(WindowInterface*, sf::Event&)) {
+                                bool(*buttonFn)(WindowInterface*, Event)) {
     if (buttonCount_ < maxButtons_) {
         //Push back the button render cmpnt
         buttonRenders_[buttonCount_] = new buttonRenderComponent(buttonImage, 0, 3, 1, 1);
@@ -168,7 +167,6 @@ void BorderDecorator::setView(const sf::View& view) {
 void BorderDecorator::setPosition(float x, float y) {
     borderShape_.setPosition(x - borderTopLeft_.x, 
                              y - borderTopLeft_.y);
-
     WindowDecorator::setPosition(x, y);
 
     updateBounds();
@@ -189,6 +187,22 @@ void BorderDecorator::move(float x, float y) {
 
 void BorderDecorator::draw(sf::RenderTarget& target,
                            sf::RenderStates states) const {
+    //target.draw(borderWhite_, states);
+    //target.draw(borderShadow_, states);
+    sf::RectangleShape borderShadow;
+    sf::RectangleShape borderWhite;
+    sf::FloatRect bounds = getBounds();
+    
+    borderShadow.setFillColor(sf::Color::Black);
+    borderShadow.setSize(sf::Vector2f(bounds.width, bounds.height));
+    borderShadow.setPosition(sf::Vector2f(bounds.left+2,bounds.top+2));
+    
+    borderWhite.setFillColor(sf::Color::White);
+    borderWhite.setSize(sf::Vector2f(bounds.width+1, bounds.height+1));
+    borderWhite.setPosition(sf::Vector2f(bounds.left-1,bounds.top-1));
+    
+    target.draw(borderWhite, states);
+    target.draw(borderShadow, states);
     target.draw(borderShape_, states);
     WindowDecorator::draw(target, states);
     for (size_t i = 0; i < buttonCount_; ++i) {
@@ -254,7 +268,7 @@ void BorderDecorator::updateBorder() {
 
 
     borderShape_.setPosition(pos);
-
+    
     borderShape_.setSize(size);
 }
 
@@ -279,7 +293,7 @@ void BorderDecorator::updateButton(size_t i) {
 
 
 
-bool ppc::closeWindow(WindowInterface* win, sf::Event& ev) {
+bool ppc::closeWindow(WindowInterface* win, Event ev) {
     win->close();
 
     return true;

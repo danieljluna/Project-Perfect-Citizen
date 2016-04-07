@@ -67,9 +67,9 @@ public:
     /// @param buttonFn The desired action when the button is pressed.
     ///////////////////////////////////////////////////////////////////
     void addButton(sf::Image& buttonImage, 
-                   bool (*buttonFn)(WindowInterface*, sf::Event&));
+                   bool (*buttonFn)(WindowInterface*, Event));
 
-    friend bool closeWindow(WindowInterface* winInterface, sf::Event& ev);
+    friend bool closeWindow(WindowInterface* winInterface, Event ev);
 
 
   /////////////////////////////////////////////////////////////////////
@@ -133,8 +133,7 @@ private:
     //Stores the rectangle that is used to display the border.
     sf::RectangleShape borderShape_;
 
-    
-    
+   
     //Stores the input Component that allows the Window to be dragged
     //  via the BorderDecorator.
     DraggableInput draggableInput_;
@@ -162,7 +161,7 @@ private:
     /// @details Fits the format for function observers, but doesn't
     ///     make sue of the sf::Event as of now.
     ///////////////////////////////////////////////////////////////////
-    bool closeWindow(WindowInterface* winInterface, sf::Event& ev);
+    bool closeWindow(WindowInterface* winInterface, Event ev);
 
 };      //End namespace ppc
 
