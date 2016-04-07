@@ -109,6 +109,16 @@ void ppc::fn_cd(ppc::NodeState& state, const std::vector<std::string> words)
 	ppc::BaseFileType* parent = state.getCwd()->getParent();
 	for (auto iter = pathVec.begin(); iter != pathVec.end(); iter++) {
 		newDir = newDir->findElement(*iter);
+		if (newDir->isPasswordProtected()) {
+			std::cout << "Access Denied: Directory is Password Protected" << std::endl;
+			return;
+		}
+
+		if (newDir->isEncrypted()) {
+			std::cout << "Access Denied: Directory is Encrypted" << std::endl;
+			return;
+		}
+
 		if (newDir == nullptr) {
 			return;
 		}
@@ -126,10 +136,6 @@ void ppc::fn_cd(ppc::NodeState& state, const std::vector<std::string> words)
 				state.popWorking();
 			}
 		}
-	}
-	if (newDir->isEncrypted()) {
-        std::cout << "Access Denied: Directory is Encrypted" << std::endl;
-		return;
 	}
 	state.setCwd(newDir);
 }
@@ -190,6 +196,8 @@ void ppc::fn_pwd(ppc::NodeState& state, const std::vector<std::string> words) {
 
 void ppc::fn_unlock(ppc::NodeState & state, const std::vector<std::string> words)
 {
+	printVector(words);
+
 	if (words.size() == 1 || words.size() == 2) {
 		std::cout << "invalid paramaters. Must be 'unlock [filename] [password] " << std::endl;
 		return;
@@ -206,6 +214,10 @@ void ppc::fn_unlock(ppc::NodeState & state, const std::vector<std::string> words
 	std::string filename = words.at(1);
 	ppc::BaseFileType* tempCWD;
 	tempCWD = state.getCwd()->findElement(filename);
+	if (tempCWD == nullptr) {
+		std::cout << "File not found" << std::endl;
+		return;
+	}
 	if (!tempCWD->isPasswordProtected()) {
 		std::cout << "File is not password protected" << std::endl;
 		return;

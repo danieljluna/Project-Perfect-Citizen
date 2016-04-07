@@ -145,6 +145,12 @@ std::string BaseFileType::getFileData()
 	return this->fileData;
 }
 
+void ppc::BaseFileType::setPassword(std::string pwd)
+{
+	password = pwd;
+	passwordProtected = true;
+}
+
 bool ppc::BaseFileType::comparePassword(std::string input)
 {
 	if (input == password) {

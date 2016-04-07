@@ -37,7 +37,8 @@ textOutputRenderComponent::~textOutputRenderComponent() {
 }
 
 void textOutputRenderComponent::updateString(std::vector<string> cmd) {
-	
+	//printVector(cmd);
+
 	/* Print out what was just typed */
 	str_ = str_ + "> ";
 	for (auto iter = cmd.begin(); iter != cmd.end(); ++iter) {
@@ -137,7 +138,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		std::cout << "what..." << std::endl;
 	}
 	else if (cmd.at(0) == "unlock") {
-		std::cout << "ya made the right choice" << std::endl;
+		//std::cout << "ya made the right choice" << std::endl;
 		/*
 		std::vector<string> mkdirCommand;
 		string mkdir = "mkdir";
@@ -151,6 +152,9 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		string unlock = "unlock";
 		unlockCommand.push_back(unlock);
 		unlockCommand.push_back(cmd.at(1));
+		if (cmd.size() == 3) {
+			unlockCommand.push_back(cmd.at(2));
+		}
 		commandFn newCommand = findFunction(unlock);
 		newCommand(fileTree_, unlockCommand);
 		numDisplayedLines++;

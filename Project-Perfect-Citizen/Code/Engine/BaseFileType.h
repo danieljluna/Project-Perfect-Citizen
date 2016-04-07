@@ -151,6 +151,8 @@ namespace ppc {
 
 		virtual std::string getFileData();
 
+		virtual void setPassword(std::string pwd);
+
 		virtual bool comparePassword(std::string input);
 
 		virtual bool isPasswordProtected();
