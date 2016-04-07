@@ -42,6 +42,8 @@ namespace ppc {
 		// Desktop Manipulation
 		/////////////////////////////////////////////////////////////////
 
+		void switchDesktop(ppc::Desktop&);
+
 		bool runDesktop(ppc::Desktop&);
 
 		bool runCurrDesktop();

@@ -127,17 +127,24 @@ int main(int argc, char** argv) {
 	Debug::scanOpts(argc, argv);
 	DEBUGF("ac", argc);
 
-	World testWorld;
-	ifstream ifs("Saves/Desktop.ini", std::ifstream::in);
-	ifs >> testWorld;
+	//Dont touch these comments please.
+	//World testWorld;
+	//ifstream ifs("Saves/Desktop.ini", std::ifstream::in);
+	//ifs >> testWorld;
 
+	
 	bool BootToTitleCard = false; 
     // Create the main sf::window
-    sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
+    sf::RenderWindow* screen = new sf::RenderWindow(sf::VideoMode(1000, 800), "SFML window");
+
+	//Dont touch these comments please.
+	//testWorld.setGameScreen(*screen);
+	//testWorld.runCurrDesktop();
+
 	AudioQueue audiotest(5);
 	audiotest.addBgm("SoundTrack_Extraction.ogg");
 	audiotest.playBgm();
-
+	
 	///////////// Load Spritesheets/Textures/Background Images ////////
 	sf::Sprite playerWallpaper;
 	sf::Sprite teacherWallpaper;
@@ -210,7 +217,7 @@ int main(int argc, char** argv) {
 	//Assuming Builders End Here
 	/////////////////////////////////////////////
 	
-	World* gameWorld = new World(screen);
+	World* gameWorld = new World(*screen);
 
 	//Main Loops for each Desktops
 	runBootDesktop(*bootDesktop);
@@ -234,7 +241,7 @@ int main(int argc, char** argv) {
 	delete endDesktop;
 
 	delete gameWorld;
-
+	
     return EXIT_SUCCESS;
 }
 

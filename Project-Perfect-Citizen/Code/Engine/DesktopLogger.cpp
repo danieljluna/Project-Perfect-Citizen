@@ -66,6 +66,19 @@ NodeState* DesktopLogger::getNodeState() {
 
 }
 
+void ppc::DesktopLogger::setInbox(Inbox &i) {
+	loggedDesktop_->setInbox(i);
+}
+
+Inbox * ppc::DesktopLogger::getInbox() {
+	return loggedDesktop_->getInbox();
+}
+
+void ppc::DesktopLogger::setNodeState(NodeState &n) {
+
+	loggedDesktop_->setNodeState(n);
+}
+
 void DesktopLogger::registerInput(sf::Event ev) {
 	out_ << "DesktopLogger: Registering Input Event: " <<
 		ev.type << std::endl;

@@ -33,6 +33,9 @@ namespace ppc {
 		void setButtonSheet(sf::Image& sheet);
 		sf::Image* getButtonSheet();
 		NodeState* getNodeState();
+		void setInbox(Inbox&);
+		Inbox* getInbox();
+		void setNodeState(NodeState&);
 		void addBackgroundCmpnt(WindowInterface*, sf::Sprite&);
 		void registerInput(sf::Event ev);
 		void update(sf::Time&);

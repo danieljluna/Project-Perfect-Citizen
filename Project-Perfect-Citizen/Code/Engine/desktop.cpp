@@ -12,6 +12,7 @@
 #include "NodeState.h"
 #include "BaseFileType.h"
 #include "desktop.h"
+#include "../Game/Inbox.h"
 #include "debug.h"
 
 #include "../Game/WindowBkgndRenderCmpnt.h"
@@ -21,6 +22,7 @@ ppc::Desktop::Desktop() {
 	nodeState_ = nullptr;
 	iconSheet_ = nullptr;
 	buttonSheet_ = nullptr;
+	inbox_ = nullptr;
 	desktopWindow_ = nullptr;
 	focused_ = nullptr;
 }
@@ -30,6 +32,7 @@ ppc::Desktop::Desktop(WindowInterface& bkgndWin, NodeState& n) {
 	nodeState_ = new NodeState(n);
 	iconSheet_ = nullptr;
 	buttonSheet_ = nullptr;
+	inbox_ = nullptr;
 	windows_.push_back(&bkgndWin);
 	desktopWindow_ = &bkgndWin;
 	focused_ = desktopWindow_;
@@ -43,20 +46,23 @@ ppc::Desktop::Desktop(const Desktop& other) {
 	this->desktopWindow_ = other.desktopWindow_;
 	this->focused_ = other.focused_;
 	this->iconSheet_ = other.iconSheet_;
-
+	this->buttonSheet_ = other.buttonSheet_;
+	this->inbox_ = other.inbox_;
 }
 
 ppc::Desktop::~Desktop() {
 	if (style_ != nullptr) delete style_;
 	if (nodeState_ != nullptr) delete nodeState_;
+	//if (iconSheet_ != nullptr) delete iconSheet_;
+	//if (buttonSheet_ != nullptr) delete buttonSheet_;
+	if (inbox_ != nullptr) delete inbox_;
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 		delete *it;
 	}
 	focused_ = nullptr;
 	desktopWindow_ = nullptr;
 	windows_.clear();
-	//if (iconSheet_ != nullptr) delete iconSheet_;
-	//if (buttonSheet_ != nullptr) delete buttonSheet_;
+
 }
 
 
@@ -175,6 +181,10 @@ ppc::NodeState* ppc::Desktop::getNodeState() {
 	return nodeState_;
 }
 
+void ppc::Desktop::setNodeState(NodeState &n) {
+	nodeState_ = &n;
+}
+
 ppc::InputHandler& ppc::Desktop::getInputHandler() {
 	return desktopWindow_->getInputHandler();
 }
@@ -187,6 +197,14 @@ void ppc::Desktop::addBackgroundCmpnt(WindowInterface* wi, sf::Sprite& s) {
 	if (wi == nullptr) return;
 	WindowBkgndRenderCmpnt* wBRC = new WindowBkgndRenderCmpnt(s);
 	wi->addRenderComponent(wBRC);
+}
+
+void ppc::Desktop::setInbox(Inbox &i) {
+	inbox_ = &i;
+}
+
+ppc::Inbox * ppc::Desktop::getInbox() {
+	return inbox_;
 }
 
 void ppc::Desktop::registerInput(sf::Event ev) {
