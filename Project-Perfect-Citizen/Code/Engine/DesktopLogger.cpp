@@ -46,7 +46,7 @@ void ppc::DesktopLogger::addBkgndWindow(WindowInterface * bkgndWin) {
 	loggedDesktop_->addBkgndWindow(bkgndWin);
 }
 
-sf::Image * ppc::DesktopLogger::getIconSheet() {
+sf::Image ppc::DesktopLogger::getIconSheet() {
 	out_ << "DesktopLogger: Getting Icon Sheet" << std::endl;
 	return loggedDesktop_->getIconSheet();
 }
@@ -55,11 +55,11 @@ void ppc::DesktopLogger::setButtonSheet(sf::Image & sheet) {
 	loggedDesktop_->setButtonSheet(sheet);
 }
 
-sf::Image * ppc::DesktopLogger::getButtonSheet() {
+sf::Image ppc::DesktopLogger::getButtonSheet() {
 	return loggedDesktop_->getButtonSheet();
 }
 
-NodeState* DesktopLogger::getNodeState() {
+ppc::NodeState DesktopLogger::getNodeState() {
 	out_ << "DesktopLogger: Getting Root" << std::endl;
 
 	return loggedDesktop_->getNodeState();
@@ -70,13 +70,17 @@ void ppc::DesktopLogger::setInbox(Inbox &i) {
 	loggedDesktop_->setInbox(i);
 }
 
-Inbox * ppc::DesktopLogger::getInbox() {
+Inbox ppc::DesktopLogger::getInbox() {
 	return loggedDesktop_->getInbox();
 }
 
 void ppc::DesktopLogger::setNodeState(NodeState &n) {
 
 	loggedDesktop_->setNodeState(n);
+}
+
+void ppc::DesktopLogger::setBackgrond(sf::Sprite s) {
+	loggedDesktop_->setBackgrond(s);
 }
 
 void DesktopLogger::registerInput(sf::Event ev) {
@@ -104,12 +108,4 @@ void DesktopLogger::refresh(sf::RenderStates states) {
 	loggedDesktop_->refresh(states);
 
 	out_ << "DesktopLogger: Finished Refreshing Window" << std::endl;
-}
-
-void DesktopLogger::addBackgroundCmpnt(WindowInterface* wi, sf::Sprite& s) {
-
-	out_ << "DesktopLogger: Added a Background Sprite: " <<
-		loggedDesktop_ << std::endl;
-
-	loggedDesktop_->addBackgroundCmpnt(wi, s);
 }

@@ -75,7 +75,7 @@ void runBootDesktop(ppc::Desktop& myDesktop) {
     
     textLabelComponent* textLabel = new textLabelComponent(font,sf::Color::Green, 0,0, 20, " PCOS(C) , UNMOS. UNAUTHORIZED USE OF THIS TERMINAL CAN RESULT IN PENALTY BY DEATH. \n   Beginning File System Initialization \n");
     
-    bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(*myDesktop.getButtonSheet(),*textLabel,7,5);
+    bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(myDesktop.getButtonSheet(),*textLabel,7,5);
 
     bootLoadingUpdateComponent* bootUpdate = new bootLoadingUpdateComponent(*bootRender,0.1f);
 
@@ -98,7 +98,7 @@ void runEndDesktop(ppc::Desktop& myDesktop) {
     sf::Font font;
     font.loadFromFile(resourcePath() + "consola.ttf");
     
-    endingAnimationRender* endRender = new endingAnimationRender(*myDesktop.getButtonSheet());
+    endingAnimationRender* endRender = new endingAnimationRender(myDesktop.getButtonSheet());
     endAnimationUpdateComponent* endUpdate = new endAnimationUpdateComponent(*endRender, 0.1f);
     
     ending.addComponent(endRender);
@@ -111,13 +111,13 @@ void runEndDesktop(ppc::Desktop& myDesktop) {
 
 void runPlayerDesktop(ppc::Desktop& myDesktop) {
 	createPlayerDesktop(myDesktop, *myDesktop.getDesktopWindow(), 
-		myDesktop.getInputHandler(), *myDesktop.getIconSheet(), *myDesktop.getButtonSheet());
+		myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
 }
 
 
 void runTargetDesktop(ppc::Desktop& myDesktop) {
 	createTeacherDesktop(myDesktop, *myDesktop.getDesktopWindow(),
-		myDesktop.getInputHandler(), *myDesktop.getIconSheet(), *myDesktop.getButtonSheet());
+		myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
 }
 
 int main(int argc, char** argv) {
@@ -141,6 +141,7 @@ int main(int argc, char** argv) {
 	//testWorld.setGameScreen(*screen);
 	//testWorld.runCurrDesktop();
 
+	
 	AudioQueue audiotest(5);
 	audiotest.addBgm("SoundTrack_Extraction.ogg");
 	audiotest.playBgm();
@@ -181,7 +182,7 @@ int main(int argc, char** argv) {
 	Desktop* bootDesktop = new Desktop(*bootWindow, bootState);
 	bootDesktop->setIconSheet(iconSheet);
 	bootDesktop->setButtonSheet(buttonSheet);
-	bootDesktop->addBackgroundCmpnt(bootWindow, playerWallpaper);
+	bootDesktop->setBackgrond(playerWallpaper);
 
 	//runPlayerDesktop
 	ppc::NodeState playerState;
@@ -191,7 +192,7 @@ int main(int argc, char** argv) {
 	Desktop* playerDesktop = new Desktop(*playerDesktopWindow, playerState);
 	playerDesktop->setIconSheet(iconSheet);
 	playerDesktop->setButtonSheet(buttonSheet);
-	playerDesktop->addBackgroundCmpnt(playerDesktopWindow, playerWallpaper);
+	playerDesktop->setBackgrond(playerWallpaper);
 
 	//runTargetDesktop
 	ppc::NodeState targetState;
@@ -201,7 +202,7 @@ int main(int argc, char** argv) {
 	Desktop* targetDesktop = new Desktop(*targetDesktopWindow, targetState);
 	targetDesktop->setIconSheet(iconSheet);
 	targetDesktop->setButtonSheet(buttonSheet);
-	targetDesktop->addBackgroundCmpnt(targetDesktopWindow, teacherWallpaper);
+	targetDesktop->setBackgrond(teacherWallpaper);
 
 	//runEndDesktop
 	ppc::NodeState endState;
@@ -210,7 +211,7 @@ int main(int argc, char** argv) {
 	Desktop* endDesktop = new Desktop(*endWindow, endState);
 	endDesktop->setIconSheet(iconSheet);
 	endDesktop->setButtonSheet(pixelSheet);
-	endDesktop->addBackgroundCmpnt(endWindow, playerWallpaper);
+	endDesktop->setBackgrond(playerWallpaper);
 
 
 	/////////////////////////////////////////////
@@ -242,6 +243,7 @@ int main(int argc, char** argv) {
 
 	delete gameWorld;
 	
+
     return EXIT_SUCCESS;
 }
 

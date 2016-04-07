@@ -1,8 +1,3 @@
-#ifdef WINDOWS_MARKER
-	#define resourcePath() std::string("Resources/")
-#else
-	#include "ResourcePath.hpp"
-#endif
 
 #include <fstream>
 #include <string>
@@ -53,16 +48,6 @@ ppc::Desktop* ppc::World::getCurrDesktop() {
 	return currDesktop_;
 }
 
-void ppc::World::switchDesktop(ppc::Desktop& newDeskop) {
-	if (currDesktop_ == nullptr) {
-		currDesktop_ = &newDeskop;
-	} else {
-		delete currDesktop_;
-		currDesktop_ = &newDeskop;
-	}
-
-}
-
 bool ppc::World::runDesktop(ppc::Desktop &myDesktop) {
 	if (screen_ == nullptr) return false;
 
@@ -106,66 +91,10 @@ bool ppc::World::runCurrDesktop() {
 
 
 std::istream& ppc::operator>>(std::istream& in, World& world) {
-	std::string line;
-
-	ppc::Desktop* importDesktop = new Desktop();
-	Window* bkgndWindow =
-		new Window(1800, 1000, sf::Color(0, 0, 0));
-	importDesktop->addBkgndWindow(bkgndWindow);
-
-	NodeState* ft = new NodeState();
-	ft->setUp();
-	importDesktop->setNodeState(*ft);
-
-
-	while (std::getline(in,line)) {
-		size_t pos = line.find_first_of(":");
-		std::string key = line.substr(0, pos);
-		std::string file = line.substr(pos + 2);
-		DEBUGF("wc", key << ": " << file);
-//remember to tell everyone to use new for Images, 
-//Sprites, etc for Desktop stuff because now Desktop now expects it.
-		if (key == "Icons") {
-			sf::Image* iconSheet = new sf::Image();
-			iconSheet->loadFromFile(resourcePath() + file);
-			importDesktop->setIconSheet(*iconSheet);
-		} else if (key == "Buttons") {
-			sf::Image* buttonSheet = new sf::Image();
-			buttonSheet->loadFromFile(resourcePath() + file);
-			importDesktop->setButtonSheet(*buttonSheet);
-		} else if (key == "Background") {
-			sf::Sprite* wallpaper = new sf::Sprite();
-			sf::Texture* bkgndTexture = new sf::Texture();
-			bkgndTexture->loadFromFile(resourcePath() + file);
-			wallpaper->setTexture(*bkgndTexture);
-			wallpaper->setScale(0.7f, 0.7f);
-			wallpaper->setPosition(0.f, 0.f);
-			importDesktop->addBackgroundCmpnt(importDesktop->getDesktopWindow(), *wallpaper);
-		} else if (key == "Filetree") {
-			desktopExtractionComponent* desktopFiles = 
-				new desktopExtractionComponent(*importDesktop->getNodeState());
-			Json::Value parsed = 
-				desktopFiles->parseDesktopAsJson(resourcePath() + file, "Desktop");
-			delete desktopFiles;
-		} else if (key == "Emails") {
-			Inbox* theInbox = new Inbox();
-
-			emailExtraction inbox;
-			inbox.parseEmailAsJson(resourcePath() + file);
-
-			for (unsigned int i = 0; i < inbox.getSubject().size(); i++) {
-				Email testEmail1(inbox.getTo().at(i), 
-								inbox.getFrom().at(i), 
-								inbox.getSubject().at(i), 
-								inbox.getBody().at(i), 
-								"image.jpg");
-				theInbox->addEmailToList(testEmail1);
-			}
-			importDesktop->setInbox(*theInbox);
-		}	
-	}
-
-	world.switchDesktop(*importDesktop);
-
+	if (world.currDesktop_ != nullptr) delete world.currDesktop_;
+		
+	world.currDesktop_ = new Desktop();
+	in >> *world.currDesktop_;
+	
 	return in;
 }

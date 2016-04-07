@@ -42,16 +42,14 @@ namespace ppc {
 		// Desktop Manipulation
 		/////////////////////////////////////////////////////////////////
 
-		void switchDesktop(ppc::Desktop&);
-
 		bool runDesktop(ppc::Desktop&);
 
 		bool runCurrDesktop();
 
+
+		friend std::istream& operator>>(std::istream& in, World& world);
 	};
 
 	// operator>>
-	//NOT part of the world class so that the call can look like:
-	//	in >> world (instead of world >> in, which is confusing)
 	std::istream& operator>>(std::istream& in, World& world);
 };

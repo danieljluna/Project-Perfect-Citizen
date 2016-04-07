@@ -1,5 +1,13 @@
 //desktop.cpp
 // Nader Sleem
+
+#ifdef WINDOWS_MARKER
+#define resourcePath() std::string("Resources/")
+#else
+#include "ResourcePath.hpp"
+#endif
+
+
 #include "Window.h"
 #include "BorderDecorator.h"
 
@@ -9,30 +17,30 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Window/Event.hpp>
 
-#include "NodeState.h"
-#include "BaseFileType.h"
 #include "desktop.h"
-#include "../Game/Inbox.h"
 #include "debug.h"
 
 #include "../Game/WindowBkgndRenderCmpnt.h"
+#include "../Game/Inbox.h"
+#include "../Game/Email.h"
+#include "../Game/emailExtraction.hpp"
+#include "../Game/desktopExtractionComponent.hpp"
+
 
 ppc::Desktop::Desktop() {
-	style_ = nullptr;
-	nodeState_ = nullptr;
-	iconSheet_ = nullptr;
-	buttonSheet_ = nullptr;
-	inbox_ = nullptr;
+	nodeState_.setUp();
+	//iconSheet_;
+	//buttonSheet_;
+	//inbox_;
 	desktopWindow_ = nullptr;
 	focused_ = nullptr;
 }
 
 ppc::Desktop::Desktop(WindowInterface& bkgndWin, NodeState& n) {
-	style_ = nullptr;
-	nodeState_ = new NodeState(n);
-	iconSheet_ = nullptr;
-	buttonSheet_ = nullptr;
-	inbox_ = nullptr;
+	nodeState_ = n;
+	//iconSheet_;
+	//buttonSheet_;
+	//inbox_;
 	windows_.push_back(&bkgndWin);
 	desktopWindow_ = &bkgndWin;
 	focused_ = desktopWindow_;
@@ -40,7 +48,6 @@ ppc::Desktop::Desktop(WindowInterface& bkgndWin, NodeState& n) {
 }
 
 ppc::Desktop::Desktop(const Desktop& other) {
-	this->style_ = other.style_;
 	this->nodeState_ = other.nodeState_;
 	this->windows_ = other.windows_;
 	this->desktopWindow_ = other.desktopWindow_;
@@ -51,11 +58,11 @@ ppc::Desktop::Desktop(const Desktop& other) {
 }
 
 ppc::Desktop::~Desktop() {
-	if (style_ != nullptr) delete style_;
-	if (nodeState_ != nullptr) delete nodeState_;
+	//if (nodeState_ != nullptr) delete nodeState_;
 	//if (iconSheet_ != nullptr) delete iconSheet_;
 	//if (buttonSheet_ != nullptr) delete buttonSheet_;
-	if (inbox_ != nullptr) delete inbox_;
+	//if (inbox_ != nullptr) delete inbox_;
+
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 		delete *it;
 	}
@@ -160,29 +167,37 @@ void ppc::Desktop::addBkgndWindow(WindowInterface* bkgndWin) {
 	focused_ = desktopWindow_;
 }
 
-void ppc::Desktop::setIconSheet(sf::Image & sheet) {
-	this->iconSheet_ = &sheet;
+void ppc::Desktop::setIconSheet(sf::Image sheet) {
+	this->iconSheet_ = sheet;
 }
 
-sf::Image * ppc::Desktop::getIconSheet() {
+sf::Image ppc::Desktop::getIconSheet() {
 	return iconSheet_;
 }
 
-void ppc::Desktop::setButtonSheet(sf::Image & sheet) {
-	this->buttonSheet_ = &sheet;
+void ppc::Desktop::setButtonSheet(sf::Image sheet) {
+	this->buttonSheet_ = sheet;
 }
 
-sf::Image * ppc::Desktop::getButtonSheet() {
+sf::Image ppc::Desktop::getButtonSheet() {
 	return buttonSheet_;
 }
 
 
-ppc::NodeState* ppc::Desktop::getNodeState() {
+ppc::NodeState ppc::Desktop::getNodeState() {
 	return nodeState_;
 }
 
-void ppc::Desktop::setNodeState(NodeState &n) {
-	nodeState_ = &n;
+void ppc::Desktop::setNodeState(NodeState n) {
+	nodeState_ = n;
+}
+
+void ppc::Desktop::setBackgrond(sf::Sprite s) {
+	background_ = s;
+	if (desktopWindow_ == nullptr) return;
+	WindowBkgndRenderCmpnt* wBRC = new WindowBkgndRenderCmpnt(background_);
+	desktopWindow_->addRenderComponent(wBRC);
+	
 }
 
 ppc::InputHandler& ppc::Desktop::getInputHandler() {
@@ -193,17 +208,11 @@ ppc::WindowInterface* ppc::Desktop::getDesktopWindow() {
 	return desktopWindow_;
 }
 
-void ppc::Desktop::addBackgroundCmpnt(WindowInterface* wi, sf::Sprite& s) {
-	if (wi == nullptr) return;
-	WindowBkgndRenderCmpnt* wBRC = new WindowBkgndRenderCmpnt(s);
-	wi->addRenderComponent(wBRC);
+void ppc::Desktop::setInbox(Inbox i) {
+	inbox_ = i;
 }
 
-void ppc::Desktop::setInbox(Inbox &i) {
-	inbox_ = &i;
-}
-
-ppc::Inbox * ppc::Desktop::getInbox() {
+ppc::Inbox ppc::Desktop::getInbox() {
 	return inbox_;
 }
 
@@ -271,4 +280,55 @@ bool ppc::Desktop::isMouseCollision(WindowInterface* wi,
 	}
 
 	return result;
+}
+
+
+std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
+	std::string line;
+
+	ppc::Desktop* importDesktop = &desktop;
+	ppc::Window* bkgndWindow =
+		new ppc::Window(1800, 1000, sf::Color(0, 0, 0));
+	importDesktop->addBkgndWindow(bkgndWindow);
+
+	while (std::getline(in, line)) {
+		size_t pos = line.find_first_of(":");
+		std::string key = line.substr(0, pos);
+		std::string file = line.substr(pos + 2);
+		DEBUGF("wc", key << " " << file)
+		if (key == "Icons") {
+			importDesktop->iconSheet_.loadFromFile(resourcePath() + file);
+
+		} else if (key == "Buttons") {
+			importDesktop->buttonSheet_.loadFromFile(resourcePath() + file);
+
+		} else if (key == "Background") {
+			importDesktop->backgndTexture_.loadFromFile(resourcePath() + file);
+			importDesktop->background_.setScale(0.7f, 0.7f);
+			importDesktop->background_.setPosition(0.f, 0.f);
+			importDesktop->background_.setTexture(importDesktop->backgndTexture_);
+			WindowBkgndRenderCmpnt* wBRC = 
+				new WindowBkgndRenderCmpnt(importDesktop->background_);
+			importDesktop->desktopWindow_->addRenderComponent(wBRC);
+
+		} else if (key == "Filetree") {
+			ppc::desktopExtractionComponent desktopFiles(importDesktop->nodeState_);
+			Json::Value parsed =
+				desktopFiles.parseDesktopAsJson(resourcePath() + file, "Desktop");
+		} else if (key == "Emails") {
+			ppc::emailExtraction inbox;
+			inbox.parseEmailAsJson(resourcePath() + file);
+			//Broken, need to ask brandon
+			for (unsigned int i = 0; i < inbox.getSubject().size(); i++) {
+				ppc::Email testEmail1(inbox.getTo().at(i),
+					inbox.getFrom().at(i),
+					inbox.getSubject().at(i),
+					inbox.getBody().at(i),
+					"image.jpg");
+				importDesktop->inbox_.addEmailToList(testEmail1);
+			}
+		}
+	}
+
+	return in;
 }

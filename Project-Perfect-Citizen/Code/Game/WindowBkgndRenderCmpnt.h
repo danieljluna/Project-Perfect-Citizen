@@ -21,7 +21,7 @@ private:
 ///@brief The sprite of the background. Must be created before passing
 /// to the Ctor.
 ///////////////////////////////////////////////////////////////////////
-	sf::Sprite* sprt;
+	sf::Sprite sprt;
 
 public:
 
@@ -31,7 +31,7 @@ public:
 ///@brief Ctor
 ///@param [in] s The sprite that is to be the background of the Window.
 ///////////////////////////////////////////////////////////////////////
-	WindowBkgndRenderCmpnt(sf::Sprite& s);
+	WindowBkgndRenderCmpnt(sf::Sprite s);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Dtor
