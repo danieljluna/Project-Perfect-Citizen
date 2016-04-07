@@ -134,6 +134,26 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 	}
 	else if ( 
 		cmd.at(0) == "decrypt" || cmd.at(0) == "encrypt") {
+		std::cout << "what..." << std::endl;
+	}
+	else if (cmd.at(0) == "unlock") {
+		std::cout << "ya made the right choice" << std::endl;
+		/*
+		std::vector<string> mkdirCommand;
+		string mkdir = "mkdir";
+		mkdirCommand.push_back(mkdir);
+		mkdirCommand.push_back(cmd.at(1));
+		commandFn newCD = findFunction(mkdir);
+		newCD(fileTree_, mkdirCommand);
+		numDisplayedLines++;
+		*/
+		std::vector<string> unlockCommand;
+		string unlock = "unlock";
+		unlockCommand.push_back(unlock);
+		unlockCommand.push_back(cmd.at(1));
+		commandFn newCommand = findFunction(unlock);
+		newCommand(fileTree_, unlockCommand);
+		numDisplayedLines++;
 	}
 	else { 
 		str_ = str_ + "Error: command '" + cmd.at(0) + 

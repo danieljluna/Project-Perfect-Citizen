@@ -1,17 +1,19 @@
 #include "../Engine/debug.h"
 #include "TreeCommands.h"
 #include "../Engine/NodeState.h"
+#include <string>
 
 using namespace ppc;
 
 fnMap functionMap{
-	{ "cd"		,	fn_cd },
-	{ "ls"		,	fn_ls },
-	{ "make"	,	fn_mkfile },
-	{ "mkdir"	,	fn_mkDir },
-	{ "decrypt"	,	fn_decrypt },
-	{ "encrypt"	,   fn_decrypt },
-	{"pwd"      ,   fn_pwd }
+	{ "cd"		,	fn_cd		},
+	{ "ls"		,	fn_ls		},
+	{ "make"	,	fn_mkfile	},
+	{ "mkdir"	,	fn_mkDir	},
+	{ "decrypt"	,	fn_decrypt	},
+	{ "encrypt"	,   fn_decrypt	},
+	{ "pwd"     ,   fn_pwd		},
+	{ "unlock"	,	fn_unlock	}
 };
 
 commandFn ppc::findFunction(const std::string& command) {
@@ -87,9 +89,11 @@ void ppc::fn_cd(ppc::NodeState& state, const std::vector<std::string> words)
 	if (words.at(1) == ".") {
 		return;
 	}
-	if (words.at(1) == "/" || words.at(1).substr(0,1) == "/") {
+	if (/*words.at(1) == "/" ||*/ words.at(1).substr(0,1) == "/") {
 		state.moveToRoot();
-		return;
+		if (words.at(1).size() == 1) {
+			return;
+		}
 	}
 	if (words.at(1) == "..") {
 		if (state.getCwd() == state.getRoot()) {
@@ -182,6 +186,36 @@ void ppc::fn_decrypt(ppc::NodeState & state, const std::vector<std::string> word
 
 void ppc::fn_pwd(ppc::NodeState& state, const std::vector<std::string> words) {
     state.printWorking();
+}
+
+void ppc::fn_unlock(ppc::NodeState & state, const std::vector<std::string> words)
+{
+	if (words.size() == 1 || words.size() == 2) {
+		std::cout << "invalid paramaters. Must be 'unlock [filename] [password] " << std::endl;
+		return;
+	}
+	if (words.at(1).substr(0, 1) == "/") {
+		std::cout << "You must be in the directory of the file or folder to unlock it"
+			<< std::endl;
+		return;
+	}
+	if (words.at(1).find_first_of("/") != std::string::npos) {
+		std::cout << "Filepaths not allowed" << std::endl;
+		return;
+	}
+	std::string filename = words.at(1);
+	ppc::BaseFileType* tempCWD;
+	tempCWD = state.getCwd()->findElement(filename);
+	if (!tempCWD->isPasswordProtected()) {
+		std::cout << "File is not password protected" << std::endl;
+		return;
+	}
+	bool isUnlocked = tempCWD->comparePassword(words.at(2));
+	if (isUnlocked) {
+		std::cout << "Access Granted" << std::endl;
+		return;
+	}
+	std::cout << "Password Incorrect. Access Denied" << std::endl;
 }
 
 
