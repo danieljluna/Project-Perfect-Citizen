@@ -70,13 +70,20 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		theDesktop_.addWindow(piplineWindow);
 		openedWindow = piplineWindow;
 	}
-	else if (msg.compare(OPEN_THE_HELP) == 0) {
+	/*else if (msg.compare(OPEN_THE_HELP) == 0) {
 		ppc::WindowInterface* ErrorMsgWindow =
 			new ppc::Window(500, 150, sf::Color(255, 255, 255));
 		spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
 		theDesktop_.addWindow(ErrorMsgWindow);
 		openedWindow = ErrorMsgWindow;
-	}
+     }*/
+    else if (msg.compare(OPEN_THE_HELP) == 0) {
+         ppc::WindowInterface* helpWindow =
+         new ppc::Window(600, 600, sf::Color(200,200,200));
+         spawnHelp(helpWindow, helpWindow->getInputHandler(), buttonSheet_, 100, 100);
+         theDesktop_.addWindow(helpWindow);
+         openedWindow = helpWindow;
+     }
 	else if (msg.compare(OPEN_THE_BROWSER) == 0) {
 		ppc::WindowInterface* ErrorMsgWindow =
 			new ppc::Window(500, 150, sf::Color(255, 255, 255));

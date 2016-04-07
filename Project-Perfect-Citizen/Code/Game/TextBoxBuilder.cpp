@@ -40,13 +40,13 @@ void ppc::TextBoxBuilder::setInputHandle(ppc::InputHandler& inputHandle) {
 
 void ppc::TextBoxBuilder::create(Entity& e) {
 	TextBoxRenderComponent* r = new TextBoxRenderComponent(*f, *c, xPos, yPos, s, stringToRender);
-    r->updatePosition(xPos, yPos);
 	TextBoxInputComponent* i = new TextBoxInputComponent(*ih, *r);
     TextFieldRenderComponent* fr = new TextFieldRenderComponent(xPos, yPos, 300, 36);
    
     e.addComponent(fr);
     e.addComponent(i);
 	e.addComponent(r);
+    r->updatePosition(xPos, yPos);
 	
 
 }
