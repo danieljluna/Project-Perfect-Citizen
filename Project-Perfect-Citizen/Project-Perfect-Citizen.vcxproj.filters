@@ -614,13 +614,10 @@
     </ClInclude>
     <ClInclude Include="Code\Game\IconBuilder.h">
       <Filter>Headers\Game Specific\Icons</Filter>
-<<<<<<< HEAD
-=======
     </ClInclude>
     <ClInclude Include="Code\Game\IconBuilder.h" />
     <ClInclude Include="Code\Game\TextFieldRenderComponent.hpp">
       <Filter>Headers\Game Specific\Text</Filter>
->>>>>>> origin/NaderBranch3
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -272,7 +272,9 @@ namespace ppc {
 		friend std::istream& operator>>(std::istream& in, Desktop& desktop);
 
 	};
-
+	///////////////////////////////////////////////////////////////////////
+	///@brief Used by operator>> in World to import Desktops from files.
+	///////////////////////////////////////////////////////////////////////
 	std::istream& operator>>(std::istream& in, Desktop& desktop);
 
 };
