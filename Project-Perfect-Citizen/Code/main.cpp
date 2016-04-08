@@ -74,7 +74,6 @@ void runBootDesktop(ppc::Desktop& myDesktop) {
     font.loadFromFile(resourcePath() + "consola.ttf");
     
    
-   
     textLabelComponent* textLabel = new textLabelComponent(font,sf::Color::Green, 0,0, 20, " PCOS(C) , UNMOS. UNAUTHORIZED USE OF THIS TERMINAL CAN RESULT IN PENALTY BY DEATH. \n   Beginning File System Initialization \n");
     
     bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(myDesktop.getButtonSheet(),*textLabel,7,5);
@@ -96,9 +95,6 @@ void runEndDesktop(ppc::Desktop& myDesktop) {
     Window* endWindow = new Window(1800,1000,sf::Color(30,32,33));
     
     Entity ending;
-    
-    sf::Font font;
-    font.loadFromFile(resourcePath() + "consola.ttf");
     
     endingAnimationRender* endRender = new endingAnimationRender(myDesktop.getButtonSheet());
     endAnimationUpdateComponent* endUpdate = new endAnimationUpdateComponent(*endRender, 0.1f);
@@ -187,6 +183,7 @@ int main(int argc, char** argv) {
 
 	bootDesktop->setIconSheet(iconSheet);
 	bootDesktop->setButtonSheet(buttonSheet);
+
 	bootDesktop->setBackgrond(playerWallpaper);
 
 	//runPlayerDesktop

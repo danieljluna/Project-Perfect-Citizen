@@ -51,6 +51,7 @@ ppc::Desktop* ppc::World::getCurrDesktop() {
 bool ppc::World::runDesktop(ppc::Desktop &myDesktop) {
 	if (screen_ == nullptr) return false;
 	// Go into main game loop
+
 	sf::Clock deltaTime;
 	sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
 	while (screen_->isOpen() && !quitter) {

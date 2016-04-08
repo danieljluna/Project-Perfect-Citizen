@@ -175,20 +175,21 @@ void ppc::Desktop::setIconSheet(sf::Image sheet) {
 	this->iconSheet_ = sheet;
 }
 
-sf::Image ppc::Desktop::getIconSheet() {
+sf::Image& ppc::Desktop::getIconSheet() {
 	return iconSheet_;
 }
 
 void ppc::Desktop::setButtonSheet(sf::Image sheet) {
+
 	this->buttonSheet_ = sheet;
 }
 
-sf::Image ppc::Desktop::getButtonSheet() {
+sf::Image& ppc::Desktop::getButtonSheet() {
 	return buttonSheet_;
 }
 
-
-ppc::NodeState ppc::Desktop::getNodeState() {
+//should return copy or reference?
+ppc::NodeState& ppc::Desktop::getNodeState() {
 	return nodeState_;
 }
 
@@ -216,7 +217,7 @@ void ppc::Desktop::setInbox(Inbox i) {
 	inbox_ = i;
 }
 
-ppc::Inbox ppc::Desktop::getInbox() {
+ppc::Inbox& ppc::Desktop::getInbox() {
 	return inbox_;
 }
 
