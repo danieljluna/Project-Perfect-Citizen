@@ -73,6 +73,8 @@ void runBootDesktop(ppc::Desktop& myDesktop) {
     sf::Font font;
     font.loadFromFile(resourcePath() + "consola.ttf");
     
+   
+   
     textLabelComponent* textLabel = new textLabelComponent(font,sf::Color::Green, 0,0, 20, " PCOS(C) , UNMOS. UNAUTHORIZED USE OF THIS TERMINAL CAN RESULT IN PENALTY BY DEATH. \n   Beginning File System Initialization \n");
     
     bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(myDesktop.getButtonSheet(),*textLabel,7,5);
@@ -112,12 +114,14 @@ void runEndDesktop(ppc::Desktop& myDesktop) {
 void runPlayerDesktop(ppc::Desktop& myDesktop) {
 	createPlayerDesktop(myDesktop, *myDesktop.getDesktopWindow(), 
 		myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
+
 }
 
 
 void runTargetDesktop(ppc::Desktop& myDesktop) {
 	createTeacherDesktop(myDesktop, *myDesktop.getDesktopWindow(),
 		myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
+
 }
 
 int main(int argc, char** argv) {
@@ -214,7 +218,7 @@ int main(int argc, char** argv) {
 	endDesktop->setButtonSheet(pixelSheet);
 	endDesktop->setBackgrond(playerWallpaper);
 
-
+   
 	/////////////////////////////////////////////
 	//Assuming Builders End Here
 	/////////////////////////////////////////////
