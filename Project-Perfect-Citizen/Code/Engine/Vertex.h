@@ -35,6 +35,7 @@ private:
 
 	sf::CircleShape circ_;
     sf::RectangleShape rect_;
+    sf::RectangleShape bgrect_;
 	static const float radius_;
 	sf::FloatRect bounds_;
 	bool isSelected_;
