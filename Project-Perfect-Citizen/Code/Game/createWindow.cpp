@@ -518,7 +518,7 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
-	int fontSize = 14;
+	int fontSize = 16;
 
 	errorMessageRenderComponent* eMRC = new errorMessageRenderComponent(myFont, message, 
 		windowToModify->getSize().x/3, windowToModify->getSize().y/3, fontSize);
@@ -564,6 +564,75 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Error");
+}
+void ppc::spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message) {
+    if (windowToModify == nullptr) { return; }
+    
+    /////////////////////////////////////////
+    /////// COMPONENTS
+    ///////////////////////////////////////
+    
+    sf::Font myFont;
+    myFont.loadFromFile(resourcePath() + "consola.ttf");
+    int fontSize = 16;
+    
+    errorMessageRenderComponent* eMRC = new errorMessageRenderComponent(myFont, message,
+                                                                        windowToModify->getSize().x/3,( windowToModify->getSize().y/3)-40, fontSize);
+    
+    /////////////////////////////////////////
+    /////// ENTITIES
+    ///////////////////////////////////////
+    Entity alertIcon;
+    float alertScale = 0.5f;
+    float alertWidth = 128.0;
+    float windowWidth = static_cast<float>(windowToModify->getSize().x);
+    float windowHeight = static_cast<float>(windowToModify->getSize().y);
+    float alertX = windowWidth - ((alertWidth * alertScale) + (3 * (windowWidth / 4)));
+    float alertY = (windowHeight - (alertWidth * alertScale)) / 3;
+    float buttonScale = 0.25f;
+    float buttonX = ((windowWidth - (alertWidth * buttonScale)) / 2);
+    float buttonY = (2 * (windowHeight / 3));
+    spawnPromptIcon(alertIcon, ih, buttonSheet, alertX, alertY, 0.5f);
+    
+    Entity errorMessageDisplayBox;
+    errorMessageDisplayBox.addComponent(eMRC);
+    
+    // Button Test
+    ButtonBuilder builder;
+    builder.setButtonPosition(sf::Vector2f(buttonX, buttonY));
+    builder.setInputHandle(ih);
+    builder.setSize(0.25f);
+    builder.setSpritesByIndicies(0, 2, 2, 1);
+    builder.setSpriteSheet(buttonSheet);
+    builder.setLabelMessage("MY TEST MSG");
+    builder.setLabelFont(myFont);
+    builder.setLabelSize(12);
+    Entity ent;
+    builder.create(ent);
+    
+    
+    Entity tbox;
+    TextBoxBuilder tbuilder;
+    tbuilder.setFont(myFont);
+    tbuilder.setSize(20);
+    tbuilder.setPosition(sf::Vector2f(windowToModify->getSize().x/3,50.0f));
+    tbuilder.setColor(sf::Color::Black);
+    tbuilder.setString("text box");
+    tbuilder.setInputHandle(ih);
+    tbuilder.create(tbox);
+    
+    
+    /////////////////////////////////////////
+    /////// WINDOW CONSTRUCTION
+    ///////////////////////////////////////
+    windowToModify->addEntity(errorMessageDisplayBox);
+    windowToModify->addEntity(alertIcon);
+    windowToModify->addEntity(ent);
+    windowToModify->addEntity(tbox);
+    windowToModify->setPosition(x, y);
+    windowToModify = new BorderDecorator(*windowToModify);
+    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+    dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Prompt");
 }
 
 void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns,

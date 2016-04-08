@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 #include "../Game/emailExtraction.hpp"
+#include "../Engine/Audio/AudioQueue.h"
+
 
 using namespace ppc;
 const string MOUSE_DOWN_CODE = "MDC";
@@ -20,7 +22,8 @@ const string OPEN_THE_EXPLORER = "OTE";
 const string OPEN_THE_EMAIL = "OTEM";
 
 iconInputComponent::iconInputComponent(Desktop& dT, Database* dB, Inbox& ib, sf::Image& bS, sf::Image& iS)
-	: theDesktop_(dT), theDatabase_(dB), theInbox_(ib), buttonSheet_(bS), iconSheet_(iS) {
+	: theDesktop_(dT), theDatabase_(dB), theInbox_(ib), buttonSheet_(bS), iconSheet_(iS), que(5) {
+        
 
 }
 
@@ -122,7 +125,10 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		else {
 			ppc::WindowInterface* ErrorMsgWindow =
 				new ppc::Window(500, 150, sf::Color(170, 170, 170));
-			spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
+			spawnPromptMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Prompt: please enter password");
+            que.addSound("prompt", "Notification_Prompt.wav");
+            que.playSound(0);
+            que.popAndPlay();
 			theDesktop_.addWindow(ErrorMsgWindow);
 			openedWindow = ErrorMsgWindow;
 		}
