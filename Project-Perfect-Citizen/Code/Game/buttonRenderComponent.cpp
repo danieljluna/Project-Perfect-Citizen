@@ -1,5 +1,7 @@
 #include "../Engine/debug.h"
 #include "buttonRenderComponent.h"
+#include "../Engine/event.h"
+#include <ostream>
 
 using namespace ppc;
 const std::string MOUSE_DOWN_CODE = "MDC";
@@ -112,5 +114,20 @@ void buttonRenderComponent::recieveMessage(msgType code) {
     }
 	if (code == OPEN_EMAIL) {
 		setSprite(xIndex + width, yIndex, width);
+	}
+}
+
+void buttonRenderComponent::recieveMessage(ppc::Event ev) {
+	switch (ev.type) {
+	case Event::EventTypes::ButtonType:
+		if (ev.buttons.isPushed) {
+			setSprite(xIndex + width, yIndex, width);
+		}
+		if (ev.buttons.isReleased){
+			setSprite(xIndex, yIndex, width);
+		}
+		break;
+	default:
+		break;
 	}
 }

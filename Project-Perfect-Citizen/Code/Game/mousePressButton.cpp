@@ -106,10 +106,15 @@ bool mousePressButton::registerInput(sf::Event ev) {
             if (ev.mouseButton.button == sf::Mouse::Left &&
                 isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
 
-                /* Send the mouse down message regardless */
-                getEntity()->broadcastMessage(MOUSE_DOWN_CODE);
-                onPress_.sendEvent(ev);
-                wasPressed_ = true;
+                /* Send the mouse down event message regardless */
+                // LEGACY CODE -> getEntity()->broadcastMessage(MOUSE_DOWN_CODE);
+                
+				ppc::Event ppcEv(ev);
+				ppcEv.type = ppc::Event::ButtonType;
+				ppcEv.buttons.isPushed = true;
+				getEntity()->broadcastMessage(ppcEv);
+				onPress_.sendEvent(ev);
+				wasPressed_ = true;
 
                 /* Handle Double Click Register */
                 mouseTime = mouseClock.getElapsedTime().asMilliseconds();
@@ -237,9 +242,14 @@ bool mousePressButton::registerInput(sf::Event ev) {
                 isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
 
                 /* Send the mouse release message regardless*/
-                getEntity()->broadcastMessage(MOUSE_RELEASED_CODE);
-                onRelease_.sendEvent(ev);
-                wasPressed_ = false;
+                //LEGACY -> getEntity()->broadcastMessage(MOUSE_RELEASED_CODE);
+                
+				ppc::Event ppcEv(ev);
+				ppcEv.type = ppc::Event::ButtonType;
+				ppcEv.buttons.isReleased = true;
+				getEntity()->broadcastMessage(ppcEv);
+				onRelease_.sendEvent(ev);
+				wasPressed_ = false;
             }
         }
     }
