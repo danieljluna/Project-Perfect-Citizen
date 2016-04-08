@@ -45,7 +45,7 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
         auto contentObj = directoryObj[objNames[i]];
         std::string objName = objNames[i];
         // name of file/folder
-        //std::cout << objName << std::endl;
+        // std::cout << objName << std::endl;
         if(contentObj.size() > 0){
             std::vector<std::string> CMD;
             std::string mk_dir_cmd = "mkdir";
