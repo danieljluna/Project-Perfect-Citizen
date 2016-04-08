@@ -187,11 +187,12 @@ void BorderDecorator::move(float x, float y) {
 
 void BorderDecorator::draw(sf::RenderTarget& target,
                            sf::RenderStates states) const {
-    //target.draw(borderWhite_, states);
-    //target.draw(borderShadow_, states);
+
     sf::RectangleShape borderShadow;
     sf::RectangleShape borderWhite;
     sf::FloatRect bounds = getBounds();
+  
+    
     
     borderShadow.setFillColor(sf::Color::Black);
     borderShadow.setSize(sf::Vector2f(bounds.width, bounds.height));
@@ -201,9 +202,24 @@ void BorderDecorator::draw(sf::RenderTarget& target,
     borderWhite.setSize(sf::Vector2f(bounds.width+1, bounds.height+1));
     borderWhite.setPosition(sf::Vector2f(bounds.left-1,bounds.top-1));
     
+
+    sf::FloatRect inner = WindowDecorator::getBounds();
+    sf::RectangleShape innerShadow;
+    sf::RectangleShape innerWhite;
+
+    innerShadow.setFillColor(sf::Color(200,200,200));
+    innerShadow.setSize(sf::Vector2f(inner.width+1, inner.height+1));
+    innerShadow.setPosition(inner.left, inner.top);
+    
+    innerWhite.setFillColor(sf::Color(90,90,90));
+    innerWhite.setSize(sf::Vector2f(inner.width+1, inner.height+1));
+    innerWhite.setPosition(inner.left-1, inner.top-1);
+    
     target.draw(borderWhite, states);
     target.draw(borderShadow, states);
     target.draw(borderShape_, states);
+    target.draw(innerShadow, states);
+    target.draw(innerWhite, states);
     WindowDecorator::draw(target, states);
     for (size_t i = 0; i < buttonCount_; ++i) {
         target.draw(*buttonRenders_[i], states);
