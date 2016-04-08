@@ -100,6 +100,7 @@
     <ClCompile Include="Code\Game\TextBoxRenderComponent.cpp" />
     <ClCompile Include="Code\Game\TextDisplayBuilder.cpp" />
     <ClCompile Include="Code\Game\TextDisplayRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\TextFieldRenderComponent.cpp" />
     <ClCompile Include="Code\Game\textInputKeys.cpp" />
     <ClCompile Include="Code\Game\textInputRenderComponent.cpp" />
     <ClCompile Include="Code\Game\textLabelComponent.cpp" />
@@ -212,6 +213,7 @@
     <ClInclude Include="Code\Game\TextBoxRenderComponent.h" />
     <ClInclude Include="Code\Game\TextDisplayBuilder.h" />
     <ClInclude Include="Code\Game\TextDisplayRenderComponent.h" />
+    <ClInclude Include="Code\Game\TextFieldRenderComponent.hpp" />
     <ClInclude Include="Code\Game\textInputKeys.hpp" />
     <ClInclude Include="Code\Game\textInputRenderComponent.hpp" />
     <ClInclude Include="Code\Game\textLabelComponent.hpp" />
