@@ -44,7 +44,7 @@ void textInputRenderComponent::updateString(string s) {
 }
 
 void textInputRenderComponent::updatePosition(int currentLineNum) {
-	this->text->setPosition(text->getPosition().x, ((textSize_*1.15) * currentLineNum));
+	this->text->setPosition(text->getPosition().x, ((textSize_*1.15f) * currentLineNum));
 }
 
 void textInputRenderComponent::draw( sf::RenderTarget& target,
