@@ -26,7 +26,6 @@
 using namespace ppc;
 
 desktopExtractionComponent::desktopExtractionComponent(NodeState &ft) : fileTree_(ft){
-    
 }
 
 Json::Value desktopExtractionComponent::parseDesktopAsJson(std::string file, std::string obj) {
@@ -50,6 +49,10 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
             std::vector<std::string> CMD;
             std::string mk_dir_cmd = "mkdir";
             std::string directory_name = objName;
+            std::size_t find_lock = directory_name.find("LOCKED");
+            if (find_lock!=std::string::npos){
+                fileTree_.getCwd()->setPassword("PASSWORD", "PASSWORD");
+            }
             CMD.push_back(mk_dir_cmd);
             CMD.push_back(directory_name);
             commandFn executeCommand = findFunction(mk_dir_cmd);
