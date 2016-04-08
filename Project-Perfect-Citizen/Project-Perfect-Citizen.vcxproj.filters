@@ -609,17 +609,11 @@
     <ClInclude Include="Code\Game\TextBoxRenderComponent.h">
       <Filter>Headers\Game Specific\Text</Filter>
     </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="Code\Engine\World.h">
       <Filter>Headers\Engine\World</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\IconBuilder.h">
       <Filter>Headers\Game Specific\Icons</Filter>
-=======
-    <ClInclude Include="Code\Game\IconBuilder.h" />
-    <ClInclude Include="Code\Game\TextFieldRenderComponent.hpp">
-      <Filter>Headers\Game Specific\Text</Filter>
->>>>>>> refs/remotes/origin/experimental
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
