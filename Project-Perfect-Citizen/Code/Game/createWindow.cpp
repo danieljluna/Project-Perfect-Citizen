@@ -233,12 +233,22 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     tbuilder.setString("text box");
     tbuilder.setInputHandle(ih);
     tbuilder.create(tbox);
-    
-    
+
+	Entity button;
+	ButtonBuilder bbuilder;
+	bbuilder.setButtonPosition(100, 100);
+	bbuilder.setInputHandle(ih);
+	bbuilder.setLabelFont(myFont);
+	bbuilder.setLabelMessage("FUCCBOI");
+	bbuilder.setLabelSize(20);
+	bbuilder.setSize(0.5f);
+	bbuilder.setSpriteSheet(buttonSheet);
+	bbuilder.create(button);
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
 	windowToModify->addEntity(tbox);
+	windowToModify->addEntity(button);
     windowToModify->setPosition(x, y);
     
     windowToModify = new BorderDecorator(*windowToModify);

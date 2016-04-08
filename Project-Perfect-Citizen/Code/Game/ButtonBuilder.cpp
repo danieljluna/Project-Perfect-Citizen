@@ -23,6 +23,8 @@ ppc::ButtonBuilder::ButtonBuilder()
 	inputHandle = nullptr;
 
 	label = "DEFAULT";
+
+	isLargeCustom = false;
 }
 
 ppc::ButtonBuilder::~ButtonBuilder()
@@ -76,6 +78,10 @@ void ppc::ButtonBuilder::setLabelSize(int lS)
 	labelSize = lS;
 }
 
+void ppc::ButtonBuilder::setIsLargeCustom(bool size) {
+	isLargeCustom = size;
+}
+
 void ppc::ButtonBuilder::setSpriteSheet(sf::Image& sheet)
 {
 	spriteSheet = &sheet;
@@ -90,16 +96,24 @@ void ppc::ButtonBuilder::create(Entity& e)
 {
 
 	/* Render Components */
-	buttonRenderComponent* buttonRender = 
-		new buttonRenderComponent(*spriteSheet, sheetX, sheetY, width, frames);
+	buttonRenderComponent* buttonRender;
+		
+	/* Case: Custom Buttom (Defaults to small button)*/
+	if (label.compare("DEFAULT") != 0) {
+		if (isLargeCustom) buttonRender = new buttonRenderComponent(*spriteSheet, 4, 1, 2, 1);
+		else buttonRender = new buttonRenderComponent(*spriteSheet, 6, 3, 1, 1);
+	}
+
+	/* Default: Button from Sprite Sheet Indicies */
+	else {
+		buttonRender = new buttonRenderComponent(*spriteSheet, sheetX, sheetY, width, frames);
+	}
 
 	buttonRender->setImageScale(size, size);
 	buttonRender->renderPosition(sf::Vector2f(posX, posY));
 
 	TextDisplayRenderComponent* labelRender = 
 		new TextDisplayRenderComponent(*font, sf::Color::Black, 100, 100, size, label);
-
-	labelRender->updatePosition(100, 100);
 
 	/* Input Component*/
 	mousePressButton* mpb = new mousePressButton(*inputHandle, buttonRender->getSprite()->getGlobalBounds(), "GENERIC_BUTTON");
