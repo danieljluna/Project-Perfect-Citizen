@@ -109,6 +109,7 @@ public:
 
 	virtual void recieveMessage(msgType code) override;
 	
+	virtual void recieveMessage(Event ev) override;
 };
 
 

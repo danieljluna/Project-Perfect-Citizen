@@ -3,6 +3,7 @@
 #include "../Game/mousePressButton.h"
 #include "../Engine/debug.h"
 #include <ostream>
+#include "TextDisplayRenderComponent.h"
 
 ppc::ButtonBuilder::ButtonBuilder() 
 {
@@ -20,6 +21,8 @@ ppc::ButtonBuilder::ButtonBuilder()
 
 	spriteSheet = nullptr;
 	inputHandle = nullptr;
+
+	label = "DEFAULT";
 }
 
 ppc::ButtonBuilder::~ButtonBuilder()
@@ -58,6 +61,21 @@ void ppc::ButtonBuilder::setButtonPosition(sf::Vector2f pos)
 	posY = pos.y;
 }
 
+void ppc::ButtonBuilder::setLabelMessage(std::string l) 
+{
+	label = l;
+}
+
+void ppc::ButtonBuilder::setLabelFont(sf::Font& f)
+{
+	font = &f;
+}
+
+void ppc::ButtonBuilder::setLabelSize(int lS)
+{
+	labelSize = lS;
+}
+
 void ppc::ButtonBuilder::setSpriteSheet(sf::Image& sheet)
 {
 	spriteSheet = &sheet;
@@ -70,19 +88,26 @@ void ppc::ButtonBuilder::setInputHandle(ppc::InputHandler& ih)
 
 void ppc::ButtonBuilder::create(Entity& e)
 {
+
+	/* Render Components */
 	buttonRenderComponent* buttonRender = 
 		new buttonRenderComponent(*spriteSheet, sheetX, sheetY, width, frames);
 
 	buttonRender->setImageScale(size, size);
 	buttonRender->renderPosition(sf::Vector2f(posX, posY));
 
+	TextDisplayRenderComponent* labelRender = 
+		new TextDisplayRenderComponent(*font, sf::Color::Black, 100, 100, size, label);
+
+	labelRender->updatePosition(100, 100);
+
 	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(*inputHandle, buttonRender->getSprite()->getGlobalBounds(), "startButton");
+	mousePressButton* mpb = new mousePressButton(*inputHandle, buttonRender->getSprite()->getGlobalBounds(), "GENERIC_BUTTON");
 
 	e.addComponent(buttonRender);
+	e.addComponent(labelRender);
 	e.addComponent(mpb);
 	buttonRender->renderPosition(sf::Vector2f(posX, posY));
-
 
 }
 
