@@ -228,7 +228,7 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     TextBoxBuilder tbuilder;
     tbuilder.setFont(myFont);
     tbuilder.setSize(20);
-    tbuilder.setPosition(sf::Vector2f(0.0f,0.0f));
+    tbuilder.setPosition(sf::Vector2f(100.0f,100.0f));
     tbuilder.setColor(sf::Color::Black);
     tbuilder.setString("text box");
     tbuilder.setInputHandle(ih);

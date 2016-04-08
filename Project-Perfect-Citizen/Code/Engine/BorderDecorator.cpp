@@ -37,7 +37,10 @@ BorderDecorator::BorderDecorator(
         buttonEntities_[i] = nullptr;
     }
 
+    //Caption Defaults
     caption_.updateSize(20);
+    caption_.updateColor({ 255, 255, 255 });
+    captionBackground_.setFillColor({51, 50, 161});
     
     buttonCount_ = 0;
 
@@ -128,6 +131,19 @@ void BorderDecorator::setCaptionColor(sf::Color col) {
     caption_.updateColor(col);
 }
 
+void BorderDecorator::setCaptionBackground(sf::Color col) {
+    captionBackground_.setFillColor(col);
+}
+
+void BorderDecorator::setCaptionIcon(sf::Sprite spr) {
+    captionIcon_ = spr;
+    captionHasIcon_ = true;
+
+    sf::FloatRect iconBounds = captionIcon_.getLocalBounds();
+    captionIcon_.scale(captionBackground_.getSize().x / iconBounds.width,
+                       captionBackground_.getSize().y / iconBounds.height);
+}
+
 
 
 
@@ -187,11 +203,13 @@ void BorderDecorator::move(float x, float y) {
 
 void BorderDecorator::draw(sf::RenderTarget& target,
                            sf::RenderStates states) const {
-    //target.draw(borderWhite_, states);
-    //target.draw(borderShadow_, states);
+    //Used to give the Border an outline
     sf::RectangleShape borderShadow;
     sf::RectangleShape borderWhite;
+    
     sf::FloatRect bounds = getBounds();
+  
+    
     
     borderShadow.setFillColor(sf::Color::Black);
     borderShadow.setSize(sf::Vector2f(bounds.width, bounds.height));
@@ -201,9 +219,28 @@ void BorderDecorator::draw(sf::RenderTarget& target,
     borderWhite.setSize(sf::Vector2f(bounds.width+1, bounds.height+1));
     borderWhite.setPosition(sf::Vector2f(bounds.left-1,bounds.top-1));
     
+
+    sf::FloatRect inner = WindowDecorator::getBounds();
+    sf::RectangleShape innerShadow;
+    sf::RectangleShape innerWhite;
+
+    innerShadow.setFillColor(sf::Color(200,200,200));
+    innerShadow.setSize(sf::Vector2f(inner.width+1, inner.height+1));
+    innerShadow.setPosition(inner.left, inner.top);
+    
+    innerWhite.setFillColor(sf::Color(90,90,90));
+    innerWhite.setSize(sf::Vector2f(inner.width+1, inner.height+1));
+    innerWhite.setPosition(inner.left-1, inner.top-1);
+    
     target.draw(borderWhite, states);
     target.draw(borderShadow, states);
     target.draw(borderShape_, states);
+    target.draw(captionBackground_, states);
+    if (captionHasIcon_) {
+        target.draw(captionIcon_);
+    }
+    target.draw(innerShadow, states);
+    target.draw(innerWhite, states);
     WindowDecorator::draw(target, states);
     for (size_t i = 0; i < buttonCount_; ++i) {
         target.draw(*buttonRenders_[i], states);
@@ -242,8 +279,14 @@ void BorderDecorator::updateBounds() {
     bounds.left = 0.0f - borderTopLeft_.x;
     draggableInput_.setBounds(bounds);
 
-    caption_.updatePosition(WindowDecorator::getPosition().x, 
-                            WindowDecorator::getPosition().y - bounds.height * 0.9);
+    caption_.updatePosition(WindowDecorator::getPosition().x + captionBackground_.getSize().y, 
+                            WindowDecorator::getPosition().y - bounds.height * 0.9f);
+
+    bounds = getBounds();
+    sf::Vector2f topLeft = sf::Vector2f(bounds.left + 2.0f, bounds.top + 2.0f);
+
+    captionBackground_.setPosition(topLeft);
+    captionIcon_.setPosition(topLeft);
 
     //Re-position the buttons
     for (size_t i = 0; i < buttonCount_; ++i) {
@@ -270,6 +313,8 @@ void BorderDecorator::updateBorder() {
     borderShape_.setPosition(pos);
     
     borderShape_.setSize(size);
+
+    captionBackground_.setSize(sf::Vector2f(size.x - 4.0f, borderTopLeft_.y - 4.0f));
 }
 
 
@@ -277,7 +322,7 @@ void BorderDecorator::updateBorder() {
 void BorderDecorator::updateButton(size_t i) {
     float left = borderShape_.getPosition().x + borderShape_.getSize().x;
     left -= float(i + 1) * (borderBottomRight_.y + buttonRenders_[i]->getSprite()->getGlobalBounds().width);
-    float top = WindowDecorator::getPosition().y - borderTopLeft_.y + borderBottomRight_.y;
+    float top = WindowDecorator::getPosition().y - borderTopLeft_.y + borderBottomRight_.y - 1;
 
     sf::Vector2f ButtonPos(left, top);
     buttonRenders_[i]->renderPosition(ButtonPos);
