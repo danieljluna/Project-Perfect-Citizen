@@ -82,6 +82,10 @@ public:
 
     void setCaptionColor(sf::Color col);
 
+    void setCaptionBackground(sf::Color col);
+
+    void setCaptionIcon(sf::Sprite spr);
+
 
   /////////////////////////////////////////////////////////////////////
   // Decorated Functionality
@@ -140,6 +144,12 @@ private:
 
     //Holds the window caption.
     TextDisplayRenderComponent caption_;
+    //Holds the background color of the caption
+    sf::RectangleShape captionBackground_;
+    //Holds the Icon for the caption
+    sf::Sprite captionIcon_;
+    //Whether or not we have an Icon
+    bool captionHasIcon_ = false;
 
     //Array of buttonRenderComponents
 	buttonRenderComponent** buttonRenders_;
