@@ -575,8 +575,6 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	/////// COMPONENTS
 	///////////////////////////////////////
     
-    
-
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 14;
@@ -591,6 +589,19 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 
+	float viewHeight = windowToModify->getSize().y / 2;
+
+	/* Create a scroll bar if the new explorer window is greater than 100px*/
+	if (viewHeight > 100.0f) {
+		sf::FloatRect viewRect = {
+			0.0f,
+			0.0f,
+			float(windowToModify->getSize().x),
+			viewHeight
+		};
+		windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
+	}
+	
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
