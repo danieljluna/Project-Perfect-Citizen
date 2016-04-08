@@ -18,7 +18,7 @@ TextBoxRenderComponent::TextBoxRenderComponent(sf::Font& f, sf::Color c,
 	text->setPosition(x, y);
 	text->setCharacterSize(s);
 	text->setColor(c);
-	text->setString(labelString);
+    text->setString(labelString);
 
 }
 
@@ -41,5 +41,5 @@ void TextBoxRenderComponent::updateString(string str) {
 
 void TextBoxRenderComponent::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
-	target.draw(*(this->text), states);
+	target.draw(*text, states);
 }

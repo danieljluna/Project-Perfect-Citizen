@@ -68,7 +68,7 @@ namespace ppc {
 		///////////////////////////////////////////////
 		///@brief Dictates whether or not file is 
 		///encrypted
-		///////////////////////////////////////////////
+		///////////////////////////////////////////////		
 		bool encrypted = false;
 		//////////////////////////////////////////////
 		///@brief string representation of what
@@ -81,6 +81,8 @@ namespace ppc {
 		//////////////////////////////////////////////
 		bool sealed = true;
 		std::string fileData = "";
+		bool passwordProtected = false;
+		std::string password = "";
 	public:
 		///////////////////////////////////////////////
 		///@brief assigns Json string to jSonString;
@@ -148,6 +150,12 @@ namespace ppc {
 		virtual ppc::Subject* getSubject() { return fileSubject; };
 
 		virtual std::string getFileData();
+
+		virtual void setPassword(std::string pwd);
+
+		virtual bool comparePassword(std::string input);
+
+		virtual bool isPasswordProtected();
 		//virtual void addFileObserver(sf::Event& ev, bool(*obFunction)(T*, sf::Event&);
 	};
 };
