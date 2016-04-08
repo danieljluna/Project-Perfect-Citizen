@@ -45,6 +45,16 @@ void spawnConsole(Desktop& dt, WindowInterface*& windowToModify, InputHandler& i
 void spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
 	sf::Image& buttonSheet, float x, float y);
     
+    ///////////////////////////////////////////////////////////////////////
+    ///@brief Constructs a database window on the WindowInterface passed.
+    ///
+    ///@param The newly created window to add components/entities to.
+    ///@param The input handler of the listened-to window.
+    ///@param Sprite sheet of it's border component's buttons
+    ///////////////////////////////////////////////////////////////////////
+void spawnHelp(WindowInterface*& windowToModify, InputHandler& ih, 
+      sf::Image& buttonSheet, float x, float y);
+    
     
 ///////////////////////////////////////////////////////////////////////
 ///@brief Constructs a pipeline window on the WindowInterface passed.

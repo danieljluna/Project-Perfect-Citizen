@@ -104,6 +104,7 @@
 		C8778CB81CB5B2970035A46E /* WindowInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8778C941CB5B2970035A46E /* WindowInterface.cpp */; };
 		C8778CB91CB5B2970035A46E /* WindowLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8778C961CB5B2970035A46E /* WindowLogger.cpp */; };
 		C8778CBA1CB5B2970035A46E /* world.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8778C981CB5B2970035A46E /* world.cpp */; };
+		C8778CC01CB5DA370035A46E /* TextFieldRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8778CBE1CB5DA370035A46E /* TextFieldRenderComponent.cpp */; };
 		C8A593901C8E3AFE00036C1D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8A593461C8E3AFE00036C1D /* main.cpp */; };
 		E9A0AC761C939A290035CCE1 /* 1-24-08-182.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC121C939A290035CCE1 /* 1-24-08-182.jpg */; };
 		E9A0AC771C939A290035CCE1 /* 2-20-09-431.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC131C939A290035CCE1 /* 2-20-09-431.jpg */; };
@@ -434,6 +435,9 @@
 		C8778C981CB5B2970035A46E /* world.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = world.cpp; sourceTree = "<group>"; };
 		C8778C991CB5B2970035A46E /* world.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = world.h; sourceTree = "<group>"; };
 		C8778CBB1CB5B9DC0035A46E /* SoundTrack_Extraction.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoundTrack_Extraction.ogg; sourceTree = "<group>"; };
+		C8778CBD1CB5D4240035A46E /* SoundTrack_Pipeline.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoundTrack_Pipeline.ogg; sourceTree = "<group>"; };
+		C8778CBE1CB5DA370035A46E /* TextFieldRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextFieldRenderComponent.cpp; sourceTree = "<group>"; };
+		C8778CBF1CB5DA370035A46E /* TextFieldRenderComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextFieldRenderComponent.hpp; sourceTree = "<group>"; };
 		C8A593461C8E3AFE00036C1D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
 		E9A0AC121C939A290035CCE1 /* 1-24-08-182.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-24-08-182.jpg"; sourceTree = "<group>"; };
 		E9A0AC131C939A290035CCE1 /* 2-20-09-431.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-20-09-431.jpg"; sourceTree = "<group>"; };
@@ -632,6 +636,7 @@
 		C86E37A51C4D6B5100842EFD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C8778CBD1CB5D4240035A46E /* SoundTrack_Pipeline.ogg */,
 				E9E1F52E1C91F506006AE0FB /* ResourcePath.hpp */,
 				E9E1F52F1C91F506006AE0FB /* Coding Reference */,
 				E9E1F5321C91F506006AE0FB /* DesktopContent */,
@@ -841,6 +846,8 @@
 				C8778C011CB5B2890035A46E /* TextBoxBuilder.h */,
 				C8778C021CB5B2890035A46E /* TextBoxInputComponent.cpp */,
 				C8778C031CB5B2890035A46E /* TextBoxInputComponent.h */,
+				C8778CBE1CB5DA370035A46E /* TextFieldRenderComponent.cpp */,
+				C8778CBF1CB5DA370035A46E /* TextFieldRenderComponent.hpp */,
 				C8778C041CB5B2890035A46E /* TextBoxRenderComponent.cpp */,
 				C8778C051CB5B2890035A46E /* TextBoxRenderComponent.h */,
 				C8778C061CB5B2890035A46E /* TextDisplayBuilder.cpp */,
@@ -1326,6 +1333,7 @@
 				C8778C391CB5B2890035A46E /* iconInputComponent.cpp in Sources */,
 				C8778C421CB5B2890035A46E /* PipelineCharacter.cpp in Sources */,
 				C8A593901C8E3AFE00036C1D /* main.cpp in Sources */,
+				C8778CC01CB5DA370035A46E /* TextFieldRenderComponent.cpp in Sources */,
 				C8778C241CB5B2890035A46E /* createIcon.cpp in Sources */,
 				C8778C261CB5B2890035A46E /* createWindow.cpp in Sources */,
 				C8778CA01CB5B2970035A46E /* DesktopLogger.cpp in Sources */,

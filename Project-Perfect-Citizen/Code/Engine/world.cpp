@@ -1,105 +1,103 @@
-//World.cpp
-//Nader Sleem
-#include "world.h"
+
+#include <fstream>
+#include <string>
+#include "World.h"
+#include "desktop.h"
+#include "Window.h"
+#include "NodeState.h"
+#include "../Game/desktopExtractionComponent.hpp"
+#include "../Game/Quitter.h"
+#include "../Game/Inbox.h"
+#include "../Game/Email.h"
+#include "../Game/emailExtraction.hpp"
+#include "../Library/json/json.h"
 #include "debug.h"
 
-
-std::vector<ppc::World*> ppc::World::worldsVector;
-
 ppc::World::World() {
-	for (size_t i = 0; i < MAX_DESKTOP_COUNT; i++) {
-		this->desktops_[i] = nullptr;
-	}
+	screen_ = nullptr;
+	currDesktop_ = nullptr;
+}
 
-	ppc::World::worldsVector.push_back(this);
-	this->worldIndex = ppc::World::worldsVector.size() - 1;
+ppc::World::World(sf::RenderWindow& gameScreen) {
+	screen_ = &gameScreen;
+}
+
+ppc::World::World(sf::RenderWindow& gameScreen, ppc::Desktop& d) {
+	screen_ = &gameScreen;
+	currDesktop_ = &d;
 }
 
 ppc::World::~World() {
-	for (size_t i = 0; i < MAX_DESKTOP_COUNT; i++) {
-		if (this->desktops_[i] != nullptr) {
-			//need to add more code here depending
-			//on what desktops look like
+	if (currDesktop_ != nullptr) delete currDesktop_;
+	if (screen_ != nullptr) delete screen_;
+}
 
-			//Should I be deleting the contents of the array???
-			// Todo: ask during meeting
+void ppc::World::setGameScreen(sf::RenderWindow& gameScreen) {
+	screen_ = &gameScreen;
+}
 
-			delete this->desktops_[i];
-			this->desktops_[i] = nullptr;
+void ppc::World::setCurrDesktop(ppc::Desktop &d) {
+	currDesktop_ = &d;
+}
+
+sf::RenderWindow * ppc::World::getGameScreen() {
+	return screen_;
+}
+
+ppc::Desktop* ppc::World::getCurrDesktop() {
+	return currDesktop_;
+}
+
+bool ppc::World::runDesktop(ppc::Desktop &myDesktop) {
+	if (screen_ == nullptr) return false;
+	// Go into main game loop
+
+	sf::Clock deltaTime;
+	sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
+	while (screen_->isOpen() && !quitter) {
+		//Process sf::events
+		sf::Event event;
+		while (screen_->pollEvent(event)) {
+			if (event.type == sf::Event::Closed) {
+				screen_->close();
+			} else if (event.type == sf::Event::KeyPressed) {
+				//Close
+				if ((event.key.code == sf::Keyboard::Period) && (event.key.alt)) {
+                    quitSection();
+				}
+			}
+
+			//Input phase
+			myDesktop.registerInput(event);
 		}
-	}
-	World::worldsVector.erase(World::worldsVector.begin() +
-		this->worldIndex);
-}
 
-size_t ppc::World::desktopCount() const {
-	return desktopCount_;
-}
-
-ppc::Desktop* ppc::World::getDesktop(int index) const{
-	if ((size_t)index > desktopCount() || index < 0) return nullptr;
-	return desktops_[index];
-}
-
-int ppc::World::getIndex(Desktop* d) {
-	int result = -1;
-
-	if (d == nullptr) return result;
-
-	//Search through the Components_
-	for (size_t i = 0; i < desktopCount_; ++i) {
-		//If we find the cmpnt specified
-		if (desktops_[i] == d) {
-			//Overwrite the result
-			result = i;
-			break;
+		sf::Time elapsed = deltaTime.getElapsedTime();
+		while (elapsed > framePeriod) {
+			screen_->clear(sf::Color::Black);
+			sf::Time dt = deltaTime.restart();
+			myDesktop.update(dt);
+			elapsed -= framePeriod;
 		}
+		myDesktop.refresh();
+		screen_->draw(myDesktop);
+		screen_->display();
 	}
-
-	return result;
+	return false;
 }
 
-int ppc::World::addDesktop(Desktop* d) {
-	//Test if we have room for the cmpnt
-	if (desktopCount_ < MAX_DESKTOP_COUNT) {
-		//Store cmpnt and return the index it was stored at
-		desktops_[desktopCount_] = d;
-		//may need to add more here later based on
-		// implementation of desktop
-		//return its index and then increment size counter
-		return desktopCount_++;
-	} else {
-		//If there is no room, return -1
-		return -1;
-	}
+bool ppc::World::runCurrDesktop() {
+	return runDesktop(*(this->currDesktop_));
 }
 
-void ppc::World::removeDesktop(Desktop* d) {
-	if (d == nullptr) return;
-	removeDesktop(World::getIndex(d));
-}
 
-void ppc::World::removeDesktop(int index) {
-	if ((size_t)index > desktopCount() || index < 0) return;
-	//save index
-	size_t i = index;
-
-	//may need to add more here later based on
-	// implementation of desktop
-
-	// set what we want to remove to null
-	desktops_[index] = nullptr;
-	//while what is next to i is within our bounds
-	while (i + 1 < desktopCount_) {
-		//save what [i] is (should be nullptr)
-		Desktop* temp = desktops_[i];
-		//set [i] to [i+1]
-		desktops_[i] = desktops_[i + 1];
-		//set [i+1] to what [i] originally was
-		desktops_[i + 1] = temp;
-		// increment [i]
-		i = i + 1;
+std::istream& ppc::operator>>(std::istream& in, World& world) {
+	if (world.currDesktop_ != nullptr) {
+		delete world.currDesktop_;
+		world.currDesktop_ = nullptr;
 	}
-	//decrement amount of things we have in array
-	--desktopCount_;
+		
+	world.currDesktop_ = new Desktop();
+	in >> *world.currDesktop_;
+	
+	return in;
 }
