@@ -228,7 +228,7 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     TextBoxBuilder tbuilder;
     tbuilder.setFont(myFont);
     tbuilder.setSize(20);
-    tbuilder.setPosition(sf::Vector2f(200,200));
+    tbuilder.setPosition(sf::Vector2f(0.0f,0.0f));
     tbuilder.setColor(sf::Color::Black);
     tbuilder.setString("text box");
     tbuilder.setInputHandle(ih);
@@ -238,9 +238,9 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
+	windowToModify->addEntity(tbox);
     windowToModify->setPosition(x, y);
-    windowToModify->addEntity(tbox);
-      
+    
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
