@@ -1,6 +1,7 @@
 #include "ButtonBuilder.h"
 #include "buttonRenderComponent.h"
 #include "../Game/mousePressButton.h"
+#include "../Engine/debug.h"
 #include <ostream>
 
 ppc::ButtonBuilder::ButtonBuilder() 
@@ -82,7 +83,6 @@ void ppc::ButtonBuilder::create(Entity& e)
 	e.addComponent(mpb);
 	buttonRender->renderPosition(sf::Vector2f(posX, posY));
 
-	std::cout << "built!";
 
 }
 
