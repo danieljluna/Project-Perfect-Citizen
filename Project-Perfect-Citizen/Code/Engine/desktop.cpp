@@ -29,18 +29,22 @@
 
 ppc::Desktop::Desktop() {
 	nodeState_.setUp();
-	//iconSheet_;
-	//buttonSheet_;
-	//inbox_;
+	iconSheet_ = sf::Image();
+	buttonSheet_ = sf::Image();
+	inbox_ = ppc::Inbox();
+	background_ = sf::Sprite();
+	backgndTexture_ = sf::Texture();
 	desktopWindow_ = nullptr;
 	focused_ = nullptr;
 }
 
 ppc::Desktop::Desktop(WindowInterface& bkgndWin, NodeState& n) {
 	nodeState_ = n;
-	//iconSheet_;
-	//buttonSheet_;
-	//inbox_;
+	iconSheet_ = sf::Image();
+	buttonSheet_ = sf::Image();
+	inbox_ = ppc::Inbox();
+	background_ = sf::Sprite();
+	backgndTexture_ = sf::Texture();
 	windows_.push_back(&bkgndWin);
 	desktopWindow_ = &bkgndWin;
 	focused_ = desktopWindow_;

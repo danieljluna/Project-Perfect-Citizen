@@ -180,6 +180,7 @@ int main(int argc, char** argv) {
 	ppc::NodeState bootState;
 	Window* bootWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
 	Desktop* bootDesktop = new Desktop(*bootWindow, bootState);
+
 	bootDesktop->setIconSheet(iconSheet);
 	bootDesktop->setButtonSheet(buttonSheet);
 	bootDesktop->setBackgrond(playerWallpaper);
@@ -217,29 +218,31 @@ int main(int argc, char** argv) {
 	/////////////////////////////////////////////
 	//Assuming Builders End Here
 	/////////////////////////////////////////////
-	
+
 	World* gameWorld = new World(*screen);
 
 	//Main Loops for each Desktops
+	gameWorld->setCurrDesktop(*bootDesktop);
 	runBootDesktop(*bootDesktop);
     while (gameWorld->runDesktop(*bootDesktop)) {}
 	delete bootDesktop;
 
     quitter = false;
-
+	gameWorld->setCurrDesktop(*playerDesktop);
 	runPlayerDesktop(*playerDesktop);
 	while (gameWorld->runDesktop(*playerDesktop)) {}
 	delete playerDesktop;
 
     quitter = false;
-
+	gameWorld->setCurrDesktop(*targetDesktop);
 	runTargetDesktop(*targetDesktop);
 	while (gameWorld->runDesktop(*targetDesktop)) {}
 	delete targetDesktop;
 
+	gameWorld->setCurrDesktop(*endDesktop);
 	runEndDesktop(*endDesktop);
     while (gameWorld->runDesktop(*endDesktop)) {}
-	delete endDesktop;
+
 
 	delete gameWorld;
 	

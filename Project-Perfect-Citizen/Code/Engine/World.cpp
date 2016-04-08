@@ -50,7 +50,6 @@ ppc::Desktop* ppc::World::getCurrDesktop() {
 
 bool ppc::World::runDesktop(ppc::Desktop &myDesktop) {
 	if (screen_ == nullptr) return false;
-
 	// Go into main game loop
 	sf::Clock deltaTime;
 	sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
@@ -91,7 +90,10 @@ bool ppc::World::runCurrDesktop() {
 
 
 std::istream& ppc::operator>>(std::istream& in, World& world) {
-	if (world.currDesktop_ != nullptr) delete world.currDesktop_;
+	if (world.currDesktop_ != nullptr) {
+		delete world.currDesktop_;
+		world.currDesktop_ = nullptr;
+	}
 		
 	world.currDesktop_ = new Desktop();
 	in >> *world.currDesktop_;
