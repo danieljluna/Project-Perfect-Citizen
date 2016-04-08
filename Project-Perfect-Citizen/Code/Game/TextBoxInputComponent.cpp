@@ -16,7 +16,7 @@ TextBoxInputComponent::TextBoxInputComponent(InputHandler& ih, TextBoxRenderComp
 	watch(ih, sf::Event::KeyPressed);
 
 	str.push_back((char)'> ');
-	textBox.updateString(str);
+	textBox.updateLabelString(str);
 
 }
 
@@ -61,23 +61,23 @@ bool TextBoxInputComponent::registerInput(sf::Event ev) {
 			if (ev.text.unicode < 128 && ev.text.unicode != 8 &&
 				ev.text.unicode != 10 && ev.text.unicode != 13) {
 				str.push_back((char)ev.text.unicode);
-				textBox.updateString(str);
+				textBox.updateLabelString(str);
 			}
 		}
 		else if (ev.type == sf::Event::KeyPressed) {
 			if (ev.key.code == sf::Keyboard::BackSpace &&
 				(str.size()>2)) {
 				str.pop_back();
-				textBox.updateString(str);
+				textBox.updateLabelString(str);
 			}
 			else if (ev.key.code == sf::Keyboard::Return &&
 				(str.size() != 0)) {
 				
-				// DO A FUNCTION HERE
-
+				// Do something here
+				
 				/* Reset the command line - keeping the prompt */
 				str.erase(2, str.length());
-				textBox.updateString(str);
+				textBox.updateLabelString(str);
 			}
 		}
 	}

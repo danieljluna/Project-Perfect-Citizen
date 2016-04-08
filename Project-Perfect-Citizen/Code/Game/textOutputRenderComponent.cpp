@@ -24,7 +24,7 @@ textOutputRenderComponent::textOutputRenderComponent(ppc::Desktop& dt, sf::Image
 
 	//font.loadFromFile(resourcePath() + "Consolas.ttf");
 	text_->setFont(font_);
-	text_->setColor(sf::Color::White);
+	text_->setColor(sf::Color::Green);
 	text_->setPosition(float(x), float(y));
 	text_->setCharacterSize(size);
 	text_->setString("");
