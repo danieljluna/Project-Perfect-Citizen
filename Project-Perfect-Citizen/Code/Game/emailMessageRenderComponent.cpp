@@ -33,16 +33,16 @@ emailMessageRenderComponent::emailMessageRenderComponent(sf::Font& f, Email& ema
 	formattedContent += "         " + email.getContentField() + "\n";
 	
 	int lineCount = 0;
-	for (int i = 0; i < formattedMeta.size(); ++i) {
+	for (size_t i = 0; i < formattedMeta.size(); ++i) {
 		if (formattedMeta.at(i) == '\n') ++lineCount;
 	}
 
 	contentText->setString(formattedContent);
-	contentText->setPosition(0, lineCount*size);
+	contentText->setPosition(0, float(lineCount*size));
 
-	emailContentBox.setPosition(sf::Vector2f(0, lineCount*size));
+	emailContentBox.setPosition(sf::Vector2f(0.0f, float(lineCount*size)));
 	emailContentBox.setFillColor(sf::Color::White);
-	emailContentBox.setSize(sf::Vector2f(winWidth+size, winHeight-100));
+	emailContentBox.setSize(sf::Vector2f(float(winWidth+size), float(winHeight-100)));
 }
 
 emailMessageRenderComponent::~emailMessageRenderComponent() {
