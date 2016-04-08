@@ -118,24 +118,6 @@ void ScrollBarDecorator::setBarSize(float barSize) {
 }
 
 
-
-void ScrollBarDecorator::setBarSprite(const sf::Sprite& barSpr) {
-
-}
-
-
-
-void ScrollBarDecorator::setBarBkgrndSprite(const sf::Sprite& bkgrndSpr) {
-
-}
-
-
-
-void ScrollBarDecorator::setButtonSprite(const sf::Sprite& buttonSpr) {
-
-}
-
-
 ///////////////////////////////////////////////////////////////////////
 // Draw Functionality
 ///////////////////////////////////////////////////////////////////////
