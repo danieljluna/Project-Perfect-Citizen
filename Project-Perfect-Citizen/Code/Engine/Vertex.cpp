@@ -22,7 +22,10 @@ ppc::Vertex::Vertex(){
     face_sheet.loadFromFile(resourcePath() + "Face_Sheet.png");
     rend_ = new characterRender(face_sheet);
     
-    
+    bgrect_.setSize(sf::Vector2f(100,125));
+    bgrect_.setFillColor(sf::Color(181,179,165));
+    bgrect_.setOutlineThickness(1.f);
+    bgrect_.setOutlineColor(sf::Color::Black);
     
     rect_.setSize(sf::Vector2f(100,100));
     rect_.setFillColor(sf::Color(180,180,180));
@@ -34,7 +37,7 @@ ppc::Vertex::Vertex(){
 	circ_.setPosition(0, 0);
 	circ_.setOutlineColor(sf::Color::White);
 	//text_.setPosition(radius_ / 2.f, radius_ / 2.f);
-    text_.setPosition(50, rect_.getSize().y+10);
+    text_.setPosition(40, rect_.getSize().y+1);
 	setTextFontLoad(resourcePath() + "consola.ttf");
 	isSelected_ = false;
 }
@@ -44,6 +47,7 @@ ppc::Vertex::Vertex(const Vertex & other){
 	char_ = other.char_;
 	circ_ = other.circ_;
     rect_ = other.rect_;
+    bgrect_ = other.bgrect_;
     rend_ = other.rend_;
 	text_ = other.text_;
 	font_ = other.font_;
@@ -57,6 +61,7 @@ ppc::Vertex& ppc::Vertex::operator=(const Vertex& other){
 		char_ = other.char_;
 		circ_ = other.circ_;
         rect_ = other.rect_;
+        bgrect_ = other.bgrect_;
         rend_ = other.rend_;
 		text_ = other.text_;
 		font_ = other.font_;
@@ -77,6 +82,7 @@ void ppc::Vertex::setColor(sf::Color col) {
 	color_ = col;
 	circ_.setFillColor(color_);
     rect_.setFillColor(color_);
+    bgrect_.setFillColor(color_);
 }
 
 sf::Vector2f ppc::Vertex::getPosCenter() const {
@@ -139,6 +145,7 @@ void ppc::Vertex::selectVert() {
 	isSelected_ = true;
 	circ_.setOutlineThickness(3.f);
     rect_.setOutlineThickness(3.f);
+    bgrect_.setOutlineThickness(3.f);
     rend_->setOrigin(rect_.getOrigin().x, rect_.getOrigin().y);
 
 }
@@ -147,6 +154,7 @@ void ppc::Vertex::deselectVert() {
 	isSelected_ = false;
 	circ_.setOutlineThickness(0.f);
 	rect_.setOutlineThickness(0.f);
+    bgrect_.setOutlineThickness(1.f);
 }
 
 bool ppc::Vertex::isSelected() {
@@ -158,6 +166,7 @@ void ppc::Vertex::draw(sf::RenderTarget& target,
 
 	states.transform *= getTransform();
 
+    target.draw(bgrect_, states);
 	target.draw(rect_, states);
 	target.draw(text_, states);
     target.draw(*rend_, states);

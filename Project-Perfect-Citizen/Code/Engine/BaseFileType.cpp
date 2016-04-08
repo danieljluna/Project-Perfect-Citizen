@@ -70,7 +70,7 @@ void BaseFileType::printDir()
 	this->baseDirString = "";
 	for (auto iter = this->contents.begin(); iter != this->contents.end(); iter++) {
 		if (iter->second->hidden == true) {
-			continue;
+			continue;	
 		}
 		std::cout << iter->first << std::endl;
 		this->baseDirString += (iter->first + "@");
@@ -143,6 +143,29 @@ std::map<std::string, BaseFileType*> BaseFileType::getContents()
 std::string BaseFileType::getFileData()
 {
 	return this->fileData;
+}
+
+void ppc::BaseFileType::setPassword(std::string pwd)
+{
+	password = pwd;
+	passwordProtected = true;
+}
+
+bool ppc::BaseFileType::comparePassword(std::string input)
+{
+	if (input == password) {
+		passwordProtected = false;
+		return true;
+	}
+	return false;
+}
+
+bool ppc::BaseFileType::isPasswordProtected()
+{
+	if (passwordProtected) {
+		return true;
+	}
+	return false;
 }
 
 

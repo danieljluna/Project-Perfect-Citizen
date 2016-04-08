@@ -101,18 +101,20 @@ void iconInputComponent::recieveMessage(msgType msg) {
 			openedWindow = piplineWindow;
 		}
 	}
-	else if (msg.compare(OPEN_THE_HELP) == 0) {
-		if (openedWindow != nullptr && theDesktop_.isWindow(openedWindow)) {
-			theDesktop_.focusWindow(openedWindow);
-		}
-		else {
-			ppc::WindowInterface* ErrorMsgWindow =
-				new ppc::Window(500, 150, sf::Color(170, 170, 170));
-			spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
-			theDesktop_.addWindow(ErrorMsgWindow);
-			openedWindow = ErrorMsgWindow;
-		}
-	}
+	/*else if (msg.compare(OPEN_THE_HELP) == 0) {
+		ppc::WindowInterface* ErrorMsgWindow =
+			new ppc::Window(500, 150, sf::Color(255, 255, 255));
+		spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
+		theDesktop_.addWindow(ErrorMsgWindow);
+		openedWindow = ErrorMsgWindow;
+     }*/
+    else if (msg.compare(OPEN_THE_HELP) == 0) {
+         ppc::WindowInterface* helpWindow =
+         new ppc::Window(600, 600, sf::Color(200,200,200));
+         spawnHelp(helpWindow, helpWindow->getInputHandler(), buttonSheet_, 100, 100);
+         theDesktop_.addWindow(helpWindow);
+         openedWindow = helpWindow;
+     }
 	else if (msg.compare(OPEN_THE_BROWSER) == 0) {
 		if (openedWindow != nullptr && theDesktop_.isWindow(openedWindow)) {
 			theDesktop_.focusWindow(openedWindow);

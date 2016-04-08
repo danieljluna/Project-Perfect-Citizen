@@ -1,3 +1,11 @@
+//Used to get XCODE working/////////////////////////////////
+
+#ifdef WINDOWS_MARKER
+#define resourcePath() std::string("Resources/")
+#else
+#include "ResourcePath.hpp"
+#endif
+
 #include "../debug.h"
 #include "AudioQueue.h"
 #include "SFML/Audio.hpp"
@@ -49,13 +57,19 @@ void AudioQueue::playSound(int sound)
 {
 	soundQueue.push(sound);
 }
-
 void AudioQueue::readySound(int sound) {
 	soundQueue.push(sound);
 }
 
 void AudioQueue::stopSound(int sound)
 {
+
+}
+
+void AudioQueue::stopAllSounds() {
+	for (auto iter = soundStorage.begin(); iter != soundStorage.end(); iter++) {
+		iter->second.stop();
+	}
 }
 
 void AudioQueue::popAndPlay()
@@ -83,7 +97,7 @@ int AudioQueue::addSound(std::string name, std::string filename)
 	sf::SoundBuffer newBuffer;
 	std::pair<std::string, sf::SoundBuffer> newPair;
 
-	newBuffer.loadFromFile(filepath + filename);
+	newBuffer.loadFromFile(resourcePath() + filename);
 	newPair.first = name;
 	newPair.second = newBuffer;
 	bufferStorage.push_back(newPair);
@@ -94,7 +108,7 @@ int AudioQueue::addSound(std::string name, std::string filename)
 
 bool ppc::AudioQueue::addBgm(std::string filename)
 {
-	if (!bgm.openFromFile(this->filepath + filename))
+	if (!bgm.openFromFile(resourcePath() + filename))
 		return false; // error
 	 //SoundTrack_Extraction.ogg
 	return true;

@@ -1,6 +1,7 @@
 #include "ButtonBuilder.h"
 #include "buttonRenderComponent.h"
 #include "../Game/mousePressButton.h"
+#include "../Engine/debug.h"
 #include <ostream>
 #include "TextDisplayRenderComponent.h"
 
