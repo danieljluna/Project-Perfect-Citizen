@@ -9,15 +9,18 @@
 using namespace std;
 
 ///////////////////////////////////////////////////////////////////////
-/// @brief Designated Render Component for a text box
-/// @author Alex Vincent
-/// @details This is a generic text render component for any item that
-/// can be used anywhere. This is meant to be used in conjunction with
-/// a TextDisplayBuilder to make non-editable text boxes.
+/// @brief Designated Label Render Component for a text label
+/// @author Michael Lowe
+/// @details The buttonRenderComponent is a basic packaged subclass
+///     extension of RenderComponent, make specifically to handle
+///     all generic "X" button related drawing/animating parts that
+///     also broadcast and recieve messages from an input handler.
+///		Stick this onto an entity to give it this functionality.
 ///////////////////////////////////////////////////////////////////////
 class TextBoxRenderComponent : public ppc::RenderComponent {
 private:
 	sf::Text* text;
+	sf::Text* outline;
 	sf::Font font;
 	string labelString;
 
@@ -37,12 +40,10 @@ public:
 
 	string getString() const { return text->getString(); }
 
-	void updateString(string str);
+	void updateLabelString(string str);
+	void updateLabelPosition(float x, float y);
+	void updateLabelSize(int s);
 
-	void updatePosition(float x, float y);
-
-	void updateSize(int s);
-
-    virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
+	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
 
 };

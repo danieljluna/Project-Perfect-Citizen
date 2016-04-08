@@ -46,6 +46,7 @@ public:
     ~textLabelComponent();
     
     sf::Vector2f getTextPosition() const {return text->getPosition();}
+
     string getString() const {return text->getString();}
     
     void updateLabelString(string str);

@@ -18,7 +18,7 @@ textInputRenderComponent::textInputRenderComponent(ppc::NodeState& fT, sf::Font&
 	this->text = new sf::Text();
     
     text->setFont(font);
-    text->setColor(sf::Color::White);
+    text->setColor(sf::Color::Green);
     text->setPosition(float(x), float(y));
     text->setCharacterSize(size);
     text->setString("");
