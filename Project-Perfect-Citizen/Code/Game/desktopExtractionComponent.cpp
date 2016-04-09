@@ -25,7 +25,7 @@
 
 using namespace ppc;
 
-desktopExtractionComponent::desktopExtractionComponent(NodeState &ft) : fileTree_(ft){
+desktopExtractionComponent::desktopExtractionComponent(NodeState ft) : fileTree_(ft){
     
 }
 

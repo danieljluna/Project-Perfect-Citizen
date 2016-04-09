@@ -85,9 +85,6 @@
     <ClCompile Include="Code\Engine\Audio\DesktopAudio.cpp">
       <Filter>Sources\Engine\Desktop</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\DesktopLogger.cpp">
-      <Filter>Sources\Engine\Desktop</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\desktop.cpp">
       <Filter>Sources\Engine\Desktop</Filter>
     </ClCompile>
@@ -395,9 +392,6 @@
     </ClInclude>
     <ClInclude Include="Code\Game\desktopExtractionComponent.hpp">
       <Filter>Headers\Game Specific\Desktop Extraction</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\DesktopLogger.h">
-      <Filter>Headers\Engine\Desktop</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\DraggableInput.h">
       <Filter>Headers\Game Specific\Input</Filter>
