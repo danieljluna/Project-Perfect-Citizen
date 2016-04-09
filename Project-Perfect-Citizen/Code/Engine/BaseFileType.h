@@ -83,6 +83,9 @@ namespace ppc {
 		std::string fileData = "";
 		bool passwordProtected = false;
 		std::string password = "";
+		int passwordAttemps = 0;
+		std::string passwordHint = "";
+
 	public:
 		///////////////////////////////////////////////
 		///@brief assigns Json string to jSonString;
@@ -151,7 +154,7 @@ namespace ppc {
 
 		virtual std::string getFileData();
 
-		virtual void setPassword(std::string pwd);
+		virtual void setPassword(std::string pwd, std::string hint);
 
 		virtual bool comparePassword(std::string input);
 
