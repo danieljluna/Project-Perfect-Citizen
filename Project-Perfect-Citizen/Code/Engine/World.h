@@ -2,10 +2,10 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "desktop.h"
 
 namespace ppc {
 
-	class Desktop;
 
 	///////////////////////////////////////////////////////////////////
 	///@brief Class that handles Level transitions, saving/loading, etc
@@ -16,7 +16,7 @@ namespace ppc {
 	private:
 
 		sf::RenderWindow* screen_;
-		ppc::Desktop* currDesktop_;
+		ppc::Desktop currDesktop_;
 
     public:
 
@@ -36,10 +36,7 @@ namespace ppc {
       // Setters
       /////////////////////////////////////////////////////////////////
 
-		///////////////////////////////////////////////////////////////
-		///@brief Set the screen the game is played on.
-		///@param [in] sf::RenderWindow
-		///////////////////////////////////////////////////////////////
+
 		void setGameScreen(sf::RenderWindow&);
 
 		///////////////////////////////////////////////////////////////

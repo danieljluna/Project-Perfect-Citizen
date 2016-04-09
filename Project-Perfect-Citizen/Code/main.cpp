@@ -76,7 +76,7 @@ void runBootDesktop(ppc::Desktop& myDesktop) {
    
     textLabelComponent* textLabel = new textLabelComponent(font,sf::Color::Green, 0,0, 20, " PCOS(C) , UNMOS. UNAUTHORIZED USE OF THIS TERMINAL CAN RESULT IN PENALTY BY DEATH. \n   Beginning File System Initialization \n");
     
-    bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(myDesktop.getButtonSheet(),*textLabel,7,5);
+    bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(*myDesktop.getButtonSheet(),*textLabel,7,5);
 
     bootLoadingUpdateComponent* bootUpdate = new bootLoadingUpdateComponent(*bootRender,0.1f);
 
@@ -96,7 +96,7 @@ void runEndDesktop(ppc::Desktop& myDesktop) {
     
     Entity ending;
     
-    endingAnimationRender* endRender = new endingAnimationRender(myDesktop.getButtonSheet());
+    endingAnimationRender* endRender = new endingAnimationRender(*myDesktop.getButtonSheet());
     endAnimationUpdateComponent* endUpdate = new endAnimationUpdateComponent(*endRender, 0.1f);
     
     ending.addComponent(endRender);
@@ -109,14 +109,14 @@ void runEndDesktop(ppc::Desktop& myDesktop) {
 
 void runPlayerDesktop(ppc::Desktop& myDesktop) {
 	createPlayerDesktop(myDesktop, *myDesktop.getDesktopWindow(), 
-		myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
+		*myDesktop.getInputHandler(), *myDesktop.getIconSheet(), *myDesktop.getButtonSheet());
 
 }
 
 
 void runTargetDesktop(ppc::Desktop& myDesktop) {
 	createTeacherDesktop(myDesktop, *myDesktop.getDesktopWindow(),
-		myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
+		*myDesktop.getInputHandler(),* myDesktop.getIconSheet(), *myDesktop.getButtonSheet());
 
 }
 
@@ -129,8 +129,9 @@ int main(int argc, char** argv) {
 
 	//Dont touch these comments please.
 	//World testWorld;
-	//ifstream ifs("Saves/Desktop.ini", std::ifstream::in);
-	//ifs >> testWorld;
+	//ifstream ifs1("Saves/playerDesktop.ini", std::ifstream::in);
+
+	//ifs1 >> testWorld;
 
 	
 	bool BootToTitleCard = false; 

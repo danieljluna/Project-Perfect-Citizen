@@ -3,6 +3,18 @@
 #include "baseFileType.h"
 #include "NodeState.h"
 
+ppc::NodeState::NodeState() {
+
+}
+
+ppc::NodeState::NodeState(const NodeState& other) {
+	this->root = other.root;
+	this->cwd = other.cwd;
+	this->workingDirectory = other.workingDirectory;
+	this->lastLsNode = other.lastLsNode;
+	this->dirString = other.dirString;
+}
+
 void ppc::NodeState::popWorking()
 {
 	this->workingDirectory.pop_back();
