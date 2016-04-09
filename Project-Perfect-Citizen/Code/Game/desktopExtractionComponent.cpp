@@ -1,4 +1,4 @@
-//
+﻿//
 //  desktopExtractionComponent.cpp
 //  Project-Perfect-Citizen
 //
@@ -25,7 +25,8 @@
 
 using namespace ppc;
 
-desktopExtractionComponent::desktopExtractionComponent(NodeState &ft) : fileTree_(ft){
+desktopExtractionComponent::desktopExtractionComponent(NodeState ft) : fileTree_(ft){
+    
 }
 
 Json::Value desktopExtractionComponent::parseDesktopAsJson(std::string file, std::string obj) {
