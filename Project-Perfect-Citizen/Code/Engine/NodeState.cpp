@@ -3,6 +3,9 @@
 #include "baseFileType.h"
 #include "NodeState.h"
 
+ppc::NodeState::NodeState() {
+
+}
 
 ppc::NodeState::NodeState(const NodeState& other) {
 	this->root = other.root;
