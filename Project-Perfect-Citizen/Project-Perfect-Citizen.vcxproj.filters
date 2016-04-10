@@ -295,6 +295,9 @@
     <ClCompile Include="Code\Game\TextFieldRenderComponent.cpp">
       <Filter>Sources\Game Specific\Text</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\nameGeneration.cpp">
+      <Filter>Sources\Game Specific\PCG</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Game\photoRenderComponent.hpp">
@@ -612,6 +615,9 @@
     <ClInclude Include="Code\Game\IconBuilder.h" />
     <ClInclude Include="Code\Game\TextFieldRenderComponent.hpp">
       <Filter>Headers\Game Specific\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\nameGeneration.hpp">
+      <Filter>Headers\Game Specific\PCG</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

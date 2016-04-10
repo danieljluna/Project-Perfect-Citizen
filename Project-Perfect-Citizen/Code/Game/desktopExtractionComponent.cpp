@@ -50,7 +50,6 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
             std::vector<std::string> CMD;
             std::string mk_dir_cmd = "mkdir";
             std::string directory_name = objName;
-            
             std::string directory_name_copy = objName;
             std::string password;
             std::string hint;
@@ -70,7 +69,6 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
                     hint = token;
                     fileTree_.getCwd()->setPassword(password, hint);
                 }
-                std::cout << token << std::endl;
                 directory_name_copy.erase(0, pos + delimiter.length());
                 count++;
             }
