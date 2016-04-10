@@ -16,6 +16,7 @@
 #include "buttonRenderComponent.h"
 #include "consoleUpdateComponent.h"
 #include "textInputRenderComponent.hpp"
+#include "spriteRenderComponent.hpp"
 #include "textInputKeys.hpp"
 #include "createIcon.h"
 #include "createButton.h"
@@ -61,11 +62,17 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	//// Create the start menu
 	/////////////////////////////////////////////
 	ppc::WindowInterface* startToolbar =
-		new ppc::Window(1000, 65, sf::Color(195, 195, 195));
-	startToolbar->setPosition(0, 745);
+		new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
+	startToolbar->setPosition(0, 735);
+    
+    Entity startBar;
+    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    startBar.addComponent(bar);
+    
 	Entity startButton;
-	spawnStartButton(startButton, startToolbar->getInputHandler(), buttonSheet, 0, 2, 0.4f);
-	startToolbar->addEntity(startButton);
+	spawnStartButton(startButton, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
+    startToolbar->addEntity(startBar);
+    startToolbar->addEntity(startButton);
 	desktopToModify.addWindow(startToolbar);
 
 

@@ -11,6 +11,7 @@
 		C8270D9D1CADCB7900232367 /* Mouse_Down.wav in Resources */ = {isa = PBXBuildFile; fileRef = C8270D9B1CADCB7900232367 /* Mouse_Down.wav */; };
 		C8270D9E1CADCB7900232367 /* Mouse_Up.wav in Resources */ = {isa = PBXBuildFile; fileRef = C8270D9C1CADCB7900232367 /* Mouse_Up.wav */; };
 		C82D61461CB86B10001FF551 /* Notification_Prompt.wav in Resources */ = {isa = PBXBuildFile; fileRef = C82D61451CB86B10001FF551 /* Notification_Prompt.wav */; };
+		C82D61491CB8737E001FF551 /* spriteRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82D61471CB8737E001FF551 /* spriteRenderComponent.cpp */; };
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
 		C8778C181CB5B2890035A46E /* animatorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8778BA01CB5B2890035A46E /* animatorComponent.cpp */; };
 		C8778C191CB5B2890035A46E /* BootLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8778BA21CB5B2890035A46E /* BootLoader.cpp */; };
@@ -242,6 +243,8 @@
 		C8270D9B1CADCB7900232367 /* Mouse_Down.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Mouse_Down.wav; sourceTree = "<group>"; };
 		C8270D9C1CADCB7900232367 /* Mouse_Up.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Mouse_Up.wav; sourceTree = "<group>"; };
 		C82D61451CB86B10001FF551 /* Notification_Prompt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Notification_Prompt.wav; sourceTree = "<group>"; };
+		C82D61471CB8737E001FF551 /* spriteRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spriteRenderComponent.cpp; sourceTree = "<group>"; };
+		C82D61481CB8737E001FF551 /* spriteRenderComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = spriteRenderComponent.hpp; sourceTree = "<group>"; };
 		C82E60731C810DCB001860CC /* json-forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "json-forwards.h"; sourceTree = "<group>"; };
 		C82E60741C810DCB001860CC /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		C82E60751C810DCB001860CC /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
@@ -766,6 +769,8 @@
 				C8778BAE1CB5B2890035A46E /* characterRender.cpp */,
 				C8778BAF1CB5B2890035A46E /* characterRender.hpp */,
 				C8778BB01CB5B2890035A46E /* consoleIconRenderComponent.cpp */,
+				C82D61471CB8737E001FF551 /* spriteRenderComponent.cpp */,
+				C82D61481CB8737E001FF551 /* spriteRenderComponent.hpp */,
 				C8778BB11CB5B2890035A46E /* consoleIconRenderComponent.h */,
 				C8778BB21CB5B2890035A46E /* consoleUpdateComponent.cpp */,
 				C8778BB31CB5B2890035A46E /* consoleUpdateComponent.h */,
@@ -1302,6 +1307,7 @@
 				C8778C3E1CB5B2890035A46E /* NetworkInputCmpnt.cpp in Sources */,
 				C8778C501CB5B2890035A46E /* textOutputRenderComponent.cpp in Sources */,
 				C8778CB11CB5B2970035A46E /* ScrollBarDeco.cpp in Sources */,
+				C82D61491CB8737E001FF551 /* spriteRenderComponent.cpp in Sources */,
 				C8778CB31CB5B2970035A46E /* UpdateCmpntDecorator.cpp in Sources */,
 				C8778C211CB5B2890035A46E /* consoleUpdateComponent.cpp in Sources */,
 				C8778C2B1CB5B2890035A46E /* desktopExtractionComponent.cpp in Sources */,
