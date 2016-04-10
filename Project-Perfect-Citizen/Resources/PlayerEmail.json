@@ -13,8 +13,8 @@
     network. This network, the SecureNetwork, is a
     series of interconnected links between every
     electronic telecommunications device
-    internationally that controls the channels through
-    which information is passed on."
+    internationally that controls the channels
+    through which information is passed on."
         },
 		"Email_2": { 
 			"To" : "PLAYER_NAME",
@@ -23,10 +23,11 @@
 			"Body" :"Hey new guy,
             
     I wanted to drop by and say hi, I am just a few
-    cubicles away. Anyways, just take it easy the next
-    few days and don't worry if things start to seem
-    overwhelming, I'm sure your first assignment will 
-    be an easy one. Just remember, I know everything.
+    cubicles away. Anyways, just take it easy the
+    next few days and don't worry if things start to
+    seem overwhelming, I'm sure your first 
+    assignment will be an easy one. Just remember, I
+    know everything.
             
     CT"
 		},
@@ -37,22 +38,25 @@
 			"Body" : "Hello there,
             
     So you are the new personnel here at the DCPS?
-    Well you are going to enjoy your time here, I know
-    it. Anyways, I'm JP and I am your boss here.
+    Well you are going to enjoy your time here, I
+    know it. Anyways, I'm JP and I am your boss 
+    here.
     
     So the first thing your should do is to open the
-    Graph application and start your first assignment.
+    Graph application and start your first
+    assignment.
             
-    We have suspicions on a group of people and it is
-    your job to look through these suspects's sms
-    messages and find the main conductor, the one who
-    seems to spew the most suggestive content.
+    We have suspicions on a group of people and it
+    is your job to look through these suspects's sms
+    messages and find the main conductor, the one
+    who seems to spew the most suggestive content.
             
     Once you find your person, we will give you
-    permission to look into his desktop. Once inside,
-    you will find content that will prove their
-    actions. Also, if you bust them, don't worry 
-    about them, they are going to a special place.
+    permission to look into his desktop. Once
+    inside, you will find content that will prove
+    their actions. Also, if you bust them, don't 
+    worry about them, they are going to a special
+    place.
             
     With every bust, we get closer to the goal of
     achieving the Perfect Citizen.
@@ -65,29 +69,30 @@
 			"Subject": "Graph App Instructions",
 			"Body" : 
     "
-    Node Selection: Left Click on a node, 
-    node will be highlighted. (Edges will 
-    be deselected)
+    Node Selection: Left Click on a node, node will
+    be highlighted. (Edges will be deselected)
     
-    Edge Selection: Left click on an edge 
-    (Nodes will be deselected)
+    Edge Selection: Left click on an edge (Nodes
+    will be deselected)
             
-    Node Position: Click and drag a node
-    to reposition it.  Edges are updated
-    automatically.  Node position is to help
-    you work towards a solution, and does not
-    affect correctness.
+    Node Position: Click and drag a node to
+    reposition it.  Edges are updated automatically.
+    Node position is to help you work towards a
+    solution, and does not affect correctness.
             
     Change Color of Selected Edge: 
-    Z - Black, X - Red,
-    C - Green, Space - Cycle Color.
+            Z - Black,
+            X - Red,
+            C - Green,
+            Space - Cycle Color.
     
     Edge Color Significance:
-    Black - Unknown, Red - Suspicious,
+    Black - Unknown,
+    Red - Suspicious,
     Green - Clean.
             
-    Create an Edge: Select a node, then right
-    click the node you want to connect it to.
+    Create an Edge: Select a node, then right click
+    the node you want to connect it to.
     
     Delete an Edge: Select the edge, press DEL
     
@@ -95,11 +100,11 @@
     
     Submit for Approval - Okay Button
     
-    For this first trial you will simply be 
-    searching for the person with the highest 
-    total number of connections.  You must 
-    still fill out the rest of the network 
-    with high accuracy to receive approval."
+    For this first trial you will simply be
+    searching for the person with the highest total
+    number of connections.  You must still fill out
+    the rest of the network with high accuracy to
+    receive approval."
         }
     }
 }
