@@ -13,9 +13,9 @@
 #include "../Library/json/json.h"
 #include "debug.h"
 
-ppc::World::World() {
+ppc::World::World() : currDesktop_(){
 	screen_ = nullptr;
-	currDesktop_ = nullptr;
+
 }
 
 ppc::World::World(sf::RenderWindow& gameScreen) {
@@ -24,11 +24,10 @@ ppc::World::World(sf::RenderWindow& gameScreen) {
 
 ppc::World::World(sf::RenderWindow& gameScreen, ppc::Desktop& d) {
 	screen_ = &gameScreen;
-	currDesktop_ = &d;
+	currDesktop_ = d;
 }
 
 ppc::World::~World() {
-	if (currDesktop_ != nullptr) delete currDesktop_;
 	if (screen_ != nullptr) delete screen_;
 }
 
@@ -37,15 +36,15 @@ void ppc::World::setGameScreen(sf::RenderWindow& gameScreen) {
 }
 
 void ppc::World::setCurrDesktop(ppc::Desktop &d) {
-	currDesktop_ = &d;
+	currDesktop_ = d;
 }
 
-sf::RenderWindow * ppc::World::getGameScreen() {
+sf::RenderWindow* ppc::World::getGameScreen() {
 	return screen_;
 }
 
 ppc::Desktop* ppc::World::getCurrDesktop() {
-	return currDesktop_;
+	return &currDesktop_;
 }
 
 bool ppc::World::runDesktop(ppc::Desktop &myDesktop) {
@@ -86,18 +85,13 @@ bool ppc::World::runDesktop(ppc::Desktop &myDesktop) {
 }
 
 bool ppc::World::runCurrDesktop() {
-	return runDesktop(*(this->currDesktop_));
+	return runDesktop((this->currDesktop_));
 }
 
 
 std::istream& ppc::operator>>(std::istream& in, World& world) {
-	if (world.currDesktop_ != nullptr) {
-		delete world.currDesktop_;
-		world.currDesktop_ = nullptr;
-	}
-		
-	world.currDesktop_ = new Desktop();
-	in >> *world.currDesktop_;
+	
+	in >> world.currDesktop_;
 	
 	return in;
 }

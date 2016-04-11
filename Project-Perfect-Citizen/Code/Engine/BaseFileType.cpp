@@ -53,7 +53,7 @@ void BaseFileType::readFile(ppc::Desktop& desk, sf::Image& im, std::string path)
 	switch (this->filetype) {
 	case FileType::File:
 		FileWindow = new ppc::Window(500, 500, sf::Color(255, 255, 255));
-		spawnFile(FileWindow, FileWindow->getInputHandler(), desk.getNodeState(), im, 100, 200, path);
+		spawnFile(FileWindow, FileWindow->getInputHandler(), *desk.getNodeState(), im, 100, 200, path);
 		desk.addWindow(FileWindow);
 		std::cout << path << std::endl;
 		break;
@@ -145,10 +145,11 @@ std::string BaseFileType::getFileData()
 	return this->fileData;
 }
 
-void ppc::BaseFileType::setPassword(std::string pwd)
+void ppc::BaseFileType::setPassword(std::string pwd, std::string hint)
 {
 	password = pwd;
 	passwordProtected = true;
+	passwordHint = hint;
 }
 
 bool ppc::BaseFileType::comparePassword(std::string input)
@@ -156,6 +157,10 @@ bool ppc::BaseFileType::comparePassword(std::string input)
 	if (input == password) {
 		passwordProtected = false;
 		return true;
+	}
+	passwordAttemps++;
+	if (passwordAttemps >= 2) {
+		std::cout << passwordHint << std::endl;
 	}
 	return false;
 }

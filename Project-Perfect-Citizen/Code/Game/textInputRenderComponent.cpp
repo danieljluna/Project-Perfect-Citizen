@@ -18,7 +18,7 @@ textInputRenderComponent::textInputRenderComponent(ppc::NodeState& fT, sf::Font&
 	this->text = new sf::Text();
     
     text->setFont(font);
-    text->setColor(sf::Color::White);
+    text->setColor(sf::Color::Green);
     text->setPosition(float(x), float(y));
     text->setCharacterSize(size);
     text->setString("");
@@ -44,7 +44,7 @@ void textInputRenderComponent::updateString(string s) {
 }
 
 void textInputRenderComponent::updatePosition(int currentLineNum) {
-	this->text->setPosition(text->getPosition().x, ((textSize_*1.15) * currentLineNum));
+	this->text->setPosition(text->getPosition().x, ((textSize_*1.15f) * currentLineNum));
 }
 
 void textInputRenderComponent::draw( sf::RenderTarget& target,

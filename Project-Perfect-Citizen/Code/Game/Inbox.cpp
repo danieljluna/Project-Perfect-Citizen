@@ -6,7 +6,7 @@ Inbox::Inbox() {}
 
 bool Inbox::isEmpty() { return messageList.empty(); }
 
-Email Inbox::getEmailAt(int pos) { return messageList.at(pos); }
+Email& Inbox::getEmailAt(int pos) { return messageList.at(pos); }
 
 int Inbox::getInboxSize() { return messageList.size(); }
 

@@ -37,7 +37,7 @@ namespace ppc {
 		///@note It is the caller's responsibility to ensure the position to which
 		/// they're accessing is non-null. 
 		///////////////////////////////////////////////////////////////////////
-		ppc::Email getEmailAt(int position);
+		ppc::Email& getEmailAt(int position);
 
 		///////////////////////////////////////////////////////////////////////
 		///@brief Simple getter of the email vector size
