@@ -17,6 +17,10 @@ namespace ppc {
 
 class PipelineLevelBuilder {
 public:
+	static Network* buildTutorialOne();
+
+	static Network* buildTutorialTwo();
+	
 	///////////////////////////////////////////////////////////////////
 	/// @brief A function that builds the first (example) level of the
 	///   pipeline extraction
@@ -26,6 +30,8 @@ public:
 	///////////////////////////////////////////////////////////////////
 	static Network* buildLevelOneNetworkSolution();
 
+	
+
 
 
 	/*
@@ -33,6 +39,8 @@ public:
 	*/
 
 private:
+
+	//static Network * initNetwork(int numnodes);
 
 	static void populateLevelEdges(int start, int end, int numEdges, 
 		Network& net, int suspLevel, const Json::Value& exprGrammar);

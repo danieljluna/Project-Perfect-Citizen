@@ -85,9 +85,6 @@
     <ClCompile Include="Code\Engine\Audio\DesktopAudio.cpp">
       <Filter>Sources\Engine\Desktop</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\DesktopLogger.cpp">
-      <Filter>Sources\Engine\Desktop</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\desktop.cpp">
       <Filter>Sources\Engine\Desktop</Filter>
     </ClCompile>
@@ -293,6 +290,11 @@
     <ClCompile Include="Code\Engine\event.cpp">
       <Filter>Sources\Engine\Observer System</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\nameGeneration.cpp" />
+    <ClCompile Include="Code\Game\TextFieldRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\interpolateUpdateComponent.cpp">
+      <Filter>Sources\Game Specific\Email</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Game\photoRenderComponent.hpp">
@@ -390,9 +392,6 @@
     </ClInclude>
     <ClInclude Include="Code\Game\desktopExtractionComponent.hpp">
       <Filter>Headers\Game Specific\Desktop Extraction</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\DesktopLogger.h">
-      <Filter>Headers\Engine\Desktop</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\DraggableInput.h">
       <Filter>Headers\Game Specific\Input</Filter>
@@ -608,8 +607,13 @@
       <Filter>Headers\Game Specific\Text</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\IconBuilder.h" />
+    <ClInclude Include="Code\Game\nameGeneration.hpp" />
+    <ClInclude Include="Code\Game\TextFieldRenderComponent.hpp" />
+    <ClInclude Include="Code\Game\interpolateUpdateComponent.hpp">
+      <Filter>Sources\Game Specific\Email</Filter>
+    </ClInclude>
     <ClInclude Include="Code\Game\PipelineJobsAndIncomes.h">
-      <Filter>Headers\Game Specific\PCG</Filter>
+      <Filter>Headers\Game Specific\Pipeline Extraction</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

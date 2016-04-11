@@ -2,6 +2,7 @@
 
 #include "../Engine/Edge.h"
 #include "../Game/expressionistParser.hpp"
+#include "../Game/PipelineJobsAndIncomes.h"
 
 
 #include <random>
@@ -21,11 +22,60 @@ const std::map<std::string, bool> NAME_MAP = {
 	{ "Y", false },{ "Z", false }
 };
 
+const int TUTORIAL_1_NODES = 2;
+const int TUTORIAL_2_NODES = 4;
+
 const int LEVEL_ONE_NUM_NODES = 8;
 const int LEVEL_ONE_NUM_EDGES = 8;
 const int LEVEL_ONE_NODES_LOW = (LEVEL_ONE_NUM_NODES - 1) / 2; // 0 - 3
 const int LEVEL_ONE_NODES_HIGH = (LEVEL_ONE_NUM_NODES / 2);    // 4 - 7
-const int SMS_MESSAGES_PER_EDGE = 1;
+const int LEVEL_ONE_MSG_PER_EDGE = 1;
+
+
+Network* PipelineLevelBuilder::buildTutorialOne() {
+	Network* myNetwork = new Network(TUTORIAL_1_NODES);
+	std::map<std::string, bool> usednames = NAME_MAP;
+
+	for (int i = 0; i < TUTORIAL_1_NODES;) {
+		PipelineCharacter newpc(JOBS_ALL[0], 18, false);
+		if (usednames[newpc.getSSN().substr(0, 1)] == false) {
+			myNetwork->vert(i).setCharacter(newpc);
+			usednames[newpc.getSSN().substr(0, 1)] = true;
+			++i;
+			//add char to database here I think
+		}
+	}
+
+	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson("suspiciontest.json");
+
+	addEdge(0, 1, *myNetwork, 0, exprGrammar);
+
+	return myNetwork;
+}
+
+Network* PipelineLevelBuilder::buildTutorialTwo() {
+	Network* myNetwork = new Network(TUTORIAL_2_NODES);
+	std::map<std::string, bool> usednames = NAME_MAP;
+
+	for (int i = 0; i < TUTORIAL_2_NODES;) {
+		PipelineCharacter newpc(JOBS_ALL[0], 18, false);
+		if (usednames[newpc.getSSN().substr(0, 1)] == false) {
+			myNetwork->vert(i).setCharacter(newpc);
+			usednames[newpc.getSSN().substr(0, 1)] = true;
+			++i;
+			//add char to database here I think
+		}
+	}
+
+	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson("suspiciontest.json");
+
+	addEdge(0, 1, *myNetwork, 0, exprGrammar);
+	addEdge(1, 2, *myNetwork, 0, exprGrammar);
+	addEdge(2, 3, *myNetwork, 1, exprGrammar);
+	addEdge(0, 3, *myNetwork, 1, exprGrammar);
+
+	return myNetwork;
+}
 
 Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	Network* myNetwork = new Network(LEVEL_ONE_NUM_NODES);
@@ -53,16 +103,15 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	populateLevelEdges(LEVEL_ONE_NODES_HIGH, LEVEL_ONE_NUM_NODES - 1,
 		LEVEL_ONE_NUM_EDGES / 2, *myNetwork, 1, exprGrammar);
 
-	std::pair<int, int> centerAndTarget = designateCenter(0, LEVEL_ONE_NODES_LOW, *myNetwork);
+	std::pair<int, int> centerAndTarget = designateCenter(LEVEL_ONE_NODES_HIGH, LEVEL_ONE_NUM_NODES - 1, *myNetwork);
 	myNetwork->setCenter(centerAndTarget.first);
 	addEdge(centerAndTarget.first, centerAndTarget.second, *myNetwork, 1, exprGrammar);
 
 	return myNetwork;
 }
 
-
 // Finds a valid vertex in range [start, end] designates it as center,
-// adds an edge between it and the other side of the graph
+// adds an edge between it and the other side of the graph (Presuming graph is split in halves, may need to be updated)
 // Needs to be updated to reflect suspicion level if link suspicion is used
 // for puzzle solving
 std::pair<int, int> PipelineLevelBuilder::designateCenter(unsigned int start, unsigned int end, Network& net) {
@@ -124,6 +173,8 @@ std::pair<int, int> PipelineLevelBuilder::designateCenter(unsigned int start, un
 
 }
 
+
+//Adds an edge between two nodes and populates it with text message data
 void PipelineLevelBuilder::addEdge(int first, int second, Network& net, int suspLevel, const Json::Value& exprGrammar) {
 	Edge thisedge;
 	//Color here is unused by the player, but is useful for checking
@@ -140,7 +191,7 @@ void PipelineLevelBuilder::addEdge(int first, int second, Network& net, int susp
 		else thisedge.setColorRed();
 	}
 
-	addSmsMessagesToEdge(thisedge, SMS_MESSAGES_PER_EDGE, net.vert(first).getCharacter(),
+	addSmsMessagesToEdge(thisedge, LEVEL_ONE_MSG_PER_EDGE, net.vert(first).getCharacter(),
 		net.vert(second).getCharacter(), exprGrammar);
 
 	net.setEdge(first, second, thisedge);
