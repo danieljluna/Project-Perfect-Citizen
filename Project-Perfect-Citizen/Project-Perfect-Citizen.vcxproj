@@ -21,7 +21,6 @@
     <ClCompile Include="Code\Engine\ComponentObsvr.cpp" />
     <ClCompile Include="Code\Engine\debug.cpp" />
     <ClCompile Include="Code\Engine\desktop.cpp" />
-    <ClCompile Include="Code\Engine\DesktopLogger.cpp" />
     <ClCompile Include="Code\Engine\DraggableInput.cpp" />
     <ClCompile Include="Code\Engine\Edge.cpp" />
     <ClCompile Include="Code\Engine\entity.cpp" />
@@ -84,6 +83,7 @@
     <ClCompile Include="Code\Game\iconInputComponent.cpp" />
     <ClCompile Include="Code\Game\Inbox.cpp" />
     <ClCompile Include="Code\Game\mousePressButton.cpp" />
+    <ClCompile Include="Code\Game\nameGeneration.cpp" />
     <ClCompile Include="Code\Game\NetworkCheckFunctor.cpp" />
     <ClCompile Include="Code\Game\NetworkInputCmpnt.cpp" />
     <ClCompile Include="Code\Game\NetworkRenderCmpnt.cpp" />
@@ -129,7 +129,6 @@
     <ClInclude Include="Code\Engine\component.h" />
     <ClInclude Include="Code\Engine\debug.h" />
     <ClInclude Include="Code\Engine\desktop.h" />
-    <ClInclude Include="Code\Engine\DesktopLogger.h" />
     <ClInclude Include="Code\Engine\DraggableInput.h" />
     <ClInclude Include="Code\Engine\Edge.h" />
     <ClInclude Include="Code\Engine\Engine.h" />
@@ -197,6 +196,7 @@
     <ClInclude Include="Code\Game\iconInputComponent.h" />
     <ClInclude Include="Code\Game\Inbox.h" />
     <ClInclude Include="Code\Game\mousePressButton.h" />
+    <ClInclude Include="Code\Game\nameGeneration.hpp" />
     <ClInclude Include="Code\Game\NetworkCheckFunctor.h" />
     <ClInclude Include="Code\Game\NetworkInputCmpnt.h" />
     <ClInclude Include="Code\Game\NetworkRenderCmpnt.h" />

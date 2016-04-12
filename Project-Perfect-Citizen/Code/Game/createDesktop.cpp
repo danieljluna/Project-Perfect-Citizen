@@ -35,7 +35,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	std::string ls = "ls";
 	firstLsCommand.push_back(ls);
 	commandFn firstLs = findFunction(ls);
-	firstLs(desktopToModify.getNodeState(), firstLsCommand);
+	firstLs(*desktopToModify.getNodeState(), firstLsCommand);
 	
 	//////////////////////////////////////////////
 	//// Create the database (really should take a seed)
@@ -119,7 +119,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     //////////////////////////////////////////////
     //// Script to create file tree
     /////////////////////////////////////////////
-    desktopExtractionComponent* teacherFiles = new desktopExtractionComponent(desktopToModify.getNodeState());
+    desktopExtractionComponent* teacherFiles = new desktopExtractionComponent(*desktopToModify.getNodeState());
     Json::Value parsed = teacherFiles->parseDesktopAsJson("Desktop1.json", "Desktop");
     
     //////////////////////////////////////////////
