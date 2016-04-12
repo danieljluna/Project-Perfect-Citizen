@@ -113,7 +113,7 @@ void ppc::ButtonBuilder::create(Entity& e)
 	buttonRender->renderPosition(sf::Vector2f(posX, posY));
 
 	TextDisplayRenderComponent* labelRender = 
-		new TextDisplayRenderComponent(*font, sf::Color::Black, 100, 100, size, label);
+		new TextDisplayRenderComponent(*font, sf::Color::Black, posX, posY, labelSize, label);
 
 	/* Input Component*/
 	mousePressButton* mpb = new mousePressButton(*inputHandle, buttonRender->getSprite()->getGlobalBounds(), "GENERIC_BUTTON");

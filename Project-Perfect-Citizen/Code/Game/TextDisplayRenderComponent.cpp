@@ -23,12 +23,21 @@ TextDisplayRenderComponent::TextDisplayRenderComponent() {
     labelString_ = "";
 
 	this->text_ = new sf::Text();
+	this->outline_ = new sf::Text();
 
     text_->setFont(defaultFont);
     text_->setPosition(0, 0);
     text_->setCharacterSize(12);
-    text_->setColor(sf::Color{ 0,0,0 });
+    text_->setColor(sf::Color::Black);
     text_->setString(labelString_);
+
+	outline_->setFont(defaultFont);
+	outline_->setPosition(2, 0);
+	outline_->setCharacterSize(12);
+	if (text_->getColor() == sf::Color::Black)
+		outline_->setColor(sf::Color::White);
+	else outline_->setColor(sf::Color::Black);
+	outline_->setString(labelString_);
 
 }
 
@@ -39,6 +48,7 @@ TextDisplayRenderComponent::TextDisplayRenderComponent(sf::Font& f, sf::Color c,
 	std::string str) : font_(f) {
 
 	this->text_ = new sf::Text();
+	this->outline_ = new sf::Text();
 
 	labelString_ = str;
 	
@@ -47,6 +57,14 @@ TextDisplayRenderComponent::TextDisplayRenderComponent(sf::Font& f, sf::Color c,
 	text_->setCharacterSize(s);
 	text_->setColor(c);
 	text_->setString(labelString_);
+
+	outline_->setFont(font_);
+	outline_->setPosition(x+2, y);
+	outline_->setCharacterSize(s);
+	if (text_->getColor() == sf::Color::Black)
+		outline_->setColor(sf::Color::White);
+	else outline_->setColor(sf::Color::Black);
+	outline_->setString(labelString_);
 
 }
 
@@ -77,4 +95,5 @@ void TextDisplayRenderComponent::updateColor(sf::Color c) {
 void TextDisplayRenderComponent::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
 	target.draw(*(this->text_), states);
+	//target.draw(*(this->outline_), states);
 }

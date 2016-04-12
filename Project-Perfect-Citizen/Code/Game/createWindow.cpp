@@ -236,12 +236,12 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
 
 	Entity button;
 	ButtonBuilder bbuilder;
-	bbuilder.setButtonPosition(100, 100);
+	bbuilder.setButtonPosition(100, 300);
 	bbuilder.setInputHandle(ih);
 	bbuilder.setLabelFont(myFont);
 	bbuilder.setLabelMessage("FUCCBOI");
 	bbuilder.setLabelSize(20);
-	bbuilder.setSize(0.5f);
+	bbuilder.setSize(0.25f);
 	bbuilder.setSpriteSheet(buttonSheet);
 	bbuilder.create(button);
     /////////////////////////////////////////
