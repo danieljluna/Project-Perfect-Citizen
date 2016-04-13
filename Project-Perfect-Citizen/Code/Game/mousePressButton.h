@@ -56,7 +56,7 @@ public:
     template <class T>
     friend void setOnPress(mousePressButton* mpb,
                            T* objPtr,
-                           bool(*onPress)(T*, sf::Event&));
+                           bool(*onPress)(T*, Event));
 
 ///////////////////////////////////////////////////////////////////////
 //SETTERS
@@ -79,7 +79,7 @@ public:
 	void setIsBeingPressed(std::string iBP);
 
 	virtual ~mousePressButton();
-	virtual bool registerInput(sf::Event& ev) override;
+	virtual bool registerInput(sf::Event ev) override;
 
 
     Subject& onClick() { return onPress_; };
@@ -89,7 +89,7 @@ public:
 };
 
 template<class T>
-inline void setOnPress(mousePressButton* mpb, T * objPtr, bool(*onPress)(T *, sf::Event &)) {
+inline void setOnPress(mousePressButton* mpb, T * objPtr, bool(*onPress)(T *, Event)) {
 
     FreeFunctionObserver<T>* fnObsvr = new FreeFunctionObserver<T>(onPress, objPtr);
 

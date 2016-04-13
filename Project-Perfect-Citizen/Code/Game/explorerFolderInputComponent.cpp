@@ -71,7 +71,7 @@ bool explorerFolderInputComponent::isCollision(sf::Vector2i mousePos) {
 }
 
 
-bool explorerFolderInputComponent::registerInput(sf::Event& ev) {
+bool explorerFolderInputComponent::registerInput(sf::Event ev) {
 	if (getEntity() != nullptr) {
 
 		/* Case: Mouse Pressed Event*/
@@ -100,6 +100,8 @@ bool explorerFolderInputComponent::registerInput(sf::Event& ev) {
 					ppc::WindowInterface* explorerWindow =
 						new ppc::Window(600, 350, sf::Color(255, 255, 255));
 					spawnExplorer(theDesktop_, explorerWindow, explorerWindow->getInputHandler(), theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
+
+					explorerWindow->setPosition(containingWindow_->getPosition().x, containingWindow_->getPosition().y);
 					theDesktop_.addWindow(explorerWindow);
                     containingWindow_->close();
 				}

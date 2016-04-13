@@ -1,7 +1,6 @@
 
 #include "textOutputRenderComponent.h"
 #include "createWindow.h"
-#include "Quitter.h"
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
@@ -10,6 +9,7 @@
 #include "../Game/TreeCommands.h"
 #include <string>
 #include <algorithm>
+#include "../Engine/World.h"
 
 const string TEXT_KEY_INPUT = "TKI";
 
@@ -24,7 +24,7 @@ textOutputRenderComponent::textOutputRenderComponent(ppc::Desktop& dt, sf::Image
 
 	//font.loadFromFile(resourcePath() + "Consolas.ttf");
 	text_->setFont(font_);
-	text_->setColor(sf::Color::White);
+	text_->setColor(sf::Color::Green);
 	text_->setPosition(float(x), float(y));
 	text_->setCharacterSize(size);
 	text_->setString("");
@@ -37,7 +37,8 @@ textOutputRenderComponent::~textOutputRenderComponent() {
 }
 
 void textOutputRenderComponent::updateString(std::vector<string> cmd) {
-	
+	//printVector(cmd);
+
 	/* Print out what was just typed */
 	str_ = str_ + "> ";
 	for (auto iter = cmd.begin(); iter != cmd.end(); ++iter) {
@@ -60,7 +61,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		str_ = str_ + fileTree_.getDirString() + "\n";
 		int numLines = std::count(str_.begin(), str_.end(), '@');
 		std::replace(str_.begin(), str_.end(), '@', '\n');
-		numDisplayedLines += numLines;
+		numDisplayedLines += numLines + 1;
 	}
 	else if (cmd.at(0) == "pwd") {
 		std::vector<std::string> wd = fileTree_.getPwdVector();
@@ -86,8 +87,9 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 	else if (cmd.at(0) == "cd") {
 		if (cmd.size() < 2) {
 			str_ = str_ + "Error: 'cd' requires one parameter\n";
+			numDisplayedLines++;
 		}
-		if (cmd.at(1).compare("CP") == 0) { quitSection(); }
+		if (cmd.at(1).compare("CP") == 0) { World::quitDesktop(); }
 		else {
 			std::vector<string> cdCommand;
 			string cd = "cd";
@@ -95,12 +97,14 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 			cdCommand.push_back(cmd.at(1));
 			commandFn newCD = findFunction(cd);
 			newCD(fileTree_, cdCommand);
+			numDisplayedLines++;
 		}
 		
 	}
 	else if (cmd.at(0) == "mkdir") {
 		if (cmd.size() < 2) {
 			str_ = str_ + "Error: 'mkdir' requires one parameter\n";
+			numDisplayedLines++;
 		}
 		else {
 			std::vector<string> mkdirCommand;
@@ -109,12 +113,14 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 			mkdirCommand.push_back(cmd.at(1));
 			commandFn newCD = findFunction(mkdir);
 			newCD(fileTree_, mkdirCommand);
+			numDisplayedLines++;
 		}
 		
 	}
 	else if (cmd.at(0) == "make") {
 		if (cmd.size() < 2) {
 			str_ = str_ + "Error: 'make' requires one parameter\n";
+			numDisplayedLines++;
 		}
 		else {
 			std::vector<string> makeCommand;
@@ -123,16 +129,40 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 			makeCommand.push_back(cmd.at(1));
 			commandFn newCD = findFunction(make);
 			newCD(fileTree_, makeCommand);
+			numDisplayedLines++;
 		}
 		
 	}
 	else if ( 
 		cmd.at(0) == "decrypt" || cmd.at(0) == "encrypt") {
+		std::cout << "what..." << std::endl;
+	}
+	else if (cmd.at(0) == "unlock") {
+		//std::cout << "ya made the right choice" << std::endl;
+		/*
+		std::vector<string> mkdirCommand;
+		string mkdir = "mkdir";
+		mkdirCommand.push_back(mkdir);
+		mkdirCommand.push_back(cmd.at(1));
+		commandFn newCD = findFunction(mkdir);
+		newCD(fileTree_, mkdirCommand);
+		numDisplayedLines++;
+		*/
+		std::vector<string> unlockCommand;
+		string unlock = "unlock";
+		unlockCommand.push_back(unlock);
+		unlockCommand.push_back(cmd.at(1));
+		if (cmd.size() == 3) {
+			unlockCommand.push_back(cmd.at(2));
+		}
+		commandFn newCommand = findFunction(unlock);
+		newCommand(fileTree_, unlockCommand);
+		numDisplayedLines++;
 	}
 	else { 
 		str_ = str_ + "Error: command '" + cmd.at(0) + 
 			"' not found" + "\n"; 
-		++numDisplayedLines;
+		numDisplayedLines++;
 	}
 
 	/* Set the new console display */
@@ -140,6 +170,10 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		// Adjust the output to scroll or move text up here
 	}
 	text_->setString(str_);
+}
+
+int textOutputRenderComponent::getNumLines() {
+	return numDisplayedLines;
 }
 
 void textOutputRenderComponent::clearString() {

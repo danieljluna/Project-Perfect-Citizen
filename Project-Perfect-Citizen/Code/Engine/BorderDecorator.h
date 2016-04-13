@@ -6,9 +6,9 @@
 #include "../Game/buttonRenderComponent.h"
 #include "Entity.h"
 #include "../Game/mousePressButton.h"
+#include "../Game/TextDisplayRenderComponent.h"
 
 namespace ppc {
-
 
 class BorderDecorator : public WindowDecorator {
 public:
@@ -45,14 +45,46 @@ public:
 
 
   /////////////////////////////////////////////////////////////////////
+  // Draggable Manipulation
+  /////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the clamp on this Window's Draggable.
+    /// @details See DraggableInput.h
+    ///
+    /// @param clamp The area in Desktop space to clamp to.
+    ///////////////////////////////////////////////////////////////////
+    void setClampBounds(const sf::FloatRect& clamp);
+    
+  /////////////////////////////////////////////////////////////////////
   // Button Manipulation
   /////////////////////////////////////////////////////////////////////
 
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Adds a button to the Border of this Window.
+    /// 
+    /// @param buttonImage The desired image for the button.
+    /// @param buttonFn The desired action when the button is pressed.
+    ///////////////////////////////////////////////////////////////////
     void addButton(sf::Image& buttonImage, 
-                   bool (*buttonFn)(WindowInterface*, sf::Event&));
+                   bool (*buttonFn)(WindowInterface*, Event));
+
+    friend bool closeWindow(WindowInterface* winInterface, Event ev);
 
 
-    friend bool closeWindow(WindowInterface* winInterface, sf::Event& ev);
+  /////////////////////////////////////////////////////////////////////
+  // Caption Functionality
+  /////////////////////////////////////////////////////////////////////
+
+    void setCaption(std::string text);
+
+    void setCaptionFont(sf::Font font, unsigned int size = 20);
+
+    void setCaptionColor(sf::Color col);
+
+    void setCaptionBackground(sf::Color col);
+
+    void setCaptionIcon(sf::Sprite spr);
 
 
   /////////////////////////////////////////////////////////////////////
@@ -105,11 +137,19 @@ private:
     //Stores the rectangle that is used to display the border.
     sf::RectangleShape borderShape_;
 
-    
-    
+   
     //Stores the input Component that allows the Window to be dragged
     //  via the BorderDecorator.
     DraggableInput draggableInput_;
+
+    //Holds the window caption.
+    TextDisplayRenderComponent caption_;
+    //Holds the background color of the caption
+    sf::RectangleShape captionBackground_;
+    //Holds the Icon for the caption
+    sf::Sprite captionIcon_;
+    //Whether or not we have an Icon
+    bool captionHasIcon_ = false;
 
     //Array of buttonRenderComponents
 	buttonRenderComponent** buttonRenders_;
@@ -125,7 +165,13 @@ private:
 
 };
 
-    bool closeWindow(WindowInterface* winInterface, sf::Event& ev);
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Closes the passed window.
+    /// @details Fits the format for function observers, but doesn't
+    ///     make sue of the sf::Event as of now.
+    ///////////////////////////////////////////////////////////////////
+    bool closeWindow(WindowInterface* winInterface, Event ev);
 
 };      //End namespace ppc
 

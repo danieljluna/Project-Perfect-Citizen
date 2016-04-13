@@ -4,6 +4,8 @@
 #include "../Game/textLabelComponent.hpp"
 #include "../Game/iconInputComponent.h"
 
+#include "../Engine/debug.h"
+
 ppc::IconBuilder::IconBuilder() {
 
 	dt = nullptr;

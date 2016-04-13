@@ -35,8 +35,10 @@ namespace ppc {
 		std::string getToField();
 		std::string getFromField();
 		std::string getSubjectField();
+		std::string getAbbrevSubjectField();
 		std::string getContentField();
 		std::string getAttachmentField();
+		bool getReadFlag();
 
 	///////////////////////////////////////////////////////////////////
 	// MUTATORS
@@ -53,7 +55,12 @@ namespace ppc {
 		std::string subject;
 		std::string content;
 		std::string attachment;
-		bool read;
+		bool read = false;
+
+		///////////////////////////////////////////////////////////////////////
+		///@brief The size of an abbreviated email subject line.
+		///////////////////////////////////////////////////////////////////////
+		int abbrevLimit = 30;
 	};
 
 }

@@ -83,6 +83,11 @@ public:
 	void updateString(std::vector<std::string> cmd);
 
 	////////////////////////////////////////////////////////////////////
+	/// @brief Returns the current number of lines in the console
+	////////////////////////////////////////////////////////////////////
+	int getNumLines();
+
+	////////////////////////////////////////////////////////////////////
 	/// @brief clearString deletes the contents of a string
 	/// @param s is the string recieved from the input component
 	////////////////////////////////////////////////////////////////////
@@ -91,7 +96,7 @@ public:
 	virtual void draw(sf::RenderTarget & target, 
 		sf::RenderStates states) const;
 
-	//virtual void registerInput(sf::Event& ev) override;
+	//virtual void registerInput(sf::Event ev) override;
 	virtual void recieveMessage(msgType code) override;
 
 };

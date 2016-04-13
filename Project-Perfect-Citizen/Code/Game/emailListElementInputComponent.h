@@ -80,6 +80,6 @@ public:
 
 	virtual ~emailListElementInputComponent();
 
-	virtual bool registerInput(sf::Event& ev) override;
+	virtual bool registerInput(sf::Event ev) override;
 
 };

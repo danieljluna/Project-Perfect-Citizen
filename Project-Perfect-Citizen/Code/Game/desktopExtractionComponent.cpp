@@ -1,4 +1,4 @@
-//
+﻿//
 //  desktopExtractionComponent.cpp
 //  Project-Perfect-Citizen
 //
@@ -25,7 +25,7 @@
 
 using namespace ppc;
 
-desktopExtractionComponent::desktopExtractionComponent(NodeState &ft) : fileTree_(ft){
+desktopExtractionComponent::desktopExtractionComponent(NodeState ft) : fileTree_(ft){
     
 }
 
@@ -45,11 +45,39 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
         auto contentObj = directoryObj[objNames[i]];
         std::string objName = objNames[i];
         // name of file/folder
-        //std::cout << objName << std::endl;
+        // std::cout << objName << std::endl;
         if(contentObj.size() > 0){
             std::vector<std::string> CMD;
             std::string mk_dir_cmd = "mkdir";
             std::string directory_name = objName;
+            std::string directory_name_copy = objName;
+            std::string password;
+            std::string hint;
+            std::string delimiter = " ";
+            size_t pos = 0;
+            std::string token;
+            std::string token2;
+            int count = 0;
+            while ((pos = directory_name_copy.find(delimiter)) != std::string::npos) {
+                token = directory_name_copy.substr(0, pos);
+                std::cout << count << std::endl;
+                if(count == 0){
+                    directory_name = token;
+                    std::cout << "dir " + directory_name << std::endl;
+                    directory_name_copy.erase(0, pos + delimiter.length());
+
+                }
+                else{
+                    password = token;
+                    std::cout << "password " + password << std::endl;
+                    directory_name_copy.erase(0, pos + delimiter.length());
+                    hint = directory_name_copy.substr(0, pos);
+                    std::cout << "hint " + hint << std::endl;
+                    fileTree_.getCwd()->setPassword(password, hint);
+
+                }
+                count++;
+            }
             CMD.push_back(mk_dir_cmd);
             CMD.push_back(directory_name);
             commandFn executeCommand = findFunction(mk_dir_cmd);

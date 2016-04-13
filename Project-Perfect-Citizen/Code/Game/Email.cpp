@@ -1,4 +1,5 @@
 #include "Email.h"
+#include <algorithm>
 
 using namespace ppc;
 
@@ -18,8 +19,20 @@ std::string Email::getFromField() { return this->from; }
 
 std::string Email::getSubjectField() { return this->subject; }
 
+std::string Email::getAbbrevSubjectField() {
+	std::string abbrev = this->subject;
+	for (size_t i = 0; i < subject.size(); ++i) {
+		abbrev.erase(std::remove(abbrev.begin(), abbrev.end(), '\n'), abbrev.end());
+	}
+
+	if (abbrev.size() > abbrevLimit) return abbrev.substr(0, abbrevLimit) + "...";
+	else return abbrev;
+}
+
 std::string Email::getContentField() { return this->content; }
 
 std::string Email::getAttachmentField() { return this->attachment; }
 
-void Email::setRead() { this->read = !read; }
+bool Email::getReadFlag() { return this->read;  }
+
+void Email::setRead() { this->read = true; }

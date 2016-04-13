@@ -29,6 +29,7 @@ using namespace std;
 class textLabelComponent : public ppc::RenderComponent{
 private:
     sf::Text* text;
+	sf::Text* outline;
     sf::Font font;
     string labelString;
     
@@ -45,6 +46,7 @@ public:
     ~textLabelComponent();
     
     sf::Vector2f getTextPosition() const {return text->getPosition();}
+
     string getString() const {return text->getString();}
     
     void updateLabelString(string str);

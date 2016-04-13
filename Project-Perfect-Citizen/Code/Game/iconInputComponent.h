@@ -10,6 +10,7 @@
 #include "createWindow.h"
 #include "../Engine/Window.h"
 #include "../Engine/WindowInterface.h"
+#include "../Engine/Audio/AudioQueue.h"
 #include "Database.h"
 #include "Inbox.h"
 
@@ -30,6 +31,9 @@ private:
 	sf::Image& iconSheet_;
 	Database* theDatabase_;
     Inbox& theInbox_;
+	WindowInterface* openedWindow;
+    AudioQueue que;
+    
 
 public:
 
@@ -43,7 +47,7 @@ public:
 	///////////////////////////////////////////////////////////////////////
 	iconInputComponent(Desktop& theDesktop, Database* db, Inbox& ib, sf::Image& buttonSheet_, sf::Image& iconSheet_);
 	virtual ~iconInputComponent();
-	virtual bool registerInput(sf::Event& ev) override;
+	virtual bool registerInput(sf::Event ev) override;
 	virtual void recieveMessage(msgType message) override;
 
 };

@@ -23,29 +23,31 @@ private:
     
     bool shouldDraw_;
     
-    sf::Texture* texture;
-    sf::Image& faceImage;
+    float scale;
+    
+    static sf::Texture texture;
+    static bool textureIsLoaded;
     
     
     ///// Body //////
-    sf::Sprite* body;
-    sf::Sprite* shirt;
+    sf::Sprite body;
+    sf::Sprite shirt;
     
-    sf::Sprite* hair;
+    sf::Sprite hair;
     
     ///// Eyes //////
-    sf::Sprite* irisL;
-    sf::Sprite* irisR;
-    sf::Sprite* eyeL;
-    sf::Sprite* eyeR;
+    sf::Sprite irisL;
+    sf::Sprite irisR;
+    sf::Sprite eyeL;
+    sf::Sprite eyeR;
     
-    sf::Sprite* browL;
-    sf::Sprite* browR;
+    sf::Sprite browL;
+    sf::Sprite browR;
     ///// Mouth //////
-    sf::Sprite* mouth;
+    sf::Sprite mouth;
     
     ///// Mouth //////
-    sf::Sprite* nose;
+    sf::Sprite nose;
 
 	// (2*window.width)/3
 	sf::Vector2f origin;
@@ -58,10 +60,20 @@ private:
     static const int grid_size = 128;
     static const int combinations = 3;
     
+    float bodyScale,eyeScale,mouthScale,noseScale;
+    sf::Vector2f hairPos;
+    sf::Vector2f eyeLPos;
+    sf::Vector2f eyeRPos;
+    sf::Vector2f browLPos;
+    sf::Vector2f browRPos;
+    sf::Vector2f mouthPos;
+    sf::Vector2f nosePos;
+    
 public:
     ////////////////////////////////////////////////////////////////////
     /// @brief Constructor for buttonRenderComponent
     /// @param image is the String of a file path of a .png file
+    /// @param s is the scale of the render
     ////////////////////////////////////////////////////////////////////
     characterRender(sf::Image& image);
     
@@ -102,3 +114,48 @@ public:
 
 
 #endif /* characterGenerator_hpp */
+
+
+/*
+ 
+ Constants Small
+ 
+ Body Scale = 0.16f
+ Body Position = Origin
+ 
+ Shirt Scale = 0.16f
+ Shirt Position = Origin
+ 
+ 
+ Hair Scale = 0.16f
+ Hair Position = +18, +2
+ 
+ 
+ IrisL Scale = 0.12f
+ IrisL Position = +32, + 32
+ 
+ IrisR scale = 0.12f
+ IrisR Position = +52, +32
+ 
+ EyeL Scale = .012f
+ EyeL Position = +32, +32
+ 
+ EyeR Scale = 0.12f
+ EyeR Position = +52, +32
+ 
+ BrowR Scale = 0.12f
+ BrowR Position = +52, + 25
+ 
+ BrowL Scale = 0.12f
+ BrowL Position = +32, +25
+ 
+ 
+ Mouth Scale = 0.08f
+ Mouth Position = 40, 55
+ 
+ Nose Scale = 0.09f
+ Nose Position = 56, 36
+ 
+
+ */
+

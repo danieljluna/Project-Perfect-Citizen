@@ -16,11 +16,14 @@
 #include "buttonRenderComponent.h"
 #include "consoleUpdateComponent.h"
 #include "textInputRenderComponent.hpp"
+#include "spriteRenderComponent.hpp"
 #include "textInputKeys.hpp"
 #include "createIcon.h"
 #include "createButton.h"
 #include "Database.h"
+#include "TextBoxBuilder.h"
 #include "desktopExtractionComponent.hpp"
+#include "CharacterRender.hpp"
 #include "emailExtraction.hpp"
 #include "TreeCommands.h"
 
@@ -34,7 +37,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	std::string ls = "ls";
 	firstLsCommand.push_back(ls);
 	commandFn firstLs = findFunction(ls);
-	firstLs(desktopToModify.getNodeState(), firstLsCommand);
+	firstLs(*desktopToModify.getNodeState(), firstLsCommand);
 	
 	//////////////////////////////////////////////
 	//// Create the database (really should take a seed)
@@ -60,11 +63,17 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	//// Create the start menu
 	/////////////////////////////////////////////
 	ppc::WindowInterface* startToolbar =
-		new ppc::Window(1000, 60, sf::Color(128, 128, 128));
-	startToolbar->setPosition(0, 750);
+		new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
+	startToolbar->setPosition(0, 735);
+    
+    Entity startBar;
+    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    startBar.addComponent(bar);
+    
 	Entity startButton;
-	spawnStartButton(startButton, startToolbar->getInputHandler(), buttonSheet, 0, 0, 0.4f);
-	startToolbar->addEntity(startButton);
+	spawnStartButton(startButton, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
+    startToolbar->addEntity(startBar);
+    startToolbar->addEntity(startButton);
 	desktopToModify.addWindow(startToolbar);
 
 
@@ -77,16 +86,18 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	Entity SearchIcon;
 	Entity EmailIcon;
 
-	spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 425.0f, 110.0f, 0.5f, 0.25f, theInbox);
+	spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 425.0f, 525.0f, 0.5f, 0.30f, theInbox);
 
-	spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 225.0f, 0.5f, 0.25f, theInbox);
-	spawnDataGraphIcon(DataGraphIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 625.0f, 225.0f, 0.5f, 0.25f, theInbox);
+	spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 175.0f, 375.0f, 0.5f, 0.30f, theInbox);
+	spawnDataGraphIcon(DataGraphIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 675.0f, 375.0f, 0.5f, 0.30f, theInbox);
 
-	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 425.0f, 0.5f, 0.25f, theInbox);
-	spawnSearchIcon(SearchIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 625.0f, 425.0f, 0.5f, 0.25f, theInbox);
-	
-	
-	desktopWindowToModify.addEntity(ConsoleIcon);
+	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 250.0f, 475.0f, 0.5f, 0.30f, theInbox);
+	spawnHelpIcon(SearchIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 600.0f, 475.0f, 0.5f, 0.30f, theInbox);
+
+    
+
+    
+    desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
 	desktopWindowToModify.addEntity(HardDriveIcon);
 	desktopWindowToModify.addEntity(SearchIcon);
@@ -118,7 +129,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     //////////////////////////////////////////////
     //// Script to create file tree
     /////////////////////////////////////////////
-    desktopExtractionComponent* teacherFiles = new desktopExtractionComponent(desktopToModify.getNodeState());
+    desktopExtractionComponent* teacherFiles = new desktopExtractionComponent(*desktopToModify.getNodeState());
     Json::Value parsed = teacherFiles->parseDesktopAsJson("Desktop1.json", "Desktop");
     
     //////////////////////////////////////////////
