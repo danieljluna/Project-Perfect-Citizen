@@ -95,24 +95,13 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	spawnHelpIcon(SearchIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 600.0f, 475.0f, 0.5f, 0.30f, theInbox);
 
     
-    sf::Image faceSheet;
-    faceSheet.loadFromFile(resourcePath() + "Face_Sheet.png");
-    
-    Entity rend;
-    characterRender* ch = new characterRender(faceSheet, 2.4f);
-    PipelineCharacter p;
-    ch->setOrigin(100, 100);
 
-    ch->applyCharacterValues(p);
-    
-    rend.addComponent(ch);
     
     desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
 	desktopWindowToModify.addEntity(HardDriveIcon);
 	desktopWindowToModify.addEntity(SearchIcon);
 	desktopWindowToModify.addEntity(EmailIcon);
-    desktopWindowToModify.addEntity(rend);
 
 }
 

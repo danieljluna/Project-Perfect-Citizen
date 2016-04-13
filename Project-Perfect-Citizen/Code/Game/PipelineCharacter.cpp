@@ -124,10 +124,12 @@ void PipelineCharacter::generate() {
     std::uniform_int_distribution<> nosed(0, 2);
     // for skin index
     std::uniform_int_distribution<> skind(0, 7);
+    
+    std::uniform_int_distribution<> shirtd(0, 1);
     // for hair index
     std::uniform_int_distribution<> haircd(0, 7);
     // for har type
-    std::uniform_int_distribution<> haird(0, 2);
+    std::uniform_int_distribution<> haird(0, 20);
     //for lip index
     std::uniform_int_distribution<> lipcd(0, 3);
     
@@ -146,6 +148,18 @@ void PipelineCharacter::generate() {
     mouthType_ = mouthd(gen);
     
     noseType_ = nosed(gen);
+    
+    hairType_ = haird(gen);
+    int remainder = hairType_% 2;
+    hairType_ = hairType_ + 2 - remainder;
+    
+
+    shirtType_ = shirtd(gen);
+    if (shirtType_ == 0) {
+        shirtType_ = 5;
+    } else {
+        shirtType_ = 10;
+    }
     
     skinColorIndex_ = skind(gen);
     hairColorIndex_ = haircd(gen);

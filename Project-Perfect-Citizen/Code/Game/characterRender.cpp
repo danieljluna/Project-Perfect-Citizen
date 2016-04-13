@@ -47,7 +47,7 @@ characterRender::characterRender(sf::Image& image, float s): faceImage(image), s
     if(!texture->loadFromImage(faceImage, sf::IntRect(0*grid_size,
                                                       0*grid_size,
                                                       12*grid_size,
-                                                      10*grid_size)))
+                                                      20*grid_size)))
     { exit(-1);}
     
     
@@ -103,7 +103,7 @@ void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
         
         shirt->setTexture(*texture);
         shirt->setTextureRect(sf::IntRect(2*grid_size,
-                                          5*grid_size,
+                                          myCharacter.getShirtType()*grid_size,
                                           5*grid_size,
                                           5*grid_size));
         shirt->setScale(bodyScale, bodyScale);
@@ -118,16 +118,12 @@ void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
         
         hair->setTexture(*texture);
         hair->setTextureRect(sf::IntRect(7*grid_size,
-                                         0*grid_size,
+                                         myCharacter.getHairType()*grid_size,
                                          3*grid_size,
                                          2*grid_size));
         hair->setScale(bodyScale, bodyScale);
-        if (myCharacter.getHairType() == 2) {
-            hair->setColor(sf::Color(0,0,0,0));
-        } else {
-            hair->setColor(hairTones.at(myCharacter.
+        hair->setColor(hairTones.at(myCharacter.
                                         getHairColorIndex()));
-        }
         hair->setPosition(origin.x+hairPos.x, origin.y+hairPos.y);
         
         
