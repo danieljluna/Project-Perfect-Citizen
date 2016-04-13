@@ -128,16 +128,16 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		}
 	}
 	else if (msg.compare(OPEN_THE_EXPLORER) == 0) {
-		if (openedWindow != nullptr && theDesktop_.isWindow(openedWindow)) {
-			theDesktop_.focusWindow(openedWindow);
-		}
-		else {
+		//if (openedWindow != nullptr && theDesktop_.isWindow(openedWindow)) {
+			//theDesktop_.focusWindow(openedWindow);
+		//}
+		//else {
 			ppc::WindowInterface* explorerWindow =
 				new ppc::Window(600, 350, sf::Color(255, 255, 255));
 			spawnExplorer(theDesktop_, explorerWindow, explorerWindow->getInputHandler(), *theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
 			theDesktop_.addWindow(explorerWindow);
 			openedWindow = explorerWindow;
-		}
+		//}
 	}
 	else if (msg.compare(OPEN_THE_EMAIL) == 0) {
 		if (openedWindow != nullptr && theDesktop_.isWindow(openedWindow)) {
