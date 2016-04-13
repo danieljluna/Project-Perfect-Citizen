@@ -15,7 +15,7 @@ using namespace std;
 ///////////////////////////////////////////////////////////////////////
 class textInputRenderComponent : public ppc::RenderComponent{
 private:
-	ppc::NodeState& fileTree_;
+	ppc::NodeState fileTree_;
     sf::Sprite* sprite;
     sf::Text* text;
     sf::Font font;

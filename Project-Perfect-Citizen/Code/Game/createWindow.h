@@ -32,7 +32,7 @@ namespace ppc {
 	///@param The filetree for which the console will work on.
 	///@param Sprite sheet of it's border component's buttons
 	///////////////////////////////////////////////////////////////////////
-void spawnConsole(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState* ns,
+void spawnConsole(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState ns,
 	sf::Image& buttonSheet, float x, float y);
 
 ///////////////////////////////////////////////////////////////////////
@@ -125,7 +125,7 @@ void spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::I
 ///@param The x position of the new window
 ///@param The y position of the new window
 ///////////////////////////////////////////////////////////////////////
-void spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState *ns,
+void spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState ns,
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y);
 
 };

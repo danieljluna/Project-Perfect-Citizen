@@ -99,7 +99,7 @@ bool explorerFolderInputComponent::registerInput(sf::Event ev) {
 					newCD(theFileTree_, cdCommand);
 					ppc::WindowInterface* explorerWindow =
 						new ppc::Window(600, 350, sf::Color(255, 255, 255));
-					spawnExplorer(theDesktop_, explorerWindow, explorerWindow->getInputHandler(), theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
+					spawnExplorer(theDesktop_, explorerWindow, explorerWindow->getInputHandler(), *theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
 
 					explorerWindow->setPosition(containingWindow_->getPosition().x, containingWindow_->getPosition().y);
 					theDesktop_.addWindow(explorerWindow);
