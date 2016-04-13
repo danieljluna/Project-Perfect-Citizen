@@ -21,7 +21,7 @@ std::string Email::getSubjectField() { return this->subject; }
 
 std::string Email::getAbbrevSubjectField() {
 	std::string abbrev = this->subject;
-	for (int i = 0; i < subject.size(); ++i) {
+	for (size_t i = 0; i < subject.size(); ++i) {
 		abbrev.erase(std::remove(abbrev.begin(), abbrev.end(), '\n'), abbrev.end());
 	}
 

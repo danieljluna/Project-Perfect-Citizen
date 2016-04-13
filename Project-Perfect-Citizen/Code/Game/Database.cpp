@@ -32,11 +32,9 @@ std::vector<std::string> Database::getPrintableDatabase(){
 	std::vector<std::string> printable;
 	std::string temp = "";
 	for (auto iter = this->databaseState_.begin(); iter != this->databaseState_.end(); ++iter) {
-		temp.append("Result: ");
-		//temp.append(std::to_string(iter->getIQ()) + " ");		
+		temp.append("Result: ");	
 		temp.append(iter->getSSN() + " ");
 		temp.append("AGE: " + std::to_string(iter->getAge()) + " ");
-		temp.append("CS: " + std::to_string(iter->getCreditScore()) + " ");
 		temp.append(iter->getEmail() + " ");
 		temp.append(iter->getPhoneNum() + " ");
 		temp.append(iter->getJob());
@@ -68,17 +66,13 @@ bool Database::filterIsValid(std::string filter) {
 		cleaned.push_back(tolower(filter.at(i)));
 	}
 
-	if (cleaned.compare("iq") == 0) return true;
-	else if (cleaned.compare("age") == 0) return true;
-	else if (cleaned.compare("credit score") == 0) return true;
+	if (cleaned.compare("age") == 0) return true;
 	else if (cleaned.compare("ssn") == 0) return true;
 	else if (cleaned.compare("email") == 0) return true;
 	else if (cleaned.compare("phone") == 0) return true;
 	else if (cleaned.compare("job") == 0) return true;
 
-	if (filter.compare("iq") == 0) return true;
-	else if (filter.compare("age") == 0) return true;
-	else if (filter.compare("credit score") == 0) return true;
+	if (filter.compare("age") == 0) return true;
 	else if (filter.compare("ssn") == 0) return true;
 	else if (filter.compare("email") == 0) return true;
 	else if (filter.compare("phone") == 0) return true;
@@ -101,21 +95,9 @@ Database& Database::sortBy(std::string filter, std::string query) {
 				newSnapshot.push_back(*iter);
 		}
 	}
-	else if (filter.compare("iq") == 0) {
-		for (auto iter = this->databaseState_.begin(); iter != this->databaseState_.end(); ++iter) {
-			if (std::to_string(iter->getIQ()).compare(query) == 0)
-				newSnapshot.push_back(*iter);
-		}
-	}
 	else if (filter.compare("age") == 0) {
 		for (auto iter = databaseState_.begin(); iter != databaseState_.end(); ++iter) {
 			if (std::to_string(iter->getAge()).compare(query) == 0)
-				newSnapshot.push_back(*iter);
-		}
-	}
-	else if (filter.compare("credit") == 0) {
-		for (auto iter = databaseState_.begin(); iter != databaseState_.end(); ++iter) {
-			if (std::to_string(iter->getCreditScore()).compare(query) == 0)
 				newSnapshot.push_back(*iter);
 		}
 	}
@@ -149,9 +131,7 @@ void Database::printCharacters() {
 		//STUB: Should print to in-game database
 		std::cout << 
 			"Entry: " << entry << ": " <<
-			iter->getIQ() << ", " << 
 			iter->getAge() << ", " <<
-			iter->getCreditScore() << ", " <<
 			iter->getSSN() << ", " <<
 			iter->getEmail() << ", " <<
 			iter->getPhoneNum() << ", " <<

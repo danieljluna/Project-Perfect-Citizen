@@ -184,9 +184,6 @@
     <ClCompile Include="Code\Game\PipelineLevelBuilder.cpp">
       <Filter>Sources\Game Specific\Pipeline Extraction</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\Quitter.cpp">
-      <Filter>Sources\Game Specific\Temporary</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\RenderCmpntDecorator.cpp">
       <Filter>Sources\Engine\Entities / Components</Filter>
     </ClCompile>
@@ -253,6 +250,9 @@
     <ClCompile Include="Code\Engine\Vertex.cpp">
       <Filter>Sources\Game Specific\Pipeline Extraction\Network</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\world.cpp">
+      <Filter>Sources\Engine\World</Filter>
+    </ClCompile>
     <ClCompile Include="Code\Game\photoRenderComponent.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
@@ -283,17 +283,17 @@
     <ClCompile Include="Code\Game\TextBoxRenderComponent.cpp">
       <Filter>Sources\Game Specific\Text</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\World.cpp">
-      <Filter>Sources\Engine\World</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Game\IconBuilder.cpp">
-      <Filter>Sources\Game Specific\Icons</Filter>
-    </ClCompile>
+    <ClCompile Include="Code\Game\IconBuilder.cpp" />
     <ClCompile Include="Code\Engine\event.cpp">
       <Filter>Sources\Engine\Observer System</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\TextFieldRenderComponent.cpp">
-      <Filter>Sources\Game Specific\Text</Filter>
+    <ClCompile Include="Code\Game\nameGeneration.cpp" />
+    <ClCompile Include="Code\Game\TextFieldRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\interpolateUpdateComponent.cpp">
+      <Filter>Sources\Game Specific\Email</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\spriteRenderComponent.cpp">
+      <Filter>Sources\Game Specific</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -474,6 +474,9 @@
     <ClInclude Include="Code\Engine\observer.h">
       <Filter>Headers\Engine\Observer System</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\world.h">
+      <Filter>Headers\Engine\World</Filter>
+    </ClInclude>
     <ClInclude Include="Code\Engine\Window.h">
       <Filter>Headers\Engine\Windows</Filter>
     </ClInclude>
@@ -512,9 +515,6 @@
     </ClInclude>
     <ClInclude Include="Code\Game\PipelineLevelBuilder.h">
       <Filter>Headers\Game Specific\Pipeline Extraction</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Game\Quitter.h">
-      <Filter>Headers\Game Specific\Temporary</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\renderComponent.h">
       <Filter>Headers\Engine\Entities / Components</Filter>
@@ -603,15 +603,17 @@
     <ClInclude Include="Code\Game\TextBoxRenderComponent.h">
       <Filter>Headers\Game Specific\Text</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\World.h">
-      <Filter>Headers\Engine\World</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Game\IconBuilder.h">
-      <Filter>Headers\Game Specific\Icons</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Game\IconBuilder.h" />
-    <ClInclude Include="Code\Game\TextFieldRenderComponent.hpp">
-      <Filter>Headers\Game Specific\Text</Filter>
+    <ClInclude Include="Code\Game\nameGeneration.hpp" />
+    <ClInclude Include="Code\Game\TextFieldRenderComponent.hpp" />
+    <ClInclude Include="Code\Game\interpolateUpdateComponent.hpp">
+      <Filter>Sources\Game Specific\Email</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\PipelineJobsAndIncomes.h">
+      <Filter>Headers\Game Specific\Pipeline Extraction</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\spriteRenderComponent.hpp">
+      <Filter>Headers\Game Specific</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -622,6 +624,9 @@
       <Filter>Resources</Filter>
     </None>
     <None Include="Resources\smsPipeline.json">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\suspiciontest.json">
       <Filter>Resources</Filter>
     </None>
   </ItemGroup>

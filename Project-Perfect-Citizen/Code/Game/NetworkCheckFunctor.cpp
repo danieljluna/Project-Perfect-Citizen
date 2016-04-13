@@ -1,7 +1,7 @@
 #include "NetworkCheckFunctor.h"
 #include "../Engine/Network.h"
 #include "../Engine/subject.h"
-#include "../Game/Quitter.h"
+#include "../Engine/World.h"
 
 using namespace ppc;
 
@@ -27,7 +27,7 @@ bool NetworkCheckFunctor::operator()() {
 
 
 bool ppc::runSubmitCheck(NetworkCheckFunctor* ncf, Event ev) {
-    if ((*ncf)()) { ppc::quitSection(); };
+    if ((*ncf)()) { ppc::World::quitDesktop(); };
 
     return true;
 }

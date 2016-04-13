@@ -1,7 +1,6 @@
 
 #include "textOutputRenderComponent.h"
 #include "createWindow.h"
-#include "Quitter.h"
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
@@ -10,6 +9,7 @@
 #include "../Game/TreeCommands.h"
 #include <string>
 #include <algorithm>
+#include "../Engine/World.h"
 
 const string TEXT_KEY_INPUT = "TKI";
 
@@ -89,7 +89,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 			str_ = str_ + "Error: 'cd' requires one parameter\n";
 			numDisplayedLines++;
 		}
-		if (cmd.at(1).compare("CP") == 0) { quitSection(); }
+		if (cmd.at(1).compare("CP") == 0) { World::quitDesktop(); }
 		else {
 			std::vector<string> cdCommand;
 			string cd = "cd";
