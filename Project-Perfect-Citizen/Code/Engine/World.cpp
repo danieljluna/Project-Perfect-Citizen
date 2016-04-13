@@ -6,50 +6,44 @@
 #include "Window.h"
 #include "NodeState.h"
 #include "../Game/desktopExtractionComponent.hpp"
-#include "../Game/Quitter.h"
 #include "../Game/Inbox.h"
 #include "../Game/Email.h"
 #include "../Game/emailExtraction.hpp"
 #include "../Library/json/json.h"
 #include "debug.h"
 
-ppc::World::World() : currDesktop_(){
-	screen_ = nullptr;
+using namespace ppc;
 
-}
 
-ppc::World::World(sf::RenderWindow& gameScreen) {
+sf::RenderWindow* World::screen_ = nullptr;
+Desktop* World::currDesktop_ = nullptr;
+std::map<World::DesktopList, std::string> World::desktopFileMap = {
+    {World::Count, ""}  //Empty pairing of Count to string.
+};
+bool World::quitter = false;
+
+
+void World::setGameScreen(sf::RenderWindow& gameScreen) {
 	screen_ = &gameScreen;
 }
 
-ppc::World::World(sf::RenderWindow& gameScreen, ppc::Desktop& d) {
-	screen_ = &gameScreen;
-	currDesktop_ = d;
+void World::setCurrDesktop(Desktop &d) {
+	currDesktop_ = &d;
 }
 
-ppc::World::~World() {
-	if (screen_ != nullptr) delete screen_;
+sf::RenderWindow& World::getGameScreen() {
+	return *screen_;
 }
 
-void ppc::World::setGameScreen(sf::RenderWindow& gameScreen) {
-	screen_ = &gameScreen;
+Desktop& World::getCurrDesktop() {
+	return *currDesktop_;
 }
 
-void ppc::World::setCurrDesktop(ppc::Desktop &d) {
-	currDesktop_ = d;
-}
-
-sf::RenderWindow* ppc::World::getGameScreen() {
-	return screen_;
-}
-
-ppc::Desktop* ppc::World::getCurrDesktop() {
-	return &currDesktop_;
-}
-
-bool ppc::World::runDesktop(ppc::Desktop &myDesktop) {
+bool World::runDesktop(Desktop &myDesktop) {
 	if (screen_ == nullptr) return false;
 	// Go into main game loop
+
+    quitter = false;
 
 	sf::Clock deltaTime;
 	sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
@@ -62,7 +56,7 @@ bool ppc::World::runDesktop(ppc::Desktop &myDesktop) {
 			} else if (event.type == sf::Event::KeyPressed) {
 				//Close
 				if ((event.key.code == sf::Keyboard::Period) && (event.key.alt)) {
-                    quitSection();
+                    quitDesktop();
 				}
 			}
 
@@ -84,14 +78,36 @@ bool ppc::World::runDesktop(ppc::Desktop &myDesktop) {
 	return false;
 }
 
-bool ppc::World::runCurrDesktop() {
-	return runDesktop((this->currDesktop_));
+bool World::loadDesktop(DesktopList desk) {
+    return loadDesktop(desktopFileMap.at(desk));
+}
+
+bool World::runCurrDesktop() {
+	return runDesktop(*currDesktop_);
 }
 
 
-std::istream& ppc::operator>>(std::istream& in, World& world) {
-	
-	in >> world.currDesktop_;
-	
-	return in;
+void World::quitDesktop() {
+    quitter = true;
+}
+
+
+bool World::loadDesktop(std::string filename) {
+    std::ifstream in(filename);
+
+    bool result = false;
+
+    if (in.is_open()) {
+        if (currDesktop_ != nullptr) {
+            delete currDesktop_;
+            currDesktop_ = nullptr;
+        }
+
+        currDesktop_ = new Desktop();
+        in >> *currDesktop_;
+
+        result = true;
+    }
+
+    return result;
 }
