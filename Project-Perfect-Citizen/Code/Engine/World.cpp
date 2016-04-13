@@ -15,6 +15,7 @@
 
 using namespace ppc;
 
+
 sf::RenderWindow* World::screen_ = nullptr;
 Desktop* World::currDesktop_ = nullptr;
 std::map<World::DesktopList, std::string> World::desktopFileMap = {
