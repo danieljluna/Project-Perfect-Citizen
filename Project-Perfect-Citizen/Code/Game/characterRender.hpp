@@ -25,29 +25,29 @@ private:
     
     float scale;
     
-    sf::Texture* texture;
-    sf::Image& faceImage;
+    static sf::Texture texture;
+    static bool textureIsLoaded;
     
     
     ///// Body //////
-    sf::Sprite* body;
-    sf::Sprite* shirt;
+    sf::Sprite body;
+    sf::Sprite shirt;
     
-    sf::Sprite* hair;
+    sf::Sprite hair;
     
     ///// Eyes //////
-    sf::Sprite* irisL;
-    sf::Sprite* irisR;
-    sf::Sprite* eyeL;
-    sf::Sprite* eyeR;
+    sf::Sprite irisL;
+    sf::Sprite irisR;
+    sf::Sprite eyeL;
+    sf::Sprite eyeR;
     
-    sf::Sprite* browL;
-    sf::Sprite* browR;
+    sf::Sprite browL;
+    sf::Sprite browR;
     ///// Mouth //////
-    sf::Sprite* mouth;
+    sf::Sprite mouth;
     
     ///// Mouth //////
-    sf::Sprite* nose;
+    sf::Sprite nose;
 
 	// (2*window.width)/3
 	sf::Vector2f origin;
@@ -75,7 +75,7 @@ public:
     /// @param image is the String of a file path of a .png file
     /// @param s is the scale of the render
     ////////////////////////////////////////////////////////////////////
-    characterRender(sf::Image& image, float s);
+    characterRender(sf::Image& image);
     
     ~characterRender();
     

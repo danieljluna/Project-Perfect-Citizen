@@ -10,66 +10,48 @@
 #include "characterRender.hpp"
 #include <iostream>
 #include <random>
+#include <cassert>
+
+sf::Texture characterRender::texture;
+bool characterRender::textureIsLoaded = false;
 
 
 
-characterRender::characterRender(sf::Image& image, float s): faceImage(image), scale(s) {
+characterRender::characterRender(sf::Image& image) {
     
-    bodyScale  = 0.16f * scale;
-    eyeScale   = 0.12f * scale;
-    mouthScale = 0.08f * scale;
-    noseScale  = 0.09f * scale;
+    bodyScale  = 0.16f;
+    eyeScale   = 0.12f;
+    mouthScale = 0.08f;
+    noseScale  = 0.09f;
     
-    hairPos  = {18 * scale, 2 * scale};
-    eyeLPos  = {32 * scale, 32 * scale};
-    eyeRPos  = {52 * scale, 32 * scale};
-    browLPos = {32 * scale, 25 * scale};
-    browRPos = {52 * scale, 25 * scale};
-    mouthPos = {40 * scale, 55 * scale};
-    nosePos =  {56 * scale, 36 * scale};
-    
-    this->body = new sf::Sprite();
-    this->shirt = new sf::Sprite();
-    this->hair = new sf::Sprite();
-    this->irisL = new sf::Sprite();
-    this->irisR = new sf::Sprite();
-    this->eyeL = new sf::Sprite();
-	this->eyeR = new sf::Sprite();
-    this->browL = new sf::Sprite();
-    this->browR = new sf::Sprite();
-    this->mouth = new sf::Sprite();
-	this->nose = new sf::Sprite();
-    this->texture = new sf::Texture();
+    hairPos  = {18, 2 };
+    eyeLPos  = {32, 32};
+    eyeRPos  = {52, 32};
+    browLPos = {32, 25};
+    browRPos = {52, 25};
+    mouthPos = {40, 55};
+    nosePos =  {56, 36};
 
 	origin.x = 0; 
 	origin.y = 0;
     
-    if(!texture->loadFromImage(faceImage, sf::IntRect(0*grid_size,
-                                                      0*grid_size,
-                                                      12*grid_size,
-                                                      20*grid_size)))
-    { exit(-1);}
+    if (!textureIsLoaded) {
+        sf::IntRect area(0 * grid_size,
+                         0 * grid_size,
+                         12 * grid_size,
+                         20 * grid_size);
+        if (!texture.loadFromImage(image, area)) {
+            assert("COULD NOT LOAD CHARACTER RENDER TEXTURE.");
+        }
+    }
     
     
     initializeTones();
     shouldDraw_ = true;
     
-   }
+}
 
 characterRender::~characterRender() {
-    delete texture;
-    delete body;
-    delete shirt;
-    delete hair;
-    delete irisL;
-    delete irisR;
-    delete eyeL;
-    delete eyeR;
-    delete browL;
-    delete browR;
-    delete mouth;
-   
-    
     //delete rectSourceSprite;
 }
 
@@ -86,139 +68,139 @@ void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
         ////////////////////////////////////
         /// DRAWING THE BODY
         ////////////////////////////////////
-        body->setTexture(*texture);
-        body->setTextureRect(sf::IntRect(2*grid_size,
+        body.setTexture(texture);
+        body.setTextureRect(sf::IntRect(2*grid_size,
                                          0*grid_size,
                                          5*grid_size,
                                          5*grid_size));
-        body->setScale(bodyScale, bodyScale);
+        body.setScale(bodyScale, bodyScale);
         
-        body->setColor(skinTones.at(myCharacter.getSkinColorIndex()));
-        body->setPosition(origin);
+        body.setColor(skinTones.at(myCharacter.getSkinColorIndex()));
+        body.setPosition(origin);
         
         
         ////////////////////////////////////
         /// DRAWING THE SHIRT
         ////////////////////////////////////
         
-        shirt->setTexture(*texture);
-        shirt->setTextureRect(sf::IntRect(2*grid_size,
+        shirt.setTexture(texture);
+        shirt.setTextureRect(sf::IntRect(2*grid_size,
                                           myCharacter.getShirtType()*grid_size,
                                           5*grid_size,
                                           5*grid_size));
-        shirt->setScale(bodyScale, bodyScale);
+        shirt.setScale(bodyScale, bodyScale);
         
-        shirt->setColor(myCharacter.getShirtColor());
-        shirt->setPosition(origin);
+        shirt.setColor(myCharacter.getShirtColor());
+        shirt.setPosition(origin);
         
         
         ////////////////////////////////////
         /// DRAWING THE HAIR
         ////////////////////////////////////
         
-        hair->setTexture(*texture);
-        hair->setTextureRect(sf::IntRect(7*grid_size,
+        hair.setTexture(texture);
+        hair.setTextureRect(sf::IntRect(7*grid_size,
                                          myCharacter.getHairType()*grid_size,
                                          3*grid_size,
                                          2*grid_size));
-        hair->setScale(bodyScale, bodyScale);
-        hair->setColor(hairTones.at(myCharacter.
+        hair.setScale(bodyScale, bodyScale);
+        hair.setColor(hairTones.at(myCharacter.
                                         getHairColorIndex()));
-        hair->setPosition(origin.x+hairPos.x, origin.y+hairPos.y);
+        hair.setPosition(origin.x+hairPos.x, origin.y+hairPos.y);
         
         
         ////////////////////////////////////
         /// DRAWING THE EYE IRIS
         ////////////////////////////////////
-        irisL->setTexture(*texture);
-        irisL->setTextureRect(sf::IntRect(0*grid_size,
+        irisL.setTexture(texture);
+        irisL.setTextureRect(sf::IntRect(0*grid_size,
                                           3*grid_size,
                                           grid_size,
                                           grid_size));
-        irisL->setColor(myCharacter.getEyeColor());
-        irisL->setPosition(origin.x + eyeLPos.x, origin.y + eyeLPos.y);
-        irisL->setScale(eyeScale, eyeScale);
+        irisL.setColor(myCharacter.getEyeColor());
+        irisL.setPosition(origin.x + eyeLPos.x, origin.y + eyeLPos.y);
+        irisL.setScale(eyeScale, eyeScale);
         
-        irisR->setTexture(*texture);
-        irisR->setTextureRect(sf::IntRect(1*grid_size,
+        irisR.setTexture(texture);
+        irisR.setTextureRect(sf::IntRect(1*grid_size,
                                           3*grid_size,
                                           grid_size,
                                           grid_size));
-        irisR->setColor(myCharacter.getEyeColor());
-        irisR->setPosition(origin.x + eyeRPos.x, origin.y + eyeRPos.y);
-        irisR->setScale(eyeScale, eyeScale);
+        irisR.setColor(myCharacter.getEyeColor());
+        irisR.setPosition(origin.x + eyeRPos.x, origin.y + eyeRPos.y);
+        irisR.setScale(eyeScale, eyeScale);
         
         
         ////////////////////////////////////
         /// DRAWING THE EYES
         ////////////////////////////////////
         
-        eyeL->setTexture(*texture);
-        eyeL->setTextureRect(sf::IntRect(0*grid_size,
+        eyeL.setTexture(texture);
+        eyeL.setTextureRect(sf::IntRect(0*grid_size,
                                          myCharacter.getEyeType()*grid_size,
                                          grid_size,
                                          grid_size));
-        eyeL->setPosition(origin.x + eyeLPos.x, origin.y + eyeLPos.y);
-        eyeL->setScale(eyeScale, eyeScale);
+        eyeL.setPosition(origin.x + eyeLPos.x, origin.y + eyeLPos.y);
+        eyeL.setScale(eyeScale, eyeScale);
         
-        eyeR->setTexture(*texture);
-        eyeR->setTextureRect(sf::IntRect(1*grid_size,
+        eyeR.setTexture(texture);
+        eyeR.setTextureRect(sf::IntRect(1*grid_size,
                                          myCharacter.getEyeType()*grid_size,
                                          grid_size,
                                          grid_size));
-        eyeR->setPosition(origin.x + eyeRPos.x, origin.y + eyeRPos.y);
-        eyeR->setScale(eyeScale, eyeScale);
+        eyeR.setPosition(origin.x + eyeRPos.x, origin.y + eyeRPos.y);
+        eyeR.setScale(eyeScale, eyeScale);
         
         
         
-        browR->setTexture(*texture);
-        browR->setTextureRect(sf::IntRect(1*grid_size,
+        browR.setTexture(texture);
+        browR.setTextureRect(sf::IntRect(1*grid_size,
                                           myCharacter.getBrowType()*grid_size,
                                           grid_size,
                                           grid_size));
-        browR->setPosition(origin.x + browRPos.x, origin.y + browRPos.y);
-        browR->setColor(hairTones.at(myCharacter.getHairColorIndex()));
-        browR->setScale(eyeScale,eyeScale);
+        browR.setPosition(origin.x + browRPos.x, origin.y + browRPos.y);
+        browR.setColor(hairTones.at(myCharacter.getHairColorIndex()));
+        browR.setScale(eyeScale,eyeScale);
         
         
         
-        browL->setTexture(*texture);
-        browL->setTextureRect(sf::IntRect(0*grid_size,
+        browL.setTexture(texture);
+        browL.setTextureRect(sf::IntRect(0*grid_size,
                                           myCharacter.getBrowType()*grid_size,
                                           grid_size,
                                           grid_size));
-        browL->setPosition(origin.x + browLPos.x, origin.y + browRPos.y);
-        browL->setColor(hairTones.at(myCharacter.getHairColorIndex()));
-        browL->setScale(eyeScale,eyeScale);
+        browL.setPosition(origin.x + browLPos.x, origin.y + browRPos.y);
+        browL.setColor(hairTones.at(myCharacter.getHairColorIndex()));
+        browL.setScale(eyeScale,eyeScale);
         
         
         
         ////////////////////////////////////
         /// DRAWING THE MOUTH
         ////////////////////////////////////
-        mouth->setTexture(*texture);
-        mouth->setTextureRect(sf::IntRect(0*grid_size,
+        mouth.setTexture(texture);
+        mouth.setTextureRect(sf::IntRect(0*grid_size,
                                           myCharacter.getMouthType()*grid_size,
                                           2*grid_size,
                                           grid_size));
-        mouth->setPosition(origin.x + mouthPos.x, origin.y + mouthPos.y);
-        mouth->setColor(lipTones.at(myCharacter.getLipColorIndex()));
-        mouth->setScale(mouthScale, mouthScale);
+        mouth.setPosition(origin.x + mouthPos.x, origin.y + mouthPos.y);
+        mouth.setColor(lipTones.at(myCharacter.getLipColorIndex()));
+        mouth.setScale(mouthScale, mouthScale);
         
         
         
         ////////////////////////////////////
         /// DRAWING THE NOSE
         ////////////////////////////////////
-        nose->setTexture(*texture);
-        nose->setTextureRect(sf::IntRect(10*grid_size,
+        nose.setTexture(texture);
+        nose.setTextureRect(sf::IntRect(10*grid_size,
                                          myCharacter.getNoseType()*grid_size,
                                          2*grid_size,
                                          1*grid_size));
-        nose->setRotation(90);
-        nose->setPosition(origin.x + nosePos.x, origin.y + nosePos.y);
+        nose.setRotation(90);
+        nose.setPosition(origin.x + nosePos.x, origin.y + nosePos.y);
         
-        nose->setScale(noseScale, noseScale);
+        nose.setScale(noseScale, noseScale);
     
     
 }
@@ -278,17 +260,17 @@ void characterRender::setShouldDraw(bool d) {
 void characterRender::draw( sf::RenderTarget& target,
                            sf::RenderStates states) const {
     if (shouldDraw_) {
-        target.draw(*body, states);
-        target.draw(*hair, states);
-        target.draw(*shirt, states);
-        target.draw(*nose, states);
-        target.draw(*irisL, states);
-        target.draw(*irisR, states);
-        target.draw(*eyeL, states);
-        target.draw(*eyeR, states);
-        target.draw(*browR, states);
-        target.draw(*browL, states);
-        target.draw(*mouth, states);
+        target.draw(body, states);
+        target.draw(hair, states);
+        target.draw(shirt, states);
+        target.draw(nose, states);
+        target.draw(irisL, states);
+        target.draw(irisR, states);
+        target.draw(eyeL, states);
+        target.draw(eyeR, states);
+        target.draw(browR, states);
+        target.draw(browL, states);
+        target.draw(mouth, states);
     }
     
     

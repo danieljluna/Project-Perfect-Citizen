@@ -20,7 +20,7 @@ ppc::Vertex::Vertex(){
     
     sf::Image face_sheet;
     face_sheet.loadFromFile(resourcePath() + "Face_Sheet.png");
-    rend_ = new characterRender(face_sheet, 2.f);
+    rend_ = new characterRender(face_sheet);
     
     bgrect_.setSize(sf::Vector2f(100,125));
     bgrect_.setFillColor(sf::Color(181,179,165));
@@ -163,6 +163,9 @@ bool ppc::Vertex::isSelected() {
 
 void ppc::Vertex::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
+
+    //The line below draws Vertices at double size (Uncomment it to see)
+    //states.transform.scale(sf::Vector2f{ 2.f, 2.f });
 
 	states.transform *= getTransform();
 
