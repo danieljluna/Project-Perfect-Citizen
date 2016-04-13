@@ -1,7 +1,6 @@
 #include "Explorer.h"
 #include "../Engine/WindowInterface.h"
 #include "../Engine/ScrollBarDeco.h"
-#include "Quitter.h"
 #include "TreeCommands.h"
 #include "../Engine/World.h"
 

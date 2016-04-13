@@ -56,7 +56,6 @@
 #include "Game/bootLoadingAnimationRender.hpp"
 #include "Game/endAnimationUpdateComponent.hpp"
 #include "Game/endingAnimationRender.hpp"
-#include "Game/Quitter.h"
 
 #include "Engine/World.h"
 

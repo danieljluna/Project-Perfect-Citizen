@@ -6,7 +6,6 @@
 #include "Window.h"
 #include "NodeState.h"
 #include "../Game/desktopExtractionComponent.hpp"
-#include "../Game/Quitter.h"
 #include "../Game/Inbox.h"
 #include "../Game/Email.h"
 #include "../Game/emailExtraction.hpp"

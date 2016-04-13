@@ -1,7 +1,6 @@
 
 #include "textOutputRenderComponent.h"
 #include "createWindow.h"
-#include "Quitter.h"
 
 #include <iostream>
 #include <SFML/Graphics.hpp>

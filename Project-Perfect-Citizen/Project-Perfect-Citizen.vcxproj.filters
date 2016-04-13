@@ -184,9 +184,6 @@
     <ClCompile Include="Code\Game\PipelineLevelBuilder.cpp">
       <Filter>Sources\Game Specific\Pipeline Extraction</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\Quitter.cpp">
-      <Filter>Sources\Game Specific\Temporary</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Engine\RenderCmpntDecorator.cpp">
       <Filter>Sources\Engine\Entities / Components</Filter>
     </ClCompile>
@@ -518,9 +515,6 @@
     </ClInclude>
     <ClInclude Include="Code\Game\PipelineLevelBuilder.h">
       <Filter>Headers\Game Specific\Pipeline Extraction</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Game\Quitter.h">
-      <Filter>Headers\Game Specific\Temporary</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\renderComponent.h">
       <Filter>Headers\Engine\Entities / Components</Filter>
