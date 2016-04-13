@@ -25,7 +25,7 @@ commandFn ppc::findFunction(const std::string& command) {
 	return result->second;
 }
 
-void ppc::fn_mkfile(ppc::NodeState state, const std::vector<std::string> words)
+void ppc::fn_mkfile(ppc::NodeState& state, const std::vector<std::string> words)
 {
     std::string filename = words.at(1);
     std::string content = "";
@@ -35,7 +35,7 @@ void ppc::fn_mkfile(ppc::NodeState state, const std::vector<std::string> words)
 	state.getCwd()->makeFile(filename, content);
 }
 
-void ppc::fn_ls(ppc::NodeState state, const std::vector<std::string> words)
+void ppc::fn_ls(ppc::NodeState& state, const std::vector<std::string> words)
 {
 	if (words.size() == 1) {
 		state.printWorking();
@@ -81,7 +81,7 @@ void ppc::fn_ls(ppc::NodeState state, const std::vector<std::string> words)
 	state.setLastLsNode(tempCwd);
 }
 
-void ppc::fn_cd(ppc::NodeState state, const std::vector<std::string> words)
+void ppc::fn_cd(ppc::NodeState& state, const std::vector<std::string> words)
 {
 	if (words.size() == 1) {
 		return;
@@ -140,7 +140,7 @@ void ppc::fn_cd(ppc::NodeState state, const std::vector<std::string> words)
 	state.setCwd(newDir);
 }
 
-void ppc::fn_mkDir(ppc::NodeState state, const std::vector<std::string> words)
+void ppc::fn_mkDir(ppc::NodeState& state, const std::vector<std::string> words)
 {
 	if (words.size() == 1) {
 		return;
@@ -163,7 +163,7 @@ void ppc::fn_mkDir(ppc::NodeState state, const std::vector<std::string> words)
 	}
 }
 
-void ppc::fn_decrypt(ppc::NodeState state, const std::vector<std::string> words)
+void ppc::fn_decrypt(ppc::NodeState& state, const std::vector<std::string> words)
 {
 	if (words.size() == 1) {
 		return;
@@ -190,11 +190,11 @@ void ppc::fn_decrypt(ppc::NodeState state, const std::vector<std::string> words)
 	
 }
 
-void ppc::fn_pwd(ppc::NodeState state, const std::vector<std::string> words) {
+void ppc::fn_pwd(ppc::NodeState& state, const std::vector<std::string> words) {
     state.printWorking();
 }
 
-void ppc::fn_unlock(ppc::NodeState state, const std::vector<std::string> words)
+void ppc::fn_unlock(ppc::NodeState& state, const std::vector<std::string> words)
 {
 	printVector(words);
 
