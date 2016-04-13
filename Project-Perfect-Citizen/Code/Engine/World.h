@@ -12,25 +12,17 @@ namespace ppc {
 	///@author Nader Sleem
 	///////////////////////////////////////////////////////////////////
 	class World {
-
-	private:
-
-		sf::RenderWindow* screen_;
-		ppc::Desktop* currDesktop_;
-
     public:
+
+        enum DesktopList {
+            //Fill with Enums as input files are made
+            Count
+        };
 
 		///////////////////////////////////////////////////////////////
 		// Ctors
 		///////////////////////////////////////////////////////////////
-		World();
-		World(sf::RenderWindow&);
-		World(sf::RenderWindow&, ppc::Desktop&);
-
-		///////////////////////////////////////////////////////////////
-		// Dtor
-		///////////////////////////////////////////////////////////////
-		~World();
+		World() = delete;
 
       /////////////////////////////////////////////////////////////////
       // Setters
@@ -40,22 +32,22 @@ namespace ppc {
 		///@brief Set the screen the game is played on.
 		///@param [in] sf::RenderWindow
 		///////////////////////////////////////////////////////////////
-		void setGameScreen(sf::RenderWindow&);
+		static void setGameScreen(sf::RenderWindow&);
 
 		///////////////////////////////////////////////////////////////
 		///@brief Set the Desktop currently used by World
 		///////////////////////////////////////////////////////////////
-		void setCurrDesktop(ppc::Desktop&);
+		static void setCurrDesktop(ppc::Desktop&);
 
 		///////////////////////////////////////////////////////////////
 		///@brief Returns a pointer to the Game Screen
 		///////////////////////////////////////////////////////////////
-		sf::RenderWindow* getGameScreen();
+		static sf::RenderWindow& getGameScreen();
 
 		///////////////////////////////////////////////////////////////
 		///@brief Returns a pointer to the Current Desktop
 		///////////////////////////////////////////////////////////////
-		Desktop* getCurrDesktop();
+		static Desktop& getCurrDesktop();
 
 		///////////////////////////////////////////////////////////////
 		// Desktop Manipulation
@@ -64,21 +56,34 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////
 		///@brief Runs the main game loop with the given Desktop
 		///////////////////////////////////////////////////////////////
-		bool runDesktop(ppc::Desktop&);
+		static bool runDesktop(ppc::Desktop&);
+
+        static bool loadDesktop(DesktopList desk);
+
+        ///////////////////////////////////////////////////////////////
+        ///@brief Loads in a Desktop from a file to the World
+        ///@details The imported Desktop becomes the new current 
+        /// Desktop, while the old one (if there was one) is destroyed.
+        ///////////////////////////////////////////////////////////////
+        static bool loadDesktop(std::string filename);
+
+        static void restartDesktop();
+
+        static void quitDesktop();
 
 		///////////////////////////////////////////////////////////////
 		///@brief Runs the main game loop with the current Desktop
 		///////////////////////////////////////////////////////////////
-		bool runCurrDesktop();
+		static bool runCurrDesktop();
 
 
-		friend std::istream& operator>>(std::istream& in, World& world);
+    private:
+
+        static sf::RenderWindow* screen_;
+        static ppc::Desktop* currDesktop_;
+
+        static bool quitter;
+
+        static std::map<DesktopList, std::string> desktopFileMap;
 	};
-
-	///////////////////////////////////////////////////////////////
-	///@brief Loads in a Desktop from a file to the World
-	///@details The imported Desktop becomes the new current 
-	/// Desktop, while the old one (if there was one) is destroyed.
-	///////////////////////////////////////////////////////////////
-	std::istream& operator>>(std::istream& in, World& world);
 };

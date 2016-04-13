@@ -220,32 +220,27 @@ int main(int argc, char** argv) {
 	//Assuming Builders End Here
 	/////////////////////////////////////////////
 
-	World* gameWorld = new World(*screen);
+    World::setGameScreen(*screen);
 
 	//Main Loops for each Desktops
-	gameWorld->setCurrDesktop(*bootDesktop);
+	World::setCurrDesktop(*bootDesktop);
 	runBootDesktop(*bootDesktop);
-    while (gameWorld->runDesktop(*bootDesktop)) {}
+    while (World::runDesktop(*bootDesktop)) {}
 	delete bootDesktop;
 
-    quitter = false;
-	gameWorld->setCurrDesktop(*playerDesktop);
+	World::setCurrDesktop(*playerDesktop);
 	runPlayerDesktop(*playerDesktop);
-	while (gameWorld->runDesktop(*playerDesktop)) {}
+	while (World::runDesktop(*playerDesktop)) {}
 	delete playerDesktop;
 
-    quitter = false;
-	gameWorld->setCurrDesktop(*targetDesktop);
+	World::setCurrDesktop(*targetDesktop);
 	runTargetDesktop(*targetDesktop);
-	while (gameWorld->runDesktop(*targetDesktop)) {}
+	while (World::runDesktop(*targetDesktop)) {}
 	delete targetDesktop;
 
-	gameWorld->setCurrDesktop(*endDesktop);
+	World::setCurrDesktop(*endDesktop);
 	runEndDesktop(*endDesktop);
-    while (gameWorld->runDesktop(*endDesktop)) {}
-
-
-	delete gameWorld;
+    while (World::runDesktop(*endDesktop)) {}
 	
 
     return EXIT_SUCCESS;
