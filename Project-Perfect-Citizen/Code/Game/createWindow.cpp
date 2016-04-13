@@ -229,22 +229,19 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     builder.setButtonPosition(sf::Vector2f(16, 16));
     builder.setInputHandle(ih);
     builder.setSize(0.25f);
-    builder.setSpritesByIndicies(4, 1, 2, 1);
     builder.setSpriteSheet(buttonSheet);
     builder.setLabelMessage("Console");
     builder.setLabelFont(myFont);
     builder.setLabelSize(12);
     builder.create(tab1);
-    
+
     builder.setButtonPosition(sf::Vector2f(128,16));
     builder.create(tab2);
-    
     
     /////////////////////////////////////////
     /////// ENTITIES
     ///////////////////////////////////////
    
-
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
@@ -256,7 +253,6 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
-
 
 
 void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
@@ -467,6 +463,7 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("My Messages");
 
 }
+
 void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email& mail, sf::Image& buttonSheet, float x, float y) {
 	if (windowToModify == nullptr) { return; }
 

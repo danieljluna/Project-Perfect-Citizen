@@ -41,7 +41,9 @@ public:
 	string getString() const { return text->getString(); }
 
 	void updateLabelString(string str);
+
 	void updateLabelPosition(float x, float y);
+
 	void updateLabelSize(int s);
 
 	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
