@@ -164,6 +164,9 @@ bool ppc::Vertex::isSelected() {
 void ppc::Vertex::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
 
+    //The line below draws Vertices at double size (Uncomment it to see)
+    //states.transform.scale(sf::Vector2f{ 2.f, 2.f });
+
 	states.transform *= getTransform();
 
     target.draw(bgrect_, states);

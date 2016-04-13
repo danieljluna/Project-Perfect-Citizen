@@ -298,6 +298,9 @@
     <ClCompile Include="Code\Game\nameGeneration.cpp">
       <Filter>Sources\Game Specific\PCG</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\spriteRenderComponent.cpp">
+      <Filter>Sources\Game Specific</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Game\photoRenderComponent.hpp">
@@ -618,6 +621,9 @@
     </ClInclude>
     <ClInclude Include="Code\Game\nameGeneration.hpp">
       <Filter>Headers\Game Specific\PCG</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\spriteRenderComponent.hpp">
+      <Filter>Headers\Game Specific</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
