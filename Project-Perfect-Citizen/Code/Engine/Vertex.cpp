@@ -20,7 +20,7 @@ ppc::Vertex::Vertex(){
     
     sf::Image face_sheet;
     face_sheet.loadFromFile(resourcePath() + "Face_Sheet.png");
-    rend_ = new characterRender(face_sheet);
+    rend_ = new characterRender(face_sheet, 0);
     
     bgrect_.setSize(sf::Vector2f(100,125));
     bgrect_.setFillColor(sf::Color(181,179,165));

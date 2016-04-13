@@ -8,7 +8,7 @@ databaseDisplayRenderComponent::databaseDisplayRenderComponent(sf::Font& f,
                                                                sf::Image& faceSheet,
                                                                int x, int y, int size) :font_(f)  {
 
-    render = new characterRender(faceSheet);
+    render = new characterRender(faceSheet, 1);
     this->text_ = new sf::Text();
 
 	//font.loadFromFile(resourcePath() + "Consolas.ttf");
