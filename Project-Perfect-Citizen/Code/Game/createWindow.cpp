@@ -239,8 +239,8 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
 	bbuilder.setButtonPosition(100, 300);
 	bbuilder.setInputHandle(ih);
 	bbuilder.setLabelFont(myFont);
-	bbuilder.setLabelMessage("FUCCBOI");
-	bbuilder.setLabelSize(20);
+	bbuilder.setLabelMessage("EXAMPLE");
+	bbuilder.setLabelSize(14);
 	bbuilder.setSize(0.25f);
 	bbuilder.setSpriteSheet(buttonSheet);
 	bbuilder.create(button);
@@ -254,7 +254,6 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
-
 
 
 void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
@@ -465,6 +464,7 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("My Messages");
 
 }
+
 void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email& mail, sf::Image& buttonSheet, float x, float y) {
 	if (windowToModify == nullptr) { return; }
 

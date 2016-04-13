@@ -1,6 +1,7 @@
 #include "../Engine/debug.h"
 #include "TextDisplayRenderComponent.h"
 #include <ostream>
+#include "../Engine/event.h"
 
 #ifdef WINDOWS_MARKER
     #define resourcePath() std::string("Resources/")
@@ -92,8 +93,26 @@ void TextDisplayRenderComponent::updateColor(sf::Color c) {
     text_->setColor(c);
 }
 
+sf::Text* TextDisplayRenderComponent::getText() {
+	return text_;
+}
+
 void TextDisplayRenderComponent::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
 	target.draw(*(this->text_), states);
-	//target.draw(*(this->outline_), states);
+}
+
+void TextDisplayRenderComponent::recieveMessage(ppc::Event ev) {
+	switch (ev.type) {
+	case Event::EventTypes::ButtonType:
+		if (ev.buttons.isPushed) {
+			text_->setColor(sf::Color::White);
+		}
+		if (ev.buttons.isReleased) {
+			text_->setColor(sf::Color::Black);
+		}
+		break;
+	default:
+		break;
+	}
 }
