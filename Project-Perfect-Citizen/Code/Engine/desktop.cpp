@@ -175,8 +175,8 @@ void ppc::Desktop::setIconSheet(sf::Image sheet) {
 	this->iconSheet_ = sheet;
 }
 
-sf::Image& ppc::Desktop::getIconSheet() {
-	return iconSheet_;
+sf::Image* ppc::Desktop::getIconSheet() {
+	return &iconSheet_;
 }
 
 void ppc::Desktop::setButtonSheet(sf::Image sheet) {
@@ -184,13 +184,13 @@ void ppc::Desktop::setButtonSheet(sf::Image sheet) {
 	this->buttonSheet_ = sheet;
 }
 
-sf::Image& ppc::Desktop::getButtonSheet() {
-	return buttonSheet_;
+sf::Image* ppc::Desktop::getButtonSheet() {
+	return &buttonSheet_;
 }
 
-//should return copy or reference?
-ppc::NodeState& ppc::Desktop::getNodeState() {
-	return nodeState_;
+
+ppc::NodeState* ppc::Desktop::getNodeState() {
+	return &nodeState_;
 }
 
 void ppc::Desktop::setNodeState(NodeState n) {
@@ -205,8 +205,8 @@ void ppc::Desktop::setBackgrond(sf::Sprite s) {
 	
 }
 
-ppc::InputHandler& ppc::Desktop::getInputHandler() {
-	return desktopWindow_->getInputHandler();
+ppc::InputHandler* ppc::Desktop::getInputHandler() {
+	return &desktopWindow_->getInputHandler();
 }
 
 ppc::WindowInterface* ppc::Desktop::getDesktopWindow() {
@@ -217,8 +217,8 @@ void ppc::Desktop::setInbox(Inbox i) {
 	inbox_ = i;
 }
 
-ppc::Inbox& ppc::Desktop::getInbox() {
-	return inbox_;
+ppc::Inbox* ppc::Desktop::getInbox() {
+	return &inbox_;
 }
 
 void ppc::Desktop::registerInput(sf::Event ev) {
@@ -287,13 +287,29 @@ bool ppc::Desktop::isMouseCollision(WindowInterface* wi,
 	return result;
 }
 
+void ppc::Desktop::clearDesktop() {
+	nodeState_ = ppc::NodeState();
+	nodeState_.setUp();
+	iconSheet_ = sf::Image();
+	buttonSheet_ = sf::Image();
+	inbox_ = ppc::Inbox();
+	background_ = sf::Sprite();
+	backgndTexture_ = sf::Texture();
+	desktopWindow_ = nullptr;
+	focused_ = nullptr;
+	windows_.clear();
+
+
+}
+
 
 std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 	std::string line;
 
 	ppc::Desktop* importDesktop = &desktop;
-	ppc::Window* bkgndWindow =
-		new ppc::Window(1800, 1000, sf::Color(0, 0, 0));
+	desktop.clearDesktop();
+	ppc::Window* bkgndWindow = 
+		new Window(1800, 1000, sf::Color(0, 0, 0));
 	importDesktop->addBkgndWindow(bkgndWindow);
 
 	while (std::getline(in, line)) {
