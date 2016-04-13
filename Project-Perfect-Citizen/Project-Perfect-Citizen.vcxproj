@@ -82,6 +82,7 @@
     <ClCompile Include="Code\Game\IconBuilder.cpp" />
     <ClCompile Include="Code\Game\iconInputComponent.cpp" />
     <ClCompile Include="Code\Game\Inbox.cpp" />
+    <ClCompile Include="Code\Game\interpolateUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\mousePressButton.cpp" />
     <ClCompile Include="Code\Game\nameGeneration.cpp" />
     <ClCompile Include="Code\Game\NetworkCheckFunctor.cpp" />
@@ -94,6 +95,7 @@
     <ClCompile Include="Code\Game\PipelineGraphRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineLevelBuilder.cpp" />
     <ClCompile Include="Code\Game\Quitter.cpp" />
+    <ClCompile Include="Code\Game\spriteRenderComponent.cpp" />
     <ClCompile Include="Code\Game\testRenderSprite.cpp" />
     <ClCompile Include="Code\Game\TextBoxBuilder.cpp" />
     <ClCompile Include="Code\Game\TextBoxInputComponent.cpp" />
@@ -195,6 +197,7 @@
     <ClInclude Include="Code\Game\IconBuilder.h" />
     <ClInclude Include="Code\Game\iconInputComponent.h" />
     <ClInclude Include="Code\Game\Inbox.h" />
+    <ClInclude Include="Code\Game\interpolateUpdateComponent.hpp" />
     <ClInclude Include="Code\Game\mousePressButton.h" />
     <ClInclude Include="Code\Game\nameGeneration.hpp" />
     <ClInclude Include="Code\Game\NetworkCheckFunctor.h" />
@@ -205,8 +208,10 @@
     <ClInclude Include="Code\Game\PipelineCharacter.h" />
     <ClInclude Include="Code\Game\PipelineDataRenderComponent.h" />
     <ClInclude Include="Code\Game\PipelineGraphRenderComponent.h" />
+    <ClInclude Include="Code\Game\PipelineJobsAndIncomes.h" />
     <ClInclude Include="Code\Game\PipelineLevelBuilder.h" />
     <ClInclude Include="Code\Game\Quitter.h" />
+    <ClInclude Include="Code\Game\spriteRenderComponent.hpp" />
     <ClInclude Include="Code\Game\testRenderSprite.h" />
     <ClInclude Include="Code\Game\TextBoxBuilder.h" />
     <ClInclude Include="Code\Game\TextBoxInputComponent.h" />
@@ -234,6 +239,7 @@
     <None Include="Resources\data.json" />
     <None Include="Resources\PlayerEmail.json" />
     <None Include="Resources\smsPipeline.json" />
+    <None Include="Resources\suspiciontest.json" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{76E6A61E-6FF8-4ABA-82B6-674967E67119}</ProjectGuid>

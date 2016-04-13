@@ -166,3 +166,11 @@ void spawnConfirmedIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::
 /// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnAlertIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
+
+
+//////////////////////////////////////////////////////////////////////
+/// @brief Turns the passed entity into a useable alert icon (non clickable)
+/// Pass it the entity, a shared input handler, a spritesheet with
+/// the button animations, (x, y position), and a square scale size.
+///////////////////////////////////////////////////////////////////////
+void spawnPromptIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
