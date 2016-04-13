@@ -41,15 +41,21 @@ bool Network::checkCenterEquality(const Network& other) {
 }
 
 float Network::checkEdgeEquality(const Network& other) {
-	float numEdges = 0.f;
+	float points = 0.f;
 	float numVisited = 0.f;
 	for (unsigned int i = 0; i < size_; ++i) {
 		for (unsigned int j = i + 1; j < size_; ++j) {
 			numVisited += 1;
-			if (isAdjacent(i, j) == other.isAdjacent(i, j)) numEdges += 1;
+			if (isAdjacent(i, j) == other.isAdjacent(i, j)) {
+				if (isAdjacent(i, j)) {
+					if (edge(i, j)->getColor() == other.edge(i, j)->getColor()) points += 1;
+				}
+				else points += 1;
+
+			}
 		}
 	}
-	return numEdges/numVisited;
+	return points/numVisited;
 }
 
 
