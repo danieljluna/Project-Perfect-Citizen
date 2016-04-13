@@ -79,7 +79,6 @@
 		C8778C9D1CB5B2970035A46E /* ComponentObsvr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8778C5A1CB5B2970035A46E /* ComponentObsvr.cpp */; };
 		C8778C9E1CB5B2970035A46E /* debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8778C5C1CB5B2970035A46E /* debug.cpp */; };
 		C8778C9F1CB5B2970035A46E /* desktop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8778C5E1CB5B2970035A46E /* desktop.cpp */; };
-		C8778CA01CB5B2970035A46E /* DesktopLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8778C601CB5B2970035A46E /* DesktopLogger.cpp */; };
 		C8778CA11CB5B2970035A46E /* DraggableInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8778C621CB5B2970035A46E /* DraggableInput.cpp */; };
 		C8778CA21CB5B2970035A46E /* Edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8778C641CB5B2970035A46E /* Edge.cpp */; };
 		C8778CA31CB5B2970035A46E /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8778C671CB5B2970035A46E /* Entity.cpp */; };
@@ -381,8 +380,6 @@
 		C8778C5D1CB5B2970035A46E /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
 		C8778C5E1CB5B2970035A46E /* desktop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = desktop.cpp; sourceTree = "<group>"; };
 		C8778C5F1CB5B2970035A46E /* desktop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = desktop.h; sourceTree = "<group>"; };
-		C8778C601CB5B2970035A46E /* DesktopLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DesktopLogger.cpp; sourceTree = "<group>"; };
-		C8778C611CB5B2970035A46E /* DesktopLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopLogger.h; sourceTree = "<group>"; };
 		C8778C621CB5B2970035A46E /* DraggableInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DraggableInput.cpp; sourceTree = "<group>"; };
 		C8778C631CB5B2970035A46E /* DraggableInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableInput.h; sourceTree = "<group>"; };
 		C8778C641CB5B2970035A46E /* Edge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Edge.cpp; sourceTree = "<group>"; };
@@ -685,8 +682,6 @@
 				C8778C5D1CB5B2970035A46E /* debug.h */,
 				C8778C5E1CB5B2970035A46E /* desktop.cpp */,
 				C8778C5F1CB5B2970035A46E /* desktop.h */,
-				C8778C601CB5B2970035A46E /* DesktopLogger.cpp */,
-				C8778C611CB5B2970035A46E /* DesktopLogger.h */,
 				C8778C621CB5B2970035A46E /* DraggableInput.cpp */,
 				C8778C631CB5B2970035A46E /* DraggableInput.h */,
 				C8778C641CB5B2970035A46E /* Edge.cpp */,
@@ -1346,7 +1341,6 @@
 				C8778CC01CB5DA370035A46E /* TextFieldRenderComponent.cpp in Sources */,
 				C8778C241CB5B2890035A46E /* createIcon.cpp in Sources */,
 				C8778C261CB5B2890035A46E /* createWindow.cpp in Sources */,
-				C8778CA01CB5B2970035A46E /* DesktopLogger.cpp in Sources */,
 				C8778C531CB5B2890035A46E /* WindowBkgndRenderCmpnt.cpp in Sources */,
 				C8778C3A1CB5B2890035A46E /* Inbox.cpp in Sources */,
 				C8778C2F1CB5B2890035A46E /* emailListElementRenderComponent.cpp in Sources */,

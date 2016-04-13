@@ -220,26 +220,38 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     /* Create the render components */
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
-      /////////////////////////////////////////
+    
+    Entity tab1;
+    Entity tab2;
+
+    // Button Test
+    ButtonBuilder builder;
+    builder.setButtonPosition(sf::Vector2f(16, 16));
+    builder.setInputHandle(ih);
+    builder.setSize(0.25f);
+    builder.setSpritesByIndicies(4, 1, 2, 1);
+    builder.setSpriteSheet(buttonSheet);
+    builder.setLabelMessage("Console");
+    builder.setLabelFont(myFont);
+    builder.setLabelSize(12);
+    builder.create(tab1);
+    
+    builder.setButtonPosition(sf::Vector2f(128,16));
+    builder.create(tab2);
+    
+    
+    /////////////////////////////////////////
     /////// ENTITIES
     ///////////////////////////////////////
-    
-    Entity tbox;
-    TextBoxBuilder tbuilder;
-    tbuilder.setFont(myFont);
-    tbuilder.setSize(20);
-    tbuilder.setPosition(sf::Vector2f(100.0f,100.0f));
-    tbuilder.setColor(sf::Color::Black);
-    tbuilder.setString("text box");
-    tbuilder.setInputHandle(ih);
-    tbuilder.create(tbox);
-    
+   
+
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
-	windowToModify->addEntity(tbox);
     windowToModify->setPosition(x, y);
+    windowToModify->addEntity(tab1);
+    windowToModify->addEntity(tab2);
     
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
