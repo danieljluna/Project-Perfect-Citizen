@@ -24,7 +24,7 @@ private:
 
 public:
     
-    textInputRenderComponent(ppc::NodeState& fT, sf::Font& f, int x, int y, int size);
+    textInputRenderComponent(ppc::NodeState fT, sf::Font& f, int x, int y, int size);
     
     ~textInputRenderComponent();
     

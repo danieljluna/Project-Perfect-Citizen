@@ -11,7 +11,7 @@
 
 const string TEXT_KEY_INPUT = "TKI";
 
-textInputRenderComponent::textInputRenderComponent(ppc::NodeState& fT, sf::Font& f, 
+textInputRenderComponent::textInputRenderComponent(ppc::NodeState fT, sf::Font& f, 
 	int x, int y, int size): fileTree_(fT), font(f) {
 
 	this->textSize_ = size;
@@ -32,7 +32,7 @@ textInputRenderComponent::~textInputRenderComponent() {
 
 void textInputRenderComponent::updateString(string s) {
 	str = s;
-	vector<string> pwd_vector = fileTree_.getPwdVector();
+	std::vector<std::string> pwd_vector = fileTree_.getPwdVector();
 	string pwd = "C:/";
 
 	for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {
@@ -40,7 +40,6 @@ void textInputRenderComponent::updateString(string s) {
 		pwd.push_back('/');
 	}
 	str = pwd + str;
-	cout << pwd;
 	text->setString(str + "|");
 }
 
