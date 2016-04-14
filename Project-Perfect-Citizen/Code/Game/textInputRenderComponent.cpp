@@ -31,16 +31,21 @@ textInputRenderComponent::~textInputRenderComponent() {
 }
 
 void textInputRenderComponent::updateString(string s) {
-	str = s;
-	std::vector<std::string> pwd_vector = fileTree_.getPwdVector();
+	//str = s;
+	/*std::vector<std::string> pwd_vector = fileTree_.getPwdVector();
 	string pwd = "C:/";
 
 	for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {
 		pwd += *iter;
 		pwd.push_back('/');
-	}
-	str = pwd + str;
-	text->setString(str + "|");
+	}*/
+	str = str + s + "|";
+	text->setString(str);
+}
+
+void textInputRenderComponent::updatePrompt(string s) {
+	str = s;
+	text->setString(str);
 }
 
 void textInputRenderComponent::updatePosition(float textDisplayHeight, float offset) {

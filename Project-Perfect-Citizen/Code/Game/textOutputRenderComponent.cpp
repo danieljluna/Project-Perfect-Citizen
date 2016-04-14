@@ -16,13 +16,15 @@ const string TEXT_KEY_INPUT = "TKI";
 using namespace ppc;
 
 textOutputRenderComponent::textOutputRenderComponent(ppc::Desktop& dt, sf::Image bs, sf::Font f,
-	ppc::NodeState fT, int x, int y, int size) : font_(f),fileTree_(fT), theDesktop_(&dt), buttonSheet_(bs) {
+	ppc::NodeState fT, textInputRenderComponent* tirc, int x, int y, int size) : font_(f),fileTree_(fT), 
+	theDesktop_(&dt), buttonSheet_(bs){
 
 	numDisplayedLines = 0;
 
 	this->text_ = new sf::Text();
 
-	//font.loadFromFile(resourcePath() + "Consolas.ttf");
+	promptLine = tirc;
+
 	text_->setFont(font_);
 	text_->setColor(sf::Color::Green);
 	text_->setPosition(float(x), float(y));
@@ -37,62 +39,69 @@ textOutputRenderComponent::~textOutputRenderComponent() {
 }
 
 void textOutputRenderComponent::updateString(std::vector<string> cmd) {
-	//printVector(cmd);
-
+	
 	/* Print out what was just typed */
 	str_ = str_ + "> ";
-	for (auto iter = cmd.begin(); iter != cmd.end(); ++iter) {
+	for (auto iter = cmd.begin(); iter != cmd.end(); ++iter) 
 		str_ = str_ + " " + (*iter);
-	}
 	str_ = str_ + "\n";
 	++numDisplayedLines;
 
-
-	/* Determine what to send based on the command given */
+	/* CASE: LS*/
 	if (cmd.at(0) == "ls") {
-
 		std::vector<string> firstLsCommand;
 		string ls = "ls";
 		firstLsCommand.push_back(ls);
 		commandFn firstLs = findFunction(ls);
 		firstLs(fileTree_, firstLsCommand);
 
-		str_ = str_ + fileTree_.getDirString() + "\n";
+		str_ = str_ + fileTree_.getDirString();
 		int numLines = std::count(str_.begin(), str_.end(), '@');
 		std::replace(str_.begin(), str_.end(), '@', '\n' );
 		numDisplayedLines += numLines;
 	}
+
+	/* CASE: PWD*/
 	else if (cmd.at(0) == "pwd") {
 		std::vector<std::string> wd = fileTree_.getPwdVector();
-		for (auto iter = wd.begin(); iter != wd.end(); ++iter) {
+		for (auto iter = wd.begin(); iter != wd.end(); ++iter)
 			str_ = str_ + (*iter) + "/";
-		}
-		str_ = str_ + "\n";
+		str_ = "Current Working Directory: "+ str_ + "\n";
 		++numDisplayedLines;
 	}
+
+	/* CASE: OPEN*/
     else if (cmd.at(0) == "open") {
         if(cmd.size() > 2){
-            // do nothing
+			str_ = str_ + "Error: 'open' requires one parameter.\n";
+			numDisplayedLines++;
         }
         string fileResourcePath = fileTree_.getCwd()->findElement(cmd.at(1))->getFileData();
         cout << fileResourcePath << endl;
         fileTree_.getCwd()->findElement(cmd.at(1))->readFile(*theDesktop_, buttonSheet_, fileResourcePath);
-        numDisplayedLines++;
+		str_ = "Opening " + cmd.at(1) + "\n";
+        numDisplayedLines += 2;
     }
+
+	/* CASE: CLEAR*/
 	else if (cmd.at(0) == "clear") {
 		str_.clear();
 		numDisplayedLines = 0;
 	}
+
+	/* CASE: CD */
 	else if (cmd.at(0) == "cd") {
 		if (cmd.size() < 2) {
-			str_ = str_ + "Error: 'cd' requires one parameter\n";
+			str_ = str_ + "Error: 'cd' requires one parameter.\n";
 			numDisplayedLines++;
 		}
 		if (cmd.at(1).compare("CP") == 0) { World::quitDesktop(); }
+		if (fileTree_.getCwd()->findElement(cmd.at(1)) == nullptr) {
+			str_ = str_ + "Error: Directory '" + cmd.at(1) + "' not found. \n";
+			numDisplayedLines++;
+		}
 		else {
-
-			if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected() &&
-				cmd.at(1).compare("..") != 0) {
+			if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
 				str_ = str_ + "Error: Directory '" + cmd.at(1)+"' is password protected. \n";
 				numDisplayedLines++;
 			}
@@ -102,13 +111,15 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 			cdCommand.push_back(cmd.at(1));
 			commandFn newCD = findFunction(cd);
 			newCD(fileTree_, cdCommand);
-			numDisplayedLines++;
+			str_ += "Moved to directory '" + cmd.at(1) + "'\n";
+			numDisplayedLines += 2;
 		}
-		
 	}
+
+	/* CASE: MKDIR */
 	else if (cmd.at(0) == "mkdir") {
 		if (cmd.size() < 2) {
-			str_ = str_ + "Error: 'mkdir' requires one parameter\n";
+			str_ = str_ + "Error: 'mkdir' requires one parameter.\n";
 			numDisplayedLines++;
 		}
 		else {
@@ -122,9 +133,11 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		}
 		
 	}
+
+	/* CASE: MAKE */
 	else if (cmd.at(0) == "make") {
 		if (cmd.size() < 2) {
-			str_ = str_ + "Error: 'make' requires one parameter\n";
+			str_ = str_ + "Error: 'make' requires one parameter.\n";
 			numDisplayedLines++;
 		}
 		else {
@@ -138,10 +151,14 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		}
 		
 	}
-	else if ( 
-		cmd.at(0) == "decrypt" || cmd.at(0) == "encrypt") {
-		std::cout << "what..." << std::endl;
+
+	/* CASE: DECRYPT/ENCRYPT */
+	else if ( cmd.at(0) == "decrypt" || 
+		cmd.at(0) == "encrypt") {
+		// Do nothing currently.
 	}
+
+	/* CASE: UNLOCK */
 	else if (cmd.at(0) == "unlock") {
 		std::vector<string> unlockCommand;
 		string unlock = "unlock";
@@ -161,9 +178,11 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		}
 		numDisplayedLines+= 2;
 	}
+
+	/* CASE: DEFAULT*/
 	else { 
 		str_ = str_ + "Error: command '" + cmd.at(0) + 
-			"' not found" + "\n"; 
+			"' not found." + "\n"; 
 		numDisplayedLines++;
 	}
 
@@ -172,6 +191,17 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		// Adjust the output to scroll or move text up here
 	}
 	text_->setString(str_);
+}
+
+void textOutputRenderComponent::updatePrompt() {
+	std::vector<std::string> pwd_vector = fileTree_.getPwdVector();
+	string pwd = "C:/";
+
+	for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {
+		pwd += *iter;
+		pwd.push_back('/');
+	}
+	promptLine->updatePrompt(pwd);
 }
 
 int textOutputRenderComponent::getNumLines() {
