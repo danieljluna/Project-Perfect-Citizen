@@ -16,7 +16,7 @@ const string TEXT_KEY_INPUT = "TKI";
 using namespace ppc;
 
 textOutputRenderComponent::textOutputRenderComponent(ppc::Desktop& dt, sf::Image bs, sf::Font f,
-	ppc::NodeState fT, int x, int y, int size) :font_(f),fileTree_(fT), theDesktop_(&dt), buttonSheet_(bs) {
+	ppc::NodeState fT, int x, int y, int size) : font_(f),fileTree_(fT), theDesktop_(&dt), buttonSheet_(bs) {
 
 	numDisplayedLines = 0;
 
@@ -142,16 +142,6 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		std::cout << "what..." << std::endl;
 	}
 	else if (cmd.at(0) == "unlock") {
-		//std::cout << "ya made the right choice" << std::endl;
-		/*
-		std::vector<string> mkdirCommand;
-		string mkdir = "mkdir";
-		mkdirCommand.push_back(mkdir);
-		mkdirCommand.push_back(cmd.at(1));
-		commandFn newCD = findFunction(mkdir);
-		newCD(fileTree_, mkdirCommand);
-		numDisplayedLines++;
-		*/
 		std::vector<string> unlockCommand;
 		string unlock = "unlock";
 		unlockCommand.push_back(unlock);
