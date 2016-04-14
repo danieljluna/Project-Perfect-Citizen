@@ -136,7 +136,7 @@ namespace ppc {
 ///@param n The NodeState object to be associated with the Desktop.
 ///@todo Add param for OSStyle?.
 ///////////////////////////////////////////////////////////////////////
-		Desktop(WindowInterface& bkgndWin, NodeState& n);
+		Desktop(WindowInterface* bkgndWin, NodeState n);
 
 		
 ///////////////////////////////////////////////////////////////////////
