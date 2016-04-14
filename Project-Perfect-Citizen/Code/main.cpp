@@ -179,7 +179,7 @@ int main(int argc, char** argv) {
 	//runBootDesktop
 	ppc::NodeState bootState;
 	Window* bootWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-	Desktop* bootDesktop = new Desktop(*bootWindow, bootState);
+	Desktop* bootDesktop = new Desktop(bootWindow, bootState);
 
 	bootDesktop->setIconSheet(iconSheet);
 	bootDesktop->setButtonSheet(buttonSheet);
@@ -191,7 +191,7 @@ int main(int argc, char** argv) {
 	playerState.setUp();
 	Window* playerDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
 
-	Desktop* playerDesktop = new Desktop(*playerDesktopWindow, playerState);
+	Desktop* playerDesktop = new Desktop(playerDesktopWindow, playerState);
 	playerDesktop->setIconSheet(iconSheet);
 	playerDesktop->setButtonSheet(buttonSheet);
 	playerDesktop->setBackgrond(playerWallpaper);
@@ -201,7 +201,7 @@ int main(int argc, char** argv) {
 	targetState.setUp();
 	Window* targetDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
 
-	Desktop* targetDesktop = new Desktop(*targetDesktopWindow, targetState);
+	Desktop* targetDesktop = new Desktop(targetDesktopWindow, targetState);
 	targetDesktop->setIconSheet(iconSheet);
 	targetDesktop->setButtonSheet(buttonSheet);
 	targetDesktop->setBackgrond(teacherWallpaper);
@@ -210,7 +210,7 @@ int main(int argc, char** argv) {
 	ppc::NodeState endState;
 	Window* endWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
 
-	Desktop* endDesktop = new Desktop(*endWindow, endState);
+	Desktop* endDesktop = new Desktop(endWindow, endState);
 	endDesktop->setIconSheet(iconSheet);
 	endDesktop->setButtonSheet(pixelSheet);
 	endDesktop->setBackgrond(playerWallpaper);

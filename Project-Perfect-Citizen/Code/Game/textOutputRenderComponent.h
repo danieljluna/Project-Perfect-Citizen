@@ -2,6 +2,7 @@
 
 #include "../Engine/renderComponent.h"
 #include <SFML/Graphics/Font.hpp>
+#include "../Engine/NodeState.h"
 #include <vector>
 
 namespace sf {
@@ -14,8 +15,7 @@ namespace sf {
 
 namespace ppc {
 
-    class Desktop;
-    class NodeState;
+	class Desktop;
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Render Component for an Text Output Box
@@ -43,12 +43,12 @@ private:
 	////////////////////////////////////////////////////////////////////
 	/// @brief The fileTree to read output from
 	////////////////////////////////////////////////////////////////////
-	ppc::NodeState& fileTree_;
+	ppc::NodeState fileTree_;
 
     
-    ppc::Desktop& theDesktop_;
+    ppc::Desktop* theDesktop_;
     
-    sf::Image& buttonSheet_;
+    sf::Image buttonSheet_;
     
 	////////////////////////////////////////////////////////////////////
 	/// @brief The pool of output to be displayed via a string
@@ -68,7 +68,7 @@ private:
 
 public:
 
-    textOutputRenderComponent(ppc::Desktop& dt, sf::Image& bs, sf::Font& f, ppc::NodeState& fileTree,
+    textOutputRenderComponent(ppc::Desktop& dt, sf::Image bs, sf::Font f, ppc::NodeState fileTree,
 		int x, int y, int size);
 
 	~textOutputRenderComponent();

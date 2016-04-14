@@ -63,10 +63,10 @@ const string JPG = ".jpg";
 const string TXT = ".txt";
 
 void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
-                       InputHandler & ih, NodeState* ns,
+                       InputHandler & ih, NodeState ns,
                        sf::Image& buttonSheet, float x, float y) {
     if (windowToModify == nullptr) { return; }
-	ns->moveToRoot();
+	ns.moveToRoot();
     
     /////////////////////////////////////////
     /////// COMPONENTS
@@ -81,13 +81,13 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
     int windowOffset = 5;
     
     textInputRenderComponent* textInputBox =
-    new textInputRenderComponent(*ns, myFont, 0, 0, fontSize);
+    new textInputRenderComponent(ns, myFont, 0, 0, fontSize);
                                  //windowToModify->getSize().y - (fontSize+windowOffset),
     textOutputRenderComponent* textDisplayBox =
-    new textOutputRenderComponent(dt, buttonSheet, myFont, *ns, 0, 0, fontSize);
+    new textOutputRenderComponent(dt, buttonSheet, myFont, ns, 0, 0, fontSize);
     
     /* Create the update component */
-    consoleUpdateComponent* cup = new consoleUpdateComponent(*ns);
+    consoleUpdateComponent* cup = new consoleUpdateComponent(ns);
     
     /* Create the input components */
     textInputKeys* tik = new textInputKeys(ih, *textInputBox,
@@ -644,7 +644,7 @@ void ppc::spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih,
     dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Prompt");
 }
 
-void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState* ns,
+void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState ns,
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y) {
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
@@ -657,7 +657,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 14;
 
-	Explorer theExplorer(dt, windowToModify, *ns, buttonSheet, iconSheet);
+	Explorer theExplorer(dt, windowToModify, ns, buttonSheet, iconSheet);
 
 	/////////////////////////////////////////
 	/////// ENTITIES
@@ -680,7 +680,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 		windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
 	}
 
-	vector<string> pwd_vector = ns->getPwdVector();
+	vector<string> pwd_vector = ns.getPwdVector();
 	string pwd = "C:/";
 
 	for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {
