@@ -38,7 +38,7 @@ BorderDecorator::BorderDecorator(
     }
 
     //Caption Defaults
-    caption_.updateSize(20);
+    caption_.updateSize(18);
     caption_.updateColor({ 255, 255, 255 });
     captionBackground_.setFillColor({51, 50, 161});
     
@@ -122,9 +122,12 @@ void BorderDecorator::setCaption(std::string text) {
     caption_.updateString(text);
 }
 
-void BorderDecorator::setCaptionFont(sf::Font font, unsigned int size) {
+void BorderDecorator::setCaptionFont(sf::Font font) {
     caption_.updateFont(font);
-    caption_.updateSize(size);
+}
+
+void BorderDecorator::setCaptionSize(unsigned int size) {
+	caption_.updateSize(size);
 }
 
 void BorderDecorator::setCaptionColor(sf::Color col) {
@@ -280,7 +283,7 @@ void BorderDecorator::updateBounds() {
     draggableInput_.setBounds(bounds);
 
     caption_.updatePosition(WindowDecorator::getPosition().x + captionBackground_.getSize().y, 
-                            WindowDecorator::getPosition().y - bounds.height * 0.9f);
+                            WindowDecorator::getPosition().y - bounds.height * 0.88f);
 
     bounds = getBounds();
     sf::Vector2f topLeft = sf::Vector2f(bounds.left + 2.0f, bounds.top + 2.0f);

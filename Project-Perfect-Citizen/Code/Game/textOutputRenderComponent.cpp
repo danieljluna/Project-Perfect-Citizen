@@ -90,6 +90,11 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		}
 		if (cmd.at(1).compare("CP") == 0) { World::quitDesktop(); }
 		else {
+
+			if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
+				str_ = str_ + "Error: Directory '" + cmd.at(1)+"' is password protected. \n";
+				numDisplayedLines++;
+			}
 			std::vector<string> cdCommand;
 			string cd = "cd";
 			cdCommand.push_back(cd);
@@ -156,6 +161,15 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		}
 		commandFn newCommand = findFunction(unlock);
 		newCommand(fileTree_, unlockCommand);
+
+		if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
+			str_ = str_ + "Access denied.\n";
+			numDisplayedLines++;
+		}
+		else {
+			str_ = str_ + "Access granted.\n";
+			numDisplayedLines++;
+		}
 		numDisplayedLines++;
 	}
 	else { 
