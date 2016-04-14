@@ -40,10 +40,14 @@ public:
 	////////////////////////////////////////////////////////////////////
 	/// @brief Updates the console prompt position in the window based
 	/// on the amount of current lines
-	/// @param integer specifying the amount of currently displayed 
-	/// lines. This will draw it one line below these number of lines
+	/// @param integer specifying the width of the displayed lines. 
+	/// This is usually Text->getLocalBounds().height
+	/// @param How much down you want the prompt to render from the last
+	/// outputted line.
 	////////////////////////////////////////////////////////////////////
-	void updatePosition(int currentLineNum);
+	void updatePosition(float textDisplayHeight, float offset);
+
+	sf::Text* getText();
 
     virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
     

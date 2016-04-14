@@ -102,8 +102,7 @@ bool textInputKeys::registerInput(sf::Event ev) {
 				textBox.updateString(str);
 
 				/* Move the prompt if needed */
-				textBox.updatePosition(textDisplay.getNumLines());
-				cout << "NUMBER OF LINES IS NOW: "<< textDisplay.getNumLines() << endl;
+				textBox.updatePosition(textDisplay.getText()->getLocalBounds().height, 10);
 			}
         }
     }

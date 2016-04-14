@@ -43,8 +43,12 @@ void textInputRenderComponent::updateString(string s) {
 	text->setString(str + "|");
 }
 
-void textInputRenderComponent::updatePosition(int currentLineNum) {
-	this->text->setPosition(text->getPosition().x, ((textSize_*1.15f) * currentLineNum));
+void textInputRenderComponent::updatePosition(float textDisplayHeight, float offset) {
+	this->text->setPosition(text->getPosition().x, textDisplayHeight);
+}
+
+sf::Text* textInputRenderComponent::getText() {
+	return text;
 }
 
 void textInputRenderComponent::draw( sf::RenderTarget& target,

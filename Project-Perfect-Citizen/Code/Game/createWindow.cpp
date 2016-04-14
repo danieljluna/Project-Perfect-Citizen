@@ -679,11 +679,19 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 		};
 		windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
 	}
+
+	vector<string> pwd_vector = ns->getPwdVector();
+	string pwd = "C:/";
+
+	for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {
+		pwd += *iter;
+		pwd.push_back('/');
+	}
 	
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
-	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("My Files");
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(pwd);
 }
 
 

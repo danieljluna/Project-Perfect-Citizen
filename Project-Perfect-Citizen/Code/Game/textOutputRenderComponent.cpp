@@ -58,10 +58,10 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 
 	
 		cout << fileTree_.getDirString() << endl;
-		str_ = str_ + fileTree_.getDirString() + "\n";
+		str_ = str_ + fileTree_.getDirString();
 		int numLines = std::count(str_.begin(), str_.end(), '@');
-		std::replace(str_.begin(), str_.end(), '@', '\n');
-		numDisplayedLines += numLines + 1;
+		std::replace(str_.begin(), str_.end(), '@', '\n' );
+		numDisplayedLines += numLines;
 	}
 	else if (cmd.at(0) == "pwd") {
 		std::vector<std::string> wd = fileTree_.getPwdVector();
@@ -182,6 +182,10 @@ void textOutputRenderComponent::clearString() {
 
 sf::Vector2f textOutputRenderComponent::getPosition() const {
     return text_->getPosition();
+}
+
+sf::Text* textOutputRenderComponent::getText() {
+	return text_;
 }
 
 

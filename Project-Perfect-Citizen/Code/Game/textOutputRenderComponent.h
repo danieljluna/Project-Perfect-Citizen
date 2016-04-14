@@ -75,6 +75,8 @@ public:
     
     sf::Vector2f getPosition() const;
 
+	sf::Text* getText();
+
 	////////////////////////////////////////////////////////////////////
 	/// @brief updateString recieves a string from an input component to
 	///        display.
