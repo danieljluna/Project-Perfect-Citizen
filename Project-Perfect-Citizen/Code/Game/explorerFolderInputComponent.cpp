@@ -92,7 +92,8 @@ bool explorerFolderInputComponent::registerInput(sf::Event ev) {
 				else if (mouseTime < DOUBLE_CLICK_TIME && hasBeenClicked) {
 					mouseClock.restart();
 
-					if (theFileTree_.getCwd()->findElement(directoryName)->isPasswordProtected()) {
+					if (theFileTree_.getCwd()->findElement(directoryName)->isPasswordProtected() &&
+						directoryName.compare("..") != 0) {
 						ppc::WindowInterface* ErrorMsgWindow =
 							new ppc::Window(500, 150, sf::Color(170, 170, 170));
 						spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 

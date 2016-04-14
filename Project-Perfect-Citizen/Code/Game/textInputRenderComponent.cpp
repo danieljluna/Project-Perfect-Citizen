@@ -40,6 +40,7 @@ void textInputRenderComponent::updateString(string s) {
 		pwd.push_back('/');
 	}
 	str = pwd + str;
+	cout << pwd;
 	text->setString(str + "|");
 }
 

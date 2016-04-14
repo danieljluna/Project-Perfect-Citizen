@@ -91,7 +91,8 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		if (cmd.at(1).compare("CP") == 0) { World::quitDesktop(); }
 		else {
 
-			if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
+			if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected() &&
+				cmd.at(1).compare("..") != 0) {
 				str_ = str_ + "Error: Directory '" + cmd.at(1)+"' is password protected. \n";
 				numDisplayedLines++;
 			}
@@ -154,13 +155,11 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 
 		if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
 			str_ = str_ + "Access denied.\n";
-			numDisplayedLines++;
 		}
 		else {
 			str_ = str_ + "Access granted.\n";
-			numDisplayedLines++;
 		}
-		numDisplayedLines++;
+		numDisplayedLines+= 2;
 	}
 	else { 
 		str_ = str_ + "Error: command '" + cmd.at(0) + 
