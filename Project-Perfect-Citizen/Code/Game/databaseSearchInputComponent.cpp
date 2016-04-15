@@ -112,7 +112,7 @@ void databaseSearchInputComponent::updateDisplayResults(vector<string> displayVe
 	updateDisplayOutput(displayVec);
 }
 
-bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
+bool databaseSearchInputComponent::registerInput(sf::Event ev) {
 	if (getEntity() != nullptr) {
 
 		int lookAt = 0;
@@ -226,7 +226,7 @@ bool databaseSearchInputComponent::registerInput(sf::Event& ev) {
 
 
 
-bool ppc::goBackFn(databaseSearchInputComponent* ptr, sf::Event& ev) {
+bool ppc::goBackFn(databaseSearchInputComponent* ptr, Event ev) {
 
     ptr->goBack();
     return true;

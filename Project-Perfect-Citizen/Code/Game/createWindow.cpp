@@ -51,6 +51,11 @@
 #include "../Library/json/json.h"
 #include"../Engine/FreeFunctionObserver.h"
 
+#include "../Game/ButtonBuilder.h"
+#include "../Game/TextDisplayBuilder.h"
+
+#include "../Game/TextBoxBuilder.h"
+
 using namespace ppc;
 
 const string PNG = ".png";
@@ -58,13 +63,9 @@ const string JPG = ".jpg";
 const string TXT = ".txt";
 
 void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
-                       InputHandler & ih, NodeState & ns,
+                       InputHandler & ih, NodeState ns,
                        sf::Image& buttonSheet, float x, float y) {
-    
-    /* Check to make sure the window passed isn't null */
     if (windowToModify == nullptr) { return; }
-
-	/* Reset the current directory to the root */
 	ns.moveToRoot();
     
     /////////////////////////////////////////
@@ -73,23 +74,17 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
     /* Create the render components */
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
-    //sf::Image buttonSheet;
-    //buttonSheet.loadFromFile(resourcePath() + "Windows_UI.png");
-    
-    
+   
     sf::Font myFont;
     myFont.loadFromFile(resourcePath() + "consola.ttf");
     int fontSize = 14;
     int windowOffset = 5;
     
     textInputRenderComponent* textInputBox =
-    new textInputRenderComponent(ns, myFont, 0,
-                                 windowToModify->getSize().y - (fontSize+windowOffset),
-                                 fontSize);
+    new textInputRenderComponent(ns, myFont, 0, 0, fontSize);
     textOutputRenderComponent* textDisplayBox =
-    new textOutputRenderComponent(dt, buttonSheet, myFont, ns, 0, 0, fontSize);
-    
-    
+    new textOutputRenderComponent(dt, buttonSheet, myFont, ns, 
+		textInputBox, 0, 0, fontSize);
     
     /* Create the update component */
     consoleUpdateComponent* cup = new consoleUpdateComponent(ns);
@@ -103,7 +98,6 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
     ///////////////////////////////////////
     Entity textBox;
     textBox.addComponent(textInputBox);
-    // textBox.addComponent(textRenderComponent);
     textBox.addComponent(tik);
     textBox.addComponent(cup);
     
@@ -124,13 +118,14 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
     };
     windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     windowToModify = new BorderDecorator(*windowToModify);
-    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);    
+    BorderDecorator* border = dynamic_cast<BorderDecorator*>(windowToModify);
+    border->addButton(buttonSheet, closeWindow);    
+    border->setCaption("Console");
     
 }
 
 void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
                         sf::Image& buttonSheet, float x, float y) {
-    /* Check to make sure the window passed isn't null */
     if (windowToModify == nullptr) { return; }
     
     /////////////////////////////////////////
@@ -148,25 +143,19 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     sf::Image faceSheet;
     faceSheet.loadFromFile(resourcePath() + "Face_Sheet.png");
     
-    
     databaseDisplayRenderComponent* searchResults =
     new databaseDisplayRenderComponent(myFont, faceSheet, 0, fontSize + 5, fontSize - 10);
-    
-    
+   
     /* Create the input components */
     databaseSearchRenderComponent* searchBox = new databaseSearchRenderComponent(myFont, 75, 0, fontSize);
     
     characterRender* render = new characterRender(faceSheet);
     float x1 =  static_cast<float>(windowToModify->getSize().x/2);
     render->setOrigin(x1, 100);
-    /* Create the update components */
     
     /* Create the input components */
     databaseSearchInputComponent* dSI = new databaseSearchInputComponent(db, ih, *searchBox, *searchResults,
                                                                           *render);
-    
-    
-    
     /////////////////////////////////////////
     /////// ENTITIES
     ///////////////////////////////////////
@@ -176,6 +165,7 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     Entity searchBoxEntity;
     searchBoxEntity.addComponent(searchBox);
     searchBoxEntity.addComponent(dSI);
+
     
     Entity resultsBoxEntity;
     resultsBoxEntity.addComponent(searchResults);
@@ -183,20 +173,87 @@ void ppc::spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Data
     Entity backButton;
 	//TODO FIX THIS
 //    TestFunctionClass cool = new TestFunctionClass();
-
     spawnBackButton(dSI, backButton, ih, buttonSheet, 0, 0, 0.2f);
+    
+    
+    Entity tbox;
+    TextBoxBuilder tbuilder;
+    tbuilder.setPosition(sf::Vector2f(200,200));
+    sf::Font thefont;
+    thefont.loadFromFile(resourcePath() + "consola.ttf");
+    tbuilder.setFont(thefont);
+    tbuilder.setString("text box");
+    tbuilder.setSize(12);
+    tbuilder.setColor(sf::Color::Black);
+    tbuilder.setInputHandle(ih);
+    tbuilder.create(tbox);
+
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
     windowToModify->setPosition(x, y);
+    windowToModify->addEntity(tbox);
     windowToModify->addEntity(searchBoxEntity);
     windowToModify->addEntity(resultsBoxEntity);
     windowToModify->addEntity(characterProfile);
     windowToModify->addEntity(backButton);
+ 
+    windowToModify = new BorderDecorator(*windowToModify);
+    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("DCPS Database v.2.4528");
+}
+
+
+void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
+                        sf::Image& buttonSheet, float x, float y) {
+    if (windowToModify == nullptr) { return; }
+    
+    /////////////////////////////////////////
+    /////// COMPONENTS
+    ///////////////////////////////////////
+    sf::Font myFont;
+    myFont.loadFromFile(resourcePath() + "consola.ttf");
+    int fontSize = 20;
+    int windowOffset = 5;
+    
+    /* Create the render components */
+    sf::Image iconSheet;
+    iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
+    
+    Entity tab1;
+    Entity tab2;
+
+    // Button Test
+    ButtonBuilder builder;
+    builder.setButtonPosition(sf::Vector2f(16, 16));
+    builder.setInputHandle(ih);
+    builder.setSize(0.25f);
+    builder.setSpriteSheet(buttonSheet);
+    builder.setLabelMessage("Console");
+    builder.setLabelFont(myFont);
+    builder.setLabelSize(12);
+    builder.create(tab1);
+
+    builder.setButtonPosition(sf::Vector2f(128,16));
+    builder.create(tab2);
+    
+    /////////////////////////////////////////
+    /////// ENTITIES
+    ///////////////////////////////////////
+   
+    
+    /////////////////////////////////////////
+    /////// WINDOW CONSTRUCTION
+    ///////////////////////////////////////
+    windowToModify->setPosition(x, y);
+    windowToModify->addEntity(tab1);
+    windowToModify->addEntity(tab2);
+    
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
+
 
 void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
 	sf::Image& buttonSheet, float x, float y) {
@@ -255,7 +312,6 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	Entity dataBox;
 	dataBox.addComponent(dataText);
 
-
 	Entity graphBox;
 	graphBox.addComponent(graphBounds);
 	graphBox.addComponent(networkRender);
@@ -275,28 +331,23 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
-
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("DCPS Pipeline Application v.3.762");
 }
 
-void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string p) {
-    if (windowToModify == nullptr) { return; }
+void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet,
+	float x, float y, string filename, string p) {
+    if (windowToModify == nullptr) return; 
     
     string path = resourcePath() + p;
     string dotEnd;
     
-    if (!path.empty()){
-        dotEnd = path.substr(path.length() - 4);
-    }
+    if (!path.empty()) dotEnd = path.substr(path.length() - 4);
     /////////////////////////////////////////
     /////// COMPONENTS & ENTITIES
     ///////////////////////////////////////
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
 
-   /*buttonRenderComponent* textRenderComponent =
-    new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
-    textRenderComponent->renderPosition(sf::Vector2f(0, 220));*/
-    
     Entity newEnt;
     
     if(dotEnd == TXT){
@@ -362,6 +413,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     windowToModify->addEntity(newEnt);
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(filename);
 }
 
 void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, Inbox& inbox) {
@@ -397,54 +449,57 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
-
 	sf::FloatRect viewRect = {
 		0.0f,
 		0.0f,
 		float(windowToModify->getSize().x),
-		float(windowToModify->getSize().y / 2)
+		float(windowToModify->getSize().y / 1.5)
 	};
 	windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
 	windowToModify = new BorderDecorator(*windowToModify);
 	windowToModify->setPosition(x, y);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("My Messages");
 
 }
+
 void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email& mail, sf::Image& buttonSheet, float x, float y) {
-	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
 
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
-	
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 20;
 
-	emailMessageRenderComponent* eMRC = new emailMessageRenderComponent(myFont, mail, 0, 0, fontSize);
+	string content = mail.getContentField();
+	int lineCount = 1;
+	int lineMultiplier = 23;
+	int preLineCount = 6;
+	for (unsigned int i = 0; i < content.size(); i++) {
+		if (content[i] == '\n') {
+			lineCount++;
+		}
+	}
+	lineCount += preLineCount;
+	lineCount = lineCount*lineMultiplier;
+
+	windowToModify->setSize(windowToModify->getSize().x, lineCount);
+
+	emailMessageRenderComponent* eMRC = new emailMessageRenderComponent(myFont, mail, 0, 0, fontSize,
+		windowToModify->getSize().x, windowToModify->getSize().y);
 
 	/////////////////////////////////////////
 	/////// ENTITIES
 	///////////////////////////////////////
 	Entity emailMessageDisplayBox;
 	emailMessageDisplayBox.addComponent(eMRC);
+
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
-    string content = mail.getContentField();
-    int lineCount = 1;
-    int lineMultiplier = 23;
-    int preLineCount = 6;
-    for (unsigned int i = 0; i < content.size(); i++){
-        if (content[i] == '\n') {
-            lineCount++;
-        }
-    }
-    lineCount += preLineCount;
-    lineCount = lineCount*lineMultiplier;
     
-    windowToModify->setSize(windowToModify->getSize().x, lineCount);
     if(static_cast<unsigned int>(lineCount) > windowToModify->getSize().x){
         sf::FloatRect viewRect = {
             0.0f,
@@ -458,11 +513,11 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(mail.getAbbrevSubjectField());
 }
 
 
 void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message) {
-	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
 
 	/////////////////////////////////////////
@@ -471,11 +526,10 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
-	int fontSize = 14;
+	int fontSize = 16;
 
 	errorMessageRenderComponent* eMRC = new errorMessageRenderComponent(myFont, message, 
 		windowToModify->getSize().x/3, windowToModify->getSize().y/3, fontSize);
-
 
 	/////////////////////////////////////////
 	/////// ENTITIES
@@ -487,22 +541,109 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	float windowHeight = static_cast<float>(windowToModify->getSize().y);
 	float alertX = windowWidth - ((alertWidth * alertScale) + (3 * (windowWidth / 4)));
 	float alertY = (windowHeight - (alertWidth * alertScale)) / 3;
+	float buttonScale = 0.25f;
+	float buttonX = ((windowWidth - (alertWidth * buttonScale)) / 2);
+	float buttonY = (2 * (windowHeight / 3));
 	spawnAlertIcon(alertIcon, ih, buttonSheet, alertX, alertY, 0.5f);
 
 	Entity errorMessageDisplayBox;
 	errorMessageDisplayBox.addComponent(eMRC);
+
+	// Button Test
+	ButtonBuilder builder;
+	builder.setButtonPosition(sf::Vector2f(buttonX, buttonY));
+	builder.setInputHandle(ih);
+	builder.setSize(0.25f);
+	builder.setSpritesByIndicies(0, 2, 2, 1);
+	builder.setSpriteSheet(buttonSheet);
+	builder.setLabelMessage("OK");
+	builder.setLabelFont(myFont);
+	builder.setLabelSize(12);
+	Entity ent;
+	builder.create(ent);
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 	windowToModify->addEntity(errorMessageDisplayBox);
 	windowToModify->addEntity(alertIcon);
+	windowToModify->addEntity(ent);
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Error");
+}
+void ppc::spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message) {
+    if (windowToModify == nullptr) { return; }
+    
+    /////////////////////////////////////////
+    /////// COMPONENTS
+    ///////////////////////////////////////
+    
+    sf::Font myFont;
+    myFont.loadFromFile(resourcePath() + "consola.ttf");
+    int fontSize = 16;
+    
+    errorMessageRenderComponent* eMRC = new errorMessageRenderComponent(myFont, message,
+                                                                        windowToModify->getSize().x/3,( windowToModify->getSize().y/3)-40, fontSize);
+    
+    /////////////////////////////////////////
+    /////// ENTITIES
+    ///////////////////////////////////////
+    Entity alertIcon;
+    float alertScale = 0.5f;
+    float alertWidth = 128.0;
+    float windowWidth = static_cast<float>(windowToModify->getSize().x);
+    float windowHeight = static_cast<float>(windowToModify->getSize().y);
+    float alertX = windowWidth - ((alertWidth * alertScale) + (3 * (windowWidth / 4)));
+    float alertY = (windowHeight - (alertWidth * alertScale)) / 3;
+    float buttonScale = 0.25f;
+    float buttonX = ((windowWidth - (alertWidth * buttonScale)) / 2);
+    float buttonY = (2 * (windowHeight / 3));
+    spawnPromptIcon(alertIcon, ih, buttonSheet, alertX, alertY, 0.5f);
+    
+    Entity errorMessageDisplayBox;
+    errorMessageDisplayBox.addComponent(eMRC);
+    
+    // Button Test
+    ButtonBuilder builder;
+    builder.setButtonPosition(sf::Vector2f(buttonX, buttonY));
+    builder.setInputHandle(ih);
+    builder.setSize(0.25f);
+    builder.setSpritesByIndicies(0, 2, 2, 1);
+    builder.setSpriteSheet(buttonSheet);
+    builder.setLabelMessage("MY TEST MSG");
+    builder.setLabelFont(myFont);
+    builder.setLabelSize(12);
+    Entity ent;
+    builder.create(ent);
+    
+    
+    Entity tbox;
+    TextBoxBuilder tbuilder;
+    tbuilder.setFont(myFont);
+    tbuilder.setSize(20);
+    tbuilder.setPosition(sf::Vector2f(windowToModify->getSize().x/3,50.0f));
+    tbuilder.setColor(sf::Color::Black);
+    tbuilder.setString("text box");
+    tbuilder.setInputHandle(ih);
+    tbuilder.create(tbox);
+    
+    
+    /////////////////////////////////////////
+    /////// WINDOW CONSTRUCTION
+    ///////////////////////////////////////
+    windowToModify->addEntity(errorMessageDisplayBox);
+    windowToModify->addEntity(alertIcon);
+    windowToModify->addEntity(ent);
+    windowToModify->addEntity(tbox);
+    windowToModify->setPosition(x, y);
+    windowToModify = new BorderDecorator(*windowToModify);
+    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+    dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Prompt");
 }
 
-void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns,
+void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState ns,
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y) {
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
@@ -510,7 +651,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
-
+    
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 14;
@@ -520,15 +661,36 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	/////////////////////////////////////////
 	/////// ENTITIES
 	///////////////////////////////////////
-	
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 
+	float viewHeight = windowToModify->getSize().y / 2;
+
+	/* Create a scroll bar if the new explorer window is greater than 100px*/
+	if (viewHeight > 100.0f) {
+		sf::FloatRect viewRect = {
+			0.0f,
+			0.0f,
+			float(windowToModify->getSize().x),
+			viewHeight
+		};
+		windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
+	}
+
+	vector<string> pwd_vector = ns.getPwdVector();
+	string pwd = "C:/";
+
+	for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {
+		pwd += *iter;
+		pwd.push_back('/');
+	}
+	
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(pwd);
 }
 
 

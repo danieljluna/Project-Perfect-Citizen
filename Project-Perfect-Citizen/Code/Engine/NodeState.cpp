@@ -3,6 +3,18 @@
 #include "baseFileType.h"
 #include "NodeState.h"
 
+ppc::NodeState::NodeState() {
+
+}
+
+ppc::NodeState::NodeState(const NodeState& other) {
+	this->root = other.root;
+	this->cwd = other.cwd;
+	this->workingDirectory = other.workingDirectory;
+	this->lastLsNode = other.lastLsNode;
+	this->dirString = other.dirString;
+}
+
 void ppc::NodeState::popWorking()
 {
 	this->workingDirectory.pop_back();
@@ -16,7 +28,7 @@ void ppc::NodeState::pushWorking(std::string filename)
 void ppc::NodeState::printWorking()
 {
     std::string pwd = "";
-	for (auto& iter: this->workingDirectory) {
+	for (auto iter: this->workingDirectory) {
 		if (iter != "/") {
 			pwd += (iter + "/");
 		}
@@ -31,7 +43,7 @@ void ppc::NodeState::printWorking()
 void ppc::NodeState::setUp()
 {
 	this->workingDirectory.push_back("/");
-    //TODO: FIX MEMORY LEAK! (This one is particularly massive per leak)
+	//TODO: FIX MEMORY LEAK! (This one is particularly massive per leak)
 	BaseFileType* newRoot = new BaseFileType(ppc::FileType::Directory);
 	newRoot->contents["."] = newRoot;
 	newRoot->contents[".."] = newRoot;

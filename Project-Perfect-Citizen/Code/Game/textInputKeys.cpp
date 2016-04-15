@@ -20,6 +20,7 @@ textInputKeys::textInputKeys(ppc::InputHandler& ih,
 	watch(ih, sf::Event::TextEntered);
 	watch(ih, sf::Event::KeyPressed);
     
+	textDisplay.updatePrompt();
 	str.push_back((char)'>');
 	str.push_back((char)' ');
 	textBox.updateString(str);
@@ -58,19 +59,21 @@ bool textInputKeys::isCollision(sf::Vector2i mousePos) {
     return true;//result;
 }
 
-bool textInputKeys::registerInput(sf::Event& ev) {
+bool textInputKeys::registerInput(sf::Event ev) {
     if (getEntity() != nullptr) {
         if (ev.type == sf::Event::TextEntered){
 			/* Ignore CNTRL, BS, ENTR/LF, CR */
             if (ev.text.unicode < 128 && ev.text.unicode != 8 && 
 				ev.text.unicode != 10 && ev.text.unicode != 13) {
                 str.push_back((char)ev.text.unicode);
-                textBox.updateString(str);
+				textDisplay.updatePrompt();
+				textBox.updateString(str);
             }
         } else if (ev.type == sf::Event::KeyPressed) {
             if (ev.key.code == sf::Keyboard::BackSpace && 
 				(str.size()>2)) {
                 str.pop_back();
+				textDisplay.updatePrompt();
                 textBox.updateString(str);
 			}
 			else if (ev.key.code == sf::Keyboard::Return && 
@@ -99,7 +102,14 @@ bool textInputKeys::registerInput(sf::Event& ev) {
 
 				/* Reset the command line - keeping the prompt */
 				str.erase(2, str.length());
+				//textBox.updateString(str);
+
+				/* Update prompt and it's position */
+				textDisplay.updatePrompt();
 				textBox.updateString(str);
+				textBox.updatePosition(textDisplay.getText()->getLocalBounds().height, 10);
+
+				cout << str.length();
 			}
         }
     }

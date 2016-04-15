@@ -42,9 +42,7 @@ void BaseFileType::uploadJson(std::string jString)
 	this->jSonString = jString;
 }
 
-//void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string p) {
-
-void BaseFileType::readFile(ppc::Desktop& desk, sf::Image& im, std::string path)
+void BaseFileType::readFile(ppc::Desktop& desk, sf::Image& im, std::string filename, std::string path)
 {
 	ppc::WindowInterface* FileWindow;
 	if (this->encrypted) {
@@ -53,7 +51,8 @@ void BaseFileType::readFile(ppc::Desktop& desk, sf::Image& im, std::string path)
 	switch (this->filetype) {
 	case FileType::File:
 		FileWindow = new ppc::Window(500, 500, sf::Color(255, 255, 255));
-		spawnFile(FileWindow, FileWindow->getInputHandler(), desk.getNodeState(), im, 100, 200, path);
+		spawnFile(FileWindow, FileWindow->getInputHandler(), *desk.getNodeState(), im, 100, 200, 
+			filename, path);
 		desk.addWindow(FileWindow);
 		std::cout << path << std::endl;
 		break;
@@ -70,7 +69,7 @@ void BaseFileType::printDir()
 	this->baseDirString = "";
 	for (auto iter = this->contents.begin(); iter != this->contents.end(); iter++) {
 		if (iter->second->hidden == true) {
-			continue;
+			continue;	
 		}
 		std::cout << iter->first << std::endl;
 		this->baseDirString += (iter->first + "@");
@@ -143,6 +142,34 @@ std::map<std::string, BaseFileType*> BaseFileType::getContents()
 std::string BaseFileType::getFileData()
 {
 	return this->fileData;
+}
+
+void ppc::BaseFileType::setPassword(std::string pwd, std::string hint)
+{
+	password = pwd;
+	passwordProtected = true;
+	passwordHint = hint;
+}
+
+bool ppc::BaseFileType::comparePassword(std::string input)
+{
+	if (input == password) {
+		passwordProtected = false;
+		return true;
+	}
+	passwordAttemps++;
+	if (passwordAttemps >= 2) {
+		std::cout << passwordHint << std::endl;
+	}
+	return false;
+}
+
+bool ppc::BaseFileType::isPasswordProtected()
+{
+	if (passwordProtected) {
+		return true;
+	}
+	return false;
 }
 
 

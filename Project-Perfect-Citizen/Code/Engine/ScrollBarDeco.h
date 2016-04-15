@@ -95,31 +95,6 @@ public:
     ///////////////////////////////////////////////////////////////////
     void setBarSize(float barSize);
 
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Sets the Sprite to be used by the bars.
-    /// @details UNTESTED.
-    ///
-    /// @todo IMPLEMENT.
-    ///////////////////////////////////////////////////////////////////
-    void setBarSprite(const sf::Sprite& barSpr);
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Sets the Sprite to be used by the background of the 
-    ///     bars.
-    /// @details UNTESTED.
-    ///
-    /// @todo IMPLEMENT.
-    ///////////////////////////////////////////////////////////////////
-    void setBarBkgrndSprite(const sf::Sprite& bkgrndSpr);
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Sets the Sprite to be used by the buttons.
-    /// @details UNTESTED.
-    ///
-    /// @todo IMPLEMENT.
-    ///////////////////////////////////////////////////////////////////
-    void setButtonSprite(const sf::Sprite& buttonSpr);
-
 
 protected:
 
@@ -149,11 +124,11 @@ private:
 
     void initialize(sf::Image img);
 
-    friend bool onSliderDrag(ScrollBarDecorator*, sf::Event&);
-    friend bool onButtonUp(ScrollBarDecorator*, sf::Event&);
-    friend bool onButtonDown(ScrollBarDecorator*, sf::Event&);
-    friend bool onButtonLeft(ScrollBarDecorator*, sf::Event&);
-    friend bool onButtonRight(ScrollBarDecorator*, sf::Event&);
+    friend bool onSliderDrag(ScrollBarDecorator*, Event);
+    friend bool onButtonUp(ScrollBarDecorator*, Event);
+    friend bool onButtonDown(ScrollBarDecorator*, Event);
+    friend bool onButtonLeft(ScrollBarDecorator*, Event);
+    friend bool onButtonRight(ScrollBarDecorator*, Event);
 
 
   /////////////////////////////////////////////////////////////////////
@@ -186,15 +161,15 @@ private:
 
 
 
-bool onSliderDrag(ScrollBarDecorator*, sf::Event&);
+bool onSliderDrag(ScrollBarDecorator*, Event);
 
-bool onButtonUp(ScrollBarDecorator*, sf::Event&);
+bool onButtonUp(ScrollBarDecorator*, Event);
 
-bool onButtonDown(ScrollBarDecorator*, sf::Event&);
+bool onButtonDown(ScrollBarDecorator*, Event);
 
-bool onButtonLeft(ScrollBarDecorator*, sf::Event&);
+bool onButtonLeft(ScrollBarDecorator*, Event);
 
-bool onButtonRight(ScrollBarDecorator*, sf::Event&);
+bool onButtonRight(ScrollBarDecorator*, Event);
 
 
 

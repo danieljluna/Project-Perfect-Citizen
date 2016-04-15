@@ -68,7 +68,7 @@ bool explorerFileInputComponent::isCollision(sf::Vector2i mousePos) {
 }
 
 
-bool explorerFileInputComponent::registerInput(sf::Event& ev) {
+bool explorerFileInputComponent::registerInput(sf::Event ev) {
 	if (getEntity() != nullptr) {
 
 		/* Case: Mouse Pressed Event*/
@@ -87,7 +87,8 @@ bool explorerFileInputComponent::registerInput(sf::Event& ev) {
 				}
 				else if (mouseTime < DOUBLE_CLICK_TIME) {
 					std::string fileResourcePath = theFileTree_.getCwd()->findElement(fileName)->getFileData();
-					theFileTree_.getCwd()->findElement(fileName)->readFile(theDesktop_, buttonSheet_, fileResourcePath);
+					theFileTree_.getCwd()->findElement(fileName)->readFile(theDesktop_, buttonSheet_, fileName,
+						fileResourcePath);
 				}
 			}
 		}

@@ -1,6 +1,7 @@
 #include "debug.h"
 #include "entity.h"
 #include "component.h"
+#include "event.h"
 
 #include <stdexcept>
 
@@ -195,4 +196,13 @@ void Entity::broadcastMessage(msgType message) {
     }
 }
 
+
+void Entity::broadcastMessage(ppc::Event message) {
+    //Tell each Entity to recieve the message
+    for (size_t i = 0; i < componentCount_; ++i) {
+        if (components_[i] != nullptr) {
+            components_[i]->recieveMessage(message);
+        }
+    }
+}
 

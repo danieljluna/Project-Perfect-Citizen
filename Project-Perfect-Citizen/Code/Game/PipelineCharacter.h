@@ -22,18 +22,16 @@ public:
 	///////////////////////////////////////////////////////////////////
 	// Getters
 	///////////////////////////////////////////////////////////////////
-	int getIQ() const { return iq_;  }
 	int getAge() const { return age_; }
-	int getCreditScore() const { return creditScore_; }
 
 	std::string getSSN() const { return ssn_; }
 	std::string getEmail() const { return email_; }
 	std::string getPhoneNum() const { return phoneNumber_; }
 
-	std::string getPersSocial() const { return persSocial_; }
-	std::string getPersTakeIn() const { return persTakeIn_; }
-	std::string getPersDecisions() const { return persDecisions_; }
-	std::string getPersOuterLife() const { return persOuterLife_; }
+	int getPersAssertive() const { return persAssertive_; }
+	int getPersDirectness() const { return persDirectness_; }
+	int getPersJerk() const { return persJerk_; }
+
 
 	std::string getJob() const { return job_; }
     
@@ -43,6 +41,7 @@ public:
     int getNoseType() const { return noseType_;}
     int getSkinType() const { return skinType_;}
     int getHairType() const { return hairType_;}
+    int getShirtType() const { return shirtType_;}
     int getSkinColorIndex() const { return skinColorIndex_;}
     int getHairColorIndex() const { return hairColorIndex_;}
     int getLipColorIndex() const { return lipColorIndex_;}
@@ -75,6 +74,16 @@ public:
 
 	PipelineCharacter(const std::string& job);
 
+	///////////////////////////////////////////////////////////////////
+	/// @brief Specific constructor, generates a character with a
+	///			specified job, age, and criminality
+	/// @param [in] job a string corresponding to a specific job type,
+	///                 must be one of the jobs listed in JOBS in
+	///                 PipelineCharacter.cpp
+	///////////////////////////////////////////////////////////////////
+
+	PipelineCharacter(const std::string& job, int age, bool criminal);
+
 
 private:
 
@@ -83,18 +92,37 @@ private:
 	///////////////////////////////////////////////////////////////////
 	void generate();
 
-	int iq_;
-	int age_;
-	int creditScore_;
+	///////////////////////////////////////////////////////////////////
+	/// @brief Sets income level and criminality based
+	///        on previously generated factors
+	///////////////////////////////////////////////////////////////////
+	void calcIncomeAndCrim();
 
+	int age_;
+
+	// 0 - DID NOT GRADUATE HIGH SCHOOL, 1 - HIGH SCHOOL GRADUATE
+	// 2 - ASSOCIATE DEGREE, 3 - BACHELORS DEGREE, 
+	// 4 - MASTERS DEGREE, 5 - DOCTORATE
+	int educationLevel_;
+
+	int annualIncome_;
+
+	bool criminal_;
+
+	//Range 0 - 4, where 4 is most close to the descriptive word
+	//ex. for persJerk: 4 = asshole, 0 = sweet/kindly
+	int persAssertive_;
+	int persJerk_;
+	int persDirectness_;
+	
 	std::string ssn_;
 	std::string email_;
 	std::string phoneNumber_;
 
-	std::string persSocial_;
-	std::string persTakeIn_;
-	std::string persDecisions_;
-	std::string persOuterLife_;
+	//std::string persSocial_;
+	//std::string persTakeIn_;
+	//std::string persDecisions_;
+	//std::string persOuterLife_;
 
 	std::string job_;
     
@@ -105,6 +133,7 @@ private:
     int noseType_;
     int skinType_;
     int hairType_;
+    int shirtType_;
     int skinColorIndex_;
     int hairColorIndex_;
     int lipColorIndex_;

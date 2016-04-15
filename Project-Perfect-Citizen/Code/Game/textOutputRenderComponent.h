@@ -2,6 +2,8 @@
 
 #include "../Engine/renderComponent.h"
 #include <SFML/Graphics/Font.hpp>
+#include "../Engine/NodeState.h"
+#include "../Game/textInputRenderComponent.hpp"
 #include <vector>
 
 namespace sf {
@@ -14,8 +16,7 @@ namespace sf {
 
 namespace ppc {
 
-    class Desktop;
-    class NodeState;
+	class Desktop;
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Render Component for an Text Output Box
@@ -24,11 +25,6 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 class textOutputRenderComponent : public ppc::RenderComponent {
 private:
-
-	////////////////////////////////////////////////////////////////////
-	/// @brief Sprite to be rendered
-	////////////////////////////////////////////////////////////////////
-	sf::Sprite* sprite_;
 
 	////////////////////////////////////////////////////////////////////
 	/// @brief SFML text to draw
@@ -43,12 +39,13 @@ private:
 	////////////////////////////////////////////////////////////////////
 	/// @brief The fileTree to read output from
 	////////////////////////////////////////////////////////////////////
-	ppc::NodeState& fileTree_;
+	ppc::NodeState fileTree_;
 
+    ppc::Desktop* theDesktop_;
     
-    ppc::Desktop& theDesktop_;
-    
-    sf::Image& buttonSheet_;
+    sf::Image buttonSheet_;
+
+	textInputRenderComponent* promptLine;
     
 	////////////////////////////////////////////////////////////////////
 	/// @brief The pool of output to be displayed via a string
@@ -68,12 +65,14 @@ private:
 
 public:
 
-    textOutputRenderComponent(ppc::Desktop& dt, sf::Image& bs, sf::Font& f, ppc::NodeState& fileTree,
-		int x, int y, int size);
+    textOutputRenderComponent(ppc::Desktop& dt, sf::Image bs, sf::Font f, ppc::NodeState fileTree,
+		textInputRenderComponent* tirc, int x, int y, int size);
 
 	~textOutputRenderComponent();
     
     sf::Vector2f getPosition() const;
+
+	sf::Text* getText();
 
 	////////////////////////////////////////////////////////////////////
 	/// @brief updateString recieves a string from an input component to
@@ -81,6 +80,16 @@ public:
 	/// @param s is the string recieved from the input component
 	////////////////////////////////////////////////////////////////////
 	void updateString(std::vector<std::string> cmd);
+
+	////////////////////////////////////////////////////////////////////
+	/// @brief Updates the textbox with the current working directory
+	////////////////////////////////////////////////////////////////////
+	void updatePrompt();
+
+	////////////////////////////////////////////////////////////////////
+	/// @brief Returns the current number of lines in the console
+	////////////////////////////////////////////////////////////////////
+	int getNumLines();
 
 	////////////////////////////////////////////////////////////////////
 	/// @brief clearString deletes the contents of a string
@@ -91,7 +100,7 @@ public:
 	virtual void draw(sf::RenderTarget & target, 
 		sf::RenderStates states) const;
 
-	//virtual void registerInput(sf::Event& ev) override;
+	//virtual void registerInput(sf::Event ev) override;
 	virtual void recieveMessage(msgType code) override;
 
 };

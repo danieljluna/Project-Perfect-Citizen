@@ -71,7 +71,7 @@ bool explorerFolderInputComponent::isCollision(sf::Vector2i mousePos) {
 }
 
 
-bool explorerFolderInputComponent::registerInput(sf::Event& ev) {
+bool explorerFolderInputComponent::registerInput(sf::Event ev) {
 	if (getEntity() != nullptr) {
 
 		/* Case: Mouse Pressed Event*/
@@ -91,6 +91,19 @@ bool explorerFolderInputComponent::registerInput(sf::Event& ev) {
 				}
 				else if (mouseTime < DOUBLE_CLICK_TIME && hasBeenClicked) {
 					mouseClock.restart();
+
+					if (theFileTree_.getCwd()->findElement(directoryName)->isPasswordProtected() &&
+						directoryName.compare("..") != 0) {
+						ppc::WindowInterface* ErrorMsgWindow =
+							new ppc::Window(500, 150, sf::Color(170, 170, 170));
+						spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 
+							250,
+							250,
+							"Error: " + directoryName + " is protected." );
+						theDesktop_.addWindow(ErrorMsgWindow);
+						return true;
+					}
+
 					std::vector<string> cdCommand;
 					string cd = "cd";
 					cdCommand.push_back(cd);
@@ -99,9 +112,12 @@ bool explorerFolderInputComponent::registerInput(sf::Event& ev) {
 					newCD(theFileTree_, cdCommand);
 					ppc::WindowInterface* explorerWindow =
 						new ppc::Window(600, 350, sf::Color(255, 255, 255));
-					spawnExplorer(theDesktop_, explorerWindow, explorerWindow->getInputHandler(), theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
+					spawnExplorer(theDesktop_, explorerWindow, explorerWindow->getInputHandler(), theFileTree_, buttonSheet_, iconSheet_, 100, 200);
+
+					explorerWindow->setPosition(containingWindow_->getPosition().x, containingWindow_->getPosition().y);
 					theDesktop_.addWindow(explorerWindow);
                     containingWindow_->close();
+
 				}
 			} 
 		}

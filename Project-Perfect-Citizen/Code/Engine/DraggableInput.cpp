@@ -66,7 +66,7 @@ void DraggableInput::setClampBounds(const sf::FloatRect& clamp) {
 // Input Function
 ///////////////////////////////////////////////////////////////////////
 
-bool DraggableInput::registerInput(sf::Event& ev) {
+bool DraggableInput::registerInput(sf::Event ev) {
     //If we have a mousePress
     if (ev.type == ev.MouseButtonPressed) {
 

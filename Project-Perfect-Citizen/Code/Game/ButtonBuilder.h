@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../Engine/renderComponent.h"
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "../Engine/renderComponent.h"
@@ -10,8 +11,13 @@ namespace ppc {
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Designated Generic Builder Object for Buttons
 	/// @author Alex Vincent 
-	/// @details A package with API function calls allowing for individual
-	/// creations and augmentations of a button. This augments and returns 
+	/// @details A fully dynamic builder class that allows the caller to make
+	/// a button from a spritesheet or a custom small/large button.
+	/// @note Small buttons are created by making a button with a label of only
+	/// one character, whereas large buttons have labels of > 1 characters.
+	/// This builder handles when to make the small/large buttons dynamically.
+	/// All the caller needs to balance is the size of the label and the actual
+	/// character size.
 	///////////////////////////////////////////////////////////////////////
 	class ButtonBuilder {
 	private:
@@ -30,6 +36,10 @@ namespace ppc {
 		sf::Image* spriteSheet; 
 		ppc::InputHandler* inputHandle;
 
+		std::string label;
+		sf::Font* font;
+		int labelSize;
+
 	public:
 		///////////////////////////////////////////////////////////////////////
 		/// @brief Constructor for buttonRenderComponent
@@ -44,12 +54,13 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		void setSpritesByIndicies(int x, int y, int r, int f);
 
+		///////////////////////////////////////////////////////////////////////
+		/// @brief Set the scale of the button.
+		/// @param A scaling factor to the button
+		/// @note The original size of a small button sprite is 128x128 and 
+		/// the large button sprite is 128x256 in (width x height) format.
+		///////////////////////////////////////////////////////////////////////
 		void setSize(float s);
-
-		///////////////////////////////////////////////////////////////////////
-		/// @brief Set the down and up sprite when the button is pressed
-		///////////////////////////////////////////////////////////////////////
-		void setSprites(sf::Sprite&, sf::Sprite&);
 
 		///////////////////////////////////////////////////////////////////////
 		/// @brief Set the function the button will execute when pressed
@@ -57,27 +68,51 @@ namespace ppc {
 		void setFunction();
 
 		///////////////////////////////////////////////////////////////////////
+		/// @brief Set a custom string button label to display on the button
+		/// @param The string to be labeled onto the button
+		///////////////////////////////////////////////////////////////////////
+		void setLabelMessage(std::string l);
+
+		///////////////////////////////////////////////////////////////////////
+		/// @brief Set a custom string button label to display on the button
+		/// @param The font of the custom label
+		///////////////////////////////////////////////////////////////////////
+		void setLabelFont(sf::Font&);
+
+		///////////////////////////////////////////////////////////////////////
+		/// @brief Set a custom string button label to display on the button
+		/// @param The character size of the label
+		///////////////////////////////////////////////////////////////////////
+		void setLabelSize(int);
+
+		///////////////////////////////////////////////////////////////////////
 		/// @brief Set the position of the button
+		/// @param X position of the button
+		/// @param Y position of the button
 		///////////////////////////////////////////////////////////////////////
 		void setButtonPosition(float x, float y);
 
 		///////////////////////////////////////////////////////////////////////
 		/// @brief Set the position of the button
+		/// @param Vector containing the x and y position of the button
 		///////////////////////////////////////////////////////////////////////
 		void setButtonPosition(sf::Vector2f pos);
 
 		///////////////////////////////////////////////////////////////////////
 		/// @brief Set the sprite sheet of the button
+		/// @param The sprite sheet sf::image of the button
 		///////////////////////////////////////////////////////////////////////
 		void setSpriteSheet(sf::Image&);
 
 		///////////////////////////////////////////////////////////////////////
 		/// @brief Set the input handle of the button
+		/// @param The window's input handler
 		///////////////////////////////////////////////////////////////////////
 		void setInputHandle(ppc::InputHandler&);
 
 		///////////////////////////////////////////////////////////////////////
 		/// @brief Returns the constructed button
+		/// @param The entity to modify
 		///////////////////////////////////////////////////////////////////////
 		void create(Entity&);
 
