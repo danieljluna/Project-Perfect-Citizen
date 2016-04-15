@@ -2,7 +2,6 @@
 #include <fstream>
 #include <string>
 #include "World.h"
-#include "desktop.h"
 #include "Window.h"
 #include "NodeState.h"
 #include "../Game/desktopExtractionComponent.hpp"
