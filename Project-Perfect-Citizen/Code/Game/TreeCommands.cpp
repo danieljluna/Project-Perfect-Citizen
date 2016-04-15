@@ -247,7 +247,6 @@ std::vector<std::string> ppc::split(std::string line, std::string delimiter)
 
 void ppc::printVector(std::vector<std::string> vec)
 {
-    std::cout << "Printing vector" << std::endl;
 	for (auto iter = vec.begin(); iter != vec.end(); iter++) {
 		std::cout << *iter << std::endl;
 	}
