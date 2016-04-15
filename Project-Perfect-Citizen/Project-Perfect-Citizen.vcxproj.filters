@@ -298,6 +298,9 @@
     <ClCompile Include="Code\Game\WindowBkgndRenderCmpnt.cpp">
       <Filter>Sources\Game Specific\Temporary</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\Logger.cpp">
+      <Filter>Sources\Engine\Debug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -622,9 +625,6 @@
       <Filter>Headers\Game Specific\Temporary</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\Logger.h">
-      <Filter>Headers\Engine\Debug</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Engine\LogParcel.h">
       <Filter>Headers\Engine\Debug</Filter>
     </ClInclude>
   </ItemGroup>

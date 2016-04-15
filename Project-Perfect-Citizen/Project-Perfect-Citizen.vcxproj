@@ -32,6 +32,7 @@
     <ClCompile Include="Code\Engine\InputCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\inputComponent.cpp" />
     <ClCompile Include="Code\Engine\InputHandler.cpp" />
+    <ClCompile Include="Code\Engine\Logger.cpp" />
     <ClCompile Include="Code\Engine\Network.cpp" />
     <ClCompile Include="Code\Engine\NodeState.cpp" />
     <ClCompile Include="Code\Engine\observer.cpp" />
@@ -142,7 +143,6 @@
     <ClInclude Include="Code\Engine\inputComponent.h" />
     <ClInclude Include="Code\Engine\InputHandler.h" />
     <ClInclude Include="Code\Engine\Logger.h" />
-    <ClInclude Include="Code\Engine\LogParcel.h" />
     <ClInclude Include="Code\Engine\Network.h" />
     <ClInclude Include="Code\Engine\NodeState.h" />
     <ClInclude Include="Code\Engine\objectPool.h" />

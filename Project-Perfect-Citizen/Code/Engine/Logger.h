@@ -1,6 +1,8 @@
 #pragma once
 
-#include "LogParcel.h"
+#include <map>
+#include <SFML/System/Time.hpp>
+#include <SFML/System/Clock.hpp>
 
 namespace ppc {
 
@@ -12,8 +14,17 @@ class Logger {
 public:
 
   /////////////////////////////////////////////////////////////////////
-  // Type Enumeration
+  // Storing Times
   /////////////////////////////////////////////////////////////////////
+
+    static void startTimer(std::string label);
+
+    static void restartTimer(std::string label);
+
+    static bool endTimer(std::string label, bool aggregate = true);
+
+    static void clearTime(std::string label);
+
 
 private:
 
@@ -30,8 +41,11 @@ private:
   // Private Static Data
   /////////////////////////////////////////////////////////////////////
 
+    static std::map<std::string, sf::Time> timeMap;
 
+    static std::map<std::string, sf::Time> timerStarts;
 
+    static sf::Clock clock;
 
 };
 
