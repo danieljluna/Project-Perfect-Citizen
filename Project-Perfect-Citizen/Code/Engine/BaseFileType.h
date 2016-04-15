@@ -160,5 +160,7 @@ namespace ppc {
 
 		virtual bool isPasswordProtected();
 		//virtual void addFileObserver(sf::Event& ev, bool(*obFunction)(T*, sf::Event&);
+        
+        virtual std::string getHint(){ return passwordHint; };
 	};
 };
