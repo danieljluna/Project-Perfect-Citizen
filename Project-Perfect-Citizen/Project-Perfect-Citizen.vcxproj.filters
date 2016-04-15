@@ -621,6 +621,12 @@
     <ClInclude Include="Code\Game\WindowBkgndRenderCmpnt.h">
       <Filter>Headers\Game Specific\Temporary</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\Logger.h">
+      <Filter>Headers\Engine\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\LogParcel.h">
+      <Filter>Headers\Engine\Debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json">

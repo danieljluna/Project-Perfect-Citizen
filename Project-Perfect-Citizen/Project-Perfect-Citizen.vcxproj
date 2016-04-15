@@ -141,6 +141,8 @@
     <ClInclude Include="Code\Engine\InputCmpntLogger.h" />
     <ClInclude Include="Code\Engine\inputComponent.h" />
     <ClInclude Include="Code\Engine\InputHandler.h" />
+    <ClInclude Include="Code\Engine\Logger.h" />
+    <ClInclude Include="Code\Engine\LogParcel.h" />
     <ClInclude Include="Code\Engine\Network.h" />
     <ClInclude Include="Code\Engine\NodeState.h" />
     <ClInclude Include="Code\Engine\objectPool.h" />
