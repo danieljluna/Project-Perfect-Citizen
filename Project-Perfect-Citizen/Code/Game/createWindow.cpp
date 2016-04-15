@@ -82,9 +82,9 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
     
     textInputRenderComponent* textInputBox =
     new textInputRenderComponent(ns, myFont, 0, 0, fontSize);
-                                 //windowToModify->getSize().y - (fontSize+windowOffset),
     textOutputRenderComponent* textDisplayBox =
-    new textOutputRenderComponent(dt, buttonSheet, myFont, ns, 0, 0, fontSize);
+    new textOutputRenderComponent(dt, buttonSheet, myFont, ns, 
+		textInputBox, 0, 0, fontSize);
     
     /* Create the update component */
     consoleUpdateComponent* cup = new consoleUpdateComponent(ns);
@@ -334,15 +334,14 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("DCPS Pipeline Application v.3.762");
 }
 
-void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string p) {
-    if (windowToModify == nullptr) { return; }
+void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet,
+	float x, float y, string filename, string p) {
+    if (windowToModify == nullptr) return; 
     
     string path = resourcePath() + p;
     string dotEnd;
     
-    if (!path.empty()){
-        dotEnd = path.substr(path.length() - 4);
-    }
+    if (!path.empty()) dotEnd = path.substr(path.length() - 4);
     /////////////////////////////////////////
     /////// COMPONENTS & ENTITIES
     ///////////////////////////////////////
@@ -414,7 +413,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     windowToModify->addEntity(newEnt);
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
-	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(p);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(filename);
 }
 
 void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, Inbox& inbox) {
@@ -557,7 +556,7 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	builder.setSize(0.25f);
 	builder.setSpritesByIndicies(0, 2, 2, 1);
 	builder.setSpriteSheet(buttonSheet);
-	builder.setLabelMessage("MY TEST MSG");
+	builder.setLabelMessage("OK");
 	builder.setLabelFont(myFont);
 	builder.setLabelSize(12);
 	Entity ent;
@@ -679,11 +678,19 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 		};
 		windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
 	}
+
+	vector<string> pwd_vector = ns.getPwdVector();
+	string pwd = "C:/";
+
+	for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {
+		pwd += *iter;
+		pwd.push_back('/');
+	}
 	
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
-	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("My Files");
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(pwd);
 }
 
 
