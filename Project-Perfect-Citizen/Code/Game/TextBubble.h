@@ -21,13 +21,17 @@ namespace ppc {
 
 		sf::RectangleShape textBox;
 
+		bool drawable;
+
+		void formatLine(std::string&);
+
 	public:
 
 		TextBubble();
 
 		virtual ~TextBubble();
 
-		void loadText(std::string);
+		bool loadText(std::string filename);
 
 		void progressText();
 
@@ -39,7 +43,7 @@ namespace ppc {
 	};
 
 	bool advanceOnPress(TextBubble* tb, sf::Event e) {
-		
+		//TODO
 	}
 
 };
