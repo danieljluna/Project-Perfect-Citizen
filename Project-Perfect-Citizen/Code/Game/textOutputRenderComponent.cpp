@@ -114,8 +114,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 			cdCommand.push_back(cmd.at(1));
 			commandFn newCD = findFunction(cd);
 			newCD(fileTree_, cdCommand);
-			str_ += "Moved to directory '" + cmd.at(1) + "'\n";
-			numDisplayedLines += 2;
+			numDisplayedLines++;
 		}
 	}
 

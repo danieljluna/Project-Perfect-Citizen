@@ -30,6 +30,11 @@ textLabelComponent::textLabelComponent(sf::Font& f,sf::Color c,
 			i++;
 			j = 0;
 		}
+		/*else if (j > 10) {
+			labelString.insert(i, "\n");
+			i++;
+			j = 0;
+		}*/
 	}
 	
     text->setFont(font);
