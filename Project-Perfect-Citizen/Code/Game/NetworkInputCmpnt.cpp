@@ -174,7 +174,7 @@ bool ppc::NetworkInputCmpnt::registerInput(sf::Event ev) {
 		}
 	} else if (ev.type == sf::Event::KeyPressed) {
 
-		if (ev.key.code == sf::Keyboard::S && clickedVert_) {
+		if (ev.key.code == sf::Keyboard::C && clickedVert_) {
 			DEBUGF("ni", "HERE");
 			if (network_->getCenter() != -1) 
 				network_->vert(network_->getCenter()).setColor(sf::Color(180,180,180));
@@ -189,6 +189,7 @@ bool ppc::NetworkInputCmpnt::registerInput(sf::Event ev) {
 		switch (ev.key.code) {
 
 		case sf::Keyboard::Delete:
+		case sf::Keyboard::Z:
 			network_->removeEdge(selectedEdge_.first,
 				selectedEdge_.second);
 			network_->removeEdge(selectedEdge_.second,
@@ -198,19 +199,19 @@ bool ppc::NetworkInputCmpnt::registerInput(sf::Event ev) {
 		case sf::Keyboard::Space:
 			loopEdgeColor();
 			break;
-		case sf::Keyboard::Z:
+		case sf::Keyboard::A:
 			network_->edge(selectedEdge_.first,
 				selectedEdge_.second)->setColorBlack();
 			network_->edge(selectedEdge_.second,
 				selectedEdge_.first)->setColorBlack();
 			break;
-		case sf::Keyboard::X:
+		case sf::Keyboard::S:
 			network_->edge(selectedEdge_.first,
 				selectedEdge_.second)->setColorRed();
 			network_->edge(selectedEdge_.second,
 				selectedEdge_.first)->setColorRed();
 			break;
-		case sf::Keyboard::C:
+		case sf::Keyboard::D:
 			network_->edge(selectedEdge_.first,
 				selectedEdge_.second)->setColorGreen();
 			network_->edge(selectedEdge_.second,
