@@ -236,7 +236,6 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     builder.create(tab1);
 
     builder.setButtonPosition(sf::Vector2f(128,16));
-    builder.setLabelMessage("Graph");
     builder.create(tab2);
     
     /////////////////////////////////////////

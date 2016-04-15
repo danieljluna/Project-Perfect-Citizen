@@ -15,7 +15,7 @@ const int ppc::Vertex::fontSize_ = 20;
 const float ppc::Vertex::radius_ = 30.f;
 
 ppc::Vertex::Vertex(){
- 
+
 	color_ = sf::Color::Yellow;
     
     sf::Image face_sheet;
