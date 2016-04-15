@@ -235,6 +235,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json" />
+    <None Include="Resources\DE1PipelineTexts.json" />
     <None Include="Resources\PlayerEmail.json" />
     <None Include="Resources\smsPipeline.json" />
     <None Include="Resources\suspiciontest.json" />
