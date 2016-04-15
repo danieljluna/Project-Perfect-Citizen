@@ -138,23 +138,23 @@ private:
     float barSize_ = 20.0f;
 
     //Array of ScrollBar Rectangles
-    sf::RectangleShape scrollBars_[2];
+    sf::RectangleShape scrollBars_;
     //Stores the input Component that allows the Window to be dragged 
     //  via the BorderDecorator.
-    DraggableInput* draggableInputs_[2];
+    DraggableInput* draggableInputs_;
     //Array of ScrollBar Backgrounds
-    sf::RectangleShape scrollBackgrounds_[2];
+    sf::RectangleShape scrollBackgrounds_;
     //Function Observers for ScrollBars
-    FreeFunctionObserver<ScrollBarDecorator> *obsvrs_[6];
+    FreeFunctionObserver<ScrollBarDecorator> *obsvrs_[3];
     
 
 
     //Array of buttonRenderComponents
-    buttonRenderComponent* buttonRenders_[4];
+    buttonRenderComponent* buttonRenders_[2];
     //Array of buttonInputComponents
-    mousePressButton* buttonInputs_[4];
+    mousePressButton* buttonInputs_[2];
     //Array of button Entities
-    Entity buttonEntities_[4];
+    Entity buttonEntities_[2];
 
 
 };

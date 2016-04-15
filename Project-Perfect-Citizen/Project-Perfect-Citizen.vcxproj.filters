@@ -627,6 +627,9 @@
     <ClInclude Include="Code\Engine\Logger.h">
       <Filter>Headers\Engine\Debug</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\LoggerParcel.h">
+      <Filter>Headers\Engine\Debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json">
