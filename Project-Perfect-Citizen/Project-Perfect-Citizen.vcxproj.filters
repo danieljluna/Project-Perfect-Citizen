@@ -595,8 +595,6 @@
     <ClInclude Include="Code\Game\TextBoxRenderComponent.h">
       <Filter>Headers\Game Specific\Text</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Game\nameGeneration.hpp" />
-    <ClInclude Include="Code\Game\TextFieldRenderComponent.hpp" />
     <ClInclude Include="Code\Game\interpolateUpdateComponent.hpp">
       <Filter>Sources\Game Specific\Email</Filter>
     </ClInclude>
