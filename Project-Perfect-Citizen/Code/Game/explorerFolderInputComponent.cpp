@@ -99,7 +99,7 @@ bool explorerFolderInputComponent::registerInput(sf::Event ev) {
 						spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 
 							250,
 							250,
-							"Error: " + directoryName + " is protected." );
+							"Error: " + directoryName + " is protected. \n Hint: " +  theFileTree_.getCwd()->findElement(directoryName)->getHint());
 						theDesktop_.addWindow(ErrorMsgWindow);
 						return true;
 					}

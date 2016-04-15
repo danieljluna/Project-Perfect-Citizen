@@ -409,9 +409,9 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
+    windowToModify = new BorderDecorator(*windowToModify);
     windowToModify->setPosition(x, y);
     windowToModify->addEntity(newEnt);
-    windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(filename);
 }
@@ -567,7 +567,7 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	///////////////////////////////////////
 	windowToModify->addEntity(errorMessageDisplayBox);
 	windowToModify->addEntity(alertIcon);
-	windowToModify->addEntity(ent);
+	//windowToModify->addEntity(ent);
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
