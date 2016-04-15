@@ -288,10 +288,10 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	//the number after the * is the row/column number)
 	playNet->vert(indexVec[0]).setPosition(50 + 50 * 0, 50 + 50 * 0);
 	playNet->vert(indexVec[1]).setPosition(50 + 50 * 0, 50 + 50 * 7);
-	playNet->vert(indexVec[2]).setPosition(50 + 50 * 2, 50 + 50 * 1);
-	playNet->vert(indexVec[3]).setPosition(50 + 50 * 2, 50 + 50 * 6);
-	playNet->vert(indexVec[4]).setPosition(50 + 50 * 5, 50 + 50 * 1);
-	playNet->vert(indexVec[5]).setPosition(50 + 50 * 5, 50 + 50 * 6);
+	playNet->vert(indexVec[2]).setPosition(70 + 50 * 2, 50 + 50 * 1);
+	playNet->vert(indexVec[3]).setPosition(70 + 50 * 2, 50 + 50 * 6);
+	playNet->vert(indexVec[4]).setPosition(30 + 50 * 5, 50 + 50 * 1);
+	playNet->vert(indexVec[5]).setPosition(30 + 50 * 5, 50 + 50 * 6);
 	playNet->vert(indexVec[6]).setPosition(50 + 50 * 7, 50 + 50 * 0);
 	playNet->vert(indexVec[7]).setPosition(50 + 50 * 7, 50 + 50 * 7);
 

@@ -45,13 +45,11 @@ float Network::checkEdgeEquality(const Network& other) {
 	float numVisited = 0.f;
 	for (unsigned int i = 0; i < size_; ++i) {
 		for (unsigned int j = i + 1; j < size_; ++j) {
-			numVisited += 1;
 			if (isAdjacent(i, j) == other.isAdjacent(i, j)) {
 				if (isAdjacent(i, j)) {
+					numVisited += 1;
 					if (edge(i, j)->getColor() == other.edge(i, j)->getColor()) points += 1;
 				}
-				else points += 1;
-
 			}
 		}
 	}
