@@ -7,7 +7,6 @@
 #include "../Engine/InputHandler.h"
 
 namespace ppc {
-
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Designated Generic Builder Object for Buttons
 	/// @author Alex Vincent 
@@ -116,7 +115,16 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		void create(Entity&);
 
+
+		///////////////////////////////////////////////////////////////////////
+		/// @brief Returns the constructed button, with a attached function
+		/// observer.
+		/// @param The entity to modify
+		/// @param The target class object
+		/// @param The function to execute on a click
+		///////////////////////////////////////////////////////////////////////
+		template<class T>
+		void create(Entity&, T*, bool(*)(T *, Event));
+
 	};
-
-
 };
