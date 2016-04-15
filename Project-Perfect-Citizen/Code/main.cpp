@@ -56,7 +56,6 @@
 #include "Game/bootLoadingAnimationRender.hpp"
 #include "Game/endAnimationUpdateComponent.hpp"
 #include "Game/endingAnimationRender.hpp"
-#include "Game/Quitter.h"
 
 #include "Engine/World.h"
 
@@ -180,7 +179,7 @@ int main(int argc, char** argv) {
 	//runBootDesktop
 	ppc::NodeState bootState;
 	Window* bootWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-	Desktop* bootDesktop = new Desktop(*bootWindow, bootState);
+	Desktop* bootDesktop = new Desktop(bootWindow, bootState);
 
 	bootDesktop->setIconSheet(iconSheet);
 	bootDesktop->setButtonSheet(buttonSheet);
@@ -192,7 +191,7 @@ int main(int argc, char** argv) {
 	playerState.setUp();
 	Window* playerDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
 
-	Desktop* playerDesktop = new Desktop(*playerDesktopWindow, playerState);
+	Desktop* playerDesktop = new Desktop(playerDesktopWindow, playerState);
 	playerDesktop->setIconSheet(iconSheet);
 	playerDesktop->setButtonSheet(buttonSheet);
 	playerDesktop->setBackgrond(playerWallpaper);
@@ -202,7 +201,7 @@ int main(int argc, char** argv) {
 	targetState.setUp();
 	Window* targetDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
 
-	Desktop* targetDesktop = new Desktop(*targetDesktopWindow, targetState);
+	Desktop* targetDesktop = new Desktop(targetDesktopWindow, targetState);
 	targetDesktop->setIconSheet(iconSheet);
 	targetDesktop->setButtonSheet(buttonSheet);
 	targetDesktop->setBackgrond(teacherWallpaper);
@@ -211,7 +210,7 @@ int main(int argc, char** argv) {
 	ppc::NodeState endState;
 	Window* endWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
 
-	Desktop* endDesktop = new Desktop(*endWindow, endState);
+	Desktop* endDesktop = new Desktop(endWindow, endState);
 	endDesktop->setIconSheet(iconSheet);
 	endDesktop->setButtonSheet(pixelSheet);
 	endDesktop->setBackgrond(playerWallpaper);
@@ -221,32 +220,27 @@ int main(int argc, char** argv) {
 	//Assuming Builders End Here
 	/////////////////////////////////////////////
 
-	World* gameWorld = new World(*screen);
+    World::setGameScreen(*screen);
 
 	//Main Loops for each Desktops
-	gameWorld->setCurrDesktop(*bootDesktop);
+	World::setCurrDesktop(*bootDesktop);
 	runBootDesktop(*bootDesktop);
-    while (gameWorld->runDesktop(*bootDesktop)) {}
+    while (World::runDesktop(*bootDesktop)) {}
 	delete bootDesktop;
 
-    quitter = false;
-	gameWorld->setCurrDesktop(*playerDesktop);
+	World::setCurrDesktop(*playerDesktop);
 	runPlayerDesktop(*playerDesktop);
-	while (gameWorld->runDesktop(*playerDesktop)) {}
+	while (World::runDesktop(*playerDesktop)) {}
 	delete playerDesktop;
 
-    quitter = false;
-	gameWorld->setCurrDesktop(*targetDesktop);
+	World::setCurrDesktop(*targetDesktop);
 	runTargetDesktop(*targetDesktop);
-	while (gameWorld->runDesktop(*targetDesktop)) {}
+	while (World::runDesktop(*targetDesktop)) {}
 	delete targetDesktop;
 
-	gameWorld->setCurrDesktop(*endDesktop);
+	World::setCurrDesktop(*endDesktop);
 	runEndDesktop(*endDesktop);
-    while (gameWorld->runDesktop(*endDesktop)) {}
-
-
-	delete gameWorld;
+    while (World::runDesktop(*endDesktop)) {}
 	
 
     return EXIT_SUCCESS;

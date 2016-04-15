@@ -32,7 +32,7 @@ namespace ppc {
 	///@param The filetree for which the console will work on.
 	///@param Sprite sheet of it's border component's buttons
 	///////////////////////////////////////////////////////////////////////
-void spawnConsole(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState* ns,
+void spawnConsole(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState ns,
 	sf::Image& buttonSheet, float x, float y);
 
 ///////////////////////////////////////////////////////////////////////
@@ -114,6 +114,20 @@ void spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email
 ///@param Custom string the message will display
 ///////////////////////////////////////////////////////////////////////
 void spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message);
+    
+    
+///////////////////////////////////////////////////////////////////////
+///@brief Constructs a generic prompt message window
+///
+///@param The newly created window to add components/entities to.
+///@param The input handler of the listened-to window.
+///@param Sprite sheet of it's border component's buttons
+///@param The x position of the new window
+///@param The y position of the new window
+///@param Custom string the message will display
+///////////////////////////////////////////////////////////////////////
+void spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message);
+
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Constructs a explore window on the WindowInterface passed.
@@ -125,7 +139,7 @@ void spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::I
 ///@param The x position of the new window
 ///@param The y position of the new window
 ///////////////////////////////////////////////////////////////////////
-void spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState *ns,
+void spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState ns,
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y);
 
 };

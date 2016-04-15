@@ -41,6 +41,7 @@ public:
     int getNoseType() const { return noseType_;}
     int getSkinType() const { return skinType_;}
     int getHairType() const { return hairType_;}
+    int getShirtType() const { return shirtType_;}
     int getSkinColorIndex() const { return skinColorIndex_;}
     int getHairColorIndex() const { return hairColorIndex_;}
     int getLipColorIndex() const { return lipColorIndex_;}
@@ -132,6 +133,7 @@ private:
     int noseType_;
     int skinType_;
     int hairType_;
+    int shirtType_;
     int skinColorIndex_;
     int hairColorIndex_;
     int lipColorIndex_;

@@ -10,6 +10,7 @@
 #include "createWindow.h"
 #include "../Engine/Window.h"
 #include "../Engine/WindowInterface.h"
+#include "../Engine/Audio/AudioQueue.h"
 #include "Database.h"
 #include "Inbox.h"
 
@@ -31,6 +32,8 @@ private:
 	Database* theDatabase_;
     Inbox& theInbox_;
 	WindowInterface* openedWindow;
+    AudioQueue que;
+    
 
 public:
 

@@ -265,3 +265,12 @@ void spawnAlertIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Imag
 
 	entityToModify.addComponent(buttonRender);
 }
+void spawnPromptIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
+    /* Render Component */
+    buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 7, 6, 1, 0);
+    buttonRender->setImageScale(size, size);
+    buttonRender->renderPosition(sf::Vector2f(x, y));
+    
+    entityToModify.addComponent(buttonRender);
+}
+

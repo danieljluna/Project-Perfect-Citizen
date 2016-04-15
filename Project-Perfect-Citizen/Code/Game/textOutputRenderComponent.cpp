@@ -1,22 +1,22 @@
 
 #include "textOutputRenderComponent.h"
 #include "createWindow.h"
-#include "Quitter.h"
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "../Engine/renderComponent.h"
-#include "../Engine/NodeState.h"
+#include "../Engine/desktop.h"
 #include "../Game/TreeCommands.h"
 #include <string>
 #include <algorithm>
+#include "../Engine/World.h"
 
 const string TEXT_KEY_INPUT = "TKI";
 
 using namespace ppc;
 
-textOutputRenderComponent::textOutputRenderComponent(ppc::Desktop& dt, sf::Image& bs, sf::Font& f,
-	ppc::NodeState& fT, int x, int y, int size) :font_(f),fileTree_(fT), theDesktop_(dt), buttonSheet_(bs) {
+textOutputRenderComponent::textOutputRenderComponent(ppc::Desktop& dt, sf::Image bs, sf::Font f,
+	ppc::NodeState fT, int x, int y, int size) :font_(f),fileTree_(fT), theDesktop_(&dt), buttonSheet_(bs) {
 
 	numDisplayedLines = 0;
 
@@ -50,14 +50,14 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 
 	/* Determine what to send based on the command given */
 	if (cmd.at(0) == "ls") {
+
 		std::vector<string> firstLsCommand;
 		string ls = "ls";
 		firstLsCommand.push_back(ls);
 		commandFn firstLs = findFunction(ls);
 		firstLs(fileTree_, firstLsCommand);
 
-	
-		cout << fileTree_.getDirString() << endl;
+
 		str_ = str_ + fileTree_.getDirString() + "\n";
 		int numLines = std::count(str_.begin(), str_.end(), '@');
 		std::replace(str_.begin(), str_.end(), '@', '\n');
@@ -77,7 +77,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
         }
         string fileResourcePath = fileTree_.getCwd()->findElement(cmd.at(1))->getFileData();
         cout << fileResourcePath << endl;
-        fileTree_.getCwd()->findElement(cmd.at(1))->readFile(theDesktop_, buttonSheet_, fileResourcePath);
+        fileTree_.getCwd()->findElement(cmd.at(1))->readFile(*theDesktop_, buttonSheet_, fileResourcePath);
         numDisplayedLines++;
     }
 	else if (cmd.at(0) == "clear") {
@@ -89,7 +89,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 			str_ = str_ + "Error: 'cd' requires one parameter\n";
 			numDisplayedLines++;
 		}
-		if (cmd.at(1).compare("CP") == 0) { quitSection(); }
+		if (cmd.at(1).compare("CP") == 0) { World::quitDesktop(); }
 		else {
 			std::vector<string> cdCommand;
 			string cd = "cd";

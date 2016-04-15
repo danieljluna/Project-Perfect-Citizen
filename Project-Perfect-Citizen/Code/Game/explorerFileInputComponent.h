@@ -17,7 +17,7 @@ namespace ppc {
 	private:
 
 		Desktop& theDesktop_;
-		NodeState& theFileTree_;
+		NodeState theFileTree_;
 		sf::FloatRect buttonRect;
 		sf::Image& buttonSheet_;
 		std::string fileName;

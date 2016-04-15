@@ -38,15 +38,15 @@ ppc::Desktop::Desktop() {
 	focused_ = nullptr;
 }
 
-ppc::Desktop::Desktop(WindowInterface& bkgndWin, NodeState& n) {
+ppc::Desktop::Desktop(WindowInterface* bkgndWin, NodeState n) {
 	nodeState_ = n;
 	iconSheet_ = sf::Image();
 	buttonSheet_ = sf::Image();
 	inbox_ = ppc::Inbox();
 	background_ = sf::Sprite();
 	backgndTexture_ = sf::Texture();
-	windows_.push_back(&bkgndWin);
-	desktopWindow_ = &bkgndWin;
+	windows_.push_back(bkgndWin);
+	desktopWindow_ = bkgndWin;
 	focused_ = desktopWindow_;
 	
 }

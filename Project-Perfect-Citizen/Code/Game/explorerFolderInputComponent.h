@@ -20,7 +20,7 @@ namespace ppc {
 	private:
 
 		WindowInterface* containingWindow_;
-		NodeState& theFileTree_;
+		NodeState theFileTree_;
 		Desktop& theDesktop_;
 		sf::Image& buttonSheet_;
 		sf::Image& iconSheet_;
