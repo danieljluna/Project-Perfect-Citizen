@@ -240,6 +240,7 @@
 		E9A0ADD11C939E660035CCE1 /* DesktopAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A0AD811C939E660035CCE1 /* DesktopAudio.cpp */; };
 		E9A0ADD21C939E660035CCE1 /* gunshot.ogg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AD851C939E660035CCE1 /* gunshot.ogg */; };
 		E9A0ADD31C939E660035CCE1 /* gunshots.wav in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AD861C939E660035CCE1 /* gunshots.wav */; };
+		E9BB53DF1CC0A089001C8715 /* Email0.json in Resources */ = {isa = PBXBuildFile; fileRef = E9BB53DE1CC0A089001C8715 /* Email0.json */; };
 		E9E1F5921C91F506006AE0FB /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5301C91F506006AE0FB /* DoxygenHelp.txt */; };
 		E9E1F5931C91F506006AE0FB /* LinkHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5311C91F506006AE0FB /* LinkHelp.txt */; };
 		E9E1F5E01C91F506006AE0FB /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5811C91F506006AE0FB /* EngineSettings.ini */; };
@@ -590,6 +591,7 @@
 		E9A0AD851C939E660035CCE1 /* gunshot.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = gunshot.ogg; sourceTree = "<group>"; };
 		E9A0AD861C939E660035CCE1 /* gunshots.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gunshots.wav; sourceTree = "<group>"; };
 		E9A0AD871C939E660035CCE1 /* Sounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sounds.h; sourceTree = "<group>"; };
+		E9BB53DE1CC0A089001C8715 /* Email0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Email0.json; sourceTree = "<group>"; };
 		E9E1F52E1C91F506006AE0FB /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		E9E1F5301C91F506006AE0FB /* DoxygenHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoxygenHelp.txt; sourceTree = "<group>"; };
 		E9E1F5311C91F506006AE0FB /* LinkHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LinkHelp.txt; sourceTree = "<group>"; };
@@ -662,6 +664,7 @@
 				E98FC1361CBEDCCC00583A39 /* DE1PipelineTexts.json */,
 				E98FC1371CBEDCCC00583A39 /* Desktop1.json */,
 				E98FC1381CBEDCCC00583A39 /* Email1.json */,
+				E9BB53DE1CC0A089001C8715 /* Email0.json */,
 				E98FC1391CBEDCCC00583A39 /* PlayerDesktop.json */,
 				E98FC13A1CBEDCCC00583A39 /* PlayerEmail.json */,
 				E98FC13B1CBEDCCC00583A39 /* smsPipeline.json */,
@@ -1256,6 +1259,7 @@
 				E98FC1591CBEDCCC00583A39 /* suspiciontest.json in Resources */,
 				E9A0ACCA1C939A290035CCE1 /* Fallen1.jpg in Resources */,
 				C8270D9E1CADCB7900232367 /* Mouse_Up.wav in Resources */,
+				E9BB53DF1CC0A089001C8715 /* Email0.json in Resources */,
 				E9A0ACD81C939A290035CCE1 /* Doubt1.jpg in Resources */,
 				E9A0ACA21C939A290035CCE1 /* mulvey-visualpleasure.txt in Resources */,
 				E9A0AC8A1C939A290035CCE1 /* baptism-st-thomas.jpg in Resources */,
