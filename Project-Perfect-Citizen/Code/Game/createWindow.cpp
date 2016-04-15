@@ -334,15 +334,14 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("DCPS Pipeline Application v.3.762");
 }
 
-void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string p) {
-    if (windowToModify == nullptr) { return; }
+void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet,
+	float x, float y, string filename, string p) {
+    if (windowToModify == nullptr) return; 
     
     string path = resourcePath() + p;
     string dotEnd;
     
-    if (!path.empty()){
-        dotEnd = path.substr(path.length() - 4);
-    }
+    if (!path.empty()) dotEnd = path.substr(path.length() - 4);
     /////////////////////////////////////////
     /////// COMPONENTS & ENTITIES
     ///////////////////////////////////////
@@ -414,7 +413,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     windowToModify->addEntity(newEnt);
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
-	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(p);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(filename);
 }
 
 void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, Inbox& inbox) {
