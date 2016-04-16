@@ -105,7 +105,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		}
 		else {
 			if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
-				str_ = str_ + "Error: Directory '" + cmd.at(1)+"' is password protected. \n Hint: " + fileTree_.getCwd()->findElement(cmd.at(1))->getHint();
+				str_ = str_ + "Error: Directory '" + cmd.at(1)+"' is password protected. \nHint: " + fileTree_.getCwd()->findElement(cmd.at(1))->getHint();
 				numDisplayedLines+=2;
 			}
 			std::vector<string> cdCommand;
