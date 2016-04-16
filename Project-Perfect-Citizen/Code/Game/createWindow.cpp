@@ -83,7 +83,7 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
     textInputRenderComponent* textInputBox =
     new textInputRenderComponent(ns, myFont, 0, 0, fontSize);
     textOutputRenderComponent* textDisplayBox =
-    new textOutputRenderComponent(dt, buttonSheet, myFont, ns, 
+    new textOutputRenderComponent(dt, windowToModify, buttonSheet, myFont, ns,
 		textInputBox, 0, 0, fontSize);
     
     /* Create the update component */

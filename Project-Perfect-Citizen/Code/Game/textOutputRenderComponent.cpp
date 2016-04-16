@@ -11,13 +11,16 @@
 #include <algorithm>
 #include "../Engine/World.h"
 
+#include "../Engine/WindowInterface.h"
+#include "../Engine/BorderDecorator.h"
+
 const string TEXT_KEY_INPUT = "TKI";
 
 using namespace ppc;
 
-textOutputRenderComponent::textOutputRenderComponent(ppc::Desktop& dt, sf::Image bs, sf::Font f,
-	ppc::NodeState fT, textInputRenderComponent* tirc, int x, int y, int size) : font_(f),fileTree_(fT), 
-	theDesktop_(&dt), buttonSheet_(bs){
+textOutputRenderComponent::textOutputRenderComponent(Desktop& dt, WindowInterface* wip, sf::Image bs, sf::Font f,
+	NodeState fT, textInputRenderComponent* tirc, int x, int y, int size ) : promptLine(tirc), theDesktop_(&dt), theWindow_(wip),
+	buttonSheet_(bs), font_(f), fileTree_(fT) {
 
 	numDisplayedLines = 0;
 
@@ -190,7 +193,14 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 
 	/* Set the new console display */
 	if (numDisplayedLines > maxDisplayedLines) {
-		// Adjust the output to scroll or move text up here
+		
+		sf::FloatRect viewRect = {
+			0.0f,
+			0.0f,
+			float(theWindow_->getView().getSize().x),
+			float(theWindow_->getView().getSize().y + ((numDisplayedLines - maxDisplayedLines) * 100))
+		};
+		theWindow_->setView(sf::View(viewRect));
 	}
 	text_->setString(str_);
 }
