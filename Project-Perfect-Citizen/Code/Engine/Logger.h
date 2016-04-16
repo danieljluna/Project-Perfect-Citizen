@@ -4,6 +4,8 @@
 #include <SFML/System/Time.hpp>
 #include <SFML/System/Clock.hpp>
 
+#include "LoggerParcel.h"
+
 namespace ppc {
 
 
@@ -23,7 +25,7 @@ public:
 
     static bool endTimer(std::string label, bool aggregate = true);
 
-    static void clearTime(std::string label);
+    static void eraseLabel(std::string label);
 
   /////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////
@@ -44,7 +46,7 @@ private:
   // Private Static Data
   /////////////////////////////////////////////////////////////////////
 
-    static std::map<std::string, sf::Time> timeMap;
+    static std::map<std::string, LoggerParcel> parcelMap;
 
     static std::map<std::string, sf::Time> timerStarts;
 

@@ -391,7 +391,6 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
             float(windowToModify->getSize().x),
             float(windowToModify->getSize().x)
         };
-		cout << windowScrollHeight << endl;
         windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     }
     

@@ -2,7 +2,7 @@
 
 using namespace ppc;
 
-std::map<std::string, sf::Time> Logger::timeMap;
+std::map<std::string, LoggerParcel> Logger::parcelMap;
 
 std::map<std::string, sf::Time> Logger::timerStarts;
 
@@ -43,25 +43,28 @@ void Logger::restartTimer(std::string label) {
 bool Logger::endTimer(std::string label, bool aggregate) {
     bool result = false;
 
-    auto it = timerStarts.find(label);
+    auto it_tStarts = timerStarts.find(label);
     //If the timer we are trying to end has been started:
-    if (it != timerStarts.end()) {
+    if (it_tStarts != timerStarts.end()) {
         //Get Elapsed Time and delete old label
-        sf::Time dt = clock.getElapsedTime() - it->second;
-        timerStarts.erase(it);
+        sf::Time dt = clock.getElapsedTime() - it_tStarts->second;
+        timerStarts.erase(it_tStarts);
 
         //Find the label in the timerMap
-        it = timeMap.find(label);
+        auto it_pMap = parcelMap.find(label);
 
         //If the label doesn't exist:
-        if (it == timeMap.end()) {
-            timeMap.emplace(label, dt); //Add the time to the map
+        if (it_pMap == parcelMap.end()) {
+            LoggerParcel lp;
+            lp.type = LoggerParcel::Timer;
+            lp.time = dt;
+            parcelMap.emplace(label, lp); //Add the time to the map
         } else {
             //If we are aggregating the time:
             if (aggregate) {                
-                it->second += dt;       //Aggegate time
+                it_pMap->second.time += dt;       //Aggegate time
             } else {
-                it->second = dt;        //Override time
+                it_pMap->second.time = dt;        //Override time
             }
         }
 
@@ -74,12 +77,14 @@ bool Logger::endTimer(std::string label, bool aggregate) {
 
 
 
-void Logger::clearTime(std::string label) {
-    auto it = timeMap.find(label);
+void Logger::eraseLabel(std::string label) {
+    auto it = parcelMap.find(label);
     //If we even have a time for this label:
-    if (it != timeMap.end()) {
-        //Remove that label
-        timeMap.erase(label);
+    if (it != parcelMap.end()) {
+        if (it->second.type == LoggerParcel::Timer) {
+            //Remove that label
+            parcelMap.erase(label);
+        }
     }
 }
 
