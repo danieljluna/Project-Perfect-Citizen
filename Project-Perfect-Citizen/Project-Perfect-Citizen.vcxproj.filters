@@ -627,6 +627,9 @@
     <ClInclude Include="Code\Engine\Logger.h">
       <Filter>Headers\Engine\Debug</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\LoggerParcel.h">
+      <Filter>Headers\Engine\Debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json">
@@ -639,6 +642,9 @@
       <Filter>Resources</Filter>
     </None>
     <None Include="Resources\suspiciontest.json">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\DE1PipelineTexts.json">
       <Filter>Resources</Filter>
     </None>
   </ItemGroup>
