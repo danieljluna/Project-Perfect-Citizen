@@ -15,7 +15,7 @@ sf::Clock Logger::clock;
 // Storing Times
 /////////////////////////////////////////////////////////////////////
 
-void Logger::startTimer(std::string label) {
+void Logger::startTimer(const std::string& label) {
     auto it = timerStarts.find(label);
     //If we aren't waiting on this timer already:
     if (it == timerStarts.end()) {
@@ -26,7 +26,7 @@ void Logger::startTimer(std::string label) {
 
 
 
-void Logger::restartTimer(std::string label) {
+void Logger::restartTimer(const std::string& label) {
     auto it = timerStarts.find(label);
     //If we are in fact waiting on this timer:
     if (it != timerStarts.end()) {
@@ -40,7 +40,7 @@ void Logger::restartTimer(std::string label) {
 
 
 
-bool Logger::endTimer(std::string label, bool aggregate) {
+bool Logger::endTimer(const std::string& label, bool aggregate) {
     bool result = false;
 
     auto it_tStarts = timerStarts.find(label);
@@ -77,7 +77,7 @@ bool Logger::endTimer(std::string label, bool aggregate) {
 
 
 
-void Logger::eraseLabel(std::string label) {
+void Logger::eraseLabel(const std::string& label) {
     auto it = parcelMap.find(label);
     //If we even have a time for this label:
     if (it != parcelMap.end()) {

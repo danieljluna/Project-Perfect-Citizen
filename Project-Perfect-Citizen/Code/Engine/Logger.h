@@ -14,20 +14,23 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 class Logger {
 public:
+    
+    static LoggerParcel getLabel(const std::string& label);
+    
+    static void eraseLabel(const std::string& label);
 
   /////////////////////////////////////////////////////////////////////
   // Storing Times
   /////////////////////////////////////////////////////////////////////
 
-    static void startTimer(std::string label);
+    static void startTimer(const std::string& label);
 
-    static void restartTimer(std::string label);
+    static void restartTimer(const std::string& label);
 
-    static bool endTimer(std::string label, bool aggregate = true);
-
-    static void eraseLabel(std::string label);
+    static bool endTimer(const std::string& label, bool aggregate = true);
 
   /////////////////////////////////////////////////////////////////////
+  // Storing Ints
   /////////////////////////////////////////////////////////////////////
 
 
