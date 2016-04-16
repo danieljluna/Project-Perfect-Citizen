@@ -253,18 +253,6 @@
     <ClCompile Include="Code\Engine\world.cpp">
       <Filter>Sources\Engine\World</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\photoRenderComponent.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Game\testRenderSprite.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Game\TreeCommands.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Game\WindowBkgndRenderCmpnt.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Game\ButtonBuilder.cpp">
       <Filter>Sources\Game Specific\Button</Filter>
     </ClCompile>
@@ -283,26 +271,38 @@
     <ClCompile Include="Code\Game\TextBoxRenderComponent.cpp">
       <Filter>Sources\Game Specific\Text</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\IconBuilder.cpp" />
     <ClCompile Include="Code\Engine\event.cpp">
       <Filter>Sources\Engine\Observer System</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\nameGeneration.cpp" />
-    <ClCompile Include="Code\Game\TextFieldRenderComponent.cpp" />
     <ClCompile Include="Code\Game\interpolateUpdateComponent.cpp">
       <Filter>Sources\Game Specific\Email</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\spriteRenderComponent.cpp">
       <Filter>Sources\Game Specific</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\IconBuilder.cpp">
+      <Filter>Sources\Game Specific\Icons</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\nameGeneration.cpp">
+      <Filter>Sources\Game Specific\Temporary</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\TextFieldRenderComponent.cpp">
+      <Filter>Sources\Game Specific\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\photoRenderComponent.cpp">
+      <Filter>Sources\Game Specific\Explorer</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\TreeCommands.cpp">
+      <Filter>Sources\Game Specific\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\WindowBkgndRenderCmpnt.cpp">
+      <Filter>Sources\Game Specific\Temporary</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Engine\Logger.cpp">
+      <Filter>Sources\Engine\Debug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Code\Game\photoRenderComponent.hpp">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Game\TreeCommands.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
       <Filter>Headers\Engine\Audio</Filter>
     </ClInclude>
@@ -525,9 +525,6 @@
     <ClInclude Include="Code\Engine\ScrollBarDeco.h">
       <Filter>Headers\Engine\Windows\Decorators</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Game\WindowBkgndRenderCmpnt.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Code\Engine\Audio\Sounds.h">
       <Filter>Headers\Engine\Audio</Filter>
     </ClInclude>
@@ -554,9 +551,6 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\Vertex.h">
       <Filter>Headers\Game Specific\Pipeline Extraction\Network</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Game\testRenderSprite.h">
-      <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\Engine.h">
       <Filter>Headers\Engine</Filter>
@@ -603,9 +597,6 @@
     <ClInclude Include="Code\Game\TextBoxRenderComponent.h">
       <Filter>Headers\Game Specific\Text</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Game\IconBuilder.h" />
-    <ClInclude Include="Code\Game\nameGeneration.hpp" />
-    <ClInclude Include="Code\Game\TextFieldRenderComponent.hpp" />
     <ClInclude Include="Code\Game\interpolateUpdateComponent.hpp">
       <Filter>Sources\Game Specific\Email</Filter>
     </ClInclude>
@@ -614,6 +605,30 @@
     </ClInclude>
     <ClInclude Include="Code\Game\spriteRenderComponent.hpp">
       <Filter>Headers\Game Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\IconBuilder.h">
+      <Filter>Headers\Game Specific\Icons</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\nameGeneration.hpp">
+      <Filter>Headers\Game Specific\Temporary</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\TextFieldRenderComponent.hpp">
+      <Filter>Headers\Game Specific\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\photoRenderComponent.hpp">
+      <Filter>Headers\Game Specific\Explorer</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\TreeCommands.h">
+      <Filter>Headers\Game Specific\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\WindowBkgndRenderCmpnt.h">
+      <Filter>Headers\Game Specific\Temporary</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Logger.h">
+      <Filter>Headers\Engine\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\LoggerParcel.h">
+      <Filter>Headers\Engine\Debug</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -627,6 +642,9 @@
       <Filter>Resources</Filter>
     </None>
     <None Include="Resources\suspiciontest.json">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\DE1PipelineTexts.json">
       <Filter>Resources</Filter>
     </None>
   </ItemGroup>

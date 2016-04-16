@@ -82,7 +82,7 @@ void ppc::Vertex::setColor(sf::Color col) {
 	color_ = col;
 	circ_.setFillColor(color_);
     rect_.setFillColor(color_);
-    bgrect_.setFillColor(color_);
+    bgrect_.setFillColor(sf::Color(181, 179, 165));
 }
 
 sf::Vector2f ppc::Vertex::getPosCenter() const {
