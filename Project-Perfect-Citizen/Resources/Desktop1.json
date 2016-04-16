@@ -3,9 +3,9 @@
         "Documents": {
             "AP_English_Curriculum":{
                 "Readings": {
-                    "Catch_22_-_Joseph_Heller.txt": "DesktopContent/Desktop1/Catch 22 - Joseph Heller.txt",
-                    "CatcherInTheRye_-_Salinger.txt": "DesktopContent/Desktop1/CatcherInTheRye - Salinger.txt",
-                    "Invisible_Man_-_Ellison.txt": "DesktopContent/Desktop1/Invisible Man - Ellison.txt",
+                    "Catch_22_by_Joseph_Heller.txt": "DesktopContent/Desktop1/Catch 22 - Joseph Heller.txt",
+                    "Catcher_In_The_Rye_by_Salinger.txt": "DesktopContent/Desktop1/CatcherInTheRye - Salinger.txt",
+                    "Invisible_Man_by_Ellison.txt": "DesktopContent/Desktop1/Invisible Man - Ellison.txt",
                     "The_Metamorphosis.txt": "DesktopContent/Desktop1/The_Metamorphosis.txt",
                     "The_Scarlet_Letter.txt": "DesktopContent/Desktop1/The_Scarlet_Letter.txt"
                 },
@@ -16,57 +16,58 @@
             "Family_Tree.txt": "DesktopContent/Desktop1/Family_Tree.txt"
         },
         "Art": {
-            "Conversation.jpg": "DesktopContent/Desktop1/Conversation.jpg",
-            "Crowd14.jpg": "DesktopContent/Desktop1/Crowd14.jpg",
-            "Crowd2.jpg": "DesktopContent/Desktop1/Crowd2.jpg",
-            "Crowd29.jpg": "DesktopContent/Desktop1/Crowd29.jpg",
-            "Crowd31.jpg": "DesktopContent/Desktop1/Crowd31.jpg",
-            "Crowd35.jpg": "DesktopContent/Desktop1/Crowd35.jpg"
+            "2-20-09-431.jpg": "DesktopContent/Desktop1/2-20-09-431.jpg",
+            "3-29-12-184.jpg": "DesktopContent/Desktop1/3-29-12-184.jpg",
+            "5678.jpg": "DesktopContent/Desktop1/5678.jpg",
+            "Crowd1.jpg": "DesktopContent/Desktop1/Crowd1.jpg",
+            "Crowd16.jpg": "DesktopContent/Desktop1/Crowd16.jpg",
+            "Doubt6.jpg": "DesktopContent/Desktop1/Doubt6.jpg",
+            "Fragment_Of_Eternity.jpg": "DesktopContent/Desktop1/Fragment+Of+Eternity.jpg",
+            "NewCrowd_38_Fragment.jpg": "DesktopContent/Desktop1/NewCrowd38Fragment.jpg"
         },
-        "My_Folder/Arthur/My dad": {
+        "My_Folder/Lisa/My love": {
             "Lit": {
-                "As_I_Lay_Dying_-_Faulkner.txt": "DesktopContent/Desktop1/As I Lay Dying - Faulkner.txt",
-                "Bacchae_-_Euripides.txt": "DesktopContent/Desktop1/Bacchae - Euripides.txt",
+                "As_I_Lay_Dying_by_Faulkner.txt": "DesktopContent/Desktop1/As I Lay Dying - Faulkner.txt",
+                "Bacchae_Euripides.txt": "DesktopContent/Desktop1/Bacchae - Euripides.txt",
                 "bataille_story_of_eye.txt": "DesktopContent/Desktop1/bataille_story_of_eye.txt",
-                "Donne_-_Med_17.txt": "DesktopContent/Desktop1/Donne - Med 17.txt",
+                "Donne_Med_17.txt": "DesktopContent/Desktop1/Donne - Med 17.txt",
                 "Geek_Love_by_Katherine_Dunn_-_Ch1.txt": "DesktopContent/Desktop1/Geek Love by Katherine Dunn - Ch1.txt",
-                "Kristeva_-_powers_of_horror.txt": "DesktopContent/Desktop1/Kristeva_-_powers_of_horror.txt",
-                "LacanMirrorPhase.txt": "DesktopContent/Desktop1/LacanMirrorPhase.txt",
-                "Lolita_-_Vladimir Nabokov.txt": "DesktopContent/Desktop1/Lolita - Vladimir Nabokov.txt",
-                "mulvey-visualpleasure.txt": "DesktopContent/Desktop1/mulvey-visualpleasure.txt"
+                "Powers_of_horror_by_Kristeva.txt": "DesktopContent/Desktop1/Kristeva_-_powers_of_horror.txt",
+                "Lacan_Mirror_Phase.txt": "DesktopContent/Desktop1/LacanMirrorPhase.txt",
+                "Lolita_by_Vladimir_Nabokov.txt": "DesktopContent/Desktop1/Lolita - Vladimir Nabokov.txt",
+                "mulvey_visual_pleasure.txt": "DesktopContent/Desktop1/mulvey-visualpleasure.txt"
             },
             "Family_Photos": {
                 "Jessie's_Baptism":{
-                    "Baptism_2.jpg": "DesktopContent/Desktop1/Baptism_2.jpg",
-                    "Baptism_in_a_Catholic_Church.jpg": "DesktopContent/Desktop1/Baptism_in_a_Catholic_Church.jpg",
-                    "baptism-st-thomas.jpg": "DesktopContent/Desktop1/baptism-st-thomas.jpg",
-                    "ms1.jpg": "DesktopContent/Desktop1/ms1.jpg",
-                    "St_H_Bap_OK.jpg": "DesktopContent/Desktop1/St_H_Bap_OK.jpg"
+                    "Baptism_1.jpg": "DesktopContent/Desktop1/Baptism_2.jpg",
+                    "Baptism_2.jpg": "DesktopContent/Desktop1/Baptism_in_a_Catholic_Church.jpg",
+                    "baptism_3.jpg": "DesktopContent/Desktop1/baptism-st-thomas.jpg",
+                    "Mindy.jpg": "DesktopContent/Desktop1/ms1.jpg",
+                    "group.jpg": "DesktopContent/Desktop1/St_H_Bap_OK.jpg"
                 },
                 "Photo_shoot":{
                     "Photo_shoot_2.jpg": "DesktopContent/Desktop1/Photo_shoot.jpg",
                     "At_the_river.jpg": "DesktopContent/Desktop1/At_the_river.jpg"
                 }
             },
-            "Private_Files/Lisa/My love": {
+            "Private_Files/Arthur/Dad": {
                 "Chandler's_Road_Trip": {
-                    "11062011img47161.jpg": "DesktopContent/Desktop1/11062011img47161.jpg",
-                    "driving-sea-to-sky-highway.jpg": "DesktopContent/Desktop1/driving-sea-to-sky-highway.jpg",
-                    "maxresdefault.jpg": "DesktopContent/Desktop1/maxresdefault.jpg",
+                    "Sunset.jpg": "DesktopContent/Desktop1/11062011img47161.jpg",
+                    "driving_sea_to_sky_highway.jpg": "DesktopContent/Desktop1/driving-sea-to-sky-highway.jpg",
+                    "On_the_road.jpg": "DesktopContent/Desktop1/maxresdefault.jpg",
                     "road_trip.jpg": "DesktopContent/Desktop1/road_trip.jpg",
-                    "road-trip3.jpg": "DesktopContent/Desktop1/road-trip3.jpg"
+                    "road_trip_3.jpg": "DesktopContent/Desktop1/road-trip3.jpg"
                 },
                 "Robert's_Party": {
-                    "FeastPDX_House.jpg": "DesktopContent/Desktop1/FeastPDX_House.jpg",
-                    "House-party.jpg": "DesktopContent/Desktop1/House-party.jpg",
-                    "Party.jpg": "DesktopContent/Desktop1/Party.jpg",
-                    "The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg": "DesktopContent/Desktop1/The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg"
+                    "Makin'_Food.jpg": "DesktopContent/Desktop1/FeastPDX_House.jpg",
+                    "House_party.jpg": "DesktopContent/Desktop1/House-party.jpg",
+                    "Old_Geezers.jpg": "DesktopContent/Desktop1/Party.jpg",
+                    "Robert's_Place.jpg": "DesktopContent/Desktop1/The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg"
                 },
                 "Soccer_Day": {
-                    "8444505634_646117787e.jpg": "DesktopContent/Desktop1/8444505634_646117787e.jpg",
-                    "Portland-Conference-East-vs.-West-Soccer-Game.jpg": "DesktopContent/Desktop1/Portland-Conference-East-vs.-West-Soccer-Game.jpg",
-                    "rooney_pick_up.jpg": "DesktopContent/Desktop1/rooney_pick_up.jpg",
-                    "skillsstill.jpg": "skillsstill.jpg",
+                    "Robert.jpg": "DesktopContent/Desktop1/8444505634_646117787e.jpg",
+                    "The_team.jpg": "DesktopContent/Desktop1/Portland-Conference-East-vs.-West-Soccer-Game.jpg",
+                    "skills_still.jpg": "skillsstill.jpg",
                     "Other/Annalise/My daughter": {
                         "Call_your_sponsor": {
                             "Stop": {
