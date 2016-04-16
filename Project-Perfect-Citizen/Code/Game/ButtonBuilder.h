@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include "../Engine/renderComponent.h"
 #include "../Engine/InputHandler.h"
+#include "../Game/mousePressButton.h"
 
 namespace ppc {
 	///////////////////////////////////////////////////////////////////////
@@ -32,7 +33,7 @@ namespace ppc {
 		sf::Sprite* sprtUp;
 		sf::Sprite* sprtDown;
 
-		sf::Image* spriteSheet; 
+		sf::Image* spriteSheet;
 		ppc::InputHandler* inputHandle;
 
 		std::string label;
@@ -114,17 +115,28 @@ namespace ppc {
 		/// @param The entity to modify
 		///////////////////////////////////////////////////////////////////////
 		void create(Entity&);
-
-
-		///////////////////////////////////////////////////////////////////////
-		/// @brief Returns the constructed button, with a attached function
-		/// observer.
-		/// @param The entity to modify
-		/// @param The target class object
-		/// @param The function to execute on a click
-		///////////////////////////////////////////////////////////////////////
-		template<class T>
-		void create(Entity&, T*, bool(*)(T *, Event));
-
 	};
+
+	///////////////////////////////////////////////////////////////////////
+	/// @brief Returns the constructed button, with a attached function
+	/// observer.
+	/// @param The entity to modify
+	/// @param The target class object
+	/// @param The function to execute on a click
+	///////////////////////////////////////////////////////////////////////
+	template<class T>
+	void createWithEventFunc(ButtonBuilder& builder, Entity& e, T* target, bool(*func)(T *, ppc::Event)) {
+
+		builder.create(e);
+
+		ppc::mousePressButton* mpb = dynamic_cast<mousePressButton*>(e.getComponent(2));
+
+		if (mpb != nullptr) {
+			setOnPress(mpb, target, func);
+		}
+	}
+
+
 };
+
+

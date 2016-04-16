@@ -59,6 +59,10 @@
 
 #include "Engine/World.h"
 
+#include "Game/ButtonBuilder.h"
+#include "Game/TextBubble.h"
+#include "Game/TextBubbleRender.h"
+
 using namespace ppc;
 
 
@@ -66,7 +70,7 @@ using namespace ppc;
 void runBootDesktop(ppc::Desktop& myDesktop) {
     
     Window* bootWindow = new Window(1800,1000,sf::Color(30,32,33));
-    
+
     Entity loading;
     
     sf::Font font;
@@ -133,7 +137,6 @@ int main(int argc, char** argv) {
 	//ifstream ifs1("Saves/playerDesktop.ini", std::ifstream::in);
 
 	//ifs1 >> testWorld;
-
 	
 	bool BootToTitleCard = false; 
     // Create the main sf::window
@@ -193,10 +196,33 @@ int main(int argc, char** argv) {
 	playerState.setUp();
 	Window* playerDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
 
+
 	Desktop* playerDesktop = new Desktop(playerDesktopWindow, playerState);
 	playerDesktop->setIconSheet(iconSheet);
 	playerDesktop->setButtonSheet(buttonSheet);
 	playerDesktop->setBackgrond(playerWallpaper);
+
+	//Testing TextBox
+	Entity testTextBubble;
+
+	ButtonBuilder textBubbleButton;
+	textBubbleButton.setButtonPosition(10.f, 10.f);
+	textBubbleButton.setInputHandle(playerDesktop->getInputHandler());
+	textBubbleButton.setLabelMessage("Next");
+	textBubbleButton.setLabelSize(9);
+	textBubbleButton.setSize(0.25f);
+	textBubbleButton.setLabelFont(World::getFont(World::Consola));
+	textBubbleButton.setSpriteSheet(buttonSheet);
+	textBubbleButton.setSpritesByIndicies(4, 4, 1, 1);
+
+	TextBubble* myBubble = new TextBubble();
+	myBubble->loadText(resourcePath() + "TextDialogue.txt");
+
+	TextBubbleRender bubbleRender;
+	bubbleRender.setTextBubble(*myBubble);
+
+	createWithEventFunc(textBubbleButton, testTextBubble, myBubble, progressOnText);
+
 
 	//runTargetDesktop
 	ppc::NodeState targetState;

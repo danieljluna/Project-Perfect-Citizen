@@ -48,7 +48,7 @@ bool ppc::TextBubble::loadText(std::string filename) {
 }
 
 void ppc::TextBubble::progressText() {
-	if (textQueue.size() <= 0) {
+	if (textQueue.size() == 0) {
 		drawable = false;
 		displayText.setString("");
 	}

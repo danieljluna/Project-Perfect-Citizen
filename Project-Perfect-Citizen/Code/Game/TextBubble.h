@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <list>
 #include <queue>
+#include "../Engine/event.h"
 
 namespace ppc {
 
@@ -27,23 +28,45 @@ namespace ppc {
 
 	public:
 
+		///////////////////////////////////////////////////////////////
+		// Ctor
+		///////////////////////////////////////////////////////////////
 		TextBubble();
 
+		///////////////////////////////////////////////////////////////
+		// Dtor
+		///////////////////////////////////////////////////////////////
 		virtual ~TextBubble();
 
+		///////////////////////////////////////////////////////////////
+		///@brief Loads the dialogue text from a file
+		///////////////////////////////////////////////////////////////
 		bool loadText(std::string filename);
 
+		///////////////////////////////////////////////////////////////
+		///@brief Changes the displayed text to the next in the queue.
+		///////////////////////////////////////////////////////////////
 		void progressText();
-
-		friend bool advanceOnPress(TextBubble* tb, sf::Event e);
 
 		virtual void draw(sf::RenderTarget& target,
 			sf::RenderStates states) const override;
 
 	};
 
-	bool advanceOnPress(TextBubble* tb, sf::Event e) {
-		//TODO
-	}
+	///////////////////////////////////////////////////////////////
+	///@brief Event function that progresses text.
+	///@details Function should be associated with a observer
+	/// so when a button is pressed, the dialogue text advances
+	/// to the next one.
+	///////////////////////////////////////////////////////////////
+	bool progressOnText(TextBubble* tb, ppc::Event e) {
+		if (tb == nullptr) return true;
 
+		if (e.sfEvent.type == sf::Event::MouseButtonReleased &&
+			e.sfEvent.mouseButton.button == sf::Mouse::Left) {
+			tb->progressText();
+		}
+		return true;
+	}
+	
 };
