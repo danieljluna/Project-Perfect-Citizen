@@ -244,7 +244,6 @@
 		E9A0ADD31C939E660035CCE1 /* gunshots.wav in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AD861C939E660035CCE1 /* gunshots.wav */; };
 		E9A4CEA01CC2059800446A85 /* Photo_shoot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A4CE9D1CC2059800446A85 /* Photo_shoot.jpg */; };
 		E9A4CEA11CC2059800446A85 /* At_the_river.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A4CE9E1CC2059800446A85 /* At_the_river.jpg */; };
-		E9A4CEA31CC2064C00446A85 /* Lisa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A4CEA21CC2064C00446A85 /* Lisa.jpg */; };
 		E9BB53DF1CC0A089001C8715 /* Email0.json in Resources */ = {isa = PBXBuildFile; fileRef = E9BB53DE1CC0A089001C8715 /* Email0.json */; };
 		E9E06D451CC1A85D00B9449A /* Desktop0.json in Resources */ = {isa = PBXBuildFile; fileRef = E9E06D441CC1A85D00B9449A /* Desktop0.json */; };
 		E9E06D481CC1A90000B9449A /* Desktop2.json in Resources */ = {isa = PBXBuildFile; fileRef = E9E06D461CC1A90000B9449A /* Desktop2.json */; };
@@ -603,7 +602,6 @@
 		E9A0AD871C939E660035CCE1 /* Sounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sounds.h; sourceTree = "<group>"; };
 		E9A4CE9D1CC2059800446A85 /* Photo_shoot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Photo_shoot.jpg; sourceTree = "<group>"; };
 		E9A4CE9E1CC2059800446A85 /* At_the_river.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = At_the_river.jpg; sourceTree = "<group>"; };
-		E9A4CEA21CC2064C00446A85 /* Lisa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Lisa.jpg; sourceTree = "<group>"; };
 		E9BB53DE1CC0A089001C8715 /* Email0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Email0.json; sourceTree = "<group>"; };
 		E9E06D441CC1A85D00B9449A /* Desktop0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Desktop0.json; sourceTree = "<group>"; };
 		E9E06D461CC1A90000B9449A /* Desktop2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Desktop2.json; sourceTree = "<group>"; };
@@ -981,7 +979,6 @@
 			children = (
 				E9A0AC121C939A290035CCE1 /* 1-24-08-182.jpg */,
 				E9A4CE9D1CC2059800446A85 /* Photo_shoot.jpg */,
-				E9A4CEA21CC2064C00446A85 /* Lisa.jpg */,
 				E9A4CE9E1CC2059800446A85 /* At_the_river.jpg */,
 				E9A0AC131C939A290035CCE1 /* 2-20-09-431.jpg */,
 				E9A0AC141C939A290035CCE1 /* 2-23-2011-213.jpg */,
@@ -1275,7 +1272,6 @@
 				E9A0ACA31C939A290035CCE1 /* 7146.jpg in Resources */,
 				E98FC1671CBEDCCC00583A39 /* Wallpaper.png in Resources */,
 				E9A0AC841C939A290035CCE1 /* St_H_Bap_OK.jpg in Resources */,
-				E9A4CEA31CC2064C00446A85 /* Lisa.jpg in Resources */,
 				E9A0ACB01C939A290035CCE1 /* Journey+Into+Dark.jpg in Resources */,
 				E98FC1521CBEDCCC00583A39 /* data.json in Resources */,
 				E9A0ACA51C939A290035CCE1 /* Crowd31.jpg in Resources */,
