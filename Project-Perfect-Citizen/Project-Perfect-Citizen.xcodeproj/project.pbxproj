@@ -242,6 +242,9 @@
 		E9A0ADD11C939E660035CCE1 /* DesktopAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A0AD811C939E660035CCE1 /* DesktopAudio.cpp */; };
 		E9A0ADD21C939E660035CCE1 /* gunshot.ogg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AD851C939E660035CCE1 /* gunshot.ogg */; };
 		E9A0ADD31C939E660035CCE1 /* gunshots.wav in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AD861C939E660035CCE1 /* gunshots.wav */; };
+		E9A4CEA01CC2059800446A85 /* Photo_shoot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A4CE9D1CC2059800446A85 /* Photo_shoot.jpg */; };
+		E9A4CEA11CC2059800446A85 /* At_the_river.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A4CE9E1CC2059800446A85 /* At_the_river.jpg */; };
+		E9A4CEA31CC2064C00446A85 /* Lisa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A4CEA21CC2064C00446A85 /* Lisa.jpg */; };
 		E9BB53DF1CC0A089001C8715 /* Email0.json in Resources */ = {isa = PBXBuildFile; fileRef = E9BB53DE1CC0A089001C8715 /* Email0.json */; };
 		E9E06D451CC1A85D00B9449A /* Desktop0.json in Resources */ = {isa = PBXBuildFile; fileRef = E9E06D441CC1A85D00B9449A /* Desktop0.json */; };
 		E9E06D481CC1A90000B9449A /* Desktop2.json in Resources */ = {isa = PBXBuildFile; fileRef = E9E06D461CC1A90000B9449A /* Desktop2.json */; };
@@ -598,6 +601,9 @@
 		E9A0AD851C939E660035CCE1 /* gunshot.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = gunshot.ogg; sourceTree = "<group>"; };
 		E9A0AD861C939E660035CCE1 /* gunshots.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gunshots.wav; sourceTree = "<group>"; };
 		E9A0AD871C939E660035CCE1 /* Sounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sounds.h; sourceTree = "<group>"; };
+		E9A4CE9D1CC2059800446A85 /* Photo_shoot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Photo_shoot.jpg; sourceTree = "<group>"; };
+		E9A4CE9E1CC2059800446A85 /* At_the_river.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = At_the_river.jpg; sourceTree = "<group>"; };
+		E9A4CEA21CC2064C00446A85 /* Lisa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Lisa.jpg; sourceTree = "<group>"; };
 		E9BB53DE1CC0A089001C8715 /* Email0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Email0.json; sourceTree = "<group>"; };
 		E9E06D441CC1A85D00B9449A /* Desktop0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Desktop0.json; sourceTree = "<group>"; };
 		E9E06D461CC1A90000B9449A /* Desktop2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Desktop2.json; sourceTree = "<group>"; };
@@ -974,6 +980,9 @@
 			isa = PBXGroup;
 			children = (
 				E9A0AC121C939A290035CCE1 /* 1-24-08-182.jpg */,
+				E9A4CE9D1CC2059800446A85 /* Photo_shoot.jpg */,
+				E9A4CEA21CC2064C00446A85 /* Lisa.jpg */,
+				E9A4CE9E1CC2059800446A85 /* At_the_river.jpg */,
 				E9A0AC131C939A290035CCE1 /* 2-20-09-431.jpg */,
 				E9A0AC141C939A290035CCE1 /* 2-23-2011-213.jpg */,
 				E9A0AC151C939A290035CCE1 /* 4-24-08-152.jpg */,
@@ -1236,6 +1245,7 @@
 				E9A0ACD31C939A290035CCE1 /* Bluebird by Charles Bukowski.txt in Resources */,
 				E98FC1631CBEDCCC00583A39 /* Pixel_Title.png in Resources */,
 				E98FC1621CBEDCCC00583A39 /* kappa.png in Resources */,
+				E9A4CEA11CC2059800446A85 /* At_the_river.jpg in Resources */,
 				E9A0ACC91C939A290035CCE1 /* Catch 22 - Joseph Heller.txt in Resources */,
 				E9A0AC981C939A290035CCE1 /* road-trip3.jpg in Resources */,
 				E9A0AC941C939A290035CCE1 /* Party.jpg in Resources */,
@@ -1244,6 +1254,7 @@
 				E98FC1681CBEDCCC00583A39 /* Wallpaper2.png in Resources */,
 				E98FC16A1CBEDCCC00583A39 /* Windows_UI.png in Resources */,
 				E9A0ACB11C939A290035CCE1 /* Crowd8.jpg in Resources */,
+				E9A4CEA01CC2059800446A85 /* Photo_shoot.jpg in Resources */,
 				E9A0ACD91C939A290035CCE1 /* Lolita - Vladimir Nabokov.txt in Resources */,
 				E9A0AC7B1C939A290035CCE1 /* 4-4-12-048.jpg in Resources */,
 				E9A0ACD61C939A290035CCE1 /* Geek Love by Katherine Dunn - Ch1.txt in Resources */,
@@ -1264,6 +1275,7 @@
 				E9A0ACA31C939A290035CCE1 /* 7146.jpg in Resources */,
 				E98FC1671CBEDCCC00583A39 /* Wallpaper.png in Resources */,
 				E9A0AC841C939A290035CCE1 /* St_H_Bap_OK.jpg in Resources */,
+				E9A4CEA31CC2064C00446A85 /* Lisa.jpg in Resources */,
 				E9A0ACB01C939A290035CCE1 /* Journey+Into+Dark.jpg in Resources */,
 				E98FC1521CBEDCCC00583A39 /* data.json in Resources */,
 				E9A0ACA51C939A290035CCE1 /* Crowd31.jpg in Resources */,

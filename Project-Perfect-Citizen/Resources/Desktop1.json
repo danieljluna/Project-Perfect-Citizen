@@ -35,49 +35,48 @@
                 "Lolita_-_Vladimir Nabokov.txt": "DesktopContent/Desktop1/Lolita - Vladimir Nabokov.txt",
                 "mulvey-visualpleasure.txt": "DesktopContent/Desktop1/mulvey-visualpleasure.txt"
             },
-            "Private_Files/Anna/My daughter": {
-                "Photos": {
-                    "Family": {
-                        "Jessie's_Baptism":{
-                            "Baptism_2.jpg": "DesktopContent/Desktop1/Baptism_2.jpg",
-                            "Baptism_in_a_Catholic_Church.jpg": "DesktopContent/Desktop1/Baptism_in_a_Catholic_Church.jpg",
-                            "baptism-st-thomas.jpg": "DesktopContent/Desktop1/baptism-st-thomas.jpg",
-                            "ms1.jpg": "DesktopContent/Desktop1/ms1.jpg",
-                            "St_H_Bap_OK.jpg": "DesktopContent/Desktop1/St_H_Bap_OK.jpg"
-                        }
-                    },
-                    "Friends": {
-                        "Chandler's_Road_Trip": {
-                            "11062011img47161.jpg": "DesktopContent/Desktop1/11062011img47161.jpg",
-                            "driving-sea-to-sky-highway.jpg": "DesktopContent/Desktop1/driving-sea-to-sky-highway.jpg",
-                            "maxresdefault.jpg": "DesktopContent/Desktop1/maxresdefault.jpg",
-                            "road_trip.jpg": "DesktopContent/Desktop1/road_trip.jpg",
-                            "road-trip3.jpg": "DesktopContent/Desktop1/road-trip3.jpg"
-                        },
-                        "Robert's_Party": {
-                            "Party_Pics": {
-                                "FeastPDX_House.jpg": "DesktopContent/Desktop1/FeastPDX_House.jpg",
-                                "House-party.jpg": "DesktopContent/Desktop1/House-party.jpg",
-                                "Party.jpg": "DesktopContent/Desktop1/Party.jpg",
-                                "The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg": "DesktopContent/Desktop1/The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg"
-                            }
-                        },
-                        "Soccer_Day": {
-                            "8444505634_646117787e.jpg": "DesktopContent/Desktop1/8444505634_646117787e.jpg",
-                            "Portland-Conference-East-vs.-West-Soccer-Game.jpg": "DesktopContent/Desktop1/Portland-Conference-East-vs.-West-Soccer-Game.jpg",
-                            "rooney_pick_up.jpg": "DesktopContent/Desktop1/rooney_pick_up.jpg",
-                            "skillsstill.jpg": "skillsstill.jpg"
-                        }
-                    },
-                    "Other/Pedophilia/My crime": {
-                        "Call_your_sponsor": {
-                            "Stop": {
-                                "Please": {
-                                    "Don't_Do_This": {
-                                        "Shame": {
-                                            "CP": {
-                                                "TODO": ""
-                                            }
+            "Family_Photos": {
+                "Jessie's_Baptism":{
+                    "Baptism_2.jpg": "DesktopContent/Desktop1/Baptism_2.jpg",
+                    "Baptism_in_a_Catholic_Church.jpg": "DesktopContent/Desktop1/Baptism_in_a_Catholic_Church.jpg",
+                    "baptism-st-thomas.jpg": "DesktopContent/Desktop1/baptism-st-thomas.jpg",
+                    "ms1.jpg": "DesktopContent/Desktop1/ms1.jpg",
+                    "St_H_Bap_OK.jpg": "DesktopContent/Desktop1/St_H_Bap_OK.jpg"
+                },
+                "Photo_shoot":{
+                    "Lisa.jpg": "DesktopContent/Desktop1/Lisa.jpg",
+                    "Photo_shoot.jpg": "DesktopContent/Desktop1/Photo_shoot.jpg",
+                    "At_the_river.jpg": "DesktopContent/Desktop1/At_the_river.jpg"
+                }
+            },
+            "Private_Files/Lisa/My love": {
+                "Chandler's_Road_Trip": {
+                    "11062011img47161.jpg": "DesktopContent/Desktop1/11062011img47161.jpg",
+                    "driving-sea-to-sky-highway.jpg": "DesktopContent/Desktop1/driving-sea-to-sky-highway.jpg",
+                    "maxresdefault.jpg": "DesktopContent/Desktop1/maxresdefault.jpg",
+                    "road_trip.jpg": "DesktopContent/Desktop1/road_trip.jpg",
+                    "road-trip3.jpg": "DesktopContent/Desktop1/road-trip3.jpg"
+                },
+                "Robert's_Party": {
+                    "FeastPDX_House.jpg": "DesktopContent/Desktop1/FeastPDX_House.jpg",
+                    "House-party.jpg": "DesktopContent/Desktop1/House-party.jpg",
+                    "Party.jpg": "DesktopContent/Desktop1/Party.jpg",
+                    "The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg": "DesktopContent/Desktop1/The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg"
+                },
+                "Soccer_Day": {
+                    "8444505634_646117787e.jpg": "DesktopContent/Desktop1/8444505634_646117787e.jpg",
+                    "Portland-Conference-East-vs.-West-Soccer-Game.jpg": "DesktopContent/Desktop1/Portland-Conference-East-vs.-West-Soccer-Game.jpg",
+                    "rooney_pick_up.jpg": "DesktopContent/Desktop1/rooney_pick_up.jpg",
+                    "skillsstill.jpg": "skillsstill.jpg"
+                },
+                "Other/Anna/My daughter": {
+                    "Call_your_sponsor": {
+                        "Stop": {
+                            "Please": {
+                                "Don't_Do_This": {
+                                    "Shame": {
+                                        "CP": {
+                                            "TODO": ""
                                         }
                                     }
                                 }
