@@ -1,16 +1,19 @@
 {
     "Desktop": {
-        "AP_English_Curriculum": {
-            "Readings": {
-                "Catch_22_-_Joseph_Heller.txt": "DesktopContent/Desktop1/Catch 22 - Joseph Heller.txt",
-                "CatcherInTheRye_-_Salinger.txt": "DesktopContent/Desktop1/CatcherInTheRye - Salinger.txt",
-                "Invisible_Man_-_Ellison.txt": "DesktopContent/Desktop1/Invisible Man - Ellison.txt",
-                "The_Metamorphosis.txt": "DesktopContent/Desktop1/The_Metamorphosis.txt",
- 				"The_Scarlet_Letter.txt": "DesktopContent/Desktop1/The_Scarlet_Letter.txt"
+        "Documents": {
+            "AP_English_Curriculum":{
+                "Readings": {
+                    "Catch_22_-_Joseph_Heller.txt": "DesktopContent/Desktop1/Catch 22 - Joseph Heller.txt",
+                    "CatcherInTheRye_-_Salinger.txt": "DesktopContent/Desktop1/CatcherInTheRye - Salinger.txt",
+                    "Invisible_Man_-_Ellison.txt": "DesktopContent/Desktop1/Invisible Man - Ellison.txt",
+                    "The_Metamorphosis.txt": "DesktopContent/Desktop1/The_Metamorphosis.txt",
+                    "The_Scarlet_Letter.txt": "DesktopContent/Desktop1/The_Scarlet_Letter.txt"
+                },
+                "Syllabus": {
+                    "ap_english_composition_syllabus.txt": "DesktopContent/Desktop1/ap_english_composition_syllabus.txt"
+                }
             },
-            "Syllabus": {
-                "ap_english_composition_syllabus.txt": "DesktopContent/Desktop1/ap_english_composition_syllabus.txt"
-            }
+            "Family_Tree.txt": "DesktopContent/Desktop1/Family_Tree.txt"
         },
         "Art": {
             "Conversation.jpg": "DesktopContent/Desktop1/Conversation.jpg",
@@ -18,21 +21,7 @@
             "Crowd2.jpg": "DesktopContent/Desktop1/Crowd2.jpg",
             "Crowd29.jpg": "DesktopContent/Desktop1/Crowd29.jpg",
             "Crowd31.jpg": "DesktopContent/Desktop1/Crowd31.jpg",
-            "Crowd35.jpg": "DesktopContent/Desktop1/Crowd35.jpg",
-            "Crowd8.jpg": "DesktopContent/Desktop1/Crowd8.jpg",
-            "Doubt11.jpg": "DesktopContent/Desktop1/Doubt11.jpg",
-            "Doubt16.jpg": "DesktopContent/Desktop1/Doubt16.jpg",
-            "Doubt3.jpg": "DesktopContent/Desktop1/Doubt3.jpg",
-            "Doubt9.jpg": "DesktopContent/Desktop1/Doubt9.jpg",
-            "EternalStation.jpg": "DesktopContent/Desktop1/EternalStation.jpg",
-            "Fallen2.jpg": "DesktopContent/Desktop1/Fallen2.jpg",
-            "Fallen7.jpg": "DesktopContent/Desktop1/Fallen7.jpg",
-            "Fragment+Of+Eternity.jpg": "DesktopContent/Desktop1/Fragment+Of+Eternity.jpg",
-            "New+Crowd39.jpg": "DesktopContent/Desktop1/New+Crowd39.jpg",
-            "NewCrowd38Fragment.jpg": "DesktopContent/Desktop1/NewCrowd38Fragment.jpg",
-            "NewCrowd46.jpg": "DesktopContent/Desktop1/NewCrowd46.jpg",
-            "NewCrowd58.jpg": "DesktopContent/Desktop1/NewCrowd58.jpg",
-            "Sheptune2.jpg": "DesktopContent/Desktop1/Sheptune2.jpg"
+            "Crowd35.jpg": "DesktopContent/Desktop1/Crowd35.jpg"
         },
         "My_Files/Arthur/My dad": {
             "Lit": {
@@ -86,7 +75,9 @@
                                 "Please": {
                                     "Don't_Do_This": {
                                         "Shame": {
-                                            "TODO": ""
+                                            "CP": {
+                                                "TODO": ""
+                                            }
                                         }
                                     }
                                 }
