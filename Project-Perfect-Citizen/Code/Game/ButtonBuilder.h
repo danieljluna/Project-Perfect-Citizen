@@ -128,11 +128,13 @@ namespace ppc {
 	void createWithEventFunc(ButtonBuilder& builder, Entity& e, T* target, bool(*func)(T *, ppc::Event)) {
 
 		builder.create(e);
-
-		ppc::mousePressButton* mpb = dynamic_cast<mousePressButton*>(e.getComponent(2));
+		size_t s = e.cmpntCount();
+		ppc::mousePressButton* mpb = dynamic_cast<mousePressButton*>(e.getComponent(s-1));
 
 		if (mpb != nullptr) {
 			setOnPress(mpb, target, func);
+		} else {
+			return;
 		}
 	}
 

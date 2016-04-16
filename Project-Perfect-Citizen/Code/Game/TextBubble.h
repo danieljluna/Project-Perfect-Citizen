@@ -16,13 +16,15 @@ namespace ppc {
 
 	private:
 		
-		std::queue<std::string, std::list<std::string>> textQueue;
+		std::queue<std::string, std::list<std::string>> textQueue_;
 
-		sf::Text displayText;
+		sf::Text displayText_;
 
-		sf::RectangleShape textBox;
+		sf::RectangleShape textBox_;
 
-		bool drawable;
+		std::string currString_;
+
+		bool drawable_;
 
 		void formatLine(std::string&);
 
@@ -46,7 +48,7 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////
 		///@brief Changes the displayed text to the next in the queue.
 		///////////////////////////////////////////////////////////////
-		void progressText();
+		void advanceText();
 
 		virtual void draw(sf::RenderTarget& target,
 			sf::RenderStates states) const override;
@@ -59,14 +61,6 @@ namespace ppc {
 	/// so when a button is pressed, the dialogue text advances
 	/// to the next one.
 	///////////////////////////////////////////////////////////////
-	bool progressOnText(TextBubble* tb, ppc::Event e) {
-		if (tb == nullptr) return true;
-
-		if (e.sfEvent.type == sf::Event::MouseButtonReleased &&
-			e.sfEvent.mouseButton.button == sf::Mouse::Left) {
-			tb->progressText();
-		}
-		return true;
-	}
+	bool advanceOnPress(TextBubble* tb, ppc::Event e);
 	
 };

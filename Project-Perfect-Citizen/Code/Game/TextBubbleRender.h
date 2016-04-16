@@ -2,15 +2,17 @@
 
 #include <SFML/Graphics.hpp>
 #include "../Engine/renderComponent.h"
-#include "TextBubble.h"
-#include "../Engine/debug.h"
+
 
 namespace ppc {
+
+	class TextBubble;
+
 	class TextBubbleRender: public ppc::RenderComponent {
 
 	private:
 
-		TextBubble* textBubble;
+		TextBubble* textBubble_;
 
 	public:
 
