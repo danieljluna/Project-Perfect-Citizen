@@ -301,6 +301,9 @@
     <ClCompile Include="Code\Game\TextBubble.cpp">
       <Filter>Sources\Game Specific\TextBubble</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\Logger.cpp">
+      <Filter>Sources\Engine\Debug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -627,6 +630,12 @@
     <ClInclude Include="Code\Game\TextBubble.h">
       <Filter>Headers\Game Specific\TextBubble</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\Logger.h">
+      <Filter>Headers\Engine\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\LoggerParcel.h">
+      <Filter>Headers\Engine\Debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json">
@@ -639,6 +648,9 @@
       <Filter>Resources</Filter>
     </None>
     <None Include="Resources\suspiciontest.json">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\DE1PipelineTexts.json">
       <Filter>Resources</Filter>
     </None>
   </ItemGroup>

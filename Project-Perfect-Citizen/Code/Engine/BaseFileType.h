@@ -97,7 +97,8 @@ namespace ppc {
 		///@brief Prints the data from a text file
 		///Returns if the target isnt a file. 
 		///////////////////////////////////////////////
-		virtual void readFile(Desktop& desk, sf::Image& im, std::string path);
+		virtual void readFile(Desktop& desk, sf::Image& im, std::string filename,
+			std::string path);
 		///////////////////////////////////////////////
 		///@brief Prints the directory of the node. 
 		///////////////////////////////////////////////
@@ -160,5 +161,7 @@ namespace ppc {
 
 		virtual bool isPasswordProtected();
 		//virtual void addFileObserver(sf::Event& ev, bool(*obFunction)(T*, sf::Event&);
+        
+        virtual std::string getHint(){ return passwordHint; };
 	};
 };

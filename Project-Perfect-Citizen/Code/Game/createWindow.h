@@ -75,9 +75,11 @@ void spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database*
 ///@param Sprite sheet of it's border component's buttons
 ///@param The x position of the new window
 ///@param The y position of the new window
-///@param The resource path to load the new file
+///@param The in-game filename
+///@param The out-of-game resource path to load the new file
 ///////////////////////////////////////////////////////////////////////
-void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string path);
+void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, 
+	string filename, string path);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Constructs an inbox window on the WindowInterface passed.

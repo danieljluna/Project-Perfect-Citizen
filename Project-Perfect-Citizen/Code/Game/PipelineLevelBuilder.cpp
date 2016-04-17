@@ -93,7 +93,7 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 		}
 	}
 
-	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson("suspiciontest.json");
+	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson("DE1PipelineTexts.json");
 
 	//Fill random edges on low side - non suspicious
 	populateLevelEdges(0, LEVEL_ONE_NODES_LOW, (LEVEL_ONE_NUM_EDGES) / 2, 

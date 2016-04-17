@@ -78,7 +78,9 @@ public:
 
     void setCaption(std::string text);
 
-    void setCaptionFont(sf::Font font, unsigned int size = 20);
+    void setCaptionFont(sf::Font font);
+
+	void setCaptionSize(unsigned int size = 18);
 
     void setCaptionColor(sf::Color col);
 

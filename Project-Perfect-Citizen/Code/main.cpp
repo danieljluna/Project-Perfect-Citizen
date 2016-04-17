@@ -151,7 +151,7 @@ int main(int argc, char** argv) {
 	
 	bool BootToTitleCard = false; 
     // Create the main sf::window
-    sf::RenderWindow* screen = new sf::RenderWindow(sf::VideoMode(1000, 800), "SFML window");
+    sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
 	//Dont touch these comments please.
 	//testWorld.setGameScreen(*screen);
@@ -237,7 +237,7 @@ int main(int argc, char** argv) {
 	//Assuming Builders End Here
 	/////////////////////////////////////////////
 
-    World::setGameScreen(*screen);
+    World::setGameScreen(screen);
 
 	//Main Loops for each Desktops
 	World::setCurrDesktop(*bootDesktop);
