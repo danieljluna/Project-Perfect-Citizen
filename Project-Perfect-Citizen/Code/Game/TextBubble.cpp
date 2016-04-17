@@ -1,6 +1,8 @@
 #include "TextBubble.h"
 
 #include "../Engine/World.h"
+#include "../Game/TextDisplayRenderComponent.h"
+#include "../Engine/Window.h"
 #include <fstream>
 
 void ppc::TextBubble::formatLine(std::string &) {
@@ -8,25 +10,27 @@ void ppc::TextBubble::formatLine(std::string &) {
 }
 
 ppc::TextBubble::TextBubble() {
+	textBox_ = new Window(225, 100, sf::Color::White);
+	textBox_->setPosition(100.f, 100.f);
 
-	drawable_ = true;
+	buttonBuilder_.setButtonPosition(100, 50);
+	buttonBuilder_.setInputHandle(textBox_->getInputHandler());
+	buttonBuilder_.setLabelFont(World::getFont(World::Consola));
+	buttonBuilder_.setLabelMessage("Next");
+	buttonBuilder_.setSize(0.25f);
+	buttonBuilder_.setLabelSize(9);
+	buttonBuilder_.setSpritesByIndicies(4, 4, 1, 1);
+	//need to set the spritesheet
 
-	textBox_.setFillColor(sf::Color::White);
-	textBox_.setOutlineColor(sf::Color::Black);
-	textBox_.setPosition(0.f, 0.f);
-	textBox_.setSize({ 200.f,100.f });
-
-	displayText_.setFont(World::getFont(World::Consola));
-	displayText_.setString("");
-	displayText_.setStyle(sf::Text::Regular);
-	displayText_.setPosition(0.f, 0.f);
-	displayText_.setColor(sf::Color::Black);
-	displayText_.setScale({ 0.5f,0.5f });
+	textBuilder_.setColor(sf::Color::Black);
+	textBuilder_.setFont(World::getFont(World::Consola));
+	textBuilder_.setPosition({ 10,10 });
+	textBuilder_.setSize(10);
 
 }
 
 ppc::TextBubble::~TextBubble() {
-
+	textDisplay_ = nullptr;
 }
 
 bool ppc::TextBubble::loadText(std::string filename) {
@@ -37,13 +41,13 @@ bool ppc::TextBubble::loadText(std::string filename) {
 
 	if (ifs.is_open()) {
 		while (std::getline(ifs, line)) {
-			line += "\n";
+			//line += "\n";
 			//format line here before inserting
 			textQueue_.push(line);
 		}
 		if (textQueue_.size() != 0) {
 			currString_ = textQueue_.front();
-			displayText_.setString(currString_);
+			textBuilder_.setString(currString_);
 			textQueue_.pop();
 			result = true;
 		}
@@ -55,23 +59,36 @@ bool ppc::TextBubble::loadText(std::string filename) {
 void ppc::TextBubble::advanceText() {
 	if (textQueue_.size() > 0) {
 		currString_ = textQueue_.front();
-		displayText_.setString(currString_);
+		textDisplay_->updateString(currString_);
 		textQueue_.pop();
 	} else {
 		currString_ = "";
-		displayText_.setString("");
-		drawable_ = false;
+		textBox_->close();
 	}
 
 }
 
-void ppc::TextBubble::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+ppc::Entity & ppc::TextBubble::getButtonEntity() {
+	return bubbleButton_;
+}
 
-	if (drawable_) {
-		states.transform *= getTransform();
-		target.draw(textBox_, states);
-		target.draw(displayText_, states);
-	}
+ppc::ButtonBuilder & ppc::TextBubble::getButtonBuilder() {
+	return buttonBuilder_;
+}
+
+ppc::Window& ppc::TextBubble::getTextBox() {
+	return *textBox_;
+}
+
+void ppc::TextBubble::generateBubble() {
+	createWithEventFunc(buttonBuilder_, bubbleButton_, this, advanceOnPress);
+	textBuilder_.create(bubbleButton_);
+	size_t size = bubbleButton_.cmpntCount();
+	textDisplay_ = 
+		dynamic_cast<TextDisplayRenderComponent*>(bubbleButton_.getComponent(size - 1));
+
+	textBox_->addEntity(bubbleButton_);
+
 }
 
 

@@ -59,9 +59,8 @@
 
 #include "Engine/World.h"
 
-#include "Game/ButtonBuilder.h"
 #include "Game/TextBubble.h"
-#include "Game/TextBubbleRender.h"
+
 
 using namespace ppc;
 
@@ -113,29 +112,14 @@ void runEndDesktop(ppc::Desktop& myDesktop) {
 void runPlayerDesktop(ppc::Desktop& myDesktop) {
 
 	//Testing TextBox
-	Entity testTextBubble;
-
-	ButtonBuilder textBubbleButton;
-	textBubbleButton.setButtonPosition(300.f, 250.f);
-	textBubbleButton.setInputHandle(myDesktop.getInputHandler());
-	textBubbleButton.setLabelMessage("Next");
-	textBubbleButton.setLabelSize(9);
-	textBubbleButton.setSize(0.25f);
-	textBubbleButton.setLabelFont(World::getFont(World::Consola));
-	textBubbleButton.setSpriteSheet(myDesktop.getButtonSheet());
-	textBubbleButton.setSpritesByIndicies(4, 4, 1, 1);
 
 
 	TextBubble* myBubble = new TextBubble();
-	myBubble->setPosition(300.f, 200.f);
 	myBubble->loadText(resourcePath() + "TestDialogue.txt");
+	myBubble->getButtonBuilder().setSpriteSheet(myDesktop.getButtonSheet());
+	myBubble->generateBubble();
 
-	TextBubbleRender* bubbleRender = new TextBubbleRender();
-	bubbleRender->setTextBubble(*myBubble);
-	testTextBubble.addComponent(bubbleRender);
-	createWithEventFunc(textBubbleButton, testTextBubble, myBubble, advanceOnPress);
-
-	myDesktop.getDesktopWindow()->addEntity(testTextBubble);
+	myDesktop.addWindow(&myBubble->getTextBox());
 
 	createPlayerDesktop(myDesktop, *myDesktop.getDesktopWindow(), 
 		myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());

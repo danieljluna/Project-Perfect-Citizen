@@ -301,7 +301,6 @@
     <ClCompile Include="Code\Game\TextBubble.cpp">
       <Filter>Sources\Game Specific\TextBubble</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\TextBubbleRender.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -626,9 +625,6 @@
       <Filter>Headers\Game Specific\Temporary</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\TextBubble.h">
-      <Filter>Headers\Game Specific\TextBubble</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Game\TextBubbleRender.h">
       <Filter>Headers\Game Specific\TextBubble</Filter>
     </ClInclude>
   </ItemGroup>

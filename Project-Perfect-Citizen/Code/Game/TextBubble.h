@@ -4,27 +4,37 @@
 #include <list>
 #include <queue>
 #include "../Engine/event.h"
+#include "../Engine/Entity.h"
+#include "../Game/ButtonBuilder.h"
+#include "../Game/TextDisplayBuilder.h"
 
 namespace ppc {
 
+	class Window;
+	class Entity;
+	class TextDisplayRenderComponent;
 
 	///////////////////////////////////////////////////////////////////
 	///@brief Basic speech text bubble 
 	///@author Nader Sleem
 	///////////////////////////////////////////////////////////////////
-	class TextBubble: public sf::Drawable, public sf::Transformable {
+	class TextBubble {
 
 	private:
 		
 		std::queue<std::string, std::list<std::string>> textQueue_;
 
-		sf::Text displayText_;
-
-		sf::RectangleShape textBox_;
+		ppc::Window* textBox_;
 
 		std::string currString_;
 
-		bool drawable_;
+		ppc::Entity bubbleButton_;
+
+		ppc::ButtonBuilder buttonBuilder_;
+
+		ppc::TextDisplayBuilder textBuilder_;
+
+		ppc::TextDisplayRenderComponent* textDisplay_;
 
 		void formatLine(std::string&);
 
@@ -50,8 +60,27 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////
 		void advanceText();
 
-		virtual void draw(sf::RenderTarget& target,
-			sf::RenderStates states) const override;
+		/////////////////////////////////////////////////////////////
+		///@brief Returns the Entity for the Text Bubble button.
+		/////////////////////////////////////////////////////////////
+		ppc::Entity& getButtonEntity();
+
+		/////////////////////////////////////////////////////////////
+		///@brief Returns the Builder for the Text Bubble button.
+		/////////////////////////////////////////////////////////////
+		ppc::ButtonBuilder& getButtonBuilder();
+
+		ppc::Window& getTextBox();
+
+		/////////////////////////////////////////////////////////////
+		///@brief Creates the Button for the TextBubble in the entity.
+		///@details Should be called after setting up the parameters
+		///for the builder in the TextBubble. Use getButtonBuilder
+		/// to access this builder and call its functions.
+		/// Function assumes that all the values for the builder
+		/// have been properly set.
+		/////////////////////////////////////////////////////////////
+		void generateBubble();
 
 	};
 
