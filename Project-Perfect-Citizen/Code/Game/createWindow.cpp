@@ -56,6 +56,8 @@
 
 #include "../Game/TextBoxBuilder.h"
 
+#include "../Game/HelpRenderComponent.hpp"
+
 using namespace ppc;
 
 const string PNG = ".png";
@@ -241,14 +243,19 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     /////////////////////////////////////////
     /////// ENTITIES
     ///////////////////////////////////////
-   
+    Entity help;
     
+    
+    HelpWindowRenderComponent* helpText1 = new HelpWindowRenderComponent(myFont,30,90,16);
+//   sf::Font& f, std::string str, int x, int y, int size
+    help.addComponent(helpText1);
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
     windowToModify->setPosition(x, y);
     windowToModify->addEntity(tab1);
     windowToModify->addEntity(tab2);
+    windowToModify->addEntity(help);
     
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);

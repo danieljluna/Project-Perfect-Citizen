@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C8109FB21CC19EB000272F8A /* Toolbar_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = C8109FB11CC19EB000272F8A /* Toolbar_Icons.png */; };
+		C8109FB51CC1A6DF00272F8A /* HelpRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8109FB31CC1A6DF00272F8A /* HelpRenderComponent.cpp */; };
 		C8270D9D1CADCB7900232367 /* Mouse_Down.wav in Resources */ = {isa = PBXBuildFile; fileRef = C8270D9B1CADCB7900232367 /* Mouse_Down.wav */; };
 		C8270D9E1CADCB7900232367 /* Mouse_Up.wav in Resources */ = {isa = PBXBuildFile; fileRef = C8270D9C1CADCB7900232367 /* Mouse_Up.wav */; };
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
@@ -250,6 +251,8 @@
 /* Begin PBXFileReference section */
 		C8058A631C4D679D005E23BA /* Project-Perfect-Citizen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-Perfect-Citizen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8109FB11CC19EB000272F8A /* Toolbar_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Toolbar_Icons.png; sourceTree = "<group>"; };
+		C8109FB31CC1A6DF00272F8A /* HelpRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelpRenderComponent.cpp; sourceTree = "<group>"; };
+		C8109FB41CC1A6DF00272F8A /* HelpRenderComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HelpRenderComponent.hpp; sourceTree = "<group>"; };
 		C8270D9A1CADCA3800232367 /* SoundTrack_Extraction.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoundTrack_Extraction.ogg; sourceTree = "<group>"; };
 		C8270D9B1CADCB7900232367 /* Mouse_Down.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Mouse_Down.wav; sourceTree = "<group>"; };
 		C8270D9C1CADCB7900232367 /* Mouse_Up.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Mouse_Up.wav; sourceTree = "<group>"; };
@@ -903,6 +906,8 @@
 				E98FC0F41CBEDC6700583A39 /* TreeCommands.h */,
 				E98FC0F51CBEDC6700583A39 /* WindowBkgndRenderCmpnt.cpp */,
 				E98FC0F61CBEDC6700583A39 /* WindowBkgndRenderCmpnt.h */,
+				C8109FB31CC1A6DF00272F8A /* HelpRenderComponent.cpp */,
+				C8109FB41CC1A6DF00272F8A /* HelpRenderComponent.hpp */,
 			);
 			name = Game;
 			path = Code/Game;
@@ -1340,6 +1345,7 @@
 				C8778CB51CB5B2970035A46E /* Vertex.cpp in Sources */,
 				E98FC0F71CBEDC6700583A39 /* animatorComponent.cpp in Sources */,
 				E98FC1321CBEDC6700583A39 /* textRenderComponent.cpp in Sources */,
+				C8109FB51CC1A6DF00272F8A /* HelpRenderComponent.cpp in Sources */,
 				E98FC1011CBEDC6700583A39 /* createButton.cpp in Sources */,
 				E9A0ADD11C939E660035CCE1 /* DesktopAudio.cpp in Sources */,
 				C8778C9F1CB5B2970035A46E /* desktop.cpp in Sources */,

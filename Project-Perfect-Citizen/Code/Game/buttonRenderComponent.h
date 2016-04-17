@@ -38,6 +38,8 @@ public:
 	buttonRenderComponent(sf::Image& image, int x, int y, int r, int f);
 
 	~buttonRenderComponent();
+    
+    sf::CircleShape drawBadge(sf::Vector2f pos) const;
 
     
     ///////////////////////////////////////////////////////////////////////
