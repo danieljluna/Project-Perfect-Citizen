@@ -301,6 +301,9 @@
     <ClCompile Include="Code\Engine\Logger.cpp">
       <Filter>Sources\Engine\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\contextListElementRenderComponent.cpp">
+      <Filter>Sources\Game Specific</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -629,6 +632,9 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\LoggerParcel.h">
       <Filter>Headers\Engine\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\contextListElementRenderComponent.h">
+      <Filter>Headers\Game Specific</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

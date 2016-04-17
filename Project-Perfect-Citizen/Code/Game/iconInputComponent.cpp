@@ -77,6 +77,15 @@ void iconInputComponent::recieveMessage(msgType msg) {
 				new ppc::Window(500, 150, sf::Color(170, 170, 170));
 			spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
 			theDesktop_.addWindow(ErrorMsgWindow);
+			//// TEST
+			
+			ppc::WindowInterface* testContext =
+				new ppc::Window(200, 300, sf::Color(170, 170, 170));
+			spawnContextMenu(theDesktop_, testContext, testContext->getInputHandler(), 0, 500);
+			theDesktop_.addWindow(testContext);
+
+			////
+
 			openedWindow = ErrorMsgWindow;
 		}
 	}

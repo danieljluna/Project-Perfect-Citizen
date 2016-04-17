@@ -13,6 +13,7 @@
 
 #include "../Engine/WindowInterface.h"
 #include "../Engine/BorderDecorator.h"
+#include "../Engine/ScrollBarDeco.h"
 
 const string TEXT_KEY_INPUT = "TKI";
 
@@ -196,10 +197,11 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		
 		sf::FloatRect viewRect = {
 			0.0f,
-			0.0f,
-			float(theWindow_->getView().getSize().x),
-			float(theWindow_->getView().getSize().y + ((numDisplayedLines - maxDisplayedLines) * 100))
+			float(promptLine->getText()->getPosition().y),
+			float(theWindow_->getBounds().width),
+			float(theWindow_->getBounds().height)
 		};
+		//dynamic_cast<ScrollBarDecorator*>(theWindow_)->move(0, numDisplayedLines - maxDisplayedLines);
 		theWindow_->setView(sf::View(viewRect));
 	}
 	text_->setString(str_);

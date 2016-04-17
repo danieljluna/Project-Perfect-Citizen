@@ -1,5 +1,9 @@
 #include "createListElement.h"
+#include "contextListElementRenderComponent.h"
 #include "buttonRenderComponent.h"
+#include "TextDisplayBuilder.h"
+#include "TextDisplayRenderComponent.h"
+#include "mousePressButton.h"
 
 void ppc::createEmailListElement(ppc::Entity& entityToModify, Desktop& dT, sf::Image& bS, ppc::InputHandler& ih, sf::Font& f,
 	Email eM, int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size) {
@@ -16,4 +20,20 @@ void ppc::createEmailListElement(ppc::Entity& entityToModify, Desktop& dT, sf::I
 	entityToModify.addComponent(eLRC);
 	entityToModify.addComponent(eLIC);
 	entityToModify.addComponent(emailIcon);
+}
+
+void ppc::createContextListElement(ppc::Entity& entityToModify, WindowInterface* win, Desktop& dt, ppc::InputHandler& ih,
+	sf::Font& f, std::string s, int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size) {
+
+	contextListElementRenderComponent* rc = new contextListElementRenderComponent(f,
+		s, boxX, boxY, boxWidth, boxHeight, x, y, size);
+
+	TextDisplayRenderComponent *rc2 = new TextDisplayRenderComponent(f, sf::Color::Black, x, y, size, s);
+
+	mousePressButton* ic = new mousePressButton(ih, rc->getListElementBoxBounds(), "");
+
+	entityToModify.addComponent(rc);
+	entityToModify.addComponent(rc2);
+	entityToModify.addComponent(ic);
+
 }

@@ -67,9 +67,11 @@ void mousePressButton::setInputHandle(ppc::InputHandler& ih) {
 
 	ih.addHandle(sf::Event::MouseButtonPressed);
 	ih.addHandle(sf::Event::MouseButtonReleased);
+	ih.addHandle(sf::Event::MouseMoved);
 
 	watch(ih, sf::Event::MouseButtonPressed);
 	watch(ih, sf::Event::MouseButtonReleased);
+	watch(ih, sf::Event::MouseMoved);
 
 }
 
@@ -252,6 +254,7 @@ bool mousePressButton::registerInput(sf::Event ev) {
 				wasPressed_ = false;
             }
         }
+		/* Case: Mouse Move Event */
     }
 
     return true;

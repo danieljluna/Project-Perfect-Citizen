@@ -7,6 +7,7 @@
 using namespace ppc;
 const std::string SELECT_EMAIL = "SE";
 const std::string DESELECT_EMAIL = "DSE";
+
 emailListElementRenderComponent::emailListElementRenderComponent(sf::Font& f, Email& email, int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size) : font(f) {
 	
 	x += 128;

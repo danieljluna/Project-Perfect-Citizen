@@ -693,4 +693,45 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(pwd);
 }
 
+void ppc::spawnContextMenu(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, float x, float y) {
+	/* Check to make sure the window passed isn't null */
+	if (windowToModify == nullptr) { return; }
+
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 20;
+	int windowOffset = 5;
+	int contextBoxElementWidth = windowToModify->getSize().x;
+	int contextBoxElementHeight = 50;
+	int contextBoxPadding = 25;
+
+	int totalElementsLoaded = 0;
+	/////////////////////////////////////////
+	/////// ENTITIES
+	///////////////////////////////////////
+	/* Create an email list element entity for each email in the inbox*/
+	for (int i = 0; i < 3; ++i) {
+		Entity contextListElement;
+		createContextListElement(
+			contextListElement, windowToModify, dT, ih, myFont, "test", 0, (i * (contextBoxElementHeight + contextBoxPadding)),
+			contextBoxElementWidth, contextBoxElementHeight, 0, (i * (contextBoxElementHeight + contextBoxPadding)), fontSize);
+		/*createEmailListElement(
+			emailListElement, dT, buttonSheet, ih, myFont, inbox.getEmailAt(i), 0, (i * (emailBoxElementHeight + emailBoxPadding)),
+			emailBoxElementWidth, emailBoxElementHeight, 0, static_cast<int>((i * (1.5*emailBoxElementHeight))), fontSize);*/
+		windowToModify->addEntity(contextListElement);
+		++totalElementsLoaded;
+	}
+
+	int newHeight = (totalElementsLoaded)* (contextBoxElementHeight + contextBoxPadding);
+	int newWidth = windowToModify->getSize().x;
+	windowToModify->setSize(newWidth, newHeight);
+
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+
+	windowToModify->setPosition(x, y);
+
+}
+
 
