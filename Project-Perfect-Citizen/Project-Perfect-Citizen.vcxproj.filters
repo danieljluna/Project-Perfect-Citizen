@@ -298,6 +298,9 @@
     <ClCompile Include="Code\Game\WindowBkgndRenderCmpnt.cpp">
       <Filter>Sources\Game Specific\Temporary</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\TextBubble.cpp">
+      <Filter>Sources\Game Specific\TextBubble</Filter>
+    </ClCompile>
     <ClCompile Include="Code\Engine\Logger.cpp">
       <Filter>Sources\Engine\Debug</Filter>
     </ClCompile>
@@ -624,6 +627,9 @@
     <ClInclude Include="Code\Game\WindowBkgndRenderCmpnt.h">
       <Filter>Headers\Game Specific\Temporary</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Game\TextBubble.h">
+      <Filter>Headers\Game Specific\TextBubble</Filter>
+    </ClInclude>
     <ClInclude Include="Code\Engine\Logger.h">
       <Filter>Headers\Engine\Debug</Filter>
     </ClInclude>
@@ -836,6 +842,12 @@
     </Filter>
     <Filter Include="Headers\Game Specific\Input">
       <UniqueIdentifier>{752b2f34-3b3a-481d-a907-0acad8962ad7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Game Specific\TextBubble">
+      <UniqueIdentifier>{e33b4c28-357a-4128-8d73-3355bd9106ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Game Specific\TextBubble">
+      <UniqueIdentifier>{2f163bad-583a-419c-a451-9e48363c741f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -5,9 +5,9 @@
 #include <SFML/Graphics.hpp>
 #include "../Engine/renderComponent.h"
 #include "../Engine/InputHandler.h"
+#include "../Game/mousePressButton.h"
 
 namespace ppc {
-
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Designated Generic Builder Object for Buttons
 	/// @author Alex Vincent 
@@ -33,7 +33,7 @@ namespace ppc {
 		sf::Sprite* sprtUp;
 		sf::Sprite* sprtDown;
 
-		sf::Image* spriteSheet; 
+		sf::Image* spriteSheet;
 		ppc::InputHandler* inputHandle;
 
 		std::string label;
@@ -115,8 +115,30 @@ namespace ppc {
 		/// @param The entity to modify
 		///////////////////////////////////////////////////////////////////////
 		void create(Entity&);
-
 	};
+
+	///////////////////////////////////////////////////////////////////////
+	/// @brief Returns the constructed button, with a attached function
+	/// observer.
+	/// @param The entity to modify
+	/// @param The target class object
+	/// @param The function to execute on a click
+	///////////////////////////////////////////////////////////////////////
+	template<class T>
+	void createWithEventFunc(ButtonBuilder& builder, Entity& e, T* target, bool(*func)(T *, ppc::Event)) {
+
+		builder.create(e);
+		size_t s = e.cmpntCount();
+		ppc::mousePressButton* mpb = dynamic_cast<mousePressButton*>(e.getComponent(s-1));
+
+		if (mpb != nullptr) {
+			setOnPress(mpb, target, func);
+		} else {
+			return;
+		}
+	}
 
 
 };
+
+
