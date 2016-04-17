@@ -97,12 +97,12 @@ void ppc::IconBuilder::setPosition(sf::Vector2f pos) {
 void ppc::IconBuilder::create(Entity &e) {
 	textLabelComponent* textLabel = new textLabelComponent(*font, fontColor, posX, posY + size * 128, 20, label);
 
-	buttonRenderComponent* IconRender = new buttonRenderComponent(*dt->getIconSheet(), sheetX, sheetY, width, frames);
+	buttonRenderComponent* IconRender = new buttonRenderComponent(dt->getIconSheet(), sheetX, sheetY, width, frames);
 	IconRender->setImageScale(size, size);
 	IconRender->renderPosition({ posX, posY });
 	animatorComponent* animator = new animatorComponent(*IconRender, animationSpeed);
 	mousePressButton* mpbFolder = new mousePressButton(*ih, IconRender->getSprite()->getGlobalBounds(), "folderIcon");
-	iconInputComponent* iconInputComp = new iconInputComponent(*dt, db, *ib, *buttonSheet, *dt->getIconSheet());
+	iconInputComponent* iconInputComp = new iconInputComponent(*dt, db, *ib, *buttonSheet, dt->getIconSheet());
 
 	e.addComponent(IconRender);
 	e.addComponent(textLabel);
