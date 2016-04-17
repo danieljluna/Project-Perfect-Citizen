@@ -175,8 +175,8 @@ void ppc::Desktop::setIconSheet(sf::Image sheet) {
 	this->iconSheet_ = sheet;
 }
 
-sf::Image* ppc::Desktop::getIconSheet() {
-	return &iconSheet_;
+sf::Image& ppc::Desktop::getIconSheet() {
+	return iconSheet_;
 }
 
 void ppc::Desktop::setButtonSheet(sf::Image sheet) {
@@ -184,8 +184,8 @@ void ppc::Desktop::setButtonSheet(sf::Image sheet) {
 	this->buttonSheet_ = sheet;
 }
 
-sf::Image* ppc::Desktop::getButtonSheet() {
-	return &buttonSheet_;
+sf::Image& ppc::Desktop::getButtonSheet() {
+	return buttonSheet_;
 }
 
 
@@ -205,8 +205,8 @@ void ppc::Desktop::setBackgrond(sf::Sprite s) {
 	
 }
 
-ppc::InputHandler* ppc::Desktop::getInputHandler() {
-	return &desktopWindow_->getInputHandler();
+ppc::InputHandler& ppc::Desktop::getInputHandler() {
+	return desktopWindow_->getInputHandler();
 }
 
 ppc::WindowInterface* ppc::Desktop::getDesktopWindow() {
@@ -217,8 +217,8 @@ void ppc::Desktop::setInbox(Inbox i) {
 	inbox_ = i;
 }
 
-ppc::Inbox* ppc::Desktop::getInbox() {
-	return &inbox_;
+ppc::Inbox& ppc::Desktop::getInbox() {
+	return inbox_;
 }
 
 void ppc::Desktop::registerInput(sf::Event ev) {

@@ -9,7 +9,7 @@
 #include "../Engine/subject.h"
 #include "../Engine/FunctionObserver.h"
 #include "../Engine/FreeFunctionObserver.h"
-
+#include "../Engine/debug.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Input Component for a generic window 'X' button
