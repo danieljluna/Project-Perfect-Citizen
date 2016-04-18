@@ -223,8 +223,15 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
     
+    
+    Entity help;
+    HelpWindowRenderComponent* helpText1 = new HelpWindowRenderComponent(myFont,30,90,16);
+    help.addComponent(helpText1);
+
+    
+    Entity tab0;
     Entity tab1;
-    Entity tab2;
+    
 
     // Button Test
     ButtonBuilder builder;
@@ -235,26 +242,32 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     builder.setLabelMessage("Console");
     builder.setLabelFont(myFont);
     builder.setLabelSize(12);
-    builder.create(tab1);
+
+    builder.create(tab0);
+    createWithEventFunc(builder, tab0, helpText1, swithTab0Fn);
 
     builder.setButtonPosition(sf::Vector2f(128,16));
-    builder.create(tab2);
+    builder.setLabelMessage("Graph");
+
+    builder.create(tab1);
+    createWithEventFunc(builder, tab1, helpText1, swithTab1Fn);
+
     
     /////////////////////////////////////////
     /////// ENTITIES
     ///////////////////////////////////////
-    Entity help;
+   
     
     
-    HelpWindowRenderComponent* helpText1 = new HelpWindowRenderComponent(myFont,30,90,16);
+    
+
 //   sf::Font& f, std::string str, int x, int y, int size
-    help.addComponent(helpText1);
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
     windowToModify->setPosition(x, y);
+    windowToModify->addEntity(tab0);
     windowToModify->addEntity(tab1);
-    windowToModify->addEntity(tab2);
     windowToModify->addEntity(help);
     
     windowToModify = new BorderDecorator(*windowToModify);
