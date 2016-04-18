@@ -13,6 +13,7 @@
 #include <SFML/Graphics.hpp>
 #include <sstream>
 
+#include "../Engine/World.h"
 #include "../Engine/Window.h"
 #include "buttonRenderComponent.h"
 #include "consoleUpdateComponent.h"
@@ -266,7 +267,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	/////////////////////////////////////////
 	/////// COMPONENTS 
-	///////////////////////////////////////
+	/////////////////////////////////////////
 
 	/* Create the render components */
 	PipelineDataRenderComponent* dataText = new PipelineDataRenderComponent(myFont, 
@@ -276,24 +277,33 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 		float(windowToModify->getSize().y));
     
 
-    Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
+    //Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
+	//Desktop* currDesk = &World::getCurrDesktop();
+	int netvecindex = World::getCurrDesktop().getNetVecIndex();
+	Network* solNet;
+	if (!World::getCurrDesktop().getNetVec().empty()) {
+		solNet = World::getCurrDesktop().getNetVec().at(netvecindex);
+	} else {
+		solNet = PipelineLevelBuilder::buildDefaultNetwork();
+	}
 	Network* playNet = solNet->copyNetworkByVerts();
+
 
     NetworkCheckFunctor *ncf = new NetworkCheckFunctor(*solNet, *playNet);
 	playNet->setCenter(-1);  //TEST THIS
 
-	std::vector<int> indexVec {0, 1, 2, 3, 4, 5, 6, 7};
+	//std::vector<int> indexVec {0, 1, 2, 3, 4, 5, 6, 7};
+	std::vector<int> indexVec;
+	for (unsigned int i = 0; i < solNet->size(); ++i) {
+		indexVec.push_back(i);
+	}
 	std::random_shuffle(indexVec.begin(), indexVec.end());
 	//No Overlapping Edges (Think of this positioning as an 8x8 grid
 	//the number after the * is the row/column number)
-	playNet->vert(indexVec[0]).setPosition(50 + 50 * 0, 50 + 50 * 0);
-	playNet->vert(indexVec[1]).setPosition(50 + 50 * 0, 50 + 50 * 7);
-	playNet->vert(indexVec[2]).setPosition(70 + 50 * 2, 50 + 50 * 1);
-	playNet->vert(indexVec[3]).setPosition(70 + 50 * 2, 50 + 50 * 6);
-	playNet->vert(indexVec[4]).setPosition(30 + 50 * 5, 50 + 50 * 1);
-	playNet->vert(indexVec[5]).setPosition(30 + 50 * 5, 50 + 50 * 6);
-	playNet->vert(indexVec[6]).setPosition(50 + 50 * 7, 50 + 50 * 0);
-	playNet->vert(indexVec[7]).setPosition(50 + 50 * 7, 50 + 50 * 7);
+	for (unsigned int i = 0, j = 0; i < indexVec.size(); ++i) {
+		playNet->vert(indexVec[i]).setPosition(50 + 70 * i%4, 50 + 100 * j);
+		if (i > 0 && i % 4 == 0) j++;
+	}
 
 	NetworkRenderComponent* networkRender = 
 		new NetworkRenderComponent(*playNet);

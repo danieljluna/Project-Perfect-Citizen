@@ -30,9 +30,11 @@ public:
 	///////////////////////////////////////////////////////////////////
 	static Network* buildLevelOneNetworkSolution();
 
+	static Network* buildDefaultNetwork();
+
+	static const std::map<std::string, int> LEVEL_MAP;
+
 	
-
-
 
 	/*
 	static Network BuildLevelTwoNetwork();
@@ -41,6 +43,7 @@ public:
 private:
 
 	//static Network * initNetwork(int numnodes);
+
 
 	static void populateLevelEdges(int start, int end, int numEdges, 
 		Network& net, int suspLevel, const Json::Value& exprGrammar);
