@@ -60,6 +60,6 @@ namespace ppc {
 	/// @param An integer specifying the text/font's size
 	///////////////////////////////////////////////////////////////////////
 	void createContextListElement(ppc::Entity& entityToModify, WindowInterface* win, Desktop& dt, ppc::InputHandler& ih,
-		sf::Font& f, std::string s, int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size);
+		sf::Font& f, std::string s, bool(*)(Desktop*, Event ev), int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size);
 
 }

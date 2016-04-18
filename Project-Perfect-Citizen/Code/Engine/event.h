@@ -18,6 +18,7 @@ namespace ppc {
 		struct Buttons {
 			bool isPushed;
 			bool isReleased;
+			bool isHovered;
 		};
 
 		struct Transformations {

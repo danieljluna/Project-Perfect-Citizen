@@ -150,10 +150,12 @@ void spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& 
 ///
 ///@param The newly created window to add components/entities to.
 ///@param The input handler of the listened-to window.
+///@param A vector of the names of the context list elements
 ///@param The x position of the new window
 ///@param The y position of the new window
 ///////////////////////////////////////////////////////////////////////
-void spawnContextMenu(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, float x, float y);
+void spawnContextMenu(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, 
+	std::vector<std::string> n, std::vector<bool(*)(Desktop*, Event ev)>, float x, float y);
 
 };
 

@@ -13,15 +13,15 @@ contextListElementRenderComponent::contextListElementRenderComponent(sf::Font f,
 
 	this->labelText = new sf::Text();
 	labelText->setFont(font);
-	labelText->setString("FUCK THIS");
+	labelText->setString("_default_");
 	labelText->setCharacterSize(20);
-	labelText->setColor(sf::Color::White);
+	labelText->setColor(sf::Color::Black);
 	labelText->setPosition(100, 100);
 
 	
 	contextListElementBox.setPosition(sf::Vector2f(float(boxX), float(boxY)));
 	contextListElementBox.setSize(sf::Vector2f(float(boxWidth), float(boxHeight)));
-	contextListElementBox.setFillColor(sf::Color::Green);
+	contextListElementBox.setFillColor(sf::Color(170, 170, 170));
 
 }
 
@@ -45,7 +45,8 @@ void contextListElementRenderComponent::draw(sf::RenderTarget & target,
 void contextListElementRenderComponent::recieveMessage(Event ev) {
 	switch (ev.type) {
 		case Event::EventTypes::ButtonType:
-			if (ev.buttons.isPushed) { std::cout << "context pressed!"; }
+			if (ev.buttons.isPushed) { }
+			else if (ev.buttons.isHovered) { std::cout << "Hovered!"; }
 			break;
 		default:
 			break;

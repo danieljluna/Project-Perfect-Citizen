@@ -71,7 +71,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     startBar.addComponent(bar);
     
 	Entity startButton;
-	spawnStartButton(startButton, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
+	spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
     startToolbar->addEntity(startBar);
     startToolbar->addEntity(startButton);
 	desktopToModify.addWindow(startToolbar);
@@ -144,7 +144,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     startBar.addComponent(bar);
     
     Entity startButton;
-    spawnStartButton(startButton, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
+    spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
     startToolbar->addEntity(startBar);
     startToolbar->addEntity(startButton);
     desktopToModify.addWindow(startToolbar);
