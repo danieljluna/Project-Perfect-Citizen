@@ -304,8 +304,11 @@
     <ClCompile Include="Code\Engine\Logger.cpp">
       <Filter>Sources\Engine\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\contextListElementRenderComponent.cpp">
-      <Filter>Sources\Game Specific</Filter>
+    <ClCompile Include="Code\Game\HelpRenderComponent.cpp">
+      <Filter>Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\testRenderSprite.cpp">
+      <Filter>Headers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -639,8 +642,11 @@
     <ClInclude Include="Code\Engine\LoggerParcel.h">
       <Filter>Headers\Engine\Debug</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Game\contextListElementRenderComponent.h">
-      <Filter>Headers\Game Specific</Filter>
+    <ClInclude Include="Code\Game\testRenderSprite.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\HelpRenderComponent.hpp">
+      <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
