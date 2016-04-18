@@ -320,7 +320,7 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 	std::string line;
 
 	ppc::Desktop* importDesktop = &desktop;
-	desktop.clearDesktop();
+	importDesktop->clearDesktop();
 	ppc::Window* bkgndWindow = 
 		new Window(1800, 1000, sf::Color(0, 0, 0));
 	importDesktop->addBkgndWindow(bkgndWindow);
