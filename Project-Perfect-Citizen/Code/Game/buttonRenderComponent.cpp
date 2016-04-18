@@ -97,9 +97,23 @@ bool buttonRenderComponent::willAnimate() {
     return _willAnimate;
 }
 
+sf::CircleShape buttonRenderComponent::drawBadge(sf::Vector2f pos)const {
+    
+    sf::CircleShape badge;
+    badge.setPosition(pos);
+    badge.setFillColor(sf::Color::Red);
+    badge.setOutlineColor(sf::Color::White);
+    badge.setOutlineThickness(2.f);
+    badge.setRadius(5.f);
+    return badge;
+}
+
 void buttonRenderComponent::draw( sf::RenderTarget& target,
 	sf::RenderStates states) const {
         target.draw(*sprite, states);
+    if (getButtonType() == "ICON") {
+        target.draw(drawBadge(sprite->getPosition()), states);
+    }
 }
 
 void buttonRenderComponent::recieveMessage(msgType code) {
