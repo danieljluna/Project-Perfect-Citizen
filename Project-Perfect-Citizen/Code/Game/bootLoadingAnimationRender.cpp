@@ -99,8 +99,6 @@ bootLoadingAnimationRender::bootLoadingAnimationRender(sf::Image& img,textLabelC
     
     frame = 0;
     opacity = 255;
-    
-
 }
 
 
