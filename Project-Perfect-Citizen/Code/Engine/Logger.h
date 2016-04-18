@@ -14,10 +14,19 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 class Logger {
 public:
+
+  /////////////////////////////////////////////////////////////////////
+  // Parcel Manipulation
+  /////////////////////////////////////////////////////////////////////
     
-    static LoggerParcel getLabel(const std::string& label);
+    static LoggerParcel getParcel(const std::string& label);
+
+    static bool scaleParcel(const std::string& label,
+                            const float scale);
+
+    static bool exportParcels();
     
-    static void eraseLabel(const std::string& label);
+    static bool eraseParcel(const std::string& label);
 
   /////////////////////////////////////////////////////////////////////
   // Storing Times
@@ -33,6 +42,12 @@ public:
   // Storing Ints
   /////////////////////////////////////////////////////////////////////
 
+    static float saveNumber(const std::string& label, 
+                            const float number);
+
+    static float incrementNumber(const std::string& label,
+                                 const float incrementation);
+
 
 private:
 
@@ -43,6 +58,13 @@ private:
     Logger() = delete;
     Logger(const Logger&) = delete;
     Logger(Logger&&) = delete;
+
+
+  /////////////////////////////////////////////////////////////////////
+  // Initializer for the ostream
+  /////////////////////////////////////////////////////////////////////
+
+    static std::string& generateFileName();
 
 
   /////////////////////////////////////////////////////////////////////

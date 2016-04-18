@@ -1,5 +1,10 @@
 #include "Logger.h"
 
+#include <time.h>
+#include <string>
+#include <fstream>
+#include <iostream>
+
 using namespace ppc;
 
 std::map<std::string, LoggerParcel> Logger::parcelMap;
@@ -7,6 +12,96 @@ std::map<std::string, LoggerParcel> Logger::parcelMap;
 std::map<std::string, sf::Time> Logger::timerStarts;
 
 sf::Clock Logger::clock;
+
+
+
+///////////////////////////////////////////////////////////////////////
+// Parcel Manipulation
+///////////////////////////////////////////////////////////////////////
+
+LoggerParcel Logger::getParcel(const std::string& label) {
+    LoggerParcel result;
+
+    auto it = parcelMap.find(label);
+    //If we even have a parcel for this label:
+    if (it != parcelMap.end()) {
+        //Get that label
+        result = it->second;
+    }
+
+    return result;
+}
+
+
+
+bool Logger::scaleParcel(const std::string& label,
+                         const float scale) {
+    bool result = false;
+    auto it = parcelMap.find(label);
+
+    //If we even have a parcel for this label:
+    if (it != parcelMap.end()) {
+        result = true;
+
+        //Apply scaling factor
+        switch (it->second.type) {
+        case LoggerParcel::Timer:
+            it->second.time *= scale;
+            break;
+        case LoggerParcel::Number:
+            it->second.number *= scale;
+            break;
+        }
+    }
+
+    return result;
+}
+
+
+
+
+bool Logger::exportParcels() {
+    bool result = false;
+
+    std::string filename(generateFileName());
+
+    std::ofstream out(filename);
+    std::ifstream in(filename);
+
+    if (in && out) {
+        result = true;
+
+        std::string label;
+        in >> label;
+
+
+        while (in) {
+            in >> label;    //Keeps from infinite loop
+        }
+
+        //Introduce Export to file (tellp) (seekp)
+    }
+
+    return result;
+}
+
+
+
+
+bool Logger::eraseParcel(const std::string& label) {
+    bool result = false;
+    
+    auto it = parcelMap.find(label);
+    //If we even have a parcel for this label:
+    if (it != parcelMap.end()) {
+        result = true;
+
+        //Remove that label
+        parcelMap.erase(label);
+    }
+
+    return result;
+}
 
 
 
@@ -23,6 +118,7 @@ void Logger::startTimer(const std::string& label) {
         timerStarts.emplace(label, clock.getElapsedTime());
     }
 }
+
 
 
 
@@ -77,15 +173,29 @@ bool Logger::endTimer(const std::string& label, bool aggregate) {
 
 
 
-void Logger::eraseLabel(const std::string& label) {
-    auto it = parcelMap.find(label);
-    //If we even have a time for this label:
-    if (it != parcelMap.end()) {
-        if (it->second.type == LoggerParcel::Timer) {
-            //Remove that label
-            parcelMap.erase(label);
-        }
-    }
+
+
+///////////////////////////////////////////////////////////////////////
+// Initializer for the ostream
+///////////////////////////////////////////////////////////////////////
+
+std::string& Logger::generateFileName() {
+    /*
+    time_t rawTime;
+    struct tm* timeInfo;
+    char buffer[80];
+
+    time(&rawTime);
+
+    timeInfo = localtime(&rawTime);
+
+    strftime(buffer, 80, "ppc_%d-%b-%y_%H-%M.log", timeInfo);
+    std::string result(buffer);
+    */
+
+    std::string result("PPC_TESTING.LOG");
+
+    return result;
 }
 
 
