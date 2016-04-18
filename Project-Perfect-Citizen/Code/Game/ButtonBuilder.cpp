@@ -81,8 +81,7 @@ void ppc::ButtonBuilder::setInputHandle(ppc::InputHandler& ih)
 	inputHandle = &ih;
 }
 
-void ppc::ButtonBuilder::create(Entity& e)
-{
+void ppc::ButtonBuilder::create(Entity& e){
 
 	/* Render Components */
 	buttonRenderComponent* buttonRender;
@@ -125,4 +124,3 @@ void ppc::ButtonBuilder::create(Entity& e)
 	buttonRender->renderPosition(sf::Vector2f(posX, posY));
 
 }
-

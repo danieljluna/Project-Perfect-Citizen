@@ -188,7 +188,7 @@ void PipelineCharacter::generate() {
     // for mouth types
     std::uniform_int_distribution<> mouthd(4, 6);
     // for nose types
-    std::uniform_int_distribution<> nosed(0, 2);
+    std::uniform_int_distribution<> nosed(0, 8);
     // for skin index
     std::uniform_int_distribution<> skind(0, 7);
     

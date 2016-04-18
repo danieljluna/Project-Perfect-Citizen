@@ -243,8 +243,6 @@ void characterRender::initializeTones() {
 	hairTones.push_back(sf::Color(85, 72, 56));
 	hairTones.push_back(sf::Color(106, 78, 66));
 
-
-
 	lipTones.push_back(sf::Color(238, 193, 173));
 	lipTones.push_back(sf::Color(219, 172, 152));
 	lipTones.push_back(sf::Color(210, 153, 133));

@@ -136,12 +136,19 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     //// Create the start menu
     /////////////////////////////////////////////
     ppc::WindowInterface* startToolbar =
-    new ppc::Window(1000, 60, sf::Color(128, 128, 128));
-    startToolbar->setPosition(0, 750);
-    Entity startButton = Entity();
-    spawnStartButton(startButton, startToolbar->getInputHandler(), buttonSheet, 0, 0, 0.4f);
+    new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
+    startToolbar->setPosition(0, 735);
+    
+    Entity startBar;
+    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    startBar.addComponent(bar);
+    
+    Entity startButton;
+    spawnStartButton(startButton, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
+    startToolbar->addEntity(startBar);
     startToolbar->addEntity(startButton);
     desktopToModify.addWindow(startToolbar);
+
     
     ////////////////////////////////
     ///// ICONS ON TEACHER DESKTOP
