@@ -1,6 +1,7 @@
 {
 	"Email": {
    		"Email_001": {
+            "Visible" : "1",
    			"To" : "Chandler Garvey <cgarvey@fellowship.net>",
 			"From" : "Murphy Goodwin <mgoodwin@corpora.com>",
           	"Subject" : "Coming Clean",
@@ -22,6 +23,7 @@
         -Murphy"
         },
 		"Email_002": {
+            "Visible" : "1",
 			"To" : "Chandler Garvey <cgarvey@fellowship.net>",
 			"From" : "Murphy Goodwin <mgoodwin@corpora.com>",
 			"Subject": "RE: RE: RE: You've been with us for how long?",
@@ -31,6 +33,7 @@
     ashamed of are things they can't help?"
 		},
         "Email_003": {
+            "Visible" : "1",
             "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "From" : "Chandler Garvey <cgarvey@fellowship.net>",
             "Subject": "RE: RE: You've been with us for how long?",
@@ -44,6 +47,7 @@
     happened to you?"
         },
         "Email_004": {
+            "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "Subject": "RE: You've been with us for how long?",
@@ -60,6 +64,7 @@
     I can barely say his name aloud."
         },
         "Email_005": {
+            "Visible" : "1",
             "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "From" : "Chandler Garvey <cgarvey@fellowship.net>",
             "Subject": "You've been with us for how long?",
@@ -76,6 +81,7 @@
         -Chandler"
         },
         "Email_006": {
+            "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "Subject": "RE: RE: RE: Need to talk",
@@ -90,6 +96,7 @@
         -Murphy"
         },
         "Email_007": {
+            "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "Subject": "RE: RE: Need to talk",
@@ -115,6 +122,7 @@
         -Murphy"
         },
         "Email_008": {
+            "Visible" : "1",
             "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "From" : "Chandler Garvey <cgarvey@fellowship.net>",
             "Subject": "RE: Need to talk",
@@ -129,6 +137,7 @@
     You're not alone in this."
         },
         "Email_009": {
+            "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "Subject": "Need to talk",
@@ -153,6 +162,7 @@
             Murphy"
         },
         "Email_010": {
+            "Visible" : "1",
             "To" : "Vanita Goodwin <vgoodwin@colonade.com",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "Subject": "Good News!",
@@ -173,6 +183,7 @@
             Murphy & Lisa"
         },
         "Email_011": {
+            "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "Subject": "RE: RE: RE: RE: Trouble",
@@ -185,6 +196,7 @@
             - Murphy"
         },
         "Email_012": {
+            "Visible" : "1",
             "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "From" : "Chandler Garvey <cgarvey@fellowship.net>",
             "Subject": "RE: RE: RE: Trouble",
@@ -206,6 +218,7 @@
             - Chandler"
         },
         "Email_013": {
+            "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "Subject": "RE: RE: Trouble",
@@ -216,6 +229,7 @@
             - Murphy"
         },
         "Email_014": {
+            "Visible" : "1",
             "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "From" : "Chandler Garvey <cgarvey@fellowship.net>",
             "Subject": "RE: Trouble",
@@ -227,6 +241,7 @@
             - Chandler"
         },
         "Email_015": {
+            "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "Subject": "Trouble",
@@ -244,6 +259,7 @@
             - Murphy"
         },
         "Email_016": {
+            "Visible" : "1",
             "To" : "Murphy Goodwin <mgoodwin@corpora.com>, more...",
             "From" : "Chandler Garvey <cgarvey@fellowship.net>",
             "Subject": "Important News",
@@ -267,6 +283,7 @@
             - C. Garvey"
         },
         "Email_017": {
+            "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "Subject": "RE: Welcome!",
@@ -295,6 +312,7 @@
             Murphy Goodwin"
         },
         "Email_018": {
+            "Visible" : "1",
             "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "From" : "Chandler Garvey <cgarvey@fellowship.net>",
             "Subject": "Welcome!",
