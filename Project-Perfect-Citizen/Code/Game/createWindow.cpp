@@ -342,6 +342,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     string dotEnd;
     
     if (!path.empty()) dotEnd = path.substr(path.length() - 4);
+    
     /////////////////////////////////////////
     /////// COMPONENTS & ENTITIES
     ///////////////////////////////////////
@@ -382,38 +383,44 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
             new textRenderComponent(myFont, content, 0, 0, fontSize);
         
         newEnt.addComponent(textBox);
-        
+        windowToModify->setPosition(x, y);
+        windowToModify->addEntity(newEnt);
         windowToModify->setSize(windowToModify->getSize().x, windowScrollHeight);
+        
         sf::FloatRect viewRect = {
             0.0f,
             0.0f,
             float(windowToModify->getSize().x),
             float(windowToModify->getSize().x)
         };
-		cout << windowScrollHeight << endl;
+        
         windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     }
     
     else if(dotEnd == PNG || dotEnd == JPG){
         sf::Image photo;
         photo.loadFromFile(path);
-        windowToModify->setSize(photo.getSize().x/2, photo.getSize().y/2);
+        
         photoRenderComponent* photoRender = new photoRenderComponent(photo);
+        
+        newEnt.addComponent(photoRender);
+        windowToModify->setPosition(x, y);
+        windowToModify->addEntity(newEnt);
+        windowToModify->setSize(photo.getSize().x/2, photo.getSize().y/2);
+        
         photoRender->setImageScale((float)windowToModify->getSize().x /
                                (float)photo.getSize().x,
                                (float)windowToModify->getSize().y /
-                               (float)photo.getSize().y);
-        newEnt.addComponent(photoRender);
+                                   (float)photo.getSize().y);
     }
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
     windowToModify = new BorderDecorator(*windowToModify);
-    windowToModify->setPosition(x, y);
-    windowToModify->addEntity(newEnt);
-    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
-	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(filename);
+    BorderDecorator* border = dynamic_cast<BorderDecorator*>(windowToModify);
+    border->addButton(buttonSheet, closeWindow);
+    border->setCaption(filename);
 }
 
 void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, Inbox& inbox) {
@@ -445,6 +452,7 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	int newHeight = (totalEmailsLoaded) * (emailBoxElementHeight + emailBoxPadding);
 	int newWidth = windowToModify->getSize().x;
 	windowToModify->setSize(newWidth, newHeight);
+    windowToModify->setPosition(x, y);
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
@@ -457,7 +465,6 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	};
 	windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
 	windowToModify = new BorderDecorator(*windowToModify);
-	windowToModify->setPosition(x, y);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("My Messages");
 
