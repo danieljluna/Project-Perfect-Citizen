@@ -2,7 +2,10 @@
 //Programmed by Andy
 #include <SFML/Graphics.hpp>
 
+#include "EmailUpdateEvent.h"
+
 namespace ppc {
+
 	//This is the event struct. You can add events here
 	//if you need them. Nothing here is final except
 	//the template. 
@@ -35,6 +38,7 @@ namespace ppc {
 			TransformationType,
 			ScrollbarType,
 			sfEventType,
+            EmailUpdateType,
 			Count
 		};
 
@@ -44,6 +48,7 @@ namespace ppc {
 			Buttons buttons;
 			Transformations transformations;
 			Scrollbar scrollbar;
+            EmailUpdate emailUpdate;
             sf::Event sfEvent;
 		};
 	};

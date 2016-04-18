@@ -23,6 +23,7 @@
     <ClCompile Include="Code\Engine\desktop.cpp" />
     <ClCompile Include="Code\Engine\DraggableInput.cpp" />
     <ClCompile Include="Code\Engine\Edge.cpp" />
+    <ClCompile Include="Code\Engine\EmailUpdateEvent.cpp" />
     <ClCompile Include="Code\Engine\entity.cpp" />
     <ClCompile Include="Code\Engine\EntityDecorator.cpp" />
     <ClCompile Include="Code\Engine\EntityLogger.cpp" />
@@ -132,6 +133,7 @@
     <ClInclude Include="Code\Engine\desktop.h" />
     <ClInclude Include="Code\Engine\DraggableInput.h" />
     <ClInclude Include="Code\Engine\Edge.h" />
+    <ClInclude Include="Code\Engine\EmailUpdateEvent.h" />
     <ClInclude Include="Code\Engine\Engine.h" />
     <ClInclude Include="Code\Engine\entity.h" />
     <ClInclude Include="Code\Engine\EntityDecorator.h" />

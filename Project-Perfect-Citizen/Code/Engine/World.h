@@ -2,10 +2,10 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "desktop.h"
 
 namespace ppc {
 
+    class Desktop;
 
 	///////////////////////////////////////////////////////////////////
 	///@brief Class that handles Level transitions, saving/loading, etc

@@ -10,6 +10,7 @@
 #include "../Game/emailExtraction.hpp"
 #include "../Library/json/json.h"
 #include "debug.h"
+#include "desktop.h"
 
 using namespace ppc;
 
