@@ -441,6 +441,7 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	int emailBoxElementWidth = windowToModify->getSize().x;
 	int emailBoxElementHeight = 50;
 	int emailBoxPadding = 25;
+    int emailApplicationHeight = emailBoxElementHeight * 6;
     
 	int totalEmailsLoaded = 0;
 	/////////////////////////////////////////
@@ -464,12 +465,22 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
-	sf::FloatRect viewRect = {
-		0.0f,
-		0.0f,
-		float(windowToModify->getSize().x),
-		float(windowToModify->getSize().y / 2.0)
-	};
+    /* Create email app height dynamically if only a few emails */
+    sf::FloatRect viewRect = {
+        0.0f,
+        0.0f,
+        float(windowToModify->getSize().x),
+        float(windowToModify->getSize().y)
+    };
+    /* If many emails, have the app size be predetermined */
+    if(newHeight > emailApplicationHeight){
+        viewRect = {
+            0.0f,
+            0.0f,
+            float(windowToModify->getSize().x),
+            float(emailApplicationHeight)
+        };
+    }
 	windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
