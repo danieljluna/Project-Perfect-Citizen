@@ -29,20 +29,9 @@ namespace ppc {
 			float end;
 		};
 
-		struct Message {
-			std::string msg;
-		};
-
-		struct FloppyEmotions {
-			bool isDefault;
-			bool isAngry;
-			bool isSurprised;
-			bool isPeeked;
-		};
-
-		struct FloppyInput {
-			std::vector<std::pair<std::string, Event::FloppyEmotions>> input;
-			~FloppyInput() {}
+		struct Floppy {
+			unsigned int sequence;
+			unsigned int frame;
 		};
 
 		enum EventTypes
@@ -51,9 +40,7 @@ namespace ppc {
 			TransformationType,
 			ScrollbarType,
 			sfEventType,
-			MessageType,
 			FloppyType,
-			EmotionType,
 			Count
 		};
 
@@ -63,9 +50,7 @@ namespace ppc {
 			Buttons buttons;
 			Transformations transformations;
 			Scrollbar scrollbar;
-			//Message message;
-			//FloppyInput floppyinput;
-			FloppyEmotions emotions;
+			Floppy floppy;
             sf::Event sfEvent;
 		};
 	};

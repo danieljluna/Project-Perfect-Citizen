@@ -26,16 +26,12 @@ namespace ppc {
 	private:
 
 		int currentSequenceIndex = 0;
-		std::vector<std::pair<std::string, Event::FloppyEmotions>> currentSequence;
 		
 	public:
 
 		FloppyInputComponent();
 		~FloppyInputComponent();
 
-		void recieveEvent(ppc::Event);
-		void updateFloppyEmotion(sf::Event);
-		void updateTextBoxString(sf::Event);
 		void advanceSequence(sf::Event);
 		void regressSequence(sf::Event);
 
