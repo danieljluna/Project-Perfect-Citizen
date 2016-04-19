@@ -28,6 +28,6 @@ void ppc::TextBubbleRender::recieveMessage(msgType code) {
 
 void ppc::TextBubbleRender::recieveMessage(ppc::Event ev) {
 
-	
+
 
 }
