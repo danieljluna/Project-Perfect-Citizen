@@ -23,27 +23,28 @@ const std::string OPEN_THE_EMAIL = "OTEM";
 
 const float DOUBLE_CLICK_TIME = 500.0f;
 
+using namespace std;
 mousePressButton::mousePressButton() : 
-	InputComponent(2), buttonRect() {
+	InputComponent(3), buttonRect() {
 
 }
 
 
 mousePressButton::mousePressButton(ppc::InputHandler& ih, 
 	sf::FloatRect rect, std::string iBP) : 
-	InputComponent(2), buttonRect(rect), isBeingPressed(iBP){
+	InputComponent(3), buttonRect(rect), isBeingPressed(iBP){
 
 	//add a new subject that is tied to the event
 	ih.addHandle(sf::Event::MouseButtonPressed);
 	ih.addHandle(sf::Event::MouseButtonReleased);
+	ih.addHandle(sf::Event::MouseMoved);
 	 
 	//add an observer to the subject we just added
-	if (watch(ih, sf::Event::MouseButtonPressed)) {
-		//cout << "Mouse Pressed Watched" << endl;
-	}
-	if (watch(ih, sf::Event::MouseButtonReleased)) {
-		//cout << "Mouse Released Event Watched" << endl;
-	}
+	watch(ih, sf::Event::MouseButtonPressed);
+	watch(ih, sf::Event::MouseButtonReleased);
+	watch(ih, sf::Event::MouseMoved);
+	
+
 }
 
 void mousePressButton::clearObservers()
@@ -67,9 +68,11 @@ void mousePressButton::setInputHandle(ppc::InputHandler& ih) {
 
 	ih.addHandle(sf::Event::MouseButtonPressed);
 	ih.addHandle(sf::Event::MouseButtonReleased);
+	ih.addHandle(sf::Event::MouseMoved);
 
 	watch(ih, sf::Event::MouseButtonPressed);
 	watch(ih, sf::Event::MouseButtonReleased);
+	watch(ih, sf::Event::MouseMoved);
 
 }
 
@@ -252,6 +255,16 @@ bool mousePressButton::registerInput(sf::Event ev) {
 				wasPressed_ = false;
             }
         }
+		/* Case: Mouse Move Event */
+		else if ((ev.type == sf::Event::MouseMoved)) {
+			if (isCollision({ ev.mouseButton.x, ev.mouseButton.y })) {
+				ppc::Event ppcEv(ev);
+				ppcEv.type = ppc::Event::ButtonType;
+				ppcEv.buttons.isHovered = true;
+				getEntity()->broadcastMessage(ppcEv);
+				onHover_.sendEvent(ev);
+			}
+		}
     }
 
     return true;

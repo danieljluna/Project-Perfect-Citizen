@@ -58,6 +58,7 @@
     <ClCompile Include="Code\Game\characterRender.cpp" />
     <ClCompile Include="Code\Game\consoleIconRenderComponent.cpp" />
     <ClCompile Include="Code\Game\consoleUpdateComponent.cpp" />
+    <ClCompile Include="Code\Game\contextListElementRenderComponent.cpp" />
     <ClCompile Include="Code\Game\createButton.cpp" />
     <ClCompile Include="Code\Game\createDesktop.cpp" />
     <ClCompile Include="Code\Game\createIcon.cpp" />
@@ -80,6 +81,9 @@
     <ClCompile Include="Code\Game\explorerFileInputComponent.cpp" />
     <ClCompile Include="Code\Game\explorerFolderInputComponent.cpp" />
     <ClCompile Include="Code\Game\expressionistParser.cpp" />
+    <ClCompile Include="Code\Game\FloppyInputComponent.cpp" />
+    <ClCompile Include="Code\Game\FloppyRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\FloppyUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\HelpRenderComponent.cpp" />
     <ClCompile Include="Code\Game\IconBuilder.cpp" />
     <ClCompile Include="Code\Game\iconInputComponent.cpp" />
@@ -97,11 +101,11 @@
     <ClCompile Include="Code\Game\PipelineGraphRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineLevelBuilder.cpp" />
     <ClCompile Include="Code\Game\spriteRenderComponent.cpp" />
-    <ClCompile Include="Code\Game\testRenderSprite.cpp" />
     <ClCompile Include="Code\Game\TextBoxBuilder.cpp" />
     <ClCompile Include="Code\Game\TextBoxInputComponent.cpp" />
     <ClCompile Include="Code\Game\TextBoxRenderComponent.cpp" />
     <ClCompile Include="Code\Game\TextBubble.cpp" />
+    <ClCompile Include="Code\Game\TextBubbleRender.cpp" />
     <ClCompile Include="Code\Game\TextDisplayBuilder.cpp" />
     <ClCompile Include="Code\Game\TextDisplayRenderComponent.cpp" />
     <ClCompile Include="Code\Game\TextFieldRenderComponent.cpp" />
@@ -176,6 +180,7 @@
     <ClInclude Include="Code\Game\characterRender.hpp" />
     <ClInclude Include="Code\Game\consoleIconRenderComponent.h" />
     <ClInclude Include="Code\Game\consoleUpdateComponent.h" />
+    <ClInclude Include="Code\Game\contextListElementRenderComponent.h" />
     <ClInclude Include="Code\Game\createButton.h" />
     <ClInclude Include="Code\Game\createDesktop.h" />
     <ClInclude Include="Code\Game\createIcon.h" />
@@ -198,6 +203,9 @@
     <ClInclude Include="Code\Game\explorerFileInputComponent.h" />
     <ClInclude Include="Code\Game\explorerFolderInputComponent.h" />
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
+    <ClInclude Include="Code\Game\FloppyInputComponent.h" />
+    <ClInclude Include="Code\Game\FloppyRenderComponent.hpp" />
+    <ClInclude Include="Code\Game\FloppyUpdateComponent.hpp" />
     <ClInclude Include="Code\Game\HelpRenderComponent.hpp" />
     <ClInclude Include="Code\Game\IconBuilder.h" />
     <ClInclude Include="Code\Game\iconInputComponent.h" />
@@ -216,11 +224,11 @@
     <ClInclude Include="Code\Game\PipelineJobsAndIncomes.h" />
     <ClInclude Include="Code\Game\PipelineLevelBuilder.h" />
     <ClInclude Include="Code\Game\spriteRenderComponent.hpp" />
-    <ClInclude Include="Code\Game\testRenderSprite.h" />
     <ClInclude Include="Code\Game\TextBoxBuilder.h" />
     <ClInclude Include="Code\Game\TextBoxInputComponent.h" />
     <ClInclude Include="Code\Game\TextBoxRenderComponent.h" />
     <ClInclude Include="Code\Game\TextBubble.h" />
+    <ClInclude Include="Code\Game\TextBubbleRender.h" />
     <ClInclude Include="Code\Game\TextDisplayBuilder.h" />
     <ClInclude Include="Code\Game\TextDisplayRenderComponent.h" />
     <ClInclude Include="Code\Game\TextFieldRenderComponent.hpp" />

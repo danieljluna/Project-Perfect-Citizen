@@ -3,9 +3,10 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
+
 namespace ppc {
 
-    class Desktop;
+	class Desktop;
 
 	///////////////////////////////////////////////////////////////////
 	///@brief Class that handles Level transitions, saving/loading, etc
