@@ -25,6 +25,7 @@
 #include "../Game/Email.h"
 #include "../Game/emailExtraction.hpp"
 #include "../Game/desktopExtractionComponent.hpp"
+#include "../Game/PipelineLevelBuilder.h"
 
 
 ppc::Desktop::Desktop() {
@@ -62,14 +63,14 @@ ppc::Desktop::Desktop(const Desktop& other) {
 }
 
 ppc::Desktop::~Desktop() {
-	//if (nodeState_ != nullptr) delete nodeState_;
-	//if (iconSheet_ != nullptr) delete iconSheet_;
-	//if (buttonSheet_ != nullptr) delete buttonSheet_;
-	//if (inbox_ != nullptr) delete inbox_;
-
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 		delete *it;
 	}
+
+	for (auto it = netVec_.begin(); it != netVec_.end(); ++it) {
+		delete *it;
+	}
+
 	focused_ = nullptr;
 	desktopWindow_ = nullptr;
 	windows_.clear();
@@ -193,6 +194,18 @@ ppc::NodeState* ppc::Desktop::getNodeState() {
 	return &nodeState_;
 }
 
+std::vector<Network*> ppc::Desktop::getNetVec() {
+	return netVec_;
+}
+
+int ppc::Desktop::getNetVecIndex() {
+	return netVecIndex_;
+}
+
+void ppc::Desktop::incrementNetVecIndex() {
+	netVecIndex_++;
+}
+
 void ppc::Desktop::setNodeState(NodeState n) {
 	nodeState_ = n;
 }
@@ -307,7 +320,7 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 	std::string line;
 
 	ppc::Desktop* importDesktop = &desktop;
-	desktop.clearDesktop();
+	importDesktop->clearDesktop();
 	ppc::Window* bkgndWindow = 
 		new Window(1800, 1000, sf::Color(0, 0, 0));
 	importDesktop->addBkgndWindow(bkgndWindow);
@@ -316,7 +329,7 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 		size_t pos = line.find_first_of(":");
 		std::string key = line.substr(0, pos);
 		std::string file = line.substr(pos + 2);
-		DEBUGF("wc", key << " " << file)
+		//DEBUGF("wc", key << " " << file)
 		if (key == "Icons") {
 			importDesktop->iconSheet_.loadFromFile(resourcePath() + file);
 
@@ -348,6 +361,28 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
                     inbox.getVisible().at(i),
 					"image.jpg");
 				importDesktop->inbox_.addEmailToList(testEmail1);
+			}
+		} else if (key == "Pipeline") {
+			if (PipelineLevelBuilder::LEVEL_MAP.find(file) ==
+				PipelineLevelBuilder::LEVEL_MAP.end()) {
+				DEBUGF("wc", key << " " << file);
+				continue;
+			}
+			desktop.netVecIndex_ = 0;
+			int levelnum = PipelineLevelBuilder::LEVEL_MAP.at(file);
+			switch (levelnum) {
+				case -1:
+					desktop.netVec_.push_back(PipelineLevelBuilder::buildTutorialOne());
+					break;
+				case 0:
+					desktop.netVec_.push_back(PipelineLevelBuilder::buildTutorialTwo());
+					break;
+				case 1:
+					desktop.netVec_.push_back(PipelineLevelBuilder::buildLevelOneNetworkSolution());
+					break;
+				default:
+					DEBUGF("wc", levelnum);
+					break;
 			}
 		}
 	}
