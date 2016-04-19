@@ -27,6 +27,9 @@
 #include "emailExtraction.hpp"
 #include "TreeCommands.h"
 
+#include "FloppyUpdateComponent.hpp"
+#include "FloppyRenderComponent.hpp"
+
 #include "../Library/json/json.h"
 
 using namespace ppc;
@@ -42,6 +45,9 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	//////////////////////////////////////////////
 	//// Create the database (really should take a seed)
 	/////////////////////////////////////////////
+    
+    sf::Image floppyImage;
+    floppyImage.loadFromFile(resourcePath() + "Floppy_Sheet.png");
 
 	//TODO: FIX MEMORY LEAK
     Database* theDatabase = new Database();
@@ -63,19 +69,27 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	//// Create the start menu
 	/////////////////////////////////////////////
 	ppc::WindowInterface* startToolbar =
-		new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
+		new ppc::Window(1000, 200, sf::Color(195, 195, 195,0));
 	startToolbar->setPosition(0, 735);
     
     Entity startBar;
     spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    
+    
+    FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
+    floppy->renderPosition({800, -32});
+    
+    FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.12f);
+    
     startBar.addComponent(bar);
+    startBar.addComponent(floppy);
+    startBar.addComponent(floppyUpdate);
     
 	Entity startButton;
 	spawnStartButton(startButton, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
     startToolbar->addEntity(startBar);
     startToolbar->addEntity(startButton);
 	desktopToModify.addWindow(startToolbar);
-
 
 	////////////////////////////////
 	///// ICONS ON PLAYER DESKTOP
