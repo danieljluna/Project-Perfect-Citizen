@@ -85,7 +85,7 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
     textInputRenderComponent* textInputBox =
     new textInputRenderComponent(ns, myFont, 0, 0, fontSize);
     textOutputRenderComponent* textDisplayBox =
-    new textOutputRenderComponent(dt, buttonSheet, myFont, ns, 
+    new textOutputRenderComponent(dt, windowToModify, buttonSheet, myFont, ns,
 		textInputBox, 0, 0, fontSize);
     
     /* Create the update component */
@@ -650,7 +650,7 @@ void ppc::spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih,
     builder.setSize(0.25f);
     builder.setSpritesByIndicies(0, 2, 2, 1);
     builder.setSpriteSheet(buttonSheet);
-    builder.setLabelMessage("MY TEST MSG");
+    builder.setLabelMessage("Submit");
     builder.setLabelFont(myFont);
     builder.setLabelSize(12);
     Entity ent;
@@ -729,6 +729,46 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(pwd);
+}
+
+void ppc::spawnContextMenu(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, std::vector<std::string> elementNames,
+	std::vector<bool (*)(Desktop*, Event)> elementFunctions, float x, float y) {
+	/* Check to make sure the window passed isn't null */
+	if (windowToModify == nullptr) { return; }
+
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 20;
+	int windowOffset = 5;
+	int contextBoxElementWidth = windowToModify->getSize().x;
+	int contextBoxElementHeight = fontSize+2;
+	int contextBoxPadding = 5;
+
+	int totalElementsLoaded = 0;
+	/////////////////////////////////////////
+	/////// ENTITIES
+	///////////////////////////////////////
+	/* Create an email list element entity for each email in the inbox*/
+	for (int i = 0; i < elementNames.size(); ++i) {
+		Entity contextListElement;
+		createContextListElement(
+			contextListElement, windowToModify, dT, ih, myFont, elementNames.at(i), elementFunctions.at(i),
+			0, (i * (contextBoxElementHeight + contextBoxPadding)), contextBoxElementWidth, contextBoxElementHeight,
+			0, (i * (contextBoxElementHeight + contextBoxPadding)), fontSize);
+		windowToModify->addEntity(contextListElement);
+		++totalElementsLoaded;
+	}
+
+	int newHeight = (totalElementsLoaded)* (contextBoxElementHeight + contextBoxPadding);
+	int newWidth = windowToModify->getSize().x;
+	windowToModify->setSize(newWidth, newHeight+contextBoxPadding);
+
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+
+	windowToModify->setPosition(x, y);
+
 }
 
 
