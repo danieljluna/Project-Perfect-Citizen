@@ -18,13 +18,19 @@
 /// floppy render component and the text box what to display.
 ///////////////////////////////////////////////////////////////////////
 
-
 namespace ppc {
 
 
 	class FloppyInputComponent : public ppc::InputComponent {
 	private:
 
+		static std::vector<std::vector<std::pair<std::string, unsigned int>>> floppyDictionary;
+
+		struct currentEvent {
+			unsigned int sequence;
+			unsigned int frame;
+		};
+		
 		int currentSequenceIndex = 0;
 
 		
@@ -33,6 +39,9 @@ namespace ppc {
 		FloppyInputComponent();
 		~FloppyInputComponent();
 
+		
+		//void setSequenceAndFrame(unsigned int seq, unsigned int frame);
+		//void setSequenceAndFrame(unsigned)
 		void advanceSequence(sf::Event);
 		void regressSequence(sf::Event);
 
