@@ -304,11 +304,8 @@
     <ClCompile Include="Code\Engine\Logger.cpp">
       <Filter>Sources\Engine\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\HelpRenderComponent.cpp">
-      <Filter>Headers</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Game\testRenderSprite.cpp">
-      <Filter>Headers</Filter>
+    <ClCompile Include="Code\Game\TextBubbleRender.cpp">
+      <Filter>Sources\Game Specific\TextBubble</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\contextListElementRenderComponent.cpp" />
     <ClCompile Include="Code\Game\FloppyInputComponent.cpp">
@@ -652,11 +649,8 @@
     <ClInclude Include="Code\Engine\LoggerParcel.h">
       <Filter>Headers\Engine\Debug</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Game\testRenderSprite.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Game\HelpRenderComponent.hpp">
-      <Filter>Headers</Filter>
+    <ClInclude Include="Code\Game\TextBubbleRender.h">
+      <Filter>Headers\Game Specific\TextBubble</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\contextListElementRenderComponent.h" />
     <ClInclude Include="Code\Game\FloppyInputComponent.h">
