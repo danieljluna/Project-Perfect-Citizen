@@ -22,6 +22,7 @@ namespace ppc {
         int emotion;
         int frameCount, xIndex, yIndex;
         bool _willAnimate;
+        bool _isVisible;
         static const int size = 128;
         
     public:
@@ -35,6 +36,9 @@ namespace ppc {
         FloppyRenderComponent(sf::Image& image);
         
         ~FloppyRenderComponent();
+        
+        int getAnimationType() const {return animation;}
+        bool isVisible() const {return _isVisible;}
         
         ///////////////////////////////////////////////////////////////////////
         /// @brief changes the position of the component within its parent view
@@ -52,17 +56,11 @@ namespace ppc {
         ///////////////////////////////////////////////////////////////////////
         void setAnimationLoad();
         void setAnimationHide();
-        
+        void setAnimationPeek();
         
         void  setEmotion(int e);
         
-        ///////////////////////////////////////////////////////////////////////
-        /// @brief Returns button type
-        ///////////////////////////////////////////////////////////////////////
-        int getAnimationType() const {return animation;}
-       
-        
-        ///////////////////////////////////////////////////////////////////////
+               ///////////////////////////////////////////////////////////////////////
         /// @brief Animates the sprite
         ///////////////////////////////////////////////////////////////////////
         void animate();
