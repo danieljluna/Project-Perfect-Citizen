@@ -636,6 +636,9 @@
     <ClInclude Include="Code\Engine\LoggerParcel.h">
       <Filter>Headers\Engine\Debug</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Game\TextBubbleRender.h">
+      <Filter>Headers\Game Specific\TextBubble</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json">

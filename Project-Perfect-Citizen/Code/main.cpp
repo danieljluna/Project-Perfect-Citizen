@@ -111,17 +111,6 @@ void runEndDesktop(ppc::Desktop& myDesktop) {
 
 void runPlayerDesktop(ppc::Desktop& myDesktop) {
 
-	//Testing TextBox
-
-
-	TextBubble* myBubble = new TextBubble();
-	myBubble->loadText(resourcePath() + "TestDialogue.txt");
-	//set values for builder (has mostly default stuff atm).
-	myBubble->getButtonBuilder().setSpriteSheet(myDesktop.getButtonSheet());
-	myBubble->generateBubble();
-
-	myDesktop.addWindow(&myBubble->getTextBox());
-
 	createPlayerDesktop(myDesktop, *myDesktop.getDesktopWindow(), 
 		myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
 

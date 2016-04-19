@@ -217,6 +217,7 @@
     <ClInclude Include="Code\Game\TextBoxInputComponent.h" />
     <ClInclude Include="Code\Game\TextBoxRenderComponent.h" />
     <ClInclude Include="Code\Game\TextBubble.h" />
+    <ClInclude Include="Code\Game\TextBubbleRender.h" />
     <ClInclude Include="Code\Game\TextDisplayBuilder.h" />
     <ClInclude Include="Code\Game\TextDisplayRenderComponent.h" />
     <ClInclude Include="Code\Game\TextFieldRenderComponent.hpp" />
