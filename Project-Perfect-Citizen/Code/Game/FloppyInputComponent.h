@@ -23,9 +23,6 @@ namespace ppc {
 
 	class FloppyInputComponent : public ppc::InputComponent {
 	private:
-
-		static std::vector<std::vector<std::pair<std::string, unsigned int>>> floppyDictionary;
-
 		struct currentEvent {
 			unsigned int sequence;
 			unsigned int frame;
@@ -39,7 +36,8 @@ namespace ppc {
 		FloppyInputComponent();
 		~FloppyInputComponent();
 
-		
+		static std::vector<std::vector<std::pair<std::string, unsigned int>>> floppyDictionary;
+
 		//void setSequenceAndFrame(unsigned int seq, unsigned int frame);
 		//void setSequenceAndFrame(unsigned)
 		void advanceSequence(sf::Event);
