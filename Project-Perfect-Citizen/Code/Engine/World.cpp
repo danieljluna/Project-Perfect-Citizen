@@ -1,15 +1,16 @@
+#ifdef WINDOWS_MARKER
+#define resourcePath() std::string("Resources/")
+#else
+#include "ResourcePath.hpp"
+#endif
 
 #include <fstream>
-#include <string>
+
 #include "World.h"
-#include "Window.h"
-#include "NodeState.h"
-#include "../Game/desktopExtractionComponent.hpp"
-#include "../Game/Inbox.h"
-#include "../Game/Email.h"
-#include "../Game/emailExtraction.hpp"
-#include "../Library/json/json.h"
+#include "desktop.h"
+
 #include "debug.h"
+#include "desktop.h"
 
 using namespace ppc;
 
@@ -17,8 +18,17 @@ using namespace ppc;
 sf::RenderWindow* World::screen_ = nullptr;
 Desktop* World::currDesktop_ = nullptr;
 std::map<World::DesktopList, std::string> World::desktopFileMap = {
+
     {World::Count, ""}  //Empty pairing of Count to string.
 };
+
+std::map<World::FontList, sf::Font> World::fontMap = {
+	{World::FontCount, sf::Font()},
+	{World::Consola, sf::Font()},
+	{World::Micross, sf::Font()},
+	{World::VT323Regular, sf::Font()}
+};
+
 bool World::quitter = false;
 
 
@@ -109,4 +119,17 @@ bool World::loadDesktop(std::string filename) {
     }
 
     return result;
+}
+
+void ppc::World::initFontMap() {
+	fontMap.at(World::Consola).loadFromFile(resourcePath() + "consola.ttf");
+	fontMap.at(World::Micross).loadFromFile(resourcePath() + "micross.ttf");
+	fontMap.at(World::VT323Regular).loadFromFile(resourcePath() + "VT323-Regular.ttf");
+
+}
+
+sf::Font& ppc::World::getFont(FontList f) {
+	
+	return fontMap.at(f);
+
 }

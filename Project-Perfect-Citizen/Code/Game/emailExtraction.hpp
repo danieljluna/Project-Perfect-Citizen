@@ -83,6 +83,10 @@ namespace ppc {
             body_.push_back(content);
         }
         
+        void addVisible(bool b){
+            visible_.push_back(b);
+        }
+        
         ///////////////////////////////////////////////////////////////////
         /// @brief gets the TO vector of email
         /// @param[out] vector<string>      Vector containing all TO
@@ -119,6 +123,10 @@ namespace ppc {
             return body_;
         }
         
+        std::vector<bool> getVisible(){
+            return visible_;
+        }
+        
         bool checkSizeOfAll(){
             if(to_.size() == from_.size()){
                 if(from_.size() == subject_.size()){
@@ -135,6 +143,7 @@ namespace ppc {
         std::vector<std::string> from_;
         std::vector<std::string> subject_;
         std::vector<std::string> body_;
+        std::vector<bool> visible_;
     };
     
 };

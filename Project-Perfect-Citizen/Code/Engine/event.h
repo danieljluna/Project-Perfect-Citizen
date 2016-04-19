@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 
 namespace ppc {
+
 	//This is the event struct. You can add events here
 	//if you need them. Nothing here is final except
 	//the template. 
@@ -14,19 +15,28 @@ namespace ppc {
 
         operator sf::Event&();
 
-
-		struct Buttons {
+		struct ButtonsEv {
 			bool isPushed;
 			bool isReleased;
+			bool isHovered;
 		};
 
-		struct Transformations {
+		struct TransformationEv {
 			sf::Vector2f newPos;
 		};
 
-		struct Scrollbar {
+		struct ScrollbarEv {
 			float start;
 			float end;
+		};
+
+        struct NotificationEv {
+            unsigned int count;
+        };
+
+		struct FloppyEv {
+			unsigned int sequence;
+			unsigned int frame;
 		};
 
 		enum EventTypes
@@ -35,15 +45,19 @@ namespace ppc {
 			TransformationType,
 			ScrollbarType,
 			sfEventType,
+            NotificationType,
+			FloppyType,
 			Count
 		};
 
 		EventTypes type;
 
 		union {
-			Buttons buttons;
-			Transformations transformations;
-			Scrollbar scrollbar;
+			ButtonsEv buttons;
+			TransformationEv transformations;
+			ScrollbarEv scrollbar;
+            NotificationEv notification;
+			FloppyEv floppy;
             sf::Event sfEvent;
 		};
 	};

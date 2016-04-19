@@ -1,0 +1,57 @@
+#pragma once
+
+#include <SFML/Graphics.hpp>
+#include <string>
+
+namespace ppc {
+	///////////////////////////////////////////////////////////////////
+	///@brief Basic speech text bubble 
+	///@author Nader Sleem
+	///////////////////////////////////////////////////////////////////
+	class TextBubble: public sf::Drawable, public sf::Transformable {
+
+	private:
+
+		//sf::Sprite textBubble;
+
+		sf::RectangleShape rectBubble_;
+
+		std::string currStr_;
+
+		sf::Text displayText_;
+
+		void formatLine(std::string&);
+
+	public:
+
+		///////////////////////////////////////////////////////////////
+		// Ctor
+		///////////////////////////////////////////////////////////////
+		TextBubble();
+
+		///////////////////////////////////////////////////////////////
+		// Dtor
+		///////////////////////////////////////////////////////////////
+		virtual ~TextBubble();
+
+		///////////////////////////////////////////////////////////////
+		///@brief Loads the dialogue text from a file
+		///////////////////////////////////////////////////////////////
+		void setText(std::string);
+
+		sf::RectangleShape& getBubble();
+
+
+		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+
+	};
+
+	///////////////////////////////////////////////////////////////
+	///@brief Event function that progresses text.
+	///@details Function should be associated with a observer
+	/// so when a button is pressed, the dialogue text advances
+	/// to the next one.
+	///////////////////////////////////////////////////////////////
+	//bool advanceOnPress(TextBubble* tb, ppc::Event e);
+	
+};

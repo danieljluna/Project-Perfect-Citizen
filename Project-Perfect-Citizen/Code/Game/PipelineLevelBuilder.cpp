@@ -12,6 +12,12 @@
 
 using namespace ppc;
 
+const std::map<std::string, int> PipelineLevelBuilder::LEVEL_MAP = {
+	{ "PE0A", -1},
+	{ "PE0B", 0},
+	{ "PE1", 1}
+};
+
 const std::map<std::string, bool> NAME_MAP = {
 	{ "A", false },{ "B", false },{ "C", false },{ "D", false },
 	{ "E", false },{ "F", false },{ "G", false },{ "H", false },
@@ -106,6 +112,15 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	std::pair<int, int> centerAndTarget = designateCenter(LEVEL_ONE_NODES_HIGH, LEVEL_ONE_NUM_NODES - 1, *myNetwork);
 	myNetwork->setCenter(centerAndTarget.first);
 	addEdge(centerAndTarget.first, centerAndTarget.second, *myNetwork, 1, exprGrammar);
+
+	return myNetwork;
+}
+
+Network * ppc::PipelineLevelBuilder::buildDefaultNetwork() {
+	Network* myNetwork = new Network(1);
+	PipelineCharacter newpc;
+	myNetwork->vert(0).setCharacter(newpc);
+	myNetwork->setCenter(0);
 
 	return myNetwork;
 }

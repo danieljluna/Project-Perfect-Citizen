@@ -59,6 +59,9 @@
 
 #include "Engine/World.h"
 
+#include "Game/TextBubble.h"
+
+
 using namespace ppc;
 
 
@@ -66,7 +69,7 @@ using namespace ppc;
 void runBootDesktop(ppc::Desktop& myDesktop) {
     
     Window* bootWindow = new Window(1800,1000,sf::Color(30,32,33));
-    
+
     Entity loading;
     
     sf::Font font;
@@ -75,7 +78,7 @@ void runBootDesktop(ppc::Desktop& myDesktop) {
    
     textLabelComponent* textLabel = new textLabelComponent(font,sf::Color::Green, 0,0, 20, " PCOS(C) , UNMOS. UNAUTHORIZED USE OF THIS TERMINAL CAN RESULT IN PENALTY BY DEATH. \n   Beginning File System Initialization \n");
     
-    bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(*myDesktop.getButtonSheet(),*textLabel,7,5);
+    bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(myDesktop.getButtonSheet(),*textLabel,7,5);
 
     bootLoadingUpdateComponent* bootUpdate = new bootLoadingUpdateComponent(*bootRender,0.1f);
 
@@ -95,7 +98,7 @@ void runEndDesktop(ppc::Desktop& myDesktop) {
     
     Entity ending;
     
-    endingAnimationRender* endRender = new endingAnimationRender(*myDesktop.getButtonSheet());
+    endingAnimationRender* endRender = new endingAnimationRender(myDesktop.getButtonSheet());
     endAnimationUpdateComponent* endUpdate = new endAnimationUpdateComponent(*endRender, 0.1f);
     
     ending.addComponent(endRender);
@@ -107,15 +110,16 @@ void runEndDesktop(ppc::Desktop& myDesktop) {
 
 
 void runPlayerDesktop(ppc::Desktop& myDesktop) {
+
 	createPlayerDesktop(myDesktop, *myDesktop.getDesktopWindow(), 
-		*myDesktop.getInputHandler(), *myDesktop.getIconSheet(), *myDesktop.getButtonSheet());
+		myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
 
 }
 
 
 void runTargetDesktop(ppc::Desktop& myDesktop) {
 	createTeacherDesktop(myDesktop, *myDesktop.getDesktopWindow(),
-		*myDesktop.getInputHandler(),* myDesktop.getIconSheet(), *myDesktop.getButtonSheet());
+		myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
 
 }
 
@@ -126,22 +130,25 @@ int main(int argc, char** argv) {
 	Debug::scanOpts(argc, argv);
 	DEBUGF("ac", argc);
 
+	World::initFontMap();
+
 	//Dont touch these comments please.
-	//World testWorld;
-	//ifstream ifs1("Saves/playerDesktop.ini", std::ifstream::in);
-
-	//ifs1 >> testWorld;
-
+	
+	ifstream ifs1("Saves/playerDesktop.ini", std::ifstream::in);
+	Desktop testDesktop;
+	ifs1 >> testDesktop;
 	
 	bool BootToTitleCard = false; 
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
 	//Dont touch these comments please.
-	//testWorld.setGameScreen(*screen);
-	//testWorld.runCurrDesktop();
+	World::setGameScreen(screen);
+	World::setCurrDesktop(testDesktop);
+	runPlayerDesktop(testDesktop);
+	World::runCurrDesktop();
 
-	
+	/*
 	AudioQueue audiotest(5);
 	audiotest.addBgm("SoundTrack_Extraction.ogg");
 	audiotest.playBgm();
@@ -190,6 +197,7 @@ int main(int argc, char** argv) {
 	ppc::NodeState playerState;
 	playerState.setUp();
 	Window* playerDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+
 
 	Desktop* playerDesktop = new Desktop(playerDesktopWindow, playerState);
 	playerDesktop->setIconSheet(iconSheet);
@@ -241,7 +249,7 @@ int main(int argc, char** argv) {
 	World::setCurrDesktop(*endDesktop);
 	runEndDesktop(*endDesktop);
     while (World::runDesktop(*endDesktop)) {}
-	
+	*/
 
     return EXIT_SUCCESS;
 }

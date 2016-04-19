@@ -144,5 +144,20 @@ void spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::
 void spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState ns,
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y);
 
+
+///////////////////////////////////////////////////////////////////////
+///@brief Constructs a temporary, borderless context menu
+///
+///@param The newly created window to add components/entities to.
+///@param The input handler of the listened-to window.
+///@param A vector of the names of the context list elements
+///@param The x position of the new window
+///@param The y position of the new window
+///////////////////////////////////////////////////////////////////////
+void spawnContextMenu(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, 
+	std::vector<std::string> n, std::vector<bool(*)(Desktop*, Event ev)>, float x, float y);
+
 };
+
+
 

@@ -298,8 +298,29 @@
     <ClCompile Include="Code\Game\WindowBkgndRenderCmpnt.cpp">
       <Filter>Sources\Game Specific\Temporary</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\TextBubble.cpp">
+      <Filter>Sources\Game Specific\TextBubble</Filter>
+    </ClCompile>
     <ClCompile Include="Code\Engine\Logger.cpp">
       <Filter>Sources\Engine\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\TextBubbleRender.cpp">
+      <Filter>Sources\Game Specific\TextBubble</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\FloppyInputComponent.cpp">
+      <Filter>Sources\Game Specific\Floppy</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\FloppyRenderComponent.cpp">
+      <Filter>Sources\Game Specific\Floppy</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\FloppyUpdateComponent.cpp">
+      <Filter>Sources\Game Specific\Floppy</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\contextListElementRenderComponent.cpp">
+      <Filter>Sources\Game Specific</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\HelpRenderComponent.cpp">
+      <Filter>Sources\Game Specific</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -624,11 +645,32 @@
     <ClInclude Include="Code\Game\WindowBkgndRenderCmpnt.h">
       <Filter>Headers\Game Specific\Temporary</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Game\TextBubble.h">
+      <Filter>Headers\Game Specific\TextBubble</Filter>
+    </ClInclude>
     <ClInclude Include="Code\Engine\Logger.h">
       <Filter>Headers\Engine\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Code\Engine\LoggerParcel.h">
       <Filter>Headers\Engine\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\TextBubbleRender.h">
+      <Filter>Headers\Game Specific\TextBubble</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\FloppyInputComponent.h">
+      <Filter>Headers\Game Specific\Floppy</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\FloppyRenderComponent.hpp">
+      <Filter>Headers\Game Specific\Floppy</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\FloppyUpdateComponent.hpp">
+      <Filter>Headers\Game Specific\Floppy</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\contextListElementRenderComponent.h">
+      <Filter>Headers\Game Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\HelpRenderComponent.hpp">
+      <Filter>Headers\Game Specific</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -836,6 +878,18 @@
     </Filter>
     <Filter Include="Headers\Game Specific\Input">
       <UniqueIdentifier>{752b2f34-3b3a-481d-a907-0acad8962ad7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Game Specific\TextBubble">
+      <UniqueIdentifier>{e33b4c28-357a-4128-8d73-3355bd9106ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Game Specific\TextBubble">
+      <UniqueIdentifier>{2f163bad-583a-419c-a451-9e48363c741f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Game Specific\Floppy">
+      <UniqueIdentifier>{fa1cc8cf-ff09-417e-9ef8-50314eb79410}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Game Specific\Floppy">
+      <UniqueIdentifier>{77f4eced-3bd6-468f-9179-200548bcb326}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

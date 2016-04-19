@@ -9,7 +9,7 @@
 #include "../Engine/subject.h"
 #include "../Engine/FunctionObserver.h"
 #include "../Engine/FreeFunctionObserver.h"
-
+#include "../Engine/debug.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Input Component for a generic window 'X' button
@@ -37,6 +37,7 @@ private:
     Subject onPress_;
     Subject onDoublePress_;
     Subject onRelease_;
+	Subject onHover_;
 
 public:
 
@@ -85,6 +86,7 @@ public:
     Subject& onClick() { return onPress_; };
     Subject& onDblClick() { return onDoublePress_; };
     Subject& onRelease() { return onRelease_; };
+	Subject& onHover() { return onHover_; };
 
 };
 
