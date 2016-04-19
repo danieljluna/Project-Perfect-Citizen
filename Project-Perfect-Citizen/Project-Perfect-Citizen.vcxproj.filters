@@ -304,6 +304,8 @@
     <ClCompile Include="Code\Engine\Logger.cpp">
       <Filter>Sources\Engine\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\TextBubbleRender.cpp">
+      <Filter>Sources\Game Specific\TextBubble</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
