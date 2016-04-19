@@ -2,8 +2,6 @@
 //Programmed by Andy
 #include <SFML/Graphics.hpp>
 
-#include "EmailUpdateEvent.h"
-
 namespace ppc {
 
 	//This is the event struct. You can add events here
@@ -32,13 +30,17 @@ namespace ppc {
 			float end;
 		};
 
+        struct Notification {
+            unsigned int count;
+        };
+
 		enum EventTypes
 		{
 			ButtonType,
 			TransformationType,
 			ScrollbarType,
 			sfEventType,
-            EmailUpdateType,
+            NotificationType,
 			Count
 		};
 
@@ -48,7 +50,7 @@ namespace ppc {
 			Buttons buttons;
 			Transformations transformations;
 			Scrollbar scrollbar;
-            EmailUpdate emailUpdate;
+            Notification notification;
             sf::Event sfEvent;
 		};
 	};
