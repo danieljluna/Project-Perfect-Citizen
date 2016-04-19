@@ -304,11 +304,6 @@
     <ClCompile Include="Code\Engine\Logger.cpp">
       <Filter>Sources\Engine\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\HelpRenderComponent.cpp">
-      <Filter>Headers</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Game\testRenderSprite.cpp">
-      <Filter>Headers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -644,12 +639,6 @@
     </ClInclude>
     <ClInclude Include="Code\Game\TextBubbleRender.h">
       <Filter>Headers\Game Specific\TextBubble</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Game\testRenderSprite.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Game\HelpRenderComponent.hpp">
-      <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
