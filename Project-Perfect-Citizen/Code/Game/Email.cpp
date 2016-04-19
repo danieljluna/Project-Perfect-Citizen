@@ -35,4 +35,6 @@ std::string Email::getAttachmentField() { return this->attachment; }
 
 bool Email::getReadFlag() { return this->read;  }
 
+bool ppc::Email::getShownFlag() {return this-shown;}
+
 void Email::setRead() { this->read = true; }

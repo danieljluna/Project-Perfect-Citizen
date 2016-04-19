@@ -45,7 +45,8 @@ void contextListElementRenderComponent::draw(sf::RenderTarget & target,
 void contextListElementRenderComponent::recieveMessage(Event ev) {
 	switch (ev.type) {
 		case Event::EventTypes::ButtonType:
-			if (ev.buttons.isPushed) { }
+			if (ev.buttons.isPushed) { contextListElementBox.setFillColor(sf::Color(51, 50, 161)); }
+			else if (ev.buttons.isReleased) { contextListElementBox.setFillColor(sf::Color(170, 170, 170)); }
 			else if (ev.buttons.isHovered) { std::cout << "Hovered!"; }
 			break;
 		default:

@@ -36,6 +36,7 @@ namespace ppc {
 			TransformationType,
 			ScrollbarType,
 			sfEventType,
+			EmotionType,
 			Count
 		};
 
