@@ -65,14 +65,6 @@ buttonRenderComponent::~buttonRenderComponent() {
     delete rectSourceSprite;
 }
 
-void buttonRenderComponent::setButtonType(std::string t) {
-    if (t == ICON_TYPE) {
-        _buttonType = t;
-        sprite->setScale(0.5, 0.5);
-    }
-    else if (t == BUTTON_TYPE) _buttonType = t;
-}
-
 void buttonRenderComponent::renderPosition(sf::Vector2f pos) {
 	sprite->setPosition(pos.x, pos.y);
 }
@@ -117,14 +109,12 @@ bool buttonRenderComponent::willAnimate() {
 void buttonRenderComponent::draw( sf::RenderTarget& target,
 	sf::RenderStates states) const {
         target.draw(*sprite, states);
-    if (getButtonType() == "ICON") {
         
-        states.transform.translate(sprite->getPosition());
-        states.transform.scale(1.3, 1.3, 0, 0);
+    states.transform.translate(sprite->getPosition());
+    states.transform.scale(1.3, 1.3, 0, 0);
 
-        target.draw(badge_, states);
-        target.draw(notificationText_, states);
-    }
+    target.draw(badge_, states);
+    target.draw(notificationText_, states);
 }
 
 void buttonRenderComponent::recieveMessage(msgType code) {
