@@ -39,6 +39,7 @@ namespace ppc {
 		std::string getContentField();
 		std::string getAttachmentField();
 		bool getReadFlag();
+		bool getShownFlag();
 
 	///////////////////////////////////////////////////////////////////
 	// MUTATORS

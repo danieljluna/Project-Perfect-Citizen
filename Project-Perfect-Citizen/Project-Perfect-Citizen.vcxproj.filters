@@ -310,6 +310,16 @@
     <ClCompile Include="Code\Game\testRenderSprite.cpp">
       <Filter>Headers</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\contextListElementRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\FloppyInputComponent.cpp">
+      <Filter>Sources\Game Specific</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\FloppyRenderComponent.cpp">
+      <Filter>Sources\Game Specific</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\FloppyUpdateComponent.cpp">
+      <Filter>Sources\Game Specific</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -647,6 +657,16 @@
     </ClInclude>
     <ClInclude Include="Code\Game\HelpRenderComponent.hpp">
       <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\contextListElementRenderComponent.h" />
+    <ClInclude Include="Code\Game\FloppyInputComponent.h">
+      <Filter>Headers\Game Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\FloppyRenderComponent.hpp">
+      <Filter>Headers\Game Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\FloppyUpdateComponent.hpp">
+      <Filter>Headers\Game Specific</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

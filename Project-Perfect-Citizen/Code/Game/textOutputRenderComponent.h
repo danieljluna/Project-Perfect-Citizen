@@ -5,11 +5,11 @@
 #include "../Engine/NodeState.h"
 #include "../Game/textInputRenderComponent.hpp"
 #include <vector>
+#include <SFML/Graphics/Image.hpp>
 
 namespace sf {
     class Sprite;
     class Text;
-    class Image;
 };
 
 
@@ -17,6 +17,7 @@ namespace sf {
 namespace ppc {
 
 	class Desktop;
+	class WindowInterface;
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Render Component for an Text Output Box
@@ -26,10 +27,11 @@ namespace ppc {
 class textOutputRenderComponent : public ppc::RenderComponent {
 private:
 
-	////////////////////////////////////////////////////////////////////
-	/// @brief SFML text to draw
-	////////////////////////////////////////////////////////////////////
-	sf::Text* text_;
+	ppc::Desktop* theDesktop_;
+
+	WindowInterface* theWindow_;
+
+	sf::Image buttonSheet_;
 
 	////////////////////////////////////////////////////////////////////
 	/// @brief Font the output will take on
@@ -41,12 +43,13 @@ private:
 	////////////////////////////////////////////////////////////////////
 	ppc::NodeState fileTree_;
 
-    ppc::Desktop* theDesktop_;
-    
-    sf::Image buttonSheet_;
-
 	textInputRenderComponent* promptLine;
-    
+
+	////////////////////////////////////////////////////////////////////
+	/// @brief SFML text to draw
+	////////////////////////////////////////////////////////////////////
+	sf::Text* text_;
+
 	////////////////////////////////////////////////////////////////////
 	/// @brief The pool of output to be displayed via a string
 	////////////////////////////////////////////////////////////////////
@@ -65,7 +68,7 @@ private:
 
 public:
 
-    textOutputRenderComponent(ppc::Desktop& dt, sf::Image bs, sf::Font f, ppc::NodeState fileTree,
+    textOutputRenderComponent(ppc::Desktop& dt, ppc::WindowInterface*, sf::Image bs, sf::Font f, ppc::NodeState fileTree,
 		textInputRenderComponent* tirc, int x, int y, int size);
 
 	~textOutputRenderComponent();

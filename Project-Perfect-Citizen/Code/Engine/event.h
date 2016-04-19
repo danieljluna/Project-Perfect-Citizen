@@ -14,10 +14,10 @@ namespace ppc {
 
         operator sf::Event&();
 
-
 		struct Buttons {
 			bool isPushed;
 			bool isReleased;
+			bool isHovered;
 		};
 
 		struct Transformations {
@@ -29,12 +29,18 @@ namespace ppc {
 			float end;
 		};
 
+		struct Floppy {
+			unsigned int sequence;
+			unsigned int frame;
+		};
+
 		enum EventTypes
 		{
 			ButtonType,
 			TransformationType,
 			ScrollbarType,
 			sfEventType,
+			FloppyType,
 			Count
 		};
 
@@ -44,6 +50,7 @@ namespace ppc {
 			Buttons buttons;
 			Transformations transformations;
 			Scrollbar scrollbar;
+			Floppy floppy;
             sf::Event sfEvent;
 		};
 	};
