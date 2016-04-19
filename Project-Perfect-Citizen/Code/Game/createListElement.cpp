@@ -16,7 +16,6 @@ void ppc::createEmailListElement(ppc::Entity& entityToModify, Desktop& dT, sf::I
 	buttonRenderComponent* emailIcon = new buttonRenderComponent(dT.getIconSheet(), 0, 10, 1, 2);
 	emailIcon->setImageScale(size, size);
 	emailIcon->renderPosition(sf::Vector2f(x+ 10, y-10));
-	emailIcon->setButtonType("ICON");
 	if (eM.getReadFlag()) emailIcon->setSprite(1, 10, 1);
 
 	entityToModify.addComponent(eLRC);

@@ -20,7 +20,6 @@ void ppc::spawnFolderIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih,
     buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 0, 1, 4);
 	IconRender->setImageScale(size, size);
 	IconRender->renderPosition(sf::Vector2f(x, y));
-    IconRender->setButtonType("ICON");
 
     
 	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
@@ -47,7 +46,6 @@ void ppc::spawnSettingsIcon(Entity& entityToModify, Desktop& dT, InputHandler& i
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 1, 1, 2);
 	IconRender->setImageScale(size, size);
 	IconRender->renderPosition(sf::Vector2f(x, y));
-    IconRender->setButtonType("ICON");
 
 
 	// Animator (Update) Component ///
@@ -78,7 +76,6 @@ void ppc::spawnChatIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, D
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 2, 1, 2);
 	IconRender->setImageScale(size, size);
 	IconRender->renderPosition(sf::Vector2f(x, y));
-    IconRender->setButtonType("ICON");
 
 
 	// Animator (Update) Component ///
@@ -107,7 +104,6 @@ void ppc::spawnSearchIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih,
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 3, 1, 2);
 	IconRender->setImageScale(size, size);
 	IconRender->renderPosition(sf::Vector2f(x, y));
-    IconRender->setButtonType("ICON");
 
 
 	// Animator (Update) Component ///
@@ -136,7 +132,6 @@ void ppc::spawnDataGraphIcon(Entity& entityToModify, Desktop& dT, InputHandler& 
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 4, 1, 2);
 	IconRender->setImageScale(size, size);
 	IconRender->renderPosition(sf::Vector2f(x, y));
-    IconRender->setButtonType("ICON");
 
 
 	// Animator (Update) Component ///
@@ -165,7 +160,6 @@ void ppc::spawnHelpIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, D
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 5, 1, 2);
 	IconRender->setImageScale(size, size);
 	IconRender->renderPosition(sf::Vector2f(x, y));
-    IconRender->setButtonType("ICON");
 
 
 	// Animator (Update) Component ///
@@ -194,7 +188,6 @@ void ppc::spawnBrowserIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 6, 1, 1);
 	IconRender->setImageScale(size, size);
 	IconRender->renderPosition(sf::Vector2f(x, y));
-    IconRender->setButtonType("ICON");
 
 
 	// Animator (Update) Component ///
@@ -223,7 +216,6 @@ void ppc::spawnHardDriveIcon(Entity& entityToModify, Desktop& dT, InputHandler& 
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 7, 1, 1);
 	IconRender->setImageScale(size, size);
 	IconRender->renderPosition(sf::Vector2f(x, y));
-    IconRender->setButtonType("ICON");
 
 	// Animator (Update) Component ///
 	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
@@ -254,7 +246,6 @@ void ppc::spawnConsoleIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 8, 1, 1);
 	IconRender->setImageScale(size, size);
 	IconRender->renderPosition(sf::Vector2f(x, y));
-    IconRender->setButtonType("ICON");
 
 	// Animator (Update) Component ///
 	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
@@ -285,7 +276,6 @@ void ppc::spawnEmailIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, 
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 10, 1, 2);
 	IconRender->setImageScale(size, size);
 	IconRender->renderPosition(sf::Vector2f(x, y));
-    IconRender->setButtonType("ICON");
 
 	// Animator (Update) Component ///
 	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
