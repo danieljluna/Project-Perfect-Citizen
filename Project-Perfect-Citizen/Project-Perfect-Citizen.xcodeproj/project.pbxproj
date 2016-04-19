@@ -9,6 +9,149 @@
 /* Begin PBXBuildFile section */
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
 		C8A593901C8E3AFE00036C1D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8A593461C8E3AFE00036C1D /* main.cpp */; };
+		E94885A81CC6F3F600DFC68A /* 1-24-08-182.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948853E1CC6F3F600DFC68A /* 1-24-08-182.jpg */; };
+		E94885A91CC6F3F600DFC68A /* 11062011img47161.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948853F1CC6F3F600DFC68A /* 11062011img47161.jpg */; };
+		E94885AA1CC6F3F600DFC68A /* 1894.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885401CC6F3F600DFC68A /* 1894.jpg */; };
+		E94885AB1CC6F3F600DFC68A /* 2-20-09-431.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885411CC6F3F600DFC68A /* 2-20-09-431.jpg */; };
+		E94885AC1CC6F3F600DFC68A /* 2-23-2011-213.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885421CC6F3F600DFC68A /* 2-23-2011-213.jpg */; };
+		E94885AD1CC6F3F600DFC68A /* 3-29-12-184.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885431CC6F3F600DFC68A /* 3-29-12-184.jpg */; };
+		E94885AE1CC6F3F600DFC68A /* 3191.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885441CC6F3F600DFC68A /* 3191.jpg */; };
+		E94885AF1CC6F3F600DFC68A /* 3573.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885451CC6F3F600DFC68A /* 3573.jpg */; };
+		E94885B01CC6F3F600DFC68A /* 4-10-08-386.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885461CC6F3F600DFC68A /* 4-10-08-386.jpg */; };
+		E94885B11CC6F3F600DFC68A /* 4-14-09-462.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885471CC6F3F600DFC68A /* 4-14-09-462.jpg */; };
+		E94885B21CC6F3F600DFC68A /* 4-24-08-152.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885481CC6F3F600DFC68A /* 4-24-08-152.jpg */; };
+		E94885B31CC6F3F600DFC68A /* 4-24-08-492.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885491CC6F3F600DFC68A /* 4-24-08-492.jpg */; };
+		E94885B41CC6F3F600DFC68A /* 4-4-12-048.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948854A1CC6F3F600DFC68A /* 4-4-12-048.jpg */; };
+		E94885B51CC6F3F600DFC68A /* 4065.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948854B1CC6F3F600DFC68A /* 4065.jpg */; };
+		E94885B61CC6F3F600DFC68A /* 5678.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948854C1CC6F3F600DFC68A /* 5678.jpg */; };
+		E94885B71CC6F3F600DFC68A /* 6576.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948854D1CC6F3F600DFC68A /* 6576.jpg */; };
+		E94885B81CC6F3F600DFC68A /* 7-24-12-052.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948854E1CC6F3F600DFC68A /* 7-24-12-052.jpg */; };
+		E94885B91CC6F3F600DFC68A /* 7-29-14-345.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948854F1CC6F3F600DFC68A /* 7-29-14-345.jpg */; };
+		E94885BA1CC6F3F600DFC68A /* 7146.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885501CC6F3F600DFC68A /* 7146.jpg */; };
+		E94885BB1CC6F3F600DFC68A /* 7402.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885511CC6F3F600DFC68A /* 7402.jpg */; };
+		E94885BC1CC6F3F600DFC68A /* 8-9-11-0426.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885521CC6F3F600DFC68A /* 8-9-11-0426.jpg */; };
+		E94885BD1CC6F3F600DFC68A /* 8444505634_646117787e.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885531CC6F3F600DFC68A /* 8444505634_646117787e.jpg */; };
+		E94885BE1CC6F3F600DFC68A /* 9-24-14-195-Edit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885541CC6F3F600DFC68A /* 9-24-14-195-Edit.jpg */; };
+		E94885BF1CC6F3F600DFC68A /* ap_english_composition_syllabus.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94885551CC6F3F600DFC68A /* ap_english_composition_syllabus.txt */; };
+		E94885C01CC6F3F600DFC68A /* As I Lay Dying - Faulkner.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94885561CC6F3F600DFC68A /* As I Lay Dying - Faulkner.txt */; };
+		E94885C11CC6F3F600DFC68A /* At_the_river.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885571CC6F3F600DFC68A /* At_the_river.jpg */; };
+		E94885C21CC6F3F600DFC68A /* Bacchae - Euripides.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94885581CC6F3F600DFC68A /* Bacchae - Euripides.txt */; };
+		E94885C31CC6F3F600DFC68A /* baptism-st-thomas.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885591CC6F3F600DFC68A /* baptism-st-thomas.jpg */; };
+		E94885C41CC6F3F600DFC68A /* Baptism_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948855A1CC6F3F600DFC68A /* Baptism_2.jpg */; };
+		E94885C51CC6F3F600DFC68A /* Baptism_in_a_Catholic_Church.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948855B1CC6F3F600DFC68A /* Baptism_in_a_Catholic_Church.jpg */; };
+		E94885C61CC6F3F600DFC68A /* bataille_story_of_eye.txt in Resources */ = {isa = PBXBuildFile; fileRef = E948855C1CC6F3F600DFC68A /* bataille_story_of_eye.txt */; };
+		E94885C71CC6F3F600DFC68A /* Bluebird by Charles Bukowski.txt in Resources */ = {isa = PBXBuildFile; fileRef = E948855D1CC6F3F600DFC68A /* Bluebird by Charles Bukowski.txt */; };
+		E94885C81CC6F3F600DFC68A /* Catch 22 - Joseph Heller.txt in Resources */ = {isa = PBXBuildFile; fileRef = E948855E1CC6F3F600DFC68A /* Catch 22 - Joseph Heller.txt */; };
+		E94885C91CC6F3F600DFC68A /* CatcherInTheRye - Salinger.txt in Resources */ = {isa = PBXBuildFile; fileRef = E948855F1CC6F3F600DFC68A /* CatcherInTheRye - Salinger.txt */; };
+		E94885CA1CC6F3F600DFC68A /* Conversation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885601CC6F3F600DFC68A /* Conversation.jpg */; };
+		E94885CB1CC6F3F600DFC68A /* Crowd1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885611CC6F3F600DFC68A /* Crowd1.jpg */; };
+		E94885CC1CC6F3F600DFC68A /* Crowd14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885621CC6F3F600DFC68A /* Crowd14.jpg */; };
+		E94885CD1CC6F3F600DFC68A /* Crowd16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885631CC6F3F600DFC68A /* Crowd16.jpg */; };
+		E94885CE1CC6F3F600DFC68A /* Crowd2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885641CC6F3F600DFC68A /* Crowd2.jpg */; };
+		E94885CF1CC6F3F600DFC68A /* Crowd21.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885651CC6F3F600DFC68A /* Crowd21.jpg */; };
+		E94885D01CC6F3F600DFC68A /* Crowd29.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885661CC6F3F600DFC68A /* Crowd29.jpg */; };
+		E94885D11CC6F3F600DFC68A /* Crowd3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885671CC6F3F600DFC68A /* Crowd3.jpg */; };
+		E94885D21CC6F3F600DFC68A /* Crowd31.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885681CC6F3F600DFC68A /* Crowd31.jpg */; };
+		E94885D31CC6F3F600DFC68A /* Crowd32.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885691CC6F3F600DFC68A /* Crowd32.jpg */; };
+		E94885D41CC6F3F600DFC68A /* Crowd35.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948856A1CC6F3F600DFC68A /* Crowd35.jpg */; };
+		E94885D51CC6F3F600DFC68A /* Crowd7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948856B1CC6F3F600DFC68A /* Crowd7.jpg */; };
+		E94885D61CC6F3F600DFC68A /* Crowd8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948856C1CC6F3F600DFC68A /* Crowd8.jpg */; };
+		E94885D71CC6F3F600DFC68A /* Donne - Med 17.txt in Resources */ = {isa = PBXBuildFile; fileRef = E948856D1CC6F3F600DFC68A /* Donne - Med 17.txt */; };
+		E94885D81CC6F3F600DFC68A /* Doubt1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948856E1CC6F3F600DFC68A /* Doubt1.jpg */; };
+		E94885D91CC6F3F600DFC68A /* Doubt11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948856F1CC6F3F600DFC68A /* Doubt11.jpg */; };
+		E94885DA1CC6F3F600DFC68A /* Doubt15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885701CC6F3F600DFC68A /* Doubt15.jpg */; };
+		E94885DB1CC6F3F600DFC68A /* Doubt16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885711CC6F3F600DFC68A /* Doubt16.jpg */; };
+		E94885DC1CC6F3F600DFC68A /* Doubt2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885721CC6F3F600DFC68A /* Doubt2.jpg */; };
+		E94885DD1CC6F3F600DFC68A /* Doubt3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885731CC6F3F600DFC68A /* Doubt3.jpg */; };
+		E94885DE1CC6F3F600DFC68A /* Doubt6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885741CC6F3F600DFC68A /* Doubt6.jpg */; };
+		E94885DF1CC6F3F600DFC68A /* Doubt9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885751CC6F3F600DFC68A /* Doubt9.jpg */; };
+		E94885E01CC6F3F600DFC68A /* driving-sea-to-sky-highway.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885761CC6F3F600DFC68A /* driving-sea-to-sky-highway.jpg */; };
+		E94885E11CC6F3F600DFC68A /* Epidemic-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885771CC6F3F600DFC68A /* Epidemic-2.jpg */; };
+		E94885E21CC6F3F600DFC68A /* EternalStation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885781CC6F3F600DFC68A /* EternalStation.jpg */; };
+		E94885E31CC6F3F600DFC68A /* Fallen1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885791CC6F3F600DFC68A /* Fallen1.jpg */; };
+		E94885E41CC6F3F600DFC68A /* Fallen2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948857A1CC6F3F600DFC68A /* Fallen2.jpg */; };
+		E94885E51CC6F3F600DFC68A /* Fallen5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948857B1CC6F3F600DFC68A /* Fallen5.jpg */; };
+		E94885E61CC6F3F600DFC68A /* Fallen7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948857C1CC6F3F600DFC68A /* Fallen7.jpg */; };
+		E94885E71CC6F3F600DFC68A /* Family_Tree.txt in Resources */ = {isa = PBXBuildFile; fileRef = E948857D1CC6F3F600DFC68A /* Family_Tree.txt */; };
+		E94885E81CC6F3F600DFC68A /* Fata+Morgana.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948857E1CC6F3F600DFC68A /* Fata+Morgana.jpg */; };
+		E94885E91CC6F3F600DFC68A /* FeastPDX_House.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948857F1CC6F3F600DFC68A /* FeastPDX_House.jpg */; };
+		E94885EA1CC6F3F600DFC68A /* Fragment+Of+Eternity.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885801CC6F3F600DFC68A /* Fragment+Of+Eternity.jpg */; };
+		E94885EB1CC6F3F600DFC68A /* Geek Love by Katherine Dunn - Ch1.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94885811CC6F3F600DFC68A /* Geek Love by Katherine Dunn - Ch1.txt */; };
+		E94885EC1CC6F3F600DFC68A /* high_school_classroom.preview.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885821CC6F3F600DFC68A /* high_school_classroom.preview.jpg */; };
+		E94885ED1CC6F3F600DFC68A /* House-party.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885831CC6F3F600DFC68A /* House-party.jpg */; };
+		E94885EE1CC6F3F600DFC68A /* Invisible Man - Ellison.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94885841CC6F3F600DFC68A /* Invisible Man - Ellison.txt */; };
+		E94885EF1CC6F3F600DFC68A /* Journey+Into+Dark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885851CC6F3F600DFC68A /* Journey+Into+Dark.jpg */; };
+		E94885F01CC6F3F600DFC68A /* Kristeva_-_powers_of_horror.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94885861CC6F3F600DFC68A /* Kristeva_-_powers_of_horror.txt */; };
+		E94885F11CC6F3F600DFC68A /* LacanMirrorPhase.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94885871CC6F3F600DFC68A /* LacanMirrorPhase.txt */; };
+		E94885F21CC6F3F600DFC68A /* Leila-crowded-classrooms.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885881CC6F3F600DFC68A /* Leila-crowded-classrooms.jpg */; };
+		E94885F31CC6F3F600DFC68A /* Lolita - Vladimir Nabokov.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94885891CC6F3F600DFC68A /* Lolita - Vladimir Nabokov.txt */; };
+		E94885F41CC6F3F600DFC68A /* maxresdefault 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948858A1CC6F3F600DFC68A /* maxresdefault 2.jpg */; };
+		E94885F51CC6F3F600DFC68A /* maxresdefault.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948858B1CC6F3F600DFC68A /* maxresdefault.jpg */; };
+		E94885F61CC6F3F600DFC68A /* ms1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948858C1CC6F3F600DFC68A /* ms1.jpg */; };
+		E94885F71CC6F3F600DFC68A /* mulvey-visualpleasure.txt in Resources */ = {isa = PBXBuildFile; fileRef = E948858D1CC6F3F600DFC68A /* mulvey-visualpleasure.txt */; };
+		E94885F81CC6F3F600DFC68A /* Myth of Sisyphus by Albert Camus.txt in Resources */ = {isa = PBXBuildFile; fileRef = E948858E1CC6F3F600DFC68A /* Myth of Sisyphus by Albert Camus.txt */; };
+		E94885F91CC6F3F600DFC68A /* New+Crowd39.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948858F1CC6F3F600DFC68A /* New+Crowd39.jpg */; };
+		E94885FA1CC6F3F600DFC68A /* New_bed_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885901CC6F3F600DFC68A /* New_bed_1.jpg */; };
+		E94885FB1CC6F3F600DFC68A /* New_bed_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885911CC6F3F600DFC68A /* New_bed_2.jpg */; };
+		E94885FC1CC6F3F600DFC68A /* New_bed_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885921CC6F3F600DFC68A /* New_bed_3.jpg */; };
+		E94885FD1CC6F3F600DFC68A /* NewCrowd38.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885931CC6F3F600DFC68A /* NewCrowd38.jpg */; };
+		E94885FE1CC6F3F600DFC68A /* NewCrowd38Fragment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885941CC6F3F600DFC68A /* NewCrowd38Fragment.jpg */; };
+		E94885FF1CC6F3F600DFC68A /* NewCrowd42Fragment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885951CC6F3F600DFC68A /* NewCrowd42Fragment.jpg */; };
+		E94886001CC6F3F600DFC68A /* NewCrowd46.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885961CC6F3F600DFC68A /* NewCrowd46.jpg */; };
+		E94886011CC6F3F600DFC68A /* NewCrowd52.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885971CC6F3F600DFC68A /* NewCrowd52.jpg */; };
+		E94886021CC6F3F600DFC68A /* NewCrowd58.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885981CC6F3F600DFC68A /* NewCrowd58.jpg */; };
+		E94886031CC6F3F600DFC68A /* Party.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885991CC6F3F600DFC68A /* Party.jpg */; };
+		E94886041CC6F3F600DFC68A /* Photo_shoot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948859A1CC6F3F600DFC68A /* Photo_shoot.jpg */; };
+		E94886051CC6F3F600DFC68A /* Portland-Conference-East-vs.-West-Soccer-Game.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948859B1CC6F3F600DFC68A /* Portland-Conference-East-vs.-West-Soccer-Game.jpg */; };
+		E94886061CC6F3F600DFC68A /* Redwood_High_School,_Larkspur,_California.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948859C1CC6F3F600DFC68A /* Redwood_High_School,_Larkspur,_California.jpg */; };
+		E94886071CC6F3F600DFC68A /* road-trip3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948859D1CC6F3F600DFC68A /* road-trip3.jpg */; };
+		E94886081CC6F3F600DFC68A /* road_trip.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948859E1CC6F3F600DFC68A /* road_trip.jpg */; };
+		E94886091CC6F3F600DFC68A /* rooney_pick_up.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948859F1CC6F3F600DFC68A /* rooney_pick_up.jpg */; };
+		E948860A1CC6F3F600DFC68A /* rubidouxclassroom.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885A01CC6F3F600DFC68A /* rubidouxclassroom.jpg */; };
+		E948860B1CC6F3F600DFC68A /* Sheptune2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885A11CC6F3F600DFC68A /* Sheptune2.jpg */; };
+		E948860C1CC6F3F600DFC68A /* skillsstill.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885A21CC6F3F600DFC68A /* skillsstill.jpg */; };
+		E948860D1CC6F3F600DFC68A /* St. Augustine - Confessions copy.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94885A31CC6F3F600DFC68A /* St. Augustine - Confessions copy.txt */; };
+		E948860E1CC6F3F600DFC68A /* St_H_Bap_OK.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885A41CC6F3F600DFC68A /* St_H_Bap_OK.jpg */; };
+		E948860F1CC6F3F600DFC68A /* The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885A51CC6F3F600DFC68A /* The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg */; };
+		E94886101CC6F3F600DFC68A /* The_Metamorphosis.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94885A61CC6F3F600DFC68A /* The_Metamorphosis.txt */; };
+		E94886111CC6F3F600DFC68A /* The_Scarlet_Letter.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94885A71CC6F3F600DFC68A /* The_Scarlet_Letter.txt */; };
+		E94886371CC6F42A00DFC68A /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = E94886121CC6F42A00DFC68A /* data.json */; };
+		E94886381CC6F42A00DFC68A /* DE1PipelineTexts.json in Resources */ = {isa = PBXBuildFile; fileRef = E94886131CC6F42A00DFC68A /* DE1PipelineTexts.json */; };
+		E94886391CC6F42A00DFC68A /* Desktop0.json in Resources */ = {isa = PBXBuildFile; fileRef = E94886141CC6F42A00DFC68A /* Desktop0.json */; };
+		E948863A1CC6F42A00DFC68A /* Desktop1.json in Resources */ = {isa = PBXBuildFile; fileRef = E94886151CC6F42A00DFC68A /* Desktop1.json */; };
+		E948863B1CC6F42A00DFC68A /* Desktop2.json in Resources */ = {isa = PBXBuildFile; fileRef = E94886161CC6F42A00DFC68A /* Desktop2.json */; };
+		E948863C1CC6F42A00DFC68A /* Email0.json in Resources */ = {isa = PBXBuildFile; fileRef = E94886171CC6F42A00DFC68A /* Email0.json */; };
+		E948863D1CC6F42A00DFC68A /* Email1.json in Resources */ = {isa = PBXBuildFile; fileRef = E94886181CC6F42A00DFC68A /* Email1.json */; };
+		E948863E1CC6F42A00DFC68A /* Email2.json in Resources */ = {isa = PBXBuildFile; fileRef = E94886191CC6F42A00DFC68A /* Email2.json */; };
+		E948863F1CC6F42A00DFC68A /* PlayerDesktop.json in Resources */ = {isa = PBXBuildFile; fileRef = E948861A1CC6F42A00DFC68A /* PlayerDesktop.json */; };
+		E94886401CC6F42A00DFC68A /* PlayerEmail.json in Resources */ = {isa = PBXBuildFile; fileRef = E948861B1CC6F42A00DFC68A /* PlayerEmail.json */; };
+		E94886411CC6F42A00DFC68A /* smsPipeline.json in Resources */ = {isa = PBXBuildFile; fileRef = E948861C1CC6F42A00DFC68A /* smsPipeline.json */; };
+		E94886421CC6F42A00DFC68A /* suspiciontest.json in Resources */ = {isa = PBXBuildFile; fileRef = E948861D1CC6F42A00DFC68A /* suspiciontest.json */; };
+		E94886431CC6F42A00DFC68A /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = E948861E1CC6F42A00DFC68A /* ResourcePath.mm */; };
+		E94886441CC6F42A00DFC68A /* SoundTrack_Extraction.ogg in Resources */ = {isa = PBXBuildFile; fileRef = E948861F1CC6F42A00DFC68A /* SoundTrack_Extraction.ogg */; };
+		E94886451CC6F42A00DFC68A /* SoundTrack_Pipeline.ogg in Resources */ = {isa = PBXBuildFile; fileRef = E94886201CC6F42A00DFC68A /* SoundTrack_Pipeline.ogg */; };
+		E94886461CC6F42A00DFC68A /* first.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94886211CC6F42A00DFC68A /* first.txt */; };
+		E94886471CC6F42A00DFC68A /* last.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94886221CC6F42A00DFC68A /* last.txt */; };
+		E94886481CC6F42A00DFC68A /* PipelineTutorial.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94886231CC6F42A00DFC68A /* PipelineTutorial.txt */; };
+		E94886491CC6F42A00DFC68A /* TestDialogue.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94886241CC6F42A00DFC68A /* TestDialogue.txt */; };
+		E948864A1CC6F42A00DFC68A /* Face_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E94886251CC6F42A00DFC68A /* Face_Sheet.png */; };
+		E948864B1CC6F42A00DFC68A /* Floppy_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E94886261CC6F42A00DFC68A /* Floppy_Sheet.png */; };
+		E948864C1CC6F42A00DFC68A /* Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E94886271CC6F42A00DFC68A /* Icon_Sheet.png */; };
+		E948864D1CC6F42A00DFC68A /* Icon_Sheet2.png in Resources */ = {isa = PBXBuildFile; fileRef = E94886281CC6F42A00DFC68A /* Icon_Sheet2.png */; };
+		E948864E1CC6F42A00DFC68A /* kappa.png in Resources */ = {isa = PBXBuildFile; fileRef = E94886291CC6F42A00DFC68A /* kappa.png */; };
+		E948864F1CC6F42A00DFC68A /* Pixel_Title.png in Resources */ = {isa = PBXBuildFile; fileRef = E948862A1CC6F42A00DFC68A /* Pixel_Title.png */; };
+		E94886501CC6F42A00DFC68A /* Teacher_Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E948862B1CC6F42A00DFC68A /* Teacher_Icon_Sheet.png */; };
+		E94886511CC6F42A00DFC68A /* Teacher_Icon_Sheet2.png in Resources */ = {isa = PBXBuildFile; fileRef = E948862C1CC6F42A00DFC68A /* Teacher_Icon_Sheet2.png */; };
+		E94886521CC6F42A00DFC68A /* Teacher_Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = E948862D1CC6F42A00DFC68A /* Teacher_Wallpaper.png */; };
+		E94886531CC6F42A00DFC68A /* Toolbar_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = E948862E1CC6F42A00DFC68A /* Toolbar_Icons.png */; };
+		E94886541CC6F42A00DFC68A /* Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = E948862F1CC6F42A00DFC68A /* Wallpaper.png */; };
+		E94886551CC6F42A00DFC68A /* Wallpaper2.png in Resources */ = {isa = PBXBuildFile; fileRef = E94886301CC6F42A00DFC68A /* Wallpaper2.png */; };
+		E94886561CC6F42A00DFC68A /* Windows_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = E94886311CC6F42A00DFC68A /* Windows_Icons.png */; };
+		E94886571CC6F42A00DFC68A /* Windows_UI.png in Resources */ = {isa = PBXBuildFile; fileRef = E94886321CC6F42A00DFC68A /* Windows_UI.png */; };
+		E94886581CC6F42A00DFC68A /* consola.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E94886331CC6F42A00DFC68A /* consola.ttf */; };
+		E94886591CC6F42A00DFC68A /* micross.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E94886341CC6F42A00DFC68A /* micross.ttf */; };
+		E948865A1CC6F42A00DFC68A /* VT323-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E94886351CC6F42A00DFC68A /* VT323-Regular.ttf */; };
+		E948865B1CC6F42A00DFC68A /* Notification_Prompt.wav in Resources */ = {isa = PBXBuildFile; fileRef = E94886361CC6F42A00DFC68A /* Notification_Prompt.wav */; };
 		E94A2FF11CC6E9A900907AD9 /* animatorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E94A2F661CC6E9A900907AD9 /* animatorComponent.cpp */; };
 		E94A2FF21CC6E9A900907AD9 /* BootLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E94A2F681CC6E9A900907AD9 /* BootLoader.cpp */; };
 		E94A2FF31CC6E9A900907AD9 /* bootLoadingAnimationRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E94A2F6A1CC6E9A900907AD9 /* bootLoadingAnimationRender.cpp */; };
@@ -78,146 +221,6 @@
 		E94A30331CC6E9A900907AD9 /* textRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E94A2FEB1CC6E9A900907AD9 /* textRenderComponent.cpp */; };
 		E94A30341CC6E9A900907AD9 /* TreeCommands.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E94A2FED1CC6E9A900907AD9 /* TreeCommands.cpp */; };
 		E94A30351CC6E9A900907AD9 /* WindowBkgndRenderCmpnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E94A2FEF1CC6E9A900907AD9 /* WindowBkgndRenderCmpnt.cpp */; };
-		E94A305C1CC6EA9D00907AD9 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = E94A30371CC6EA9D00907AD9 /* data.json */; };
-		E94A305D1CC6EA9D00907AD9 /* DE1PipelineTexts.json in Resources */ = {isa = PBXBuildFile; fileRef = E94A30381CC6EA9D00907AD9 /* DE1PipelineTexts.json */; };
-		E94A305E1CC6EA9D00907AD9 /* Desktop0.json in Resources */ = {isa = PBXBuildFile; fileRef = E94A30391CC6EA9D00907AD9 /* Desktop0.json */; };
-		E94A305F1CC6EA9D00907AD9 /* Desktop1.json in Resources */ = {isa = PBXBuildFile; fileRef = E94A303A1CC6EA9D00907AD9 /* Desktop1.json */; };
-		E94A30601CC6EA9D00907AD9 /* Desktop2.json in Resources */ = {isa = PBXBuildFile; fileRef = E94A303B1CC6EA9D00907AD9 /* Desktop2.json */; };
-		E94A30611CC6EA9D00907AD9 /* Email0.json in Resources */ = {isa = PBXBuildFile; fileRef = E94A303C1CC6EA9D00907AD9 /* Email0.json */; };
-		E94A30621CC6EA9D00907AD9 /* Email1.json in Resources */ = {isa = PBXBuildFile; fileRef = E94A303D1CC6EA9D00907AD9 /* Email1.json */; };
-		E94A30631CC6EA9D00907AD9 /* Email2.json in Resources */ = {isa = PBXBuildFile; fileRef = E94A303E1CC6EA9D00907AD9 /* Email2.json */; };
-		E94A30641CC6EA9D00907AD9 /* PlayerDesktop.json in Resources */ = {isa = PBXBuildFile; fileRef = E94A303F1CC6EA9D00907AD9 /* PlayerDesktop.json */; };
-		E94A30651CC6EA9D00907AD9 /* PlayerEmail.json in Resources */ = {isa = PBXBuildFile; fileRef = E94A30401CC6EA9D00907AD9 /* PlayerEmail.json */; };
-		E94A30661CC6EA9D00907AD9 /* smsPipeline.json in Resources */ = {isa = PBXBuildFile; fileRef = E94A30411CC6EA9D00907AD9 /* smsPipeline.json */; };
-		E94A30671CC6EA9D00907AD9 /* suspiciontest.json in Resources */ = {isa = PBXBuildFile; fileRef = E94A30421CC6EA9D00907AD9 /* suspiciontest.json */; };
-		E94A30681CC6EA9D00907AD9 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = E94A30431CC6EA9D00907AD9 /* ResourcePath.mm */; };
-		E94A30691CC6EA9D00907AD9 /* SoundTrack_Extraction.ogg in Resources */ = {isa = PBXBuildFile; fileRef = E94A30441CC6EA9D00907AD9 /* SoundTrack_Extraction.ogg */; };
-		E94A306A1CC6EA9D00907AD9 /* SoundTrack_Pipeline.ogg in Resources */ = {isa = PBXBuildFile; fileRef = E94A30451CC6EA9D00907AD9 /* SoundTrack_Pipeline.ogg */; };
-		E94A306B1CC6EA9D00907AD9 /* first.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94A30461CC6EA9D00907AD9 /* first.txt */; };
-		E94A306C1CC6EA9D00907AD9 /* last.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94A30471CC6EA9D00907AD9 /* last.txt */; };
-		E94A306D1CC6EA9D00907AD9 /* PipelineTutorial.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94A30481CC6EA9D00907AD9 /* PipelineTutorial.txt */; };
-		E94A306E1CC6EA9D00907AD9 /* TestDialogue.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94A30491CC6EA9D00907AD9 /* TestDialogue.txt */; };
-		E94A306F1CC6EA9D00907AD9 /* Face_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E94A304A1CC6EA9D00907AD9 /* Face_Sheet.png */; };
-		E94A30701CC6EA9D00907AD9 /* Floppy_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E94A304B1CC6EA9D00907AD9 /* Floppy_Sheet.png */; };
-		E94A30711CC6EA9D00907AD9 /* Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E94A304C1CC6EA9D00907AD9 /* Icon_Sheet.png */; };
-		E94A30721CC6EA9D00907AD9 /* Icon_Sheet2.png in Resources */ = {isa = PBXBuildFile; fileRef = E94A304D1CC6EA9D00907AD9 /* Icon_Sheet2.png */; };
-		E94A30731CC6EA9D00907AD9 /* kappa.png in Resources */ = {isa = PBXBuildFile; fileRef = E94A304E1CC6EA9D00907AD9 /* kappa.png */; };
-		E94A30741CC6EA9D00907AD9 /* Pixel_Title.png in Resources */ = {isa = PBXBuildFile; fileRef = E94A304F1CC6EA9D00907AD9 /* Pixel_Title.png */; };
-		E94A30751CC6EA9D00907AD9 /* Teacher_Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E94A30501CC6EA9D00907AD9 /* Teacher_Icon_Sheet.png */; };
-		E94A30761CC6EA9D00907AD9 /* Teacher_Icon_Sheet2.png in Resources */ = {isa = PBXBuildFile; fileRef = E94A30511CC6EA9D00907AD9 /* Teacher_Icon_Sheet2.png */; };
-		E94A30771CC6EA9D00907AD9 /* Teacher_Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = E94A30521CC6EA9D00907AD9 /* Teacher_Wallpaper.png */; };
-		E94A30781CC6EA9D00907AD9 /* Toolbar_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = E94A30531CC6EA9D00907AD9 /* Toolbar_Icons.png */; };
-		E94A30791CC6EA9D00907AD9 /* Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = E94A30541CC6EA9D00907AD9 /* Wallpaper.png */; };
-		E94A307A1CC6EA9D00907AD9 /* Wallpaper2.png in Resources */ = {isa = PBXBuildFile; fileRef = E94A30551CC6EA9D00907AD9 /* Wallpaper2.png */; };
-		E94A307B1CC6EA9D00907AD9 /* Windows_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = E94A30561CC6EA9D00907AD9 /* Windows_Icons.png */; };
-		E94A307C1CC6EA9D00907AD9 /* Windows_UI.png in Resources */ = {isa = PBXBuildFile; fileRef = E94A30571CC6EA9D00907AD9 /* Windows_UI.png */; };
-		E94A307D1CC6EA9D00907AD9 /* consola.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E94A30581CC6EA9D00907AD9 /* consola.ttf */; };
-		E94A307E1CC6EA9D00907AD9 /* micross.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E94A30591CC6EA9D00907AD9 /* micross.ttf */; };
-		E94A307F1CC6EA9D00907AD9 /* VT323-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E94A305A1CC6EA9D00907AD9 /* VT323-Regular.ttf */; };
-		E94A30801CC6EA9D00907AD9 /* Notification_Prompt.wav in Resources */ = {isa = PBXBuildFile; fileRef = E94A305B1CC6EA9D00907AD9 /* Notification_Prompt.wav */; };
-		E99A118D1CC1BF4700597D6E /* Family_Tree.txt in Resources */ = {isa = PBXBuildFile; fileRef = E99A118C1CC1BF4700597D6E /* Family_Tree.txt */; };
-		E9A0AC761C939A290035CCE1 /* 1-24-08-182.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC121C939A290035CCE1 /* 1-24-08-182.jpg */; };
-		E9A0AC771C939A290035CCE1 /* 2-20-09-431.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC131C939A290035CCE1 /* 2-20-09-431.jpg */; };
-		E9A0AC781C939A290035CCE1 /* 2-23-2011-213.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC141C939A290035CCE1 /* 2-23-2011-213.jpg */; };
-		E9A0AC791C939A290035CCE1 /* 4-24-08-152.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC151C939A290035CCE1 /* 4-24-08-152.jpg */; };
-		E9A0AC7A1C939A290035CCE1 /* 3-29-12-184.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC161C939A290035CCE1 /* 3-29-12-184.jpg */; };
-		E9A0AC7B1C939A290035CCE1 /* 4-4-12-048.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC171C939A290035CCE1 /* 4-4-12-048.jpg */; };
-		E9A0AC7C1C939A290035CCE1 /* 4-10-08-386.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC181C939A290035CCE1 /* 4-10-08-386.jpg */; };
-		E9A0AC7D1C939A290035CCE1 /* 4-14-09-462.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC191C939A290035CCE1 /* 4-14-09-462.jpg */; };
-		E9A0AC7E1C939A290035CCE1 /* Fata+Morgana.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC1A1C939A290035CCE1 /* Fata+Morgana.jpg */; };
-		E9A0AC7F1C939A290035CCE1 /* 8-9-11-0426.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC1B1C939A290035CCE1 /* 8-9-11-0426.jpg */; };
-		E9A0AC801C939A290035CCE1 /* Crowd29.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC1C1C939A290035CCE1 /* Crowd29.jpg */; };
-		E9A0AC811C939A290035CCE1 /* 7-29-14-345.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC1D1C939A290035CCE1 /* 7-29-14-345.jpg */; };
-		E9A0AC821C939A290035CCE1 /* 3191.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC1E1C939A290035CCE1 /* 3191.jpg */; };
-		E9A0AC831C939A290035CCE1 /* Crowd14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC1F1C939A290035CCE1 /* Crowd14.jpg */; };
-		E9A0AC841C939A290035CCE1 /* St_H_Bap_OK.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC201C939A290035CCE1 /* St_H_Bap_OK.jpg */; };
-		E9A0AC851C939A290035CCE1 /* 11062011img47161.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC211C939A290035CCE1 /* 11062011img47161.jpg */; };
-		E9A0AC861C939A290035CCE1 /* maxresdefault 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC221C939A290035CCE1 /* maxresdefault 2.jpg */; };
-		E9A0AC871C939A290035CCE1 /* Leila-crowded-classrooms.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC231C939A290035CCE1 /* Leila-crowded-classrooms.jpg */; };
-		E9A0AC881C939A290035CCE1 /* Baptism_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC241C939A290035CCE1 /* Baptism_2.jpg */; };
-		E9A0AC891C939A290035CCE1 /* Baptism_in_a_Catholic_Church.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC251C939A290035CCE1 /* Baptism_in_a_Catholic_Church.jpg */; };
-		E9A0AC8A1C939A290035CCE1 /* baptism-st-thomas.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC261C939A290035CCE1 /* baptism-st-thomas.jpg */; };
-		E9A0AC8B1C939A290035CCE1 /* road_trip.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC271C939A290035CCE1 /* road_trip.jpg */; };
-		E9A0AC8C1C939A290035CCE1 /* driving-sea-to-sky-highway.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC281C939A290035CCE1 /* driving-sea-to-sky-highway.jpg */; };
-		E9A0AC8D1C939A290035CCE1 /* 8444505634_646117787e.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC291C939A290035CCE1 /* 8444505634_646117787e.jpg */; };
-		E9A0AC8E1C939A290035CCE1 /* House-party.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC2A1C939A290035CCE1 /* House-party.jpg */; };
-		E9A0AC8F1C939A290035CCE1 /* high_school_classroom.preview.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC2B1C939A290035CCE1 /* high_school_classroom.preview.jpg */; };
-		E9A0AC901C939A290035CCE1 /* rubidouxclassroom.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC2C1C939A290035CCE1 /* rubidouxclassroom.jpg */; };
-		E9A0AC911C939A290035CCE1 /* maxresdefault.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC2D1C939A290035CCE1 /* maxresdefault.jpg */; };
-		E9A0AC921C939A290035CCE1 /* Portland-Conference-East-vs.-West-Soccer-Game.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC2E1C939A290035CCE1 /* Portland-Conference-East-vs.-West-Soccer-Game.jpg */; };
-		E9A0AC931C939A290035CCE1 /* ms1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC2F1C939A290035CCE1 /* ms1.jpg */; };
-		E9A0AC941C939A290035CCE1 /* Party.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC301C939A290035CCE1 /* Party.jpg */; };
-		E9A0AC951C939A290035CCE1 /* Redwood_High_School,_Larkspur,_California.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC311C939A290035CCE1 /* Redwood_High_School,_Larkspur,_California.jpg */; };
-		E9A0AC961C939A290035CCE1 /* The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC321C939A290035CCE1 /* The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg */; };
-		E9A0AC971C939A290035CCE1 /* FeastPDX_House.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC331C939A290035CCE1 /* FeastPDX_House.jpg */; };
-		E9A0AC981C939A290035CCE1 /* road-trip3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC341C939A290035CCE1 /* road-trip3.jpg */; };
-		E9A0AC991C939A290035CCE1 /* rooney_pick_up.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC351C939A290035CCE1 /* rooney_pick_up.jpg */; };
-		E9A0AC9A1C939A290035CCE1 /* skillsstill.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC361C939A290035CCE1 /* skillsstill.jpg */; };
-		E9A0AC9B1C939A290035CCE1 /* ap_english_composition_syllabus.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC371C939A290035CCE1 /* ap_english_composition_syllabus.txt */; };
-		E9A0AC9C1C939A290035CCE1 /* Myth of Sisyphus by Albert Camus.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC381C939A290035CCE1 /* Myth of Sisyphus by Albert Camus.txt */; };
-		E9A0AC9D1C939A290035CCE1 /* 9-24-14-195-Edit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC391C939A290035CCE1 /* 9-24-14-195-Edit.jpg */; };
-		E9A0AC9E1C939A290035CCE1 /* Fallen5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC3A1C939A290035CCE1 /* Fallen5.jpg */; };
-		E9A0AC9F1C939A290035CCE1 /* Fragment+Of+Eternity.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC3B1C939A290035CCE1 /* Fragment+Of+Eternity.jpg */; };
-		E9A0ACA01C939A290035CCE1 /* 1894.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC3C1C939A290035CCE1 /* 1894.jpg */; };
-		E9A0ACA11C939A290035CCE1 /* Conversation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC3D1C939A290035CCE1 /* Conversation.jpg */; };
-		E9A0ACA21C939A290035CCE1 /* mulvey-visualpleasure.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC3E1C939A290035CCE1 /* mulvey-visualpleasure.txt */; };
-		E9A0ACA31C939A290035CCE1 /* 7146.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC3F1C939A290035CCE1 /* 7146.jpg */; };
-		E9A0ACA41C939A290035CCE1 /* 4065.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC401C939A290035CCE1 /* 4065.jpg */; };
-		E9A0ACA51C939A290035CCE1 /* Crowd31.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC411C939A290035CCE1 /* Crowd31.jpg */; };
-		E9A0ACA61C939A290035CCE1 /* Crowd35.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC421C939A290035CCE1 /* Crowd35.jpg */; };
-		E9A0ACA71C939A290035CCE1 /* NewCrowd38.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC431C939A290035CCE1 /* NewCrowd38.jpg */; };
-		E9A0ACA81C939A290035CCE1 /* Crowd16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC441C939A290035CCE1 /* Crowd16.jpg */; };
-		E9A0ACA91C939A290035CCE1 /* Doubt2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC451C939A290035CCE1 /* Doubt2.jpg */; };
-		E9A0ACAA1C939A290035CCE1 /* EternalStation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC461C939A290035CCE1 /* EternalStation.jpg */; };
-		E9A0ACAB1C939A290035CCE1 /* Crowd1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC471C939A290035CCE1 /* Crowd1.jpg */; };
-		E9A0ACAC1C939A290035CCE1 /* 6576.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC481C939A290035CCE1 /* 6576.jpg */; };
-		E9A0ACAD1C939A290035CCE1 /* Crowd32.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC491C939A290035CCE1 /* Crowd32.jpg */; };
-		E9A0ACAE1C939A290035CCE1 /* Doubt3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC4A1C939A290035CCE1 /* Doubt3.jpg */; };
-		E9A0ACAF1C939A290035CCE1 /* Doubt16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC4B1C939A290035CCE1 /* Doubt16.jpg */; };
-		E9A0ACB01C939A290035CCE1 /* Journey+Into+Dark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC4C1C939A290035CCE1 /* Journey+Into+Dark.jpg */; };
-		E9A0ACB11C939A290035CCE1 /* Crowd8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC4D1C939A290035CCE1 /* Crowd8.jpg */; };
-		E9A0ACB21C939A290035CCE1 /* 7402.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC4E1C939A290035CCE1 /* 7402.jpg */; };
-		E9A0ACB31C939A290035CCE1 /* Doubt9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC4F1C939A290035CCE1 /* Doubt9.jpg */; };
-		E9A0ACB41C939A290035CCE1 /* Doubt11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC501C939A290035CCE1 /* Doubt11.jpg */; };
-		E9A0ACB51C939A290035CCE1 /* Crowd7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC511C939A290035CCE1 /* Crowd7.jpg */; };
-		E9A0ACB61C939A290035CCE1 /* NewCrowd52.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC521C939A290035CCE1 /* NewCrowd52.jpg */; };
-		E9A0ACB71C939A290035CCE1 /* St. Augustine - Confessions copy.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC531C939A290035CCE1 /* St. Augustine - Confessions copy.txt */; };
-		E9A0ACB81C939A290035CCE1 /* Crowd3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC541C939A290035CCE1 /* Crowd3.jpg */; };
-		E9A0ACB91C939A290035CCE1 /* Epidemic-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC551C939A290035CCE1 /* Epidemic-2.jpg */; };
-		E9A0ACBA1C939A290035CCE1 /* Kristeva_-_powers_of_horror.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC561C939A290035CCE1 /* Kristeva_-_powers_of_horror.txt */; };
-		E9A0ACBB1C939A290035CCE1 /* Crowd21.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC571C939A290035CCE1 /* Crowd21.jpg */; };
-		E9A0ACBC1C939A290035CCE1 /* Doubt6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC581C939A290035CCE1 /* Doubt6.jpg */; };
-		E9A0ACBD1C939A290035CCE1 /* Fallen2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC591C939A290035CCE1 /* Fallen2.jpg */; };
-		E9A0ACBE1C939A290035CCE1 /* 3573.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC5A1C939A290035CCE1 /* 3573.jpg */; };
-		E9A0ACBF1C939A290035CCE1 /* Fallen7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC5B1C939A290035CCE1 /* Fallen7.jpg */; };
-		E9A0ACC01C939A290035CCE1 /* New+Crowd39.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC5C1C939A290035CCE1 /* New+Crowd39.jpg */; };
-		E9A0ACC11C939A290035CCE1 /* NewCrowd38Fragment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC5D1C939A290035CCE1 /* NewCrowd38Fragment.jpg */; };
-		E9A0ACC21C939A290035CCE1 /* Crowd2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC5E1C939A290035CCE1 /* Crowd2.jpg */; };
-		E9A0ACC31C939A290035CCE1 /* 7-24-12-052.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC5F1C939A290035CCE1 /* 7-24-12-052.jpg */; };
-		E9A0ACC41C939A290035CCE1 /* NewCrowd42Fragment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC601C939A290035CCE1 /* NewCrowd42Fragment.jpg */; };
-		E9A0ACC51C939A290035CCE1 /* Invisible Man - Ellison.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC611C939A290035CCE1 /* Invisible Man - Ellison.txt */; };
-		E9A0ACC61C939A290035CCE1 /* NewCrowd46.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC621C939A290035CCE1 /* NewCrowd46.jpg */; };
-		E9A0ACC71C939A290035CCE1 /* NewCrowd58.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC631C939A290035CCE1 /* NewCrowd58.jpg */; };
-		E9A0ACC81C939A290035CCE1 /* 5678.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC641C939A290035CCE1 /* 5678.jpg */; };
-		E9A0ACC91C939A290035CCE1 /* Catch 22 - Joseph Heller.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC651C939A290035CCE1 /* Catch 22 - Joseph Heller.txt */; };
-		E9A0ACCA1C939A290035CCE1 /* Fallen1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC661C939A290035CCE1 /* Fallen1.jpg */; };
-		E9A0ACCB1C939A290035CCE1 /* Sheptune2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC671C939A290035CCE1 /* Sheptune2.jpg */; };
-		E9A0ACCC1C939A290035CCE1 /* As I Lay Dying - Faulkner.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC681C939A290035CCE1 /* As I Lay Dying - Faulkner.txt */; };
-		E9A0ACCD1C939A290035CCE1 /* 4-24-08-492.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC691C939A290035CCE1 /* 4-24-08-492.jpg */; };
-		E9A0ACCE1C939A290035CCE1 /* The_Metamorphosis.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC6A1C939A290035CCE1 /* The_Metamorphosis.txt */; };
-		E9A0ACCF1C939A290035CCE1 /* Bacchae - Euripides.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC6B1C939A290035CCE1 /* Bacchae - Euripides.txt */; };
-		E9A0ACD01C939A290035CCE1 /* Doubt15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC6C1C939A290035CCE1 /* Doubt15.jpg */; };
-		E9A0ACD11C939A290035CCE1 /* bataille_story_of_eye.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC6D1C939A290035CCE1 /* bataille_story_of_eye.txt */; };
-		E9A0ACD21C939A290035CCE1 /* The_Scarlet_Letter.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC6E1C939A290035CCE1 /* The_Scarlet_Letter.txt */; };
-		E9A0ACD31C939A290035CCE1 /* Bluebird by Charles Bukowski.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC6F1C939A290035CCE1 /* Bluebird by Charles Bukowski.txt */; };
-		E9A0ACD41C939A290035CCE1 /* CatcherInTheRye - Salinger.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC701C939A290035CCE1 /* CatcherInTheRye - Salinger.txt */; };
-		E9A0ACD51C939A290035CCE1 /* Donne - Med 17.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC711C939A290035CCE1 /* Donne - Med 17.txt */; };
-		E9A0ACD61C939A290035CCE1 /* Geek Love by Katherine Dunn - Ch1.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC721C939A290035CCE1 /* Geek Love by Katherine Dunn - Ch1.txt */; };
-		E9A0ACD71C939A290035CCE1 /* LacanMirrorPhase.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC731C939A290035CCE1 /* LacanMirrorPhase.txt */; };
-		E9A0ACD81C939A290035CCE1 /* Doubt1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC741C939A290035CCE1 /* Doubt1.jpg */; };
-		E9A0ACD91C939A290035CCE1 /* Lolita - Vladimir Nabokov.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A0AC751C939A290035CCE1 /* Lolita - Vladimir Nabokov.txt */; };
-		E9A4CEA01CC2059800446A85 /* Photo_shoot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A4CE9D1CC2059800446A85 /* Photo_shoot.jpg */; };
-		E9A4CEA11CC2059800446A85 /* At_the_river.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A4CE9E1CC2059800446A85 /* At_the_river.jpg */; };
 		E9E1F5921C91F506006AE0FB /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5301C91F506006AE0FB /* DoxygenHelp.txt */; };
 		E9E1F5931C91F506006AE0FB /* LinkHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5311C91F506006AE0FB /* LinkHelp.txt */; };
 		E9E1F5E01C91F506006AE0FB /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5811C91F506006AE0FB /* EngineSettings.ini */; };
@@ -276,6 +279,149 @@
 		C82E60741C810DCB001860CC /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		C82E60751C810DCB001860CC /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
 		C8A593461C8E3AFE00036C1D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
+		E948853E1CC6F3F600DFC68A /* 1-24-08-182.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-24-08-182.jpg"; sourceTree = "<group>"; };
+		E948853F1CC6F3F600DFC68A /* 11062011img47161.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 11062011img47161.jpg; sourceTree = "<group>"; };
+		E94885401CC6F3F600DFC68A /* 1894.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1894.jpg; sourceTree = "<group>"; };
+		E94885411CC6F3F600DFC68A /* 2-20-09-431.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-20-09-431.jpg"; sourceTree = "<group>"; };
+		E94885421CC6F3F600DFC68A /* 2-23-2011-213.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-23-2011-213.jpg"; sourceTree = "<group>"; };
+		E94885431CC6F3F600DFC68A /* 3-29-12-184.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3-29-12-184.jpg"; sourceTree = "<group>"; };
+		E94885441CC6F3F600DFC68A /* 3191.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3191.jpg; sourceTree = "<group>"; };
+		E94885451CC6F3F600DFC68A /* 3573.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3573.jpg; sourceTree = "<group>"; };
+		E94885461CC6F3F600DFC68A /* 4-10-08-386.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-10-08-386.jpg"; sourceTree = "<group>"; };
+		E94885471CC6F3F600DFC68A /* 4-14-09-462.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-14-09-462.jpg"; sourceTree = "<group>"; };
+		E94885481CC6F3F600DFC68A /* 4-24-08-152.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-24-08-152.jpg"; sourceTree = "<group>"; };
+		E94885491CC6F3F600DFC68A /* 4-24-08-492.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-24-08-492.jpg"; sourceTree = "<group>"; };
+		E948854A1CC6F3F600DFC68A /* 4-4-12-048.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-4-12-048.jpg"; sourceTree = "<group>"; };
+		E948854B1CC6F3F600DFC68A /* 4065.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4065.jpg; sourceTree = "<group>"; };
+		E948854C1CC6F3F600DFC68A /* 5678.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5678.jpg; sourceTree = "<group>"; };
+		E948854D1CC6F3F600DFC68A /* 6576.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6576.jpg; sourceTree = "<group>"; };
+		E948854E1CC6F3F600DFC68A /* 7-24-12-052.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7-24-12-052.jpg"; sourceTree = "<group>"; };
+		E948854F1CC6F3F600DFC68A /* 7-29-14-345.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7-29-14-345.jpg"; sourceTree = "<group>"; };
+		E94885501CC6F3F600DFC68A /* 7146.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7146.jpg; sourceTree = "<group>"; };
+		E94885511CC6F3F600DFC68A /* 7402.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7402.jpg; sourceTree = "<group>"; };
+		E94885521CC6F3F600DFC68A /* 8-9-11-0426.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "8-9-11-0426.jpg"; sourceTree = "<group>"; };
+		E94885531CC6F3F600DFC68A /* 8444505634_646117787e.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8444505634_646117787e.jpg; sourceTree = "<group>"; };
+		E94885541CC6F3F600DFC68A /* 9-24-14-195-Edit.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "9-24-14-195-Edit.jpg"; sourceTree = "<group>"; };
+		E94885551CC6F3F600DFC68A /* ap_english_composition_syllabus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ap_english_composition_syllabus.txt; sourceTree = "<group>"; };
+		E94885561CC6F3F600DFC68A /* As I Lay Dying - Faulkner.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "As I Lay Dying - Faulkner.txt"; sourceTree = "<group>"; };
+		E94885571CC6F3F600DFC68A /* At_the_river.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = At_the_river.jpg; sourceTree = "<group>"; };
+		E94885581CC6F3F600DFC68A /* Bacchae - Euripides.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Bacchae - Euripides.txt"; sourceTree = "<group>"; };
+		E94885591CC6F3F600DFC68A /* baptism-st-thomas.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "baptism-st-thomas.jpg"; sourceTree = "<group>"; };
+		E948855A1CC6F3F600DFC68A /* Baptism_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Baptism_2.jpg; sourceTree = "<group>"; };
+		E948855B1CC6F3F600DFC68A /* Baptism_in_a_Catholic_Church.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Baptism_in_a_Catholic_Church.jpg; sourceTree = "<group>"; };
+		E948855C1CC6F3F600DFC68A /* bataille_story_of_eye.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bataille_story_of_eye.txt; sourceTree = "<group>"; };
+		E948855D1CC6F3F600DFC68A /* Bluebird by Charles Bukowski.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Bluebird by Charles Bukowski.txt"; sourceTree = "<group>"; };
+		E948855E1CC6F3F600DFC68A /* Catch 22 - Joseph Heller.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Catch 22 - Joseph Heller.txt"; sourceTree = "<group>"; };
+		E948855F1CC6F3F600DFC68A /* CatcherInTheRye - Salinger.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CatcherInTheRye - Salinger.txt"; sourceTree = "<group>"; };
+		E94885601CC6F3F600DFC68A /* Conversation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Conversation.jpg; sourceTree = "<group>"; };
+		E94885611CC6F3F600DFC68A /* Crowd1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd1.jpg; sourceTree = "<group>"; };
+		E94885621CC6F3F600DFC68A /* Crowd14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd14.jpg; sourceTree = "<group>"; };
+		E94885631CC6F3F600DFC68A /* Crowd16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd16.jpg; sourceTree = "<group>"; };
+		E94885641CC6F3F600DFC68A /* Crowd2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd2.jpg; sourceTree = "<group>"; };
+		E94885651CC6F3F600DFC68A /* Crowd21.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd21.jpg; sourceTree = "<group>"; };
+		E94885661CC6F3F600DFC68A /* Crowd29.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd29.jpg; sourceTree = "<group>"; };
+		E94885671CC6F3F600DFC68A /* Crowd3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd3.jpg; sourceTree = "<group>"; };
+		E94885681CC6F3F600DFC68A /* Crowd31.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd31.jpg; sourceTree = "<group>"; };
+		E94885691CC6F3F600DFC68A /* Crowd32.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd32.jpg; sourceTree = "<group>"; };
+		E948856A1CC6F3F600DFC68A /* Crowd35.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd35.jpg; sourceTree = "<group>"; };
+		E948856B1CC6F3F600DFC68A /* Crowd7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd7.jpg; sourceTree = "<group>"; };
+		E948856C1CC6F3F600DFC68A /* Crowd8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd8.jpg; sourceTree = "<group>"; };
+		E948856D1CC6F3F600DFC68A /* Donne - Med 17.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Donne - Med 17.txt"; sourceTree = "<group>"; };
+		E948856E1CC6F3F600DFC68A /* Doubt1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt1.jpg; sourceTree = "<group>"; };
+		E948856F1CC6F3F600DFC68A /* Doubt11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt11.jpg; sourceTree = "<group>"; };
+		E94885701CC6F3F600DFC68A /* Doubt15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt15.jpg; sourceTree = "<group>"; };
+		E94885711CC6F3F600DFC68A /* Doubt16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt16.jpg; sourceTree = "<group>"; };
+		E94885721CC6F3F600DFC68A /* Doubt2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt2.jpg; sourceTree = "<group>"; };
+		E94885731CC6F3F600DFC68A /* Doubt3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt3.jpg; sourceTree = "<group>"; };
+		E94885741CC6F3F600DFC68A /* Doubt6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt6.jpg; sourceTree = "<group>"; };
+		E94885751CC6F3F600DFC68A /* Doubt9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt9.jpg; sourceTree = "<group>"; };
+		E94885761CC6F3F600DFC68A /* driving-sea-to-sky-highway.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "driving-sea-to-sky-highway.jpg"; sourceTree = "<group>"; };
+		E94885771CC6F3F600DFC68A /* Epidemic-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Epidemic-2.jpg"; sourceTree = "<group>"; };
+		E94885781CC6F3F600DFC68A /* EternalStation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EternalStation.jpg; sourceTree = "<group>"; };
+		E94885791CC6F3F600DFC68A /* Fallen1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen1.jpg; sourceTree = "<group>"; };
+		E948857A1CC6F3F600DFC68A /* Fallen2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen2.jpg; sourceTree = "<group>"; };
+		E948857B1CC6F3F600DFC68A /* Fallen5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen5.jpg; sourceTree = "<group>"; };
+		E948857C1CC6F3F600DFC68A /* Fallen7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen7.jpg; sourceTree = "<group>"; };
+		E948857D1CC6F3F600DFC68A /* Family_Tree.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Family_Tree.txt; sourceTree = "<group>"; };
+		E948857E1CC6F3F600DFC68A /* Fata+Morgana.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Fata+Morgana.jpg"; sourceTree = "<group>"; };
+		E948857F1CC6F3F600DFC68A /* FeastPDX_House.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FeastPDX_House.jpg; sourceTree = "<group>"; };
+		E94885801CC6F3F600DFC68A /* Fragment+Of+Eternity.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Fragment+Of+Eternity.jpg"; sourceTree = "<group>"; };
+		E94885811CC6F3F600DFC68A /* Geek Love by Katherine Dunn - Ch1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Geek Love by Katherine Dunn - Ch1.txt"; sourceTree = "<group>"; };
+		E94885821CC6F3F600DFC68A /* high_school_classroom.preview.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = high_school_classroom.preview.jpg; sourceTree = "<group>"; };
+		E94885831CC6F3F600DFC68A /* House-party.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "House-party.jpg"; sourceTree = "<group>"; };
+		E94885841CC6F3F600DFC68A /* Invisible Man - Ellison.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Invisible Man - Ellison.txt"; sourceTree = "<group>"; };
+		E94885851CC6F3F600DFC68A /* Journey+Into+Dark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Journey+Into+Dark.jpg"; sourceTree = "<group>"; };
+		E94885861CC6F3F600DFC68A /* Kristeva_-_powers_of_horror.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Kristeva_-_powers_of_horror.txt"; sourceTree = "<group>"; };
+		E94885871CC6F3F600DFC68A /* LacanMirrorPhase.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LacanMirrorPhase.txt; sourceTree = "<group>"; };
+		E94885881CC6F3F600DFC68A /* Leila-crowded-classrooms.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Leila-crowded-classrooms.jpg"; sourceTree = "<group>"; };
+		E94885891CC6F3F600DFC68A /* Lolita - Vladimir Nabokov.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lolita - Vladimir Nabokov.txt"; sourceTree = "<group>"; };
+		E948858A1CC6F3F600DFC68A /* maxresdefault 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "maxresdefault 2.jpg"; sourceTree = "<group>"; };
+		E948858B1CC6F3F600DFC68A /* maxresdefault.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maxresdefault.jpg; sourceTree = "<group>"; };
+		E948858C1CC6F3F600DFC68A /* ms1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ms1.jpg; sourceTree = "<group>"; };
+		E948858D1CC6F3F600DFC68A /* mulvey-visualpleasure.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "mulvey-visualpleasure.txt"; sourceTree = "<group>"; };
+		E948858E1CC6F3F600DFC68A /* Myth of Sisyphus by Albert Camus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Myth of Sisyphus by Albert Camus.txt"; sourceTree = "<group>"; };
+		E948858F1CC6F3F600DFC68A /* New+Crowd39.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "New+Crowd39.jpg"; sourceTree = "<group>"; };
+		E94885901CC6F3F600DFC68A /* New_bed_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = New_bed_1.jpg; sourceTree = "<group>"; };
+		E94885911CC6F3F600DFC68A /* New_bed_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = New_bed_2.jpg; sourceTree = "<group>"; };
+		E94885921CC6F3F600DFC68A /* New_bed_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = New_bed_3.jpg; sourceTree = "<group>"; };
+		E94885931CC6F3F600DFC68A /* NewCrowd38.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd38.jpg; sourceTree = "<group>"; };
+		E94885941CC6F3F600DFC68A /* NewCrowd38Fragment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd38Fragment.jpg; sourceTree = "<group>"; };
+		E94885951CC6F3F600DFC68A /* NewCrowd42Fragment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd42Fragment.jpg; sourceTree = "<group>"; };
+		E94885961CC6F3F600DFC68A /* NewCrowd46.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd46.jpg; sourceTree = "<group>"; };
+		E94885971CC6F3F600DFC68A /* NewCrowd52.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd52.jpg; sourceTree = "<group>"; };
+		E94885981CC6F3F600DFC68A /* NewCrowd58.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd58.jpg; sourceTree = "<group>"; };
+		E94885991CC6F3F600DFC68A /* Party.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Party.jpg; sourceTree = "<group>"; };
+		E948859A1CC6F3F600DFC68A /* Photo_shoot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Photo_shoot.jpg; sourceTree = "<group>"; };
+		E948859B1CC6F3F600DFC68A /* Portland-Conference-East-vs.-West-Soccer-Game.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Portland-Conference-East-vs.-West-Soccer-Game.jpg"; sourceTree = "<group>"; };
+		E948859C1CC6F3F600DFC68A /* Redwood_High_School,_Larkspur,_California.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Redwood_High_School,_Larkspur,_California.jpg"; sourceTree = "<group>"; };
+		E948859D1CC6F3F600DFC68A /* road-trip3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "road-trip3.jpg"; sourceTree = "<group>"; };
+		E948859E1CC6F3F600DFC68A /* road_trip.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = road_trip.jpg; sourceTree = "<group>"; };
+		E948859F1CC6F3F600DFC68A /* rooney_pick_up.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rooney_pick_up.jpg; sourceTree = "<group>"; };
+		E94885A01CC6F3F600DFC68A /* rubidouxclassroom.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rubidouxclassroom.jpg; sourceTree = "<group>"; };
+		E94885A11CC6F3F600DFC68A /* Sheptune2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sheptune2.jpg; sourceTree = "<group>"; };
+		E94885A21CC6F3F600DFC68A /* skillsstill.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = skillsstill.jpg; sourceTree = "<group>"; };
+		E94885A31CC6F3F600DFC68A /* St. Augustine - Confessions copy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "St. Augustine - Confessions copy.txt"; sourceTree = "<group>"; };
+		E94885A41CC6F3F600DFC68A /* St_H_Bap_OK.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = St_H_Bap_OK.jpg; sourceTree = "<group>"; };
+		E94885A51CC6F3F600DFC68A /* The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg"; sourceTree = "<group>"; };
+		E94885A61CC6F3F600DFC68A /* The_Metamorphosis.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = The_Metamorphosis.txt; sourceTree = "<group>"; };
+		E94885A71CC6F3F600DFC68A /* The_Scarlet_Letter.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = The_Scarlet_Letter.txt; sourceTree = "<group>"; };
+		E94886121CC6F42A00DFC68A /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		E94886131CC6F42A00DFC68A /* DE1PipelineTexts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DE1PipelineTexts.json; sourceTree = "<group>"; };
+		E94886141CC6F42A00DFC68A /* Desktop0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Desktop0.json; sourceTree = "<group>"; };
+		E94886151CC6F42A00DFC68A /* Desktop1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Desktop1.json; sourceTree = "<group>"; };
+		E94886161CC6F42A00DFC68A /* Desktop2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Desktop2.json; sourceTree = "<group>"; };
+		E94886171CC6F42A00DFC68A /* Email0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Email0.json; sourceTree = "<group>"; };
+		E94886181CC6F42A00DFC68A /* Email1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Email1.json; sourceTree = "<group>"; };
+		E94886191CC6F42A00DFC68A /* Email2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Email2.json; sourceTree = "<group>"; };
+		E948861A1CC6F42A00DFC68A /* PlayerDesktop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PlayerDesktop.json; sourceTree = "<group>"; };
+		E948861B1CC6F42A00DFC68A /* PlayerEmail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PlayerEmail.json; sourceTree = "<group>"; };
+		E948861C1CC6F42A00DFC68A /* smsPipeline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = smsPipeline.json; sourceTree = "<group>"; };
+		E948861D1CC6F42A00DFC68A /* suspiciontest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = suspiciontest.json; sourceTree = "<group>"; };
+		E948861E1CC6F42A00DFC68A /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
+		E948861F1CC6F42A00DFC68A /* SoundTrack_Extraction.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoundTrack_Extraction.ogg; sourceTree = "<group>"; };
+		E94886201CC6F42A00DFC68A /* SoundTrack_Pipeline.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoundTrack_Pipeline.ogg; sourceTree = "<group>"; };
+		E94886211CC6F42A00DFC68A /* first.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = first.txt; sourceTree = "<group>"; };
+		E94886221CC6F42A00DFC68A /* last.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = last.txt; sourceTree = "<group>"; };
+		E94886231CC6F42A00DFC68A /* PipelineTutorial.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PipelineTutorial.txt; sourceTree = "<group>"; };
+		E94886241CC6F42A00DFC68A /* TestDialogue.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestDialogue.txt; sourceTree = "<group>"; };
+		E94886251CC6F42A00DFC68A /* Face_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Face_Sheet.png; sourceTree = "<group>"; };
+		E94886261CC6F42A00DFC68A /* Floppy_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Floppy_Sheet.png; sourceTree = "<group>"; };
+		E94886271CC6F42A00DFC68A /* Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Sheet.png; sourceTree = "<group>"; };
+		E94886281CC6F42A00DFC68A /* Icon_Sheet2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Sheet2.png; sourceTree = "<group>"; };
+		E94886291CC6F42A00DFC68A /* kappa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kappa.png; sourceTree = "<group>"; };
+		E948862A1CC6F42A00DFC68A /* Pixel_Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pixel_Title.png; sourceTree = "<group>"; };
+		E948862B1CC6F42A00DFC68A /* Teacher_Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Teacher_Icon_Sheet.png; sourceTree = "<group>"; };
+		E948862C1CC6F42A00DFC68A /* Teacher_Icon_Sheet2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Teacher_Icon_Sheet2.png; sourceTree = "<group>"; };
+		E948862D1CC6F42A00DFC68A /* Teacher_Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Teacher_Wallpaper.png; sourceTree = "<group>"; };
+		E948862E1CC6F42A00DFC68A /* Toolbar_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Toolbar_Icons.png; sourceTree = "<group>"; };
+		E948862F1CC6F42A00DFC68A /* Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wallpaper.png; sourceTree = "<group>"; };
+		E94886301CC6F42A00DFC68A /* Wallpaper2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wallpaper2.png; sourceTree = "<group>"; };
+		E94886311CC6F42A00DFC68A /* Windows_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_Icons.png; sourceTree = "<group>"; };
+		E94886321CC6F42A00DFC68A /* Windows_UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_UI.png; sourceTree = "<group>"; };
+		E94886331CC6F42A00DFC68A /* consola.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = consola.ttf; sourceTree = "<group>"; };
+		E94886341CC6F42A00DFC68A /* micross.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = micross.ttf; sourceTree = "<group>"; };
+		E94886351CC6F42A00DFC68A /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VT323-Regular.ttf"; sourceTree = "<group>"; };
+		E94886361CC6F42A00DFC68A /* Notification_Prompt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Notification_Prompt.wav; sourceTree = "<group>"; };
 		E94A2F661CC6E9A900907AD9 /* animatorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = animatorComponent.cpp; sourceTree = "<group>"; };
 		E94A2F671CC6E9A900907AD9 /* animatorComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = animatorComponent.hpp; sourceTree = "<group>"; };
 		E94A2F681CC6E9A900907AD9 /* BootLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BootLoader.cpp; sourceTree = "<group>"; };
@@ -416,146 +562,6 @@
 		E94A2FEF1CC6E9A900907AD9 /* WindowBkgndRenderCmpnt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowBkgndRenderCmpnt.cpp; sourceTree = "<group>"; };
 		E94A2FF01CC6E9A900907AD9 /* WindowBkgndRenderCmpnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowBkgndRenderCmpnt.h; sourceTree = "<group>"; };
 		E94A30361CC6EA9D00907AD9 /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
-		E94A30371CC6EA9D00907AD9 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
-		E94A30381CC6EA9D00907AD9 /* DE1PipelineTexts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DE1PipelineTexts.json; sourceTree = "<group>"; };
-		E94A30391CC6EA9D00907AD9 /* Desktop0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Desktop0.json; sourceTree = "<group>"; };
-		E94A303A1CC6EA9D00907AD9 /* Desktop1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Desktop1.json; sourceTree = "<group>"; };
-		E94A303B1CC6EA9D00907AD9 /* Desktop2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Desktop2.json; sourceTree = "<group>"; };
-		E94A303C1CC6EA9D00907AD9 /* Email0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Email0.json; sourceTree = "<group>"; };
-		E94A303D1CC6EA9D00907AD9 /* Email1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Email1.json; sourceTree = "<group>"; };
-		E94A303E1CC6EA9D00907AD9 /* Email2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Email2.json; sourceTree = "<group>"; };
-		E94A303F1CC6EA9D00907AD9 /* PlayerDesktop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PlayerDesktop.json; sourceTree = "<group>"; };
-		E94A30401CC6EA9D00907AD9 /* PlayerEmail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PlayerEmail.json; sourceTree = "<group>"; };
-		E94A30411CC6EA9D00907AD9 /* smsPipeline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = smsPipeline.json; sourceTree = "<group>"; };
-		E94A30421CC6EA9D00907AD9 /* suspiciontest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = suspiciontest.json; sourceTree = "<group>"; };
-		E94A30431CC6EA9D00907AD9 /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
-		E94A30441CC6EA9D00907AD9 /* SoundTrack_Extraction.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoundTrack_Extraction.ogg; sourceTree = "<group>"; };
-		E94A30451CC6EA9D00907AD9 /* SoundTrack_Pipeline.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoundTrack_Pipeline.ogg; sourceTree = "<group>"; };
-		E94A30461CC6EA9D00907AD9 /* first.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = first.txt; sourceTree = "<group>"; };
-		E94A30471CC6EA9D00907AD9 /* last.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = last.txt; sourceTree = "<group>"; };
-		E94A30481CC6EA9D00907AD9 /* PipelineTutorial.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PipelineTutorial.txt; sourceTree = "<group>"; };
-		E94A30491CC6EA9D00907AD9 /* TestDialogue.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestDialogue.txt; sourceTree = "<group>"; };
-		E94A304A1CC6EA9D00907AD9 /* Face_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Face_Sheet.png; sourceTree = "<group>"; };
-		E94A304B1CC6EA9D00907AD9 /* Floppy_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Floppy_Sheet.png; sourceTree = "<group>"; };
-		E94A304C1CC6EA9D00907AD9 /* Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Sheet.png; sourceTree = "<group>"; };
-		E94A304D1CC6EA9D00907AD9 /* Icon_Sheet2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Sheet2.png; sourceTree = "<group>"; };
-		E94A304E1CC6EA9D00907AD9 /* kappa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kappa.png; sourceTree = "<group>"; };
-		E94A304F1CC6EA9D00907AD9 /* Pixel_Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pixel_Title.png; sourceTree = "<group>"; };
-		E94A30501CC6EA9D00907AD9 /* Teacher_Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Teacher_Icon_Sheet.png; sourceTree = "<group>"; };
-		E94A30511CC6EA9D00907AD9 /* Teacher_Icon_Sheet2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Teacher_Icon_Sheet2.png; sourceTree = "<group>"; };
-		E94A30521CC6EA9D00907AD9 /* Teacher_Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Teacher_Wallpaper.png; sourceTree = "<group>"; };
-		E94A30531CC6EA9D00907AD9 /* Toolbar_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Toolbar_Icons.png; sourceTree = "<group>"; };
-		E94A30541CC6EA9D00907AD9 /* Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wallpaper.png; sourceTree = "<group>"; };
-		E94A30551CC6EA9D00907AD9 /* Wallpaper2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wallpaper2.png; sourceTree = "<group>"; };
-		E94A30561CC6EA9D00907AD9 /* Windows_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_Icons.png; sourceTree = "<group>"; };
-		E94A30571CC6EA9D00907AD9 /* Windows_UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_UI.png; sourceTree = "<group>"; };
-		E94A30581CC6EA9D00907AD9 /* consola.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = consola.ttf; sourceTree = "<group>"; };
-		E94A30591CC6EA9D00907AD9 /* micross.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = micross.ttf; sourceTree = "<group>"; };
-		E94A305A1CC6EA9D00907AD9 /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VT323-Regular.ttf"; sourceTree = "<group>"; };
-		E94A305B1CC6EA9D00907AD9 /* Notification_Prompt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Notification_Prompt.wav; sourceTree = "<group>"; };
-		E99A118C1CC1BF4700597D6E /* Family_Tree.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Family_Tree.txt; sourceTree = "<group>"; };
-		E9A0AC121C939A290035CCE1 /* 1-24-08-182.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-24-08-182.jpg"; sourceTree = "<group>"; };
-		E9A0AC131C939A290035CCE1 /* 2-20-09-431.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-20-09-431.jpg"; sourceTree = "<group>"; };
-		E9A0AC141C939A290035CCE1 /* 2-23-2011-213.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-23-2011-213.jpg"; sourceTree = "<group>"; };
-		E9A0AC151C939A290035CCE1 /* 4-24-08-152.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-24-08-152.jpg"; sourceTree = "<group>"; };
-		E9A0AC161C939A290035CCE1 /* 3-29-12-184.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3-29-12-184.jpg"; sourceTree = "<group>"; };
-		E9A0AC171C939A290035CCE1 /* 4-4-12-048.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-4-12-048.jpg"; sourceTree = "<group>"; };
-		E9A0AC181C939A290035CCE1 /* 4-10-08-386.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-10-08-386.jpg"; sourceTree = "<group>"; };
-		E9A0AC191C939A290035CCE1 /* 4-14-09-462.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-14-09-462.jpg"; sourceTree = "<group>"; };
-		E9A0AC1A1C939A290035CCE1 /* Fata+Morgana.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Fata+Morgana.jpg"; sourceTree = "<group>"; };
-		E9A0AC1B1C939A290035CCE1 /* 8-9-11-0426.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "8-9-11-0426.jpg"; sourceTree = "<group>"; };
-		E9A0AC1C1C939A290035CCE1 /* Crowd29.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd29.jpg; sourceTree = "<group>"; };
-		E9A0AC1D1C939A290035CCE1 /* 7-29-14-345.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7-29-14-345.jpg"; sourceTree = "<group>"; };
-		E9A0AC1E1C939A290035CCE1 /* 3191.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3191.jpg; sourceTree = "<group>"; };
-		E9A0AC1F1C939A290035CCE1 /* Crowd14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd14.jpg; sourceTree = "<group>"; };
-		E9A0AC201C939A290035CCE1 /* St_H_Bap_OK.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = St_H_Bap_OK.jpg; sourceTree = "<group>"; };
-		E9A0AC211C939A290035CCE1 /* 11062011img47161.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 11062011img47161.jpg; sourceTree = "<group>"; };
-		E9A0AC221C939A290035CCE1 /* maxresdefault 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "maxresdefault 2.jpg"; sourceTree = "<group>"; };
-		E9A0AC231C939A290035CCE1 /* Leila-crowded-classrooms.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Leila-crowded-classrooms.jpg"; sourceTree = "<group>"; };
-		E9A0AC241C939A290035CCE1 /* Baptism_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Baptism_2.jpg; sourceTree = "<group>"; };
-		E9A0AC251C939A290035CCE1 /* Baptism_in_a_Catholic_Church.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Baptism_in_a_Catholic_Church.jpg; sourceTree = "<group>"; };
-		E9A0AC261C939A290035CCE1 /* baptism-st-thomas.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "baptism-st-thomas.jpg"; sourceTree = "<group>"; };
-		E9A0AC271C939A290035CCE1 /* road_trip.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = road_trip.jpg; sourceTree = "<group>"; };
-		E9A0AC281C939A290035CCE1 /* driving-sea-to-sky-highway.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "driving-sea-to-sky-highway.jpg"; sourceTree = "<group>"; };
-		E9A0AC291C939A290035CCE1 /* 8444505634_646117787e.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8444505634_646117787e.jpg; sourceTree = "<group>"; };
-		E9A0AC2A1C939A290035CCE1 /* House-party.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "House-party.jpg"; sourceTree = "<group>"; };
-		E9A0AC2B1C939A290035CCE1 /* high_school_classroom.preview.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = high_school_classroom.preview.jpg; sourceTree = "<group>"; };
-		E9A0AC2C1C939A290035CCE1 /* rubidouxclassroom.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rubidouxclassroom.jpg; sourceTree = "<group>"; };
-		E9A0AC2D1C939A290035CCE1 /* maxresdefault.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maxresdefault.jpg; sourceTree = "<group>"; };
-		E9A0AC2E1C939A290035CCE1 /* Portland-Conference-East-vs.-West-Soccer-Game.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Portland-Conference-East-vs.-West-Soccer-Game.jpg"; sourceTree = "<group>"; };
-		E9A0AC2F1C939A290035CCE1 /* ms1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ms1.jpg; sourceTree = "<group>"; };
-		E9A0AC301C939A290035CCE1 /* Party.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Party.jpg; sourceTree = "<group>"; };
-		E9A0AC311C939A290035CCE1 /* Redwood_High_School,_Larkspur,_California.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Redwood_High_School,_Larkspur,_California.jpg"; sourceTree = "<group>"; };
-		E9A0AC321C939A290035CCE1 /* The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg"; sourceTree = "<group>"; };
-		E9A0AC331C939A290035CCE1 /* FeastPDX_House.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FeastPDX_House.jpg; sourceTree = "<group>"; };
-		E9A0AC341C939A290035CCE1 /* road-trip3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "road-trip3.jpg"; sourceTree = "<group>"; };
-		E9A0AC351C939A290035CCE1 /* rooney_pick_up.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rooney_pick_up.jpg; sourceTree = "<group>"; };
-		E9A0AC361C939A290035CCE1 /* skillsstill.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = skillsstill.jpg; sourceTree = "<group>"; };
-		E9A0AC371C939A290035CCE1 /* ap_english_composition_syllabus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ap_english_composition_syllabus.txt; sourceTree = "<group>"; };
-		E9A0AC381C939A290035CCE1 /* Myth of Sisyphus by Albert Camus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Myth of Sisyphus by Albert Camus.txt"; sourceTree = "<group>"; };
-		E9A0AC391C939A290035CCE1 /* 9-24-14-195-Edit.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "9-24-14-195-Edit.jpg"; sourceTree = "<group>"; };
-		E9A0AC3A1C939A290035CCE1 /* Fallen5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen5.jpg; sourceTree = "<group>"; };
-		E9A0AC3B1C939A290035CCE1 /* Fragment+Of+Eternity.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Fragment+Of+Eternity.jpg"; sourceTree = "<group>"; };
-		E9A0AC3C1C939A290035CCE1 /* 1894.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1894.jpg; sourceTree = "<group>"; };
-		E9A0AC3D1C939A290035CCE1 /* Conversation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Conversation.jpg; sourceTree = "<group>"; };
-		E9A0AC3E1C939A290035CCE1 /* mulvey-visualpleasure.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "mulvey-visualpleasure.txt"; sourceTree = "<group>"; };
-		E9A0AC3F1C939A290035CCE1 /* 7146.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7146.jpg; sourceTree = "<group>"; };
-		E9A0AC401C939A290035CCE1 /* 4065.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4065.jpg; sourceTree = "<group>"; };
-		E9A0AC411C939A290035CCE1 /* Crowd31.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd31.jpg; sourceTree = "<group>"; };
-		E9A0AC421C939A290035CCE1 /* Crowd35.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd35.jpg; sourceTree = "<group>"; };
-		E9A0AC431C939A290035CCE1 /* NewCrowd38.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd38.jpg; sourceTree = "<group>"; };
-		E9A0AC441C939A290035CCE1 /* Crowd16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd16.jpg; sourceTree = "<group>"; };
-		E9A0AC451C939A290035CCE1 /* Doubt2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt2.jpg; sourceTree = "<group>"; };
-		E9A0AC461C939A290035CCE1 /* EternalStation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EternalStation.jpg; sourceTree = "<group>"; };
-		E9A0AC471C939A290035CCE1 /* Crowd1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd1.jpg; sourceTree = "<group>"; };
-		E9A0AC481C939A290035CCE1 /* 6576.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6576.jpg; sourceTree = "<group>"; };
-		E9A0AC491C939A290035CCE1 /* Crowd32.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd32.jpg; sourceTree = "<group>"; };
-		E9A0AC4A1C939A290035CCE1 /* Doubt3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt3.jpg; sourceTree = "<group>"; };
-		E9A0AC4B1C939A290035CCE1 /* Doubt16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt16.jpg; sourceTree = "<group>"; };
-		E9A0AC4C1C939A290035CCE1 /* Journey+Into+Dark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Journey+Into+Dark.jpg"; sourceTree = "<group>"; };
-		E9A0AC4D1C939A290035CCE1 /* Crowd8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd8.jpg; sourceTree = "<group>"; };
-		E9A0AC4E1C939A290035CCE1 /* 7402.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7402.jpg; sourceTree = "<group>"; };
-		E9A0AC4F1C939A290035CCE1 /* Doubt9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt9.jpg; sourceTree = "<group>"; };
-		E9A0AC501C939A290035CCE1 /* Doubt11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt11.jpg; sourceTree = "<group>"; };
-		E9A0AC511C939A290035CCE1 /* Crowd7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd7.jpg; sourceTree = "<group>"; };
-		E9A0AC521C939A290035CCE1 /* NewCrowd52.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd52.jpg; sourceTree = "<group>"; };
-		E9A0AC531C939A290035CCE1 /* St. Augustine - Confessions copy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "St. Augustine - Confessions copy.txt"; sourceTree = "<group>"; };
-		E9A0AC541C939A290035CCE1 /* Crowd3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd3.jpg; sourceTree = "<group>"; };
-		E9A0AC551C939A290035CCE1 /* Epidemic-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Epidemic-2.jpg"; sourceTree = "<group>"; };
-		E9A0AC561C939A290035CCE1 /* Kristeva_-_powers_of_horror.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Kristeva_-_powers_of_horror.txt"; sourceTree = "<group>"; };
-		E9A0AC571C939A290035CCE1 /* Crowd21.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd21.jpg; sourceTree = "<group>"; };
-		E9A0AC581C939A290035CCE1 /* Doubt6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt6.jpg; sourceTree = "<group>"; };
-		E9A0AC591C939A290035CCE1 /* Fallen2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen2.jpg; sourceTree = "<group>"; };
-		E9A0AC5A1C939A290035CCE1 /* 3573.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3573.jpg; sourceTree = "<group>"; };
-		E9A0AC5B1C939A290035CCE1 /* Fallen7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen7.jpg; sourceTree = "<group>"; };
-		E9A0AC5C1C939A290035CCE1 /* New+Crowd39.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "New+Crowd39.jpg"; sourceTree = "<group>"; };
-		E9A0AC5D1C939A290035CCE1 /* NewCrowd38Fragment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd38Fragment.jpg; sourceTree = "<group>"; };
-		E9A0AC5E1C939A290035CCE1 /* Crowd2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Crowd2.jpg; sourceTree = "<group>"; };
-		E9A0AC5F1C939A290035CCE1 /* 7-24-12-052.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7-24-12-052.jpg"; sourceTree = "<group>"; };
-		E9A0AC601C939A290035CCE1 /* NewCrowd42Fragment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd42Fragment.jpg; sourceTree = "<group>"; };
-		E9A0AC611C939A290035CCE1 /* Invisible Man - Ellison.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Invisible Man - Ellison.txt"; sourceTree = "<group>"; };
-		E9A0AC621C939A290035CCE1 /* NewCrowd46.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd46.jpg; sourceTree = "<group>"; };
-		E9A0AC631C939A290035CCE1 /* NewCrowd58.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewCrowd58.jpg; sourceTree = "<group>"; };
-		E9A0AC641C939A290035CCE1 /* 5678.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5678.jpg; sourceTree = "<group>"; };
-		E9A0AC651C939A290035CCE1 /* Catch 22 - Joseph Heller.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Catch 22 - Joseph Heller.txt"; sourceTree = "<group>"; };
-		E9A0AC661C939A290035CCE1 /* Fallen1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallen1.jpg; sourceTree = "<group>"; };
-		E9A0AC671C939A290035CCE1 /* Sheptune2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sheptune2.jpg; sourceTree = "<group>"; };
-		E9A0AC681C939A290035CCE1 /* As I Lay Dying - Faulkner.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "As I Lay Dying - Faulkner.txt"; sourceTree = "<group>"; };
-		E9A0AC691C939A290035CCE1 /* 4-24-08-492.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-24-08-492.jpg"; sourceTree = "<group>"; };
-		E9A0AC6A1C939A290035CCE1 /* The_Metamorphosis.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = The_Metamorphosis.txt; sourceTree = "<group>"; };
-		E9A0AC6B1C939A290035CCE1 /* Bacchae - Euripides.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Bacchae - Euripides.txt"; sourceTree = "<group>"; };
-		E9A0AC6C1C939A290035CCE1 /* Doubt15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt15.jpg; sourceTree = "<group>"; };
-		E9A0AC6D1C939A290035CCE1 /* bataille_story_of_eye.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bataille_story_of_eye.txt; sourceTree = "<group>"; };
-		E9A0AC6E1C939A290035CCE1 /* The_Scarlet_Letter.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = The_Scarlet_Letter.txt; sourceTree = "<group>"; };
-		E9A0AC6F1C939A290035CCE1 /* Bluebird by Charles Bukowski.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Bluebird by Charles Bukowski.txt"; sourceTree = "<group>"; };
-		E9A0AC701C939A290035CCE1 /* CatcherInTheRye - Salinger.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CatcherInTheRye - Salinger.txt"; sourceTree = "<group>"; };
-		E9A0AC711C939A290035CCE1 /* Donne - Med 17.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Donne - Med 17.txt"; sourceTree = "<group>"; };
-		E9A0AC721C939A290035CCE1 /* Geek Love by Katherine Dunn - Ch1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Geek Love by Katherine Dunn - Ch1.txt"; sourceTree = "<group>"; };
-		E9A0AC731C939A290035CCE1 /* LacanMirrorPhase.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LacanMirrorPhase.txt; sourceTree = "<group>"; };
-		E9A0AC741C939A290035CCE1 /* Doubt1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Doubt1.jpg; sourceTree = "<group>"; };
-		E9A0AC751C939A290035CCE1 /* Lolita - Vladimir Nabokov.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lolita - Vladimir Nabokov.txt"; sourceTree = "<group>"; };
-		E9A4CE9D1CC2059800446A85 /* Photo_shoot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Photo_shoot.jpg; sourceTree = "<group>"; };
-		E9A4CE9E1CC2059800446A85 /* At_the_river.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = At_the_river.jpg; sourceTree = "<group>"; };
 		E9E1F5301C91F506006AE0FB /* DoxygenHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoxygenHelp.txt; sourceTree = "<group>"; };
 		E9E1F5311C91F506006AE0FB /* LinkHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LinkHelp.txt; sourceTree = "<group>"; };
 		E9E1F5811C91F506006AE0FB /* EngineSettings.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EngineSettings.ini; sourceTree = "<group>"; };
@@ -713,46 +719,46 @@
 		C86E37A51C4D6B5100842EFD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E94886121CC6F42A00DFC68A /* data.json */,
+				E94886131CC6F42A00DFC68A /* DE1PipelineTexts.json */,
+				E94886141CC6F42A00DFC68A /* Desktop0.json */,
+				E94886151CC6F42A00DFC68A /* Desktop1.json */,
+				E94886161CC6F42A00DFC68A /* Desktop2.json */,
+				E94886171CC6F42A00DFC68A /* Email0.json */,
+				E94886181CC6F42A00DFC68A /* Email1.json */,
+				E94886191CC6F42A00DFC68A /* Email2.json */,
+				E948861A1CC6F42A00DFC68A /* PlayerDesktop.json */,
+				E948861B1CC6F42A00DFC68A /* PlayerEmail.json */,
+				E948861C1CC6F42A00DFC68A /* smsPipeline.json */,
+				E948861D1CC6F42A00DFC68A /* suspiciontest.json */,
+				E948861E1CC6F42A00DFC68A /* ResourcePath.mm */,
+				E948861F1CC6F42A00DFC68A /* SoundTrack_Extraction.ogg */,
+				E94886201CC6F42A00DFC68A /* SoundTrack_Pipeline.ogg */,
+				E94886211CC6F42A00DFC68A /* first.txt */,
+				E94886221CC6F42A00DFC68A /* last.txt */,
+				E94886231CC6F42A00DFC68A /* PipelineTutorial.txt */,
+				E94886241CC6F42A00DFC68A /* TestDialogue.txt */,
+				E94886251CC6F42A00DFC68A /* Face_Sheet.png */,
+				E94886261CC6F42A00DFC68A /* Floppy_Sheet.png */,
+				E94886271CC6F42A00DFC68A /* Icon_Sheet.png */,
+				E94886281CC6F42A00DFC68A /* Icon_Sheet2.png */,
+				E94886291CC6F42A00DFC68A /* kappa.png */,
+				E948862A1CC6F42A00DFC68A /* Pixel_Title.png */,
+				E948862B1CC6F42A00DFC68A /* Teacher_Icon_Sheet.png */,
+				E948862C1CC6F42A00DFC68A /* Teacher_Icon_Sheet2.png */,
+				E948862D1CC6F42A00DFC68A /* Teacher_Wallpaper.png */,
+				E948862E1CC6F42A00DFC68A /* Toolbar_Icons.png */,
+				E948862F1CC6F42A00DFC68A /* Wallpaper.png */,
+				E94886301CC6F42A00DFC68A /* Wallpaper2.png */,
+				E94886311CC6F42A00DFC68A /* Windows_Icons.png */,
+				E94886321CC6F42A00DFC68A /* Windows_UI.png */,
+				E94886331CC6F42A00DFC68A /* consola.ttf */,
+				E94886341CC6F42A00DFC68A /* micross.ttf */,
+				E94886351CC6F42A00DFC68A /* VT323-Regular.ttf */,
+				E94886361CC6F42A00DFC68A /* Notification_Prompt.wav */,
 				E94A30361CC6EA9D00907AD9 /* ResourcePath.hpp */,
-				E94A30371CC6EA9D00907AD9 /* data.json */,
-				E94A30381CC6EA9D00907AD9 /* DE1PipelineTexts.json */,
-				E94A30391CC6EA9D00907AD9 /* Desktop0.json */,
-				E94A303A1CC6EA9D00907AD9 /* Desktop1.json */,
-				E94A303B1CC6EA9D00907AD9 /* Desktop2.json */,
-				E94A303C1CC6EA9D00907AD9 /* Email0.json */,
-				E94A303D1CC6EA9D00907AD9 /* Email1.json */,
-				E94A303E1CC6EA9D00907AD9 /* Email2.json */,
-				E94A303F1CC6EA9D00907AD9 /* PlayerDesktop.json */,
-				E94A30401CC6EA9D00907AD9 /* PlayerEmail.json */,
-				E94A30411CC6EA9D00907AD9 /* smsPipeline.json */,
-				E94A30421CC6EA9D00907AD9 /* suspiciontest.json */,
-				E94A30431CC6EA9D00907AD9 /* ResourcePath.mm */,
-				E94A30441CC6EA9D00907AD9 /* SoundTrack_Extraction.ogg */,
-				E94A30451CC6EA9D00907AD9 /* SoundTrack_Pipeline.ogg */,
-				E94A30461CC6EA9D00907AD9 /* first.txt */,
-				E94A30471CC6EA9D00907AD9 /* last.txt */,
-				E94A30481CC6EA9D00907AD9 /* PipelineTutorial.txt */,
-				E94A30491CC6EA9D00907AD9 /* TestDialogue.txt */,
-				E94A304A1CC6EA9D00907AD9 /* Face_Sheet.png */,
-				E94A304B1CC6EA9D00907AD9 /* Floppy_Sheet.png */,
-				E94A304C1CC6EA9D00907AD9 /* Icon_Sheet.png */,
-				E94A304D1CC6EA9D00907AD9 /* Icon_Sheet2.png */,
-				E94A304E1CC6EA9D00907AD9 /* kappa.png */,
-				E94A304F1CC6EA9D00907AD9 /* Pixel_Title.png */,
-				E94A30501CC6EA9D00907AD9 /* Teacher_Icon_Sheet.png */,
-				E94A30511CC6EA9D00907AD9 /* Teacher_Icon_Sheet2.png */,
-				E94A30521CC6EA9D00907AD9 /* Teacher_Wallpaper.png */,
-				E94A30531CC6EA9D00907AD9 /* Toolbar_Icons.png */,
-				E94A30541CC6EA9D00907AD9 /* Wallpaper.png */,
-				E94A30551CC6EA9D00907AD9 /* Wallpaper2.png */,
-				E94A30561CC6EA9D00907AD9 /* Windows_Icons.png */,
-				E94A30571CC6EA9D00907AD9 /* Windows_UI.png */,
-				E94A30581CC6EA9D00907AD9 /* consola.ttf */,
-				E94A30591CC6EA9D00907AD9 /* micross.ttf */,
-				E94A305A1CC6EA9D00907AD9 /* VT323-Regular.ttf */,
-				E94A305B1CC6EA9D00907AD9 /* Notification_Prompt.wav */,
+				E948853C1CC6F3F600DFC68A /* DesktopContent */,
 				E9E1F52F1C91F506006AE0FB /* Coding Reference */,
-				E9E1F5321C91F506006AE0FB /* DesktopContent */,
 				E9E1F5801C91F506006AE0FB /* Engine */,
 			);
 			path = Resources;
@@ -983,6 +989,127 @@
 			path = Code/Game;
 			sourceTree = SOURCE_ROOT;
 		};
+		E948853C1CC6F3F600DFC68A /* DesktopContent */ = {
+			isa = PBXGroup;
+			children = (
+				E948853D1CC6F3F600DFC68A /* Desktop1 */,
+			);
+			path = DesktopContent;
+			sourceTree = "<group>";
+		};
+		E948853D1CC6F3F600DFC68A /* Desktop1 */ = {
+			isa = PBXGroup;
+			children = (
+				E948853E1CC6F3F600DFC68A /* 1-24-08-182.jpg */,
+				E94885411CC6F3F600DFC68A /* 2-20-09-431.jpg */,
+				E94885421CC6F3F600DFC68A /* 2-23-2011-213.jpg */,
+				E94885431CC6F3F600DFC68A /* 3-29-12-184.jpg */,
+				E948854A1CC6F3F600DFC68A /* 4-4-12-048.jpg */,
+				E94885461CC6F3F600DFC68A /* 4-10-08-386.jpg */,
+				E94885471CC6F3F600DFC68A /* 4-14-09-462.jpg */,
+				E94885481CC6F3F600DFC68A /* 4-24-08-152.jpg */,
+				E94885491CC6F3F600DFC68A /* 4-24-08-492.jpg */,
+				E948854E1CC6F3F600DFC68A /* 7-24-12-052.jpg */,
+				E948854F1CC6F3F600DFC68A /* 7-29-14-345.jpg */,
+				E94885521CC6F3F600DFC68A /* 8-9-11-0426.jpg */,
+				E94885541CC6F3F600DFC68A /* 9-24-14-195-Edit.jpg */,
+				E94885401CC6F3F600DFC68A /* 1894.jpg */,
+				E94885441CC6F3F600DFC68A /* 3191.jpg */,
+				E94885451CC6F3F600DFC68A /* 3573.jpg */,
+				E948854B1CC6F3F600DFC68A /* 4065.jpg */,
+				E948854C1CC6F3F600DFC68A /* 5678.jpg */,
+				E948854D1CC6F3F600DFC68A /* 6576.jpg */,
+				E94885501CC6F3F600DFC68A /* 7146.jpg */,
+				E94885511CC6F3F600DFC68A /* 7402.jpg */,
+				E948853F1CC6F3F600DFC68A /* 11062011img47161.jpg */,
+				E94885531CC6F3F600DFC68A /* 8444505634_646117787e.jpg */,
+				E94885571CC6F3F600DFC68A /* At_the_river.jpg */,
+				E948855A1CC6F3F600DFC68A /* Baptism_2.jpg */,
+				E948855B1CC6F3F600DFC68A /* Baptism_in_a_Catholic_Church.jpg */,
+				E94885591CC6F3F600DFC68A /* baptism-st-thomas.jpg */,
+				E94885601CC6F3F600DFC68A /* Conversation.jpg */,
+				E94885611CC6F3F600DFC68A /* Crowd1.jpg */,
+				E94885641CC6F3F600DFC68A /* Crowd2.jpg */,
+				E94885671CC6F3F600DFC68A /* Crowd3.jpg */,
+				E948856B1CC6F3F600DFC68A /* Crowd7.jpg */,
+				E948856C1CC6F3F600DFC68A /* Crowd8.jpg */,
+				E94885621CC6F3F600DFC68A /* Crowd14.jpg */,
+				E94885631CC6F3F600DFC68A /* Crowd16.jpg */,
+				E94885651CC6F3F600DFC68A /* Crowd21.jpg */,
+				E94885661CC6F3F600DFC68A /* Crowd29.jpg */,
+				E94885681CC6F3F600DFC68A /* Crowd31.jpg */,
+				E94885691CC6F3F600DFC68A /* Crowd32.jpg */,
+				E948856A1CC6F3F600DFC68A /* Crowd35.jpg */,
+				E948856E1CC6F3F600DFC68A /* Doubt1.jpg */,
+				E94885721CC6F3F600DFC68A /* Doubt2.jpg */,
+				E94885731CC6F3F600DFC68A /* Doubt3.jpg */,
+				E94885741CC6F3F600DFC68A /* Doubt6.jpg */,
+				E94885751CC6F3F600DFC68A /* Doubt9.jpg */,
+				E948856F1CC6F3F600DFC68A /* Doubt11.jpg */,
+				E94885701CC6F3F600DFC68A /* Doubt15.jpg */,
+				E94885711CC6F3F600DFC68A /* Doubt16.jpg */,
+				E94885761CC6F3F600DFC68A /* driving-sea-to-sky-highway.jpg */,
+				E94885771CC6F3F600DFC68A /* Epidemic-2.jpg */,
+				E94885781CC6F3F600DFC68A /* EternalStation.jpg */,
+				E94885791CC6F3F600DFC68A /* Fallen1.jpg */,
+				E948857A1CC6F3F600DFC68A /* Fallen2.jpg */,
+				E948857B1CC6F3F600DFC68A /* Fallen5.jpg */,
+				E948857C1CC6F3F600DFC68A /* Fallen7.jpg */,
+				E948857E1CC6F3F600DFC68A /* Fata+Morgana.jpg */,
+				E948857F1CC6F3F600DFC68A /* FeastPDX_House.jpg */,
+				E94885801CC6F3F600DFC68A /* Fragment+Of+Eternity.jpg */,
+				E94885821CC6F3F600DFC68A /* high_school_classroom.preview.jpg */,
+				E94885831CC6F3F600DFC68A /* House-party.jpg */,
+				E94885851CC6F3F600DFC68A /* Journey+Into+Dark.jpg */,
+				E94885881CC6F3F600DFC68A /* Leila-crowded-classrooms.jpg */,
+				E948858A1CC6F3F600DFC68A /* maxresdefault 2.jpg */,
+				E948858B1CC6F3F600DFC68A /* maxresdefault.jpg */,
+				E948858C1CC6F3F600DFC68A /* ms1.jpg */,
+				E94885901CC6F3F600DFC68A /* New_bed_1.jpg */,
+				E94885911CC6F3F600DFC68A /* New_bed_2.jpg */,
+				E94885921CC6F3F600DFC68A /* New_bed_3.jpg */,
+				E948858F1CC6F3F600DFC68A /* New+Crowd39.jpg */,
+				E94885931CC6F3F600DFC68A /* NewCrowd38.jpg */,
+				E94885941CC6F3F600DFC68A /* NewCrowd38Fragment.jpg */,
+				E94885951CC6F3F600DFC68A /* NewCrowd42Fragment.jpg */,
+				E94885961CC6F3F600DFC68A /* NewCrowd46.jpg */,
+				E94885971CC6F3F600DFC68A /* NewCrowd52.jpg */,
+				E94885981CC6F3F600DFC68A /* NewCrowd58.jpg */,
+				E94885991CC6F3F600DFC68A /* Party.jpg */,
+				E948859A1CC6F3F600DFC68A /* Photo_shoot.jpg */,
+				E948859B1CC6F3F600DFC68A /* Portland-Conference-East-vs.-West-Soccer-Game.jpg */,
+				E948859C1CC6F3F600DFC68A /* Redwood_High_School,_Larkspur,_California.jpg */,
+				E948859E1CC6F3F600DFC68A /* road_trip.jpg */,
+				E948859D1CC6F3F600DFC68A /* road-trip3.jpg */,
+				E948859F1CC6F3F600DFC68A /* rooney_pick_up.jpg */,
+				E94885A01CC6F3F600DFC68A /* rubidouxclassroom.jpg */,
+				E94885A11CC6F3F600DFC68A /* Sheptune2.jpg */,
+				E94885A21CC6F3F600DFC68A /* skillsstill.jpg */,
+				E94885A41CC6F3F600DFC68A /* St_H_Bap_OK.jpg */,
+				E94885A51CC6F3F600DFC68A /* The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg */,
+				E94885551CC6F3F600DFC68A /* ap_english_composition_syllabus.txt */,
+				E94885561CC6F3F600DFC68A /* As I Lay Dying - Faulkner.txt */,
+				E94885581CC6F3F600DFC68A /* Bacchae - Euripides.txt */,
+				E948855C1CC6F3F600DFC68A /* bataille_story_of_eye.txt */,
+				E948855D1CC6F3F600DFC68A /* Bluebird by Charles Bukowski.txt */,
+				E948855E1CC6F3F600DFC68A /* Catch 22 - Joseph Heller.txt */,
+				E948855F1CC6F3F600DFC68A /* CatcherInTheRye - Salinger.txt */,
+				E948856D1CC6F3F600DFC68A /* Donne - Med 17.txt */,
+				E948857D1CC6F3F600DFC68A /* Family_Tree.txt */,
+				E94885811CC6F3F600DFC68A /* Geek Love by Katherine Dunn - Ch1.txt */,
+				E94885841CC6F3F600DFC68A /* Invisible Man - Ellison.txt */,
+				E94885861CC6F3F600DFC68A /* Kristeva_-_powers_of_horror.txt */,
+				E94885871CC6F3F600DFC68A /* LacanMirrorPhase.txt */,
+				E94885891CC6F3F600DFC68A /* Lolita - Vladimir Nabokov.txt */,
+				E948858D1CC6F3F600DFC68A /* mulvey-visualpleasure.txt */,
+				E948858E1CC6F3F600DFC68A /* Myth of Sisyphus by Albert Camus.txt */,
+				E94885A31CC6F3F600DFC68A /* St. Augustine - Confessions copy.txt */,
+				E94885A61CC6F3F600DFC68A /* The_Metamorphosis.txt */,
+				E94885A71CC6F3F600DFC68A /* The_Scarlet_Letter.txt */,
+			);
+			path = Desktop1;
+			sourceTree = "<group>";
+		};
 		E9E1F52F1C91F506006AE0FB /* Coding Reference */ = {
 			isa = PBXGroup;
 			children = (
@@ -990,124 +1117,6 @@
 				E9E1F5311C91F506006AE0FB /* LinkHelp.txt */,
 			);
 			path = "Coding Reference";
-			sourceTree = "<group>";
-		};
-		E9E1F5321C91F506006AE0FB /* DesktopContent */ = {
-			isa = PBXGroup;
-			children = (
-				E9E1F5331C91F506006AE0FB /* Desktop1 */,
-			);
-			path = DesktopContent;
-			sourceTree = "<group>";
-		};
-		E9E1F5331C91F506006AE0FB /* Desktop1 */ = {
-			isa = PBXGroup;
-			children = (
-				E9A0AC121C939A290035CCE1 /* 1-24-08-182.jpg */,
-				E9A0AC131C939A290035CCE1 /* 2-20-09-431.jpg */,
-				E9A0AC141C939A290035CCE1 /* 2-23-2011-213.jpg */,
-				E9A0AC161C939A290035CCE1 /* 3-29-12-184.jpg */,
-				E9A0AC171C939A290035CCE1 /* 4-4-12-048.jpg */,
-				E9A0AC181C939A290035CCE1 /* 4-10-08-386.jpg */,
-				E9A0AC191C939A290035CCE1 /* 4-14-09-462.jpg */,
-				E9A0AC151C939A290035CCE1 /* 4-24-08-152.jpg */,
-				E9A0AC691C939A290035CCE1 /* 4-24-08-492.jpg */,
-				E9A0AC5F1C939A290035CCE1 /* 7-24-12-052.jpg */,
-				E9A0AC1D1C939A290035CCE1 /* 7-29-14-345.jpg */,
-				E9A0AC1B1C939A290035CCE1 /* 8-9-11-0426.jpg */,
-				E9A0AC391C939A290035CCE1 /* 9-24-14-195-Edit.jpg */,
-				E9A0AC3C1C939A290035CCE1 /* 1894.jpg */,
-				E9A0AC1E1C939A290035CCE1 /* 3191.jpg */,
-				E9A0AC5A1C939A290035CCE1 /* 3573.jpg */,
-				E9A0AC401C939A290035CCE1 /* 4065.jpg */,
-				E9A0AC641C939A290035CCE1 /* 5678.jpg */,
-				E9A0AC481C939A290035CCE1 /* 6576.jpg */,
-				E9A0AC3F1C939A290035CCE1 /* 7146.jpg */,
-				E9A0AC4E1C939A290035CCE1 /* 7402.jpg */,
-				E9A0AC211C939A290035CCE1 /* 11062011img47161.jpg */,
-				E9A0AC291C939A290035CCE1 /* 8444505634_646117787e.jpg */,
-				E9A4CE9E1CC2059800446A85 /* At_the_river.jpg */,
-				E9A0AC241C939A290035CCE1 /* Baptism_2.jpg */,
-				E9A0AC251C939A290035CCE1 /* Baptism_in_a_Catholic_Church.jpg */,
-				E9A0AC261C939A290035CCE1 /* baptism-st-thomas.jpg */,
-				E9A0AC3D1C939A290035CCE1 /* Conversation.jpg */,
-				E9A0AC471C939A290035CCE1 /* Crowd1.jpg */,
-				E9A0AC5E1C939A290035CCE1 /* Crowd2.jpg */,
-				E9A0AC541C939A290035CCE1 /* Crowd3.jpg */,
-				E9A0AC511C939A290035CCE1 /* Crowd7.jpg */,
-				E9A0AC4D1C939A290035CCE1 /* Crowd8.jpg */,
-				E9A0AC1F1C939A290035CCE1 /* Crowd14.jpg */,
-				E9A0AC441C939A290035CCE1 /* Crowd16.jpg */,
-				E9A0AC571C939A290035CCE1 /* Crowd21.jpg */,
-				E9A0AC1C1C939A290035CCE1 /* Crowd29.jpg */,
-				E9A0AC411C939A290035CCE1 /* Crowd31.jpg */,
-				E9A0AC491C939A290035CCE1 /* Crowd32.jpg */,
-				E9A0AC421C939A290035CCE1 /* Crowd35.jpg */,
-				E9A0AC741C939A290035CCE1 /* Doubt1.jpg */,
-				E9A0AC451C939A290035CCE1 /* Doubt2.jpg */,
-				E9A0AC4A1C939A290035CCE1 /* Doubt3.jpg */,
-				E9A0AC581C939A290035CCE1 /* Doubt6.jpg */,
-				E9A0AC4F1C939A290035CCE1 /* Doubt9.jpg */,
-				E9A0AC501C939A290035CCE1 /* Doubt11.jpg */,
-				E9A0AC6C1C939A290035CCE1 /* Doubt15.jpg */,
-				E9A0AC4B1C939A290035CCE1 /* Doubt16.jpg */,
-				E9A0AC281C939A290035CCE1 /* driving-sea-to-sky-highway.jpg */,
-				E9A0AC551C939A290035CCE1 /* Epidemic-2.jpg */,
-				E9A0AC461C939A290035CCE1 /* EternalStation.jpg */,
-				E9A0AC661C939A290035CCE1 /* Fallen1.jpg */,
-				E9A0AC591C939A290035CCE1 /* Fallen2.jpg */,
-				E9A0AC3A1C939A290035CCE1 /* Fallen5.jpg */,
-				E9A0AC5B1C939A290035CCE1 /* Fallen7.jpg */,
-				E9A0AC1A1C939A290035CCE1 /* Fata+Morgana.jpg */,
-				E9A0AC331C939A290035CCE1 /* FeastPDX_House.jpg */,
-				E9A0AC3B1C939A290035CCE1 /* Fragment+Of+Eternity.jpg */,
-				E9A0AC2B1C939A290035CCE1 /* high_school_classroom.preview.jpg */,
-				E9A0AC2A1C939A290035CCE1 /* House-party.jpg */,
-				E9A0AC4C1C939A290035CCE1 /* Journey+Into+Dark.jpg */,
-				E9A0AC231C939A290035CCE1 /* Leila-crowded-classrooms.jpg */,
-				E9A0AC221C939A290035CCE1 /* maxresdefault 2.jpg */,
-				E9A0AC2D1C939A290035CCE1 /* maxresdefault.jpg */,
-				E9A0AC2F1C939A290035CCE1 /* ms1.jpg */,
-				E9A0AC5C1C939A290035CCE1 /* New+Crowd39.jpg */,
-				E9A0AC431C939A290035CCE1 /* NewCrowd38.jpg */,
-				E9A0AC5D1C939A290035CCE1 /* NewCrowd38Fragment.jpg */,
-				E9A0AC601C939A290035CCE1 /* NewCrowd42Fragment.jpg */,
-				E9A0AC621C939A290035CCE1 /* NewCrowd46.jpg */,
-				E9A0AC521C939A290035CCE1 /* NewCrowd52.jpg */,
-				E9A0AC631C939A290035CCE1 /* NewCrowd58.jpg */,
-				E9A0AC301C939A290035CCE1 /* Party.jpg */,
-				E9A4CE9D1CC2059800446A85 /* Photo_shoot.jpg */,
-				E9A0AC2E1C939A290035CCE1 /* Portland-Conference-East-vs.-West-Soccer-Game.jpg */,
-				E9A0AC311C939A290035CCE1 /* Redwood_High_School,_Larkspur,_California.jpg */,
-				E9A0AC271C939A290035CCE1 /* road_trip.jpg */,
-				E9A0AC341C939A290035CCE1 /* road-trip3.jpg */,
-				E9A0AC351C939A290035CCE1 /* rooney_pick_up.jpg */,
-				E9A0AC2C1C939A290035CCE1 /* rubidouxclassroom.jpg */,
-				E9A0AC671C939A290035CCE1 /* Sheptune2.jpg */,
-				E9A0AC361C939A290035CCE1 /* skillsstill.jpg */,
-				E9A0AC201C939A290035CCE1 /* St_H_Bap_OK.jpg */,
-				E9A0AC321C939A290035CCE1 /* The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg */,
-				E9A0AC371C939A290035CCE1 /* ap_english_composition_syllabus.txt */,
-				E9A0AC681C939A290035CCE1 /* As I Lay Dying - Faulkner.txt */,
-				E9A0AC6B1C939A290035CCE1 /* Bacchae - Euripides.txt */,
-				E9A0AC6D1C939A290035CCE1 /* bataille_story_of_eye.txt */,
-				E9A0AC6F1C939A290035CCE1 /* Bluebird by Charles Bukowski.txt */,
-				E9A0AC651C939A290035CCE1 /* Catch 22 - Joseph Heller.txt */,
-				E9A0AC701C939A290035CCE1 /* CatcherInTheRye - Salinger.txt */,
-				E9A0AC711C939A290035CCE1 /* Donne - Med 17.txt */,
-				E99A118C1CC1BF4700597D6E /* Family_Tree.txt */,
-				E9A0AC721C939A290035CCE1 /* Geek Love by Katherine Dunn - Ch1.txt */,
-				E9A0AC611C939A290035CCE1 /* Invisible Man - Ellison.txt */,
-				E9A0AC561C939A290035CCE1 /* Kristeva_-_powers_of_horror.txt */,
-				E9A0AC731C939A290035CCE1 /* LacanMirrorPhase.txt */,
-				E9A0AC751C939A290035CCE1 /* Lolita - Vladimir Nabokov.txt */,
-				E9A0AC3E1C939A290035CCE1 /* mulvey-visualpleasure.txt */,
-				E9A0AC381C939A290035CCE1 /* Myth of Sisyphus by Albert Camus.txt */,
-				E9A0AC531C939A290035CCE1 /* St. Augustine - Confessions copy.txt */,
-				E9A0AC6A1C939A290035CCE1 /* The_Metamorphosis.txt */,
-				E9A0AC6E1C939A290035CCE1 /* The_Scarlet_Letter.txt */,
-			);
-			path = Desktop1;
 			sourceTree = "<group>";
 		};
 		E9E1F5801C91F506006AE0FB /* Engine */ = {
@@ -1212,159 +1221,162 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9A0ACCD1C939A290035CCE1 /* 4-24-08-492.jpg in Resources */,
-				E94A30661CC6EA9D00907AD9 /* smsPipeline.json in Resources */,
-				E9A0AC971C939A290035CCE1 /* FeastPDX_House.jpg in Resources */,
-				E9A0ACA61C939A290035CCE1 /* Crowd35.jpg in Resources */,
-				E9A0ACB21C939A290035CCE1 /* 7402.jpg in Resources */,
+				E94885F61CC6F3F600DFC68A /* ms1.jpg in Resources */,
+				E94885C41CC6F3F600DFC68A /* Baptism_2.jpg in Resources */,
+				E94885E51CC6F3F600DFC68A /* Fallen5.jpg in Resources */,
+				E94885DF1CC6F3F600DFC68A /* Doubt9.jpg in Resources */,
+				E94885EC1CC6F3F600DFC68A /* high_school_classroom.preview.jpg in Resources */,
 				E9F934D21CC6E4CC0069458F /* gunshots.wav in Resources */,
-				E94A30601CC6EA9D00907AD9 /* Desktop2.json in Resources */,
-				E9A0AC781C939A290035CCE1 /* 2-23-2011-213.jpg in Resources */,
-				E9A0ACC41C939A290035CCE1 /* NewCrowd42Fragment.jpg in Resources */,
-				E9A0AC7A1C939A290035CCE1 /* 3-29-12-184.jpg in Resources */,
-				E9A0ACCB1C939A290035CCE1 /* Sheptune2.jpg in Resources */,
-				E9A0ACD21C939A290035CCE1 /* The_Scarlet_Letter.txt in Resources */,
-				E9A0AC7E1C939A290035CCE1 /* Fata+Morgana.jpg in Resources */,
-				E9A0ACAD1C939A290035CCE1 /* Crowd32.jpg in Resources */,
+				E94885D61CC6F3F600DFC68A /* Crowd8.jpg in Resources */,
+				E94885FA1CC6F3F600DFC68A /* New_bed_1.jpg in Resources */,
+				E94885E31CC6F3F600DFC68A /* Fallen1.jpg in Resources */,
+				E94885CB1CC6F3F600DFC68A /* Crowd1.jpg in Resources */,
+				E94885C21CC6F3F600DFC68A /* Bacchae - Euripides.txt in Resources */,
+				E94885BB1CC6F3F600DFC68A /* 7402.jpg in Resources */,
+				E94885F41CC6F3F600DFC68A /* maxresdefault 2.jpg in Resources */,
+				E948863E1CC6F42A00DFC68A /* Email2.json in Resources */,
+				E94885B61CC6F3F600DFC68A /* 5678.jpg in Resources */,
+				E94885CC1CC6F3F600DFC68A /* Crowd14.jpg in Resources */,
+				E948864E1CC6F42A00DFC68A /* kappa.png in Resources */,
+				E94886481CC6F42A00DFC68A /* PipelineTutorial.txt in Resources */,
+				E94886411CC6F42A00DFC68A /* smsPipeline.json in Resources */,
+				E94886451CC6F42A00DFC68A /* SoundTrack_Pipeline.ogg in Resources */,
+				E94885FF1CC6F3F600DFC68A /* NewCrowd42Fragment.jpg in Resources */,
+				E94885DA1CC6F3F600DFC68A /* Doubt15.jpg in Resources */,
+				E94885DC1CC6F3F600DFC68A /* Doubt2.jpg in Resources */,
+				E94886461CC6F42A00DFC68A /* first.txt in Resources */,
+				E94885B91CC6F3F600DFC68A /* 7-29-14-345.jpg in Resources */,
+				E94885F11CC6F3F600DFC68A /* LacanMirrorPhase.txt in Resources */,
+				E94886541CC6F42A00DFC68A /* Wallpaper.png in Resources */,
+				E948860E1CC6F3F600DFC68A /* St_H_Bap_OK.jpg in Resources */,
 				E9F934D41CC6E4CC0069458F /* Mouse_Up.wav in Resources */,
-				E9A0AC951C939A290035CCE1 /* Redwood_High_School,_Larkspur,_California.jpg in Resources */,
-				E9A0AC801C939A290035CCE1 /* Crowd29.jpg in Resources */,
-				E9A0AC9B1C939A290035CCE1 /* ap_english_composition_syllabus.txt in Resources */,
+				E94886371CC6F42A00DFC68A /* data.json in Resources */,
+				E94886581CC6F42A00DFC68A /* consola.ttf in Resources */,
+				E94886041CC6F3F600DFC68A /* Photo_shoot.jpg in Resources */,
+				E94886071CC6F3F600DFC68A /* road-trip3.jpg in Resources */,
+				E94886421CC6F42A00DFC68A /* suspiciontest.json in Resources */,
 				E9F934D31CC6E4CC0069458F /* Mouse_Down.wav in Resources */,
-				E9A0AC871C939A290035CCE1 /* Leila-crowded-classrooms.jpg in Resources */,
-				E9A0ACBA1C939A290035CCE1 /* Kristeva_-_powers_of_horror.txt in Resources */,
-				E94A30611CC6EA9D00907AD9 /* Email0.json in Resources */,
-				E94A30701CC6EA9D00907AD9 /* Floppy_Sheet.png in Resources */,
-				E9A0ACA11C939A290035CCE1 /* Conversation.jpg in Resources */,
-				E9A0AC9A1C939A290035CCE1 /* skillsstill.jpg in Resources */,
-				E9A0ACB71C939A290035CCE1 /* St. Augustine - Confessions copy.txt in Resources */,
-				E9A0AC891C939A290035CCE1 /* Baptism_in_a_Catholic_Church.jpg in Resources */,
-				E9A0AC791C939A290035CCE1 /* 4-24-08-152.jpg in Resources */,
-				E94A30781CC6EA9D00907AD9 /* Toolbar_Icons.png in Resources */,
-				E9A0AC9F1C939A290035CCE1 /* Fragment+Of+Eternity.jpg in Resources */,
-				E99A118D1CC1BF4700597D6E /* Family_Tree.txt in Resources */,
-				E9A0ACA01C939A290035CCE1 /* 1894.jpg in Resources */,
-				E9A0AC8C1C939A290035CCE1 /* driving-sea-to-sky-highway.jpg in Resources */,
-				E9A0AC8B1C939A290035CCE1 /* road_trip.jpg in Resources */,
+				E94885D81CC6F3F600DFC68A /* Doubt1.jpg in Resources */,
+				E94886511CC6F42A00DFC68A /* Teacher_Icon_Sheet2.png in Resources */,
+				E94886051CC6F3F600DFC68A /* Portland-Conference-East-vs.-West-Soccer-Game.jpg in Resources */,
+				E94885AE1CC6F3F600DFC68A /* 3191.jpg in Resources */,
+				E94886031CC6F3F600DFC68A /* Party.jpg in Resources */,
+				E94886021CC6F3F600DFC68A /* NewCrowd58.jpg in Resources */,
+				E94885B51CC6F3F600DFC68A /* 4065.jpg in Resources */,
+				E94885E41CC6F3F600DFC68A /* Fallen2.jpg in Resources */,
+				E94885E01CC6F3F600DFC68A /* driving-sea-to-sky-highway.jpg in Resources */,
+				E94885DD1CC6F3F600DFC68A /* Doubt3.jpg in Resources */,
+				E94885E71CC6F3F600DFC68A /* Family_Tree.txt in Resources */,
+				E94886391CC6F42A00DFC68A /* Desktop0.json in Resources */,
+				E94885F91CC6F3F600DFC68A /* New+Crowd39.jpg in Resources */,
+				E94885F21CC6F3F600DFC68A /* Leila-crowded-classrooms.jpg in Resources */,
+				E94885F81CC6F3F600DFC68A /* Myth of Sisyphus by Albert Camus.txt in Resources */,
+				E94886501CC6F42A00DFC68A /* Teacher_Icon_Sheet.png in Resources */,
+				E94885FE1CC6F3F600DFC68A /* NewCrowd38Fragment.jpg in Resources */,
+				E94885C01CC6F3F600DFC68A /* As I Lay Dying - Faulkner.txt in Resources */,
+				E94885F71CC6F3F600DFC68A /* mulvey-visualpleasure.txt in Resources */,
+				E94886111CC6F3F600DFC68A /* The_Scarlet_Letter.txt in Resources */,
+				E94885A91CC6F3F600DFC68A /* 11062011img47161.jpg in Resources */,
+				E94886531CC6F42A00DFC68A /* Toolbar_Icons.png in Resources */,
+				E94885EA1CC6F3F600DFC68A /* Fragment+Of+Eternity.jpg in Resources */,
 				E9E1F5921C91F506006AE0FB /* DoxygenHelp.txt in Resources */,
-				E9A0ACC51C939A290035CCE1 /* Invisible Man - Ellison.txt in Resources */,
 				E9F934D61CC6E4CC0069458F /* Notification_Bad.wav in Resources */,
-				E9A0AC7C1C939A290035CCE1 /* 4-10-08-386.jpg in Resources */,
-				E9A0ACC31C939A290035CCE1 /* 7-24-12-052.jpg in Resources */,
+				E948863B1CC6F42A00DFC68A /* Desktop2.json in Resources */,
+				E94885EF1CC6F3F600DFC68A /* Journey+Into+Dark.jpg in Resources */,
+				E94885D41CC6F3F600DFC68A /* Crowd35.jpg in Resources */,
+				E94885A81CC6F3F600DFC68A /* 1-24-08-182.jpg in Resources */,
 				E9F934CF1CC6E4CC0069458F /* Chat_Recieved.wav in Resources */,
-				E9A0AC7F1C939A290035CCE1 /* 8-9-11-0426.jpg in Resources */,
-				E94A306B1CC6EA9D00907AD9 /* first.txt in Resources */,
-				E9A0ACD41C939A290035CCE1 /* CatcherInTheRye - Salinger.txt in Resources */,
-				E94A305C1CC6EA9D00907AD9 /* data.json in Resources */,
-				E9A0ACC01C939A290035CCE1 /* New+Crowd39.jpg in Resources */,
-				E9A0AC991C939A290035CCE1 /* rooney_pick_up.jpg in Resources */,
-				E94A30791CC6EA9D00907AD9 /* Wallpaper.png in Resources */,
-				E94A30651CC6EA9D00907AD9 /* PlayerEmail.json in Resources */,
-				E9A0AC761C939A290035CCE1 /* 1-24-08-182.jpg in Resources */,
-				E9A0ACA91C939A290035CCE1 /* Doubt2.jpg in Resources */,
-				E9A0ACB61C939A290035CCE1 /* NewCrowd52.jpg in Resources */,
-				E9A0ACAB1C939A290035CCE1 /* Crowd1.jpg in Resources */,
-				E9A0AC821C939A290035CCE1 /* 3191.jpg in Resources */,
-				E94A306C1CC6EA9D00907AD9 /* last.txt in Resources */,
-				E9A0ACB81C939A290035CCE1 /* Crowd3.jpg in Resources */,
-				E94A307C1CC6EA9D00907AD9 /* Windows_UI.png in Resources */,
-				E94A306E1CC6EA9D00907AD9 /* TestDialogue.txt in Resources */,
-				E9A0ACC81C939A290035CCE1 /* 5678.jpg in Resources */,
-				E9A0AC8D1C939A290035CCE1 /* 8444505634_646117787e.jpg in Resources */,
-				E9A0ACB41C939A290035CCE1 /* Doubt11.jpg in Resources */,
-				E9A0ACD01C939A290035CCE1 /* Doubt15.jpg in Resources */,
-				E9A0ACBF1C939A290035CCE1 /* Fallen7.jpg in Resources */,
-				E9A0ACD71C939A290035CCE1 /* LacanMirrorPhase.txt in Resources */,
-				E9A0AC811C939A290035CCE1 /* 7-29-14-345.jpg in Resources */,
-				E9A0ACA71C939A290035CCE1 /* NewCrowd38.jpg in Resources */,
-				E9A0ACAF1C939A290035CCE1 /* Doubt16.jpg in Resources */,
-				E9A0ACC61C939A290035CCE1 /* NewCrowd46.jpg in Resources */,
+				E94886471CC6F42A00DFC68A /* last.txt in Resources */,
+				E94885E61CC6F3F600DFC68A /* Fallen7.jpg in Resources */,
+				E94885DE1CC6F3F600DFC68A /* Doubt6.jpg in Resources */,
+				E94886551CC6F42A00DFC68A /* Wallpaper2.png in Resources */,
+				E94885B21CC6F3F600DFC68A /* 4-24-08-152.jpg in Resources */,
+				E94885C11CC6F3F600DFC68A /* At_the_river.jpg in Resources */,
+				E94885CA1CC6F3F600DFC68A /* Conversation.jpg in Resources */,
+				E948865A1CC6F42A00DFC68A /* VT323-Regular.ttf in Resources */,
+				E94885C51CC6F3F600DFC68A /* Baptism_in_a_Catholic_Church.jpg in Resources */,
 				E9E1F5931C91F506006AE0FB /* LinkHelp.txt in Resources */,
-				E9A0AC911C939A290035CCE1 /* maxresdefault.jpg in Resources */,
 				E9F934D01CC6E4CC0069458F /* Chat_Sent.wav in Resources */,
-				E9A0ACB91C939A290035CCE1 /* Epidemic-2.jpg in Resources */,
-				E94A30691CC6EA9D00907AD9 /* SoundTrack_Extraction.ogg in Resources */,
-				E9A0AC8E1C939A290035CCE1 /* House-party.jpg in Resources */,
-				E9A0AC9D1C939A290035CCE1 /* 9-24-14-195-Edit.jpg in Resources */,
-				E9A0ACCF1C939A290035CCE1 /* Bacchae - Euripides.txt in Resources */,
-				E94A305E1CC6EA9D00907AD9 /* Desktop0.json in Resources */,
-				E9A0AC881C939A290035CCE1 /* Baptism_2.jpg in Resources */,
-				E94A30711CC6EA9D00907AD9 /* Icon_Sheet.png in Resources */,
-				E94A30771CC6EA9D00907AD9 /* Teacher_Wallpaper.png in Resources */,
-				E94A306D1CC6EA9D00907AD9 /* PipelineTutorial.txt in Resources */,
-				E94A305D1CC6EA9D00907AD9 /* DE1PipelineTexts.json in Resources */,
-				E9A0AC851C939A290035CCE1 /* 11062011img47161.jpg in Resources */,
-				E94A30631CC6EA9D00907AD9 /* Email2.json in Resources */,
-				E9A0AC861C939A290035CCE1 /* maxresdefault 2.jpg in Resources */,
-				E94A306A1CC6EA9D00907AD9 /* SoundTrack_Pipeline.ogg in Resources */,
-				E94A30731CC6EA9D00907AD9 /* kappa.png in Resources */,
-				E9A0ACAE1C939A290035CCE1 /* Doubt3.jpg in Resources */,
-				E9A0ACB31C939A290035CCE1 /* Doubt9.jpg in Resources */,
-				E9A0ACAC1C939A290035CCE1 /* 6576.jpg in Resources */,
-				E9A0AC931C939A290035CCE1 /* ms1.jpg in Resources */,
-				E9A0ACD31C939A290035CCE1 /* Bluebird by Charles Bukowski.txt in Resources */,
-				E9A4CEA11CC2059800446A85 /* At_the_river.jpg in Resources */,
-				E9A0ACC91C939A290035CCE1 /* Catch 22 - Joseph Heller.txt in Resources */,
-				E9A0AC981C939A290035CCE1 /* road-trip3.jpg in Resources */,
-				E94A30801CC6EA9D00907AD9 /* Notification_Prompt.wav in Resources */,
-				E9A0AC941C939A290035CCE1 /* Party.jpg in Resources */,
-				E9A0AC7D1C939A290035CCE1 /* 4-14-09-462.jpg in Resources */,
-				E9A0AC961C939A290035CCE1 /* The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg in Resources */,
+				E948864F1CC6F42A00DFC68A /* Pixel_Title.png in Resources */,
+				E94885CE1CC6F3F600DFC68A /* Crowd2.jpg in Resources */,
+				E94885FB1CC6F3F600DFC68A /* New_bed_2.jpg in Resources */,
+				E94886441CC6F42A00DFC68A /* SoundTrack_Extraction.ogg in Resources */,
+				E94885C71CC6F3F600DFC68A /* Bluebird by Charles Bukowski.txt in Resources */,
+				E94885FD1CC6F3F600DFC68A /* NewCrowd38.jpg in Resources */,
+				E948864B1CC6F42A00DFC68A /* Floppy_Sheet.png in Resources */,
+				E94885EE1CC6F3F600DFC68A /* Invisible Man - Ellison.txt in Resources */,
+				E94885B01CC6F3F600DFC68A /* 4-10-08-386.jpg in Resources */,
+				E948860F1CC6F3F600DFC68A /* The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg in Resources */,
+				E94886101CC6F3F600DFC68A /* The_Metamorphosis.txt in Resources */,
+				E94885FC1CC6F3F600DFC68A /* New_bed_3.jpg in Resources */,
+				E94885BF1CC6F3F600DFC68A /* ap_english_composition_syllabus.txt in Resources */,
+				E94885D51CC6F3F600DFC68A /* Crowd7.jpg in Resources */,
+				E948860C1CC6F3F600DFC68A /* skillsstill.jpg in Resources */,
+				E94885C61CC6F3F600DFC68A /* bataille_story_of_eye.txt in Resources */,
+				E94885E11CC6F3F600DFC68A /* Epidemic-2.jpg in Resources */,
+				E94885BD1CC6F3F600DFC68A /* 8444505634_646117787e.jpg in Resources */,
 				E9F934D81CC6E4CC0069458F /* SoundTrack_Extraction.ogg in Resources */,
-				E9A0ACB11C939A290035CCE1 /* Crowd8.jpg in Resources */,
-				E94A307E1CC6EA9D00907AD9 /* micross.ttf in Resources */,
-				E9A4CEA01CC2059800446A85 /* Photo_shoot.jpg in Resources */,
-				E9A0ACD91C939A290035CCE1 /* Lolita - Vladimir Nabokov.txt in Resources */,
-				E94A307F1CC6EA9D00907AD9 /* VT323-Regular.ttf in Resources */,
-				E9A0AC7B1C939A290035CCE1 /* 4-4-12-048.jpg in Resources */,
-				E9A0ACD61C939A290035CCE1 /* Geek Love by Katherine Dunn - Ch1.txt in Resources */,
+				E94886001CC6F3F600DFC68A /* NewCrowd46.jpg in Resources */,
+				E94886401CC6F42A00DFC68A /* PlayerEmail.json in Resources */,
+				E94885C31CC6F3F600DFC68A /* baptism-st-thomas.jpg in Resources */,
+				E94886491CC6F42A00DFC68A /* TestDialogue.txt in Resources */,
+				E94885D91CC6F3F600DFC68A /* Doubt11.jpg in Resources */,
+				E94885C91CC6F3F600DFC68A /* CatcherInTheRye - Salinger.txt in Resources */,
 				E9F934D71CC6E4CC0069458F /* Notification_New.wav in Resources */,
-				E9A0AC771C939A290035CCE1 /* 2-20-09-431.jpg in Resources */,
-				E9A0ACD51C939A290035CCE1 /* Donne - Med 17.txt in Resources */,
 				E9E1F5E11C91F506006AE0FB /* Project-Perfect-Citizen-Info.plist in Resources */,
-				E9A0AC8F1C939A290035CCE1 /* high_school_classroom.preview.jpg in Resources */,
-				E9A0ACB51C939A290035CCE1 /* Crowd7.jpg in Resources */,
-				E9A0ACC11C939A290035CCE1 /* NewCrowd38Fragment.jpg in Resources */,
-				E94A307A1CC6EA9D00907AD9 /* Wallpaper2.png in Resources */,
+				E94885AA1CC6F3F600DFC68A /* 1894.jpg in Resources */,
+				E94885F01CC6F3F600DFC68A /* Kristeva_-_powers_of_horror.txt in Resources */,
+				E94886081CC6F3F600DFC68A /* road_trip.jpg in Resources */,
+				E948863F1CC6F42A00DFC68A /* PlayerDesktop.json in Resources */,
+				E94885D71CC6F3F600DFC68A /* Donne - Med 17.txt in Resources */,
+				E94886091CC6F3F600DFC68A /* rooney_pick_up.jpg in Resources */,
+				E94885E21CC6F3F600DFC68A /* EternalStation.jpg in Resources */,
+				E94885EB1CC6F3F600DFC68A /* Geek Love by Katherine Dunn - Ch1.txt in Resources */,
 				E9E1F5E01C91F506006AE0FB /* EngineSettings.ini in Resources */,
-				E9A0ACC21C939A290035CCE1 /* Crowd2.jpg in Resources */,
-				E9A0ACC71C939A290035CCE1 /* NewCrowd58.jpg in Resources */,
-				E9A0ACD11C939A290035CCE1 /* bataille_story_of_eye.txt in Resources */,
-				E9A0ACBC1C939A290035CCE1 /* Doubt6.jpg in Resources */,
-				E94A305F1CC6EA9D00907AD9 /* Desktop1.json in Resources */,
-				E9A0AC901C939A290035CCE1 /* rubidouxclassroom.jpg in Resources */,
+				E948864D1CC6F42A00DFC68A /* Icon_Sheet2.png in Resources */,
+				E94885B81CC6F3F600DFC68A /* 7-24-12-052.jpg in Resources */,
 				E9F934D51CC6E4CC0069458F /* New_Email.wav in Resources */,
-				E9A0ACA31C939A290035CCE1 /* 7146.jpg in Resources */,
-				E94A306F1CC6EA9D00907AD9 /* Face_Sheet.png in Resources */,
-				E94A30761CC6EA9D00907AD9 /* Teacher_Icon_Sheet2.png in Resources */,
-				E9A0AC841C939A290035CCE1 /* St_H_Bap_OK.jpg in Resources */,
-				E9A0ACB01C939A290035CCE1 /* Journey+Into+Dark.jpg in Resources */,
-				E9A0ACA51C939A290035CCE1 /* Crowd31.jpg in Resources */,
-				E9A0ACBE1C939A290035CCE1 /* 3573.jpg in Resources */,
+				E94885BC1CC6F3F600DFC68A /* 8-9-11-0426.jpg in Resources */,
 				E9F934D11CC6E4CC0069458F /* gunshot.ogg in Resources */,
-				E9A0ACA41C939A290035CCE1 /* 4065.jpg in Resources */,
-				E9A0ACBB1C939A290035CCE1 /* Crowd21.jpg in Resources */,
-				E9A0AC921C939A290035CCE1 /* Portland-Conference-East-vs.-West-Soccer-Game.jpg in Resources */,
-				E9A0AC9E1C939A290035CCE1 /* Fallen5.jpg in Resources */,
-				E9A0ACA81C939A290035CCE1 /* Crowd16.jpg in Resources */,
-				E9A0AC831C939A290035CCE1 /* Crowd14.jpg in Resources */,
-				E94A30721CC6EA9D00907AD9 /* Icon_Sheet2.png in Resources */,
-				E9A0ACCC1C939A290035CCE1 /* As I Lay Dying - Faulkner.txt in Resources */,
-				E9A0ACCE1C939A290035CCE1 /* The_Metamorphosis.txt in Resources */,
-				E94A30621CC6EA9D00907AD9 /* Email1.json in Resources */,
-				E9A0ACCA1C939A290035CCE1 /* Fallen1.jpg in Resources */,
-				E94A30741CC6EA9D00907AD9 /* Pixel_Title.png in Resources */,
-				E94A30751CC6EA9D00907AD9 /* Teacher_Icon_Sheet.png in Resources */,
-				E9A0ACD81C939A290035CCE1 /* Doubt1.jpg in Resources */,
-				E9A0ACA21C939A290035CCE1 /* mulvey-visualpleasure.txt in Resources */,
-				E9A0AC8A1C939A290035CCE1 /* baptism-st-thomas.jpg in Resources */,
-				E94A307B1CC6EA9D00907AD9 /* Windows_Icons.png in Resources */,
-				E94A307D1CC6EA9D00907AD9 /* consola.ttf in Resources */,
-				E9A0ACAA1C939A290035CCE1 /* EternalStation.jpg in Resources */,
-				E94A30641CC6EA9D00907AD9 /* PlayerDesktop.json in Resources */,
-				E94A30671CC6EA9D00907AD9 /* suspiciontest.json in Resources */,
-				E9A0AC9C1C939A290035CCE1 /* Myth of Sisyphus by Albert Camus.txt in Resources */,
-				E9A0ACBD1C939A290035CCE1 /* Fallen2.jpg in Resources */,
+				E948863C1CC6F42A00DFC68A /* Email0.json in Resources */,
+				E94885B11CC6F3F600DFC68A /* 4-14-09-462.jpg in Resources */,
+				E94885D21CC6F3F600DFC68A /* Crowd31.jpg in Resources */,
+				E94885AC1CC6F3F600DFC68A /* 2-23-2011-213.jpg in Resources */,
+				E94885ED1CC6F3F600DFC68A /* House-party.jpg in Resources */,
+				E94885F31CC6F3F600DFC68A /* Lolita - Vladimir Nabokov.txt in Resources */,
+				E94885D31CC6F3F600DFC68A /* Crowd32.jpg in Resources */,
+				E94885BA1CC6F3F600DFC68A /* 7146.jpg in Resources */,
+				E948860B1CC6F3F600DFC68A /* Sheptune2.jpg in Resources */,
+				E94885B31CC6F3F600DFC68A /* 4-24-08-492.jpg in Resources */,
+				E94885AF1CC6F3F600DFC68A /* 3573.jpg in Resources */,
+				E94886591CC6F42A00DFC68A /* micross.ttf in Resources */,
+				E94885DB1CC6F3F600DFC68A /* Doubt16.jpg in Resources */,
+				E94886011CC6F3F600DFC68A /* NewCrowd52.jpg in Resources */,
+				E94885D11CC6F3F600DFC68A /* Crowd3.jpg in Resources */,
+				E948863D1CC6F42A00DFC68A /* Email1.json in Resources */,
+				E94885B71CC6F3F600DFC68A /* 6576.jpg in Resources */,
+				E94885AD1CC6F3F600DFC68A /* 3-29-12-184.jpg in Resources */,
+				E94886061CC6F3F600DFC68A /* Redwood_High_School,_Larkspur,_California.jpg in Resources */,
+				E948860A1CC6F3F600DFC68A /* rubidouxclassroom.jpg in Resources */,
+				E94885CD1CC6F3F600DFC68A /* Crowd16.jpg in Resources */,
+				E948863A1CC6F42A00DFC68A /* Desktop1.json in Resources */,
+				E94885CF1CC6F3F600DFC68A /* Crowd21.jpg in Resources */,
+				E94886571CC6F42A00DFC68A /* Windows_UI.png in Resources */,
+				E948864A1CC6F42A00DFC68A /* Face_Sheet.png in Resources */,
+				E94886521CC6F42A00DFC68A /* Teacher_Wallpaper.png in Resources */,
+				E94885F51CC6F3F600DFC68A /* maxresdefault.jpg in Resources */,
+				E948864C1CC6F42A00DFC68A /* Icon_Sheet.png in Resources */,
+				E948860D1CC6F3F600DFC68A /* St. Augustine - Confessions copy.txt in Resources */,
+				E94885BE1CC6F3F600DFC68A /* 9-24-14-195-Edit.jpg in Resources */,
+				E94885E81CC6F3F600DFC68A /* Fata+Morgana.jpg in Resources */,
+				E94886561CC6F42A00DFC68A /* Windows_Icons.png in Resources */,
+				E94885C81CC6F3F600DFC68A /* Catch 22 - Joseph Heller.txt in Resources */,
+				E94886381CC6F42A00DFC68A /* DE1PipelineTexts.json in Resources */,
+				E948865B1CC6F42A00DFC68A /* Notification_Prompt.wav in Resources */,
+				E94885AB1CC6F3F600DFC68A /* 2-20-09-431.jpg in Resources */,
+				E94885D01CC6F3F600DFC68A /* Crowd29.jpg in Resources */,
+				E94885B41CC6F3F600DFC68A /* 4-4-12-048.jpg in Resources */,
+				E94885E91CC6F3F600DFC68A /* FeastPDX_House.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1451,7 +1463,7 @@
 				E9F934A11CC6E4B30069458F /* InputCmpntLogger.cpp in Sources */,
 				E94A301C1CC6E9A900907AD9 /* NetworkCheckFunctor.cpp in Sources */,
 				E94A2FF31CC6E9A900907AD9 /* bootLoadingAnimationRender.cpp in Sources */,
-				E94A30681CC6EA9D00907AD9 /* ResourcePath.mm in Sources */,
+				E94886431CC6F42A00DFC68A /* ResourcePath.mm in Sources */,
 				E94A2FF71CC6E9A900907AD9 /* buttonUpdateComponent.cpp in Sources */,
 				E94A302C1CC6E9A900907AD9 /* TextDisplayBuilder.cpp in Sources */,
 				E94A30071CC6E9A900907AD9 /* emailExtraction.cpp in Sources */,
