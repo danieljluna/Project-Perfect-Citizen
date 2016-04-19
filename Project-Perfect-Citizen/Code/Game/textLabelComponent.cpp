@@ -69,6 +69,7 @@ void textLabelComponent::updateLabelSize(int s) {
 void textLabelComponent::updateLabelString(string str) {
     labelString = str;
     text->setString(labelString);
+    outline->setString(labelString);
 }
 
 void textLabelComponent::draw( sf::RenderTarget& target,

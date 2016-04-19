@@ -32,6 +32,7 @@ ppc::Vertex::Vertex(){
     rect_.setOutlineColor(sf::Color::Black);
     rend_->setOrigin(rect_.getOrigin().x, rect_.getOrigin().y);
 
+
 	circ_.setRadius(radius_);
 	circ_.setFillColor(color_);
 	circ_.setPosition(0, 0);
@@ -172,6 +173,7 @@ void ppc::Vertex::draw(sf::RenderTarget& target,
     target.draw(bgrect_, states);
 	target.draw(rect_, states);
 	target.draw(text_, states);
+    // states.transform.scale(sf::Vector2f{ 2.f, 2.f });
     target.draw(*rend_, states);
 
 }
