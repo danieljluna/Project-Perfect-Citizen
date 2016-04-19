@@ -2,6 +2,9 @@
 #include "buttonRenderComponent.h"
 #include "../Engine/event.h"
 #include <ostream>
+#include "../Engine/World.h"
+#include "../Engine/desktop.h"
+#include <string>
 
 using namespace ppc;
 const std::string MOUSE_DOWN_CODE = "MDC";
@@ -23,6 +26,19 @@ buttonRenderComponent::buttonRenderComponent( sf::Image& image,
     frameCount = f;
     xIndex = x;
     yIndex = y;
+
+    //Set up circle shape
+    badge_.setFillColor(sf::Color::Red);
+    badge_.setOutlineColor(sf::Color::White);
+    badge_.setOutlineThickness(2.f);
+    badge_.setRadius(5.f);
+
+    //set up text
+    notificationText_ = sf::Text(std::to_string(5),
+                                 World::getFont(World::Consola),
+                                 10);
+    notificationText_.move(2.5f, -2.0f);
+    //notificationText_.setStyle(sf::Text::Bold);
     
 
     _buttonType = BUTTON_TYPE;
@@ -97,22 +113,17 @@ bool buttonRenderComponent::willAnimate() {
     return _willAnimate;
 }
 
-sf::CircleShape buttonRenderComponent::drawBadge(sf::Vector2f pos)const {
-    
-    sf::CircleShape badge;
-    badge.setPosition(pos);
-    badge.setFillColor(sf::Color::Red);
-    badge.setOutlineColor(sf::Color::White);
-    badge.setOutlineThickness(2.f);
-    badge.setRadius(5.f);
-    return badge;
-}
 
 void buttonRenderComponent::draw( sf::RenderTarget& target,
 	sf::RenderStates states) const {
         target.draw(*sprite, states);
     if (getButtonType() == "ICON") {
-        target.draw(drawBadge(sprite->getPosition()), states);
+        
+        states.transform.translate(sprite->getPosition());
+        states.transform.scale(1.3, 1.3, 0, 0);
+
+        target.draw(badge_, states);
+        target.draw(notificationText_, states);
     }
 }
 

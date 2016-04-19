@@ -1,15 +1,29 @@
 #pragma once
 
+#include <SFML/System/Time.hpp>
+
 namespace ppc {
 
 
-class LoggerParcel {
-public:
+///////////////////////////////////////////////////////////////////////
+/// @brief Defines a parcel used for logging.
+///////////////////////////////////////////////////////////////////////
+struct LoggerParcel {
 
-    LoggerParce();
+    LoggerParcel() { type = TypeCount; };
 
+    enum ParcelType {
+        Timer,
+        Number,
+        TypeCount
+    };
 
-private:
+    ParcelType type;
+
+    union {
+        float number;
+        sf::Time time;
+    };
 
 
 };

@@ -1,12 +1,107 @@
 #include "Logger.h"
 
+#include <time.h>
+#include <string>
+#include <fstream>
+#include <iostream>
+
 using namespace ppc;
 
-std::map<std::string, sf::Time> Logger::timeMap;
+std::map<std::string, LoggerParcel> Logger::parcelMap;
 
 std::map<std::string, sf::Time> Logger::timerStarts;
 
 sf::Clock Logger::clock;
+
+
+
+///////////////////////////////////////////////////////////////////////
+// Parcel Manipulation
+///////////////////////////////////////////////////////////////////////
+
+LoggerParcel Logger::getParcel(const std::string& label) {
+    LoggerParcel result;
+
+    auto it = parcelMap.find(label);
+    //If we even have a parcel for this label:
+    if (it != parcelMap.end()) {
+        //Get that label
+        result = it->second;
+    }
+
+    return result;
+}
+
+
+
+bool Logger::scaleParcel(const std::string& label,
+                         const float scale) {
+    bool result = false;
+    auto it = parcelMap.find(label);
+
+    //If we even have a parcel for this label:
+    if (it != parcelMap.end()) {
+        result = true;
+
+        //Apply scaling factor
+        switch (it->second.type) {
+        case LoggerParcel::Timer:
+            it->second.time *= scale;
+            break;
+        case LoggerParcel::Number:
+            it->second.number *= scale;
+            break;
+        }
+    }
+
+    return result;
+}
+
+
+
+
+bool Logger::exportParcels() {
+    bool result = false;
+
+    std::string filename(generateFileName());
+
+    std::ofstream out(filename);
+    std::ifstream in(filename);
+
+    if (in && out) {
+        result = true;
+
+        std::string label;
+        in >> label;
+
+
+        while (in) {
+            in >> label;    //Keeps from infinite loop
+        }
+
+        //Introduce Export to file (tellp) (seekp)
+    }
+
+    return result;
+}
+
+
+
+
+bool Logger::eraseParcel(const std::string& label) {
+    bool result = false;
+    
+    auto it = parcelMap.find(label);
+    //If we even have a parcel for this label:
+    if (it != parcelMap.end()) {
+        result = true;
+
+        //Remove that label
+        parcelMap.erase(label);
+    }
+
+    return result;
+}
 
 
 
@@ -15,7 +110,7 @@ sf::Clock Logger::clock;
 // Storing Times
 /////////////////////////////////////////////////////////////////////
 
-void Logger::startTimer(std::string label) {
+void Logger::startTimer(const std::string& label) {
     auto it = timerStarts.find(label);
     //If we aren't waiting on this timer already:
     if (it == timerStarts.end()) {
@@ -26,7 +121,8 @@ void Logger::startTimer(std::string label) {
 
 
 
-void Logger::restartTimer(std::string label) {
+
+void Logger::restartTimer(const std::string& label) {
     auto it = timerStarts.find(label);
     //If we are in fact waiting on this timer:
     if (it != timerStarts.end()) {
@@ -40,28 +136,31 @@ void Logger::restartTimer(std::string label) {
 
 
 
-bool Logger::endTimer(std::string label, bool aggregate) {
+bool Logger::endTimer(const std::string& label, bool aggregate) {
     bool result = false;
 
-    auto it = timerStarts.find(label);
+    auto it_tStarts = timerStarts.find(label);
     //If the timer we are trying to end has been started:
-    if (it != timerStarts.end()) {
+    if (it_tStarts != timerStarts.end()) {
         //Get Elapsed Time and delete old label
-        sf::Time dt = clock.getElapsedTime() - it->second;
-        timerStarts.erase(it);
+        sf::Time dt = clock.getElapsedTime() - it_tStarts->second;
+        timerStarts.erase(it_tStarts);
 
         //Find the label in the timerMap
-        it = timeMap.find(label);
+        auto it_pMap = parcelMap.find(label);
 
         //If the label doesn't exist:
-        if (it == timeMap.end()) {
-            timeMap.emplace(label, dt); //Add the time to the map
+        if (it_pMap == parcelMap.end()) {
+            LoggerParcel lp;
+            lp.type = LoggerParcel::Timer;
+            lp.time = dt;
+            parcelMap.emplace(label, lp); //Add the time to the map
         } else {
             //If we are aggregating the time:
             if (aggregate) {                
-                it->second += dt;       //Aggegate time
+                it_pMap->second.time += dt;       //Aggegate time
             } else {
-                it->second = dt;        //Override time
+                it_pMap->second.time = dt;        //Override time
             }
         }
 
@@ -74,13 +173,29 @@ bool Logger::endTimer(std::string label, bool aggregate) {
 
 
 
-void Logger::clearTime(std::string label) {
-    auto it = timeMap.find(label);
-    //If we even have a time for this label:
-    if (it != timeMap.end()) {
-        //Remove that label
-        timeMap.erase(label);
-    }
+
+
+///////////////////////////////////////////////////////////////////////
+// Initializer for the ostream
+///////////////////////////////////////////////////////////////////////
+
+std::string& Logger::generateFileName() {
+    /*
+    time_t rawTime;
+    struct tm* timeInfo;
+    char buffer[80];
+
+    time(&rawTime);
+
+    timeInfo = localtime(&rawTime);
+
+    strftime(buffer, 80, "ppc_%d-%b-%y_%H-%M.log", timeInfo);
+    std::string result(buffer);
+    */
+
+    std::string result("PPC_TESTING.LOG");
+
+    return result;
 }
 
 

@@ -10,6 +10,7 @@
 #include "desktop.h"
 
 #include "debug.h"
+#include "desktop.h"
 
 using namespace ppc;
 

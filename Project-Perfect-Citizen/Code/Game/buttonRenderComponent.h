@@ -26,6 +26,9 @@ private:
     bool _willAnimate;
     std::string _buttonType;
 	static const int size = 128;
+    unsigned int notificationCount_ = 0;
+    sf::CircleShape badge_;
+    sf::Text notificationText_;
 
 public:
 	///////////////////////////////////////////////////////////////////////
@@ -38,8 +41,6 @@ public:
 	buttonRenderComponent(sf::Image& image, int x, int y, int r, int f);
 
 	~buttonRenderComponent();
-    
-    sf::CircleShape drawBadge(sf::Vector2f pos) const;
 
     
     ///////////////////////////////////////////////////////////////////////
