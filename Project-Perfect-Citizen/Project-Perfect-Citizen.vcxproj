@@ -80,6 +80,7 @@
     <ClCompile Include="Code\Game\explorerFileInputComponent.cpp" />
     <ClCompile Include="Code\Game\explorerFolderInputComponent.cpp" />
     <ClCompile Include="Code\Game\expressionistParser.cpp" />
+    <ClCompile Include="Code\Game\HelpRenderComponent.cpp" />
     <ClCompile Include="Code\Game\IconBuilder.cpp" />
     <ClCompile Include="Code\Game\iconInputComponent.cpp" />
     <ClCompile Include="Code\Game\Inbox.cpp" />
@@ -96,9 +97,11 @@
     <ClCompile Include="Code\Game\PipelineGraphRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineLevelBuilder.cpp" />
     <ClCompile Include="Code\Game\spriteRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\testRenderSprite.cpp" />
     <ClCompile Include="Code\Game\TextBoxBuilder.cpp" />
     <ClCompile Include="Code\Game\TextBoxInputComponent.cpp" />
     <ClCompile Include="Code\Game\TextBoxRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\TextBubble.cpp" />
     <ClCompile Include="Code\Game\TextDisplayBuilder.cpp" />
     <ClCompile Include="Code\Game\TextDisplayRenderComponent.cpp" />
     <ClCompile Include="Code\Game\TextFieldRenderComponent.cpp" />
@@ -195,6 +198,7 @@
     <ClInclude Include="Code\Game\explorerFileInputComponent.h" />
     <ClInclude Include="Code\Game\explorerFolderInputComponent.h" />
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
+    <ClInclude Include="Code\Game\HelpRenderComponent.hpp" />
     <ClInclude Include="Code\Game\IconBuilder.h" />
     <ClInclude Include="Code\Game\iconInputComponent.h" />
     <ClInclude Include="Code\Game\Inbox.h" />
@@ -212,9 +216,11 @@
     <ClInclude Include="Code\Game\PipelineJobsAndIncomes.h" />
     <ClInclude Include="Code\Game\PipelineLevelBuilder.h" />
     <ClInclude Include="Code\Game\spriteRenderComponent.hpp" />
+    <ClInclude Include="Code\Game\testRenderSprite.h" />
     <ClInclude Include="Code\Game\TextBoxBuilder.h" />
     <ClInclude Include="Code\Game\TextBoxInputComponent.h" />
     <ClInclude Include="Code\Game\TextBoxRenderComponent.h" />
+    <ClInclude Include="Code\Game\TextBubble.h" />
     <ClInclude Include="Code\Game\TextDisplayBuilder.h" />
     <ClInclude Include="Code\Game\TextDisplayRenderComponent.h" />
     <ClInclude Include="Code\Game\TextFieldRenderComponent.hpp" />
@@ -236,6 +242,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json" />
+    <None Include="Resources\DE1PipelineTexts.json" />
     <None Include="Resources\PlayerEmail.json" />
     <None Include="Resources\smsPipeline.json" />
     <None Include="Resources\suspiciontest.json" />

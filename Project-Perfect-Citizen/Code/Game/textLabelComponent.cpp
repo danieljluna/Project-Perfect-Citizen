@@ -30,6 +30,11 @@ textLabelComponent::textLabelComponent(sf::Font& f,sf::Color c,
 			i++;
 			j = 0;
 		}
+		/*else if (j > 10) {
+			labelString.insert(i, "\n");
+			i++;
+			j = 0;
+		}*/
 	}
 	
     text->setFont(font);
@@ -64,6 +69,7 @@ void textLabelComponent::updateLabelSize(int s) {
 void textLabelComponent::updateLabelString(string str) {
     labelString = str;
     text->setString(labelString);
+    outline->setString(labelString);
 }
 
 void textLabelComponent::draw( sf::RenderTarget& target,

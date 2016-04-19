@@ -42,9 +42,7 @@ void BaseFileType::uploadJson(std::string jString)
 	this->jSonString = jString;
 }
 
-//void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string p) {
-
-void BaseFileType::readFile(ppc::Desktop& desk, sf::Image& im, std::string path)
+void BaseFileType::readFile(ppc::Desktop& desk, sf::Image& im, std::string filename, std::string path)
 {
 	ppc::WindowInterface* FileWindow;
 	if (this->encrypted) {
@@ -53,7 +51,8 @@ void BaseFileType::readFile(ppc::Desktop& desk, sf::Image& im, std::string path)
 	switch (this->filetype) {
 	case FileType::File:
 		FileWindow = new ppc::Window(500, 500, sf::Color(255, 255, 255));
-		spawnFile(FileWindow, FileWindow->getInputHandler(), *desk.getNodeState(), im, 100, 200, path);
+		spawnFile(FileWindow, FileWindow->getInputHandler(), *desk.getNodeState(), im, 100, 200, 
+			filename, path);
 		desk.addWindow(FileWindow);
 		std::cout << path << std::endl;
 		break;

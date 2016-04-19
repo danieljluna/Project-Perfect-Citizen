@@ -19,6 +19,14 @@ namespace ppc {
             Count
         };
 
+		enum FontList {
+			//Fill with Enuns as Fonts are added
+			Consola = 0,
+			Micross,
+			VT323Regular,
+			FontCount
+		};
+
 		///////////////////////////////////////////////////////////////
 		// Ctors
 		///////////////////////////////////////////////////////////////
@@ -67,6 +75,16 @@ namespace ppc {
         ///////////////////////////////////////////////////////////////
         static bool loadDesktop(std::string filename);
 
+		///////////////////////////////////////////////////////////////
+		///@brief Initializes the fontMap of the World
+		///////////////////////////////////////////////////////////////
+		static void initFontMap();
+
+		///////////////////////////////////////////////////////////////
+		///@brief Returns the sf:Font of the given Font
+		///////////////////////////////////////////////////////////////
+		static sf::Font& getFont(FontList f);
+
         static void restartDesktop();
 
         static void quitDesktop();
@@ -85,5 +103,7 @@ namespace ppc {
         static bool quitter;
 
         static std::map<DesktopList, std::string> desktopFileMap;
+
+		static std::map<FontList, sf::Font> fontMap;
 	};
 };
