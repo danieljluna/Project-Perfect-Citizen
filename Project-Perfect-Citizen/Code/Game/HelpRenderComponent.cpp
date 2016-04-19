@@ -7,13 +7,12 @@
 //
 
 #include "HelpRenderComponent.hpp"
-
-
 #include "emailMessageRenderComponent.h"
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
+#include "../Engine/event.h"
 
 using namespace ppc;
 
@@ -36,6 +35,12 @@ HelpWindowRenderComponent::HelpWindowRenderComponent(sf::Font& f, int x, int y, 
     consoleHelpString += "\n\n mkdir [name] : creates a new directory";
 
 
+    graphHelpString = "--------------------- GRAPH REFERENCE --------------------\n";
+    graphHelpString += "\n\n DO STUFF";
+ 
+    
+
+    
     
     contentText->setString(consoleHelpString);
     
@@ -49,8 +54,17 @@ HelpWindowRenderComponent::~HelpWindowRenderComponent() {
 
 void HelpWindowRenderComponent::setTab(int t) {
     tab = t;
+    switch (tab) {
+        case 0:
+            contentText->setString(consoleHelpString);
+            break;
+        case 1:
+            contentText->setString(graphHelpString);
+            break;
+        default:
+            break;
+    }
 }
-
 
 void HelpWindowRenderComponent::draw(sf::RenderTarget& target,
                                        sf::RenderStates states) const {
@@ -61,3 +75,14 @@ void HelpWindowRenderComponent::draw(sf::RenderTarget& target,
 void HelpWindowRenderComponent::recieveMessage(msgType code) {
 
 }
+
+
+bool ppc::swithTab0Fn(HelpWindowRenderComponent* h, Event ev){
+    h->setTab(0);
+    return true;
+}
+bool ppc::swithTab1Fn(HelpWindowRenderComponent* h, Event ev){
+    h->setTab(1);
+    return true;
+}
+

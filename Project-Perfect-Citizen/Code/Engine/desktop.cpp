@@ -358,6 +358,7 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 					inbox.getFrom().at(i),
 					inbox.getSubject().at(i),
 					inbox.getBody().at(i),
+                    inbox.getVisible().at(i),
 					"image.jpg");
 				importDesktop->inbox_.addEmailToList(testEmail1);
 			}

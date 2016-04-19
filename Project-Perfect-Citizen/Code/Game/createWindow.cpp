@@ -86,7 +86,7 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
     textInputRenderComponent* textInputBox =
     new textInputRenderComponent(ns, myFont, 0, 0, fontSize);
     textOutputRenderComponent* textDisplayBox =
-    new textOutputRenderComponent(dt, buttonSheet, myFont, ns, 
+    new textOutputRenderComponent(dt, windowToModify, buttonSheet, myFont, ns,
 		textInputBox, 0, 0, fontSize);
     
     /* Create the update component */
@@ -224,8 +224,15 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     sf::Image iconSheet;
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
     
+    
+    Entity help;
+    HelpWindowRenderComponent* helpText1 = new HelpWindowRenderComponent(myFont,30,90,16);
+    help.addComponent(helpText1);
+
+    
+    Entity tab0;
     Entity tab1;
-    Entity tab2;
+    
 
     // Button Test
     ButtonBuilder builder;
@@ -236,26 +243,32 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     builder.setLabelMessage("Console");
     builder.setLabelFont(myFont);
     builder.setLabelSize(12);
-    builder.create(tab1);
+
+    builder.create(tab0);
+    createWithEventFunc(builder, tab0, helpText1, swithTab0Fn);
 
     builder.setButtonPosition(sf::Vector2f(128,16));
-    builder.create(tab2);
+    builder.setLabelMessage("Graph");
+
+    builder.create(tab1);
+    createWithEventFunc(builder, tab1, helpText1, swithTab1Fn);
+
     
     /////////////////////////////////////////
     /////// ENTITIES
     ///////////////////////////////////////
-    Entity help;
+   
     
     
-    HelpWindowRenderComponent* helpText1 = new HelpWindowRenderComponent(myFont,30,90,16);
+    
+
 //   sf::Font& f, std::string str, int x, int y, int size
-    help.addComponent(helpText1);
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
     windowToModify->setPosition(x, y);
+    windowToModify->addEntity(tab0);
     windowToModify->addEntity(tab1);
-    windowToModify->addEntity(tab2);
     windowToModify->addEntity(help);
     
     windowToModify = new BorderDecorator(*windowToModify);
@@ -359,6 +372,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     string dotEnd;
     
     if (!path.empty()) dotEnd = path.substr(path.length() - 4);
+    
     /////////////////////////////////////////
     /////// COMPONENTS & ENTITIES
     ///////////////////////////////////////
@@ -399,38 +413,44 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
             new textRenderComponent(myFont, content, 0, 0, fontSize);
         
         newEnt.addComponent(textBox);
-        
+        windowToModify->setPosition(x, y);
+        windowToModify->addEntity(newEnt);
         windowToModify->setSize(windowToModify->getSize().x, windowScrollHeight);
+        
         sf::FloatRect viewRect = {
             0.0f,
             0.0f,
             float(windowToModify->getSize().x),
             float(windowToModify->getSize().x)
         };
-		cout << windowScrollHeight << endl;
+        
         windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     }
     
     else if(dotEnd == PNG || dotEnd == JPG){
         sf::Image photo;
         photo.loadFromFile(path);
-        windowToModify->setSize(photo.getSize().x/2, photo.getSize().y/2);
+        
         photoRenderComponent* photoRender = new photoRenderComponent(photo);
+        
+        newEnt.addComponent(photoRender);
+        windowToModify->setPosition(x, y);
+        windowToModify->addEntity(newEnt);
+        windowToModify->setSize(photo.getSize().x/2, photo.getSize().y/2);
+        
         photoRender->setImageScale((float)windowToModify->getSize().x /
                                (float)photo.getSize().x,
                                (float)windowToModify->getSize().y /
-                               (float)photo.getSize().y);
-        newEnt.addComponent(photoRender);
+                                   (float)photo.getSize().y);
     }
     
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
     ///////////////////////////////////////
     windowToModify = new BorderDecorator(*windowToModify);
-    windowToModify->setPosition(x, y);
-    windowToModify->addEntity(newEnt);
-    dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
-	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(filename);
+    BorderDecorator* border = dynamic_cast<BorderDecorator*>(windowToModify);
+    border->addButton(buttonSheet, closeWindow);
+    border->setCaption(filename);
 }
 
 void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, Inbox& inbox) {
@@ -444,6 +464,7 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	int emailBoxElementWidth = windowToModify->getSize().x;
 	int emailBoxElementHeight = 50;
 	int emailBoxPadding = 25;
+    int emailApplicationHeight = emailBoxElementHeight * 6;
     
 	int totalEmailsLoaded = 0;
 	/////////////////////////////////////////
@@ -462,19 +483,29 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	int newHeight = (totalEmailsLoaded) * (emailBoxElementHeight + emailBoxPadding);
 	int newWidth = windowToModify->getSize().x;
 	windowToModify->setSize(newWidth, newHeight);
+    windowToModify->setPosition(x, y);
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
-	sf::FloatRect viewRect = {
-		0.0f,
-		0.0f,
-		float(windowToModify->getSize().x),
-		float(windowToModify->getSize().y / 2.0)
-	};
+    /* Create email app height dynamically if only a few emails */
+    sf::FloatRect viewRect = {
+        0.0f,
+        0.0f,
+        float(windowToModify->getSize().x),
+        float(windowToModify->getSize().y)
+    };
+    /* If many emails, have the app size be predetermined */
+    if(newHeight > emailApplicationHeight){
+        viewRect = {
+            0.0f,
+            0.0f,
+            float(windowToModify->getSize().x),
+            float(emailApplicationHeight)
+        };
+    }
 	windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
 	windowToModify = new BorderDecorator(*windowToModify);
-	windowToModify->setPosition(x, y);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("My Messages");
 
@@ -629,7 +660,7 @@ void ppc::spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih,
     builder.setSize(0.25f);
     builder.setSpritesByIndicies(0, 2, 2, 1);
     builder.setSpriteSheet(buttonSheet);
-    builder.setLabelMessage("MY TEST MSG");
+    builder.setLabelMessage("Submit");
     builder.setLabelFont(myFont);
     builder.setLabelSize(12);
     Entity ent;
@@ -708,6 +739,46 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(pwd);
+}
+
+void ppc::spawnContextMenu(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, std::vector<std::string> elementNames,
+	std::vector<bool (*)(Desktop*, Event)> elementFunctions, float x, float y) {
+	/* Check to make sure the window passed isn't null */
+	if (windowToModify == nullptr) { return; }
+
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 20;
+	int windowOffset = 5;
+	int contextBoxElementWidth = windowToModify->getSize().x;
+	int contextBoxElementHeight = fontSize+2;
+	int contextBoxPadding = 5;
+
+	int totalElementsLoaded = 0;
+	/////////////////////////////////////////
+	/////// ENTITIES
+	///////////////////////////////////////
+	/* Create an email list element entity for each email in the inbox*/
+	for (int i = 0; i < elementNames.size(); ++i) {
+		Entity contextListElement;
+		createContextListElement(
+			contextListElement, windowToModify, dT, ih, myFont, elementNames.at(i), elementFunctions.at(i),
+			0, (i * (contextBoxElementHeight + contextBoxPadding)), contextBoxElementWidth, contextBoxElementHeight,
+			0, (i * (contextBoxElementHeight + contextBoxPadding)), fontSize);
+		windowToModify->addEntity(contextListElement);
+		++totalElementsLoaded;
+	}
+
+	int newHeight = (totalElementsLoaded)* (contextBoxElementHeight + contextBoxPadding);
+	int newWidth = windowToModify->getSize().x;
+	windowToModify->setSize(newWidth, newHeight+contextBoxPadding);
+
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+
+	windowToModify->setPosition(x, y);
+
 }
 
 

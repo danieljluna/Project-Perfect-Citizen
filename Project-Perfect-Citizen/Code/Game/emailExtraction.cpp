@@ -62,7 +62,9 @@ void emailExtraction::parseEmailForInbox(Json::Value value, std::string folder) 
             }
             else if(objName == "Body"){
                 addBody(content);
-
+            }
+            else if(objName == "Visible"){
+                addVisible(content.at(0) == '1');
             }
             else{
                 std::cout << "ERROR" << std::endl;

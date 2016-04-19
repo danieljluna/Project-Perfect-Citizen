@@ -18,6 +18,7 @@ namespace sf {
 
 namespace ppc {
     
+
     class HelpWindowRenderComponent : public ppc::RenderComponent {
     private:
         
@@ -59,4 +60,7 @@ namespace ppc {
         
     };
     
-}
+    bool swithTab0Fn(HelpWindowRenderComponent*, Event);
+    bool swithTab1Fn(HelpWindowRenderComponent*, Event);
+    
+};

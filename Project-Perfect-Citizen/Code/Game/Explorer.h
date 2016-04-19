@@ -15,8 +15,7 @@
 /// @brief A singleton structure to a desktop that governs displaying
 /// files in the explorer window
 /// @details Contains a vector of emails to which can be added to
-/// the email application on the desktop. Each desktop should only
-/// have one Inbox in theory.
+/// the email application on the desktop.
 ///////////////////////////////////////////////////////////////////////
 
 namespace ppc {

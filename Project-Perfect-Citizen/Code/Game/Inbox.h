@@ -57,9 +57,12 @@ namespace ppc {
 		///@brief Removes the email from the vector as the designated index
 		///////////////////////////////////////////////////////////////////////
 		void removeEmailFromList(int position);
+        
+        int getMaxSize();
 
 	protected:
 		std::vector<ppc::Email> messageList;
+        int maxSize = 18;
 	};
 
 }

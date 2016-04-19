@@ -15,3 +15,7 @@ void Inbox::addEmailToList(Email newEmail) { messageList.push_back(newEmail); }
 void Inbox::removeEmailFromList(int position) { 
 	messageList.erase(messageList.begin()+position); 
 }
+
+int Inbox::getMaxSize(){
+    return maxSize;
+}
