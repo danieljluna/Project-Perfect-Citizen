@@ -14,7 +14,6 @@ namespace ppc {
 
         operator sf::Event&();
 
-
 		struct Buttons {
 			bool isPushed;
 			bool isReleased;
@@ -30,12 +29,30 @@ namespace ppc {
 			float end;
 		};
 
+		struct Message {
+			std::string msg;
+		};
+
+		struct FloppyEmotions {
+			bool isDefault;
+			bool isAngry;
+			bool isSurprised;
+			bool isPeeked;
+		};
+
+		struct FloppyInput {
+			std::vector<std::pair<std::string, Event::FloppyEmotions>> input;
+			~FloppyInput() {}
+		};
+
 		enum EventTypes
 		{
 			ButtonType,
 			TransformationType,
 			ScrollbarType,
 			sfEventType,
+			MessageType,
+			FloppyType,
 			EmotionType,
 			Count
 		};
@@ -46,6 +63,9 @@ namespace ppc {
 			Buttons buttons;
 			Transformations transformations;
 			Scrollbar scrollbar;
+			//Message message;
+			//FloppyInput floppyinput;
+			FloppyEmotions emotions;
             sf::Event sfEvent;
 		};
 	};

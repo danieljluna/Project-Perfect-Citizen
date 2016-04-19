@@ -26,40 +26,19 @@ namespace ppc {
 	private:
 
 		int currentSequenceIndex = 0;
-		//FloppyRenderComponent floppyRender; 
-		//TextBubbleRenderComponent tbr;
-		//TextBubbleInputComponent tbi;
-		
+		std::vector<std::pair<std::string, Event::FloppyEmotions>> currentSequence;
 		
 	public:
 
 		FloppyInputComponent();
 		~FloppyInputComponent();
 
-		enum EventTypes
-		{
-			ButtonType,
-			TransformationType,
-			ScrollbarType,
-			sfEventType,
-			FloppyType,
-			EmotionType,
-			Count
-		};
-
-		struct Emotions {
-			bool isDefault;
-			bool isAngry;
-			bool isSurprised;
-			bool isPeeked;
-			bool isHidden;
-		};
-
 		void recieveEvent(ppc::Event);
-		void updateFloppyEmotion();
-		void updateTextBoxString();
-		//std::vector<std::pair<std::string, ppc::Emotion>> currentSequence;
-		
+		void updateFloppyEmotion(sf::Event);
+		void updateTextBoxString(sf::Event);
+		void advanceSequence(sf::Event);
+		void regressSequence(sf::Event);
+
 	};
 
 
