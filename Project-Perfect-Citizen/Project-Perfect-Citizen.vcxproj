@@ -82,6 +82,8 @@
     <ClCompile Include="Code\Game\explorerFolderInputComponent.cpp" />
     <ClCompile Include="Code\Game\expressionistParser.cpp" />
     <ClCompile Include="Code\Game\FloppyInputComponent.cpp" />
+    <ClCompile Include="Code\Game\FloppyRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\FloppyUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\HelpRenderComponent.cpp" />
     <ClCompile Include="Code\Game\IconBuilder.cpp" />
     <ClCompile Include="Code\Game\iconInputComponent.cpp" />
@@ -202,6 +204,8 @@
     <ClInclude Include="Code\Game\explorerFolderInputComponent.h" />
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
     <ClInclude Include="Code\Game\FloppyInputComponent.h" />
+    <ClInclude Include="Code\Game\FloppyRenderComponent.hpp" />
+    <ClInclude Include="Code\Game\FloppyUpdateComponent.hpp" />
     <ClInclude Include="Code\Game\HelpRenderComponent.hpp" />
     <ClInclude Include="Code\Game\IconBuilder.h" />
     <ClInclude Include="Code\Game\iconInputComponent.h" />

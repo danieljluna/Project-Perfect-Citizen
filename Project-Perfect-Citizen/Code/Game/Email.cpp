@@ -4,13 +4,14 @@
 using namespace ppc;
 
 Email::Email(std::string to, std::string from, std::string subject,
-	std::string content, std::string attachment) {
+	std::string content, bool visible, std::string attachment) {
 	this->to = to;
 	this->from = from;
 	this->subject = subject;
 	this->content = content;
 	this->attachment = attachment;
 	this->read = false;
+    this->visible = visible;
 }
 
 std::string Email::getToField() { return this->to; }
@@ -35,6 +36,8 @@ std::string Email::getAttachmentField() { return this->attachment; }
 
 bool Email::getReadFlag() { return this->read;  }
 
-bool ppc::Email::getShownFlag() {return this-shown;}
-
 void Email::setRead() { this->read = true; }
+
+bool Email::getVisible() { return this->visible; }
+
+void Email::setVisible(bool b) { this->visible = b; }

@@ -26,6 +26,7 @@ namespace ppc {
 	private:
 
 		int currentSequenceIndex = 0;
+
 		
 	public:
 

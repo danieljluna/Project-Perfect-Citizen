@@ -1,6 +1,7 @@
 {
 	"Email": {
    		"Email_001": {
+            "Visible" : "1",
    			"To" : "John <boilingwhiz@empire.net>",
 			"From" : "Louise <pinewoodsscorers@peculiar.com>",
           	"Subject" : "Grocery List",
@@ -17,6 +18,7 @@
     Thanks!"
         },
 		"Email_002": {
+            "Visible" : "1",
 			"To" : "John <boilingwhiz@empire.net>",
 			"From" : "DO_NOT_REPLY <DUSTBLASTER.COM>",
             "Subject": "SPECIAL OFFER ON THE WORLD'S GREATEST VACUUMS",
@@ -52,6 +54,7 @@
     Support Website for assistance."
 		},
         "Email_003": {
+            "Visible" : "1",
             "To" : "John <boilingwhiz@empire.net>",
             "From" : "̭̏̈͂ͩ26̲͓ẹ̵͎̋rͩ̋ͥ̉̊I̥ǂɘZ[]Ƶʍ<̺̗̪͕s̵̡̻͌̔̏̈̚ͅc̜͂͋̓͊@corpora.com>",
             "Subject": "Precision Bombing Technique",
@@ -62,6 +65,7 @@
     further instructions."
         },
 		"Email_004": {
+            "Visible" : "1",
 			"To" : "John <boilingwhiz@empire.net>",
 			"From" : "Stinson Env. Council <stcouncil@stealth.net>",
 			"Subject": "Local Beach Clean-Up!",
