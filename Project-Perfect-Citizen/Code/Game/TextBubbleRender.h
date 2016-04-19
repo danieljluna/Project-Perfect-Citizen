@@ -1,9 +1,14 @@
 #pragma once
 
 #include "../Engine/renderComponent.h"
-#include "TextBubble.h"
+
+
 
 namespace ppc {
+
+	class TextBubble;
+	class ppc::Event;
+
 	class TextBubbleRender: public ppc::RenderComponent {
 
 	private:
@@ -23,5 +28,7 @@ namespace ppc {
 		virtual void draw(sf::RenderTarget&,sf::RenderStates) const override;
 
 		virtual void recieveMessage(msgType code) override;
+
+		virtual void recieveMessage(ppc::Event ev) override;
 	};
 };

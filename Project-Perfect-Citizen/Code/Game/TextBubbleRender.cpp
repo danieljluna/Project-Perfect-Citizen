@@ -1,4 +1,6 @@
 #include "TextBubbleRender.h"
+#include "TextBubble.h"
+#include "../Engine/event.h"
 
 ppc::TextBubbleRender::TextBubbleRender() {
 
@@ -22,4 +24,10 @@ void ppc::TextBubbleRender::draw(sf::RenderTarget& target, sf::RenderStates stat
 }
 
 void ppc::TextBubbleRender::recieveMessage(msgType code) {
+}
+
+void ppc::TextBubbleRender::recieveMessage(ppc::Event ev) {
+
+	
+
 }
