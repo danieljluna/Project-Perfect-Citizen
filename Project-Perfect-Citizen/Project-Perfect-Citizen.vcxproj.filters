@@ -322,6 +322,10 @@
     <ClCompile Include="Code\Game\HelpRenderComponent.cpp">
       <Filter>Sources\Game Specific</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\notificationButtonComponent.cpp">
+      <Filter>Sources\Game Specific\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\notifcationRenderComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -671,6 +675,9 @@
     </ClInclude>
     <ClInclude Include="Code\Game\HelpRenderComponent.hpp">
       <Filter>Headers\Game Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\notifcationRenderComponent.h">
+      <Filter>Headers\Game Specific\Button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
