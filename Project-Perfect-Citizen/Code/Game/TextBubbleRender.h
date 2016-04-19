@@ -7,7 +7,7 @@
 namespace ppc {
 
 	class TextBubble;
-	class ppc::Event;
+	class Event;
 
 	class TextBubbleRender: public ppc::RenderComponent {
 
