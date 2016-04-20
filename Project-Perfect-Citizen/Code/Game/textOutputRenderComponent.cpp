@@ -173,20 +173,39 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		if (cmd.size() == 3) {
 			unlockCommand.push_back(cmd.at(2));
 		}
+        else {
+            str_ = str_ + "Please enter: unlock [directory] [password].\n";
+            numDisplayedLines++;
+        }
 		commandFn newCommand = findFunction(unlock);
 		newCommand(fileTree_, unlockCommand);
         if (fileTree_.getCwd()->findElement(cmd.at(1)) == nullptr) {
             str_ = str_ + "Error: Directory '" + cmd.at(1) + "' not found. \n";
-            numDisplayedLines++;
         }
 		else if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
 			str_ = str_ + "Access denied.\n";
 		}
+        else if (!fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
+            str_ = str_ + "Directory not locked.\n";
+        }
 		else {
 			str_ = str_ + "Access granted.\n";
 		}
 		numDisplayedLines+= 2;
 	}
+    
+    /* CASE: HELP*/
+    else if (cmd.at(0) == "help") {
+        str_ = str_ + "help                       basic help for commands\n";
+        str_ = str_ + "pwd                        prints the working directory\n";
+        str_ = str_ + "cd [path]                  changes the current directory\n";
+        str_ = str_ + "make [filename] [content]  creates a new text file\n";
+        str_ = str_ + "mkdir [name]               creates a new directory\n";
+        str_ = str_ + "unlock [name] [password]   attempts to open a locked directory\n";
+        str_ = str_ + "ls                         lists the contents of the current\n";
+        str_ = str_ + "                           working directory\n";
+        numDisplayedLines+= 8;
+    }
 
 	/* CASE: DEFAULT*/
 	else { 
