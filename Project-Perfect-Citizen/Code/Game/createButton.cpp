@@ -10,6 +10,7 @@
 #include "../Engine/Network.h"
 #include "NetworkCheckFunctor.h"
 #include "createWindow.h"
+#include "ButtonBuilder.h"
 
 using namespace ppc;
 
@@ -18,261 +19,110 @@ typedef bool (databaseSearchInputComponent::*backFn)(sf::Event&);
 void spawnBackButton(databaseSearchInputComponent* db, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet,
     float x, float y, float size)
 {
-    /* Render Component */
-    buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 0, 0, 2, 1);
-    buttonRender->setImageScale(size, size);
-    buttonRender->renderPosition(sf::Vector2f(x, y));
 
-    /* Input Component*/
-    mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "backButton");
+	ButtonBuilder builder;
+	builder.setButtonPosition(sf::Vector2f(x, y));
+	builder.setInputHandle(ih);
+	builder.setSize(size);
+	builder.setSpritesByIndicies(0, 0, 2, 1);
+	builder.setLabelMessage("");
+	builder.setLabelFont(sf::Font());
+	builder.setLabelSize(size);
+	builder.setSpriteSheet(spritesheet);
 
-    setOnPress(mpb, db, &(ppc::goBackFn));
-
-    entityToModify.addComponent(buttonRender);
-    entityToModify.addComponent(mpb);
+	createWithEventFunc<databaseSearchInputComponent>(builder, entityToModify, db, &(ppc::goBackFn));
+	
 }
 
 
 void spawnStartButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 4, 0, 2, 1);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
+	ButtonBuilder builder;
+	builder.setButtonPosition(sf::Vector2f(x, y));
+	builder.setInputHandle(ih);
+	builder.setSize(size);
+	builder.setSpritesByIndicies(4, 0, 2, 1);
+	builder.setLabelMessage("");
+	builder.setLabelFont(sf::Font());
+	builder.setLabelSize(size);
+	builder.setSpriteSheet(spritesheet);
 
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "startButton");
+	createWithEventFunc<Desktop>(builder, entityToModify, &d, &(ppc::spawnStartMenu));
 
-	setOnPress(mpb, &d, &(ppc::spawnStartMenu));
-
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
-
-	buttonRender->renderPosition(sf::Vector2f(x, y));
 }
 
-void spawnNextButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 0, 1, 2, 1);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
-
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "nextButton");
-
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
-}
-
-void spawnBlankLargeButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 4, 1, 2, 1);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
-
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "blankLargeButton");
-
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
-}
-
-// * THIS IS TEMPORARY FOR FIRST PLAYABLE *//
 void spawnNetworkOkayButton(ppc::Network* nw, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size, NetworkCheckFunctor* ncf) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 0, 2, 2, 1);
+	
+	ButtonBuilder builder;
+	builder.setButtonPosition(sf::Vector2f(x, y));
+	builder.setInputHandle(ih);
+	builder.setSize(size);
+	builder.setSpritesByIndicies(0, 2, 2, 1);
+	builder.setLabelMessage("");
+	builder.setLabelFont(sf::Font());
+	builder.setLabelSize(20);
+	builder.setSpriteSheet(spritesheet);
+
+	createWithEventFunc<NetworkCheckFunctor>(builder, entityToModify, ncf, &(ppc::runSubmitCheck));
+	
+	/* LEGACY CODE, UNCOMMENT TO REVERT */
+	/*buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 0, 2, 2, 1);
 	buttonRender->setImageScale(size, size);
 	buttonRender->renderPosition(sf::Vector2f(x, y));
 
-	/* Input Component*/
 	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "okayButton");
 
 	setOnPress(mpb, ncf, &(ppc::runSubmitCheck));
 
 	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
-}
-
-void spawnOkayButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 0, 2, 2, 1);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
-
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "okayButton");
-
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
-}
-
-void spawnCancelButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 4, 2, 2, 1);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
-
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "cancelButton");
-
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
-}
-
-void spawnCloseButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spriteSheet, float x, float y, float size) {
-
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spriteSheet, 0, 3, 1, 1);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
-	
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "closeButton");
-	
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
-}
-
-void spawnMaximizeButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 2, 3, 1, 1);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
-
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "maximizeButton");
-
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
-}
-
-void spawnMinimizeButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 4, 3, 1, 1);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
-
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "minimizeButton");
-
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
-}
-
-void spawnBlankSmallButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 6, 3, 1, 1);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
-
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "blankSmallButton");
-
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
-}
-
-void spawnUpButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 0, 4, 1, 1);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
-
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "upButton");
-
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
-}
-
-void spawnDownButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 2, 4, 1, 1);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
-
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "downButton");
-
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
-}
-
-void spawnRightButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 4, 4, 1, 1);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
-
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "rightButton");
-
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
-}
-
-void spawnLeftButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 6, 4, 1, 1);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
-
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "leftButton");
-
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
-}
-
-void spawnScrollBarContainer(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 2, 5, 3, 0);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
-
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "scrollBarContainer");
-
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
-}
-
-void spawnScrollBarHandle(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 0, 5, 1, 1);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
-
-	/* Input Component*/
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "scrollBarHandle");
-
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);
+	entityToModify.addComponent(mpb);*/
 }
 
 void spawnConfirmedIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 6, 5, 1, 0);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
+	
+	ButtonBuilder builder;
+	builder.setButtonPosition(sf::Vector2f(x, y));
+	builder.setInputHandle(ih);
+	builder.setSize(size);
+	builder.setSpritesByIndicies(6, 5, 1, 0);
+	builder.setLabelMessage("");
+	builder.setLabelFont(sf::Font());
+	builder.setLabelSize(20);
+	builder.setSpriteSheet(spritesheet);
+	builder.setNonClickable();
+	builder.create(entityToModify);
 
-	entityToModify.addComponent(buttonRender);
 }
 
 void spawnAlertIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
-	/* Render Component */
-	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 5, 5, 1, 0);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
+	
+	ButtonBuilder builder;
+	builder.setButtonPosition(sf::Vector2f(x, y));
+	builder.setInputHandle(ih);
+	builder.setSize(size);
+	builder.setSpritesByIndicies(5, 5, 1, 0);
+	builder.setLabelMessage("");
+	builder.setLabelFont(sf::Font());
+	builder.setLabelSize(20);
+	builder.setSpriteSheet(spritesheet);
+	builder.setNonClickable();
+	builder.create(entityToModify);
 
-	entityToModify.addComponent(buttonRender);
 }
 void spawnPromptIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
     /* Render Component */
-    buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 7, 6, 1, 0);
-    buttonRender->setImageScale(size, size);
-    buttonRender->renderPosition(sf::Vector2f(x, y));
-    
-    entityToModify.addComponent(buttonRender);
+
+	ButtonBuilder builder;
+	builder.setButtonPosition(sf::Vector2f(x, y));
+	builder.setInputHandle(ih);
+	builder.setSize(size);
+	builder.setSpritesByIndicies(7, 6, 1, 0);
+	builder.setLabelMessage("");
+	builder.setLabelFont(sf::Font());
+	builder.setLabelSize(20);
+	builder.setSpriteSheet(spritesheet);
+	builder.setNonClickable();
+	builder.create(entityToModify);
+
 }
 
 
@@ -282,8 +132,6 @@ bool ppc::spawnStartMenu(Desktop* ptr, Event ev) {
 	std::vector<std::string> elementNames;
 	std::vector<bool(*)(Desktop*, Event ev)> elementFunctions;
 	elementNames.push_back("Log Off");
-	elementNames.push_back("Log off 2");
-	elementFunctions.push_back(&(ppc::LogOff));
 	elementFunctions.push_back(&(ppc::LogOff));
 	
 	spawnContextMenu(*ptr, ContextMenu, ContextMenu->getInputHandler(), elementNames,
@@ -292,7 +140,7 @@ bool ppc::spawnStartMenu(Desktop* ptr, Event ev) {
 	return true;
 }
 bool ppc::LogOff(Desktop* ptr, Event ev) {
-	cout << "Log Off" << endl;
+	cout << "Implement Log Off" << endl;
 	return true;
 }
 

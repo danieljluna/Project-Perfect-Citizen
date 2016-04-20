@@ -12,7 +12,6 @@ void ppc::createEmailListElement(ppc::Entity& entityToModify, Desktop& dT, sf::I
 	emailListElementRenderComponent* eLRC = new emailListElementRenderComponent(f, eM, boxX, boxY, boxWidth, boxHeight, x, y, size);
 	emailListElementInputComponent* eLIC = new emailListElementInputComponent(dT, ih, eM, bS, eLRC->getListElementBoxBounds());
 
-	
 	buttonRenderComponent* emailIcon = new buttonRenderComponent(dT.getIconSheet(), 0, 10, 1, 2);
 	emailIcon->setImageScale(size, size);
 	emailIcon->renderPosition(sf::Vector2f(x+ 10, y-10));
