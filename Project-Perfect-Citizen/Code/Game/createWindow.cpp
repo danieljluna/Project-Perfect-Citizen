@@ -423,7 +423,6 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
             float(windowToModify->getSize().x),
             float(windowToModify->getSize().x)
         };
-        
         windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     }
     

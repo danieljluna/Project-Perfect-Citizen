@@ -45,9 +45,9 @@ Window::Window(const Window& other) :
 
 
 Window::~Window() {
-    for (auto ic : inputcmpnts_) {
-        delete ic;
-        ic = nullptr;
+    for (unsigned int i = 0; i < inputcmpnts_.size(); ++i) {
+        delete inputcmpnts_[i];
+        inputcmpnts_[i] = nullptr;
     }
     for (auto uc : updatecmpnts_) {
         delete uc;

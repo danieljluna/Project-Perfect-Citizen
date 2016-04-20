@@ -175,8 +175,11 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		}
 		commandFn newCommand = findFunction(unlock);
 		newCommand(fileTree_, unlockCommand);
-
-		if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
+        if (fileTree_.getCwd()->findElement(cmd.at(1)) == nullptr) {
+            str_ = str_ + "Error: Directory '" + cmd.at(1) + "' not found. \n";
+            numDisplayedLines++;
+        }
+		else if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
 			str_ = str_ + "Access denied.\n";
 		}
 		else {
