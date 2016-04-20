@@ -98,6 +98,7 @@ bool Logger::exportParcels() {
             if (outIt->first == label) {
                 line += ", ";
                 line += (std::string)(outIt->second);
+                finalLines.push_back(line);
                 ++outIt;
             }
         }
