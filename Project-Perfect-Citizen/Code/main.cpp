@@ -113,9 +113,9 @@ int main(int argc, char** argv) {
 
 	//Dont touch these comments please.
 	
-	ifstream ifs1("Saves/playerDesktop.ini", std::ifstream::in);
-	Desktop testDesktop;
-	ifs1 >> testDesktop;
+	//ifstream ifs1(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
+	//Desktop testDesktop;
+	//ifs1 >> testDesktop;
 	
 	bool BootToTitleCard = false; 
     // Create the main sf::window
