@@ -30,6 +30,8 @@
 #include "FloppyUpdateComponent.hpp"
 #include "FloppyRenderComponent.hpp"
 #include "FloppyInputComponent.h"
+#include "notifcationRenderComponent.h"
+
 
 #include "../Library/json/json.h"
 
@@ -113,12 +115,15 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	spawnHelpIcon(SearchIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 600.0f, 475.0f, 0.5f, 0.30f, theInbox);
 
     
-
+	ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
+	EmailIcon.addComponent(notiRenderComp);
+	
     
     desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
 	desktopWindowToModify.addEntity(HardDriveIcon);
 	desktopWindowToModify.addEntity(SearchIcon);
+	desktopWindowToModify.addEntity(EmailIcon);
 	desktopWindowToModify.addEntity(EmailIcon);
 
 }
@@ -189,6 +194,9 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
+
+	ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
+	EmailIcon.addComponent(notiRenderComp);
     desktopWindowToModify.addEntity(EmailIcon);
     
 }

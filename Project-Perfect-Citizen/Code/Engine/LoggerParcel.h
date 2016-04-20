@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/System/Time.hpp>
+#include <string>
 
 namespace ppc {
 
@@ -11,6 +12,8 @@ namespace ppc {
 struct LoggerParcel {
 
     LoggerParcel() { type = TypeCount; };
+
+    explicit operator std::string() const;
 
     enum ParcelType {
         Timer,
