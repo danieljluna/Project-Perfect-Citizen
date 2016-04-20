@@ -35,7 +35,7 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		}
 		else {
 			WindowInterface* consoleWindow =
-				new Window(500, 800, sf::Color(0, 0, 0));
+				new Window(500, 2000, sf::Color(0, 0, 0));
 			spawnConsole(theDesktop_, consoleWindow, consoleWindow->getInputHandler(),
 				*theDesktop_.getNodeState(), buttonSheet_, 200, 200);
 			theDesktop_.addWindow(consoleWindow);

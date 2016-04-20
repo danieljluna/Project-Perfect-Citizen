@@ -82,7 +82,6 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		}
 		if (fileTree_.getCwd()->findElement(cmd.at(1)) != nullptr) {
 			string fileResourcePath = fileTree_.getCwd()->findElement(cmd.at(1))->getFileData();
-			cout << fileResourcePath << endl;
 			fileTree_.getCwd()->findElement(cmd.at(1))->readFile(*theDesktop_, buttonSheet_,
 				cmd.at(1), fileResourcePath);
 			str_ = "Opening " + cmd.at(1) + "\n";
@@ -200,7 +199,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		
 		sf::FloatRect viewRect = {
 			0.0f,
-			float(promptLine->getText()->getPosition().y),
+			float((promptLine->getText()->getPosition().y) - (theWindow_->getView().getSize().y - 300)),
 			float(theWindow_->getBounds().width),
 			float(theWindow_->getBounds().height)
 		};
