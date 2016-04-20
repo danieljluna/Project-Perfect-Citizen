@@ -175,6 +175,24 @@ bool Logger::endTimer(const std::string& label, bool aggregate) {
 
 
 
+/////////////////////////////////////////////////////////////////////
+// Storing Ints
+/////////////////////////////////////////////////////////////////////
+
+bool Logger::saveNumber(const std::string& label,
+                        const float number) {
+    return false;
+}
+
+
+
+bool Logger::incrementNumber(const std::string& label,
+                             const float incrementation) {
+    return false;
+}
+
+
+
 ///////////////////////////////////////////////////////////////////////
 // Initializer for the ostream
 ///////////////////////////////////////////////////////////////////////
