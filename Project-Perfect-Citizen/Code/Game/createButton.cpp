@@ -26,7 +26,8 @@ void spawnBackButton(databaseSearchInputComponent* db, ppc::Entity& entityToModi
 	builder.setSize(size);
 	builder.setSpritesByIndicies(0, 0, 2, 1);
 	builder.setLabelMessage("");
-	builder.setLabelFont(sf::Font());
+    sf::Font f;
+	builder.setLabelFont(f);
 	builder.setLabelSize(size);
 	builder.setSpriteSheet(spritesheet);
 
@@ -42,7 +43,8 @@ void spawnStartButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHandler
 	builder.setSize(size);
 	builder.setSpritesByIndicies(4, 0, 2, 1);
 	builder.setLabelMessage("");
-	builder.setLabelFont(sf::Font());
+    sf::Font f;
+    builder.setLabelFont(f);
 	builder.setLabelSize(size);
 	builder.setSpriteSheet(spritesheet);
 
@@ -58,7 +60,8 @@ void spawnNetworkOkayButton(ppc::Network* nw, ppc::Entity& entityToModify, ppc::
 	builder.setSize(size);
 	builder.setSpritesByIndicies(0, 2, 2, 1);
 	builder.setLabelMessage("");
-	builder.setLabelFont(sf::Font());
+    sf::Font f;
+    builder.setLabelFont(f);
 	builder.setLabelSize(20);
 	builder.setSpriteSheet(spritesheet);
 
@@ -85,7 +88,8 @@ void spawnConfirmedIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::
 	builder.setSize(size);
 	builder.setSpritesByIndicies(6, 5, 1, 0);
 	builder.setLabelMessage("");
-	builder.setLabelFont(sf::Font());
+    sf::Font f;
+    builder.setLabelFont(f);
 	builder.setLabelSize(20);
 	builder.setSpriteSheet(spritesheet);
 	builder.setNonClickable();
@@ -101,7 +105,8 @@ void spawnAlertIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Imag
 	builder.setSize(size);
 	builder.setSpritesByIndicies(5, 5, 1, 0);
 	builder.setLabelMessage("");
-	builder.setLabelFont(sf::Font());
+    sf::Font f;
+    builder.setLabelFont(f);
 	builder.setLabelSize(20);
 	builder.setSpriteSheet(spritesheet);
 	builder.setNonClickable();
@@ -117,7 +122,8 @@ void spawnPromptIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Ima
 	builder.setSize(size);
 	builder.setSpritesByIndicies(7, 6, 1, 0);
 	builder.setLabelMessage("");
-	builder.setLabelFont(sf::Font());
+    sf::Font f;
+    builder.setLabelFont(f);
 	builder.setLabelSize(20);
 	builder.setSpriteSheet(spritesheet);
 	builder.setNonClickable();
