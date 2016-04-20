@@ -5,6 +5,7 @@
 #include "../Engine/World.h"
 #include "../Engine/desktop.h"
 #include <string>
+#include "../Engine/Entity.h"
 
 using namespace ppc;
 const std::string MOUSE_DOWN_CODE = "MDC";
@@ -28,16 +29,16 @@ buttonRenderComponent::buttonRenderComponent( sf::Image& image,
     yIndex = y;
 
     //Set up circle shape
-    badge_.setFillColor(sf::Color::Red);
-    badge_.setOutlineColor(sf::Color::White);
-    badge_.setOutlineThickness(2.f);
-    badge_.setRadius(5.f);
+    //badge_.setFillColor(sf::Color::Red);
+    //badge_.setOutlineColor(sf::Color::White);
+    //badge_.setOutlineThickness(2.f);
+    //badge_.setRadius(5.f);
 
     //set up text
-    notificationText_ = sf::Text(std::to_string(5),
-                                 World::getFont(World::Consola),
-                                 10);
-    notificationText_.move(2.5f, -2.0f);
+    //notificationText_ = sf::Text(std::to_string(5),
+      //                           World::getFont(World::Consola),
+        //                         10);
+    //notificationText_.move(2.5f, -2.0f);
     //notificationText_.setStyle(sf::Text::Bold);
     
 
@@ -69,12 +70,13 @@ void buttonRenderComponent::setButtonType(std::string t) {
     if (t == ICON_TYPE) {
         _buttonType = t;
         sprite->setScale(0.5, 0.5);
-    }
-    else if (t == BUTTON_TYPE) _buttonType = t;
+    } else if (t == BUTTON_TYPE) _buttonType = t;
 }
 
+
 void buttonRenderComponent::renderPosition(sf::Vector2f pos) {
-	sprite->setPosition(pos.x, pos.y);
+    //getEntity()->setPosition(pos);
+    sprite->setPosition(pos.x, pos.y);
 }
 
 void buttonRenderComponent::setImageScale(float ScaleX, float ScaleY) {
@@ -117,14 +119,14 @@ bool buttonRenderComponent::willAnimate() {
 void buttonRenderComponent::draw( sf::RenderTarget& target,
 	sf::RenderStates states) const {
         target.draw(*sprite, states);
-    if (getButtonType() == "ICON") {
-        
-        states.transform.translate(sprite->getPosition());
-        states.transform.scale(1.3, 1.3, 0, 0);
+        if (getButtonType() == "ICON") {
 
-        target.draw(badge_, states);
-        target.draw(notificationText_, states);
-    }
+            //states.transform.translate(sprite->getPosition());
+            //states.transform.scale(1.3, 1.3, 0, 0);
+
+            //target.draw(badge_, states);
+            //target.draw(notificationText_, states);
+        }
 }
 
 void buttonRenderComponent::recieveMessage(msgType code) {
