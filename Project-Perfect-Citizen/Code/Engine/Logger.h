@@ -42,7 +42,7 @@ public:
   // Storing Ints
   /////////////////////////////////////////////////////////////////////
 
-    static bool saveNumber(const std::string& label, 
+    static void saveNumber(const std::string& label, 
                             const float number);
 
     static bool incrementNumber(const std::string& label,

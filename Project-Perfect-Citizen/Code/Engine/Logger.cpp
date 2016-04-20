@@ -230,16 +230,41 @@ bool Logger::endTimer(const std::string& label, bool aggregate) {
 // Storing Ints
 /////////////////////////////////////////////////////////////////////
 
-bool Logger::saveNumber(const std::string& label,
+void Logger::saveNumber(const std::string& label,
                         const float number) {
-    return false;
+    auto it_pMap = parcelMap.find(label);
+
+    //If the label doesn't exist:
+    if (it_pMap == parcelMap.end()) {
+        LoggerParcel lp;
+        lp.type = LoggerParcel::Number;
+        lp.number = number;
+        parcelMap.emplace(label, lp); //Add the number to the map
+    } else {
+        it_pMap->second.number = number;
+    }
 }
 
 
 
 bool Logger::incrementNumber(const std::string& label,
                              const float incrementation) {
-    return false;
+    bool result = false;
+    auto it_pMap = parcelMap.find(label);
+
+    //If the label doesn't exist:
+    if (it_pMap == parcelMap.end()) {
+        LoggerParcel lp;
+        lp.type = LoggerParcel::Number;
+        lp.number = incrementation;
+        parcelMap.emplace(label, lp); //Add the number to the map
+    } else {
+        //Increment it
+        it_pMap->second.number += incrementation;
+        result = true;
+    }
+
+    return result;
 }
 
 
