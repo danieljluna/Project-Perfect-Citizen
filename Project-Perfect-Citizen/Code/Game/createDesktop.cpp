@@ -29,6 +29,7 @@
 
 #include "FloppyUpdateComponent.hpp"
 #include "FloppyRenderComponent.hpp"
+#include "FloppyInputComponent.h"
 
 #include "../Library/json/json.h"
 
@@ -79,10 +80,13 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
     floppy->renderPosition({800, -32});
     
+    FloppyInputComponent* floppyIn = new FloppyInputComponent();
+    
     FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.12f);
     
     startBar.addComponent(bar);
     startBar.addComponent(floppy);
+    startBar.addComponent(floppyIn);
     startBar.addComponent(floppyUpdate);
     
 	Entity startButton;

@@ -52,6 +52,8 @@ void ppc::FloppyInputComponent::advanceSequence() { sequence++; }
 
 void ppc::FloppyInputComponent::regressSequence() { sequence--; }
 
+bool ppc::FloppyInputComponent::registerInput(sf::Event ev){}
+
 
 bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 	if (ev.type == ppc::Event::FloppyType) {
