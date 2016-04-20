@@ -33,6 +33,7 @@
     <ClCompile Include="Code\Engine\inputComponent.cpp" />
     <ClCompile Include="Code\Engine\InputHandler.cpp" />
     <ClCompile Include="Code\Engine\Logger.cpp" />
+    <ClCompile Include="Code\Engine\LoggerParcel.cpp" />
     <ClCompile Include="Code\Engine\Network.cpp" />
     <ClCompile Include="Code\Engine\NodeState.cpp" />
     <ClCompile Include="Code\Engine\observer.cpp" />
@@ -95,6 +96,8 @@
     <ClCompile Include="Code\Game\NetworkInputCmpnt.cpp" />
     <ClCompile Include="Code\Game\NetworkRenderCmpnt.cpp" />
     <ClCompile Include="Code\Game\NetworkUpdateCmpnt.cpp" />
+    <ClCompile Include="Code\Game\notifcationRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\notificationButtonComponent.cpp" />
     <ClCompile Include="Code\Game\photoRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineCharacter.cpp" />
     <ClCompile Include="Code\Game\PipelineDataRenderComponent.cpp" />
@@ -217,6 +220,7 @@
     <ClInclude Include="Code\Game\NetworkInputCmpnt.h" />
     <ClInclude Include="Code\Game\NetworkRenderCmpnt.h" />
     <ClInclude Include="Code\Game\NetworkUpdateCmpnt.h" />
+    <ClInclude Include="Code\Game\notifcationRenderComponent.h" />
     <ClInclude Include="Code\Game\photoRenderComponent.hpp" />
     <ClInclude Include="Code\Game\PipelineCharacter.h" />
     <ClInclude Include="Code\Game\PipelineDataRenderComponent.h" />
@@ -296,12 +300,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Andy\Desktop\Folders\UCSC\CMPS 17X\SFML-2.3.2\include;D:\Program Files %28x86%29\SFML\SFML-2.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_MARKER;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Andy\Desktop\Folders\UCSC\CMPS 17X\SFML-2.3.2\lib;D:\Program Files %28x86%29\SFML\SFML-2.3.2\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <AdditionalOptions>/ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>

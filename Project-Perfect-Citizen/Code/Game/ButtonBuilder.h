@@ -15,9 +15,8 @@ namespace ppc {
 	/// a button from a spritesheet or a custom small/large button.
 	/// @note Small buttons are created by making a button with a label of only
 	/// one character, whereas large buttons have labels of > 1 characters.
-	/// This builder handles when to make the small/large buttons dynamically.
-	/// All the caller needs to balance is the size of the label and the actual
-	/// character size.
+	/// This can also be used to generate icons, just make sure to set
+	/// the button to non-clickable and give it the right sprite indicies.
 	///////////////////////////////////////////////////////////////////////
 	class ButtonBuilder {
 	private:
@@ -39,6 +38,7 @@ namespace ppc {
 		std::string label;
 		sf::Font* font;
 		int labelSize;
+		bool clickable = true;
 
 	public:
 		///////////////////////////////////////////////////////////////////////
@@ -63,9 +63,12 @@ namespace ppc {
 		void setSize(float s);
 
 		///////////////////////////////////////////////////////////////////////
-		/// @brief Set the function the button will execute when pressed
+		/// @brief Sets whether the button will be non-clickable.
+		/// @note This means the button will be non-clickable for it's entire
+		/// life cycle. Use this when creating non-clickable icons that
+		/// want to use a button builder but don't want click functionality.
 		///////////////////////////////////////////////////////////////////////
-		void setFunction();
+		void setNonClickable();
 
 		///////////////////////////////////////////////////////////////////////
 		/// @brief Set a custom string button label to display on the button

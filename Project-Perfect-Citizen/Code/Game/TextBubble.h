@@ -35,12 +35,11 @@ namespace ppc {
 		virtual ~TextBubble();
 
 		///////////////////////////////////////////////////////////////
-		///@brief Loads the dialogue text from a file
+		///@brief Set the string displayed
 		///////////////////////////////////////////////////////////////
 		void setText(std::string);
 
 		sf::RectangleShape& getBubble();
-
 
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 

@@ -42,10 +42,10 @@ public:
   // Storing Ints
   /////////////////////////////////////////////////////////////////////
 
-    static float saveNumber(const std::string& label, 
+    static void saveNumber(const std::string& label, 
                             const float number);
 
-    static float incrementNumber(const std::string& label,
+    static bool incrementNumber(const std::string& label,
                                  const float incrementation);
 
 
@@ -64,7 +64,7 @@ private:
   // Initializer for the ostream
   /////////////////////////////////////////////////////////////////////
 
-    static std::string& generateFileName();
+    static std::string generateFileName();
 
 
   /////////////////////////////////////////////////////////////////////

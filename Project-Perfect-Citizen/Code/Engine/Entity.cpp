@@ -206,3 +206,19 @@ void Entity::broadcastMessage(ppc::Event message) {
     }
 }
 
+
+///////////////////////////////////////////////////////////////////////
+// Setters
+///////////////////////////////////////////////////////////////////////
+
+void Entity::setPosition(sf::Vector2f pos) {
+    position_ = pos;
+}
+
+
+
+
+void Entity::setPosition(float x, float y) {
+    setPosition(sf::Vector2f(x, y));
+}
+

@@ -4,6 +4,7 @@
 
 
 #include "debug.h"
+#include "Logger.h"
 
 #include "desktop.h"
 
@@ -23,6 +24,8 @@
 
 #include "WindowInterface.h"
 #include "Window.h"
+#include "World.h"
+#include "desktop.h"
 #include "ScrollBarDeco.h"
 #include "BorderDecorator.h"
 
