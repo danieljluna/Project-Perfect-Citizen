@@ -2,7 +2,9 @@
 #include "TextBubble.h"
 #include "../Engine/event.h"
 #include "FloppyInputComponent.h"
-
+#include <utility>
+#include <vector>
+#include <string.h>
 ppc::TextBubbleRender::TextBubbleRender() {
 
 }

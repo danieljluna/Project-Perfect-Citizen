@@ -23,10 +23,8 @@ namespace ppc {
 
 	class FloppyInputComponent : public ppc::InputComponent {
 	private:
-		struct currentEvent {
-			unsigned int sequence;
-			unsigned int frame;
-		};
+		unsigned int sequence;
+		unsigned int frame;
 		
 		int currentSequenceIndex = 0;
 
@@ -38,12 +36,34 @@ namespace ppc {
 
 		static std::vector<std::vector<std::pair<std::string, unsigned int>>> floppyDictionary;
 
-		//void setSequenceAndFrame(unsigned int seq, unsigned int frame);
-		//void setSequenceAndFrame(unsigned)
-		void advanceSequence(sf::Event);
-		void regressSequence(sf::Event);
+		unsigned int getFrame();
+		unsigned int getSequence();
+
+		void setFrame(unsigned int);
+		void setSequence(unsigned int);
+	
+		void initializeFloppyDict();
+		void advanceFrame();
+		void regressFrame();
+		void advanceSequence();
+		void regressSequence();
 
 	};
+
+	////////////////////////////////////////////////////////////////
+	/// Accepts a FloppyType event that contains a sequence/frame
+	/// Creates an event with the new sequence, frame
+	/// Sends that event to the entity
+	///////////////////////////////////////////////////////////////
+	bool summonFloppyDialog(FloppyInputComponent*, ppc::Event);
+ 
+	////////////////////////////////////////////////////////////////
+	/// Accepts a ButtonType event 
+	/// Increments the saved state frame
+	/// Creates an event with the new frame
+	/// Sends that event to the entity
+	///////////////////////////////////////////////////////////////
+	bool incrementFloppyDialog(FloppyInputComponent*, ppc::Event);
 
 
 };
