@@ -211,7 +211,7 @@ void Entity::broadcastMessage(ppc::Event message) {
 // Setters
 ///////////////////////////////////////////////////////////////////////
 
-void Entity::setPosition(const sf::Vector2f& pos) {
+void Entity::setPosition(sf::Vector2f pos) {
     position_ = pos;
 }
 

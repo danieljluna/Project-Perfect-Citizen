@@ -93,7 +93,7 @@ public:
     ///////////////////////////////////////////////////////////////////
     sf::Vector2f& getPosition();
 
-    void setPosition(const sf::Vector2f& pos);
+    void setPosition(sf::Vector2f pos);
 
     void setPosition(float x, float y);
 

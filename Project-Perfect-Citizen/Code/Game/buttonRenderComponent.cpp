@@ -5,6 +5,7 @@
 #include "../Engine/World.h"
 #include "../Engine/desktop.h"
 #include <string>
+#include "../Engine/Entity.h"
 
 using namespace ppc;
 const std::string MOUSE_DOWN_CODE = "MDC";
@@ -74,7 +75,8 @@ void buttonRenderComponent::setButtonType(std::string t) {
 
 
 void buttonRenderComponent::renderPosition(sf::Vector2f pos) {
-	sprite->setPosition(pos.x, pos.y);
+    //getEntity()->setPosition(pos);
+    sprite->setPosition(pos.x, pos.y);
 }
 
 void buttonRenderComponent::setImageScale(float ScaleX, float ScaleY) {
