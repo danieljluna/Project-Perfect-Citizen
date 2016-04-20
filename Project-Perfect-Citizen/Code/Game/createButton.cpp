@@ -37,7 +37,7 @@ void spawnStartButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHandler
 	/* Render Component */
 	buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 4, 0, 2, 1);
 	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
+	//buttonRender->renderPosition(sf::Vector2f(x, y));
 
 	/* Input Component*/
 	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "startButton");
@@ -45,6 +45,7 @@ void spawnStartButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHandler
 	setOnPress(mpb, &d, &(ppc::spawnStartMenu));
 
 	entityToModify.addComponent(buttonRender);
+	buttonRender->renderPosition(sf::Vector2f(x, y));
 	entityToModify.addComponent(mpb);
 
 	buttonRender->renderPosition(sf::Vector2f(x, y));

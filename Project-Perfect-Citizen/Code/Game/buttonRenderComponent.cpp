@@ -75,7 +75,8 @@ void buttonRenderComponent::setButtonType(std::string t) {
 
 
 void buttonRenderComponent::renderPosition(sf::Vector2f pos) {
-    //getEntity()->setPosition(pos);
+	//TODO
+	//getEntity()->setPosition(pos);
     sprite->setPosition(pos.x, pos.y);
 }
 

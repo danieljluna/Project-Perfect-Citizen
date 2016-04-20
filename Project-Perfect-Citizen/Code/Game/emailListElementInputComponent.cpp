@@ -76,7 +76,15 @@ bool emailListElementInputComponent::registerInput(sf::Event ev) {
 					theDesktop.addWindow(emailWindow);
 					getEntity()->broadcastMessage(MOUSE_DOUBLE_CLICK_CODE);
 					getEntity()->broadcastMessage(OPEN_EMAIL);
-					emailToOpen.setRead();
+					sf::Event ev;
+					//complains that its unintialized without this line.
+					ev.type = sf::Event::EventType::Closed;
+					if (emailToOpen.setRead()) {
+						ppc::Event readEvent(ev);
+						readEvent.type = ppc::Event::EventTypes::NotificationType;
+						readEvent.notification.count = 1;
+						this->onRead_.sendEvent(readEvent);
+					}
 				}
 			}
 			else {
@@ -99,4 +107,9 @@ bool emailListElementInputComponent::registerInput(sf::Event ev) {
 	}
 
 	return true;
+}
+
+ppc::Subject & emailListElementInputComponent::onRead()
+{
+	return onRead_;
 }

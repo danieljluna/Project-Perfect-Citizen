@@ -326,6 +326,9 @@
       <Filter>Sources\Game Specific\Button</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\notifcationRenderComponent.cpp" />
+    <ClCompile Include="Code\Engine\NotificationObserver.cpp">
+      <Filter>Sources\Engine\Observer System</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -678,6 +681,9 @@
     </ClInclude>
     <ClInclude Include="Code\Game\notifcationRenderComponent.h">
       <Filter>Headers\Game Specific\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\NotificationObserver.h">
+      <Filter>Headers\Engine\Observer System</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

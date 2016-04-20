@@ -2,7 +2,9 @@
 #include "../Engine/World.h"
 #include "../Engine/desktop.h"
 #include <string>
-ppc::notificationRenderComponent::notificationRenderComponent()
+#include "../Engine/NotificationObserver.h"
+ppc::notificationRenderComponent::notificationRenderComponent() :
+	notiObserver_(*this)
 {
 	//Set up circle shape
 	badge_.setFillColor(sf::Color::Red);
@@ -25,4 +27,18 @@ void ppc::notificationRenderComponent::draw(sf::RenderTarget & target, sf::Rende
 
 	target.draw(badge_, states);
 	target.draw(notificationText_, states);
+}
+
+ppc::NotificationObserver & ppc::notificationRenderComponent::getNotiObserver()
+{
+	return notiObserver_;
+}
+
+void ppc::notificationRenderComponent::updateText(unsigned int notiValue) const
+{
+	std::string tempString = notificationText_.getString();
+	int tempInt =  std::stoi(tempString);
+	tempInt -= notiValue;
+	tempString = std::to_string(tempInt);
+	notificationText_.setString(tempString);
 }

@@ -119,7 +119,19 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	desktopWindowToModify.addEntity(HardDriveIcon);
 	desktopWindowToModify.addEntity(SearchIcon);
 	desktopWindowToModify.addEntity(EmailIcon);
-	desktopWindowToModify.addEntity(EmailIcon);
+	//desktopWindowToModify.addEntity(EmailIcon);
+
+	//ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
+	//ANDY TODO
+	//desktopToModify.getInbox().
+	//EmailIcon.addComponent(notiRenderComp);
+	sf::Event ev;
+	ev.type = sf::Event::EventType::Closed;
+	ppc::Event ppcEvent(ev);
+	ppcEvent.type = ppc::Event::EventTypes::NotificationType;
+	ppcEvent.notification.count = 1;
+
+	notiRenderComp->getNotiObserver().eventHandler(ppcEvent);
 
 }
 
@@ -191,7 +203,16 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     desktopWindowToModify.addEntity(ConsoleIcon);
 
 	ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
+	//ANDY TODO
+	//desktopToModify.getInbox().
 	EmailIcon.addComponent(notiRenderComp);
+	sf::Event ev;
+	ev.type = sf::Event::EventType::Closed;
+	ppc::Event ppcEvent(ev);
+	ppcEvent.type = ppc::Event::EventTypes::NotificationType;
+	ppcEvent.notification.count = 1;
+
+	EmailIcon.broadcastMessage(ppcEvent);
     desktopWindowToModify.addEntity(EmailIcon);
     
 }
