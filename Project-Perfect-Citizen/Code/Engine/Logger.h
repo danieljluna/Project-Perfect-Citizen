@@ -4,6 +4,8 @@
 #include <SFML/System/Time.hpp>
 #include <SFML/System/Clock.hpp>
 
+#include "LoggerParcel.h"
+
 namespace ppc {
 
 
@@ -14,19 +16,37 @@ class Logger {
 public:
 
   /////////////////////////////////////////////////////////////////////
+  // Parcel Manipulation
+  /////////////////////////////////////////////////////////////////////
+    
+    static LoggerParcel getParcel(const std::string& label);
+
+    static bool scaleParcel(const std::string& label,
+                            const float scale);
+
+    static bool exportParcels();
+    
+    static bool eraseParcel(const std::string& label);
+
+  /////////////////////////////////////////////////////////////////////
   // Storing Times
   /////////////////////////////////////////////////////////////////////
 
-    static void startTimer(std::string label);
+    static void startTimer(const std::string& label);
 
-    static void restartTimer(std::string label);
+    static void restartTimer(const std::string& label);
 
-    static bool endTimer(std::string label, bool aggregate = true);
-
-    static void clearTime(std::string label);
+    static bool endTimer(const std::string& label, bool aggregate = true);
 
   /////////////////////////////////////////////////////////////////////
+  // Storing Ints
   /////////////////////////////////////////////////////////////////////
+
+    static float saveNumber(const std::string& label, 
+                            const float number);
+
+    static float incrementNumber(const std::string& label,
+                                 const float incrementation);
 
 
 private:
@@ -41,10 +61,17 @@ private:
 
 
   /////////////////////////////////////////////////////////////////////
+  // Initializer for the ostream
+  /////////////////////////////////////////////////////////////////////
+
+    static std::string& generateFileName();
+
+
+  /////////////////////////////////////////////////////////////////////
   // Private Static Data
   /////////////////////////////////////////////////////////////////////
 
-    static std::map<std::string, sf::Time> timeMap;
+    static std::map<std::string, LoggerParcel> parcelMap;
 
     static std::map<std::string, sf::Time> timerStarts;
 

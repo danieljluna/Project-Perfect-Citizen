@@ -41,13 +41,6 @@ vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
 		}
 	}
 
-	/*TextDisplayBuilder builder;
-	builder.setColor(sf::Color::Black);
-	builder.setFont(font);
-	builder.setPosition(sf::Vector2f(0.0, 0.0));
-	builder.setSize(12);*/
-
-
 	for (unsigned int i = 0, j = 0, k = 0; i < filenames.size(); ++i, ++k) {
         if (filenames.at(i).compare("CP") == 0) { World::quitDesktop(); }
 		if (k % 5 == 0 && k != 0) {

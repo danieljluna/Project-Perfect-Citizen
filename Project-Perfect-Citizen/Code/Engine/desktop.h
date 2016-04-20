@@ -9,6 +9,7 @@
 #include "NodeState.h"
 #include "BaseFileType.h"
 
+
 namespace sf {
     class Event;
     class Sprite;
@@ -26,6 +27,7 @@ namespace ppc {
 	class InputHandler;
 	class Inbox;
 	class World;
+	class Network;
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Manages a series of Windows, an associated file tree and
@@ -69,6 +71,12 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 		sf::Sprite background_;
 		sf::Texture backgndTexture_;
+
+///////////////////////////////////////////////////////////////////////
+///@brief Vector of Networks for the PE
+///////////////////////////////////////////////////////////////////////
+		std::vector<ppc::Network*> netVec_;
+		int netVecIndex_;
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -217,6 +225,12 @@ namespace ppc {
 ///@return A reference to the NodeState in the Desktop
 ///////////////////////////////////////////////////////////////////////
 		virtual NodeState* getNodeState();
+
+		virtual std::vector<Network*> getNetVec();
+
+		virtual int getNetVecIndex();
+
+		virtual void incrementNetVecIndex();
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Sets the NodeState of the Desktop.

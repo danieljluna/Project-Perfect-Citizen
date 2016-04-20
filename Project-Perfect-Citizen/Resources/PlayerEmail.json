@@ -1,6 +1,7 @@
 {
 	"Email": {
    		"Email_1": {
+            "Visible" : "1",
    			"To" : "PLAYER_NAME",
 			"From" : "DCPS automated system",
           	"Subject" : "What is Project Perfect Citizen?",
@@ -16,7 +17,8 @@
     internationally that controls the channels
     through which information is passed on."
         },
-		"Email_2": { 
+		"Email_2": {
+            "Visible" : "1",
 			"To" : "PLAYER_NAME",
 			"From" : "CT",
             "Subject": "Welcome!",
@@ -32,6 +34,7 @@
     CT"
 		},
 		"Email_3": {
+            "Visible" : "1",
 			"To" : "PLAYER_NAME",
 			"From" : "JP",
 			"Subject": "First Things First",
@@ -64,6 +67,7 @@
     JP"
 		},
         "Email_4": {
+            "Visible" : "1",
 			"To" : "PLAYER_NAME",
 			"From" : "DCPS automated system",
 			"Subject": "Graph App Instructions",
