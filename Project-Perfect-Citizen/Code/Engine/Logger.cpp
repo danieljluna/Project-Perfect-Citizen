@@ -4,6 +4,9 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <vector>
+
+#include "debug.h"
 
 using namespace ppc;
 
@@ -62,25 +65,72 @@ bool Logger::scaleParcel(const std::string& label,
 
 bool Logger::exportParcels() {
     bool result = false;
-
     std::string filename(generateFileName());
-
-    std::ofstream out(filename);
     std::ifstream in(filename);
+    //Vector of strings matching the desired final output
+    std::vector<std::string> finalLines;
+    //Traces where we are in the ParcelMap
+    auto outIt = parcelMap.cbegin();
 
-    if (in && out) {
-        result = true;
+    while (in) {
+        //Save the next line in the file
+        std::string line;
+        getline(in, line);
 
+        //Parse out the label name
         std::string label;
-        in >> label;
+        size_t labelEnd = line.find(':');
+        label = line.substr(0, labelEnd);
+        DEBUGF("dl", "Label=" << label);
 
+        //If we're still worried about more parcelMap output
+        if (outIt != parcelMap.cend()) {
+            //Output all logs before the current label
+            while (outIt->first < label) {
+                std::string outputLine = outIt->first;
+                outputLine += ": ";
+                outputLine += (std::string)(outIt->second);
+                finalLines.push_back(outputLine);
+                ++outIt;
+            }
 
-        while (in) {
-            in >> label;    //Keeps from infinite loop
+            //Check if we need to append to the current label
+            if (outIt->first == label) {
+                line += ", ";
+                line += (std::string)(outIt->second);
+                ++outIt;
+            }
         }
 
-        //Introduce Export to file (tellp) (seekp)
+    }   //End while(in)
+
+    in.close();
+
+    //Push remaining output to finalLines
+    while (outIt != parcelMap.cend()) {
+        std::string outputLine = outIt->first;
+        outputLine += ": ";
+        outputLine += (std::string)(outIt->second);
+        finalLines.push_back(outputLine);
+        ++outIt;
     }
+
+    std::ofstream out(filename);
+    if (out) {
+        size_t i = 0;
+        //Output the finalLines vec to the file
+        for (size_t i = 0; (out) && (i < finalLines.size()); ++i) {
+            out << finalLines.at(i) << std::endl;
+        }
+
+        //If out did not fail, we saved all data
+        if (out) {
+            result = true;
+            parcelMap.clear();  //Clear out old data
+        }
+    }
+
+    out.close();
 
     return result;
 }
@@ -197,7 +247,7 @@ bool Logger::incrementNumber(const std::string& label,
 // Initializer for the ostream
 ///////////////////////////////////////////////////////////////////////
 
-std::string& Logger::generateFileName() {
+std::string Logger::generateFileName() {
     /*
     time_t rawTime;
     struct tm* timeInfo;

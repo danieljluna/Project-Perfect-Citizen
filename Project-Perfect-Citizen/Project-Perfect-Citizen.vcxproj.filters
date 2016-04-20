@@ -326,6 +326,9 @@
       <Filter>Sources\Game Specific\Button</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\notifcationRenderComponent.cpp" />
+    <ClCompile Include="Code\Engine\LoggerParcel.cpp">
+      <Filter>Sources\Engine\Debug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
