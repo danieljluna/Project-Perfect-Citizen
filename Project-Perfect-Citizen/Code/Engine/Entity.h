@@ -93,10 +93,9 @@ public:
     ///////////////////////////////////////////////////////////////////
     sf::Vector2f& getPosition();
 
-    void setPosition(sf::Vector2f pos) { position_ = pos; };
+    void setPosition(const sf::Vector2f& pos);
 
-    void setPosition(float x, float y) { position_.x = x; 
-                                         position_.y = y; };
+    void setPosition(float x, float y);
 
     
   /////////////////////////////////////////////////////////////////////
