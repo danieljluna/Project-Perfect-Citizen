@@ -1,6 +1,15 @@
 //desktop.cpp
 // Nader Sleem
+
+#ifdef WINDOWS_MARKER
+#define resourcePath() std::string("Resources/")
+#else
+#include "ResourcePath.hpp"
+#endif
+
+
 #include "Window.h"
+#include "BorderDecorator.h"
 
 #include <string>
 
@@ -8,42 +17,67 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Window/Event.hpp>
 
-#include "NodeState.h"
-#include "BaseFileType.h"
 #include "desktop.h"
 #include "debug.h"
 
 #include "../Game/WindowBkgndRenderCmpnt.h"
+#include "../Game/Inbox.h"
+#include "../Game/Email.h"
+#include "../Game/emailExtraction.hpp"
+#include "../Game/desktopExtractionComponent.hpp"
+#include "../Game/PipelineLevelBuilder.h"
 
-ppc::Desktop::Desktop(WindowInterface& bkgndWin, NodeState& n) {
-	style_ = nullptr;
-	nodeState_ = new NodeState(n);
-	iconSheet = nullptr;
-	windows_.push_back(&bkgndWin);
-	desktopWindow_ = &bkgndWin;
+
+ppc::Desktop::Desktop() {
+	nodeState_.setUp();
+	iconSheet_ = sf::Image();
+	buttonSheet_ = sf::Image();
+	inbox_ = ppc::Inbox();
+	background_ = sf::Sprite();
+	backgndTexture_ = sf::Texture();
+	desktopWindow_ = nullptr;
+	focused_ = nullptr;
+}
+
+ppc::Desktop::Desktop(WindowInterface* bkgndWin, NodeState n) {
+	nodeState_ = n;
+	iconSheet_ = sf::Image();
+	buttonSheet_ = sf::Image();
+	inbox_ = ppc::Inbox();
+	background_ = sf::Sprite();
+	backgndTexture_ = sf::Texture();
+	windows_.push_back(bkgndWin);
+	desktopWindow_ = bkgndWin;
 	focused_ = desktopWindow_;
 	
 }
 
 ppc::Desktop::Desktop(const Desktop& other) {
-	this->style_ = other.style_;
 	this->nodeState_ = other.nodeState_;
 	this->windows_ = other.windows_;
 	this->desktopWindow_ = other.desktopWindow_;
 	this->focused_ = other.focused_;
-	this->iconSheet = other.iconSheet;
-
+	this->iconSheet_ = other.iconSheet_;
+	this->buttonSheet_ = other.buttonSheet_;
+	this->inbox_ = other.inbox_;
 }
 
 ppc::Desktop::~Desktop() {
-	if (style_ != nullptr) delete style_;
-	if (nodeState_ != nullptr) delete nodeState_;
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
+        //TODO: Figure out why ~desktopWindow crashes
+        if (*it != desktopWindow_) {
+            delete *it;
+        }
+	}
+
+	for (auto it = netVec_.begin(); it != netVec_.end(); ++it) {
 		delete *it;
 	}
+
 	focused_ = nullptr;
 	desktopWindow_ = nullptr;
 	windows_.clear();
+
 }
 
 
@@ -98,12 +132,29 @@ void ppc::Desktop::addWindow(WindowInterface* wi){
 
 	//If the Window is already in the Desktop, we merely need
 	//to focus it.
-	if (focusWindow(wi)) return;
+    if (!isWindow(wi)) {
+        //Otherwise, if wi is not a window in the desktop,
+        //automatically put it at the front,
+        //and focused is set to what was added
+        BorderDecorator* borderOfWi = dynamic_cast<BorderDecorator*>(wi);
+        if (borderOfWi != nullptr) {
+            //The following creates bounds for dragging Windows.
+            sf::FloatRect desktopBounds = desktopWindow_->getBounds();
+            sf::FloatRect wiBounds = wi->getBounds();
+            sf::FloatRect bounds(desktopBounds);
+            bounds.left += 5;
+            bounds.top += 34;
+            bounds.width -= wiBounds.width;
+            bounds.height -= wiBounds.height;
+            borderOfWi->setClampBounds(bounds);
+        }
 
-	//Otherwise, if wi is not a window in the desktop,
-	//automatically put it at the front,
-	//and focused is set to what was added
-	focused_ = *(windows_.insert(windows_.begin(), wi));
+        focused_ = *(windows_.insert(windows_.begin(), wi));
+    }
+}
+
+bool ppc::Desktop::isWindow(WindowInterface* wi) {
+    return (std::find(windows_.cbegin(), windows_.cend(), wi) != windows_.cend());
 }
 
 void ppc::Desktop::destroyWindow(WindowInterface* wi) {
@@ -118,29 +169,75 @@ void ppc::Desktop::destroyWindow(WindowInterface* wi) {
 	}
 }
 
-void ppc::Desktop::setIconSheet(sf::Image & sheet) {
-	this->iconSheet = &sheet;
+void ppc::Desktop::addBkgndWindow(WindowInterface* bkgndWin) {
+	windows_.push_back(bkgndWin);
+	desktopWindow_ = bkgndWin;
+	focused_ = desktopWindow_;
 }
 
-sf::Image * ppc::Desktop::getIconSheet() {
-	return iconSheet;
+void ppc::Desktop::setIconSheet(sf::Image sheet) {
+	this->iconSheet_ = sheet;
+}
+
+sf::Image& ppc::Desktop::getIconSheet() {
+	return iconSheet_;
+}
+
+void ppc::Desktop::setButtonSheet(sf::Image sheet) {
+
+	this->buttonSheet_ = sheet;
+}
+
+sf::Image& ppc::Desktop::getButtonSheet() {
+	return buttonSheet_;
 }
 
 
-ppc::NodeState& ppc::Desktop::getNodeState() {
-	return *nodeState_;
+ppc::NodeState* ppc::Desktop::getNodeState() {
+	return &nodeState_;
+}
+
+std::vector<Network*> ppc::Desktop::getNetVec() {
+	return netVec_;
+}
+
+int ppc::Desktop::getNetVecIndex() {
+	return netVecIndex_;
+}
+
+void ppc::Desktop::incrementNetVecIndex() {
+	netVecIndex_++;
+}
+
+void ppc::Desktop::setNodeState(NodeState n) {
+	nodeState_ = n;
+}
+
+void ppc::Desktop::setBackgrond(sf::Sprite s) {
+	background_ = s;
+	if (desktopWindow_ == nullptr) return;
+	WindowBkgndRenderCmpnt* wBRC = new WindowBkgndRenderCmpnt(background_);
+	desktopWindow_->addRenderComponent(wBRC);
+	
 }
 
 ppc::InputHandler& ppc::Desktop::getInputHandler() {
 	return desktopWindow_->getInputHandler();
 }
 
-void ppc::Desktop::addBackgroundCmpnt(WindowInterface* wi, sf::Sprite& s) {
-	WindowBkgndRenderCmpnt* wBRC = new WindowBkgndRenderCmpnt(s);
-	wi->addRenderComponent(wBRC);
+ppc::WindowInterface* ppc::Desktop::getDesktopWindow() {
+	return desktopWindow_;
 }
 
-void ppc::Desktop::registerInput(sf::Event& ev) {
+void ppc::Desktop::setInbox(Inbox i) {
+	inbox_ = i;
+}
+
+ppc::Inbox& ppc::Desktop::getInbox() {
+	return inbox_;
+}
+
+void ppc::Desktop::registerInput(sf::Event ev) {
 	//first check if the mouse clicked in the focused window.
 	//if the window clicked in a window that wasnt focused,
 	//then focus that window.
@@ -204,4 +301,94 @@ bool ppc::Desktop::isMouseCollision(WindowInterface* wi,
 	}
 
 	return result;
+}
+
+void ppc::Desktop::clearDesktop() {
+	nodeState_ = ppc::NodeState();
+	nodeState_.setUp();
+	iconSheet_ = sf::Image();
+	buttonSheet_ = sf::Image();
+	inbox_ = ppc::Inbox();
+	background_ = sf::Sprite();
+	backgndTexture_ = sf::Texture();
+	desktopWindow_ = nullptr;
+	focused_ = nullptr;
+	windows_.clear();
+
+
+}
+
+
+std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
+	std::string line;
+
+	ppc::Desktop* importDesktop = &desktop;
+	importDesktop->clearDesktop();
+	ppc::Window* bkgndWindow = 
+		new Window(1800, 1000, sf::Color(0, 0, 0));
+	importDesktop->addBkgndWindow(bkgndWindow);
+
+	while (std::getline(in, line)) {
+		size_t pos = line.find_first_of(":");
+		std::string key = line.substr(0, pos);
+		std::string file = line.substr(pos + 2);
+		//DEBUGF("wc", key << " " << file)
+		if (key == "Icons") {
+			importDesktop->iconSheet_.loadFromFile(resourcePath() + file);
+
+		} else if (key == "Buttons") {
+			importDesktop->buttonSheet_.loadFromFile(resourcePath() + file);
+
+		} else if (key == "Background") {
+			importDesktop->backgndTexture_.loadFromFile(resourcePath() + file);
+			importDesktop->background_.setScale(0.7f, 0.7f);
+			importDesktop->background_.setPosition(0.f, 0.f);
+			importDesktop->background_.setTexture(importDesktop->backgndTexture_);
+			WindowBkgndRenderCmpnt* wBRC = 
+				new WindowBkgndRenderCmpnt(importDesktop->background_);
+			importDesktop->desktopWindow_->addRenderComponent(wBRC);
+
+		} else if (key == "Filetree") {
+			ppc::desktopExtractionComponent desktopFiles(importDesktop->nodeState_);
+			Json::Value parsed =
+				desktopFiles.parseDesktopAsJson(resourcePath() + file, "Desktop");
+		} else if (key == "Emails") {
+			ppc::emailExtraction inbox;
+			inbox.parseEmailAsJson(resourcePath() + file);
+			//Broken, need to ask brandon
+			for (unsigned int i = 0; i < inbox.getSubject().size(); i++) {
+				ppc::Email testEmail1(inbox.getTo().at(i),
+					inbox.getFrom().at(i),
+					inbox.getSubject().at(i),
+					inbox.getBody().at(i),
+                    inbox.getVisible().at(i),
+					"image.jpg");
+				importDesktop->inbox_.addEmailToList(testEmail1);
+			}
+		} else if (key == "Pipeline") {
+			if (PipelineLevelBuilder::LEVEL_MAP.find(file) ==
+				PipelineLevelBuilder::LEVEL_MAP.end()) {
+				DEBUGF("wc", key << " " << file);
+				continue;
+			}
+			desktop.netVecIndex_ = 0;
+			int levelnum = PipelineLevelBuilder::LEVEL_MAP.at(file);
+			switch (levelnum) {
+				case -1:
+					desktop.netVec_.push_back(PipelineLevelBuilder::buildTutorialOne());
+					break;
+				case 0:
+					desktop.netVec_.push_back(PipelineLevelBuilder::buildTutorialTwo());
+					break;
+				case 1:
+					desktop.netVec_.push_back(PipelineLevelBuilder::buildLevelOneNetworkSolution());
+					break;
+				default:
+					DEBUGF("wc", levelnum);
+					break;
+			}
+		}
+	}
+
+	return in;
 }

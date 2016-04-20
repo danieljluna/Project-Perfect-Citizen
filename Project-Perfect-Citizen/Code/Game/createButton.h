@@ -49,7 +49,7 @@ void spawnBackButton(databaseSearchInputComponent* db, ppc::Entity& entityToModi
 /// Pass it the entity, a shared input handler, a spritesheet with 
 /// the button animations at (0, 3, 1), (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
-void spawnStartButton(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
+void spawnStartButton(ppc::Entity& entityToModify, Desktop&, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable next button
@@ -166,3 +166,17 @@ void spawnConfirmedIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::
 /// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnAlertIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
+
+
+//////////////////////////////////////////////////////////////////////
+/// @brief Turns the passed entity into a useable alert icon (non clickable)
+/// Pass it the entity, a shared input handler, a spritesheet with
+/// the button animations, (x, y position), and a square scale size.
+///////////////////////////////////////////////////////////////////////
+void spawnPromptIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
+
+
+namespace ppc {
+	bool spawnStartMenu(Desktop*, Event);
+	bool LogOff(Desktop*, Event);
+}

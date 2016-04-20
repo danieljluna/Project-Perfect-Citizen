@@ -1,0 +1,83 @@
+#pragma once
+
+#include <map>
+#include <SFML/System/Time.hpp>
+#include <SFML/System/Clock.hpp>
+
+#include "LoggerParcel.h"
+
+namespace ppc {
+
+
+///////////////////////////////////////////////////////////////////////
+/// @brief A static class that collects a bunch of testing log data.
+///////////////////////////////////////////////////////////////////////
+class Logger {
+public:
+
+  /////////////////////////////////////////////////////////////////////
+  // Parcel Manipulation
+  /////////////////////////////////////////////////////////////////////
+    
+    static LoggerParcel getParcel(const std::string& label);
+
+    static bool scaleParcel(const std::string& label,
+                            const float scale);
+
+    static bool exportParcels();
+    
+    static bool eraseParcel(const std::string& label);
+
+  /////////////////////////////////////////////////////////////////////
+  // Storing Times
+  /////////////////////////////////////////////////////////////////////
+
+    static void startTimer(const std::string& label);
+
+    static void restartTimer(const std::string& label);
+
+    static bool endTimer(const std::string& label, bool aggregate = true);
+
+  /////////////////////////////////////////////////////////////////////
+  // Storing Ints
+  /////////////////////////////////////////////////////////////////////
+
+    static void saveNumber(const std::string& label, 
+                            const float number);
+
+    static bool incrementNumber(const std::string& label,
+                                 const float incrementation);
+
+
+private:
+
+  /////////////////////////////////////////////////////////////////////
+  // Private Deleted Constructors
+  /////////////////////////////////////////////////////////////////////
+
+    Logger() = delete;
+    Logger(const Logger&) = delete;
+    Logger(Logger&&) = delete;
+
+
+  /////////////////////////////////////////////////////////////////////
+  // Initializer for the ostream
+  /////////////////////////////////////////////////////////////////////
+
+    static std::string generateFileName();
+
+
+  /////////////////////////////////////////////////////////////////////
+  // Private Static Data
+  /////////////////////////////////////////////////////////////////////
+
+    static std::map<std::string, LoggerParcel> parcelMap;
+
+    static std::map<std::string, sf::Time> timerStarts;
+
+    static sf::Clock clock;
+
+};
+
+
+};

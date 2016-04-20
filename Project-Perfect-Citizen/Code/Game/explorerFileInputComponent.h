@@ -17,7 +17,7 @@ namespace ppc {
 	private:
 
 		Desktop& theDesktop_;
-		NodeState& theFileTree_;
+		NodeState theFileTree_;
 		sf::FloatRect buttonRect;
 		sf::Image& buttonSheet_;
 		std::string fileName;
@@ -45,7 +45,7 @@ namespace ppc {
 		template <class T>
 		friend void setOnPress(explorerFileInputComponent* mpb,
 			T* objPtr,
-			bool(*onPress)(T*, sf::Event&));
+			bool(*onPress)(T*, Event));
 
 		///////////////////////////////////////////////////////////////////////
 		//SETTERS
@@ -64,7 +64,7 @@ namespace ppc {
 		void setFloatRect(sf::FloatRect rect);
 
 		virtual ~explorerFileInputComponent();
-		virtual bool registerInput(sf::Event& ev) override;
+		virtual bool registerInput(sf::Event ev) override;
 
 
 		Subject& onClick() { return onPress_; };

@@ -32,7 +32,7 @@ namespace ppc {
 	///@param The filetree for which the console will work on.
 	///@param Sprite sheet of it's border component's buttons
 	///////////////////////////////////////////////////////////////////////
-void spawnConsole(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns,
+void spawnConsole(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState ns,
 	sf::Image& buttonSheet, float x, float y);
 
 ///////////////////////////////////////////////////////////////////////
@@ -44,6 +44,16 @@ void spawnConsole(Desktop& dt, WindowInterface*& windowToModify, InputHandler& i
 ///////////////////////////////////////////////////////////////////////
 void spawnDatabase(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
 	sf::Image& buttonSheet, float x, float y);
+    
+    ///////////////////////////////////////////////////////////////////////
+    ///@brief Constructs a database window on the WindowInterface passed.
+    ///
+    ///@param The newly created window to add components/entities to.
+    ///@param The input handler of the listened-to window.
+    ///@param Sprite sheet of it's border component's buttons
+    ///////////////////////////////////////////////////////////////////////
+void spawnHelp(WindowInterface*& windowToModify, InputHandler& ih, 
+      sf::Image& buttonSheet, float x, float y);
     
     
 ///////////////////////////////////////////////////////////////////////
@@ -65,9 +75,11 @@ void spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database*
 ///@param Sprite sheet of it's border component's buttons
 ///@param The x position of the new window
 ///@param The y position of the new window
-///@param The resource path to load the new file
+///@param The in-game filename
+///@param The out-of-game resource path to load the new file
 ///////////////////////////////////////////////////////////////////////
-void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, string path);
+void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, 
+	string filename, string path);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Constructs an inbox window on the WindowInterface passed.
@@ -104,6 +116,20 @@ void spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email
 ///@param Custom string the message will display
 ///////////////////////////////////////////////////////////////////////
 void spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message);
+    
+    
+///////////////////////////////////////////////////////////////////////
+///@brief Constructs a generic prompt message window
+///
+///@param The newly created window to add components/entities to.
+///@param The input handler of the listened-to window.
+///@param Sprite sheet of it's border component's buttons
+///@param The x position of the new window
+///@param The y position of the new window
+///@param Custom string the message will display
+///////////////////////////////////////////////////////////////////////
+void spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message);
+
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Constructs a explore window on the WindowInterface passed.
@@ -115,8 +141,23 @@ void spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::I
 ///@param The x position of the new window
 ///@param The y position of the new window
 ///////////////////////////////////////////////////////////////////////
-void spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState& ns,
+void spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState ns,
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y);
 
+
+///////////////////////////////////////////////////////////////////////
+///@brief Constructs a temporary, borderless context menu
+///
+///@param The newly created window to add components/entities to.
+///@param The input handler of the listened-to window.
+///@param A vector of the names of the context list elements
+///@param The x position of the new window
+///@param The y position of the new window
+///////////////////////////////////////////////////////////////////////
+void spawnContextMenu(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, 
+	std::vector<std::string> n, std::vector<bool(*)(Desktop*, Event ev)>, float x, float y);
+
 };
+
+
 

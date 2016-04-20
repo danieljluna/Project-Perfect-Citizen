@@ -18,6 +18,7 @@ textLabelComponent::textLabelComponent(sf::Font& f,sf::Color c,
                                        string str): font(f) {
     
     this->text = new sf::Text();
+	this->outline = new sf::Text();
     
     labelString = str;
 
@@ -29,23 +30,32 @@ textLabelComponent::textLabelComponent(sf::Font& f,sf::Color c,
 			i++;
 			j = 0;
 		}
+		/*else if (j > 10) {
+			labelString.insert(i, "\n");
+			i++;
+			j = 0;
+		}*/
 	}
-	/*if (labelString.size() > 10) {
-		while ((pos = labelString.find('_')) != string::npos) {
-			labelString.insert(pos, "\n");
-			cout << "ran" << endl;
-		}
-	}*/
+	
     text->setFont(font);
     text->setPosition(x, y);
     text->setCharacterSize(s);
     text->setColor(c);
     text->setString(labelString);
+
+	outline->setFont(font);
+	outline->setPosition(x+2, y);
+	outline->setCharacterSize(s);
+	if (text->getColor() == sf::Color::Black)
+		outline->setColor(sf::Color::White);
+	else outline->setColor(sf::Color::Black);
+	outline->setString(labelString);
     
 }
 
 textLabelComponent::~textLabelComponent() {
     delete text;
+	delete outline;
 }
 
 void textLabelComponent::updateLabelPosition(float x, float y) {
@@ -59,9 +69,11 @@ void textLabelComponent::updateLabelSize(int s) {
 void textLabelComponent::updateLabelString(string str) {
     labelString = str;
     text->setString(labelString);
+    outline->setString(labelString);
 }
 
 void textLabelComponent::draw( sf::RenderTarget& target,
                                  sf::RenderStates states) const {
+	target.draw(*(this->outline), states);
     target.draw(*(this->text), states);
 }

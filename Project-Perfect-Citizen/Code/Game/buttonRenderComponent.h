@@ -23,8 +23,12 @@ private:
     sf::IntRect* rectSourceSprite;
 	sf::Image& buttonImage;
     int frameCount, width, xIndex, yIndex;
-    bool _isStatic, _willAnimate;
+    bool _willAnimate;
+    std::string _buttonType;
 	static const int size = 128;
+    //unsigned int notificationCount_ = 0;
+    //sf::CircleShape badge_;
+    //sf::Text notificationText_;
 
 public:
 	///////////////////////////////////////////////////////////////////////
@@ -62,6 +66,16 @@ public:
 	///////////////////////////////////////////////////////////////////////
 	void setSprite(int x, int y, int r);
 
+    ///////////////////////////////////////////////////////////////////////
+    /// @brief Updates the button type (Icon / Button)
+    ///////////////////////////////////////////////////////////////////////
+    void setButtonType(std::string t);
+
+    ///////////////////////////////////////////////////////////////////////
+    /// @brief Returns button type
+    ///////////////////////////////////////////////////////////////////////
+    std::string getButtonType() const { return _buttonType; }
+
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Updates the scale (width) of the sprite
 	///////////////////////////////////////////////////////////////////////
@@ -71,11 +85,6 @@ public:
     /// @brief Animates the sprite
     ///////////////////////////////////////////////////////////////////////
     void animate();
-    
-    ///////////////////////////////////////////////////////////////////////
-    /// @brief returns true is the sprite has a frame count of 1
-    ///////////////////////////////////////////////////////////////////////
-    bool isStatic();
     
     ///////////////////////////////////////////////////////////////////////
     /// @brief flag that returns true is the sprite should enter
@@ -94,10 +103,11 @@ public:
 	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
 
 
-	//virtual void registerInput(sf::Event& ev) override;
+	//virtual void registerInput(sf::Event ev) override;
 
 	virtual void recieveMessage(msgType code) override;
 	
+	virtual void recieveMessage(Event ev) override;
 };
 
 

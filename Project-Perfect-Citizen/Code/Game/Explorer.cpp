@@ -1,7 +1,9 @@
 #include "Explorer.h"
 #include "../Engine/WindowInterface.h"
-#include "Quitter.h"
+#include "../Engine/ScrollBarDeco.h"
 #include "TreeCommands.h"
+#include "../Engine/World.h"
+#include "../Game/TextDisplayBuilder.h"
 
 #ifdef WINDOWS_MARKER
 #define resourcePath() string("Resources/")
@@ -40,7 +42,7 @@ vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
 	}
 
 	for (unsigned int i = 0, j = 0, k = 0; i < filenames.size(); ++i, ++k) {
-        if (filenames.at(i).compare("CP") == 0) { quitSection(); }
+        if (filenames.at(i).compare("CP") == 0) { World::quitDesktop(); }
 		if (k % 5 == 0 && k != 0) {
 			++j;
 			numRows++;
@@ -80,6 +82,7 @@ void Explorer::renderTopFrame() {
 	for (unsigned int i = 0; i < explorerHistory_.top().size(); ++i) {
 		windowToWorkOn_->addEntity(explorerHistory_.top().at(i));
 	}
+ 
 }
 
 void Explorer::updateExplorerDisplay() {

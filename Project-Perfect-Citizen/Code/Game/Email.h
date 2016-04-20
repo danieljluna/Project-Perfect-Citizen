@@ -27,7 +27,7 @@ namespace ppc {
 		///@param The file name (with extension) represented as a string
 		///////////////////////////////////////////////////////////////////////
 		Email(std::string to, std::string from, std::string subject, 
-			std::string content, std::string attachment);
+              std::string content, bool visible, std::string attachment);
 
 	///////////////////////////////////////////////////////////////////
 	// ACCESSORS (Simple getters)
@@ -35,8 +35,11 @@ namespace ppc {
 		std::string getToField();
 		std::string getFromField();
 		std::string getSubjectField();
+		std::string getAbbrevSubjectField();
 		std::string getContentField();
 		std::string getAttachmentField();
+		bool getReadFlag();
+		bool getShownFlag();
 
 	///////////////////////////////////////////////////////////////////
 	// MUTATORS
@@ -46,6 +49,10 @@ namespace ppc {
 	///@brief Flips the read flag to the opposite of what it was
 	///////////////////////////////////////////////////////////////////////
 		void setRead();
+        
+        bool getVisible();
+        
+        void setVisible(bool b);
 
 	protected:
 		std::string to;
@@ -53,7 +60,13 @@ namespace ppc {
 		std::string subject;
 		std::string content;
 		std::string attachment;
-		bool read;
+		bool read = false;
+        bool visible;
+
+		///////////////////////////////////////////////////////////////////////
+		///@brief The size of an abbreviated email subject line.
+		///////////////////////////////////////////////////////////////////////
+		int abbrevLimit = 30;
 	};
 
 }

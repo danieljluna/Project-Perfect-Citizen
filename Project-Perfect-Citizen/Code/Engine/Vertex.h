@@ -9,6 +9,7 @@
 #include "DraggableInput.h"
 
 #include "../Game/PipelineCharacter.h"
+#include "../Game/characterRender.hpp"
 
 namespace ppc {
 
@@ -30,8 +31,11 @@ private:
 	static const int fontSize_;
 	
 	PipelineCharacter char_;
+    characterRender* rend_;
 
 	sf::CircleShape circ_;
+    sf::RectangleShape rect_;
+    sf::RectangleShape bgrect_;
 	static const float radius_;
 	sf::FloatRect bounds_;
 	bool isSelected_;

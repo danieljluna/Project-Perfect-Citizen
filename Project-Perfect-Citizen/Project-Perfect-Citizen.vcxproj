@@ -21,17 +21,19 @@
     <ClCompile Include="Code\Engine\ComponentObsvr.cpp" />
     <ClCompile Include="Code\Engine\debug.cpp" />
     <ClCompile Include="Code\Engine\desktop.cpp" />
-    <ClCompile Include="Code\Engine\DesktopLogger.cpp" />
     <ClCompile Include="Code\Engine\DraggableInput.cpp" />
     <ClCompile Include="Code\Engine\Edge.cpp" />
     <ClCompile Include="Code\Engine\entity.cpp" />
     <ClCompile Include="Code\Engine\EntityDecorator.cpp" />
     <ClCompile Include="Code\Engine\EntityLogger.cpp" />
+    <ClCompile Include="Code\Engine\event.cpp" />
     <ClCompile Include="Code\Engine\FreeFunctionObserver.cpp" />
     <ClCompile Include="Code\Engine\FunctionObserver.cpp" />
     <ClCompile Include="Code\Engine\InputCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\inputComponent.cpp" />
     <ClCompile Include="Code\Engine\InputHandler.cpp" />
+    <ClCompile Include="Code\Engine\Logger.cpp" />
+    <ClCompile Include="Code\Engine\LoggerParcel.cpp" />
     <ClCompile Include="Code\Engine\Network.cpp" />
     <ClCompile Include="Code\Engine\NodeState.cpp" />
     <ClCompile Include="Code\Engine\observer.cpp" />
@@ -46,7 +48,7 @@
     <ClCompile Include="Code\Engine\WindowDecorator.cpp" />
     <ClCompile Include="Code\Engine\WindowInterface.cpp" />
     <ClCompile Include="Code\Engine\WindowLogger.cpp" />
-    <ClCompile Include="Code\Engine\world.cpp" />
+    <ClCompile Include="Code\Engine\World.cpp" />
     <ClCompile Include="Code\Game\animatorComponent.cpp" />
     <ClCompile Include="Code\Game\BootLoader.cpp" />
     <ClCompile Include="Code\Game\bootLoadingAnimationRender.cpp" />
@@ -57,6 +59,7 @@
     <ClCompile Include="Code\Game\characterRender.cpp" />
     <ClCompile Include="Code\Game\consoleIconRenderComponent.cpp" />
     <ClCompile Include="Code\Game\consoleUpdateComponent.cpp" />
+    <ClCompile Include="Code\Game\contextListElementRenderComponent.cpp" />
     <ClCompile Include="Code\Game\createButton.cpp" />
     <ClCompile Include="Code\Game\createDesktop.cpp" />
     <ClCompile Include="Code\Game\createIcon.cpp" />
@@ -79,21 +82,36 @@
     <ClCompile Include="Code\Game\explorerFileInputComponent.cpp" />
     <ClCompile Include="Code\Game\explorerFolderInputComponent.cpp" />
     <ClCompile Include="Code\Game\expressionistParser.cpp" />
+    <ClCompile Include="Code\Game\FloppyInputComponent.cpp" />
+    <ClCompile Include="Code\Game\FloppyRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\FloppyUpdateComponent.cpp" />
+    <ClCompile Include="Code\Game\HelpRenderComponent.cpp" />
     <ClCompile Include="Code\Game\IconBuilder.cpp" />
     <ClCompile Include="Code\Game\iconInputComponent.cpp" />
     <ClCompile Include="Code\Game\Inbox.cpp" />
+    <ClCompile Include="Code\Game\interpolateUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\mousePressButton.cpp" />
+    <ClCompile Include="Code\Game\nameGeneration.cpp" />
     <ClCompile Include="Code\Game\NetworkCheckFunctor.cpp" />
     <ClCompile Include="Code\Game\NetworkInputCmpnt.cpp" />
     <ClCompile Include="Code\Game\NetworkRenderCmpnt.cpp" />
     <ClCompile Include="Code\Game\NetworkUpdateCmpnt.cpp" />
+    <ClCompile Include="Code\Game\notifcationRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\notificationButtonComponent.cpp" />
     <ClCompile Include="Code\Game\photoRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineCharacter.cpp" />
     <ClCompile Include="Code\Game\PipelineDataRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineGraphRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineLevelBuilder.cpp" />
-    <ClCompile Include="Code\Game\Quitter.cpp" />
-    <ClCompile Include="Code\Game\testRenderSprite.cpp" />
+    <ClCompile Include="Code\Game\spriteRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\TextBoxBuilder.cpp" />
+    <ClCompile Include="Code\Game\TextBoxInputComponent.cpp" />
+    <ClCompile Include="Code\Game\TextBoxRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\TextBubble.cpp" />
+    <ClCompile Include="Code\Game\TextBubbleRender.cpp" />
+    <ClCompile Include="Code\Game\TextDisplayBuilder.cpp" />
+    <ClCompile Include="Code\Game\TextDisplayRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\TextFieldRenderComponent.cpp" />
     <ClCompile Include="Code\Game\textInputKeys.cpp" />
     <ClCompile Include="Code\Game\textInputRenderComponent.cpp" />
     <ClCompile Include="Code\Game\textLabelComponent.cpp" />
@@ -122,7 +140,6 @@
     <ClInclude Include="Code\Engine\component.h" />
     <ClInclude Include="Code\Engine\debug.h" />
     <ClInclude Include="Code\Engine\desktop.h" />
-    <ClInclude Include="Code\Engine\DesktopLogger.h" />
     <ClInclude Include="Code\Engine\DraggableInput.h" />
     <ClInclude Include="Code\Engine\Edge.h" />
     <ClInclude Include="Code\Engine\Engine.h" />
@@ -135,6 +152,8 @@
     <ClInclude Include="Code\Engine\InputCmpntLogger.h" />
     <ClInclude Include="Code\Engine\inputComponent.h" />
     <ClInclude Include="Code\Engine\InputHandler.h" />
+    <ClInclude Include="Code\Engine\Logger.h" />
+    <ClInclude Include="Code\Engine\LoggerParcel.h" />
     <ClInclude Include="Code\Engine\Network.h" />
     <ClInclude Include="Code\Engine\NodeState.h" />
     <ClInclude Include="Code\Engine\objectPool.h" />
@@ -153,7 +172,7 @@
     <ClInclude Include="Code\Engine\WindowDecorator.h" />
     <ClInclude Include="Code\Engine\WindowInterface.h" />
     <ClInclude Include="Code\Engine\WindowLogger.h" />
-    <ClInclude Include="Code\Engine\world.h" />
+    <ClInclude Include="Code\Engine\World.h" />
     <ClInclude Include="Code\Game\animatorComponent.hpp" />
     <ClInclude Include="Code\Game\BootLoader.hpp" />
     <ClInclude Include="Code\Game\bootLoadingAnimationRender.hpp" />
@@ -164,6 +183,7 @@
     <ClInclude Include="Code\Game\characterRender.hpp" />
     <ClInclude Include="Code\Game\consoleIconRenderComponent.h" />
     <ClInclude Include="Code\Game\consoleUpdateComponent.h" />
+    <ClInclude Include="Code\Game\contextListElementRenderComponent.h" />
     <ClInclude Include="Code\Game\createButton.h" />
     <ClInclude Include="Code\Game\createDesktop.h" />
     <ClInclude Include="Code\Game\createIcon.h" />
@@ -186,21 +206,36 @@
     <ClInclude Include="Code\Game\explorerFileInputComponent.h" />
     <ClInclude Include="Code\Game\explorerFolderInputComponent.h" />
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
+    <ClInclude Include="Code\Game\FloppyInputComponent.h" />
+    <ClInclude Include="Code\Game\FloppyRenderComponent.hpp" />
+    <ClInclude Include="Code\Game\FloppyUpdateComponent.hpp" />
+    <ClInclude Include="Code\Game\HelpRenderComponent.hpp" />
     <ClInclude Include="Code\Game\IconBuilder.h" />
     <ClInclude Include="Code\Game\iconInputComponent.h" />
     <ClInclude Include="Code\Game\Inbox.h" />
+    <ClInclude Include="Code\Game\interpolateUpdateComponent.hpp" />
     <ClInclude Include="Code\Game\mousePressButton.h" />
+    <ClInclude Include="Code\Game\nameGeneration.hpp" />
     <ClInclude Include="Code\Game\NetworkCheckFunctor.h" />
     <ClInclude Include="Code\Game\NetworkInputCmpnt.h" />
     <ClInclude Include="Code\Game\NetworkRenderCmpnt.h" />
     <ClInclude Include="Code\Game\NetworkUpdateCmpnt.h" />
+    <ClInclude Include="Code\Game\notifcationRenderComponent.h" />
     <ClInclude Include="Code\Game\photoRenderComponent.hpp" />
     <ClInclude Include="Code\Game\PipelineCharacter.h" />
     <ClInclude Include="Code\Game\PipelineDataRenderComponent.h" />
     <ClInclude Include="Code\Game\PipelineGraphRenderComponent.h" />
+    <ClInclude Include="Code\Game\PipelineJobsAndIncomes.h" />
     <ClInclude Include="Code\Game\PipelineLevelBuilder.h" />
-    <ClInclude Include="Code\Game\Quitter.h" />
-    <ClInclude Include="Code\Game\testRenderSprite.h" />
+    <ClInclude Include="Code\Game\spriteRenderComponent.hpp" />
+    <ClInclude Include="Code\Game\TextBoxBuilder.h" />
+    <ClInclude Include="Code\Game\TextBoxInputComponent.h" />
+    <ClInclude Include="Code\Game\TextBoxRenderComponent.h" />
+    <ClInclude Include="Code\Game\TextBubble.h" />
+    <ClInclude Include="Code\Game\TextBubbleRender.h" />
+    <ClInclude Include="Code\Game\TextDisplayBuilder.h" />
+    <ClInclude Include="Code\Game\TextDisplayRenderComponent.h" />
+    <ClInclude Include="Code\Game\TextFieldRenderComponent.hpp" />
     <ClInclude Include="Code\Game\textInputKeys.hpp" />
     <ClInclude Include="Code\Game\textInputRenderComponent.hpp" />
     <ClInclude Include="Code\Game\textLabelComponent.hpp" />
@@ -219,8 +254,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json" />
+    <None Include="Resources\DE1PipelineTexts.json" />
     <None Include="Resources\PlayerEmail.json" />
     <None Include="Resources\smsPipeline.json" />
+    <None Include="Resources\suspiciontest.json" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{76E6A61E-6FF8-4ABA-82B6-674967E67119}</ProjectGuid>
@@ -263,12 +300,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Andy\Desktop\Folders\UCSC\CMPS 17X\SFML-2.3.2\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Andy\Desktop\Folders\UCSC\CMPS 17X\SFML-2.3.2\include;D:\Program Files %28x86%29\SFML\SFML-2.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_MARKER;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Andy\Desktop\Folders\UCSC\CMPS 17X\SFML-2.3.2\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Andy\Desktop\Folders\UCSC\CMPS 17X\SFML-2.3.2\lib;D:\Program Files %28x86%29\SFML\SFML-2.3.2\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <AdditionalOptions>/ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>
@@ -281,7 +318,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Program Files %28x86%29\SFML\SFML-2.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_MARKER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>

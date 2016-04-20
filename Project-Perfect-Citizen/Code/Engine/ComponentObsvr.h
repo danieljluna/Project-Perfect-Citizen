@@ -46,7 +46,7 @@ public:
     /// @param event The event this Observer was notified of.
     /// @return Denotes whether this observer propogates the event.
     ///////////////////////////////////////////////////////////////////
-    virtual bool eventHandler(sf::Event& ev) override;
+    virtual bool eventHandler(Event ev) override;
 
 private:
 

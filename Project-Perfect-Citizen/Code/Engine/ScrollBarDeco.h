@@ -82,7 +82,14 @@ public:
     void setView(const sf::View& view) override;
 
     
-
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Draws the borders of the scroll bar
+    /// @param b can be 0 or 1.
+    /// 0 will draw the black part of the border
+    /// 1 will draw the white part of the border
+    ///////////////////////////////////////////////////////////////////
+    sf::RectangleShape drawBorder(int b) const;
+    
   /////////////////////////////////////////////////////////////////////
   // View Manipulation
   /////////////////////////////////////////////////////////////////////
@@ -94,31 +101,6 @@ public:
     /// @todo IMPLEMENT.
     ///////////////////////////////////////////////////////////////////
     void setBarSize(float barSize);
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Sets the Sprite to be used by the bars.
-    /// @details UNTESTED.
-    ///
-    /// @todo IMPLEMENT.
-    ///////////////////////////////////////////////////////////////////
-    void setBarSprite(const sf::Sprite& barSpr);
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Sets the Sprite to be used by the background of the 
-    ///     bars.
-    /// @details UNTESTED.
-    ///
-    /// @todo IMPLEMENT.
-    ///////////////////////////////////////////////////////////////////
-    void setBarBkgrndSprite(const sf::Sprite& bkgrndSpr);
-
-    ///////////////////////////////////////////////////////////////////
-    /// @brief Sets the Sprite to be used by the buttons.
-    /// @details UNTESTED.
-    ///
-    /// @todo IMPLEMENT.
-    ///////////////////////////////////////////////////////////////////
-    void setButtonSprite(const sf::Sprite& buttonSpr);
 
 
 protected:
@@ -149,11 +131,11 @@ private:
 
     void initialize(sf::Image img);
 
-    friend bool onSliderDrag(ScrollBarDecorator*, sf::Event&);
-    friend bool onButtonUp(ScrollBarDecorator*, sf::Event&);
-    friend bool onButtonDown(ScrollBarDecorator*, sf::Event&);
-    friend bool onButtonLeft(ScrollBarDecorator*, sf::Event&);
-    friend bool onButtonRight(ScrollBarDecorator*, sf::Event&);
+    friend bool onSliderDrag(ScrollBarDecorator*, Event);
+    friend bool onButtonUp(ScrollBarDecorator*, Event);
+    friend bool onButtonDown(ScrollBarDecorator*, Event);
+    friend bool onButtonLeft(ScrollBarDecorator*, Event);
+    friend bool onButtonRight(ScrollBarDecorator*, Event);
 
 
   /////////////////////////////////////////////////////////////////////
@@ -163,38 +145,38 @@ private:
     float barSize_ = 20.0f;
 
     //Array of ScrollBar Rectangles
-    sf::RectangleShape scrollBars_[2];
+    sf::RectangleShape scrollBars_;
     //Stores the input Component that allows the Window to be dragged 
     //  via the BorderDecorator.
-    DraggableInput* draggableInputs_[2];
+    DraggableInput* draggableInputs_;
     //Array of ScrollBar Backgrounds
-    sf::RectangleShape scrollBackgrounds_[2];
+    sf::RectangleShape scrollBackgrounds_;
     //Function Observers for ScrollBars
-    FreeFunctionObserver<ScrollBarDecorator> *obsvrs_[6];
+    FreeFunctionObserver<ScrollBarDecorator> *obsvrs_[3];
     
 
 
     //Array of buttonRenderComponents
-    buttonRenderComponent* buttonRenders_[4];
+    buttonRenderComponent* buttonRenders_[2];
     //Array of buttonInputComponents
-    mousePressButton* buttonInputs_[4];
+    mousePressButton* buttonInputs_[2];
     //Array of button Entities
-    Entity buttonEntities_[4];
+    Entity buttonEntities_[2];
 
 
 };
 
 
 
-bool onSliderDrag(ScrollBarDecorator*, sf::Event&);
+bool onSliderDrag(ScrollBarDecorator*, Event);
 
-bool onButtonUp(ScrollBarDecorator*, sf::Event&);
+bool onButtonUp(ScrollBarDecorator*, Event);
 
-bool onButtonDown(ScrollBarDecorator*, sf::Event&);
+bool onButtonDown(ScrollBarDecorator*, Event);
 
-bool onButtonLeft(ScrollBarDecorator*, sf::Event&);
+bool onButtonLeft(ScrollBarDecorator*, Event);
 
-bool onButtonRight(ScrollBarDecorator*, sf::Event&);
+bool onButtonRight(ScrollBarDecorator*, Event);
 
 
 

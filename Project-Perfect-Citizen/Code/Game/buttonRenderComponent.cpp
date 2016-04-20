@@ -1,10 +1,21 @@
 #include "../Engine/debug.h"
 #include "buttonRenderComponent.h"
+#include "../Engine/event.h"
+#include <ostream>
+#include "../Engine/World.h"
+#include "../Engine/desktop.h"
+#include <string>
+#include "../Engine/Entity.h"
 
 using namespace ppc;
 const std::string MOUSE_DOWN_CODE = "MDC";
 const std::string MOUSE_RELEASED_CODE = "MRC";
 const std::string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
+const std::string ICON_TYPE = "ICON";
+const std::string BUTTON_TYPE = "BUTTON";
+const std::string OPEN_EMAIL = "OE";
+const std::string SELECT_EMAIL = "SE";
+const std::string DESELECT_EMAIL = "DSE";
 
 buttonRenderComponent::buttonRenderComponent( sf::Image& image, 
 	int x, int y, int r, int f) : buttonImage(image) {
@@ -16,12 +27,24 @@ buttonRenderComponent::buttonRenderComponent( sf::Image& image,
     frameCount = f;
     xIndex = x;
     yIndex = y;
+
+    //Set up circle shape
+    //badge_.setFillColor(sf::Color::Red);
+    //badge_.setOutlineColor(sf::Color::White);
+    //badge_.setOutlineThickness(2.f);
+    //badge_.setRadius(5.f);
+
+    //set up text
+    //notificationText_ = sf::Text(std::to_string(5),
+      //                           World::getFont(World::Consola),
+        //                         10);
+    //notificationText_.move(2.5f, -2.0f);
+    //notificationText_.setStyle(sf::Text::Bold);
     
-    if (frameCount == 1) _isStatic = true;
-    else {
-        _isStatic = false;
-        _willAnimate = false;
-    }
+
+    _buttonType = BUTTON_TYPE;
+    _willAnimate = false;
+
     
     rectSourceSprite = new sf::IntRect(xIndex*size,
                                        yIndex*size,
@@ -43,8 +66,17 @@ buttonRenderComponent::~buttonRenderComponent() {
     delete rectSourceSprite;
 }
 
+void buttonRenderComponent::setButtonType(std::string t) {
+    if (t == ICON_TYPE) {
+        _buttonType = t;
+        sprite->setScale(0.5, 0.5);
+    } else if (t == BUTTON_TYPE) _buttonType = t;
+}
+
+
 void buttonRenderComponent::renderPosition(sf::Vector2f pos) {
-	sprite->setPosition(pos.x, pos.y);
+    //getEntity()->setPosition(pos);
+    sprite->setPosition(pos.x, pos.y);
 }
 
 void buttonRenderComponent::setImageScale(float ScaleX, float ScaleY) {
@@ -77,21 +109,28 @@ void buttonRenderComponent::animate() {
     }
 }
 
-bool buttonRenderComponent::isStatic() {
-    return _isStatic;
-}
+
 
 bool buttonRenderComponent::willAnimate() {
     return _willAnimate;
 }
 
+
 void buttonRenderComponent::draw( sf::RenderTarget& target,
 	sf::RenderStates states) const {
         target.draw(*sprite, states);
+        if (getButtonType() == "ICON") {
+
+            //states.transform.translate(sprite->getPosition());
+            //states.transform.scale(1.3, 1.3, 0, 0);
+
+            //target.draw(badge_, states);
+            //target.draw(notificationText_, states);
+        }
 }
 
 void buttonRenderComponent::recieveMessage(msgType code) {
-    if (_isStatic) {
+    if (_buttonType == BUTTON_TYPE) {
         if(code.compare(MOUSE_DOWN_CODE) == 0)
             setSprite(xIndex+width, yIndex, width);
         if(code.compare(MOUSE_RELEASED_CODE) == 0)
@@ -100,4 +139,22 @@ void buttonRenderComponent::recieveMessage(msgType code) {
        if(code.compare(MOUSE_DOUBLE_CLICK_CODE) == 0)
            _willAnimate = true;
     }
+	if (code == OPEN_EMAIL) {
+		setSprite(xIndex + width, yIndex, width);
+	}
+}
+
+void buttonRenderComponent::recieveMessage(ppc::Event ev) {
+	switch (ev.type) {
+	case Event::EventTypes::ButtonType:
+		if (ev.buttons.isPushed) {
+			setSprite(xIndex + width, yIndex, width);
+		}
+		if (ev.buttons.isReleased){
+			setSprite(xIndex, yIndex, width);
+		}
+		break;
+	default:
+		break;
+	}
 }

@@ -3,7 +3,7 @@
 
 #include "../Engine/renderComponent.h"
 #include "../Engine/Network.h"
-#include "../Engine/debug.h"
+
 
 namespace ppc {
 	///////////////////////////////////////////////////////////////////

@@ -68,6 +68,7 @@ std::vector<std::string> split(std::string line, std::string delimiter);
 
 void fn_decrypt(ppc::NodeState& state, const std::vector<std::string>words);
 void fn_pwd(ppc::NodeState& state, const std::vector<std::string> words);
+void fn_unlock(ppc::NodeState& state, const std::vector<std::string> words);
 
 ///////////////////////////////////////////////
 ///@brief helper function that prints a 
