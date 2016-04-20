@@ -33,3 +33,5 @@ void createPlayerDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& de
 
 void createTeacherDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& desktopWindowToModify, ppc::InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet);
 
+void createDummyDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& desktopWindowToModify, ppc::InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet);
+
