@@ -1,5 +1,6 @@
 #include "../Engine/debug.h"
 #include "FloppyRenderComponent.hpp"
+#include "FloppyInputComponent.h"
 #include "../Engine/event.h"
 #include <ostream>
 
@@ -9,62 +10,39 @@ using namespace ppc;
 FloppyRenderComponent::FloppyRenderComponent(sf::Image& image) : floppyImage(image) {
     
     this->sprite = new sf::Sprite();
+    this->staticBox = new sf::Sprite();
     this->texture = new sf::Texture();
-
-    _willAnimate = false;
+    
+    
+    
+    /* Check that the file exists in the path */
+    if (!texture->loadFromImage(image, sf::IntRect(0,0,2*size,5*size)))
+        std::exit(-1);
+    
+    staticBox->setTexture(*texture);
+    staticBox->setTextureRect(sf::IntRect(0,0,size,size));
+    staticBox->setPosition(800, 32);
+    staticBox->setScale(0.75f, 0.75f);
+    
     
     xIndex = 0;
-    yIndex = 0;
+    yIndex = 1;
     rectSourceSprite = new sf::IntRect(xIndex*size, yIndex*size, size, size);
-
-    /* Check that the file exists in the path */
-    if (!texture->loadFromImage(image, sf::IntRect(0,0,5*size,3*size)))
-        std::exit(-1);
+    
     
     sprite->setTexture(*texture);
     sprite->setTextureRect(*rectSourceSprite);
-    sprite->setPosition(0, 0);
+    sprite->setPosition(800, 35);
     sprite->setScale(0.75f, 0.75f);
-    setAnimationPeek();
+    
+    _willAnimate = false;
 }
 
 FloppyRenderComponent::~FloppyRenderComponent() {
     delete texture;
     delete sprite;
+    delete staticBox;
     delete rectSourceSprite;
-}
-
-void FloppyRenderComponent::setAnimationLoad() {
-    animation = 0;
-    frameCount = 4;
-    xIndex = 0;
-    yIndex = 0;
-    rectSourceSprite->left = xIndex*size;
-    rectSourceSprite->top = yIndex*size;
-    
-    _willAnimate = true;
-}
-
-void FloppyRenderComponent::setAnimationHide() {
-    animation = 1;
-    frameCount = 4;
-    xIndex = 4;
-    yIndex = 0;
-    rectSourceSprite->left = xIndex*size;
-    rectSourceSprite->top = yIndex*size;
-    
-    _willAnimate = true;
-}
-
-void FloppyRenderComponent::setAnimationPeek() {
-    animation = 2;
-    frameCount = 4;
-    xIndex = 2;
-    yIndex = 2;
-    rectSourceSprite->left = xIndex*size;
-    rectSourceSprite->top = yIndex*size;
-    
-    _willAnimate = true;
 }
 
 void FloppyRenderComponent::renderPosition(sf::Vector2f pos) {
@@ -78,71 +56,41 @@ void FloppyRenderComponent::setImageScale(float ScaleX, float ScaleY) {
 void FloppyRenderComponent::setEmotion(int emote) {
     switch (emote) {
         case 0:
-            // Happy Face
+            // Default Face
             rectSourceSprite->left = 0*size;
             rectSourceSprite->top = 1*size;
             break;
         case 1:
             // Angry Face
-            rectSourceSprite->left = 2*size;
-            rectSourceSprite->top = 1*size;
+            rectSourceSprite->left = 0*size;
+            rectSourceSprite->top = 2*size;
         case 2:
             // Surprised
             rectSourceSprite->left = 0*size;
-            rectSourceSprite->top = 2*size;
+            rectSourceSprite->top = 3*size;
         case 3:
-            // Resting
+            // Peek
             rectSourceSprite->left = 0*size;
-            rectSourceSprite->top = 0*size;
+            rectSourceSprite->top = 4*size;
         default:
             break;
     }
-
+    
     sprite->setTextureRect(*rectSourceSprite);
-   
+    
 }
 
 
 void FloppyRenderComponent::animate() {
-    if (_willAnimate) {
-        
-        //Show Floppy With Emotion
-        if (animation == 0) {
-            if (rectSourceSprite->left == (frameCount * size)) {
-                setEmotion(0);
-                _willAnimate = false;
-            } else {
-                rectSourceSprite->left += size;
-            }
-        }
-        //Hide Floppy
-        else if (animation == 1) {
-            if (rectSourceSprite->left == 0) {
-                _willAnimate = false;
-            } else {
-                rectSourceSprite->left -= size;
-            }
-        }
-        
-        //Peek Floppy
-        else if (animation == 2) {
-            if (rectSourceSprite->left == frameCount * size) {
-               // _willAnimate = false;
-                animation += 1;
-            } else {
-                rectSourceSprite->left += size;
-            }
-        } else if (animation == 3) {
-            if (rectSourceSprite->left == 2*size) {
-                setEmotion(3);
-                _willAnimate = false;
-            } else {
-                rectSourceSprite->left -= size;
-            }
-
-        }
-        sprite->setTextureRect(*rectSourceSprite);
+    
+    if (sprite->getPosition().y >= -35) {
+        renderPosition({sprite->getPosition().x, sprite->getPosition().y-5});
+    } else {
+        setEmotion(emotion);
+        _willAnimate = false;
     }
+
+    sprite->setTextureRect(*rectSourceSprite);
 }
 
 
@@ -150,33 +98,18 @@ void FloppyRenderComponent::animate() {
 void FloppyRenderComponent::draw( sf::RenderTarget& target,
                                  sf::RenderStates states) const {
     target.draw(*sprite, states);
-
+    target.draw(*staticBox, states);
 }
 
 void FloppyRenderComponent::recieveMessage(msgType code) {
 }
 
 void FloppyRenderComponent::recieveMessage(ppc::Event ev) {
-   /* switch (ev.type) {
-        case Event::EventTypes::EmotionType:
-            if (ev.emotions.isDefault) {
-                setEmotion(0);
-            }
-            if (ev.emotions.isAngry){
-                setEmotion(1);
-            }
-            if (ev.emotions.isSurprised){
-                setEmotion(2);
-            }
-            if (ev.emotions.isPeeked){
-                setAnimationPeek();
-            }
-            if (ev.emotions.isHidden){
-                setAnimationHidden();
-            }
-            break;
-        default:
-            break;
-    }*/
-
+    if (ev.type == Event::EventTypes::FloppyType) {
+        unsigned int i = ev.floppy.sequence;
+        unsigned int j = ev.floppy.frame;
+        emotion = FloppyInputComponent::floppyDictionary.at(i).at(j).second;
+        _willAnimate = true;
+    }
+    
 }
