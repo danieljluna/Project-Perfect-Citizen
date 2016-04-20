@@ -10,6 +10,7 @@
 #include "../Engine/Network.h"
 #include "NetworkCheckFunctor.h"
 #include "createWindow.h"
+#include "ButtonBuilder.h"
 
 using namespace ppc;
 
@@ -18,7 +19,10 @@ typedef bool (databaseSearchInputComponent::*backFn)(sf::Event&);
 void spawnBackButton(databaseSearchInputComponent* db, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet,
     float x, float y, float size)
 {
-    /* Render Component */
+	ButtonBuilder builder;
+	builder.setButtonPosition(sf::Vector2f(x, y));
+	
+	/* Render Component */
     buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 0, 0, 2, 1);
     buttonRender->setImageScale(size, size);
     buttonRender->renderPosition(sf::Vector2f(x, y));
