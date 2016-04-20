@@ -113,22 +113,22 @@ int main(int argc, char** argv) {
 
 	//Dont touch these comments please.
 	
-	ifstream ifs1(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
-	Desktop testDesktop;
-	ifs1 >> testDesktop;
+	//ifstream ifs1(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
+	//Desktop testDesktop;
+	//ifs1 >> testDesktop;
 	
 	bool BootToTitleCard = false; 
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
 	//Dont touch these comments please.
-	World::setGameScreen(screen);
-	World::setCurrDesktop(testDesktop);
-	runPlayerDesktop(testDesktop);
-	World::runCurrDesktop();
+	//World::setGameScreen(screen);
+	//World::setCurrDesktop(testDesktop);
+	//runPlayerDesktop(testDesktop);
+	//World::runCurrDesktop();
 
 
-	/*
+	
 	AudioQueue audiotest(5);
 	audiotest.addBgm("SoundTrack_Extraction.ogg");
 	audiotest.playBgm();
@@ -245,7 +245,7 @@ int main(int argc, char** argv) {
     Logger::endTimer("endDesktop");
 
     Logger::exportParcels();
-	*/
+	
 
     return EXIT_SUCCESS;
 }
