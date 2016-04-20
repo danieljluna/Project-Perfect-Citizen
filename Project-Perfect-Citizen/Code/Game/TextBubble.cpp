@@ -28,6 +28,7 @@ ppc::TextBubble::~TextBubble() {
 
 void ppc::TextBubble::setText(std::string s) {
 	currStr_ = s;
+	displayText_.setString(currStr_);
 }
 
 sf::RectangleShape & ppc::TextBubble::getBubble() {

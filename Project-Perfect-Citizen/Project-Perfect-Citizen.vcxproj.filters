@@ -328,6 +328,12 @@
     <ClCompile Include="Code\Game\notifcationRenderComponent.cpp" />
     <ClCompile Include="Code\Engine\NotificationObserver.cpp">
       <Filter>Sources\Engine\Observer System</Filter>
+	  </ClCompile>
+    <ClCompile Include="Code\Engine\LoggerParcel.cpp">
+      <Filter>Sources\Engine\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\notifcationRenderComponent.cpp">
+      <Filter>Sources\Game Specific</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
