@@ -80,7 +80,6 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     
     
     FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
-    floppy->renderPosition({800, -32});
     
     FloppyInputComponent* floppyIn = new FloppyInputComponent();
     
@@ -93,8 +92,14 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     
 	Entity startButton;
 	spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
+    
+    Entity startButton2;
+    spawnStartButton2(startButton, desktopToModify, floppyIn, startToolbar->getInputHandler(), buttonSheet, 300, 14, 0.35f);
+    
+    
     startToolbar->addEntity(startBar);
     startToolbar->addEntity(startButton);
+    startToolbar->addEntity(startButton2);
 	desktopToModify.addWindow(startToolbar);
 
 	////////////////////////////////
