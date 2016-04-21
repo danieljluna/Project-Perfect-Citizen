@@ -56,7 +56,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 
     //TODO: FIX MEMORY LEAK
     Inbox* theInbox = new Inbox();
-    
+
     emailExtraction inbox;// = new emailExtraction();
     inbox.parseEmailAsJson("PlayerEmail.json");
     
@@ -112,7 +112,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     
 	ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
 	EmailIcon.addComponent(notiRenderComp);
-	
+	//desktopToModify.getInbox()
     
     desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
@@ -125,13 +125,19 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	//ANDY TODO
 	//desktopToModify.getInbox().
 	//EmailIcon.addComponent(notiRenderComp);
+	ppc::NotificationObserver* test = &notiRenderComp->getNotiObserver();
+
+
+	desktopToModify.getInbox().getInboxSubject().addObserver(test);
+	//ppc::Inbox testInbox = desktopToModify.getInbox();
+
 	sf::Event ev;
 	ev.type = sf::Event::EventType::Closed;
 	ppc::Event ppcEvent(ev);
 	ppcEvent.type = ppc::Event::EventTypes::NotificationType;
 	ppcEvent.notification.count = 1;
-
-	notiRenderComp->getNotiObserver().eventHandler(ppcEvent);
+	//theInbox->getInboxSubject().getObserverHead()->eventHandler(ppcEvent);
+	//notiRenderComp->getNotiObserver().eventHandler(ppcEvent);
 
 }
 
@@ -210,9 +216,10 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
 	ev.type = sf::Event::EventType::Closed;
 	ppc::Event ppcEvent(ev);
 	ppcEvent.type = ppc::Event::EventTypes::NotificationType;
-	ppcEvent.notification.count = 1;
+	ppcEvent.notification.count = 2;
 
-	EmailIcon.broadcastMessage(ppcEvent);
+	//EmailIcon.broadcastMessage(ppcEvent);
+	notiRenderComp->getNotiObserver().eventHandler(ppcEvent);
     desktopWindowToModify.addEntity(EmailIcon);
     
 }

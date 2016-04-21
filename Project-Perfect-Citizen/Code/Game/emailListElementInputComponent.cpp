@@ -83,7 +83,9 @@ bool emailListElementInputComponent::registerInput(sf::Event ev) {
 						ppc::Event readEvent(ev);
 						readEvent.type = ppc::Event::EventTypes::NotificationType;
 						readEvent.notification.count = 1;
-						this->onRead_.sendEvent(readEvent);
+						theDesktop.getInbox().getInboxSubject().getObserverHead()
+							->eventHandler(readEvent);
+						//this->onRead_.sendEvent(readEvent);
 					}
 				}
 			}
