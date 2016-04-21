@@ -26,7 +26,8 @@ void spawnBackButton(databaseSearchInputComponent* db, ppc::Entity& entityToModi
 	builder.setSize(size);
 	builder.setSpritesByIndicies(0, 0, 2, 1);
 	builder.setLabelMessage("");
-	builder.setLabelFont(sf::Font());
+    sf::Font f;
+	builder.setLabelFont(f);
 	builder.setLabelSize(size);
 	builder.setSpriteSheet(spritesheet);
 
@@ -42,13 +43,35 @@ void spawnStartButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHandler
 	builder.setSize(size);
 	builder.setSpritesByIndicies(4, 0, 2, 1);
 	builder.setLabelMessage("");
-	builder.setLabelFont(sf::Font());
+    sf::Font f;
+    builder.setLabelFont(f);
 	builder.setLabelSize(size);
 	builder.setSpriteSheet(spritesheet);
+    
 
 	createWithEventFunc<Desktop>(builder, entityToModify, &d, &(ppc::spawnStartMenu));
 
 }
+
+void spawnStartButton2(ppc::Entity& entityToModify, Desktop& d, FloppyInputComponent* flop, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
+    ButtonBuilder builder;
+    builder.setButtonPosition(sf::Vector2f(x, y));
+    builder.setInputHandle(ih);
+    builder.setSize(size);
+    builder.setSpritesByIndicies(4, 0, 2, 1);
+    builder.setLabelMessage("");
+    sf::Font f;
+    builder.setLabelFont(f);
+    builder.setLabelSize(size);
+    builder.setSpriteSheet(spritesheet);
+    
+
+    createWithEventFunc<FloppyInputComponent>(builder, entityToModify, flop, &(ppc::displayFloppy));
+    
+}
+
+                                 
+                                 
 
 void spawnNetworkOkayButton(ppc::Network* nw, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size, NetworkCheckFunctor* ncf) {
 	
@@ -58,7 +81,8 @@ void spawnNetworkOkayButton(ppc::Network* nw, ppc::Entity& entityToModify, ppc::
 	builder.setSize(size);
 	builder.setSpritesByIndicies(0, 2, 2, 1);
 	builder.setLabelMessage("");
-	builder.setLabelFont(sf::Font());
+    sf::Font f;
+    builder.setLabelFont(f);
 	builder.setLabelSize(20);
 	builder.setSpriteSheet(spritesheet);
 
@@ -85,7 +109,8 @@ void spawnConfirmedIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::
 	builder.setSize(size);
 	builder.setSpritesByIndicies(6, 5, 1, 0);
 	builder.setLabelMessage("");
-	builder.setLabelFont(sf::Font());
+    sf::Font f;
+    builder.setLabelFont(f);
 	builder.setLabelSize(20);
 	builder.setSpriteSheet(spritesheet);
 	builder.setNonClickable();
@@ -101,7 +126,8 @@ void spawnAlertIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Imag
 	builder.setSize(size);
 	builder.setSpritesByIndicies(5, 5, 1, 0);
 	builder.setLabelMessage("");
-	builder.setLabelFont(sf::Font());
+    sf::Font f;
+    builder.setLabelFont(f);
 	builder.setLabelSize(20);
 	builder.setSpriteSheet(spritesheet);
 	builder.setNonClickable();
@@ -117,7 +143,8 @@ void spawnPromptIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Ima
 	builder.setSize(size);
 	builder.setSpritesByIndicies(7, 6, 1, 0);
 	builder.setLabelMessage("");
-	builder.setLabelFont(sf::Font());
+    sf::Font f;
+    builder.setLabelFont(f);
 	builder.setLabelSize(20);
 	builder.setSpriteSheet(spritesheet);
 	builder.setNonClickable();
@@ -139,6 +166,16 @@ bool ppc::spawnStartMenu(Desktop* ptr, Event ev) {
 	ptr->addWindow(ContextMenu);
 	return true;
 }
+
+bool ppc::displayFloppy(FloppyInputComponent* ptr, Event ev) {
+    ppc::Event ppcEv(ev);
+    ppcEv.type = ppc::Event::FloppyType;
+    ppcEv.floppy.sequence = 0;
+    ppcEv.floppy.frame = 0;
+    summonFloppyDialog(ptr, ppcEv);
+    return true;
+}
+
 bool ppc::LogOff(Desktop* ptr, Event ev) {
 	cout << "Implement Log Off" << endl;
 	return true;
