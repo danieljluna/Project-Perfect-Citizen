@@ -9,7 +9,7 @@
 
 
 ppc::TextBubbleRender::TextBubbleRender() {
-
+	drawable_ = true;
 }
 
 ppc::TextBubbleRender::~TextBubbleRender() {
@@ -24,9 +24,14 @@ ppc::TextBubble & ppc::TextBubbleRender::getTextBubble() {
 	return *bubble_;
 }
 
-void ppc::TextBubbleRender::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+void ppc::TextBubbleRender::setDrawable(bool flag = true) {
+	drawable_ = flag;
+}
 
-	target.draw(*bubble_, states);
+void ppc::TextBubbleRender::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+	if (drawable_ == true) {
+		target.draw(*bubble_, states);
+	}
 }
 
 void ppc::TextBubbleRender::recieveMessage(msgType code) {
@@ -38,10 +43,15 @@ void ppc::TextBubbleRender::recieveMessage(ppc::Event ev) {
 		
 		unsigned int i = ev.floppy.sequence;
 		unsigned int j = ev.floppy.frame;
-		std::string s = 
-			FloppyInputComponent::floppyDictionary.at(i).at(j).first;
-		DEBUGF("tb", s)
-		bubble_->setText(s);
+		if (j == -1) {
+			drawable_ = false;
+		} else {
+			std::string s = 
+				FloppyInputComponent::floppyDictionary.at(i).at(j).first;
+			DEBUGF("tb", s)
+			bubble_->setText(s);
+		}
+		
 	}
 
 }

@@ -90,7 +90,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.12f);
 
 	TextBubble* tb = new TextBubble();
-	tb->setPosition(90.f, 0);
+	tb->setPosition(450.f, 0);
 	TextBubbleRender* tbr = new TextBubbleRender();
 	tbr->setTextBubble(*tb);
  
@@ -105,7 +105,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	nextButton.setLabelFont(World::getFont(World::Consola));
 	nextButton.setLabelMessage("Next");
 	nextButton.setLabelSize(11);
-	nextButton.setButtonPosition({ 50.f,0.f });
+	nextButton.setButtonPosition({ 400.f,0.f });
 	nextButton.setSize(0.25f);
 	nextButton.setSpriteSheet(desktopToModify.getButtonSheet());
 	createWithEventFunc<FloppyInputComponent>(nextButton, startBar, floppyIn, ppc::incrementFloppyDialog);
