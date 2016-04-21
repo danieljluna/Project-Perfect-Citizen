@@ -10,6 +10,45 @@
             "Bomb_Schematics" : {
                 "TODO" : "DesktopContent/Desktop0/Grocery Reminder!.txt"
             }
+        },
+        "Documents": {
+            "3D_Printer": {
+                "3D_printer_3000.jpg" : "DesktopContent/Desktop0/3D_printer_3000.jpg",
+                "Overview.jpg" : "DesktopContent/Desktop0/Overview.jpg"
+            },
+            "Instructions": {
+                "liberator_1.jpg" : "DesktopContent/Desktop0/liberator_1.jpg"
+            },
+            "Permits": {
+                "explosives_permit.txt" : "DesktopContent/Desktop0/explosives_permit.txt",
+                "fireperm.txt" : "DesktopContent/Desktop0/fireperm.txt"
+            }
+        },
+        "Downloads": {
+            "3D_Bombs": {
+                "bomb_prospect.jpg" : "DesktopContent/Desktop0/bomb_prospect.jpg",
+                "blueprint.jpg" : "DesktopContent/Desktop0/blueprint.jpg"
+            },
+            "3D_Gun_Files": {
+                "blueprint_4.jpg" : "DesktopContent/Desktop0/blueprint_4.jpg",
+                "blueprint_7.jpg" : "DesktopContent/Desktop0/blueprint_7.jpg",
+                "blueprint_9.jpg" : "DesktopContent/Desktop0/blueprint_9.jpg",
+                "printable_5.jpg" : "DesktopContent/Desktop0/printable_5.jpg"
+            }
+        },
+        "Pictures": {
+            "4_sale": {
+                "current_collection.jpg" : "DesktopContent/Desktop0/current_collection.jpg"
+            },
+            "For_my_eyes_only": {
+                "Sexy.jpg" : "DesktopContent/Desktop0/Sexy.jpg"
+            },
+            "The_Babes": {
+                "17391.jpg" : "DesktopContent/Desktop0/17391.jpg",
+                "burnt1.jpg" : "DesktopContent/Desktop0/burnt1.jpg",
+                "Sterling_SMG.jpg" : "DesktopContent/Desktop0/Sterling_SMG.jpg",
+                "Thompson.jpg" : "DesktopContent/Desktop0/Thompson.jpg"
+            }
         }
     }
 }
