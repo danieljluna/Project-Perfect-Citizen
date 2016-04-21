@@ -29,7 +29,6 @@
 
 #include "FloppyUpdateComponent.hpp"
 #include "FloppyRenderComponent.hpp"
-#include "notifcationRenderComponent.h"
 
 #include "../Library/json/json.h"
 
@@ -108,10 +107,6 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 
 	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 250.0f, 475.0f, 0.5f, 0.30f, theInbox);
 	spawnHelpIcon(SearchIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 600.0f, 475.0f, 0.5f, 0.30f, theInbox);
-
-    
-	ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
-	EmailIcon.addComponent(notiRenderComp);
 	//desktopToModify.getInbox()
     
     desktopWindowToModify.addEntity(ConsoleIcon);
@@ -119,17 +114,6 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	desktopWindowToModify.addEntity(HardDriveIcon);
 	desktopWindowToModify.addEntity(SearchIcon);
 	desktopWindowToModify.addEntity(EmailIcon);
-	//desktopWindowToModify.addEntity(EmailIcon);
-
-	//ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
-	//ANDY TODO
-	//desktopToModify.getInbox().
-	//EmailIcon.addComponent(notiRenderComp);
-	ppc::NotificationObserver* test = &notiRenderComp->getNotiObserver();
-
-
-	desktopToModify.getInbox().getInboxSubject().addObserver(test);
-	//ppc::Inbox testInbox = desktopToModify.getInbox();
 
 	sf::Event ev;
 	ev.type = sf::Event::EventType::Closed;
@@ -207,19 +191,6 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
-
-	ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
-	//ANDY TODO
-	//desktopToModify.getInbox().
-	EmailIcon.addComponent(notiRenderComp);
-	sf::Event ev;
-	ev.type = sf::Event::EventType::Closed;
-	ppc::Event ppcEvent(ev);
-	ppcEvent.type = ppc::Event::EventTypes::NotificationType;
-	ppcEvent.notification.count = 2;
-
-	//EmailIcon.broadcastMessage(ppcEvent);
-	notiRenderComp->getNotiObserver().eventHandler(ppcEvent);
     desktopWindowToModify.addEntity(EmailIcon);
     
 }
