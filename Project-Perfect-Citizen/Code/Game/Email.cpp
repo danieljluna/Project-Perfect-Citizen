@@ -36,7 +36,13 @@ std::string Email::getAttachmentField() { return this->attachment; }
 
 bool Email::getReadFlag() { return this->read;  }
 
-void Email::setRead() { this->read = true; }
+bool Email::setRead() {
+	if (!read) {
+		this->read = true;
+		return true;
+	}
+	return false;
+}
 
 bool Email::getVisible() { return this->visible; }
 
