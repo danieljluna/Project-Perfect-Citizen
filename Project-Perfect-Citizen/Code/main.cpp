@@ -145,7 +145,7 @@ int main(int argc, char** argv) {
 	//Dont touch these comments please.
 	World::setGameScreen(screen);
 	World::setCurrDesktop(tutorialDesktop);
-	runPlayerDesktop(tutorialDesktop);
+	//ADD FUNCTION FOR FILLING TUTORIAL DESKTOP HERE
 	World::runCurrDesktop();
 
 	/*
