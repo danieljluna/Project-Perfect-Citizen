@@ -300,6 +300,7 @@
 		E9AC1CAE1CC9687600A7955F /* Passwords.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1CAD1CC9687600A7955F /* Passwords.txt */; };
 		E9AC1CB01CC9776900A7955F /* desktop2.ini in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1CAF1CC9776900A7955F /* desktop2.ini */; };
 		E9AC1CB31CC978CC00A7955F /* NotificationObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9AC1CB11CC978CC00A7955F /* NotificationObserver.cpp */; };
+		E9AC1CB51CC997E700A7955F /* RE_Welcome.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1CB41CC997E700A7955F /* RE_Welcome.txt */; };
 		E9E1F5921C91F506006AE0FB /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5301C91F506006AE0FB /* DoxygenHelp.txt */; };
 		E9E1F5931C91F506006AE0FB /* LinkHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5311C91F506006AE0FB /* LinkHelp.txt */; };
 		E9E1F5E01C91F506006AE0FB /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5811C91F506006AE0FB /* EngineSettings.ini */; };
@@ -721,6 +722,7 @@
 		E9AC1CAF1CC9776900A7955F /* desktop2.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = desktop2.ini; sourceTree = "<group>"; };
 		E9AC1CB11CC978CC00A7955F /* NotificationObserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NotificationObserver.cpp; sourceTree = "<group>"; };
 		E9AC1CB21CC978CC00A7955F /* NotificationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationObserver.h; sourceTree = "<group>"; };
+		E9AC1CB41CC997E700A7955F /* RE_Welcome.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RE_Welcome.txt; sourceTree = "<group>"; };
 		E9E1F5301C91F506006AE0FB /* DoxygenHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoxygenHelp.txt; sourceTree = "<group>"; };
 		E9E1F5311C91F506006AE0FB /* LinkHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LinkHelp.txt; sourceTree = "<group>"; };
 		E9E1F5811C91F506006AE0FB /* EngineSettings.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EngineSettings.ini; sourceTree = "<group>"; };
@@ -1079,6 +1081,7 @@
 		E948853D1CC6F3F600DFC68A /* Desktop1 */ = {
 			isa = PBXGroup;
 			children = (
+				E9AC1CB41CC997E700A7955F /* RE_Welcome.txt */,
 				E948853E1CC6F3F600DFC68A /* 1-24-08-182.jpg */,
 				E94885411CC6F3F600DFC68A /* 2-20-09-431.jpg */,
 				E94885421CC6F3F600DFC68A /* 2-23-2011-213.jpg */,
@@ -1374,6 +1377,7 @@
 				E94885B91CC6F3F600DFC68A /* 7-29-14-345.jpg in Resources */,
 				E94885F11CC6F3F600DFC68A /* LacanMirrorPhase.txt in Resources */,
 				E94886541CC6F42A00DFC68A /* Wallpaper.png in Resources */,
+				E9AC1CB51CC997E700A7955F /* RE_Welcome.txt in Resources */,
 				E948860E1CC6F3F600DFC68A /* St_H_Bap_OK.jpg in Resources */,
 				E94886371CC6F42A00DFC68A /* data.json in Resources */,
 				E94886581CC6F42A00DFC68A /* consola.ttf in Resources */,
