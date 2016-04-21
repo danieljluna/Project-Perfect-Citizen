@@ -30,6 +30,10 @@
 #include "FloppyUpdateComponent.hpp"
 #include "FloppyRenderComponent.hpp"
 #include "FloppyInputComponent.h"
+#include "TextBubble.h"
+#include "TextBubbleRender.h"
+#include "ButtonBuilder.h"
+
 #include "notifcationRenderComponent.h"
 
 
@@ -58,7 +62,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 
     //TODO: FIX MEMORY LEAK
     Inbox* theInbox = new Inbox();
-    
+
     emailExtraction inbox;// = new emailExtraction();
     inbox.parseEmailAsJson("PlayerEmail.json");
     
@@ -84,11 +88,28 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     FloppyInputComponent* floppyIn = new FloppyInputComponent();
     
     FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.12f);
-    
+
+	TextBubble* tb = new TextBubble();
+	tb->setPosition(90.f, 0);
+	TextBubbleRender* tbr = new TextBubbleRender();
+	tbr->setTextBubble(*tb);
+ 
     startBar.addComponent(bar);
     startBar.addComponent(floppy);
     startBar.addComponent(floppyIn);
     startBar.addComponent(floppyUpdate);
+	startBar.addComponent(tbr);
+
+	ButtonBuilder nextButton;
+	nextButton.setInputHandle(startToolbar->getInputHandler());
+	nextButton.setLabelFont(World::getFont(World::Consola));
+	nextButton.setLabelMessage("Next");
+	nextButton.setLabelSize(11);
+	nextButton.setButtonPosition({ 50.f,0.f });
+	nextButton.setSize(0.25f);
+	nextButton.setSpriteSheet(desktopToModify.getButtonSheet());
+	createWithEventFunc<FloppyInputComponent>(nextButton, startBar, floppyIn, ppc::incrementFloppyDialog);
+
     
 	Entity startButton;
 	spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -112,24 +133,28 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	Entity EmailIcon;
 
 	spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 425.0f, 525.0f, 0.5f, 0.30f, theInbox);
-
 	spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 175.0f, 375.0f, 0.5f, 0.30f, theInbox);
 	spawnDataGraphIcon(DataGraphIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 675.0f, 375.0f, 0.5f, 0.30f, theInbox);
-
 	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 250.0f, 475.0f, 0.5f, 0.30f, theInbox);
 	spawnHelpIcon(SearchIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 600.0f, 475.0f, 0.5f, 0.30f, theInbox);
 
-    
-	ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
-	EmailIcon.addComponent(notiRenderComp);
-	
+    //Add Desktop Icon Floppy Triggers
+    iconInputComponent* graphIconInput = dynamic_cast<iconInputComponent*>(DataGraphIcon.getComponent(2));
+    graphIconInput->onOpen().addObserver(new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn));
     
     desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
 	desktopWindowToModify.addEntity(HardDriveIcon);
 	desktopWindowToModify.addEntity(SearchIcon);
 	desktopWindowToModify.addEntity(EmailIcon);
-	desktopWindowToModify.addEntity(EmailIcon);
+
+	sf::Event ev;
+	ev.type = sf::Event::EventType::Closed;
+	ppc::Event ppcEvent(ev);
+	ppcEvent.type = ppc::Event::EventTypes::NotificationType;
+	ppcEvent.notification.count = 1;
+	//theInbox->getInboxSubject().getObserverHead()->eventHandler(ppcEvent);
+	//notiRenderComp->getNotiObserver().eventHandler(ppcEvent);
 
 }
 
@@ -199,9 +224,6 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
-
-	ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
-	EmailIcon.addComponent(notiRenderComp);
     desktopWindowToModify.addEntity(EmailIcon);
     
 }

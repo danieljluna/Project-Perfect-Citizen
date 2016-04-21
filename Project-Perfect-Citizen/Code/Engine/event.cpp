@@ -3,10 +3,16 @@
 using namespace ppc;
 
 
+Event::Event() {
+    type = Count;
+}
+
+
 Event::Event(sf::Event ev) {
     type = sfEventType;
     sfEvent = ev;
 }
+
 
 Event::operator sf::Event&() {
     if (type != sfEventType) {
@@ -16,3 +22,4 @@ Event::operator sf::Event&() {
 
     return sfEvent;
 }
+

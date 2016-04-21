@@ -14,29 +14,50 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "Library/json/json.h"
-#include "Engine/Engine.h"
+#include "Engine/InputHandler.h"
+#include "Engine/subject.h"
+#include "Engine/debug.h"
+#include "Engine/entity.h"
+#include "Engine/Window.h"
+#include "Engine/desktop.h"
 #include "Game/mousePressButton.h"
 #include "Game/buttonRenderComponent.h"
 #include "Game/consoleIconRenderComponent.h"
 #include "Game/TreeCommands.h"
+#include "Engine/NodeState.h"
 #include "Game/animatorComponent.hpp"
 #include "Game/textInputKeys.hpp"
 #include "Game/createWindow.h"
 #include "Game/createIcon.h"
 #include "Game/createButton.h"
+#include "Engine/BorderDecorator.h"
 #include "Game/createDesktop.h"
 #include "Game/desktopExtractionComponent.hpp"
 #include "Game/expressionistParser.hpp"
+#include "Engine/Audio/Audio.h"
+#include "Engine/Audio/Sounds.h"
+#include "Engine/Audio/DesktopAudio.h"
+#include "Engine/Audio/AudioLocator.h"
+#include "Engine/Audio/AudioLogger.h"
+#include "Engine/Audio/AudioLocator.h"
+#include "Engine/Audio/NullAudio.h"
 #include "Game/PipelineCharacter.h"
 #include "Game/Database.h"
+#include "Engine/Audio/AudioQueue.h"
+#include "Engine/Network.h"
 #include "Game/BootLoader.hpp"
 #include "Game/characterRender.hpp"
+#include "Engine/debug.h"
+#include "Engine/FreeFunctionObserver.h"
 #include "Game/interpolateUpdateComponent.hpp"
+#include "Engine/FreeFunctionObserver.h"
 
 #include "Game/bootLoadingUpdateComponent.hpp"
 #include "Game/bootLoadingAnimationRender.hpp"
 #include "Game/endAnimationUpdateComponent.hpp"
 #include "Game/endingAnimationRender.hpp"
+
+#include "Engine/World.h"
 
 #include "Game/TextBubble.h"
 
@@ -113,21 +134,21 @@ int main(int argc, char** argv) {
 
 	//Dont touch these comments please.
 	
-	//ifstream ifs1(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
-	//Desktop testDesktop;
-	//ifs1 >> testDesktop;
+	ifstream ifs1(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
+	Desktop testDesktop;
+	ifs1 >> testDesktop;
 	
 	bool BootToTitleCard = false; 
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
 	//Dont touch these comments please.
-	//World::setGameScreen(screen);
-	//World::setCurrDesktop(testDesktop);
-	//runPlayerDesktop(testDesktop);
-	//World::runCurrDesktop();
+	World::setGameScreen(screen);
+	World::setCurrDesktop(testDesktop);
+	runPlayerDesktop(testDesktop);
+	World::runCurrDesktop();
 
-	
+	/*
 	AudioQueue audiotest(5);
 	audiotest.addBgm("SoundTrack_Extraction.ogg");
 	audiotest.playBgm();
@@ -209,42 +230,26 @@ int main(int argc, char** argv) {
 
     World::setGameScreen(screen);
 
-    Logger::startTimer("bootDesktop");
-    
 	//Main Loops for each Desktops
 	World::setCurrDesktop(*bootDesktop);
 	runBootDesktop(*bootDesktop);
     while (World::runDesktop(*bootDesktop)) {}
 	delete bootDesktop;
 
-    Logger::endTimer("bootDesktop");
-    Logger::startTimer("playerDesktop");
-
 	World::setCurrDesktop(*playerDesktop);
 	runPlayerDesktop(*playerDesktop);
 	while (World::runDesktop(*playerDesktop)) {}
 	delete playerDesktop;
-
-    Logger::endTimer("playerDesktop");
-    Logger::startTimer("targetDesktop");
 
 	World::setCurrDesktop(*targetDesktop);
 	runTargetDesktop(*targetDesktop);
 	while (World::runDesktop(*targetDesktop)) {}
 	delete targetDesktop;
 
-    Logger::endTimer("targetDesktop");
-    Logger::startTimer("endDesktop");
-
 	World::setCurrDesktop(*endDesktop);
 	runEndDesktop(*endDesktop);
     while (World::runDesktop(*endDesktop)) {}
-    delete endDesktop;
-
-    Logger::endTimer("endDesktop");
-
-    Logger::exportParcels();
-	
+	*/
 
     return EXIT_SUCCESS;
 }

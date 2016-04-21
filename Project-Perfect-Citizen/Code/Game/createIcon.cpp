@@ -7,6 +7,7 @@
 #include "../Engine/debug.h"
 #include "createIcon.h"
 #include "../Game/emailExtraction.hpp"
+#include "notifcationRenderComponent.h"
 using namespace ppc;
 
 void ppc::spawnFolderIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed, ppc::Inbox* inbox) {
@@ -287,6 +288,12 @@ void ppc::spawnEmailIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, 
 	IconRender->renderPosition(sf::Vector2f(x, y));
     IconRender->setButtonType("ICON");
 
+
+    ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
+    ppc::NotificationObserver* test = &notiRenderComp->getNotiObserver();
+    dT.getInbox().getInboxSubject().addObserver(test);
+    notiRenderComp->setPosition({ x, y });
+
 	// Animator (Update) Component ///
 	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
 
@@ -298,6 +305,7 @@ void ppc::spawnEmailIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, 
 	entityToModify.addComponent(animator);
 	entityToModify.addComponent(mpbIcon);
 	entityToModify.addComponent(iconInputComp);
+    entityToModify.addComponent(notiRenderComp);
 
 }
 

@@ -37,6 +37,7 @@ void spawnBackButton(databaseSearchInputComponent* db, ppc::Entity& entityToModi
 
 
 void spawnStartButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
+
 	ButtonBuilder builder;
 	builder.setButtonPosition(sf::Vector2f(x, y));
 	builder.setInputHandle(ih);
@@ -88,17 +89,6 @@ void spawnNetworkOkayButton(ppc::Network* nw, ppc::Entity& entityToModify, ppc::
 
 	createWithEventFunc<NetworkCheckFunctor>(builder, entityToModify, ncf, &(ppc::runSubmitCheck));
 	
-	/* LEGACY CODE, UNCOMMENT TO REVERT */
-	/*buttonRenderComponent* buttonRender = new buttonRenderComponent(spritesheet, 0, 2, 2, 1);
-	buttonRender->setImageScale(size, size);
-	buttonRender->renderPosition(sf::Vector2f(x, y));
-
-	mousePressButton* mpb = new mousePressButton(ih, buttonRender->getSprite()->getGlobalBounds(), "okayButton");
-
-	setOnPress(mpb, ncf, &(ppc::runSubmitCheck));
-
-	entityToModify.addComponent(buttonRender);
-	entityToModify.addComponent(mpb);*/
 }
 
 void spawnConfirmedIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
@@ -171,7 +161,7 @@ bool ppc::displayFloppy(FloppyInputComponent* ptr, Event ev) {
     ppc::Event ppcEv(ev);
     ppcEv.type = ppc::Event::FloppyType;
     ppcEv.floppy.sequence = 0;
-    ppcEv.floppy.frame = 1;
+    ppcEv.floppy.frame = 0;
     summonFloppyDialog(ptr, ppcEv);
     return true;
 }

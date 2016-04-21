@@ -2,14 +2,10 @@
 
 #include <SFML/Graphics.hpp>
 #include <array>
-
+#include <vector>
 #include "../Engine/inputComponent.h"
-#include "../Engine/InputHandler.h"
-#include "../Engine/Entity.h"
-#include "../Engine/subject.h"
-#include "../Engine/FunctionObserver.h"
-#include "../Engine/FreeFunctionObserver.h"
-#include "../Engine/debug.h"
+#include "../Engine/event.h"
+
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Input Component for a Floppy
@@ -32,6 +28,20 @@ namespace ppc {
 		virtual ~FloppyInputComponent();
 
 		static std::vector<std::vector<std::pair<std::string, unsigned int>>> floppyDictionary;
+
+		///////////////////////////////////////////////////////////////////////
+		/// Map of Floppy Sequence names to integers
+		///////////////////////////////////////////////////////////////////////
+		static std::map<std::string, unsigned int> Floppy_Sequence_Names;
+		    /*{"Welcome", 0},
+			{"Connections", 1},
+			{"Edges", 2},
+			{"Goal", 3},
+			{"Suspicion", 4},
+			{"Center", 5},
+			{"Feedback", 6}*/
+
+        static bool initialized;
 		
 		///////////////////////////////////////////////////////////////////////
 		/// Basic Getters
@@ -59,6 +69,8 @@ namespace ppc {
 		void regressSequence();
         
         virtual bool registerInput(sf::Event ev) override;
+
+
 
 
 	};
