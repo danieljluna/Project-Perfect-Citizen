@@ -152,27 +152,6 @@
 		E94886591CC6F42A00DFC68A /* micross.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E94886341CC6F42A00DFC68A /* micross.ttf */; };
 		E948865A1CC6F42A00DFC68A /* VT323-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E94886351CC6F42A00DFC68A /* VT323-Regular.ttf */; };
 		E948865B1CC6F42A00DFC68A /* Notification_Prompt.wav in Resources */ = {isa = PBXBuildFile; fileRef = E94886361CC6F42A00DFC68A /* Notification_Prompt.wav */; };
-		E95165BD1CC8B1A80027ADC4 /* 17391.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95165A81CC8B1A80027ADC4 /* 17391.jpg */; };
-		E95165BE1CC8B1A80027ADC4 /* 3D_printer_3000.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95165A91CC8B1A80027ADC4 /* 3D_printer_3000.jpg */; };
-		E95165BF1CC8B1A80027ADC4 /* blueprint.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95165AA1CC8B1A80027ADC4 /* blueprint.jpg */; };
-		E95165C01CC8B1A80027ADC4 /* blueprint_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95165AB1CC8B1A80027ADC4 /* blueprint_4.jpg */; };
-		E95165C11CC8B1A80027ADC4 /* blueprint_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95165AC1CC8B1A80027ADC4 /* blueprint_7.jpg */; };
-		E95165C21CC8B1A80027ADC4 /* blueprint_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95165AD1CC8B1A80027ADC4 /* blueprint_9.jpg */; };
-		E95165C31CC8B1A80027ADC4 /* bomb_prospect.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95165AE1CC8B1A80027ADC4 /* bomb_prospect.jpg */; };
-		E95165C41CC8B1A80027ADC4 /* burnt1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95165AF1CC8B1A80027ADC4 /* burnt1.jpg */; };
-		E95165C51CC8B1A80027ADC4 /* current_collection.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95165B01CC8B1A80027ADC4 /* current_collection.jpg */; };
-		E95165C61CC8B1A80027ADC4 /* explosives_permit.txt in Resources */ = {isa = PBXBuildFile; fileRef = E95165B11CC8B1A80027ADC4 /* explosives_permit.txt */; };
-		E95165C71CC8B1A80027ADC4 /* fireperm.txt in Resources */ = {isa = PBXBuildFile; fileRef = E95165B21CC8B1A80027ADC4 /* fireperm.txt */; };
-		E95165C81CC8B1A80027ADC4 /* Grocery Reminder!.txt in Resources */ = {isa = PBXBuildFile; fileRef = E95165B31CC8B1A80027ADC4 /* Grocery Reminder!.txt */; };
-		E95165C91CC8B1A80027ADC4 /* Jazz-Fusion Meeting.txt in Resources */ = {isa = PBXBuildFile; fileRef = E95165B41CC8B1A80027ADC4 /* Jazz-Fusion Meeting.txt */; };
-		E95165CA1CC8B1A80027ADC4 /* liberator_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95165B51CC8B1A80027ADC4 /* liberator_1.jpg */; };
-		E95165CB1CC8B1A80027ADC4 /* Overview.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95165B61CC8B1A80027ADC4 /* Overview.jpg */; };
-		E95165CC1CC8B1A80027ADC4 /* printable_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95165B71CC8B1A80027ADC4 /* printable_5.jpg */; };
-		E95165CD1CC8B1A80027ADC4 /* route_plan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95165B81CC8B1A80027ADC4 /* route_plan.jpg */; };
-		E95165CE1CC8B1A80027ADC4 /* Sexy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95165B91CC8B1A80027ADC4 /* Sexy.jpg */; };
-		E95165CF1CC8B1A80027ADC4 /* Sterling_SMG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95165BA1CC8B1A80027ADC4 /* Sterling_SMG.jpg */; };
-		E95165D01CC8B1A80027ADC4 /* The_plan.txt in Resources */ = {isa = PBXBuildFile; fileRef = E95165BB1CC8B1A80027ADC4 /* The_plan.txt */; };
-		E95165D11CC8B1A80027ADC4 /* Thompson.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E95165BC1CC8B1A80027ADC4 /* Thompson.jpg */; };
 		E9A58B871CC81AD500A59A6F /* AudioLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A58B2A1CC81AD500A59A6F /* AudioLocator.cpp */; };
 		E9A58B881CC81AD500A59A6F /* AudioLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A58B2C1CC81AD500A59A6F /* AudioLogger.cpp */; };
 		E9A58B891CC81AD500A59A6F /* AudioQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A58B2E1CC81AD500A59A6F /* AudioQueue.cpp */; };
@@ -295,6 +274,29 @@
 		E9A58C931CC83D2800A59A6F /* desktop0.ini in Resources */ = {isa = PBXBuildFile; fileRef = E9A58C901CC83D2800A59A6F /* desktop0.ini */; };
 		E9A58C941CC83D2800A59A6F /* desktop1.ini in Resources */ = {isa = PBXBuildFile; fileRef = E9A58C911CC83D2800A59A6F /* desktop1.ini */; };
 		E9A58C951CC83D2800A59A6F /* playerDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E9A58C921CC83D2800A59A6F /* playerDesktop.ini */; };
+		E9AC1C961CC95E1700A7955F /* 17391.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C7F1CC95E1700A7955F /* 17391.jpg */; };
+		E9AC1C971CC95E1700A7955F /* 3D_printer_3000.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C801CC95E1700A7955F /* 3D_printer_3000.jpg */; };
+		E9AC1C981CC95E1700A7955F /* blueprint.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C811CC95E1700A7955F /* blueprint.jpg */; };
+		E9AC1C991CC95E1700A7955F /* blueprint_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C821CC95E1700A7955F /* blueprint_4.jpg */; };
+		E9AC1C9A1CC95E1700A7955F /* blueprint_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C831CC95E1700A7955F /* blueprint_7.jpg */; };
+		E9AC1C9B1CC95E1700A7955F /* blueprint_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C841CC95E1700A7955F /* blueprint_9.jpg */; };
+		E9AC1C9C1CC95E1700A7955F /* bomb_prospect.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C851CC95E1700A7955F /* bomb_prospect.jpg */; };
+		E9AC1C9D1CC95E1700A7955F /* burnt1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C861CC95E1700A7955F /* burnt1.jpg */; };
+		E9AC1C9E1CC95E1700A7955F /* current_collection.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C871CC95E1700A7955F /* current_collection.jpg */; };
+		E9AC1C9F1CC95E1700A7955F /* explosives_permit.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C881CC95E1700A7955F /* explosives_permit.txt */; };
+		E9AC1CA01CC95E1700A7955F /* fireperm.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C891CC95E1700A7955F /* fireperm.txt */; };
+		E9AC1CA11CC95E1700A7955F /* Grocery Reminder!.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C8A1CC95E1700A7955F /* Grocery Reminder!.txt */; };
+		E9AC1CA21CC95E1700A7955F /* interconnect-wiring.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C8B1CC95E1700A7955F /* interconnect-wiring.jpg */; };
+		E9AC1CA31CC95E1700A7955F /* Jazz-Fusion Meeting.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C8C1CC95E1700A7955F /* Jazz-Fusion Meeting.txt */; };
+		E9AC1CA41CC95E1700A7955F /* liberator_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C8D1CC95E1700A7955F /* liberator_1.jpg */; };
+		E9AC1CA51CC95E1700A7955F /* Overview.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C8E1CC95E1700A7955F /* Overview.jpg */; };
+		E9AC1CA61CC95E1700A7955F /* printable_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C8F1CC95E1700A7955F /* printable_5.jpg */; };
+		E9AC1CA71CC95E1700A7955F /* route_plan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C901CC95E1700A7955F /* route_plan.jpg */; };
+		E9AC1CA81CC95E1700A7955F /* Sexy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C911CC95E1700A7955F /* Sexy.jpg */; };
+		E9AC1CA91CC95E1700A7955F /* Sterling_SMG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C921CC95E1700A7955F /* Sterling_SMG.jpg */; };
+		E9AC1CAA1CC95E1700A7955F /* The_plan.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C931CC95E1700A7955F /* The_plan.txt */; };
+		E9AC1CAB1CC95E1700A7955F /* Thompson.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C941CC95E1700A7955F /* Thompson.jpg */; };
+		E9AC1CAC1CC95E1700A7955F /* VAR_1213_Schematic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C951CC95E1700A7955F /* VAR_1213_Schematic.jpg */; };
 		E9E1F5921C91F506006AE0FB /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5301C91F506006AE0FB /* DoxygenHelp.txt */; };
 		E9E1F5931C91F506006AE0FB /* LinkHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5311C91F506006AE0FB /* LinkHelp.txt */; };
 		E9E1F5E01C91F506006AE0FB /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5811C91F506006AE0FB /* EngineSettings.ini */; };
@@ -451,27 +453,6 @@
 		E94886351CC6F42A00DFC68A /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VT323-Regular.ttf"; sourceTree = "<group>"; };
 		E94886361CC6F42A00DFC68A /* Notification_Prompt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Notification_Prompt.wav; sourceTree = "<group>"; };
 		E94A30361CC6EA9D00907AD9 /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
-		E95165A81CC8B1A80027ADC4 /* 17391.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 17391.jpg; sourceTree = "<group>"; };
-		E95165A91CC8B1A80027ADC4 /* 3D_printer_3000.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3D_printer_3000.jpg; sourceTree = "<group>"; };
-		E95165AA1CC8B1A80027ADC4 /* blueprint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueprint.jpg; sourceTree = "<group>"; };
-		E95165AB1CC8B1A80027ADC4 /* blueprint_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueprint_4.jpg; sourceTree = "<group>"; };
-		E95165AC1CC8B1A80027ADC4 /* blueprint_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueprint_7.jpg; sourceTree = "<group>"; };
-		E95165AD1CC8B1A80027ADC4 /* blueprint_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueprint_9.jpg; sourceTree = "<group>"; };
-		E95165AE1CC8B1A80027ADC4 /* bomb_prospect.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bomb_prospect.jpg; sourceTree = "<group>"; };
-		E95165AF1CC8B1A80027ADC4 /* burnt1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = burnt1.jpg; sourceTree = "<group>"; };
-		E95165B01CC8B1A80027ADC4 /* current_collection.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = current_collection.jpg; sourceTree = "<group>"; };
-		E95165B11CC8B1A80027ADC4 /* explosives_permit.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = explosives_permit.txt; sourceTree = "<group>"; };
-		E95165B21CC8B1A80027ADC4 /* fireperm.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fireperm.txt; sourceTree = "<group>"; };
-		E95165B31CC8B1A80027ADC4 /* Grocery Reminder!.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Grocery Reminder!.txt"; sourceTree = "<group>"; };
-		E95165B41CC8B1A80027ADC4 /* Jazz-Fusion Meeting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Jazz-Fusion Meeting.txt"; sourceTree = "<group>"; };
-		E95165B51CC8B1A80027ADC4 /* liberator_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = liberator_1.jpg; sourceTree = "<group>"; };
-		E95165B61CC8B1A80027ADC4 /* Overview.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Overview.jpg; sourceTree = "<group>"; };
-		E95165B71CC8B1A80027ADC4 /* printable_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = printable_5.jpg; sourceTree = "<group>"; };
-		E95165B81CC8B1A80027ADC4 /* route_plan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = route_plan.jpg; sourceTree = "<group>"; };
-		E95165B91CC8B1A80027ADC4 /* Sexy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sexy.jpg; sourceTree = "<group>"; };
-		E95165BA1CC8B1A80027ADC4 /* Sterling_SMG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sterling_SMG.jpg; sourceTree = "<group>"; };
-		E95165BB1CC8B1A80027ADC4 /* The_plan.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = The_plan.txt; sourceTree = "<group>"; };
-		E95165BC1CC8B1A80027ADC4 /* Thompson.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Thompson.jpg; sourceTree = "<group>"; };
 		E9A58B291CC81AD500A59A6F /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
 		E9A58B2A1CC81AD500A59A6F /* AudioLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioLocator.cpp; sourceTree = "<group>"; };
 		E9A58B2B1CC81AD500A59A6F /* AudioLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioLocator.h; sourceTree = "<group>"; };
@@ -710,6 +691,29 @@
 		E9A58C901CC83D2800A59A6F /* desktop0.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = desktop0.ini; sourceTree = "<group>"; };
 		E9A58C911CC83D2800A59A6F /* desktop1.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = desktop1.ini; sourceTree = "<group>"; };
 		E9A58C921CC83D2800A59A6F /* playerDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = playerDesktop.ini; sourceTree = "<group>"; };
+		E9AC1C7F1CC95E1700A7955F /* 17391.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 17391.jpg; sourceTree = "<group>"; };
+		E9AC1C801CC95E1700A7955F /* 3D_printer_3000.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3D_printer_3000.jpg; sourceTree = "<group>"; };
+		E9AC1C811CC95E1700A7955F /* blueprint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueprint.jpg; sourceTree = "<group>"; };
+		E9AC1C821CC95E1700A7955F /* blueprint_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueprint_4.jpg; sourceTree = "<group>"; };
+		E9AC1C831CC95E1700A7955F /* blueprint_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueprint_7.jpg; sourceTree = "<group>"; };
+		E9AC1C841CC95E1700A7955F /* blueprint_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueprint_9.jpg; sourceTree = "<group>"; };
+		E9AC1C851CC95E1700A7955F /* bomb_prospect.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bomb_prospect.jpg; sourceTree = "<group>"; };
+		E9AC1C861CC95E1700A7955F /* burnt1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = burnt1.jpg; sourceTree = "<group>"; };
+		E9AC1C871CC95E1700A7955F /* current_collection.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = current_collection.jpg; sourceTree = "<group>"; };
+		E9AC1C881CC95E1700A7955F /* explosives_permit.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = explosives_permit.txt; sourceTree = "<group>"; };
+		E9AC1C891CC95E1700A7955F /* fireperm.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fireperm.txt; sourceTree = "<group>"; };
+		E9AC1C8A1CC95E1700A7955F /* Grocery Reminder!.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Grocery Reminder!.txt"; sourceTree = "<group>"; };
+		E9AC1C8B1CC95E1700A7955F /* interconnect-wiring.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "interconnect-wiring.jpg"; sourceTree = "<group>"; };
+		E9AC1C8C1CC95E1700A7955F /* Jazz-Fusion Meeting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Jazz-Fusion Meeting.txt"; sourceTree = "<group>"; };
+		E9AC1C8D1CC95E1700A7955F /* liberator_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = liberator_1.jpg; sourceTree = "<group>"; };
+		E9AC1C8E1CC95E1700A7955F /* Overview.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Overview.jpg; sourceTree = "<group>"; };
+		E9AC1C8F1CC95E1700A7955F /* printable_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = printable_5.jpg; sourceTree = "<group>"; };
+		E9AC1C901CC95E1700A7955F /* route_plan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = route_plan.jpg; sourceTree = "<group>"; };
+		E9AC1C911CC95E1700A7955F /* Sexy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sexy.jpg; sourceTree = "<group>"; };
+		E9AC1C921CC95E1700A7955F /* Sterling_SMG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sterling_SMG.jpg; sourceTree = "<group>"; };
+		E9AC1C931CC95E1700A7955F /* The_plan.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = The_plan.txt; sourceTree = "<group>"; };
+		E9AC1C941CC95E1700A7955F /* Thompson.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Thompson.jpg; sourceTree = "<group>"; };
+		E9AC1C951CC95E1700A7955F /* VAR_1213_Schematic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = VAR_1213_Schematic.jpg; sourceTree = "<group>"; };
 		E9E1F5301C91F506006AE0FB /* DoxygenHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoxygenHelp.txt; sourceTree = "<group>"; };
 		E9E1F5311C91F506006AE0FB /* LinkHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LinkHelp.txt; sourceTree = "<group>"; };
 		E9E1F5811C91F506006AE0FB /* EngineSettings.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EngineSettings.ini; sourceTree = "<group>"; };
@@ -1057,7 +1061,7 @@
 		E948853C1CC6F3F600DFC68A /* DesktopContent */ = {
 			isa = PBXGroup;
 			children = (
-				E95165A71CC8B1A80027ADC4 /* Desktop0 */,
+				E9AC1C7E1CC95E1700A7955F /* Desktop0 */,
 				E948853D1CC6F3F600DFC68A /* Desktop1 */,
 			);
 			path = DesktopContent;
@@ -1176,34 +1180,6 @@
 			path = Desktop1;
 			sourceTree = "<group>";
 		};
-		E95165A71CC8B1A80027ADC4 /* Desktop0 */ = {
-			isa = PBXGroup;
-			children = (
-				E95165A81CC8B1A80027ADC4 /* 17391.jpg */,
-				E95165A91CC8B1A80027ADC4 /* 3D_printer_3000.jpg */,
-				E95165AA1CC8B1A80027ADC4 /* blueprint.jpg */,
-				E95165AB1CC8B1A80027ADC4 /* blueprint_4.jpg */,
-				E95165AC1CC8B1A80027ADC4 /* blueprint_7.jpg */,
-				E95165AD1CC8B1A80027ADC4 /* blueprint_9.jpg */,
-				E95165AE1CC8B1A80027ADC4 /* bomb_prospect.jpg */,
-				E95165AF1CC8B1A80027ADC4 /* burnt1.jpg */,
-				E95165B01CC8B1A80027ADC4 /* current_collection.jpg */,
-				E95165B11CC8B1A80027ADC4 /* explosives_permit.txt */,
-				E95165B21CC8B1A80027ADC4 /* fireperm.txt */,
-				E95165B31CC8B1A80027ADC4 /* Grocery Reminder!.txt */,
-				E95165B41CC8B1A80027ADC4 /* Jazz-Fusion Meeting.txt */,
-				E95165B51CC8B1A80027ADC4 /* liberator_1.jpg */,
-				E95165B61CC8B1A80027ADC4 /* Overview.jpg */,
-				E95165B71CC8B1A80027ADC4 /* printable_5.jpg */,
-				E95165B81CC8B1A80027ADC4 /* route_plan.jpg */,
-				E95165B91CC8B1A80027ADC4 /* Sexy.jpg */,
-				E95165BA1CC8B1A80027ADC4 /* Sterling_SMG.jpg */,
-				E95165BB1CC8B1A80027ADC4 /* The_plan.txt */,
-				E95165BC1CC8B1A80027ADC4 /* Thompson.jpg */,
-			);
-			path = Desktop0;
-			sourceTree = "<group>";
-		};
 		E9A58B281CC81AD500A59A6F /* Audio */ = {
 			isa = PBXGroup;
 			children = (
@@ -1248,6 +1224,36 @@
 				E9A58C921CC83D2800A59A6F /* playerDesktop.ini */,
 			);
 			path = Saves;
+			sourceTree = "<group>";
+		};
+		E9AC1C7E1CC95E1700A7955F /* Desktop0 */ = {
+			isa = PBXGroup;
+			children = (
+				E9AC1C801CC95E1700A7955F /* 3D_printer_3000.jpg */,
+				E9AC1C7F1CC95E1700A7955F /* 17391.jpg */,
+				E9AC1C821CC95E1700A7955F /* blueprint_4.jpg */,
+				E9AC1C831CC95E1700A7955F /* blueprint_7.jpg */,
+				E9AC1C841CC95E1700A7955F /* blueprint_9.jpg */,
+				E9AC1C811CC95E1700A7955F /* blueprint.jpg */,
+				E9AC1C851CC95E1700A7955F /* bomb_prospect.jpg */,
+				E9AC1C861CC95E1700A7955F /* burnt1.jpg */,
+				E9AC1C871CC95E1700A7955F /* current_collection.jpg */,
+				E9AC1C8B1CC95E1700A7955F /* interconnect-wiring.jpg */,
+				E9AC1C8D1CC95E1700A7955F /* liberator_1.jpg */,
+				E9AC1C8E1CC95E1700A7955F /* Overview.jpg */,
+				E9AC1C8F1CC95E1700A7955F /* printable_5.jpg */,
+				E9AC1C901CC95E1700A7955F /* route_plan.jpg */,
+				E9AC1C911CC95E1700A7955F /* Sexy.jpg */,
+				E9AC1C921CC95E1700A7955F /* Sterling_SMG.jpg */,
+				E9AC1C941CC95E1700A7955F /* Thompson.jpg */,
+				E9AC1C951CC95E1700A7955F /* VAR_1213_Schematic.jpg */,
+				E9AC1C881CC95E1700A7955F /* explosives_permit.txt */,
+				E9AC1C891CC95E1700A7955F /* fireperm.txt */,
+				E9AC1C8A1CC95E1700A7955F /* Grocery Reminder!.txt */,
+				E9AC1C8C1CC95E1700A7955F /* Jazz-Fusion Meeting.txt */,
+				E9AC1C931CC95E1700A7955F /* The_plan.txt */,
+			);
+			path = Desktop0;
 			sourceTree = "<group>";
 		};
 		E9E1F52F1C91F506006AE0FB /* Coding Reference */ = {
@@ -1328,7 +1334,8 @@
 				E94885F61CC6F3F600DFC68A /* ms1.jpg in Resources */,
 				E94885C41CC6F3F600DFC68A /* Baptism_2.jpg in Resources */,
 				E94885E51CC6F3F600DFC68A /* Fallen5.jpg in Resources */,
-				E95165C41CC8B1A80027ADC4 /* burnt1.jpg in Resources */,
+				E9AC1CA61CC95E1700A7955F /* printable_5.jpg in Resources */,
+				E9AC1C9D1CC95E1700A7955F /* burnt1.jpg in Resources */,
 				E94885DF1CC6F3F600DFC68A /* Doubt9.jpg in Resources */,
 				E94885EC1CC6F3F600DFC68A /* high_school_classroom.preview.jpg in Resources */,
 				E9A58B931CC81AD500A59A6F /* Notification_New.wav in Resources */,
@@ -1345,11 +1352,11 @@
 				E948864E1CC6F42A00DFC68A /* kappa.png in Resources */,
 				E9A58B8D1CC81AD500A59A6F /* gunshot.ogg in Resources */,
 				E94886481CC6F42A00DFC68A /* PipelineTutorial.txt in Resources */,
-				E95165CB1CC8B1A80027ADC4 /* Overview.jpg in Resources */,
 				E94886411CC6F42A00DFC68A /* smsPipeline.json in Resources */,
 				E94886451CC6F42A00DFC68A /* SoundTrack_Pipeline.ogg in Resources */,
 				E9A58B911CC81AD500A59A6F /* New_Email.wav in Resources */,
 				E94885FF1CC6F3F600DFC68A /* NewCrowd42Fragment.jpg in Resources */,
+				E9AC1CA71CC95E1700A7955F /* route_plan.jpg in Resources */,
 				E94885DA1CC6F3F600DFC68A /* Doubt15.jpg in Resources */,
 				E94885DC1CC6F3F600DFC68A /* Doubt2.jpg in Resources */,
 				E94886461CC6F42A00DFC68A /* first.txt in Resources */,
@@ -1361,6 +1368,7 @@
 				E94886581CC6F42A00DFC68A /* consola.ttf in Resources */,
 				E94886041CC6F3F600DFC68A /* Photo_shoot.jpg in Resources */,
 				E94886071CC6F3F600DFC68A /* road-trip3.jpg in Resources */,
+				E9AC1CAA1CC95E1700A7955F /* The_plan.txt in Resources */,
 				E94886421CC6F42A00DFC68A /* suspiciontest.json in Resources */,
 				E94885D81CC6F3F600DFC68A /* Doubt1.jpg in Resources */,
 				E94886511CC6F42A00DFC68A /* Teacher_Icon_Sheet2.png in Resources */,
@@ -1371,22 +1379,24 @@
 				E94885B51CC6F3F600DFC68A /* 4065.jpg in Resources */,
 				E94885E41CC6F3F600DFC68A /* Fallen2.jpg in Resources */,
 				E94885E01CC6F3F600DFC68A /* driving-sea-to-sky-highway.jpg in Resources */,
-				E95165BE1CC8B1A80027ADC4 /* 3D_printer_3000.jpg in Resources */,
+				E9AC1C971CC95E1700A7955F /* 3D_printer_3000.jpg in Resources */,
 				E94885DD1CC6F3F600DFC68A /* Doubt3.jpg in Resources */,
 				E94885E71CC6F3F600DFC68A /* Family_Tree.txt in Resources */,
 				E94886391CC6F42A00DFC68A /* Desktop0.json in Resources */,
 				E94885F91CC6F3F600DFC68A /* New+Crowd39.jpg in Resources */,
+				E9AC1CA91CC95E1700A7955F /* Sterling_SMG.jpg in Resources */,
 				E9A58C951CC83D2800A59A6F /* playerDesktop.ini in Resources */,
 				E94885F21CC6F3F600DFC68A /* Leila-crowded-classrooms.jpg in Resources */,
 				E94885F81CC6F3F600DFC68A /* Myth of Sisyphus by Albert Camus.txt in Resources */,
 				E94886501CC6F42A00DFC68A /* Teacher_Icon_Sheet.png in Resources */,
+				E9AC1CAB1CC95E1700A7955F /* Thompson.jpg in Resources */,
 				E94885FE1CC6F3F600DFC68A /* NewCrowd38Fragment.jpg in Resources */,
 				E94885C01CC6F3F600DFC68A /* As I Lay Dying - Faulkner.txt in Resources */,
 				E94885F71CC6F3F600DFC68A /* mulvey-visualpleasure.txt in Resources */,
 				E94886111CC6F3F600DFC68A /* The_Scarlet_Letter.txt in Resources */,
 				E94885A91CC6F3F600DFC68A /* 11062011img47161.jpg in Resources */,
+				E9AC1CA21CC95E1700A7955F /* interconnect-wiring.jpg in Resources */,
 				E94886531CC6F42A00DFC68A /* Toolbar_Icons.png in Resources */,
-				E95165CA1CC8B1A80027ADC4 /* liberator_1.jpg in Resources */,
 				E94885EA1CC6F3F600DFC68A /* Fragment+Of+Eternity.jpg in Resources */,
 				E9E1F5921C91F506006AE0FB /* DoxygenHelp.txt in Resources */,
 				E948863B1CC6F42A00DFC68A /* Desktop2.json in Resources */,
@@ -1394,11 +1404,11 @@
 				E94885D41CC6F3F600DFC68A /* Crowd35.jpg in Resources */,
 				E94885A81CC6F3F600DFC68A /* 1-24-08-182.jpg in Resources */,
 				E94886471CC6F42A00DFC68A /* last.txt in Resources */,
-				E95165C01CC8B1A80027ADC4 /* blueprint_4.jpg in Resources */,
+				E9AC1C991CC95E1700A7955F /* blueprint_4.jpg in Resources */,
 				E94885E61CC6F3F600DFC68A /* Fallen7.jpg in Resources */,
 				E94885DE1CC6F3F600DFC68A /* Doubt6.jpg in Resources */,
 				E94886551CC6F42A00DFC68A /* Wallpaper2.png in Resources */,
-				E95165BF1CC8B1A80027ADC4 /* blueprint.jpg in Resources */,
+				E9AC1C981CC95E1700A7955F /* blueprint.jpg in Resources */,
 				E94885B21CC6F3F600DFC68A /* 4-24-08-152.jpg in Resources */,
 				E94885C11CC6F3F600DFC68A /* At_the_river.jpg in Resources */,
 				E9A58B8C1CC81AD500A59A6F /* Chat_Sent.wav in Resources */,
@@ -1406,13 +1416,14 @@
 				E948865A1CC6F42A00DFC68A /* VT323-Regular.ttf in Resources */,
 				E94885C51CC6F3F600DFC68A /* Baptism_in_a_Catholic_Church.jpg in Resources */,
 				E9E1F5931C91F506006AE0FB /* LinkHelp.txt in Resources */,
+				E9AC1CA81CC95E1700A7955F /* Sexy.jpg in Resources */,
 				E948864F1CC6F42A00DFC68A /* Pixel_Title.png in Resources */,
 				E94885CE1CC6F3F600DFC68A /* Crowd2.jpg in Resources */,
 				E94885FB1CC6F3F600DFC68A /* New_bed_2.jpg in Resources */,
 				E9A58B8E1CC81AD500A59A6F /* gunshots.wav in Resources */,
+				E9AC1CAC1CC95E1700A7955F /* VAR_1213_Schematic.jpg in Resources */,
 				E94886441CC6F42A00DFC68A /* SoundTrack_Extraction.ogg in Resources */,
 				E9A58C931CC83D2800A59A6F /* desktop0.ini in Resources */,
-				E95165D01CC8B1A80027ADC4 /* The_plan.txt in Resources */,
 				E94885C71CC6F3F600DFC68A /* Bluebird by Charles Bukowski.txt in Resources */,
 				E94885FD1CC6F3F600DFC68A /* NewCrowd38.jpg in Resources */,
 				E948864B1CC6F42A00DFC68A /* Floppy_Sheet.png in Resources */,
@@ -1425,16 +1436,15 @@
 				E94885D51CC6F3F600DFC68A /* Crowd7.jpg in Resources */,
 				E948860C1CC6F3F600DFC68A /* skillsstill.jpg in Resources */,
 				E94885C61CC6F3F600DFC68A /* bataille_story_of_eye.txt in Resources */,
-				E95165BD1CC8B1A80027ADC4 /* 17391.jpg in Resources */,
+				E9AC1C961CC95E1700A7955F /* 17391.jpg in Resources */,
+				E9AC1CA51CC95E1700A7955F /* Overview.jpg in Resources */,
 				E94885E11CC6F3F600DFC68A /* Epidemic-2.jpg in Resources */,
 				E94885BD1CC6F3F600DFC68A /* 8444505634_646117787e.jpg in Resources */,
 				E94886001CC6F3F600DFC68A /* NewCrowd46.jpg in Resources */,
-				E95165CF1CC8B1A80027ADC4 /* Sterling_SMG.jpg in Resources */,
 				E94886401CC6F42A00DFC68A /* PlayerEmail.json in Resources */,
-				E95165CE1CC8B1A80027ADC4 /* Sexy.jpg in Resources */,
-				E95165C11CC8B1A80027ADC4 /* blueprint_7.jpg in Resources */,
+				E9AC1C9A1CC95E1700A7955F /* blueprint_7.jpg in Resources */,
 				E94885C31CC6F3F600DFC68A /* baptism-st-thomas.jpg in Resources */,
-				E95165C31CC8B1A80027ADC4 /* bomb_prospect.jpg in Resources */,
+				E9AC1C9C1CC95E1700A7955F /* bomb_prospect.jpg in Resources */,
 				E94886491CC6F42A00DFC68A /* TestDialogue.txt in Resources */,
 				E94885D91CC6F3F600DFC68A /* Doubt11.jpg in Resources */,
 				E94885C91CC6F3F600DFC68A /* CatcherInTheRye - Salinger.txt in Resources */,
@@ -1445,13 +1455,13 @@
 				E94886081CC6F3F600DFC68A /* road_trip.jpg in Resources */,
 				E948863F1CC6F42A00DFC68A /* PlayerDesktop.json in Resources */,
 				E94885D71CC6F3F600DFC68A /* Donne - Med 17.txt in Resources */,
+				E9AC1CA41CC95E1700A7955F /* liberator_1.jpg in Resources */,
 				E94886091CC6F3F600DFC68A /* rooney_pick_up.jpg in Resources */,
 				E94885E21CC6F3F600DFC68A /* EternalStation.jpg in Resources */,
-				E95165CC1CC8B1A80027ADC4 /* printable_5.jpg in Resources */,
 				E94885EB1CC6F3F600DFC68A /* Geek Love by Katherine Dunn - Ch1.txt in Resources */,
 				E9E1F5E01C91F506006AE0FB /* EngineSettings.ini in Resources */,
 				E948864D1CC6F42A00DFC68A /* Icon_Sheet2.png in Resources */,
-				E95165C21CC8B1A80027ADC4 /* blueprint_9.jpg in Resources */,
+				E9AC1C9B1CC95E1700A7955F /* blueprint_9.jpg in Resources */,
 				E94885B81CC6F3F600DFC68A /* 7-24-12-052.jpg in Resources */,
 				E94885BC1CC6F3F600DFC68A /* 8-9-11-0426.jpg in Resources */,
 				E948863C1CC6F42A00DFC68A /* Email0.json in Resources */,
@@ -1460,7 +1470,7 @@
 				E94885AC1CC6F3F600DFC68A /* 2-23-2011-213.jpg in Resources */,
 				E94885ED1CC6F3F600DFC68A /* House-party.jpg in Resources */,
 				E9A58B8B1CC81AD500A59A6F /* Chat_Recieved.wav in Resources */,
-				E95165C61CC8B1A80027ADC4 /* explosives_permit.txt in Resources */,
+				E9AC1C9F1CC95E1700A7955F /* explosives_permit.txt in Resources */,
 				E94885F31CC6F3F600DFC68A /* Lolita - Vladimir Nabokov.txt in Resources */,
 				E9A58B901CC81AD500A59A6F /* Mouse_Up.wav in Resources */,
 				E94885D31CC6F3F600DFC68A /* Crowd32.jpg in Resources */,
@@ -1471,17 +1481,16 @@
 				E94886591CC6F42A00DFC68A /* micross.ttf in Resources */,
 				E9A58B921CC81AD500A59A6F /* Notification_Bad.wav in Resources */,
 				E94885DB1CC6F3F600DFC68A /* Doubt16.jpg in Resources */,
-				E95165C81CC8B1A80027ADC4 /* Grocery Reminder!.txt in Resources */,
+				E9AC1CA11CC95E1700A7955F /* Grocery Reminder!.txt in Resources */,
 				E94886011CC6F3F600DFC68A /* NewCrowd52.jpg in Resources */,
 				E94885D11CC6F3F600DFC68A /* Crowd3.jpg in Resources */,
 				E948863D1CC6F42A00DFC68A /* Email1.json in Resources */,
 				E94885B71CC6F3F600DFC68A /* 6576.jpg in Resources */,
 				E94885AD1CC6F3F600DFC68A /* 3-29-12-184.jpg in Resources */,
 				E94886061CC6F3F600DFC68A /* Redwood_High_School,_Larkspur,_California.jpg in Resources */,
-				E95165CD1CC8B1A80027ADC4 /* route_plan.jpg in Resources */,
 				E948860A1CC6F3F600DFC68A /* rubidouxclassroom.jpg in Resources */,
 				E94885CD1CC6F3F600DFC68A /* Crowd16.jpg in Resources */,
-				E95165C51CC8B1A80027ADC4 /* current_collection.jpg in Resources */,
+				E9AC1C9E1CC95E1700A7955F /* current_collection.jpg in Resources */,
 				E9A58B8F1CC81AD500A59A6F /* Mouse_Down.wav in Resources */,
 				E948863A1CC6F42A00DFC68A /* Desktop1.json in Resources */,
 				E94885CF1CC6F3F600DFC68A /* Crowd21.jpg in Resources */,
@@ -1497,14 +1506,13 @@
 				E94886561CC6F42A00DFC68A /* Windows_Icons.png in Resources */,
 				E94885C81CC6F3F600DFC68A /* Catch 22 - Joseph Heller.txt in Resources */,
 				E94886381CC6F42A00DFC68A /* DE1PipelineTexts.json in Resources */,
+				E9AC1CA31CC95E1700A7955F /* Jazz-Fusion Meeting.txt in Resources */,
 				E948865B1CC6F42A00DFC68A /* Notification_Prompt.wav in Resources */,
-				E95165C91CC8B1A80027ADC4 /* Jazz-Fusion Meeting.txt in Resources */,
 				E94885AB1CC6F3F600DFC68A /* 2-20-09-431.jpg in Resources */,
-				E95165C71CC8B1A80027ADC4 /* fireperm.txt in Resources */,
+				E9AC1CA01CC95E1700A7955F /* fireperm.txt in Resources */,
 				E94885D01CC6F3F600DFC68A /* Crowd29.jpg in Resources */,
 				E94885B41CC6F3F600DFC68A /* 4-4-12-048.jpg in Resources */,
 				E94885E91CC6F3F600DFC68A /* FeastPDX_House.jpg in Resources */,
-				E95165D11CC8B1A80027ADC4 /* Thompson.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,6 +1,6 @@
 {
     "Desktop": {
-        "Dance_Coreography": {
+        "Dance": {
             "Jazz_Fusion_Meeting.txt" : "DesktopContent/Desktop0/Jazz-Fusion Meeting.txt"
         },
         "Groceries": {
@@ -8,7 +8,8 @@
         },
         "Terrorism": {
             "Bomb_Schematics" : {
-                "TODO" : "DesktopContent/Desktop0/Grocery Reminder!.txt"
+                "VAR_1213_Schematic.jpg" : "DesktopContent/Desktop0/VAR_1213_Schematic.jpg",
+                "interconnect-wiring.jpg" : "DesktopContent/Desktop0/interconnect-wiring.jpg"
             },
             "Notes" : {
                 "route_plan.jpg": "DesktopContent/Desktop0/route_plan.jpg",
@@ -29,22 +30,18 @@
             }
         },
         "Downloads": {
-            "3D_Bombs": {
-                "bomb_prospect.jpg" : "DesktopContent/Desktop0/bomb_prospect.jpg",
-                "blueprint.jpg" : "DesktopContent/Desktop0/blueprint.jpg"
-            },
-            "3D_Gun_Files": {
-                "blueprint_4.jpg" : "DesktopContent/Desktop0/blueprint_4.jpg",
-                "blueprint_7.jpg" : "DesktopContent/Desktop0/blueprint_7.jpg",
-                "blueprint_9.jpg" : "DesktopContent/Desktop0/blueprint_9.jpg",
-                "printable_5.jpg" : "DesktopContent/Desktop0/printable_5.jpg"
-            }
+            "bomb_prospect.jpg" : "DesktopContent/Desktop0/bomb_prospect.jpg",
+            "blueprint.jpg" : "DesktopContent/Desktop0/blueprint.jpg",
+            "blueprint_4.jpg" : "DesktopContent/Desktop0/blueprint_4.jpg",
+            "blueprint_7.jpg" : "DesktopContent/Desktop0/blueprint_7.jpg",
+            "blueprint_9.jpg" : "DesktopContent/Desktop0/blueprint_9.jpg",
+            "printable_5.jpg" : "DesktopContent/Desktop0/printable_5.jpg"
         },
         "Pictures": {
             "4_sale": {
                 "current_collection.jpg" : "DesktopContent/Desktop0/current_collection.jpg"
             },
-            "For_my_eyes_only": {
+            "Selfies": {
                 "Sexy.jpg" : "DesktopContent/Desktop0/Sexy.jpg"
             },
             "The_Babes": {
