@@ -44,7 +44,12 @@ void ppc::FloppyInputComponent::setFrame(unsigned int f) { frame = f; }
 
 void ppc::FloppyInputComponent::setSequence(unsigned int s) { sequence = s; }
 
-void ppc::FloppyInputComponent::advanceFrame() { frame++; }
+void ppc::FloppyInputComponent::advanceFrame() { 
+	frame++;
+
+	if (floppyDictionary.at(sequence).size() <= frame) frame = -1;
+
+}
 
 void ppc::FloppyInputComponent::regressFrame() { frame--;}
 
