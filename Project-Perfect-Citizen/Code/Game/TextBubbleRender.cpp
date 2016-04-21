@@ -46,6 +46,7 @@ void ppc::TextBubbleRender::recieveMessage(ppc::Event ev) {
 		if (j == -1) {
 			drawable_ = false;
 		} else {
+			drawable_ = true;
 			std::string s = 
 				FloppyInputComponent::floppyDictionary.at(i).at(j).first;
 			DEBUGF("tb", s)

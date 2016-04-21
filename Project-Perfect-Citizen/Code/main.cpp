@@ -134,9 +134,9 @@ int main(int argc, char** argv) {
 
 	//Dont touch these comments please.
 	
-	ifstream ifs1(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
-	Desktop testDesktop;
-	ifs1 >> testDesktop;
+	ifstream ifs1(resourcePath() + "Saves/tutorialDesktop.ini", std::ifstream::in);
+	Desktop tutorialDesktop;
+	ifs1 >> tutorialDesktop;
 	
 	bool BootToTitleCard = false; 
     // Create the main sf::window
@@ -144,8 +144,8 @@ int main(int argc, char** argv) {
 
 	//Dont touch these comments please.
 	World::setGameScreen(screen);
-	World::setCurrDesktop(testDesktop);
-	runPlayerDesktop(testDesktop);
+	World::setCurrDesktop(tutorialDesktop);
+	runPlayerDesktop(tutorialDesktop);
 	World::runCurrDesktop();
 
 	/*
