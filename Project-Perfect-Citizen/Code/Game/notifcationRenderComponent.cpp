@@ -15,7 +15,7 @@ ppc::notificationRenderComponent::notificationRenderComponent() :
     position_ = { 0, 0 };
 
 	//set up text
-	notificationText_ = sf::Text(std::to_string(5),
+	notificationText_ = sf::Text(std::to_string(4),
 		World::getFont(World::Consola),
 		11);
 	notificationText_.move(2.0f, -2.0f);
@@ -24,11 +24,14 @@ ppc::notificationRenderComponent::notificationRenderComponent() :
 
 void ppc::notificationRenderComponent::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
-	states.transform.translate(position_);
-	states.transform.scale(1.3, 1.3, 0, 0);
+	std::string tempString = notificationText_.getString();
+	if (std::stoi(tempString) != 0){
+		states.transform.translate(position_);
+		states.transform.scale(1.3, 1.3, 0, 0);
 
-	target.draw(badge_, states);
-	target.draw(notificationText_, states);
+		target.draw(badge_, states);
+		target.draw(notificationText_, states);
+	}
 }
 
 ppc::NotificationObserver & ppc::notificationRenderComponent::getNotiObserver()
