@@ -29,7 +29,7 @@ namespace ppc {
 	public:
 
 		FloppyInputComponent();
-		~FloppyInputComponent();
+		virtual ~FloppyInputComponent();
 
 		static std::vector<std::vector<std::pair<std::string, unsigned int>>> floppyDictionary;
         static bool initialized;
@@ -58,6 +58,9 @@ namespace ppc {
 		void regressFrame();
 		void advanceSequence();
 		void regressSequence();
+        
+        virtual bool registerInput(sf::Event ev) override;
+
 
 	};
 
