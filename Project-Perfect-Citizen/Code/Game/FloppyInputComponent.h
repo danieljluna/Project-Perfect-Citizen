@@ -2,14 +2,10 @@
 
 #include <SFML/Graphics.hpp>
 #include <array>
-
+#include <vector>
 #include "../Engine/inputComponent.h"
-#include "../Engine/InputHandler.h"
-#include "../Engine/Entity.h"
-#include "../Engine/subject.h"
-#include "../Engine/FunctionObserver.h"
-#include "../Engine/FreeFunctionObserver.h"
-#include "../Engine/debug.h"
+#include "../Engine/event.h"
+
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Input Component for a Floppy

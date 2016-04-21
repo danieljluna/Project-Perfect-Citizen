@@ -161,7 +161,7 @@ bool ppc::displayFloppy(FloppyInputComponent* ptr, Event ev) {
     ppc::Event ppcEv(ev);
     ppcEv.type = ppc::Event::FloppyType;
     ppcEv.floppy.sequence = 0;
-    ppcEv.floppy.frame = 1;
+    ppcEv.floppy.frame = 0;
     summonFloppyDialog(ptr, ppcEv);
     return true;
 }
