@@ -298,6 +298,8 @@
 		E9AC1CAB1CC95E1700A7955F /* Thompson.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C941CC95E1700A7955F /* Thompson.jpg */; };
 		E9AC1CAC1CC95E1700A7955F /* VAR_1213_Schematic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C951CC95E1700A7955F /* VAR_1213_Schematic.jpg */; };
 		E9AC1CAE1CC9687600A7955F /* Passwords.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1CAD1CC9687600A7955F /* Passwords.txt */; };
+		E9AC1CB01CC9776900A7955F /* desktop2.ini in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1CAF1CC9776900A7955F /* desktop2.ini */; };
+		E9AC1CB31CC978CC00A7955F /* NotificationObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9AC1CB11CC978CC00A7955F /* NotificationObserver.cpp */; };
 		E9E1F5921C91F506006AE0FB /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5301C91F506006AE0FB /* DoxygenHelp.txt */; };
 		E9E1F5931C91F506006AE0FB /* LinkHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5311C91F506006AE0FB /* LinkHelp.txt */; };
 		E9E1F5E01C91F506006AE0FB /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5811C91F506006AE0FB /* EngineSettings.ini */; };
@@ -716,6 +718,9 @@
 		E9AC1C941CC95E1700A7955F /* Thompson.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Thompson.jpg; sourceTree = "<group>"; };
 		E9AC1C951CC95E1700A7955F /* VAR_1213_Schematic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = VAR_1213_Schematic.jpg; sourceTree = "<group>"; };
 		E9AC1CAD1CC9687600A7955F /* Passwords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Passwords.txt; sourceTree = "<group>"; };
+		E9AC1CAF1CC9776900A7955F /* desktop2.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = desktop2.ini; sourceTree = "<group>"; };
+		E9AC1CB11CC978CC00A7955F /* NotificationObserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NotificationObserver.cpp; sourceTree = "<group>"; };
+		E9AC1CB21CC978CC00A7955F /* NotificationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationObserver.h; sourceTree = "<group>"; };
 		E9E1F5301C91F506006AE0FB /* DoxygenHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoxygenHelp.txt; sourceTree = "<group>"; };
 		E9E1F5311C91F506006AE0FB /* LinkHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LinkHelp.txt; sourceTree = "<group>"; };
 		E9E1F5811C91F506006AE0FB /* EngineSettings.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EngineSettings.ini; sourceTree = "<group>"; };
@@ -832,6 +837,8 @@
 		C8A592AA1C8E3AFE00036C1D /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				E9AC1CB11CC978CC00A7955F /* NotificationObserver.cpp */,
+				E9AC1CB21CC978CC00A7955F /* NotificationObserver.h */,
 				E9A58B281CC81AD500A59A6F /* Audio */,
 				E9A58B3F1CC81AD500A59A6F /* BaseFileType.cpp */,
 				E9A58B401CC81AD500A59A6F /* BaseFileType.h */,
@@ -1224,6 +1231,7 @@
 				E9A58C901CC83D2800A59A6F /* desktop0.ini */,
 				E9A58C911CC83D2800A59A6F /* desktop1.ini */,
 				E9A58C921CC83D2800A59A6F /* playerDesktop.ini */,
+				E9AC1CAF1CC9776900A7955F /* desktop2.ini */,
 			);
 			path = Saves;
 			sourceTree = "<group>";
@@ -1396,6 +1404,7 @@
 				E94885FE1CC6F3F600DFC68A /* NewCrowd38Fragment.jpg in Resources */,
 				E94885C01CC6F3F600DFC68A /* As I Lay Dying - Faulkner.txt in Resources */,
 				E94885F71CC6F3F600DFC68A /* mulvey-visualpleasure.txt in Resources */,
+				E9AC1CB01CC9776900A7955F /* desktop2.ini in Resources */,
 				E94886111CC6F3F600DFC68A /* The_Scarlet_Letter.txt in Resources */,
 				E94885A91CC6F3F600DFC68A /* 11062011img47161.jpg in Resources */,
 				E9AC1CA21CC95E1700A7955F /* interconnect-wiring.jpg in Resources */,
@@ -1630,6 +1639,7 @@
 				E9A58C771CC81C0700A59A6F /* PipelineCharacter.cpp in Sources */,
 				E9A58BAE1CC81AD500A59A6F /* subject.cpp in Sources */,
 				E9A58C661CC81C0700A59A6F /* FloppyInputComponent.cpp in Sources */,
+				E9AC1CB31CC978CC00A7955F /* NotificationObserver.cpp in Sources */,
 				E9A58C5A1CC81C0700A59A6F /* Email.cpp in Sources */,
 				E9A58C4C1CC81C0700A59A6F /* characterRender.cpp in Sources */,
 				E9A58B871CC81AD500A59A6F /* AudioLocator.cpp in Sources */,

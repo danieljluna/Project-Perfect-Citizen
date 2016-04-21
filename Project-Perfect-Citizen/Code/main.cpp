@@ -106,6 +106,12 @@ void runTargetDesktop(ppc::Desktop& myDesktop) {
 
 }
 
+void runArtistDesktop(ppc::Desktop& myDesktop) {
+    createArtistDesktop(myDesktop, *myDesktop.getDesktopWindow(),
+                       myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
+    
+}
+
 int main(int argc, char** argv) {
 
     DBG_INIT();
@@ -117,7 +123,7 @@ int main(int argc, char** argv) {
 
 	//Dont touch these comments please.
 	
-	ifstream ifs1(resourcePath() + "Saves/PlayerDesktop.ini", std::ifstream::in);
+	ifstream ifs1(resourcePath() + "Saves/desktop0.ini", std::ifstream::in);
 	Desktop testDesktop;
 	ifs1 >> testDesktop;
 	
@@ -126,10 +132,10 @@ int main(int argc, char** argv) {
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
 	//Dont touch these comments please.
-	//World::setGameScreen(screen);
-	//World::setCurrDesktop(testDesktop);
-	//runPlayerDesktop(testDesktop);
-	//World::runCurrDesktop();
+	World::setGameScreen(screen);
+	World::setCurrDesktop(testDesktop);
+	runDummyDesktop(testDesktop);
+	World::runCurrDesktop();
 
 
 	
