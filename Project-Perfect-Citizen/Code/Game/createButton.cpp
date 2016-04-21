@@ -173,7 +173,7 @@ bool ppc::displayFloppy(FloppyInputComponent* ptr, Event ev) {
     ppcEv.floppy.sequence = 0;
     ppcEv.floppy.frame = 1;
     summonFloppyDialog(ptr, ppcEv);
-    
+    return true;
 }
 
 bool ppc::LogOff(Desktop* ptr, Event ev) {
