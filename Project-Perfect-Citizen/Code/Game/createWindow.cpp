@@ -391,6 +391,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
         int maxWindowScroll = 8192;
         int maxWindowLines = 350;
         int windowScrollHeight = 0;
+        int minWindowHeight = 500;
         ifstream f(path);
         std::string line;
         string content;
@@ -403,10 +404,14 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
                 break;
             }
         }
-
+        
         windowScrollHeight = windowScrollHeight * textMuliplier;
         if(windowScrollHeight > maxWindowScroll){
             windowScrollHeight = maxWindowScroll;
+        }
+        
+        if(windowScrollHeight < minWindowHeight){
+            windowScrollHeight = minWindowHeight;
         }
         
         textRenderComponent* textBox =

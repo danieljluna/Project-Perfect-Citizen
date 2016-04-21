@@ -271,6 +271,11 @@
 		E9A58C8A1CC81C0700A59A6F /* TreeCommands.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A58C411CC81C0700A59A6F /* TreeCommands.cpp */; };
 		E9A58C8B1CC81C0700A59A6F /* WindowBkgndRenderCmpnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A58C431CC81C0700A59A6F /* WindowBkgndRenderCmpnt.cpp */; };
 		E9A58C8E1CC81CB200A59A6F /* notifcationRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A58C8C1CC81CB200A59A6F /* notifcationRenderComponent.cpp */; };
+		E9A58C931CC83D2800A59A6F /* desktop0.ini in Resources */ = {isa = PBXBuildFile; fileRef = E9A58C901CC83D2800A59A6F /* desktop0.ini */; };
+		E9A58C941CC83D2800A59A6F /* desktop1.ini in Resources */ = {isa = PBXBuildFile; fileRef = E9A58C911CC83D2800A59A6F /* desktop1.ini */; };
+		E9A58C951CC83D2800A59A6F /* playerDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E9A58C921CC83D2800A59A6F /* playerDesktop.ini */; };
+		E9A58C991CC8504F00A59A6F /* Grocery Reminder!.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A58C971CC8504F00A59A6F /* Grocery Reminder!.txt */; };
+		E9A58C9A1CC8504F00A59A6F /* Jazz-Fusion Meeting.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A58C981CC8504F00A59A6F /* Jazz-Fusion Meeting.txt */; };
 		E9E1F5921C91F506006AE0FB /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5301C91F506006AE0FB /* DoxygenHelp.txt */; };
 		E9E1F5931C91F506006AE0FB /* LinkHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5311C91F506006AE0FB /* LinkHelp.txt */; };
 		E9E1F5E01C91F506006AE0FB /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5811C91F506006AE0FB /* EngineSettings.ini */; };
@@ -662,6 +667,11 @@
 		E9A58C441CC81C0700A59A6F /* WindowBkgndRenderCmpnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowBkgndRenderCmpnt.h; sourceTree = "<group>"; };
 		E9A58C8C1CC81CB200A59A6F /* notifcationRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = notifcationRenderComponent.cpp; sourceTree = "<group>"; };
 		E9A58C8D1CC81CB200A59A6F /* notifcationRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = notifcationRenderComponent.h; sourceTree = "<group>"; };
+		E9A58C901CC83D2800A59A6F /* desktop0.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = desktop0.ini; sourceTree = "<group>"; };
+		E9A58C911CC83D2800A59A6F /* desktop1.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = desktop1.ini; sourceTree = "<group>"; };
+		E9A58C921CC83D2800A59A6F /* playerDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = playerDesktop.ini; sourceTree = "<group>"; };
+		E9A58C971CC8504F00A59A6F /* Grocery Reminder!.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Grocery Reminder!.txt"; sourceTree = "<group>"; };
+		E9A58C981CC8504F00A59A6F /* Jazz-Fusion Meeting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Jazz-Fusion Meeting.txt"; sourceTree = "<group>"; };
 		E9E1F5301C91F506006AE0FB /* DoxygenHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoxygenHelp.txt; sourceTree = "<group>"; };
 		E9E1F5311C91F506006AE0FB /* LinkHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LinkHelp.txt; sourceTree = "<group>"; };
 		E9E1F5811C91F506006AE0FB /* EngineSettings.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EngineSettings.ini; sourceTree = "<group>"; };
@@ -729,6 +739,7 @@
 		C86E37A51C4D6B5100842EFD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E94A30361CC6EA9D00907AD9 /* ResourcePath.hpp */,
 				E94886121CC6F42A00DFC68A /* data.json */,
 				E94886131CC6F42A00DFC68A /* DE1PipelineTexts.json */,
 				E94886141CC6F42A00DFC68A /* Desktop0.json */,
@@ -744,10 +755,6 @@
 				E948861E1CC6F42A00DFC68A /* ResourcePath.mm */,
 				E948861F1CC6F42A00DFC68A /* SoundTrack_Extraction.ogg */,
 				E94886201CC6F42A00DFC68A /* SoundTrack_Pipeline.ogg */,
-				E94886211CC6F42A00DFC68A /* first.txt */,
-				E94886221CC6F42A00DFC68A /* last.txt */,
-				E94886231CC6F42A00DFC68A /* PipelineTutorial.txt */,
-				E94886241CC6F42A00DFC68A /* TestDialogue.txt */,
 				E94886251CC6F42A00DFC68A /* Face_Sheet.png */,
 				E94886261CC6F42A00DFC68A /* Floppy_Sheet.png */,
 				E94886271CC6F42A00DFC68A /* Icon_Sheet.png */,
@@ -765,11 +772,15 @@
 				E94886331CC6F42A00DFC68A /* consola.ttf */,
 				E94886341CC6F42A00DFC68A /* micross.ttf */,
 				E94886351CC6F42A00DFC68A /* VT323-Regular.ttf */,
+				E94886211CC6F42A00DFC68A /* first.txt */,
+				E94886221CC6F42A00DFC68A /* last.txt */,
+				E94886231CC6F42A00DFC68A /* PipelineTutorial.txt */,
+				E94886241CC6F42A00DFC68A /* TestDialogue.txt */,
 				E94886361CC6F42A00DFC68A /* Notification_Prompt.wav */,
-				E94A30361CC6EA9D00907AD9 /* ResourcePath.hpp */,
-				E948853C1CC6F3F600DFC68A /* DesktopContent */,
 				E9E1F52F1C91F506006AE0FB /* Coding Reference */,
+				E948853C1CC6F3F600DFC68A /* DesktopContent */,
 				E9E1F5801C91F506006AE0FB /* Engine */,
+				E9A58C8F1CC83D2800A59A6F /* Saves */,
 			);
 			path = Resources;
 			sourceTree = SOURCE_ROOT;
@@ -1008,6 +1019,7 @@
 		E948853C1CC6F3F600DFC68A /* DesktopContent */ = {
 			isa = PBXGroup;
 			children = (
+				E9A58C961CC8504F00A59A6F /* Desktop0 */,
 				E948853D1CC6F3F600DFC68A /* Desktop1 */,
 			);
 			path = DesktopContent;
@@ -1162,6 +1174,25 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		E9A58C8F1CC83D2800A59A6F /* Saves */ = {
+			isa = PBXGroup;
+			children = (
+				E9A58C901CC83D2800A59A6F /* desktop0.ini */,
+				E9A58C911CC83D2800A59A6F /* desktop1.ini */,
+				E9A58C921CC83D2800A59A6F /* playerDesktop.ini */,
+			);
+			path = Saves;
+			sourceTree = "<group>";
+		};
+		E9A58C961CC8504F00A59A6F /* Desktop0 */ = {
+			isa = PBXGroup;
+			children = (
+				E9A58C971CC8504F00A59A6F /* Grocery Reminder!.txt */,
+				E9A58C981CC8504F00A59A6F /* Jazz-Fusion Meeting.txt */,
+			);
+			path = Desktop0;
+			sourceTree = "<group>";
+		};
 		E9E1F52F1C91F506006AE0FB /* Coding Reference */ = {
 			isa = PBXGroup;
 			children = (
@@ -1285,6 +1316,7 @@
 				E94885E71CC6F3F600DFC68A /* Family_Tree.txt in Resources */,
 				E94886391CC6F42A00DFC68A /* Desktop0.json in Resources */,
 				E94885F91CC6F3F600DFC68A /* New+Crowd39.jpg in Resources */,
+				E9A58C951CC83D2800A59A6F /* playerDesktop.ini in Resources */,
 				E94885F21CC6F3F600DFC68A /* Leila-crowded-classrooms.jpg in Resources */,
 				E94885F81CC6F3F600DFC68A /* Myth of Sisyphus by Albert Camus.txt in Resources */,
 				E94886501CC6F42A00DFC68A /* Teacher_Icon_Sheet.png in Resources */,
@@ -1316,10 +1348,12 @@
 				E94885FB1CC6F3F600DFC68A /* New_bed_2.jpg in Resources */,
 				E9A58B8E1CC81AD500A59A6F /* gunshots.wav in Resources */,
 				E94886441CC6F42A00DFC68A /* SoundTrack_Extraction.ogg in Resources */,
+				E9A58C931CC83D2800A59A6F /* desktop0.ini in Resources */,
 				E94885C71CC6F3F600DFC68A /* Bluebird by Charles Bukowski.txt in Resources */,
 				E94885FD1CC6F3F600DFC68A /* NewCrowd38.jpg in Resources */,
 				E948864B1CC6F42A00DFC68A /* Floppy_Sheet.png in Resources */,
 				E94885EE1CC6F3F600DFC68A /* Invisible Man - Ellison.txt in Resources */,
+				E9A58C991CC8504F00A59A6F /* Grocery Reminder!.txt in Resources */,
 				E94885B01CC6F3F600DFC68A /* 4-10-08-386.jpg in Resources */,
 				E948860F1CC6F3F600DFC68A /* The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg in Resources */,
 				E94886101CC6F3F600DFC68A /* The_Metamorphosis.txt in Resources */,
@@ -1339,6 +1373,7 @@
 				E9E1F5E11C91F506006AE0FB /* Project-Perfect-Citizen-Info.plist in Resources */,
 				E94885AA1CC6F3F600DFC68A /* 1894.jpg in Resources */,
 				E94885F01CC6F3F600DFC68A /* Kristeva_-_powers_of_horror.txt in Resources */,
+				E9A58C941CC83D2800A59A6F /* desktop1.ini in Resources */,
 				E94886081CC6F3F600DFC68A /* road_trip.jpg in Resources */,
 				E948863F1CC6F42A00DFC68A /* PlayerDesktop.json in Resources */,
 				E94885D71CC6F3F600DFC68A /* Donne - Med 17.txt in Resources */,
@@ -1369,6 +1404,7 @@
 				E94885D11CC6F3F600DFC68A /* Crowd3.jpg in Resources */,
 				E948863D1CC6F42A00DFC68A /* Email1.json in Resources */,
 				E94885B71CC6F3F600DFC68A /* 6576.jpg in Resources */,
+				E9A58C9A1CC8504F00A59A6F /* Jazz-Fusion Meeting.txt in Resources */,
 				E94885AD1CC6F3F600DFC68A /* 3-29-12-184.jpg in Resources */,
 				E94886061CC6F3F600DFC68A /* Redwood_High_School,_Larkspur,_California.jpg in Resources */,
 				E948860A1CC6F3F600DFC68A /* rubidouxclassroom.jpg in Resources */,

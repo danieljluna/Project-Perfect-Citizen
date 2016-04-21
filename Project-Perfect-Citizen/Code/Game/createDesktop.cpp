@@ -210,7 +210,7 @@ void createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopWindow
     
     //TODO: FIX MEMORY LEAK
     emailExtraction* inbox = new emailExtraction();
-    inbox->parseEmailAsJson("Email1.json");
+    inbox->parseEmailAsJson("Email0.json");
     
     for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
         Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
@@ -221,7 +221,7 @@ void createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopWindow
     //// Script to create file tree
     /////////////////////////////////////////////
     desktopExtractionComponent* teacherFiles = new desktopExtractionComponent(*desktopToModify.getNodeState());
-    Json::Value parsed = teacherFiles->parseDesktopAsJson("Desktop1.json", "Desktop");
+    Json::Value parsed = teacherFiles->parseDesktopAsJson("Desktop0.json", "Desktop");
     
     //////////////////////////////////////////////
     //// Create the start menu
