@@ -325,6 +325,10 @@
     <ClCompile Include="Code\Game\notificationButtonComponent.cpp">
       <Filter>Sources\Game Specific\Button</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\notifcationRenderComponent.cpp" />
+    <ClCompile Include="Code\Engine\NotificationObserver.cpp">
+      <Filter>Sources\Engine\Observer System</Filter>
+    </ClCompile>
     <ClCompile Include="Code\Engine\LoggerParcel.cpp">
       <Filter>Sources\Engine\Debug</Filter>
     </ClCompile>
@@ -681,8 +685,11 @@
     <ClInclude Include="Code\Game\HelpRenderComponent.hpp">
       <Filter>Headers\Game Specific</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\NotificationObserver.h">
+      <Filter>Headers\Engine\Observer System</Filter>
+    </ClInclude>
     <ClInclude Include="Code\Game\notifcationRenderComponent.h">
-      <Filter>Headers\Game Specific\Button</Filter>
+      <Filter>Headers\Game Specific\Icons</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -701,6 +708,12 @@
     <None Include="Resources\DE1PipelineTexts.json">
       <Filter>Resources</Filter>
     </None>
+    <None Include="Resources\Saves\desktop1.ini">
+      <Filter>Resources\Saves</Filter>
+    </None>
+    <None Include="Resources\Saves\playerDesktop.ini">
+      <Filter>Resources\Saves</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
@@ -710,6 +723,9 @@
       <Filter>Resources</Filter>
     </Text>
     <Text Include="Resources\Coding Reference\LinkHelp.txt">
+      <Filter>Resources</Filter>
+    </Text>
+    <Text Include="Resources\PipelineTutorial.txt">
       <Filter>Resources</Filter>
     </Text>
   </ItemGroup>
@@ -902,6 +918,9 @@
     </Filter>
     <Filter Include="Headers\Game Specific\Floppy">
       <UniqueIdentifier>{77f4eced-3bd6-468f-9179-200548bcb326}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Saves">
+      <UniqueIdentifier>{e5cb4656-7118-4d8f-b807-343a4860bc8d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

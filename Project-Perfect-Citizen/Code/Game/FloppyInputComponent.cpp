@@ -1,39 +1,104 @@
+//Used to get XCODE working/////////////////////////////////
+
+#ifdef WINDOWS_MARKER
+#define resourcePath() std::string("Resources/")
+#else
+#include "ResourcePath.hpp"
+#endif
+
+///////////////////////////////////////////////////////////
+
 #include "../Engine/debug.h"
 #include "FloppyInputComponent.h"
 #include <iostream>
+#include <fstream>
 #include <string>
+#include <vector>
 #include <utility>
 #include "../Engine/Entity.h"
-#include "../Engine/debug.h"
 
-
+#include "../Engine/FreeFunctionObserver.h"
 
 using namespace ppc;
 
+const std::string FLOPPY_DEBUG_CODE = "fl";
+
 std::vector<std::vector<std::pair<std::string, unsigned int>>> FloppyInputComponent::floppyDictionary;
+bool FloppyInputComponent::initialized = false;
+
+std::map<std::string, unsigned int> FloppyInputComponent::Floppy_Sequence_Names;
 
 FloppyInputComponent::FloppyInputComponent() {
-	initializeFloppyDict();
+    if (!initialized) {
+        initializeFloppyDict();
+    }
 }
 
 FloppyInputComponent::~FloppyInputComponent() {
 
 }
 
+const std::array<std::string, 1> FLOPPY_SOURCES{
+	"PipelineTutorial.txt"
+};
+
+const std::map<std::string, int> FLOPPY_EMOTION_MAP{
+	{"Default", 0}
+};
 
 
 void ppc::FloppyInputComponent::initializeFloppyDict() {
-	
-	std::vector<std::pair<std::string, unsigned int>> sequence1;
-	std::pair<std::string, unsigned int> sequence1frame1;
-	std::pair<std::string, unsigned int> sequence1frame2;
+	for (const auto& filename: FLOPPY_SOURCES) {
+		std::ifstream myfile(resourcePath() + filename);
+		if (myfile.is_open()) {
+			std::string line;
+			std::string label;
+			std::vector<std::pair<std::string, unsigned int>> sequence;
+			while (std::getline(myfile, line)) {
+				if (line.substr(0, 1).compare("-") == 0) {
+					if (sequence.empty()) {
+						label = line.substr(1);
+						continue;
+					}
+					//auto pos = Floppy_Sequence_Names.find(label);
+					//if (pos == Floppy_Sequence_Names.end()) {
+					//	DEBUGF(FLOPPY_DEBUG_CODE, label);
+					//}
+					//else {
+						floppyDictionary.push_back(sequence);
+						Floppy_Sequence_Names.insert(std::make_pair(label, floppyDictionary.size() - 1));
+					//}
+					sequence.clear();
+					label = line.substr(1);
+				}
+				else {
+					std::string emotion = line.substr(0, line.find_first_of(':'));
+					line = line.substr(line.find_first_of(':') + 2);
+					if (FLOPPY_EMOTION_MAP.find(emotion) != FLOPPY_EMOTION_MAP.end()) {
+						sequence.push_back(std::make_pair(line, FLOPPY_EMOTION_MAP.at(emotion)));
+					}
+				}
+			}
+			floppyDictionary.push_back(sequence);
+			Floppy_Sequence_Names.insert(std::make_pair(label, floppyDictionary.size() - 1));
+		}
+		else {
+			DEBUGF(FLOPPY_DEBUG_CODE, filename + " could not be opened");
+		}
+		myfile.close();
+	}
+    initialized = true;
 
-	sequence1frame1 = std::make_pair("BAD COP NADER", 0);
-	sequence1frame2 = std::make_pair("MACK DADDY", 3);
-	sequence1.push_back(sequence1frame1);
-	sequence1.push_back(sequence1frame2);
+	//std::vector<std::pair<std::string, unsigned int>> sequence1;
+	//std::pair<std::string, unsigned int> sequence1frame1;
+	//std::pair<std::string, unsigned int> sequence1frame2;
 
-	floppyDictionary.push_back(sequence1);
+	//sequence1frame1 = std::make_pair("BAD COP NADER", 0);
+	//sequence1frame2 = std::make_pair("MACK DADDY", 1);
+	//sequence1.push_back(sequence1frame1);
+	//sequence1.push_back(sequence1frame2);
+
+	//floppyDictionary.push_back(sequence1);
 }
 
 unsigned int ppc::FloppyInputComponent::getFrame() { return frame; }
@@ -44,7 +109,12 @@ void ppc::FloppyInputComponent::setFrame(unsigned int f) { frame = f; }
 
 void ppc::FloppyInputComponent::setSequence(unsigned int s) { sequence = s; }
 
-void ppc::FloppyInputComponent::advanceFrame() { frame++; }
+void ppc::FloppyInputComponent::advanceFrame() { 
+	frame++;
+
+	if (floppyDictionary.at(sequence).size() <= frame) frame = -1;
+
+}
 
 void ppc::FloppyInputComponent::regressFrame() { frame--;}
 
@@ -76,19 +146,22 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 
 
 bool ppc::incrementFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
+	if (ev.type == ppc::Event::ButtonType) {
+		if (ev.buttons.isReleased) {
 
-	/* Advance the frame state to be one more than
-	the stored value */
-	ptr->advanceFrame();
+			/* Advance the frame state to be one more than
+			the stored value */
+			ptr->advanceFrame();
 
-	/* Create and send a new event to the entity
-	with the updated frame */
-	ppc::Event ppcEv(ev);
-	ppcEv.type = ppc::Event::FloppyType;
-	ppcEv.floppy.sequence = ptr->getSequence();
-	ppcEv.floppy.frame = ptr->getFrame();
-	ptr->getEntity()->broadcastMessage(ppcEv);
-
+			/* Create and send a new event to the entity
+			with the updated frame */
+			ppc::Event ppcEv(ev);
+			ppcEv.type = ppc::Event::FloppyType;
+			ppcEv.floppy.sequence = ptr->getSequence();
+			ppcEv.floppy.frame = ptr->getFrame();
+			ptr->getEntity()->broadcastMessage(ppcEv);
+		}
+	}
 	return true;
 }
 

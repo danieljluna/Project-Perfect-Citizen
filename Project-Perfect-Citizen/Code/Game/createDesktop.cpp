@@ -62,7 +62,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 
     //TODO: FIX MEMORY LEAK
     Inbox* theInbox = new Inbox();
-    
+
     emailExtraction inbox;// = new emailExtraction();
     inbox.parseEmailAsJson("PlayerEmail.json");
     
@@ -133,24 +133,28 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	Entity EmailIcon;
 
 	spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 425.0f, 525.0f, 0.5f, 0.30f, theInbox);
-
 	spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 175.0f, 375.0f, 0.5f, 0.30f, theInbox);
 	spawnDataGraphIcon(DataGraphIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 675.0f, 375.0f, 0.5f, 0.30f, theInbox);
-
 	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 250.0f, 475.0f, 0.5f, 0.30f, theInbox);
 	spawnHelpIcon(SearchIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 600.0f, 475.0f, 0.5f, 0.30f, theInbox);
 
-    
-	ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
-	EmailIcon.addComponent(notiRenderComp);
-	
+    //Add Desktop Icon Floppy Triggers
+    iconInputComponent* graphIconInput = dynamic_cast<iconInputComponent*>(DataGraphIcon.getComponent(2));
+    graphIconInput->onOpen().addObserver(new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn));
     
     desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
 	desktopWindowToModify.addEntity(HardDriveIcon);
 	desktopWindowToModify.addEntity(SearchIcon);
 	desktopWindowToModify.addEntity(EmailIcon);
-	desktopWindowToModify.addEntity(EmailIcon);
+
+	sf::Event ev;
+	ev.type = sf::Event::EventType::Closed;
+	ppc::Event ppcEvent(ev);
+	ppcEvent.type = ppc::Event::EventTypes::NotificationType;
+	ppcEvent.notification.count = 1;
+	//theInbox->getInboxSubject().getObserverHead()->eventHandler(ppcEvent);
+	//notiRenderComp->getNotiObserver().eventHandler(ppcEvent);
 
 }
 
@@ -220,9 +224,6 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
-
-	ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
-	EmailIcon.addComponent(notiRenderComp);
     desktopWindowToModify.addEntity(EmailIcon);
     
 }
