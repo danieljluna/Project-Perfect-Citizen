@@ -1,3 +1,13 @@
+//Used to get XCODE working/////////////////////////////////
+
+#ifdef WINDOWS_MARKER
+#define resourcePath() std::string("Resources/")
+#else
+#include "ResourcePath.hpp"
+#endif
+
+///////////////////////////////////////////////////////////
+
 #include "../Engine/debug.h"
 #include "FloppyInputComponent.h"
 #include <iostream>
@@ -11,7 +21,7 @@
 
 using namespace ppc;
 
-const std::string FLOPPY_DEBUG_CODE = "FL";
+const std::string FLOPPY_DEBUG_CODE = "fl";
 
 std::vector<std::vector<std::pair<std::string, unsigned int>>> FloppyInputComponent::floppyDictionary;
 bool FloppyInputComponent::initialized = false;
@@ -39,14 +49,17 @@ const std::map<std::string, int> FLOPPY_EMOTION_MAP{
 
 void ppc::FloppyInputComponent::initializeFloppyDict() {
 	for (const auto& filename: FLOPPY_SOURCES) {
-		std::ifstream myfile(filename);
+		std::ifstream myfile(resourcePath() + filename);
 		if (myfile.is_open()) {
 			std::string line;
 			std::string label;
 			std::vector<std::pair<std::string, unsigned int>> sequence;
 			while (std::getline(myfile, line)) {
 				if (line.substr(0, 1).compare("-") == 0) {
-					if (sequence.empty()) continue;
+					if (sequence.empty()) {
+						label = line.substr(1);
+						continue;
+					}
 					//auto pos = Floppy_Sequence_Names.find(label);
 					//if (pos == Floppy_Sequence_Names.end()) {
 					//	DEBUGF(FLOPPY_DEBUG_CODE, label);
@@ -59,10 +72,10 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 					label = line.substr(1);
 				}
 				else {
-					std::string emotion = line.substr(0, line.find_first_of(':') - 1);
+					std::string emotion = line.substr(0, line.find_first_of(':'));
 					line = line.substr(line.find_first_of(':') + 2);
 					if (FLOPPY_EMOTION_MAP.find(emotion) != FLOPPY_EMOTION_MAP.end()) {
-						sequence.push_back(std::make_pair(emotion, FLOPPY_EMOTION_MAP.at(emotion)));
+						sequence.push_back(std::make_pair(line, FLOPPY_EMOTION_MAP.at(emotion)));
 					}
 				}
 			}
@@ -72,6 +85,7 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 		else {
 			DEBUGF(FLOPPY_DEBUG_CODE, filename + " could not be opened");
 		}
+		myfile.close();
 	}
     initialized = true;
 
