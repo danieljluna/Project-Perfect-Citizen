@@ -297,6 +297,7 @@
 		E9AC1CAA1CC95E1700A7955F /* The_plan.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C931CC95E1700A7955F /* The_plan.txt */; };
 		E9AC1CAB1CC95E1700A7955F /* Thompson.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C941CC95E1700A7955F /* Thompson.jpg */; };
 		E9AC1CAC1CC95E1700A7955F /* VAR_1213_Schematic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1C951CC95E1700A7955F /* VAR_1213_Schematic.jpg */; };
+		E9AC1CAE1CC9687600A7955F /* Passwords.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9AC1CAD1CC9687600A7955F /* Passwords.txt */; };
 		E9E1F5921C91F506006AE0FB /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5301C91F506006AE0FB /* DoxygenHelp.txt */; };
 		E9E1F5931C91F506006AE0FB /* LinkHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5311C91F506006AE0FB /* LinkHelp.txt */; };
 		E9E1F5E01C91F506006AE0FB /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = E9E1F5811C91F506006AE0FB /* EngineSettings.ini */; };
@@ -714,6 +715,7 @@
 		E9AC1C931CC95E1700A7955F /* The_plan.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = The_plan.txt; sourceTree = "<group>"; };
 		E9AC1C941CC95E1700A7955F /* Thompson.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Thompson.jpg; sourceTree = "<group>"; };
 		E9AC1C951CC95E1700A7955F /* VAR_1213_Schematic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = VAR_1213_Schematic.jpg; sourceTree = "<group>"; };
+		E9AC1CAD1CC9687600A7955F /* Passwords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Passwords.txt; sourceTree = "<group>"; };
 		E9E1F5301C91F506006AE0FB /* DoxygenHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoxygenHelp.txt; sourceTree = "<group>"; };
 		E9E1F5311C91F506006AE0FB /* LinkHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LinkHelp.txt; sourceTree = "<group>"; };
 		E9E1F5811C91F506006AE0FB /* EngineSettings.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EngineSettings.ini; sourceTree = "<group>"; };
@@ -1229,6 +1231,7 @@
 		E9AC1C7E1CC95E1700A7955F /* Desktop0 */ = {
 			isa = PBXGroup;
 			children = (
+				E9AC1CAD1CC9687600A7955F /* Passwords.txt */,
 				E9AC1C801CC95E1700A7955F /* 3D_printer_3000.jpg */,
 				E9AC1C7F1CC95E1700A7955F /* 17391.jpg */,
 				E9AC1C821CC95E1700A7955F /* blueprint_4.jpg */,
@@ -1478,6 +1481,7 @@
 				E948860B1CC6F3F600DFC68A /* Sheptune2.jpg in Resources */,
 				E94885B31CC6F3F600DFC68A /* 4-24-08-492.jpg in Resources */,
 				E94885AF1CC6F3F600DFC68A /* 3573.jpg in Resources */,
+				E9AC1CAE1CC9687600A7955F /* Passwords.txt in Resources */,
 				E94886591CC6F42A00DFC68A /* micross.ttf in Resources */,
 				E9A58B921CC81AD500A59A6F /* Notification_Bad.wav in Resources */,
 				E94885DB1CC6F3F600DFC68A /* Doubt16.jpg in Resources */,

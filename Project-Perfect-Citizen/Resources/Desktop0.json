@@ -6,8 +6,8 @@
         "Groceries": {
             "Grocery_Reminder!.txt" : "DesktopContent/Desktop0/Grocery Reminder!.txt"
         },
-        "Terrorism": {
-            "Bomb_Schematics" : {
+        "Terrorism/Germany/What nation is our target?": {
+            "Schematics" : {
                 "VAR_1213_Schematic.jpg" : "DesktopContent/Desktop0/VAR_1213_Schematic.jpg",
                 "interconnect-wiring.jpg" : "DesktopContent/Desktop0/interconnect-wiring.jpg"
             },
@@ -27,7 +27,8 @@
             "Permits": {
                 "explosives_permit.txt" : "DesktopContent/Desktop0/explosives_permit.txt",
                 "fireperm.txt" : "DesktopContent/Desktop0/fireperm.txt"
-            }
+            },
+            "For_My_Eyes_Only.txt" : "DesktopContent/Desktop0/Passwords.txt"
         },
         "Downloads": {
             "bomb_prospect.jpg" : "DesktopContent/Desktop0/bomb_prospect.jpg",
