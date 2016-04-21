@@ -9,6 +9,10 @@
         "Terrorism": {
             "Bomb_Schematics" : {
                 "TODO" : "DesktopContent/Desktop0/Grocery Reminder!.txt"
+            },
+            "Notes" : {
+                "route_plan.jpg": "DesktopContent/Desktop0/route_plan.jpg",
+                "The_plan.txt": "DesktopContent/Desktop0/The_plan.txt"
             }
         },
         "Documents": {

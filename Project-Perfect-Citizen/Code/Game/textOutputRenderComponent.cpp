@@ -185,9 +185,9 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		else if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
 			str_ = str_ + "Access denied.\n";
 		}
-        else if (!fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
-            str_ = str_ + "Directory not locked.\n";
-        }
+        //else if (!fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
+            //str_ = str_ + "Directory not locked.\n";
+        //}
 		else {
 			str_ = str_ + "Access granted.\n";
 		}
