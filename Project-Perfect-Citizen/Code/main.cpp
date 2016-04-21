@@ -111,17 +111,6 @@ void runEndDesktop(ppc::Desktop& myDesktop) {
 
 void runPlayerDesktop(ppc::Desktop& myDesktop) {
 
-	//Testing TextBox
-
-
-	TextBubble* myBubble = new TextBubble();
-	myBubble->loadText(resourcePath() + "TestDialogue.txt");
-	//set values for builder (has mostly default stuff atm).
-	myBubble->getButtonBuilder().setSpriteSheet(myDesktop.getButtonSheet());
-	myBubble->generateBubble();
-
-	myDesktop.addWindow(&myBubble->getTextBox());
-
 	createPlayerDesktop(myDesktop, *myDesktop.getDesktopWindow(), 
 		myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
 
@@ -141,23 +130,31 @@ int main(int argc, char** argv) {
 	Debug::scanOpts(argc, argv);
 	DEBUGF("ac", argc);
 
+	vector<int> testvec;
+	testvec.at(2) = 50;
+	cout << testvec.at(2) << endl;
+	cout << testvec.at(0) << endl;
+
+
 	World::initFontMap();
 
 	//Dont touch these comments please.
-	//World testWorld;
-	//ifstream ifs1("Saves/playerDesktop.ini", std::ifstream::in);
-
-	//ifs1 >> testWorld;
+	
+	ifstream ifs1(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
+	Desktop testDesktop;
+	ifs1 >> testDesktop;
 	
 	bool BootToTitleCard = false; 
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
 	//Dont touch these comments please.
-	//testWorld.setGameScreen(*screen);
-	//testWorld.runCurrDesktop();
+	World::setGameScreen(screen);
+	World::setCurrDesktop(testDesktop);
+	runPlayerDesktop(testDesktop);
+	World::runCurrDesktop();
 
-	
+	/*
 	AudioQueue audiotest(5);
 	audiotest.addBgm("SoundTrack_Extraction.ogg");
 	audiotest.playBgm();
@@ -258,7 +255,7 @@ int main(int argc, char** argv) {
 	World::setCurrDesktop(*endDesktop);
 	runEndDesktop(*endDesktop);
     while (World::runDesktop(*endDesktop)) {}
-	
+	*/
 
     return EXIT_SUCCESS;
 }

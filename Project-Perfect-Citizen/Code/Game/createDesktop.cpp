@@ -27,6 +27,10 @@
 #include "emailExtraction.hpp"
 #include "TreeCommands.h"
 
+#include "FloppyUpdateComponent.hpp"
+#include "FloppyRenderComponent.hpp"
+#include "notifcationRenderComponent.h"
+
 #include "../Library/json/json.h"
 
 using namespace ppc;
@@ -42,6 +46,9 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	//////////////////////////////////////////////
 	//// Create the database (really should take a seed)
 	/////////////////////////////////////////////
+    
+    sf::Image floppyImage;
+    floppyImage.loadFromFile(resourcePath() + "Floppy_Sheet.png");
 
 	//TODO: FIX MEMORY LEAK
     Database* theDatabase = new Database();
@@ -55,7 +62,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     
 
     for(unsigned int i = 0; i < inbox.getSubject().size(); i++){
-        Email testEmail1(inbox.getTo().at(i), inbox.getFrom().at(i), inbox.getSubject().at(i), inbox.getBody().at(i), "image.jpg");
+        Email testEmail1(inbox.getTo().at(i), inbox.getFrom().at(i), inbox.getSubject().at(i), inbox.getBody().at(i), inbox.getVisible().at(i), "image.jpg");
         theInbox->addEmailToList(testEmail1);
     }
     
@@ -63,19 +70,27 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	//// Create the start menu
 	/////////////////////////////////////////////
 	ppc::WindowInterface* startToolbar =
-		new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
+		new ppc::Window(1000, 200, sf::Color(195, 195, 195,0));
 	startToolbar->setPosition(0, 735);
     
     Entity startBar;
     spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    
+    
+    FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
+    floppy->renderPosition({800, -32});
+    
+    FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.12f);
+    
     startBar.addComponent(bar);
+    startBar.addComponent(floppy);
+    startBar.addComponent(floppyUpdate);
     
 	Entity startButton;
-	spawnStartButton(startButton, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
+	spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
     startToolbar->addEntity(startBar);
     startToolbar->addEntity(startButton);
 	desktopToModify.addWindow(startToolbar);
-
 
 	////////////////////////////////
 	///// ICONS ON PLAYER DESKTOP
@@ -95,12 +110,15 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	spawnHelpIcon(SearchIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 600.0f, 475.0f, 0.5f, 0.30f, theInbox);
 
     
-
+	ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
+	EmailIcon.addComponent(notiRenderComp);
+	
     
     desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
 	desktopWindowToModify.addEntity(HardDriveIcon);
 	desktopWindowToModify.addEntity(SearchIcon);
+	desktopWindowToModify.addEntity(EmailIcon);
 	desktopWindowToModify.addEntity(EmailIcon);
 
 }
@@ -122,7 +140,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     inbox->parseEmailAsJson("Email1.json");
     
     for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
-        Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), "image.jpg");
+        Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
         theInbox->addEmailToList(testEmail1);
     }
     
@@ -136,12 +154,19 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     //// Create the start menu
     /////////////////////////////////////////////
     ppc::WindowInterface* startToolbar =
-    new ppc::Window(1000, 60, sf::Color(128, 128, 128));
-    startToolbar->setPosition(0, 750);
-    Entity startButton = Entity();
-    spawnStartButton(startButton, startToolbar->getInputHandler(), buttonSheet, 0, 0, 0.4f);
+    new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
+    startToolbar->setPosition(0, 735);
+    
+    Entity startBar;
+    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    startBar.addComponent(bar);
+    
+    Entity startButton;
+    spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
+    startToolbar->addEntity(startBar);
     startToolbar->addEntity(startButton);
     desktopToModify.addWindow(startToolbar);
+
     
     ////////////////////////////////
     ///// ICONS ON TEACHER DESKTOP
@@ -164,6 +189,9 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
+
+	ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
+	EmailIcon.addComponent(notiRenderComp);
     desktopWindowToModify.addEntity(EmailIcon);
     
 }

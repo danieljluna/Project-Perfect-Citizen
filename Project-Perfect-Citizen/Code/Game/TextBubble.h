@@ -1,40 +1,24 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <list>
-#include <queue>
-#include "../Engine/event.h"
-#include "../Engine/Entity.h"
-#include "../Game/ButtonBuilder.h"
-#include "../Game/TextDisplayBuilder.h"
+#include <string>
 
 namespace ppc {
-
-	class Window;
-	class Entity;
-	class TextDisplayRenderComponent;
-
 	///////////////////////////////////////////////////////////////////
 	///@brief Basic speech text bubble 
 	///@author Nader Sleem
 	///////////////////////////////////////////////////////////////////
-	class TextBubble {
+	class TextBubble: public sf::Drawable, public sf::Transformable {
 
 	private:
-		
-		std::queue<std::string, std::list<std::string>> textQueue_;
 
-		ppc::Window* textBox_;
+		//sf::Sprite textBubble;
 
-		std::string currString_;
+		sf::RectangleShape rectBubble_;
 
-		ppc::Entity bubbleButton_;
+		std::string currStr_;
 
-		ppc::ButtonBuilder buttonBuilder_;
-
-		ppc::TextDisplayBuilder textBuilder_;
-
-		ppc::TextDisplayRenderComponent* textDisplay_;
+		sf::Text displayText_;
 
 		void formatLine(std::string&);
 
@@ -51,36 +35,13 @@ namespace ppc {
 		virtual ~TextBubble();
 
 		///////////////////////////////////////////////////////////////
-		///@brief Loads the dialogue text from a file
+		///@brief Set the string displayed
 		///////////////////////////////////////////////////////////////
-		bool loadText(std::string filename);
+		void setText(std::string);
 
-		///////////////////////////////////////////////////////////////
-		///@brief Changes the displayed text to the next in the queue.
-		///////////////////////////////////////////////////////////////
-		void advanceText();
+		sf::RectangleShape& getBubble();
 
-		/////////////////////////////////////////////////////////////
-		///@brief Returns the Entity for the Text Bubble button.
-		/////////////////////////////////////////////////////////////
-		ppc::Entity& getButtonEntity();
-
-		/////////////////////////////////////////////////////////////
-		///@brief Returns the Builder for the Text Bubble button.
-		/////////////////////////////////////////////////////////////
-		ppc::ButtonBuilder& getButtonBuilder();
-
-		ppc::Window& getTextBox();
-
-		/////////////////////////////////////////////////////////////
-		///@brief Creates the Button for the TextBubble in the entity.
-		///@details Should be called after setting up the parameters
-		///for the builder in the TextBubble. Use getButtonBuilder
-		/// to access this builder and call its functions.
-		/// Function assumes that all the values for the builder
-		/// have been properly set.
-		/////////////////////////////////////////////////////////////
-		void generateBubble();
+		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 	};
 
@@ -90,6 +51,6 @@ namespace ppc {
 	/// so when a button is pressed, the dialogue text advances
 	/// to the next one.
 	///////////////////////////////////////////////////////////////
-	bool advanceOnPress(TextBubble* tb, ppc::Event e);
+	//bool advanceOnPress(TextBubble* tb, ppc::Event e);
 	
 };

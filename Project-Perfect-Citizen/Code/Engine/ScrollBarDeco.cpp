@@ -115,6 +115,38 @@ void ScrollBarDecorator::setBarSize(float barSize) {
 }
 
 
+sf::RectangleShape ScrollBarDecorator::drawBorder(int b) const{
+   
+    sf::View currView = WindowDecorator::getView();
+    sf::Vector2u winSize = WindowDecorator::getSize();
+    sf::Vector2f viewRatio{
+        currView.getSize().x / float(winSize.x),
+        currView.getSize().y / float(winSize.y) };
+    sf::FloatRect winBounds = WindowDecorator::getBounds();
+    
+    float winRight = winBounds.left + winBounds.width;
+    float winBottom = winBounds.top + winBounds.height;
+    float vertBarLen = viewRatio.y * scrollBackgrounds_.getSize().y;
+    
+    sf::RectangleShape borderShadow;
+    
+    switch (b) {
+        case 0:
+            borderShadow.setSize({ barSize_ - 2.0f, vertBarLen });
+            borderShadow.setFillColor(sf::Color::Black);
+            borderShadow.setPosition(winRight + 2.0f, scrollBars_.getPosition().y+1.0f);
+            break;
+        case 1:
+            borderShadow.setFillColor(sf::Color::White);
+            borderShadow.setSize({ barSize_ -1.0f, vertBarLen });
+            borderShadow.setPosition(winRight, scrollBars_.getPosition().y-1.0f);
+        default:
+            break;
+    }
+    return borderShadow;
+}
+    
+
 ///////////////////////////////////////////////////////////////////////
 // Draw Functionality
 ///////////////////////////////////////////////////////////////////////
@@ -125,12 +157,18 @@ void ScrollBarDecorator::draw(sf::RenderTarget& target,
     WindowDecorator::draw(target, states);
     
     target.draw(scrollBackgrounds_);
+   
+    // black shadow
+    target.draw(drawBorder(0));
+    // white shadow
+    target.draw(drawBorder(1));
+ 
+    
     target.draw(scrollBars_);
     target.draw(*buttonRenders_[0]);
     target.draw(*buttonRenders_[1]);
 
 }
-
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -160,6 +198,10 @@ void ScrollBarDecorator::repositionSliders() {
     sf::Vector2f vertBkgrnd(barSize_, 
                             winBounds.height - 2.0f * barSize_);
     scrollBackgrounds_.setSize(vertBkgrnd);
+    
+    scrollBars_.setFillColor(sf::Color(190,190,190));
+    
+   
 
     //Set up ScrollBar
     scrollBars_.setPosition(winRight + 1.0f, scrollBars_.getPosition().y);

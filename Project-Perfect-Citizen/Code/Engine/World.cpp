@@ -5,16 +5,12 @@
 #endif
 
 #include <fstream>
-#include <string>
+
 #include "World.h"
-#include "Window.h"
-#include "NodeState.h"
-#include "../Game/desktopExtractionComponent.hpp"
-#include "../Game/Inbox.h"
-#include "../Game/Email.h"
-#include "../Game/emailExtraction.hpp"
-#include "../Library/json/json.h"
+#include "desktop.h"
+
 #include "debug.h"
+#include "desktop.h"
 
 using namespace ppc;
 

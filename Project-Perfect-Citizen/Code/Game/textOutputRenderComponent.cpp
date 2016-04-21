@@ -11,13 +11,17 @@
 #include <algorithm>
 #include "../Engine/World.h"
 
+#include "../Engine/WindowInterface.h"
+#include "../Engine/BorderDecorator.h"
+#include "../Engine/ScrollBarDeco.h"
+
 const string TEXT_KEY_INPUT = "TKI";
 
 using namespace ppc;
 
-textOutputRenderComponent::textOutputRenderComponent(ppc::Desktop& dt, sf::Image bs, sf::Font f,
-	ppc::NodeState fT, textInputRenderComponent* tirc, int x, int y, int size) : font_(f),fileTree_(fT), 
-	theDesktop_(&dt), buttonSheet_(bs){
+textOutputRenderComponent::textOutputRenderComponent(Desktop& dt, WindowInterface* wip, sf::Image bs, sf::Font f,
+	NodeState fT, textInputRenderComponent* tirc, int x, int y, int size ) : promptLine(tirc), theDesktop_(&dt), theWindow_(wip),
+	buttonSheet_(bs), font_(f), fileTree_(fT) {
 
 	numDisplayedLines = 0;
 
@@ -171,8 +175,11 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		}
 		commandFn newCommand = findFunction(unlock);
 		newCommand(fileTree_, unlockCommand);
-
-		if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
+        if (fileTree_.getCwd()->findElement(cmd.at(1)) == nullptr) {
+            str_ = str_ + "Error: Directory '" + cmd.at(1) + "' not found. \n";
+            numDisplayedLines++;
+        }
+		else if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
 			str_ = str_ + "Access denied.\n";
 		}
 		else {
@@ -190,7 +197,15 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 
 	/* Set the new console display */
 	if (numDisplayedLines > maxDisplayedLines) {
-		// Adjust the output to scroll or move text up here
+		
+		sf::FloatRect viewRect = {
+			0.0f,
+			float(promptLine->getText()->getPosition().y),
+			float(theWindow_->getBounds().width),
+			float(theWindow_->getBounds().height)
+		};
+		//dynamic_cast<ScrollBarDecorator*>(theWindow_)->move(0, numDisplayedLines - maxDisplayedLines);
+		theWindow_->setView(sf::View(viewRect));
 	}
 	text_->setString(str_);
 }
