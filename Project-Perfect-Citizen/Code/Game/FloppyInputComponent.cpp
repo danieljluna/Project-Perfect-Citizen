@@ -11,9 +11,12 @@
 using namespace ppc;
 
 std::vector<std::vector<std::pair<std::string, unsigned int>>> FloppyInputComponent::floppyDictionary;
+bool FloppyInputComponent::initialized = false;
 
 FloppyInputComponent::FloppyInputComponent() {
-	initializeFloppyDict();
+    if (!initialized) {
+        initializeFloppyDict();
+    }
 }
 
 FloppyInputComponent::~FloppyInputComponent() {
@@ -23,7 +26,8 @@ FloppyInputComponent::~FloppyInputComponent() {
 
 
 void ppc::FloppyInputComponent::initializeFloppyDict() {
-	
+    initialized = true;
+
 	std::vector<std::pair<std::string, unsigned int>> sequence1;
 	std::pair<std::string, unsigned int> sequence1frame1;
 	std::pair<std::string, unsigned int> sequence1frame2;

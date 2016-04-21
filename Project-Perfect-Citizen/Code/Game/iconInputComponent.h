@@ -33,6 +33,7 @@ private:
     Inbox& theInbox_;
 	WindowInterface* openedWindow;
     AudioQueue que;
+    Subject onOpen_;
     
 
 public:
@@ -49,6 +50,8 @@ public:
 	virtual ~iconInputComponent();
 	virtual bool registerInput(sf::Event ev) override;
 	virtual void recieveMessage(msgType message) override;
+
+    Subject& onOpen() { return onOpen_; };
 
 };
 
