@@ -15,6 +15,8 @@ const std::string FLOPPY_DEBUG_CODE = "FL";
 
 std::vector<std::vector<std::pair<std::string, unsigned int>>> FloppyInputComponent::floppyDictionary;
 
+std::map<std::string, unsigned int> FloppyInputComponent::Floppy_Sequence_Names;
+
 FloppyInputComponent::FloppyInputComponent() {
 	initializeFloppyDict();
 }

@@ -32,15 +32,14 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		/// Map of Floppy Sequence names to integers
 		///////////////////////////////////////////////////////////////////////
-		static std::map<std::string, unsigned int> Floppy_Sequence_Names {
-			/*{"Welcome", 0},
-			/{"Connections", 1},
+		static std::map<std::string, unsigned int> Floppy_Sequence_Names;
+		    /*{"Welcome", 0},
+			{"Connections", 1},
 			{"Edges", 2},
 			{"Goal", 3},
 			{"Suspicion", 4},
 			{"Center", 5},
 			{"Feedback", 6}*/
-		};
 
 		///////////////////////////////////////////////////////////////////////
 		/// Basic Getters
