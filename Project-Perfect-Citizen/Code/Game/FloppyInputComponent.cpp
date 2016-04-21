@@ -1,6 +1,7 @@
 #include "../Engine/debug.h"
 #include "FloppyInputComponent.h"
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 #include <utility>
@@ -9,6 +10,8 @@
 #include "../Engine/event.h"
 
 using namespace ppc;
+
+const std::string FLOPPY_DEBUG_CODE = "FL";
 
 std::vector<std::vector<std::pair<std::string, unsigned int>>> FloppyInputComponent::floppyDictionary;
 
@@ -20,20 +23,63 @@ FloppyInputComponent::~FloppyInputComponent() {
 
 }
 
+const std::array<std::string, 1> FLOPPY_SOURCES{
+	"PipelineTutorial.txt"
+};
+
+const std::map<std::string, int> FLOPPY_EMOTION_MAP{
+	{"Default", 0}
+};
 
 
 void ppc::FloppyInputComponent::initializeFloppyDict() {
-	
-	std::vector<std::pair<std::string, unsigned int>> sequence1;
-	std::pair<std::string, unsigned int> sequence1frame1;
-	std::pair<std::string, unsigned int> sequence1frame2;
+	for (const auto& filename: FLOPPY_SOURCES) {
+		std::ifstream myfile(filename);
+		if (myfile.is_open()) {
+			std::string line;
+			std::string label;
+			std::vector<std::pair<std::string, unsigned int>> sequence;
+			while (std::getline(myfile, line)) {
+				if (line.substr(0, 1).compare("-") == 0) {
+					if (sequence.empty()) continue;
+					//auto pos = Floppy_Sequence_Names.find(label);
+					//if (pos == Floppy_Sequence_Names.end()) {
+					//	DEBUGF(FLOPPY_DEBUG_CODE, label);
+					//}
+					//else {
+						floppyDictionary.push_back(sequence);
+						Floppy_Sequence_Names.insert(std::make_pair(label, floppyDictionary.size() - 1));
+					//}
+					sequence.clear();
+					label = line.substr(1);
+				}
+				else {
+					std::string emotion = line.substr(0, line.find_first_of(':') - 1);
+					line = line.substr(line.find_first_of(':') + 2);
+					if (FLOPPY_EMOTION_MAP.find(emotion) != FLOPPY_EMOTION_MAP.end()) {
+						sequence.push_back(std::make_pair(emotion, FLOPPY_EMOTION_MAP.at(emotion)));
+					}
+				}
+			}
+			floppyDictionary.push_back(sequence);
+			Floppy_Sequence_Names.insert(std::make_pair(label, floppyDictionary.size() - 1));
+		}
+		else {
+			DEBUGF(FLOPPY_DEBUG_CODE, filename + " could not be opened");
+		}
+	}
 
-	sequence1frame1 = std::make_pair("BAD COP NADER", 0);
-	sequence1frame2 = std::make_pair("MACK DADDY", 1);
-	sequence1.push_back(sequence1frame1);
-	sequence1.push_back(sequence1frame2);
 
-	floppyDictionary.push_back(sequence1);
+	//std::vector<std::pair<std::string, unsigned int>> sequence1;
+	//std::pair<std::string, unsigned int> sequence1frame1;
+	//std::pair<std::string, unsigned int> sequence1frame2;
+
+	//sequence1frame1 = std::make_pair("BAD COP NADER", 0);
+	//sequence1frame2 = std::make_pair("MACK DADDY", 1);
+	//sequence1.push_back(sequence1frame1);
+	//sequence1.push_back(sequence1frame2);
+
+	//floppyDictionary.push_back(sequence1);
 }
 
 unsigned int ppc::FloppyInputComponent::getFrame() { return frame; }

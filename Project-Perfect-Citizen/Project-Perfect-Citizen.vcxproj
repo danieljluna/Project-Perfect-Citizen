@@ -126,6 +126,7 @@
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
     <Text Include="Resources\Coding Reference\LinkHelp.txt" />
     <Text Include="Resources\Engine\EngineSettings.ini" />
+    <Text Include="Resources\PipelineTutorial.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h" />
@@ -256,6 +257,8 @@
     <None Include="Resources\data.json" />
     <None Include="Resources\DE1PipelineTexts.json" />
     <None Include="Resources\PlayerEmail.json" />
+    <None Include="Resources\Saves\desktop1.ini" />
+    <None Include="Resources\Saves\playerDesktop.ini" />
     <None Include="Resources\smsPipeline.json" />
     <None Include="Resources\suspiciontest.json" />
   </ItemGroup>

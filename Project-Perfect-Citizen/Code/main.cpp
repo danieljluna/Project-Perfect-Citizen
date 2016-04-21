@@ -130,11 +130,17 @@ int main(int argc, char** argv) {
 	Debug::scanOpts(argc, argv);
 	DEBUGF("ac", argc);
 
+	vector<int> testvec;
+	testvec.at(2) = 50;
+	cout << testvec.at(2) << endl;
+	cout << testvec.at(0) << endl;
+
+
 	World::initFontMap();
 
 	//Dont touch these comments please.
 	
-	ifstream ifs1("Saves/playerDesktop.ini", std::ifstream::in);
+	ifstream ifs1(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
 	Desktop testDesktop;
 	ifs1 >> testDesktop;
 	

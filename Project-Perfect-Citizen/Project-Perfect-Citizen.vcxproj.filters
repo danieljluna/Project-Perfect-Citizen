@@ -701,6 +701,12 @@
     <None Include="Resources\DE1PipelineTexts.json">
       <Filter>Resources</Filter>
     </None>
+    <None Include="Resources\Saves\desktop1.ini">
+      <Filter>Resources\Saves</Filter>
+    </None>
+    <None Include="Resources\Saves\playerDesktop.ini">
+      <Filter>Resources\Saves</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
@@ -710,6 +716,9 @@
       <Filter>Resources</Filter>
     </Text>
     <Text Include="Resources\Coding Reference\LinkHelp.txt">
+      <Filter>Resources</Filter>
+    </Text>
+    <Text Include="Resources\PipelineTutorial.txt">
       <Filter>Resources</Filter>
     </Text>
   </ItemGroup>
@@ -902,6 +911,9 @@
     </Filter>
     <Filter Include="Headers\Game Specific\Floppy">
       <UniqueIdentifier>{77f4eced-3bd6-468f-9179-200548bcb326}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Saves">
+      <UniqueIdentifier>{e5cb4656-7118-4d8f-b807-343a4860bc8d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
