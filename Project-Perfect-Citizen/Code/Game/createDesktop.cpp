@@ -29,7 +29,9 @@
 
 #include "FloppyUpdateComponent.hpp"
 #include "FloppyRenderComponent.hpp"
+#include "FloppyInputComponent.h"
 #include "notifcationRenderComponent.h"
+
 
 #include "../Library/json/json.h"
 
@@ -78,18 +80,26 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     
     
     FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
-    floppy->renderPosition({800, -32});
+    
+    FloppyInputComponent* floppyIn = new FloppyInputComponent();
     
     FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.12f);
     
     startBar.addComponent(bar);
     startBar.addComponent(floppy);
+    startBar.addComponent(floppyIn);
     startBar.addComponent(floppyUpdate);
     
 	Entity startButton;
 	spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
+    
+    Entity startButton2;
+    spawnStartButton2(startButton, desktopToModify, floppyIn, startToolbar->getInputHandler(), buttonSheet, 300, 14, 0.35f);
+    
+    
     startToolbar->addEntity(startBar);
     startToolbar->addEntity(startButton);
+    startToolbar->addEntity(startButton2);
 	desktopToModify.addWindow(startToolbar);
 
 	////////////////////////////////
