@@ -102,6 +102,11 @@ void iconInputComponent::recieveMessage(msgType msg) {
 			ppc::spawnPipeline(piplineWindow, piplineWindow->getInputHandler(), theDatabase_, buttonSheet_, 100, 200);
 			theDesktop_.addWindow(piplineWindow);
 			openedWindow = piplineWindow;
+            Event ev;
+            ev.type = Event::FloppyType;
+            ev.floppy.frame = 0;
+            ev.floppy.sequence = 0;
+            onOpen_.sendEvent(ev);
 		}
 	}
 	/*else if (msg.compare(OPEN_THE_HELP) == 0) {

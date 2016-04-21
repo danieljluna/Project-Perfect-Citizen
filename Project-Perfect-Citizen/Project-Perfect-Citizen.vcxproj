@@ -36,6 +36,7 @@
     <ClCompile Include="Code\Engine\LoggerParcel.cpp" />
     <ClCompile Include="Code\Engine\Network.cpp" />
     <ClCompile Include="Code\Engine\NodeState.cpp" />
+    <ClCompile Include="Code\Engine\NotificationObserver.cpp" />
     <ClCompile Include="Code\Engine\observer.cpp" />
     <ClCompile Include="Code\Engine\RenderCmpntDecorator.cpp" />
     <ClCompile Include="Code\Engine\RenderCmpntLogger.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="Code\Engine\LoggerParcel.h" />
     <ClInclude Include="Code\Engine\Network.h" />
     <ClInclude Include="Code\Engine\NodeState.h" />
+    <ClInclude Include="Code\Engine\NotificationObserver.h" />
     <ClInclude Include="Code\Engine\objectPool.h" />
     <ClInclude Include="Code\Engine\observer.h" />
     <ClInclude Include="Code\Engine\RenderCmpntDecorator.h" />

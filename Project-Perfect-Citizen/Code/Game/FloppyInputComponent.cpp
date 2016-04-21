@@ -14,11 +14,14 @@ using namespace ppc;
 const std::string FLOPPY_DEBUG_CODE = "FL";
 
 std::vector<std::vector<std::pair<std::string, unsigned int>>> FloppyInputComponent::floppyDictionary;
+bool FloppyInputComponent::initialized = false;
 
 std::map<std::string, unsigned int> FloppyInputComponent::Floppy_Sequence_Names;
 
 FloppyInputComponent::FloppyInputComponent() {
-	initializeFloppyDict();
+    if (!initialized) {
+        initializeFloppyDict();
+    }
 }
 
 FloppyInputComponent::~FloppyInputComponent() {
@@ -35,6 +38,7 @@ const std::map<std::string, int> FLOPPY_EMOTION_MAP{
 
 
 void ppc::FloppyInputComponent::initializeFloppyDict() {
+<<<<<<< HEAD
 	for (const auto& filename: FLOPPY_SOURCES) {
 		std::ifstream myfile(filename);
 		if (myfile.is_open()) {
@@ -70,6 +74,13 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 			DEBUGF(FLOPPY_DEBUG_CODE, filename + " could not be opened");
 		}
 	}
+=======
+    initialized = true;
+
+	std::vector<std::pair<std::string, unsigned int>> sequence1;
+	std::pair<std::string, unsigned int> sequence1frame1;
+	std::pair<std::string, unsigned int> sequence1frame2;
+>>>>>>> refs/remotes/origin/experimental
 
 
 	//std::vector<std::pair<std::string, unsigned int>> sequence1;

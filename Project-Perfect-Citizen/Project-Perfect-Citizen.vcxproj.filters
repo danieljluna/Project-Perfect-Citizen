@@ -325,6 +325,10 @@
     <ClCompile Include="Code\Game\notificationButtonComponent.cpp">
       <Filter>Sources\Game Specific\Button</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\notifcationRenderComponent.cpp" />
+    <ClCompile Include="Code\Engine\NotificationObserver.cpp">
+      <Filter>Sources\Engine\Observer System</Filter>
+    </ClCompile>
     <ClCompile Include="Code\Engine\LoggerParcel.cpp">
       <Filter>Sources\Engine\Debug</Filter>
     </ClCompile>
@@ -681,8 +685,11 @@
     <ClInclude Include="Code\Game\HelpRenderComponent.hpp">
       <Filter>Headers\Game Specific</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\NotificationObserver.h">
+      <Filter>Headers\Engine\Observer System</Filter>
+    </ClInclude>
     <ClInclude Include="Code\Game\notifcationRenderComponent.h">
-      <Filter>Headers\Game Specific\Button</Filter>
+      <Filter>Headers\Game Specific\Icons</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
