@@ -28,7 +28,6 @@ namespace ppc {
 		virtual ~FloppyInputComponent();
 
 		static std::vector<std::vector<std::pair<std::string, unsigned int>>> floppyDictionary;
-<<<<<<< HEAD
 
 		///////////////////////////////////////////////////////////////////////
 		/// Map of Floppy Sequence names to integers
@@ -42,10 +41,8 @@ namespace ppc {
 			{"Center", 5},
 			{"Feedback", 6}*/
 
-=======
         static bool initialized;
 		
->>>>>>> refs/remotes/origin/experimental
 		///////////////////////////////////////////////////////////////////////
 		/// Basic Getters
 		///////////////////////////////////////////////////////////////////////

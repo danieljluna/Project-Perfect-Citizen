@@ -130,12 +130,6 @@ int main(int argc, char** argv) {
 	Debug::scanOpts(argc, argv);
 	DEBUGF("ac", argc);
 
-	vector<int> testvec;
-	testvec.at(2) = 50;
-	cout << testvec.at(2) << endl;
-	cout << testvec.at(0) << endl;
-
-
 	World::initFontMap();
 
 	//Dont touch these comments please.

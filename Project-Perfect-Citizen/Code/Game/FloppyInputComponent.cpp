@@ -5,9 +5,9 @@
 #include <string>
 #include <vector>
 #include <utility>
+#include "../Engine/Entity.h"
 
 #include "../Engine/FreeFunctionObserver.h"
-#include "../Engine/event.h"
 
 using namespace ppc;
 
@@ -38,7 +38,6 @@ const std::map<std::string, int> FLOPPY_EMOTION_MAP{
 
 
 void ppc::FloppyInputComponent::initializeFloppyDict() {
-<<<<<<< HEAD
 	for (const auto& filename: FLOPPY_SOURCES) {
 		std::ifstream myfile(filename);
 		if (myfile.is_open()) {
@@ -74,14 +73,7 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 			DEBUGF(FLOPPY_DEBUG_CODE, filename + " could not be opened");
 		}
 	}
-=======
     initialized = true;
-
-	std::vector<std::pair<std::string, unsigned int>> sequence1;
-	std::pair<std::string, unsigned int> sequence1frame1;
-	std::pair<std::string, unsigned int> sequence1frame2;
->>>>>>> refs/remotes/origin/experimental
-
 
 	//std::vector<std::pair<std::string, unsigned int>> sequence1;
 	//std::pair<std::string, unsigned int> sequence1frame1;
@@ -111,6 +103,8 @@ void ppc::FloppyInputComponent::advanceSequence() { sequence++; }
 
 void ppc::FloppyInputComponent::regressSequence() { sequence--; }
 
+bool ppc::FloppyInputComponent::registerInput(sf::Event ev) { return true; }
+
 
 bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 	if (ev.type == ppc::Event::FloppyType) {
@@ -132,7 +126,7 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 }
 
 
-bool incrementFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
+bool ppc::incrementFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 	if (ev.type == ppc::Event::ButtonType) {
 		if (ev.buttons.isReleased) {
 
