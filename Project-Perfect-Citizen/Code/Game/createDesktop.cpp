@@ -30,6 +30,10 @@
 #include "FloppyUpdateComponent.hpp"
 #include "FloppyRenderComponent.hpp"
 #include "FloppyInputComponent.h"
+#include "TextBubble.h"
+#include "TextBubbleRender.h"
+#include "ButtonBuilder.h"
+
 #include "notifcationRenderComponent.h"
 
 
@@ -84,11 +88,28 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     FloppyInputComponent* floppyIn = new FloppyInputComponent();
     
     FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.12f);
-    
+
+	TextBubble* tb = new TextBubble();
+	tb->setPosition(90.f, 0);
+	TextBubbleRender* tbr = new TextBubbleRender();
+	tbr->setTextBubble(*tb);
+ 
     startBar.addComponent(bar);
     startBar.addComponent(floppy);
     startBar.addComponent(floppyIn);
     startBar.addComponent(floppyUpdate);
+	startBar.addComponent(tbr);
+
+	ButtonBuilder nextButton;
+	nextButton.setInputHandle(startToolbar->getInputHandler());
+	nextButton.setLabelFont(World::getFont(World::Consola));
+	nextButton.setLabelMessage("Next");
+	nextButton.setLabelSize(11);
+	nextButton.setButtonPosition({ 50.f,0.f });
+	nextButton.setSize(0.25f);
+	nextButton.setSpriteSheet(desktopToModify.getButtonSheet());
+	createWithEventFunc<FloppyInputComponent>(nextButton, startBar, floppyIn, ppc::incrementFloppyDialog);
+
     
 	Entity startButton;
 	spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);

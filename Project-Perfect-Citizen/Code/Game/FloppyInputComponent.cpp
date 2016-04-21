@@ -2,11 +2,11 @@
 #include "FloppyInputComponent.h"
 #include <iostream>
 #include <string>
-#include <vector>
 #include <utility>
+#include "../Engine/Entity.h"
+#include "../Engine/debug.h"
 
-#include "../Engine/FreeFunctionObserver.h"
-#include "../Engine/event.h"
+
 
 using namespace ppc;
 
@@ -75,23 +75,20 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 }
 
 
-bool incrementFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
-	if (ev.type == ppc::Event::ButtonType) {
-		if (ev.buttons.isReleased) {
+bool ppc::incrementFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 
-			/* Advance the frame state to be one more than
-			the stored value */
-			ptr->advanceFrame();
+	/* Advance the frame state to be one more than
+	the stored value */
+	ptr->advanceFrame();
 
-			/* Create and send a new event to the entity
-			with the updated frame */
-			ppc::Event ppcEv(ev);
-			ppcEv.type = ppc::Event::FloppyType;
-			ppcEv.floppy.sequence = ptr->getSequence();
-			ppcEv.floppy.frame = ptr->getFrame();
-			ptr->getEntity()->broadcastMessage(ppcEv);
-		}
-	}
+	/* Create and send a new event to the entity
+	with the updated frame */
+	ppc::Event ppcEv(ev);
+	ppcEv.type = ppc::Event::FloppyType;
+	ppcEv.floppy.sequence = ptr->getSequence();
+	ppcEv.floppy.frame = ptr->getFrame();
+	ptr->getEntity()->broadcastMessage(ppcEv);
+
 	return true;
 }
 
