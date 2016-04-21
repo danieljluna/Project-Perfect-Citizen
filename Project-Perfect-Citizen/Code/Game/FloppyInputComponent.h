@@ -32,6 +32,7 @@ namespace ppc {
 		~FloppyInputComponent();
 
 		static std::vector<std::vector<std::pair<std::string, unsigned int>>> floppyDictionary;
+        static bool initialized;
 		
 		///////////////////////////////////////////////////////////////////////
 		/// Basic Getters
