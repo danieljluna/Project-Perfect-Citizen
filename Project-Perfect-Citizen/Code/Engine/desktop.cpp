@@ -64,9 +64,10 @@ ppc::Desktop::Desktop(const Desktop& other) {
 
 ppc::Desktop::~Desktop() {
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-		if (*it != desktopWindow_) {
-			delete *it;
-		}
+        //TODO: Figure out why ~desktopWindow crashes
+        if (*it != desktopWindow_) {
+            delete *it;
+        }
 	}
 
 	for (auto it = netVec_.begin(); it != netVec_.end(); ++it) {

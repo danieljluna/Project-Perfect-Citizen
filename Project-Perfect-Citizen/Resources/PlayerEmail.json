@@ -5,15 +5,14 @@
    			"To" : "PLAYER_NAME",
 			"From" : "DCPS automated system",
           	"Subject" : "What is Project Perfect Citizen?",
-          	"Body" :"
-   
-    Project Perfect Citizen is the first extensive
-    program initiated by the Department of Cyber
-    Police and Security tasked with the job of
-    detecting and eradicating cyber criminal
-    threats within our great nation's network. 
-    This network, the SecureNetwork, is a series
-    of interconnected links between every
+          	"Body" :"Project Perfect Citizen is the 
+            
+    first extensive program initiated by the
+    Department of Cyber Police and Security tasked
+    with the job of detecting and eradicating cyber
+    criminal threats within our great nation's 
+    network. This network, the SecureNetwork, is a
+    series of interconnected links between every
     electronic telecommunications device
     internationally that controls the channels
     through which information is passed on."

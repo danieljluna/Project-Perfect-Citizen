@@ -3,7 +3,6 @@
 #include <vector>
 #include <string>
 #include "Email.h"
-#include "../Engine/subject.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// @author Alex Vincent
@@ -60,13 +59,10 @@ namespace ppc {
 		void removeEmailFromList(int position);
         
         int getMaxSize();
-		ppc::Subject& getInboxSubject();
 
 	protected:
 		std::vector<ppc::Email> messageList;
         int maxSize = 18;
-	private:
-		ppc::Subject inboxSubject_;
 	};
 
 }

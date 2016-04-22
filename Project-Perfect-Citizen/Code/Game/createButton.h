@@ -24,7 +24,6 @@
 #include "databaseSearchInputComponent.h"
 #include "../Engine/Network.h"
 #include "NetworkCheckFunctor.h"
-#include "FloppyInputComponent.h"
 
 
 //typedef bool (databaseSearchInputComponent::*backFn)(sf::Event&);
@@ -51,12 +50,6 @@ void spawnBackButton(databaseSearchInputComponent* db, ppc::Entity& entityToModi
 /// the button animations at (0, 3, 1), (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnStartButton(ppc::Entity& entityToModify, Desktop&, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
-
-
-//////////////////////////////////////////////////////////////////////
-/// @brief TEMPORARY FOR FLOPPY
-///////////////////////////////////////////////////////////////////////
-void spawnStartButton2(ppc::Entity& entityToModify, Desktop&, FloppyInputComponent*, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable next button
@@ -185,6 +178,5 @@ void spawnPromptIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Ima
 
 namespace ppc {
 	bool spawnStartMenu(Desktop*, Event);
-    bool displayFloppy(FloppyInputComponent*, Event);
 	bool LogOff(Desktop*, Event);
 }

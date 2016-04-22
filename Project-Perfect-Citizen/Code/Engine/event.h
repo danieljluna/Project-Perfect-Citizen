@@ -11,7 +11,6 @@ namespace ppc {
 	class Event
 	{
 	public:
-        Event();
         Event(sf::Event ev);
 
         operator sf::Event&();

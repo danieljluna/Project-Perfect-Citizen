@@ -41,6 +41,7 @@ namespace ppc {
 
 		sf::RectangleShape& getBubble();
 
+
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 	};
