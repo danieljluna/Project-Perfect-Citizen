@@ -48,6 +48,7 @@ private:
 	/// @brief reference to the desktop to open a new window
 	///////////////////////////////////////////////////////////////////////
 	ppc::Desktop& theDesktop;
+	ppc::Subject onRead_;
 
 public:
 
@@ -81,5 +82,9 @@ public:
 	virtual ~emailListElementInputComponent();
 
 	virtual bool registerInput(sf::Event ev) override;
+	////
+	///@brief gets the subject
+	////
+	ppc::Subject& onRead();
 
 };

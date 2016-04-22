@@ -117,7 +117,7 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
             0.0f,
             0.0f,
             float(windowToModify->getSize().x),
-            float(windowToModify->getSize().y / 2)
+            float(windowToModify->getSize().y / 5)
     };
     windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     windowToModify = new BorderDecorator(*windowToModify);
@@ -291,7 +291,8 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	/* Create the render components */
 	PipelineDataRenderComponent* dataText = new PipelineDataRenderComponent(myFont, 
-		dataWindowX, 0, fontSize, windowToModify->getSize().x, windowToModify->getSize().y);
+		static_cast<int>(dataWindowX), 0, fontSize, windowToModify->getSize().x, 
+		windowToModify->getSize().y);
 
 	PipelineGraphRenderComponent* graphBounds = new PipelineGraphRenderComponent(0, 0, dataWindowX,
 		float(windowToModify->getSize().y));
@@ -318,11 +319,11 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 		indexVec.push_back(i);
 	}
 	std::random_shuffle(indexVec.begin(), indexVec.end());
-	//No Overlapping Edges (Think of this positioning as an 8x8 grid
-	//the number after the * is the row/column number)
+
 	for (unsigned int i = 0, j = 0; i < indexVec.size(); ++i) {
-		playNet->vert(indexVec[i]).setPosition(50 + 70 * i%4, 50 + 100 * j);
-		if (i > 0 && i % 4 == 0) j++;
+		playNet->vert(indexVec[i]).setPosition(static_cast<float>(50 + 125 * (i%4)), 
+			                                   static_cast<float>(50 + 100 * j));
+		if (i > 0 && (i % 4) == 0) j++;
 	}
 
 	NetworkRenderComponent* networkRender = 
@@ -391,6 +392,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
         int maxWindowScroll = 8192;
         int maxWindowLines = 350;
         int windowScrollHeight = 0;
+        int minWindowHeight = 500;
         ifstream f(path);
         std::string line;
         string content;
@@ -403,10 +405,14 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
                 break;
             }
         }
-
+        
         windowScrollHeight = windowScrollHeight * textMuliplier;
         if(windowScrollHeight > maxWindowScroll){
             windowScrollHeight = maxWindowScroll;
+        }
+        
+        if(windowScrollHeight < minWindowHeight){
+            windowScrollHeight = minWindowHeight;
         }
         
         textRenderComponent* textBox =
@@ -670,7 +676,7 @@ void ppc::spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih,
     TextBoxBuilder tbuilder;
     tbuilder.setFont(myFont);
     tbuilder.setSize(20);
-    tbuilder.setPosition(sf::Vector2f(windowToModify->getSize().x/3,50.0f));
+    tbuilder.setPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x)/3,50.0f));
     tbuilder.setColor(sf::Color::Black);
     tbuilder.setString("text box");
     tbuilder.setInputHandle(ih);
@@ -713,7 +719,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 
-	float viewHeight = windowToModify->getSize().y / 2;
+	float viewHeight = static_cast<float>(windowToModify->getSize().y) / 2;
 
 	/* Create a scroll bar if the new explorer window is greater than 100px*/
 	if (viewHeight > 100.0f) {
@@ -758,7 +764,7 @@ void ppc::spawnContextMenu(Desktop& dT, WindowInterface*& windowToModify, InputH
 	/////// ENTITIES
 	///////////////////////////////////////
 	/* Create an email list element entity for each email in the inbox*/
-	for (int i = 0; i < elementNames.size(); ++i) {
+	for (unsigned int i = 0; i < elementNames.size(); ++i) {
 		Entity contextListElement;
 		createContextListElement(
 			contextListElement, windowToModify, dT, ih, myFont, elementNames.at(i), elementFunctions.at(i),

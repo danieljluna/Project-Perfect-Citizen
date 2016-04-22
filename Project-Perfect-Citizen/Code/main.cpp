@@ -89,17 +89,27 @@ void runEndDesktop(ppc::Desktop& myDesktop) {
 
 
 void runPlayerDesktop(ppc::Desktop& myDesktop) {
-
 	createPlayerDesktop(myDesktop, *myDesktop.getDesktopWindow(), 
 		myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
 
 }
 
+void runDummyDesktop(ppc::Desktop& myDesktop) {
+    createDummyDesktop(myDesktop, *myDesktop.getDesktopWindow(),
+                       myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
+    
+}
 
 void runTargetDesktop(ppc::Desktop& myDesktop) {
 	createTeacherDesktop(myDesktop, *myDesktop.getDesktopWindow(),
 		myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
 
+}
+
+void runArtistDesktop(ppc::Desktop& myDesktop) {
+    createArtistDesktop(myDesktop, *myDesktop.getDesktopWindow(),
+                       myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
+    
 }
 
 int main(int argc, char** argv) {
@@ -113,7 +123,7 @@ int main(int argc, char** argv) {
 
 	//Dont touch these comments please.
 	
-	ifstream ifs1("Saves/playerDesktop.ini", std::ifstream::in);
+	ifstream ifs1(resourcePath() + "Saves/desktop0.ini", std::ifstream::in);
 	Desktop testDesktop;
 	ifs1 >> testDesktop;
 	
@@ -124,8 +134,9 @@ int main(int argc, char** argv) {
 	//Dont touch these comments please.
 	//World::setGameScreen(screen);
 	//World::setCurrDesktop(testDesktop);
-	//runPlayerDesktop(testDesktop);
+	//runDummyDesktop(testDesktop);
 	//World::runCurrDesktop();
+
 
 	
 	AudioQueue audiotest(5);
@@ -244,6 +255,7 @@ int main(int argc, char** argv) {
     Logger::endTimer("endDesktop");
 
     Logger::exportParcels();
+     
 	
 
     return EXIT_SUCCESS;

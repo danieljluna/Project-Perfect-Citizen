@@ -29,7 +29,13 @@
 
 #include "FloppyUpdateComponent.hpp"
 #include "FloppyRenderComponent.hpp"
+#include "FloppyInputComponent.h"
+#include "TextBubble.h"
+#include "TextBubbleRender.h"
+#include "ButtonBuilder.h"
+
 #include "notifcationRenderComponent.h"
+
 
 #include "../Library/json/json.h"
 
@@ -56,7 +62,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 
     //TODO: FIX MEMORY LEAK
     Inbox* theInbox = new Inbox();
-    
+
     emailExtraction inbox;// = new emailExtraction();
     inbox.parseEmailAsJson("PlayerEmail.json");
     
@@ -78,18 +84,43 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     
     
     FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
-    floppy->renderPosition({800, -32});
+    
+    FloppyInputComponent* floppyIn = new FloppyInputComponent();
     
     FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.12f);
-    
+
+	TextBubble* tb = new TextBubble();
+	tb->setPosition(90.f, 0);
+	TextBubbleRender* tbr = new TextBubbleRender();
+	tbr->setTextBubble(*tb);
+ 
     startBar.addComponent(bar);
     startBar.addComponent(floppy);
+    startBar.addComponent(floppyIn);
     startBar.addComponent(floppyUpdate);
+	startBar.addComponent(tbr);
+
+	ButtonBuilder nextButton;
+	nextButton.setInputHandle(startToolbar->getInputHandler());
+	nextButton.setLabelFont(World::getFont(World::Consola));
+	nextButton.setLabelMessage("Next");
+	nextButton.setLabelSize(11);
+	nextButton.setButtonPosition({ 50.f,0.f });
+	nextButton.setSize(0.25f);
+	nextButton.setSpriteSheet(desktopToModify.getButtonSheet());
+	createWithEventFunc<FloppyInputComponent>(nextButton, startBar, floppyIn, ppc::incrementFloppyDialog);
+
     
 	Entity startButton;
 	spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
+    
+    Entity startButton2;
+    spawnStartButton2(startButton, desktopToModify, floppyIn, startToolbar->getInputHandler(), buttonSheet, 300, 14, 0.35f);
+    
+    
     startToolbar->addEntity(startBar);
     startToolbar->addEntity(startButton);
+    startToolbar->addEntity(startButton2);
 	desktopToModify.addWindow(startToolbar);
 
 	////////////////////////////////
@@ -102,24 +133,28 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	Entity EmailIcon;
 
 	spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 425.0f, 525.0f, 0.5f, 0.30f, theInbox);
-
 	spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 175.0f, 375.0f, 0.5f, 0.30f, theInbox);
 	spawnDataGraphIcon(DataGraphIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 675.0f, 375.0f, 0.5f, 0.30f, theInbox);
-
 	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 250.0f, 475.0f, 0.5f, 0.30f, theInbox);
 	spawnHelpIcon(SearchIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 600.0f, 475.0f, 0.5f, 0.30f, theInbox);
 
-    
-	ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
-	EmailIcon.addComponent(notiRenderComp);
-	
+    //Add Desktop Icon Floppy Triggers
+    iconInputComponent* graphIconInput = dynamic_cast<iconInputComponent*>(DataGraphIcon.getComponent(2));
+    graphIconInput->onOpen().addObserver(new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn));
     
     desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
 	desktopWindowToModify.addEntity(HardDriveIcon);
 	desktopWindowToModify.addEntity(SearchIcon);
 	desktopWindowToModify.addEntity(EmailIcon);
-	desktopWindowToModify.addEntity(EmailIcon);
+
+	sf::Event ev;
+	ev.type = sf::Event::EventType::Closed;
+	ppc::Event ppcEvent(ev);
+	ppcEvent.type = ppc::Event::EventTypes::NotificationType;
+	ppcEvent.notification.count = 1;
+	//theInbox->getInboxSubject().getObserverHead()->eventHandler(ppcEvent);
+	//notiRenderComp->getNotiObserver().eventHandler(ppcEvent);
 
 }
 
@@ -189,9 +224,152 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
+    desktopWindowToModify.addEntity(EmailIcon);
+    
+}
 
-	ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
-	EmailIcon.addComponent(notiRenderComp);
+void createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
+    
+    //////////////////////////////////////////////
+    //// Create the database (really should take a seed)
+    /////////////////////////////////////////////
+    //TODO: FIX MEMORY LEAK
+    Database* theDatabase = new Database();
+    theDatabase->generateFullDatabase(0);
+    
+    //TODO: FIX MEMORY LEAK
+    Inbox* theInbox = new Inbox();
+    
+    //TODO: FIX MEMORY LEAK
+    emailExtraction* inbox = new emailExtraction();
+    inbox->parseEmailAsJson("Email0.json");
+    
+    for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
+        Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
+        theInbox->addEmailToList(testEmail1);
+    }
+    
+    //////////////////////////////////////////////
+    //// Script to create file tree
+    /////////////////////////////////////////////
+    desktopExtractionComponent* teacherFiles = new desktopExtractionComponent(*desktopToModify.getNodeState());
+    Json::Value parsed = teacherFiles->parseDesktopAsJson("Desktop0.json", "Desktop");
+    
+    //////////////////////////////////////////////
+    //// Create the start menu
+    /////////////////////////////////////////////
+    ppc::WindowInterface* startToolbar =
+    new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
+    startToolbar->setPosition(0, 735);
+    
+    Entity startBar;
+    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    startBar.addComponent(bar);
+    
+    Entity startButton;
+    spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
+    startToolbar->addEntity(startBar);
+    startToolbar->addEntity(startButton);
+    desktopToModify.addWindow(startToolbar);
+    
+    
+    ////////////////////////////////
+    ///// ICONS ON TEACHER DESKTOP
+    ////////////////////////////////
+    Entity BrowserIcon;
+    Entity ChatIcon;
+    Entity HardDriveIcon;
+    Entity SettingsIcon;
+    Entity ConsoleIcon;
+    Entity EmailIcon;
+    
+    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 25.0f, 600.0f, 0.4f, 0.25f, theInbox);
+    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 125.0f, 600.0f, 0.4f, 0.25f, theInbox);
+    spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 600.0f, 0.5f, 0.25f, theInbox);
+    spawnChatIcon(ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 325.0f, 600.0f, 0.4f, 0.25f, theInbox);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 425.0f, 600.0f, 0.5f, 0.25f, theInbox);
+    
+    desktopWindowToModify.addEntity(BrowserIcon);
+    desktopWindowToModify.addEntity(ChatIcon);
+    desktopWindowToModify.addEntity(HardDriveIcon);
+    desktopWindowToModify.addEntity(SettingsIcon);
+    desktopWindowToModify.addEntity(ConsoleIcon);
+    
+    ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
+    EmailIcon.addComponent(notiRenderComp);
+    desktopWindowToModify.addEntity(EmailIcon);
+    
+}
+
+void createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
+    
+    //////////////////////////////////////////////
+    //// Create the database (really should take a seed)
+    /////////////////////////////////////////////
+    //TODO: FIX MEMORY LEAK
+    Database* theDatabase = new Database();
+    theDatabase->generateFullDatabase(0);
+    
+    //TODO: FIX MEMORY LEAK
+    Inbox* theInbox = new Inbox();
+    
+    //TODO: FIX MEMORY LEAK
+    emailExtraction* inbox = new emailExtraction();
+    inbox->parseEmailAsJson("Email0.json");
+    
+    for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
+        Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
+        theInbox->addEmailToList(testEmail1);
+    }
+    
+    //////////////////////////////////////////////
+    //// Script to create file tree
+    /////////////////////////////////////////////
+    desktopExtractionComponent* teacherFiles = new desktopExtractionComponent(*desktopToModify.getNodeState());
+    Json::Value parsed = teacherFiles->parseDesktopAsJson("Desktop0.json", "Desktop");
+    
+    //////////////////////////////////////////////
+    //// Create the start menu
+    /////////////////////////////////////////////
+    ppc::WindowInterface* startToolbar =
+    new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
+    startToolbar->setPosition(0, 735);
+    
+    Entity startBar;
+    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    startBar.addComponent(bar);
+    
+    Entity startButton;
+    spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
+    startToolbar->addEntity(startBar);
+    startToolbar->addEntity(startButton);
+    desktopToModify.addWindow(startToolbar);
+    
+    
+    ////////////////////////////////
+    ///// ICONS ON TEACHER DESKTOP
+    ////////////////////////////////
+    Entity BrowserIcon;
+    Entity ChatIcon;
+    Entity HardDriveIcon;
+    Entity SettingsIcon;
+    Entity ConsoleIcon;
+    Entity EmailIcon;
+    
+    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 25.0f, 600.0f, 0.4f, 0.25f, theInbox);
+    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 125.0f, 600.0f, 0.4f, 0.25f, theInbox);
+    spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 600.0f, 0.5f, 0.25f, theInbox);
+    spawnChatIcon(ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 325.0f, 600.0f, 0.4f, 0.25f, theInbox);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 425.0f, 600.0f, 0.5f, 0.25f, theInbox);
+    
+    desktopWindowToModify.addEntity(BrowserIcon);
+    desktopWindowToModify.addEntity(ChatIcon);
+    desktopWindowToModify.addEntity(HardDriveIcon);
+    desktopWindowToModify.addEntity(SettingsIcon);
+    desktopWindowToModify.addEntity(ConsoleIcon);
+    
+    ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
+    EmailIcon.addComponent(notiRenderComp);
     desktopWindowToModify.addEntity(EmailIcon);
     
 }

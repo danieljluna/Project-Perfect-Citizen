@@ -1,201 +1,104 @@
 {
 	"Email": {
-   		"Email_001": {
-            "Visible" : "1",
-   			"To" : "Chandler Garvey <cgarvey@fellowship.net>",
-			"From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-          	"Subject" : "Coming Clean",
-            "Body" :"Hi Chandler,
-            
-    Lisa and I have been together for a little over
-    a year now.
-                
-    She loves Proust, Nabokov, Kafka - and better
-    yet she understands them in ways I'd never 
-    imagined myself. Her analysis is full of sharp
-    insight, and delightful twists. God I love her.
-                
-    I think have to tell her the truth.
-                
-    What if she hates me? If she leaves me...I don't
-    know.
-                    
-        -Murphy"
-        },
-		"Email_002": {
-            "Visible" : "1",
-			"To" : "Chandler Garvey <cgarvey@fellowship.net>",
-			"From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-			"Subject": "RE: RE: RE: You've been with us for how long?",
-			"Body" : "
-            
-    Don't you think the things people are most 
-    ashamed of are things they can't help?"
-		},
-        "Email_003": {
+        "Email_001": {
             "Visible" : "1",
             "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "From" : "Chandler Garvey <cgarvey@fellowship.net>",
-            "Subject": "RE: RE: You've been with us for how long?",
-            "Body" : "
+            "Subject": "Welcome!",
+            "Body" : "Hello Murphy!
             
-    Arthur Goodwin is in the ground. He has no power
-    over you.
+    I'm glad you reached out to us. I'm Chandler
+    Garvey, longtime member of Virtue Community.
+    I'll be your sponsor. It's my job to act as a
+    resource when you need to talk to someone, and
+    to help you avoid environments where offending
+    is possible.
             
-    And about your shame, you've got to let it go!
-    You were a child, how could you have helped what
-    happened to you?"
-        },
-        "Email_004": {
+    Many of us were abused in the past, and some of
+    us are recovering abusers. This group began
+    because traditional therapies, twelve step, and
+    other behavioral rehabilitation programs don't
+    work for people with our inclination.
+        
+    We are here to support one another, and stay on
+    a righteous path.
+                
+    Self-control, community, family.
+                
+            C. Garvey"
+                },
+        "Email_002": {
             "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "Subject": "RE: You've been with us for how long?",
-            "Body" :"
+            "Subject": "RE: Welcome!",
+            "Body" : "’’’’’’’’’’’’
+    ’’’’’’’’’’’’’’’’’
+    ’’’’’’’’’’’’’’’’’
+    ’’’’’’’’’’’’’’’’’
+    ’’’’’’’’’’’’’’’’’
+    ’’’’’’’
             
-    Doesn't make it any less daunting.
-    
-    Talking about my Father - talking about myself -
-    feels almost like I'm going through it all
-    again.
+    ’’’’’’’’’’’’’’’’’
+    ’’’’’’’’’’
             
-    I'm full of that old anger. That old shame.
+    ’’’’’’’’’’’’’’’’’
     
-    I can barely say his name aloud."
+    ’’’’’’’’’’’’’’’’’
+    ’’’’’’’’’’’’’’’’’
+    ’’
+            
+    ’’’’’’’’’’’’’’’’’
+    ’’’’’’’’’’’’’’’’’
+    ’’’’’’’’’’’’’’’’’
+    ’’’’’’
+            
+            ’’’’’’
+            ’’’’’’’"
+                },
+        
+        "Email_003": {
+            "Visible" : "1",
+            "To" : "Chandler Garvey <cgarvey@fellowship.net>",
+            "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
+            "Subject": "Trouble",
+            "Body" : "
+            
+    You told me to be candid with you Chandler, so I
+    will. While I've never acted on my impulses in
+    person, I'm feeling guilty for something.
+            
+    I found some pictures online.
+            
+    Am I wrong for looking at them? For keeping
+    them?
+                
+            - Murphy"
+                },
+        "Email_004": {
+            "Visible" : "1",
+            "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
+            "From" : "Chandler Garvey <cgarvey@fellowship.net>",
+            "Subject": "RE: Trouble",
+            "Body" : "Murphy,
+            
+    Delete those pictures immediately. There is a
+    line we don't cross and you're crossing it.
+            
+            - Chandler"
         },
         "Email_005": {
             "Visible" : "1",
-            "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "From" : "Chandler Garvey <cgarvey@fellowship.net>",
-            "Subject": "You've been with us for how long?",
-            "Body" :"Murphy,
-            
-    Opening up to people you can trust is crucial to
-    avoiding relapse. But I'm just telling you what
-    you already know.
-            
-    If you really love this woman, then she needs to
-    know it all, even the things you'd rather leave
-    in the past.
-            
-        -Chandler"
-        },
-        "Email_006": {
-            "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "Subject": "RE: RE: RE: Need to talk",
-            "Body" : "Chandler,
-            
-    I gave her a few days to process what she's
-    feeling, and when we finally talked it out,
-    something new came to light.
-            
-    She's pregnant.
-            
-        -Murphy"
-        },
-        "Email_007": {
-            "Visible" : "1",
-            "To" : "Chandler Garvey <cgarvey@fellowship.net>",
-            "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "Subject": "RE: RE: Need to talk",
+            "Subject": "RE: RE: Trouble",
             "Body" : "
             
-    Lisa has been more distant now than ever. I
-    can't help but feel it's related to telling her
-    what my father did to me.
-            
-    So often survivors have their experiences
-    trivialized, or invalidated. Usually talking
-    about it gives me the opportunity to define my
-    experience.
-            
-    With you and other Virtue members I can affirm:
-    This did happen to me.  It was the fault of the
-    adult. I was and am innocent.
-            
-    But with Lisa, she just worries I may do the
-    same thing one day. And what really hurts is
-    that I have the same concern.
-                
-        -Murphy"
-        },
-        "Email_008": {
-            "Visible" : "1",
-            "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "From" : "Chandler Garvey <cgarvey@fellowship.net>",
-            "Subject": "RE: Need to talk",
-            "Body" : "Hey,
-            
-    Be patient with her, and patient with yourself.
-    No one's perfect.
-            
-    Remember: temperance is hard, but deeply
-    valuable for men like us.
-                
-    You're not alone in this."
-        },
-        "Email_009": {
-            "Visible" : "1",
-            "To" : "Chandler Garvey <cgarvey@fellowship.net>",
-            "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "Subject": "Need to talk",
-            "Body" : "Hi Chandler,
-            
-    I got in an argument with Lisa this morning.
-    It's not the worst fight we've ever had, and yet
-    I can't get it out of my head.
-        
-    We woke up in bed together. I began to kiss her
-    neck. She told me to stop. And for a bit I did.
-                
-    After coming back from the shower I tried to
-    kiss her again, but she kept pulling away from
-    me. This time I stopped because she began to
-    cry.
-                
-    She told me she had that dream again. The one
-    she's been having every so often since I told
-    her. She wouldn't say anything more after that.
-                
-            Murphy"
-        },
-        "Email_010": {
-            "Visible" : "1",
-            "To" : "Vanita Goodwin <vgoodwin@colonade.com",
-            "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "Subject": "Good News!",
-            "Body" : "Hi Mom,
-            
-    Lisa and I are exhausted, and overjoyed! We
-    haven't slept much for several days, and while
-    we have the next two weeks off on leave, I don't
-    suspect it'll be restful in the least.
-                
-    Speaking of rest, Annalise is finally sound
-    asleep. Holding her in my arms is like nothing
-    else on earth. This angelic little girl.
-                    
-    New pics of all of us are attached below!
-                    
-            Much Love,
-            Murphy & Lisa"
-        },
-        "Email_011": {
-            "Visible" : "1",
-            "To" : "Chandler Garvey <cgarvey@fellowship.net>",
-            "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "Subject": "RE: RE: RE: RE: Trouble",
-            "Body" : "
-            
-    Alright, I get it. I'll delete them.
-            
-    Sorry.
+    Why? Looking at photos is a victimless crime?
             
             - Murphy"
         },
-        "Email_012": {
+        "Email_006": {
             "Visible" : "1",
             "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "From" : "Chandler Garvey <cgarvey@fellowship.net>",
@@ -217,48 +120,20 @@
             
             - Chandler"
         },
-        "Email_013": {
+        "Email_007": {
             "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "Subject": "RE: RE: Trouble",
+            "Subject": "RE: RE: RE: RE: Trouble",
             "Body" : "
             
-    Why? Looking at photos is a victimless crime?
+    Alright, I get it. I'll delete them.
+            
+    Sorry.
             
             - Murphy"
         },
-        "Email_014": {
-            "Visible" : "1",
-            "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "From" : "Chandler Garvey <cgarvey@fellowship.net>",
-            "Subject": "RE: Trouble",
-            "Body" : "Murphy,
-            
-    Delete those pictures immediately. There is a
-    line we don't cross and you're crossing it.
-            
-            - Chandler"
-        },
-        "Email_015": {
-            "Visible" : "1",
-            "To" : "Chandler Garvey <cgarvey@fellowship.net>",
-            "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "Subject": "Trouble",
-            "Body" : "
-            
-    You told me to be candid with you Chandler, so I
-    will. While I've never acted on my impulses in
-    person, I'm feeling guilty for something.
-            
-    I found some pictures online.
-    
-    Am I wrong for looking at them? For keeping
-    them?
-                
-            - Murphy"
-        },
-        "Email_016": {
+        "Email_008": {
             "Visible" : "1",
             "To" : "Murphy Goodwin <mgoodwin@corpora.com>, more...",
             "From" : "Chandler Garvey <cgarvey@fellowship.net>",
@@ -282,61 +157,192 @@
             
             - C. Garvey"
         },
+        "Email_009": {
+            "Visible" : "1",
+            "To" : "Chandler Garvey <cgarvey@fellowship.net>",
+            "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
+            "Subject" : "Coming Clean",
+            "Body" :"Hi Chandler,
+            
+    Lisa and I have been together for a little over
+    a year now.
+                
+    She loves Proust, Nabokov, Kafka - and better
+    yet she understands them in ways I'd never
+    imagined myself. Her analysis is full of sharp
+    insight, and delightful twists. God I love her.
+                
+    I think have to tell her the truth.
+                
+    What if she hates me? If she leaves me...I don't
+    know.
+                    
+            - Murphy"
+        },
+        "Email_010": {
+            "Visible" : "1",
+            "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
+            "From" : "Chandler Garvey <cgarvey@fellowship.net>",
+            "Subject": "RE: Coming Clean",
+            "Body" :"Murphy,
+            
+    Opening up to people you can trust is crucial to
+    avoiding relapse. But I'm just telling you what
+    you already know.
+            
+    If you really love this woman, then she needs to
+    know it all, even the things you'd rather leave
+    in the past.
+            
+            -Chandler"
+            
+        },
+        "Email_011": {
+            "Visible" : "1",
+            "To" : "Chandler Garvey <cgarvey@fellowship.net>",
+            "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
+            "Subject": "RE: RE: Coming Clean",
+            "Body" :"
+            
+    Doesn't make it any less daunting.
+            
+    Talking about my Father - talking about myself -
+    feels almost like I'm going through it all
+    again.
+            
+    I'm full of that old anger. That old shame.
+            
+    I can barely say his name aloud."
+            
+        },
+        "Email_012": {
+            "Visible" : "1",
+            "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
+            "From" : "Chandler Garvey <cgarvey@fellowship.net>",
+            "Subject": "RE: RE: RE: Coming Clean",
+            "Body" : "
+            
+    Arthur Goodwin is in the ground. He has no power
+    over you.
+            
+    And about your shame, you've got to let it go!
+    You were a child, how could you have helped what
+    happened to you?"
+            
+        },
+        "Email_013": {
+            "Visible" : "1",
+            "To" : "Chandler Garvey <cgarvey@fellowship.net>",
+            "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
+            "Subject": "RE: RE: RE: RE: Coming Clean",
+            "Body" : "
+            
+    Don't you think the things people are most
+    ashamed of are things they can't help?"
+            
+        },
+        "Email_014": {
+            "Visible" : "1",
+            "To" : "Chandler Garvey <cgarvey@fellowship.net>",
+            "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
+            "Subject": "Need to talk",
+            "Body" : "Hi Chandler,
+            
+    I got in an argument with Lisa this morning.
+    It's not the worst fight we've ever had, and yet
+    I can't get it out of my head.
+            
+    We woke up in bed together. I began to kiss her
+    neck. She told me to stop. And for a bit I did.
+                
+    After coming back from the shower I tried to
+    kiss her again, but she kept pulling away from
+    me. This time I stopped because she began to
+    cry.
+                
+    She told me she had that dream again. The one
+    she's been having every so often since I told
+    her. She wouldn't say anything more after that.
+                
+            - Murphy"
+        },
+        "Email_015": {
+            "Visible" : "1",
+            "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
+            "From" : "Chandler Garvey <cgarvey@fellowship.net>",
+            "Subject": "RE: Need to talk",
+            "Body" : "Hey,
+            
+    Be patient with her, and patient with yourself.
+    No one's perfect.
+            
+    Remember: temperance is hard, but deeply
+    valuable for men like us.
+                
+    You're not alone in this."
+        },
+        "Email_016": {
+            "Visible" : "1",
+            "To" : "Chandler Garvey <cgarvey@fellowship.net>",
+            "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
+            "Subject": "RE: RE: Need to talk",
+            "Body" : "
+            
+    Lisa has been more distant now than ever. I
+    can't help but feel it's related to telling her
+    what my father did to me.
+            
+    So often survivors have their experiences
+    trivialized, or invalidated. Usually talking
+    about it gives me the opportunity to define my
+    experience.
+            
+    With you and other Virtue members I can affirm:
+    This did happen to me.  It was the fault of the
+    adult. I was and am innocent.
+            
+    But with Lisa, she just worries I may do the
+    same thing one day. And what really hurts is
+    that I have the same concern.
+                
+            -Murphy"
+        },
         "Email_017": {
             "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "Subject": "RE: Welcome!",
-            "Body" : "Hi Chandler,
+            "Subject": "RE: RE: RE: Need to talk",
+            "Body" : "Chandler,
             
-    Finding this group is a real windfall for me. I
-    never thought I'd get the chance to talk about
-    my illness with others. In the interest of
-    opening up communications, I'd like to share a
-    bit about myself.
-                
-    I suffer from a twisted sexuality. Reviled by
-    all. Delivered to me from my father.
-                
-    I can't help but be attracted to children.
-                
-    I've never acted on these desires, and I never
-    will. Still I doubt my condition will ever go
-    away.
-                
-    I've considered chemical castration, but I can't
-    commit to it. So now, with the help of Virtue
-    Community, I'll strive to lead a normal life.
-                
-            Thank you,
-            Murphy Goodwin"
+    I gave her a few days to process what she's
+    feeling, and when we finally talked it out,
+    something new came to light.
+            
+    She's pregnant.
+            
+        -Murphy"
         },
         "Email_018": {
             "Visible" : "1",
-            "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "From" : "Chandler Garvey <cgarvey@fellowship.net>",
-            "Subject": "Welcome!",
-            "Body" : "Hello Murphy!
+            "To" : "Vanita Goodwin <vgoodwin@colonade.com",
+            "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
+            "Subject": "Good News!",
+            "Body" : "Hi Mom,
             
-    I'm glad you reached out to us. I'm Chandler
-    Garvey, longtime member of Virtue Community.
-    I'll be your sponsor. It's my job to act as a
-    resource when you need to talk to someone, and
-    to help you avoid environments where offending
-    is possible.
+    Lisa and I are exhausted, and overjoyed! We
+    haven't slept much for several days, and while
+    we have the next two weeks off on leave, I don't
+    suspect it'll be restful in the least.
             
-    Many of us were abused in the past, and some of
-    us are recovering abusers. This group began
-    because traditional therapies, twelve step, and
-    other behavioral rehabilitation programs don't
-    work for people with our inclination.
+    Speaking of rest, Annalise is finally sound
+    asleep. Holding her in my arms is like nothing
+    else on earth. This angelic little girl.
                 
-    We are here to support one another, and stay on
-    a righteous path.
+    New pics of all of us are attached below!
                 
-    Self-control, community, family.
+            Much Love,
+            Murphy & Lisa"
                 
-            C. Garvey"
         }
    	}
 }
