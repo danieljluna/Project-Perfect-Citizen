@@ -56,31 +56,8 @@
             ’’’’’’
             ’’’’’’’"
                 },
-        "Email_003": {
-            "Visible" : "1",
-            "To" : "Murphy Goodwin <mgoodwin@corpora.com>, more...",
-            "From" : "Chandler Garvey <cgarvey@fellowship.net>",
-            "Subject": "Important News",
-            "Body" : "Hello All,
-    I hate to deliver this news.
         
-    Robert Chamberlain was arrested Thursday night,
-    pending charges.
-            
-    If what he told me is true, he could be looking
-    at 25 to life. And he'll deserve every minute he
-    serves.
-            
-    Self-control, community, family. These are the
-    things that keep us from failing ourselves by
-    acting on temptation.
-            
-    When one of us falls, it's all the more
-    important the Virtue Community stands together.
-            
-            - C. Garvey"
-        },
-        "Email_004": {
+        "Email_003": {
             "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
@@ -98,7 +75,7 @@
                 
             - Murphy"
                 },
-        "Email_005": {
+        "Email_004": {
             "Visible" : "1",
             "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "From" : "Chandler Garvey <cgarvey@fellowship.net>",
@@ -110,7 +87,7 @@
             
             - Chandler"
         },
-        "Email_006": {
+        "Email_005": {
             "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
@@ -121,7 +98,7 @@
             
             - Murphy"
         },
-        "Email_007": {
+        "Email_006": {
             "Visible" : "1",
             "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "From" : "Chandler Garvey <cgarvey@fellowship.net>",
@@ -143,7 +120,7 @@
             
             - Chandler"
         },
-        "Email_008": {
+        "Email_007": {
             "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
@@ -156,29 +133,115 @@
             
             - Murphy"
         },
+        "Email_008": {
+            "Visible" : "1",
+            "To" : "Murphy Goodwin <mgoodwin@corpora.com>, more...",
+            "From" : "Chandler Garvey <cgarvey@fellowship.net>",
+            "Subject": "Important News",
+            "Body" : "Hello All,
+    I hate to deliver this news.
+            
+    Robert Chamberlain was arrested Thursday night,
+    pending charges.
+            
+    If what he told me is true, he could be looking
+    at 25 to life. And he'll deserve every minute he
+    serves.
+            
+    Self-control, community, family. These are the
+    things that keep us from failing ourselves by
+    acting on temptation.
+            
+    When one of us falls, it's all the more
+    important the Virtue Community stands together.
+            
+            - C. Garvey"
+        },
         "Email_009": {
             "Visible" : "1",
-            "To" : "Vanita Goodwin <vgoodwin@colonade.com",
+            "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "Subject": "Good News!",
-            "Body" : "Hi Mom,
+            "Subject" : "Coming Clean",
+            "Body" :"Hi Chandler,
             
-    Lisa and I are exhausted, and overjoyed! We
-    haven't slept much for several days, and while
-    we have the next two weeks off on leave, I don't
-    suspect it'll be restful in the least.
-            
-    Speaking of rest, Annalise is finally sound
-    asleep. Holding her in my arms is like nothing
-    else on earth. This angelic little girl.
+    Lisa and I have been together for a little over
+    a year now.
                 
-    New pics of all of us are attached below!
-        
-        Much Love,
-        Murphy & Lisa"
+    She loves Proust, Nabokov, Kafka - and better
+    yet she understands them in ways I'd never
+    imagined myself. Her analysis is full of sharp
+    insight, and delightful twists. God I love her.
                 
-                },
+    I think have to tell her the truth.
+                
+    What if she hates me? If she leaves me...I don't
+    know.
+                    
+            - Murphy"
+        },
         "Email_010": {
+            "Visible" : "1",
+            "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
+            "From" : "Chandler Garvey <cgarvey@fellowship.net>",
+            "Subject": "RE: Coming Clean",
+            "Body" :"Murphy,
+            
+    Opening up to people you can trust is crucial to
+    avoiding relapse. But I'm just telling you what
+    you already know.
+            
+    If you really love this woman, then she needs to
+    know it all, even the things you'd rather leave
+    in the past.
+            
+            -Chandler"
+            
+        },
+        "Email_011": {
+            "Visible" : "1",
+            "To" : "Chandler Garvey <cgarvey@fellowship.net>",
+            "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
+            "Subject": "RE: RE: Coming Clean",
+            "Body" :"
+            
+    Doesn't make it any less daunting.
+            
+    Talking about my Father - talking about myself -
+    feels almost like I'm going through it all
+    again.
+            
+    I'm full of that old anger. That old shame.
+            
+    I can barely say his name aloud."
+            
+        },
+        "Email_012": {
+            "Visible" : "1",
+            "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
+            "From" : "Chandler Garvey <cgarvey@fellowship.net>",
+            "Subject": "RE: RE: RE: Coming Clean",
+            "Body" : "
+            
+    Arthur Goodwin is in the ground. He has no power
+    over you.
+            
+    And about your shame, you've got to let it go!
+    You were a child, how could you have helped what
+    happened to you?"
+            
+        },
+        "Email_013": {
+            "Visible" : "1",
+            "To" : "Chandler Garvey <cgarvey@fellowship.net>",
+            "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
+            "Subject": "RE: RE: RE: RE: Coming Clean",
+            "Body" : "
+            
+    Don't you think the things people are most
+    ashamed of are things they can't help?"
+            
+        },
+        "Email_014": {
             "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
@@ -202,8 +265,8 @@
     her. She wouldn't say anything more after that.
                 
             - Murphy"
-                },
-        "Email_011": {
+        },
+        "Email_015": {
             "Visible" : "1",
             "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "From" : "Chandler Garvey <cgarvey@fellowship.net>",
@@ -217,8 +280,8 @@
     valuable for men like us.
                 
     You're not alone in this."
-                },
-        "Email_012": {
+        },
+        "Email_016": {
             "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
@@ -243,8 +306,8 @@
     that I have the same concern.
                 
             -Murphy"
-                },
-        "Email_013": {
+        },
+        "Email_017": {
             "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
@@ -259,90 +322,27 @@
             
         -Murphy"
         },
-        "Email_014": {
+        "Email_018": {
             "Visible" : "1",
-            "To" : "Chandler Garvey <cgarvey@fellowship.net>",
+            "To" : "Vanita Goodwin <vgoodwin@colonade.com",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "Subject" : "Coming Clean",
-            "Body" :"Hi Chandler,
+            "Subject": "Good News!",
+            "Body" : "Hi Mom,
             
-    Lisa and I have been together for a little over
-    a year now.
-        
-    She loves Proust, Nabokov, Kafka - and better
-    yet she understands them in ways I'd never
-    imagined myself. Her analysis is full of sharp
-    insight, and delightful twists. God I love her.
+    Lisa and I are exhausted, and overjoyed! We
+    haven't slept much for several days, and while
+    we have the next two weeks off on leave, I don't
+    suspect it'll be restful in the least.
+            
+    Speaking of rest, Annalise is finally sound
+    asleep. Holding her in my arms is like nothing
+    else on earth. This angelic little girl.
                 
-    I think have to tell her the truth.
+    New pics of all of us are attached below!
                 
-    What if she hates me? If she leaves me...I don't
-    know.
-        
-            - Murphy"
-                    },
-        "Email_015": {
-            "Visible" : "1",
-            "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "From" : "Chandler Garvey <cgarvey@fellowship.net>",
-            "Subject": "RE: Coming Clean",
-            "Body" :"Murphy,
-            
-    Opening up to people you can trust is crucial to
-    avoiding relapse. But I'm just telling you what
-    you already know.
-            
-    If you really love this woman, then she needs to
-    know it all, even the things you'd rather leave
-    in the past.
-            
-            -Chandler"
-            
-        },
-        "Email_016": {
-            "Visible" : "1",
-            "To" : "Chandler Garvey <cgarvey@fellowship.net>",
-            "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "Subject": "RE: RE: Coming Clean",
-            "Body" :"
-            
-    Doesn't make it any less daunting.
-        
-    Talking about my Father - talking about myself -
-    feels almost like I'm going through it all
-    again.
-            
-    I'm full of that old anger. That old shame.
-            
-    I can barely say his name aloud."
-            
-        },
-        "Email_017": {
-            "Visible" : "1",
-            "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "From" : "Chandler Garvey <cgarvey@fellowship.net>",
-            "Subject": "RE: RE: RE: Coming Clean",
-            "Body" : "
-            
-    Arthur Goodwin is in the ground. He has no power
-    over you.
-            
-    And about your shame, you've got to let it go!
-    You were a child, how could you have helped what
-    happened to you?"
-            
-        },
-        
-		"Email_018": {
-            "Visible" : "1",
-			"To" : "Chandler Garvey <cgarvey@fellowship.net>",
-			"From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-			"Subject": "RE: RE: RE: RE: Coming Clean",
-			"Body" : "
-            
-    Don't you think the things people are most 
-    ashamed of are things they can't help?"
-            
-		}
+            Much Love,
+            Murphy & Lisa"
+                
+        }
    	}
 }
