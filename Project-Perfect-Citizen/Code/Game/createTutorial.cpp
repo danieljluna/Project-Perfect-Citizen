@@ -31,7 +31,7 @@ void ppc::createTutorial(Desktop & dt) {
 
 	//Graph Icon
 	Entity graphIcon;
-	icons.setPosition({ 500.f,300.f });
+	icons.setPosition({ 400.f,300.f });
 	icons.setIconType("dataGraphIcon");
 	icons.setSpritebyIndicies(0, 4, 1, 2);
 	icons.setText("Graph", World::getFont(World::VT323Regular), sf::Color::Black);
@@ -40,20 +40,28 @@ void ppc::createTutorial(Desktop & dt) {
 
 	//Email Icon
 	Entity emailIcon;
-	icons.setPosition({ 350.f,300.f });
+	icons.setPosition({ 250.f,300.f });
 	icons.setIconType("emailIcon");
 	icons.setSpritebyIndicies(0, 10, 1, 2);
 	icons.setText("Emails", World::getFont(World::VT323Regular), sf::Color::Black);
 	icons.create(emailIcon);
 
-	
+
+	//Help Icon
+	Entity helpIcon;
+	icons.setPosition({ 550.f,300.f });
+	icons.setIconType("helpIcon");
+	icons.setSpritebyIndicies(0, 5, 1, 2);
+	icons.setText("Help", World::getFont(World::VT323Regular), sf::Color::Black);
+	icons.create(helpIcon);
 
 	dt.getDesktopWindow()->addEntity(graphIcon);
 	dt.getDesktopWindow()->addEntity(emailIcon);
+	dt.getDesktopWindow()->addEntity(helpIcon);
 
-
-	Window* floppyWindow = new Window(1000, 300, sf::Color::Transparent);
-	floppyWindow->setPosition(0, 0);
+	//Floppy begins here
+	Window* floppyWindow = new Window(300, 300, sf::Color::Transparent);
+	floppyWindow->setPosition(700, 600);
 
 	Entity floppyEntity;
 
@@ -71,17 +79,18 @@ void ppc::createTutorial(Desktop & dt) {
 	TextBubbleRender* tbr = new TextBubbleRender();
 	tbr->setTextBubble(*tb);
 
+	floppyEntity.addComponent(tbr);
 	floppyEntity.addComponent(floppy);
 	floppyEntity.addComponent(floppyIn);
 	floppyEntity.addComponent(floppyUpdate);
-	floppyEntity.addComponent(tbr);
+	
 
 	ButtonBuilder nextButton;
 	nextButton.setInputHandle(floppyWindow->getInputHandler());
 	nextButton.setLabelFont(World::getFont(World::Consola));
 	nextButton.setLabelMessage("Next");
 	nextButton.setLabelSize(11);
-	nextButton.setButtonPosition({ 0.f,0.f });
+	nextButton.setButtonPosition({ 70.f,100.f });
 	nextButton.setSize(0.25f);
 	nextButton.setSpriteSheet(dt.getButtonSheet());
 	createWithEventFunc<FloppyInputComponent>(nextButton, floppyEntity, floppyIn, ppc::incrementFloppyDialog);

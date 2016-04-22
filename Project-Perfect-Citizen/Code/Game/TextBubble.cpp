@@ -4,8 +4,7 @@
 
 #include <fstream>
 
-void ppc::TextBubble::formatLine(std::string &) {
-	//TODO
+void ppc::TextBubble::formatLine(std::string& str) {
 }
 
 ppc::TextBubble::TextBubble() {
@@ -28,6 +27,7 @@ ppc::TextBubble::~TextBubble() {
 
 void ppc::TextBubble::setText(std::string s) {
 	currStr_ = s;
+	formatLine(currStr_);
 	displayText_.setString(currStr_);
 }
 
