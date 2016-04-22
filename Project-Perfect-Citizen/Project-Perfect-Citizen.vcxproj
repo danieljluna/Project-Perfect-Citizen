@@ -258,6 +258,7 @@
   <ItemGroup>
     <None Include="Resources\data.json" />
     <None Include="Resources\DE1PipelineTexts.json" />
+    <None Include="Resources\Email1.json" />
     <None Include="Resources\PlayerEmail.json" />
     <None Include="Resources\Saves\desktop1.ini" />
     <None Include="Resources\Saves\playerDesktop.ini" />
