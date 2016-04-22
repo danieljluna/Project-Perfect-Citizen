@@ -40,6 +40,7 @@
 
 #include "Game/TextBubble.h"
 
+#include "Game/createTutorial.h"
 
 using namespace ppc;
 
@@ -133,7 +134,7 @@ int main(int argc, char** argv) {
 	//Dont touch these comments please.
 	World::setGameScreen(screen);
 	World::setCurrDesktop(tutorialDesktop);
-	//ADD FUNCTION FOR FILLING TUTORIAL DESKTOP HERE
+	createTutorial(tutorialDesktop);
 	World::runCurrDesktop();
 
 	//AudioQueue audiotest(5);
