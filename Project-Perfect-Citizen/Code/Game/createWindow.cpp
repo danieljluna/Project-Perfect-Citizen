@@ -1,7 +1,9 @@
 #ifdef WINDOWS_MARKER
 #define resourcePath() string("Resources/")
+#define MAC 0
 #else
 #include "ResourcePath.hpp"
+#define MAC 1
 #endif
 
 #include "createWindow.h"
@@ -58,6 +60,7 @@
 #include "../Game/TextBoxBuilder.h"
 
 #include "../Game/HelpRenderComponent.hpp"
+#include "../Game/readingMacDirectory.hpp"
 
 using namespace ppc;
 
@@ -369,7 +372,13 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
 	float x, float y, string filename, string p) {
     if (windowToModify == nullptr) return; 
     
+    if(MAC){
+        readingMacDirectory* dir = new readingMacDirectory();
+        p = dir->getDirectory(p);
+    }
+    
     string path = resourcePath() + p;
+    //std::cout <<  "\n" + path +  "\n" << std::endl;
     string dotEnd;
     
     if (!path.empty()) dotEnd = path.substr(path.length() - 4);

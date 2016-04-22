@@ -745,6 +745,7 @@
 		E9A58C901CC83D2800A59A6F /* desktop0.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = desktop0.ini; sourceTree = "<group>"; };
 		E9A58C911CC83D2800A59A6F /* desktop1.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = desktop1.ini; sourceTree = "<group>"; };
 		E9A58C921CC83D2800A59A6F /* playerDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = playerDesktop.ini; sourceTree = "<group>"; };
+		E9A9D0151CCAAAA10093194C /* readingMacDirectory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = readingMacDirectory.hpp; sourceTree = "<group>"; };
 		E9AC1C7F1CC95E1700A7955F /* 17391.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 17391.jpg; sourceTree = "<group>"; };
 		E9AC1C801CC95E1700A7955F /* 3D_printer_3000.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3D_printer_3000.jpg; sourceTree = "<group>"; };
 		E9AC1C811CC95E1700A7955F /* blueprint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueprint.jpg; sourceTree = "<group>"; };
@@ -1164,6 +1165,7 @@
 				E9A58C421CC81C0700A59A6F /* TreeCommands.h */,
 				E9A58C431CC81C0700A59A6F /* WindowBkgndRenderCmpnt.cpp */,
 				E9A58C441CC81C0700A59A6F /* WindowBkgndRenderCmpnt.h */,
+				E9A9D0151CCAAAA10093194C /* readingMacDirectory.hpp */,
 			);
 			name = Game;
 			path = Code/Game;
