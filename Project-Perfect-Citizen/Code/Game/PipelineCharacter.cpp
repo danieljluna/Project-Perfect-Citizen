@@ -168,7 +168,7 @@ void PipelineCharacter::generate() {
 
 	//could add some more procedurality here
 	std::vector<std::string> validjobs;
-	for (unsigned int i = 0; i < MIN_EDUCATION.size(); ++i) {
+	for (int i = 0; i < MIN_EDUCATION.size(); ++i) {
 		if (MIN_EDUCATION.at(JOBS_ALL[i]) <= educationLevel_ &&
 			MIN_EDUCATION.at(JOBS_ALL[i]) >= educationLevel_ - 1) validjobs.push_back(JOBS_ALL[i]);
 	}
@@ -241,7 +241,7 @@ std::ostream& ppc::operator<<(std::ostream & os,
 	os << "Age = " << pc.age_;
 	os << "SSN: " << pc.ssn_ << ", Email: " << pc.email_;
 	os << ", Phone: " << pc.phoneNumber_ << std::endl;
-	//os << std::endl;
+	os << std::endl;
 
 	return os;
 }

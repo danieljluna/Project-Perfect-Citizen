@@ -15,26 +15,17 @@ namespace ppc {
     class FloppyRenderComponent : public ppc::RenderComponent{
     private:
         sf::Sprite* sprite;
-        sf::Sprite* staticBox;
         sf::Texture* texture;
         sf::IntRect* rectSourceSprite;
         sf::Image& floppyImage;
+        int animation;
         int emotion;
-        int xIndex, yIndex;
+        int frameCount, xIndex, yIndex;
         bool _willAnimate;
+        bool _isVisible;
         static const int size = 128;
         
     public:
-        
-        enum Emotes{
-            Default,
-            Angry,
-            Surprised,
-            Peek
-        };
-        
-        bool willAnimate() const {return _willAnimate;}
-        
         ///////////////////////////////////////////////////////////////////////
         /// @brief Constructor for buttonRenderComponent
         /// @param image is the String of a file path of a .png file
@@ -46,6 +37,8 @@ namespace ppc {
         
         ~FloppyRenderComponent();
         
+        int getAnimationType() const {return animation;}
+        bool isVisible() const {return _isVisible;}
         
         ///////////////////////////////////////////////////////////////////////
         /// @brief changes the position of the component within its parent view
@@ -61,8 +54,9 @@ namespace ppc {
         ///////////////////////////////////////////////////////////////////////
         /// @brief Sets the animation for Floppy
         ///////////////////////////////////////////////////////////////////////
-        //void setAnimationLoad();
-       
+        void setAnimationLoad();
+        void setAnimationHide();
+        void setAnimationPeek();
         
         void  setEmotion(int e);
         
@@ -70,6 +64,13 @@ namespace ppc {
         /// @brief Animates the sprite
         ///////////////////////////////////////////////////////////////////////
         void animate();
+
+        ///////////////////////////////////////////////////////////////////////
+        /// @brief flag that returns true is the sprite should enter
+        //         its animation sequence. Resets when animation completes
+        ///////////////////////////////////////////////////////////////////////
+        bool willAnimate() const {return _willAnimate;}
+        
         ///////////////////////////////////////////////////////////////////////
         /// @brief The main draw function that was inheirted from RenderComponent.
         /// @details You need to define this to create a child of RenderComponent

@@ -2,12 +2,9 @@
 #include "TextBubble.h"
 #include "../Engine/event.h"
 #include "FloppyInputComponent.h"
-
+#include <utility>
 #include <vector>
 #include <string.h>
-#include "../Engine/debug.h"
-
-
 ppc::TextBubbleRender::TextBubbleRender() {
 
 }
@@ -35,12 +32,11 @@ void ppc::TextBubbleRender::recieveMessage(msgType code) {
 void ppc::TextBubbleRender::recieveMessage(ppc::Event ev) {
 
 	if (ev.type == ppc::Event::FloppyType) {
-		
 		unsigned int i = ev.floppy.sequence;
 		unsigned int j = ev.floppy.frame;
 		std::string s = 
 			FloppyInputComponent::floppyDictionary.at(i).at(j).first;
-		DEBUGF("tb", s)
+
 		bubble_->setText(s);
 	}
 

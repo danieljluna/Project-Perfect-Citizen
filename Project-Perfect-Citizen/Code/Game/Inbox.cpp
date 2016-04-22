@@ -19,8 +19,3 @@ void Inbox::removeEmailFromList(int position) {
 int Inbox::getMaxSize(){
     return maxSize;
 }
-
-ppc::Subject& ppc::Inbox::getInboxSubject()
-{
-	return inboxSubject_;
-}

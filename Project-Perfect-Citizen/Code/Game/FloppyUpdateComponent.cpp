@@ -20,9 +20,11 @@ void FloppyUpdateComponent::update(sf::Time& deltaTime) {
         counter += deltaTime;
         
         if (counter >= framePeriod) {
-            render->animate();
-            counter -= framePeriod;
+          //  if (render->getAnimationType() == 0) {
+                render->animate();
+                 counter -= framePeriod;
         }
     }
+    
 }
 
