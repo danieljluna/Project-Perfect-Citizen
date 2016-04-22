@@ -37,7 +37,6 @@ ppc::Desktop::Desktop() {
 	backgndTexture_ = sf::Texture();
 	desktopWindow_ = nullptr;
 	focused_ = nullptr;
-	useFront = false;
 	frontTop_ = nullptr;
 
 
@@ -74,7 +73,7 @@ ppc::Desktop::~Desktop() {
 		delete *it;
 	}
 
-	delete frontTop_;
+	if(frontTop_) delete frontTop_;
 	frontTop_ = nullptr;
 	focused_ = nullptr;
 	desktopWindow_ = nullptr;
@@ -127,7 +126,7 @@ void ppc::Desktop::draw(sf::RenderTarget& target,
 		target.draw(*(*it), states);
 	}
 
-	if (useFront) target.draw(*frontTop_, states);
+	if (frontTop_) target.draw(*frontTop_, states);
 }
 
 
@@ -244,6 +243,14 @@ ppc::Inbox& ppc::Desktop::getInbox() {
 void ppc::Desktop::setFrontTop(WindowInterface* front) {
 	frontTop_ = front;
 }
+
+void ppc::Desktop::deleteFrontTop() {
+	if (frontTop_) {
+		delete frontTop_;
+	}
+}
+
+
 
 void ppc::Desktop::registerInput(sf::Event ev) {
 	//first check if the mouse clicked in the focused window.
