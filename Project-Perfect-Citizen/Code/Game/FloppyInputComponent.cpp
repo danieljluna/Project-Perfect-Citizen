@@ -111,8 +111,9 @@ void ppc::FloppyInputComponent::setSequence(unsigned int s) { sequence = s; }
 
 void ppc::FloppyInputComponent::advanceFrame() { 
 	frame++;
-
-	if (floppyDictionary.at(sequence).size() <= frame) frame = -1;
+	if (floppyDictionary.at(sequence).size() <= frame) {
+		frame = -1;
+	}
 
 }
 
@@ -123,7 +124,6 @@ void ppc::FloppyInputComponent::advanceSequence() { sequence++; }
 void ppc::FloppyInputComponent::regressSequence() { sequence--; }
 
 bool ppc::FloppyInputComponent::registerInput(sf::Event ev) { return true; }
-
 
 bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 	if (ev.type == ppc::Event::FloppyType) {
@@ -146,22 +146,27 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 
 
 bool ppc::incrementFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
-	if (ev.type == ppc::Event::ButtonType) {
-		if (ev.buttons.isReleased) {
 
-			/* Advance the frame state to be one more than
-			the stored value */
-			ptr->advanceFrame();
+	/* Advance the frame state to be one more than
+	the stored value */
+	ptr->advanceFrame();
 
-			/* Create and send a new event to the entity
-			with the updated frame */
-			ppc::Event ppcEv(ev);
-			ppcEv.type = ppc::Event::FloppyType;
-			ppcEv.floppy.sequence = ptr->getSequence();
-			ppcEv.floppy.frame = ptr->getFrame();
-			ptr->getEntity()->broadcastMessage(ppcEv);
-		}
+	/* Alert observers if beyond sequence length (return both -1)*/
+	if (ptr->getFrame() == -1) {
+		ppc::Event ppcEv;
+		ppcEv.type = ppc::Event::FloppyType;
+		ppcEv.floppy.sequence = -1;
+		ppcEv.floppy.frame = -1;
+		ptr->onSequenceEnd().sendEvent(ppcEv);
 	}
+	/* Create and send a new event to the entity
+	with the updated frame */
+	ppc::Event ppcEv(ev);
+	ppcEv.type = ppc::Event::FloppyType;
+	ppcEv.floppy.sequence = ptr->getSequence();
+	ppcEv.floppy.frame = ptr->getFrame();
+	ptr->getEntity()->broadcastMessage(ppcEv);
+		
 	return true;
 }
 

@@ -39,6 +39,8 @@ private:
     Subject onRelease_;
 	Subject onHover_;
 
+	bool isClickable = true;
+
 public:
 
 	mousePressButton();
@@ -78,6 +80,7 @@ public:
     sf::FloatRect getFloatRect() const;
 
 	void setIsBeingPressed(std::string iBP);
+	void setIsClickable(bool);
 
 	virtual ~mousePressButton();
 	virtual bool registerInput(sf::Event ev) override;
