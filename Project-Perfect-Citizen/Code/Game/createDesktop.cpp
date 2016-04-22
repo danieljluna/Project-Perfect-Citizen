@@ -315,7 +315,7 @@ void createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     
     //TODO: FIX MEMORY LEAK
     emailExtraction* inbox = new emailExtraction();
-    inbox->parseEmailAsJson("Email0.json");
+    inbox->parseEmailAsJson("Email2.json");
     
     for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
         Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
@@ -326,7 +326,7 @@ void createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     //// Script to create file tree
     /////////////////////////////////////////////
     desktopExtractionComponent* teacherFiles = new desktopExtractionComponent(*desktopToModify.getNodeState());
-    Json::Value parsed = teacherFiles->parseDesktopAsJson("Desktop0.json", "Desktop");
+    Json::Value parsed = teacherFiles->parseDesktopAsJson("Desktop2.json", "Desktop");
     
     //////////////////////////////////////////////
     //// Create the start menu
