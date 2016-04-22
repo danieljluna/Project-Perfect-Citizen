@@ -37,15 +37,15 @@ ppc::Desktop::Desktop() {
 	backgndTexture_ = sf::Texture();
 	desktopWindow_ = nullptr;
 	focused_ = nullptr;
+	useFront = false;
+	frontTop_ = nullptr;
+
+
 }
 
-ppc::Desktop::Desktop(WindowInterface* bkgndWin, NodeState n) {
+ppc::Desktop::Desktop(WindowInterface* bkgndWin, NodeState n) :
+          Desktop() {
 	nodeState_ = n;
-	iconSheet_ = sf::Image();
-	buttonSheet_ = sf::Image();
-	inbox_ = ppc::Inbox();
-	background_ = sf::Sprite();
-	backgndTexture_ = sf::Texture();
 	windows_.push_back(bkgndWin);
 	desktopWindow_ = bkgndWin;
 	focused_ = desktopWindow_;
@@ -56,6 +56,7 @@ ppc::Desktop::Desktop(const Desktop& other) {
 	this->nodeState_ = other.nodeState_;
 	this->windows_ = other.windows_;
 	this->desktopWindow_ = other.desktopWindow_;
+	this->frontTop_ = other.frontTop_;
 	this->focused_ = other.focused_;
 	this->iconSheet_ = other.iconSheet_;
 	this->buttonSheet_ = other.buttonSheet_;
@@ -73,6 +74,8 @@ ppc::Desktop::~Desktop() {
 		delete *it;
 	}
 
+	delete frontTop_;
+	frontTop_ = nullptr;
 	focused_ = nullptr;
 	desktopWindow_ = nullptr;
 	windows_.clear();
@@ -123,6 +126,8 @@ void ppc::Desktop::draw(sf::RenderTarget& target,
 	for (auto it = windows_.rbegin(); it != windows_.rend(); ++it) {
 		target.draw(*(*it), states);
 	}
+
+	if (useFront) target.draw(*frontTop_, states);
 }
 
 
@@ -236,30 +241,40 @@ ppc::Inbox& ppc::Desktop::getInbox() {
 	return inbox_;
 }
 
+void ppc::Desktop::setFrontTop(WindowInterface* front) {
+	frontTop_ = front;
+}
+
 void ppc::Desktop::registerInput(sf::Event ev) {
 	//first check if the mouse clicked in the focused window.
 	//if the window clicked in a window that wasnt focused,
 	//then focus that window.
 	//for any mouse event
-	if (ev.type == sf::Event::MouseButtonPressed) {
-		for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-			sf::FloatRect winBounds = (*it)->getBounds();
-			if (winBounds.contains(float(ev.mouseButton.x), float(ev.mouseButton.y))) {
-				focusWindow(*it);
-                break;
+
+	bool frontTopCatches = false;//sendToFrontTop;
+	if (frontTop_ && frontTopCatches) {} else {
+
+		if (ev.type == sf::Event::MouseButtonPressed) {
+			for (auto it = windows_.begin(); it != windows_.end(); ++it) {
+				sf::FloatRect winBounds = (*it)->getBounds();
+				if (winBounds.contains(float(ev.mouseButton.x), float(ev.mouseButton.y))) {
+					focusWindow(*it);
+					break;
+				}
 			}
 		}
-	}
 
-    if (ev.type == sf::Event::MouseMoved) {
-        ev.mouseMove.x -= int(focused_->getPosition().x);
-        ev.mouseMove.y -= int(focused_->getPosition().y);
-    } else if ((ev.type == sf::Event::MouseButtonPressed) || (ev.type == sf::Event::MouseButtonReleased)){
-        ev.mouseButton.x -= int(focused_->getPosition().x);
-        ev.mouseButton.y -= int(focused_->getPosition().y);
-    }
-	
-	focused_->registerInput(ev);
+		if (ev.type == sf::Event::MouseMoved) {
+			ev.mouseMove.x -= int(focused_->getPosition().x);
+			ev.mouseMove.y -= int(focused_->getPosition().y);
+		} else if ((ev.type == sf::Event::MouseButtonPressed) || (ev.type == sf::Event::MouseButtonReleased)) {
+			ev.mouseButton.x -= int(focused_->getPosition().x);
+			ev.mouseButton.y -= int(focused_->getPosition().y);
+		}
+
+		focused_->registerInput(ev);
+
+	}
 
 }
 

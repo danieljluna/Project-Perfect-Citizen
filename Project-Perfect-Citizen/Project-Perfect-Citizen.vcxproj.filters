@@ -695,6 +695,9 @@
     <ClInclude Include="Code\Game\createTutorial.h">
       <Filter>Headers\Game Specific</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\frontTopInput.h">
+      <Filter>Headers\Engine\Desktop</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json">

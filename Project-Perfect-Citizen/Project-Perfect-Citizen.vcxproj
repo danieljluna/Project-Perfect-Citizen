@@ -151,6 +151,7 @@
     <ClInclude Include="Code\Engine\EntityLogger.h" />
     <ClInclude Include="Code\Engine\event.h" />
     <ClInclude Include="Code\Engine\FreeFunctionObserver.h" />
+    <ClInclude Include="Code\Engine\frontTopInput.h" />
     <ClInclude Include="Code\Engine\FunctionObserver.h" />
     <ClInclude Include="Code\Engine\InputCmpntLogger.h" />
     <ClInclude Include="Code\Engine\inputComponent.h" />
