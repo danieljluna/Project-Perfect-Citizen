@@ -2,13 +2,14 @@
 
 #include <SFML/Graphics.hpp>
 #include <string>
-#include "../Engine/Engine.h"
-//#include "desktop.h"
-//#include "InputHandler.h"
-#include "../Game/Database.h"
-#include "../Game/Inbox.h"
-
+#include "../Engine/Entity.h"
 namespace ppc {
+
+	class Desktop;
+	class InputHandler;
+	class Database;
+	class Inbox;
+
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Designated Generic Builder Object for Icons
 	/// @author Nader Sleem
@@ -18,8 +19,8 @@ namespace ppc {
 	class IconBuilder {
 	private:
 
-		Desktop* dt;
-		InputHandler* ih;
+		ppc::Desktop* dt;
+		ppc::InputHandler* ih;
 		ppc::Database* db;
 		ppc::Inbox* ib;
 		sf::Image* buttonSheet;
@@ -29,6 +30,8 @@ namespace ppc {
 
 		std::string label;
 		std::string isBeingPressed;
+
+		std::string iconType;
 
 		int sheetX;
 		int sheetY;
@@ -66,6 +69,9 @@ namespace ppc {
 		///@breif Sets the size of the icon's text
 		///////////////////////////////////////////////////////////////
 		void setSize(float s);
+
+
+		void setIconType(std::string);
 
 		///////////////////////////////////////////////////////////////
 		///@breif Sets the desktop for the Icon
@@ -116,8 +122,22 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 /// @brief Returns the constructed icon
 ///////////////////////////////////////////////////////////////////////
-		void create(Entity&);
-
-
+		void create(ppc::Entity&);
 	};
+
+	template<class T>
+	void createWithEventFunc(IconBuilder& builder, Entity& e, T* target, bool(*func)(T *, ppc::Event)) {
+
+		builder.create(e);
+		size_t s = e.cmpntCount();
+		ppc::mousePressButton* mpb = dynamic_cast<mousePressButton*>(e.getComponent(s - 1));
+
+		if (mpb != nullptr) {
+			setOnPress(mpb, target, func);
+		} else {
+			return;
+		}
+	}
+
+
 };

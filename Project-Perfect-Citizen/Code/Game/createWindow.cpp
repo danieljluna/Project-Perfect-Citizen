@@ -786,5 +786,3 @@ void ppc::spawnContextMenu(Desktop& dT, WindowInterface*& windowToModify, InputH
 	windowToModify->setPosition(x, y);
 
 }
-
-

@@ -352,17 +352,17 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 			Json::Value parsed =
 				desktopFiles.parseDesktopAsJson(resourcePath() + file, "Desktop");
 		} else if (key == "Emails") {
-			ppc::emailExtraction inbox;
-			inbox.parseEmailAsJson(resourcePath() + file);
-			//Broken, need to ask brandon
-			for (unsigned int i = 0; i < inbox.getSubject().size(); i++) {
-				ppc::Email testEmail1(inbox.getTo().at(i),
-					inbox.getFrom().at(i),
-					inbox.getSubject().at(i),
-					inbox.getBody().at(i),
-                    inbox.getVisible().at(i),
+			ppc::emailExtraction* inbox = new emailExtraction();
+			inbox->parseEmailAsJson(file);
+			
+			for (unsigned int i = 0; i < inbox->getSubject().size(); i++) {
+				ppc::Email testEmail1(inbox->getTo().at(i),
+					inbox->getFrom().at(i),
+					inbox->getSubject().at(i),
+					inbox->getBody().at(i),
+                    inbox->getVisible().at(i),
 					"image.jpg");
-				importDesktop->inbox_.addEmailToList(testEmail1);
+				importDesktop->getInbox().addEmailToList(testEmail1);
 			}
 		} else if (key == "Pipeline") {
 			if (PipelineLevelBuilder::LEVEL_MAP.find(file) ==
