@@ -55,6 +55,11 @@ void FloppyRenderComponent::setImageScale(float ScaleX, float ScaleY) {
 
 void FloppyRenderComponent::setEmotion(int emote) {
     switch (emote) {
+        case -1:
+            // No Face
+            rectSourceSprite->left = 1*size;
+            rectSourceSprite->top = 0*size;
+            break;
         case 0:
             // Default Face
             rectSourceSprite->left = 0*size;
@@ -82,12 +87,20 @@ void FloppyRenderComponent::setEmotion(int emote) {
 
 
 void FloppyRenderComponent::animate() {
-    
-    if (sprite->getPosition().y >= -35) {
-        renderPosition({sprite->getPosition().x, sprite->getPosition().y-5});
+    if (emotion == -1) {
+        if (sprite->getPosition().y <= 32) {
+            renderPosition({sprite->getPosition().x, sprite->getPosition().y+5});
+        } else {
+            setEmotion(emotion);
+            _willAnimate = false;
+        }
     } else {
-        setEmotion(emotion);
-        _willAnimate = false;
+        if (sprite->getPosition().y >= -35) {
+            renderPosition({sprite->getPosition().x, sprite->getPosition().y-5});
+        } else {
+            setEmotion(emotion);
+            _willAnimate = false;
+        }
     }
 
     sprite->setTextureRect(*rectSourceSprite);
@@ -108,7 +121,9 @@ void FloppyRenderComponent::recieveMessage(ppc::Event ev) {
     if (ev.type == Event::EventTypes::FloppyType) {
         unsigned int i = ev.floppy.sequence;
         unsigned int j = ev.floppy.frame;
-        emotion = FloppyInputComponent::floppyDictionary.at(i).at(j).second;
+        if (j == -1) emotion = -1;
+        else emotion = FloppyInputComponent::floppyDictionary.at(i).at(j).second;
+        
         _willAnimate = true;
     }
     

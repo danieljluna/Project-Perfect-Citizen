@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <array>
 #include <vector>
+#include "../Engine/subject.h"
 #include "../Engine/inputComponent.h"
 #include "../Engine/event.h"
 
@@ -21,6 +22,7 @@ namespace ppc {
 	private:
 		unsigned int sequence;
 		unsigned int frame;
+		Subject onSequenceEnd_;
 	
 	public:
 
@@ -70,6 +72,7 @@ namespace ppc {
         
         virtual bool registerInput(sf::Event ev) override;
 
+		Subject& onSequenceEnd() { return onSequenceEnd_; };
 
 
 
