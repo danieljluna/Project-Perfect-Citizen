@@ -40,6 +40,11 @@ namespace ppc {
 			unsigned int frame;
 		};
 
+		struct AbleEv {
+			bool enable;
+			bool disable;
+		};
+
 		enum EventTypes
 		{
 			ButtonType,
@@ -48,6 +53,7 @@ namespace ppc {
 			sfEventType,
             NotificationType,
 			FloppyType,
+			AbleType,
 			Count
 		};
 
@@ -59,6 +65,7 @@ namespace ppc {
 			ScrollbarEv scrollbar;
             NotificationEv notification;
 			FloppyEv floppy;
+			AbleEv able;
             sf::Event sfEvent;
 		};
 	};

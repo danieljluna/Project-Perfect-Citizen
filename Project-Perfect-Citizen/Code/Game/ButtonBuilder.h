@@ -34,11 +34,13 @@ namespace ppc {
 
 		sf::Image* spriteSheet;
 		ppc::InputHandler* inputHandle;
+		mousePressButton* button_mpb = nullptr;
 
 		std::string label;
 		sf::Font* font;
 		int labelSize;
 		bool clickable = true;
+		bool disabled = false;
 
 	public:
 		///////////////////////////////////////////////////////////////////////
@@ -112,6 +114,22 @@ namespace ppc {
 		/// @param The window's input handler
 		///////////////////////////////////////////////////////////////////////
 		void setInputHandle(ppc::InputHandler&);
+
+		///////////////////////////////////////////////////////////////////////
+		/// @brief Set's whether the button is disabled/non-rendered on spawn
+		/// @param Whether it is or is not disabled
+		/// @note Disabled means both the render and input component is disabled
+		/// whereas non-clickable means only the input component is disabled.
+		///////////////////////////////////////////////////////////////////////
+		void setIsDisabled(bool);
+
+
+		///////////////////////////////////////////////////////////////////////
+		/// @brief Returns the mousePressButton of a button
+		/// @note Only call this function after calling create or 
+		/// createWithEventFunc.
+		///////////////////////////////////////////////////////////////////////
+		ppc::mousePressButton* getMousePressButton();
 
 		///////////////////////////////////////////////////////////////////////
 		/// @brief Returns the constructed button
