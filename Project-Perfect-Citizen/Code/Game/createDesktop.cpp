@@ -53,8 +53,8 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	//// Create the database (really should take a seed)
 	/////////////////////////////////////////////
     
-    //sf::Image floppyImage;
-    //floppyImage.loadFromFile(resourcePath() + "Floppy_Sheet.png");
+    sf::Image floppyImage;
+    floppyImage.loadFromFile(resourcePath() + "Floppy_Sheet.png");
 
 	//TODO: FIX MEMORY LEAK
     Database* theDatabase = new Database();
@@ -83,7 +83,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
     
     
-    /*FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
+    FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
     
     FloppyInputComponent* floppyIn = new FloppyInputComponent();
     
@@ -92,35 +92,35 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	TextBubble* tb = new TextBubble();
 	tb->setPosition(450.f, 0);
 	TextBubbleRender* tbr = new TextBubbleRender();
-	tbr->setTextBubble(*tb);*/
+	tbr->setTextBubble(*tb);
  
     startBar.addComponent(bar);
- //   startBar.addComponent(floppy);
- //   startBar.addComponent(floppyIn);
- //   startBar.addComponent(floppyUpdate);
-	//startBar.addComponent(tbr);
+    startBar.addComponent(floppy);
+    startBar.addComponent(floppyIn);
+    startBar.addComponent(floppyUpdate);
+	startBar.addComponent(tbr);
 
-	//ButtonBuilder nextButton;
-	//nextButton.setInputHandle(startToolbar->getInputHandler());
-	//nextButton.setLabelFont(World::getFont(World::Consola));
-	//nextButton.setLabelMessage("Next");
-	//nextButton.setLabelSize(11);
-	//nextButton.setButtonPosition({ 400.f,0.f });
-	//nextButton.setSize(0.25f);
-	//nextButton.setSpriteSheet(desktopToModify.getButtonSheet());
-	//createWithEventFunc<FloppyInputComponent>(nextButton, startBar, floppyIn, ppc::incrementFloppyDialog);
+	ButtonBuilder nextButton;
+	nextButton.setInputHandle(startToolbar->getInputHandler());
+	nextButton.setLabelFont(World::getFont(World::Consola));
+	nextButton.setLabelMessage("Next");
+	nextButton.setLabelSize(11);
+	nextButton.setButtonPosition({ 400.f,0.f });
+	nextButton.setSize(0.25f);
+	nextButton.setSpriteSheet(desktopToModify.getButtonSheet());
+	createWithEventFunc<FloppyInputComponent>(nextButton, startBar, floppyIn, ppc::incrementFloppyDialog);
 
     
 	Entity startButton;
 	spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
     
-    //Entity startButton2;
-    //spawnStartButton2(startButton, desktopToModify, floppyIn, startToolbar->getInputHandler(), buttonSheet, 300, 14, 0.35f);
+    Entity startButton2;
+    spawnStartButton2(startButton, desktopToModify, floppyIn, startToolbar->getInputHandler(), buttonSheet, 300, 14, 0.35f);
     
     
     startToolbar->addEntity(startBar);
     startToolbar->addEntity(startButton);
-    //startToolbar->addEntity(startButton2);
+    startToolbar->addEntity(startButton2);
 	desktopToModify.addWindow(startToolbar);
 
 	////////////////////////////////
@@ -139,8 +139,8 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	spawnHelpIcon(SearchIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 600.0f, 475.0f, 0.5f, 0.30f, theInbox);
 
     //Add Desktop Icon Floppy Triggers
-    //iconInputComponent* graphIconInput = dynamic_cast<iconInputComponent*>(DataGraphIcon.getComponent(2));
-    //graphIconInput->onOpen().addObserver(new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn));
+    iconInputComponent* graphIconInput = dynamic_cast<iconInputComponent*>(DataGraphIcon.getComponent(2));
+    graphIconInput->onOpen().addObserver(new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn));
     
     desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
