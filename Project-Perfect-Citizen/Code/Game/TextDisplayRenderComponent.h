@@ -24,6 +24,7 @@ private:
 
     static sf::Font defaultFont;
     static bool isLoaded;
+	bool renderable_;
 
 
 public:
@@ -60,6 +61,8 @@ public:
     void updateFont(sf::Font f);
 
     void updateColor(sf::Color c);
+
+	void setRenderable(bool r);
 
 	sf::Text* getText();
 

@@ -82,6 +82,10 @@ public:
 	void setIsBeingPressed(std::string iBP);
 	void setIsClickable(bool);
 
+	bool getIsClickable();
+
+
+	void injectEvent(ppc::Event);
 	virtual ~mousePressButton();
 	virtual bool registerInput(sf::Event ev) override;
 
@@ -101,6 +105,8 @@ inline void setOnPress(mousePressButton* mpb, T * objPtr, bool(*onPress)(T *, Ev
     mpb->onRelease().addObserver(fnObsvr);
 
 }
+
+bool DisableMPB (mousePressButton*, Event);
 
 
 

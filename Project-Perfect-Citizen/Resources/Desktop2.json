@@ -3,7 +3,7 @@
         "Note_to_Voyer" : {
             "Note_to_Voyeur_#1.txt" : "DesktopContent/Desktop2/Note_to_Voyeur #1.txt"
         },
-        "Projects/New_Years/What made mom smile most?" : {
+        "Projects/fireworks/What made mom smile most?" : {
             "Notes_to_Voyeur_#2" : {
                 "Note_to_Voyeur_#2.txt" : "DesktopContent/Desktop2/Note_to_Voyeur_#2.txt"
             },
@@ -15,7 +15,10 @@
                     "Note_to_Voyeur_#4" : {
                         "Note_to_Voyeur_#4.txt" : "DesktopContent/Desktop2/Note_to_Voyeur_#4.txt"
                     },
-                    "BLARG!" : "DesktopContent/Desktop2/Exporting_Materials.jpg"
+                    "Final/Edgehill/ " : {
+                        "YOU_WON" : "DesktopContent/Desktop2/Exporting_Materials.jpg"
+                    },
+                    "Town_map.jpg" : "DesktopContent/Desktop2/Town_map.jpg"
                 },
                 "Exporting_Materials.jpg" : "DesktopContent/Desktop2/Exporting_Materials.jpg",
                 "katapulta_leonardo.jpg" : "DesktopContent/Desktop2/katapulta_leonardo.jpg",
