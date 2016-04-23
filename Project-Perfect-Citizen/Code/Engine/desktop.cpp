@@ -253,9 +253,9 @@ void ppc::Desktop::deleteFrontTop() {
 }
 
 void ppc::Desktop::registerInput(sf::Event ev) {
-	if (frontTop_ && (ev.type == sf::Event::MouseButtonPressed)) {
-		ev.mouseButton.x -= int(frontTop_->getPosition().x);
-		ev.mouseButton.y -= int(frontTop_->getPosition().y);
+	if (frontTop_ && 
+		(ev.type == sf::Event::MouseButtonPressed || 
+			ev.type == sf::Event::MouseButtonReleased)) {
 		frontTop_->registerInput(ev);
 	} else {
 		registerInputFocused(ev);

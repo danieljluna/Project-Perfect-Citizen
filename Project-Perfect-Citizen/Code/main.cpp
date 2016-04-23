@@ -131,128 +131,134 @@ int main(int argc, char** argv) {
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
 
-	//Dont touch these comments please.
-	World::setGameScreen(screen);
+
+
+
+	AudioQueue audiotest(5);
+	audiotest.addBgm("SoundTrack_Extraction.ogg");
+	audiotest.playBgm();
+	
+	///////////// Load Spritesheets/Textures/Background Images ////////
+	sf::Sprite playerWallpaper;
+	sf::Sprite teacherWallpaper;
+	sf::Texture playerWallpaperTexture;
+	sf::Texture teacherWallpaperTexture;
+	playerWallpaperTexture.loadFromFile(resourcePath() + "Wallpaper.png");
+	teacherWallpaperTexture.loadFromFile(resourcePath() + "Teacher_Wallpaper.png");
+
+	playerWallpaper.setTexture(playerWallpaperTexture);
+	teacherWallpaper.setTexture(teacherWallpaperTexture);
+
+	playerWallpaper.setScale(0.7f, 0.7f);
+	playerWallpaper.setPosition(0, 0);
+
+    sf::Image buttonSheet;
+	buttonSheet.loadFromFile(resourcePath() + "Windows_UI.png");
+    sf::Image pixelSheet;
+    pixelSheet.loadFromFile(resourcePath() + "Pixel_Title.png");
+    sf::Image iconSheet;
+    iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
+	sf::Image teacherIconSheet;
+	teacherIconSheet.loadFromFile(resourcePath() + "Teacher_Icon_Sheet.png");
+	///////////////////////////////////////////////////////////////////
+
+
+	//////////////////////////////////////////////
+	//Assuming Builders Should Eventually Go Here
+	/////////////////////////////////////////////
+	//Placeholder stuff for now.
+
+	//runBootDesktop
+	ppc::NodeState bootState;
+	Window* bootWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+	Desktop* bootDesktop = new Desktop(bootWindow, bootState);
+
+	bootDesktop->setIconSheet(iconSheet);
+	bootDesktop->setButtonSheet(buttonSheet);
+
+	bootDesktop->setBackgrond(playerWallpaper);
+
+	//runPlayerDesktop
+	ppc::NodeState playerState;
+	playerState.setUp();
+	Window* playerDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+
+
+	Desktop* playerDesktop = new Desktop(playerDesktopWindow, playerState);
+	playerDesktop->setIconSheet(iconSheet);
+	playerDesktop->setButtonSheet(buttonSheet);
+	playerDesktop->setBackgrond(playerWallpaper);
+
+	//runTargetDesktop
+	ppc::NodeState targetState;
+	targetState.setUp();
+	Window* targetDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+
+	Desktop* targetDesktop = new Desktop(targetDesktopWindow, targetState);
+	targetDesktop->setIconSheet(iconSheet);
+	targetDesktop->setButtonSheet(buttonSheet);
+	targetDesktop->setBackgrond(teacherWallpaper);
+
+	//runEndDesktop
+	ppc::NodeState endState;
+	Window* endWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+
+	Desktop* endDesktop = new Desktop(endWindow, endState);
+	endDesktop->setIconSheet(iconSheet);
+	endDesktop->setButtonSheet(pixelSheet);
+	endDesktop->setBackgrond(playerWallpaper);
+
+   
+	/////////////////////////////////////////////
+	//Assuming Builders End Here
+	/////////////////////////////////////////////
+
+    World::setGameScreen(screen);
+
+    Logger::startTimer("bootDesktop");
+    
+	//Main Loops for each Desktops
+
+	//Boot
+	World::setCurrDesktop(*bootDesktop);
+	runBootDesktop(*bootDesktop);
+    while (World::runDesktop(*bootDesktop)) {}
+	delete bootDesktop;
+
+    Logger::endTimer("bootDesktop");
+	Logger::startTimer("playerTutorialDesktop");
+
 	World::setCurrDesktop(tutorialDesktop);
 	createTutorial(tutorialDesktop);
 	World::runCurrDesktop();
 
-	//AudioQueue audiotest(5);
-	//audiotest.addBgm("SoundTrack_Extraction.ogg");
-	//audiotest.playBgm();
-	//
-	/////////////// Load Spritesheets/Textures/Background Images ////////
-	//sf::Sprite playerWallpaper;
-	//sf::Sprite teacherWallpaper;
-	//sf::Texture playerWallpaperTexture;
-	//sf::Texture teacherWallpaperTexture;
-	//playerWallpaperTexture.loadFromFile(resourcePath() + "Wallpaper.png");
-	//teacherWallpaperTexture.loadFromFile(resourcePath() + "Teacher_Wallpaper.png");
+	Logger::endTimer("playerTutorialDesktop");
+    Logger::startTimer("playerDesktop");
 
-	//playerWallpaper.setTexture(playerWallpaperTexture);
-	//teacherWallpaper.setTexture(teacherWallpaperTexture);
+	World::setCurrDesktop(*playerDesktop);
+	runPlayerDesktop(*playerDesktop);
+	while (World::runDesktop(*playerDesktop)) {}
+	delete playerDesktop;
 
-	//playerWallpaper.setScale(0.7f, 0.7f);
-	//playerWallpaper.setPosition(0, 0);
+    Logger::endTimer("playerDesktop");
+    Logger::startTimer("targetDesktop");
 
- //   sf::Image buttonSheet;
-	//buttonSheet.loadFromFile(resourcePath() + "Windows_UI.png");
- //   sf::Image pixelSheet;
- //   pixelSheet.loadFromFile(resourcePath() + "Pixel_Title.png");
- //   sf::Image iconSheet;
- //   iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
-	//sf::Image teacherIconSheet;
-	//teacherIconSheet.loadFromFile(resourcePath() + "Teacher_Icon_Sheet.png");
-	/////////////////////////////////////////////////////////////////////
+	World::setCurrDesktop(*targetDesktop);
+	runTargetDesktop(*targetDesktop);
+	while (World::runDesktop(*targetDesktop)) {}
+	delete targetDesktop;
 
+    Logger::endTimer("targetDesktop");
+    Logger::startTimer("endDesktop");
 
-	////////////////////////////////////////////////
-	////Assuming Builders Should Eventually Go Here
-	///////////////////////////////////////////////
-	////Placeholder stuff for now.
+	World::setCurrDesktop(*endDesktop);
+	runEndDesktop(*endDesktop);
+    while (World::runDesktop(*endDesktop)) {}
+    delete endDesktop;
 
-	////runBootDesktop
-	//ppc::NodeState bootState;
-	//Window* bootWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-	//Desktop* bootDesktop = new Desktop(bootWindow, bootState);
+    Logger::endTimer("endDesktop");
 
-	//bootDesktop->setIconSheet(iconSheet);
-	//bootDesktop->setButtonSheet(buttonSheet);
-
-	//bootDesktop->setBackgrond(playerWallpaper);
-
-	////runPlayerDesktop
-	//ppc::NodeState playerState;
-	//playerState.setUp();
-	//Window* playerDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-
-
-	//Desktop* playerDesktop = new Desktop(playerDesktopWindow, playerState);
-	//playerDesktop->setIconSheet(iconSheet);
-	//playerDesktop->setButtonSheet(buttonSheet);
-	//playerDesktop->setBackgrond(playerWallpaper);
-
-	////runTargetDesktop
-	//ppc::NodeState targetState;
-	//targetState.setUp();
-	//Window* targetDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-
-	//Desktop* targetDesktop = new Desktop(targetDesktopWindow, targetState);
-	//targetDesktop->setIconSheet(iconSheet);
-	//targetDesktop->setButtonSheet(buttonSheet);
-	//targetDesktop->setBackgrond(teacherWallpaper);
-
-	////runEndDesktop
-	//ppc::NodeState endState;
-	//Window* endWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-
-	//Desktop* endDesktop = new Desktop(endWindow, endState);
-	//endDesktop->setIconSheet(iconSheet);
-	//endDesktop->setButtonSheet(pixelSheet);
-	//endDesktop->setBackgrond(playerWallpaper);
-
- //  
-	///////////////////////////////////////////////
-	////Assuming Builders End Here
-	///////////////////////////////////////////////
-
- //   World::setGameScreen(screen);
-
- //   Logger::startTimer("bootDesktop");
- //   
-	////Main Loops for each Desktops
-	//World::setCurrDesktop(*bootDesktop);
-	//runBootDesktop(*bootDesktop);
- //   while (World::runDesktop(*bootDesktop)) {}
-	//delete bootDesktop;
-
- //   Logger::endTimer("bootDesktop");
- //   Logger::startTimer("playerDesktop");
-
-	//World::setCurrDesktop(*playerDesktop);
-	//runPlayerDesktop(*playerDesktop);
-	//while (World::runDesktop(*playerDesktop)) {}
-	//delete playerDesktop;
-
- //   Logger::endTimer("playerDesktop");
- //   Logger::startTimer("targetDesktop");
-
-	//World::setCurrDesktop(*targetDesktop);
-	//runTargetDesktop(*targetDesktop);
-	//while (World::runDesktop(*targetDesktop)) {}
-	//delete targetDesktop;
-
- //   Logger::endTimer("targetDesktop");
- //   Logger::startTimer("endDesktop");
-
-	//World::setCurrDesktop(*endDesktop);
-	//runEndDesktop(*endDesktop);
- //   while (World::runDesktop(*endDesktop)) {}
- //   delete endDesktop;
-
- //   Logger::endTimer("endDesktop");
-
- //   Logger::exportParcels();
+    Logger::exportParcels();
      
 	
 
