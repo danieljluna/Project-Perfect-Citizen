@@ -36,7 +36,7 @@ HelpWindowRenderComponent::HelpWindowRenderComponent(sf::Font& f, int x, int y, 
 
 
     graphHelpString = "--------------------- GRAPH REFERENCE --------------------\n";
-    graphHelpString += "\n\n DO STUFF";
+    graphHelpString += "Node Selection: Left Click on a node, node will be highlighted.\n (Edges will be deselected)\n Edge Selection: Left click on an edge (Nodes will be deselected)\n\n  Node Position: Click and drag a node to reposition it.\n Edges are updated automatically.\n Node position is to help you work towards a solution,\n and does not affect correctness.\n\n Change Color of Selected Edge: \n Z - Black,\n X - Red,\n  C - Green,\n Space - Cycle Color.  \n  \n Edge Color Significance:\n Black - Unknown,\n Red - Suspicious,\n Green - Clean.\n\n Create an Edge: Select a node, then right click the node\n you want to connect it to.\n \n  Delete an Edge:\n Select the edge, press DEL Mark Center of Graph\n - S Submit for Approval\n - Okay Button For this first trial you will simply be searching\nfor the person with the highest total number of connections.\n You must still fill out the rest of the network\nwith high accuracy to receive approval.";
  
     
 
