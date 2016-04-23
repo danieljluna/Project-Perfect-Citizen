@@ -488,10 +488,11 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	///////////////////////////////////////
 	/* Create an email list element entity for each email in the inbox*/
 	for (int i = 0; i < inbox.getInboxSize(); ++i) {
+		if (inbox.getEmailAt(i).getVisible() == false) continue;
 		Entity emailListElement;
         createEmailListElement(
-			emailListElement, dT, buttonSheet, ih, myFont, inbox.getEmailAt(i), 0, (i * (emailBoxElementHeight+emailBoxPadding)),
-			emailBoxElementWidth, emailBoxElementHeight, 0, static_cast<int>((i * (1.5*emailBoxElementHeight))), fontSize);
+			emailListElement, dT, buttonSheet, ih, myFont, inbox.getEmailAt(i), 0, (totalEmailsLoaded * (emailBoxElementHeight+emailBoxPadding)),
+			emailBoxElementWidth, emailBoxElementHeight, 0, static_cast<int>((totalEmailsLoaded * (1.5*emailBoxElementHeight))), fontSize);
 		windowToModify->addEntity(emailListElement);
 		++totalEmailsLoaded;
 	}
@@ -798,5 +799,3 @@ void ppc::spawnContextMenu(Desktop& dT, WindowInterface*& windowToModify, InputH
 	windowToModify->setPosition(x, y);
 
 }
-
-

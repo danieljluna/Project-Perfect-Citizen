@@ -110,6 +110,7 @@ void FloppyRenderComponent::animate() {
 
 void FloppyRenderComponent::draw( sf::RenderTarget& target,
                                  sf::RenderStates states) const {
+	if (!_willAnimate) return;
     target.draw(*sprite, states);
     target.draw(*staticBox, states);
 }
