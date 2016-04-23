@@ -335,7 +335,7 @@
     <ClCompile Include="Code\Game\notifcationRenderComponent.cpp">
       <Filter>Sources\Game Specific</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\createTutorial.cpp" />
+    <ClCompile Include="Code\Game\createTutorial.cpp"/>
     <ClCompile Include="Code\Engine\frontTopObserver.cpp">
       <Filter>Sources\Engine\Observer System</Filter>
     </ClCompile>

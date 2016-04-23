@@ -17,7 +17,10 @@
 #include "../Game/TextBubble.h"
 #include "../Game/TextBubbleRender.h"
 
+#include "../Game/mousePressButton.h"
+
 #include "../Engine/event.h"
+#include "../Engine/frontTopObserver.h"
 
 void ppc::createTutorial(Desktop & dt) {
 
@@ -61,8 +64,9 @@ void ppc::createTutorial(Desktop & dt) {
 	dt.getDesktopWindow()->addEntity(helpIcon);
 
 	//Floppy begins here
-	Window* floppyWindow = new Window(500, 300, sf::Color::Transparent);
-	floppyWindow->setPosition(300, 600);
+	Window* floppyWindow = new Window(1800, 1000, sf::Color::Transparent);
+
+	dt.setFrontTop(floppyWindow);
 
 	Entity floppyEntity;
 
@@ -80,11 +84,23 @@ void ppc::createTutorial(Desktop & dt) {
 	tbr->setTextBubble(*tb);
 	tbr->setRenderable(false);
 
+	mousePressButton* mpb = new mousePressButton();
+	mpb->setInputHandle(floppyWindow->getInputHandler());
+	mpb->setFloatRect(floppyWindow->getBounds());
+
+	frontTopObsvr* frontTopObsv = new frontTopObsvr(dt);
+
+	mpb->onClick().addObserverToBack(frontTopObsv);
+	mpb->onDblClick().addObserverToBack(frontTopObsv);
+	mpb->onRelease().addObserverToBack(frontTopObsv);
+	mpb->onHover().addObserverToBack(frontTopObsv);
+
+
 	floppyEntity.addComponent(tbr);
 	floppyEntity.addComponent(floppy);
 	floppyEntity.addComponent(floppyIn);
 	floppyEntity.addComponent(floppyUpdate);
-	
+	floppyEntity.addComponent(mpb);
 
 	ButtonBuilder nextButton;
 	nextButton.setInputHandle(floppyWindow->getInputHandler());
@@ -97,13 +113,13 @@ void ppc::createTutorial(Desktop & dt) {
 	nextButton.setSpriteSheet(dt.getButtonSheet());
 	createWithEventFunc<FloppyInputComponent>(nextButton, floppyEntity, floppyIn, ppc::incrementFloppyDialog);
 
+
 	ppc::FreeFunctionObserver<mousePressButton>* ffo = new FreeFunctionObserver<mousePressButton>(DisableMPB,
 		dynamic_cast<mousePressButton*>(nextButton.getMousePressButton()));
 	floppyIn->onSequenceEnd().addObserver(ffo);
 
 	floppyWindow->addEntity(floppyEntity);
-
-	dt.addWindow(floppyWindow);
+	
 
 	ppc::Event ppcEv;
 	ppcEv.type = ppc::Event::FloppyType;
