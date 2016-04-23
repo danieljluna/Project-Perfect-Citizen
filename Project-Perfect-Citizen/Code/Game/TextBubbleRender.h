@@ -12,7 +12,7 @@ namespace ppc {
 	class TextBubbleRender: public ppc::RenderComponent {
 
 	private:
-
+		bool drawable_;
 		TextBubble* bubble_;
 		bool renderable_;
 
@@ -25,6 +25,7 @@ namespace ppc {
 		void setTextBubble(TextBubble&);
 
 		TextBubble& getTextBubble();
+
 
 		void setRenderable(bool);
 

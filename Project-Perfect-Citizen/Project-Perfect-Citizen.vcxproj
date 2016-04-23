@@ -65,6 +65,7 @@
     <ClCompile Include="Code\Game\createDesktop.cpp" />
     <ClCompile Include="Code\Game\createIcon.cpp" />
     <ClCompile Include="Code\Game\createListElement.cpp" />
+    <ClCompile Include="Code\Game\createTutorial.cpp" />
     <ClCompile Include="Code\Game\createWindow.cpp" />
     <ClCompile Include="Code\Game\Database.cpp" />
     <ClCompile Include="Code\Game\databaseDisplayRenderComponent.cpp" />
@@ -191,6 +192,7 @@
     <ClInclude Include="Code\Game\createDesktop.h" />
     <ClInclude Include="Code\Game\createIcon.h" />
     <ClInclude Include="Code\Game\createListElement.h" />
+    <ClInclude Include="Code\Game\createTutorial.h" />
     <ClInclude Include="Code\Game\createWindow.h" />
     <ClInclude Include="Code\Game\Database.h" />
     <ClInclude Include="Code\Game\databaseDisplayRenderComponent.h" />
@@ -258,6 +260,7 @@
   <ItemGroup>
     <None Include="Resources\data.json" />
     <None Include="Resources\DE1PipelineTexts.json" />
+    <None Include="Resources\Email1.json" />
     <None Include="Resources\PlayerEmail.json" />
     <None Include="Resources\Saves\desktop1.ini" />
     <None Include="Resources\Saves\playerDesktop.ini" />

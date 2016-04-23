@@ -4,14 +4,13 @@
 
 #include <fstream>
 
-void ppc::TextBubble::formatLine(std::string &) {
-	//TODO
+void ppc::TextBubble::formatLine(std::string& str) {
 }
 
 ppc::TextBubble::TextBubble() {
 	currStr_ = "";
 	displayText_.setString(currStr_);
-	displayText_.setCharacterSize(11);
+	displayText_.setCharacterSize(13);
 	displayText_.setColor(sf::Color::Black);
 	displayText_.setFont(World::getFont(World::Consola));
 	displayText_.setPosition({ 20.f,20.f });
@@ -28,6 +27,7 @@ ppc::TextBubble::~TextBubble() {
 
 void ppc::TextBubble::setText(std::string s) {
 	currStr_ = s;
+	formatLine(currStr_);
 	displayText_.setString(currStr_);
 }
 

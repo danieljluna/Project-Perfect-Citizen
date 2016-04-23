@@ -61,7 +61,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	theDatabase->generateFullDatabase(200);
 
     //TODO: FIX MEMORY LEAK
-    Inbox* theInbox = new Inbox();
+	Inbox* theInbox = &desktopToModify.getInbox();
 
     emailExtraction inbox;// = new emailExtraction();
     inbox.parseEmailAsJson("PlayerEmail.json");
@@ -81,24 +81,22 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     
     Entity startBar;
     spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
-    
     FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
-    
     FloppyInputComponent* floppyIn = new FloppyInputComponent();
-    
     FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.12f);
-
 	TextBubble* tb = new TextBubble();
+
 	tb->setPosition(290.f, 0);
 	TextBubbleRender* tbr = new TextBubbleRender();
 	tbr->setTextBubble(*tb);
 	tbr->setRenderable(false);
- 
+
     startBar.addComponent(bar);
     startBar.addComponent(floppy);
     startBar.addComponent(floppyIn);
     startBar.addComponent(floppyUpdate);
 	startBar.addComponent(tbr);
+
 
 	ButtonBuilder nextButton;
 	nextButton.setInputHandle(startToolbar->getInputHandler());
@@ -120,6 +118,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     
     Entity startButton2;
     spawnStartButton2(startButton2, desktopToModify, floppyIn, startToolbar->getInputHandler(), buttonSheet, 600, 14, 0.35f);
+
     
     startToolbar->addEntity(startBar);
     startToolbar->addEntity(startButton);
@@ -142,8 +141,8 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	spawnHelpIcon(SearchIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 600.0f, 475.0f, 0.5f, 0.30f, theInbox);
 
     //Add Desktop Icon Floppy Triggers
-    iconInputComponent* graphIconInput = dynamic_cast<iconInputComponent*>(DataGraphIcon.getComponent(2));
-    graphIconInput->onOpen().addObserver(new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn));
+    //iconInputComponent* graphIconInput = dynamic_cast<iconInputComponent*>(DataGraphIcon.getComponent(2));
+    //graphIconInput->onOpen().addObserver(new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn));
     
     desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
