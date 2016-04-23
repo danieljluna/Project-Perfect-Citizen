@@ -3,7 +3,6 @@
 #define MAC 0
 #else
 #include "ResourcePath.hpp"
-#include "../Game/readingMacDirectory.hpp"
 #define MAC 1
 #endif
 
@@ -61,6 +60,7 @@
 #include "../Game/TextBoxBuilder.h"
 
 #include "../Game/HelpRenderComponent.hpp"
+#include "../Game/readingMacDirectory.hpp"
 
 
 using namespace ppc;
