@@ -3,7 +3,7 @@
 #include "../Game/animatorComponent.hpp"
 #include "../Game/textLabelComponent.hpp"
 #include "../Game/iconInputComponent.h"
-
+#include "../Engine/Engine.h"
 #include "../Engine/debug.h"
 
 ppc::IconBuilder::IconBuilder() {
@@ -19,6 +19,8 @@ ppc::IconBuilder::IconBuilder() {
 
 	label = "";
 	isBeingPressed = "";
+
+	iconType = "";
 
 	sheetX = 0;
 	sheetY = 0;
@@ -49,6 +51,10 @@ void ppc::IconBuilder::setSprites(sf::Sprite &, sf::Sprite &) {
 
 void ppc::IconBuilder::setSize(float s) {
 	size = s;
+}
+
+void ppc::IconBuilder::setIconType(std::string s) {
+	iconType = s;
 }
 
 void ppc::IconBuilder::setDesktop(ppc::Desktop &d) {
@@ -101,7 +107,7 @@ void ppc::IconBuilder::create(Entity &e) {
 	IconRender->setImageScale(size, size);
 	IconRender->renderPosition({ posX, posY });
 	animatorComponent* animator = new animatorComponent(*IconRender, animationSpeed);
-	mousePressButton* mpbFolder = new mousePressButton(*ih, IconRender->getSprite()->getGlobalBounds(), "folderIcon");
+	mousePressButton* mpbFolder = new mousePressButton(*ih, IconRender->getSprite()->getGlobalBounds(), iconType);
 	iconInputComponent* iconInputComp = new iconInputComponent(*dt, db, *ib, *buttonSheet, dt->getIconSheet());
 
 	e.addComponent(IconRender);

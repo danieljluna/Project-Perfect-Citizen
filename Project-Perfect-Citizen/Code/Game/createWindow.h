@@ -157,6 +157,8 @@ void spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& 
 void spawnContextMenu(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, 
 	std::vector<std::string> n, std::vector<bool(*)(Desktop*, Event ev)>, float x, float y);
 
+
+
 };
 
 

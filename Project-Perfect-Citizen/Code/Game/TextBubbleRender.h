@@ -12,7 +12,7 @@ namespace ppc {
 	class TextBubbleRender: public ppc::RenderComponent {
 
 	private:
-
+		bool drawable_;
 		TextBubble* bubble_;
 
 	public:
@@ -24,6 +24,8 @@ namespace ppc {
 		void setTextBubble(TextBubble&);
 
 		TextBubble& getTextBubble();
+
+		void setDrawable(bool);
 
 		virtual void draw(sf::RenderTarget&,sf::RenderStates) const override;
 

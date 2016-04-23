@@ -89,6 +89,10 @@ void mousePressButton::setIsBeingPressed(std::string iBP) {
 	isBeingPressed = iBP;
 }
 
+void ppc::mousePressButton::setIsClickable(bool c){
+	isClickable = c;
+}
+
 
 bool mousePressButton::isCollision(sf::Vector2i mousePos) {
     //Gets the position as a Float Vector
@@ -103,6 +107,8 @@ bool mousePressButton::isCollision(sf::Vector2i mousePos) {
 
 bool mousePressButton::registerInput(sf::Event ev) {
     if (getEntity() != nullptr) {
+
+		if (!isClickable) return true;
 
         /* Case: Mouse Pressed Event*/
         if (ev.type == sf::Event::MouseButtonPressed) {

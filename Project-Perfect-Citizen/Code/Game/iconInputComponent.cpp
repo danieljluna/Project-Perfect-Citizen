@@ -157,7 +157,7 @@ void iconInputComponent::recieveMessage(msgType msg) {
 		else {
 			ppc::WindowInterface* inboxWindow =
 				new ppc::Window(600, 400, sf::Color(200, 200, 200));
-			ppc::spawnInbox(theDesktop_, inboxWindow, inboxWindow->getInputHandler(), buttonSheet_, 100, 200, theInbox_);
+			ppc::spawnInbox(theDesktop_, inboxWindow, inboxWindow->getInputHandler(), buttonSheet_, 100, 200, theDesktop_.getInbox());
 			theDesktop_.addWindow(inboxWindow);
 			openedWindow = inboxWindow;
 		}
