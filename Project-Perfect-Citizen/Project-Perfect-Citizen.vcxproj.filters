@@ -335,7 +335,10 @@
     <ClCompile Include="Code\Game\notifcationRenderComponent.cpp">
       <Filter>Sources\Game Specific</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\createTutorial.cpp" />
+    <ClCompile Include="Code\Game\createTutorial.cpp"/>
+    <ClCompile Include="Code\Engine\frontTopObserver.cpp">
+      <Filter>Sources\Engine\Observer System</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -694,6 +697,9 @@
     </ClInclude>
     <ClInclude Include="Code\Game\createTutorial.h">
       <Filter>Headers\Game Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\frontTopObserver.h">
+      <Filter>Headers\Engine\Observer System</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
