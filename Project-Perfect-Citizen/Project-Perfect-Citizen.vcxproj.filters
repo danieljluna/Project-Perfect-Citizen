@@ -720,6 +720,9 @@
     <None Include="Resources\Saves\playerDesktop.ini">
       <Filter>Resources\Saves</Filter>
     </None>
+    <None Include="Resources\Email1.json">
+      <Filter>Resources</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
