@@ -1,7 +1,9 @@
 #ifdef WINDOWS_MARKER
 #define resourcePath() string("Resources/")
+#define MAC 0
 #else
 #include "ResourcePath.hpp"
+#define MAC 1
 #endif
 
 #include "createWindow.h"
@@ -58,6 +60,8 @@
 #include "../Game/TextBoxBuilder.h"
 
 #include "../Game/HelpRenderComponent.hpp"
+#include "../Game/readingMacDirectory.hpp"
+
 
 using namespace ppc;
 
@@ -369,7 +373,14 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
 	float x, float y, string filename, string p) {
     if (windowToModify == nullptr) return; 
     
+    if(MAC){
+        readingMacDirectory* dir = new readingMacDirectory();
+        p = dir->getDirectory(p);
+        delete(dir);
+    }
+    
     string path = resourcePath() + p;
+    //std::cout <<  "\n" + path +  "\n" << std::endl;
     string dotEnd;
     
     if (!path.empty()) dotEnd = path.substr(path.length() - 4);
@@ -721,6 +732,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	///////////////////////////////////////
 
 	float viewHeight = static_cast<float>(windowToModify->getSize().y) / 2;
+    windowToModify->setPosition(x, y);
 
 	/* Create a scroll bar if the new explorer window is greater than 100px*/
 	if (viewHeight > 100.0f) {
@@ -730,6 +742,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 			float(windowToModify->getSize().x),
 			viewHeight
 		};
+        
 		windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
 	}
 
@@ -737,11 +750,11 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	string pwd = "C:/";
 
 	for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {
+        cout << *iter + "dasdasdas";
 		pwd += *iter;
 		pwd.push_back('/');
 	}
 	
-	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(pwd);
