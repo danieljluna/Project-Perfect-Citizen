@@ -24,9 +24,14 @@ ppc::TextBubble & ppc::TextBubbleRender::getTextBubble() {
 	return *bubble_;
 }
 
+void ppc::TextBubbleRender::setRenderable(bool r) {
+	renderable_ = r;
+}
+
+
 void ppc::TextBubbleRender::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 
-	target.draw(*bubble_, states);
+	if(renderable_)target.draw(*bubble_, states);
 }
 
 void ppc::TextBubbleRender::recieveMessage(msgType code) {
@@ -38,10 +43,16 @@ void ppc::TextBubbleRender::recieveMessage(ppc::Event ev) {
 		
 		unsigned int i = ev.floppy.sequence;
 		unsigned int j = ev.floppy.frame;
+		if (j == -1) return;
 		std::string s = 
 			FloppyInputComponent::floppyDictionary.at(i).at(j).first;
 		DEBUGF("tb", s)
 		bubble_->setText(s);
+	}
+
+	if (ev.type == ppc::Event::AbleType) {
+		if (ev.able.disable) setRenderable(false);
+		else if (ev.able.enable) setRenderable(true);
 	}
 
 }

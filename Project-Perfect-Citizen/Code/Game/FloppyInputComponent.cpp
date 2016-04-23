@@ -140,6 +140,15 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 		ppcEv.floppy.sequence = ev.floppy.sequence;
 		ppcEv.floppy.frame = ev.floppy.frame;
 		ptr->getEntity()->broadcastMessage(ppcEv);
+
+		/* Also let the textbox and button that
+		they should spawn */
+		ppc::Event enabler(ev);
+		enabler.type = ppc::Event::AbleType;
+		ppcEv.able.enable = true;
+		ppcEv.able.disable = false;
+		ptr->onSequenceEnd().sendEvent(enabler);
+		ptr->getEntity()->broadcastMessage(enabler);
 	}
 	return true;
 }

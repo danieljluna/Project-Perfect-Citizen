@@ -116,18 +116,24 @@ bool buttonRenderComponent::willAnimate() {
     return _willAnimate;
 }
 
+void ppc::buttonRenderComponent::setRenderable(bool r){
+	_willRender = r;
+}
+
 
 void buttonRenderComponent::draw( sf::RenderTarget& target,
 	sf::RenderStates states) const {
-        target.draw(*sprite, states);
-        if (getButtonType() == "ICON") {
 
-            //states.transform.translate(sprite->getPosition());
-            //states.transform.scale(1.3, 1.3, 0, 0);
+		if (_willRender) target.draw(*sprite, states);
 
-            //target.draw(badge_, states);
-            //target.draw(notificationText_, states);
-        }
+        //if (getButtonType() == "ICON") {
+
+        //    states.transform.translate(sprite->getPosition());
+        //    states.transform.scale(1.3, 1.3, 0, 0);
+
+        //    target.draw(badge_, states);
+        //    target.draw(notificationText_, states);
+        //}
 }
 
 void buttonRenderComponent::recieveMessage(msgType code) {
@@ -148,20 +154,12 @@ void buttonRenderComponent::recieveMessage(msgType code) {
 void buttonRenderComponent::recieveMessage(ppc::Event ev) {
 	switch (ev.type) {
 	case Event::EventTypes::ButtonType:
-		if (ev.buttons.isPushed) {
-			setSprite(xIndex + width, yIndex, width);
-		}
-		if (ev.buttons.isReleased){
-			setSprite(xIndex, yIndex, width);
-		}
+		if (ev.buttons.isPushed) setSprite(xIndex + width, yIndex, width);
+		if (ev.buttons.isReleased) setSprite(xIndex, yIndex, width);
 		break;
 	case Event::EventTypes::AbleType:
-		if (ev.able.disable) {
-			// Set the flag to disable the brc
-		}
-		if (ev.able.enable) {
-			// Set the flag to enable the brc
-		}
+		if (ev.able.disable) setRenderable(false);
+		else if (ev.able.enable) setRenderable(true);
 		break;
 	default:
 		break;

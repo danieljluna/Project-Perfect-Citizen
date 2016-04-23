@@ -60,14 +60,21 @@ void mousePressButton::clearObservers()
 
 void ppc::mousePressButton::injectEvent(ppc::Event ev)
 {
-	if (ev.able.disable == false) {
-		setIsClickable(false);
-		getEntity()->broadcastMessage(ev);
+	switch (ev.type) {
+	case ppc::Event::EventTypes::AbleType:
+		if (ev.able.disable == true) {
+			setIsClickable(false);
+			getEntity()->broadcastMessage(ev);
+		}
+		else if (ev.able.enable == true) {
+			setIsClickable(true);
+			getEntity()->broadcastMessage(ev);
+		}
+		break;
+	default:
+		break;
 	}
-	else if (ev.able.enable == true) {
-		setIsClickable(true);
-		getEntity()->broadcastMessage(ev);
-	}
+	
 }
 
 mousePressButton::~mousePressButton() {
@@ -103,6 +110,10 @@ void mousePressButton::setIsBeingPressed(std::string iBP) {
 
 void ppc::mousePressButton::setIsClickable(bool c){
 	isClickable = c;
+}
+
+bool ppc::mousePressButton::getIsClickable() {
+	return isClickable;
 }
 
 
@@ -287,8 +298,22 @@ bool mousePressButton::registerInput(sf::Event ev) {
     return true;
 }
 
-bool ppc::sendEventToMPB(mousePressButton* ptr, Event ev) {
-	ptr->injectEvent(ev);
+bool ppc::DisableMPB(mousePressButton* ptr, Event ev) {
+	if (ptr->getIsClickable() == true ) {
+		ppc::Event ppcEv(ev);
+		ppcEv.type = ppc::Event::AbleType;
+		ppcEv.able.disable = true;
+		ppcEv.able.enable = false;
+		ptr->injectEvent(ppcEv);
+	}
+	else {
+		ppc::Event ppcEv(ev);
+		ppcEv.type = ppc::Event::AbleType;
+		ppcEv.able.disable = false;
+		ppcEv.able.enable = true;
+		ptr->injectEvent(ppcEv);
+	}
+	
 	return true;
 }
 
