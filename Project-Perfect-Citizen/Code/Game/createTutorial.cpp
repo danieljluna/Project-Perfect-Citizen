@@ -20,6 +20,7 @@
 #include "../Engine/event.h"
 
 void ppc::createTutorial(Desktop & dt) {
+
 	//Initialize Builder for Icons
 	IconBuilder icons;
 	icons.setDesktop(dt);
@@ -60,8 +61,8 @@ void ppc::createTutorial(Desktop & dt) {
 	dt.getDesktopWindow()->addEntity(helpIcon);
 
 	//Floppy begins here
-	Window* floppyWindow = new Window(300, 300, sf::Color::Transparent);
-	floppyWindow->setPosition(700, 600);
+	Window* floppyWindow = new Window(500, 300, sf::Color::Transparent);
+	floppyWindow->setPosition(300, 600);
 
 	Entity floppyEntity;
 
@@ -69,15 +70,15 @@ void ppc::createTutorial(Desktop & dt) {
 	floppyImage.loadFromFile(resourcePath() + "Floppy_Sheet.png");
 
 	FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
-
 	FloppyInputComponent* floppyIn = new FloppyInputComponent();
-
 	FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.12f);
-	floppy->renderPosition({ 0.f, 0.f });
+	floppy->renderPosition({ 400.f, 0.f });
+
 	TextBubble* tb = new TextBubble();
 	tb->setPosition(0.f, 0.f);
 	TextBubbleRender* tbr = new TextBubbleRender();
 	tbr->setTextBubble(*tb);
+	tbr->setRenderable(false);
 
 	floppyEntity.addComponent(tbr);
 	floppyEntity.addComponent(floppy);
@@ -92,8 +93,13 @@ void ppc::createTutorial(Desktop & dt) {
 	nextButton.setLabelSize(11);
 	nextButton.setButtonPosition({ 70.f,100.f });
 	nextButton.setSize(0.25f);
+	nextButton.setIsDisabled(true);
 	nextButton.setSpriteSheet(dt.getButtonSheet());
 	createWithEventFunc<FloppyInputComponent>(nextButton, floppyEntity, floppyIn, ppc::incrementFloppyDialog);
+
+	ppc::FreeFunctionObserver<mousePressButton>* ffo = new FreeFunctionObserver<mousePressButton>(DisableMPB,
+		dynamic_cast<mousePressButton*>(nextButton.getMousePressButton()));
+	floppyIn->onSequenceEnd().addObserver(ffo);
 
 	floppyWindow->addEntity(floppyEntity);
 
@@ -104,6 +110,5 @@ void ppc::createTutorial(Desktop & dt) {
 	ppcEv.floppy.sequence = 0;
 	ppcEv.floppy.frame = 0;
 	summonFloppyDialog(floppyIn, ppcEv);
-	
 
 }
