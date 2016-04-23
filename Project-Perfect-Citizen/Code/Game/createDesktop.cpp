@@ -105,17 +105,6 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	nextButton.setLabelFont(World::getFont(World::Consola));
 	nextButton.setLabelMessage("Next");
 	nextButton.setLabelSize(11);
-	nextButton.setButtonPosition({ 400.f,0.f });
-	nextButton.setSize(0.25f);
-	nextButton.setSpriteSheet(desktopToModify.getButtonSheet());
-	createWithEventFunc<FloppyInputComponent>(nextButton, startBar, floppyIn, ppc::incrementFloppyDialog);
-
-
-	ButtonBuilder nextButton;
-	nextButton.setInputHandle(startToolbar->getInputHandler());
-	nextButton.setLabelFont(World::getFont(World::Consola));
-	nextButton.setLabelMessage("Next");
-	nextButton.setLabelSize(11);
 	nextButton.setButtonPosition({ 350.f,35.f });
 	nextButton.setSize(0.25f);
 	nextButton.setSpriteSheet(desktopToModify.getButtonSheet());
