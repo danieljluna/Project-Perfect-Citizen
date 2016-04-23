@@ -74,8 +74,6 @@ namespace ppc {
 
 		Subject& onSequenceEnd() { return onSequenceEnd_; };
 
-
-
 	};
 
 	////////////////////////////////////////////////////////////////

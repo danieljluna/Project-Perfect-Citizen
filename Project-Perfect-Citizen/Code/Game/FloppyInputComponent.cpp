@@ -166,7 +166,6 @@ bool ppc::incrementFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 	ppcEv.floppy.sequence = ptr->getSequence();
 	ppcEv.floppy.frame = ptr->getFrame();
 	ptr->getEntity()->broadcastMessage(ppcEv);
-		
 	return true;
 }
 

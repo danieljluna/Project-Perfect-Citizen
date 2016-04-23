@@ -155,7 +155,16 @@ void buttonRenderComponent::recieveMessage(ppc::Event ev) {
 			setSprite(xIndex, yIndex, width);
 		}
 		break;
+	case Event::EventTypes::AbleType:
+		if (ev.able.disable) {
+			// Set the flag to disable the brc
+		}
+		if (ev.able.enable) {
+			// Set the flag to enable the brc
+		}
+		break;
 	default:
 		break;
 	}
 }
+
