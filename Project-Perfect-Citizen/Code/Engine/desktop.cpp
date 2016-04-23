@@ -122,11 +122,13 @@ void ppc::Desktop::draw(sf::RenderTarget& target,
 	//Draw the background image here first.
 	//then:
 	//Using reverse itors
+	
 	for (auto it = windows_.rbegin(); it != windows_.rend(); ++it) {
 		target.draw(*(*it), states);
 	}
 
-	//if (frontTop_) target.draw(*frontTop_, states);
+	if (frontTop_) target.draw(*frontTop_, states);
+	
 }
 
 
@@ -307,6 +309,8 @@ void ppc::Desktop::refresh(sf::RenderStates states) {
 	for (auto it = windows_.rbegin(); it != windows_.rend(); ++it) {
 		(*it)->refresh(states);
 	}
+
+	if (frontTop_) frontTop_->refresh(states);
 }
 
 bool ppc::Desktop::isMouseCollision(WindowInterface* wi,
@@ -336,7 +340,8 @@ void ppc::Desktop::clearDesktop() {
 	desktopWindow_ = nullptr;
 	focused_ = nullptr;
 	windows_.clear();
-
+	if (frontTop_) delete frontTop_;
+	frontTop_ = nullptr;
 
 }
 

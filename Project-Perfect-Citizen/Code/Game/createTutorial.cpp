@@ -63,12 +63,14 @@ void ppc::createTutorial(Desktop & dt) {
 	dt.getDesktopWindow()->addEntity(helpIcon);
 
 	//Floppy begins here
+
 	Window* floppyWindow = new Window(1800, 1000, sf::Color::Transparent);
+
 	dt.setFrontTop(floppyWindow);
 
 	Entity floppyEntity;
 
-	sf::Image floppyImage;
+	/*sf::Image floppyImage;
 	floppyImage.loadFromFile(resourcePath() + "Floppy_Sheet.png");
 
 	FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
@@ -80,26 +82,24 @@ void ppc::createTutorial(Desktop & dt) {
 	TextBubble* tb = new TextBubble();
 	tb->setPosition(0.f, 0.f);
 	TextBubbleRender* tbr = new TextBubbleRender();
-	tbr->setTextBubble(*tb);
+	tbr->setTextBubble(*tb);*/
 
-	mousePressButton* mpb = new mousePressButton();
-	mpb->setInputHandle(dt.getInputHandler());
-	mpb->setFloatRect(floppyWindow->getBounds());
+	//mousePressButton* mpb = new mousePressButton();
+	//mpb->setInputHandle(floppyWindow->getInputHandler());
+	//mpb->setFloatRect(floppyWindow->getBounds());
 
-	frontTopObsvr* frontObsv = new frontTopObsvr(dt);
+	//frontTopObsvr* frontTopObsv = new frontTopObsvr(dt);
 
-	mpb->onClick().addObserver(frontObsv);
-	mpb->onDblClick().addObserver(frontObsv);
-	mpb->onRelease().addObserver(frontObsv);
+	//mpb->onClick().addObserver(frontTopObsv);
+	//mpb->onDblClick().addObserver(frontTopObsv);
+	//mpb->onRelease().addObserver(frontTopObsv);
 
-	floppyEntity.addComponent(tbr);
+	/*floppyEntity.addComponent(tbr);
 	floppyEntity.addComponent(floppy);
 	floppyEntity.addComponent(floppyIn);
-	floppyEntity.addComponent(floppyUpdate);
-	
-	floppyWindow->addInputComponent(mpb);
+	floppyEntity.addComponent(floppyUpdate);*/
 
-	ButtonBuilder nextButton;
+	/*ButtonBuilder nextButton;
 	nextButton.setInputHandle(floppyWindow->getInputHandler());
 	nextButton.setLabelFont(World::getFont(World::Consola));
 	nextButton.setLabelMessage("Next");
@@ -107,15 +107,17 @@ void ppc::createTutorial(Desktop & dt) {
 	nextButton.setButtonPosition({ 70.f,100.f });
 	nextButton.setSize(0.25f);
 	nextButton.setSpriteSheet(dt.getButtonSheet());
-	createWithEventFunc<FloppyInputComponent>(nextButton, floppyEntity, floppyIn, ppc::incrementFloppyDialog);
+	createWithEventFunc<FloppyInputComponent>(nextButton, floppyEntity, floppyIn, ppc::incrementFloppyDialog);*/
 
-	floppyWindow->addEntity(floppyEntity);
-
-	ppc::Event ppcEv;
-	ppcEv.type = ppc::Event::FloppyType;
-	ppcEv.floppy.sequence = 0;
-	ppcEv.floppy.frame = 0;
-	summonFloppyDialog(floppyIn, ppcEv);
+	//floppyWindow->addInputComponent(mpb);
+	//floppyWindow->addEntity(floppyEntity);
 	
+
+	//ppc::Event ppcEv;
+	//ppcEv.type = ppc::Event::FloppyType;
+	//ppcEv.floppy.sequence = 0;
+	//ppcEv.floppy.frame = 0;
+	//summonFloppyDialog(floppyIn, ppcEv);
+	//
 
 }
