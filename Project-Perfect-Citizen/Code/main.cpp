@@ -123,7 +123,7 @@ int main(int argc, char** argv) {
 
 	//Dont touch these comments please.
 	
-	ifstream ifs1(resourcePath() + "Saves/desktop1.ini", std::ifstream::in);
+	ifstream ifs1(resourcePath() + "Saves/desktop2.ini", std::ifstream::in);
 	Desktop testDesktop;
 	ifs1 >> testDesktop;
 	
@@ -134,7 +134,7 @@ int main(int argc, char** argv) {
 	//Dont touch these comments please.
 	World::setGameScreen(screen);
 	World::setCurrDesktop(testDesktop);
-	runTargetDesktop(testDesktop);
+	runArtistDesktop(testDesktop);
 	World::runCurrDesktop();
 
 
