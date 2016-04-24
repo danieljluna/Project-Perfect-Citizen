@@ -18,7 +18,7 @@
         },
         "Documents": {
             "3D_Printer": {
-                "3D_printer_3000.jpg" : "DesktopContent/Desktop0/3D_printer_3000.jpg",
+                "P_3000.jpg" : "DesktopContent/Desktop0/3D_printer_3000.jpg",
                 "Overview.jpg" : "DesktopContent/Desktop0/Overview.jpg"
             },
             "Instructions": {
@@ -40,7 +40,7 @@
         },
         "Pictures": {
             "4_sale": {
-                "current_collection.jpg" : "DesktopContent/Desktop0/current_collection.jpg"
+                "current.jpg" : "DesktopContent/Desktop0/current_collection.jpg"
             },
             "Selfies": {
                 "Sexy.jpg" : "DesktopContent/Desktop0/Sexy.jpg"
