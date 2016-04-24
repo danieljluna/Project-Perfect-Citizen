@@ -30,7 +30,7 @@ namespace ppc {
             Default,
             Angry,
             Surprised,
-            Peek
+            Peek,
         };
         
         bool willAnimate() const {return _willAnimate;}

@@ -1,0 +1,11 @@
+{
+    "Email": {
+        "Email_1": {
+            "Visible" : "1",
+            "To" : "content",
+            "From" : "content",
+            "Subject" : "content",
+            "Body" :"Enter content"
+        }
+    }
+}

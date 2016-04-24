@@ -43,7 +43,10 @@ const std::array<std::string, 1> FLOPPY_SOURCES{
 };
 
 const std::map<std::string, int> FLOPPY_EMOTION_MAP{
-	{"Default", 0}
+	{"Default"   , 0},
+    {"Angry"     , 1},
+    {"Surprised" , 2},
+    {"Peek"      , 3},
 };
 
 
