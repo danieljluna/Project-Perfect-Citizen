@@ -134,9 +134,9 @@ int main(int argc, char** argv) {
 
 
 
-	AudioQueue audiotest(5);
-	audiotest.addBgm("SoundTrack_Extraction.ogg");
-	audiotest.playBgm();
+	//AudioQueue audiotest(5);
+	//audiotest.addBgm("SoundTrack_Extraction.ogg");
+	//audiotest.playBgm();
 	
 	///////////// Load Spritesheets/Textures/Background Images ////////
 	sf::Sprite playerWallpaper;
