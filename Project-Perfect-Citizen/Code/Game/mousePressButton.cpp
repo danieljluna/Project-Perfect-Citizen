@@ -309,8 +309,6 @@ bool mousePressButton::registerInput(sf::Event ev) {
 				isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
 				ppc::Event ppcEv(ev);
 				ppcEv.type = ppc::Event::ButtonType;
-				ppcEv.buttons.isReleased = true;
-				ppcEv.buttons.isRight = true;
 				ppcEv.buttons.openEmail = false;
 				ppcEv.buttons.openHarddrive = false;
 				ppcEv.buttons.openBrowser = false;
@@ -323,6 +321,8 @@ bool mousePressButton::registerInput(sf::Event ev) {
 				ppcEv.buttons.openConsole = false;
 				ppcEv.buttons.mouseX = ev.mouseButton.x;
 				ppcEv.buttons.mouseY = ev.mouseButton.y;
+				ppcEv.buttons.isReleased = true;
+				ppcEv.buttons.isRight = true;
 
 				if (isBeingPressed.compare("emailIcon") == 0) { ppcEv.buttons.openEmail = true; }
 				else if (isBeingPressed.compare("hardDriveIcon") == 0) { ppcEv.buttons.openHarddrive = true;}

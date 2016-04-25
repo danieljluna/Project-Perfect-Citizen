@@ -163,6 +163,13 @@ void iconInputComponent::recieveMessage(msgType msg) {
 void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
 	switch (ev.type) {
 	case Event::EventTypes::ButtonType:
+
+		if (ev.buttons.isReleased) cout << "isReleased was true";
+		else cout << "isReleased was false";
+
+		if (ev.buttons.isRight) cout << "isRight was true";
+		else cout << "isRight was false";
+
 		if (ev.buttons.isReleased && ev.buttons.isRight) {
 
 			std::vector<std::string> elementNames;

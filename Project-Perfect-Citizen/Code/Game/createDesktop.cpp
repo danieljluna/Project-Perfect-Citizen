@@ -58,7 +58,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 
 	//TODO: FIX MEMORY LEAK
     Database* theDatabase = new Database();
-	theDatabase->generateFullDatabase(200);
+	//theDatabase->generateFullDatabase(200);
 
     //TODO: FIX MEMORY LEAK
 	Inbox* theInbox = &desktopToModify.getInbox();
