@@ -91,12 +91,35 @@ bool explorerFileInputComponent::registerInput(sf::Event ev) {
 						fileResourcePath);
 				}
 			}
+			else if (ev.mouseButton.button == sf::Mouse::Right &&
+				isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
+				// Spawn Context menu with Open | Flag
+				ppc::WindowInterface* ContextMenu =
+					new ppc::Window(200, 300, sf::Color(170, 170, 170));
+				std::vector<std::string> elementNames;
+				std::vector<bool(*)(Desktop*, Event ev)> elementFunctions;
+				elementNames.push_back("Open");
+				elementFunctions.push_back(&(ppc::open_file));
+				elementNames.push_back("Flag");
+				elementFunctions.push_back(&(ppc::flag_file));
+				spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
+					elementFunctions, ev.mouseButton.x, ev.mouseButton.y);
+				theDesktop_.addWindow(ContextMenu);
+			}
 		}
 		/* Case: Mouse Released Event*/
 		else if (ev.type == sf::Event::MouseButtonReleased) {
-
 		}
 	}
+	return true;
+}
 
+bool ppc::open_file(Desktop* ptr, ppc::Event ev) {
+	cout << " open the file " << endl;
+	return true;
+}
+
+bool ppc::flag_file(Desktop* ptr, ppc::Event ev) {
+	cout << " flag this file " << endl;
 	return true;
 }

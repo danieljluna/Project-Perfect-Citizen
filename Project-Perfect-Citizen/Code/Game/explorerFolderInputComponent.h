@@ -88,4 +88,7 @@ namespace ppc {
 
 	}
 
+	bool open_folder(Desktop*, ppc::Event);
+	bool flag_folder(Desktop*, ppc::Event);
+
 };

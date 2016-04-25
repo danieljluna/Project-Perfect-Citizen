@@ -82,4 +82,7 @@ namespace ppc {
 
 	}
 
+	bool open_file(Desktop*, ppc::Event);
+	bool flag_file(Desktop*, ppc::Event);
+
 };
