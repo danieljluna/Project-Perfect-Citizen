@@ -109,13 +109,6 @@ void iconInputComponent::recieveMessage(msgType msg) {
             onOpen_.sendEvent(ev);
 		}
 	}
-	/*else if (msg.compare(OPEN_THE_HELP) == 0) {
-		ppc::WindowInterface* ErrorMsgWindow =
-			new ppc::Window(500, 150, sf::Color(255, 255, 255));
-		spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
-		theDesktop_.addWindow(ErrorMsgWindow);
-		openedWindow = ErrorMsgWindow;
-     }*/
     else if (msg.compare(OPEN_THE_HELP) == 0) {
          ppc::WindowInterface* helpWindow =
          new ppc::Window(600, 700, sf::Color(200,200,200));
@@ -164,11 +157,26 @@ void iconInputComponent::recieveMessage(msgType msg) {
 	}
 }
 
+void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
+	switch (ev.type) {
+	case Event::EventTypes::ButtonType:
+		if (ev.buttons.isReleased && ev.buttons.isRight) {
+			cout << " Summon a context menu " << endl;
+		}
+		break;
+	default:
+		break;
+	}
+}
+
 iconInputComponent::~iconInputComponent() {
 
 }
 
 bool iconInputComponent::registerInput(sf::Event ev) {
+	if (ev.mouseButton.button == sf::Mouse::Right) {
+		cout << "right clicked!";
+	}
 	return true;
 }
 

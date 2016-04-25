@@ -19,6 +19,8 @@ errorMessageRenderComponent::~errorMessageRenderComponent() {
 
 }
 
+sf::Text * ppc::errorMessageRenderComponent::getText() { return this->text; }
+
 
 void errorMessageRenderComponent::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {

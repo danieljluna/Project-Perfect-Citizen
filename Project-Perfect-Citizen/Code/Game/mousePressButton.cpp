@@ -162,6 +162,7 @@ bool mousePressButton::registerInput(sf::Event ev) {
 						ppc::Event ppcEv(ev);
 						ppcEv.type = ppc::Event::ButtonType;
 						ppcEv.buttons.isPushed = true;
+						ppcEv.buttons.isLeft = true;
 						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "settingsIcon") {
@@ -173,6 +174,7 @@ bool mousePressButton::registerInput(sf::Event ev) {
 						ppc::Event ppcEv(ev);
 						ppcEv.type = ppc::Event::ButtonType;
 						ppcEv.buttons.isPushed = true;
+						ppcEv.buttons.isLeft = true;
 						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "chatIcon") {
@@ -184,6 +186,7 @@ bool mousePressButton::registerInput(sf::Event ev) {
 						ppc::Event ppcEv(ev);
 						ppcEv.type = ppc::Event::ButtonType;
 						ppcEv.buttons.isPushed = true;
+						ppcEv.buttons.isLeft = true;
 						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "searchIcon") {
@@ -195,6 +198,7 @@ bool mousePressButton::registerInput(sf::Event ev) {
 						ppc::Event ppcEv(ev);
 						ppcEv.type = ppc::Event::ButtonType;
 						ppcEv.buttons.isPushed = true;
+						ppcEv.buttons.isLeft = true;
 						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "dataGraphIcon") {
@@ -206,6 +210,7 @@ bool mousePressButton::registerInput(sf::Event ev) {
 						ppc::Event ppcEv(ev);
 						ppcEv.type = ppc::Event::ButtonType;
 						ppcEv.buttons.isPushed = true;
+						ppcEv.buttons.isLeft = true;
 						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "helpIcon") {
@@ -217,6 +222,7 @@ bool mousePressButton::registerInput(sf::Event ev) {
 						ppc::Event ppcEv(ev);
 						ppcEv.type = ppc::Event::ButtonType;
 						ppcEv.buttons.isPushed = true;
+						ppcEv.buttons.isLeft = true;
 						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "browserIcon") {
@@ -228,6 +234,7 @@ bool mousePressButton::registerInput(sf::Event ev) {
 						ppc::Event ppcEv(ev);
 						ppcEv.type = ppc::Event::ButtonType;
 						ppcEv.buttons.isPushed = true;
+						ppcEv.buttons.isLeft = true;
 						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "hardDriveIcon") {
@@ -239,6 +246,7 @@ bool mousePressButton::registerInput(sf::Event ev) {
 						ppc::Event ppcEv(ev);
 						ppcEv.type = ppc::Event::ButtonType;
 						ppcEv.buttons.isPushed = true;
+						ppcEv.buttons.isLeft = true;
 						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "consoleIcon") {
@@ -250,6 +258,7 @@ bool mousePressButton::registerInput(sf::Event ev) {
 						ppc::Event ppcEv(ev);
 						ppcEv.type = ppc::Event::ButtonType;
 						ppcEv.buttons.isPushed = true;
+						ppcEv.buttons.isLeft = true;
 						getEntity()->broadcastMessage(ppcEv);
 					}
 					else if (isBeingPressed == "emailIcon") {
@@ -261,12 +270,23 @@ bool mousePressButton::registerInput(sf::Event ev) {
 						ppc::Event ppcEv(ev);
 						ppcEv.type = ppc::Event::ButtonType;
 						ppcEv.buttons.isPushed = true;
+						ppcEv.buttons.isLeft = true;
 						getEntity()->broadcastMessage(ppcEv);
 					}
                     getEntity()->broadcastMessage(MOUSE_DOUBLE_CLICK_CODE);
                     onDoublePress_.sendEvent(ev);
                 }
             }
+			else if (ev.mouseButton.button == sf::Mouse::Right &&
+				isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
+				ppc::Event ppcEv(ev);
+				ppcEv.type = ppc::Event::ButtonType;
+				ppcEv.buttons.isPushed = true;
+				ppcEv.buttons.isRight = true;
+				getEntity()->broadcastMessage(ppcEv);
+				onRelease_.sendEvent(ev);
+				wasPressed_ = true;
+			}
         }
         /* Case: Mouse Released Event*/
         else if ((wasPressed_) && (ev.type == sf::Event::MouseButtonReleased)) {
@@ -279,10 +299,25 @@ bool mousePressButton::registerInput(sf::Event ev) {
 				ppc::Event ppcEv(ev);
 				ppcEv.type = ppc::Event::ButtonType;
 				ppcEv.buttons.isReleased = true;
+				ppcEv.buttons.isLeft = true;
 				getEntity()->broadcastMessage(ppcEv);
 				onRelease_.sendEvent(ev);
 				wasPressed_ = false;
             }
+			else if (ev.mouseButton.button == sf::Mouse::Right &&
+				isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
+
+				/* Send the mouse release message regardless*/
+				//LEGACY -> getEntity()->broadcastMessage(MOUSE_RELEASED_CODE);
+
+				ppc::Event ppcEv(ev);
+				ppcEv.type = ppc::Event::ButtonType;
+				ppcEv.buttons.isReleased = true;
+				ppcEv.buttons.isRight = true;
+				getEntity()->broadcastMessage(ppcEv);
+				onRelease_.sendEvent(ev);
+				wasPressed_ = false;
+			}
         }
 		/* Case: Mouse Move Event */
 		else if ((ev.type == sf::Event::MouseMoved)) {

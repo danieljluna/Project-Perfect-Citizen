@@ -50,6 +50,7 @@ public:
 	virtual ~iconInputComponent();
 	virtual bool registerInput(sf::Event ev) override;
 	virtual void recieveMessage(msgType message) override;
+	virtual void recieveMessage(ppc::Event ev) override;
 
     Subject& onOpen() { return onOpen_; };
 

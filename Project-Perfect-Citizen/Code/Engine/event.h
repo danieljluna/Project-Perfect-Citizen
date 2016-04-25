@@ -20,6 +20,8 @@ namespace ppc {
 			bool isPushed;
 			bool isReleased;
 			bool isHovered;
+			bool isLeft;
+			bool isRight;
 		};
 
 		struct TransformationEv {

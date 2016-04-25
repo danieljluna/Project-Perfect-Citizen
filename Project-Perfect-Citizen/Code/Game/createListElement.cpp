@@ -27,7 +27,7 @@ void ppc::createEmailListElement(ppc::Entity& entityToModify, Desktop& dT, sf::I
 void ppc::createContextListElement(ppc::Entity& entityToModify, WindowInterface* win, Desktop& dt, ppc::InputHandler& ih,
 	sf::Font& f, std::string s, bool(*func)(Desktop* desk, Event ev), int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size) {
 
-	contextListElementRenderComponent* rc = new contextListElementRenderComponent(f,
+	contextListElementRenderComponent* rc = new contextListElementRenderComponent(win, f,
 		s, boxX, boxY, boxWidth, boxHeight, x, y, size);
 
 	TextDisplayRenderComponent *rc2 = new TextDisplayRenderComponent(f, sf::Color::Black, x, y, size, s);
