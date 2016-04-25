@@ -1,8 +1,8 @@
 -Welcome
 Default: Welcome to your new job at the DCPS!
-Default: This training program will show you the ropes
-Default: First up is the Pipeline Extraction Sequence
-Default: Try selecting a Photo
+Angry: This training program will show you the ropes
+Surprised: First up is the Pipeline Extraction Sequence
+Peek: Try selecting a Photo
 -Connections
 Default: You can create connections between photos
 Default: Select a photo and right click another to connect them

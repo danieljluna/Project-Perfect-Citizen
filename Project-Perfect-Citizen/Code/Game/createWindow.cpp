@@ -275,6 +275,14 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     windowToModify->addEntity(tab1);
     windowToModify->addEntity(help);
     
+    sf::FloatRect viewRect = {
+        0.0f,
+        0.0f,
+        float(windowToModify->getSize().x),
+        float(windowToModify->getSize().y / 1.5)
+    };
+    windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
+    
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }

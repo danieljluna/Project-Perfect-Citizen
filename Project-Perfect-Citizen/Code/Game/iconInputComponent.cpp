@@ -118,7 +118,7 @@ void iconInputComponent::recieveMessage(msgType msg) {
      }*/
     else if (msg.compare(OPEN_THE_HELP) == 0) {
          ppc::WindowInterface* helpWindow =
-         new ppc::Window(600, 600, sf::Color(200,200,200));
+         new ppc::Window(600, 700, sf::Color(200,200,200));
          spawnHelp(helpWindow, helpWindow->getInputHandler(), buttonSheet_, 100, 100);
          theDesktop_.addWindow(helpWindow);
          openedWindow = helpWindow;
