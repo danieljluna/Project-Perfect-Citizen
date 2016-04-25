@@ -2,6 +2,7 @@
 #include "iconInputComponent.h"
 #include <iostream>
 #include <string>
+#include "../Engine/desktop.h"
 #include "../Game/emailExtraction.hpp"
 #include "../Engine/Audio/AudioQueue.h"
 
@@ -26,6 +27,8 @@ iconInputComponent::iconInputComponent(Desktop& dT, Database* dB, Inbox& ib, sf:
         
 
 }
+
+
 
 void iconInputComponent::recieveMessage(msgType msg) {
 	// Case: Double Clicked Console Icon
@@ -161,7 +164,27 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
 	switch (ev.type) {
 	case Event::EventTypes::ButtonType:
 		if (ev.buttons.isReleased && ev.buttons.isRight) {
-			cout << " Summon a context menu " << endl;
+			if (ev.open.openEmail) { 
+				cout << "open a context email" << endl;
+			}
+			else if (ev.open.openHelp) { 
+				ppc::WindowInterface* ContextMenu =
+					new ppc::Window(200, 300, sf::Color(170, 170, 170));
+				std::vector<std::string> elementNames;
+				std::vector<bool(*)(Desktop*, Event ev)> elementFunctions;
+				elementNames.push_back("Open");
+				elementFunctions.push_back(&(ppc::make_help_fn));
+				spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
+					elementFunctions, ev.buttons.mouseX, ev.buttons.mouseY);
+				theDesktop_.addWindow(ContextMenu);
+			}
+			else if (ev.open.openPipeline) { cout << "open a context pipeline" << endl; }
+			else if (ev.open.openBrowser) { cout << "open a context browser" << endl; }
+			else if (ev.open.openChat) { cout << "open a context chat" << endl; }
+			else if (ev.open.openFolder) { cout << "open a context folder" << endl; }
+			else if (ev.open.openSearch) { cout << "open a context search" << endl; }
+			else if (ev.open.openSettings) { cout << "open a context settings" << endl; }
+			else if (ev.open.openConsole) { cout << "open a context console" << endl; }
 		}
 		break;
 	default:
@@ -169,14 +192,16 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
 	}
 }
 
+
 iconInputComponent::~iconInputComponent() {
 
 }
 
 bool iconInputComponent::registerInput(sf::Event ev) {
-	if (ev.mouseButton.button == sf::Mouse::Right) {
-		cout << "right clicked!";
-	}
 	return true;
 }
 
+bool ppc::make_help_fn(Desktop* ptr, ppc::Event ev) {
+	cout << " spawn help window " << endl;
+	return true;
+}

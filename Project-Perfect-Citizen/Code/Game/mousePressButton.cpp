@@ -272,6 +272,7 @@ bool mousePressButton::registerInput(sf::Event ev) {
 						ppcEv.buttons.isPushed = true;
 						ppcEv.buttons.isLeft = true;
 						getEntity()->broadcastMessage(ppcEv);
+
 					}
                     getEntity()->broadcastMessage(MOUSE_DOUBLE_CLICK_CODE);
                     onDoublePress_.sendEvent(ev);
@@ -307,15 +308,31 @@ bool mousePressButton::registerInput(sf::Event ev) {
 			else if (ev.mouseButton.button == sf::Mouse::Right &&
 				isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
 
-				/* Send the mouse release message regardless*/
-				//LEGACY -> getEntity()->broadcastMessage(MOUSE_RELEASED_CODE);
+				ppc::Event mouseButtonEv(ev);
+				mouseButtonEv.type = ppc::Event::ButtonType;
+				mouseButtonEv.buttons.isReleased = true;
+				mouseButtonEv.buttons.isRight = true;
+				mouseButtonEv.buttons.mouseX = ev.mouseButton.x;
+				mouseButtonEv.buttons.mouseY = ev.mouseButton.y;
 
 				ppc::Event ppcEv(ev);
-				ppcEv.type = ppc::Event::ButtonType;
-				ppcEv.buttons.isReleased = true;
-				ppcEv.buttons.isRight = true;
+				ppcEv.type = ppc::Event::OpenType;
+
+				if (isBeingPressed.compare("emailIcon") == 0) { ppcEv.open.openEmail = true; }
+				else if (isBeingPressed.compare("hardDriveIcon") == 0) { ppcEv.open.openHarddrive = true;}
+				else if (isBeingPressed.compare("browserIcon") == 0) { ppcEv.open.openBrowser = true; }
+				else if (isBeingPressed.compare("helpIcon") == 0) { ppcEv.open.openHelp = true;}
+				else if (isBeingPressed.compare("dataGraphIcon") == 0) { ppcEv.open.openPipeline = true;}
+				else if (isBeingPressed.compare("searchIcon") == 0) { ppcEv.open.openSearch = true;}
+				else if (isBeingPressed.compare("chatIcon") == 0) { ppcEv.open.openChat = true; }
+				else if (isBeingPressed.compare("settingsIcon") == 0) { ppcEv.open.openSettings = true;}
+				else if (isBeingPressed.compare("folderIcon") == 0) { ppcEv.open.openFolder = true; }
+				else if (isBeingPressed.compare("consoleIcon") == 0) { ppcEv.open.openConsole = true;}
+				
 				getEntity()->broadcastMessage(ppcEv);
-				onRelease_.sendEvent(ev);
+				getEntity()->broadcastMessage(mouseButtonEv);
+				onRelease_.sendEvent(ppcEv);
+				onRelease_.sendEvent(mouseButtonEv);
 				wasPressed_ = false;
 			}
         }
