@@ -14,8 +14,10 @@ const std::string MOUSE_RELEASED_CODE = "MRC";
 const float DOUBLE_CLICK_TIME = 500.0f;
 
 
-explorerFileInputComponent::explorerFileInputComponent(Desktop& dt, ppc::InputHandler& ih, NodeState& ns, sf::Image& bS, sf::FloatRect rect, std::string fN) :
-	InputComponent(2), theDesktop_(dt), theFileTree_(ns), buttonSheet_(bS), buttonRect(rect), fileName(fN) {
+explorerFileInputComponent::explorerFileInputComponent(Desktop& dt, WindowInterface* cW,
+	ppc::InputHandler& ih, NodeState& ns, sf::Image& bS, sf::FloatRect rect, std::string fN) :
+	InputComponent(2), theDesktop_(dt), containingWindow_(cW),theFileTree_(ns), buttonSheet_(bS), 
+	buttonRect(rect), fileName(fN) {
 
 	//add a new subject that is tied to the event
 	ih.addHandle(sf::Event::MouseButtonPressed);
@@ -91,24 +93,24 @@ bool explorerFileInputComponent::registerInput(sf::Event ev) {
 						fileResourcePath);
 				}
 			}
-			else if (ev.mouseButton.button == sf::Mouse::Right &&
-				isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
-				// Spawn Context menu with Open | Flag
-				ppc::WindowInterface* ContextMenu =
-					new ppc::Window(200, 300, sf::Color(170, 170, 170));
-				std::vector<std::string> elementNames;
-				std::vector<bool(*)(Desktop*, Event ev)> elementFunctions;
-				elementNames.push_back("Open");
-				elementFunctions.push_back(&(ppc::open_file));
-				elementNames.push_back("Flag");
-				elementFunctions.push_back(&(ppc::flag_file));
-				spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
-					elementFunctions, ev.mouseButton.x, ev.mouseButton.y);
-				theDesktop_.addWindow(ContextMenu);
-			}
 		}
 		/* Case: Mouse Released Event*/
 		else if (ev.type == sf::Event::MouseButtonReleased) {
+		if (ev.mouseButton.button == sf::Mouse::Right &&
+			isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
+			ppc::WindowInterface* ContextMenu =
+				new ppc::Window(200, 300, sf::Color(170, 170, 170));
+			std::vector<std::string> elementNames;
+			std::vector<bool(*)(Desktop*, Event ev)> elementFunctions;
+			elementNames.push_back("Open");
+			elementFunctions.push_back(&(ppc::open_file));
+			elementNames.push_back("Flag");
+			elementFunctions.push_back(&(ppc::flag_file));
+			spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
+				elementFunctions, ev.mouseButton.x+containingWindow_->getPosition().x, 
+				ev.mouseButton.y + containingWindow_->getPosition().y);
+			theDesktop_.addWindow(ContextMenu);
+			}
 		}
 	}
 	return true;

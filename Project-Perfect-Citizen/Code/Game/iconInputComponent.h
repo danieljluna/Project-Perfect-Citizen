@@ -58,6 +58,6 @@ public:
 
 };
 
-bool make_help_fn(Desktop*, ppc::Event);
+bool make_icon_window(Desktop*, ppc::Event);
 
 };

@@ -105,8 +105,8 @@ void ppc::createTutorial(Desktop & dt) {
 	ButtonBuilder nextButton;
 	nextButton.setInputHandle(floppyWindow->getInputHandler());
 	nextButton.setLabelFont(World::getFont(World::Consola));
-	nextButton.setLabelMessage(">");
-	nextButton.setLabelSize(11);
+	nextButton.setLabelMessage("Next >");
+	nextButton.setLabelSize(12);
 	nextButton.setButtonPosition({ 70.f,100.f });
 	nextButton.setSize(0.25f);
 	nextButton.setIsDisabled(true);

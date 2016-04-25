@@ -307,33 +307,37 @@ bool mousePressButton::registerInput(sf::Event ev) {
             }
 			else if (ev.mouseButton.button == sf::Mouse::Right &&
 				isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
-
-				ppc::Event mouseButtonEv(ev);
-				mouseButtonEv.type = ppc::Event::ButtonType;
-				mouseButtonEv.buttons.isReleased = true;
-				mouseButtonEv.buttons.isRight = true;
-				mouseButtonEv.buttons.mouseX = ev.mouseButton.x;
-				mouseButtonEv.buttons.mouseY = ev.mouseButton.y;
-
 				ppc::Event ppcEv(ev);
-				ppcEv.type = ppc::Event::OpenType;
+				ppcEv.type = ppc::Event::ButtonType;
+				ppcEv.buttons.isReleased = true;
+				ppcEv.buttons.isRight = true;
+				ppcEv.buttons.openEmail = false;
+				ppcEv.buttons.openHarddrive = false;
+				ppcEv.buttons.openBrowser = false;
+				ppcEv.buttons.openHelp = false;
+				ppcEv.buttons.openPipeline = false;
+				ppcEv.buttons.openSearch = false;
+				ppcEv.buttons.openChat = false;
+				ppcEv.buttons.openSettings = false;
+				ppcEv.buttons.openFolder = false;
+				ppcEv.buttons.openConsole = false;
+				ppcEv.buttons.mouseX = ev.mouseButton.x;
+				ppcEv.buttons.mouseY = ev.mouseButton.y;
 
-				if (isBeingPressed.compare("emailIcon") == 0) { ppcEv.open.openEmail = true; }
-				else if (isBeingPressed.compare("hardDriveIcon") == 0) { ppcEv.open.openHarddrive = true;}
-				else if (isBeingPressed.compare("browserIcon") == 0) { ppcEv.open.openBrowser = true; }
-				else if (isBeingPressed.compare("helpIcon") == 0) { ppcEv.open.openHelp = true;}
-				else if (isBeingPressed.compare("dataGraphIcon") == 0) { ppcEv.open.openPipeline = true;}
-				else if (isBeingPressed.compare("searchIcon") == 0) { ppcEv.open.openSearch = true;}
-				else if (isBeingPressed.compare("chatIcon") == 0) { ppcEv.open.openChat = true; }
-				else if (isBeingPressed.compare("settingsIcon") == 0) { ppcEv.open.openSettings = true;}
-				else if (isBeingPressed.compare("folderIcon") == 0) { ppcEv.open.openFolder = true; }
-				else if (isBeingPressed.compare("consoleIcon") == 0) { ppcEv.open.openConsole = true;}
-				
+				if (isBeingPressed.compare("emailIcon") == 0) { ppcEv.buttons.openEmail = true; }
+				else if (isBeingPressed.compare("hardDriveIcon") == 0) { ppcEv.buttons.openHarddrive = true;}
+				else if (isBeingPressed.compare("browserIcon") == 0) { ppcEv.buttons.openBrowser = true; }
+				else if (isBeingPressed.compare("helpIcon") == 0) { ppcEv.buttons.openHelp = true;}
+				else if (isBeingPressed.compare("dataGraphIcon") == 0) { ppcEv.buttons.openPipeline = true;}
+				else if (isBeingPressed.compare("searchIcon") == 0) { ppcEv.buttons.openSearch = true;}
+				else if (isBeingPressed.compare("chatIcon") == 0) { ppcEv.buttons.openChat = true; }
+				else if (isBeingPressed.compare("settingsIcon") == 0) { ppcEv.buttons.openSettings = true;}
+				else if (isBeingPressed.compare("folderIcon") == 0) { ppcEv.buttons.openFolder = true; }
+				else if (isBeingPressed.compare("consoleIcon") == 0) { ppcEv.buttons.openConsole = true;}
 				getEntity()->broadcastMessage(ppcEv);
-				getEntity()->broadcastMessage(mouseButtonEv);
 				onRelease_.sendEvent(ppcEv);
-				onRelease_.sendEvent(mouseButtonEv);
 				wasPressed_ = false;
+
 			}
         }
 		/* Case: Mouse Move Event */
