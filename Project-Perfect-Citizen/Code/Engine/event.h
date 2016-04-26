@@ -19,35 +19,11 @@ namespace ppc {
 		struct ButtonsEv {
 			bool isPushed;
 			bool isReleased;
-			bool isHovered;
 			bool isLeft;
 			bool isRight;
 			float mouseX;
 			float mouseY;
-			bool openConsole;
-			bool openHelp = false;
-			bool openEmail = false;
-			bool openPipeline = false;
-			bool openSearch = false;
-			bool openBrowser = false;
-			bool openChat = false;
-			bool openSettings = false;
-			bool openFolder = false;
-			bool openHarddrive = false;
 		};
-
-		/*struct OpenEv {
-			bool openConsole = false;
-			bool openHelp = false;
-			bool openEmail = false;
-			bool openPipeline = false;
-			bool openSearch = false;
-			bool openBrowser = false;
-			bool openChat = false;
-			bool openSettings = false;
-			bool openFolder = false;
-			bool openHarddrive = false;
-		};*/
 
 		struct TransformationEv {
 			sf::Vector2f newPos;
@@ -75,7 +51,7 @@ namespace ppc {
 		enum EventTypes
 		{
 			ButtonType,
-			/*OpenType,*/
+			OpenType,
 			TransformationType,
 			ScrollbarType,
 			sfEventType,
@@ -85,11 +61,29 @@ namespace ppc {
 			Count
 		};
 
+		enum OpenTypes
+		{
+			openConsole,
+		    openHelp,
+		    openEmail,
+		    openPipeline,
+		    openSearch,
+		    openBrowser,
+		    openChat,
+		    openSettings,
+		    openFolder,
+		    openHarddrive
+		};
+
+		struct OpenEv {
+			OpenTypes window;
+		};
+
 		EventTypes type;
 
 		union {
 			ButtonsEv buttons;
-			/*OpenEv open;*/
+			OpenEv open;
 			TransformationEv transformations;
 			ScrollbarEv scrollbar;
             NotificationEv notification;

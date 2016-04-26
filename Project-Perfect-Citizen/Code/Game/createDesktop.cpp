@@ -48,11 +48,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	firstLsCommand.push_back(ls);
 	commandFn firstLs = findFunction(ls);
 	firstLs(*desktopToModify.getNodeState(), firstLsCommand);
-	
-	//////////////////////////////////////////////
-	//// Create the database (really should take a seed)
-	/////////////////////////////////////////////
-    
+	    
     sf::Image floppyImage;
     floppyImage.loadFromFile(resourcePath() + "Floppy_Sheet.png");
 
@@ -108,24 +104,12 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	spawnDataGraphIcon(DataGraphIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 675.0f, 375.0f, 0.5f, 0.30f, theInbox);
 	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 250.0f, 475.0f, 0.5f, 0.30f, theInbox);
 	spawnHelpIcon(SearchIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 600.0f, 475.0f, 0.5f, 0.30f, theInbox);
-
-    //Add Desktop Icon Floppy Triggers
-    iconInputComponent* graphIconInput = dynamic_cast<iconInputComponent*>(DataGraphIcon.getComponent(2));
-    //graphIconInput->onOpen().addObserver(new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn));
     
     desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
 	desktopWindowToModify.addEntity(HardDriveIcon);
 	desktopWindowToModify.addEntity(SearchIcon);
 	desktopWindowToModify.addEntity(EmailIcon);
-
-	sf::Event ev;
-	ev.type = sf::Event::EventType::Closed;
-	ppc::Event ppcEvent(ev);
-	ppcEvent.type = ppc::Event::EventTypes::NotificationType;
-	ppcEvent.notification.count = 1;
-	//theInbox->getInboxSubject().getObserverHead()->eventHandler(ppcEvent);
-	//notiRenderComp->getNotiObserver().eventHandler(ppcEvent);
 
 }
 

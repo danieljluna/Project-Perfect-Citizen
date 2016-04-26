@@ -33,8 +33,6 @@ void contextListElementRenderComponent::recieveMessage(Event ev) {
 				contextListElementBox.setFillColor(sf::Color(170, 170, 170)); 
 				containingWindow->close();
 			}
-			if (ev.buttons.isHovered) { std::cout << "Hovered!"; }
-			break;
 		default:
 			break;
 	}

@@ -307,35 +307,36 @@ bool mousePressButton::registerInput(sf::Event ev) {
             }
 			else if (ev.mouseButton.button == sf::Mouse::Right &&
 				isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
+
+				/* Send a mouse click event */
 				ppc::Event ppcEv(ev);
 				ppcEv.type = ppc::Event::ButtonType;
-				ppcEv.buttons.openEmail = false;
-				ppcEv.buttons.openHarddrive = false;
-				ppcEv.buttons.openBrowser = false;
-				ppcEv.buttons.openHelp = false;
-				ppcEv.buttons.openPipeline = false;
-				ppcEv.buttons.openSearch = false;
-				ppcEv.buttons.openChat = false;
-				ppcEv.buttons.openSettings = false;
-				ppcEv.buttons.openFolder = false;
-				ppcEv.buttons.openConsole = false;
 				ppcEv.buttons.mouseX = ev.mouseButton.x;
 				ppcEv.buttons.mouseY = ev.mouseButton.y;
 				ppcEv.buttons.isReleased = true;
 				ppcEv.buttons.isRight = true;
 
-				if (isBeingPressed.compare("emailIcon") == 0) { ppcEv.buttons.openEmail = true; }
-				else if (isBeingPressed.compare("hardDriveIcon") == 0) { ppcEv.buttons.openHarddrive = true;}
-				else if (isBeingPressed.compare("browserIcon") == 0) { ppcEv.buttons.openBrowser = true; }
-				else if (isBeingPressed.compare("helpIcon") == 0) { ppcEv.buttons.openHelp = true;}
-				else if (isBeingPressed.compare("dataGraphIcon") == 0) { ppcEv.buttons.openPipeline = true;}
-				else if (isBeingPressed.compare("searchIcon") == 0) { ppcEv.buttons.openSearch = true;}
-				else if (isBeingPressed.compare("chatIcon") == 0) { ppcEv.buttons.openChat = true; }
-				else if (isBeingPressed.compare("settingsIcon") == 0) { ppcEv.buttons.openSettings = true;}
-				else if (isBeingPressed.compare("folderIcon") == 0) { ppcEv.buttons.openFolder = true; }
-				else if (isBeingPressed.compare("consoleIcon") == 0) { ppcEv.buttons.openConsole = true;}
+				/* Send an open event */
+				ppc::Event ppcEv2(ev);
+				ppcEv2.type = ppc::Event::OpenType;
+				ppcEv2.open.window = ppc::Event::OpenTypes::openBrowser;
+				ppcEv2.buttons.mouseX = ev.mouseButton.x;
+				ppcEv2.buttons.mouseY = ev.mouseButton.y;
+				if (isBeingPressed.compare("emailIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openBrowser; }
+				else if (isBeingPressed.compare("hardDriveIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openHarddrive;}
+				else if (isBeingPressed.compare("browserIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openBrowser; }
+				else if (isBeingPressed.compare("helpIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openHelp;}
+				else if (isBeingPressed.compare("dataGraphIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openPipeline;}
+				else if (isBeingPressed.compare("searchIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openSearch;}
+				else if (isBeingPressed.compare("chatIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openChat; }
+				else if (isBeingPressed.compare("settingsIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openSettings;}
+				else if (isBeingPressed.compare("folderIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openFolder; }
+				else if (isBeingPressed.compare("consoleIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openConsole;}
+
 				getEntity()->broadcastMessage(ppcEv);
+				getEntity()->broadcastMessage(ppcEv2);
 				onRelease_.sendEvent(ppcEv);
+				onRelease_.sendEvent(ppcEv2);
 				wasPressed_ = false;
 
 			}
@@ -345,7 +346,6 @@ bool mousePressButton::registerInput(sf::Event ev) {
 			if (isCollision({ ev.mouseButton.x, ev.mouseButton.y })) {
 				ppc::Event ppcEv(ev);
 				ppcEv.type = ppc::Event::ButtonType;
-				ppcEv.buttons.isHovered = true;
 				getEntity()->broadcastMessage(ppcEv);
 				onHover_.sendEvent(ev);
 			}

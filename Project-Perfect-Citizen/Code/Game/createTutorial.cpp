@@ -114,7 +114,6 @@ void ppc::createTutorial(Desktop & dt) {
 	nextButton.setSpriteSheet(dt.getButtonSheet());
 	createWithEventFunc<FloppyInputComponent>(nextButton, floppyEntity, floppyIn, ppc::incrementFloppyDialog);
 
-
 	ppc::FreeFunctionObserver<mousePressButton>* ffo = new FreeFunctionObserver<mousePressButton>(DisableMPB,
 		dynamic_cast<mousePressButton*>(nextButton.getMousePressButton()));
 	floppyIn->onSequenceEnd().addObserver(ffo);
