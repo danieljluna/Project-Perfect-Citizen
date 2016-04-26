@@ -52,7 +52,7 @@ namespace ppc {
 		/// @param The width of the window to create the email in
 		/// @param The height of the window to create the email in
 		///////////////////////////////////////////////////////////////////////
-		emailMessageRenderComponent(sf::Font& f, Email& email, int x, int y, int size,
+		emailMessageRenderComponent(sf::Font& f, Email* email, int x, int y, int size,
 			int winWidth, int winHeight);
 
 		~emailMessageRenderComponent();

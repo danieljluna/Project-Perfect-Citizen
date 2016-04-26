@@ -42,7 +42,7 @@ private:
 	///////////////////////////////////////////////////////////////////////
 	/// @brief The object containing the content of the email
 	///////////////////////////////////////////////////////////////////////
-	ppc::Email emailToOpen;
+	ppc::Email* emailToOpen;
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief reference to the desktop to open a new window
@@ -65,7 +65,7 @@ public:
 	///@param The button sprite sheet to make the new window's close button
 	///@param The bounding box of this list element to detect click input
 	///////////////////////////////////////////////////////////////////////
-	emailListElementInputComponent(ppc::Desktop& dT, ppc::InputHandler& ih, ppc::Email eM, sf::Image& buttonSheet, sf::FloatRect rect);
+	emailListElementInputComponent(ppc::Desktop& dT, ppc::InputHandler& ih, ppc::Email* eM, sf::Image& buttonSheet, sf::FloatRect rect);
 
 	///////////////////////////////////////////////////////////////////////
 	///@brief Adds the input handler to the component. Also sets up the

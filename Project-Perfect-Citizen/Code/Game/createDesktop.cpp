@@ -64,7 +64,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     
 
     for(unsigned int i = 0; i < inbox.getSubject().size(); i++){
-        Email testEmail1(inbox.getTo().at(i), inbox.getFrom().at(i), inbox.getSubject().at(i), inbox.getBody().at(i), inbox.getVisible().at(i), "image.jpg");
+        Email* testEmail1 = new Email(inbox.getTo().at(i), inbox.getFrom().at(i), inbox.getSubject().at(i), inbox.getBody().at(i), inbox.getVisible().at(i), "image.jpg");
         theInbox->addEmailToList(testEmail1);
     }
     
@@ -130,7 +130,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     inbox->parseEmailAsJson("Email1.json");
     
     for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
-        Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
+        Email* testEmail1 = new Email(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
         theInbox->addEmailToList(testEmail1);
     }
     
@@ -200,7 +200,7 @@ void createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopWindow
     inbox->parseEmailAsJson("Email0.json");
     
     for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
-        Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
+        Email* testEmail1 = new Email(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
         theInbox->addEmailToList(testEmail1);
     }
     
@@ -273,7 +273,7 @@ void createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     inbox->parseEmailAsJson("Email2.json");
     
     for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
-        Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
+        Email* testEmail1 = new Email(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
         theInbox->addEmailToList(testEmail1);
     }
     

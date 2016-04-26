@@ -14,7 +14,7 @@ const float DOUBLE_CLICK_TIME = 500.0f;
 
 
 emailListElementInputComponent::emailListElementInputComponent(ppc::Desktop& dT, ppc::InputHandler& ih,
-	ppc::Email eM, sf::Image& bS, sf::FloatRect rect) : InputComponent(2), boxRect(rect), buttonSheet(bS), emailToOpen(eM), theDesktop(dT) {
+	ppc::Email* eM, sf::Image& bS, sf::FloatRect rect) : InputComponent(2), boxRect(rect), buttonSheet(bS), emailToOpen(eM), theDesktop(dT) {
 
 	//add a new subject that is tied to the event
 	ih.addHandle(sf::Event::MouseButtonPressed);
@@ -79,7 +79,7 @@ bool emailListElementInputComponent::registerInput(sf::Event ev) {
 					sf::Event ev;
 					//complains that its unintialized without this line.
 					ev.type = sf::Event::EventType::Closed;
-					if (emailToOpen.setRead()) {
+					if (emailToOpen->setRead()) {
 						ppc::Event readEvent(ev);
 						readEvent.type = ppc::Event::EventTypes::NotificationType;
 						readEvent.notification.count = 1;

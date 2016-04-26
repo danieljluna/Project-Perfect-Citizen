@@ -496,7 +496,7 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	///////////////////////////////////////
 	/* Create an email list element entity for each email in the inbox*/
 	for (int i = 0; i < inbox.getInboxSize(); ++i) {
-		if (inbox.getEmailAt(i).getVisible() == false) continue;
+		if (inbox.getEmailAt(i)->getVisible() == false) continue;
 		Entity emailListElement;
         createEmailListElement(
 			emailListElement, dT, buttonSheet, ih, myFont, inbox.getEmailAt(i), 0, (totalEmailsLoaded * (emailBoxElementHeight+emailBoxPadding)),
@@ -536,7 +536,7 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 
 }
 
-void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email& mail, sf::Image& buttonSheet, float x, float y) {
+void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email* mail, sf::Image& buttonSheet, float x, float y) {
 	if (windowToModify == nullptr) { return; }
 
 	/////////////////////////////////////////
@@ -546,7 +546,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 20;
 
-	string content = mail.getContentField();
+	string content = mail->getContentField();
 	int lineCount = 1;
 	int lineMultiplier = 23;
 	int preLineCount = 6;
@@ -586,7 +586,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
-	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(mail.getAbbrevSubjectField());
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(mail->getAbbrevSubjectField());
 }
 
 
