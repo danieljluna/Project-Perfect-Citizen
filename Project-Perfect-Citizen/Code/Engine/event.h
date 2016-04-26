@@ -24,7 +24,7 @@ namespace ppc {
 			bool isRight;
 			float mouseX;
 			float mouseY;
-			bool openConsole = false;
+			bool openConsole;
 			bool openHelp = false;
 			bool openEmail = false;
 			bool openPipeline = false;
