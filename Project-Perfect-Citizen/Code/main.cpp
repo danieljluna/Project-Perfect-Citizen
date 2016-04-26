@@ -130,10 +130,7 @@ int main(int argc, char** argv) {
     bool BootToTitleCard = false;
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
-    
-    
-    
-    
+       
     AudioQueue audiotest(5);
     audiotest.addBgm("SoundTrack_Extraction.ogg");
     audiotest.playBgm();
