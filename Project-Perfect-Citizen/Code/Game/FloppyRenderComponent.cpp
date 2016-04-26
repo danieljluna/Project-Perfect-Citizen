@@ -54,31 +54,27 @@ void FloppyRenderComponent::setImageScale(float ScaleX, float ScaleY) {
 }
 
 void FloppyRenderComponent::setEmotion(int emote) {
-    switch (emote) {
-        case -1:
-            // No Face
-            rectSourceSprite->left = 1*size;
-            rectSourceSprite->top = 0*size;
-            break;
-        case 0:
-            // Default Face
-            rectSourceSprite->left = 0*size;
-            rectSourceSprite->top = 1*size;
-            break;
-        case 1:
-            // Angry Face
-            rectSourceSprite->left = 0*size;
-            rectSourceSprite->top = 2*size;
-        case 2:
-            // Surprised
-            rectSourceSprite->left = 0*size;
-            rectSourceSprite->top = 3*size;
-        case 3:
-            // Peek
-            rectSourceSprite->left = 0*size;
-            rectSourceSprite->top = 4*size;
-        default:
-            break;
+ 
+    if (emote == -1) {
+        // No Face
+        rectSourceSprite->left = 1*size;
+        rectSourceSprite->top = 0*size;
+    } else if (emote == 0) {
+        // Default Face
+        rectSourceSprite->left = 0*size;
+        rectSourceSprite->top = 1*size;
+    } else if (emote == 1) {
+        // Angry Face
+        rectSourceSprite->left = 0*size;
+        rectSourceSprite->top = 2*size;
+    } else if (emote == 2) {
+        // Surprised
+        rectSourceSprite->left = 0*size;
+        rectSourceSprite->top = 3*size;
+    } else if (emote == 3) {
+        // Peek
+        rectSourceSprite->left = 0*size;
+        rectSourceSprite->top = 4*size;
     }
     
     sprite->setTextureRect(*rectSourceSprite);
@@ -87,13 +83,13 @@ void FloppyRenderComponent::setEmotion(int emote) {
 
 
 void FloppyRenderComponent::animate() {
-    if (emotion == -1) {
-        if (sprite->getPosition().y <= 32) {
-            renderPosition({sprite->getPosition().x, sprite->getPosition().y+5});
-        } else {
+   /* if (emotion == -1) {
+       // if (sprite->getPosition().y <= 32) {
+         //   renderPosition({sprite->getPosition().x, sprite->getPosition().y+5});
+        //} else {
             setEmotion(emotion);
             _willAnimate = false;
-        }
+        //}
     } else {
         if (sprite->getPosition().y >= -35) {
             renderPosition({sprite->getPosition().x, sprite->getPosition().y-5});
@@ -101,9 +97,10 @@ void FloppyRenderComponent::animate() {
             setEmotion(emotion);
             _willAnimate = false;
         }
-    }
+    }*/
+    setEmotion(emotion);
 
-    sprite->setTextureRect(*rectSourceSprite);
+   // sprite->setTextureRect(*rectSourceSprite);
 }
 
 
@@ -112,7 +109,7 @@ void FloppyRenderComponent::draw( sf::RenderTarget& target,
                                  sf::RenderStates states) const {
 	if (!_willAnimate) return;
     target.draw(*sprite, states);
-    target.draw(*staticBox, states);
+    //target.draw(*staticBox, states);
 }
 
 void FloppyRenderComponent::recieveMessage(msgType code) {
@@ -124,7 +121,8 @@ void FloppyRenderComponent::recieveMessage(ppc::Event ev) {
         unsigned int j = ev.floppy.frame;
         if (j == -1) emotion = -1;
         else emotion = FloppyInputComponent::floppyDictionary.at(i).at(j).second;
-        
+        std::cout << emotion << std::endl;
+        setEmotion(emotion);
         _willAnimate = true;
     }
     
