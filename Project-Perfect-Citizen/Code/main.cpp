@@ -122,10 +122,8 @@ int main(int argc, char** argv) {
     
     World::initFontMap();
     
-    //Dont touch these comments please.
-    ifstream ifs1(resourcePath() + "Saves/tutorialDesktop.ini", std::ifstream::in);
-    Desktop tutorialDesktop;
-    ifs1 >> tutorialDesktop;
+
+
     
     bool BootToTitleCard = false;
     // Create the main sf::window
@@ -159,70 +157,36 @@ int main(int argc, char** argv) {
     teacherIconSheet.loadFromFile(resourcePath() + "Teacher_Icon_Sheet.png");
     ///////////////////////////////////////////////////////////////////
     
-    
-    //////////////////////////////////////////////
-    //Assuming Builders Should Eventually Go Here
-    /////////////////////////////////////////////
-    //Placeholder stuff for now.
-    
-    //runBootDesktop
-    ppc::NodeState bootState;
-    Window* bootWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-    Desktop* bootDesktop = new Desktop(bootWindow, bootState);
-    
-    bootDesktop->setIconSheet(iconSheet);
-    bootDesktop->setButtonSheet(buttonSheet);
-    
-    bootDesktop->setBackgrond(playerWallpaper);
-    
-    //runPlayerDesktop
-    ppc::NodeState playerState;
-    playerState.setUp();
-    Window* playerDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-    
-    
-    Desktop* playerDesktop = new Desktop(playerDesktopWindow, playerState);
-    playerDesktop->setIconSheet(iconSheet);
-    playerDesktop->setButtonSheet(buttonSheet);
-    playerDesktop->setBackgrond(playerWallpaper);
-    
-    //runTargetDesktop
-    ppc::NodeState targetState;
-    targetState.setUp();
-    Window* targetDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-    
-    Desktop* targetDesktop = new Desktop(targetDesktopWindow, targetState);
-    targetDesktop->setIconSheet(iconSheet);
-    targetDesktop->setButtonSheet(buttonSheet);
-    targetDesktop->setBackgrond(teacherWallpaper);
-    
-    //runEndDesktop
-    ppc::NodeState endState;
-    Window* endWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-    
-    Desktop* endDesktop = new Desktop(endWindow, endState);
-    endDesktop->setIconSheet(iconSheet);
-    endDesktop->setButtonSheet(pixelSheet);
-    endDesktop->setBackgrond(playerWallpaper);
-    
-    
-    /////////////////////////////////////////////
-    //Assuming Builders End Here
-    /////////////////////////////////////////////
-    
     World::setGameScreen(screen);
-    
-    Logger::startTimer("bootDesktop");
     
     //Main Loops for each Desktops
     
-    //Boot
+	//Boot Desktop
+	ppc::NodeState bootState;
+	Window* bootWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+	Desktop* bootDesktop = new Desktop(bootWindow, bootState);
+
+	bootDesktop->setIconSheet(iconSheet);
+	bootDesktop->setButtonSheet(buttonSheet);
+	bootDesktop->setBackgrond(playerWallpaper);
+
+	Logger::startTimer("bootDesktop");
+    
     World::setCurrDesktop(*bootDesktop);
     runBootDesktop(*bootDesktop);
     while (World::runDesktop(*bootDesktop)) {}
     delete bootDesktop;
     
     Logger::endTimer("bootDesktop");
+	//End Boot Desktop
+
+
+
+	//Tutorial Desktop
+	ifstream ifs1(resourcePath() + "Saves/tutorialDesktop.ini", std::ifstream::in);
+	Desktop tutorialDesktop;
+	ifs1 >> tutorialDesktop;
+
     Logger::startTimer("playerTutorialDesktop");
     
     World::setCurrDesktop(tutorialDesktop);
@@ -230,6 +194,19 @@ int main(int argc, char** argv) {
     World::runCurrDesktop();
     
     Logger::endTimer("playerTutorialDesktop");
+	//End Tutorial Desktop
+
+
+
+	//Player Desktop
+	ppc::NodeState playerState;
+	playerState.setUp();
+	Window* playerDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+	Desktop* playerDesktop = new Desktop(playerDesktopWindow, playerState);
+	playerDesktop->setIconSheet(iconSheet);
+	playerDesktop->setButtonSheet(buttonSheet);
+	playerDesktop->setBackgrond(playerWallpaper);
+
     Logger::startTimer("playerDesktop");
     
     World::setCurrDesktop(*playerDesktop);
@@ -238,6 +215,20 @@ int main(int argc, char** argv) {
     delete playerDesktop;
     
     Logger::endTimer("playerDesktop");
+	// End Player Desktop
+
+
+
+	//Desktop 1 / Teacher Desktop
+	ppc::NodeState targetState;
+	targetState.setUp();
+	Window* targetDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+
+	Desktop* targetDesktop = new Desktop(targetDesktopWindow, targetState);
+	targetDesktop->setIconSheet(iconSheet);
+	targetDesktop->setButtonSheet(buttonSheet);
+	targetDesktop->setBackgrond(teacherWallpaper);
+
     Logger::startTimer("targetDesktop");
     
     World::setCurrDesktop(*targetDesktop);
@@ -246,6 +237,19 @@ int main(int argc, char** argv) {
     delete targetDesktop;
     
     Logger::endTimer("targetDesktop");
+	//End of Target/Teacher Desktop
+
+
+
+	//Ending Desktop
+	ppc::NodeState endState;
+	Window* endWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+
+	Desktop* endDesktop = new Desktop(endWindow, endState);
+	endDesktop->setIconSheet(iconSheet);
+	endDesktop->setButtonSheet(pixelSheet);
+	endDesktop->setBackgrond(playerWallpaper);
+
     Logger::startTimer("endDesktop");
     
     World::setCurrDesktop(*endDesktop);
