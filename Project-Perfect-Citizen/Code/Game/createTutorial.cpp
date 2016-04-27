@@ -69,8 +69,6 @@ void ppc::createTutorial(Desktop & dt) {
 	//Floppy begins here
 	Window* floppyWindow = new Window(1800, 1000, sf::Color::Transparent);
 
-	dt.setFrontTop(floppyWindow);
-
 	Entity floppyEntity;
 
 	sf::Image floppyImage;
@@ -87,23 +85,11 @@ void ppc::createTutorial(Desktop & dt) {
 	tbr->setTextBubble(*tb);
 	tbr->setRenderable(false);
 
-	mousePressButton* mpb = new mousePressButton();
-	mpb->setInputHandle(floppyWindow->getInputHandler());
-	mpb->setFloatRect(floppyWindow->getBounds());
-
-	frontTopObsvr* frontTopObsv = new frontTopObsvr(dt);
-
-	mpb->onClick().addObserverToBack(frontTopObsv);
-	mpb->onDblClick().addObserverToBack(frontTopObsv);
-	mpb->onRelease().addObserverToBack(frontTopObsv);
-	mpb->onHover().addObserverToBack(frontTopObsv);
-
 
 	floppyEntity.addComponent(tbr);
 	floppyEntity.addComponent(floppy);
 	floppyEntity.addComponent(floppyIn);
 	floppyEntity.addComponent(floppyUpdate);
-	floppyEntity.addComponent(mpb);
 
 	ButtonBuilder nextButton;
 	nextButton.setInputHandle(floppyWindow->getInputHandler());
@@ -122,13 +108,6 @@ void ppc::createTutorial(Desktop & dt) {
 
 	floppyWindow->addEntity(floppyEntity);
 
-    //String Up Floppy------------------------------
+    dt.setFrontTop(floppyWindow);
 
-    //Connect Pipeline
-    BaseObserver* tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn);
-    dynamic_cast<iconInputComponent*>(graphIcon.getComponent(2))->onOpen().addObserver(tempObsvr);
-
-    //Conect FloppyEnd
-    tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn);
-    floppyIn->onSequenceEnd().addObserver(tempObsvr);
 }

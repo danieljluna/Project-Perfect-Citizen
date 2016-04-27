@@ -105,9 +105,8 @@ bool mousePressButton::isCollision(sf::Vector2i mousePos) {
 
 bool mousePressButton::registerInput(Event ppcEv) {
     sf::Event ev(ppcEv);
-    if (getEntity() != nullptr) {
-
-		if (!isClickable) return true;
+    bool result = true;
+    if (!isClickable) {
 
         ppcEv.type = Event::ButtonType;
 
@@ -139,6 +138,7 @@ bool mousePressButton::registerInput(Event ppcEv) {
                 //SEND EVENT
                 getEntity()->broadcastMessage(ppcEv);
                 onPress_.sendEvent(ppcEv);
+                onAll_.sendEvent(ev);
             }
         }
         /* Case: Mouse Released Event*/
@@ -158,6 +158,7 @@ bool mousePressButton::registerInput(Event ppcEv) {
 
 				getEntity()->broadcastMessage(ppcEv);
 				onRelease_.sendEvent(ppcEv);
+                onAll_.sendEvent(ev);
 				wasPressed_ = false;
             }
         }
@@ -168,10 +169,11 @@ bool mousePressButton::registerInput(Event ppcEv) {
                 ppcEv.buttons.state = Event::ButtonsEv::Hover;
 				getEntity()->broadcastMessage(ppcEv);
 				onHover_.sendEvent(ev);
+                onAll_.sendEvent(ev);
 			}
 		}
     }
-    return true;
+    return result;
 }
 
 bool ppc::ToggleMPB(mousePressButton* ptr, Event ev) {
