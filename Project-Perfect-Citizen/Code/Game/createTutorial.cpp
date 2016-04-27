@@ -22,6 +22,8 @@
 #include "../Engine/event.h"
 #include "../Engine/frontTopObserver.h"
 
+#include "iconInputComponent.h"
+
 void ppc::createTutorial(Desktop & dt) {
 
 	//Initialize Builder for Icons
@@ -36,7 +38,7 @@ void ppc::createTutorial(Desktop & dt) {
 	//Graph Icon
 	Entity graphIcon;
 	icons.setPosition({ 400.f,300.f });
-	icons.setIconType("dataGraphIcon");
+	icons.setIconType(iconInputComponent::IconType::Pipeline);
 	icons.setSpritebyIndicies(0, 4, 1, 2);
 	icons.setText("Graph", World::getFont(World::VT323Regular), sf::Color::Black);
 	//TODO: ADD FLOPPY FUNC TO CREATE
@@ -46,7 +48,7 @@ void ppc::createTutorial(Desktop & dt) {
 	//Email Icon
 	Entity emailIcon;
 	icons.setPosition({ 250.f,300.f });
-	icons.setIconType("emailIcon");
+	icons.setIconType(iconInputComponent::IconType::Email);
 	icons.setSpritebyIndicies(0, 10, 1, 2);
 	icons.setText("Emails", World::getFont(World::VT323Regular), sf::Color::Black);
 	icons.create(emailIcon);
@@ -55,7 +57,7 @@ void ppc::createTutorial(Desktop & dt) {
 	//Help Icon
 	Entity helpIcon;
 	icons.setPosition({ 550.f,300.f });
-	icons.setIconType("helpIcon");
+	icons.setIconType(iconInputComponent::IconType::Help);
 	icons.setSpritebyIndicies(0, 5, 1, 2);
 	icons.setText("Help", World::getFont(World::VT323Regular), sf::Color::Black);
 	icons.create(helpIcon);
@@ -114,17 +116,15 @@ void ppc::createTutorial(Desktop & dt) {
 	nextButton.setSpriteSheet(dt.getButtonSheet());
 	createWithEventFunc<FloppyInputComponent>(nextButton, floppyEntity, floppyIn, ppc::incrementFloppyDialog);
 
-	ppc::FreeFunctionObserver<mousePressButton>* ffo = new FreeFunctionObserver<mousePressButton>(DisableMPB,
+	ppc::FreeFunctionObserver<mousePressButton>* ffo = new FreeFunctionObserver<mousePressButton>(ToggleMPB,
 		dynamic_cast<mousePressButton*>(nextButton.getMousePressButton()));
 	floppyIn->onSequenceEnd().addObserver(ffo);
 
 	floppyWindow->addEntity(floppyEntity);
-	
 
-	ppc::Event ppcEv;
-	ppcEv.type = ppc::Event::FloppyType;
-	ppcEv.floppy.sequence = 0;
-	ppcEv.floppy.frame = 0;
-	summonFloppyDialog(floppyIn, ppcEv);
+    //String Up Floppy------------------------------
 
+    //Connect Pipeline
+    BaseObserver* tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn);
+    dynamic_cast<iconInputComponent*>(graphIcon.getComponent(2))->onOpen().addObserver(tempObsvr);
 }

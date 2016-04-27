@@ -252,7 +252,7 @@ void ppc::Desktop::deleteFrontTop() {
 	}
 }
 
-void ppc::Desktop::registerInput(sf::Event ev) {
+void ppc::Desktop::registerInput(Event ev) {
 	if (frontTop_ && 
 		(ev.type == sf::Event::MouseButtonPressed || 
 			ev.type == sf::Event::MouseButtonReleased)) {

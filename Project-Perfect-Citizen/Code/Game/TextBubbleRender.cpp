@@ -58,8 +58,7 @@ void ppc::TextBubbleRender::recieveMessage(ppc::Event ev) {
 	}
 
 	if (ev.type == ppc::Event::AbleType) {
-		if (ev.able.disable) setRenderable(false);
-		else if (ev.able.enable) setRenderable(true);
+		setRenderable(ev.able.enable);
 	}
 
 }

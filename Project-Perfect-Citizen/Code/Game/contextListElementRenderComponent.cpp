@@ -28,8 +28,8 @@ void contextListElementRenderComponent::draw(sf::RenderTarget & target,
 void contextListElementRenderComponent::recieveMessage(Event ev) {
 	switch (ev.type) {
 		case Event::EventTypes::ButtonType:
-			if (ev.buttons.isPushed) { contextListElementBox.setFillColor(sf::Color(51, 50, 161)); }
-			if (ev.buttons.isReleased) { 
+			if (ev.buttons.state == Event::ButtonsEv::Clicked) { contextListElementBox.setFillColor(sf::Color(51, 50, 161)); }
+			if (ev.buttons.state == Event::ButtonsEv::Release) { 
 				contextListElementBox.setFillColor(sf::Color(170, 170, 170)); 
 				containingWindow->close();
 			}
