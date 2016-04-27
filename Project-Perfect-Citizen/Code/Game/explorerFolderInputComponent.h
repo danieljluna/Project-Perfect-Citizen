@@ -70,7 +70,7 @@ namespace ppc {
 		void setFloatRect(sf::FloatRect rect);
 
 		virtual ~explorerFolderInputComponent();
-		virtual bool registerInput(sf::Event ev) override;
+		virtual bool registerInput(Event ev) override;
 
 
 		Subject& onClick() { return onPress_; };
@@ -87,5 +87,8 @@ namespace ppc {
 		eFIC->onRelease().addObserver(fnObsvr);
 
 	}
+
+	bool open_folder(Desktop*, ppc::Event);
+	bool flag_folder(Desktop*, ppc::Event);
 
 };

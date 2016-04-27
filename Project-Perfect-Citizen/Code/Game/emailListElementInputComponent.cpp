@@ -14,7 +14,7 @@ const float DOUBLE_CLICK_TIME = 500.0f;
 
 
 emailListElementInputComponent::emailListElementInputComponent(ppc::Desktop& dT, ppc::InputHandler& ih,
-	ppc::Email eM, sf::Image& bS, sf::FloatRect rect) : InputComponent(2), boxRect(rect), buttonSheet(bS), emailToOpen(eM), theDesktop(dT) {
+	ppc::Email* eM, sf::Image& bS, sf::FloatRect rect) : InputComponent(2), boxRect(rect), buttonSheet(bS), emailToOpen(eM), theDesktop(dT) {
 
 	//add a new subject that is tied to the event
 	ih.addHandle(sf::Event::MouseButtonPressed);
@@ -52,7 +52,8 @@ bool emailListElementInputComponent::isCollision(sf::Vector2i mousePos) {
 }
 
 
-bool emailListElementInputComponent::registerInput(sf::Event ev) {
+bool emailListElementInputComponent::registerInput(Event ppcEv) {
+    sf::Event ev(ppcEv);
 	if (getEntity() != nullptr) {
 
 		/* Case: Mouse Pressed Event*/
@@ -75,11 +76,15 @@ bool emailListElementInputComponent::registerInput(sf::Event ev) {
 					spawnEmailMessage(emailWindow, emailWindow->getInputHandler(), emailToOpen, buttonSheet, 200, 50);
 					theDesktop.addWindow(emailWindow);
 					getEntity()->broadcastMessage(MOUSE_DOUBLE_CLICK_CODE);
-					getEntity()->broadcastMessage(OPEN_EMAIL);
+
+					ppc::Event ppcEv(ev);
+					ppcEv.type = Event::EventTypes::OpenType;
+					ppcEv.open.window = Event::OpenEv::Email;
+					getEntity()->broadcastMessage(ppcEv);
 					sf::Event ev;
 					//complains that its unintialized without this line.
 					ev.type = sf::Event::EventType::Closed;
-					if (emailToOpen.setRead()) {
+					if (emailToOpen->setRead()) {
 						ppc::Event readEvent(ev);
 						readEvent.type = ppc::Event::EventTypes::NotificationType;
 						readEvent.notification.count = 1;

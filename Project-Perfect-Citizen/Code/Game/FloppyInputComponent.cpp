@@ -126,10 +126,11 @@ void ppc::FloppyInputComponent::advanceSequence() { sequence++; }
 
 void ppc::FloppyInputComponent::regressSequence() { sequence--; }
 
-bool ppc::FloppyInputComponent::registerInput(sf::Event ev) { return true; }
+bool ppc::FloppyInputComponent::registerInput(Event ev) { return true; }
 
 bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
-	if (ev.type == ppc::Event::FloppyType) {
+	switch (ev.type) {
+    case ppc::Event::FloppyType:
 
 		/* Save the Sequence and Event for future iteration */
 		ptr->setSequence(ev.floppy.sequence);
@@ -137,21 +138,30 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 
 		/* Pass the event to the entity 
 		This isn't necessary, but keeping in case we want
-		to modify these values */
+		to modify these values 
 		ppc::Event ppcEv(ev);
 		ppcEv.type = ppc::Event::FloppyType;
 		ppcEv.floppy.sequence = ev.floppy.sequence;
 		ppcEv.floppy.frame = ev.floppy.frame;
-		ptr->getEntity()->broadcastMessage(ppcEv);
+
+        ^ Can't have declarations in switch
+        */
+		ptr->getEntity()->broadcastMessage(ev);
 
 		/* Also let the textbox and button that
 		they should spawn */
-		ppc::Event enabler(ev);
-		enabler.type = ppc::Event::AbleType;
-		ppcEv.able.enable = true;
-		ppcEv.able.disable = false;
-		ptr->onSequenceEnd().sendEvent(enabler);
-		ptr->getEntity()->broadcastMessage(enabler);
+		ev.type = ppc::Event::AbleType;
+		ev.able.enable = true;
+		ptr->onSequenceEnd().sendEvent(ev);
+		ptr->getEntity()->broadcastMessage(ev);
+        break;
+    case Event::OpenType:
+        //If we are opening the pipeline:
+        if (ev.open.window == ev.open.Pipeline) {
+            ptr->setSequence(0);
+            ptr->setFrame(0);
+        }
+        break;
 	}
 	return true;
 }

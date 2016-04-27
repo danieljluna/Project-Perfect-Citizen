@@ -6,7 +6,7 @@
 
 using namespace ppc;
 
-emailMessageRenderComponent::emailMessageRenderComponent(sf::Font& f, Email& email, int x, int y, int size,
+emailMessageRenderComponent::emailMessageRenderComponent(sf::Font& f, Email* email, int x, int y, int size,
 	int winWidth, int winHeight) : font(f) {
 
 	this->metaText = new sf::Text();
@@ -22,15 +22,15 @@ emailMessageRenderComponent::emailMessageRenderComponent(sf::Font& f, Email& ema
 
 	/* Format the email meta text */
 	std::string formattedMeta;
-	formattedMeta += "To: " + email.getToField() + "\n";
-	formattedMeta += "From: " + email.getFromField() + "\n";
-	formattedMeta += "Subject: " + email.getSubjectField() + "\n\n";
+	formattedMeta += "To: " + email->getToField() + "\n";
+	formattedMeta += "From: " + email->getFromField() + "\n";
+	formattedMeta += "Subject: " + email->getSubjectField() + "\n\n";
 	metaText->setString(formattedMeta);
 	
 
 	/* Format the email content text */
 	std::string formattedContent;
-	formattedContent += "         " + email.getContentField() + "\n";
+	formattedContent += "         " + email->getContentField() + "\n";
 	
 	int lineCount = 0;
 	for (size_t i = 0; i < formattedMeta.size(); ++i) {

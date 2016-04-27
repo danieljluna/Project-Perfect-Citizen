@@ -131,7 +131,7 @@ void ppc::ButtonBuilder::create(Entity& e){
 
 	/* II: INPUT COMPONENT */
 	if (clickable) {
-		mpb = new mousePressButton(*inputHandle, buttonRender->getSprite()->getGlobalBounds(), "GENERIC_BUTTON");
+		mpb = new mousePressButton(*inputHandle, buttonRender->getSprite()->getGlobalBounds());
 		button_mpb = mpb;
 	}
 

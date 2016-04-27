@@ -26,6 +26,7 @@ namespace ppc {
 		sf::Font font;
 		static const int size = 128;
 
+
 	public:
 
 		///////////////////////////////////////////////////////////////////////
@@ -39,6 +40,8 @@ namespace ppc {
 		errorMessageRenderComponent(sf::Font& f, std::string msg, int x, int y, int size);
 
 		~errorMessageRenderComponent();
+
+		sf::Text* getText();
 
 		virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
 
