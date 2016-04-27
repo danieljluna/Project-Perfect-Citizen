@@ -38,6 +38,10 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
             ev.open.window = type_;
 
             switch (type_) {
+			case Event::OpenEv::Email:
+				spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
+					elementFunctions, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				break;
             case Event::OpenEv::Browser:
                 spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
                     elementFunctions, ev.buttons.mousePos.x, ev.buttons.mousePos.y);

@@ -76,7 +76,11 @@ bool emailListElementInputComponent::registerInput(Event ppcEv) {
 					spawnEmailMessage(emailWindow, emailWindow->getInputHandler(), emailToOpen, buttonSheet, 200, 50);
 					theDesktop.addWindow(emailWindow);
 					getEntity()->broadcastMessage(MOUSE_DOUBLE_CLICK_CODE);
-					getEntity()->broadcastMessage(OPEN_EMAIL);
+
+					ppc::Event ppcEv(ev);
+					ppcEv.type = Event::EventTypes::OpenType;
+					ppcEv.open.window = Event::OpenEv::Email;
+					getEntity()->broadcastMessage(ppcEv);
 					sf::Event ev;
 					//complains that its unintialized without this line.
 					ev.type = sf::Event::EventType::Closed;
