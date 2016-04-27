@@ -157,7 +157,7 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         break;
     case Event::OpenType:
         //If we are opening the pipeline:
-        if (ev.open.window == ev.open.openPipeline) {
+        if (ev.open.window == ev.open.Pipeline) {
             ptr->setSequence(0);
             ptr->setFrame(0);
         }

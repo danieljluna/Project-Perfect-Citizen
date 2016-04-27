@@ -35,8 +35,11 @@ private:
     AudioQueue que;
     Subject onOpen_;
     
+    Event::OpenEv::OpenTypes type_;
 
 public:
+
+    using IconType = Event::OpenEv::OpenTypes;
 
 	iconInputComponent() = delete;
 
@@ -46,7 +49,7 @@ public:
 	///@param The newly created icon entity to add components to.
 	///@param The buttonSheet of the window it will create's buttons.
 	///////////////////////////////////////////////////////////////////////
-	iconInputComponent(Desktop& theDesktop, Database* db, Inbox& ib, sf::Image& buttonSheet_, sf::Image& iconSheet_);
+	iconInputComponent(Desktop& theDesktop, Database* db, Inbox& ib, sf::Image& buttonSheet_, sf::Image& iconSheet_, IconType type = IconType::Count);
 
 	
 	virtual ~iconInputComponent();
@@ -56,8 +59,8 @@ public:
 
     Subject& onOpen() { return onOpen_; };
 
-};
+    friend bool make_icon_window(Desktop*, ppc::Event);
 
-bool make_icon_window(Desktop*, ppc::Event);
+};
 
 };

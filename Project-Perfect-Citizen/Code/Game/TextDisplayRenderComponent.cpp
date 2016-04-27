@@ -110,8 +110,8 @@ void TextDisplayRenderComponent::draw(sf::RenderTarget& target,
 void TextDisplayRenderComponent::recieveMessage(ppc::Event ev) {
 	switch (ev.type) {
 	case Event::EventTypes::ButtonType:
-		if (ev.buttons.isPushed) text_->setColor(sf::Color::White);
-		if (ev.buttons.isReleased) text_->setColor(sf::Color::Black);
+		if (ev.buttons.state == ev.buttons.Clicked) text_->setColor(sf::Color::White);
+		if (ev.buttons.state == ev.buttons.Release) text_->setColor(sf::Color::Black);
 		break;
 	case Event::EventTypes::AbleType:
 		setRenderable(ev.able.enable);

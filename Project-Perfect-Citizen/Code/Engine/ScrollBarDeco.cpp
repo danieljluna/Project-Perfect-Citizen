@@ -350,8 +350,7 @@ void ScrollBarDecorator::initialize(sf::Image img) {
         //Define Button Input
         buttonInputs_[i] = new mousePressButton(
                     WindowDecorator::getInputHandler(), 
-                    sf::FloatRect(), 
-                    "");
+                    sf::FloatRect());
         buttonInputs_[i]->setInputHandle(WindowDecorator::getInputHandler());
 
         //Create Entity and Push to Window

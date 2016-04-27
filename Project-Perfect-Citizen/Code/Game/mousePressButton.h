@@ -28,7 +28,6 @@ class mousePressButton: public ppc::InputComponent {
 private:
 
 	sf::FloatRect buttonRect;
-	std::string isBeingPressed;
 	sf::Clock mouseClock;
     sf::Int32 mouseTime;
 	bool isCollision(sf::Vector2i);
@@ -38,6 +37,7 @@ private:
     Subject onDoublePress_;
     Subject onRelease_;
 	Subject onHover_;
+    Subject onAll_;
 
 	bool isClickable = true;
 
@@ -49,7 +49,7 @@ public:
 ///@brief This Ctor will be depricated soon. Please use the default 
 ///Ctor and setter functions instead.
 ///////////////////////////////////////////////////////////////////////
-	mousePressButton(ppc::InputHandler& ih, sf::FloatRect rect, std::string isBeingPressed);
+	mousePressButton(ppc::InputHandler& ih, sf::FloatRect rect);
 
 	///////////////////////////////////////////////////////////////////////
 	///@brief Removes all the current observers in the observerArray_
@@ -79,7 +79,6 @@ public:
 
     sf::FloatRect getFloatRect() const;
 
-	void setIsBeingPressed(std::string iBP);
 	void setIsClickable(bool);
 
 	bool getIsClickable();
@@ -91,6 +90,7 @@ public:
     Subject& onDblClick() { return onDoublePress_; };
     Subject& onRelease() { return onRelease_; };
 	Subject& onHover() { return onHover_; };
+    Subject& onAll() { return onAll_; };
 
 };
 

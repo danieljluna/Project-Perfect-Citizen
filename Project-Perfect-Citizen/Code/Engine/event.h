@@ -16,13 +16,25 @@ namespace ppc {
 
         operator sf::Event&();
 
+        //Used internally to recognize button state
 		struct ButtonsEv {
-			bool isPushed;
-			bool isReleased;
-			bool isLeft;
-			bool isRight;
-			float mouseX;
-			float mouseY;
+            enum State {
+                Hover = 0,
+                Clicked,
+                DblClicked,
+                Release,
+                Count
+            };
+
+            enum Activation {
+                LeftMouse = 0,
+                RightMouse,
+                Enter
+            };
+
+            State state;
+            Activation activation;
+            sf::Vector2i mousePos;
 		};
 
 		struct TransformationEv {
@@ -57,16 +69,19 @@ namespace ppc {
 
 		struct OpenEv {
             enum OpenTypes {
-                openConsole = 0,
-                openHelp,
-                openEmail,
-                openPipeline,
-                openSearch,
-                openBrowser,
-                openChat,
-                openSettings,
-                openFolder,
-                openHarddrive
+                Console = 0,
+                Help,
+                Email,
+                Pipeline,
+                Search,
+                Browser,
+                Chat,
+                Settings,
+                Folder,
+                File,
+                Explorer,
+                HardDrive,
+                Count
             };
 
 			OpenTypes window;
