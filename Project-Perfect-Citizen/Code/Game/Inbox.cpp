@@ -4,6 +4,13 @@ using namespace ppc;
 
 Inbox::Inbox() {}
 
+Inbox::~Inbox() {
+    for(size_t i = 0; i < messageList.size(); i++){
+        delete(messageList[i]);
+    }
+    messageList.clear();
+}
+
 bool Inbox::isEmpty() { return messageList.empty(); }
 
 Email* Inbox::getEmailAt(int pos) { return messageList.at(pos); }
