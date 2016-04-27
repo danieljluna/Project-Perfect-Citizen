@@ -2,6 +2,7 @@
 #include "iconInputComponent.h"
 #include <iostream>
 #include <string>
+#include "../Engine/desktop.h"
 #include "../Game/emailExtraction.hpp"
 #include "../Engine/Audio/AudioQueue.h"
 
@@ -26,6 +27,8 @@ iconInputComponent::iconInputComponent(Desktop& dT, Database* dB, Inbox& ib, sf:
         
 
 }
+
+
 
 void iconInputComponent::recieveMessage(msgType msg) {
 	// Case: Double Clicked Console Icon
@@ -109,13 +112,6 @@ void iconInputComponent::recieveMessage(msgType msg) {
             onOpen_.sendEvent(ev);
 		}
 	}
-	/*else if (msg.compare(OPEN_THE_HELP) == 0) {
-		ppc::WindowInterface* ErrorMsgWindow =
-			new ppc::Window(500, 150, sf::Color(255, 255, 255));
-		spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
-		theDesktop_.addWindow(ErrorMsgWindow);
-		openedWindow = ErrorMsgWindow;
-     }*/
     else if (msg.compare(OPEN_THE_HELP) == 0) {
          ppc::WindowInterface* helpWindow =
          new ppc::Window(600, 700, sf::Color(200,200,200));
@@ -164,6 +160,75 @@ void iconInputComponent::recieveMessage(msgType msg) {
 	}
 }
 
+void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
+	switch (ev.type) {
+	case Event::EventTypes::OpenType:
+
+		std::vector<std::string> elementNames;
+		std::vector<bool(*)(Desktop*, Event ev)> elementFunctions;
+		elementNames.push_back("Open");
+		ppc::WindowInterface* ContextMenu = nullptr;
+
+		if (ev.open.window == ppc::Event::OpenTypes::openBrowser) {
+			ContextMenu = new ppc::Window(200, 300, sf::Color(170, 170, 170));
+			elementFunctions.push_back(&(ppc::make_icon_window));
+			spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
+				elementFunctions, ev.buttons.mouseX, ev.buttons.mouseY);
+		}
+		else if (ev.open.window == ppc::Event::OpenTypes::openHarddrive) {
+			ContextMenu = new ppc::Window(200, 300, sf::Color(170, 170, 170));
+			elementFunctions.push_back(&(ppc::make_icon_window));
+			spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
+				elementFunctions, ev.buttons.mouseX, ev.buttons.mouseY);
+		}
+		else if (ev.open.window == ppc::Event::OpenTypes::openHelp) {
+			ContextMenu = new ppc::Window(200, 300, sf::Color(170, 170, 170));
+			elementFunctions.push_back(&(ppc::make_icon_window));
+			spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
+				elementFunctions, ev.buttons.mouseX, ev.buttons.mouseY);
+		}
+		else if (ev.open.window == ppc::Event::OpenTypes::openPipeline) {
+			ContextMenu = new ppc::Window(200, 300, sf::Color(170, 170, 170));
+			elementFunctions.push_back(&(ppc::make_icon_window));
+			spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
+				elementFunctions, ev.buttons.mouseX, ev.buttons.mouseY);
+		}
+		else if (ev.open.window == ppc::Event::OpenTypes::openSearch) {
+			ContextMenu = new ppc::Window(200, 300, sf::Color(170, 170, 170));
+			elementFunctions.push_back(&(ppc::make_icon_window));
+			spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
+				elementFunctions, ev.buttons.mouseX, ev.buttons.mouseY);
+		}
+		else if (ev.open.window == ppc::Event::OpenTypes::openChat) {
+			ContextMenu = new ppc::Window(200, 300, sf::Color(170, 170, 170));
+			elementFunctions.push_back(&(ppc::make_icon_window));
+			spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
+				elementFunctions, ev.buttons.mouseX, ev.buttons.mouseY);
+		}
+		else if (ev.open.window == ppc::Event::OpenTypes::openSettings) {
+			ContextMenu = new ppc::Window(200, 300, sf::Color(170, 170, 170));
+			elementFunctions.push_back(&(ppc::make_icon_window));
+			spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
+				elementFunctions, ev.buttons.mouseX, ev.buttons.mouseY);
+		}
+		else if (ev.open.window == ppc::Event::OpenTypes::openFolder) {
+			ContextMenu = new ppc::Window(200, 300, sf::Color(170, 170, 170));
+			elementFunctions.push_back(&(ppc::make_icon_window));
+			spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
+				elementFunctions, ev.buttons.mouseX, ev.buttons.mouseY);
+		}
+		else if (ev.open.window == ppc::Event::OpenTypes::openConsole) {
+			ContextMenu = new ppc::Window(200, 300, sf::Color(170, 170, 170));
+			elementFunctions.push_back(&(ppc::make_icon_window));
+			spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
+				elementFunctions, ev.buttons.mouseX, ev.buttons.mouseY);
+		}
+		theDesktop_.addWindow(ContextMenu);
+	}
+	
+}
+
+
 iconInputComponent::~iconInputComponent() {
 
 }
@@ -172,3 +237,7 @@ bool iconInputComponent::registerInput(sf::Event ev) {
 	return true;
 }
 
+bool ppc::make_icon_window(Desktop* ptr, ppc::Event ev) {
+	cout << " open the corresponding window " << endl;
+	return true;
+}

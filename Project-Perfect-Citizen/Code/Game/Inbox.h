@@ -38,7 +38,7 @@ namespace ppc {
 		///@note It is the caller's responsibility to ensure the position to which
 		/// they're accessing is non-null. 
 		///////////////////////////////////////////////////////////////////////
-		ppc::Email& getEmailAt(int position);
+		ppc::Email* getEmailAt(int position);
 
 		///////////////////////////////////////////////////////////////////////
 		///@brief Simple getter of the email vector size
@@ -52,7 +52,7 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		///@brief Adds the designated email to the end of the vector list
 		///////////////////////////////////////////////////////////////////////
-		void addEmailToList(ppc::Email email);
+		void addEmailToList(ppc::Email* email);
 
 		///////////////////////////////////////////////////////////////////////
 		///@brief Removes the email from the vector as the designated index
@@ -63,7 +63,7 @@ namespace ppc {
 		ppc::Subject& getInboxSubject();
 
 	protected:
-		std::vector<ppc::Email> messageList;
+		std::vector<ppc::Email*> messageList;
         int maxSize = 18;
 	private:
 		ppc::Subject inboxSubject_;

@@ -154,8 +154,8 @@ void buttonRenderComponent::recieveMessage(msgType code) {
 void buttonRenderComponent::recieveMessage(ppc::Event ev) {
 	switch (ev.type) {
 	case Event::EventTypes::ButtonType:
-		if (ev.buttons.isPushed) setSprite(xIndex + width, yIndex, width);
-		if (ev.buttons.isReleased) setSprite(xIndex, yIndex, width);
+		if (ev.buttons.isPushed && !ev.buttons.isRight) setSprite(xIndex + width, yIndex, width);
+		if (ev.buttons.isReleased && !ev.buttons.isRight) setSprite(xIndex, yIndex, width);
 		break;
 	case Event::EventTypes::AbleType:
 		if (ev.able.disable) setRenderable(false);

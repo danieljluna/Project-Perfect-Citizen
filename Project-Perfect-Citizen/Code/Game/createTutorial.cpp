@@ -42,6 +42,7 @@ void ppc::createTutorial(Desktop & dt) {
 	//TODO: ADD FLOPPY FUNC TO CREATE
 	icons.create(graphIcon);
 
+
 	//Email Icon
 	Entity emailIcon;
 	icons.setPosition({ 250.f,300.f });
@@ -105,14 +106,13 @@ void ppc::createTutorial(Desktop & dt) {
 	ButtonBuilder nextButton;
 	nextButton.setInputHandle(floppyWindow->getInputHandler());
 	nextButton.setLabelFont(World::getFont(World::Consola));
-	nextButton.setLabelMessage("Next");
-	nextButton.setLabelSize(11);
+	nextButton.setLabelMessage("Next >");
+	nextButton.setLabelSize(12);
 	nextButton.setButtonPosition({ 70.f,100.f });
 	nextButton.setSize(0.25f);
 	nextButton.setIsDisabled(true);
 	nextButton.setSpriteSheet(dt.getButtonSheet());
 	createWithEventFunc<FloppyInputComponent>(nextButton, floppyEntity, floppyIn, ppc::incrementFloppyDialog);
-
 
 	ppc::FreeFunctionObserver<mousePressButton>* ffo = new FreeFunctionObserver<mousePressButton>(DisableMPB,
 		dynamic_cast<mousePressButton*>(nextButton.getMousePressButton()));

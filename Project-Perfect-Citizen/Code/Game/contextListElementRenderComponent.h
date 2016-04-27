@@ -3,6 +3,8 @@
 #include "../Engine/renderComponent.h"
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/Text.hpp>
+#include "../Engine/WindowInterface.h"
 
 namespace sf {
 	class Sprite;
@@ -39,6 +41,12 @@ namespace ppc {
 		/// @brief The font of the drawable text element
 		///////////////////////////////////////////////////////////////////////
 		sf::Font font;
+
+		///////////////////////////////////////////////////////////////////////
+		/// @brief A pointer to the containing window
+		///////////////////////////////////////////////////////////////////////
+		ppc::WindowInterface* containingWindow;
+
 		static const int size = 128;
 		int indent = 10;
 
@@ -54,8 +62,23 @@ namespace ppc {
 		/// @param An integer specifying the text's y position
 		/// @param An integer specifying the text/font's size
 		///////////////////////////////////////////////////////////////////////
-		contextListElementRenderComponent(sf::Font f, std::string s, 
-			int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size);
+		contextListElementRenderComponent(ppc::WindowInterface* win, sf::Font f, std::string s, 
+			int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size) {
+
+			this->labelText = new sf::Text();
+			labelText->setFont(font);
+			labelText->setString("_default_");
+			labelText->setCharacterSize(20);
+			labelText->setColor(sf::Color::Black);
+			labelText->setPosition(100, 100);
+
+			contextListElementBox.setPosition(sf::Vector2f(float(boxX), float(boxY)));
+			contextListElementBox.setSize(sf::Vector2f(float(boxWidth), float(boxHeight)));
+			contextListElementBox.setFillColor(sf::Color(170, 170, 170));
+
+			containingWindow = win;
+
+		}
 
 		~contextListElementRenderComponent();
 
