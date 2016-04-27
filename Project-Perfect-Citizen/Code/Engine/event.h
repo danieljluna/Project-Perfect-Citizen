@@ -29,11 +29,6 @@ namespace ppc {
 			sf::Vector2f newPos;
 		};
 
-		struct ScrollbarEv {
-			float start;
-			float end;
-		};
-
         struct NotificationEv {
             unsigned int count;
         };
@@ -83,7 +78,6 @@ namespace ppc {
 			ButtonsEv buttons;
 			OpenEv open;
 			TransformationEv transformations;
-			ScrollbarEv scrollbar;
             NotificationEv notification;
 			FloppyEv floppy;
 			AbleEv able;

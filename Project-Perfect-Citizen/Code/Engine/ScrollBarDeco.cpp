@@ -230,8 +230,8 @@ void ScrollBarDecorator::updateButtons() {
     for (unsigned int i = 0; i < 2; ++i) {
         //ButtonInputs
         tempBounds = buttonRenders_[i]->getSprite()->getGlobalBounds();
-        tempBounds.left += WindowDecorator::getPosition().x;
-        tempBounds.top += WindowDecorator::getPosition().y;
+        tempBounds.left -= WindowDecorator::getPosition().x;
+        tempBounds.top -= WindowDecorator::getPosition().y;
         buttonInputs_[i]->setFloatRect(tempBounds);
     }
 }
@@ -394,24 +394,6 @@ bool ppc::onButtonUp(ScrollBarDecorator* sb, Event ev) {
 bool ppc::onButtonDown(ScrollBarDecorator* sb, Event ev) {
     sf::View v = sb->getView();
     v.move({ 0.0f, 10.0f });
-    sb->setView(v);
-    sb->updateSliders();
-
-    return true;
-}
-
-bool ppc::onButtonLeft(ScrollBarDecorator* sb, Event ev) {
-    sf::View v = sb->getView();
-    v.move({ -10.0f, 0.0f });
-    sb->setView(v);
-    sb->updateSliders();
-
-    return true;
-}
-
-bool ppc::onButtonRight(ScrollBarDecorator* sb, Event ev) {
-    sf::View v = sb->getView();
-    v.move({ 10.0f, 0.0f });
     sb->setView(v);
     sb->updateSliders();
 
