@@ -8,7 +8,7 @@ using namespace ppc;
 const std::string SELECT_EMAIL = "SE";
 const std::string DESELECT_EMAIL = "DSE";
 
-emailListElementRenderComponent::emailListElementRenderComponent(sf::Font& f, Email& email, int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size) : font(f) {
+emailListElementRenderComponent::emailListElementRenderComponent(sf::Font& f, Email* email, int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size) : font(f) {
 	
 	x += 128;
 
@@ -17,14 +17,14 @@ emailListElementRenderComponent::emailListElementRenderComponent(sf::Font& f, Em
 	subjectText->setColor(sf::Color::Black);
 	subjectText->setPosition(float(x), float(y));
 	subjectText->setCharacterSize(size);
-	subjectText->setString(email.getAbbrevSubjectField());
+	subjectText->setString(email->getAbbrevSubjectField());
 
 	this->fromText = new sf::Text();
 	fromText->setFont(font);
 	fromText->setColor(sf::Color(127,127,127, 255));
 	fromText->setPosition(float(x+indent), float(y+size));
 	fromText->setCharacterSize(size-4);
-	fromText->setString(email.getFromField());
+	fromText->setString(email->getFromField());
 
 	emailListElementBox.setPosition(sf::Vector2f(float(boxX), float(boxY)));
 	emailListElementBox.setSize(sf::Vector2f(float(boxWidth), float(boxHeight)));

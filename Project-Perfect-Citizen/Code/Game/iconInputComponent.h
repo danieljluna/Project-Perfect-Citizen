@@ -47,12 +47,17 @@ public:
 	///@param The buttonSheet of the window it will create's buttons.
 	///////////////////////////////////////////////////////////////////////
 	iconInputComponent(Desktop& theDesktop, Database* db, Inbox& ib, sf::Image& buttonSheet_, sf::Image& iconSheet_);
+
+	
 	virtual ~iconInputComponent();
 	virtual bool registerInput(sf::Event ev) override;
 	virtual void recieveMessage(msgType message) override;
+	virtual void recieveMessage(ppc::Event ev) override;
 
     Subject& onOpen() { return onOpen_; };
 
 };
+
+bool make_icon_window(Desktop*, ppc::Event);
 
 };

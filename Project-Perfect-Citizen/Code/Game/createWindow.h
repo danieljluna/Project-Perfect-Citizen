@@ -103,7 +103,7 @@ void spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih,
 ///@param The x position of the new window
 ///@param The y position of the new window
 ///////////////////////////////////////////////////////////////////////
-void spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email& eM, sf::Image& buttonSheet, float x, float y);
+void spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email* eM, sf::Image& buttonSheet, float x, float y);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Constructs a generic error message window

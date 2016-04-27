@@ -106,6 +106,7 @@ void ppc::IconBuilder::create(Entity &e) {
 	buttonRenderComponent* IconRender = new buttonRenderComponent(dt->getIconSheet(), sheetX, sheetY, width, frames);
 	IconRender->setImageScale(size, size);
 	IconRender->renderPosition({ posX, posY });
+	IconRender->setButtonType("ICON");
 	animatorComponent* animator = new animatorComponent(*IconRender, animationSpeed);
 	mousePressButton* mpbFolder = new mousePressButton(*ih, IconRender->getSprite()->getGlobalBounds(), iconType);
 	iconInputComponent* iconInputComp = new iconInputComponent(*dt, db, *ib, *buttonSheet, dt->getIconSheet());

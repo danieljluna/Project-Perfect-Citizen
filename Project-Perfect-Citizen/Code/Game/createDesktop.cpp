@@ -48,17 +48,13 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	firstLsCommand.push_back(ls);
 	commandFn firstLs = findFunction(ls);
 	firstLs(*desktopToModify.getNodeState(), firstLsCommand);
-	
-	//////////////////////////////////////////////
-	//// Create the database (really should take a seed)
-	/////////////////////////////////////////////
-    
+	    
     sf::Image floppyImage;
     floppyImage.loadFromFile(resourcePath() + "Floppy_Sheet.png");
 
 	//TODO: FIX MEMORY LEAK
     Database* theDatabase = new Database();
-	theDatabase->generateFullDatabase(200);
+	//theDatabase->generateFullDatabase(200);
 
     //TODO: FIX MEMORY LEAK
 	Inbox* theInbox = &desktopToModify.getInbox();
@@ -68,7 +64,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     
 
     for(unsigned int i = 0; i < inbox.getSubject().size(); i++){
-        Email testEmail1(inbox.getTo().at(i), inbox.getFrom().at(i), inbox.getSubject().at(i), inbox.getBody().at(i), inbox.getVisible().at(i), "image.jpg");
+        Email* testEmail1 = new Email(inbox.getTo().at(i), inbox.getFrom().at(i), inbox.getSubject().at(i), inbox.getBody().at(i), inbox.getVisible().at(i), "image.jpg");
         theInbox->addEmailToList(testEmail1);
     }
     
@@ -87,43 +83,11 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.12f);
 	TextBubble* tb = new TextBubble();
 
-	tb->setPosition(290.f, 0);
-	TextBubbleRender* tbr = new TextBubbleRender();
-	tbr->setTextBubble(*tb);
-
-	tbr->setRenderable(false);
-
-
-    startBar.addComponent(bar);
-    startBar.addComponent(floppy);
-    startBar.addComponent(floppyIn);
-    startBar.addComponent(floppyUpdate);
-	startBar.addComponent(tbr);
-
-	ButtonBuilder nextButton;
-	nextButton.setInputHandle(startToolbar->getInputHandler());
-	nextButton.setLabelFont(World::getFont(World::Consola));
-	nextButton.setLabelMessage("Next");
-	nextButton.setLabelSize(11);
-	nextButton.setButtonPosition({ 350.f,35.f });
-	nextButton.setSize(0.25f);
-	nextButton.setSpriteSheet(desktopToModify.getButtonSheet());
-	nextButton.setIsDisabled(true);
-	createWithEventFunc<FloppyInputComponent>(nextButton, startBar, floppyIn, ppc::incrementFloppyDialog);
-
-	ppc::FreeFunctionObserver<mousePressButton>* ffo = new FreeFunctionObserver<mousePressButton>(DisableMPB, 
-		dynamic_cast<mousePressButton*>(nextButton.getMousePressButton()));
-	floppyIn->onSequenceEnd().addObserver(ffo);
-
 	Entity startButton;
 	spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
     
-    Entity startButton2;
-    spawnStartButton2(startButton, desktopToModify, floppyIn, startToolbar->getInputHandler(), buttonSheet, 300, 14, 0.35f);
-    
     startToolbar->addEntity(startBar);
     startToolbar->addEntity(startButton);
-    startToolbar->addEntity(startButton2);
 	desktopToModify.addWindow(startToolbar);
 
 	////////////////////////////////
@@ -166,7 +130,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     inbox->parseEmailAsJson("Email1.json");
     
     for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
-        Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
+        Email* testEmail1 = new Email(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
         theInbox->addEmailToList(testEmail1);
     }
     
@@ -236,7 +200,7 @@ void createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopWindow
     inbox->parseEmailAsJson("Email0.json");
     
     for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
-        Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
+        Email* testEmail1 = new Email(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
         theInbox->addEmailToList(testEmail1);
     }
     
@@ -309,7 +273,7 @@ void createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     inbox->parseEmailAsJson("Email2.json");
     
     for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
-        Email testEmail1(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
+        Email* testEmail1 = new Email(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
         theInbox->addEmailToList(testEmail1);
     }
     
