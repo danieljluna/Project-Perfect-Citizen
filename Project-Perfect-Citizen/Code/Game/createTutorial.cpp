@@ -22,6 +22,8 @@
 #include "../Engine/event.h"
 #include "../Engine/frontTopObserver.h"
 
+#include "iconInputComponent.h"
+
 void ppc::createTutorial(Desktop & dt) {
 
 	//Initialize Builder for Icons
@@ -119,12 +121,10 @@ void ppc::createTutorial(Desktop & dt) {
 	floppyIn->onSequenceEnd().addObserver(ffo);
 
 	floppyWindow->addEntity(floppyEntity);
-	
 
-	ppc::Event ppcEv;
-	ppcEv.type = ppc::Event::FloppyType;
-	ppcEv.floppy.sequence = 0;
-	ppcEv.floppy.frame = 0;
-	summonFloppyDialog(floppyIn, ppcEv);
+    //String Up Floppy------------------------------
 
+    //Connect Pipeline
+    BaseObserver* tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn);
+    dynamic_cast<iconInputComponent*>(graphIcon.getComponent(2))->onOpen().addObserver(tempObsvr);
 }
