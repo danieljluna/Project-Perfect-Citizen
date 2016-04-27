@@ -60,7 +60,7 @@ namespace ppc {
 		/// @param An integer specifying the text's y position
 		/// @param An integer specifying the text/font's size
 		///////////////////////////////////////////////////////////////////////
-		emailListElementRenderComponent(sf::Font& f, Email& email,
+		emailListElementRenderComponent(sf::Font& f, Email* email,
 			int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size);
 
 		~emailListElementRenderComponent();

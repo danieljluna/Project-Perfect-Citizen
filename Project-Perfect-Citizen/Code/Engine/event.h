@@ -19,7 +19,10 @@ namespace ppc {
 		struct ButtonsEv {
 			bool isPushed;
 			bool isReleased;
-			bool isHovered;
+			bool isLeft;
+			bool isRight;
+			float mouseX;
+			float mouseY;
 		};
 
 		struct TransformationEv {
@@ -48,6 +51,7 @@ namespace ppc {
 		enum EventTypes
 		{
 			ButtonType,
+			OpenType,
 			TransformationType,
 			ScrollbarType,
 			sfEventType,
@@ -57,10 +61,29 @@ namespace ppc {
 			Count
 		};
 
+		enum OpenTypes
+		{
+			openConsole,
+		    openHelp,
+		    openEmail,
+		    openPipeline,
+		    openSearch,
+		    openBrowser,
+		    openChat,
+		    openSettings,
+		    openFolder,
+		    openHarddrive
+		};
+
+		struct OpenEv {
+			OpenTypes window;
+		};
+
 		EventTypes type;
 
 		union {
 			ButtonsEv buttons;
+			OpenEv open;
 			TransformationEv transformations;
 			ScrollbarEv scrollbar;
             NotificationEv notification;
