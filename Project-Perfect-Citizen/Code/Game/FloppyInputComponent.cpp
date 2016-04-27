@@ -126,10 +126,11 @@ void ppc::FloppyInputComponent::advanceSequence() { sequence++; }
 
 void ppc::FloppyInputComponent::regressSequence() { sequence--; }
 
-bool ppc::FloppyInputComponent::registerInput(sf::Event ev) { return true; }
+bool ppc::FloppyInputComponent::registerInput(Event ev) { return true; }
 
 bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
-	if (ev.type == ppc::Event::FloppyType) {
+	switch (ev.type) {
+    case ppc::Event::FloppyType:
 
 		/* Save the Sequence and Event for future iteration */
 		ptr->setSequence(ev.floppy.sequence);
@@ -149,9 +150,11 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 		ppc::Event enabler(ev);
 		enabler.type = ppc::Event::AbleType;
 		ppcEv.able.enable = true;
-		ppcEv.able.disable = false;
 		ptr->onSequenceEnd().sendEvent(enabler);
 		ptr->getEntity()->broadcastMessage(enabler);
+        break;
+
+        
 	}
 	return true;
 }
