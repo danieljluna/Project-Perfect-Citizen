@@ -79,7 +79,7 @@ bool emailListElementInputComponent::registerInput(Event ppcEv) {
 
 					ppc::Event ppcEv(ev);
 					ppcEv.type = Event::EventTypes::OpenType;
-					ppcEv.open.window = Event::OpenEv::Email;
+					ppcEv.open.winType = Event::OpenEv::Email;
 					getEntity()->broadcastMessage(ppcEv);
 					sf::Event ev;
 					//complains that its unintialized without this line.
