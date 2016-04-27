@@ -23,7 +23,6 @@ void ppc::createEmailListElement(ppc::Entity& entityToModify, Desktop& dT, sf::I
 	entityToModify.addComponent(emailIcon);
 }
 
-
 void ppc::createContextListElement(ppc::Entity& entityToModify, WindowInterface* win, Desktop& dt, ppc::InputHandler& ih,
 	sf::Font& f, std::string s, bool(*func)(Desktop* desk, Event ev), int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size) {
 

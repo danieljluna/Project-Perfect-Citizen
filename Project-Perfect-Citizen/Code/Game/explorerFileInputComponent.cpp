@@ -69,7 +69,6 @@ bool explorerFileInputComponent::isCollision(sf::Vector2i mousePos) {
 	return buttonRect.contains(mouseFloatPos);
 }
 
-
 bool explorerFileInputComponent::registerInput(sf::Event ev) {
 	if (getEntity() != nullptr) {
 
