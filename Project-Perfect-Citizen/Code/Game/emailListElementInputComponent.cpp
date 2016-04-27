@@ -52,7 +52,8 @@ bool emailListElementInputComponent::isCollision(sf::Vector2i mousePos) {
 }
 
 
-bool emailListElementInputComponent::registerInput(sf::Event ev) {
+bool emailListElementInputComponent::registerInput(Event ppcEv) {
+    sf::Event ev(ppcEv);
 	if (getEntity() != nullptr) {
 
 		/* Case: Mouse Pressed Event*/

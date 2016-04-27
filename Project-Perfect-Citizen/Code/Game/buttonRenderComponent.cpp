@@ -158,8 +158,7 @@ void buttonRenderComponent::recieveMessage(ppc::Event ev) {
 		if (ev.buttons.isReleased && !ev.buttons.isRight) setSprite(xIndex, yIndex, width);
 		break;
 	case Event::EventTypes::AbleType:
-		if (ev.able.disable) setRenderable(false);
-		else if (ev.able.enable) setRenderable(true);
+		setRenderable(ev.able.enable);
 		break;
 	default:
 		break;

@@ -41,7 +41,7 @@ namespace ppc {
 		string getString();
 
 		virtual ~TextBoxInputComponent();
-		virtual bool registerInput(sf::Event ev) override;
+		virtual bool registerInput(Event ev) override;
 
 	};
 

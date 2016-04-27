@@ -45,7 +45,6 @@ namespace ppc {
 
 		struct AbleEv {
 			bool enable;
-			bool disable;
 		};
 
 		enum EventTypes
@@ -61,21 +60,20 @@ namespace ppc {
 			Count
 		};
 
-		enum OpenTypes
-		{
-			openConsole,
-		    openHelp,
-		    openEmail,
-		    openPipeline,
-		    openSearch,
-		    openBrowser,
-		    openChat,
-		    openSettings,
-		    openFolder,
-		    openHarddrive
-		};
-
 		struct OpenEv {
+            enum OpenTypes {
+                openConsole = 0,
+                openHelp,
+                openEmail,
+                openPipeline,
+                openSearch,
+                openBrowser,
+                openChat,
+                openSettings,
+                openFolder,
+                openHarddrive
+            };
+
 			OpenTypes window;
 		};
 

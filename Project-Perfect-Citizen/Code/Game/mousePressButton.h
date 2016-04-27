@@ -83,11 +83,8 @@ public:
 	void setIsClickable(bool);
 
 	bool getIsClickable();
-
-
-	void injectEvent(ppc::Event);
 	virtual ~mousePressButton();
-	virtual bool registerInput(sf::Event ev) override;
+	virtual bool registerInput(Event ev) override;
 
 
     Subject& onClick() { return onPress_; };
@@ -106,7 +103,7 @@ inline void setOnPress(mousePressButton* mpb, T * objPtr, bool(*onPress)(T *, Ev
 
 }
 
-bool DisableMPB (mousePressButton*, Event);
+bool ToggleMPB (mousePressButton*, Event);
 
 
 

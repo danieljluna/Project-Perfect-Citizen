@@ -59,7 +59,9 @@ bool textInputKeys::isCollision(sf::Vector2i mousePos) {
     return true;//result;
 }
 
-bool textInputKeys::registerInput(sf::Event ev) {
+bool textInputKeys::registerInput(Event ppcEv) {
+    sf::Event ev(ppcEv);
+
     if (getEntity() != nullptr) {
         if (ev.type == sf::Event::TextEntered){
 			/* Ignore CNTRL, BS, ENTR/LF, CR */

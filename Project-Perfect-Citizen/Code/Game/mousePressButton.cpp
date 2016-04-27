@@ -57,25 +57,17 @@ void mousePressButton::clearObservers()
 
 //void mousePressButton::addFunctionObserver(bool(*fnToAdd)(sf::Event &ev), mousePressButton* mpb, unsigned int placeToInsert)
 
-
-void ppc::mousePressButton::injectEvent(ppc::Event ev)
-{
-	switch (ev.type) {
-	case ppc::Event::EventTypes::AbleType:
-		if (ev.able.disable == true) {
-			setIsClickable(false);
-			getEntity()->broadcastMessage(ev);
-		}
-		else if (ev.able.enable == true) {
-			setIsClickable(true);
-			getEntity()->broadcastMessage(ev);
-		}
-		break;
-	default:
-		break;
-	}
-	
-}
+/*
+case ppc::Event::EventTypes::AbleType:
+    if (ev.able.disable == true) {
+        setIsClickable(false);
+        getEntity()->broadcastMessage(ev);
+    } else if (ev.able.enable == true) {
+        setIsClickable(true);
+        getEntity()->broadcastMessage(ev);
+    }
+    break;
+    */
 
 mousePressButton::~mousePressButton() {
 
@@ -128,7 +120,8 @@ bool mousePressButton::isCollision(sf::Vector2i mousePos) {
 }
 
 
-bool mousePressButton::registerInput(sf::Event ev) {
+bool mousePressButton::registerInput(Event ppcEv) {
+    sf::Event ev(ppcEv);
     if (getEntity() != nullptr) {
 
 		if (!isClickable) return true;
@@ -319,19 +312,19 @@ bool mousePressButton::registerInput(sf::Event ev) {
 				/* Send an open event */
 				ppc::Event ppcEv2(ev);
 				ppcEv2.type = ppc::Event::OpenType;
-				ppcEv2.open.window = ppc::Event::OpenTypes::openBrowser;
+				ppcEv2.open.window = ppc::Event::OpenEv::openBrowser;
 				ppcEv2.buttons.mouseX = ev.mouseButton.x;
 				ppcEv2.buttons.mouseY = ev.mouseButton.y;
-				if (isBeingPressed.compare("emailIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openBrowser; }
-				else if (isBeingPressed.compare("hardDriveIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openHarddrive;}
-				else if (isBeingPressed.compare("browserIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openBrowser; }
-				else if (isBeingPressed.compare("helpIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openHelp;}
-				else if (isBeingPressed.compare("dataGraphIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openPipeline;}
-				else if (isBeingPressed.compare("searchIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openSearch;}
-				else if (isBeingPressed.compare("chatIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openChat; }
-				else if (isBeingPressed.compare("settingsIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openSettings;}
-				else if (isBeingPressed.compare("folderIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openFolder; }
-				else if (isBeingPressed.compare("consoleIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenTypes::openConsole;}
+				if (isBeingPressed.compare("emailIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenEv::openBrowser; }
+				else if (isBeingPressed.compare("hardDriveIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenEv::openHarddrive;}
+				else if (isBeingPressed.compare("browserIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenEv::openBrowser; }
+				else if (isBeingPressed.compare("helpIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenEv::openHelp;}
+				else if (isBeingPressed.compare("dataGraphIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenEv::openPipeline;}
+				else if (isBeingPressed.compare("searchIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenEv::openSearch;}
+				else if (isBeingPressed.compare("chatIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenEv::openChat; }
+				else if (isBeingPressed.compare("settingsIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenEv::openSettings;}
+				else if (isBeingPressed.compare("folderIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenEv::openFolder; }
+				else if (isBeingPressed.compare("consoleIcon") == 0) { ppcEv2.open.window = ppc::Event::OpenEv::openConsole;}
 
 				getEntity()->broadcastMessage(ppcEv);
 				getEntity()->broadcastMessage(ppcEv2);
@@ -354,20 +347,11 @@ bool mousePressButton::registerInput(sf::Event ev) {
     return true;
 }
 
-bool ppc::DisableMPB(mousePressButton* ptr, Event ev) {
-	if (ptr->getIsClickable() == true ) {
-		ppc::Event ppcEv(ev);
-		ppcEv.type = ppc::Event::AbleType;
-		ppcEv.able.disable = true;
-		ppcEv.able.enable = false;
-		ptr->injectEvent(ppcEv);
-	}
-	else {
-		ppc::Event ppcEv(ev);
-		ppcEv.type = ppc::Event::AbleType;
-		ppcEv.able.disable = false;
-		ppcEv.able.enable = true;
-		ptr->injectEvent(ppcEv);
+bool ppc::ToggleMPB(mousePressButton* ptr, Event ev) {
+
+    if (ev.type == Event::AbleType) {
+        ptr->setIsClickable(ev.able.enable);
+        ptr->getEntity()->broadcastMessage(ev);
 	}
 	
 	return true;
