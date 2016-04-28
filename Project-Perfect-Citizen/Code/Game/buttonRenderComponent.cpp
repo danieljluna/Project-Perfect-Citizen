@@ -160,7 +160,7 @@ void buttonRenderComponent::recieveMessage(ppc::Event ev) {
 		setRenderable(ev.able.enable);
 		break;
 	case Event::EventTypes::OpenType:
-		if (ev.open.window = Event::OpenEv::Email) {
+		if (ev.open.winType = Event::OpenEv::Email) {
 		setSprite(xIndex + width, yIndex, width);
 	}
 		break;
