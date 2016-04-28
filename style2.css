@@ -18,6 +18,10 @@ a:active {
 	text-decoration: none;
 }
 
+#small_text {
+	font-size: smaller;
+	text-align:justify;
+} 
 
 .title_head {
 	font-family: monospace;
@@ -42,8 +46,20 @@ a:active {
 	
 }
 
+.content_box {
+	padding: 2px;
+	border: 1px solid;
+	border-bottom-color: white;
+	border-right-color: white;
+	border-left-color: black;
+	border-top-color: black;
+	height: 99%;
+	background-color:rgb(170,170,170);
+}
+
 .content_block {
-	font-family: sans-serif;
+	font-family: monospace;
+	font-size: medium;
 	margin:5px;
 	color: #000000;
 	height: 500px;
@@ -63,6 +79,21 @@ a:active {
 	width: inherit;
 	list-style-type: none;
 	padding: 6px;	
+}
+
+.button_box {
+	color:black;
+	padding: 10px;
+	margin: 1px;
+	float: left;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image: url('button.png');
+}
+
+.button_box a {
+	color:black;
+	font-size: small;
 }
 
 .sidebar_menu_item {

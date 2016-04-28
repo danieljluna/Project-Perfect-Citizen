@@ -3,7 +3,7 @@
 	<link rel="stylesheet" type="text/css" href="style2.css">
 	
 </head>
-<body background="Wallpaper.png">
+<body background="wallpaper.png" onload="document.getElementById('content_b').innerHTML=document.getElementById('factSheetHTML').innerHTML;">
 
 <div class="title_head">
 	<h2> <img src="POLICE.png" width="75"> Project Perfect Citizen</h2>
@@ -55,14 +55,43 @@
 <div class="content">
 <img src="menu_bar.png" width="800"><br>
 
-	<div class="content_block" id="content_b">
+	<div class="content_block">
+		<div class="content_box"  id="content_b">
 		
+		</div>
 	</div>
 
 </div>
 
-<div id="factSheetHTML" style="visibility:hidden;">Fact Sheet</div>
-<div id="descriptionHTML" style="visibility:hidden;">Description</div>
+<div id="factSheetHTML" style="visibility:hidden;">
+	<b>Developer: </b> Bad Cop Studios <br>
+	<i>Based in Santa Cruz, California</i> <br><br>
+	<b>Founding Date: </b> December 14th, 2015<br><br>
+	<b>Website: </b> <br><br>
+	<b>Press / Business Contact: </b><br><br>
+	<b>Social: </b> <br><br>
+	<div class="button_box"> <a href="https://twitter.com/PerfectCitizens">Twitter</a></div>
+	<div class="button_box"> <a href="https://twitter.com/PerfectCitizens">Facebook</a></div>
+	<br><br><br>
+	<b>Address: </b> <br><br>
+	<b>Phone: </b> <br><br>	
+	
+</div>
+
+<div id="descriptionHTML" style="visibility:hidden;">
+	<h2> Project Perfect Citizen</h2>
+	--------------------------------------------------------------
+	<p id="small_text">
+	Project Perfect Citizen takes place in an alternate modern day with an underlying dystopian theme. <br>
+	The player takes on the role of a fresh employee at the Department of Cyber Police and Security, <br>
+	and is responsible for monitoring the communications of some of the citizens of The Nation. <br>
+	The player’s interactions with the game map directly to their character’s actions, and as such they <br>
+	are able to insert themselves into the game and the game world is conscious of the player’s participation in it.<br>
+	Project Perfect Citizen seeks to take the player on a thought provoking journey as they grapple with<br> the implications of both privacy and security.
+
+	</p>
+	
+</div>
 <div id="historyHTML" style="visibility:hidden;">History</div>
 <div id="projectsHTML" style="visibility:hidden;">Projects</div>
 <div id="videosHTML" style="visibility:hidden;">Videos</div>
