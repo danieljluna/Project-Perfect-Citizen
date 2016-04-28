@@ -173,7 +173,7 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         ev.type = ppc::Event::AbleType;
         ev.able.enable = true;
         ptr->getEntity()->broadcastMessage(ev);
-        
+		ptr->onSequenceEnd().sendEvent(ev);
     }
 
 	return true;
