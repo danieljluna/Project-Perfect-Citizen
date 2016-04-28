@@ -2,10 +2,144 @@
     "Email": {
         "Email_1": {
             "Visible" : "1",
-            "To" : "content",
-            "From" : "content",
-            "Subject" : "content",
-            "Body" :"Enter content"
+            "To" : "DFinley@throwaway.net",
+            "From" : "CNBANK@mail.com",
+            "Subject" : "Outstanding Debts",
+            "Body" :"Dear Valued Customer,
+            
+    We regret to inform you that after reviewing
+    your credit, and current outstanding debts,
+    that we at Central Northern cannot approve
+    your application for a loan. We hope this news
+    does not find you too poorly, and wish the
+    best.
+                
+    Jeremy Bailer
+                
+    Loan Disbursement Manager
+    Central Norther Dept. of Finances"
+        },
+        "Email_2": {
+            "Visible" : "1",
+            "To" : "DFinley@throwaway.net",
+            "From" : "CNBANK@mail.com",
+            "Subject" : "Overdue Loan Payments",
+            "Body" :"Dear Mr. Finley,
+            
+    It has come to our attention that your account
+    has several overdue loan payments. It is now
+    one month since the initial due date of your
+    debt, and we have decided to transfer your
+    account to collections.
+            
+    We're sorry to inform you of this so near the
+    holidays. We wish you well in the weeks to
+    come!
+            
+    Brenda Davis
+    Account Manager
+    Central Northern Dept. of Advising"
+        },
+        "Email_3": {
+            "Visible" : "1",
+            "To" : "DFinley@throwaway.net",
+            "From" : "CNBANK@mail.com",
+            "Subject" : "Overdue Loan",
+            "Body" :"Dear Mr. Finley,
+            
+    I am writing to you to inform you that you are
+    now in default of your obligations outlined in
+    our user contract. You have failed to pay off
+    your overdue loan for 2 months.
+        
+    You have another 30 days in which to cure this
+    default, either by refunding us in full, or by
+    demonstrating a means by which to pay our debt
+    on a strict payment plan. This payment
+    includes the penalties of last month's overdue
+    debt as well.
+                
+    Sincerely,
+                
+    Scott Willis
+    Central Northern Dept. of Collections"
+        },
+        "Email_4": {
+            "Visible" : "1",
+            "To" : "DFinley@throwaway.net",
+            "From" : "KaroFin@mail.com",
+            "Subject" : "Current Debt Overview",
+            "Body" :"Hello Mr. Finley,
+            
+    Upon an overview of your current debts and
+    available assets the KARO Financial Institute
+    has denied your application for a loan.
+                
+    If you find yourself swimming in better
+    waters, please contact us again.
+                
+    Sincerely,
+                
+    George Elliot
+    KARO Broker // Financial Adviser"
+        },
+        "Email_5": {
+            "Visible" : "1",
+            "To" : "DFinley@throwaway.net",
+            "From" : "CNBANK@mail.com",
+            "Subject" : "Failed to pay off your overdue loan",
+            "Body" :"Dear Mr. Finley,
+            
+    I am writing to you to inform you that you are
+    still in default of your obligations outlined
+    in our user contract. You have failed to pay
+    off your overdue loan for 3 months running.
+                
+    As stated before, you have 30 days in which to
+    cure this default, either by refunding us in
+    full, or by demonstrating a means by which to
+    pay our debt on a strict payment plan.
+    Otherwise further penalty charges will be
+    applied.
+                
+    This is a final warning. Failure to comply so
+    will result in legal action. All rights
+    reserved under this notice.
+                
+    Sincerely,
+                
+    Scott Willis
+                
+    Central Northern Dept. of Collections"
+        },
+        "Email_6": {
+            "Visible" : "1",
+            "To" : "DFinley@throwaway.net",
+            "From" : "CNBANK@mail.com",
+            "Subject" : "Lien of $430,000",
+            "Body" :"Dear Mr. Finley
+    
+    Please be advised that the Central Northern
+    Bank Department of Collections claims a lien
+    of $430,000 against all personal and real
+    property owned and associated with Mr. David
+    Finley, and all known dependents. The lien is
+    based on the judgement of the Superior Court
+    of St. George County, Civil Action number
+    CA0852638442, dated 03/07/2015. The authority
+    of this lien is delineated within the Official
+    Code of Kilmt Annotated 14-11-18.
+            
+    A copy of the lien, the affidavit for review,
+    and the judgement are enclosed herewith.
+                
+    Yours for now,
+                    
+    Serra Camden
+                    
+    Assistant Attorney for Financial Fraud
+    Enforcement Central Northern Dept. of
+    Collections"
         }
     }
 }
