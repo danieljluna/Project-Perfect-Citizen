@@ -1,6 +1,7 @@
 #include "debug.h"
 #include "InputCmpntLogger.h"
 #include <iostream>
+#include "event.h"
 
 using namespace ppc;
 
@@ -32,7 +33,7 @@ void inputCmpntLogger::recieveMessage(msgType message) {
 		message << std::endl;
 }
 
-bool inputCmpntLogger::registerInput(sf::Event ev) {
+bool inputCmpntLogger::registerInput(Event ev) {
 	std::cout << "ADADAWFAFAWFDAWFAW" << std::endl;
 	out_ << "InputCmpntLogger: Registering Event in Cmpnt: " <<
 		iCmpntHandle_ << std::endl;

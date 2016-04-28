@@ -43,6 +43,7 @@
     <ClCompile Include="Code\Engine\RenderCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\ScrollBarDeco.cpp" />
     <ClCompile Include="Code\Engine\subject.cpp" />
+    <ClCompile Include="Code\Engine\SuspiciousFileHolder.cpp" />
     <ClCompile Include="Code\Engine\UpdateCmpntDecorator.cpp" />
     <ClCompile Include="Code\Engine\UpdateCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\Vertex.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="Code\Engine\renderComponent.h" />
     <ClInclude Include="Code\Engine\ScrollBarDeco.h" />
     <ClInclude Include="Code\Engine\subject.h" />
+    <ClInclude Include="Code\Engine\SuspiciousFileHolder.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntDecorator.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntLogger.h" />
     <ClInclude Include="Code\Engine\updateComponent.h" />
@@ -266,6 +268,7 @@
     <None Include="Resources\PlayerEmail.json" />
     <None Include="Resources\Saves\desktop1.ini" />
     <None Include="Resources\Saves\playerDesktop.ini" />
+    <None Include="Resources\Saves\tutorialDesktop.ini" />
     <None Include="Resources\smsPipeline.json" />
     <None Include="Resources\suspiciontest.json" />
   </ItemGroup>

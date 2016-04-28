@@ -172,4 +172,14 @@ bool ppc::BaseFileType::isPasswordProtected()
 	return false;
 }
 
+void ppc::BaseFileType::setSuspicionLevel(unsigned int val)
+{
+	suspicionLevel = val;
+}
+
+unsigned int ppc::BaseFileType::getSuspicionLevel()
+{
+	return suspicionLevel;
+}
+
 

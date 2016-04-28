@@ -314,7 +314,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	//Desktop* currDesk = &World::getCurrDesktop();
 	int netvecindex = World::getCurrDesktop().getNetVecIndex();
 	Network* solNet;
-	if (!World::getCurrDesktop().getNetVec().empty()) {
+	if (netvecindex < World::getCurrDesktop().getNetVec().size()) {
 		solNet = World::getCurrDesktop().getNetVec().at(netvecindex);
 	} else {
 		solNet = PipelineLevelBuilder::buildDefaultNetwork();

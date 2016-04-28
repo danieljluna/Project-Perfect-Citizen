@@ -147,7 +147,7 @@ void WindowDecorator::update(sf::Time& deltaTime) {
 	windowHandle_->update(deltaTime);
 }
 
-void WindowDecorator::registerInput(sf::Event ev) {
+void WindowDecorator::registerInput(Event ev) {
 	windowHandle_->registerInput(ev);
 }
 

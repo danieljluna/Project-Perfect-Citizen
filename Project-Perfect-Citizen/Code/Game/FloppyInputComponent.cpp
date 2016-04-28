@@ -126,33 +126,55 @@ void ppc::FloppyInputComponent::advanceSequence() { sequence++; }
 
 void ppc::FloppyInputComponent::regressSequence() { sequence--; }
 
-bool ppc::FloppyInputComponent::registerInput(sf::Event ev) { return true; }
+bool ppc::FloppyInputComponent::registerInput(Event ev) { return true; }
 
 bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
-	if (ev.type == ppc::Event::FloppyType) {
+    bool wasSummoned = false;
 
-		/* Save the Sequence and Event for future iteration */
-		ptr->setSequence(ev.floppy.sequence);
-		ptr->setFrame(ev.floppy.frame);
+	switch (ev.type) {
+    case ppc::Event::FloppyType:
 
-		/* Pass the event to the entity 
-		This isn't necessary, but keeping in case we want
-		to modify these values */
-		ppc::Event ppcEv(ev);
-		ppcEv.type = ppc::Event::FloppyType;
-		ppcEv.floppy.sequence = ev.floppy.sequence;
-		ppcEv.floppy.frame = ev.floppy.frame;
-		ptr->getEntity()->broadcastMessage(ppcEv);
+        //If we just ended a frame
+        if (ev.floppy.frame == -1) {
+            //If we just ended the Welcome
+            if (ev.floppy.sequence == FloppyInputComponent::Floppy_Sequence_Names.at("Welcome")) {
+                wasSummoned = true;
+                ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("Connections");
+                ev.floppy.frame = 0;
+            } else if (ev.floppy.sequence == FloppyInputComponent::Floppy_Sequence_Names.at("Connections")) {
+                wasSummoned = true;
+                ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("Edges");
+                ev.floppy.frame = 0;
+            }
+        } else {
+            wasSummoned = true;
+        }
 
-		/* Also let the textbox and button that
-		they should spawn */
-		ppc::Event enabler(ev);
-		enabler.type = ppc::Event::AbleType;
-		ppcEv.able.enable = true;
-		ppcEv.able.disable = false;
-		ptr->onSequenceEnd().sendEvent(enabler);
-		ptr->getEntity()->broadcastMessage(enabler);
+
+        break;
+    case Event::OpenType:
+        //If we are opening the pipeline:
+        if (ev.open.winType == ev.open.Pipeline) {
+            wasSummoned = true;
+            ev.type = Event::FloppyType;
+            ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("Welcome");
+            ev.floppy.frame = 0;
+        }
+        break;
 	}
+
+    if (wasSummoned) {
+        /* Also let the textbox and button that
+        they should spawn */
+        ptr->setSequence(ev.floppy.sequence);
+        ptr->setFrame(ev.floppy.frame);
+        ptr->getEntity()->broadcastMessage(ev);
+
+        ev.type = ppc::Event::AbleType;
+        ev.able.enable = true;
+        ptr->getEntity()->broadcastMessage(ev);
+    }
+
 	return true;
 }
 
@@ -161,19 +183,26 @@ bool ppc::incrementFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 
 	/* Advance the frame state to be one more than
 	the stored value */
-	ptr->advanceFrame();
+    if (ptr->getFrame() != -1) {
+        ptr->advanceFrame();
+    }
+
+    ppc::Event ppcEv;
 
 	/* Alert observers if beyond sequence length (return both -1)*/
 	if (ptr->getFrame() == -1) {
-		ppc::Event ppcEv;
+        ppcEv.type = Event::AbleType;
+        ppcEv.able.enable = false;
+        ptr->getEntity()->broadcastMessage(ppcEv);
+
+		
 		ppcEv.type = ppc::Event::FloppyType;
-		ppcEv.floppy.sequence = -1;
+		ppcEv.floppy.sequence = ptr->getSequence();
 		ppcEv.floppy.frame = -1;
 		ptr->onSequenceEnd().sendEvent(ppcEv);
 	}
 	/* Create and send a new event to the entity
 	with the updated frame */
-	ppc::Event ppcEv(ev);
 	ppcEv.type = ppc::Event::FloppyType;
 	ppcEv.floppy.sequence = ptr->getSequence();
 	ppcEv.floppy.frame = ptr->getFrame();

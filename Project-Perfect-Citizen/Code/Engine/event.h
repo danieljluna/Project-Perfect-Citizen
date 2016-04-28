@@ -4,6 +4,8 @@
 
 namespace ppc {
 
+    class WindowInterface;
+
 	//This is the event struct. You can add events here
 	//if you need them. Nothing here is final except
 	//the template. 
@@ -16,22 +18,29 @@ namespace ppc {
 
         operator sf::Event&();
 
+        //Used internally to recognize button state
 		struct ButtonsEv {
-			bool isPushed;
-			bool isReleased;
-			bool isLeft;
-			bool isRight;
-			float mouseX;
-			float mouseY;
+            enum State {
+                Hover = 0,
+                Clicked,
+                DblClicked,
+                Release,
+                Count
+            };
+
+            enum Activation {
+                LeftMouse = 0,
+                RightMouse,
+                Enter
+            };
+
+            State state;
+            Activation activation;
+            sf::Vector2i mousePos;
 		};
 
 		struct TransformationEv {
 			sf::Vector2f newPos;
-		};
-
-		struct ScrollbarEv {
-			float start;
-			float end;
 		};
 
         struct NotificationEv {
@@ -45,7 +54,6 @@ namespace ppc {
 
 		struct AbleEv {
 			bool enable;
-			bool disable;
 		};
 
 		enum EventTypes
@@ -61,22 +69,25 @@ namespace ppc {
 			Count
 		};
 
-		enum OpenTypes
-		{
-			openConsole,
-		    openHelp,
-		    openEmail,
-		    openPipeline,
-		    openSearch,
-		    openBrowser,
-		    openChat,
-		    openSettings,
-		    openFolder,
-		    openHarddrive
-		};
-
 		struct OpenEv {
-			OpenTypes window;
+            enum OpenTypes {
+                Console = 0,
+                Help,
+                Email,
+                Pipeline,
+                Search,
+                Browser,
+                Chat,
+                Settings,
+                Folder,
+                File,
+                Explorer,
+                HardDrive,
+                Count
+            };
+
+            WindowInterface* window;
+			OpenTypes winType;
 		};
 
 		EventTypes type;
@@ -85,7 +96,6 @@ namespace ppc {
 			ButtonsEv buttons;
 			OpenEv open;
 			TransformationEv transformations;
-			ScrollbarEv scrollbar;
             NotificationEv notification;
 			FloppyEv floppy;
 			AbleEv able;

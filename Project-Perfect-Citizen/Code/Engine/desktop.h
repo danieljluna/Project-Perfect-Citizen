@@ -281,9 +281,9 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 ///@brief Reacts to Input for the focused Window.
 ///////////////////////////////////////////////////////////////////////
-		  void registerInput(sf::Event ev);
+		  void registerInput(Event ev);
 
-		  void registerInputFocused(sf::Event ev);
+		  void registerInputFocused(Event ev);
 ///////////////////////////////////////////////////////////////////////
 ///@brief Updates all Windows and all objects in the Windows.
 ///@param deltaTime The time the object needs to catch up with.
