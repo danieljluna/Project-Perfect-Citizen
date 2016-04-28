@@ -4,6 +4,8 @@
 
 namespace ppc {
 
+    class WindowInterface;
+
 	//This is the event struct. You can add events here
 	//if you need them. Nothing here is final except
 	//the template. 
@@ -84,7 +86,8 @@ namespace ppc {
                 Count
             };
 
-			OpenTypes window;
+            WindowInterface* window;
+			OpenTypes winType;
 		};
 
 		EventTypes type;

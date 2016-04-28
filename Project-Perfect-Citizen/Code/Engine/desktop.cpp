@@ -27,6 +27,8 @@
 #include "../Game/desktopExtractionComponent.hpp"
 #include "../Game/PipelineLevelBuilder.h"
 
+#include "frontTopObserver.h"
+
 
 ppc::Desktop::Desktop() {
 	nodeState_.setUp();
@@ -64,9 +66,7 @@ ppc::Desktop::Desktop(const Desktop& other) {
 
 ppc::Desktop::~Desktop() {
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-		if (*it != desktopWindow_) {
 			delete *it;
-		}
 	}
 
 	for (auto it = netVec_.begin(); it != netVec_.end(); ++it) {
@@ -243,6 +243,18 @@ ppc::Inbox& ppc::Desktop::getInbox() {
 
 void ppc::Desktop::setFrontTop(WindowInterface* front) {
 	frontTop_ = front;
+
+    frontTopObsvr* ftObsvr = new frontTopObsvr(*this);
+
+    mousePressButton *mpb = new mousePressButton();
+    mpb->setFloatRect(frontTop_->getBounds());
+    mpb->setInputHandle(frontTop_->getInputHandler());
+	mpb->onClick().addObserverToBack(ftObsvr);
+	mpb->onHover().addObserverToBack(ftObsvr);
+	mpb->onRelease().addObserverToBack(ftObsvr);
+    mpb->onAll().addObserverToBack(ftObsvr);
+
+    frontTop_->addInputComponent(mpb);
 }
 
 void ppc::Desktop::deleteFrontTop() {
@@ -252,8 +264,9 @@ void ppc::Desktop::deleteFrontTop() {
 	}
 }
 
-void ppc::Desktop::registerInput(Event ev) {
-	if (frontTop_ && 
+void ppc::Desktop::registerInput(Event ppcEv) {
+    sf::Event ev(ppcEv);
+	if ((frontTop_ != nullptr) && 
 		(ev.type == sf::Event::MouseButtonPressed || 
 			ev.type == sf::Event::MouseButtonReleased)) {
 		frontTop_->registerInput(ev);
@@ -263,11 +276,12 @@ void ppc::Desktop::registerInput(Event ev) {
 
 }
 
-void ppc::Desktop::registerInputFocused(sf::Event ev) {
+void ppc::Desktop::registerInputFocused(Event ppcEv) {
 //first check if the mouse clicked in the focused window.
 //if the window clicked in a window that wasnt focused,
 //then focus that window.
 //for any mouse event
+    sf::Event ev(ppcEv);
 	if (ev.type == sf::Event::MouseButtonPressed) {
 		for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 			sf::FloatRect winBounds = (*it)->getBounds();
@@ -384,7 +398,7 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 			inbox->parseEmailAsJson(file);
 			
 			for (unsigned int i = 0; i < inbox->getSubject().size(); i++) {
-				ppc::Email* testEmail1= new Email(inbox->getTo().at(i),
+				ppc::Email* testEmail1 = new Email(inbox->getTo().at(i),
 					inbox->getFrom().at(i),
 					inbox->getSubject().at(i),
 					inbox->getBody().at(i),
@@ -392,6 +406,7 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 					"image.jpg");
 				importDesktop->getInbox().addEmailToList(testEmail1);
 			}
+			delete inbox;
 		} else if (key == "Pipeline") {
 			if (PipelineLevelBuilder::LEVEL_MAP.find(file) ==
 				PipelineLevelBuilder::LEVEL_MAP.end()) {
