@@ -1,13 +1,15 @@
+#include "../Engine/debug.h"
 #include "WindowBkgndRenderCmpnt.h"
 
+using namespace ppc;
 
-
-WindowBkgndRenderCmpnt::WindowBkgndRenderCmpnt(sf::Sprite& s):
-	sprt(s) {
+WindowBkgndRenderCmpnt::WindowBkgndRenderCmpnt(sf::Sprite s) {
+	sprt = s;
 }
 
 
-WindowBkgndRenderCmpnt::~WindowBkgndRenderCmpnt() {}
+WindowBkgndRenderCmpnt::~WindowBkgndRenderCmpnt() {
+}
 
 
 void WindowBkgndRenderCmpnt::draw(sf::RenderTarget& target,

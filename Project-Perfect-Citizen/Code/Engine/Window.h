@@ -5,18 +5,22 @@
 
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderTexture.hpp>
-#include <SFML/System/Time.hpp>
 #include <SFML/Graphics/Transformable.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 
 #include "windowInterface.h"
-#include "inputComponent.h"
-#include "updateComponent.h"
-#include "renderComponent.h"
 #include "InputHandler.h"
+
+namespace sf {
+    class Time;
+};
 
 
 namespace ppc {
+
+    class RenderComponent;
+    class InputComponent;
+    class UpdateComponent;
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -72,12 +76,20 @@ public:
 
     // Space Getters
 
-    virtual sf::Vector2u getSize() override;
-    virtual sf::FloatRect getBounds() override;
+    virtual sf::Vector2u getSize() const override;
+    virtual sf::FloatRect getBounds() const override;
     
     // Space Setters
 
     virtual void setSize(unsigned int width, unsigned int height) override;
+
+
+    // View Manipulation
+
+    const sf::View& getView() const override;
+    void setView(const sf::View& view) override;
+    const sf::View& getDefaultView() override;
+    
 
     // Transformation Setters
 
@@ -105,8 +117,13 @@ public:
     //Game Loop Functionality
 
     virtual void update(sf::Time& deltaTime) override;
-    virtual void registerInput(sf::Event&) override;
+    virtual void registerInput(Event) override;
     virtual void refresh(sf::RenderStates states = sf::RenderStates()) override;
+
+    // Close State
+
+    void close() override { closed_ = true; };
+    bool isOpen() const override { return !closed_; };
 
 
 private:
@@ -139,10 +156,6 @@ private:
     //The background color of the window
     sf::Color backgroundColor_;
 
-    //The view of the Texture used when drawing the Window.
-    //Not in use yet.
-    sf::View windowView_;
-
     //Used to pass Events to inputComponents which are part of the 
     //  Window
     InputHandler inputHandler_;
@@ -164,6 +177,11 @@ private:
 
     //Stores the Transformation applicable to the Window
     sf::Transformable transform_;
+
+    //Tells us if the Window is closeds
+    bool closed_ = false;
+
+    bool mouseInView_ = false;
 
 
 };

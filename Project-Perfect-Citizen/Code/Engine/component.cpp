@@ -1,5 +1,7 @@
+#include "debug.h"
 #include "component.h"
 #include "entity.h"
+#include "event.h"
 
 using namespace ppc;
 
@@ -13,6 +15,10 @@ using namespace ppc;
 ///////////////////////////////////////////////////////////////////////
 // Constructors & Destructor
 ///////////////////////////////////////////////////////////////////////
+
+void ppc::Component::recieveMessage(Event message)
+{
+}
 
 Component::Component() {
     entity = nullptr;

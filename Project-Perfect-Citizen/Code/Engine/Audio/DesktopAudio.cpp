@@ -1,4 +1,8 @@
+#include "../debug.h"
 #include "DesktopAudio.h"
+#include "Sounds.h"
+#include <iostream>
+#include "SFML/Audio.hpp"
 
 ppc::DesktopAudio::DesktopAudio()
 {

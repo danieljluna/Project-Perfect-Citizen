@@ -5,7 +5,7 @@
 //  Created by Michael Lowe on 2/28/16.
 //  Copyright © 2016 Hyperfocus Games. All rights reserved.
 //
-
+#include "../Engine/debug.h"
 #include "BootLoader.hpp"
 #include <string>
 #include <algorithm>
@@ -24,7 +24,7 @@ std::string getRandomString(int stringLength) {
     std::string text = "";
     std::string possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     for (int i = 0; i < stringLength; ++i) {
-        text += possible[floor(rand() % possible.length())];
+        text += possible[int(floor(rand() % possible.length()))];
     }
     return text;
 }

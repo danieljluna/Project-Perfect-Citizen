@@ -22,11 +22,13 @@
 ///          the keyboard. This will mainly be used in combination
 ///          with a text input box render component.
 ///////////////////////////////////////////////////////////////////////
+namespace ppc {
 
 class databaseSearchInputComponent : public ppc::InputComponent {
+	using backFunction = bool(*)(sf::Event& ev);
 private:
-
-	sf::Sprite& textBoxSprt;
+	characterRender& render;
+	//sf::Sprite& textBoxSprt;
 	databaseSearchRenderComponent& textBox;
 	databaseDisplayRenderComponent& textDisplay;
 	ppc::InputHandler& inputHandle;
@@ -39,6 +41,8 @@ private:
 
 public:
 
+    friend bool goBackFn(databaseSearchInputComponent*, sf::Event&);
+
 	databaseSearchInputComponent() = delete;
 
 	///////////////////////////////////////////////////////////////////////
@@ -47,7 +51,7 @@ public:
 	/// @param s is the render component where the text will be drawn
 	///////////////////////////////////////////////////////////////////////
 	databaseSearchInputComponent(Database* iDB, ppc::InputHandler& ih, databaseSearchRenderComponent& t,
-		databaseDisplayRenderComponent& d, sf::Sprite& s);
+		databaseDisplayRenderComponent& d, characterRender& r);
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Updates the display output in the database
@@ -63,7 +67,7 @@ public:
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Function pointer to back functionality
 	///////////////////////////////////////////////////////////////////////
-	void(*goBack) ();
+	void goBack();
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Sets the display results to be a hardcoded string
@@ -80,6 +84,11 @@ public:
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Inherited input component function
 	///////////////////////////////////////////////////////////////////////
-	virtual bool registerInput(sf::Event& ev) override;
+	virtual bool registerInput(Event ev) override;
+
+};
+
+
+    bool goBackFn(databaseSearchInputComponent*, Event);
 
 };

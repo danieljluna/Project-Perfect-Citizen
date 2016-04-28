@@ -1,5 +1,8 @@
 #include "ComponentObsvr.h"
 #include "inputComponent.h"
+#include "debug.h"
+#include "event.h"
+
 
 using namespace ppc;
 
@@ -8,6 +11,6 @@ ComponentObsvr::ComponentObsvr(InputComponent& iCmpnt) :
 
 
 
-bool ComponentObsvr::eventHandler(sf::Event& ev) {
+bool ComponentObsvr::eventHandler(Event ev) {
     return (i_cmpnt_.registerInput(ev));
 }

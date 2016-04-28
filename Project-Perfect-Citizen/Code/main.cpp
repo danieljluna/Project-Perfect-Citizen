@@ -1,9 +1,9 @@
 //Used to get XCODE working/////////////////////////////////
 
 #ifdef WINDOWS_MARKER
-    #define resourcePath() string("Resources/")
+#define resourcePath() string("Resources/")
 #else
-    #include "ResourcePath.hpp"
+#include "ResourcePath.hpp"
 #endif
 
 ///////////////////////////////////////////////////////////
@@ -14,183 +14,252 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "Library/json/json.h"
-#include "Game/testRenderSprite.h"
-#include "Engine/InputHandler.h"
-#include "Engine/subject.h"
-#include "Engine/debug.h"
-#include "Engine/entity.h"
-#include "Engine/Window.h"
-#include "Engine/desktop.h"
+#include "Engine/Engine.h"
 #include "Game/mousePressButton.h"
 #include "Game/buttonRenderComponent.h"
 #include "Game/consoleIconRenderComponent.h"
 #include "Game/TreeCommands.h"
-#include "Engine/NodeState.h"
 #include "Game/animatorComponent.hpp"
 #include "Game/textInputKeys.hpp"
 #include "Game/createWindow.h"
 #include "Game/createIcon.h"
 #include "Game/createButton.h"
-#include "Engine/BorderDecorator.h"
 #include "Game/createDesktop.h"
 #include "Game/desktopExtractionComponent.hpp"
 #include "Game/expressionistParser.hpp"
-#include "Engine/Audio/Audio.h"
-#include "Engine/Audio/Sounds.h"
-#include "Engine/Audio/DesktopAudio.h"
-#include "Engine/Audio/AudioLocator.h"
-#include "Engine/Audio/AudioLogger.h"
-#include "Engine/Audio/AudioLocator.h"
-#include "Engine/Audio/NullAudio.h"
 #include "Game/PipelineCharacter.h"
 #include "Game/Database.h"
-#include "Engine/Audio/AudioQueue.h"
-//#include "Game/BootLoader.hpp"
-#include "Engine/FunctionObserver.h"
+#include "Game/BootLoader.hpp"
 #include "Game/characterRender.hpp"
+#include "Game/interpolateUpdateComponent.hpp"
 
+#include "Game/bootLoadingUpdateComponent.hpp"
+#include "Game/bootLoadingAnimationRender.hpp"
+#include "Game/endAnimationUpdateComponent.hpp"
+#include "Game/endingAnimationRender.hpp"
 
+#include "Game/TextBubble.h"
+
+#include "Game/createTutorial.h"
 
 using namespace ppc;
 
-using testFunc = bool(*)(sf::Event&);
 
-bool printFunc(sf::Event& ev) {
-	std::cout << "inside printFunc" << std::endl;
-	return true;
-}
 
-//Note that this is placeholder for now
-int main(int argc, char** argv) {
-
-    DBG_INIT();
-
-	//Scans Debug Flags
-	Debug::scanOpts(argc, argv);
-	DEBUGF("ac", argc);
-
-    // Create the main sf::window
-    sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
-
-    ////////////////// BACKGROUND IMAGE ////////////////////
-    sf::Sprite S;
-    sf::Texture T;
-    if (!(T.loadFromFile(resourcePath() + "Wallpaper.png"))) {
-        //Test for failure
-        cerr << "COULD NOT LOAD\n";
-        std::system("PAUSE");
-        return -1;
-    };
-    S.setTexture(T);
-    S.setPosition(0, 0);
-    S.setScale(0.7f, 0.7f);
-	///////////////////////////////////////////////////////
-
-	///////////// Load Spritesheets/Textures //////////////
-    sf::Image spriteSheet;
-	spriteSheet.loadFromFile(resourcePath() + "Windows_UI.png");
-    sf::Image iconSheet;
-    iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
-    sf::Image faceSheet;
-    faceSheet.loadFromFile(resourcePath() + "Face_Sheet.png");
-
+void runBootDesktop(ppc::Desktop& myDesktop) {
     
-	//////////////////////////////////////////////////////
-
-	//////////////////////////////////////////////////////////
-	///// CREATE THE PLAYER DESKTOP
-	/////////////////////////////////////////////////////////
-	ppc::NodeState testState;
-	testState.setUp();
-	Window* desktopWindow = new Window(1800,1000,sf::Color(0,0,0));
+    Window* bootWindow = new Window(1800,1000,sf::Color(30,32,33));
     
-    Desktop myDesktop(*desktopWindow, testState);
-    myDesktop.addBackgroundCmpnt(desktopWindow, S);
-    createPlayerDesktop(myDesktop, *desktopWindow, myDesktop.getInputHandler(), iconSheet, spriteSheet);
-    
-    Entity* aCharacter = new Entity();
-    characterRender* characterRend = new characterRender(faceSheet);
-    aCharacter->addComponent(characterRend);
-    
-    desktopWindow->addEntity(*aCharacter);
-    
-    
-    
-    
-    //////////////////////////////////////////////////////////
-    ///// TEMPORARY BOOT LOADING SCREEN SETUP
-    /////////////////////////////////////////////////////////
-   /* bool hasBooted = true;
-    int step = 0;
+    Entity loading;
     
     sf::Font font;
     font.loadFromFile(resourcePath() + "consola.ttf");
-    sf::Text text;
-    text.setPosition(0, 0);
-    text.setColor(sf::Color::Green);
-    text.setCharacterSize(18);
-    text.setFont(font);
-
-    std::string renderString = "";
-    text.setString(renderString);*/
     
-	
-
-    ///////////////////////////////////////////////////////////////////
-	// Start the game loop
-	///////////////////////////////////////////////////////////////////
-	sf::Clock deltaTime; //define deltaTime
-    //Used to keep track time
-    sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
-    while (screen.isOpen()) {
-        //Process sf::events
-        sf::Event event;
-        while (screen.pollEvent(event)) {
-            // Close window: exit
-            if (event.type == sf::Event::Closed)
-				screen.close();
-
-			//Input phase
-			//if(hasBooted)
-                myDesktop.registerInput(event);
-        }
-
-        sf::Time elapsed = deltaTime.getElapsedTime();
-        while (elapsed > framePeriod) {
-
-            // Clear screen
-            screen.clear(sf::Color::Black);
-
-            //Update all Windows in the Desktop
-            sf::Time dt = deltaTime.restart();
-            //if(hasBooted)
-                myDesktop.update(dt);
-
-            elapsed -= framePeriod;
-        }
-        //////////////////////////////////////////////////////////
-        ///// I KNOW THIS IS A REALLY GROSS LOOP
-        ///// TEMPORARY BOOT LOADING SCREEN
-        /////////////////////////////////////////////////////////
-        /*if (!hasBooted) {
-            renderString = bootLoad(step, renderString);
-            if (step == 6300)
-                hasBooted = true;
-            step++;
-            text.setString(renderString);
-            screen.draw(text);*/
-        //} else {
-           myDesktop.refresh();
-           screen.draw(myDesktop);
-       // }
-
-        //Display final Window
-        screen.display();
-
-    }
-
-    return EXIT_SUCCESS;
+    
+    textLabelComponent* textLabel = new textLabelComponent(font,sf::Color::Green, 0,0, 20, " PCOS(C) , UNMOS. UNAUTHORIZED USE OF THIS TERMINAL CAN RESULT IN PENALTY BY DEATH. \n   Beginning File System Initialization \n");
+    
+    bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(myDesktop.getButtonSheet(),*textLabel,7,5);
+    
+    bootLoadingUpdateComponent* bootUpdate = new bootLoadingUpdateComponent(*bootRender,0.1f);
+    
+    loading.addComponent(bootRender);
+    loading.addComponent(bootUpdate);
+    loading.addComponent(textLabel);
+    bootWindow->addEntity(loading);
+    
+    myDesktop.addWindow(bootWindow);
 }
 
+
+
+void runEndDesktop(ppc::Desktop& myDesktop) {
+    
+    Window* endWindow = new Window(1800,1000,sf::Color(30,32,33));
+    
+    Entity ending;
+    
+    endingAnimationRender* endRender = new endingAnimationRender(myDesktop.getButtonSheet());
+    endAnimationUpdateComponent* endUpdate = new endAnimationUpdateComponent(*endRender, 0.1f);
+    
+    ending.addComponent(endRender);
+    ending.addComponent(endUpdate);
+    endWindow->addEntity(ending);
+    
+    myDesktop.addWindow(endWindow);
+}
+
+
+void runPlayerDesktop(ppc::Desktop& myDesktop) {
+    createPlayerDesktop(myDesktop, *myDesktop.getDesktopWindow(),
+                        myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
+    
+}
+
+void runDummyDesktop(ppc::Desktop& myDesktop) {
+    createDummyDesktop(myDesktop, *myDesktop.getDesktopWindow(),
+                       myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
+    
+}
+
+void runTargetDesktop(ppc::Desktop& myDesktop) {
+    createTeacherDesktop(myDesktop, *myDesktop.getDesktopWindow(),
+                         myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
+    
+}
+
+void runArtistDesktop(ppc::Desktop& myDesktop) {
+    createArtistDesktop(myDesktop, *myDesktop.getDesktopWindow(),
+                        myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
+    
+}
+
+int main(int argc, char** argv) {
+    
+    DBG_INIT();
+    //Scans Debug Flags
+    Debug::scanOpts(argc, argv);
+    DEBUGF("ac", argc);
+    
+    World::initFontMap();
+    
+    //Dont touch these comments please.
+    ifstream ifs1(resourcePath() + "Saves/tutorialDesktop.ini", std::ifstream::in);
+    Desktop tutorialDesktop;
+    ifs1 >> tutorialDesktop;
+    
+    bool BootToTitleCard = false;
+    // Create the main sf::window
+    sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
+       
+    AudioQueue audiotest(5);
+    audiotest.addBgm("SoundTrack_Extraction.ogg");
+    audiotest.playBgm();
+    
+    ///////////// Load Spritesheets/Textures/Background Images ////////
+    sf::Sprite playerWallpaper;
+    sf::Sprite teacherWallpaper;
+    sf::Texture playerWallpaperTexture;
+    sf::Texture teacherWallpaperTexture;
+    playerWallpaperTexture.loadFromFile(resourcePath() + "Wallpaper.png");
+    teacherWallpaperTexture.loadFromFile(resourcePath() + "Teacher_Wallpaper.png");
+    
+    playerWallpaper.setTexture(playerWallpaperTexture);
+    teacherWallpaper.setTexture(teacherWallpaperTexture);
+    
+    playerWallpaper.setScale(0.7f, 0.7f);
+    playerWallpaper.setPosition(0, 0);
+    
+    sf::Image buttonSheet;
+    buttonSheet.loadFromFile(resourcePath() + "Windows_UI.png");
+    sf::Image pixelSheet;
+    pixelSheet.loadFromFile(resourcePath() + "Pixel_Title.png");
+    sf::Image iconSheet;
+    iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
+    sf::Image teacherIconSheet;
+    teacherIconSheet.loadFromFile(resourcePath() + "Teacher_Icon_Sheet.png");
+    ///////////////////////////////////////////////////////////////////
+    
+    
+    //////////////////////////////////////////////
+    //Assuming Builders Should Eventually Go Here
+    /////////////////////////////////////////////
+    //Placeholder stuff for now.
+    
+    //runBootDesktop
+    ppc::NodeState bootState;
+    Window* bootWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+    Desktop* bootDesktop = new Desktop(bootWindow, bootState);
+    
+    bootDesktop->setIconSheet(iconSheet);
+    bootDesktop->setButtonSheet(buttonSheet);
+    
+    bootDesktop->setBackgrond(playerWallpaper);
+    
+    //runPlayerDesktop
+    ppc::NodeState playerState;
+    playerState.setUp();
+    Window* playerDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+    
+    
+    Desktop* playerDesktop = new Desktop(playerDesktopWindow, playerState);
+    playerDesktop->setIconSheet(iconSheet);
+    playerDesktop->setButtonSheet(buttonSheet);
+    playerDesktop->setBackgrond(playerWallpaper);
+    
+    //runTargetDesktop
+    ppc::NodeState targetState;
+    targetState.setUp();
+    Window* targetDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+    
+    Desktop* targetDesktop = new Desktop(targetDesktopWindow, targetState);
+    targetDesktop->setIconSheet(iconSheet);
+    targetDesktop->setButtonSheet(buttonSheet);
+    targetDesktop->setBackgrond(teacherWallpaper);
+    
+    //runEndDesktop
+    ppc::NodeState endState;
+    Window* endWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+    
+    Desktop* endDesktop = new Desktop(endWindow, endState);
+    endDesktop->setIconSheet(iconSheet);
+    endDesktop->setButtonSheet(pixelSheet);
+    endDesktop->setBackgrond(playerWallpaper);
+    
+    
+    /////////////////////////////////////////////
+    //Assuming Builders End Here
+    /////////////////////////////////////////////
+    
+    World::setGameScreen(screen);
+    
+    Logger::startTimer("bootDesktop");
+    
+    //Main Loops for each Desktops
+    
+    //Boot
+    World::setCurrDesktop(*bootDesktop);
+    runBootDesktop(*bootDesktop);
+    while (World::runDesktop(*bootDesktop)) {}
+    delete bootDesktop;
+    
+    Logger::endTimer("bootDesktop");
+    Logger::startTimer("playerTutorialDesktop");
+    
+    World::setCurrDesktop(tutorialDesktop);
+    createTutorial(tutorialDesktop);
+    World::runCurrDesktop();
+    
+    Logger::endTimer("playerTutorialDesktop");
+    Logger::startTimer("playerDesktop");
+    
+    World::setCurrDesktop(*playerDesktop);
+    runPlayerDesktop(*playerDesktop);
+    while (World::runDesktop(*playerDesktop)) {}
+    delete playerDesktop;
+    
+    Logger::endTimer("playerDesktop");
+    Logger::startTimer("targetDesktop");
+    
+    World::setCurrDesktop(*targetDesktop);
+    runTargetDesktop(*targetDesktop);
+    while (World::runDesktop(*targetDesktop)) {}
+    delete targetDesktop;
+    
+    Logger::endTimer("targetDesktop");
+    Logger::startTimer("endDesktop");
+    
+    World::setCurrDesktop(*endDesktop);
+    runEndDesktop(*endDesktop);
+    while (World::runDesktop(*endDesktop)) {}
+    delete endDesktop;
+    
+    Logger::endTimer("endDesktop");
+    
+    Logger::exportParcels();
+    
+    
+    
+    return EXIT_SUCCESS;
+}
 
 

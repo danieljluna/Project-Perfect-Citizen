@@ -12,7 +12,10 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 /// @brief Class that maps sf::Events to Subjects.
 /// @author Daniel Luna
-/// @details 
+/// @details Uses a std::map to map the EventType to Subjects, and 
+///     allows manipulation of these Subjects based on the EventType.
+///     When an event is registered, the Subject mapped to that event's
+///     type is notified and passed the event in question.
 ///////////////////////////////////////////////////////////////////////
 class InputHandler {
 public:

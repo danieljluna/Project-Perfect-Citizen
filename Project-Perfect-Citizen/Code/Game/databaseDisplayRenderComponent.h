@@ -6,6 +6,7 @@
 #include "../Game/Database.h"
 #include <string>
 #include <stack>
+#include "characterRender.hpp"
 
 using namespace std;
 
@@ -17,6 +18,13 @@ using namespace std;
 class databaseDisplayRenderComponent : public ppc::RenderComponent {
 private:
 
+	////////////////////////////////////////////////////////////////////
+	/// @brief Character Render used to process and display character
+	//					profile.
+	////////////////////////////////////////////////////////////////////
+    characterRender* render;
+    
+    
 	////////////////////////////////////////////////////////////////////
 	/// @brief Sprite to be rendered
 	////////////////////////////////////////////////////////////////////
@@ -45,7 +53,7 @@ private:
 
 public:
 
-	databaseDisplayRenderComponent(sf::Font& f, int x, int y, int size);
+    databaseDisplayRenderComponent(sf::Font& f, sf::Image& faceSheet, int x, int y, int size);
 
 	~databaseDisplayRenderComponent();
 
@@ -65,7 +73,7 @@ public:
 	virtual void draw(sf::RenderTarget & target,
 		sf::RenderStates states) const;
 
-	//virtual void registerInput(sf::Event& ev) override;
+	//virtual void registerInput(Event ev) override;
 	virtual void recieveMessage(msgType code) override;
 
 };

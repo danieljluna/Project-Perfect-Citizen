@@ -1,12 +1,15 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <array>
 
 #include "../Engine/inputComponent.h"
 #include "../Engine/InputHandler.h"
 #include "../Engine/Entity.h"
 #include "../Engine/subject.h"
-
+#include "../Engine/FunctionObserver.h"
+#include "../Engine/FreeFunctionObserver.h"
+#include "../Engine/debug.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Input Component for a generic window 'X' button
@@ -18,14 +21,24 @@
 ///////////////////////////////////////////////////////////////////////
 
 
+namespace ppc {
+
+
 class mousePressButton: public ppc::InputComponent {
 private:
 
 	sf::FloatRect buttonRect;
-	std::string isBeingPressed;
 	sf::Clock mouseClock;
     sf::Int32 mouseTime;
 	bool isCollision(sf::Vector2i);
+    
+    bool wasPressed_ = false;
+    Subject onPress_;
+    Subject onRelease_;
+	Subject onHover_;
+    Subject onAll_;
+
+	bool isClickable = true;
 
 public:
 
@@ -35,7 +48,17 @@ public:
 ///@brief This Ctor will be depricated soon. Please use the default 
 ///Ctor and setter functions instead.
 ///////////////////////////////////////////////////////////////////////
-	mousePressButton(ppc::InputHandler& ih, sf::FloatRect rect, std::string isBeingPressed);
+	mousePressButton(ppc::InputHandler& ih, sf::FloatRect rect);
+
+	///////////////////////////////////////////////////////////////////////
+	///@brief Removes all the current observers in the observerArray_
+	///////////////////////////////////////////////////////////////////////
+	void clearObservers();
+
+    template <class T>
+    friend void setOnPress(mousePressButton* mpb,
+                           T* objPtr,
+                           bool(*onPress)(T*, Event));
 
 ///////////////////////////////////////////////////////////////////////
 //SETTERS
@@ -53,9 +76,34 @@ public:
 ///////////////////////////////////////////////////////////////////////
 	void setFloatRect(sf::FloatRect rect);
 
-	void setIsBeingPressed(std::string iBP);
+    sf::FloatRect getFloatRect() const;
 
+	void setIsClickable(bool);
+
+	bool getIsClickable();
 	virtual ~mousePressButton();
-	virtual bool registerInput(sf::Event& ev) override;
+	virtual bool registerInput(Event ev) override;
+    void recieveMessage(Event ev) override;
+
+
+    Subject& onClick() { return onPress_; };
+    Subject& onRelease() { return onRelease_; };
+	Subject& onHover() { return onHover_; };
+    Subject& onAll() { return onAll_; };
+
+};
+
+template<class T>
+inline void setOnPress(mousePressButton* mpb, T * objPtr, bool(*onPress)(T *, Event)) {
+
+    FreeFunctionObserver<T>* fnObsvr = new FreeFunctionObserver<T>(onPress, objPtr);
+
+    mpb->onRelease().addObserver(fnObsvr);
+
+}
+
+bool ToggleMPB (mousePressButton*, Event);
+
+
 
 };

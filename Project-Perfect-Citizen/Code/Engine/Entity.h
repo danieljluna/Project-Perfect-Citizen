@@ -2,17 +2,17 @@
 #define ENTITY_H
 
 #include <cstddef>
-#include <SFML/Graphics/Transformable.hpp>
 #include <string>
+#include <SFML/System/Vector2.hpp>
 
 typedef std::string msgType;
 
 namespace ppc {
 
 class Component;
+class Event;
 
 
-//TODO: Finish Entity Interface
 ///////////////////////////////////////////////////////////////////////
 /// @brief Uses a collection of Components to define a Entity.
 /// @author Daniel Luna
@@ -93,6 +93,10 @@ public:
     ///////////////////////////////////////////////////////////////////
     sf::Vector2f& getPosition();
 
+    void setPosition(sf::Vector2f pos);
+
+    void setPosition(float x, float y);
+
     
   /////////////////////////////////////////////////////////////////////
   // Component Manipulation
@@ -148,6 +152,15 @@ public:
     /// @param message Denotes the message to send.
     ///////////////////////////////////////////////////////////////////
 	virtual void broadcastMessage(msgType message);
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Broadcasts a message to each Component in the Entity
+    /// @todo Create a union or enum specifically for this messaging
+    ///     system.
+    ///
+    /// @param message Denotes the message to send.
+    ///////////////////////////////////////////////////////////////////
+    virtual void broadcastMessage(Event message);
 
 
   /////////////////////////////////////////////////////////////////////

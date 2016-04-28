@@ -1,4 +1,7 @@
+#include "debug.h"
 #include "inputComponent.h"
+#include "subject.h"
+#include "ComponentObsvr.h"
 
 #include "InputHandler.h"
 

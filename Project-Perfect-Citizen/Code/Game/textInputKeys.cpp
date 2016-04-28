@@ -1,29 +1,26 @@
+#include "../Engine/debug.h"
 #include "textInputKeys.hpp"
 #include <iostream>
 #include <string>
 
-using namespace std;
+using namespace ppc;
 const string TEXT_KEY_INPUT = "TKI";
 
 const float DOUBLE_CLICK_TIME = 500;
 
-textInputKeys::textInputKeys(ppc::InputHandler& ih, sf::Sprite& s, 
+textInputKeys::textInputKeys(ppc::InputHandler& ih,
 	textInputRenderComponent& r, textOutputRenderComponent& r2,
-	consoleUpdateComponent& c) : InputComponent(2), textBoxSprt(s), 
+	consoleUpdateComponent& c) : InputComponent(2),
 	textBox(r), textDisplay(r2), inputHandle(ih), cup(c){
 
 
     ih.addHandle(sf::Event::TextEntered);
     ih.addHandle(sf::Event::KeyPressed);
     
-    if (watch(ih, sf::Event::TextEntered)) {
-        cout << "Text Entered Watched" << endl;
-    }
+	watch(ih, sf::Event::TextEntered);
+	watch(ih, sf::Event::KeyPressed);
     
-    if (watch(ih, sf::Event::KeyPressed)) {
-        cout << "Key Pressed Watched" << endl;
-    }
-
+	textDisplay.updatePrompt();
 	str.push_back((char)'>');
 	str.push_back((char)' ');
 	textBox.updateString(str);
@@ -36,7 +33,11 @@ textInputKeys::~textInputKeys() {
 }
 
 bool textInputKeys::isCollision(sf::Vector2i mousePos) {
-    sf::Vector2f sprtBoxPos = { textBoxSprt.getGlobalBounds().left ,
+
+    // Temporarily removing collisions on Text Inputs.
+    // May not be necessary to have them
+    
+    /* sf::Vector2f sprtBoxPos = { textBoxSprt.getGlobalBounds().left ,
         textBoxSprt.getGlobalBounds().top };
   
     sf::Vector2f sprtBoxDim = { textBoxSprt.getGlobalBounds().width,
@@ -49,26 +50,32 @@ bool textInputKeys::isCollision(sf::Vector2i mousePos) {
             mousePos.y <= sprtBoxPos.y + sprtBoxDim.y) {
             result = true;
         }
-    }
+    }*/
+    
+    
     
     // textBoxSprt.setSelected(true);
     
-    return result;
+    return true;//result;
 }
 
-bool textInputKeys::registerInput(sf::Event& ev) {
+bool textInputKeys::registerInput(Event ppcEv) {
+    sf::Event ev(ppcEv);
+
     if (getEntity() != nullptr) {
         if (ev.type == sf::Event::TextEntered){
 			/* Ignore CNTRL, BS, ENTR/LF, CR */
             if (ev.text.unicode < 128 && ev.text.unicode != 8 && 
 				ev.text.unicode != 10 && ev.text.unicode != 13) {
                 str.push_back((char)ev.text.unicode);
-                textBox.updateString(str);
+				textDisplay.updatePrompt();
+				textBox.updateString(str);
             }
         } else if (ev.type == sf::Event::KeyPressed) {
             if (ev.key.code == sf::Keyboard::BackSpace && 
 				(str.size()>2)) {
                 str.pop_back();
+				textDisplay.updatePrompt();
                 textBox.updateString(str);
 			}
 			else if (ev.key.code == sf::Keyboard::Return && 
@@ -91,15 +98,20 @@ bool textInputKeys::registerInput(sf::Event& ev) {
 					commandVec.push_back(token);
 					last = next + 1;
 				}
-
-				cup.executeCommand(commandVec);
+					
+				/* Display the result */;
+				textDisplay.updateString(commandVec);
 
 				/* Reset the command line - keeping the prompt */
 				str.erase(2, str.length());
-				textBox.updateString(str);
+				//textBox.updateString(str);
 
-				/* Display the result */;
-				textDisplay.updateString(commandVec);
+				/* Update prompt and it's position */
+				textDisplay.updatePrompt();
+				textBox.updateString(str);
+				textBox.updatePosition(textDisplay.getText()->getLocalBounds().height, 10);
+
+				cout << str.length();
 			}
         }
     }

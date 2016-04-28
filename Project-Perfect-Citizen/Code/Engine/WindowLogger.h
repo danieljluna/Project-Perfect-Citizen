@@ -11,7 +11,7 @@ namespace ppc {
 	///////////////////////////////////////////////////////////////////
 	class WindowLogger : public WindowDecorator {
 	private:
-		ostream& out_;
+        std::ostream& out_;
 		
 	protected:
 
@@ -20,7 +20,7 @@ namespace ppc {
 
 	public:
 		WindowLogger() = delete;
-		WindowLogger(WindowInterface& windowPtr, ostream& out);
+		WindowLogger(WindowInterface& windowPtr, std::ostream& out);
 		virtual ~WindowLogger();
 
 		virtual void setSize(sf::Vector2u& size);
@@ -32,7 +32,7 @@ namespace ppc {
 		virtual void addEntity(Entity& entity);
 
 		virtual void update(sf::Time& deltaTime);
-		virtual void registerInput(sf::Event&);
+		virtual void registerInput(Event);
 		virtual void refresh(sf::RenderStates states = sf::RenderStates());
 	};
 };

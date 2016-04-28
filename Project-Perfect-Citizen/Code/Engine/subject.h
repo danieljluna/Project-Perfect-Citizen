@@ -1,9 +1,15 @@
 //Programmed by Andy
 #pragma once
-#include "observer.h"
-#include <SFML/Graphics.hpp>
+
+#include "event.h"
+
+namespace sf {
+    class Event;
+}
 
 namespace ppc {
+
+    class BaseObserver;
 
 ///////////////////////////////////////////////
 ///@brief This is the subject  class. Stick a
@@ -71,7 +77,7 @@ public:
 	BaseObserver* getObserverHead();
 	void printObservers();
 
-	void sendEvent(sf::Event& event);
+	void sendEvent(Event event);
 
 
 private:

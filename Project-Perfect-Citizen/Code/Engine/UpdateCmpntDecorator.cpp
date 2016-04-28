@@ -1,4 +1,6 @@
+#include "debug.h"
 #include "UpdateCmpntDecorator.h"
+#include <SFML/System/Time.hpp>
 
 using namespace ppc;
 

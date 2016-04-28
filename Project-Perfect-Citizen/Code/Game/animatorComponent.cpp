@@ -1,8 +1,10 @@
-
+#include "../Engine/debug.h"
 #include "animatorComponent.hpp"
 
 
-const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
+using namespace ppc;
+
+const std::string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
 
 animatorComponent::animatorComponent(buttonRenderComponent& r, float s){
     render = &r;

@@ -1,4 +1,7 @@
+#include "debug.h"
 #include "WindowDecorator.h"
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/RenderStates.hpp>
 
 using namespace ppc;
 
@@ -32,11 +35,11 @@ WindowDecorator::~WindowDecorator() {
 // Space Getters
 ///////////////////////////////////////////////////////////////////////
 
-sf::Vector2u WindowDecorator::getSize() {
+sf::Vector2u WindowDecorator::getSize() const {
     return windowHandle_->getSize();
 }
 
-sf::FloatRect WindowDecorator::getBounds() {
+sf::FloatRect WindowDecorator::getBounds() const {
     return windowHandle_->getBounds();
 }
 
@@ -84,6 +87,24 @@ sf::Vector2f WindowDecorator::getScale() const {
 }
 
 
+
+///////////////////////////////////////////////////////////////////////
+// View Manipulation
+///////////////////////////////////////////////////////////////////////
+
+const sf::View& WindowDecorator::getView() const {
+    return windowHandle_->getView();
+}
+
+void WindowDecorator::setView(const sf::View& view) {
+    windowHandle_->setView(view);
+}
+
+const sf::View& WindowDecorator::getDefaultView() {
+    return windowHandle_->getDefaultView();
+}
+
+
 ///////////////////////////////////////////////////////////////////////
 // Component Manipulation
 ///////////////////////////////////////////////////////////////////////
@@ -126,13 +147,29 @@ void WindowDecorator::update(sf::Time& deltaTime) {
 	windowHandle_->update(deltaTime);
 }
 
-void WindowDecorator::registerInput(sf::Event& ev) {
+void WindowDecorator::registerInput(Event ev) {
 	windowHandle_->registerInput(ev);
 }
 
 void WindowDecorator::refresh(sf::RenderStates states) {
 	windowHandle_->refresh(states);
 }
+
+///////////////////////////////////////////////////////////////////////
+// Close State
+///////////////////////////////////////////////////////////////////////
+
+void WindowDecorator::close() {
+    windowHandle_->close();
+}
+
+bool WindowDecorator::isOpen() const {
+    return windowHandle_->isOpen();
+}
+
+///////////////////////////////////////////////////////////////////////
+// Draw Function
+///////////////////////////////////////////////////////////////////////
 
 void WindowDecorator::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const  {

@@ -1,20 +1,14 @@
 #ifndef BORDER_DECORATOR_H
 #define BORDER_DECORATOR_H
 
-#ifdef WINDOWS_MARKER
-#define resourcePath() string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
-
 #include "WindowDecorator.h"
 #include "DraggableInput.h"
 #include "../Game/buttonRenderComponent.h"
 #include "Entity.h"
 #include "../Game/mousePressButton.h"
+#include "../Game/TextDisplayRenderComponent.h"
 
 namespace ppc {
-
 
 class BorderDecorator : public WindowDecorator {
 public:
@@ -51,25 +45,65 @@ public:
 
 
   /////////////////////////////////////////////////////////////////////
+  // Draggable Manipulation
+  /////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Sets the clamp on this Window's Draggable.
+    /// @details See DraggableInput.h
+    ///
+    /// @param clamp The area in Desktop space to clamp to.
+    ///////////////////////////////////////////////////////////////////
+    void setClampBounds(const sf::FloatRect& clamp);
+    
+  /////////////////////////////////////////////////////////////////////
   // Button Manipulation
   /////////////////////////////////////////////////////////////////////
 
-    void addButton(sf::Image& buttonImage, std::string buttonFn);
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Adds a button to the Border of this Window.
+    /// 
+    /// @param buttonImage The desired image for the button.
+    /// @param buttonFn The desired action when the button is pressed.
+    ///////////////////////////////////////////////////////////////////
+    void addButton(sf::Image& buttonImage, 
+                   bool (*buttonFn)(WindowInterface*, Event));
+
+    friend bool closeWindow(WindowInterface* winInterface, Event ev);
+
+
+  /////////////////////////////////////////////////////////////////////
+  // Caption Functionality
+  /////////////////////////////////////////////////////////////////////
+
+    void setCaption(std::string text);
+
+    void setCaptionFont(sf::Font font);
+
+	void setCaptionSize(unsigned int size = 18);
+
+    void setCaptionColor(sf::Color col);
+
+    void setCaptionBackground(sf::Color col);
+
+    void setCaptionIcon(sf::Sprite spr);
 
 
   /////////////////////////////////////////////////////////////////////
   // Decorated Functionality
   /////////////////////////////////////////////////////////////////////
 
-    virtual sf::Vector2u getSize() override;
+    virtual sf::Vector2u getSize() const override;
 
     virtual void setSize(unsigned int x, unsigned int y) override;
+
+    virtual void setView(const sf::View& view) override;
 
     virtual void setPosition(float x, float y) override;
 
     virtual void move(float x, float y) override;
 
-    virtual sf::FloatRect getBounds() override;
+    virtual sf::FloatRect getBounds() const override;
 
 
 protected:
@@ -80,9 +114,14 @@ protected:
 
 private:
 
+    //Updates the bounds
     void updateBounds();
 
+    //Updates the ith Button's position
     void updateButton(size_t i);
+
+    //Updates the borderRect
+    void updateBorder();
 
 
   /////////////////////////////////////////////////////////////////////
@@ -99,11 +138,20 @@ private:
 
     //Stores the rectangle that is used to display the border.
     sf::RectangleShape borderShape_;
-    sf::RectangleShape borderTitle_;
 
-    //Stores the input Component that allows the Window to be dragged 
+   
+    //Stores the input Component that allows the Window to be dragged
     //  via the BorderDecorator.
     DraggableInput draggableInput_;
+
+    //Holds the window caption.
+    TextDisplayRenderComponent caption_;
+    //Holds the background color of the caption
+    sf::RectangleShape captionBackground_;
+    //Holds the Icon for the caption
+    sf::Sprite captionIcon_;
+    //Whether or not we have an Icon
+    bool captionHasIcon_ = false;
 
     //Array of buttonRenderComponents
 	buttonRenderComponent** buttonRenders_;
@@ -118,7 +166,14 @@ private:
 
 
 };
-    
+
+
+    ///////////////////////////////////////////////////////////////////
+    /// @brief Closes the passed window.
+    /// @details Fits the format for function observers, but doesn't
+    ///     make sue of the sf::Event as of now.
+    ///////////////////////////////////////////////////////////////////
+    bool closeWindow(WindowInterface* winInterface, Event ev);
 
 };      //End namespace ppc
 

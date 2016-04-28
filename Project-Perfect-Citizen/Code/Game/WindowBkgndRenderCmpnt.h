@@ -4,6 +4,9 @@
 
 #include "../Engine/renderComponent.h"
 
+
+namespace ppc {
+
 ///////////////////////////////////////////////////////////////////////
 ///@brief A render component for rendering the background of a Window.
 ///@deatils Do not use this component manually. This component created
@@ -28,7 +31,7 @@ public:
 ///@brief Ctor
 ///@param [in] s The sprite that is to be the background of the Window.
 ///////////////////////////////////////////////////////////////////////
-	WindowBkgndRenderCmpnt(sf::Sprite& s);
+	WindowBkgndRenderCmpnt(sf::Sprite s);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Dtor
@@ -45,5 +48,8 @@ public:
 ///@brief Overriden virtual function from Component
 ///////////////////////////////////////////////////////////////////////
 	virtual void recieveMessage(msgType code) override;
+};
+
+
 };
 

@@ -1,42 +1,105 @@
 #pragma once
 //Programmed by Andy
+#include <SFML/Graphics.hpp>
 
 namespace ppc {
+
+    class WindowInterface;
+
 	//This is the event struct. You can add events here
 	//if you need them. Nothing here is final except
 	//the template. 
-	struct Event
+
+	class Event
 	{
-		struct RenderStruct {
-			int testRenderEventInt;
-			double testRenderEventDouble;
+	public:
+        Event();
+        Event(sf::Event ev);
+
+        operator sf::Event&();
+
+        //Used internally to recognize button state
+		struct ButtonsEv {
+            enum State {
+                Hover = 0,
+                Clicked,
+                DblClicked,
+                Release,
+                Count
+            };
+
+            enum Activation {
+                LeftMouse = 0,
+                RightMouse,
+                Enter
+            };
+
+            State state;
+            Activation activation;
+            sf::Vector2i mousePos;
 		};
 
-		struct InputStruct {
-			char testInputEventChar;
-			float testInputEventFloat;
+		struct TransformationEv {
+			sf::Vector2f newPos;
 		};
 
-		struct UpdateStruct {
-			int testUpdateInt;
-			int testUpdateIntTwo;
+        struct NotificationEv {
+            unsigned int count;
+        };
+
+		struct FloppyEv {
+			unsigned int sequence;
+			unsigned int frame;
+		};
+
+		struct AbleEv {
+			bool enable;
 		};
 
 		enum EventTypes
 		{
-			RenderEventType,
-			InputEventType,
-			UpdateEventType,
-
+			ButtonType,
+			OpenType,
+			TransformationType,
+			ScrollbarType,
+			sfEventType,
+            NotificationType,
+			FloppyType,
+			AbleType,
 			Count
+		};
+
+		struct OpenEv {
+            enum OpenTypes {
+                Console = 0,
+                Help,
+                Email,
+                Pipeline,
+                Search,
+                Browser,
+                Chat,
+                Settings,
+                Folder,
+                File,
+                Explorer,
+                HardDrive,
+                Count
+            };
+
+            WindowInterface* window;
+			OpenTypes winType;
 		};
 
 		EventTypes type;
 
 		union {
-			RenderStruct renderStruct;
-			InputStruct inputStruct;
-			UpdateStruct updateStruct;
+			ButtonsEv buttons;
+			OpenEv open;
+			TransformationEv transformations;
+            NotificationEv notification;
+			FloppyEv floppy;
+			AbleEv able;
+            sf::Event sfEvent;
 		};
 	};
 } //end of ppc namespace

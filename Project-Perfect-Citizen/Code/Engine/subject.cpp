@@ -1,6 +1,9 @@
+#include "debug.h"
 
 #include "subject.h"
 #include <iostream>
+#include "observer.h"
+
 using namespace ppc;
 
 //adds to the front. 
@@ -72,13 +75,12 @@ void Subject::printObservers()
 	}
 }
 
-void Subject::sendEvent(sf::Event& event)
+void Subject::sendEvent(Event event)
 {
     BaseObserver* currentObserver = this->observerHead;
-	if (observerHead == nullptr) {
-		std::cout << "no observers connected to this object!" << std::endl;
-		return;
-	}
+    if (observerHead == nullptr) {
+        DEBUGS("sj", "No observers connected to this object!";)
+    }
 
 	while (currentObserver != nullptr) {
         if (!currentObserver->eventHandler(event)) {

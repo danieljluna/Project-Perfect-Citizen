@@ -6,20 +6,20 @@
 #include <SFML/Window/Event.hpp>
 
 #include "Component.h"
-#include "ComponentObsvr.h"
-#include "subject.h"
+#include "observer.h"
 
 
 namespace ppc {
 
 class InputHandler;
+class Subject;
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Base Class for all Components handling Input
 /// @author Daniel Luna
 /// @details InputComponents make use of ComponentObsvrs to react to
 ///     Input during the Input phase of the main loop. The reaction is
-///     defined in registerInput(sf::Event&), which is passed the event
+///     defined in registerInput(Event), which is passed the event
 ///     to react to by its observers. The observers managed by the
 ///     InputComponent use a reference to an InputHandler to link up
 ///     with the proper Subjects.
@@ -41,7 +41,7 @@ public:
     ///     Observer calls this Component.
     /// @return Denotes whether this observer propogates the event.
     ///////////////////////////////////////////////////////////////////
-    virtual bool registerInput(sf::Event& ev) = 0;
+    virtual bool registerInput(ppc::Event ev) = 0;
 
     ///////////////////////////////////////////////////////////////////
     /// @brief Returns the index-th observer 
@@ -98,15 +98,12 @@ protected:
     ///     InputComponent.
     ///////////////////////////////////////////////////////////////////
     InputComponent(size_t observerCount = 1);
-
+	BaseObserver** observerArray_;
+	size_t observerCount_;
 
 private:
 
     size_t findNextObserver();
-
-    BaseObserver** observerArray_;
-
-    size_t observerCount_;
 
 };
 
