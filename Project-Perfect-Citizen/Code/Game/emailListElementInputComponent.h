@@ -81,7 +81,7 @@ public:
 
 	virtual ~emailListElementInputComponent();
 
-	virtual bool registerInput(sf::Event ev) override;
+	virtual bool registerInput(Event ev) override;
 	////
 	///@brief gets the subject
 	////

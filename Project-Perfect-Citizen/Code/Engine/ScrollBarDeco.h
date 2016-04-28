@@ -174,11 +174,6 @@ bool onButtonUp(ScrollBarDecorator*, Event);
 
 bool onButtonDown(ScrollBarDecorator*, Event);
 
-bool onButtonLeft(ScrollBarDecorator*, Event);
-
-bool onButtonRight(ScrollBarDecorator*, Event);
-
-
 
 
 

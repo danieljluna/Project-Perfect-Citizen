@@ -31,7 +31,7 @@ void ppc::createContextListElement(ppc::Entity& entityToModify, WindowInterface*
 
 	TextDisplayRenderComponent *rc2 = new TextDisplayRenderComponent(f, sf::Color::Black, x, y, size, s);
 
-	mousePressButton* ic = new mousePressButton(ih, rc->getListElementBoxBounds(), "");
+	mousePressButton* ic = new mousePressButton(ih, rc->getListElementBoxBounds());
 
 	setOnPress<Desktop>(ic, &dt, func);
 

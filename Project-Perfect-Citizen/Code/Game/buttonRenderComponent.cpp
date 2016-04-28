@@ -136,30 +136,26 @@ void buttonRenderComponent::draw( sf::RenderTarget& target,
         //}
 }
 
-void buttonRenderComponent::recieveMessage(msgType code) {
-    if (_buttonType == BUTTON_TYPE) {
-        if(code.compare(MOUSE_DOWN_CODE) == 0)
-            setSprite(xIndex+width, yIndex, width);
-        if(code.compare(MOUSE_RELEASED_CODE) == 0)
-            setSprite(xIndex, yIndex, width);
-    } else {
-       if(code.compare(MOUSE_DOUBLE_CLICK_CODE) == 0)
-           _willAnimate = true;
-    }
-	if (code == OPEN_EMAIL) {
-		setSprite(xIndex + width, yIndex, width);
-	}
-}
 
 void buttonRenderComponent::recieveMessage(ppc::Event ev) {
 	switch (ev.type) {
 	case Event::EventTypes::ButtonType:
-		if (ev.buttons.isPushed && !ev.buttons.isRight) setSprite(xIndex + width, yIndex, width);
-		if (ev.buttons.isReleased && !ev.buttons.isRight) setSprite(xIndex, yIndex, width);
+		if (ev.buttons.state == ev.buttons.Clicked &&
+			ev.buttons.activation != ev.buttons.RightMouse) {
+			setSprite(xIndex + width, yIndex, width);
+		}
+		if (ev.buttons.state == ev.buttons.Release &&
+			ev.buttons.activation != ev.buttons.RightMouse) {
+			setSprite(xIndex, yIndex, width);
+		}
 		break;
 	case Event::EventTypes::AbleType:
-		if (ev.able.disable) setRenderable(false);
-		else if (ev.able.enable) setRenderable(true);
+		setRenderable(ev.able.enable);
+		break;
+	case Event::EventTypes::OpenType:
+		if (ev.open.window = Event::OpenEv::Email) {
+		setSprite(xIndex + width, yIndex, width);
+	}
 		break;
 	default:
 		break;

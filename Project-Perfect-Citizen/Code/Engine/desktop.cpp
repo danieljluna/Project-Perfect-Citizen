@@ -64,9 +64,7 @@ ppc::Desktop::Desktop(const Desktop& other) {
 
 ppc::Desktop::~Desktop() {
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-		if (*it != desktopWindow_) {
 			delete *it;
-		}
 	}
 
 	for (auto it = netVec_.begin(); it != netVec_.end(); ++it) {
@@ -252,7 +250,7 @@ void ppc::Desktop::deleteFrontTop() {
 	}
 }
 
-void ppc::Desktop::registerInput(sf::Event ev) {
+void ppc::Desktop::registerInput(Event ev) {
 	if (frontTop_ && 
 		(ev.type == sf::Event::MouseButtonPressed || 
 			ev.type == sf::Event::MouseButtonReleased)) {
@@ -384,7 +382,7 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 			inbox->parseEmailAsJson(file);
 			
 			for (unsigned int i = 0; i < inbox->getSubject().size(); i++) {
-				ppc::Email* testEmail1= new Email(inbox->getTo().at(i),
+				ppc::Email* testEmail1 = new Email(inbox->getTo().at(i),
 					inbox->getFrom().at(i),
 					inbox->getSubject().at(i),
 					inbox->getBody().at(i),
@@ -392,6 +390,7 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 					"image.jpg");
 				importDesktop->getInbox().addEmailToList(testEmail1);
 			}
+			delete inbox;
 		} else if (key == "Pipeline") {
 			if (PipelineLevelBuilder::LEVEL_MAP.find(file) ==
 				PipelineLevelBuilder::LEVEL_MAP.end()) {

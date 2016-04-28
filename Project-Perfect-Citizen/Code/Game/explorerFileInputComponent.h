@@ -66,7 +66,7 @@ namespace ppc {
 		void setFloatRect(sf::FloatRect rect);
 
 		virtual ~explorerFileInputComponent();
-		virtual bool registerInput(sf::Event ev) override;
+		virtual bool registerInput(Event ev) override;
 
 
 		Subject& onClick() { return onPress_; };

@@ -71,7 +71,8 @@ bool explorerFolderInputComponent::isCollision(sf::Vector2i mousePos) {
 }
 
 
-bool explorerFolderInputComponent::registerInput(sf::Event ev) {
+bool explorerFolderInputComponent::registerInput(Event ppcEv) {
+    sf::Event ev(ppcEv);
 	if (getEntity() != nullptr) {
 
 		/* Case: Mouse Pressed Event*/
@@ -80,7 +81,11 @@ bool explorerFolderInputComponent::registerInput(sf::Event ev) {
 				isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
 
 				/* Send the mouse down message regardless */
-				getEntity()->broadcastMessage(MOUSE_DOWN_CODE);
+				ppc::Event clickEvent;
+				clickEvent.type = Event::EventTypes::ButtonType;
+				clickEvent.buttons.state = Event::ButtonsEv::Clicked;
+				clickEvent.buttons.activation = Event::ButtonsEv::LeftMouse;
+				getEntity()->broadcastMessage(clickEvent);
 				onPress_.sendEvent(ev);
 
 				/* Handle Double Click Register */
@@ -137,6 +142,13 @@ bool explorerFolderInputComponent::registerInput(sf::Event ev) {
 			spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
 				elementFunctions, ev.mouseButton.x+containingWindow_->getPosition().x, ev.mouseButton.y + containingWindow_->getPosition().y);
 			theDesktop_.addWindow(ContextMenu);
+			}
+		else if (ev.mouseButton.button == sf::Mouse::Left) {
+			ppc::Event clickEvent;
+			clickEvent.type = Event::EventTypes::ButtonType;
+			clickEvent.buttons.state = Event::ButtonsEv::Release;
+			clickEvent.buttons.activation = Event::ButtonsEv::LeftMouse;
+			getEntity()->broadcastMessage(clickEvent);
 			}
 		}
 	}

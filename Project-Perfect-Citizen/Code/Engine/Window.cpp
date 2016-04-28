@@ -243,7 +243,8 @@ void Window::update(sf::Time& deltaTime) {
 
 
 
-void Window::registerInput(sf::Event ev) {
+void Window::registerInput(Event ppcEv) {
+    sf::Event ev(ppcEv);
     sf::Vector2f click;
     sf::FloatRect viewRect;
     sf::View currView = windowSpace_.getView();
@@ -276,7 +277,7 @@ void Window::registerInput(sf::Event ev) {
         break;
     }
 
-    inputHandler_.registerEvent(ev);
+    inputHandler_.registerEvent(ppcEv);
 }
 
 
