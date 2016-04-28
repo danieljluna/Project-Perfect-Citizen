@@ -93,20 +93,22 @@ bool ppc::mousePressButton::getIsClickable() {
 
 
 bool mousePressButton::isCollision(sf::Vector2i mousePos) {
+	bool result = false;
     //Gets the position as a Float Vector
     sf::Vector2f mouseFloatPos(float(mousePos.x), float(mousePos.y));
 	//cout << "MOUSE X, Y: " << mousePos.x << ",  " << mousePos.y << endl;
 	//cout << "ButtonRect LEFT, TOP: " << buttonRect.left << ",  "<< buttonRect.top << endl;
 
     //Returns if point is in foatRect
-    return buttonRect.contains(mouseFloatPos);
+	result = buttonRect.contains(mouseFloatPos);
+    return result;
 }
 
 
 bool mousePressButton::registerInput(Event ppcEv) {
     sf::Event ev(ppcEv);
     bool result = true;
-    if (!isClickable) {
+    if (isClickable) {
 
         ppcEv.type = Event::ButtonType;
 
@@ -136,7 +138,7 @@ bool mousePressButton::registerInput(Event ppcEv) {
                 wasPressed_ = true;
 
                 //SEND EVENT
-                getEntity()->broadcastMessage(ppcEv);
+                if(getEntity() != nullptr) getEntity()->broadcastMessage(ppcEv);
                 onPress_.sendEvent(ppcEv);
                 onAll_.sendEvent(ev);
             }
@@ -156,7 +158,7 @@ bool mousePressButton::registerInput(Event ppcEv) {
                     ppcEv.buttons.activation = Event::ButtonsEv::Enter;
                 }
 
-				getEntity()->broadcastMessage(ppcEv);
+				if (getEntity() != nullptr) getEntity()->broadcastMessage(ppcEv);
 				onRelease_.sendEvent(ppcEv);
                 onAll_.sendEvent(ev);
 				wasPressed_ = false;
@@ -167,7 +169,7 @@ bool mousePressButton::registerInput(Event ppcEv) {
 			if (isCollision({ ev.mouseButton.x, ev.mouseButton.y })) {
                 ppcEv.buttons.mousePos = { ev.mouseMove.x, ev.mouseMove.y };
                 ppcEv.buttons.state = Event::ButtonsEv::Hover;
-				getEntity()->broadcastMessage(ppcEv);
+				if (getEntity() != nullptr) getEntity()->broadcastMessage(ppcEv);
 				onHover_.sendEvent(ev);
                 onAll_.sendEvent(ev);
 			}

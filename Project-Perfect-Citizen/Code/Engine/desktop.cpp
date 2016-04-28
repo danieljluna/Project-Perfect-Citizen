@@ -251,7 +251,10 @@ void ppc::Desktop::setFrontTop(WindowInterface* front) {
     mousePressButton *mpb = new mousePressButton();
     mpb->setFloatRect(frontTop_->getBounds());
     mpb->setInputHandle(frontTop_->getInputHandler());
-    mpb->onClick().addObserver(ftObsvr);
+	mpb->onClick().addObserverToBack(ftObsvr);
+	mpb->onHover().addObserverToBack(ftObsvr);
+	mpb->onRelease().addObserverToBack(ftObsvr);
+    mpb->onAll().addObserverToBack(ftObsvr);
 
     frontTop_->addInputComponent(mpb);
 }
