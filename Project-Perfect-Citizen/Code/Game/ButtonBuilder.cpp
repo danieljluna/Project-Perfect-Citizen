@@ -1,4 +1,6 @@
 #include "ButtonBuilder.h"
+
+#include <SFML/Graphics.hpp>
 #include "buttonRenderComponent.h"
 #include "../Game/mousePressButton.h"
 #include "../Engine/debug.h"
@@ -131,7 +133,8 @@ void ppc::ButtonBuilder::create(Entity& e){
 
 	/* II: INPUT COMPONENT */
 	if (clickable) {
-		mpb = new mousePressButton(*inputHandle, buttonRender->getSprite()->getGlobalBounds());
+		sf::FloatRect rect(posX, posY, 64, 32);
+		mpb = new mousePressButton(*inputHandle, rect);
 		button_mpb = mpb;
 	}
 

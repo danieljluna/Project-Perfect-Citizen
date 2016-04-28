@@ -34,9 +34,6 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
             ContextMenu = new ppc::Window(200, 300, sf::Color(170, 170, 170));
             elementFunctions.push_back(&(ppc::make_icon_window));
 
-            ev.type = Event::OpenType;
-            ev.open.window = type_;
-
             switch (type_) {
 			case Event::OpenEv::Email:
 				spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
@@ -80,14 +77,12 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
                 break;
             }
 
-            onOpen_.sendEvent(ev);
-
             theDesktop_.addWindow(ContextMenu);
 
         } else if (ev.buttons.activation == ev.buttons.LeftMouse &&
                    ev.buttons.state == Event::ButtonsEv::DblClicked) {
 
-            WindowInterface* tempWin;
+            WindowInterface* tempWin = nullptr;
 
             switch (type_) {
                 // Case: Double Clicked Console Icon
@@ -195,6 +190,12 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
                 }
                 break;
             }
+
+            ev.type = Event::OpenType;
+            ev.open.window = tempWin;
+            ev.open.winType = type_;
+            onOpen_.sendEvent(ev);
+
         }
 
 	}

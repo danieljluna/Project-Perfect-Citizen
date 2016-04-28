@@ -27,6 +27,8 @@
 #include "../Game/desktopExtractionComponent.hpp"
 #include "../Game/PipelineLevelBuilder.h"
 
+#include "frontTopObserver.h"
+
 
 ppc::Desktop::Desktop() {
 	nodeState_.setUp();
@@ -241,6 +243,18 @@ ppc::Inbox& ppc::Desktop::getInbox() {
 
 void ppc::Desktop::setFrontTop(WindowInterface* front) {
 	frontTop_ = front;
+
+    frontTopObsvr* ftObsvr = new frontTopObsvr(*this);
+
+    mousePressButton *mpb = new mousePressButton();
+    mpb->setFloatRect(frontTop_->getBounds());
+    mpb->setInputHandle(frontTop_->getInputHandler());
+	mpb->onClick().addObserverToBack(ftObsvr);
+	mpb->onHover().addObserverToBack(ftObsvr);
+	mpb->onRelease().addObserverToBack(ftObsvr);
+    mpb->onAll().addObserverToBack(ftObsvr);
+
+    frontTop_->addInputComponent(mpb);
 }
 
 void ppc::Desktop::deleteFrontTop() {
@@ -250,8 +264,9 @@ void ppc::Desktop::deleteFrontTop() {
 	}
 }
 
-void ppc::Desktop::registerInput(Event ev) {
-	if (frontTop_ && 
+void ppc::Desktop::registerInput(Event ppcEv) {
+    sf::Event ev(ppcEv);
+	if ((frontTop_ != nullptr) && 
 		(ev.type == sf::Event::MouseButtonPressed || 
 			ev.type == sf::Event::MouseButtonReleased)) {
 		frontTop_->registerInput(ev);
@@ -261,11 +276,12 @@ void ppc::Desktop::registerInput(Event ev) {
 
 }
 
-void ppc::Desktop::registerInputFocused(sf::Event ev) {
+void ppc::Desktop::registerInputFocused(Event ppcEv) {
 //first check if the mouse clicked in the focused window.
 //if the window clicked in a window that wasnt focused,
 //then focus that window.
 //for any mouse event
+    sf::Event ev(ppcEv);
 	if (ev.type == sf::Event::MouseButtonPressed) {
 		for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 			sf::FloatRect winBounds = (*it)->getBounds();
