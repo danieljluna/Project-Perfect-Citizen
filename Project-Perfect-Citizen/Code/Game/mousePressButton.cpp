@@ -44,17 +44,13 @@ void mousePressButton::clearObservers()
 
 //void mousePressButton::addFunctionObserver(bool(*fnToAdd)(sf::Event &ev), mousePressButton* mpb, unsigned int placeToInsert)
 
-/*
-case ppc::Event::EventTypes::AbleType:
-    if (ev.able.disable == true) {
-        setIsClickable(false);
-        getEntity()->broadcastMessage(ev);
-    } else if (ev.able.enable == true) {
-        setIsClickable(true);
-        getEntity()->broadcastMessage(ev);
+void mousePressButton::recieveMessage(Event ev) {
+    switch (ev.type) {
+    case ppc::Event::EventTypes::AbleType:
+        setIsClickable(ev.able.enable);
+        break;
     }
-    break;
-    */
+}
 
 mousePressButton::~mousePressButton() {
 
@@ -174,7 +170,14 @@ bool mousePressButton::registerInput(Event ppcEv) {
                 onAll_.sendEvent(ev);
 			}
 		}
+    //Test to no longer be clickable
     }
+
+    if (ppcEv.type == Event::AbleType) {
+        setIsClickable(ppcEv.able.enable);
+        getEntity()->broadcastMessage(ev);
+    }
+
     return result;
 }
 

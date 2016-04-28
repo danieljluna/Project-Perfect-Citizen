@@ -83,6 +83,7 @@ public:
 	bool getIsClickable();
 	virtual ~mousePressButton();
 	virtual bool registerInput(Event ev) override;
+    void recieveMessage(Event ev) override;
 
 
     Subject& onClick() { return onPress_; };

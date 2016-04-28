@@ -110,4 +110,15 @@ void ppc::createTutorial(Desktop & dt) {
 
     dt.setFrontTop(floppyWindow);
 
+
+    //String Up Floppy------------------------------
+
+    //Connect Pipeline
+    BaseObserver* tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn);
+    dynamic_cast<iconInputComponent*>(graphIcon.getComponent(2))->onOpen().addObserver(tempObsvr);
+
+    //Conect FloppyEnd
+    tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn);
+    floppyIn->onSequenceEnd().addObserver(tempObsvr);
+
 }
