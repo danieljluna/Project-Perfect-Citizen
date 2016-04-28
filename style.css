@@ -1,0 +1,57 @@
+body {
+	background-color: black;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+a:visited {
+	color:#ffffff;
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+
+hr {
+	color:#00f500;
+}
+
+.title_head {
+	font-family: monospace;
+	color:#00f500;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.content {
+	color:#00f500;
+}
+
+.sidebar_menu {
+	font-family: monospace;
+	width: 300px;
+	text-align: left;
+}
+
+.sidebar_menu_item:hover {
+	background-color:rgba(0,245,0,0.68);
+	color:#ffffff;
+	width: inherit;
+	list-style-type: none;
+	padding: 6px;	
+}
+
+.sidebar_menu_item {
+	background-color:#000000;
+	color:#00f500;
+	width: inherit;
+	list-style-type: none;
+	padding: 6px;
+}
