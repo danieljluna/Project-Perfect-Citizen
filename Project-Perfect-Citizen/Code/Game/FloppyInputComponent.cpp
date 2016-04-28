@@ -183,19 +183,26 @@ bool ppc::incrementFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 
 	/* Advance the frame state to be one more than
 	the stored value */
-	ptr->advanceFrame();
+    if (ptr->getFrame() != -1) {
+        ptr->advanceFrame();
+    }
+
+    ppc::Event ppcEv;
 
 	/* Alert observers if beyond sequence length (return both -1)*/
 	if (ptr->getFrame() == -1) {
-		ppc::Event ppcEv;
+        ppcEv.type = Event::AbleType;
+        ppcEv.able.enable = false;
+        ptr->getEntity()->broadcastMessage(ppcEv);
+
+		
 		ppcEv.type = ppc::Event::FloppyType;
-		ppcEv.floppy.sequence = ev.floppy.sequence;
+		ppcEv.floppy.sequence = ptr->getSequence();
 		ppcEv.floppy.frame = -1;
 		ptr->onSequenceEnd().sendEvent(ppcEv);
 	}
 	/* Create and send a new event to the entity
 	with the updated frame */
-	ppc::Event ppcEv(ev);
 	ppcEv.type = ppc::Event::FloppyType;
 	ppcEv.floppy.sequence = ptr->getSequence();
 	ppcEv.floppy.frame = ptr->getFrame();
