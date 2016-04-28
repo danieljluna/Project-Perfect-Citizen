@@ -23,6 +23,7 @@
 #include "../Engine/frontTopObserver.h"
 
 #include "iconInputComponent.h"
+#include "../Engine/SuspiciousFileHolder.h"
 
 void ppc::createTutorial(Desktop & dt) {
 
@@ -66,7 +67,21 @@ void ppc::createTutorial(Desktop & dt) {
 	dt.getDesktopWindow()->addEntity(emailIcon);
 	dt.getDesktopWindow()->addEntity(helpIcon);
 
-	//Floppy begins here
+	////////////////////////////////////////
+	// SUSPICIOUS FILES TEST HERE
+	//////////////////////////////////////
+	SuspiciousFileHolder* fH = nullptr;
+
+	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
+	spawnFileTracker(dt, fileTracker, fileTracker->getInputHandler(), fH, 250, 50);
+
+	dt.addWindow(fileTracker);
+
+
+	
+	////////////////////////////////////////
+	// FLOPPY BEGINS HERE
+	//////////////////////////////////////
 	Window* floppyWindow = new Window(1800, 1000, sf::Color::Transparent);
 
 	dt.setFrontTop(floppyWindow);
@@ -97,7 +112,6 @@ void ppc::createTutorial(Desktop & dt) {
 	mpb->onDblClick().addObserverToBack(frontTopObsv);
 	mpb->onRelease().addObserverToBack(frontTopObsv);
 	mpb->onHover().addObserverToBack(frontTopObsv);
-
 
 	floppyEntity.addComponent(tbr);
 	floppyEntity.addComponent(floppy);
