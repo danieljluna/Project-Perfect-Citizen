@@ -137,19 +137,14 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         //If we just ended a frame
         if (ev.floppy.frame == -1) {
             //If we just ended the Welcome
-            if (ev.floppy.sequence == FloppyInputComponent::Floppy_Sequence_Names.at("Welcome")) {
+            if (ev.floppy.sequence != 2) {
                 wasSummoned = true;
-                ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("Connections");
                 ev.floppy.frame = 0;
-            } else if (ev.floppy.sequence == FloppyInputComponent::Floppy_Sequence_Names.at("Connections")) {
-                wasSummoned = true;
-                ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("Edges");
-                ev.floppy.frame = 0;
+                ++ev.floppy.sequence;
             }
         } else {
             wasSummoned = true;
         }
-
 
         break;
     case Event::OpenType:
