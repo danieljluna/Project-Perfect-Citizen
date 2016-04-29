@@ -1,0 +1,5 @@
+-DesktopStart
+Default: T: This is a placeholder for the DE tutorial
+Default: F: This is a second message
+-NewSequence
+Default: F: This is a test of a second sequence
