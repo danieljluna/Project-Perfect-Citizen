@@ -6,6 +6,8 @@
 #include "../Engine/subject.h"
 #include "../Engine/inputComponent.h"
 #include "../Engine/event.h"
+#include "../Game/buttonRenderComponent.h"
+#include "../Game/mousePressButton.h"
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -23,6 +25,9 @@ namespace ppc {
 		unsigned int sequence;
 		unsigned int frame;
 		Subject onSequenceEnd_;
+
+		buttonRenderComponent* floppyBtnRndr = nullptr;
+		mousePressButton* floppyBtnInpt = nullptr;
 	
 	public:
 
@@ -73,6 +78,11 @@ namespace ppc {
         virtual bool registerInput(Event ev) override;
 
 		Subject& onSequenceEnd() { return onSequenceEnd_; };
+
+		void setFloppyButtonRenderCmpt(buttonRenderComponent*);
+		void setFloppyButtonInputCmpt(mousePressButton*);
+
+		void setFloppyButton(bool);
 
 	};
 

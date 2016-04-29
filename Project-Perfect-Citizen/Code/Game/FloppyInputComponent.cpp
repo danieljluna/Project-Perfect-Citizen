@@ -29,6 +29,7 @@ bool FloppyInputComponent::initialized = false;
 std::map<std::string, unsigned int> FloppyInputComponent::Floppy_Sequence_Names;
 
 FloppyInputComponent::FloppyInputComponent() {
+
     if (!initialized) {
         initializeFloppyDict();
     }
@@ -127,6 +128,25 @@ void ppc::FloppyInputComponent::advanceSequence() { sequence++; }
 void ppc::FloppyInputComponent::regressSequence() { sequence--; }
 
 bool ppc::FloppyInputComponent::registerInput(Event ev) { return true; }
+
+void ppc::FloppyInputComponent::setFloppyButtonRenderCmpt(buttonRenderComponent * brc)
+{
+	floppyBtnRndr = brc;
+}
+
+void ppc::FloppyInputComponent::setFloppyButtonInputCmpt(mousePressButton * mpb)
+{
+	floppyBtnInpt = mpb;
+}
+
+void ppc::FloppyInputComponent::setFloppyButton(bool able)
+{
+	ppc::Event ppcEv;
+	ppcEv.type = ppc::Event::EventTypes::AbleType;
+	ppcEv.able.enable = able;
+	floppyBtnInpt->recieveMessage(ppcEv);
+	floppyBtnRndr->recieveMessage(ppcEv);
+}
 
 bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
     bool wasSummoned = false;
