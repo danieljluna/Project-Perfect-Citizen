@@ -86,8 +86,13 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	Entity startButton;
 	spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
     
+	Entity suspicionButton;
+	spawnSuspicionButton(suspicionButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 100, 14, 0.20f);
+
+
     startToolbar->addEntity(startBar);
     startToolbar->addEntity(startButton);
+	startToolbar->addEntity(suspicionButton);
 	desktopToModify.addWindow(startToolbar);
 
 	////////////////////////////////
