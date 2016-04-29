@@ -32,7 +32,7 @@ namespace ppc {
 		virtual void addEntity(Entity& entity);
 
 		virtual void update(sf::Time& deltaTime);
-		virtual void registerInput(sf::Event);
+		virtual void registerInput(Event);
 		virtual void refresh(sf::RenderStates states = sf::RenderStates());
 	};
 };

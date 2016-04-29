@@ -17,6 +17,7 @@ namespace ppc {
 	private:
 
 		Desktop& theDesktop_;
+		WindowInterface* containingWindow_;
 		NodeState theFileTree_;
 		sf::FloatRect buttonRect;
 		sf::Image& buttonSheet_;
@@ -35,7 +36,8 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		///@brief Ctor
 		///////////////////////////////////////////////////////////////////////
-		explorerFileInputComponent(Desktop& dt, ppc::InputHandler& ih, NodeState& ns, sf::Image& bS, sf::FloatRect rect, std::string directoryName);
+		explorerFileInputComponent(Desktop& dt, WindowInterface* cW,
+			ppc::InputHandler& ih, NodeState& ns, sf::Image& bS, sf::FloatRect rect, std::string directoryName);
 
 		///////////////////////////////////////////////////////////////////////
 		///@brief Removes all the current observers in the observerArray_
@@ -64,7 +66,7 @@ namespace ppc {
 		void setFloatRect(sf::FloatRect rect);
 
 		virtual ~explorerFileInputComponent();
-		virtual bool registerInput(sf::Event ev) override;
+		virtual bool registerInput(Event ev) override;
 
 
 		Subject& onClick() { return onPress_; };
@@ -81,5 +83,8 @@ namespace ppc {
 		eFIC->onRelease().addObserver(fnObsvr);
 
 	}
+
+	bool open_file(Desktop*, ppc::Event);
+	bool flag_file(Desktop*, ppc::Event);
 
 };

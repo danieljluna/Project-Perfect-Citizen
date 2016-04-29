@@ -116,46 +116,49 @@ bool buttonRenderComponent::willAnimate() {
     return _willAnimate;
 }
 
+void ppc::buttonRenderComponent::setRenderable(bool r){
+	_willRender = r;
+}
+
 
 void buttonRenderComponent::draw( sf::RenderTarget& target,
 	sf::RenderStates states) const {
-        target.draw(*sprite, states);
-        if (getButtonType() == "ICON") {
 
-            //states.transform.translate(sprite->getPosition());
-            //states.transform.scale(1.3, 1.3, 0, 0);
+		if (_willRender) target.draw(*sprite, states);
 
-            //target.draw(badge_, states);
-            //target.draw(notificationText_, states);
-        }
+        //if (getButtonType() == "ICON") {
+
+        //    states.transform.translate(sprite->getPosition());
+        //    states.transform.scale(1.3, 1.3, 0, 0);
+
+        //    target.draw(badge_, states);
+        //    target.draw(notificationText_, states);
+        //}
 }
 
-void buttonRenderComponent::recieveMessage(msgType code) {
-    if (_buttonType == BUTTON_TYPE) {
-        if(code.compare(MOUSE_DOWN_CODE) == 0)
-            setSprite(xIndex+width, yIndex, width);
-        if(code.compare(MOUSE_RELEASED_CODE) == 0)
-            setSprite(xIndex, yIndex, width);
-    } else {
-       if(code.compare(MOUSE_DOUBLE_CLICK_CODE) == 0)
-           _willAnimate = true;
-    }
-	if (code == OPEN_EMAIL) {
-		setSprite(xIndex + width, yIndex, width);
-	}
-}
 
 void buttonRenderComponent::recieveMessage(ppc::Event ev) {
 	switch (ev.type) {
 	case Event::EventTypes::ButtonType:
-		if (ev.buttons.isPushed) {
+		if (ev.buttons.state == ev.buttons.Clicked &&
+			ev.buttons.activation != ev.buttons.RightMouse) {
 			setSprite(xIndex + width, yIndex, width);
 		}
-		if (ev.buttons.isReleased){
+		if (ev.buttons.state == ev.buttons.Release &&
+			ev.buttons.activation != ev.buttons.RightMouse) {
 			setSprite(xIndex, yIndex, width);
 		}
+		break;
+	case Event::EventTypes::AbleType:
+		setRenderable(ev.able.enable);
+		break;
+	case Event::EventTypes::OpenType:
+		if (ev.open.winType = Event::OpenEv::Email) {
+		setSprite(xIndex + width, yIndex, width);
+	}
 		break;
 	default:
 		break;
 	}
 }
+

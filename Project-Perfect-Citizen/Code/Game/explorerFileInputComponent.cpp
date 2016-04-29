@@ -14,8 +14,10 @@ const std::string MOUSE_RELEASED_CODE = "MRC";
 const float DOUBLE_CLICK_TIME = 500.0f;
 
 
-explorerFileInputComponent::explorerFileInputComponent(Desktop& dt, ppc::InputHandler& ih, NodeState& ns, sf::Image& bS, sf::FloatRect rect, std::string fN) :
-	InputComponent(2), theDesktop_(dt), theFileTree_(ns), buttonSheet_(bS), buttonRect(rect), fileName(fN) {
+explorerFileInputComponent::explorerFileInputComponent(Desktop& dt, WindowInterface* cW,
+	ppc::InputHandler& ih, NodeState& ns, sf::Image& bS, sf::FloatRect rect, std::string fN) :
+	InputComponent(2), theDesktop_(dt), containingWindow_(cW),theFileTree_(ns), buttonSheet_(bS), 
+	buttonRect(rect), fileName(fN) {
 
 	//add a new subject that is tied to the event
 	ih.addHandle(sf::Event::MouseButtonPressed);
@@ -68,7 +70,8 @@ bool explorerFileInputComponent::isCollision(sf::Vector2i mousePos) {
 }
 
 
-bool explorerFileInputComponent::registerInput(sf::Event ev) {
+bool explorerFileInputComponent::registerInput(Event ppcEv) {
+    sf::Event ev(ppcEv);
 	if (getEntity() != nullptr) {
 
 		/* Case: Mouse Pressed Event*/
@@ -94,9 +97,32 @@ bool explorerFileInputComponent::registerInput(sf::Event ev) {
 		}
 		/* Case: Mouse Released Event*/
 		else if (ev.type == sf::Event::MouseButtonReleased) {
-
+		if (ev.mouseButton.button == sf::Mouse::Right &&
+			isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
+			ppc::WindowInterface* ContextMenu =
+				new ppc::Window(200, 300, sf::Color(170, 170, 170));
+			std::vector<std::string> elementNames;
+			std::vector<bool(*)(Desktop*, Event ev)> elementFunctions;
+			elementNames.push_back("Open");
+			elementFunctions.push_back(&(ppc::open_file));
+			elementNames.push_back("Flag");
+			elementFunctions.push_back(&(ppc::flag_file));
+			spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
+				elementFunctions, ev.mouseButton.x+containingWindow_->getPosition().x, 
+				ev.mouseButton.y + containingWindow_->getPosition().y);
+			theDesktop_.addWindow(ContextMenu);
+			}
 		}
 	}
+	return true;
+}
 
+bool ppc::open_file(Desktop* ptr, ppc::Event ev) {
+	cout << " open the file " << endl;
+	return true;
+}
+
+bool ppc::flag_file(Desktop* ptr, ppc::Event ev) {
+	cout << " flag this file " << endl;
 	return true;
 }

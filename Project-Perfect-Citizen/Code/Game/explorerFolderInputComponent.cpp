@@ -71,7 +71,8 @@ bool explorerFolderInputComponent::isCollision(sf::Vector2i mousePos) {
 }
 
 
-bool explorerFolderInputComponent::registerInput(sf::Event ev) {
+bool explorerFolderInputComponent::registerInput(Event ppcEv) {
+    sf::Event ev(ppcEv);
 	if (getEntity() != nullptr) {
 
 		/* Case: Mouse Pressed Event*/
@@ -80,7 +81,11 @@ bool explorerFolderInputComponent::registerInput(sf::Event ev) {
 				isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
 
 				/* Send the mouse down message regardless */
-				getEntity()->broadcastMessage(MOUSE_DOWN_CODE);
+				ppc::Event clickEvent;
+				clickEvent.type = Event::EventTypes::ButtonType;
+				clickEvent.buttons.state = Event::ButtonsEv::Clicked;
+				clickEvent.buttons.activation = Event::ButtonsEv::LeftMouse;
+				getEntity()->broadcastMessage(clickEvent);
 				onPress_.sendEvent(ev);
 
 				/* Handle Double Click Register */
@@ -123,9 +128,40 @@ bool explorerFolderInputComponent::registerInput(sf::Event ev) {
 		}
 		/* Case: Mouse Released Event*/
 		else if (ev.type == sf::Event::MouseButtonReleased) {
-			
+		if (ev.mouseButton.button == sf::Mouse::Right &&
+			isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
+			// Spawn Context menu with Open | Flag
+			ppc::WindowInterface* ContextMenu =
+				new ppc::Window(200, 300, sf::Color(170, 170, 170));
+			std::vector<std::string> elementNames;
+			std::vector<bool(*)(Desktop*, Event ev)> elementFunctions;
+			elementNames.push_back("Open");
+			elementFunctions.push_back(&(ppc::open_folder));
+			elementNames.push_back("Flag");
+			elementFunctions.push_back(&(ppc::flag_folder));
+			spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
+				elementFunctions, ev.mouseButton.x+containingWindow_->getPosition().x, ev.mouseButton.y + containingWindow_->getPosition().y);
+			theDesktop_.addWindow(ContextMenu);
+			}
+		else if (ev.mouseButton.button == sf::Mouse::Left) {
+			ppc::Event clickEvent;
+			clickEvent.type = Event::EventTypes::ButtonType;
+			clickEvent.buttons.state = Event::ButtonsEv::Release;
+			clickEvent.buttons.activation = Event::ButtonsEv::LeftMouse;
+			getEntity()->broadcastMessage(clickEvent);
+			}
 		}
 	}
 
+	return true;
+}
+
+bool ppc::open_folder(Desktop* ptr, ppc::Event ev) {
+	cout << " open the folder " << endl;
+	return true;
+}
+
+bool ppc::flag_folder(Desktop* ptr, ppc::Event ev) {
+	cout << " flag this folder " << endl;
 	return true;
 }

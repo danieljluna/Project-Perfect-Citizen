@@ -27,6 +27,8 @@
 #include "../Game/desktopExtractionComponent.hpp"
 #include "../Game/PipelineLevelBuilder.h"
 
+#include "frontTopObserver.h"
+
 
 ppc::Desktop::Desktop() {
 	nodeState_.setUp();
@@ -37,15 +39,14 @@ ppc::Desktop::Desktop() {
 	backgndTexture_ = sf::Texture();
 	desktopWindow_ = nullptr;
 	focused_ = nullptr;
+	frontTop_ = nullptr;
+
+
 }
 
-ppc::Desktop::Desktop(WindowInterface* bkgndWin, NodeState n) {
+ppc::Desktop::Desktop(WindowInterface* bkgndWin, NodeState n) :
+          Desktop() {
 	nodeState_ = n;
-	iconSheet_ = sf::Image();
-	buttonSheet_ = sf::Image();
-	inbox_ = ppc::Inbox();
-	background_ = sf::Sprite();
-	backgndTexture_ = sf::Texture();
 	windows_.push_back(bkgndWin);
 	desktopWindow_ = bkgndWin;
 	focused_ = desktopWindow_;
@@ -56,6 +57,7 @@ ppc::Desktop::Desktop(const Desktop& other) {
 	this->nodeState_ = other.nodeState_;
 	this->windows_ = other.windows_;
 	this->desktopWindow_ = other.desktopWindow_;
+	this->frontTop_ = other.frontTop_;
 	this->focused_ = other.focused_;
 	this->iconSheet_ = other.iconSheet_;
 	this->buttonSheet_ = other.buttonSheet_;
@@ -64,15 +66,15 @@ ppc::Desktop::Desktop(const Desktop& other) {
 
 ppc::Desktop::~Desktop() {
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-		if (*it != desktopWindow_) {
 			delete *it;
-		}
 	}
 
 	for (auto it = netVec_.begin(); it != netVec_.end(); ++it) {
 		delete *it;
 	}
 
+	if(frontTop_) delete frontTop_;
+	frontTop_ = nullptr;
 	focused_ = nullptr;
 	desktopWindow_ = nullptr;
 	windows_.clear();
@@ -120,9 +122,13 @@ void ppc::Desktop::draw(sf::RenderTarget& target,
 	//Draw the background image here first.
 	//then:
 	//Using reverse itors
+	
 	for (auto it = windows_.rbegin(); it != windows_.rend(); ++it) {
 		target.draw(*(*it), states);
 	}
+
+	if (frontTop_) target.draw(*frontTop_, states);
+	
 }
 
 
@@ -191,7 +197,6 @@ sf::Image& ppc::Desktop::getButtonSheet() {
 	return buttonSheet_;
 }
 
-
 ppc::NodeState* ppc::Desktop::getNodeState() {
 	return &nodeState_;
 }
@@ -236,31 +241,66 @@ ppc::Inbox& ppc::Desktop::getInbox() {
 	return inbox_;
 }
 
-void ppc::Desktop::registerInput(sf::Event ev) {
-	//first check if the mouse clicked in the focused window.
-	//if the window clicked in a window that wasnt focused,
-	//then focus that window.
-	//for any mouse event
+void ppc::Desktop::setFrontTop(WindowInterface* front) {
+	frontTop_ = front;
+
+    frontTopObsvr* ftObsvr = new frontTopObsvr(*this);
+
+    mousePressButton *mpb = new mousePressButton();
+    mpb->setFloatRect(frontTop_->getBounds());
+    mpb->setInputHandle(frontTop_->getInputHandler());
+	mpb->onClick().addObserverToBack(ftObsvr);
+	mpb->onHover().addObserverToBack(ftObsvr);
+	mpb->onRelease().addObserverToBack(ftObsvr);
+    mpb->onAll().addObserverToBack(ftObsvr);
+
+    frontTop_->addInputComponent(mpb);
+}
+
+void ppc::Desktop::deleteFrontTop() {
+	if (frontTop_) {
+		delete frontTop_;
+		frontTop_ = nullptr;
+	}
+}
+
+void ppc::Desktop::registerInput(Event ppcEv) {
+    sf::Event ev(ppcEv);
+	if ((frontTop_ != nullptr) && 
+		(ev.type == sf::Event::MouseButtonPressed || 
+			ev.type == sf::Event::MouseButtonReleased)) {
+		frontTop_->registerInput(ev);
+	} else {
+		registerInputFocused(ev);
+	}
+
+}
+
+void ppc::Desktop::registerInputFocused(Event ppcEv) {
+//first check if the mouse clicked in the focused window.
+//if the window clicked in a window that wasnt focused,
+//then focus that window.
+//for any mouse event
+    sf::Event ev(ppcEv);
 	if (ev.type == sf::Event::MouseButtonPressed) {
 		for (auto it = windows_.begin(); it != windows_.end(); ++it) {
 			sf::FloatRect winBounds = (*it)->getBounds();
 			if (winBounds.contains(float(ev.mouseButton.x), float(ev.mouseButton.y))) {
 				focusWindow(*it);
-                break;
+				break;
 			}
 		}
 	}
 
-    if (ev.type == sf::Event::MouseMoved) {
-        ev.mouseMove.x -= int(focused_->getPosition().x);
-        ev.mouseMove.y -= int(focused_->getPosition().y);
-    } else if ((ev.type == sf::Event::MouseButtonPressed) || (ev.type == sf::Event::MouseButtonReleased)){
-        ev.mouseButton.x -= int(focused_->getPosition().x);
-        ev.mouseButton.y -= int(focused_->getPosition().y);
-    }
-	
-	focused_->registerInput(ev);
+	if (ev.type == sf::Event::MouseMoved) {
+		ev.mouseMove.x -= int(focused_->getPosition().x);
+		ev.mouseMove.y -= int(focused_->getPosition().y);
+	} else if ((ev.type == sf::Event::MouseButtonPressed) || (ev.type == sf::Event::MouseButtonReleased)) {
+		ev.mouseButton.x -= int(focused_->getPosition().x);
+		ev.mouseButton.y -= int(focused_->getPosition().y);
+	}
 
+	focused_->registerInput(ev);
 }
 
 void ppc::Desktop::update(sf::Time& deltaTime){
@@ -274,7 +314,6 @@ void ppc::Desktop::update(sf::Time& deltaTime){
 		} else {
 			++i;
 		}
-
 		//dont increment if you delete it
 	}
 }
@@ -284,6 +323,8 @@ void ppc::Desktop::refresh(sf::RenderStates states) {
 	for (auto it = windows_.rbegin(); it != windows_.rend(); ++it) {
 		(*it)->refresh(states);
 	}
+
+	if (frontTop_) frontTop_->refresh(states);
 }
 
 bool ppc::Desktop::isMouseCollision(WindowInterface* wi,
@@ -313,7 +354,8 @@ void ppc::Desktop::clearDesktop() {
 	desktopWindow_ = nullptr;
 	focused_ = nullptr;
 	windows_.clear();
-
+	if (frontTop_) delete frontTop_;
+	frontTop_ = nullptr;
 
 }
 
@@ -356,7 +398,7 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 			inbox->parseEmailAsJson(file);
 			
 			for (unsigned int i = 0; i < inbox->getSubject().size(); i++) {
-				ppc::Email testEmail1(inbox->getTo().at(i),
+				ppc::Email* testEmail1 = new Email(inbox->getTo().at(i),
 					inbox->getFrom().at(i),
 					inbox->getSubject().at(i),
 					inbox->getBody().at(i),
@@ -364,6 +406,7 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 					"image.jpg");
 				importDesktop->getInbox().addEmailToList(testEmail1);
 			}
+			delete inbox;
 		} else if (key == "Pipeline") {
 			if (PipelineLevelBuilder::LEVEL_MAP.find(file) ==
 				PipelineLevelBuilder::LEVEL_MAP.end()) {

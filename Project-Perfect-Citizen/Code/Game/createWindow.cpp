@@ -1,7 +1,9 @@
 #ifdef WINDOWS_MARKER
 #define resourcePath() string("Resources/")
+#define MAC 0
 #else
 #include "ResourcePath.hpp"
+#define MAC 1
 #endif
 
 #include "createWindow.h"
@@ -58,6 +60,8 @@
 #include "../Game/TextBoxBuilder.h"
 
 #include "../Game/HelpRenderComponent.hpp"
+#include "../Game/readingMacDirectory.hpp"
+
 
 using namespace ppc;
 
@@ -271,6 +275,14 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     windowToModify->addEntity(tab1);
     windowToModify->addEntity(help);
     
+    sf::FloatRect viewRect = {
+        0.0f,
+        0.0f,
+        float(windowToModify->getSize().x),
+        float(windowToModify->getSize().y / 1.5)
+    };
+    windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
+    
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 }
@@ -302,7 +314,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	//Desktop* currDesk = &World::getCurrDesktop();
 	int netvecindex = World::getCurrDesktop().getNetVecIndex();
 	Network* solNet;
-	if (!World::getCurrDesktop().getNetVec().empty()) {
+	if (netvecindex < World::getCurrDesktop().getNetVec().size()) {
 		solNet = World::getCurrDesktop().getNetVec().at(netvecindex);
 	} else {
 		solNet = PipelineLevelBuilder::buildDefaultNetwork();
@@ -369,7 +381,14 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
 	float x, float y, string filename, string p) {
     if (windowToModify == nullptr) return; 
     
+    if(MAC){
+        readingMacDirectory* dir = new readingMacDirectory();
+        p = dir->getDirectory(p);
+        delete(dir);
+    }
+    
     string path = resourcePath() + p;
+    //std::cout <<  "\n" + path +  "\n" << std::endl;
     string dotEnd;
     
     if (!path.empty()) dotEnd = path.substr(path.length() - 4);
@@ -477,7 +496,7 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	///////////////////////////////////////
 	/* Create an email list element entity for each email in the inbox*/
 	for (int i = 0; i < inbox.getInboxSize(); ++i) {
-		if (inbox.getEmailAt(i).getVisible() == false) continue;
+		if (inbox.getEmailAt(i)->getVisible() == false) continue;
 		Entity emailListElement;
         createEmailListElement(
 			emailListElement, dT, buttonSheet, ih, myFont, inbox.getEmailAt(i), 0, (totalEmailsLoaded * (emailBoxElementHeight+emailBoxPadding)),
@@ -517,7 +536,7 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 
 }
 
-void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email& mail, sf::Image& buttonSheet, float x, float y) {
+void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email* mail, sf::Image& buttonSheet, float x, float y) {
 	if (windowToModify == nullptr) { return; }
 
 	/////////////////////////////////////////
@@ -527,7 +546,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 20;
 
-	string content = mail.getContentField();
+	string content = mail->getContentField();
 	int lineCount = 1;
 	int lineMultiplier = 23;
 	int preLineCount = 6;
@@ -567,7 +586,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
-	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(mail.getAbbrevSubjectField());
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(mail->getAbbrevSubjectField());
 }
 
 
@@ -600,6 +619,8 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	float buttonY = (2 * (windowHeight / 3));
 	spawnAlertIcon(alertIcon, ih, buttonSheet, alertX, alertY, 0.5f);
 
+	float newWindowWidth = ((windowWidth)-(eMRC->getText()->getLocalBounds().width - windowWidth));
+
 	Entity errorMessageDisplayBox;
 	errorMessageDisplayBox.addComponent(eMRC);
 
@@ -623,9 +644,12 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	windowToModify->addEntity(alertIcon);
 	//windowToModify->addEntity(ent);
 	windowToModify->setPosition(x, y);
+	//windowToModify->setSize(sf::Vector2u(newWindowWidth, windowHeight));
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Error");
+	
+
 }
 void ppc::spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message) {
     if (windowToModify == nullptr) { return; }
@@ -721,6 +745,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	///////////////////////////////////////
 
 	float viewHeight = static_cast<float>(windowToModify->getSize().y) / 2;
+    windowToModify->setPosition(x, y);
 
 	/* Create a scroll bar if the new explorer window is greater than 100px*/
 	if (viewHeight > 100.0f) {
@@ -730,6 +755,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 			float(windowToModify->getSize().x),
 			viewHeight
 		};
+        
 		windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
 	}
 
@@ -737,11 +763,11 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	string pwd = "C:/";
 
 	for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {
+        cout << *iter + "dasdasdas";
 		pwd += *iter;
 		pwd.push_back('/');
 	}
 	
-	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(pwd);

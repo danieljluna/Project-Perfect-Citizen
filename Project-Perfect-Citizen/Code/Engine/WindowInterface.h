@@ -3,13 +3,13 @@
 
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/System/Time.hpp>
-#include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/View.hpp>
 
 #include "inputComponent.h"
 #include "updateComponent.h"
 #include "renderComponent.h"
 #include "entity.h"
+#include "event.h"
 
 
 namespace ppc {
@@ -274,7 +274,7 @@ public:
     ///////////////////////////////////////////////////////////////////
     /// @brief Reacts to Input for this, and all objects in the Window.
     ///////////////////////////////////////////////////////////////////
-    virtual void registerInput(sf::Event) = 0;
+    virtual void registerInput(Event) = 0;
 
 	///////////////////////////////////////////////////////////////////
 	///@brief Refreshes the Window so it is ready to draw again.

@@ -150,7 +150,6 @@ bool ppc::spawnStartMenu(Desktop* ptr, Event ev) {
 	std::vector<bool(*)(Desktop*, Event ev)> elementFunctions;
 	elementNames.push_back("Log Off");
 	elementFunctions.push_back(&(ppc::LogOff));
-	
 	spawnContextMenu(*ptr, ContextMenu, ContextMenu->getInputHandler(), elementNames,
 		elementFunctions, 0, 700-((elementNames.size()-1)*20));
 	ptr->addWindow(ContextMenu);
@@ -167,7 +166,10 @@ bool ppc::displayFloppy(FloppyInputComponent* ptr, Event ev) {
 }
 
 bool ppc::LogOff(Desktop* ptr, Event ev) {
-	cout << "Implement Log Off" << endl;
+	ppc::WindowInterface* ConfirmationWindow =
+		new ppc::Window(600, 150, sf::Color(170, 170, 170));
+	spawnErrorMessage(ConfirmationWindow, ConfirmationWindow->getInputHandler(), ptr->getButtonSheet(), 300, 300, "Are you sure you want to log off?");
+	ptr->addWindow(ConfirmationWindow);
 	return true;
 }
 

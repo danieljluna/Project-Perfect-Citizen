@@ -38,16 +38,6 @@ is to be taught includes a minimum of 8
 hours of classroom training and as many 
 hours as needed range training.
 
-Classroom training topics must include:
-
-
-
-
-
-
-
-
-
 Laws regarding possession and carrying of 
 firearms
 Laws and standards regarding the use of 
@@ -61,14 +51,6 @@ them
 Weapon handling and shooting fundamentals
 A classroom examination and achieving a 
 score of at least 85%
-
-Range Training must include:
-
-
-
-
-
-
 
 Review of range safety, basic marksmanship, 
 and how to draw the firearm.
@@ -85,15 +67,6 @@ score per round for head/body hit
 Attaining a firing score of 80% (200 points) 
 per caliber of weapon fired
 
-STATE OF CALIFORNIA—BUSINESS, CONSUMER 
-SERVICES, AND HOUSING AGENCY GOVERNOR EDMUND 
-G. BROWN JR.
-
-BUREAU OF SECURITY AND INVESTIGATIVE SERVICES
-P.O. Box 989002
-West Sacramento, CA 95798-9002
-(916) 322-4000 (800) 952-5210
-Fax (916) 575-7290 www.bsis.ca.gov
 
 APPLICATION FOR FIREARMS PERMIT
 ALL FEES ARE NON-REFUNDABLE
@@ -144,15 +117,10 @@ State, and Zip Code:
 Driver’s License Number:
 
 Date of Birth (Month, Day, Year)
-2.
-
-3.
-
 
 Social Security Number:
 Telephone Number:
-----(
-)
+
 If you are licensed, please select the box 
 that describes your license type. If you are 
 applying for a license, write “applying” in 
@@ -199,7 +167,6 @@ Please answer the following question. If you
 answer “Yes”, please provide a supplementary 
 explanation.
 
-
 
 Have you ever been convicted of, or pled 
 guilty or nolo contendere to ANY criminal or 
@@ -225,7 +192,6 @@ be disclosed.
 Yes
 No
 
-
 
 Is any criminal action pending against you, 
 or are you currently awaiting judgment and 
@@ -272,14 +238,15 @@ the application may be
 grounds for denial or subsequent revocation 
 of a firearm permit.
 _____________________________________________
-_____________
+
 Applicant Signature:
 
 __________________________
 Date:
 1
 
-Name of Applicant:
+
+    Name of Applicant:
 
 (list permit number for renewal applicants)
 
@@ -407,7 +374,8 @@ _______________________________
 Print Instructor Name:
 2
 
-GENERAL INFORMATION FOR COMPLETING FIREARM 
+
+    GENERAL INFORMATION FOR COMPLETING FIREARM
 PERMIT APPLICATION
 EXPLANATION OF SECTIONS ON APPLICATION FORM
 All sections of the application must be 
@@ -554,7 +522,8 @@ e-mail at dca@dca.ca.gov.
 
 3
 
-Firearms Application Checklist
+
+    Firearms Application Checklist
 Application - Complete every section of the 
 application. If a section of the application 
 does not apply to
@@ -669,6 +638,4 @@ records are exempt by Civil Code
 section 1798.40.
 
 ALL FEES ARE NON-REFUNDABLE
-
-
 

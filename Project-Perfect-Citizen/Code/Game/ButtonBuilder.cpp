@@ -1,4 +1,6 @@
 #include "ButtonBuilder.h"
+
+#include <SFML/Graphics.hpp>
 #include "buttonRenderComponent.h"
 #include "../Game/mousePressButton.h"
 #include "../Engine/debug.h"
@@ -82,6 +84,16 @@ void ppc::ButtonBuilder::setInputHandle(ppc::InputHandler& ih)
 	inputHandle = &ih;
 }
 
+void ppc::ButtonBuilder::setIsDisabled(bool d)
+{
+	disabled = d;
+}
+
+ppc::mousePressButton * ppc::ButtonBuilder::getMousePressButton()
+{
+	return button_mpb;
+}
+
 void ppc::ButtonBuilder::create(Entity& e){
 
 	/* I: RENDER COMPONENTS */
@@ -121,7 +133,15 @@ void ppc::ButtonBuilder::create(Entity& e){
 
 	/* II: INPUT COMPONENT */
 	if (clickable) {
-		mpb = new mousePressButton(*inputHandle, buttonRender->getSprite()->getGlobalBounds(), "GENERIC_BUTTON");
+		sf::FloatRect rect(posX, posY, 64, 32);
+		mpb = new mousePressButton(*inputHandle, rect);
+		button_mpb = mpb;
+	}
+
+	if (disabled) {
+		mpb->setIsClickable(false);
+		buttonRender->setRenderable(false);
+		labelRender->setRenderable(false);
 	}
 	
 	/* III: DECORATING THE ENTITY */

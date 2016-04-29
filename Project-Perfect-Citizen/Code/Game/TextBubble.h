@@ -20,7 +20,10 @@ namespace ppc {
 
 		sf::Text displayText_;
 
-		void formatLine(std::string&);
+		//Function used is an altered version of the function found at
+		// https://gist.github.com/LiquidHelium/7858095
+		// All credit for the creation of this code goes to its creator.
+		sf::String wrapText(sf::String string, bool bold);
 
 	public:
 

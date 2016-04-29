@@ -2,7 +2,6 @@
 
 #include "../Game/animatorComponent.hpp"
 #include "../Game/textLabelComponent.hpp"
-#include "../Game/iconInputComponent.h"
 #include "../Engine/Engine.h"
 #include "../Engine/debug.h"
 
@@ -20,7 +19,7 @@ ppc::IconBuilder::IconBuilder() {
 	label = "";
 	isBeingPressed = "";
 
-	iconType = "";
+	iconType = ppc::iconInputComponent::IconType::Count;
 
 	sheetX = 0;
 	sheetY = 0;
@@ -53,8 +52,8 @@ void ppc::IconBuilder::setSize(float s) {
 	size = s;
 }
 
-void ppc::IconBuilder::setIconType(std::string s) {
-	iconType = s;
+void ppc::IconBuilder::setIconType(ppc::iconInputComponent::IconType type) {
+	iconType = type;
 }
 
 void ppc::IconBuilder::setDesktop(ppc::Desktop &d) {
@@ -106,9 +105,10 @@ void ppc::IconBuilder::create(Entity &e) {
 	buttonRenderComponent* IconRender = new buttonRenderComponent(dt->getIconSheet(), sheetX, sheetY, width, frames);
 	IconRender->setImageScale(size, size);
 	IconRender->renderPosition({ posX, posY });
+	IconRender->setButtonType("ICON");
 	animatorComponent* animator = new animatorComponent(*IconRender, animationSpeed);
-	mousePressButton* mpbFolder = new mousePressButton(*ih, IconRender->getSprite()->getGlobalBounds(), iconType);
-	iconInputComponent* iconInputComp = new iconInputComponent(*dt, db, *ib, *buttonSheet, dt->getIconSheet());
+	mousePressButton* mpbFolder = new mousePressButton(*ih, IconRender->getSprite()->getGlobalBounds());
+	iconInputComponent* iconInputComp = new iconInputComponent(*dt, db, *ib, *buttonSheet, dt->getIconSheet(), iconType);
 
 	e.addComponent(IconRender);
 	e.addComponent(textLabel);

@@ -70,11 +70,9 @@ namespace ppc {
 		void advanceSequence();
 		void regressSequence();
         
-        virtual bool registerInput(sf::Event ev) override;
+        virtual bool registerInput(Event ev) override;
 
 		Subject& onSequenceEnd() { return onSequenceEnd_; };
-
-
 
 	};
 

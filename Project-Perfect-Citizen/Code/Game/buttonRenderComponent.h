@@ -26,6 +26,7 @@ private:
     bool _willAnimate;
     std::string _buttonType;
 	static const int size = 128;
+	bool _willRender = true;
     //unsigned int notificationCount_ = 0;
     //sf::CircleShape badge_;
     //sf::Text notificationText_;
@@ -91,6 +92,11 @@ public:
     //         its animation sequence. Resets when animation completes
     ///////////////////////////////////////////////////////////////////////
     bool willAnimate();
+
+	///////////////////////////////////////////////////////////////////////
+	/// @brief flag that returns true is the sprite should render
+	///////////////////////////////////////////////////////////////////////
+	void setRenderable(bool);
     
 	///////////////////////////////////////////////////////////////////////
 	/// @brief The main draw function that was inheirted from RenderComponent.
@@ -102,13 +108,11 @@ public:
 	///////////////////////////////////////////////////////////////////////
 	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
 
-
-	//virtual void registerInput(sf::Event ev) override;
-
-	virtual void recieveMessage(msgType code) override;
 	
 	virtual void recieveMessage(Event ev) override;
 };
+
+
 
 
 };

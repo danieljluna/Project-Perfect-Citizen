@@ -47,7 +47,7 @@ public:
 		textInputRenderComponent &r, textOutputRenderComponent& r2, 
 		consoleUpdateComponent& c);
     virtual ~textInputKeys();
-    virtual bool registerInput(sf::Event ev) override;
+    virtual bool registerInput(Event ev) override;
     
 };
 

@@ -3,6 +3,9 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include "../Engine/Entity.h"
+#include "mousePressButton.h"
+#include "../Game/iconInputComponent.h"
+
 namespace ppc {
 
 	class Desktop;
@@ -31,7 +34,7 @@ namespace ppc {
 		std::string label;
 		std::string isBeingPressed;
 
-		std::string iconType;
+		iconInputComponent::IconType iconType;
 
 		int sheetX;
 		int sheetY;
@@ -71,7 +74,7 @@ namespace ppc {
 		void setSize(float s);
 
 
-		void setIconType(std::string);
+		void setIconType(ppc::iconInputComponent::IconType type);
 
 		///////////////////////////////////////////////////////////////
 		///@breif Sets the desktop for the Icon

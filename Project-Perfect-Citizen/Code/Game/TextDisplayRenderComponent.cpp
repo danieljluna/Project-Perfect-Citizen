@@ -93,25 +93,28 @@ void TextDisplayRenderComponent::updateColor(sf::Color c) {
     text_->setColor(c);
 }
 
+void ppc::TextDisplayRenderComponent::setRenderable(bool r)
+{
+	renderable_ = r;
+}
+
 sf::Text* TextDisplayRenderComponent::getText() {
 	return text_;
 }
 
 void TextDisplayRenderComponent::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
-	target.draw(*(this->text_), states);
+	if(renderable_) target.draw(*(this->text_), states);
 }
 
 void TextDisplayRenderComponent::recieveMessage(ppc::Event ev) {
 	switch (ev.type) {
 	case Event::EventTypes::ButtonType:
-		if (ev.buttons.isPushed) {
-			text_->setColor(sf::Color::White);
-		}
-		if (ev.buttons.isReleased) {
-			text_->setColor(sf::Color::Black);
-		}
+		if (ev.buttons.state == ev.buttons.Clicked) text_->setColor(sf::Color::White);
+		if (ev.buttons.state == ev.buttons.Release) text_->setColor(sf::Color::Black);
 		break;
+	case Event::EventTypes::AbleType:
+		setRenderable(ev.able.enable);
 	default:
 		break;
 	}
