@@ -70,6 +70,8 @@ void fn_decrypt(ppc::NodeState& state, const std::vector<std::string>words);
 void fn_pwd(ppc::NodeState& state, const std::vector<std::string> words);
 void fn_unlock(ppc::NodeState& state, const std::vector<std::string> words);
 
+void fn_flag(ppc::NodeState & state, const std::vector<std::string> words);
+
 ///////////////////////////////////////////////
 ///@brief helper function that prints a 
 ///string vector

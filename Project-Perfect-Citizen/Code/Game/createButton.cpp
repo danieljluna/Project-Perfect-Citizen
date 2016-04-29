@@ -11,6 +11,7 @@
 #include "NetworkCheckFunctor.h"
 #include "createWindow.h"
 #include "ButtonBuilder.h"
+#include "../Engine/BaseFileType.h"
 
 using namespace ppc;
 
@@ -69,6 +70,23 @@ void spawnStartButton2(ppc::Entity& entityToModify, Desktop& d, FloppyInputCompo
 
     createWithEventFunc<FloppyInputComponent>(builder, entityToModify, flop, &(ppc::displayFloppy));
     
+}
+
+void spawnSuspicionButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
+	ButtonBuilder builder;
+	builder.setButtonPosition(sf::Vector2f(x, y));
+	builder.setInputHandle(ih);
+	builder.setSize(size);
+	builder.setSpritesByIndicies(4, 0, 2, 1);
+	builder.setLabelMessage("");
+	sf::Font f;
+	builder.setLabelFont(f);
+	builder.setLabelSize(size);
+	builder.setSpriteSheet(spritesheet);
+
+
+	createWithEventFunc<Desktop>(builder, entityToModify, &d, &(ppc::spawnSuspicionMenu));
+
 }
 
                                  
@@ -156,6 +174,29 @@ bool ppc::spawnStartMenu(Desktop* ptr, Event ev) {
 	return true;
 }
 
+bool ppc::spawnSuspicionMenu(Desktop * ptr, Event ev)
+{
+	ppc::WindowInterface* ContextMenu =
+		new ppc::Window(200, 300, sf::Color(170, 170, 170));
+	std::vector<std::string> elementNames;
+	std::vector<bool(*)(Desktop*, Event ev)> elementFunctions;
+	int a = File;
+	ppc::BaseFileType testFile("file");
+	testFile.setName("Testarino");
+	elementNames.push_back(testFile.getName());
+	//elementNames.push_back("Ayy Lmao 1");
+	//elementNames.push_back("Ayy Lmao 2");
+	elementFunctions.push_back(&(ppc::LogOff));
+	//elementFunctions.push_back(&(ppc::displayFileInfo));
+	//elementFunctions.push_back(&(ppc::LogOff));
+	spawnContextMenu(*ptr, ContextMenu, ContextMenu->getInputHandler(), elementNames,
+		elementFunctions, 300, 700 - ((elementNames.size() - 1) * 20));
+	ptr->addWindow(ContextMenu);
+	return true;
+}
+
+
+
 bool ppc::displayFloppy(FloppyInputComponent* ptr, Event ev) {
     ppc::Event ppcEv(ev);
     ppcEv.type = ppc::Event::FloppyType;
@@ -170,6 +211,14 @@ bool ppc::LogOff(Desktop* ptr, Event ev) {
 		new ppc::Window(600, 150, sf::Color(170, 170, 170));
 	spawnErrorMessage(ConfirmationWindow, ConfirmationWindow->getInputHandler(), ptr->getButtonSheet(), 300, 300, "Are you sure you want to log off?");
 	ptr->addWindow(ConfirmationWindow);
+	return true;
+}
+
+bool ppc::displayFileInfo(Desktop* desk, Event ev) {
+	ppc::WindowInterface* infoWindow =
+		new ppc::Window(600, 150, sf::Color(177, 177, 177));
+	spawnErrorMessage(infoWindow, infoWindow->getInputHandler(), desk->getButtonSheet(), 300, 300, "HERES SOME FUKN INFO M8");
+	desk->addWindow(infoWindow);
 	return true;
 }
 

@@ -83,9 +83,12 @@ void spawnAlertIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Imag
 ///////////////////////////////////////////////////////////////////////
 void spawnPromptIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
+void spawnSuspicionButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 namespace ppc {
 	bool spawnStartMenu(Desktop*, Event);
+	bool spawnSuspicionMenu(Desktop*, Event);
     bool displayFloppy(FloppyInputComponent*, Event);
 	bool LogOff(Desktop*, Event);
+	bool displayFileInfo(Desktop*, Event);
 }

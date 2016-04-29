@@ -32,7 +32,7 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
             elementNames.push_back("Open");
             ppc::WindowInterface* ContextMenu = nullptr;
             ContextMenu = new ppc::Window(200, 300, sf::Color(170, 170, 170));
-            elementFunctions.push_back(&(ppc::make_icon_window));
+         //   elementFunctions.push_back(&(ppc::make_icon_window));
 
             switch (type_) {
 			case Event::OpenEv::Email:
