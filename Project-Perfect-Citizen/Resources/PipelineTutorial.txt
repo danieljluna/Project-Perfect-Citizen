@@ -4,24 +4,24 @@ Angry: T: This training program will show you the ropes
 Surprised: T: First up is the Pipeline Extraction Sequence
 Peek: F: Try selecting a Photo
 -Connections
-Default: You can create connections between photos
-Default: Select a photo and right click another to connect them
+Default: T: You can create connections between photos
+Default: F: Select a photo and right click another to connect them
 -Edges
-Default: Left click a connection to select it
-Default: Press "Z" or "Delete" to remove the connection
+Default: T: Left click a connection to select it
+Default: F: Press "Z" or "Delete" to remove the connection
 -Goal
-Default: You are trying to find the most suspicious person
-Default: Check out the test messages on the right
-Default: Using the texts, try to find all of the connections
+Default: T: You are trying to find the most suspicious person
+Default: T: Check out the test messages on the right
+Default: F: Using the texts, try to find all of the connections
 -Suspicion
-Default: Some connections are benign, while others are suspicious
-Default: Select a connection and press "Space" to switch the color
-Default: Innocent connections should be green and suspicious ones red
-Default: If you’re not sure you can leave it black
+Default: T: Some connections are benign, while others are suspicious
+Default: T: Select a connection and press "Space" to switch the color
+Default: T: Innocent connections should be green and suspicious ones red
+Default: F: If you’re not sure you can leave it black
 -Center
-Default: We’re interested in the most suspicious person
-Default: Select that person and press “C” to mark the center of the network
-Default: When you’re confident you’ve found the right center hit submit
+Default: T: We’re interested in the most suspicious person
+Default: T: Select that person and press “C” to mark the center of the network
+Default: F: When you’re confident you’ve found the right center hit submit
 -Feedback
-Default: A fellow DCPS officer has checked your work and approved it!
-Default: You have been issued a warrant to search this person’s desktop
+Default: T: A fellow DCPS officer has checked your work and approved it!
+Default: F: You have been issued a warrant to search this person’s desktop

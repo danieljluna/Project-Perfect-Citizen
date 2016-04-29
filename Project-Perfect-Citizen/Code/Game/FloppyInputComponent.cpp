@@ -39,8 +39,9 @@ FloppyInputComponent::~FloppyInputComponent() {
 
 }
 
-const std::array<std::string, 1> FLOPPY_SOURCES{
-	"PipelineTutorial.txt"
+const std::array<std::string, 2> FLOPPY_SOURCES{
+	"PipelineTutorial.txt",
+	"DesktopTutorial.txt"
 };
 
 const std::map<std::string, int> FLOPPY_EMOTION_MAP{
