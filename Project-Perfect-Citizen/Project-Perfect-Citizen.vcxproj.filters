@@ -339,6 +339,9 @@
     <ClCompile Include="Code\Engine\frontTopObserver.cpp">
       <Filter>Sources\Engine\Observer System</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\SuspiciousFileHolder.cpp">
+      <Filter>Sources\Engine\File Tree</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -701,6 +704,9 @@
     <ClInclude Include="Code\Engine\FunctionObserver.h">
       <Filter>Headers\Engine\Observer System\Observers</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\SuspiciousFileHolder.h">
+      <Filter>Headers\Engine\File Tree</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json">
@@ -726,6 +732,9 @@
     </None>
     <None Include="Resources\Email1.json">
       <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\Saves\tutorialDesktop.ini">
+      <Filter>Resources\Saves</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

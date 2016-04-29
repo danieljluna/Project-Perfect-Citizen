@@ -85,6 +85,7 @@ namespace ppc {
 		std::string password = "";
 		int passwordAttemps = 0;
 		std::string passwordHint = "";
+		unsigned int suspicionLevel = 0;
 
 	public:
 		///////////////////////////////////////////////
@@ -163,5 +164,9 @@ namespace ppc {
 		//virtual void addFileObserver(sf::Event& ev, bool(*obFunction)(T*, sf::Event&);
         
         virtual std::string getHint(){ return passwordHint; };
+
+		virtual void setSuspicionLevel(unsigned int val);
+
+		virtual unsigned int getSuspicionLevel();
 	};
 };
