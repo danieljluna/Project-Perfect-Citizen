@@ -22,6 +22,18 @@ BaseFileType::BaseFileType(ppc::FileType type)
 	}
 }
 
+ppc::BaseFileType::BaseFileType(std::string test)
+{
+	if (test == "Directory" || test == "directory") {
+		this->filetype = ppc::FileType::Directory;
+		return;
+	}
+	else if (test == "file" || test == "File") {
+		this->filetype = ppc::FileType::File;
+		return;
+	}
+}
+
 BaseFileType::~BaseFileType() {
     if (filetype == FileType::Directory) {
         //Remove Default Folders
@@ -35,6 +47,11 @@ BaseFileType::~BaseFileType() {
             contents.erase(it);
         }
     }
+}
+
+void ppc::BaseFileType::setName(std::string newName)
+{
+	this->name = newName;
 }
 
 void BaseFileType::uploadJson(std::string jString)
@@ -180,6 +197,11 @@ void ppc::BaseFileType::setSuspicionLevel(unsigned int val)
 unsigned int ppc::BaseFileType::getSuspicionLevel()
 {
 	return suspicionLevel;
+}
+
+std::string ppc::BaseFileType::getName()
+{
+	return this->name;
 }
 
 

@@ -89,8 +89,15 @@ sf::Sprite*  buttonRenderComponent::getSprite() {
 }
 
 void buttonRenderComponent::setSprite(int x, int y, int r) {
-    if(!texture->loadFromImage(buttonImage, 
-		sf::IntRect(x*size, y*size, r*size, size))) { exit(-1); }
+    //if(!texture->loadFromImage(buttonImage,
+		//sf::IntRect(x*size, y*size, r*size, size))) { exit(-1); }
+    
+    rectSourceSprite->left = x*size;
+    rectSourceSprite->top = y*size;
+    rectSourceSprite->width = r*size;
+    rectSourceSprite->height = size;
+    texture->loadFromImage(buttonImage, *rectSourceSprite);
+    sprite->setTexture(*texture);
 }
 
 void buttonRenderComponent::setButtonScale(int r) {

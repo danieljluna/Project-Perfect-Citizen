@@ -72,6 +72,7 @@ namespace ppc {
 		Subject& onClick() { return onPress_; };
 		Subject& onDblClick() { return onDoublePress_; };
 		Subject& onRelease() { return onRelease_; };
+		bool andy_flag_file(Desktop*, ppc::Event);
 
 	};
 
