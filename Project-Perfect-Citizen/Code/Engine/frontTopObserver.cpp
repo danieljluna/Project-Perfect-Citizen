@@ -13,5 +13,5 @@ bool ppc::frontTopObsvr::eventHandler(Event ev) {
 
 	dt->registerInputFocused(ev);
 
-	return false;
+	return true;
 }

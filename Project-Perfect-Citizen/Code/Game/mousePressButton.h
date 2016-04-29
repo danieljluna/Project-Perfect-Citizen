@@ -34,7 +34,6 @@ private:
     
     bool wasPressed_ = false;
     Subject onPress_;
-    Subject onDoublePress_;
     Subject onRelease_;
 	Subject onHover_;
     Subject onAll_;
@@ -84,10 +83,10 @@ public:
 	bool getIsClickable();
 	virtual ~mousePressButton();
 	virtual bool registerInput(Event ev) override;
+    void recieveMessage(Event ev) override;
 
 
     Subject& onClick() { return onPress_; };
-    Subject& onDblClick() { return onDoublePress_; };
     Subject& onRelease() { return onRelease_; };
 	Subject& onHover() { return onHover_; };
     Subject& onAll() { return onAll_; };
