@@ -17,7 +17,7 @@
 
 namespace ppc {
 
-
+	struct FloppyExpression;
 	class FloppyInputComponent : public ppc::InputComponent {
 	private:
 		unsigned int sequence;
@@ -29,7 +29,9 @@ namespace ppc {
 		FloppyInputComponent();
 		virtual ~FloppyInputComponent();
 
-		static std::vector<std::vector<std::pair<std::string, unsigned int>>> floppyDictionary;
+		
+
+		static std::vector<std::vector<FloppyExpression>> floppyDictionary;
 
 		///////////////////////////////////////////////////////////////////////
 		/// Map of Floppy Sequence names to integers
@@ -91,5 +93,9 @@ namespace ppc {
 	////////////////////////////////////////////////////////////////
 	bool incrementFloppyDialog(FloppyInputComponent*, ppc::Event);
 
-
+	struct FloppyExpression {
+		std::string text;
+		unsigned int emotion;
+		bool createEnabled;
+	};
 };
