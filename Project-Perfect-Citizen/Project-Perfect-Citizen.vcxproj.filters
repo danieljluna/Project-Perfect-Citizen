@@ -750,6 +750,9 @@
     <Text Include="Resources\PipelineTutorial.txt">
       <Filter>Resources</Filter>
     </Text>
+    <Text Include="DekstopTutorial.txt">
+      <Filter>Resources</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headers">

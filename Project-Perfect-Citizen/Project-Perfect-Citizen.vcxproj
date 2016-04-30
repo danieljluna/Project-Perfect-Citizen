@@ -127,6 +127,7 @@
     <ClCompile Include="Code\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="DekstopTutorial.txt" />
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
     <Text Include="Resources\Coding Reference\LinkHelp.txt" />
     <Text Include="Resources\Engine\EngineSettings.ini" />
