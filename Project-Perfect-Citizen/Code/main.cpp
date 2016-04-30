@@ -160,6 +160,15 @@ int main(int argc, char** argv) {
     ///////////////////////////////////////////////////////////////////
     
     
+    //// ----------------   PYTHON LOCATION STUFF ---------------- ////
+    
+    // Run the locator python app
+    /* system("osascript -e 'tell app \"ppc_location_print\" to open'");
+  
+    */
+
+    // -----------------------------------------------------------//
+    
     //////////////////////////////////////////////
     //Assuming Builders Should Eventually Go Here
     /////////////////////////////////////////////
