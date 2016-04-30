@@ -154,6 +154,15 @@ int main(int argc, char** argv) {
     teacherIconSheet.loadFromFile(resourcePath() + "Teacher_Icon_Sheet.png");
     ///////////////////////////////////////////////////////////////////
     
+    //// ----------------   PYTHON LOCATION STUFF ---------------- ////
+    
+    // Run the locator python app
+    /* system("osascript -e 'tell app \"ppc_location_print\" to open'");
+  
+    */
+
+    // -----------------------------------------------------------//
+
     World::setGameScreen(screen);
 	ifstream desktopFileInput;
 
