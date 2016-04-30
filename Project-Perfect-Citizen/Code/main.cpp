@@ -155,24 +155,22 @@ int main(int argc, char** argv) {
     ///////////////////////////////////////////////////////////////////
     
     World::setGameScreen(screen);
-    
+	ifstream desktopFileInput;
+
     //Main Loops for each Desktops
     
 	//Boot Desktop
-	ppc::NodeState bootState;
-	Window* bootWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-	Desktop* bootDesktop = new Desktop(bootWindow, bootState);
 
-	bootDesktop->setIconSheet(iconSheet);
-	bootDesktop->setButtonSheet(buttonSheet);
-	bootDesktop->setBackgrond(playerWallpaper);
 
+	desktopFileInput.open(resourcePath() + "Saves/bootDesktop.ini", std::ifstream::in);
+	Desktop bootDesktop;
+	desktopFileInput >> bootDesktop;
+	desktopFileInput.close();
 	Logger::startTimer("bootDesktop");
     
-    World::setCurrDesktop(*bootDesktop);
-    runBootDesktop(*bootDesktop);
-    while (World::runDesktop(*bootDesktop)) {}
-    delete bootDesktop;
+    World::setCurrDesktop(bootDesktop);
+    runBootDesktop(bootDesktop);
+	World::runCurrDesktop();
     
     Logger::endTimer("bootDesktop");
 	//End Boot Desktop
@@ -180,9 +178,10 @@ int main(int argc, char** argv) {
 
 
 	//Tutorial Desktop
-	ifstream ifs1(resourcePath() + "Saves/tutorialDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Saves/tutorialDesktop.ini", std::ifstream::in);
 	Desktop tutorialDesktop;
-	ifs1 >> tutorialDesktop;
+	desktopFileInput >> tutorialDesktop;
+	desktopFileInput.close();
 
     Logger::startTimer("playerTutorialDesktop");
     
@@ -196,20 +195,16 @@ int main(int argc, char** argv) {
 
 
 	//Player Desktop
-	ppc::NodeState playerState;
-	playerState.setUp();
-	Window* playerDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-	Desktop* playerDesktop = new Desktop(playerDesktopWindow, playerState);
-	playerDesktop->setIconSheet(iconSheet);
-	playerDesktop->setButtonSheet(buttonSheet);
-	playerDesktop->setBackgrond(playerWallpaper);
+	desktopFileInput.open(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
+	Desktop playerDesktop;
+	desktopFileInput >> playerDesktop;
+	desktopFileInput.close();
 
     Logger::startTimer("playerDesktop");
     
-    World::setCurrDesktop(*playerDesktop);
-    runPlayerDesktop(*playerDesktop);
-    while (World::runDesktop(*playerDesktop)) {}
-    delete playerDesktop;
+    World::setCurrDesktop(playerDesktop);
+    runPlayerDesktop(playerDesktop);
+	World::runCurrDesktop();
     
     Logger::endTimer("playerDesktop");
 	// End Player Desktop
