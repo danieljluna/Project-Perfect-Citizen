@@ -115,23 +115,56 @@ unsigned int ppc::FloppyInputComponent::getFrame() { return frame; }
 
 unsigned int ppc::FloppyInputComponent::getSequence() { return sequence; }
 
-void ppc::FloppyInputComponent::setFrame(unsigned int f) { frame = f; }
+void ppc::FloppyInputComponent::setFrame(unsigned int f) { 
+    frame = f; 
+    Event ev;
 
-void ppc::FloppyInputComponent::setSequence(unsigned int s) { sequence = s; }
+    if (floppyDictionary.at(sequence).size() <= frame) {
+        frame = -1;
+        ev.type = Event::AbleType;
+        ev.able.enable = false;
+        getEntity()->broadcastMessage(ev);
 
-void ppc::FloppyInputComponent::advanceFrame() { 
-	frame++;
-	if (floppyDictionary.at(sequence).size() <= frame) {
-		frame = -1;
-	}
 
+        ev.type = ppc::Event::FloppyType;
+        ev.floppy.sequence = sequence;
+        ev.floppy.frame = -1;
+        onSequenceEnd().sendEvent(ev);
+    }
+
+    ev.type = ppc::Event::FloppyType;
+    ev.floppy.sequence = sequence;
+    ev.floppy.frame = frame;
+    getEntity()->broadcastMessage(ev);
+
+    bool buttonEnabled = floppyDictionary.at(sequence).at(frame).createEnabled;
+    setFloppyButton(buttonEnabled);
 }
 
-void ppc::FloppyInputComponent::regressFrame() { frame--;}
+void ppc::FloppyInputComponent::setSequence(unsigned int s, unsigned int f) { 
+    if (s < floppyDictionary.size()) {
+        sequence = s;
+    } else {
+        sequence = -1;
+    }
+    setFrame(f);
+}
 
-void ppc::FloppyInputComponent::advanceSequence() { sequence++; }
+void ppc::FloppyInputComponent::advanceFrame() { 
+	setFrame(frame + 1);
+}
 
-void ppc::FloppyInputComponent::regressSequence() { sequence--; }
+void ppc::FloppyInputComponent::regressFrame() { 
+    setFrame(frame - 1);
+}
+
+void ppc::FloppyInputComponent::advanceSequence() { 
+    setSequence(sequence + 1);
+}
+
+void ppc::FloppyInputComponent::regressSequence() { 
+    setSequence(sequence - 1);
+}
 
 bool ppc::FloppyInputComponent::registerInput(Event ev) { return true; }
 
@@ -156,6 +189,7 @@ void ppc::FloppyInputComponent::setFloppyButton(bool able)
 
 bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
     bool wasSummoned = false;
+    unsigned int frame = 0, sequence = 0;
 
 	switch (ev.type) {
     case ppc::Event::FloppyType:
@@ -187,8 +221,7 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
     if (wasSummoned) {
         /* Also let the textbox and button that
         they should spawn */
-        ptr->setSequence(ev.floppy.sequence);
-        ptr->setFrame(ev.floppy.frame);
+        ptr->setSequence(ev.floppy.sequence, ev.floppy.frame);
         ptr->getEntity()->broadcastMessage(ev);
 
         ev.type = ppc::Event::AbleType;
@@ -208,26 +241,6 @@ bool ppc::incrementFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         ptr->advanceFrame();
     }
 
-    ppc::Event ppcEv;
-
-	/* Alert observers if beyond sequence length (return both -1)*/
-	if (ptr->getFrame() == -1) {
-        ppcEv.type = Event::AbleType;
-        ppcEv.able.enable = false;
-        ptr->getEntity()->broadcastMessage(ppcEv);
-
-		
-		ppcEv.type = ppc::Event::FloppyType;
-		ppcEv.floppy.sequence = ptr->getSequence();
-		ppcEv.floppy.frame = -1;
-		ptr->onSequenceEnd().sendEvent(ppcEv);
-	}
-	/* Create and send a new event to the entity
-	with the updated frame */
-	ppcEv.type = ppc::Event::FloppyType;
-	ppcEv.floppy.sequence = ptr->getSequence();
-	ppcEv.floppy.frame = ptr->getFrame();
-	ptr->getEntity()->broadcastMessage(ppcEv);
 	return true;
 }
 

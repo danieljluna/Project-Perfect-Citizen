@@ -62,7 +62,7 @@ namespace ppc {
 		/// Basic Setters
 		///////////////////////////////////////////////////////////////////////
 		void setFrame(unsigned int);
-		void setSequence(unsigned int);
+		void setSequence(unsigned int s, unsigned int f = 0);
 	
 		///////////////////////////////////////////////////////////////////////
 		/// @brief Initializes the table of what Floppy says and how he emotes

@@ -116,12 +116,10 @@ void ppc::createTutorial(Desktop & dt) {
 	nextButton.setSpriteSheet(dt.getButtonSheet());
 	createWithEventFunc<FloppyInputComponent>(nextButton, floppyEntity, floppyIn, ppc::incrementFloppyDialog);
 
-	//// Here you go Danny  ////
 	buttonRenderComponent* mbr = nextButton.getButtonRenderComponent();
 	mousePressButton* mpb = nextButton.getMousePressButton();
 	floppyIn->setFloppyButtonInputCmpt(mpb);
 	floppyIn->setFloppyButtonRenderCmpt(mbr);
-	////////////////////////
 
 
 
