@@ -5,6 +5,7 @@
 
 #include "../Engine/FreeFunctionObserver.h"
 #include "../Engine/BaseFileType.h"
+#include "../Engine/SuspiciousFileHolder.h"
 
 using namespace ppc;
 
@@ -105,8 +106,9 @@ bool explorerFileInputComponent::registerInput(Event ppcEv) {
 			std::vector<bool(*)(Desktop*, Event ev)> elementFunctions;
 			elementNames.push_back("Open");
 			elementFunctions.push_back(&(ppc::open_file));
-			elementNames.push_back("Flag");
-			elementFunctions.push_back(&(ppc::flag_file));
+			//elementNames.push_back("Flag");
+			//elementFunctions.push_back(&(ppc::flag_file));
+			//elementFunctions.push_back(&(ppc::explorerFileInputComponent::andy_flag_file));
 			spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
 				elementFunctions, ev.mouseButton.x+containingWindow_->getPosition().x, 
 				ev.mouseButton.y + containingWindow_->getPosition().y);
@@ -117,6 +119,14 @@ bool explorerFileInputComponent::registerInput(Event ppcEv) {
 	return true;
 }
 
+bool ppc::explorerFileInputComponent::andy_flag_file(Desktop* ptr, ppc::Event ev)
+{
+	ppc::BaseFileType* fileToAdd = this->theFileTree_.getCwd()->findElement(this->fileName);
+	ppc::SuspiciousFileHolder::flagFile(fileToAdd);
+	return true;
+
+}
+
 bool ppc::open_file(Desktop* ptr, ppc::Event ev) {
 	cout << " open the file " << endl;
 	return true;
@@ -124,5 +134,6 @@ bool ppc::open_file(Desktop* ptr, ppc::Event ev) {
 
 bool ppc::flag_file(Desktop* ptr, ppc::Event ev) {
 	cout << " flag this file " << endl;
+
 	return true;
 }

@@ -6,6 +6,8 @@
 #include "../Engine/subject.h"
 #include "../Engine/inputComponent.h"
 #include "../Engine/event.h"
+#include "../Game/buttonRenderComponent.h"
+#include "../Game/mousePressButton.h"
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -17,19 +19,24 @@
 
 namespace ppc {
 
-
+	struct FloppyExpression;
 	class FloppyInputComponent : public ppc::InputComponent {
 	private:
 		unsigned int sequence;
 		unsigned int frame;
 		Subject onSequenceEnd_;
+
+		buttonRenderComponent* floppyBtnRndr = nullptr;
+		mousePressButton* floppyBtnInpt = nullptr;
 	
 	public:
 
 		FloppyInputComponent();
 		virtual ~FloppyInputComponent();
 
-		static std::vector<std::vector<std::pair<std::string, unsigned int>>> floppyDictionary;
+		
+
+		static std::vector<std::vector<FloppyExpression>> floppyDictionary;
 
 		///////////////////////////////////////////////////////////////////////
 		/// Map of Floppy Sequence names to integers
@@ -74,6 +81,11 @@ namespace ppc {
 
 		Subject& onSequenceEnd() { return onSequenceEnd_; };
 
+		void setFloppyButtonRenderCmpt(buttonRenderComponent*);
+		void setFloppyButtonInputCmpt(mousePressButton*);
+
+		void setFloppyButton(bool);
+
 	};
 
 	////////////////////////////////////////////////////////////////
@@ -91,5 +103,9 @@ namespace ppc {
 	////////////////////////////////////////////////////////////////
 	bool incrementFloppyDialog(FloppyInputComponent*, ppc::Event);
 
-
+	struct FloppyExpression {
+		std::string text;
+		unsigned int emotion;
+		bool createEnabled;
+	};
 };
