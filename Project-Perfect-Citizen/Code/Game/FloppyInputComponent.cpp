@@ -67,19 +67,22 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 					if (sequence.frames.empty()) {
                         size_t tokenIndex = line.find_first_of(':');
 						label = line.substr(1, tokenIndex - 1);
-                        if (line.substr(tokenIndex + 2) == "F") 
+                        if (line.substr(tokenIndex + 2, 1) == "F") 
                             sequence.autoShift = false;
 						continue;
 					}
 
 					floppyDictionary.push_back(sequence);
 					Floppy_Sequence_Names.insert(std::make_pair(label, floppyDictionary.size() - 1));
+                    size_t tokenIndex = line.find_first_of(':');
+                    label = line.substr(1, tokenIndex - 1);
+                    if (line.substr(tokenIndex + 2, 1) == "F")
+                        sequence.autoShift = false;
 					sequence.frames.clear();
-					label = line.substr(1);
 				}
 				else {
 					std::string emotion = line.substr(0, line.find_first_of(':'));
-					line = line.substr(line.find_first_of(':') + 1);
+					line = line.substr(line.find_first_of(':'));
 					FloppyFrame newExpr;
 
 					if (FLOPPY_EMOTION_MAP.find(emotion) != FLOPPY_EMOTION_MAP.end()) {
@@ -87,7 +90,7 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 					}
 					else newExpr.emotion = FLOPPY_EMOTION_MAP.at("Default");
 					
-					newExpr.text = line.substr(1);
+					newExpr.text = line.substr(2);
 					sequence.frames.push_back(newExpr);
 
 				}
