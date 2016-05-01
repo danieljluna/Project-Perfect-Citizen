@@ -33,6 +33,16 @@ void ppc::NetworkInputCmpnt::selectEdge(sf::Vector2f mPos) {
 		selectedEdge_ = closest;
 		clickedEdge_ = true;
 		clickedVert_ = false;
+
+        //Create Event
+        Event ev;
+        ev.type = ev.NetworkType;
+        ev.network.type = ev.network.Selected;
+        ev.network.u = closest.first;
+        ev.network.v = closest.second;
+        ev.network.net = network_;
+        network_->onManip().sendEvent(ev);
+
 		return;
 	}
 }
@@ -45,6 +55,16 @@ void ppc::NetworkInputCmpnt::selectVert(sf::Vector2f mPos) {
 			network_->vert(selectedVert_).selectVert();
 			clickedVert_ = true;
 			clickedEdge_ = false;
+
+            //Create Event
+            Event ev;
+            ev.type = ev.NetworkType;
+            ev.network.type = ev.network.Selected;
+            ev.network.u = i;
+            ev.network.v = -1;
+            ev.network.net = network_;
+            network_->onManip().sendEvent(ev);
+
 			updateDataText();
 			return;
 		}

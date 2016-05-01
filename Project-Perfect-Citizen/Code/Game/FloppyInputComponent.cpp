@@ -16,6 +16,8 @@
 #include <vector>
 #include <utility>
 #include "../Engine/Entity.h"
+#include "../Engine/World.h"
+#include "../Engine/desktop.h"
 
 #include "../Engine/FreeFunctionObserver.h"
 
@@ -23,10 +25,10 @@ using namespace ppc;
 
 const std::string FLOPPY_DEBUG_CODE = "fl";
 
-std::vector<std::vector<FloppyExpression>> FloppyInputComponent::floppyDictionary;
+std::vector<FloppySequence> FloppyInputComponent::floppyDictionary = {};
 bool FloppyInputComponent::initialized = false;
 
-std::map<std::string, unsigned int> FloppyInputComponent::Floppy_Sequence_Names;
+std::map<std::string, unsigned int> FloppyInputComponent::Floppy_Sequence_Names = {};
 
 FloppyInputComponent::FloppyInputComponent() {
 
@@ -59,33 +61,34 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 		if (myfile.is_open()) {
 			std::string line;
 			std::string label;
-			std::vector<FloppyExpression> sequence;
+			FloppySequence sequence;
 			while (std::getline(myfile, line)) {
 				if (line.substr(0, 1).compare("-") == 0) {
-					if (sequence.empty()) {
-						label = line.substr(1);
+					if (sequence.frames.empty()) {
+                        size_t tokenIndex = line.find_first_of(':');
+						label = line.substr(1, tokenIndex - 1);
+                        if (line.substr(tokenIndex + 2) == "F") 
+                            sequence.autoShift = false;
 						continue;
 					}
 
 					floppyDictionary.push_back(sequence);
 					Floppy_Sequence_Names.insert(std::make_pair(label, floppyDictionary.size() - 1));
-					sequence.clear();
+					sequence.frames.clear();
 					label = line.substr(1);
 				}
 				else {
 					std::string emotion = line.substr(0, line.find_first_of(':'));
-					line = line.substr(line.find_first_of(':') + 2);
-					FloppyExpression newExpr;
-					if (line.substr(0, 1).compare("T") == 0) newExpr.createEnabled = true;
-					else newExpr.createEnabled = false;
+					line = line.substr(line.find_first_of(':') + 1);
+					FloppyFrame newExpr;
 
 					if (FLOPPY_EMOTION_MAP.find(emotion) != FLOPPY_EMOTION_MAP.end()) {
 						newExpr.emotion = FLOPPY_EMOTION_MAP.at(emotion);
 					}
 					else newExpr.emotion = FLOPPY_EMOTION_MAP.at("Default");
 					
-					newExpr.text = line.substr(3);
-					sequence.push_back(newExpr);
+					newExpr.text = line.substr(1);
+					sequence.frames.push_back(newExpr);
 
 				}
 			}
@@ -97,6 +100,7 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 		}
 		myfile.close();
 	}
+
     initialized = true;
 
 	//std::vector<std::pair<std::string, unsigned int>> sequence1;
@@ -119,7 +123,7 @@ void ppc::FloppyInputComponent::setFrame(unsigned int f) {
     frame = f; 
     Event ev;
 
-    if (floppyDictionary.at(sequence).size() <= frame) {
+    if (floppyDictionary.at(sequence).frames.size() <= frame) {
         frame = -1;
         ev.type = Event::AbleType;
         ev.able.enable = false;
@@ -137,8 +141,9 @@ void ppc::FloppyInputComponent::setFrame(unsigned int f) {
     ev.floppy.frame = frame;
     getEntity()->broadcastMessage(ev);
 
-    bool buttonEnabled = floppyDictionary.at(sequence).at(frame).createEnabled;
-    setFloppyButton(buttonEnabled);
+    if (frame == floppyDictionary.at(sequence).frames.size() - 1) {
+        setFloppyButton(!floppyDictionary.at(sequence).needTrigger);
+    }
 }
 
 void ppc::FloppyInputComponent::setSequence(unsigned int s, unsigned int f) { 
@@ -197,7 +202,10 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         //If we just ended a frame
         if (ev.floppy.frame == -1) {
             //If we just ended the Welcome
-            if (ev.floppy.sequence != 2) {
+            if (ev.floppy.sequence == 2) {
+                World::getCurrDesktop().incrementNetVecIndex();
+            } 
+            if (FloppyInputComponent::floppyDictionary.at(ev.floppy.sequence).autoShift) {
                 wasSummoned = true;
                 ev.floppy.frame = 0;
                 ++ev.floppy.sequence;
@@ -212,8 +220,15 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         if (ev.open.winType == ev.open.Pipeline) {
             wasSummoned = true;
             ev.type = Event::FloppyType;
-            ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("Welcome");
             ev.floppy.frame = 0;
+            switch (World::getCurrDesktop().getNetVecIndex()) {
+            case 0:
+                ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("Welcome");
+                break;
+            case 1:
+                ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("Goal");
+                break;
+            }
         }
         break;
 	}
@@ -244,4 +259,55 @@ bool ppc::incrementFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 	return true;
 }
 
+
+
+
+bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
+    bool enable = false;
+
+    switch (ptr->getSequence()) {
+    case 0: //Welcome
+        enable = ((ev.type == ev.NetworkType) &&
+            (ev.network.type == ev.network.Selected) &&
+            (ev.network.v == -1));
+        break;
+    case 1: //Connections
+        enable = ((ev.type == ev.NetworkType) &&
+            (ev.network.type == ev.network.Created) &&
+            (ev.network.v != -1));
+        break;
+    case 2: //Edge
+        enable = ((ev.type == ev.NetworkType) &&
+            (ev.network.type == ev.network.Removed) &&
+            (ev.network.v != -1));
+        break;
+    case 3: //Goal
+        enable = (ev.type == ev.NetworkType);
+        if (enable) {
+            //DO COMPARISON OF GRAPHS HERE
+        }
+        break;
+    case 4: //Suspicion
+        enable = (ev.type == ev.NetworkType);
+        if (enable) {
+            //DO COMPARISON OF GRAPHS HERE
+        }
+        break;
+    case 5: //Center
+        enable = (ev.type == ev.NetworkType);
+        if (enable) {
+            //DO COMPARISON OF GRAPHS HERE
+        }
+        break;
+    case 6: //Feedback
+        enable = true;
+        break;
+    default:
+        break;
+    }
+
+    ptr->setFloppyButton(enable);
+
+    return true;
+}
 
