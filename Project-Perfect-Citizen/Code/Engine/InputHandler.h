@@ -4,6 +4,7 @@
 
 #include "subject.h"
 #include <SFML/Window/Event.hpp>
+#include "event.h"
 #include <map>
 
 namespace ppc {
@@ -54,7 +55,7 @@ public:
     ///
     /// @param ev The Event to handle.
     ///////////////////////////////////////////////////////////////////
-    void registerEvent(sf::Event& ev);
+    void registerEvent(Event ev);
 
 
   /////////////////////////////////////////////////////////////////////

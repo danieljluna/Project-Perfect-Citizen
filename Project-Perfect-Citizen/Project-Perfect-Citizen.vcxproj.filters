@@ -733,6 +733,9 @@
     <None Include="Resources\Email1.json">
       <Filter>Resources</Filter>
     </None>
+    <None Include="Resources\Saves\tutorialDesktop.ini">
+      <Filter>Resources\Saves</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
@@ -745,6 +748,9 @@
       <Filter>Resources</Filter>
     </Text>
     <Text Include="Resources\PipelineTutorial.txt">
+      <Filter>Resources</Filter>
+    </Text>
+    <Text Include="DekstopTutorial.txt">
       <Filter>Resources</Filter>
     </Text>
   </ItemGroup>

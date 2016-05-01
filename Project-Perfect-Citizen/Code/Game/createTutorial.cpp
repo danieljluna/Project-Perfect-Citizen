@@ -23,6 +23,7 @@
 #include "../Engine/frontTopObserver.h"
 
 #include "iconInputComponent.h"
+#include "../Engine/SuspiciousFileHolder.h"
 
 void ppc::createTutorial(Desktop & dt) {
 
@@ -66,7 +67,21 @@ void ppc::createTutorial(Desktop & dt) {
 	dt.getDesktopWindow()->addEntity(emailIcon);
 	dt.getDesktopWindow()->addEntity(helpIcon);
 
-	//Floppy begins here
+	////////////////////////////////////////
+	// SUSPICIOUS FILES TEST HERE
+	//////////////////////////////////////
+	SuspiciousFileHolder* fH = nullptr;
+
+	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
+	spawnFileTracker(dt, fileTracker, fileTracker->getInputHandler(), fH, 250, 50);
+
+	dt.addWindow(fileTracker);
+
+
+	
+	////////////////////////////////////////
+	// FLOPPY BEGINS HERE
+	//////////////////////////////////////
 	Window* floppyWindow = new Window(1800, 1000, sf::Color::Transparent);
 
 	Entity floppyEntity;
@@ -85,7 +100,6 @@ void ppc::createTutorial(Desktop & dt) {
 	tbr->setTextBubble(*tb);
 	tbr->setRenderable(false);
 
-
 	floppyEntity.addComponent(tbr);
 	floppyEntity.addComponent(floppy);
 	floppyEntity.addComponent(floppyIn);
@@ -101,6 +115,15 @@ void ppc::createTutorial(Desktop & dt) {
 	nextButton.setIsDisabled(true);
 	nextButton.setSpriteSheet(dt.getButtonSheet());
 	createWithEventFunc<FloppyInputComponent>(nextButton, floppyEntity, floppyIn, ppc::incrementFloppyDialog);
+
+	//// Here you go Danny  ////
+	buttonRenderComponent* mbr = nextButton.getButtonRenderComponent();
+	mousePressButton* mpb = nextButton.getMousePressButton();
+	floppyIn->setFloppyButtonInputCmpt(mpb);
+	floppyIn->setFloppyButtonRenderCmpt(mbr);
+	////////////////////////
+
+
 
 	ppc::FreeFunctionObserver<mousePressButton>* ffo = new FreeFunctionObserver<mousePressButton>(ToggleMPB,
 		dynamic_cast<mousePressButton*>(nextButton.getMousePressButton()));

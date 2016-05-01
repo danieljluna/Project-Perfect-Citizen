@@ -50,7 +50,7 @@ void ppc::TextBubbleRender::recieveMessage(ppc::Event ev) {
 		} else {
 			renderable_ = true;
 			std::string s = 
-				FloppyInputComponent::floppyDictionary.at(i).at(j).first;
+				FloppyInputComponent::floppyDictionary.at(i).at(j).text;
 			DEBUGF("tb", s)
 			bubble_->setText(s);
 		}

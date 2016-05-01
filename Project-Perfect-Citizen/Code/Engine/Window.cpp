@@ -244,7 +244,7 @@ void Window::update(sf::Time& deltaTime) {
 
 
 void Window::registerInput(Event ppcEv) {
-    sf::Event ev(ppcEv);
+    
     sf::Vector2f click;
     sf::FloatRect viewRect;
     sf::View currView = windowSpace_.getView();
@@ -252,30 +252,34 @@ void Window::registerInput(Event ppcEv) {
     defaultViewPos.x /= 2.0f;
     defaultViewPos.y /= 2.0f;
 
-    switch (ev.type) {
-    case sf::Event::MouseButtonPressed:
-    case sf::Event::MouseButtonReleased:
-        click = {float(ev.mouseButton.x), float(ev.mouseButton.y) };
-        viewRect.width = currView.getSize().x;
-        viewRect.height = currView.getSize().y;
-        mouseInView_ = viewRect.contains(click);
-        if (mouseInView_) {
-            click -= defaultViewPos;
-            click += currView.getCenter();
-            ev.mouseButton.x = int(click.x);
-            ev.mouseButton.y = int(click.y);
-        }
-        break;
-    case sf::Event::MouseMoved:
-        if (mouseInView_) {
-            click = { float(ev.mouseMove.x), float(ev.mouseMove.y) };
-            click -= defaultViewPos;
-            click += currView.getCenter();
-            ev.mouseMove.x = int(click.x);
-            ev.mouseMove.y = int(click.y);
-        }
-        break;
-    }
+	if (ppcEv.type == Event::sfEventType) {
+		switch (ppcEv.sfEvent.type) {
+		case sf::Event::MouseButtonPressed:
+		case sf::Event::MouseButtonReleased:
+			click = { float(ppcEv.sfEvent.mouseButton.x), 
+				float(ppcEv.sfEvent.mouseButton.y) };
+			viewRect.width = currView.getSize().x;
+			viewRect.height = currView.getSize().y;
+			mouseInView_ = viewRect.contains(click);
+			if (mouseInView_) {
+				click -= defaultViewPos;
+				click += currView.getCenter();
+				ppcEv.sfEvent.mouseButton.x = int(click.x);
+				ppcEv.sfEvent.mouseButton.y = int(click.y);
+			}
+			break;
+		case sf::Event::MouseMoved:
+			if (mouseInView_) {
+				click = { float(ppcEv.sfEvent.mouseMove.x), 
+					float(ppcEv.sfEvent.mouseMove.y) };
+				click -= defaultViewPos;
+				click += currView.getCenter();
+				ppcEv.sfEvent.mouseMove.x = int(click.x);
+				ppcEv.sfEvent.mouseMove.y = int(click.y);
+			}
+			break;
+		}
+	}
 
     inputHandler_.registerEvent(ppcEv);
 }

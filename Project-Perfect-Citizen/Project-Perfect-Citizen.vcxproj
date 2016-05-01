@@ -127,6 +127,7 @@
     <ClCompile Include="Code\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="DekstopTutorial.txt" />
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
     <Text Include="Resources\Coding Reference\LinkHelp.txt" />
     <Text Include="Resources\Engine\EngineSettings.ini" />
@@ -268,6 +269,7 @@
     <None Include="Resources\PlayerEmail.json" />
     <None Include="Resources\Saves\desktop1.ini" />
     <None Include="Resources\Saves\playerDesktop.ini" />
+    <None Include="Resources\Saves\tutorialDesktop.ini" />
     <None Include="Resources\smsPipeline.json" />
     <None Include="Resources\suspiciontest.json" />
   </ItemGroup>
