@@ -20,6 +20,7 @@
 #include "../Engine/desktop.h"
 
 #include "../Engine/FreeFunctionObserver.h"
+#include "../Engine/Network.h"
 
 using namespace ppc;
 
@@ -287,19 +288,19 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
     case 3: //Goal
         enable = (ev.type == ev.NetworkType);
         if (enable) {
-            //DO COMPARISON OF GRAPHS HERE
+            enable = ev.network.net->checkEdgeEquality(*World::getCurrDesktop().getSolVec()[1]);
         }
         break;
     case 4: //Suspicion
         enable = (ev.type == ev.NetworkType);
         if (enable) {
-            //DO COMPARISON OF GRAPHS HERE
+            enable = ev.network.net->checkEdgeEquality(*World::getCurrDesktop().getSolVec()[1]);
         }
         break;
     case 5: //Center
         enable = (ev.type == ev.NetworkType);
         if (enable) {
-            //DO COMPARISON OF GRAPHS HERE
+            ev.network.net->checkCenterEquality(*World::getCurrDesktop().getSolVec()[1]);
         }
         break;
     case 6: //Feedback
