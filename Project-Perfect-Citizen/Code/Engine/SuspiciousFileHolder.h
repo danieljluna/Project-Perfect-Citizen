@@ -3,12 +3,14 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include"WindowInterface.h"
 
 namespace ppc {
 	class SuspiciousFileHolder {
 	private:
 		const unsigned int MAX_SIZE_ = 3;
 		static std::vector<ppc::BaseFileType*> bftVector_;
+		static ppc::WindowInterface* susWindow_;
 	public:
 		SuspiciousFileHolder();
 		~SuspiciousFileHolder();

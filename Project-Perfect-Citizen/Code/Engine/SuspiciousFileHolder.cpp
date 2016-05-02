@@ -1,6 +1,7 @@
 #include "SuspiciousFileHolder.h"
 
 std::vector<ppc::BaseFileType*> ppc::SuspiciousFileHolder::bftVector_;
+ppc::WindowInterface* ppc::SuspiciousFileHolder::susWindow_;
 
 std::vector<ppc::BaseFileType*>& ppc::SuspiciousFileHolder::getBfgVector()
 {

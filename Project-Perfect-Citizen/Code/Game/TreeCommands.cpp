@@ -251,6 +251,9 @@ void ppc::fn_flag(ppc::NodeState& state, const std::vector<std::string> words) {
 	for (auto iter = pathVec.begin(); iter != pathVec.end(); iter++) {
 		tempCWD = tempCWD->findElement(pathVec.at(i));
 	}
+	if (tempCWD->getFileType() == ppc::FileType::Directory) {
+		return;
+	}
 	ppc::SuspiciousFileHolder::flagFile(tempCWD);
 
 }

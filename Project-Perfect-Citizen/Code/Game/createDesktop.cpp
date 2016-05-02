@@ -186,6 +186,16 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     desktopWindowToModify.addEntity(ConsoleIcon);
     desktopWindowToModify.addEntity(EmailIcon);
     
+	////////////////////////////////////////
+	// SUSPICIOUS FILES TEST HERE
+	//////////////////////////////////////
+	SuspiciousFileHolder* fH = nullptr;
+
+	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
+	spawnFileTracker(desktopToModify, fileTracker, fileTracker->getInputHandler(), fH, 250, 50);
+
+	desktopToModify.addWindow(fileTracker);
+
 }
 
 void createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {

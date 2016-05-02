@@ -121,9 +121,22 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		}
 	}
 
+	//CASE: FLAG
 	else if (cmd.at(0) == "flag" || cmd.at(0) == "Flag") {
-		str_ = str_ + " File submitted for processing.";
+		ppc::BaseFileType* tempBFT = this->fileTree_.getCwd()->findElement(cmd.at(1));
+		if (tempBFT != nullptr) {
+			std::vector<string> firstFlagCommand;
+			firstFlagCommand.push_back("flag");
+			firstFlagCommand.push_back(cmd.at(1));
+			commandFn firstLs = findFunction("flag");
+			firstLs(fileTree_, firstFlagCommand);
+			str_ = str_ + " " + cmd.at(1) + " submitted for processing.";
+		}
+		else {
+			str_ = str_ + " Unable to find " + cmd.at(1) + ".";
+		}
 		numDisplayedLines++;
+
 	}
 
 	/* CASE: MKDIR */
