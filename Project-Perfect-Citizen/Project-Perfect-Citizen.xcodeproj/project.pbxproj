@@ -157,6 +157,7 @@
 		E94886591CC6F42A00DFC68A /* micross.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E94886341CC6F42A00DFC68A /* micross.ttf */; };
 		E948865A1CC6F42A00DFC68A /* VT323-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E94886351CC6F42A00DFC68A /* VT323-Regular.ttf */; };
 		E948865B1CC6F42A00DFC68A /* Notification_Prompt.wav in Resources */ = {isa = PBXBuildFile; fileRef = E94886361CC6F42A00DFC68A /* Notification_Prompt.wav */; };
+		E9646BCD1CD7DFEA00C06573 /* Trouble.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9646BCC1CD7DFEA00C06573 /* Trouble.txt */; };
 		E9AA730D1CD69D8E00ABEDBC /* animatorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9AA727C1CD69D8E00ABEDBC /* animatorComponent.cpp */; };
 		E9AA730E1CD69D8E00ABEDBC /* BootLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9AA727E1CD69D8E00ABEDBC /* BootLoader.cpp */; };
 		E9AA730F1CD69D8E00ABEDBC /* bootLoadingAnimationRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9AA72801CD69D8E00ABEDBC /* bootLoadingAnimationRender.cpp */; };
@@ -563,6 +564,7 @@
 		E94886351CC6F42A00DFC68A /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VT323-Regular.ttf"; sourceTree = "<group>"; };
 		E94886361CC6F42A00DFC68A /* Notification_Prompt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Notification_Prompt.wav; sourceTree = "<group>"; };
 		E94A30361CC6EA9D00907AD9 /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
+		E9646BCC1CD7DFEA00C06573 /* Trouble.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Trouble.txt; sourceTree = "<group>"; };
 		E9AA727C1CD69D8E00ABEDBC /* animatorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = animatorComponent.cpp; sourceTree = "<group>"; };
 		E9AA727D1CD69D8E00ABEDBC /* animatorComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = animatorComponent.hpp; sourceTree = "<group>"; };
 		E9AA727E1CD69D8E00ABEDBC /* BootLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BootLoader.cpp; sourceTree = "<group>"; };
@@ -1297,7 +1299,6 @@
 		E948853D1CC6F3F600DFC68A /* Desktop1 */ = {
 			isa = PBXGroup;
 			children = (
-				E9AC1CB41CC997E700A7955F /* RE_Welcome.txt */,
 				E948853E1CC6F3F600DFC68A /* 1-24-08-182.jpg */,
 				E94885411CC6F3F600DFC68A /* 2-20-09-431.jpg */,
 				E94885421CC6F3F600DFC68A /* 2-23-2011-213.jpg */,
@@ -1401,9 +1402,11 @@
 				E94885891CC6F3F600DFC68A /* Lolita - Vladimir Nabokov.txt */,
 				E948858D1CC6F3F600DFC68A /* mulvey-visualpleasure.txt */,
 				E948858E1CC6F3F600DFC68A /* Myth of Sisyphus by Albert Camus.txt */,
+				E9AC1CB41CC997E700A7955F /* RE_Welcome.txt */,
 				E94885A31CC6F3F600DFC68A /* St. Augustine - Confessions copy.txt */,
 				E94885A61CC6F3F600DFC68A /* The_Metamorphosis.txt */,
 				E94885A71CC6F3F600DFC68A /* The_Scarlet_Letter.txt */,
+				E9646BCC1CD7DFEA00C06573 /* Trouble.txt */,
 			);
 			path = Desktop1;
 			sourceTree = "<group>";
@@ -1894,6 +1897,7 @@
 				E94885AF1CC6F3F600DFC68A /* 3573.jpg in Resources */,
 				E9AC1CAE1CC9687600A7955F /* Passwords.txt in Resources */,
 				E9AA74B71CD6C47500ABEDBC /* Van_Gogh_The_Sower.jpg in Resources */,
+				E9646BCD1CD7DFEA00C06573 /* Trouble.txt in Resources */,
 				E94886591CC6F42A00DFC68A /* micross.ttf in Resources */,
 				E94885DB1CC6F3F600DFC68A /* Doubt16.jpg in Resources */,
 				E9AA73C11CD69DA200ABEDBC /* gunshots.wav in Resources */,

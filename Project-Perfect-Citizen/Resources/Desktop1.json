@@ -52,6 +52,7 @@
                 }
             },
             "Private_Files/Arthur/Dad": {
+                "5/Trouble.txt":"DesktopContent/Desktop1/Trouble.txt",
                 "Chandler's_Road_Trip": {
                     "1/Sunset.jpg": "DesktopContent/Desktop1/11062011img47161.jpg",
                     "1/driving_sea_to_sky_highway.jpg": "DesktopContent/Desktop1/driving-sea-to-sky-highway.jpg",
@@ -70,14 +71,15 @@
                     "1/The_team.jpg": "DesktopContent/Desktop1/Portland-Conference-East-vs.-West-Soccer-Game.jpg",
                     "1/skills_still.jpg": "DesktopContent/Desktop1/skillsstill.jpg",
                     "Other/Annalise/My daughter": {
-                        "10/RE_Welcome.txt" : "DesktopContent/Desktop1/RE_Welcome.txt",
+                        "10/Welcome.txt" : "DesktopContent/Desktop1/RE_Welcome.txt",
                         "Call_your_sponsor": {
                             "Stop": {
                                 "Please": {
                                     "Don't_Do_This": {
                                         "Shame": {
-                                            "CP": {
+                                            "C_P_": {
                                                 "1/TODO": ""
+                                            
                                             }
                                         }
                                     }
@@ -89,6 +91,6 @@
             }
         },
         "1/Bluebird_by_Charles_Bukowski.txt": "DesktopContent/Desktop1/Bluebird by Charles Bukowski.txt",
-        "1/Myth_of_Sisyphus_by_Albert_Camus.txt": "DesktopContent/Desktop1/Myth of Sisyphus by Albert Camus.txt",
+        "1/Myth_of_Sisyphus_by_Albert_Camus.txt": "DesktopContent/Desktop1/Myth of Sisyphus by Albert Camus.txt"
     }
 }
