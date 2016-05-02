@@ -121,6 +121,11 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		}
 	}
 
+	else if (cmd.at(0) == "flag" || cmd.at(0) == "Flag") {
+		str_ = str_ + " File submitted for processing.";
+		numDisplayedLines++;
+	}
+
 	/* CASE: MKDIR */
 	else if (cmd.at(0) == "mkdir") {
 		if (cmd.size() < 2) {
