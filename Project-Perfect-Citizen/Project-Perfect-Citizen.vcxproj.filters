@@ -342,6 +342,9 @@
     <ClCompile Include="Code\Engine\SuspiciousFileHolder.cpp">
       <Filter>Sources\Engine\File Tree</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\ContextBuilder.cpp">
+      <Filter>Sources\Game Specific</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -709,6 +712,9 @@
     </ClInclude>
     <ClInclude Include="Code\Game\FloppySequence.h">
       <Filter>Headers\Game Specific\Floppy</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\ContextBuilder.h">
+      <Filter>Headers\Game Specific</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

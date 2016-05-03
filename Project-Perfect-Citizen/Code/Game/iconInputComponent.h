@@ -59,7 +59,7 @@ public:
 
     Subject& onOpen() { return onOpen_; };
 
-    friend bool make_icon_window(Desktop*, ppc::Event);
+    friend bool make_icon_window(iconInputComponent*, ppc::Event);
 
 };
 

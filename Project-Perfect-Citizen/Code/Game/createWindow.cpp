@@ -814,6 +814,25 @@ void ppc::spawnContextMenu(Desktop& dT, WindowInterface*& windowToModify, InputH
 
 }
 
+void ppc::spawnContextMenu(WindowInterface *& windowToModify, std::vector<ppc::Entity> listElements, float x, float y)
+{
+	int contextBoxElementWidth = windowToModify->getSize().x;
+	int contextBoxElementHeight = 22; // Change this to be font size + 2
+	int contextBoxPadding = 5;
+	int totalElementsLoaded = 0;
+
+	for (unsigned int i = 0; i < listElements.size(); ++i) {
+		windowToModify->addEntity(listElements.at(i));
+		++totalElementsLoaded;
+	}
+
+	int newHeight = (totalElementsLoaded)* (contextBoxElementHeight + contextBoxPadding);
+	int newWidth = windowToModify->getSize().x;
+	windowToModify->setSize(newWidth, newHeight + contextBoxPadding);
+
+	windowToModify->setPosition(x, y);
+}
+
 void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, InputHandler & ih, SuspiciousFileHolder* fH, float x, float y)
 {
 	if (windowToModify == nullptr) { return; }
