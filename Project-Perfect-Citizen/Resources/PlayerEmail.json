@@ -47,28 +47,19 @@
     here.
     
     So the first thing your should do is to open the
-    Graph application and start your first
-    assignment.
-            
-    We have suspicions on a group of people and it
-    is your job to look through these suspects's sms
-    messages and find the main conductor, the one
-    who seems to spew the most suggestive content.
-            
-    Once you find your person, we will give you
-    permission to look into his desktop. Once
-    inside, you will find content that will prove
-    their actions. Also, if you bust them, don't 
-    worry about them, they are going to a special
-    place.
-            
-    With every bust, we get closer to the goal of
-    achieving the Perfect Citizen.
+    Graph application and start your training.  We
+	have a series of simulations designed to quickly 
+	get you up to speed with our systems.
+    
+    Pretty soon you'll be busting cyber criminals left
+	and right along side our best agents.  Just
+	remember, with every successful takedown we get 
+	closer to achieving the goal of \"Perfect Citizen\"
             
     JP"
 		},
         "Email_4": {
-            "Visible" : "1",
+            "Visible" : "0",
 			"To" : "PLAYER_NAME",
 			"From" : "DCPS automated system",
 			"Subject": "Graph App Instructions",

@@ -24,4 +24,3 @@ Default: F: Click the submit button to log this evidence
 -Wrapup
 Default: T: Together we can hunt down criminals wherever they may hide
 Default: T: When you are satisfied you can click the start menu and log out
-

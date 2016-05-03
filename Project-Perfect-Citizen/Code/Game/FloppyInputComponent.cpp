@@ -73,6 +73,7 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 					label = line.substr(1);
 				}
 				else {
+					if (line.length() == 0) continue;
 					std::string emotion = line.substr(0, line.find_first_of(':'));
 					line = line.substr(line.find_first_of(':') + 2);
 					FloppyExpression newExpr;
