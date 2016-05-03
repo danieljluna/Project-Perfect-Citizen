@@ -9,6 +9,8 @@
 #include "../Game/TreeCommands.h"
 #include <string>
 #include <algorithm>
+#include <stdio.h>
+#include <ctype.h>
 #include "../Engine/World.h"
 
 #include "../Engine/WindowInterface.h"
@@ -43,6 +45,9 @@ textOutputRenderComponent::~textOutputRenderComponent() {
 }
 
 void textOutputRenderComponent::updateString(std::vector<string> cmd) {
+    for (int i = 0; i < cmd[0].size(); i++) {
+        cmd[0][i] = tolower(cmd[0][i]);
+    }
 	
 	/* Print out what was just typed */
 	str_ = str_ + "> ";
