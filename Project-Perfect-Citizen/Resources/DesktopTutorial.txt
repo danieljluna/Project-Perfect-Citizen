@@ -1,0 +1,27 @@
+-DesktopStart
+Default: T: You are now exploring the targets desktop
+Default: T: You must decide if charges should be pressed against them
+Default: F: Start by reading their email
+-Email
+Default: T: Emails will give you an idea of what to look for
+Default: T: After reading email look through their files
+Default: F: Try opening the explorer
+-Explorer
+Default: T: Your search warrant covers all files relevant to the case
+Default: F: That folder looks suspicious! You should enter it
+-Passwords
+Default: T: Looks like it has a password. Check the recovery hint
+Default: F: See if you can find the password and unlock the directory
+-SuspFolder
+Default: T: A manual for making bombs? Log it into evidence!
+Default: F: Right click and select "mark as suspicious"
+-Scanning
+Default: T: Once per desktop you can ask a colleagues opinion on a file
+Default: F: Click the scan button to see a number representing its suspiciousness
+-Submission
+Default: T: 1s are completely clean but this 10 is a smoking gun!
+Default: F: Click the submit button to log this evidence
+-Wrapup
+Default: T: Together we can hunt down criminals wherever they may hide
+Default: T: When you are satisfied you can click the start menu and log out
+
