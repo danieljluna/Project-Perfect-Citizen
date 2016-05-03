@@ -218,6 +218,7 @@
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
     <ClInclude Include="Code\Game\FloppyInputComponent.h" />
     <ClInclude Include="Code\Game\FloppyRenderComponent.hpp" />
+    <ClInclude Include="Code\Game\FloppySequence.h" />
     <ClInclude Include="Code\Game\FloppyUpdateComponent.hpp" />
     <ClInclude Include="Code\Game\HelpRenderComponent.hpp" />
     <ClInclude Include="Code\Game\IconBuilder.h" />

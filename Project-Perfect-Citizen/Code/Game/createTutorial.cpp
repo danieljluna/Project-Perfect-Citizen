@@ -42,7 +42,6 @@ void ppc::createTutorial(Desktop & dt) {
 	icons.setIconType(iconInputComponent::IconType::Pipeline);
 	icons.setSpritebyIndicies(0, 4, 1, 2);
 	icons.setText("Graph", World::getFont(World::VT323Regular), sf::Color::Black);
-	//TODO: ADD FLOPPY FUNC TO CREATE
 	icons.create(graphIcon);
 
 
@@ -116,12 +115,10 @@ void ppc::createTutorial(Desktop & dt) {
 	nextButton.setSpriteSheet(dt.getButtonSheet());
 	createWithEventFunc<FloppyInputComponent>(nextButton, floppyEntity, floppyIn, ppc::incrementFloppyDialog);
 
-	//// Here you go Danny  ////
 	buttonRenderComponent* mbr = nextButton.getButtonRenderComponent();
 	mousePressButton* mpb = nextButton.getMousePressButton();
 	floppyIn->setFloppyButtonInputCmpt(mpb);
 	floppyIn->setFloppyButtonRenderCmpt(mbr);
-	////////////////////////
 
 
 
@@ -144,4 +141,7 @@ void ppc::createTutorial(Desktop & dt) {
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn);
     floppyIn->onSequenceEnd().addObserver(tempObsvr);
 
+    //Connect Graph
+    tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
+    dt.getPlayVec().at(0)->onManip().addObserver(tempObsvr);
 }

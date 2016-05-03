@@ -4,6 +4,7 @@
 
 namespace ppc {
 
+    class Network;
     class WindowInterface;
 
 	//This is the event struct. You can add events here
@@ -39,10 +40,6 @@ namespace ppc {
             sf::Vector2i mousePos;
 		};
 
-		struct TransformationEv {
-			sf::Vector2f newPos;
-		};
-
         struct NotificationEv {
             unsigned int count;
         };
@@ -60,12 +57,12 @@ namespace ppc {
 		{
 			ButtonType,
 			OpenType,
-			TransformationType,
 			ScrollbarType,
 			sfEventType,
             NotificationType,
 			FloppyType,
 			AbleType,
+            NetworkType,
 			Count
 		};
 
@@ -90,15 +87,33 @@ namespace ppc {
 			OpenTypes winType;
 		};
 
+        struct NetworkEv {
+            enum NetworkEvType {
+                Selected = 0,
+                Created,
+                Edited,
+                Removed,
+                Center,
+                Count
+            };
+
+            NetworkEvType type;
+
+            Network* net;
+
+            size_t u;
+            size_t v;
+        };
+
 		EventTypes type;
 
 		union {
 			ButtonsEv buttons;
 			OpenEv open;
-			TransformationEv transformations;
             NotificationEv notification;
 			FloppyEv floppy;
 			AbleEv able;
+            NetworkEv network;
             sf::Event sfEvent;
 		};
 	};
