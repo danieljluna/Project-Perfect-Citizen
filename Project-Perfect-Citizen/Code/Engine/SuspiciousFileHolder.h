@@ -16,6 +16,6 @@ namespace ppc {
 		static void flagFile(ppc::BaseFileType* file);
 		static unsigned int getFileSuspicion(int element);
 		static unsigned int getTotalSucpicion();
-
+		static void printSuspiciousVector();
 	};
 };

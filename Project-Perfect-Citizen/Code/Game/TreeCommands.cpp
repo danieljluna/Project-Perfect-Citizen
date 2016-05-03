@@ -2,6 +2,7 @@
 #include "TreeCommands.h"
 #include "../Engine/NodeState.h"
 #include <string>
+#include "../Engine/SuspiciousFileHolder.h"
 
 using namespace ppc;
 
@@ -198,7 +199,7 @@ void ppc::fn_pwd(ppc::NodeState& state, const std::vector<std::string> words) {
 
 void ppc::fn_unlock(ppc::NodeState& state, const std::vector<std::string> words)
 {
-	printVector(words);
+	//printVector(words);
 
 	if (words.size() == 1 || words.size() == 2) {
 		std::cout << "invalid paramaters. Must be 'unlock [filename] [password] " << std::endl;
@@ -233,6 +234,24 @@ void ppc::fn_unlock(ppc::NodeState& state, const std::vector<std::string> words)
 }
 
 void ppc::fn_flag(ppc::NodeState& state, const std::vector<std::string> words) {
+	printVector(words);
+	if (words.size() == 1) {
+		return;
+	}
+	ppc::BaseFileType* tempCWD;
+	if (words.at(1).substr(0, 1) == "/") {
+		tempCWD = state.getRoot();
+	}
+	else {
+		tempCWD = state.getCwd();
+	}
+    std::string filepath = words.at(1);
+	std::vector<std::string> pathVec = split(filepath, "/");
+	int i = 0;
+	for (auto iter = pathVec.begin(); iter != pathVec.end(); iter++) {
+		tempCWD = tempCWD->findElement(pathVec.at(i));
+	}
+	ppc::SuspiciousFileHolder::flagFile(tempCWD);
 
 }
 
