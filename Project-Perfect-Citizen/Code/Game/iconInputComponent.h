@@ -34,6 +34,7 @@ private:
 	WindowInterface* openedWindow;
     AudioQueue que;
     Subject onOpen_;
+	std::string labelName = "";
     
     Event::OpenEv::OpenTypes type_;
 
@@ -58,6 +59,8 @@ public:
 	virtual void recieveMessage(ppc::Event ev) override;
 
     Subject& onOpen() { return onOpen_; };
+
+	void setIconLabelName(std::string);
 
     friend bool make_icon_window(iconInputComponent*, ppc::Event);
 

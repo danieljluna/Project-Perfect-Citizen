@@ -33,6 +33,7 @@
 #include "TextBubble.h"
 #include "TextBubbleRender.h"
 #include "ButtonBuilder.h"
+#include "IconBuilder.h"
 
 #include "notifcationRenderComponent.h"
 
@@ -125,7 +126,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     /////////////////////////////////////////////
     //TODO: FIX MEMORY LEAK
     Database* theDatabase = new Database();
-    theDatabase->generateFullDatabase(0);
+    //theDatabase->generateFullDatabase(0);
     
     //TODO: FIX MEMORY LEAK
     Inbox* theInbox = new Inbox();
@@ -178,7 +179,24 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
 	spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 525.0f, 200.0f, 0.5f, 0.25f, theInbox);
     spawnChatIcon(ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 300.0f, 0.4f, 0.25f, theInbox);
     spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 725.0f, 450.0f, 0.5f, 0.25f, theInbox);
-    
+
+
+	/*IconBuilder builder;
+	builder.setDesktop(desktopToModify);
+	builder.setInbox(desktopToModify.getInbox());
+	builder.setButtonSheet(desktopToModify.getButtonSheet());
+	builder.setAnimSpeed(0.30f);
+	builder.setInputHandle(desktopToModify.getInputHandler());
+	builder.setSize(0.5f);
+
+	Entity DocumentsIcon;
+	builder.setPosition({ 100.0f, 100.0f });
+	builder.setIconType(iconInputComponent::IconType::Folder);
+	builder.setSpritebyIndicies(0, 9, 1, 1);
+	builder.setText("Documents", World::getFont(World::Consola), sf::Color::Black);
+	builder.create(DocumentsIcon);
+	desktopWindowToModify.addEntity(DocumentsIcon);*/
+
     desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);
     desktopWindowToModify.addEntity(HardDriveIcon);

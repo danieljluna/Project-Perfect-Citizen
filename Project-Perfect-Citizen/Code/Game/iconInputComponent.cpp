@@ -7,6 +7,8 @@
 #include "../Engine/Audio/AudioQueue.h"
 #include "../Game/ContextBuilder.h"
 #include "../Engine/World.h"
+#include "TreeCommands.h"
+
 
 
 using namespace ppc;
@@ -192,15 +194,10 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
                 }
                 break;
             case IconType::HardDrive: //Was Explorer
-                //if (openedWindow != nullptr && theDesktop_.isWindow(openedWindow)) {
-                //theDesktop_.focusWindow(openedWindow);
-                //}
-                //else {
                 tempWin = new ppc::Window(600, 350, sf::Color(255, 255, 255));
                 spawnExplorer(theDesktop_, tempWin, tempWin->getInputHandler(), *theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
                 theDesktop_.addWindow(tempWin);
                 openedWindow = tempWin;
-                //}
                 break;
             case IconType::Email:
                 if (openedWindow != nullptr && theDesktop_.isWindow(openedWindow)) {
@@ -212,6 +209,39 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
                     openedWindow = tempWin;
                 }
                 break;
+			case IconType::Folder: //Was Explorer
+				if (openedWindow != nullptr && theDesktop_.isWindow(openedWindow)) {
+					theDesktop_.focusWindow(openedWindow);
+				}
+				else {
+					tempWin = new ppc::Window(600, 350, sf::Color(255, 255, 255));
+					NodeState* tempNS = theDesktop_.getNodeState(); // <-- Not returning copy
+					
+					/* Check to make sure the folder is not password protected */
+					if (tempNS->getCwd()->findElement(labelName)->isPasswordProtected() &&
+						labelName.compare("..") != 0) {
+						ppc::WindowInterface* ErrorMsgWindow =
+							new ppc::Window(500, 150, sf::Color(170, 170, 170));
+						spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_,
+							250,
+							250,
+							"Error: " + labelName + " is protected. \nHint: " + tempNS->getCwd()->findElement(labelName)->getHint());
+						theDesktop_.addWindow(ErrorMsgWindow);
+					}
+					else {
+						std::vector<string> cdCommand;
+						string cd = "cd";
+						cdCommand.push_back(cd);
+						cdCommand.push_back(labelName);
+						commandFn newCD = findFunction(cd);
+						newCD(*tempNS, cdCommand);
+						spawnExplorer(theDesktop_, tempWin, tempWin->getInputHandler(), *tempNS, buttonSheet_, iconSheet_, 100, 200);
+						theDesktop_.addWindow(tempWin);
+						openedWindow = tempWin;
+					}
+				}
+				
+				break;
             }
 
             ev.type = Event::OpenType;
@@ -223,6 +253,11 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
 
 	}
 	
+}
+
+void ppc::iconInputComponent::setIconLabelName(std::string s)
+{
+	labelName = s;
 }
 
 iconInputComponent::~iconInputComponent() {
