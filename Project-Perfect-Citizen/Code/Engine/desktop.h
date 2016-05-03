@@ -75,7 +75,8 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 ///@brief Vector of Networks for the PE
 ///////////////////////////////////////////////////////////////////////
-		std::vector<ppc::Network*> netVec_;
+		std::vector<ppc::Network*> solVec_;
+		std::vector<ppc::Network*> playVec_;
 		int netVecIndex_;
 
 
@@ -231,7 +232,9 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 		  NodeState* getNodeState();
 
-		  std::vector<Network*> getNetVec();
+		  std::vector<Network*> getSolVec();
+
+		  std::vector<Network*> getPlayVec();
 
 		  int getNetVecIndex();
 
