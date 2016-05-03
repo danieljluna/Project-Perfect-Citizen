@@ -225,7 +225,6 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
 	
 }
 
-
 iconInputComponent::~iconInputComponent() {
 
 }

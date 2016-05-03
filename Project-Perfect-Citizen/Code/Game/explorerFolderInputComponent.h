@@ -72,6 +72,14 @@ namespace ppc {
 		virtual ~explorerFolderInputComponent();
 		virtual bool registerInput(Event ev) override;
 
+		///////////////////////////////////////////////////////////////////////
+		///@brief Moves into the directory, updating the new sprites.
+		///@param Whether the change should make a new window or just close/re-
+		/// construct the existing. Set to true for a new window to spawn,
+		/// set to false for the current window to be overwritten.
+		///////////////////////////////////////////////////////////////////////
+		void changeDirectory(bool newWindow);
+
 
 		Subject& onClick() { return onPress_; };
 		Subject& onDblClick() { return onDoublePress_; };
@@ -88,7 +96,8 @@ namespace ppc {
 
 	}
 
-	bool open_folder(Desktop*, ppc::Event);
-	bool flag_folder(Desktop*, ppc::Event);
+	bool open_folder(explorerFolderInputComponent*, ppc::Event);
+	bool open_folder_in_new_window(explorerFolderInputComponent*, ppc::Event);
+	bool flag_folder(explorerFolderInputComponent*, ppc::Event);
 
 };

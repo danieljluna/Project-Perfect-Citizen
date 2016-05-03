@@ -40,6 +40,12 @@ void ppc::ContextBuilder::setLabelSize(int s)
 	labelSize = s;
 }
 
+void ppc::ContextBuilder::setLabelPosition(sf::Vector2f pos)
+{
+	labelX = pos.x;
+	labelY = pos.y;
+}
+
 void ppc::ContextBuilder::setListElementPosition(float x, float y)
 {
 	boxX = x;

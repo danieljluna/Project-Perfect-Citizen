@@ -62,6 +62,12 @@ namespace ppc {
 		void setLabelSize(int);
 
 		///////////////////////////////////////////////////////////////////////
+		/// @brief Set the label position to display on the list element box
+		/// @param A vector of the x,y position of the label
+		///////////////////////////////////////////////////////////////////////
+		void setLabelPosition(sf::Vector2f pos);
+
+		///////////////////////////////////////////////////////////////////////
 		/// @brief Set the position of the button
 		/// @param X position of the button
 		/// @param Y position of the button
