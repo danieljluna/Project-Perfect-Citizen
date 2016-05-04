@@ -129,7 +129,9 @@ namespace ppc {
 		///////////////////////////////////////////////
 		virtual ppc::FileType getFileType();
 		///////////////////////////////////////////////
-		///@brief sets the visibility to the flag
+		///@brief sets the visibility to the 
+
+
 		///specified
 		///////////////////////////////////////////////
 		virtual void setVisibility(bool flag);

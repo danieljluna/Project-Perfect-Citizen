@@ -173,7 +173,6 @@ void ppc::Vertex::draw(sf::RenderTarget& target,
     target.draw(bgrect_, states);
 	target.draw(rect_, states);
 	target.draw(text_, states);
-    states.transform.scale(sf::Vector2f{ 2.5f, 2.5f });
     target.draw(*rend_, states);
 
 }

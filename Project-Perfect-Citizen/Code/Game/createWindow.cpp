@@ -313,13 +313,14 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
     //Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 	//Desktop* currDesk = &World::getCurrDesktop();
 	int netvecindex = World::getCurrDesktop().getNetVecIndex();
-	Network* solNet;
-	if (netvecindex < World::getCurrDesktop().getNetVec().size()) {
-		solNet = World::getCurrDesktop().getNetVec().at(netvecindex);
+	Network* solNet, *playNet;
+	if (netvecindex < World::getCurrDesktop().getSolVec().size()) {
+		solNet = World::getCurrDesktop().getSolVec().at(netvecindex);
+		playNet = World::getCurrDesktop().getPlayVec().at(netvecindex);
 	} else {
 		solNet = PipelineLevelBuilder::buildDefaultNetwork();
+		playNet = solNet->copyNetworkByVerts();
 	}
-	Network* playNet = solNet->copyNetworkByVerts();
 
 
     NetworkCheckFunctor *ncf = new NetworkCheckFunctor(*solNet, *playNet);

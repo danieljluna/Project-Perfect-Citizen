@@ -66,11 +66,17 @@ ppc::Desktop::Desktop(const Desktop& other) {
 
 ppc::Desktop::~Desktop() {
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-			delete *it;
+        if (*it != nullptr)
+            delete *it;
 	}
 
-	for (auto it = netVec_.begin(); it != netVec_.end(); ++it) {
-		delete *it;
+	for (auto it = solVec_.begin(); it != solVec_.end(); ++it) {
+        if (*it != nullptr)
+            delete *it;
+	}
+	for (auto it = playVec_.begin(); it != playVec_.end(); ++it) {
+		if (*it != nullptr)
+            delete *it;
 	}
 
 	if(frontTop_) delete frontTop_;
@@ -201,8 +207,12 @@ ppc::NodeState* ppc::Desktop::getNodeState() {
 	return &nodeState_;
 }
 
-std::vector<Network*> ppc::Desktop::getNetVec() {
-	return netVec_;
+std::vector<Network*> ppc::Desktop::getSolVec() {
+	return solVec_;
+}
+
+std::vector<Network*> ppc::Desktop::getPlayVec() {
+	return playVec_;
 }
 
 int ppc::Desktop::getNetVecIndex() {
@@ -419,20 +429,23 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 			}
 			desktop.netVecIndex_ = 0;
 			int levelnum = PipelineLevelBuilder::LEVEL_MAP.at(file);
+			Network* solNet;
 			switch (levelnum) {
 				case -1:
-					desktop.netVec_.push_back(PipelineLevelBuilder::buildTutorialOne());
+					solNet = PipelineLevelBuilder::buildTutorialOne();
 					break;
 				case 0:
-					desktop.netVec_.push_back(PipelineLevelBuilder::buildTutorialTwo());
+					solNet = PipelineLevelBuilder::buildTutorialTwo();
 					break;
 				case 1:
-					desktop.netVec_.push_back(PipelineLevelBuilder::buildLevelOneNetworkSolution());
+					solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 					break;
 				default:
 					DEBUGF("wc", levelnum);
 					break;
 			}
+			desktop.solVec_.push_back(solNet);
+			desktop.playVec_.push_back(solNet->copyNetworkByVerts());
 		}
 	}
 
