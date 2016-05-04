@@ -7,6 +7,7 @@
 #include "../Engine/InputHandler.h"
 #include "../Game/mousePressButton.h"
 #include "../Game/buttonRenderComponent.h"
+#include "../Game/TextDisplayRenderComponent.h"
 
 namespace ppc {
 	///////////////////////////////////////////////////////////////////////
@@ -37,6 +38,7 @@ namespace ppc {
 		ppc::InputHandler* inputHandle;
 		mousePressButton* button_mpb = nullptr;
 		buttonRenderComponent* button_brc = nullptr;
+		TextDisplayRenderComponent* text_rc = nullptr;
 
 		std::string label;
 		sf::Font* font;
@@ -139,6 +141,13 @@ namespace ppc {
 		/// createWithEventFunc.
 		///////////////////////////////////////////////////////////////////////
 		ppc::buttonRenderComponent* getButtonRenderComponent();
+
+		///////////////////////////////////////////////////////////////////////
+		/// @brief Returns the TextDisplayRenderComponent of a button
+		/// @note Only call this function after calling create or 
+		/// createWithEventFunc.
+		///////////////////////////////////////////////////////////////////////
+		ppc::TextDisplayRenderComponent* getTextRenderComponent();
 
 		///////////////////////////////////////////////////////////////////////
 		/// @brief Returns the constructed button

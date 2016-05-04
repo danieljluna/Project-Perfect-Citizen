@@ -159,6 +159,17 @@ void spawnContextMenu(Desktop& dt, WindowInterface*& windowToModify, InputHandle
 	std::vector<std::string> n, std::vector<bool(*)(Desktop*, Event ev)>, float x, float y);
 
 ///////////////////////////////////////////////////////////////////////
+///@brief Constructs a temporary, borderless context menu
+///
+///@param The newly created window to add components/entities to.
+///@param A vector of ContextBuilder-constructed entities
+///@param The x position of the new window
+///@param The y position of the new window
+///////////////////////////////////////////////////////////////////////
+void spawnContextMenu(WindowInterface*& windowToModify,
+	std::vector<ppc::Entity> listElements,  float x, float y);
+
+///////////////////////////////////////////////////////////////////////
 ///@brief Constructs a static file tracker/suspicious file holder
 ///
 ///@param The newly created window to add components/entities to.
