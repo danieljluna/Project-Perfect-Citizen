@@ -32,8 +32,8 @@ desktopExtractionComponent::desktopExtractionComponent(NodeState ft) : fileTree_
 Json::Value desktopExtractionComponent::parseDesktopAsJson(std::string file, std::string obj) {
     Json::Reader reader;
     Json::Value value;
-    std::ifstream doc(resourcePath() + file, std::ifstream::binary);
-    reader.parse(doc, value);
+    std::ifstream doc(file, std::ifstream::binary);
+    bool parsingSuccessful = reader.parse(doc, value, false);
     parseForFileTree(value, obj);
     return value;
 }
