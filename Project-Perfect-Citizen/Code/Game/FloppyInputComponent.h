@@ -22,8 +22,10 @@
 namespace ppc {
 
 	class FloppyInputComponent : public ppc::InputComponent {
+		//enum FloppySequenceName;
 	private:
 		unsigned int sequence;
+		//FloppySequenceName seqname;
 		unsigned int frame;
 		Subject onSequenceEnd_;
 
@@ -43,7 +45,7 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		/// Map of Floppy Sequence names to integers
 		///////////////////////////////////////////////////////////////////////
-		static std::map<std::string, unsigned int> Floppy_Sequence_Names;
+		//static std::map<std::string, unsigned int> Floppy_Sequence_Names;
 		    /*{"Welcome", 0},
 			{"Connections", 1},
 			{"Edges", 2},
@@ -52,6 +54,24 @@ namespace ppc {
 			{"Center", 5},
 			{"Feedback", 6}*/
 
+		enum FloppySequenceName {
+			Welcome = 0,
+			Connections = 1,
+			Edges,
+			Goal,
+			Suspicion,
+			Center,
+			Feedback,
+			DesktopStart,
+			Email,
+			Explorer,
+			Passwords,
+			SuspFolder,
+			Scanning,
+			Submission,
+			Wrapup
+		};
+
         static bool initialized;
 		
 		///////////////////////////////////////////////////////////////////////
@@ -59,6 +79,7 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		unsigned int getFrame();
 		unsigned int getSequence();
+		FloppySequenceName getSeqName();
 
 		///////////////////////////////////////////////////////////////////////
 		/// Basic Setters

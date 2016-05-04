@@ -29,7 +29,7 @@ const std::string FLOPPY_DEBUG_CODE = "fl";
 std::vector<FloppySequence> FloppyInputComponent::floppyDictionary = {};
 bool FloppyInputComponent::initialized = false;
 
-std::map<std::string, unsigned int> FloppyInputComponent::Floppy_Sequence_Names = {};
+//std::map<std::string, unsigned int> FloppyInputComponent::Floppy_Sequence_Names = {};
 
 FloppyInputComponent::FloppyInputComponent() {
 
@@ -55,7 +55,6 @@ const std::map<std::string, int> FLOPPY_EMOTION_MAP{
 };
 
 
-
 void ppc::FloppyInputComponent::initializeFloppyDict() {
 	for (const auto& filename: FLOPPY_SOURCES) {
 		std::ifstream myfile(resourcePath() + filename);
@@ -74,7 +73,7 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 					}
 
 					floppyDictionary.push_back(sequence);
-					Floppy_Sequence_Names.insert(std::make_pair(label, floppyDictionary.size() - 1));
+					//Floppy_Sequence_Names.insert(std::make_pair(label, floppyDictionary.size() - 1));
                     size_t tokenIndex = line.find_first_of(':');
                     label = line.substr(1, tokenIndex - 1);
                     if (line.substr(tokenIndex + 2, 1) == "F")
@@ -98,7 +97,7 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 				}
 			}
 			floppyDictionary.push_back(sequence);
-			Floppy_Sequence_Names.insert(std::make_pair(label, floppyDictionary.size() - 1));
+			//Floppy_Sequence_Names.insert(std::make_pair(label, floppyDictionary.size() - 1));
 		}
 		else {
 			DEBUGF(FLOPPY_DEBUG_CODE, filename + " could not be opened");
@@ -123,6 +122,11 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 unsigned int ppc::FloppyInputComponent::getFrame() { return frame; }
 
 unsigned int ppc::FloppyInputComponent::getSequence() { return sequence; }
+
+//FloppySequenceName ppc::FloppyInputComponent::getSeqName()
+//{
+//	return seqname;
+//}
 
 void ppc::FloppyInputComponent::setFrame(unsigned int f) { 
     frame = f; 
@@ -234,10 +238,12 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             ev.floppy.frame = 0;
             switch (World::getCurrDesktop().getNetVecIndex()) {
             case 0:
-                ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("Welcome");
+                //ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("Welcome");
+				ev.floppy.sequence = FloppyInputComponent::Welcome;
                 break;
             case 1:
-                ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("Goal");
+                //ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("Goal");
+				ev.floppy.sequence = FloppyInputComponent::Goal;
                 break;
             }
         }
@@ -278,56 +284,71 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 
     //Switch controls what event needs to be read to move on
     switch (ptr->getSequence()) {
-    case 0: //Welcome
-        enable = ((ev.type == ev.NetworkType) &&
+    //case 0: //Welcome
+	case FloppyInputComponent::Welcome:
+		enable = ((ev.type == ev.NetworkType) &&
             (ev.network.type == ev.network.Selected) &&
             (ev.network.v == -1));
         break;
-    case 1: //Connections
+    //case 1: //Connections
+	case FloppyInputComponent::Connections:
         enable = ((ev.type == ev.NetworkType) &&
             (ev.network.type == ev.network.Created) &&
             (ev.network.v != -1));
         break;
-    case 2: //Edge
+    //case 2: //Edge
+	case FloppyInputComponent::Edges:
         enable = ((ev.type == ev.NetworkType) &&
             (ev.network.type == ev.network.Removed) &&
             (ev.network.v != -1));
         break;
-    case 3: //Goal
+    //case 3: //Goal
+	case FloppyInputComponent::Goal:
         enable = (ev.type == ev.NetworkType);
         if (enable) {
             enable = ev.network.net->checkEdgeEquality(*World::getCurrDesktop().getSolVec()[1]);
         }
         break;
-    case 4: //Suspicion
+    //case 4: //Suspicion
+	case FloppyInputComponent::Suspicion:
         enable = (ev.type == ev.NetworkType);
         if (enable) {
             enable = ev.network.net->checkEdgeEquality(*World::getCurrDesktop().getSolVec()[1]);
         }
         break;
-    case 5: //Center
+    //case 5: //Center
+	case FloppyInputComponent::Center:
         enable = (ev.type == ev.NetworkType);
         if (enable) {
             ev.network.net->checkCenterEquality(*World::getCurrDesktop().getSolVec()[1]);
         }
         break;
-    case 6: //Feedback
+    //case 6: //Feedback
+	case FloppyInputComponent::Feedback:
         enable = true;
         break;
-    case 7: //DesktopStart
+    //case 7: //DesktopStart
+	case FloppyInputComponent::DesktopStart:
         enable = ((ev.type == ev.OpenType) &&
             (ev.open.Email));
         break;
-    case 8: //Email
+    //case 8: //Email
+	case FloppyInputComponent::Email:
         enable = ((ev.type == ev.OpenType) &&
             (ev.open.Explorer));
         break;
-    case 9: //Explorer
-    case 10://Passwords
-    case 11://SuspFolder
-    case 12://Scanning
-    case 13://Submission
-    case 14://WrapUp
+    //case 9: //Explorer
+	case FloppyInputComponent::Explorer:
+    //case 10://Passwords
+	case FloppyInputComponent::Passwords:
+    //case 11://SuspFolder
+	case FloppyInputComponent::SuspFolder:
+    //case 12://Scanning
+	case FloppyInputComponent::Scanning:
+    //case 13://Submission
+	case FloppyInputComponent::Submission:
+    //case 14://WrapUp
+	case FloppyInputComponent::Wrapup:
         enable = true;
         break;
     default:
