@@ -147,13 +147,14 @@ void buttonRenderComponent::draw( sf::RenderTarget& target,
 void buttonRenderComponent::recieveMessage(ppc::Event ev) {
 	switch (ev.type) {
 	case Event::EventTypes::ButtonType:
-		if (ev.buttons.state == ev.buttons.Clicked &&
-			ev.buttons.activation != ev.buttons.RightMouse) {
-			setSprite(xIndex + width, yIndex, width);
+		if ((ev.buttons.state == ev.buttons.Clicked || 
+			ev.buttons.state == ev.buttons.DblClicked) &&
+				ev.buttons.activation != ev.buttons.RightMouse) {
+					setSprite(xIndex + width, yIndex, width);
 		}
-		if (ev.buttons.state == ev.buttons.Release &&
-			ev.buttons.activation != ev.buttons.RightMouse) {
-			setSprite(xIndex, yIndex, width);
+		if ((ev.buttons.state == ev.buttons.Release) &&
+				ev.buttons.activation != ev.buttons.RightMouse) {
+					setSprite(xIndex, yIndex, width);
 		}
 		break;
 	case Event::EventTypes::AbleType:
