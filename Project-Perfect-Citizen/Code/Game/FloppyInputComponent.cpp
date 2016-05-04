@@ -296,7 +296,7 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
     case 3: //Goal
         enable = (ev.type == ev.NetworkType);
         if (enable) {
-            enable = ev.network.net->checkEdgeEquality(*World::getCurrDesktop().getSolVec()[1]);
+            enable = ev.network.net->checkColorlessEdgeEquality(*World::getCurrDesktop().getSolVec()[1]);
         }
         break;
     case 4: //Suspicion

@@ -135,6 +135,10 @@ void ppc::createTutorial(Desktop & dt) {
     //Connect Graph
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dt.getPlayVec().at(0)->onManip().addObserver(tempObsvr);
+
+    //Connect Graph
+    tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
+    dt.getPlayVec().at(1)->onManip().addObserver(tempObsvr);
 }
 
 
