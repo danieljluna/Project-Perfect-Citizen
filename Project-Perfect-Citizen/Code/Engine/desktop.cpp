@@ -450,7 +450,8 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 					break;
 			}
 			desktop.solVec_.push_back(solNet);
-			desktop.playVec_.push_back(solNet->copyNetworkByVerts());
+			Network* playNet = solNet->copyNetworkByVerts();
+			desktop.playVec_.push_back(playNet);
 		}
 	}
 
