@@ -182,7 +182,8 @@ bool ppc::flag_file(explorerFileInputComponent* ptr, ppc::Event ev) {
 		firstFlagCommand.push_back("flag");
 		firstFlagCommand.push_back(ptr->getFileName());
 		commandFn firstLs = findFunction("flag");
-		firstLs(ptr->getFileNodeState(), firstFlagCommand);
+        ppc::NodeState temp = ptr->getFileNodeState();
+		firstLs(temp, firstFlagCommand);
 	}
 	else {
 		cout << "SHOW ERROR MESSAGE" << endl;

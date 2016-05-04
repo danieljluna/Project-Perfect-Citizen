@@ -251,7 +251,8 @@ void ppc::createDesktopTutorial(Desktop & dt) {
     //Set up starting Message
     Event ev;
     ev.type = ev.FloppyType;
-    ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("DesktopStart");
+    ev.floppy.sequence = 0; // V this code gives me errors Xcode
+    //ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("DesktopStart");
     ev.floppy.frame = 0;
     summonFloppyDialog(floppyIn, ev);
 
