@@ -22,10 +22,8 @@
 namespace ppc {
 
 	class FloppyInputComponent : public ppc::InputComponent {
-		//enum FloppySequenceName;
 	private:
 		unsigned int sequence;
-		//FloppySequenceName seqname;
 		unsigned int frame;
 		Subject onSequenceEnd_;
 
@@ -43,17 +41,8 @@ namespace ppc {
 		static std::vector<FloppySequence> floppyDictionary;
 
 		///////////////////////////////////////////////////////////////////////
-		/// Map of Floppy Sequence names to integers
+		/// Emum of Floppy Sequence names to integers
 		///////////////////////////////////////////////////////////////////////
-		//static std::map<std::string, unsigned int> Floppy_Sequence_Names;
-		    /*{"Welcome", 0},
-			{"Connections", 1},
-			{"Edges", 2},
-			{"Goal", 3},
-			{"Suspicion", 4},
-			{"Center", 5},
-			{"Feedback", 6}*/
-
 		enum FloppySequenceName {
 			Welcome = 0,
 			Connections = 1,
