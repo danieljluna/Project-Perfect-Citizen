@@ -166,7 +166,7 @@ namespace ppc {
 
 		virtual void setSuspicionLevel(unsigned int val);
 
-		virtual unsigned int getSuspicionLevel();
+		virtual int getSuspicionLevel();
 
 		std::string getName();
 

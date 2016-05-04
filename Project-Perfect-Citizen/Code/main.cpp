@@ -133,13 +133,17 @@ int main(int argc, char** argv) {
     ///////////// Load Spritesheets/Textures/Background Images ////////
     sf::Sprite playerWallpaper;
     sf::Sprite teacherWallpaper;
+    sf::Sprite artistWallpaper;
     sf::Texture playerWallpaperTexture;
     sf::Texture teacherWallpaperTexture;
+    sf::Texture artistWallpaperTexture;
     playerWallpaperTexture.loadFromFile(resourcePath() + "Wallpaper.png");
     teacherWallpaperTexture.loadFromFile(resourcePath() + "Teacher_Wallpaper.png");
+    artistWallpaperTexture.loadFromFile(resourcePath() + "Artist_Wallpaper.png");
     
     playerWallpaper.setTexture(playerWallpaperTexture);
     teacherWallpaper.setTexture(teacherWallpaperTexture);
+    artistWallpaper.setTexture(artistWallpaperTexture);
     
     playerWallpaper.setScale(0.7f, 0.7f);
     playerWallpaper.setPosition(0, 0);
@@ -152,6 +156,8 @@ int main(int argc, char** argv) {
     iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
     sf::Image teacherIconSheet;
     teacherIconSheet.loadFromFile(resourcePath() + "Teacher_Icon_Sheet.png");
+    sf::Image artistIconSheet;
+    artistIconSheet.loadFromFile(resourcePath() + "Artist_Icon_Sheet.png");
     ///////////////////////////////////////////////////////////////////
     
     //// ----------------   PYTHON LOCATION STUFF ---------------- ////
@@ -251,6 +257,29 @@ int main(int argc, char** argv) {
     
     Logger::endTimer("targetDesktop");
 	//End of Target/Teacher Desktop
+    
+    
+    
+    
+    //Desktop 1 / Teacher Desktop
+    ppc::NodeState artistState;
+    artistState.setUp();
+    Window* artistDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
+    
+    Desktop* artistDesktop = new Desktop(artistDesktopWindow, artistState);
+    artistDesktop->setIconSheet(artistIconSheet);
+    artistDesktop->setButtonSheet(buttonSheet);
+    artistDesktop->setBackgrond(artistWallpaper);
+    
+    Logger::startTimer("targetDesktop");
+    
+    World::setCurrDesktop(*artistDesktop);
+    runArtistDesktop(*artistDesktop);
+    while (World::runDesktop(*artistDesktop)) {}
+    delete artistDesktop;
+    
+    Logger::endTimer("targetDesktop");
+    //End of Target/Teacher Desktop
 
 
 

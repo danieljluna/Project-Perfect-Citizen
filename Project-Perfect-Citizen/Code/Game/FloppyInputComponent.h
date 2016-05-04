@@ -8,6 +8,7 @@
 #include "../Engine/event.h"
 #include "../Game/buttonRenderComponent.h"
 #include "../Game/mousePressButton.h"
+#include "../Game/TextDisplayRenderComponent.h"
 #include "FloppySequence.h"
 
 
@@ -28,6 +29,7 @@ namespace ppc {
 
 		buttonRenderComponent* floppyBtnRndr = nullptr;
 		mousePressButton* floppyBtnInpt = nullptr;
+		TextDisplayRenderComponent* floppyTxtRndr = nullptr;
 	
 	public:
 
@@ -83,6 +85,7 @@ namespace ppc {
 
 		void setFloppyButtonRenderCmpt(buttonRenderComponent*);
 		void setFloppyButtonInputCmpt(mousePressButton*);
+		void setFloppyTextRenderCmpt(TextDisplayRenderComponent*);
 
 		void setFloppyButton(bool);
 

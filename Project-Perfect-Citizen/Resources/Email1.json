@@ -4,7 +4,7 @@
             "Visible" : "1",
             "To" : "Murphy Goodwin <mgoodwin@corpora.com>",
             "From" : "Chandler Garvey <cgarvey@fellowship.net>",
-            "Subject": "Welcome! (2)",
+            "Subject": "Welcome! (2) [3yrs ago]",
             "Body" : "Hello Murphy!
             
     I'm glad you reached out to us. I'm Chandler
@@ -27,7 +27,7 @@
                 
             C. Garvey
 
----------------------------------------------------		
+------------------------------------------------------------
 To: Chandler Garvey, From: Murphy Goodwin
 Subject: RE: Welcome	
 			
@@ -59,81 +59,80 @@ Subject: RE: Welcome
     ’’’’’’
             
         Thank you,
-        Murphy Goodwin
-			"
-                },
+        Murphy Goodwin"
+        },
         
         "Email_002": {
             "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "Subject": "Trouble (5)",
+            "Subject": "Trouble (5) [3yrs ago]",
             "Body" : "
             
     You told me to be candid with you Chandler, so
-	I will. While I've never acted on my impulses 
+	’’’’’’’’’’’’’’’’’
 	in person, I'm feeling guilty for something.
             
-    I found some pictures online.
+    I found some ’’’ ’’’
             
     Am I wrong for looking at them? For keeping 
 	them?
                 
             - Murphy
 
----------------------------------------------------
+------------------------------------------------------------
 To: Murpy Goodwin, From: Chandler Garvey
 Subject: RE: Trouble
 	
-	Delete those pictures immediately. There is a
+	’’’’’’’’’’’’’ There is a
     line we don't cross and you're crossing it.
             
             - Chandler
 
----------------------------------------------------
+------------------------------------------------------------
 To: Chandler Garvey, From: Murphy Goodwin
 Subject: RE: RE: Trouble
 
-	Help me understand why.  Isn't looking at 
-	photos a victimless crime?
+	Help me understand why. ’’’
+	’’’’’’’’’’’’’’
             
             - Murphy		
 
----------------------------------------------------
+------------------------------------------------------------
 To: Murphy Goodwin, From: Chandler Garvey
 Subject: RE: RE: RE: Trouble
 
 	No Murphy.
             
-    Someone hurt those children, and what you're
-    viewing is the product of that violence.
+    ’’’’’’’’’’’’’’’’’
+    ’’’’’’’’’’’’
             
-    By having it on your computer, you're 
-	participating, even contributing to it. You're
-	complicit in a black market predicated on 
-	violating children.
-            
-    Remove the pictures, or remove yourself from
+    ’’’’’’’’’’’’’’’’’
+    ’’’’’’’’’’’’’’’’’
+    ’’’’’’’’’’’’’’’’’
+    ’’’’’’
+        
+    ’’’ or remove yourself from
     Virtue Community. Am I being clear?
             
             - Chandler
 
----------------------------------------------------
+------------------------------------------------------------
 To: Chandler Garvey, From: Murphy Goodwin
 Subject: RE: RE: RE: RE: Trouble
 
-    Alright, I get it. I'll delete them.
+    ’’’’’’’’’’’’’’’’’
             
     Sorry.
             
             - Murphy"
-                },
+        },
 
         "Email_003": {
             "Visible" : "1",
             "To" : "Murphy Goodwin <mgoodwin@corpora.com>, more...",
             "From" : "Chandler Garvey <cgarvey@fellowship.net>",
-            "Subject": "Important News",
+            "Subject": "Important News [2yrs ago]",
             "Body" : "Hello All,
     I hate to deliver this news.
             
@@ -157,7 +156,7 @@ Subject: RE: RE: RE: RE: Trouble
             "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "Subject" : "Coming Clean (5)",
+            "Subject" : "Coming Clean (5) [2yrs ago]",
             "Body" :"Hi Chandler,
             
     Lisa and I have been together for a little over
@@ -175,7 +174,7 @@ Subject: RE: RE: RE: RE: Trouble
                     
             - Murphy
 			
----------------------------------------------------
+------------------------------------------------------------
 To: Murphy Goodwin, From: Chandler Garvey
 Subject: RE: Coming Clean
 
@@ -189,7 +188,7 @@ Subject: RE: Coming Clean
             
             - Chandler
 			
----------------------------------------------------
+------------------------------------------------------------
 To: Chandler Garvey, From: Murphy Goodwin
 Subject: RE: RE: Coming Clean
 
@@ -205,7 +204,7 @@ Subject: RE: RE: Coming Clean
 			
 			- Murphy
 
----------------------------------------------------
+------------------------------------------------------------
 To: Murphy Goodwin, From: Chandler Garvey
 Subject: RE: RE: RE: Coming Clean
 
@@ -218,18 +217,18 @@ Subject: RE: RE: RE: Coming Clean
 	
 			- Chandler
 			
----------------------------------------------------
+------------------------------------------------------------
 To: Chandler Garvey, From: Murphy Goodwin
 Subject: RE: RE: RE: RE: Coming Clean			
 			
     Don't you think the things people are most
     ashamed of are things they can't help"
         },
-        "Email_009": {
+        "Email_005": {
             "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "Subject": "Need to talk (4)",
+            "Subject": "Need to talk [1yr ago]",
             "Body" : "Hi Chandler,
             
     I got in an argument with Lisa this morning.
@@ -250,7 +249,7 @@ Subject: RE: RE: RE: RE: Coming Clean
                 
             - Murphy
 			
----------------------------------------------------
+------------------------------------------------------------
 To: Murphy Goodwin, From: Chandler Garvey
 Subject: RE: Need to talk
 
@@ -266,7 +265,7 @@ Subject: RE: Need to talk
 	
 			- Chandler
 			
----------------------------------------------------
+------------------------------------------------------------
 To: Chandler Garvey, From: Murphy Goodwin
 Subject: RE: RE: Need to talk
 
@@ -289,7 +288,7 @@ Subject: RE: RE: Need to talk
                 
             -Murphy	
 
----------------------------------------------------
+------------------------------------------------------------
 To: Chandler Garvey, From: Murphy Goodwin
 Subject: RE: RE: RE: Need to talk
 	
@@ -303,11 +302,11 @@ Subject: RE: RE: RE: Need to talk
             
 			-Murphy"
         },
-        "Email_013": {
+        "Email_006": {
             "Visible" : "1",
             "To" : "Vanita Goodwin <vgoodwin@colonade.com",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "Subject": "Good News!",
+            "Subject": "Good News! [1mo ago]",
             "Body" : "Hi Mom,
             
     Lisa and I are exhausted, and overjoyed! We

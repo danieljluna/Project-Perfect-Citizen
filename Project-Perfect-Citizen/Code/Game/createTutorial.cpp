@@ -117,8 +117,10 @@ void ppc::createTutorial(Desktop & dt) {
 
 	buttonRenderComponent* mbr = nextButton.getButtonRenderComponent();
 	mousePressButton* mpb = nextButton.getMousePressButton();
+	TextDisplayRenderComponent* txt = nextButton.getTextRenderComponent();
 	floppyIn->setFloppyButtonInputCmpt(mpb);
 	floppyIn->setFloppyButtonRenderCmpt(mbr);
+	floppyIn->setFloppyTextRenderCmpt(txt);
 
 
 
