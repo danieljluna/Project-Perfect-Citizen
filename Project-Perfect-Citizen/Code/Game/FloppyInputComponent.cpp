@@ -82,6 +82,7 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 					sequence.frames.clear();
 				}
 				else {
+					if (line.length() == 0) continue;
 					std::string emotion = line.substr(0, line.find_first_of(':'));
 					line = line.substr(line.find_first_of(':'));
 					FloppyFrame newExpr;

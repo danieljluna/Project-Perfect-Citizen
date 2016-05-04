@@ -187,7 +187,7 @@ int main(int argc, char** argv) {
 
 
 	//Tutorial Desktop
-	desktopFileInput.open(resourcePath() + "Saves/tutorialDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Saves/pipelineTutorial.ini", std::ifstream::in);
 	Desktop tutorialDesktop;
 	desktopFileInput >> tutorialDesktop;
 	desktopFileInput.close();

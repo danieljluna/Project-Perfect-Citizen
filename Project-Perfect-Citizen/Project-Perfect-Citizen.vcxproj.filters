@@ -736,7 +736,19 @@
     <None Include="Resources\Email1.json">
       <Filter>Resources</Filter>
     </None>
-    <None Include="Resources\Saves\tutorialDesktop.ini">
+    <None Include="Resources\Saves\bootDesktop.ini">
+      <Filter>Resources\Saves</Filter>
+    </None>
+    <None Include="Resources\Saves\desktop0.ini">
+      <Filter>Resources\Saves</Filter>
+    </None>
+    <None Include="Resources\Saves\desktop2.ini">
+      <Filter>Resources\Saves</Filter>
+    </None>
+    <None Include="Resources\Saves\desktopTutorial.ini">
+      <Filter>Resources\Saves</Filter>
+    </None>
+    <None Include="Resources\Saves\pipelineTutorial.ini">
       <Filter>Resources\Saves</Filter>
     </None>
   </ItemGroup>
@@ -753,7 +765,7 @@
     <Text Include="Resources\PipelineTutorial.txt">
       <Filter>Resources</Filter>
     </Text>
-    <Text Include="DekstopTutorial.txt">
+    <Text Include="Resources\DesktopTutorial.txt">
       <Filter>Resources</Filter>
     </Text>
   </ItemGroup>

@@ -137,8 +137,8 @@ bool explorerFolderInputComponent::registerInput(Event ppcEv) {
 			std::vector<bool(*)(Desktop*, Event ev)> elementFunctions;
 			elementNames.push_back("Open");
 			elementFunctions.push_back(&(ppc::open_folder));
-			elementNames.push_back("Flag");
-			elementFunctions.push_back(&(ppc::flag_folder));
+			//elementNames.push_back("Flag");
+			//elementFunctions.push_back(&(ppc::flag_folder));
 			spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
 				elementFunctions, ev.mouseButton.x+containingWindow_->getPosition().x, ev.mouseButton.y + containingWindow_->getPosition().y);
 			theDesktop_.addWindow(ContextMenu);

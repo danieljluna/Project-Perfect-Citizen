@@ -66,14 +66,17 @@ ppc::Desktop::Desktop(const Desktop& other) {
 
 ppc::Desktop::~Desktop() {
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-			delete *it;
+        if (*it != nullptr)
+            delete *it;
 	}
 
 	for (auto it = solVec_.begin(); it != solVec_.end(); ++it) {
-		delete *it;
+        if (*it != nullptr)
+            delete *it;
 	}
 	for (auto it = playVec_.begin(); it != playVec_.end(); ++it) {
-		delete *it;
+		if (*it != nullptr)
+            delete *it;
 	}
 
 	if(frontTop_) delete frontTop_;

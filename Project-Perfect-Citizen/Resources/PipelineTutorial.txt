@@ -24,4 +24,4 @@ Default: Select that person and press “C” to mark the center of the network
 Default: When you’re confident you’ve found the right center hit submit
 -Feedback: F
 Default: A fellow DCPS officer has checked your work and approved it!
-Default: You have been issued a warrant to search this person’s desktop
+Default: You have been issued a warrant to search their desktop.

@@ -30,3 +30,10 @@ unsigned int ppc::SuspiciousFileHolder::getTotalSucpicion()
 	}
 	return susLevel;
 }
+
+void ppc::SuspiciousFileHolder::printSuspiciousVector()
+{
+	for (auto iter = bftVector_.begin(); iter != bftVector_.end(); iter++) {
+		std::cout << "File name: " << (*iter)->getName() << " Suspicion Level: " << std::to_string((**iter).getSuspicionLevel()) << std::endl;
+	}
+}
