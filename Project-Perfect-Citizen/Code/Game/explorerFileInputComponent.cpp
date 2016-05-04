@@ -155,13 +155,42 @@ void ppc::explorerFileInputComponent::openFile()
 		fileResourcePath);
 }
 
+NodeState ppc::explorerFileInputComponent::getFileNodeState()
+{
+	return theFileTree_;
+}
+
+string ppc::explorerFileInputComponent::getFileName()
+{
+	return fileName;
+}
+
+Desktop* ppc::explorerFileInputComponent::getFileDesktop()
+{
+	return &theDesktop_;
+}
+
 bool ppc::open_file(explorerFileInputComponent* ptr, ppc::Event ev) {
 	ptr->openFile();
 	return true;
 }
 
 bool ppc::flag_file(explorerFileInputComponent* ptr, ppc::Event ev) {
-	cout << " flag this file using the builder" << endl;
+	ppc::BaseFileType* tempBFT = ptr->getFileNodeState().getCwd()->findElement(ptr->getFileName());
+	if (tempBFT != nullptr) {
+		std::vector<string> firstFlagCommand;
+		firstFlagCommand.push_back("flag");
+		firstFlagCommand.push_back(ptr->getFileName());
+		commandFn firstLs = findFunction("flag");
+		firstLs(ptr->getFileNodeState(), firstFlagCommand);
+	}
+	else {
+		cout << "SHOW ERROR MESSAGE" << endl;
+	}
 
+	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
+	spawnFileTracker(*(ptr->getFileDesktop()), fileTracker, fileTracker->getInputHandler(), 250, 50);
+	ptr->getFileDesktop()->addWindow(fileTracker);
+	SuspiciousFileHolder::setWindow(fileTracker);
 	return true;
 }

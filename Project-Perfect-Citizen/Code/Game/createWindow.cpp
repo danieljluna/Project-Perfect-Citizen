@@ -831,7 +831,6 @@ void ppc::spawnContextMenu(WindowInterface *& windowToModify, std::vector<ppc::E
 	int newHeight = (totalElementsLoaded)* (contextBoxElementHeight + contextBoxPadding);
 	int newWidth = windowToModify->getSize().x;
 	windowToModify->setSize(newWidth, newHeight + contextBoxPadding);
-
 	windowToModify->setPosition(x, y);
 }
 

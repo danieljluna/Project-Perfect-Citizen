@@ -2,6 +2,7 @@
 
 #include "../Engine/debug.h"
 #include "iconInputComponent.h"
+#include "TreeCommands.h"
 #include <iostream>
 
 namespace ppc {
@@ -75,6 +76,10 @@ namespace ppc {
 		bool andy_flag_file(Desktop*, ppc::Event);
 
 		void openFile();
+
+		NodeState getFileNodeState();
+		string getFileName();
+		Desktop* getFileDesktop();
 		
 
 	};
