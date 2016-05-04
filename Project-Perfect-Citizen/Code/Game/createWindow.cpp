@@ -747,7 +747,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 
-	float viewHeight = static_cast<float>(windowToModify->getSize().y) / 2;
+	float viewHeight = static_cast<float>(windowToModify->getSize().y / 1.5);
     windowToModify->setPosition(x, y);
 
 	/* Create a scroll bar if the new explorer window is greater than 100px*/
