@@ -120,7 +120,9 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
             CMD.push_back(directory_name);
             CMD.push_back(pathName);
             commandFn executeCommand = findFunction(mk_cmd);
+            fileTree_.getCwd()->setSuspicionLevel(suspicionPoints);
             executeCommand(fileTree_, CMD);
+
         }
         
     }

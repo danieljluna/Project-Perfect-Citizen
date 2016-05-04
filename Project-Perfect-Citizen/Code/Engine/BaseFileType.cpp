@@ -210,7 +210,7 @@ void ppc::BaseFileType::setSuspicionLevel(unsigned int val)
 	suspicionLevel = val;
 }
 
-unsigned int ppc::BaseFileType::getSuspicionLevel()
+int ppc::BaseFileType::getSuspicionLevel()
 {
 	return suspicionLevel;
 }

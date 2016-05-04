@@ -13,7 +13,6 @@
 		E90C9C1A1CCC2EE700E34A44 /* desktop1.ini in Resources */ = {isa = PBXBuildFile; fileRef = E90C9C151CCC2EE700E34A44 /* desktop1.ini */; };
 		E90C9C1B1CCC2EE700E34A44 /* desktop2.ini in Resources */ = {isa = PBXBuildFile; fileRef = E90C9C161CCC2EE700E34A44 /* desktop2.ini */; };
 		E90C9C1C1CCC2EE700E34A44 /* playerDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E90C9C171CCC2EE700E34A44 /* playerDesktop.ini */; };
-		E90C9C1D1CCC2EE700E34A44 /* tutorialDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E90C9C181CCC2EE700E34A44 /* tutorialDesktop.ini */; };
 		E94885A81CC6F3F600DFC68A /* 1-24-08-182.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948853E1CC6F3F600DFC68A /* 1-24-08-182.jpg */; };
 		E94885A91CC6F3F600DFC68A /* 11062011img47161.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E948853F1CC6F3F600DFC68A /* 11062011img47161.jpg */; };
 		E94885AA1CC6F3F600DFC68A /* 1894.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E94885401CC6F3F600DFC68A /* 1894.jpg */; };
@@ -419,7 +418,6 @@
 		E90C9C151CCC2EE700E34A44 /* desktop1.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = desktop1.ini; sourceTree = "<group>"; };
 		E90C9C161CCC2EE700E34A44 /* desktop2.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = desktop2.ini; sourceTree = "<group>"; };
 		E90C9C171CCC2EE700E34A44 /* playerDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = playerDesktop.ini; sourceTree = "<group>"; };
-		E90C9C181CCC2EE700E34A44 /* tutorialDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tutorialDesktop.ini; sourceTree = "<group>"; };
 		E948853E1CC6F3F600DFC68A /* 1-24-08-182.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-24-08-182.jpg"; sourceTree = "<group>"; };
 		E948853F1CC6F3F600DFC68A /* 11062011img47161.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 11062011img47161.jpg; sourceTree = "<group>"; };
 		E94885401CC6F3F600DFC68A /* 1894.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1894.jpg; sourceTree = "<group>"; };
@@ -1418,7 +1416,6 @@
 				E90C9C151CCC2EE700E34A44 /* desktop1.ini */,
 				E90C9C161CCC2EE700E34A44 /* desktop2.ini */,
 				E90C9C171CCC2EE700E34A44 /* playerDesktop.ini */,
-				E90C9C181CCC2EE700E34A44 /* tutorialDesktop.ini */,
 			);
 			path = Saves;
 			sourceTree = "<group>";
@@ -1920,7 +1917,6 @@
 				E94885CD1CC6F3F600DFC68A /* Crowd16.jpg in Resources */,
 				E9AC1C9E1CC95E1700A7955F /* current_collection.jpg in Resources */,
 				E948863A1CC6F42A00DFC68A /* Desktop1.json in Resources */,
-				E90C9C1D1CCC2EE700E34A44 /* tutorialDesktop.ini in Resources */,
 				E9AA74BE1CD6C47500ABEDBC /* wtcblueprints3.jpg in Resources */,
 				E9AA74801CD6C47500ABEDBC /* h.jpg in Resources */,
 				E94885CF1CC6F3F600DFC68A /* Crowd21.jpg in Resources */,
