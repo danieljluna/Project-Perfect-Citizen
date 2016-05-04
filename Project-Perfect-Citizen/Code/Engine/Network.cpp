@@ -58,7 +58,17 @@ float Network::checkEdgeEquality(const Network& other) {
 	return points/numVisited;
 }
 
-
+float Network::checkColorlessEdgeEquality(const Network& other) {
+	float points = 0.f;
+	float numVisited = 0.f;
+	for (unsigned int i = 0; i < size_; ++i) {
+		for (unsigned int j = i + 1; j < size_; ++j) {
+			if (isAdjacent(i, j) == other.isAdjacent(i, j)) ++points;
+			++numVisited;
+		}
+	}
+	return points/numVisited;
+}
 
 
 ///////////////////////////////////////////////////////////////////////
