@@ -292,14 +292,9 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             enable = ev.network.net->checkEdgeEquality(*World::getCurrDesktop().getSolVec()[1]) == 1.0f;
         }
         break;
-<<<<<<< HEAD
 	case FloppyInputComponent::Center:
-        enable = (ev.type == ev.NetworkType);
-=======
-    case 5: //Center
         enable = ((ev.type == ev.NetworkType) &&
                   (ev.network.type == ev.network.Center));
->>>>>>> refs/remotes/origin/experimental
         if (enable) {
             ev.network.net->checkCenterEquality(*World::getCurrDesktop().getSolVec()[1]);
         }
@@ -315,23 +310,12 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         enable = ((ev.type == ev.OpenType) &&
             (ev.open.Explorer));
         break;
-<<<<<<< HEAD
 	case FloppyInputComponent::Explorer:
 	case FloppyInputComponent::Passwords:
 	case FloppyInputComponent::SuspFolder:
 	case FloppyInputComponent::Scanning:
 	case FloppyInputComponent::Submission:
 	case FloppyInputComponent::Wrapup:
-=======
-    case 9: //Explorer
-        
-        break;
-    case 10://Passwords
-    case 11://SuspFolder
-    case 12://Scanning
-    case 13://Submission
-    case 14://WrapUp
->>>>>>> refs/remotes/origin/experimental
         enable = true;
         break;
     default:
