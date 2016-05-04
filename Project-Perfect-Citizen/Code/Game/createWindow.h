@@ -167,7 +167,7 @@ void spawnContextMenu(Desktop& dt, WindowInterface*& windowToModify, InputHandle
 ///@param The x position of the new window
 ///@param The y position of the new window
 ///////////////////////////////////////////////////////////////////////
-void spawnFileTracker(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, SuspiciousFileHolder* fH, float x, float y);
+void spawnFileTracker(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, float x, float y);
 
 };
 
