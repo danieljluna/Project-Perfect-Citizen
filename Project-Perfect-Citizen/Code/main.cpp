@@ -215,7 +215,7 @@ int main(int argc, char** argv) {
 	Logger::startTimer("DeskTutorialDesktop");
 
 	World::setCurrDesktop(deskTutorialDesktop);
-	createTutorial(deskTutorialDesktop); //This needs to be fixed, its the same setup as
+	createDesktopTutorial(deskTutorialDesktop); //This needs to be fixed, its the same setup as
 	                                     //previous desktop and this one needs file explorer
 	World::runCurrDesktop();
 
