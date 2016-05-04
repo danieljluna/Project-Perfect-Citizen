@@ -34,6 +34,7 @@ private:
 	WindowInterface* openedWindow;
     AudioQueue que;
     Subject onOpen_;
+	std::string labelName = "";
     
     Event::OpenEv::OpenTypes type_;
 
@@ -59,7 +60,9 @@ public:
 
     Subject& onOpen() { return onOpen_; };
 
-    friend bool make_icon_window(Desktop*, ppc::Event);
+	void setIconLabelName(std::string);
+
+    friend bool make_icon_window(iconInputComponent*, ppc::Event);
 
 };
     bool make_icon_window(Desktop*, ppc::Event);

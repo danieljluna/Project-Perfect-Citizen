@@ -109,6 +109,7 @@ void ppc::IconBuilder::create(Entity &e) {
 	animatorComponent* animator = new animatorComponent(*IconRender, animationSpeed);
 	mousePressButton* mpbFolder = new mousePressButton(*ih, IconRender->getSprite()->getGlobalBounds());
 	iconInputComponent* iconInputComp = new iconInputComponent(*dt, db, *ib, *buttonSheet, dt->getIconSheet(), iconType);
+	iconInputComp->setIconLabelName(label);
 
 	e.addComponent(IconRender);
 	e.addComponent(textLabel);

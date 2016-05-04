@@ -194,20 +194,32 @@ int main(int argc, char** argv) {
 
 	//Tutorial Desktop
 	desktopFileInput.open(resourcePath() + "Saves/pipelineTutorial.ini", std::ifstream::in);
-	Desktop tutorialDesktop;
-	desktopFileInput >> tutorialDesktop;
+	Desktop pipeTutorialDesktop;
+	desktopFileInput >> pipeTutorialDesktop;
 	desktopFileInput.close();
 
-    Logger::startTimer("playerTutorialDesktop");
+    Logger::startTimer("PipeTutorialDesktop");
     
-    World::setCurrDesktop(tutorialDesktop);
-    createTutorial(tutorialDesktop);
+    World::setCurrDesktop(pipeTutorialDesktop);
+    createTutorial(pipeTutorialDesktop);
     World::runCurrDesktop();
     
-    Logger::endTimer("playerTutorialDesktop");
+    Logger::endTimer("PipeTutorialDesktop");
 	//End Tutorial Desktop
 
+	desktopFileInput.open(resourcePath() + "Saves/desktopTutorial.ini", std::ifstream::in);
+	Desktop deskTutorialDesktop;
+	desktopFileInput >> deskTutorialDesktop;
+	desktopFileInput.close();
 
+	Logger::startTimer("DeskTutorialDesktop");
+
+	World::setCurrDesktop(deskTutorialDesktop);
+	createTutorial(deskTutorialDesktop); //This needs to be fixed, its the same setup as
+	                                     //previous desktop and this one needs file explorer
+	World::runCurrDesktop();
+
+	Logger::endTimer("DeskTutorialDesktop");
 
 	//Player Desktop
 	desktopFileInput.open(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);

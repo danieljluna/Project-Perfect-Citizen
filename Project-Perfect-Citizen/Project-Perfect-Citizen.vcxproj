@@ -62,6 +62,7 @@
     <ClCompile Include="Code\Game\characterRender.cpp" />
     <ClCompile Include="Code\Game\consoleIconRenderComponent.cpp" />
     <ClCompile Include="Code\Game\consoleUpdateComponent.cpp" />
+    <ClCompile Include="Code\Game\ContextBuilder.cpp" />
     <ClCompile Include="Code\Game\contextListElementRenderComponent.cpp" />
     <ClCompile Include="Code\Game\createButton.cpp" />
     <ClCompile Include="Code\Game\createDesktop.cpp" />
@@ -192,6 +193,7 @@
     <ClInclude Include="Code\Game\characterRender.hpp" />
     <ClInclude Include="Code\Game\consoleIconRenderComponent.h" />
     <ClInclude Include="Code\Game\consoleUpdateComponent.h" />
+    <ClInclude Include="Code\Game\ContextBuilder.h" />
     <ClInclude Include="Code\Game\contextListElementRenderComponent.h" />
     <ClInclude Include="Code\Game\createButton.h" />
     <ClInclude Include="Code\Game\createDesktop.h" />
