@@ -116,6 +116,14 @@ Network * ppc::Network::copyNetworkByVerts() {
 
 void Network::setCenter(unsigned int cent) {
 	center_ = cent;
+    //Create Event
+    Event ev;
+    ev.type = ev.NetworkType;
+    ev.network.type = ev.network.Center;
+    ev.network.u = cent;
+    ev.network.v = -1;
+    ev.network.net = this;
+    onManip().sendEvent(ev);
 }
 
 
@@ -170,9 +178,18 @@ void Network::removeEdge(size_t start, size_t end) {
     assert(rangeCheck(end));
 
     //If we have valid verts:
-    if (rangeCheck(start) && rangeCheck(end)) {
+    if (rangeCheck(start) && rangeCheck(end) && isAdjacent(start, end)) {
         //Remove the edge
         removeEdge(getEdgeIndex(start, end));
+
+        //Create Event
+        Event ev;
+        ev.type = ev.NetworkType;
+        ev.network.type = ev.network.Removed;
+        ev.network.u = start;
+        ev.network.v = end;
+        ev.network.net = this;
+        onManip().sendEvent(ev);
     }
 }
 
@@ -184,11 +201,27 @@ void Network::setEdge(size_t start, size_t end, const Edge& e) {
     //Find the index of the edge in question
     size_t eIndex = getEdgeIndex(start, end);
 
+    //Create Event
+    Event ev;
+    ev.type = ev.NetworkType;
+    ev.network.u = start;
+    ev.network.v = end;
+    ev.network.net = this;
+
+    if (isAdjacent(start, end)) {
+        ev.network.type = ev.network.Edited;
+    } else {
+        ev.network.type = ev.network.Created;
+    }
+
     //Remove any edge here,
     removeEdge(start, end);
+
     //Then add an Edge
     edgeMat_[eIndex] = new Edge(e);
     ++edgeCount_;
+
+    onManip().sendEvent(ev);
 }
 
 

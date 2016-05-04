@@ -215,6 +215,12 @@ namespace ppc {
 		unsigned int getCenter() const;
 
 
+        ///////////////////////////////////////////////////////////////
+        /// @brief Returns Network Manipulation Subject
+        ///////////////////////////////////////////////////////////////
+        Subject& onManip() { return onManip_; };
+
+
     private:
 
 		///////////////////////////////////////////////////////////////
@@ -260,6 +266,8 @@ namespace ppc {
         unsigned int edgeCount_;
 
 		unsigned int center_;
+
+        Subject onManip_;
 
     };
 
