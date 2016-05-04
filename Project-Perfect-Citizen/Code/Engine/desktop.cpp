@@ -422,13 +422,17 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 			}
 			delete inbox;
 		} else if (key == "Pipeline") {
-			if (PipelineLevelBuilder::LEVEL_MAP.find(file) ==
-				PipelineLevelBuilder::LEVEL_MAP.end()) {
-				DEBUGF("wc", key << " " << file);
-				continue;
-			}
 			desktop.netVecIndex_ = 0;
-			int levelnum = PipelineLevelBuilder::LEVEL_MAP.at(file);
+			int levelnum;
+			if (PipelineLevelBuilder::LEVEL_MAP.find(file) != PipelineLevelBuilder::LEVEL_MAP.end()) {
+				levelnum = PipelineLevelBuilder::LEVEL_MAP.at(file);
+			} 
+			else {
+				DEBUGF("wc", key << " " << file);
+				levelnum = -2;
+			}
+
+			
 			Network* solNet;
 			switch (levelnum) {
 				case -1:
@@ -441,6 +445,7 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 					solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 					break;
 				default:
+					solNet = PipelineLevelBuilder::buildDefaultNetwork();
 					DEBUGF("wc", levelnum);
 					break;
 			}
