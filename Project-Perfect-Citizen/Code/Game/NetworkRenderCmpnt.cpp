@@ -8,8 +8,8 @@ NetworkRenderComponent::NetworkRenderComponent(ppc::Network& n):
 
 NetworkRenderComponent::~NetworkRenderComponent() {
 	if (network_ != nullptr) {
-		delete network_;
-		network_ = nullptr;
+		//delete network_;
+		//network_ = nullptr;
 	}
 }
 
