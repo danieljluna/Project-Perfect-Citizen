@@ -4,6 +4,8 @@
 #include "BaseFileType.h"
 #include "desktop.h"
 #include "../../Code/Game/createWindow.h"
+#include <stdio.h>
+#include <ctype.h>
 
 using namespace ppc;
 
@@ -68,8 +70,8 @@ void BaseFileType::readFile(ppc::Desktop& desk, sf::Image& im, std::string filen
 	switch (this->filetype) {
 	case FileType::File:
 		FileWindow = new ppc::Window(500, 500, sf::Color(255, 255, 255));
-		spawnFile(FileWindow, FileWindow->getInputHandler(), *desk.getNodeState(), im, 100, 200, 
-			filename, path);
+		spawnFile(FileWindow, FileWindow->getInputHandler(), *desk.getNodeState(), im, rand() % 750 + 50, rand() % 600 + 50,
+                  filename, path);
 		desk.addWindow(FileWindow);
 		std::cout << path << std::endl;
 		break;
@@ -114,8 +116,16 @@ BaseFileType* BaseFileType::makeDir(std::string filename)
 
 ppc::BaseFileType * ppc::BaseFileType::findElement(std::string filename)
 {
+    std::string lowerCaseFilename = filename;
+    for (int i = 0; i < lowerCaseFilename.size(); i++) {
+        lowerCaseFilename[i] = tolower(lowerCaseFilename[i]);
+    }
 	for (auto iter = this->contents.begin(); iter != this->contents.end(); iter++) {
-		if (iter->first == filename) {
+        std::string lowerCaseIter = iter->first;
+        for (int i = 0; i < lowerCaseIter.size(); i++) {
+            lowerCaseIter[i] = tolower(lowerCaseIter[i]);
+        }
+		if (lowerCaseIter == lowerCaseFilename) {
 			return iter->second;
 		}
 	}
@@ -170,7 +180,13 @@ void ppc::BaseFileType::setPassword(std::string pwd, std::string hint)
 
 bool ppc::BaseFileType::comparePassword(std::string input)
 {
-	if (input == password) {
+    for (int i = 0; i < input.size(); i++) {
+        input[i] = tolower(input[i]);
+    }
+    for (int i = 0; i < password.size(); i++) {
+        password[i] = tolower(password[i]);
+    }
+    if (input == password) {
 		passwordProtected = false;
 		return true;
 	}
@@ -194,7 +210,7 @@ void ppc::BaseFileType::setSuspicionLevel(unsigned int val)
 	suspicionLevel = val;
 }
 
-unsigned int ppc::BaseFileType::getSuspicionLevel()
+int ppc::BaseFileType::getSuspicionLevel()
 {
 	return suspicionLevel;
 }

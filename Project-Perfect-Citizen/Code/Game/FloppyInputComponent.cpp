@@ -188,6 +188,11 @@ void ppc::FloppyInputComponent::setFloppyButtonInputCmpt(mousePressButton * mpb)
 	floppyBtnInpt = mpb;
 }
 
+void ppc::FloppyInputComponent::setFloppyTextRenderCmpt(TextDisplayRenderComponent * txt)
+{
+	floppyTxtRndr = txt;
+}
+
 void ppc::FloppyInputComponent::setFloppyButton(bool able)
 {
 	ppc::Event ppcEv;
@@ -195,6 +200,7 @@ void ppc::FloppyInputComponent::setFloppyButton(bool able)
 	ppcEv.able.enable = able;
 	floppyBtnInpt->recieveMessage(ppcEv);
 	floppyBtnRndr->recieveMessage(ppcEv);
+	floppyTxtRndr->recieveMessage(ppcEv);
 }
 
 bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {

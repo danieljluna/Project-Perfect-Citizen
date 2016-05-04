@@ -9,6 +9,8 @@
 #include "../Game/TreeCommands.h"
 #include <string>
 #include <algorithm>
+#include <stdio.h>
+#include <ctype.h>
 #include "../Engine/World.h"
 
 #include "../Engine/WindowInterface.h"
@@ -43,6 +45,9 @@ textOutputRenderComponent::~textOutputRenderComponent() {
 }
 
 void textOutputRenderComponent::updateString(std::vector<string> cmd) {
+    for (int i = 0; i < cmd[0].size(); i++) {
+        cmd[0][i] = tolower(cmd[0][i]);
+    }
 	
 	/* Print out what was just typed */
 	str_ = str_ + "> ";
@@ -121,9 +126,27 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		}
 	}
 
+	//CASE: FLAG
 	else if (cmd.at(0) == "flag" || cmd.at(0) == "Flag") {
-		str_ = str_ + " File submitted for processing.";
+		ppc::BaseFileType* tempBFT = this->fileTree_.getCwd()->findElement(cmd.at(1));
+		if (tempBFT != nullptr) {
+			std::vector<string> firstFlagCommand;
+			firstFlagCommand.push_back("flag");
+			firstFlagCommand.push_back(cmd.at(1));
+			commandFn firstLs = findFunction("flag");
+			firstLs(fileTree_, firstFlagCommand);
+			str_ = str_ + " " + cmd.at(1) + " submitted for processing.";
+		}
+		else {
+			str_ = str_ + " Unable to find " + cmd.at(1) + ".";
+		}
 		numDisplayedLines++;
+		
+		WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
+		spawnFileTracker(*theDesktop_, fileTracker, fileTracker->getInputHandler(), 250, 50);
+		//spawnFileTracker(*theDesktop_, fileTracker, fileTracker->getInputHandler(), SuspiciousFileHolder::getSusVecElement(0), 250, 50);
+		theDesktop_->addWindow(fileTracker);
+		SuspiciousFileHolder::setWindow(fileTracker);
 	}
 
 	/* CASE: MKDIR */

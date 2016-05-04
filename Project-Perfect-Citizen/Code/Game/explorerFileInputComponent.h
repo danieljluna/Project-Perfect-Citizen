@@ -2,6 +2,7 @@
 
 #include "../Engine/debug.h"
 #include "iconInputComponent.h"
+#include "TreeCommands.h"
 #include <iostream>
 
 namespace ppc {
@@ -74,6 +75,13 @@ namespace ppc {
 		Subject& onRelease() { return onRelease_; };
 		bool andy_flag_file(Desktop*, ppc::Event);
 
+		void openFile();
+
+		NodeState getFileNodeState();
+		string getFileName();
+		Desktop* getFileDesktop();
+		
+
 	};
 
 	template<class T>
@@ -85,7 +93,7 @@ namespace ppc {
 
 	}
 
-	bool open_file(Desktop*, ppc::Event);
-	bool flag_file(Desktop*, ppc::Event);
+	bool open_file(explorerFileInputComponent*, ppc::Event);
+	bool flag_file(explorerFileInputComponent*, ppc::Event);
 
 };

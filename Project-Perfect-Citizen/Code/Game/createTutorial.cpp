@@ -72,7 +72,7 @@ void ppc::createTutorial(Desktop & dt) {
 	SuspiciousFileHolder* fH = nullptr;
 
 	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
-	spawnFileTracker(dt, fileTracker, fileTracker->getInputHandler(), fH, 250, 50);
+	spawnFileTracker(dt, fileTracker, fileTracker->getInputHandler(), 250, 50);
 
 	dt.addWindow(fileTracker);
 
@@ -117,8 +117,10 @@ void ppc::createTutorial(Desktop & dt) {
 
 	buttonRenderComponent* mbr = nextButton.getButtonRenderComponent();
 	mousePressButton* mpb = nextButton.getMousePressButton();
+	TextDisplayRenderComponent* txt = nextButton.getTextRenderComponent();
 	floppyIn->setFloppyButtonInputCmpt(mpb);
 	floppyIn->setFloppyButtonRenderCmpt(mbr);
+	floppyIn->setFloppyTextRenderCmpt(txt);
 
 
 
@@ -142,6 +144,7 @@ void ppc::createTutorial(Desktop & dt) {
     floppyIn->onSequenceEnd().addObserver(tempObsvr);
 
     //Connect Graph
+
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dt.getPlayVec().at(0)->onManip().addObserver(tempObsvr);
 }
