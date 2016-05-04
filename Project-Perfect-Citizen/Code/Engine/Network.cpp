@@ -127,6 +127,7 @@ Network * ppc::Network::copyNetworkByVerts() {
 void Network::setCenter(unsigned int cent) {
 	center_ = cent;
     //Create Event
+	if (cent < 0) return;
     Event ev;
     ev.type = ev.NetworkType;
     ev.network.type = ev.network.Center;
