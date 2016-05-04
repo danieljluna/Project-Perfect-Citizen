@@ -62,6 +62,7 @@
     <ClCompile Include="Code\Game\characterRender.cpp" />
     <ClCompile Include="Code\Game\consoleIconRenderComponent.cpp" />
     <ClCompile Include="Code\Game\consoleUpdateComponent.cpp" />
+    <ClCompile Include="Code\Game\ContextBuilder.cpp" />
     <ClCompile Include="Code\Game\contextListElementRenderComponent.cpp" />
     <ClCompile Include="Code\Game\createButton.cpp" />
     <ClCompile Include="Code\Game\createDesktop.cpp" />
@@ -129,6 +130,7 @@
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
     <Text Include="Resources\Coding Reference\LinkHelp.txt" />
+    <Text Include="Resources\DesktopTutorial.txt" />
     <Text Include="Resources\Engine\EngineSettings.ini" />
     <Text Include="Resources\PipelineTutorial.txt" />
   </ItemGroup>
@@ -191,6 +193,7 @@
     <ClInclude Include="Code\Game\characterRender.hpp" />
     <ClInclude Include="Code\Game\consoleIconRenderComponent.h" />
     <ClInclude Include="Code\Game\consoleUpdateComponent.h" />
+    <ClInclude Include="Code\Game\ContextBuilder.h" />
     <ClInclude Include="Code\Game\contextListElementRenderComponent.h" />
     <ClInclude Include="Code\Game\createButton.h" />
     <ClInclude Include="Code\Game\createDesktop.h" />
@@ -217,6 +220,7 @@
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
     <ClInclude Include="Code\Game\FloppyInputComponent.h" />
     <ClInclude Include="Code\Game\FloppyRenderComponent.hpp" />
+    <ClInclude Include="Code\Game\FloppySequence.h" />
     <ClInclude Include="Code\Game\FloppyUpdateComponent.hpp" />
     <ClInclude Include="Code\Game\HelpRenderComponent.hpp" />
     <ClInclude Include="Code\Game\IconBuilder.h" />
@@ -266,9 +270,13 @@
     <None Include="Resources\DE1PipelineTexts.json" />
     <None Include="Resources\Email1.json" />
     <None Include="Resources\PlayerEmail.json" />
+    <None Include="Resources\Saves\bootDesktop.ini" />
+    <None Include="Resources\Saves\desktop0.ini" />
     <None Include="Resources\Saves\desktop1.ini" />
+    <None Include="Resources\Saves\desktop2.ini" />
+    <None Include="Resources\Saves\desktopTutorial.ini" />
+    <None Include="Resources\Saves\pipelineTutorial.ini" />
     <None Include="Resources\Saves\playerDesktop.ini" />
-    <None Include="Resources\Saves\tutorialDesktop.ini" />
     <None Include="Resources\smsPipeline.json" />
     <None Include="Resources\suspiciontest.json" />
   </ItemGroup>

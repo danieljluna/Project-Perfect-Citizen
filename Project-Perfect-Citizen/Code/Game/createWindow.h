@@ -9,6 +9,7 @@
 #include "../Game/databaseSearchInputComponent.h"
 #include "createListElement.h"
 #include "emailMessageRenderComponent.h"
+#include "../Engine/SuspiciousFileHolder.h"
 #include "Inbox.h"
 
 
@@ -157,7 +158,27 @@ void spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& 
 void spawnContextMenu(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, 
 	std::vector<std::string> n, std::vector<bool(*)(Desktop*, Event ev)>, float x, float y);
 
+///////////////////////////////////////////////////////////////////////
+///@brief Constructs a temporary, borderless context menu
+///
+///@param The newly created window to add components/entities to.
+///@param A vector of ContextBuilder-constructed entities
+///@param The x position of the new window
+///@param The y position of the new window
+///////////////////////////////////////////////////////////////////////
+void spawnContextMenu(WindowInterface*& windowToModify,
+	std::vector<ppc::Entity> listElements,  float x, float y);
 
+///////////////////////////////////////////////////////////////////////
+///@brief Constructs a static file tracker/suspicious file holder
+///
+///@param The newly created window to add components/entities to.
+///@param The input handler of the listened-to window.
+///@param The static suspicious folder holder for the desktop extraction
+///@param The x position of the new window
+///@param The y position of the new window
+///////////////////////////////////////////////////////////////////////
+void spawnFileTracker(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, float x, float y);
 
 };
 

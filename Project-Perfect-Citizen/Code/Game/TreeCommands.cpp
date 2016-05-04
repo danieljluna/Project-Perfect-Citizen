@@ -2,6 +2,7 @@
 #include "TreeCommands.h"
 #include "../Engine/NodeState.h"
 #include <string>
+#include "../Engine/SuspiciousFileHolder.h"
 
 using namespace ppc;
 
@@ -13,7 +14,8 @@ fnMap functionMap{
 	{ "decrypt"	,	fn_decrypt	},
 	{ "encrypt"	,   fn_decrypt	},
 	{ "pwd"     ,   fn_pwd		},
-	{ "unlock"	,	fn_unlock	}
+	{ "unlock"	,	fn_unlock	},
+	{ "flag"	,	fn_flag		}
 };
 
 commandFn ppc::findFunction(const std::string& command) {
@@ -33,6 +35,7 @@ void ppc::fn_mkfile(ppc::NodeState& state, const std::vector<std::string> words)
 		content = words.at(2);
 	}
 	state.getCwd()->makeFile(filename, content);
+	state.getCwd()->findElement(filename)->setName(filename);
 }
 
 void ppc::fn_ls(ppc::NodeState& state, const std::vector<std::string> words)
@@ -196,7 +199,7 @@ void ppc::fn_pwd(ppc::NodeState& state, const std::vector<std::string> words) {
 
 void ppc::fn_unlock(ppc::NodeState& state, const std::vector<std::string> words)
 {
-	printVector(words);
+	//printVector(words);
 
 	if (words.size() == 1 || words.size() == 2) {
 		std::cout << "invalid paramaters. Must be 'unlock [filename] [password] " << std::endl;
@@ -228,6 +231,30 @@ void ppc::fn_unlock(ppc::NodeState& state, const std::vector<std::string> words)
 		return;
 	}
 	std::cout << "Password Incorrect. Access Denied" << std::endl;
+}
+
+void ppc::fn_flag(ppc::NodeState& state, const std::vector<std::string> words) {
+	printVector(words);
+	if (words.size() == 1) {
+		return;
+	}
+	ppc::BaseFileType* tempCWD;
+	if (words.at(1).substr(0, 1) == "/") {
+		tempCWD = state.getRoot();
+	}
+	else {
+		tempCWD = state.getCwd();
+	}
+    std::string filepath = words.at(1);
+	std::vector<std::string> pathVec = split(filepath, "/");
+	int i = 0;
+	for (auto iter = pathVec.begin(); iter != pathVec.end(); iter++) {
+		tempCWD = tempCWD->findElement(pathVec.at(i));
+	}
+	if (tempCWD->getFileType() == ppc::FileType::Directory) {
+		return;
+	}
+	ppc::SuspiciousFileHolder::flagFile(tempCWD);
 }
 
 

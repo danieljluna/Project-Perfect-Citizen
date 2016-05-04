@@ -1,3 +1,4 @@
+
 #ifdef WINDOWS_MARKER
 #define resourcePath() string("Resources/")
 #else
@@ -33,6 +34,7 @@
 #include "TextBubble.h"
 #include "TextBubbleRender.h"
 #include "ButtonBuilder.h"
+#include "IconBuilder.h"
 
 #include "notifcationRenderComponent.h"
 
@@ -86,8 +88,13 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	Entity startButton;
 	spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
     
+	Entity suspicionButton;
+	spawnSuspicionButton(suspicionButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 100, 14, 0.20f);
+
+
     startToolbar->addEntity(startBar);
     startToolbar->addEntity(startButton);
+	startToolbar->addEntity(suspicionButton);
 	desktopToModify.addWindow(startToolbar);
 
 	////////////////////////////////
@@ -120,7 +127,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     /////////////////////////////////////////////
     //TODO: FIX MEMORY LEAK
     Database* theDatabase = new Database();
-    theDatabase->generateFullDatabase(0);
+    //theDatabase->generateFullDatabase(0);
     
     //TODO: FIX MEMORY LEAK
     Inbox* theInbox = new Inbox();
@@ -173,7 +180,24 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
 	spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 525.0f, 200.0f, 0.5f, 0.25f, theInbox);
     spawnChatIcon(ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 300.0f, 0.4f, 0.25f, theInbox);
     spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 725.0f, 450.0f, 0.5f, 0.25f, theInbox);
-    
+
+
+	/*IconBuilder builder;
+	builder.setDesktop(desktopToModify);
+	builder.setInbox(desktopToModify.getInbox());
+	builder.setButtonSheet(desktopToModify.getButtonSheet());
+	builder.setAnimSpeed(0.30f);
+	builder.setInputHandle(desktopToModify.getInputHandler());
+	builder.setSize(0.5f);
+
+	Entity DocumentsIcon;
+	builder.setPosition({ 100.0f, 100.0f });
+	builder.setIconType(iconInputComponent::IconType::Folder);
+	builder.setSpritebyIndicies(0, 9, 1, 1);
+	builder.setText("Documents", World::getFont(World::Consola), sf::Color::Black);
+	builder.create(DocumentsIcon);
+	desktopWindowToModify.addEntity(DocumentsIcon);*/
+
     desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);
     desktopWindowToModify.addEntity(HardDriveIcon);
@@ -181,6 +205,20 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     desktopWindowToModify.addEntity(ConsoleIcon);
     desktopWindowToModify.addEntity(EmailIcon);
     
+	////////////////////////////////////////
+	// SUSPICIOUS FILES TEST HERE
+	//////////////////////////////////////
+	//ppc::BaseFileType herro("File");
+	//herro.setName("test");
+	//ppc::SuspiciousFileHolder::flagFile(&herro);
+
+	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
+	spawnFileTracker(desktopToModify, fileTracker, fileTracker->getInputHandler(), 250, 50);
+	desktopToModify.addWindow(fileTracker);
+	ppc::SuspiciousFileHolder::setWindow(fileTracker);
+
+
+
 }
 
 void createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {

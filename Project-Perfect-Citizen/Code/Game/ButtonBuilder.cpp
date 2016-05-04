@@ -94,6 +94,16 @@ ppc::mousePressButton * ppc::ButtonBuilder::getMousePressButton()
 	return button_mpb;
 }
 
+ppc::buttonRenderComponent * ppc::ButtonBuilder::getButtonRenderComponent()
+{
+	return button_brc;
+}
+
+ppc::TextDisplayRenderComponent * ppc::ButtonBuilder::getTextRenderComponent()
+{
+	return text_rc;
+}
+
 void ppc::ButtonBuilder::create(Entity& e){
 
 	/* I: RENDER COMPONENTS */
@@ -130,6 +140,8 @@ void ppc::ButtonBuilder::create(Entity& e){
 	/* Set the position for the bounds */
 	buttonRender->setImageScale(size, size);
 	buttonRender->renderPosition(sf::Vector2f(posX, posY));
+	button_brc = buttonRender;
+	text_rc = labelRender;
 
 	/* II: INPUT COMPONENT */
 	if (clickable) {

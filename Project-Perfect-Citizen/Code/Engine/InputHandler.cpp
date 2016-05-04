@@ -20,11 +20,13 @@ void InputHandler::addHandle(sf::Event::EventType type) {
 
 
 
-void InputHandler::registerEvent(sf::Event& ev) {
-    auto it = inputMap.find(ev.type);
-    if (it != inputMap.end()) {
-        it->second.sendEvent(ev);
-    }
+void InputHandler::registerEvent(Event ev) {
+	if (ev.type == Event::sfEventType) {
+		auto it = inputMap.find(ev.sfEvent.type);
+		if (it != inputMap.end()) {
+			it->second.sendEvent(ev);
+		}
+	}   
 }
 
 

@@ -16,19 +16,23 @@
 #include <vector>
 #include <utility>
 #include "../Engine/Entity.h"
+#include "../Engine/World.h"
+#include "../Engine/desktop.h"
 
 #include "../Engine/FreeFunctionObserver.h"
+#include "../Engine/Network.h"
 
 using namespace ppc;
 
 const std::string FLOPPY_DEBUG_CODE = "fl";
 
-std::vector<std::vector<std::pair<std::string, unsigned int>>> FloppyInputComponent::floppyDictionary;
+std::vector<FloppySequence> FloppyInputComponent::floppyDictionary = {};
 bool FloppyInputComponent::initialized = false;
 
-std::map<std::string, unsigned int> FloppyInputComponent::Floppy_Sequence_Names;
+std::map<std::string, unsigned int> FloppyInputComponent::Floppy_Sequence_Names = {};
 
 FloppyInputComponent::FloppyInputComponent() {
+
     if (!initialized) {
         initializeFloppyDict();
     }
@@ -38,8 +42,9 @@ FloppyInputComponent::~FloppyInputComponent() {
 
 }
 
-const std::array<std::string, 1> FLOPPY_SOURCES{
-	"PipelineTutorial.txt"
+const std::array<std::string, 2> FLOPPY_SOURCES{
+	"PipelineTutorial.txt",
+	"DesktopTutorial.txt"
 };
 
 const std::map<std::string, int> FLOPPY_EMOTION_MAP{
@@ -50,36 +55,46 @@ const std::map<std::string, int> FLOPPY_EMOTION_MAP{
 };
 
 
+
 void ppc::FloppyInputComponent::initializeFloppyDict() {
 	for (const auto& filename: FLOPPY_SOURCES) {
 		std::ifstream myfile(resourcePath() + filename);
 		if (myfile.is_open()) {
 			std::string line;
 			std::string label;
-			std::vector<std::pair<std::string, unsigned int>> sequence;
+			FloppySequence sequence;
 			while (std::getline(myfile, line)) {
 				if (line.substr(0, 1).compare("-") == 0) {
-					if (sequence.empty()) {
-						label = line.substr(1);
+					if (sequence.frames.empty()) {
+                        size_t tokenIndex = line.find_first_of(':');
+						label = line.substr(1, tokenIndex - 1);
+                        if (line.substr(tokenIndex + 2, 1) == "F") 
+                            sequence.autoShift = false;
 						continue;
 					}
-					//auto pos = Floppy_Sequence_Names.find(label);
-					//if (pos == Floppy_Sequence_Names.end()) {
-					//	DEBUGF(FLOPPY_DEBUG_CODE, label);
-					//}
-					//else {
-						floppyDictionary.push_back(sequence);
-						Floppy_Sequence_Names.insert(std::make_pair(label, floppyDictionary.size() - 1));
-					//}
-					sequence.clear();
-					label = line.substr(1);
+
+					floppyDictionary.push_back(sequence);
+					Floppy_Sequence_Names.insert(std::make_pair(label, floppyDictionary.size() - 1));
+                    size_t tokenIndex = line.find_first_of(':');
+                    label = line.substr(1, tokenIndex - 1);
+                    if (line.substr(tokenIndex + 2, 1) == "F")
+                        sequence.autoShift = false;
+					sequence.frames.clear();
 				}
 				else {
+					if (line.length() == 0) continue;
 					std::string emotion = line.substr(0, line.find_first_of(':'));
-					line = line.substr(line.find_first_of(':') + 2);
+					line = line.substr(line.find_first_of(':'));
+					FloppyFrame newExpr;
+
 					if (FLOPPY_EMOTION_MAP.find(emotion) != FLOPPY_EMOTION_MAP.end()) {
-						sequence.push_back(std::make_pair(line, FLOPPY_EMOTION_MAP.at(emotion)));
+						newExpr.emotion = FLOPPY_EMOTION_MAP.at(emotion);
 					}
+					else newExpr.emotion = FLOPPY_EMOTION_MAP.at("Default");
+					
+					newExpr.text = line.substr(2);
+					sequence.frames.push_back(newExpr);
+
 				}
 			}
 			floppyDictionary.push_back(sequence);
@@ -90,6 +105,7 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 		}
 		myfile.close();
 	}
+
     initialized = true;
 
 	//std::vector<std::pair<std::string, unsigned int>> sequence1;
@@ -108,28 +124,88 @@ unsigned int ppc::FloppyInputComponent::getFrame() { return frame; }
 
 unsigned int ppc::FloppyInputComponent::getSequence() { return sequence; }
 
-void ppc::FloppyInputComponent::setFrame(unsigned int f) { frame = f; }
+void ppc::FloppyInputComponent::setFrame(unsigned int f) { 
+    frame = f; 
+    Event ev;
 
-void ppc::FloppyInputComponent::setSequence(unsigned int s) { sequence = s; }
+    if (floppyDictionary.at(sequence).frames.size() <= frame) {
+        frame = -1;
+        ev.type = Event::AbleType;
+        ev.able.enable = false;
+        getEntity()->broadcastMessage(ev);
 
-void ppc::FloppyInputComponent::advanceFrame() { 
-	frame++;
-	if (floppyDictionary.at(sequence).size() <= frame) {
-		frame = -1;
-	}
 
+        ev.type = ppc::Event::FloppyType;
+        ev.floppy.sequence = sequence;
+        ev.floppy.frame = -1;
+        onSequenceEnd().sendEvent(ev);
+    }
+
+    ev.type = ppc::Event::FloppyType;
+    ev.floppy.sequence = sequence;
+    ev.floppy.frame = frame;
+    getEntity()->broadcastMessage(ev);
+
+    if (frame == floppyDictionary.at(sequence).frames.size() - 1) {
+        setFloppyButton(!floppyDictionary.at(sequence).needTrigger);
+    }
 }
 
-void ppc::FloppyInputComponent::regressFrame() { frame--;}
+void ppc::FloppyInputComponent::setSequence(unsigned int s, unsigned int f) { 
+    if (s < floppyDictionary.size()) {
+        sequence = s;
+    } else {
+        sequence = -1;
+    }
+    setFrame(f);
+}
 
-void ppc::FloppyInputComponent::advanceSequence() { sequence++; }
+void ppc::FloppyInputComponent::advanceFrame() { 
+	setFrame(frame + 1);
+}
 
-void ppc::FloppyInputComponent::regressSequence() { sequence--; }
+void ppc::FloppyInputComponent::regressFrame() { 
+    setFrame(frame - 1);
+}
+
+void ppc::FloppyInputComponent::advanceSequence() { 
+    setSequence(sequence + 1);
+}
+
+void ppc::FloppyInputComponent::regressSequence() { 
+    setSequence(sequence - 1);
+}
 
 bool ppc::FloppyInputComponent::registerInput(Event ev) { return true; }
 
+void ppc::FloppyInputComponent::setFloppyButtonRenderCmpt(buttonRenderComponent * brc)
+{
+	floppyBtnRndr = brc;
+}
+
+void ppc::FloppyInputComponent::setFloppyButtonInputCmpt(mousePressButton * mpb)
+{
+	floppyBtnInpt = mpb;
+}
+
+void ppc::FloppyInputComponent::setFloppyTextRenderCmpt(TextDisplayRenderComponent * txt)
+{
+	floppyTxtRndr = txt;
+}
+
+void ppc::FloppyInputComponent::setFloppyButton(bool able)
+{
+	ppc::Event ppcEv;
+	ppcEv.type = ppc::Event::EventTypes::AbleType;
+	ppcEv.able.enable = able;
+	floppyBtnInpt->recieveMessage(ppcEv);
+	floppyBtnRndr->recieveMessage(ppcEv);
+	floppyTxtRndr->recieveMessage(ppcEv);
+}
+
 bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
     bool wasSummoned = false;
+    unsigned int frame = 0, sequence = 0;
 
 	switch (ev.type) {
     case ppc::Event::FloppyType:
@@ -137,19 +213,17 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         //If we just ended a frame
         if (ev.floppy.frame == -1) {
             //If we just ended the Welcome
-            if (ev.floppy.sequence == FloppyInputComponent::Floppy_Sequence_Names.at("Welcome")) {
+            if (ev.floppy.sequence == 2) {
+                World::getCurrDesktop().incrementNetVecIndex();
+            } 
+            if (FloppyInputComponent::floppyDictionary.at(ev.floppy.sequence).autoShift) {
                 wasSummoned = true;
-                ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("Connections");
                 ev.floppy.frame = 0;
-            } else if (ev.floppy.sequence == FloppyInputComponent::Floppy_Sequence_Names.at("Connections")) {
-                wasSummoned = true;
-                ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("Edges");
-                ev.floppy.frame = 0;
+                ++ev.floppy.sequence;
             }
         } else {
             wasSummoned = true;
         }
-
 
         break;
     case Event::OpenType:
@@ -157,8 +231,15 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         if (ev.open.winType == ev.open.Pipeline) {
             wasSummoned = true;
             ev.type = Event::FloppyType;
-            ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("Welcome");
             ev.floppy.frame = 0;
+            switch (World::getCurrDesktop().getNetVecIndex()) {
+            case 0:
+                ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("Welcome");
+                break;
+            case 1:
+                ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("Goal");
+                break;
+            }
         }
         break;
 	}
@@ -166,8 +247,7 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
     if (wasSummoned) {
         /* Also let the textbox and button that
         they should spawn */
-        ptr->setSequence(ev.floppy.sequence);
-        ptr->setFrame(ev.floppy.frame);
+        ptr->setSequence(ev.floppy.sequence, ev.floppy.frame);
         ptr->getEntity()->broadcastMessage(ev);
 
         ev.type = ppc::Event::AbleType;
@@ -187,27 +267,58 @@ bool ppc::incrementFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         ptr->advanceFrame();
     }
 
-    ppc::Event ppcEv;
-
-	/* Alert observers if beyond sequence length (return both -1)*/
-	if (ptr->getFrame() == -1) {
-        ppcEv.type = Event::AbleType;
-        ppcEv.able.enable = false;
-        ptr->getEntity()->broadcastMessage(ppcEv);
-
-		
-		ppcEv.type = ppc::Event::FloppyType;
-		ppcEv.floppy.sequence = ptr->getSequence();
-		ppcEv.floppy.frame = -1;
-		ptr->onSequenceEnd().sendEvent(ppcEv);
-	}
-	/* Create and send a new event to the entity
-	with the updated frame */
-	ppcEv.type = ppc::Event::FloppyType;
-	ppcEv.floppy.sequence = ptr->getSequence();
-	ppcEv.floppy.frame = ptr->getFrame();
-	ptr->getEntity()->broadcastMessage(ppcEv);
 	return true;
 }
 
+
+
+
+bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
+    bool enable = false;
+
+    switch (ptr->getSequence()) {
+    case 0: //Welcome
+        enable = ((ev.type == ev.NetworkType) &&
+            (ev.network.type == ev.network.Selected) &&
+            (ev.network.v == -1));
+        break;
+    case 1: //Connections
+        enable = ((ev.type == ev.NetworkType) &&
+            (ev.network.type == ev.network.Created) &&
+            (ev.network.v != -1));
+        break;
+    case 2: //Edge
+        enable = ((ev.type == ev.NetworkType) &&
+            (ev.network.type == ev.network.Removed) &&
+            (ev.network.v != -1));
+        break;
+    case 3: //Goal
+        enable = (ev.type == ev.NetworkType);
+        if (enable) {
+            enable = ev.network.net->checkEdgeEquality(*World::getCurrDesktop().getSolVec()[1]);
+        }
+        break;
+    case 4: //Suspicion
+        enable = (ev.type == ev.NetworkType);
+        if (enable) {
+            enable = ev.network.net->checkEdgeEquality(*World::getCurrDesktop().getSolVec()[1]);
+        }
+        break;
+    case 5: //Center
+        enable = (ev.type == ev.NetworkType);
+        if (enable) {
+            ev.network.net->checkCenterEquality(*World::getCurrDesktop().getSolVec()[1]);
+        }
+        break;
+    case 6: //Feedback
+        enable = true;
+        break;
+    default:
+        break;
+    }
+
+    ptr->setFloppyButton(enable);
+
+    return true;
+}
 
