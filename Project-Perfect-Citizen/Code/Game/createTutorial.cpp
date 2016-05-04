@@ -135,6 +135,10 @@ void ppc::createTutorial(Desktop & dt) {
     //Connect Graph
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dt.getPlayVec().at(0)->onManip().addObserver(tempObsvr);
+
+    //Connect Graph
+    tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
+    dt.getPlayVec().at(1)->onManip().addObserver(tempObsvr);
 }
 
 
@@ -240,13 +244,15 @@ void ppc::createDesktopTutorial(Desktop & dt) {
     BaseObserver* tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn);
     floppyIn->onSequenceEnd().addObserver(tempObsvr);
 
-    //Connect Pipeline
+    //Connect File Icon
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dynamic_cast<iconInputComponent*>(hardDriveIcon.getComponent(2))->onOpen().addObserver(tempObsvr);
 
-    //Connect Pipeline
+    //Connect Email Icon
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dynamic_cast<iconInputComponent*>(emailIcon.getComponent(2))->onOpen().addObserver(tempObsvr);
+
+    //C
 
     //Set up starting Message
     Event ev;

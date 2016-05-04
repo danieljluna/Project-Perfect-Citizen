@@ -6,7 +6,11 @@ namespace ppc {
 
     class Network;
     class WindowInterface;
+<<<<<<< HEAD
 	class FloppyInputComponent;
+=======
+    class NodeState;
+>>>>>>> refs/remotes/origin/experimental
 
 	//This is the event struct. You can add events here
 	//if you need them. Nothing here is final except
@@ -85,7 +89,10 @@ namespace ppc {
                 Count
             };
 
-            WindowInterface* window;
+            union {
+                WindowInterface* window;
+                NodeState* nodeState;
+            };
 			OpenTypes winType;
 		};
 
