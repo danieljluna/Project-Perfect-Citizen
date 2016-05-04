@@ -181,5 +181,6 @@ namespace ppc {
 		/// @brief Virtual Destructor
 		///////////////////////////////////////////////
 		virtual ~BaseFileType();
+
 	};
 };

@@ -8,7 +8,7 @@
 
 //for my sanity a suspicious file holder holds a vector of suspicious file holders that each hold 3 files tops. 
 namespace ppc {
-	static class SuspiciousFileHolder {
+	class SuspiciousFileHolder {
 	private:
 		SuspiciousFileHolder() = delete;
 		~SuspiciousFileHolder() = delete;

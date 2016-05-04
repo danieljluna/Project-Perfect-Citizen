@@ -77,8 +77,11 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 					Floppy_Sequence_Names.insert(std::make_pair(label, floppyDictionary.size() - 1));
                     size_t tokenIndex = line.find_first_of(':');
                     label = line.substr(1, tokenIndex - 1);
-                    if (line.substr(tokenIndex + 2, 1) == "F")
+                    if (line.substr(tokenIndex + 2, 1) == "F") {
                         sequence.autoShift = false;
+                    } else {
+                        sequence.autoShift = true;
+                    }
 					sequence.frames.clear();
 				}
 				else {
@@ -296,17 +299,18 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
     case 3: //Goal
         enable = (ev.type == ev.NetworkType);
         if (enable) {
-            enable = ev.network.net->checkColorlessEdgeEquality(*World::getCurrDesktop().getSolVec()[1]);
+            enable = ev.network.net->checkColorlessEdgeEquality(*World::getCurrDesktop().getSolVec()[1]) == 1.0f;
         }
         break;
     case 4: //Suspicion
         enable = (ev.type == ev.NetworkType);
         if (enable) {
-            enable = ev.network.net->checkEdgeEquality(*World::getCurrDesktop().getSolVec()[1]);
+            enable = ev.network.net->checkEdgeEquality(*World::getCurrDesktop().getSolVec()[1]) == 1.0f;
         }
         break;
     case 5: //Center
-        enable = (ev.type == ev.NetworkType);
+        enable = ((ev.type == ev.NetworkType) &&
+                  (ev.network.type == ev.network.Center));
         if (enable) {
             ev.network.net->checkCenterEquality(*World::getCurrDesktop().getSolVec()[1]);
         }
@@ -323,6 +327,8 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             (ev.open.Explorer));
         break;
     case 9: //Explorer
+        
+        break;
     case 10://Passwords
     case 11://SuspFolder
     case 12://Scanning
@@ -334,7 +340,8 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         break;
     }
 
-    ptr->setFloppyButton(enable);
+    if (enable)
+        ptr->setFloppyButton(enable);
 
     return true;
 }
