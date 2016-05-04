@@ -8,6 +8,8 @@
 #include "../Engine/event.h"
 #include "../Game/buttonRenderComponent.h"
 #include "../Game/mousePressButton.h"
+#include "../Game/TextDisplayRenderComponent.h"
+#include "FloppySequence.h"
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -19,7 +21,6 @@
 
 namespace ppc {
 
-	struct FloppyExpression;
 	class FloppyInputComponent : public ppc::InputComponent {
 	private:
 		unsigned int sequence;
@@ -28,6 +29,7 @@ namespace ppc {
 
 		buttonRenderComponent* floppyBtnRndr = nullptr;
 		mousePressButton* floppyBtnInpt = nullptr;
+		TextDisplayRenderComponent* floppyTxtRndr = nullptr;
 	
 	public:
 
@@ -36,7 +38,7 @@ namespace ppc {
 
 		
 
-		static std::vector<std::vector<FloppyExpression>> floppyDictionary;
+		static std::vector<FloppySequence> floppyDictionary;
 
 		///////////////////////////////////////////////////////////////////////
 		/// Map of Floppy Sequence names to integers
@@ -62,7 +64,7 @@ namespace ppc {
 		/// Basic Setters
 		///////////////////////////////////////////////////////////////////////
 		void setFrame(unsigned int);
-		void setSequence(unsigned int);
+		void setSequence(unsigned int s, unsigned int f = 0);
 	
 		///////////////////////////////////////////////////////////////////////
 		/// @brief Initializes the table of what Floppy says and how he emotes
@@ -83,6 +85,7 @@ namespace ppc {
 
 		void setFloppyButtonRenderCmpt(buttonRenderComponent*);
 		void setFloppyButtonInputCmpt(mousePressButton*);
+		void setFloppyTextRenderCmpt(TextDisplayRenderComponent*);
 
 		void setFloppyButton(bool);
 
@@ -103,9 +106,6 @@ namespace ppc {
 	////////////////////////////////////////////////////////////////
 	bool incrementFloppyDialog(FloppyInputComponent*, ppc::Event);
 
-	struct FloppyExpression {
-		std::string text;
-		unsigned int emotion;
-		bool createEnabled;
-	};
+    bool enableFloppyDialog(FloppyInputComponent*, ppc::Event);
+
 };

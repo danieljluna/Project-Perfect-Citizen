@@ -5,4 +5,7 @@
 namespace ppc {
 
 	void createTutorial(Desktop&);
+
+	void createDesktopTutorial(Desktop&);
+
 };

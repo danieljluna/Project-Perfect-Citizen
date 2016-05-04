@@ -22,4 +22,3 @@ Event::operator sf::Event&() {
 
     return sfEvent;
 }
-

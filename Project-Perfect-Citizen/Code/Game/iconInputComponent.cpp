@@ -5,6 +5,10 @@
 #include "../Engine/desktop.h"
 #include "../Game/emailExtraction.hpp"
 #include "../Engine/Audio/AudioQueue.h"
+#include "../Game/ContextBuilder.h"
+#include "../Engine/World.h"
+#include "TreeCommands.h"
+
 
 
 using namespace ppc;
@@ -27,53 +31,74 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
 
         if (ev.buttons.activation == ev.buttons.RightMouse) {
 
-            std::vector<std::string> elementNames;
-            std::vector<bool(*)(Desktop*, Event ev)> elementFunctions;
-            elementNames.push_back("Open");
-            ppc::WindowInterface* ContextMenu = nullptr;
-            ContextMenu = new ppc::Window(200, 300, sf::Color(170, 170, 170));
-         //   elementFunctions.push_back(&(ppc::make_icon_window));
+			/* Begin Building Context List */
+			ppc::WindowInterface* ContextMenu = nullptr;
+			ContextMenu = new ppc::Window(200, 300, sf::Color(170, 170, 170));
+			ContextBuilder builder;
+			std::vector<ppc::Entity> listElements;
+			Entity listElement;
+			float fontSize = 20.0f;
+			float fontPadding = 2.0f;
+
+			/* First Element: 'Open' */
+			builder.setContainingWindow(ContextMenu);
+			builder.setInputHandle(ContextMenu->getInputHandler());
+			builder.setLabelFont(World::getFont(World::Consola));
+			builder.setLabelMessage("Open");
+			builder.setLabelSize((int) fontSize);
+			builder.setListElementPosition(0, 0);
+			builder.setListElementSize({ ContextMenu->getBounds().width, fontSize + fontPadding });
 
             switch (type_) {
 			case Event::OpenEv::Email:
-				spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
-					elementFunctions, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
+				listElements.push_back(listElement);
+				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
 				break;
             case Event::OpenEv::Browser:
-                spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
-                    elementFunctions, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
+				listElements.push_back(listElement);
+				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
                 break;
             case Event::OpenEv::HardDrive:
-                spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
-                    elementFunctions, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
+				listElements.push_back(listElement);
+				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
                 break;
             case Event::OpenEv::Help:
-                spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
-                    elementFunctions, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
+				listElements.push_back(listElement);
+				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
                 break;
             case Event::OpenEv::Pipeline:
-                spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
-                    elementFunctions, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
+				listElements.push_back(listElement);
+				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
                 break;
             case Event::OpenEv::Search:
-                spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
-                    elementFunctions, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
+				listElements.push_back(listElement);
+				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
                 break;
             case Event::OpenEv::Chat:
-                spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
-                    elementFunctions, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
+				listElements.push_back(listElement);
+				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
                 break;
             case Event::OpenEv::Settings:
-                spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
-                    elementFunctions, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
+				listElements.push_back(listElement);
+				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
                 break;
             case Event::OpenEv::Folder:
-                spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
-                    elementFunctions, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
+				listElements.push_back(listElement);
+				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
                 break;
             case Event::OpenEv::Console:
-                spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
-                    elementFunctions, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
+				listElements.push_back(listElement);
+				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
                 break;
             }
 
@@ -169,15 +194,10 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
                 }
                 break;
             case IconType::HardDrive: //Was Explorer
-                //if (openedWindow != nullptr && theDesktop_.isWindow(openedWindow)) {
-                //theDesktop_.focusWindow(openedWindow);
-                //}
-                //else {
                 tempWin = new ppc::Window(600, 350, sf::Color(255, 255, 255));
                 spawnExplorer(theDesktop_, tempWin, tempWin->getInputHandler(), *theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
                 theDesktop_.addWindow(tempWin);
                 openedWindow = tempWin;
-                //}
                 break;
             case IconType::Email:
                 if (openedWindow != nullptr && theDesktop_.isWindow(openedWindow)) {
@@ -189,6 +209,39 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
                     openedWindow = tempWin;
                 }
                 break;
+			case IconType::Folder: //Was Explorer
+				if (openedWindow != nullptr && theDesktop_.isWindow(openedWindow)) {
+					theDesktop_.focusWindow(openedWindow);
+				}
+				else {
+					tempWin = new ppc::Window(600, 350, sf::Color(255, 255, 255));
+					NodeState* tempNS = theDesktop_.getNodeState(); // <-- Not returning copy
+					
+					/* Check to make sure the folder is not password protected */
+					if (tempNS->getCwd()->findElement(labelName)->isPasswordProtected() &&
+						labelName.compare("..") != 0) {
+						ppc::WindowInterface* ErrorMsgWindow =
+							new ppc::Window(500, 150, sf::Color(170, 170, 170));
+						spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_,
+							250,
+							250,
+							"Error: " + labelName + " is protected. \nHint: " + tempNS->getCwd()->findElement(labelName)->getHint());
+						theDesktop_.addWindow(ErrorMsgWindow);
+					}
+					else {
+						std::vector<string> cdCommand;
+						string cd = "cd";
+						cdCommand.push_back(cd);
+						cdCommand.push_back(labelName);
+						commandFn newCD = findFunction(cd);
+						newCD(*tempNS, cdCommand);
+						spawnExplorer(theDesktop_, tempWin, tempWin->getInputHandler(), *tempNS, buttonSheet_, iconSheet_, 100, 200);
+						theDesktop_.addWindow(tempWin);
+						openedWindow = tempWin;
+					}
+				}
+				
+				break;
             }
 
             ev.type = Event::OpenType;
@@ -202,6 +255,10 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
 	
 }
 
+void ppc::iconInputComponent::setIconLabelName(std::string s)
+{
+	labelName = s;
+}
 
 iconInputComponent::~iconInputComponent() {
 
@@ -211,9 +268,13 @@ bool iconInputComponent::registerInput(Event ev) {
 	return true;
 }
 
-bool ppc::make_icon_window(Desktop* ptr, ppc::Event ev) {
+bool ppc::make_icon_window(iconInputComponent* ptr, ppc::Event ev) {
     
-    std::cout << "A Context Menu was clicked" << std::endl;
+	Event ppcEv;
+	ppcEv.type = Event::ButtonType;
+	ppcEv.buttons.activation = ev.buttons.LeftMouse;
+	ppcEv.buttons.state = Event::ButtonsEv::DblClicked;
+	ptr->recieveMessage(ppcEv);
 
 	return true;
 }
