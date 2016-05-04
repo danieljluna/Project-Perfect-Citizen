@@ -133,7 +133,6 @@ void ppc::createTutorial(Desktop & dt) {
     floppyIn->onSequenceEnd().addObserver(tempObsvr);
 
     //Connect Graph
-
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dt.getPlayVec().at(0)->onManip().addObserver(tempObsvr);
 }
@@ -150,7 +149,7 @@ void ppc::createDesktopTutorial(Desktop & dt) {
 	icons.setInputHandle(dt.getInputHandler());
 	icons.setSize(0.5f);
 
-	//Graph Icon
+	//Folder Icon
 	Entity hardDriveIcon;
 	icons.setPosition({ 500.f,300.f });
 	icons.setIconType(iconInputComponent::IconType::HardDrive);
@@ -231,5 +230,29 @@ void ppc::createDesktopTutorial(Desktop & dt) {
 	floppyWindow->addEntity(floppyEntity);
 
 	dt.setFrontTop(floppyWindow);
+
+
+
+
+    //String Up Floppy------------------------------
+
+    //Conect FloppyEnd
+    BaseObserver* tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn);
+    floppyIn->onSequenceEnd().addObserver(tempObsvr);
+
+    //Connect Pipeline
+    tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
+    dynamic_cast<iconInputComponent*>(hardDriveIcon.getComponent(2))->onOpen().addObserver(tempObsvr);
+
+    //Connect Pipeline
+    tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
+    dynamic_cast<iconInputComponent*>(emailIcon.getComponent(2))->onOpen().addObserver(tempObsvr);
+
+    //Set up starting Message
+    Event ev;
+    ev.type = ev.FloppyType;
+    ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("DesktopStart");
+    ev.floppy.frame = 0;
+    summonFloppyDialog(floppyIn, ev);
 
 }

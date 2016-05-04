@@ -276,6 +276,7 @@ bool ppc::incrementFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
     bool enable = false;
 
+    //Switch controls what event needs to be read to move on
     switch (ptr->getSequence()) {
     case 0: //Welcome
         enable = ((ev.type == ev.NetworkType) &&
@@ -311,6 +312,22 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         }
         break;
     case 6: //Feedback
+        enable = true;
+        break;
+    case 7: //DesktopStart
+        enable = ((ev.type == ev.OpenType) &&
+            (ev.open.Email));
+        break;
+    case 8: //Email
+        enable = ((ev.type == ev.OpenType) &&
+            (ev.open.Explorer));
+        break;
+    case 9: //Explorer
+    case 10://Passwords
+    case 11://SuspFolder
+    case 12://Scanning
+    case 13://Submission
+    case 14://WrapUp
         enable = true;
         break;
     default:
