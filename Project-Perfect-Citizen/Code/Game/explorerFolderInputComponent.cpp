@@ -127,14 +127,6 @@ bool explorerFolderInputComponent::registerInput(Event ppcEv) {
 			createWithEventFunc(builder, listElement, this, ppc::open_folder);
 			listElements.push_back(listElement);
 
-			/* Second Element: 'Open in new window' */
-			Entity listElement2;
-			builder.setLabelMessage("Flag");
-			builder.setListElementPosition(0, fontSize + fontPadding);
-			builder.setLabelPosition({ 0.0f, fontSize + fontPadding });
-			createWithEventFunc(builder, listElement2, this, ppc::flag_folder);
-			listElements.push_back(listElement2);
-
 			/* Completed: Make the Context Menu at the mouse position*/
 			spawnContextMenu(ContextMenu, listElements, ev.mouseButton.x + containingWindow_->getPosition().x,
 				ev.mouseButton.y + containingWindow_->getPosition().y);
