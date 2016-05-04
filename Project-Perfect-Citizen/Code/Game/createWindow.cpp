@@ -62,6 +62,8 @@
 #include "../Game/HelpRenderComponent.hpp"
 #include "../Game/readingMacDirectory.hpp"
 
+#include "../Engine/SuspiciousFileHolder.h"
+
 
 using namespace ppc;
 
@@ -833,7 +835,8 @@ void ppc::spawnContextMenu(WindowInterface *& windowToModify, std::vector<ppc::E
 	windowToModify->setPosition(x, y);
 }
 
-void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, InputHandler & ih, SuspiciousFileHolder* fH, float x, float y)
+
+void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, InputHandler & ih, float x, float y)
 {
 	if (windowToModify == nullptr) { return; }
 
@@ -842,13 +845,39 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 	///////////////////////////////////////
 	int fileSpacing = windowToModify->getSize().x / 4;
 	int padding = 10;
+	textLabelComponent* label;
 	for (unsigned int i = 0; i < 3/*fH->getBfgVector().size()*/; ++i) {
 		
 		Entity fileRender;
 		buttonRenderComponent* IconRender = new buttonRenderComponent(dt.getIconSheet(), 0, 0, 1, 3);
 		IconRender->renderPosition(sf::Vector2f(static_cast<float>(fileSpacing*i) + padding, 5));
-		textLabelComponent* label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red, 
-			(fileSpacing*i)+padding/2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "[EMPTY]");
+		//its 0 because its the only fileholder we have
+		/*
+		if (ppc::SuspiciousFileHolder::!= nullptr ) {
+			if ((ppc::SuspiciousFileHolder::getSusVecElement(0)->getBFTVectorElement(i) != nullptr)) {
+				label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red,
+					(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12,
+					ppc::SuspiciousFileHolder::getSusVecElement(0)->getBFTVectorElement(i)->getName());
+			}
+			else {
+				label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red,
+					(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "[EMPTY]");
+			}
+		}
+		else {
+			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red,
+				(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "[EMPTY]");
+		}
+*/
+		if (ppc::SuspiciousFileHolder::getBFTVectorElement(i) != nullptr) {
+			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red,
+				(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12,
+				ppc::SuspiciousFileHolder::getBFTVectorElement(i)->getName());
+		}
+		else {
+			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red,
+				(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "[EMPTY]");
+		}
 
 		// Input Component here? What behavior would we like these shortcutted files to have?
 
@@ -896,3 +925,5 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 	
 
 }
+
+

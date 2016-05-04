@@ -72,7 +72,7 @@ void ppc::createTutorial(Desktop & dt) {
 	SuspiciousFileHolder* fH = nullptr;
 
 	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
-	spawnFileTracker(dt, fileTracker, fileTracker->getInputHandler(), fH, 250, 50);
+	spawnFileTracker(dt, fileTracker, fileTracker->getInputHandler(), 250, 50);
 
 	dt.addWindow(fileTracker);
 

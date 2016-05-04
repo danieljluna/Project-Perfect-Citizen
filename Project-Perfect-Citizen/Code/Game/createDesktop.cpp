@@ -1,3 +1,4 @@
+
 #ifdef WINDOWS_MARKER
 #define resourcePath() string("Resources/")
 #else
@@ -204,6 +205,20 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     desktopWindowToModify.addEntity(ConsoleIcon);
     desktopWindowToModify.addEntity(EmailIcon);
     
+	////////////////////////////////////////
+	// SUSPICIOUS FILES TEST HERE
+	//////////////////////////////////////
+	//ppc::BaseFileType herro("File");
+	//herro.setName("test");
+	//ppc::SuspiciousFileHolder::flagFile(&herro);
+
+	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
+	spawnFileTracker(desktopToModify, fileTracker, fileTracker->getInputHandler(), 250, 50);
+	desktopToModify.addWindow(fileTracker);
+	ppc::SuspiciousFileHolder::setWindow(fileTracker);
+
+
+
 }
 
 void createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
