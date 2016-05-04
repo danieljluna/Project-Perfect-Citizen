@@ -36,11 +36,6 @@ namespace ppc {
 		///////////////////////////////////////////////
 		BaseFileType(ppc::FileType type);
 
-        ///////////////////////////////////////////////
-        /// @brief Virtual Destructor
-        ///////////////////////////////////////////////
-        virtual ~BaseFileType();
-
 		///////////////////////////////////////////////
 		///@brief data for text files
 		///////////////////////////////////////////////
@@ -85,6 +80,9 @@ namespace ppc {
 		std::string password = "";
 		int passwordAttemps = 0;
 		std::string passwordHint = "";
+		unsigned int suspicionLevel = 0;
+		std::string name = "";
+
 
 	public:
 		///////////////////////////////////////////////
@@ -131,7 +129,9 @@ namespace ppc {
 		///////////////////////////////////////////////
 		virtual ppc::FileType getFileType();
 		///////////////////////////////////////////////
-		///@brief sets the visibility to the flag
+		///@brief sets the visibility to the 
+
+
 		///specified
 		///////////////////////////////////////////////
 		virtual void setVisibility(bool flag);
@@ -163,5 +163,23 @@ namespace ppc {
 		//virtual void addFileObserver(sf::Event& ev, bool(*obFunction)(T*, sf::Event&);
         
         virtual std::string getHint(){ return passwordHint; };
+
+		virtual void setSuspicionLevel(unsigned int val);
+
+		virtual int getSuspicionLevel();
+
+		std::string getName();
+
+		void setName(std::string newName);
+
+		///////////////////////////////////////////////
+		///@brief dont use this idiots.
+		///////////////////////////////////////////////
+		BaseFileType(std::string test);
+
+		///////////////////////////////////////////////
+		/// @brief Virtual Destructor
+		///////////////////////////////////////////////
+		virtual ~BaseFileType();
 	};
 };

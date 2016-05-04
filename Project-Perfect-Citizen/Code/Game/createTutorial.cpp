@@ -23,6 +23,7 @@
 #include "../Engine/frontTopObserver.h"
 
 #include "iconInputComponent.h"
+#include "../Engine/SuspiciousFileHolder.h"
 
 void ppc::createTutorial(Desktop & dt) {
 
@@ -41,7 +42,6 @@ void ppc::createTutorial(Desktop & dt) {
 	icons.setIconType(iconInputComponent::IconType::Pipeline);
 	icons.setSpritebyIndicies(0, 4, 1, 2);
 	icons.setText("Graph", World::getFont(World::VT323Regular), sf::Color::Black);
-	//TODO: ADD FLOPPY FUNC TO CREATE
 	icons.create(graphIcon);
 
 
@@ -66,10 +66,22 @@ void ppc::createTutorial(Desktop & dt) {
 	dt.getDesktopWindow()->addEntity(emailIcon);
 	dt.getDesktopWindow()->addEntity(helpIcon);
 
-	//Floppy begins here
-	Window* floppyWindow = new Window(1800, 1000, sf::Color::Transparent);
+	////////////////////////////////////////
+	// SUSPICIOUS FILES TEST HERE
+	//////////////////////////////////////
+	SuspiciousFileHolder* fH = nullptr;
 
-	dt.setFrontTop(floppyWindow);
+	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
+	spawnFileTracker(dt, fileTracker, fileTracker->getInputHandler(), 250, 50);
+
+	dt.addWindow(fileTracker);
+
+
+	
+	////////////////////////////////////////
+	// FLOPPY BEGINS HERE
+	//////////////////////////////////////
+	Window* floppyWindow = new Window(1800, 1000, sf::Color::Transparent);
 
 	Entity floppyEntity;
 
@@ -87,23 +99,10 @@ void ppc::createTutorial(Desktop & dt) {
 	tbr->setTextBubble(*tb);
 	tbr->setRenderable(false);
 
-	mousePressButton* mpb = new mousePressButton();
-	mpb->setInputHandle(floppyWindow->getInputHandler());
-	mpb->setFloatRect(floppyWindow->getBounds());
-
-	frontTopObsvr* frontTopObsv = new frontTopObsvr(dt);
-
-	mpb->onClick().addObserverToBack(frontTopObsv);
-	mpb->onDblClick().addObserverToBack(frontTopObsv);
-	mpb->onRelease().addObserverToBack(frontTopObsv);
-	mpb->onHover().addObserverToBack(frontTopObsv);
-
-
 	floppyEntity.addComponent(tbr);
 	floppyEntity.addComponent(floppy);
 	floppyEntity.addComponent(floppyIn);
 	floppyEntity.addComponent(floppyUpdate);
-	floppyEntity.addComponent(mpb);
 
 	ButtonBuilder nextButton;
 	nextButton.setInputHandle(floppyWindow->getInputHandler());
@@ -116,11 +115,23 @@ void ppc::createTutorial(Desktop & dt) {
 	nextButton.setSpriteSheet(dt.getButtonSheet());
 	createWithEventFunc<FloppyInputComponent>(nextButton, floppyEntity, floppyIn, ppc::incrementFloppyDialog);
 
+	buttonRenderComponent* mbr = nextButton.getButtonRenderComponent();
+	mousePressButton* mpb = nextButton.getMousePressButton();
+	TextDisplayRenderComponent* txt = nextButton.getTextRenderComponent();
+	floppyIn->setFloppyButtonInputCmpt(mpb);
+	floppyIn->setFloppyButtonRenderCmpt(mbr);
+	floppyIn->setFloppyTextRenderCmpt(txt);
+
+
+
 	ppc::FreeFunctionObserver<mousePressButton>* ffo = new FreeFunctionObserver<mousePressButton>(ToggleMPB,
 		dynamic_cast<mousePressButton*>(nextButton.getMousePressButton()));
 	floppyIn->onSequenceEnd().addObserver(ffo);
 
 	floppyWindow->addEntity(floppyEntity);
+
+    dt.setFrontTop(floppyWindow);
+
 
     //String Up Floppy------------------------------
 
@@ -131,4 +142,9 @@ void ppc::createTutorial(Desktop & dt) {
     //Conect FloppyEnd
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn);
     floppyIn->onSequenceEnd().addObserver(tempObsvr);
+
+    //Connect Graph
+
+    tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
+    dt.getPlayVec().at(0)->onManip().addObserver(tempObsvr);
 }

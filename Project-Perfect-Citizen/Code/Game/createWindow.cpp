@@ -62,6 +62,8 @@
 #include "../Game/HelpRenderComponent.hpp"
 #include "../Game/readingMacDirectory.hpp"
 
+#include "../Engine/SuspiciousFileHolder.h"
+
 
 using namespace ppc;
 
@@ -313,13 +315,14 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
     //Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 	//Desktop* currDesk = &World::getCurrDesktop();
 	int netvecindex = World::getCurrDesktop().getNetVecIndex();
-	Network* solNet;
-	if (!World::getCurrDesktop().getNetVec().empty()) {
-		solNet = World::getCurrDesktop().getNetVec().at(netvecindex);
+	Network* solNet, *playNet;
+	if (netvecindex < World::getCurrDesktop().getSolVec().size()) {
+		solNet = World::getCurrDesktop().getSolVec().at(netvecindex);
+		playNet = World::getCurrDesktop().getPlayVec().at(netvecindex);
 	} else {
 		solNet = PipelineLevelBuilder::buildDefaultNetwork();
+		playNet = solNet->copyNetworkByVerts();
 	}
-	Network* playNet = solNet->copyNetworkByVerts();
 
 
     NetworkCheckFunctor *ncf = new NetworkCheckFunctor(*solNet, *playNet);
@@ -744,7 +747,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 
-	float viewHeight = static_cast<float>(windowToModify->getSize().y) / 2;
+	float viewHeight = static_cast<float>(windowToModify->getSize().y / 1.5);
     windowToModify->setPosition(x, y);
 
 	/* Create a scroll bar if the new explorer window is greater than 100px*/
@@ -812,3 +815,114 @@ void ppc::spawnContextMenu(Desktop& dT, WindowInterface*& windowToModify, InputH
 	windowToModify->setPosition(x, y);
 
 }
+
+void ppc::spawnContextMenu(WindowInterface *& windowToModify, std::vector<ppc::Entity> listElements, float x, float y)
+{
+	int contextBoxElementWidth = windowToModify->getSize().x;
+	int contextBoxElementHeight = 22; // Change this to be font size + 2
+	int contextBoxPadding = 5;
+	int totalElementsLoaded = 0;
+
+	for (unsigned int i = 0; i < listElements.size(); ++i) {
+		windowToModify->addEntity(listElements.at(i));
+		++totalElementsLoaded;
+	}
+
+	int newHeight = (totalElementsLoaded)* (contextBoxElementHeight + contextBoxPadding);
+	int newWidth = windowToModify->getSize().x;
+	windowToModify->setSize(newWidth, newHeight + contextBoxPadding);
+	windowToModify->setPosition(x, y);
+}
+
+
+void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, InputHandler & ih, float x, float y)
+{
+	if (windowToModify == nullptr) { return; }
+
+	/////////////////////////////////////////
+	//// Files/Text Labels
+	///////////////////////////////////////
+	int fileSpacing = windowToModify->getSize().x / 4;
+	int padding = 10;
+	textLabelComponent* label;
+	for (unsigned int i = 0; i < 3/*fH->getBfgVector().size()*/; ++i) {
+		
+		Entity fileRender;
+		buttonRenderComponent* IconRender = new buttonRenderComponent(dt.getIconSheet(), 0, 0, 1, 3);
+		IconRender->renderPosition(sf::Vector2f(static_cast<float>(fileSpacing*i) + padding, 5));
+		//its 0 because its the only fileholder we have
+		/*
+		if (ppc::SuspiciousFileHolder::!= nullptr ) {
+			if ((ppc::SuspiciousFileHolder::getSusVecElement(0)->getBFTVectorElement(i) != nullptr)) {
+				label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red,
+					(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12,
+					ppc::SuspiciousFileHolder::getSusVecElement(0)->getBFTVectorElement(i)->getName());
+			}
+			else {
+				label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red,
+					(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "[EMPTY]");
+			}
+		}
+		else {
+			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red,
+				(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "[EMPTY]");
+		}
+*/
+		if (ppc::SuspiciousFileHolder::getBFTVectorElement(i) != nullptr) {
+			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Green,
+				(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12,
+				ppc::SuspiciousFileHolder::getBFTVectorElement(i)->getName());
+		}
+		else {
+			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red,
+				(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "[EMPTY]");
+		}
+
+		// Input Component here? What behavior would we like these shortcutted files to have?
+
+		fileRender.addComponent(IconRender);
+		fileRender.addComponent(label);
+
+		windowToModify->addEntity(fileRender);
+	}
+
+	/////////////////////////////////////////
+	//// Buttons
+	///////////////////////////////////////
+	int submitBtnX = windowToModify->getSize().x - 5;
+	int submitBtnY = windowToModify->getSize().y;
+	float submitBtnSize = 0.25f;
+
+	ButtonBuilder builder;
+	Entity submitBtn;
+	Entity scanBtn;
+	builder.setButtonPosition({ (float)(submitBtnX - (256 * submitBtnSize)), 5 });
+	builder.setInputHandle(windowToModify->getInputHandler());
+	builder.setLabelFont(World::getFont(World::Consola));
+	builder.setLabelMessage("SUBMIT");
+	builder.setLabelSize(15);
+	builder.setSize(submitBtnSize);
+	builder.setSpriteSheet(dt.getButtonSheet());
+	builder.create(submitBtn); // <- Replace this with createWithEventFunc
+	// once submit function is done
+
+	builder.setButtonPosition({ (float)(submitBtnX - (256 * submitBtnSize)), (256 * submitBtnSize) - padding });
+	builder.setLabelMessage("SCAN");
+	builder.create(scanBtn); // <- Replace this with createWithEventFunc
+	// once scan function is done
+
+	windowToModify->addEntity(submitBtn);
+	windowToModify->addEntity(scanBtn);
+
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+	windowToModify = new BorderDecorator(*windowToModify);
+	windowToModify->setPosition({ x,y });
+	//dynamic_cast<BorderDecorator*>(windowToModify)->addButton(dt.getButtonSheet(), closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Tracked Files:");
+	
+
+}
+
+

@@ -89,8 +89,15 @@ sf::Sprite*  buttonRenderComponent::getSprite() {
 }
 
 void buttonRenderComponent::setSprite(int x, int y, int r) {
-    if(!texture->loadFromImage(buttonImage, 
-		sf::IntRect(x*size, y*size, r*size, size))) { exit(-1); }
+    //if(!texture->loadFromImage(buttonImage,
+		//sf::IntRect(x*size, y*size, r*size, size))) { exit(-1); }
+    
+    rectSourceSprite->left = x*size;
+    rectSourceSprite->top = y*size;
+    rectSourceSprite->width = r*size;
+    rectSourceSprite->height = size;
+    texture->loadFromImage(buttonImage, *rectSourceSprite);
+    sprite->setTexture(*texture);
 }
 
 void buttonRenderComponent::setButtonScale(int r) {
@@ -140,13 +147,14 @@ void buttonRenderComponent::draw( sf::RenderTarget& target,
 void buttonRenderComponent::recieveMessage(ppc::Event ev) {
 	switch (ev.type) {
 	case Event::EventTypes::ButtonType:
-		if (ev.buttons.state == ev.buttons.Clicked &&
-			ev.buttons.activation != ev.buttons.RightMouse) {
-			setSprite(xIndex + width, yIndex, width);
+		if ((ev.buttons.state == ev.buttons.Clicked || 
+			ev.buttons.state == ev.buttons.DblClicked) &&
+				ev.buttons.activation != ev.buttons.RightMouse) {
+					setSprite(xIndex + width, yIndex, width);
 		}
-		if (ev.buttons.state == ev.buttons.Release &&
-			ev.buttons.activation != ev.buttons.RightMouse) {
-			setSprite(xIndex, yIndex, width);
+		if ((ev.buttons.state == ev.buttons.Release) &&
+				ev.buttons.activation != ev.buttons.RightMouse) {
+					setSprite(xIndex, yIndex, width);
 		}
 		break;
 	case Event::EventTypes::AbleType:

@@ -1,4 +1,6 @@
 #include "ButtonBuilder.h"
+
+#include <SFML/Graphics.hpp>
 #include "buttonRenderComponent.h"
 #include "../Game/mousePressButton.h"
 #include "../Engine/debug.h"
@@ -92,6 +94,16 @@ ppc::mousePressButton * ppc::ButtonBuilder::getMousePressButton()
 	return button_mpb;
 }
 
+ppc::buttonRenderComponent * ppc::ButtonBuilder::getButtonRenderComponent()
+{
+	return button_brc;
+}
+
+ppc::TextDisplayRenderComponent * ppc::ButtonBuilder::getTextRenderComponent()
+{
+	return text_rc;
+}
+
 void ppc::ButtonBuilder::create(Entity& e){
 
 	/* I: RENDER COMPONENTS */
@@ -128,10 +140,13 @@ void ppc::ButtonBuilder::create(Entity& e){
 	/* Set the position for the bounds */
 	buttonRender->setImageScale(size, size);
 	buttonRender->renderPosition(sf::Vector2f(posX, posY));
+	button_brc = buttonRender;
+	text_rc = labelRender;
 
 	/* II: INPUT COMPONENT */
 	if (clickable) {
-		mpb = new mousePressButton(*inputHandle, buttonRender->getSprite()->getGlobalBounds());
+		sf::FloatRect rect(posX, posY, 64, 32);
+		mpb = new mousePressButton(*inputHandle, rect);
 		button_mpb = mpb;
 	}
 

@@ -120,7 +120,7 @@ void FloppyRenderComponent::recieveMessage(ppc::Event ev) {
         unsigned int i = ev.floppy.sequence;
         unsigned int j = ev.floppy.frame;
         if (j == -1) emotion = -1;
-        else emotion = FloppyInputComponent::floppyDictionary.at(i).at(j).second;
+        else emotion = FloppyInputComponent::floppyDictionary.at(i).frames.at(j).emotion;
         std::cout << emotion << std::endl;
         setEmotion(emotion);
         _willAnimate = true;

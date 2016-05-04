@@ -27,6 +27,8 @@
 #include "../Game/desktopExtractionComponent.hpp"
 #include "../Game/PipelineLevelBuilder.h"
 
+#include "frontTopObserver.h"
+
 
 ppc::Desktop::Desktop() {
 	nodeState_.setUp();
@@ -64,13 +66,17 @@ ppc::Desktop::Desktop(const Desktop& other) {
 
 ppc::Desktop::~Desktop() {
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-		if (*it != desktopWindow_) {
-			delete *it;
-		}
+        if (*it != nullptr)
+            delete *it;
 	}
 
-	for (auto it = netVec_.begin(); it != netVec_.end(); ++it) {
-		delete *it;
+	for (auto it = solVec_.begin(); it != solVec_.end(); ++it) {
+        if (*it != nullptr)
+            delete *it;
+	}
+	for (auto it = playVec_.begin(); it != playVec_.end(); ++it) {
+		if (*it != nullptr)
+            delete *it;
 	}
 
 	if(frontTop_) delete frontTop_;
@@ -201,8 +207,12 @@ ppc::NodeState* ppc::Desktop::getNodeState() {
 	return &nodeState_;
 }
 
-std::vector<Network*> ppc::Desktop::getNetVec() {
-	return netVec_;
+std::vector<Network*> ppc::Desktop::getSolVec() {
+	return solVec_;
+}
+
+std::vector<Network*> ppc::Desktop::getPlayVec() {
+	return playVec_;
 }
 
 int ppc::Desktop::getNetVecIndex() {
@@ -243,6 +253,18 @@ ppc::Inbox& ppc::Desktop::getInbox() {
 
 void ppc::Desktop::setFrontTop(WindowInterface* front) {
 	frontTop_ = front;
+
+    frontTopObsvr* ftObsvr = new frontTopObsvr(*this);
+
+    mousePressButton *mpb = new mousePressButton();
+    mpb->setFloatRect(frontTop_->getBounds());
+    mpb->setInputHandle(frontTop_->getInputHandler());
+	mpb->onClick().addObserverToBack(ftObsvr);
+	mpb->onHover().addObserverToBack(ftObsvr);
+	mpb->onRelease().addObserverToBack(ftObsvr);
+    mpb->onAll().addObserverToBack(ftObsvr);
+
+    frontTop_->addInputComponent(mpb);
 }
 
 void ppc::Desktop::deleteFrontTop() {
@@ -252,41 +274,47 @@ void ppc::Desktop::deleteFrontTop() {
 	}
 }
 
-void ppc::Desktop::registerInput(Event ev) {
-	if (frontTop_ && 
-		(ev.type == sf::Event::MouseButtonPressed || 
-			ev.type == sf::Event::MouseButtonReleased)) {
-		frontTop_->registerInput(ev);
+void ppc::Desktop::registerInput(Event ppcEv) {
+    
+	if ((frontTop_ != nullptr) && (ppcEv.type == Event::sfEventType) &&
+		(ppcEv.sfEvent.type == sf::Event::MouseButtonPressed || 
+			ppcEv.sfEvent.type == sf::Event::MouseButtonReleased)) {
+		frontTop_->registerInput(ppcEv);
 	} else {
-		registerInputFocused(ev);
+		registerInputFocused(ppcEv);
 	}
 
 }
 
-void ppc::Desktop::registerInputFocused(sf::Event ev) {
+void ppc::Desktop::registerInputFocused(Event ppcEv) {
 //first check if the mouse clicked in the focused window.
 //if the window clicked in a window that wasnt focused,
 //then focus that window.
 //for any mouse event
-	if (ev.type == sf::Event::MouseButtonPressed) {
-		for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-			sf::FloatRect winBounds = (*it)->getBounds();
-			if (winBounds.contains(float(ev.mouseButton.x), float(ev.mouseButton.y))) {
-				focusWindow(*it);
-				break;
+	if (ppcEv.type == Event::sfEventType) {
+		if (ppcEv.sfEvent.type == sf::Event::MouseButtonPressed) {
+			for (auto it = windows_.begin(); it != windows_.end(); ++it) {
+				sf::FloatRect winBounds = (*it)->getBounds();
+				if (winBounds.contains(
+					float(ppcEv.sfEvent.mouseButton.x), 
+					float(ppcEv.sfEvent.mouseButton.y))) {
+						focusWindow(*it);
+						break;
+				}
 			}
 		}
+		if (ppcEv.sfEvent.type == sf::Event::MouseMoved) {
+			ppcEv.sfEvent.mouseMove.x -= int(focused_->getPosition().x);
+			ppcEv.sfEvent.mouseMove.y -= int(focused_->getPosition().y);
+		} else if ((ppcEv.sfEvent.type == sf::Event::MouseButtonPressed) || 
+			(ppcEv.sfEvent.type == sf::Event::MouseButtonReleased)) {
+				ppcEv.sfEvent.mouseButton.x -= int(focused_->getPosition().x);
+				ppcEv.sfEvent.mouseButton.y -= int(focused_->getPosition().y);
+		}
 	}
+	
 
-	if (ev.type == sf::Event::MouseMoved) {
-		ev.mouseMove.x -= int(focused_->getPosition().x);
-		ev.mouseMove.y -= int(focused_->getPosition().y);
-	} else if ((ev.type == sf::Event::MouseButtonPressed) || (ev.type == sf::Event::MouseButtonReleased)) {
-		ev.mouseButton.x -= int(focused_->getPosition().x);
-		ev.mouseButton.y -= int(focused_->getPosition().y);
-	}
-
-	focused_->registerInput(ev);
+	focused_->registerInput(ppcEv);
 }
 
 void ppc::Desktop::update(sf::Time& deltaTime){
@@ -384,7 +412,7 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 			inbox->parseEmailAsJson(file);
 			
 			for (unsigned int i = 0; i < inbox->getSubject().size(); i++) {
-				ppc::Email* testEmail1= new Email(inbox->getTo().at(i),
+				ppc::Email* testEmail1 = new Email(inbox->getTo().at(i),
 					inbox->getFrom().at(i),
 					inbox->getSubject().at(i),
 					inbox->getBody().at(i),
@@ -392,28 +420,37 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 					"image.jpg");
 				importDesktop->getInbox().addEmailToList(testEmail1);
 			}
+			delete inbox;
 		} else if (key == "Pipeline") {
-			if (PipelineLevelBuilder::LEVEL_MAP.find(file) ==
-				PipelineLevelBuilder::LEVEL_MAP.end()) {
-				DEBUGF("wc", key << " " << file);
-				continue;
-			}
 			desktop.netVecIndex_ = 0;
-			int levelnum = PipelineLevelBuilder::LEVEL_MAP.at(file);
+			int levelnum;
+			if (PipelineLevelBuilder::LEVEL_MAP.find(file) != PipelineLevelBuilder::LEVEL_MAP.end()) {
+				levelnum = PipelineLevelBuilder::LEVEL_MAP.at(file);
+			} 
+			else {
+				DEBUGF("wc", key << " " << file);
+				levelnum = -2;
+			}
+
+			
+			Network* solNet;
 			switch (levelnum) {
 				case -1:
-					desktop.netVec_.push_back(PipelineLevelBuilder::buildTutorialOne());
+					solNet = PipelineLevelBuilder::buildTutorialOne();
 					break;
 				case 0:
-					desktop.netVec_.push_back(PipelineLevelBuilder::buildTutorialTwo());
+					solNet = PipelineLevelBuilder::buildTutorialTwo();
 					break;
 				case 1:
-					desktop.netVec_.push_back(PipelineLevelBuilder::buildLevelOneNetworkSolution());
+					solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 					break;
 				default:
+					solNet = PipelineLevelBuilder::buildDefaultNetwork();
 					DEBUGF("wc", levelnum);
 					break;
 			}
+			desktop.solVec_.push_back(solNet);
+			desktop.playVec_.push_back(solNet->copyNetworkByVerts());
 		}
 	}
 
