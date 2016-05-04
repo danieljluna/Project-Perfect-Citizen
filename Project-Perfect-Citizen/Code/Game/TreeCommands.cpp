@@ -255,7 +255,6 @@ void ppc::fn_flag(ppc::NodeState& state, const std::vector<std::string> words) {
 		return;
 	}
 	ppc::SuspiciousFileHolder::flagFile(tempCWD);
-
 }
 
 

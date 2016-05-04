@@ -136,7 +136,12 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 			str_ = str_ + " Unable to find " + cmd.at(1) + ".";
 		}
 		numDisplayedLines++;
-
+		
+		WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
+		spawnFileTracker(*theDesktop_, fileTracker, fileTracker->getInputHandler(), 250, 50);
+		//spawnFileTracker(*theDesktop_, fileTracker, fileTracker->getInputHandler(), SuspiciousFileHolder::getSusVecElement(0), 250, 50);
+		theDesktop_->addWindow(fileTracker);
+		SuspiciousFileHolder::setWindow(fileTracker);
 	}
 
 	/* CASE: MKDIR */
