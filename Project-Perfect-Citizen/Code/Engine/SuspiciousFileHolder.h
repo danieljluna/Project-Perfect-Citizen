@@ -39,5 +39,6 @@ namespace ppc {
 		static void clearFiles();
 		static void clearFile(std::string doomedFile);
 		static void setSusScore(int score);
+		static bool isGuilty();
 	};
 };

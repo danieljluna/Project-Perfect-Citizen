@@ -118,3 +118,8 @@ void ppc::SuspiciousFileHolder::setSusScore(int score)
 {
 	susScore_ = score;
 }
+
+bool ppc::SuspiciousFileHolder::isGuilty()
+{
+	return guilty_;
+}

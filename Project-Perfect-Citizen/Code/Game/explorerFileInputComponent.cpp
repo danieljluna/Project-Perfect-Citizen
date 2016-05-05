@@ -214,7 +214,7 @@ bool ppc::submitFiles(ppc::Desktop * ptr, ppc::Event ev)
 bool ppc::spawnPromptMessage(ppc::explorerFileInputComponent * ptr, ppc::Event)
 {
 	ppc::WindowInterface* newWindow = new ppc::Window(600, 300, sf::Color(170, 170, 170));
-	ppc::BaseFileType* tempBFT = ptr->getFileNodeState().getCwd()->findElement(ptr->getFileName());
+ 	ppc::BaseFileType* tempBFT = ptr->getFileNodeState().getCwd()->findElement(ptr->getFileName());
 
 	spawnErrorMessage(newWindow, newWindow->getInputHandler(), ptr->getFileDesktop()->getButtonSheet(), 100.f, 100.f,
 		tempBFT->getName() + " has a suspicion index of: " + std::to_string(tempBFT->getSuspicionLevel()));
