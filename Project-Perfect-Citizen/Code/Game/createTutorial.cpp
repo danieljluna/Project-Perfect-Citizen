@@ -254,7 +254,7 @@ void ppc::createDesktopTutorial(Desktop & dt) {
 
     //Connect NodeState
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
-    World::getCurrDesktop().getNodeState()->onOpen().addObserver(tempObsvr);
+    dt.getNodeState()->onOpen().addObserver(tempObsvr);
 
     //Set up starting Message
     Event ev;

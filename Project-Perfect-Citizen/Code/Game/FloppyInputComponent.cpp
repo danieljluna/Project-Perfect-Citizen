@@ -314,16 +314,23 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         break;
 	case FloppyInputComponent::Email:
         enable = ((ev.type == ev.OpenType) &&
-            (ev.open.winType == ev.open.Explorer));
+            (ev.open.winType == ev.open.HardDrive));
         break;
 	case FloppyInputComponent::Explorer:
-        enable = ((ev.type == ev.OpenType) && 
-                  (ev.open.winType == ev.open.File));
+        //On Attempt to load---------------------------------------------------
+        enable = true;
         break;
 	case FloppyInputComponent::Passwords:
+        enable = ((ev.type == ev.OpenType) &&
+            (ev.open.winType == ev.open.Folder) &&
+            (ev.open.file->getName().compare("Terrorism") == 0));
+        break;
 	case FloppyInputComponent::SuspFolder:
+        //Mark as suspicious---------------------------------------------------
 	case FloppyInputComponent::Scanning:
+        //Scan Files-----------------------------------------------------------
 	case FloppyInputComponent::DeskSubmission:
+        //Submit Files---------------------------------------------------------
 	case FloppyInputComponent::Wrapup:
         enable = true;
         break;

@@ -8,6 +8,7 @@
 #include "../Engine/SuspiciousFileHolder.h"
 #include "ContextBuilder.h"
 #include "../Engine/World.h"
+#include "../Engine/SubjectObsvr.h"
 
 using namespace ppc;
 

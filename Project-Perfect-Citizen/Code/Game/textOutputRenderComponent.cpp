@@ -17,6 +17,8 @@
 #include "../Engine/BorderDecorator.h"
 #include "../Engine/ScrollBarDeco.h"
 
+#include "../Engine/SubjectObsvr.h"
+
 const string TEXT_KEY_INPUT = "TKI";
 
 using namespace ppc;

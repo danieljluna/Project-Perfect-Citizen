@@ -64,6 +64,7 @@ namespace ppc {
 			FloppyType,
 			AbleType,
             NetworkType,
+            SubmissionType,
 			Count
 		};
 
@@ -107,6 +108,10 @@ namespace ppc {
 
             size_t u;
             size_t v;
+        };
+
+        struct SubmissionEv {
+
         };
 
 		EventTypes type;

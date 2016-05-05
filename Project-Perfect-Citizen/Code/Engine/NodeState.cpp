@@ -3,6 +3,7 @@
 #include "baseFileType.h"
 #include "NodeState.h"
 #include "World.h"
+#include "desktop.h"
 #include "SubjectObsvr.h"
 
 ppc::NodeState::NodeState() {
@@ -15,7 +16,7 @@ ppc::NodeState::NodeState(const NodeState& other) {
 	this->workingDirectory = other.workingDirectory;
 	this->lastLsNode = other.lastLsNode;
 	this->dirString = other.dirString;
-    this->onOpen_.addObserver(new SubjectObsvr(other.onOpen()));
+    onOpen_.addObserver(new SubjectObsvr(World::getCurrDesktop().getNodeState()->onOpen()));
 }
 
 void ppc::NodeState::popWorking()
@@ -62,7 +63,7 @@ void ppc::NodeState::setCwd(ppc::BaseFileType* newCwd)
 
     Event ev;
     ev.type = ev.OpenType;
-    ev.open.winType = ev.open.File;
+    ev.open.winType = ev.open.Folder;
     ev.open.file = newCwd;
     onOpen_.sendEvent(ev);
 }
