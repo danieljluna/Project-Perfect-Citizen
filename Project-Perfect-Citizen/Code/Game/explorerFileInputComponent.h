@@ -95,5 +95,10 @@ namespace ppc {
 
 	bool open_file(explorerFileInputComponent*, ppc::Event);
 	bool flag_file(explorerFileInputComponent*, ppc::Event);
-
+	bool submitFiles(ppc::Desktop* ptr, ppc::Event ev);
+	//bool spawnPromptMessage(ppc::explorerFileInputComponent* ptr, ppc::Event);
+	//bool (ppc::Desktop* ptr, ppc::Event ev);
+	bool spawnPromptMessage(ppc::explorerFileInputComponent * ptr, ppc::Event);
 };
+
+

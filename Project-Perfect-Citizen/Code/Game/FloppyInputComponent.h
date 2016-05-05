@@ -41,16 +41,27 @@ namespace ppc {
 		static std::vector<FloppySequence> floppyDictionary;
 
 		///////////////////////////////////////////////////////////////////////
-		/// Map of Floppy Sequence names to integers
+		/// Emum of Floppy Sequence names to integers
 		///////////////////////////////////////////////////////////////////////
-		static std::map<std::string, unsigned int> Floppy_Sequence_Names;
-		    /*{"Welcome", 0},
-			{"Connections", 1},
-			{"Edges", 2},
-			{"Goal", 3},
-			{"Suspicion", 4},
-			{"Center", 5},
-			{"Feedback", 6}*/
+		enum FloppySequenceName {
+			Welcome = 0,
+			Connections = 1,
+			Edges,
+			TempFix,
+			Goal,
+			Suspicion,
+			Center,
+			Submission,
+			Feedback,
+			DesktopStart,
+			Email,
+			Explorer,
+			Passwords,
+			SuspFolder,
+			Scanning,
+			DeskSubmission,
+			Wrapup
+		};
 
         static bool initialized;
 		
@@ -59,6 +70,7 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		unsigned int getFrame();
 		unsigned int getSequence();
+		FloppySequenceName getSeqName();
 
 		///////////////////////////////////////////////////////////////////////
 		/// Basic Setters

@@ -73,6 +73,7 @@ ppc::Vertex& ppc::Vertex::operator=(const Vertex& other){
 }
 
 ppc::Vertex::~Vertex() {
+
 }
 
 sf::Color ppc::Vertex::getColor() const {

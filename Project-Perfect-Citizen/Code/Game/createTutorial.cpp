@@ -66,7 +66,6 @@ void ppc::createTutorial(Desktop & dt) {
 	dt.getDesktopWindow()->addEntity(emailIcon);
 	dt.getDesktopWindow()->addEntity(helpIcon);
 
-	
 	////////////////////////////////////////
 	// FLOPPY BEGINS HERE
 	//////////////////////////////////////
@@ -135,6 +134,11 @@ void ppc::createTutorial(Desktop & dt) {
     //Connect Graph
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dt.getPlayVec().at(0)->onManip().addObserver(tempObsvr);
+
+    //Connect Graph
+    tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
+    dt.getPlayVec().at(1)->onManip().addObserver(tempObsvr);
+
 }
 
 
@@ -173,9 +177,9 @@ void ppc::createDesktopTutorial(Desktop & dt) {
 	// SUSPICIOUS FILES TEST HERE
 	//////////////////////////////////////
 	SuspiciousFileHolder* fH = nullptr;
-
 	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
 	spawnFileTracker(dt, fileTracker, fileTracker->getInputHandler(), 250, 50);
+	SuspiciousFileHolder::setWindow(fileTracker);
 
 	dt.addWindow(fileTracker);
 
@@ -240,20 +244,22 @@ void ppc::createDesktopTutorial(Desktop & dt) {
     BaseObserver* tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn);
     floppyIn->onSequenceEnd().addObserver(tempObsvr);
 
-    //Connect Pipeline
+    //Connect File Icon
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dynamic_cast<iconInputComponent*>(hardDriveIcon.getComponent(2))->onOpen().addObserver(tempObsvr);
 
-    //Connect Pipeline
+    //Connect Email Icon
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dynamic_cast<iconInputComponent*>(emailIcon.getComponent(2))->onOpen().addObserver(tempObsvr);
+
+    //C
 
     //Set up starting Message
     Event ev;
     ev.type = ev.FloppyType;
-    ev.floppy.sequence = 0; // V this code gives me errors Xcode
-    //ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("DesktopStart");
-    ev.floppy.frame = 0;
+    ev.floppy.sequence = 0; // Line below crashes on mac - Brandon
+	//ev.floppy.sequence = FloppyInputComponent::FloppySequenceName::DesktopStart;
+	ev.floppy.frame = 0;
     summonFloppyDialog(floppyIn, ev);
 
 }

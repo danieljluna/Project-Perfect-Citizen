@@ -22,6 +22,7 @@ namespace ppc {
 	private:
 
 		//sf::Sprite& textBoxSprt;
+		WindowInterface* containingWindow;
 		TextBoxRenderComponent& textBox;
 		InputHandler& inputHandle;
 		std::string str;
@@ -39,6 +40,14 @@ namespace ppc {
 		TextBoxInputComponent(ppc::InputHandler& ih, TextBoxRenderComponent &r);
 
 		string getString();
+
+		WindowInterface* getContainingWindow();
+
+		///////////////////////////////////////////////////////////////////////
+		/// @brief Sets a pointer to the window this text box is currently in
+		/// @param The window this textbox is inside
+		///////////////////////////////////////////////////////////////////////
+		void setContainingWindow(WindowInterface*);
 
 		virtual ~TextBoxInputComponent();
 		virtual bool registerInput(Event ev) override;
