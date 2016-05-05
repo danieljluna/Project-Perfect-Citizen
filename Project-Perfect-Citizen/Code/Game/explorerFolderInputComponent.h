@@ -2,6 +2,7 @@
 
 #include "../Engine/debug.h"
 #include "iconInputComponent.h"
+#include "TextBoxInputComponent.h"
 #include <iostream>
 
 
@@ -22,6 +23,7 @@ namespace ppc {
 		WindowInterface* containingWindow_;
 		NodeState theFileTree_;
 		Desktop& theDesktop_;
+		TextBoxInputComponent* observingTextBox_;
 		sf::Image& buttonSheet_;
 		sf::Image& iconSheet_;
 		sf::FloatRect buttonRect;
@@ -64,10 +66,42 @@ namespace ppc {
 		void setInputHandle(ppc::InputHandler& ih);
 
 		///////////////////////////////////////////////////////////////////////
-		///@breif Sets the FloatRect of the sprite associated with this cmpnt.
+		///@brief Sets the FloatRect of the sprite associated with this cmpnt.
 		///@details Must pass in the globad bounds of the sprite.
 		///////////////////////////////////////////////////////////////////////
 		void setFloatRect(sf::FloatRect rect);
+
+		///////////////////////////////////////////////////////////////////////
+		///@brief Set the TextBoxInputComponent in case it needs to get the 
+		/// string from a text box to compare to this folder's password.
+		///@note This should only be used when creating an unlock message prompt
+		/// May be changed later, but now the only work around to getting
+		/// the unlock prompt menu to work.
+		///////////////////////////////////////////////////////////////////////
+		void setObservingTextBox(TextBoxInputComponent*);
+
+		///////////////////////////////////////////////////////////////////////
+		///@brief Gets the stored observing text box input component
+		///@note Only call this if setObservingTextBox was called with a valid
+		/// TextBoxInputComponent.
+		///////////////////////////////////////////////////////////////////////
+		TextBoxInputComponent* getObservingTextBox();
+
+
+		///////////////////////////////////////////////////////////////////////
+		///@brief Gets the stored node state in the file tree for this folder
+		///////////////////////////////////////////////////////////////////////
+		NodeState* getFolderNodeState();
+
+		///////////////////////////////////////////////////////////////////////
+		///@brief Gets the stored name of this folder
+		///////////////////////////////////////////////////////////////////////
+		std::string getFolderName();
+
+		///////////////////////////////////////////////////////////////////////
+		///@brief Gets the stored node state in the file tree for this folder
+		///////////////////////////////////////////////////////////////////////
+		Desktop* getFolderDesktop();
 
 		virtual ~explorerFolderInputComponent();
 		virtual bool registerInput(Event ev) override;
@@ -99,5 +133,6 @@ namespace ppc {
 	bool open_folder(explorerFolderInputComponent*, ppc::Event);
 	bool open_folder_in_new_window(explorerFolderInputComponent*, ppc::Event);
 	bool flag_folder(explorerFolderInputComponent*, ppc::Event);
+	bool unlock_folder(explorerFolderInputComponent*, ppc::Event);
 
 };

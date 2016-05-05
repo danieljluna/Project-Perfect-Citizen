@@ -63,6 +63,7 @@
 #include "../Game/readingMacDirectory.hpp"
 
 #include "../Engine/SuspiciousFileHolder.h"
+#include "../Game/explorerFolderInputComponent.h"
 
 
 using namespace ppc;
@@ -654,6 +655,7 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	
 
 }
+
 void ppc::spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message) {
     if (windowToModify == nullptr) { return; }
     
@@ -723,6 +725,80 @@ void ppc::spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih,
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
     dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Prompt");
 }
+
+void ppc::spawnUnlock(WindowInterface *& windowToModify, InputHandler & ih, sf::Image & buttonSheet, float x, float y, explorerFolderInputComponent* fldr)
+{
+	if (windowToModify == nullptr) { return; }
+
+	/////////////////////////////////////////
+	/////// COMPONENTS
+	///////////////////////////////////////
+
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 16;
+
+	errorMessageRenderComponent* eMRC = new errorMessageRenderComponent(myFont, "Please Enter A Password",
+		windowToModify->getSize().x / 3, (windowToModify->getSize().y / 3) - 40, fontSize);
+
+	/////////////////////////////////////////
+	/////// ENTITIES
+	///////////////////////////////////////
+	Entity alertIcon;
+	float alertScale = 0.5f;
+	float alertWidth = 128.0;
+	float windowWidth = static_cast<float>(windowToModify->getSize().x);
+	float windowHeight = static_cast<float>(windowToModify->getSize().y);
+	float alertX = windowWidth - ((alertWidth * alertScale) + (3 * (windowWidth / 4)));
+	float alertY = (windowHeight - (alertWidth * alertScale)) / 3;
+	float buttonScale = 0.25f;
+	float buttonX = ((windowWidth - (alertWidth * buttonScale)) / 2);
+	float buttonY = (2 * (windowHeight / 3));
+	spawnPromptIcon(alertIcon, ih, buttonSheet, alertX, alertY, 0.5f);
+
+	Entity errorMessageDisplayBox;
+	errorMessageDisplayBox.addComponent(eMRC);
+
+	// Button Test
+	ButtonBuilder builder;
+	builder.setButtonPosition(sf::Vector2f(buttonX, buttonY));
+	builder.setInputHandle(ih);
+	builder.setSize(0.25f);
+	builder.setSpritesByIndicies(0, 2, 2, 1);
+	builder.setSpriteSheet(buttonSheet);
+	builder.setLabelMessage("GO");
+	builder.setLabelFont(myFont);
+	builder.setLabelSize(12);
+	Entity ent;
+	createWithEventFunc(builder, ent, fldr, ppc::unlock_folder);
+
+
+	Entity tbox;
+	TextBoxBuilder tbuilder;
+	tbuilder.setFont(myFont);
+	tbuilder.setSize(20);
+	tbuilder.setPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 3, 50.0f));
+	tbuilder.setColor(sf::Color::Black);
+	tbuilder.setString("");
+	tbuilder.setInputHandle(ih);
+	tbuilder.setContainingWindow(windowToModify);
+	tbuilder.create(tbox);
+	fldr->setObservingTextBox(tbuilder.getTextBoxInputComponent());
+
+
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+	windowToModify->addEntity(errorMessageDisplayBox);
+	windowToModify->addEntity(alertIcon);
+	windowToModify->addEntity(ent);
+	windowToModify->addEntity(tbox);
+	windowToModify->setPosition(x, y);
+	windowToModify = new BorderDecorator(*windowToModify);
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Enter a Password");
+}
+
 
 void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState ns,
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y) {

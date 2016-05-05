@@ -177,9 +177,9 @@ void ppc::createDesktopTutorial(Desktop & dt) {
 	// SUSPICIOUS FILES TEST HERE
 	//////////////////////////////////////
 	SuspiciousFileHolder* fH = nullptr;
-
 	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
 	spawnFileTracker(dt, fileTracker, fileTracker->getInputHandler(), 250, 50);
+	SuspiciousFileHolder::setWindow(fileTracker);
 
 	dt.addWindow(fileTracker);
 
