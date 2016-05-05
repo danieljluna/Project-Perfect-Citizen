@@ -300,12 +300,12 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 		  void refresh(sf::RenderStates states = sf::RenderStates());
 		
-		friend std::istream& operator>>(std::istream& in, Desktop& desktop);
+		friend std::ifstream& operator>>(std::ifstream& in, Desktop& desktop);
 
 	};
 	///////////////////////////////////////////////////////////////////////
 	///@brief Used by operator>> in World to import Desktops from files.
 	///////////////////////////////////////////////////////////////////////
-	std::istream& operator>>(std::istream& in, Desktop& desktop);
+	std::ifstream& operator>>(std::ifstream& in, Desktop& desktop);
 
 };

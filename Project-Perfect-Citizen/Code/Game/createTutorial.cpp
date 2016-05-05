@@ -66,7 +66,6 @@ void ppc::createTutorial(Desktop & dt) {
 	dt.getDesktopWindow()->addEntity(emailIcon);
 	dt.getDesktopWindow()->addEntity(helpIcon);
 
-	
 	////////////////////////////////////////
 	// FLOPPY BEGINS HERE
 	//////////////////////////////////////
@@ -139,6 +138,7 @@ void ppc::createTutorial(Desktop & dt) {
     //Connect Graph
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dt.getPlayVec().at(1)->onManip().addObserver(tempObsvr);
+
 }
 
 

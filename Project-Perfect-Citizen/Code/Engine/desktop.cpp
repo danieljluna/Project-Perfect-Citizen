@@ -16,6 +16,7 @@
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Window/Event.hpp>
+#include <fstream>
 
 #include "desktop.h"
 #include "debug.h"
@@ -28,6 +29,8 @@
 #include "../Game/PipelineLevelBuilder.h"
 
 #include "frontTopObserver.h"
+
+#include "World.h"
 
 
 ppc::Desktop::Desktop() {
@@ -376,7 +379,7 @@ void ppc::Desktop::clearDesktop() {
 }
 
 
-std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
+std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 	std::string line;
 
 	ppc::Desktop* importDesktop = &desktop;
@@ -385,7 +388,14 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 		new Window(1800, 1000, sf::Color(0, 0, 0));
 	importDesktop->addBkgndWindow(bkgndWindow);
 
+	auto streamPos = in.tellg();
+	in.seekg(0, in.end);
+	auto end = in.tellg();
+	in.seekg(streamPos);
+
+	int lineCount = 0;
 	while (std::getline(in, line)) {
+		streamPos = in.tellg();
 		size_t pos = line.find_first_of(":");
 		std::string key = line.substr(0, pos);
 		std::string file = line.substr(pos + 2);
@@ -455,6 +465,9 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 			Network* playNet = solNet->copyNetworkByVerts();
 			desktop.playVec_.push_back(playNet);
 		}
+		//num of parsed line / total # of lines 
+		World::setLoading((float)(1 - ((float)(end - streamPos) / (float)end)));
+
 	}
 
 	return in;
