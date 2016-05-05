@@ -41,7 +41,7 @@ namespace ppc {
 		///////////////////////////////////////////////
 		std::string dirString = "";
 
-        Subject onOpen_;
+        mutable Subject onOpen_;
 
 	public:
 		///////////////////////////////////////////////
@@ -125,7 +125,7 @@ namespace ppc {
 		///////////////////////////////////////////////
         std::string getDirString();
 
-        Subject& onOpen() { return onOpen_; };
+        Subject& onOpen() const { return onOpen_; };
 
 	};
 }; //end ppc namespace

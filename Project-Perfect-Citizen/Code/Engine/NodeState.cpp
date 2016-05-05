@@ -3,6 +3,7 @@
 #include "baseFileType.h"
 #include "NodeState.h"
 #include "World.h"
+#include "SubjectObsvr.h"
 
 ppc::NodeState::NodeState() {
 
@@ -14,6 +15,7 @@ ppc::NodeState::NodeState(const NodeState& other) {
 	this->workingDirectory = other.workingDirectory;
 	this->lastLsNode = other.lastLsNode;
 	this->dirString = other.dirString;
+    this->onOpen_.addObserver(new SubjectObsvr(other.onOpen()));
 }
 
 void ppc::NodeState::popWorking()
