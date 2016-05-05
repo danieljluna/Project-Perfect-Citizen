@@ -217,7 +217,7 @@ int main(int argc, char** argv) {
 
 	//DE Tutorial Desktop 
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Saves/desktopTutorial.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Saves/Desktop2.ini", std::ifstream::in);
 	Desktop deskTutorialDesktop;
 	desktopFileInput >> deskTutorialDesktop;
 	desktopFileInput.close();
@@ -225,7 +225,7 @@ int main(int argc, char** argv) {
 	Logger::startTimer("DeskTutorialDesktop");
 
 	World::setCurrDesktop(deskTutorialDesktop);
-	createDesktopTutorial(deskTutorialDesktop); 
+	runArtistDesktop(deskTutorialDesktop);
 	World::runCurrDesktop();
 
 	Logger::endTimer("DeskTutorialDesktop");
