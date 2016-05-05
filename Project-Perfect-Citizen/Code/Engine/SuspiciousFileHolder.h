@@ -6,9 +6,8 @@
 #include"WindowInterface.h"
 
 
-//for my sanity a suspicious file holder holds a vector of suspicious file holders that each hold 3 files tops. 
 namespace ppc {
-	static class SuspiciousFileHolder {
+	class SuspiciousFileHolder {
 	private:
 		SuspiciousFileHolder() = delete;
 		~SuspiciousFileHolder() = delete;
@@ -17,6 +16,13 @@ namespace ppc {
 		static ppc::WindowInterface* susWindow_;
 		//static std::vector<ppc::SuspiciousFileHolder*> susVec_;
 		static int staticCount_;
+		//is he innocent?
+		static int goodThreshold_;
+		//is he guilty?
+		static int badThreshold_;
+		static bool guilty_; 
+		//suspicion score of the last file marked with TreeCommand::scan
+		static int susScore_;
 	public:
 		static std::vector<ppc::BaseFileType*>& getBftVector();
 		static void flagFile(ppc::BaseFileType* file);
@@ -29,5 +35,9 @@ namespace ppc {
 		static int getStaticCount();
 		//static int pushWindow(ppc::SuspiciousFileHolder* fileHolder);
 		static ppc::BaseFileType* getBFTVectorElement(int element);
+		static void submitFiles();
+		static void clearFiles();
+		static void clearFile(std::string doomedFile);
+		static void setSusScore(int score);
 	};
 };
