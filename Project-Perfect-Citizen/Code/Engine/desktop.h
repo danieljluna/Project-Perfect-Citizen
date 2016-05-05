@@ -75,7 +75,8 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 ///@brief Vector of Networks for the PE
 ///////////////////////////////////////////////////////////////////////
-		std::vector<ppc::Network*> netVec_;
+		std::vector<ppc::Network*> solVec_;
+		std::vector<ppc::Network*> playVec_;
 		int netVecIndex_;
 
 
@@ -231,7 +232,9 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 		  NodeState* getNodeState();
 
-		  std::vector<Network*> getNetVec();
+		  std::vector<Network*> getSolVec();
+
+		  std::vector<Network*> getPlayVec();
 
 		  int getNetVecIndex();
 
@@ -297,12 +300,12 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 		  void refresh(sf::RenderStates states = sf::RenderStates());
 		
-		friend std::istream& operator>>(std::istream& in, Desktop& desktop);
+		friend std::ifstream& operator>>(std::ifstream& in, Desktop& desktop);
 
 	};
 	///////////////////////////////////////////////////////////////////////
 	///@brief Used by operator>> in World to import Desktops from files.
 	///////////////////////////////////////////////////////////////////////
-	std::istream& operator>>(std::istream& in, Desktop& desktop);
+	std::ifstream& operator>>(std::ifstream& in, Desktop& desktop);
 
 };

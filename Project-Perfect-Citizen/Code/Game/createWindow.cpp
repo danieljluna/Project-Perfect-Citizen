@@ -62,6 +62,9 @@
 #include "../Game/HelpRenderComponent.hpp"
 #include "../Game/readingMacDirectory.hpp"
 
+#include "../Engine/SuspiciousFileHolder.h"
+#include "../Game/explorerFolderInputComponent.h"
+
 
 using namespace ppc;
 
@@ -313,13 +316,14 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
     //Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 	//Desktop* currDesk = &World::getCurrDesktop();
 	int netvecindex = World::getCurrDesktop().getNetVecIndex();
-	Network* solNet;
-	if (netvecindex < World::getCurrDesktop().getNetVec().size()) {
-		solNet = World::getCurrDesktop().getNetVec().at(netvecindex);
+	Network* solNet, *playNet;
+	if (netvecindex < World::getCurrDesktop().getSolVec().size()) {
+		solNet = World::getCurrDesktop().getSolVec().at(netvecindex);
+		playNet = World::getCurrDesktop().getPlayVec().at(netvecindex);
 	} else {
 		solNet = PipelineLevelBuilder::buildDefaultNetwork();
+		playNet = solNet->copyNetworkByVerts();
 	}
-	Network* playNet = solNet->copyNetworkByVerts();
 
 
     NetworkCheckFunctor *ncf = new NetworkCheckFunctor(*solNet, *playNet);
@@ -651,6 +655,7 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	
 
 }
+
 void ppc::spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message) {
     if (windowToModify == nullptr) { return; }
     
@@ -721,6 +726,80 @@ void ppc::spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih,
     dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Prompt");
 }
 
+void ppc::spawnUnlock(WindowInterface *& windowToModify, InputHandler & ih, sf::Image & buttonSheet, float x, float y, explorerFolderInputComponent* fldr)
+{
+	if (windowToModify == nullptr) { return; }
+
+	/////////////////////////////////////////
+	/////// COMPONENTS
+	///////////////////////////////////////
+
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 16;
+
+	errorMessageRenderComponent* eMRC = new errorMessageRenderComponent(myFont, "Please Enter A Password",
+		windowToModify->getSize().x / 3, (windowToModify->getSize().y / 3) - 40, fontSize);
+
+	/////////////////////////////////////////
+	/////// ENTITIES
+	///////////////////////////////////////
+	Entity alertIcon;
+	float alertScale = 0.5f;
+	float alertWidth = 128.0;
+	float windowWidth = static_cast<float>(windowToModify->getSize().x);
+	float windowHeight = static_cast<float>(windowToModify->getSize().y);
+	float alertX = windowWidth - ((alertWidth * alertScale) + (3 * (windowWidth / 4)));
+	float alertY = (windowHeight - (alertWidth * alertScale)) / 3;
+	float buttonScale = 0.25f;
+	float buttonX = ((windowWidth - (alertWidth * buttonScale)) / 2);
+	float buttonY = (2 * (windowHeight / 3));
+	spawnPromptIcon(alertIcon, ih, buttonSheet, alertX, alertY, 0.5f);
+
+	Entity errorMessageDisplayBox;
+	errorMessageDisplayBox.addComponent(eMRC);
+
+	// Button Test
+	ButtonBuilder builder;
+	builder.setButtonPosition(sf::Vector2f(buttonX, buttonY));
+	builder.setInputHandle(ih);
+	builder.setSize(0.25f);
+	builder.setSpritesByIndicies(0, 2, 2, 1);
+	builder.setSpriteSheet(buttonSheet);
+	builder.setLabelMessage("GO");
+	builder.setLabelFont(myFont);
+	builder.setLabelSize(12);
+	Entity ent;
+	createWithEventFunc(builder, ent, fldr, ppc::unlock_folder);
+
+
+	Entity tbox;
+	TextBoxBuilder tbuilder;
+	tbuilder.setFont(myFont);
+	tbuilder.setSize(20);
+	tbuilder.setPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 3, 50.0f));
+	tbuilder.setColor(sf::Color::Black);
+	tbuilder.setString("");
+	tbuilder.setInputHandle(ih);
+	tbuilder.setContainingWindow(windowToModify);
+	tbuilder.create(tbox);
+	fldr->setObservingTextBox(tbuilder.getTextBoxInputComponent());
+
+
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+	windowToModify->addEntity(errorMessageDisplayBox);
+	windowToModify->addEntity(alertIcon);
+	windowToModify->addEntity(ent);
+	windowToModify->addEntity(tbox);
+	windowToModify->setPosition(x, y);
+	windowToModify = new BorderDecorator(*windowToModify);
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Enter a Password");
+}
+
+
 void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState ns,
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y) {
 	/* Check to make sure the window passed isn't null */
@@ -744,7 +823,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 
-	float viewHeight = static_cast<float>(windowToModify->getSize().y) / 2;
+	float viewHeight = static_cast<float>(windowToModify->getSize().y / 1.5);
     windowToModify->setPosition(x, y);
 
 	/* Create a scroll bar if the new explorer window is greater than 100px*/
@@ -813,7 +892,26 @@ void ppc::spawnContextMenu(Desktop& dT, WindowInterface*& windowToModify, InputH
 
 }
 
-void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, InputHandler & ih, SuspiciousFileHolder* fH, float x, float y)
+void ppc::spawnContextMenu(WindowInterface *& windowToModify, std::vector<ppc::Entity> listElements, float x, float y)
+{
+	int contextBoxElementWidth = windowToModify->getSize().x;
+	int contextBoxElementHeight = 22; // Change this to be font size + 2
+	int contextBoxPadding = 5;
+	int totalElementsLoaded = 0;
+
+	for (unsigned int i = 0; i < listElements.size(); ++i) {
+		windowToModify->addEntity(listElements.at(i));
+		++totalElementsLoaded;
+	}
+
+	int newHeight = (totalElementsLoaded)* (contextBoxElementHeight + contextBoxPadding);
+	int newWidth = windowToModify->getSize().x;
+	windowToModify->setSize(newWidth, newHeight + contextBoxPadding);
+	windowToModify->setPosition(x, y);
+}
+
+
+void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, InputHandler & ih, float x, float y)
 {
 	if (windowToModify == nullptr) { return; }
 
@@ -822,13 +920,22 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 	///////////////////////////////////////
 	int fileSpacing = windowToModify->getSize().x / 4;
 	int padding = 10;
+	textLabelComponent* label;
 	for (unsigned int i = 0; i < 3/*fH->getBfgVector().size()*/; ++i) {
 		
 		Entity fileRender;
 		buttonRenderComponent* IconRender = new buttonRenderComponent(dt.getIconSheet(), 0, 0, 1, 3);
 		IconRender->renderPosition(sf::Vector2f(static_cast<float>(fileSpacing*i) + padding, 5));
-		textLabelComponent* label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red, 
-			(fileSpacing*i)+padding/2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "[EMPTY]");
+
+		if (ppc::SuspiciousFileHolder::getBFTVectorElement(i) != nullptr) {
+			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Green,
+				(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12,
+				ppc::SuspiciousFileHolder::getBFTVectorElement(i)->getName());
+		}
+		else {
+			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red,
+				(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "[EMPTY]");
+		}
 
 		// Input Component here? What behavior would we like these shortcutted files to have?
 
@@ -855,7 +962,8 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 	builder.setLabelSize(15);
 	builder.setSize(submitBtnSize);
 	builder.setSpriteSheet(dt.getButtonSheet());
-	builder.create(submitBtn); // <- Replace this with createWithEventFunc
+	//builder.create(submitBtn); // <- Replace this with createWithEventFunc
+	createWithEventFunc(builder, submitBtn, &dt, ppc::submitFiles);
 	// once submit function is done
 
 	builder.setButtonPosition({ (float)(submitBtnX - (256 * submitBtnSize)), (256 * submitBtnSize) - padding });
@@ -876,3 +984,5 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 	
 
 }
+
+

@@ -1,27 +1,32 @@
--Welcome
-Default: T: Welcome to your new job at the DCPS!
-Angry: T: This training program will show you the ropes
-Surprised: T: First up is the Pipeline Extraction Sequence
-Peek: F: Try selecting a Photo
--Connections
-Default: T: You can create connections between photos
-Default: F: Select a photo and right click another to connect them
--Edges
-Default: T: Left click a connection to select it
-Default: F: Press "Z" or "Delete" to remove the connection
--Goal
-Default: T: You are trying to find the most suspicious person
-Default: T: Check out the test messages on the right
-Default: F: Using the texts, try to find all of the connections
--Suspicion
-Default: T: Some connections are benign, while others are suspicious
-Default: T: Select a connection and press "Space" to switch the color
-Default: T: Innocent connections should be green and suspicious ones red
-Default: F: If you’re not sure you can leave it black
--Center
-Default: T: We’re interested in the most suspicious person
-Default: T: Select that person and press “C” to mark the center of the network
-Default: F: When you’re confident you’ve found the right center hit submit
--Feedback
-Default: T: A fellow DCPS officer has checked your work and approved it!
-Default: F: You have been issued a warrant to search this person’s desktop
+-Welcome: T
+Default: Welcome to your new job at the DCPS!
+Angry: This training program will show you the ropes
+Default: If you need to review you can visit the help manual
+Surprised: First up is the Pipeline Extraction Sequence
+Peek: Try selecting a Photo
+-Connections: T
+Default: You can create connections between photos
+Default: Select a photo and right click another to connect them
+-Edges: T
+Default: Left click a connection to select it
+Default: Select the connection and press "Z" to remove it
+-TempFix: F
+Default: Close and reopen the graph application to continue
+-Goal: T
+Default: You are trying to find the most suspicious person
+Default: Select a photo and read the text messages on the right
+Default: Using the texts, try to find all of the connections
+-Suspicion: T
+Default: Some connections are benign, while others are suspicious
+Default: Select a connection and press "Space" to switch the color
+Default: Innocent connections should be green and suspicious ones red
+Default: In the future if you are unsure you can leave it black
+Default: Now try indicating the correct colors based off the texts
+-Center: T
+Default: We are interested in the most suspicious person
+Default: Select that person and press "C" to mark the center of the network
+-Submission: T
+Default: When you are confident you have found the right center hit submit
+-Feedback: F
+Default: A fellow DCPS officer has checked your work and approved it!
+Default: You have been issued a warrant to search their desktop.

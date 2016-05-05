@@ -6,6 +6,8 @@
 #include "../Engine/FreeFunctionObserver.h"
 #include "../Engine/BaseFileType.h"
 #include "../Engine/SuspiciousFileHolder.h"
+#include "ContextBuilder.h"
+#include "../Engine/World.h"
 
 using namespace ppc;
 
@@ -90,9 +92,7 @@ bool explorerFileInputComponent::registerInput(Event ppcEv) {
 					mouseClock.restart();
 				}
 				else if (mouseTime < DOUBLE_CLICK_TIME) {
-					std::string fileResourcePath = theFileTree_.getCwd()->findElement(fileName)->getFileData();
-					theFileTree_.getCwd()->findElement(fileName)->readFile(theDesktop_, buttonSheet_, fileName,
-						fileResourcePath);
+					openFile();
 				}
 			}
 		}
@@ -100,19 +100,48 @@ bool explorerFileInputComponent::registerInput(Event ppcEv) {
 		else if (ev.type == sf::Event::MouseButtonReleased) {
 		if (ev.mouseButton.button == sf::Mouse::Right &&
 			isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
-			ppc::WindowInterface* ContextMenu =
-				new ppc::Window(200, 300, sf::Color(170, 170, 170));
-			std::vector<std::string> elementNames;
-			std::vector<bool(*)(Desktop*, Event ev)> elementFunctions;
-			elementNames.push_back("Open");
-			elementFunctions.push_back(&(ppc::open_file));
-			//elementNames.push_back("Flag");
-			//elementFunctions.push_back(&(ppc::flag_file));
-			//elementFunctions.push_back(&(ppc::explorerFileInputComponent::andy_flag_file));
-			spawnContextMenu(theDesktop_, ContextMenu, ContextMenu->getInputHandler(), elementNames,
-				elementFunctions, ev.mouseButton.x+containingWindow_->getPosition().x, 
+	
+			/* Begin Building Context List */
+			ppc::WindowInterface* ContextMenu = nullptr;
+			ContextMenu = new ppc::Window(200, 300, sf::Color(170, 170, 170));
+			ContextBuilder builder;
+			std::vector<ppc::Entity> listElements;
+			float fontSize = 20.0f;
+			float fontPadding = 2.0f;
+
+			/* First Element: 'Open' */
+			Entity listElement;
+			builder.setContainingWindow(ContextMenu);
+			builder.setInputHandle(ContextMenu->getInputHandler());
+			builder.setLabelFont(World::getFont(World::Consola));
+			builder.setLabelMessage("Open");
+			builder.setLabelSize((int)fontSize);
+			builder.setListElementPosition(0, 0);
+			builder.setListElementSize({ ContextMenu->getBounds().width, fontSize + fontPadding });
+			createWithEventFunc(builder, listElement, this, ppc::open_file);
+			listElements.push_back(listElement);
+
+			/* Second Element: 'Flag' */
+			Entity listElement2;
+			builder.setLabelMessage("Flag");
+			builder.setListElementPosition(0, fontSize + fontPadding);
+			builder.setLabelPosition({ 0.0f, fontSize + fontPadding });
+			createWithEventFunc(builder, listElement2, this, ppc::flag_file);
+			listElements.push_back(listElement2);
+
+			/*Third Element: 'Scan'*/
+			Entity listElementThree;
+			builder.setLabelMessage("Scan");
+			builder.setListElementPosition(0, (fontSize + fontPadding)* 2);
+			builder.setLabelPosition({ 0.0f, (fontSize + fontPadding) * 2 });
+			createWithEventFunc(builder, listElementThree, this, ppc::spawnPromptMessage);
+			listElements.push_back(listElementThree);
+
+			/* Completed: Make the Context Menu at the mouse position*/
+			spawnContextMenu(ContextMenu, listElements, ev.mouseButton.x + containingWindow_->getPosition().x,
 				ev.mouseButton.y + containingWindow_->getPosition().y);
 			theDesktop_.addWindow(ContextMenu);
+
 			}
 		}
 	}
@@ -127,13 +156,69 @@ bool ppc::explorerFileInputComponent::andy_flag_file(Desktop* ptr, ppc::Event ev
 
 }
 
-bool ppc::open_file(Desktop* ptr, ppc::Event ev) {
-	cout << " open the file " << endl;
+void ppc::explorerFileInputComponent::openFile()
+{
+	std::string fileResourcePath = theFileTree_.getCwd()->findElement(fileName)->getFileData();
+	theFileTree_.getCwd()->findElement(fileName)->readFile(theDesktop_, buttonSheet_, fileName,
+		fileResourcePath);
+}
+
+NodeState ppc::explorerFileInputComponent::getFileNodeState()
+{
+	return theFileTree_;
+}
+
+string ppc::explorerFileInputComponent::getFileName()
+{
+	return fileName;
+}
+
+Desktop* ppc::explorerFileInputComponent::getFileDesktop()
+{
+	return &theDesktop_;
+}
+
+bool ppc::open_file(explorerFileInputComponent* ptr, ppc::Event ev) {
+	ptr->openFile();
 	return true;
 }
 
-bool ppc::flag_file(Desktop* ptr, ppc::Event ev) {
-	cout << " flag this file " << endl;
+bool ppc::flag_file(explorerFileInputComponent* ptr, ppc::Event ev) {
+	ppc::BaseFileType* tempBFT = ptr->getFileNodeState().getCwd()->findElement(ptr->getFileName());
+	if (tempBFT != nullptr) {
+		std::vector<string> firstFlagCommand;
+		firstFlagCommand.push_back("flag");
+		firstFlagCommand.push_back(ptr->getFileName());
+		commandFn firstLs = findFunction("flag");
+		firstLs(ptr->getFileNodeState(), firstFlagCommand);
+	}
+	else {
+		cout << "SHOW ERROR MESSAGE" << endl;
+	}
 
+	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
+	spawnFileTracker(*(ptr->getFileDesktop()), fileTracker, fileTracker->getInputHandler(), 250, 50);
+	ptr->getFileDesktop()->addWindow(fileTracker);
+	SuspiciousFileHolder::setWindow(fileTracker);
 	return true;
 }
+
+bool ppc::submitFiles(ppc::Desktop * ptr, ppc::Event ev)
+{
+	std::cout << "inside submit files" << std::endl;
+	ppc::SuspiciousFileHolder::submitFiles();
+	return true;
+}
+
+bool ppc::spawnPromptMessage(ppc::explorerFileInputComponent * ptr, ppc::Event)
+{
+	ppc::WindowInterface* newWindow = new ppc::Window(600, 300, sf::Color(170, 170, 170));
+	ppc::BaseFileType* tempBFT = ptr->getFileNodeState().getCwd()->findElement(ptr->getFileName());
+
+	spawnErrorMessage(newWindow, newWindow->getInputHandler(), ptr->getFileDesktop()->getButtonSheet(), 100.f, 100.f,
+		tempBFT->getName() + " has a suspicion index of: " + std::to_string(tempBFT->getSuspicionLevel()));
+	ptr->getFileDesktop()->addWindow(newWindow);
+	//ppc::spawnErrorMessage()
+	return true;
+}
+

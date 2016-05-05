@@ -4,7 +4,10 @@
 
 namespace ppc {
 
+    class Network;
     class WindowInterface;
+	class FloppyInputComponent;
+    class NodeState;
 
 	//This is the event struct. You can add events here
 	//if you need them. Nothing here is final except
@@ -39,16 +42,13 @@ namespace ppc {
             sf::Vector2i mousePos;
 		};
 
-		struct TransformationEv {
-			sf::Vector2f newPos;
-		};
-
         struct NotificationEv {
             unsigned int count;
         };
 
 		struct FloppyEv {
 			unsigned int sequence;
+			//FloppyInputComponent::FloppySequenceName seqname;
 			unsigned int frame;
 		};
 
@@ -60,12 +60,12 @@ namespace ppc {
 		{
 			ButtonType,
 			OpenType,
-			TransformationType,
 			ScrollbarType,
 			sfEventType,
             NotificationType,
 			FloppyType,
 			AbleType,
+            NetworkType,
 			Count
 		};
 
@@ -86,19 +86,40 @@ namespace ppc {
                 Count
             };
 
-            WindowInterface* window;
+            union {
+                WindowInterface* window;
+                NodeState* nodeState;
+            };
 			OpenTypes winType;
 		};
+
+        struct NetworkEv {
+            enum NetworkEvType {
+                Selected = 0,
+                Created,
+                Edited,
+                Removed,
+                Center,
+                Count
+            };
+
+            NetworkEvType type;
+
+            Network* net;
+
+            size_t u;
+            size_t v;
+        };
 
 		EventTypes type;
 
 		union {
 			ButtonsEv buttons;
 			OpenEv open;
-			TransformationEv transformations;
             NotificationEv notification;
 			FloppyEv floppy;
 			AbleEv able;
+            NetworkEv network;
             sf::Event sfEvent;
 		};
 	};

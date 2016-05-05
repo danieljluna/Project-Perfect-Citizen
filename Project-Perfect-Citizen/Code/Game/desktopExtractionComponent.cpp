@@ -32,8 +32,8 @@ desktopExtractionComponent::desktopExtractionComponent(NodeState ft) : fileTree_
 Json::Value desktopExtractionComponent::parseDesktopAsJson(std::string file, std::string obj) {
     Json::Reader reader;
     Json::Value value;
-    std::ifstream doc(resourcePath() + file, std::ifstream::binary);
-    reader.parse(doc, value);
+    std::ifstream doc(file, std::ifstream::binary);
+    bool parsingSuccessful = reader.parse(doc, value, false);
     parseForFileTree(value, obj);
     return value;
 }
@@ -45,7 +45,6 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
         auto contentObj = directoryObj[objNames[i]];
         std::string objName = objNames[i];
         // name of file/folder
-        // std::cout << objName << std::endl;
         if(contentObj.size() > 0){
             std::vector<std::string> CMD;
             std::string mk_dir_cmd = "mkdir";
@@ -65,7 +64,6 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
                 token = directory_name_copy.substr(0, pos);
                 if(count == 0){
                     directory_name = token;
-                    //std::cout << "dir " + directory_name << std::endl;
                     directory_name_copy.erase(0, pos + delimiter.length());
                     CMD.push_back(mk_dir_cmd);
                     CMD.push_back(directory_name);
@@ -80,11 +78,9 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
                     executeCommand = findFunction(cd_cmd);
                     executeCommand(fileTree_, CMD);
                     password = token;
-                    //std::cout << "password " + password << std::endl;
                     directory_name_copy.erase(0, pos + delimiter.length());
                     pos = directory_name_copy.find(delimiter);
                     hint = directory_name_copy.substr(0, pos);
-                    //std::cout << "hint " + hint << std::endl;
                     fileTree_.getCwd()->setPassword(password, hint);
                     parseForFileTree(directoryObj, objNames[i]);
                 }
@@ -105,17 +101,28 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
             
         }
         else{
+            // find delimeter to get suspiconPoints
+            std::string directory_name_copy = objName;
+            std::string delimiter = "/";
+            int suspicionPoints;
+            size_t pos = 0;
+            pos = directory_name_copy.find(delimiter);
+            suspicionPoints = std::stoi(directory_name_copy.substr(0, pos));
+            directory_name_copy.erase(0, pos + delimiter.length());
+            pos = directory_name_copy.find(delimiter);
+            
             // name of the path to access content in resources
             std::vector<std::string> CMD;
             std::string mk_cmd = "make";
-            std::string directory_name = objName;
+            std::string directory_name = directory_name_copy.substr(0, pos);
             std::string pathName = directoryObj[objNames[i]].asString();
             CMD.push_back(mk_cmd);
             CMD.push_back(directory_name);
             CMD.push_back(pathName);
             commandFn executeCommand = findFunction(mk_cmd);
+            fileTree_.getCwd()->setSuspicionLevel(suspicionPoints);
             executeCommand(fileTree_, CMD);
-            //std::cout << pathName << std::endl;
+
         }
         
     }
@@ -127,5 +134,3 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
     commandFn executeCommand = findFunction(cd_cmd);
     executeCommand(fileTree_, CMD2);
 }
-
-

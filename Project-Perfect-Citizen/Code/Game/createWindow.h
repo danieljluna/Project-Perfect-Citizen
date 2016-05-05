@@ -12,7 +12,6 @@
 #include "../Engine/SuspiciousFileHolder.h"
 #include "Inbox.h"
 
-
 ///////////////////////////////////////////////////////////////////////
 /// @brief A toolkit of functions that sets up a complete window
 /// @author Alex Vincent 
@@ -23,6 +22,8 @@
 ///////////////////////////////////////////////////////////////////////
 
 namespace ppc {
+
+	class explorerFolderInputComponent;
 	//typedef bool (databaseSearchInputComponent::*goBack) (sf::Event&);
 	//using backFunction = bool(databaseSearchInputComponent::*goBack)(sf::Event& ev);
 	///////////////////////////////////////////////////////////////////////
@@ -131,6 +132,18 @@ void spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::I
 ///////////////////////////////////////////////////////////////////////
 void spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message);
 
+///////////////////////////////////////////////////////////////////////
+///@brief Constructs a generic prompt message window
+///
+///@param The newly created window to add components/entities to.
+///@param The input handler of the listened-to window.
+///@param Sprite sheet of it's border component's buttons
+///@param The x position of the new window
+///@param The y position of the new window
+///@param Custom string the message will display
+///////////////////////////////////////////////////////////////////////
+void spawnUnlock(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, explorerFolderInputComponent* fldr);
+
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Constructs a explore window on the WindowInterface passed.
@@ -159,6 +172,17 @@ void spawnContextMenu(Desktop& dt, WindowInterface*& windowToModify, InputHandle
 	std::vector<std::string> n, std::vector<bool(*)(Desktop*, Event ev)>, float x, float y);
 
 ///////////////////////////////////////////////////////////////////////
+///@brief Constructs a temporary, borderless context menu
+///
+///@param The newly created window to add components/entities to.
+///@param A vector of ContextBuilder-constructed entities
+///@param The x position of the new window
+///@param The y position of the new window
+///////////////////////////////////////////////////////////////////////
+void spawnContextMenu(WindowInterface*& windowToModify,
+	std::vector<ppc::Entity> listElements,  float x, float y);
+
+///////////////////////////////////////////////////////////////////////
 ///@brief Constructs a static file tracker/suspicious file holder
 ///
 ///@param The newly created window to add components/entities to.
@@ -167,7 +191,7 @@ void spawnContextMenu(Desktop& dt, WindowInterface*& windowToModify, InputHandle
 ///@param The x position of the new window
 ///@param The y position of the new window
 ///////////////////////////////////////////////////////////////////////
-void spawnFileTracker(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, SuspiciousFileHolder* fH, float x, float y);
+void spawnFileTracker(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, float x, float y);
 
 };
 

@@ -70,6 +70,8 @@ void fn_decrypt(ppc::NodeState& state, const std::vector<std::string>words);
 void fn_pwd(ppc::NodeState& state, const std::vector<std::string> words);
 void fn_unlock(ppc::NodeState& state, const std::vector<std::string> words);
 
+//scan a file to reveal its hidden suspicion score. 
+void fn_scan(ppc::NodeState& state, const std::vector<std::string> words);
 void fn_flag(ppc::NodeState & state, const std::vector<std::string> words);
 
 ///////////////////////////////////////////////

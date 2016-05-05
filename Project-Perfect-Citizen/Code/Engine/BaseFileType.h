@@ -129,7 +129,9 @@ namespace ppc {
 		///////////////////////////////////////////////
 		virtual ppc::FileType getFileType();
 		///////////////////////////////////////////////
-		///@brief sets the visibility to the flag
+		///@brief sets the visibility to the 
+
+
 		///specified
 		///////////////////////////////////////////////
 		virtual void setVisibility(bool flag);
@@ -164,7 +166,7 @@ namespace ppc {
 
 		virtual void setSuspicionLevel(unsigned int val);
 
-		virtual unsigned int getSuspicionLevel();
+		virtual int getSuspicionLevel();
 
 		std::string getName();
 
@@ -179,5 +181,6 @@ namespace ppc {
 		/// @brief Virtual Destructor
 		///////////////////////////////////////////////
 		virtual ~BaseFileType();
+
 	};
 };

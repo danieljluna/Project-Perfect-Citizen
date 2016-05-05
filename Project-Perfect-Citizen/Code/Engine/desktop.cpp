@@ -16,6 +16,7 @@
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Window/Event.hpp>
+#include <fstream>
 
 #include "desktop.h"
 #include "debug.h"
@@ -28,6 +29,8 @@
 #include "../Game/PipelineLevelBuilder.h"
 
 #include "frontTopObserver.h"
+
+#include "World.h"
 
 
 ppc::Desktop::Desktop() {
@@ -66,11 +69,17 @@ ppc::Desktop::Desktop(const Desktop& other) {
 
 ppc::Desktop::~Desktop() {
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-			delete *it;
+        if (*it != nullptr)
+            delete *it;
 	}
 
-	for (auto it = netVec_.begin(); it != netVec_.end(); ++it) {
-		delete *it;
+	for (auto it = solVec_.begin(); it != solVec_.end(); ++it) {
+        if (*it != nullptr)
+            delete *it;
+	}
+	for (auto it = playVec_.begin(); it != playVec_.end(); ++it) {
+		if (*it != nullptr)
+            delete *it;
 	}
 
 	if(frontTop_) delete frontTop_;
@@ -201,8 +210,12 @@ ppc::NodeState* ppc::Desktop::getNodeState() {
 	return &nodeState_;
 }
 
-std::vector<Network*> ppc::Desktop::getNetVec() {
-	return netVec_;
+std::vector<Network*> ppc::Desktop::getSolVec() {
+	return solVec_;
+}
+
+std::vector<Network*> ppc::Desktop::getPlayVec() {
+	return playVec_;
 }
 
 int ppc::Desktop::getNetVecIndex() {
@@ -265,13 +278,13 @@ void ppc::Desktop::deleteFrontTop() {
 }
 
 void ppc::Desktop::registerInput(Event ppcEv) {
-    sf::Event ev(ppcEv);
-	if ((frontTop_ != nullptr) && 
-		(ev.type == sf::Event::MouseButtonPressed || 
-			ev.type == sf::Event::MouseButtonReleased)) {
-		frontTop_->registerInput(ev);
+    
+	if ((frontTop_ != nullptr) && (ppcEv.type == Event::sfEventType) &&
+		(ppcEv.sfEvent.type == sf::Event::MouseButtonPressed || 
+			ppcEv.sfEvent.type == sf::Event::MouseButtonReleased)) {
+		frontTop_->registerInput(ppcEv);
 	} else {
-		registerInputFocused(ev);
+		registerInputFocused(ppcEv);
 	}
 
 }
@@ -281,26 +294,30 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
 //if the window clicked in a window that wasnt focused,
 //then focus that window.
 //for any mouse event
-    sf::Event ev(ppcEv);
-	if (ev.type == sf::Event::MouseButtonPressed) {
-		for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-			sf::FloatRect winBounds = (*it)->getBounds();
-			if (winBounds.contains(float(ev.mouseButton.x), float(ev.mouseButton.y))) {
-				focusWindow(*it);
-				break;
+	if (ppcEv.type == Event::sfEventType) {
+		if (ppcEv.sfEvent.type == sf::Event::MouseButtonPressed) {
+			for (auto it = windows_.begin(); it != windows_.end(); ++it) {
+				sf::FloatRect winBounds = (*it)->getBounds();
+				if (winBounds.contains(
+					float(ppcEv.sfEvent.mouseButton.x), 
+					float(ppcEv.sfEvent.mouseButton.y))) {
+						focusWindow(*it);
+						break;
+				}
 			}
 		}
+		if (ppcEv.sfEvent.type == sf::Event::MouseMoved) {
+			ppcEv.sfEvent.mouseMove.x -= int(focused_->getPosition().x);
+			ppcEv.sfEvent.mouseMove.y -= int(focused_->getPosition().y);
+		} else if ((ppcEv.sfEvent.type == sf::Event::MouseButtonPressed) || 
+			(ppcEv.sfEvent.type == sf::Event::MouseButtonReleased)) {
+				ppcEv.sfEvent.mouseButton.x -= int(focused_->getPosition().x);
+				ppcEv.sfEvent.mouseButton.y -= int(focused_->getPosition().y);
+		}
 	}
+	
 
-	if (ev.type == sf::Event::MouseMoved) {
-		ev.mouseMove.x -= int(focused_->getPosition().x);
-		ev.mouseMove.y -= int(focused_->getPosition().y);
-	} else if ((ev.type == sf::Event::MouseButtonPressed) || (ev.type == sf::Event::MouseButtonReleased)) {
-		ev.mouseButton.x -= int(focused_->getPosition().x);
-		ev.mouseButton.y -= int(focused_->getPosition().y);
-	}
-
-	focused_->registerInput(ev);
+	focused_->registerInput(ppcEv);
 }
 
 void ppc::Desktop::update(sf::Time& deltaTime){
@@ -360,7 +377,7 @@ void ppc::Desktop::clearDesktop() {
 }
 
 
-std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
+std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 	std::string line;
 
 	ppc::Desktop* importDesktop = &desktop;
@@ -369,7 +386,14 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 		new Window(1800, 1000, sf::Color(0, 0, 0));
 	importDesktop->addBkgndWindow(bkgndWindow);
 
+	auto streamPos = in.tellg();
+	in.seekg(0, in.end);
+	auto end = in.tellg();
+	in.seekg(streamPos);
+
+	int lineCount = 0;
 	while (std::getline(in, line)) {
+		streamPos = in.tellg();
 		size_t pos = line.find_first_of(":");
 		std::string key = line.substr(0, pos);
 		std::string file = line.substr(pos + 2);
@@ -408,28 +432,40 @@ std::istream& ppc::operator>>(std::istream& in, ppc::Desktop& desktop) {
 			}
 			delete inbox;
 		} else if (key == "Pipeline") {
-			if (PipelineLevelBuilder::LEVEL_MAP.find(file) ==
-				PipelineLevelBuilder::LEVEL_MAP.end()) {
-				DEBUGF("wc", key << " " << file);
-				continue;
-			}
 			desktop.netVecIndex_ = 0;
-			int levelnum = PipelineLevelBuilder::LEVEL_MAP.at(file);
+			int levelnum;
+			if (PipelineLevelBuilder::LEVEL_MAP.find(file) != PipelineLevelBuilder::LEVEL_MAP.end()) {
+				levelnum = PipelineLevelBuilder::LEVEL_MAP.at(file);
+			} 
+			else {
+				DEBUGF("wc", key << " " << file);
+				levelnum = -2;
+			}
+
+			
+			Network* solNet;
 			switch (levelnum) {
 				case -1:
-					desktop.netVec_.push_back(PipelineLevelBuilder::buildTutorialOne());
+					solNet = PipelineLevelBuilder::buildTutorialOne();
 					break;
 				case 0:
-					desktop.netVec_.push_back(PipelineLevelBuilder::buildTutorialTwo());
+					solNet = PipelineLevelBuilder::buildTutorialTwo();
 					break;
 				case 1:
-					desktop.netVec_.push_back(PipelineLevelBuilder::buildLevelOneNetworkSolution());
+					solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 					break;
 				default:
+					solNet = PipelineLevelBuilder::buildDefaultNetwork();
 					DEBUGF("wc", levelnum);
 					break;
 			}
+			desktop.solVec_.push_back(solNet);
+			Network* playNet = solNet->copyNetworkByVerts();
+			desktop.playVec_.push_back(playNet);
 		}
+		//num of parsed line / total # of lines 
+		World::setLoading((float)(1 - ((float)(end - streamPos) / (float)end)));
+
 	}
 
 	return in;
