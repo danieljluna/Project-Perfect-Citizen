@@ -361,6 +361,7 @@ void ScrollBarDecorator::initialize(sf::Image img) {
         //Add Observer to Buttons
         buttonInputs_[i]->onRelease().addObserver(obsvrs_[i]);
 
+
     }   //End For Loop
 
 }

@@ -333,6 +333,8 @@ void ppc::Desktop::update(sf::Time& deltaTime){
 		}
 		//dont increment if you delete it
 	}
+
+    frontTop_->update(deltaTime);
 }
 
 void ppc::Desktop::refresh(sf::RenderStates states) {

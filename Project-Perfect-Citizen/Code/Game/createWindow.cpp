@@ -381,7 +381,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("DCPS Pipeline Application v.3.762");
 }
 
-void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeState & ns, sf::Image& buttonSheet,
+void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, 
 	float x, float y, string filename, string p) {
     if (windowToModify == nullptr) return; 
     
@@ -452,7 +452,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
             float(windowToModify->getSize().x),
             float(windowToModify->getSize().x)
         };
-        windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
+        windowToModify = new ScrollBarDecorator(*windowToModify, World::getCurrDesktop().getButtonSheet(), sf::View(viewRect));
     }
     
     else if(dotEnd == PNG || dotEnd == JPG){
@@ -477,7 +477,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, NodeSta
     ///////////////////////////////////////
     windowToModify = new BorderDecorator(*windowToModify);
     BorderDecorator* border = dynamic_cast<BorderDecorator*>(windowToModify);
-    border->addButton(buttonSheet, closeWindow);
+    border->addButton(World::getCurrDesktop().getButtonSheet(), closeWindow);
     border->setCaption(filename);
 }
 
