@@ -27,15 +27,15 @@ FloppyRenderComponent::FloppyRenderComponent(sf::Image& image) : floppyImage(ima
     
     xIndex = 0;
     yIndex = 1;
+    loop = 1;
     rectSourceSprite = new sf::IntRect(xIndex*size, yIndex*size, size, size);
-    
     
     sprite->setTexture(*texture);
     sprite->setTextureRect(*rectSourceSprite);
     sprite->setPosition(800, 35);
     sprite->setScale(0.75f, 0.75f);
     
-    _willAnimate = false;
+    _willAnimate = true;
 }
 
 FloppyRenderComponent::~FloppyRenderComponent() {
@@ -78,29 +78,28 @@ void FloppyRenderComponent::setEmotion(int emote) {
     }
     
     sprite->setTextureRect(*rectSourceSprite);
-    
 }
 
 
 void FloppyRenderComponent::animate() {
-   /* if (emotion == -1) {
-       // if (sprite->getPosition().y <= 32) {
-         //   renderPosition({sprite->getPosition().x, sprite->getPosition().y+5});
-        //} else {
-            setEmotion(emotion);
-            _willAnimate = false;
-        //}
+    
+    std::cout << "WERE HERE" << std::endl;
+    
+    if (loop == -1) {
+        rectSourceSprite->left = 128;
+        texture->loadFromImage(floppyImage, *rectSourceSprite);
+        sprite->setTexture(*texture);
     } else {
-        if (sprite->getPosition().y >= -35) {
-            renderPosition({sprite->getPosition().x, sprite->getPosition().y-5});
-        } else {
-            setEmotion(emotion);
-            _willAnimate = false;
-        }
-    }*/
-    setEmotion(emotion);
+        rectSourceSprite->left = 0;
+        texture->loadFromImage(floppyImage, *rectSourceSprite);
+        sprite->setTexture(*texture);
+    }
+        
+    loop = -loop;
 
-   // sprite->setTextureRect(*rectSourceSprite);
+
+    //setEmotion(emotion);
+
 }
 
 

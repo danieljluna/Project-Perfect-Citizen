@@ -15,8 +15,9 @@ FloppyUpdateComponent::~FloppyUpdateComponent() {
     render = nullptr;
 }
 
-void FloppyUpdateComponent::update(sf::Time& deltaTime) {
+void FloppyUpdateComponent::update(sf::Time& deltaTime) {    
     if (render->willAnimate()) {
+
         counter += deltaTime;
         
         if (counter >= framePeriod) {
