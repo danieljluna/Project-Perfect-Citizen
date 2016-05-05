@@ -280,6 +280,9 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             (ev.network.type == ev.network.Removed) &&
             (ev.network.v != -1));
         break;
+	case FloppyInputComponent::TempFix:
+		enable = true;
+		break;
 	case FloppyInputComponent::Goal:
         enable = (ev.type == ev.NetworkType);
         if (enable) {
@@ -299,6 +302,9 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             ev.network.net->checkCenterEquality(*World::getCurrDesktop().getSolVec()[1]);
         }
         break;
+	case FloppyInputComponent::Submission:
+		enable = true;
+		break;
 	case FloppyInputComponent::Feedback:
         enable = true;
         break;
@@ -314,7 +320,7 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 	case FloppyInputComponent::Passwords:
 	case FloppyInputComponent::SuspFolder:
 	case FloppyInputComponent::Scanning:
-	case FloppyInputComponent::Submission:
+	case FloppyInputComponent::DeskSubmission:
 	case FloppyInputComponent::Wrapup:
         enable = true;
         break;

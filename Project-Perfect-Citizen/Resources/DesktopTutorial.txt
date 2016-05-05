@@ -18,7 +18,7 @@ Default: Right click and select "mark as suspicious"
 -Scanning: T
 Default: Once per desktop you can ask a colleagues opinion on a file
 Default: Click the scan button to see a number representing its suspiciousness
--Submission: T
+-DeskSubmission: T
 Default: 1s are completely clean but this 10 is a smoking gun!
 Default: Click the submit button to log this evidence
 -Wrapup: T

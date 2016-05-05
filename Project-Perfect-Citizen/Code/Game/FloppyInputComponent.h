@@ -47,9 +47,11 @@ namespace ppc {
 			Welcome = 0,
 			Connections = 1,
 			Edges,
+			TempFix,
 			Goal,
 			Suspicion,
 			Center,
+			Submission,
 			Feedback,
 			DesktopStart,
 			Email,
@@ -57,7 +59,7 @@ namespace ppc {
 			Passwords,
 			SuspFolder,
 			Scanning,
-			Submission,
+			DeskSubmission,
 			Wrapup
 		};
 
