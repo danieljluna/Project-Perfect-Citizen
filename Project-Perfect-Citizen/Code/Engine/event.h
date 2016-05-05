@@ -6,6 +6,7 @@ namespace ppc {
 
     class Network;
     class WindowInterface;
+    class NodeState;
 
 	//This is the event struct. You can add events here
 	//if you need them. Nothing here is final except
@@ -83,7 +84,10 @@ namespace ppc {
                 Count
             };
 
-            WindowInterface* window;
+            union {
+                WindowInterface* window;
+                NodeState* nodeState;
+            };
 			OpenTypes winType;
 		};
 

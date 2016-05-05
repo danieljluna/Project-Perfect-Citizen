@@ -850,24 +850,7 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 		Entity fileRender;
 		buttonRenderComponent* IconRender = new buttonRenderComponent(dt.getIconSheet(), 0, 0, 1, 3);
 		IconRender->renderPosition(sf::Vector2f(static_cast<float>(fileSpacing*i) + padding, 5));
-		//its 0 because its the only fileholder we have
-		/*
-		if (ppc::SuspiciousFileHolder::!= nullptr ) {
-			if ((ppc::SuspiciousFileHolder::getSusVecElement(0)->getBFTVectorElement(i) != nullptr)) {
-				label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red,
-					(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12,
-					ppc::SuspiciousFileHolder::getSusVecElement(0)->getBFTVectorElement(i)->getName());
-			}
-			else {
-				label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red,
-					(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "[EMPTY]");
-			}
-		}
-		else {
-			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red,
-				(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "[EMPTY]");
-		}
-*/
+
 		if (ppc::SuspiciousFileHolder::getBFTVectorElement(i) != nullptr) {
 			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Green,
 				(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12,
@@ -903,7 +886,8 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 	builder.setLabelSize(15);
 	builder.setSize(submitBtnSize);
 	builder.setSpriteSheet(dt.getButtonSheet());
-	builder.create(submitBtn); // <- Replace this with createWithEventFunc
+	//builder.create(submitBtn); // <- Replace this with createWithEventFunc
+	createWithEventFunc(builder, submitBtn, &dt, ppc::submitFiles);
 	// once submit function is done
 
 	builder.setButtonPosition({ (float)(submitBtnX - (256 * submitBtnSize)), (256 * submitBtnSize) - padding });
