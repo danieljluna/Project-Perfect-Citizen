@@ -6,8 +6,7 @@ namespace ppc {
 
     class Network;
     class WindowInterface;
-	class FloppyInputComponent;
-    class NodeState;
+    class BaseFileType;
 
 	//This is the event struct. You can add events here
 	//if you need them. Nothing here is final except
@@ -48,7 +47,6 @@ namespace ppc {
 
 		struct FloppyEv {
 			unsigned int sequence;
-			//FloppyInputComponent::FloppySequenceName seqname;
 			unsigned int frame;
 		};
 
@@ -66,6 +64,7 @@ namespace ppc {
 			FloppyType,
 			AbleType,
             NetworkType,
+            SubmissionType,
 			Count
 		};
 
@@ -88,7 +87,7 @@ namespace ppc {
 
             union {
                 WindowInterface* window;
-                NodeState* nodeState;
+                BaseFileType* file;
             };
 			OpenTypes winType;
 		};
@@ -109,6 +108,10 @@ namespace ppc {
 
             size_t u;
             size_t v;
+        };
+
+        struct SubmissionEv {
+
         };
 
 		EventTypes type;

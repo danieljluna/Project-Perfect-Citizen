@@ -80,7 +80,7 @@ void spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database*
 ///@param The in-game filename
 ///@param The out-of-game resource path to load the new file
 ///////////////////////////////////////////////////////////////////////
-void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, 
+void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, float x, float y, 
 	string filename, string path);
 
 ///////////////////////////////////////////////////////////////////////

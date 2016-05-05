@@ -23,6 +23,9 @@ namespace ppc {
 		static bool guilty_; 
 		//suspicion score of the last file marked with TreeCommand::scan
 		static int susScore_;
+
+        Subject onChange_;
+
 	public:
 		static std::vector<ppc::BaseFileType*>& getBftVector();
 		static void flagFile(ppc::BaseFileType* file);

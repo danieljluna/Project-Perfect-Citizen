@@ -8,6 +8,7 @@
 #include "../Engine/SuspiciousFileHolder.h"
 #include "ContextBuilder.h"
 #include "../Engine/World.h"
+#include "../Engine/SubjectObsvr.h"
 
 using namespace ppc;
 
@@ -158,9 +159,7 @@ bool ppc::explorerFileInputComponent::andy_flag_file(Desktop* ptr, ppc::Event ev
 
 void ppc::explorerFileInputComponent::openFile()
 {
-	std::string fileResourcePath = theFileTree_.getCwd()->findElement(fileName)->getFileData();
-	theFileTree_.getCwd()->findElement(fileName)->readFile(theDesktop_, buttonSheet_, fileName,
-		fileResourcePath);
+	theFileTree_.readFile(fileName);
 }
 
 NodeState ppc::explorerFileInputComponent::getFileNodeState()

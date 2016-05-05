@@ -43,6 +43,7 @@
     <ClCompile Include="Code\Engine\RenderCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\ScrollBarDeco.cpp" />
     <ClCompile Include="Code\Engine\subject.cpp" />
+    <ClCompile Include="Code\Engine\SubjectObsvr.cpp" />
     <ClCompile Include="Code\Engine\SuspiciousFileHolder.cpp" />
     <ClCompile Include="Code\Engine\UpdateCmpntDecorator.cpp" />
     <ClCompile Include="Code\Engine\UpdateCmpntLogger.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="Code\Engine\renderComponent.h" />
     <ClInclude Include="Code\Engine\ScrollBarDeco.h" />
     <ClInclude Include="Code\Engine\subject.h" />
+    <ClInclude Include="Code\Engine\SubjectObsvr.h" />
     <ClInclude Include="Code\Engine\SuspiciousFileHolder.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntDecorator.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntLogger.h" />
