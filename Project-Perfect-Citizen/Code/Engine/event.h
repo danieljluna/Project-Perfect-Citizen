@@ -6,6 +6,7 @@ namespace ppc {
 
     class Network;
     class WindowInterface;
+	class FloppyInputComponent;
     class NodeState;
 
 	//This is the event struct. You can add events here
@@ -47,6 +48,7 @@ namespace ppc {
 
 		struct FloppyEv {
 			unsigned int sequence;
+			//FloppyInputComponent::FloppySequenceName seqname;
 			unsigned int frame;
 		};
 

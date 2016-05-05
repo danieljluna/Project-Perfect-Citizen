@@ -15,9 +15,13 @@ TextBoxInputComponent::TextBoxInputComponent(InputHandler& ih, TextBoxRenderComp
 	watch(ih, sf::Event::TextEntered);
 	watch(ih, sf::Event::KeyPressed);
 
-	str.push_back((char)'> ');
 	textBox.updateLabelString(str);
 
+}
+
+void ppc::TextBoxInputComponent::setContainingWindow(WindowInterface* win)
+{
+	containingWindow = win;
 }
 
 TextBoxInputComponent::~TextBoxInputComponent() {
@@ -54,6 +58,11 @@ string TextBoxInputComponent::getString() {
 	return str;
 }
 
+WindowInterface * ppc::TextBoxInputComponent::getContainingWindow()
+{
+	return containingWindow;
+}
+
 bool TextBoxInputComponent::registerInput(Event ppcEv) {
     sf::Event ev(ppcEv);
 	if (getEntity() != nullptr) {
@@ -64,20 +73,8 @@ bool TextBoxInputComponent::registerInput(Event ppcEv) {
 				str.push_back((char)ev.text.unicode);
 				textBox.updateLabelString(str);
 			}
-		}
-		else if (ev.type == sf::Event::KeyPressed) {
-			if (ev.key.code == sf::Keyboard::BackSpace &&
-				(str.size()>2)) {
+			else if (ev.text.unicode == 8 && str.size() > 0) {
 				str.pop_back();
-				textBox.updateLabelString(str);
-			}
-			else if (ev.key.code == sf::Keyboard::Return &&
-				(str.size() != 0)) {
-				
-				// Do something here
-				
-				/* Reset the command line - keeping the prompt */
-				str.erase(2, str.length());
 				textBox.updateLabelString(str);
 			}
 		}
