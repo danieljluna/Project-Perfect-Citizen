@@ -189,7 +189,8 @@ bool ppc::flag_file(explorerFileInputComponent* ptr, ppc::Event ev) {
 		firstFlagCommand.push_back("flag");
 		firstFlagCommand.push_back(ptr->getFileName());
 		commandFn firstLs = findFunction("flag");
-		firstLs(ptr->getFileNodeState(), firstFlagCommand);
+        ppc::NodeState temp = ptr->getFileNodeState();
+		firstLs(temp, firstFlagCommand);
 	}
 	else {
 		cout << "SHOW ERROR MESSAGE" << endl;
@@ -212,7 +213,7 @@ bool ppc::submitFiles(ppc::Desktop * ptr, ppc::Event ev)
 bool ppc::spawnPromptMessage(ppc::explorerFileInputComponent * ptr, ppc::Event)
 {
 	ppc::WindowInterface* newWindow = new ppc::Window(600, 300, sf::Color(170, 170, 170));
-	ppc::BaseFileType* tempBFT = ptr->getFileNodeState().getCwd()->findElement(ptr->getFileName());
+ 	ppc::BaseFileType* tempBFT = ptr->getFileNodeState().getCwd()->findElement(ptr->getFileName());
 
 	spawnErrorMessage(newWindow, newWindow->getInputHandler(), ptr->getFileDesktop()->getButtonSheet(), 100.f, 100.f,
 		tempBFT->getName() + " has a suspicion index of: " + std::to_string(tempBFT->getSuspicionLevel()));

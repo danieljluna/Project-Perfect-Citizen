@@ -65,5 +65,5 @@ public:
     friend bool make_icon_window(iconInputComponent*, ppc::Event);
 
 };
-    bool make_icon_window(Desktop*, ppc::Event);
+    bool make_icon_window(iconInputComponent*, ppc::Event);
 };
