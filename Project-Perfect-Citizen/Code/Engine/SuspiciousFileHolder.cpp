@@ -4,6 +4,10 @@ std::vector<ppc::BaseFileType*> ppc::SuspiciousFileHolder::bftVector_;
 ppc::WindowInterface* ppc::SuspiciousFileHolder::susWindow_;
 int ppc::SuspiciousFileHolder::staticCount_ = 0;
 ppc::WindowInterface* susWindow_ = nullptr;
+int ppc::SuspiciousFileHolder::badThreshold_ = 0;
+int ppc::SuspiciousFileHolder::goodThreshold_ = 0;
+bool ppc::SuspiciousFileHolder::guilty_ = false;
+int ppc::SuspiciousFileHolder::susScore_ = 0;
 //std::vector < ppc::SuspiciousFileHolder*> ppc::SuspiciousFileHolder::susVec_;
 
 
@@ -57,25 +61,12 @@ ppc::WindowInterface * ppc::SuspiciousFileHolder::getWindow()
 	return susWindow_;
 }
 
-//ppc::SuspiciousFileHolder* ppc::SuspiciousFileHolder::getSusVecElement(int element)
-//{
-	//if (element >= susVec_.size() || susVec_.size() == 0) {
-		//return nullptr;
-	//}
-	//return susVec_.at(element);
-//}
 
 int ppc::SuspiciousFileHolder::getStaticCount()
 {
 	return staticCount_;
 }
 
-//int ppc::SuspiciousFileHolder::pushWindow(ppc::SuspiciousFileHolder * fileHolder)
-//{
-	//susVec_.push_back(fileHolder);
-	//staticCount_++;
-	//return (staticCount_ - 1);
-//}
 
 ppc::BaseFileType * ppc::SuspiciousFileHolder::getBFTVectorElement(int element)
 {
@@ -83,4 +74,47 @@ ppc::BaseFileType * ppc::SuspiciousFileHolder::getBFTVectorElement(int element)
 		return nullptr;
 	}
 	return bftVector_.at(element);
+}
+
+void ppc::SuspiciousFileHolder::submitFiles()
+{
+	if (bftVector_.size() != 3) {
+		std::cout << "Need more files dingus" << std::endl;
+		return;
+	}
+
+
+	int totalSuspicion = 0;
+	for (auto iter = bftVector_.begin(); iter != bftVector_.end(); iter++) {
+		totalSuspicion += (**iter).getSuspicionLevel();
+	}
+
+
+	if (totalSuspicion < goodThreshold_) {
+		guilty_ = false;
+		return;
+	}
+	else if (totalSuspicion > badThreshold_) {
+		guilty_ = true;
+	}
+}
+
+void ppc::SuspiciousFileHolder::clearFiles()
+{
+	bftVector_.clear();
+}
+
+void ppc::SuspiciousFileHolder::clearFile(std::string doomedFile)
+{
+	for (auto iter = bftVector_.begin(); iter != bftVector_.end(); iter++) {
+		if (doomedFile == (**iter).getName()) {
+			bftVector_.erase(iter);
+			return;
+		}
+	}
+}
+
+void ppc::SuspiciousFileHolder::setSusScore(int score)
+{
+	susScore_ = score;
 }
