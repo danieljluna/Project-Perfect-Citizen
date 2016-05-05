@@ -6,7 +6,7 @@ namespace ppc {
 
     class Network;
     class WindowInterface;
-    class NodeState;
+    class BaseFileType;
 
 	//This is the event struct. You can add events here
 	//if you need them. Nothing here is final except
@@ -86,7 +86,7 @@ namespace ppc {
 
             union {
                 WindowInterface* window;
-                NodeState* nodeState;
+                BaseFileType* file;
             };
 			OpenTypes winType;
 		};

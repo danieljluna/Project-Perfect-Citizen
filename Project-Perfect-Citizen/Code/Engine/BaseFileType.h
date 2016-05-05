@@ -95,8 +95,7 @@ namespace ppc {
 		///@brief Prints the data from a text file
 		///Returns if the target isnt a file. 
 		///////////////////////////////////////////////
-		virtual void readFile(Desktop& desk, sf::Image& im, std::string filename,
-			std::string path);
+		virtual void readFile(std::string filename,	std::string path);
 		///////////////////////////////////////////////
 		///@brief Prints the directory of the node. 
 		///////////////////////////////////////////////

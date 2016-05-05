@@ -111,16 +111,6 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 
     initialized = true;
 
-	//std::vector<std::pair<std::string, unsigned int>> sequence1;
-	//std::pair<std::string, unsigned int> sequence1frame1;
-	//std::pair<std::string, unsigned int> sequence1frame2;
-
-	//sequence1frame1 = std::make_pair("BAD COP NADER", 0);
-	//sequence1frame2 = std::make_pair("MACK DADDY", 1);
-	//sequence1.push_back(sequence1frame1);
-	//sequence1.push_back(sequence1frame2);
-
-	//floppyDictionary.push_back(sequence1);
 }
 
 unsigned int ppc::FloppyInputComponent::getFrame() { return frame; }

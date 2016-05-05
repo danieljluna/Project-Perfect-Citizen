@@ -252,7 +252,8 @@ void ppc::createDesktopTutorial(Desktop & dt) {
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dynamic_cast<iconInputComponent*>(emailIcon.getComponent(2))->onOpen().addObserver(tempObsvr);
 
-    //C
+    //Connect NodeStates
+    tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
 
     //Set up starting Message
     Event ev;

@@ -2,6 +2,7 @@
 #include <iostream>
 #include "baseFileType.h"
 #include "NodeState.h"
+#include "World.h"
 
 ppc::NodeState::NodeState() {
 
@@ -56,6 +57,25 @@ void ppc::NodeState::setUp()
 void ppc::NodeState::setCwd(ppc::BaseFileType* newCwd)
 {
 	this->cwd = newCwd;
+
+    Event ev;
+    ev.type = ev.OpenType;
+    ev.open.winType = ev.open.File;
+    ev.open.file = newCwd;
+    onOpen_.sendEvent(ev);
+}
+
+
+void ppc::NodeState::readFile(const std::string& filename) {
+    BaseFileType* file = getCwd()->findElement(filename); 
+    std::string fileResourcePath = file->getFileData();
+    file->readFile(filename, fileResourcePath);
+
+    Event ev;
+    ev.type = ev.OpenType;
+    ev.open.winType = ev.open.File;
+    ev.open.file = file;
+    onOpen_.sendEvent(ev);
 }
 
 ppc::BaseFileType* ppc::NodeState::getCwd()

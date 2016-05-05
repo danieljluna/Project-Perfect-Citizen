@@ -27,7 +27,7 @@ void ppc::notificationRenderComponent::draw(sf::RenderTarget & target, sf::Rende
 	std::string tempString = notificationText_.getString();
 	if (std::stoi(tempString) != 0){
 		states.transform.translate(position_);
-		states.transform.scale(1.3, 1.3, 0, 0);
+		states.transform.scale(1.3f, 1.3f, 0.0f, 0.0f);
 
 		target.draw(badge_, states);
 		target.draw(notificationText_, states);
