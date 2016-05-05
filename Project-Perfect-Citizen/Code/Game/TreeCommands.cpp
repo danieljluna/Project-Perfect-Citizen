@@ -15,7 +15,8 @@ fnMap functionMap{
 	{ "encrypt"	,   fn_decrypt	},
 	{ "pwd"     ,   fn_pwd		},
 	{ "unlock"	,	fn_unlock	},
-	{ "flag"	,	fn_flag		}
+	{ "flag"	,	fn_flag		},
+	{ "scan"	,	fn_scan		}
 };
 
 commandFn ppc::findFunction(const std::string& command) {
@@ -231,6 +232,26 @@ void ppc::fn_unlock(ppc::NodeState& state, const std::vector<std::string> words)
 		return;
 	}
 	std::cout << "Password Incorrect. Access Denied" << std::endl;
+}
+void ppc::fn_scan(ppc::NodeState & state, const std::vector<std::string> words)
+{
+	if (words.at(1).substr(0, 1) == "/") {
+		std::cout << "You must be in the directory of the file or folder to unlock it"
+			<< std::endl;
+		return;
+	}
+	if (words.at(1).find_first_of("/") != std::string::npos) {
+		std::cout << "Filepaths not allowed" << std::endl;
+		return;
+	}
+	std::string filename = words.at(1);
+	ppc::BaseFileType* tempCWD;
+	tempCWD = state.getCwd()->findElement(filename);
+	if (tempCWD == nullptr) {
+		std::cout << "File not found" << std::endl;
+		return;
+	}
+	tempCWD->getSuspicionLevel();
 }
 
 void ppc::fn_flag(ppc::NodeState& state, const std::vector<std::string> words) {
