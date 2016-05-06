@@ -10,6 +10,9 @@
 
 using namespace ppc;
 
+const sf::Color selRed = { 250, 125, 125 };
+const sf::Color selBlack = { 171, 171, 171 };
+const sf::Color selGreen = { 138,255,173 };
 
 Network::Network(size_t size) {
     size_ = size;
@@ -50,7 +53,14 @@ float Network::checkEdgeEquality(const Network& other) {
 				if (other.isAdjacent(i, j)) {
 					points += 1;
 					//numVisited += 1;
-					if (edge(i, j)->getColor() == other.edge(i, j)->getColor()) points += 1;
+					sf::Color thiscolor = edge(i, j)->getColor();
+					sf::Color thatcolor = other.edge(i, j)->getColor();
+					if (thiscolor == sf::Color::Red || thiscolor == selRed) {
+						if (thatcolor == sf::Color::Red || thatcolor == selRed) ++points;
+					}
+					if (thiscolor == sf::Color::Green || thiscolor == selGreen) {
+						if (thatcolor == sf::Color::Green || thiscolor == selGreen) ++points;
+					}
 				}
 			}
 		}
