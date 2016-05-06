@@ -272,6 +272,8 @@ int main(int argc, char** argv) {
     
     
     //Desktop 1 / Teacher Desktop
+    World::startLoading();
+
     ppc::NodeState artistState;
     artistState.setUp();
     Window* artistDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
@@ -284,6 +286,7 @@ int main(int argc, char** argv) {
     Logger::startTimer("targetDesktop");
     
     World::setCurrDesktop(*artistDesktop);
+    World::endLoading();
     runArtistDesktop(*artistDesktop);
     while (World::runDesktop(*artistDesktop)) {}
     delete artistDesktop;
@@ -294,6 +297,7 @@ int main(int argc, char** argv) {
 
 
 	//Ending Desktop
+    World::startLoading();
 	ppc::NodeState endState;
 	Window* endWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
 
@@ -306,6 +310,7 @@ int main(int argc, char** argv) {
     
     World::setCurrDesktop(*endDesktop);
     runEndDesktop(*endDesktop);
+    World::endLoading();
     while (World::runDesktop(*endDesktop)) {}
     delete endDesktop;
     

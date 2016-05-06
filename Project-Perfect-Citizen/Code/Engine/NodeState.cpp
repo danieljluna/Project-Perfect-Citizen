@@ -16,7 +16,10 @@ ppc::NodeState::NodeState(const NodeState& other) {
 	this->workingDirectory = other.workingDirectory;
 	this->lastLsNode = other.lastLsNode;
 	this->dirString = other.dirString;
-    onOpen_.addObserver(new SubjectObsvr(World::getCurrDesktop().getNodeState()->onOpen()));
+    NodeState* globalNodeState = World::getCurrDesktop().getNodeState();
+    if ((this != globalNodeState) && (!World::isLoading())) {
+        onOpen_.addObserver(new SubjectObsvr(globalNodeState->onOpen()));
+    }
 }
 
 void ppc::NodeState::popWorking()
