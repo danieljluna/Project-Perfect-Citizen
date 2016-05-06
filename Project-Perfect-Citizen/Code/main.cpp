@@ -135,6 +135,7 @@ int main(int argc, char** argv) {
        
     AudioQueue audiotest(5);
     audiotest.addBgm("SoundTrack_Extraction.ogg");
+    audiotest.loopBgm();
     audiotest.playBgm();
 
 
