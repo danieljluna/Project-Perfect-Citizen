@@ -192,7 +192,7 @@ void PipelineCharacter::generate() {
     // for skin index
     std::uniform_int_distribution<> skind(0, 7);
     
-    std::uniform_int_distribution<> shirtd(0, 1);
+    std::uniform_int_distribution<> shirtd(0, 40);
     // for hair index
     std::uniform_int_distribution<> haircd(0, 7);
     // for har type
@@ -220,13 +220,26 @@ void PipelineCharacter::generate() {
     int remainder = hairType_% 2;
     hairType_ = hairType_ + 2 - remainder;
     
-
+    
     shirtType_ = shirtd(gen);
-    if (shirtType_ == 0) {
+    int remainders = shirtType_% 5;
+    shirtType_ = shirtType_ + 5 - remainders;
+    
+
+    
+    //shirtType_ =  5*(shirtd(gen)/5);
+    //shirt remainder
+  //  int s_remainder = shirtType_ % 5;
+    
+    
+    
+    //shirtType_ = shirtType_ - s_remainder;//toRound - toRound % 10;
+    
+   /* if (shirtType_ == 0) {
         shirtType_ = 5;
     } else {
         shirtType_ = 10;
-    }
+    }*/
     
     skinColorIndex_ = skind(gen);
     hairColorIndex_ = haircd(gen);

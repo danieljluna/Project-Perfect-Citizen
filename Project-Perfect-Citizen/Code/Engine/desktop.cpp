@@ -335,7 +335,7 @@ void ppc::Desktop::update(sf::Time& deltaTime){
 	}
 
     if (frontTop_ != nullptr) {
-        frontTop_->update(deltaTime);
+         frontTop_->update(deltaTime);
     }
 }
 

@@ -78,7 +78,7 @@ void ppc::createTutorial(Desktop & dt) {
 
 	FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
 	FloppyInputComponent* floppyIn = new FloppyInputComponent();
-	FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.12f);
+	FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.20f);
 	floppy->renderPosition({ 400.f, 0.f });
 
 	TextBubble* tb = new TextBubble();
