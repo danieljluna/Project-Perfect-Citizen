@@ -90,6 +90,7 @@ namespace ppc {
                 BaseFileType* file;
             };
 			OpenTypes winType;
+            bool success;
 		};
 
         struct NetworkEv {
@@ -111,7 +112,18 @@ namespace ppc {
         };
 
         struct SubmissionEv {
+            enum SubmissionType {
+                Mark = 0,
+                Unmark,
+                Scan,
+                Submit
+            };
 
+            SubmissionType type;
+            union {
+                BaseFileType* file;
+                unsigned int count;
+            };
         };
 
 		EventTypes type;
@@ -123,6 +135,7 @@ namespace ppc {
 			FloppyEv floppy;
 			AbleEv able;
             NetworkEv network;
+            SubmissionEv submission;
             sf::Event sfEvent;
 		};
 	};

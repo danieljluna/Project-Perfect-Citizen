@@ -226,12 +226,28 @@ void ppc::fn_unlock(ppc::NodeState& state, const std::vector<std::string> words)
 		std::cout << "File is not password protected" << std::endl;
 		return;
 	}
+
+    Event ev;
+    ev.type = ev.OpenType;
+    if (tempCWD->getFileType() == Directory) {
+        ev.open.winType = ev.open.Folder;
+    } else {
+        ev.open.winType = ev.open.File;
+    }
+    ev.open.file = tempCWD;
+
 	bool isUnlocked = tempCWD->comparePassword(words.at(2));
 	if (isUnlocked) {
 		std::cout << "Access Granted" << std::endl;
-		return;
-	}
-	std::cout << "Password Incorrect. Access Denied" << std::endl;
+        ev.open.success = true;
+        state.onOpen().sendEvent(ev);
+    } else {
+        std::cout << "Password Incorrect. Access Denied" << std::endl;
+        ev.open.success = false;
+        state.onOpen().sendEvent(ev);
+    }
+
+    return;
 }
 void ppc::fn_scan(ppc::NodeState & state, const std::vector<std::string> words)
 {
@@ -252,6 +268,13 @@ void ppc::fn_scan(ppc::NodeState & state, const std::vector<std::string> words)
 		return;
 	}
 	tempCWD->getSuspicionLevel();
+    
+    Event ev;
+    ev.type = ev.SubmissionType;
+    ev.submission.type = ev.submission.Scan;
+    ev.submission.file = tempCWD;
+    SuspiciousFileHolder::onChange.sendEvent(ev);
+
 }
 
 void ppc::fn_flag(ppc::NodeState& state, const std::vector<std::string> words) {
