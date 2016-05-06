@@ -317,7 +317,7 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 		enable = true;
 		break;
 	case FloppyInputComponent::Feedback:
-        enable = true;
+        World::quitDesktop();
         break;
 	case FloppyInputComponent::DesktopStart:
         enable = ((ev.type == ev.OpenType) &&
