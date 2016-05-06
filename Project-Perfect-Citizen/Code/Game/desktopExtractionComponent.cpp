@@ -98,7 +98,6 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
                 executeCommand(fileTree_, CMD);
                 parseForFileTree(directoryObj, objNames[i]);
             }
-            
         }
         else{
             // find delimeter to get suspiconPoints
@@ -119,12 +118,12 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
             CMD.push_back(mk_cmd);
             CMD.push_back(directory_name);
             CMD.push_back(pathName);
-            fileTree_.getCwd()->setName(directory_name);
-            //std::cout << "name: " + fileTree_.getCwd()->getName() << std::endl;
-            fileTree_.getCwd()->setSuspicionLevel(suspicionPoints);
-            //std::cout << fileTree_.getCwd()->getSuspicionLevel();
-            commandFn executeCommand = findFunction(mk_cmd);
-            executeCommand(fileTree_, CMD);
+            if(directory_name != "Empty"){
+                fileTree_.getCwd()->setName(directory_name);
+                fileTree_.getCwd()->setSuspicionLevel(suspicionPoints);
+                commandFn executeCommand = findFunction(mk_cmd);
+                executeCommand(fileTree_, CMD);
+            }
         }
     }
     std::vector<std::string> CMD2;
