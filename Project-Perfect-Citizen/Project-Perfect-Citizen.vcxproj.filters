@@ -345,6 +345,9 @@
     <ClCompile Include="Code\Game\ContextBuilder.cpp">
       <Filter>Sources\Game Specific</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\CreateReportScreen.cpp">
+      <Filter>Sources\Game Specific\Reports</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -716,6 +719,9 @@
     <ClInclude Include="Code\Game\ContextBuilder.h">
       <Filter>Headers\Game Specific</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Game\CreateReportScreen.h">
+      <Filter>Headers\Game Specific\Reports</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json">
@@ -970,6 +976,12 @@
     </Filter>
     <Filter Include="Headers\Engine\Observer System\Observers">
       <UniqueIdentifier>{83e05284-d12e-48ba-90f5-1389211bf5e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Game Specific\Reports">
+      <UniqueIdentifier>{9d20ad9c-dbde-4719-aa0c-bedd8e3a701c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Game Specific\Reports">
+      <UniqueIdentifier>{c7f18652-9622-45e7-a163-82061a2d89a1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

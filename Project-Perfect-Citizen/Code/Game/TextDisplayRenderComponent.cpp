@@ -67,6 +67,8 @@ TextDisplayRenderComponent::TextDisplayRenderComponent(sf::Font& f, sf::Color c,
 	else outline_->setColor(sf::Color::Black);
 	outline_->setString(labelString_);
 
+	renderable_ = true;
+
 }
 
 TextDisplayRenderComponent::~TextDisplayRenderComponent() {

@@ -40,15 +40,21 @@ ppc::Desktop::Desktop() {
 	inbox_ = ppc::Inbox();
 	background_ = sf::Sprite();
 	backgndTexture_ = sf::Texture();
-	desktopWindow_ = nullptr;
-	focused_ = nullptr;
 	frontTop_ = nullptr;
 
+	desktopWindow_ = new Window(1800, 1000);
+	windows_.push_back(desktopWindow_);
+	focused_ = desktopWindow_;
 
 }
 
 ppc::Desktop::Desktop(WindowInterface* bkgndWin, NodeState n) :
           Desktop() {
+
+	windows_.clear(); //these 3 steps must be done because of default Ctor
+	desktopWindow_ = nullptr;
+	focused_ = nullptr;
+
 	nodeState_ = n;
 	windows_.push_back(bkgndWin);
 	desktopWindow_ = bkgndWin;

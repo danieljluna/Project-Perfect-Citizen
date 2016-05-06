@@ -41,6 +41,7 @@
 #include "Game/TextBubble.h"
 
 #include "Game/createTutorial.h"
+#include "Game/CreateReportScreen.h"
 
 using namespace ppc;
 
@@ -246,7 +247,13 @@ int main(int argc, char** argv) {
     Logger::endTimer("playerDesktop");
 	// End Player Desktop
 
+	//Testing Report Screen
+	Desktop reportScreen;
+	createReportScreen(reportScreen, World::DE1A);
+	World::setCurrDesktop(reportScreen);
+	World::runCurrDesktop();
 
+	//ENd of report screen
 
 	//Desktop 1 / Teacher Desktop
 	ppc::NodeState targetState;

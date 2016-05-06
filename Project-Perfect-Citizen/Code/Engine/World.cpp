@@ -29,6 +29,10 @@ std::map<World::FontList, sf::Font> World::fontMap_ = {
 	{World::VT323Regular, sf::Font()}
 };
 
+std::map<World::ReportList, std::string> World::reportListMap_ = {
+	{World::DE1A, resourcePath() + "Reports/sampleReport.txt"}
+};
+
 bool World::quitter_ = false;
 
 sf::RectangleShape World::tempLoadScreen_ = sf::RectangleShape({ 1000,1000 });
@@ -136,6 +140,10 @@ sf::Font& ppc::World::getFont(FontList f) {
 	
 	return fontMap_.at(f);
 
+}
+
+std::string ppc::World::getReportFile(ReportList rl) {
+	return reportListMap_.at(rl);
 }
 
 
