@@ -726,6 +726,9 @@
     <ClInclude Include="Code\Engine\SubjectObsvr.h">
       <Filter>Headers\Engine\Observer System\Observers</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\Transition.h">
+      <Filter>Headers\Engine\World</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json">
