@@ -43,6 +43,31 @@ void explorerFolderInputComponent::clearObservers()
 //void mousePressButton::addFunctionObserver(bool(*fnToAdd)(sf::Event &ev), mousePressButton* mpb, unsigned int placeToInsert)
 
 
+void ppc::explorerFolderInputComponent::setObservingTextBox(TextBoxInputComponent *tbi)
+{
+	observingTextBox_ = tbi;
+}
+
+TextBoxInputComponent * ppc::explorerFolderInputComponent::getObservingTextBox()
+{
+	return observingTextBox_;
+}
+
+NodeState * ppc::explorerFolderInputComponent::getFolderNodeState()
+{
+	return &theFileTree_;
+}
+
+string ppc::explorerFolderInputComponent::getFolderName()
+{
+	return directoryName;
+}
+
+Desktop * ppc::explorerFolderInputComponent::getFolderDesktop()
+{
+	return &theDesktop_;
+}
+
 explorerFolderInputComponent::~explorerFolderInputComponent() {
 
 	//ignore(inputHandle, sf::Event::MouseButtonPressed);
@@ -150,13 +175,12 @@ void ppc::explorerFolderInputComponent::changeDirectory(bool newWindow)
 {
 	if (theFileTree_.getCwd()->findElement(directoryName)->isPasswordProtected() &&
 		directoryName.compare("..") != 0) {
-		ppc::WindowInterface* ErrorMsgWindow =
-			new ppc::Window(500, 150, sf::Color(170, 170, 170));
-		spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_,
-			250,
-			250,
-			"Error: " + directoryName + " is protected. \nHint: " + theFileTree_.getCwd()->findElement(directoryName)->getHint());
-		theDesktop_.addWindow(ErrorMsgWindow);
+		
+		ppc::WindowInterface* UnlockWindow =
+		new ppc::Window(500, 150, sf::Color(170, 170, 170));
+		spawnUnlock(UnlockWindow, UnlockWindow->getInputHandler(), buttonSheet_, 250, 250, this);
+        theDesktop_.addWindow(UnlockWindow);
+
 		return;
 	}
 
@@ -190,3 +214,48 @@ bool ppc::flag_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 	cout << " flag this folder using the new method " << endl;
 	return true;
 }
+
+bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
+
+
+    Event evOut;
+    evOut.type = evOut.OpenType;
+    BaseFileType* target = ptr->getFolderNodeState()->getCwd();
+    if (target->getFileType() == Directory) {
+        evOut.open.winType = evOut.open.Folder;
+    } else {
+        evOut.open.winType = evOut.open.File;
+    }
+    evOut.open.file = target;
+
+	if (target->findElement(ptr->getFolderName())->
+		comparePassword(ptr->getObservingTextBox()->getString())) {
+
+
+		std::vector<string> unlockCommand;
+		string unlock = "unlock";
+		unlockCommand.push_back(unlock);
+		unlockCommand.push_back(ptr->getFolderName());
+		unlockCommand.push_back(ptr->getObservingTextBox()->getString());
+		commandFn newCommand = findFunction(unlock);
+		newCommand(*ptr->getFolderNodeState(), unlockCommand);
+
+		ptr->getObservingTextBox()->getContainingWindow()->close();
+
+        evOut.open.success = true;
+	}
+	else {
+		ppc::WindowInterface* ErrorMsgWindow =
+		new ppc::Window(500, 150, sf::Color(170, 170, 170));
+		spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), ptr->getFolderDesktop()->getButtonSheet(),
+		250, 250,
+			"Error: Password incorrect. \nHint: " + ptr->getFolderNodeState()->getCwd()->findElement(ptr->getFolderName())->getHint());
+		ptr->getFolderDesktop()->addWindow(ErrorMsgWindow);
+        evOut.open.success = false;
+	}
+	
+    ptr->getFolderNodeState()->onOpen().sendEvent(evOut);
+
+	return true;
+}
+

@@ -17,6 +17,8 @@
 #include "../Engine/BorderDecorator.h"
 #include "../Engine/ScrollBarDeco.h"
 
+#include "../Engine/SubjectObsvr.h"
+
 const string TEXT_KEY_INPUT = "TKI";
 
 using namespace ppc;
@@ -45,7 +47,7 @@ textOutputRenderComponent::~textOutputRenderComponent() {
 }
 
 void textOutputRenderComponent::updateString(std::vector<string> cmd) {
-    for (int i = 0; i < cmd[0].size(); i++) {
+    for (size_t i = 0; i < cmd[0].size(); i++) {
         cmd[0][i] = tolower(cmd[0][i]);
     }
 	
@@ -87,8 +89,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		}
 		if (fileTree_.getCwd()->findElement(cmd.at(1)) != nullptr) {
 			string fileResourcePath = fileTree_.getCwd()->findElement(cmd.at(1))->getFileData();
-			fileTree_.getCwd()->findElement(cmd.at(1))->readFile(*theDesktop_, buttonSheet_,
-				cmd.at(1), fileResourcePath);
+			fileTree_.readFile(cmd.at(1));
 			str_ = "Opening " + cmd.at(1) + "\n";
 			numDisplayedLines += 2;
 			}

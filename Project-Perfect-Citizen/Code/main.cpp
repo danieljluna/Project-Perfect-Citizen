@@ -121,7 +121,8 @@ int main(int argc, char** argv) {
     DEBUGF("ac", argc);
     
     World::initFontMap();
-    
+	World::initLoadScreen();
+
     bool BootToTitleCard = false;
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
@@ -190,23 +191,32 @@ int main(int argc, char** argv) {
     Logger::endTimer("bootDesktop");
 	//End Boot Desktop
 
+	
 
 
-	//Tutorial Desktop
+	//PE Tutorial Desktop
+	World::startLoading();
+
 	desktopFileInput.open(resourcePath() + "Saves/pipelineTutorial.ini", std::ifstream::in);
 	Desktop pipeTutorialDesktop;
+	
 	desktopFileInput >> pipeTutorialDesktop;
+
 	desktopFileInput.close();
 
     Logger::startTimer("PipeTutorialDesktop");
     
     World::setCurrDesktop(pipeTutorialDesktop);
     createTutorial(pipeTutorialDesktop);
+	
     World::runCurrDesktop();
     
     Logger::endTimer("PipeTutorialDesktop");
-	//End Tutorial Desktop
+	//End PE Tutorial Desktop
 
+
+	//DE Tutorial Desktop 
+	World::startLoading();
 	desktopFileInput.open(resourcePath() + "Saves/desktopTutorial.ini", std::ifstream::in);
 	Desktop deskTutorialDesktop;
 	desktopFileInput >> deskTutorialDesktop;
@@ -215,13 +225,13 @@ int main(int argc, char** argv) {
 	Logger::startTimer("DeskTutorialDesktop");
 
 	World::setCurrDesktop(deskTutorialDesktop);
-	createDesktopTutorial(deskTutorialDesktop); //This needs to be fixed, its the same setup as
-	                                     //previous desktop and this one needs file explorer
+	createDesktopTutorial(deskTutorialDesktop); 
 	World::runCurrDesktop();
 
 	Logger::endTimer("DeskTutorialDesktop");
 
 	//Player Desktop
+	World::startLoading();
 	desktopFileInput.open(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
 	Desktop playerDesktop;
 	desktopFileInput >> playerDesktop;

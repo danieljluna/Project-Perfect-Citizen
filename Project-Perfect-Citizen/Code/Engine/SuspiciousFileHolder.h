@@ -23,7 +23,9 @@ namespace ppc {
 		static bool guilty_; 
 		//suspicion score of the last file marked with TreeCommand::scan
 		static int susScore_;
+
 	public:
+        static Subject onChange;
 		static std::vector<ppc::BaseFileType*>& getBftVector();
 		static void flagFile(ppc::BaseFileType* file);
 		static unsigned int getFileSuspicion(int element);
@@ -39,5 +41,6 @@ namespace ppc {
 		static void clearFiles();
 		static void clearFile(std::string doomedFile);
 		static void setSusScore(int score);
+		static bool isGuilty();
 	};
 };

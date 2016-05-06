@@ -4,10 +4,10 @@
 #include <string>
 #include "../Engine/renderComponent.h"
 #include "../Engine/InputHandler.h"
+#include "../Game/TextBoxInputComponent.h"
 
 
 namespace ppc {
-
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Designated Generic Builder Object for non-editable Text Output Fields
 	/// @author Alex Vincent 
@@ -24,6 +24,8 @@ namespace ppc {
 		int s;
 		std::string stringToRender;
 		InputHandler* ih;
+		TextBoxInputComponent* tbi;
+		WindowInterface* cw;
 
 
 	public:
@@ -46,6 +48,10 @@ namespace ppc {
 		void setString(std::string str);
 
 		void setInputHandle(ppc::InputHandler&);
+
+		void setContainingWindow(WindowInterface*);
+
+		TextBoxInputComponent* getTextBoxInputComponent();
 
 		void create(Entity&);
 

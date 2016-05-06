@@ -145,7 +145,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     //// Script to create file tree
     /////////////////////////////////////////////
     desktopExtractionComponent* teacherFiles = new desktopExtractionComponent(*desktopToModify.getNodeState());
-    Json::Value parsed = teacherFiles->parseDesktopAsJson(resourcePath() + "Desktop1.json", "Desktop");
+    Json::Value parsed = teacherFiles->parseDesktopAsJson("Desktop1.json", "Desktop");
     
     //////////////////////////////////////////////
     //// Create the start menu
