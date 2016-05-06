@@ -95,16 +95,36 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////
 		static bool runCurrDesktop();
 
+		//////////////////////////////////////////////////////////////
+		// Loading Screen Functions
+		//////////////////////////////////////////////////////////////
+
+		static void initLoadScreen();
+
+		static void startLoading();
+
+		static void setLoading(float);
+
+		static void drawLoading();
+
+		static void endLoading();
 
     private:
 
         static sf::RenderWindow* screen_;
         static ppc::Desktop* currDesktop_;
 
-        static bool quitter;
+        static bool quitter_;
 
-        static std::map<DesktopList, std::string> desktopFileMap;
+        static std::map<DesktopList, std::string> desktopFileMap_;
 
-		static std::map<FontList, sf::Font> fontMap;
+		static std::map<FontList, sf::Font> fontMap_;
+
+		static bool isLoading_;
+
+		static sf::RectangleShape tempLoadScreen_;
+
+		static sf::RectangleShape tempLoadBar_;
+
 	};
 };

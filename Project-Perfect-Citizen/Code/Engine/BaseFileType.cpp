@@ -6,6 +6,7 @@
 #include "../../Code/Game/createWindow.h"
 #include <stdio.h>
 #include <ctype.h>
+#include "World.h"
 
 using namespace ppc;
 
@@ -61,7 +62,7 @@ void BaseFileType::uploadJson(std::string jString)
 	this->jSonString = jString;
 }
 
-void BaseFileType::readFile(ppc::Desktop& desk, sf::Image& im, std::string filename, std::string path)
+void BaseFileType::readFile(std::string filename, std::string path)
 {
 	ppc::WindowInterface* FileWindow;
 	if (this->encrypted) {
@@ -70,9 +71,9 @@ void BaseFileType::readFile(ppc::Desktop& desk, sf::Image& im, std::string filen
 	switch (this->filetype) {
 	case FileType::File:
 		FileWindow = new ppc::Window(500, 500, sf::Color(255, 255, 255));
-		spawnFile(FileWindow, FileWindow->getInputHandler(), *desk.getNodeState(), im, rand() % 750 + 50, rand() % 600 + 50,
+		spawnFile(FileWindow, FileWindow->getInputHandler(), rand() % 750 + 50, rand() % 600 + 50,
                   filename, path);
-		desk.addWindow(FileWindow);
+		World::getCurrDesktop().addWindow(FileWindow);
 		std::cout << path << std::endl;
 		break;
 	case FileType::Directory:

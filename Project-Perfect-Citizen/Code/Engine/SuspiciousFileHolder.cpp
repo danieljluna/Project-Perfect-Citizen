@@ -8,6 +8,7 @@ int ppc::SuspiciousFileHolder::badThreshold_ = 0;
 int ppc::SuspiciousFileHolder::goodThreshold_ = 0;
 bool ppc::SuspiciousFileHolder::guilty_ = false;
 int ppc::SuspiciousFileHolder::susScore_ = 0;
+ppc::Subject ppc::SuspiciousFileHolder::onChange;
 //std::vector < ppc::SuspiciousFileHolder*> ppc::SuspiciousFileHolder::susVec_;
 
 
@@ -21,6 +22,12 @@ void ppc::SuspiciousFileHolder::flagFile(ppc::BaseFileType * file)
 {
 	if (bftVector_.size() < 3) {
 		bftVector_.push_back(file);
+
+        Event ev;
+        ev.type = ev.SubmissionType;
+        ev.submission.file = file;
+        ev.submission.type = ev.submission.Mark;
+        onChange.sendEvent(ev);
 	}
 }
 
@@ -78,6 +85,13 @@ ppc::BaseFileType * ppc::SuspiciousFileHolder::getBFTVectorElement(int element)
 
 void ppc::SuspiciousFileHolder::submitFiles()
 {
+    Event ev;
+    ev.type = ev.SubmissionType;
+    ev.submission.count = bftVector_.size();
+    ev.submission.type = ev.submission.Submit;
+    onChange.sendEvent(ev);
+
+
 	if (bftVector_.size() != 3) {
 		std::cout << "Need more files dingus" << std::endl;
 		return;
@@ -101,6 +115,15 @@ void ppc::SuspiciousFileHolder::submitFiles()
 
 void ppc::SuspiciousFileHolder::clearFiles()
 {
+    Event ev;
+    ev.type = ev.SubmissionType;
+    ev.submission.type = ev.submission.Unmark;
+    
+    for (size_t i = 0; i < bftVector_.size(); ++i) {
+        ev.submission.file = bftVector_.at(i);
+        onChange.sendEvent(ev);
+    }
+
 	bftVector_.clear();
 }
 
@@ -108,7 +131,14 @@ void ppc::SuspiciousFileHolder::clearFile(std::string doomedFile)
 {
 	for (auto iter = bftVector_.begin(); iter != bftVector_.end(); iter++) {
 		if (doomedFile == (**iter).getName()) {
-			bftVector_.erase(iter);
+            Event ev;
+            ev.type = ev.SubmissionType;
+            ev.submission.file = *iter;
+            ev.submission.type = ev.submission.Unmark;
+            onChange.sendEvent(ev);
+
+            bftVector_.erase(iter);
+
 			return;
 		}
 	}
@@ -117,4 +147,9 @@ void ppc::SuspiciousFileHolder::clearFile(std::string doomedFile)
 void ppc::SuspiciousFileHolder::setSusScore(int score)
 {
 	susScore_ = score;
+}
+
+bool ppc::SuspiciousFileHolder::isGuilty()
+{
+	return guilty_;
 }

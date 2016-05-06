@@ -12,7 +12,6 @@
 #include "../Engine/SuspiciousFileHolder.h"
 #include "Inbox.h"
 
-
 ///////////////////////////////////////////////////////////////////////
 /// @brief A toolkit of functions that sets up a complete window
 /// @author Alex Vincent 
@@ -23,6 +22,8 @@
 ///////////////////////////////////////////////////////////////////////
 
 namespace ppc {
+
+	class explorerFolderInputComponent;
 	//typedef bool (databaseSearchInputComponent::*goBack) (sf::Event&);
 	//using backFunction = bool(databaseSearchInputComponent::*goBack)(sf::Event& ev);
 	///////////////////////////////////////////////////////////////////////
@@ -79,7 +80,7 @@ void spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database*
 ///@param The in-game filename
 ///@param The out-of-game resource path to load the new file
 ///////////////////////////////////////////////////////////////////////
-void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, NodeState & ns, sf::Image& buttonSheet, float x, float y, 
+void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, float x, float y, 
 	string filename, string path);
 
 ///////////////////////////////////////////////////////////////////////
@@ -130,6 +131,18 @@ void spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::I
 ///@param Custom string the message will display
 ///////////////////////////////////////////////////////////////////////
 void spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message);
+
+///////////////////////////////////////////////////////////////////////
+///@brief Constructs a generic prompt message window
+///
+///@param The newly created window to add components/entities to.
+///@param The input handler of the listened-to window.
+///@param Sprite sheet of it's border component's buttons
+///@param The x position of the new window
+///@param The y position of the new window
+///@param Custom string the message will display
+///////////////////////////////////////////////////////////////////////
+void spawnUnlock(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, explorerFolderInputComponent* fldr);
 
 
 ///////////////////////////////////////////////////////////////////////

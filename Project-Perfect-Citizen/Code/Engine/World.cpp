@@ -17,20 +17,23 @@ using namespace ppc;
 
 sf::RenderWindow* World::screen_ = nullptr;
 Desktop* World::currDesktop_ = nullptr;
-std::map<World::DesktopList, std::string> World::desktopFileMap = {
+std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
 
     {World::Count, ""}  //Empty pairing of Count to string.
 };
 
-std::map<World::FontList, sf::Font> World::fontMap = {
+std::map<World::FontList, sf::Font> World::fontMap_ = {
 	{World::FontCount, sf::Font()},
 	{World::Consola, sf::Font()},
 	{World::Micross, sf::Font()},
 	{World::VT323Regular, sf::Font()}
 };
 
-bool World::quitter = false;
+bool World::quitter_ = false;
 
+sf::RectangleShape World::tempLoadScreen_ = sf::RectangleShape({ 1000,1000 });
+sf::RectangleShape World::tempLoadBar_ = sf::RectangleShape({ 500, 50 });
+bool World::isLoading_ = false;
 
 void World::setGameScreen(sf::RenderWindow& gameScreen) {
 	screen_ = &gameScreen;
@@ -52,11 +55,12 @@ bool World::runDesktop(Desktop &myDesktop) {
 	if (screen_ == nullptr) return false;
 	// Go into main game loop
 
-    quitter = false;
+    quitter_ = false;
 
 	sf::Clock deltaTime;
 	sf::Time framePeriod = sf::milliseconds(sf::Int32(1000.0f / 30.f));
-	while (screen_->isOpen() && !quitter) {
+	World::endLoading();
+	while (screen_->isOpen() && !quitter_) {
 		//Process sf::events
 		sf::Event event;
 		while (screen_->pollEvent(event)) {
@@ -88,7 +92,7 @@ bool World::runDesktop(Desktop &myDesktop) {
 }
 
 bool World::loadDesktop(DesktopList desk) {
-    return loadDesktop(desktopFileMap.at(desk));
+    return loadDesktop(desktopFileMap_.at(desk));
 }
 
 bool World::runCurrDesktop() {
@@ -97,7 +101,7 @@ bool World::runCurrDesktop() {
 
 
 void World::quitDesktop() {
-    quitter = true;
+    quitter_ = true;
 }
 
 
@@ -122,14 +126,52 @@ bool World::loadDesktop(std::string filename) {
 }
 
 void ppc::World::initFontMap() {
-	fontMap.at(World::Consola).loadFromFile(resourcePath() + "consola.ttf");
-	fontMap.at(World::Micross).loadFromFile(resourcePath() + "micross.ttf");
-	fontMap.at(World::VT323Regular).loadFromFile(resourcePath() + "VT323-Regular.ttf");
+	fontMap_.at(World::Consola).loadFromFile(resourcePath() + "consola.ttf");
+	fontMap_.at(World::Micross).loadFromFile(resourcePath() + "micross.ttf");
+	fontMap_.at(World::VT323Regular).loadFromFile(resourcePath() + "VT323-Regular.ttf");
 
 }
 
 sf::Font& ppc::World::getFont(FontList f) {
 	
-	return fontMap.at(f);
+	return fontMap_.at(f);
 
+}
+
+
+void ppc::World::initLoadScreen() {
+
+	tempLoadScreen_.setPosition(0.f, 0.f);
+	tempLoadScreen_.setFillColor(sf::Color::Black);
+
+	tempLoadBar_.setPosition(225.f, 500.f);
+	tempLoadBar_.setFillColor(sf::Color::Red);
+	tempLoadBar_.setOutlineColor(sf::Color::Black);
+	tempLoadBar_.setOutlineThickness(5.f);
+
+	tempLoadBar_.setSize({ 0.f, 50.f });
+}
+
+void ppc::World::startLoading() {
+	isLoading_ = true;
+	drawLoading();
+}
+
+void ppc::World::setLoading(float f) {
+	if (f > 1.f || f < 0.f) f = 1.f;
+	tempLoadBar_.setSize({ 500.f * f, 50.f });
+	drawLoading();
+}
+
+void ppc::World::drawLoading() {
+	if (isLoading_ == false) return;
+	screen_->clear(sf::Color::Black);
+	screen_->draw(tempLoadScreen_);
+	screen_->draw(tempLoadBar_);
+	screen_->display();
+}
+
+void ppc::World::endLoading() {
+
+	isLoading_ = false;
 }
