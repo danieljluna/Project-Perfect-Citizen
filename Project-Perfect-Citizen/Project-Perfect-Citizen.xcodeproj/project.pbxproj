@@ -237,10 +237,9 @@
 		E98F695B1CDD11810022627E /* Tensions_Rise_as_Voting_Day_Looms.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E98F69531CDD11810022627E /* Tensions_Rise_as_Voting_Day_Looms.jpg */; };
 		E98F695C1CDD11810022627E /* Vincent_Sharp_Wins_Mayoral_Standoff.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E98F69541CDD11810022627E /* Vincent_Sharp_Wins_Mayoral_Standoff.jpg */; };
 		E98F69671CDD11D30022627E /* bootDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E98F695F1CDD11D30022627E /* bootDesktop.ini */; };
-		E98F69681CDD11D30022627E /* desktop0.ini in Resources */ = {isa = PBXBuildFile; fileRef = E98F69601CDD11D30022627E /* desktop0.ini */; };
-		E98F69691CDD11D30022627E /* desktop1.ini in Resources */ = {isa = PBXBuildFile; fileRef = E98F69611CDD11D30022627E /* desktop1.ini */; };
-		E98F696A1CDD11D30022627E /* desktop2.ini in Resources */ = {isa = PBXBuildFile; fileRef = E98F69621CDD11D30022627E /* desktop2.ini */; };
-		E98F696B1CDD11D30022627E /* desktop3.ini in Resources */ = {isa = PBXBuildFile; fileRef = E98F69631CDD11D30022627E /* desktop3.ini */; };
+		E98F69691CDD11D30022627E /* teacherDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E98F69611CDD11D30022627E /* teacherDesktop.ini */; };
+		E98F696A1CDD11D30022627E /* artistDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E98F69621CDD11D30022627E /* artistDesktop.ini */; };
+		E98F696B1CDD11D30022627E /* politicianDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E98F69631CDD11D30022627E /* politicianDesktop.ini */; };
 		E98F696C1CDD11D30022627E /* desktopTutorial.ini in Resources */ = {isa = PBXBuildFile; fileRef = E98F69641CDD11D30022627E /* desktopTutorial.ini */; };
 		E98F696D1CDD11D30022627E /* pipelineTutorial.ini in Resources */ = {isa = PBXBuildFile; fileRef = E98F69651CDD11D30022627E /* pipelineTutorial.ini */; };
 		E98F696E1CDD11D30022627E /* playerDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E98F69661CDD11D30022627E /* playerDesktop.ini */; };
@@ -740,10 +739,9 @@
 		E98F69531CDD11810022627E /* Tensions_Rise_as_Voting_Day_Looms.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tensions_Rise_as_Voting_Day_Looms.jpg; sourceTree = "<group>"; };
 		E98F69541CDD11810022627E /* Vincent_Sharp_Wins_Mayoral_Standoff.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Vincent_Sharp_Wins_Mayoral_Standoff.jpg; sourceTree = "<group>"; };
 		E98F695F1CDD11D30022627E /* bootDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bootDesktop.ini; sourceTree = "<group>"; };
-		E98F69601CDD11D30022627E /* desktop0.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = desktop0.ini; sourceTree = "<group>"; };
-		E98F69611CDD11D30022627E /* desktop1.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = desktop1.ini; sourceTree = "<group>"; };
-		E98F69621CDD11D30022627E /* desktop2.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = desktop2.ini; sourceTree = "<group>"; };
-		E98F69631CDD11D30022627E /* desktop3.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = desktop3.ini; sourceTree = "<group>"; };
+		E98F69611CDD11D30022627E /* teacherDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teacherDesktop.ini; sourceTree = "<group>"; };
+		E98F69621CDD11D30022627E /* artistDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = artistDesktop.ini; sourceTree = "<group>"; };
+		E98F69631CDD11D30022627E /* politicianDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = politicianDesktop.ini; sourceTree = "<group>"; };
 		E98F69641CDD11D30022627E /* desktopTutorial.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = desktopTutorial.ini; sourceTree = "<group>"; };
 		E98F69651CDD11D30022627E /* pipelineTutorial.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pipelineTutorial.ini; sourceTree = "<group>"; };
 		E98F69661CDD11D30022627E /* playerDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = playerDesktop.ini; sourceTree = "<group>"; };
@@ -1488,10 +1486,9 @@
 			isa = PBXGroup;
 			children = (
 				E98F695F1CDD11D30022627E /* bootDesktop.ini */,
-				E98F69601CDD11D30022627E /* desktop0.ini */,
-				E98F69611CDD11D30022627E /* desktop1.ini */,
-				E98F69621CDD11D30022627E /* desktop2.ini */,
-				E98F69631CDD11D30022627E /* desktop3.ini */,
+				E98F69611CDD11D30022627E /* teacherDesktop.ini */,
+				E98F69621CDD11D30022627E /* artistDesktop.ini */,
+				E98F69631CDD11D30022627E /* politicianDesktop.ini */,
 				E98F69641CDD11D30022627E /* desktopTutorial.ini */,
 				E98F69651CDD11D30022627E /* pipelineTutorial.ini */,
 				E98F69661CDD11D30022627E /* playerDesktop.ini */,
@@ -1801,7 +1798,7 @@
 				E94886371CC6F42A00DFC68A /* data.json in Resources */,
 				E9AA74631CD6C47500ABEDBC /* 120mm_M830A1.jpg in Resources */,
 				E94886581CC6F42A00DFC68A /* consola.ttf in Resources */,
-				E98F696B1CDD11D30022627E /* desktop3.ini in Resources */,
+				E98F696B1CDD11D30022627E /* politicianDesktop.ini in Resources */,
 				E94886041CC6F3F600DFC68A /* Photo_shoot.jpg in Resources */,
 				E9AA74911CD6C47500ABEDBC /* Note_to_Voyeur_#3.txt in Resources */,
 				E94886071CC6F3F600DFC68A /* road-trip3.jpg in Resources */,
@@ -1868,12 +1865,12 @@
 				E9AA748F1CD6C47500ABEDBC /* Note_to_Voyeur #1.txt in Resources */,
 				E948863B1CC6F42A00DFC68A /* Desktop2.json in Resources */,
 				E9AA74AE1CD6C47500ABEDBC /* Town_map.jpg in Resources */,
-				E98F69691CDD11D30022627E /* desktop1.ini in Resources */,
+				E98F69691CDD11D30022627E /* teacherDesktop.ini in Resources */,
 				E94885EF1CC6F3F600DFC68A /* Journey+Into+Dark.jpg in Resources */,
 				E9AA749A1CD6C47500ABEDBC /* plans_print.jpg in Resources */,
 				E9AA74A21CD6C47500ABEDBC /* roland_TR-606.jpg in Resources */,
 				E94885D41CC6F3F600DFC68A /* Crowd35.jpg in Resources */,
-				E98F696A1CDD11D30022627E /* desktop2.ini in Resources */,
+				E98F696A1CDD11D30022627E /* artistDesktop.ini in Resources */,
 				E94885A81CC6F3F600DFC68A /* 1-24-08-182.jpg in Resources */,
 				E94886471CC6F42A00DFC68A /* last.txt in Resources */,
 				E9AC1C991CC95E1700A7955F /* blueprint_4.jpg in Resources */,
@@ -1988,7 +1985,6 @@
 				E94885B31CC6F3F600DFC68A /* 4-24-08-492.jpg in Resources */,
 				E94885AF1CC6F3F600DFC68A /* 3573.jpg in Resources */,
 				E9AC1CAE1CC9687600A7955F /* Passwords.txt in Resources */,
-				E98F69681CDD11D30022627E /* desktop0.ini in Resources */,
 				E9AA74B71CD6C47500ABEDBC /* Van_Gogh_The_Sower.jpg in Resources */,
 				E9646BCD1CD7DFEA00C06573 /* Trouble.txt in Resources */,
 				E94886591CC6F42A00DFC68A /* micross.ttf in Resources */,
