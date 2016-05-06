@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include "subject.h"
 
 ///////////////////////////////////////////////
 ///Class node state is a class used to monitor
@@ -39,6 +40,9 @@ namespace ppc {
 		///by '@' and needs to be parsed. 
 		///////////////////////////////////////////////
 		std::string dirString = "";
+
+        mutable Subject onOpen_;
+
 	public:
 		///////////////////////////////////////////////
 		///@brief Default Ctor
@@ -85,6 +89,9 @@ namespace ppc {
 		///ppc::FileType::Directory
 		///////////////////////////////////////////////
 		void setCwd(BaseFileType* newCwd);
+
+        void readFile(const std::string& filename);
+
 		///////////////////////////////////////////////
 		///@brief returns the CWD;
 		///////////////////////////////////////////////
@@ -117,5 +124,8 @@ namespace ppc {
 		///seperated by '@' and must be parsed out
 		///////////////////////////////////////////////
         std::string getDirString();
+
+        Subject& onOpen() const { return onOpen_; };
+
 	};
 }; //end ppc namespace

@@ -129,7 +129,7 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
                 } else {
                     tempWin = new ppc::Window(500, 500, sf::Color(255, 255, 255));
                     spawnFile(tempWin, tempWin->getInputHandler(),
-                        *theDesktop_.getNodeState(), buttonSheet_, 100, 200, "CHANGE_ME.JPG", "DesktopContent/Desktop1/3-29-12-184.jpg");
+                        100, 200, "CHANGE_ME.JPG", "DesktopContent/Desktop1/3-29-12-184.jpg");
                     theDesktop_.addWindow(tempWin);
                     openedWindow = tempWin;
                 }

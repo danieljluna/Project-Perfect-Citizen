@@ -176,7 +176,6 @@ void ppc::createDesktopTutorial(Desktop & dt) {
 	////////////////////////////////////////
 	// SUSPICIOUS FILES TEST HERE
 	//////////////////////////////////////
-	SuspiciousFileHolder* fH = nullptr;
 	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
 	spawnFileTracker(dt, fileTracker, fileTracker->getInputHandler(), 250, 50);
 	SuspiciousFileHolder::setWindow(fileTracker);
@@ -252,13 +251,19 @@ void ppc::createDesktopTutorial(Desktop & dt) {
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dynamic_cast<iconInputComponent*>(emailIcon.getComponent(2))->onOpen().addObserver(tempObsvr);
 
-    //C
+    //Connect NodeState
+    tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
+    dt.getNodeState()->onOpen().addObserver(tempObsvr);
+
+    //Connect SuspiciousFileHolder
+    tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
+    SuspiciousFileHolder::onChange.addObserver(tempObsvr);
 
     //Set up starting Message
     Event ev;
     ev.type = ev.FloppyType;
-    //ev.floppy.sequence = FloppyInputComponent::Floppy_Sequence_Names.at("DesktopStart");
-	ev.floppy.sequence = FloppyInputComponent::FloppySequenceName::DesktopStart;
+    ev.floppy.sequence = 0; // Line below crashes on mac - Brandon
+	//ev.floppy.sequence = FloppyInputComponent::FloppySequenceName::DesktopStart;
 	ev.floppy.frame = 0;
     summonFloppyDialog(floppyIn, ev);
 

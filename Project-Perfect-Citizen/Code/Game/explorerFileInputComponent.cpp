@@ -8,6 +8,7 @@
 #include "../Engine/SuspiciousFileHolder.h"
 #include "ContextBuilder.h"
 #include "../Engine/World.h"
+#include "../Engine/SubjectObsvr.h"
 
 using namespace ppc;
 
@@ -158,9 +159,7 @@ bool ppc::explorerFileInputComponent::andy_flag_file(Desktop* ptr, ppc::Event ev
 
 void ppc::explorerFileInputComponent::openFile()
 {
-	std::string fileResourcePath = theFileTree_.getCwd()->findElement(fileName)->getFileData();
-	theFileTree_.getCwd()->findElement(fileName)->readFile(theDesktop_, buttonSheet_, fileName,
-		fileResourcePath);
+	theFileTree_.readFile(fileName);
 }
 
 NodeState ppc::explorerFileInputComponent::getFileNodeState()
@@ -190,7 +189,8 @@ bool ppc::flag_file(explorerFileInputComponent* ptr, ppc::Event ev) {
 		firstFlagCommand.push_back("flag");
 		firstFlagCommand.push_back(ptr->getFileName());
 		commandFn firstLs = findFunction("flag");
-		firstLs(ptr->getFileNodeState(), firstFlagCommand);
+        ppc::NodeState temp = ptr->getFileNodeState();
+		firstLs(temp, firstFlagCommand);
 	}
 	else {
 		cout << "SHOW ERROR MESSAGE" << endl;
@@ -213,7 +213,13 @@ bool ppc::submitFiles(ppc::Desktop * ptr, ppc::Event ev)
 bool ppc::spawnPromptMessage(ppc::explorerFileInputComponent * ptr, ppc::Event)
 {
 	ppc::WindowInterface* newWindow = new ppc::Window(600, 300, sf::Color(170, 170, 170));
-	ppc::BaseFileType* tempBFT = ptr->getFileNodeState().getCwd()->findElement(ptr->getFileName());
+ 	ppc::BaseFileType* tempBFT = ptr->getFileNodeState().getCwd()->findElement(ptr->getFileName());
+
+    Event ev;
+    ev.type = ev.SubmissionType;
+    ev.submission.type = ev.submission.Scan;
+    ev.submission.file = tempBFT;
+    SuspiciousFileHolder::onChange.sendEvent(ev);
 
 	spawnErrorMessage(newWindow, newWindow->getInputHandler(), ptr->getFileDesktop()->getButtonSheet(), 100.f, 100.f,
 		tempBFT->getName() + " has a suspicion index of: " + std::to_string(tempBFT->getSuspicionLevel()));

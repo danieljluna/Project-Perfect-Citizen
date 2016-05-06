@@ -348,6 +348,9 @@
     <ClCompile Include="Code\Game\CreateReportScreen.cpp">
       <Filter>Sources\Game Specific\Reports</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\SubjectObsvr.cpp">
+      <Filter>Sources\Engine\Observer System</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -721,6 +724,9 @@
     </ClInclude>
     <ClInclude Include="Code\Game\CreateReportScreen.h">
       <Filter>Headers\Game Specific\Reports</Filter>
+    </ClCompile>
+    <ClInclude Include="Code\Engine\SubjectObsvr.h">
+      <Filter>Headers\Engine\Observer System\Observers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
