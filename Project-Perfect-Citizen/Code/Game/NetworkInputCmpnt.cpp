@@ -5,6 +5,10 @@
 #include "../Engine/DraggableInput.h"
 const float MAX_DISTANCE_TO_EDGE = 10.f;
 
+const sf::Color selRed = { 250, 125, 125 };
+const sf::Color selBlack = { 171, 171, 171 };
+const sf::Color selGreen = { 138,255,173 };
+
 void ppc::NetworkInputCmpnt::selectEdge(sf::Vector2f mPos) {
 	std::vector<std::pair<int, int>> edgeList;
 
@@ -30,7 +34,29 @@ void ppc::NetworkInputCmpnt::selectEdge(sf::Vector2f mPos) {
 		}
 	}
 	if (closest != std::make_pair(-1, -1)) {
+		sf::Color oldcolor;
+		if (!(selectedEdge_.first == 0 && selectedEdge_.second == 0) &&
+			network_->isAdjacent(selectedEdge_.first, selectedEdge_.second)) {
+			unselectEdge(*network_->edge(selectedEdge_.second, selectedEdge_.first));
+			unselectEdge(*network_->edge(selectedEdge_.first, selectedEdge_.second));
+		}
+		
 		selectedEdge_ = closest;
+		Edge* testedge = network_->edge(selectedEdge_.first, selectedEdge_.second);
+		oldcolor = network_->edge(selectedEdge_.first, selectedEdge_.second)->getColor();
+		if (oldcolor == sf::Color::Red) { 
+			network_->edge(selectedEdge_.first, selectedEdge_.second)->setColorSelectedRed();
+			network_->edge(selectedEdge_.second, selectedEdge_.first)->setColorSelectedRed();
+		}
+		else if (oldcolor == sf::Color::Green) {
+			network_->edge(selectedEdge_.first, selectedEdge_.second)->setColorSelectedGreen();
+			network_->edge(selectedEdge_.second, selectedEdge_.first)->setColorSelectedGreen();
+		}
+		else {
+			network_->edge(selectedEdge_.first, selectedEdge_.second)->setColorSelectedBlack();
+			network_->edge(selectedEdge_.second, selectedEdge_.first)->setColorSelectedBlack();
+		}
+		
 		clickedEdge_ = true;
 		clickedVert_ = false;
 
@@ -47,8 +73,20 @@ void ppc::NetworkInputCmpnt::selectEdge(sf::Vector2f mPos) {
 	}
 }
 
+void ppc::NetworkInputCmpnt::unselectEdge(Edge& e) {
+	sf::Color oldcolor = e.getColor();
+	if (oldcolor == selRed) e.setColorRed();
+	else if (oldcolor == selGreen) e.setColorGreen();
+	else if (oldcolor == selBlack) e.setColorBlack();
+}
+
 void ppc::NetworkInputCmpnt::selectVert(sf::Vector2f mPos) {
 	network_->vert(selectedVert_).deselectVert();
+	if (!(selectedEdge_.first == 0 && selectedEdge_.second == 0) && 
+		network_->isAdjacent(selectedEdge_.first, selectedEdge_.second)) {
+		unselectEdge(*network_->edge(selectedEdge_.first, selectedEdge_.second));
+		unselectEdge(*network_->edge(selectedEdge_.second, selectedEdge_.first));
+	}
 	for (size_t i = 0; i < network_->size(); i++) {
 		if (network_->vert(i).getLocalBounds().contains(mPos)) {
 			selectedVert_ = i;
@@ -79,15 +117,15 @@ void ppc::NetworkInputCmpnt::loopEdgeColor() {
 	Edge* e2 = network_->edge(selectedEdge_.second,
 		selectedEdge_.first);
 
-	if (e1->getColor() == sf::Color::Red) {
-		e1->setColorGreen();
-		e2->setColorGreen();
-	} else if (e1->getColor() == sf::Color::Green) {
-		e1->setColorBlack();
-		e2->setColorBlack();
-	} else if (e1->getColor() == sf::Color::Black) {
-		e1->setColorRed();
-		e2->setColorRed();
+	if (e1->getColor() == selRed) {
+		e1->setColorSelectedGreen();
+		e2->setColorSelectedGreen();
+	} else if (e1->getColor() == selGreen) {
+		e1->setColorSelectedBlack();
+		e2->setColorSelectedBlack();
+	} else if (e1->getColor() == selBlack) {
+		e1->setColorSelectedRed();
+		e2->setColorSelectedRed();
 	}
 }
 
@@ -204,8 +242,14 @@ bool ppc::NetworkInputCmpnt::registerInput(Event ppcEv) {
 			return false;
 		}
 
-
-		if (clickedEdge_ == false) return false;
+		if (clickedEdge_ == false) {
+			if (!(selectedEdge_.first == 0 && selectedEdge_.second == 0) &&
+				network_->isAdjacent(selectedEdge_.first, selectedEdge_.second)) {
+				unselectEdge(*network_->edge(selectedEdge_.first, selectedEdge_.second));
+				unselectEdge(*network_->edge(selectedEdge_.second, selectedEdge_.first));
+			}
+			return false;
+		}
 
 		switch (ev.key.code) {
 
@@ -222,21 +266,21 @@ bool ppc::NetworkInputCmpnt::registerInput(Event ppcEv) {
 			break;
 		case sf::Keyboard::A:
 			network_->edge(selectedEdge_.first,
-				selectedEdge_.second)->setColorBlack();
+				selectedEdge_.second)->setColorSelectedBlack();
 			network_->edge(selectedEdge_.second,
-				selectedEdge_.first)->setColorBlack();
+				selectedEdge_.first)->setColorSelectedBlack();
 			break;
 		case sf::Keyboard::S:
 			network_->edge(selectedEdge_.first,
-				selectedEdge_.second)->setColorRed();
+				selectedEdge_.second)->setColorSelectedRed();
 			network_->edge(selectedEdge_.second,
-				selectedEdge_.first)->setColorRed();
+				selectedEdge_.first)->setColorSelectedRed();
 			break;
 		case sf::Keyboard::D:
 			network_->edge(selectedEdge_.first,
-				selectedEdge_.second)->setColorGreen();
+				selectedEdge_.second)->setColorSelectedGreen();
 			network_->edge(selectedEdge_.second,
-				selectedEdge_.first)->setColorGreen();
+				selectedEdge_.first)->setColorSelectedGreen();
 			break;
 		}
 	}
