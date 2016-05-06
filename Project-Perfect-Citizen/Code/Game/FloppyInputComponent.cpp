@@ -143,6 +143,12 @@ void ppc::FloppyInputComponent::setSequence(unsigned int s, unsigned int f) {
         sequence = s;
     } else {
         sequence = -1;
+        f = 0;
+        setFloppyButton(false);
+        Event ev;
+        ev.type = ppc::Event::AbleType;
+        ev.able.enable = false;
+        getEntity()->broadcastMessage(ev);
     }
     setFrame(f);
 }
