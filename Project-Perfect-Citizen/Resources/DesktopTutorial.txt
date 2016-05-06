@@ -12,6 +12,9 @@ Default: That folder looks suspicious! You should enter it
 -Passwords: T
 Default: Looks like it has a password. Check the recovery hint
 Default: See if you can find the password and unlock the directory
+-Unlocked: T
+Default: Good job!
+Default: Let's look around...
 -SuspFolder: T
 Default: A manual for making bombs? Log it into evidence!
 Default: Right click and select "mark as suspicious"
