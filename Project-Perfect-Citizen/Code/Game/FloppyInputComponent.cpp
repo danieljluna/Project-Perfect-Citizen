@@ -266,7 +266,11 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
     //Switch controls what event needs to be read to move on
     switch (ptr->getSequence()) {
 	case FloppyInputComponent::Welcome:
-		enable = ((ev.type == ev.NetworkType) &&
+        enable = ((ev.type == ev.OpenType) &&
+            (ev.open.winType == ev.open.Pipeline));
+        break;
+    case FloppyInputComponent::Pipeline:
+        enable = ((ev.type == ev.NetworkType) &&
             (ev.network.type == ev.network.Selected) &&
             (ev.network.v == -1));
         break;
@@ -281,7 +285,7 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             (ev.network.v != -1));
         break;
 	case FloppyInputComponent::TempFix:
-		enable = true;
+        enable = (World::getCurrDesktop().getNetVecIndex() == 1);
 		break;
 	case FloppyInputComponent::Goal:
         enable = (ev.type == ev.NetworkType);

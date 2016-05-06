@@ -119,6 +119,7 @@ void BorderDecorator::setClampBounds(const sf::FloatRect& clamp) {
 ///////////////////////////////////////////////////////////////////////
 
 void BorderDecorator::setCaption(std::string text) {
+    caption_.setRenderable(true);
     caption_.updateString(text);
 }
 

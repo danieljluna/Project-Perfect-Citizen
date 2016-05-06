@@ -113,6 +113,12 @@ void runArtistDesktop(ppc::Desktop& myDesktop) {
     
 }
 
+void runPoliticianDesktop(ppc::Desktop& myDesktop) {
+    createPoliticianDesktop(myDesktop, *myDesktop.getDesktopWindow(),
+                        myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
+
+}
+
 int main(int argc, char** argv) {
     
     DBG_INIT();
@@ -270,7 +276,7 @@ int main(int argc, char** argv) {
     
     
     
-    //Desktop 1 / Teacher Desktop
+    //Desktop 2 / Artist Desktop
     ppc::NodeState artistState;
     artistState.setUp();
     Window* artistDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));

@@ -1,0 +1,24 @@
+{
+    "Desktop": {
+        "Articles" : {
+            "Campaigns" : {
+                "1/Ex-Mayor_Sharp_Runes_for_Senate.jpg" : "DesktopContent/Desktop3/Ex-Mayor_Sharp_Runes_for_Senate.jpg",
+                "1/Senator_Elected_in_Suprise_Upheaval.jpg" : "DesktopContent/Desktop3/Senator_Elected_in_Suprise_Upheaval.jpg",
+                "1/Tensions_Rise_as_Voting_Day_Looms.jpg" : "DesktopContent/Desktop3/Tensions_Rise_as_Voting_Day_Looms.jpg",
+                "1/Vincent_Sharp_Wins_Mayoral_Standoff.jpg" : "DesktopContent/Desktop3/Vincent_Sharp_Wins_Mayoral_Standoff.jpg",
+                "1/Mayor_Sharp_Resigns_Amidst_Disaster.jpg" : "DesktopContent/Desktop3/Mayor_Sharp_Resigns_Amidst_Disaster.png"
+            },
+            "Simpler_Times" : {
+                "1/1967_Football_catch.jpg" : "DesktopContent/Desktop3/1967_Football_catch.jpg",
+                "1/Mobile_vs_Redwood_67.jpg" : "DesktopContent/Desktop3/Mobile_vs_Redwood_67.jpg",
+                "1/Sharp_in_Endzone.jpg" : "DesktopContent/Desktop3/Sharp_in_Endzone.jpg"
+            },
+            "1/Therapy_Journal_#1.txt" : "DesktopContent/Desktop3/Therapy_Journal_#1.txt"
+        },
+        "Personal_Docs" : {
+            "Classified_Docs" : {
+                "1/Empty" : "DesktopContent/Desktop3/Sharp_in_Endzone.jpg"
+            }
+        }
+    }
+}
