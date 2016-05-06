@@ -59,7 +59,8 @@ void spawnStartButton(ppc::Entity& entityToModify, Desktop&, ppc::InputHandler& 
 void spawnStartButton2(ppc::Entity& entityToModify, Desktop&, FloppyInputComponent*, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 // * THIS IS TEMPORARY FOR FIRST PLAYABLE *//
-void spawnNetworkOkayButton(ppc::Network* theNetwork_, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size, NetworkCheckFunctor* ncf);
+void spawnNetworkOkayButton(ppc::Network* theNetwork_, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size, NetworkCheckFunctor* ncf,
+	sf::Font);
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable confirmed icon (non clickable)
