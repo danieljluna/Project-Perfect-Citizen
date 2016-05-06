@@ -45,7 +45,8 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		enum FloppySequenceName {
 			Welcome = 0,
-			Connections = 1,
+            Pipeline,
+			Connections,
 			Edges,
 			TempFix,
 			Goal,
