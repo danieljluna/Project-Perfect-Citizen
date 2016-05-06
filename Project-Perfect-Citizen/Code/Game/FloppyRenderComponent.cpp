@@ -27,8 +27,9 @@ FloppyRenderComponent::FloppyRenderComponent(sf::Image& image) : floppyImage(ima
     
     xIndex = 0;
     yIndex = 1;
-    loop = 1;
+    loop = -1;
     rectSourceSprite = new sf::IntRect(xIndex*size, yIndex*size, size, size);
+    rectSourceSprite2 = new sf::IntRect(xIndex*size+size, yIndex*size, size, size);
     
     sprite->setTexture(*texture);
     sprite->setTextureRect(*rectSourceSprite);
@@ -85,16 +86,15 @@ void FloppyRenderComponent::animate() {
     
     std::cout << "WERE HERE" << std::endl;
     
-    if (loop == -1) {
-        rectSourceSprite->left = 128;
+   /* if (loop == -1) {
         texture->loadFromImage(floppyImage, *rectSourceSprite);
         sprite->setTexture(*texture);
     } else {
-        rectSourceSprite->left = 0;
-        texture->loadFromImage(floppyImage, *rectSourceSprite);
+        texture->loadFromImage(floppyImage, *rectSourceSprite2);
         sprite->setTexture(*texture);
-    }
-        
+    }*/
+   
+    
     loop = -loop;
 
 
