@@ -37,3 +37,4 @@ void createDummyDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& des
 
 void createArtistDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& desktopWindowToModify, ppc::InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet);
 
+void createPoliticianDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& desktopWindowToModify, ppc::InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet);

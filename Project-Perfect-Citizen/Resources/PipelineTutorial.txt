@@ -2,7 +2,13 @@
 Default: Welcome to your new job at the DCPS!
 Angry: This training program will show you the ropes
 Default: If you need to review you can visit the help manual
-Surprised: First up is the Pipeline Extraction Sequence
+Surprised: First up is the Pipeline Extraction Sequence.
+Default: Please open the Graph.
+-Pipeline: T
+Default: This is the Pipeline Extraction Application.
+Default: It is used to analyze a group of connected people.
+Default: The goal is to find the most suspicious person.
+Default: Let's go over some basics...
 Peek: Try selecting a Photo
 -Connections: T
 Default: You can create connections between photos

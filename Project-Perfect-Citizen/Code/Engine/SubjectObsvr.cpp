@@ -11,7 +11,9 @@ SubjectObsvr::SubjectObsvr(Subject& subject) {
 
 
 bool SubjectObsvr::eventHandler(Event ev) {
-    subject_->sendEvent(ev);
+    if (subject_ != nullptr) {
+        subject_->sendEvent(ev);
+    }
     
     return true;
 }

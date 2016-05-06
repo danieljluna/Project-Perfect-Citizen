@@ -71,8 +71,7 @@ void BaseFileType::readFile(std::string filename, std::string path)
 	switch (this->filetype) {
 	case FileType::File:
 		FileWindow = new ppc::Window(500, 500, sf::Color(255, 255, 255));
-		spawnFile(FileWindow, FileWindow->getInputHandler(), rand() % 750 + 50, rand() % 600 + 50,
-                  filename, path);
+		spawnFile(FileWindow, FileWindow->getInputHandler(), rand() % 500 + 25, rand() % 400 + 25, filename, path);
 		World::getCurrDesktop().addWindow(FileWindow);
 		std::cout << path << std::endl;
 		break;
