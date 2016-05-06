@@ -11,6 +11,7 @@ namespace ppc {
 	/// @author Mark Biundo & Nader Sleem
 	///////////////////////////////////////////////////////////////////
 	class NetworkInputCmpnt : public InputComponent {
+		//class Edge;
 
 	private:
 
@@ -27,6 +28,7 @@ namespace ppc {
 		bool clickedEdge_;
 
 		void selectEdge(sf::Vector2f);
+		void unselectEdge(Edge& e);
 		void selectVert(sf::Vector2f);
 		void loopEdgeColor();
 
