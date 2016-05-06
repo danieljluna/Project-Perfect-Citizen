@@ -420,7 +420,7 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 		} else if (key == "Filetree") {
 			ppc::desktopExtractionComponent desktopFiles(importDesktop->nodeState_);
 			Json::Value parsed =
-				desktopFiles.parseDesktopAsJson(resourcePath() + file, "Desktop");
+				desktopFiles.parseDesktopAsJson(file, "Desktop");
 		} else if (key == "Emails") {
 			ppc::emailExtraction* inbox = new emailExtraction();
 			inbox->parseEmailAsJson(file);
