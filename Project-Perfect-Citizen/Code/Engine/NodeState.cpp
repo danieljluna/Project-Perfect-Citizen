@@ -17,7 +17,7 @@ ppc::NodeState::NodeState(const NodeState& other) {
 	this->lastLsNode = other.lastLsNode;
 	this->dirString = other.dirString;
     NodeState* globalNodeState = World::getCurrDesktop().getNodeState();
-    if ((this != globalNodeState) && (!World::isLoading())) {
+    if ((this != globalNodeState)) {
         onOpen_.addObserver(new SubjectObsvr(globalNodeState->onOpen()));
     }
 }
