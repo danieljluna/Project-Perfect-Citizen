@@ -78,7 +78,7 @@ void ppc::createTutorial(Desktop & dt) {
 
 	FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
 	FloppyInputComponent* floppyIn = new FloppyInputComponent();
-	FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.12f);
+	FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.20f);
 	floppy->renderPosition({ 400.f, 0.f });
 
 	TextBubble* tb = new TextBubble();
@@ -124,7 +124,7 @@ void ppc::createTutorial(Desktop & dt) {
     //String Up Floppy------------------------------
 
     //Connect Pipeline
-    BaseObserver* tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn);
+    BaseObserver* tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dynamic_cast<iconInputComponent*>(graphIcon.getComponent(2))->onOpen().addObserver(tempObsvr);
 
     //Conect FloppyEnd
@@ -139,6 +139,13 @@ void ppc::createTutorial(Desktop & dt) {
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dt.getPlayVec().at(1)->onManip().addObserver(tempObsvr);
 
+
+    //Set up starting Message
+    Event ev;
+    ev.type = ev.FloppyType;
+    ev.floppy.sequence = 0; // Line below crashes on mac - Brandon
+    ev.floppy.frame = 0;
+    summonFloppyDialog(floppyIn, ev);
 }
 
 
@@ -263,7 +270,7 @@ void ppc::createDesktopTutorial(Desktop & dt) {
     Event ev;
     ev.type = ev.FloppyType;
     ev.floppy.sequence = 0; // Line below crashes on mac - Brandon
-	//ev.floppy.sequence = FloppyInputComponent::FloppySequenceName::DesktopStart;
+	ev.floppy.sequence = FloppyInputComponent::DesktopStart;
 	ev.floppy.frame = 0;
     summonFloppyDialog(floppyIn, ev);
 

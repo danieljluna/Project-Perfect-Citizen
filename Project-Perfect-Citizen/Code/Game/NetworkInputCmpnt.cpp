@@ -89,6 +89,14 @@ void ppc::NetworkInputCmpnt::loopEdgeColor() {
 		e1->setColorRed();
 		e2->setColorRed();
 	}
+
+    Event ev;
+    ev.type = ev.NetworkType;
+    ev.network.type = ev.network.Edited;
+    ev.network.u = selectedEdge_.first;
+    ev.network.v = selectedEdge_.second;
+    ev.network.net = network_;
+    network_->onManip().sendEvent(ev);
 }
 
 void ppc::NetworkInputCmpnt::updateDataText() {

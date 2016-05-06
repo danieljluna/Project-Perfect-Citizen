@@ -13,8 +13,6 @@ FloppyRenderComponent::FloppyRenderComponent(sf::Image& image) : floppyImage(ima
     this->staticBox = new sf::Sprite();
     this->texture = new sf::Texture();
     
-    
-    
     /* Check that the file exists in the path */
     if (!texture->loadFromImage(image, sf::IntRect(0,0,2*size,5*size)))
         std::exit(-1);
@@ -24,18 +22,17 @@ FloppyRenderComponent::FloppyRenderComponent(sf::Image& image) : floppyImage(ima
     staticBox->setPosition(800, 32);
     staticBox->setScale(0.75f, 0.75f);
     
-    
     xIndex = 0;
     yIndex = 1;
+    loop = -1;
     rectSourceSprite = new sf::IntRect(xIndex*size, yIndex*size, size, size);
-    
     
     sprite->setTexture(*texture);
     sprite->setTextureRect(*rectSourceSprite);
     sprite->setPosition(800, 35);
     sprite->setScale(0.75f, 0.75f);
     
-    _willAnimate = false;
+    _willAnimate = true;
 }
 
 FloppyRenderComponent::~FloppyRenderComponent() {
@@ -78,29 +75,38 @@ void FloppyRenderComponent::setEmotion(int emote) {
     }
     
     sprite->setTextureRect(*rectSourceSprite);
-    
 }
 
 
 void FloppyRenderComponent::animate() {
-   /* if (emotion == -1) {
-       // if (sprite->getPosition().y <= 32) {
-         //   renderPosition({sprite->getPosition().x, sprite->getPosition().y+5});
-        //} else {
-            setEmotion(emotion);
-            _willAnimate = false;
-        //}
+    
+   /*  std::cout << "WERE HERE" << std::endl;
+    
+    if (_willAnimate) {
+        if (rectSourceSprite->left == 128) {
+            rectSourceSprite->left = 0;
+        } else
+            rectSourceSprite->left += size;
+        
+        texture->loadFromImage(floppyImage, *rectSourceSprite);
+        sprite->setTexture(*texture);
+    }
+    
+    
+   if (loop == -1) {
+        texture->loadFromImage(floppyImage, *rectSourceSprite);
+        sprite->setTexture(*texture);
     } else {
-        if (sprite->getPosition().y >= -35) {
-            renderPosition({sprite->getPosition().x, sprite->getPosition().y-5});
-        } else {
-            setEmotion(emotion);
-            _willAnimate = false;
-        }
+        texture->loadFromImage(floppyImage, *rectSourceSprite2);
+        sprite->setTexture(*texture);
     }*/
-    setEmotion(emotion);
+   
+    
+   // loop = -loop;
 
-   // sprite->setTextureRect(*rectSourceSprite);
+
+    //setEmotion(emotion);
+
 }
 
 

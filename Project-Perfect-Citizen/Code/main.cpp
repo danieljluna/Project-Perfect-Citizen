@@ -114,6 +114,12 @@ void runArtistDesktop(ppc::Desktop& myDesktop) {
     
 }
 
+void runPoliticianDesktop(ppc::Desktop& myDesktop) {
+    createPoliticianDesktop(myDesktop, *myDesktop.getDesktopWindow(),
+                        myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
+
+}
+
 int main(int argc, char** argv) {
     
     DBG_INIT();
@@ -130,7 +136,10 @@ int main(int argc, char** argv) {
        
     AudioQueue audiotest(5);
     audiotest.addBgm("SoundTrack_Extraction.ogg");
+    audiotest.loopBgm();
     audiotest.playBgm();
+
+
     
     ///////////// Load Spritesheets/Textures/Background Images ////////
     sf::Sprite playerWallpaper;
@@ -165,10 +174,7 @@ int main(int argc, char** argv) {
     //// ----------------   PYTHON LOCATION STUFF ---------------- ////
     
     // Run the locator python app
-    /* system("osascript -e 'tell app \"ppc_location_print\" to open'");
-  
-    */
-
+    //system("osascript -e 'tell app \"ppc_location_print\" to open'");
     // -----------------------------------------------------------//
 
     World::setGameScreen(screen);
@@ -233,7 +239,7 @@ int main(int argc, char** argv) {
 
 	//Player Desktop
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Saves/Desktop1.ini", std::ifstream::in);
 	Desktop playerDesktop;
 	desktopFileInput >> playerDesktop;
 	desktopFileInput.close();
@@ -241,7 +247,7 @@ int main(int argc, char** argv) {
     Logger::startTimer("playerDesktop");
     
     World::setCurrDesktop(playerDesktop);
-    runPlayerDesktop(playerDesktop);
+    runTargetDesktop(playerDesktop);
 	World::runCurrDesktop();
     
     Logger::endTimer("playerDesktop");
@@ -278,7 +284,7 @@ int main(int argc, char** argv) {
     
     
     
-    //Desktop 1 / Teacher Desktop
+    //Desktop 2 / Artist Desktop
     ppc::NodeState artistState;
     artistState.setUp();
     Window* artistDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));

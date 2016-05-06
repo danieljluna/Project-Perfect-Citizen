@@ -176,6 +176,7 @@
     <ClInclude Include="Code\Engine\subject.h" />
     <ClInclude Include="Code\Engine\SubjectObsvr.h" />
     <ClInclude Include="Code\Engine\SuspiciousFileHolder.h" />
+    <ClInclude Include="Code\Engine\Transition.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntDecorator.h" />
     <ClInclude Include="Code\Engine\UpdateCmpntLogger.h" />
     <ClInclude Include="Code\Engine\updateComponent.h" />
