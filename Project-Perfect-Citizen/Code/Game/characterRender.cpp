@@ -85,7 +85,6 @@ void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
         
         shirt.setTexture(texture);
     
-        std::cout<< "SHIRT TYPE: " << myCharacter.getShirtType() << std::endl;
         shirt.setTextureRect(sf::IntRect(2*grid_size,
                                           myCharacter.getShirtType()*grid_size,
                                           5*grid_size,

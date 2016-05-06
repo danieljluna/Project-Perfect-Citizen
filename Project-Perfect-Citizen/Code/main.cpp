@@ -130,6 +130,8 @@ int main(int argc, char** argv) {
     AudioQueue audiotest(5);
     audiotest.addBgm("SoundTrack_Extraction.ogg");
     audiotest.playBgm();
+
+
     
     ///////////// Load Spritesheets/Textures/Background Images ////////
     sf::Sprite playerWallpaper;
@@ -229,7 +231,7 @@ int main(int argc, char** argv) {
 
 	//Player Desktop
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Saves/Desktop1.ini", std::ifstream::in);
 	Desktop playerDesktop;
 	desktopFileInput >> playerDesktop;
 	desktopFileInput.close();
@@ -237,7 +239,7 @@ int main(int argc, char** argv) {
     Logger::startTimer("playerDesktop");
     
     World::setCurrDesktop(playerDesktop);
-    runPlayerDesktop(playerDesktop);
+    runTargetDesktop(playerDesktop);
 	World::runCurrDesktop();
     
     Logger::endTimer("playerDesktop");
