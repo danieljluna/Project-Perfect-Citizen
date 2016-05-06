@@ -13,8 +13,6 @@ FloppyRenderComponent::FloppyRenderComponent(sf::Image& image) : floppyImage(ima
     this->staticBox = new sf::Sprite();
     this->texture = new sf::Texture();
     
-    
-    
     /* Check that the file exists in the path */
     if (!texture->loadFromImage(image, sf::IntRect(0,0,2*size,5*size)))
         std::exit(-1);
@@ -24,12 +22,10 @@ FloppyRenderComponent::FloppyRenderComponent(sf::Image& image) : floppyImage(ima
     staticBox->setPosition(800, 32);
     staticBox->setScale(0.75f, 0.75f);
     
-    
     xIndex = 0;
     yIndex = 1;
     loop = -1;
     rectSourceSprite = new sf::IntRect(xIndex*size, yIndex*size, size, size);
-    rectSourceSprite2 = new sf::IntRect(xIndex*size+size, yIndex*size, size, size);
     
     sprite->setTexture(*texture);
     sprite->setTextureRect(*rectSourceSprite);
@@ -84,9 +80,20 @@ void FloppyRenderComponent::setEmotion(int emote) {
 
 void FloppyRenderComponent::animate() {
     
-    std::cout << "WERE HERE" << std::endl;
+   /*  std::cout << "WERE HERE" << std::endl;
     
-   /* if (loop == -1) {
+    if (_willAnimate) {
+        if (rectSourceSprite->left == 128) {
+            rectSourceSprite->left = 0;
+        } else
+            rectSourceSprite->left += size;
+        
+        texture->loadFromImage(floppyImage, *rectSourceSprite);
+        sprite->setTexture(*texture);
+    }
+    
+    
+   if (loop == -1) {
         texture->loadFromImage(floppyImage, *rectSourceSprite);
         sprite->setTexture(*texture);
     } else {
@@ -95,7 +102,7 @@ void FloppyRenderComponent::animate() {
     }*/
    
     
-    loop = -loop;
+   // loop = -loop;
 
 
     //setEmotion(emotion);
