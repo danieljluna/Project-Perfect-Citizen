@@ -422,6 +422,8 @@
 		E9F12D871CDC697100B0A152 /* WindowInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F12D501CDC697100B0A152 /* WindowInterface.cpp */; };
 		E9F12D881CDC697100B0A152 /* WindowLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F12D521CDC697100B0A152 /* WindowLogger.cpp */; };
 		E9F12D891CDC697100B0A152 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F12D541CDC697100B0A152 /* World.cpp */; };
+		E9FF5ABA1CDD38A100BB3791 /* Therapy_Journal_#1.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9FF5AB91CDD38A100BB3791 /* Therapy_Journal_#1.txt */; };
+		E9FF5ABC1CDD42D100BB3791 /* Therapy_Journal_#2.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9FF5ABB1CDD42D100BB3791 /* Therapy_Journal_#2.txt */; };
 		E9FFE8491CDBE325001C252C /* Note_to_Voyeur_#5.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9FFE8481CDBE325001C252C /* Note_to_Voyeur_#5.txt */; };
 /* End PBXBuildFile section */
 
@@ -969,6 +971,8 @@
 		E9F12D531CDC697100B0A152 /* WindowLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowLogger.h; sourceTree = "<group>"; };
 		E9F12D541CDC697100B0A152 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		E9F12D551CDC697100B0A152 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		E9FF5AB91CDD38A100BB3791 /* Therapy_Journal_#1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Therapy_Journal_#1.txt"; sourceTree = "<group>"; };
+		E9FF5ABB1CDD42D100BB3791 /* Therapy_Journal_#2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Therapy_Journal_#2.txt"; sourceTree = "<group>"; };
 		E9FFE8481CDBE325001C252C /* Note_to_Voyeur_#5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Note_to_Voyeur_#5.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1465,6 +1469,8 @@
 				E98F69521CDD11810022627E /* Sharp_in_Endzone.jpg */,
 				E98F69531CDD11810022627E /* Tensions_Rise_as_Voting_Day_Looms.jpg */,
 				E98F69541CDD11810022627E /* Vincent_Sharp_Wins_Mayoral_Standoff.jpg */,
+				E9FF5AB91CDD38A100BB3791 /* Therapy_Journal_#1.txt */,
+				E9FF5ABB1CDD42D100BB3791 /* Therapy_Journal_#2.txt */,
 			);
 			path = Desktop3;
 			sourceTree = "<group>";
@@ -1817,6 +1823,7 @@
 				E9AA74B51CD6C47500ABEDBC /* Van_Gogh_Starry_Night.jpg in Resources */,
 				E9AA74671CD6C47500ABEDBC /* a.jpg in Resources */,
 				E94885DD1CC6F3F600DFC68A /* Doubt3.jpg in Resources */,
+				E9FF5ABA1CDD38A100BB3791 /* Therapy_Journal_#1.txt in Resources */,
 				E98F696E1CDD11D30022627E /* playerDesktop.ini in Resources */,
 				E94885E71CC6F3F600DFC68A /* Family_Tree.txt in Resources */,
 				E9AA74831CD6C47500ABEDBC /* k.jpg in Resources */,
@@ -1991,6 +1998,7 @@
 				E9F12D621CDC697100B0A152 /* Notification_New.wav in Resources */,
 				E94885AD1CC6F3F600DFC68A /* 3-29-12-184.jpg in Resources */,
 				E9AA747E1CD6C47500ABEDBC /* Gogh_Chambre_Arles.jpg in Resources */,
+				E9FF5ABC1CDD42D100BB3791 /* Therapy_Journal_#2.txt in Resources */,
 				E9AA746B1CD6C47500ABEDBC /* blueprints.jpg in Resources */,
 				E94886061CC6F3F600DFC68A /* Redwood_High_School,_Larkspur,_California.jpg in Resources */,
 				E948860A1CC6F3F600DFC68A /* rubidouxclassroom.jpg in Resources */,

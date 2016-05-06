@@ -1,5 +1,167 @@
 {
     "Email": {
-    
+        "Email_1": {
+            "Visible" : "1",
+            "To" : "Vincent Sharp",
+            "From" : "Will Shaffer",
+            "Subject" : "Tough News [5 days ago]",
+            "Body" :"Vincent,
+            
+    Take this with a grain of salt, but it looks
+    like the latest polls have us down 7% vs.
+    McConnelly. We’ve been campaigning hard all
+    season, and I’m not sure what to make of this.
+    Don’t let it get to you though sir, these
+    sorts of predictive numbers aren’t always on
+    the mark.
+            
+    - Will Shaffer
+            
+    Chief of Staff
+    Sharp Senatorial Campaign"
+        },
+        "Email_2": {
+            "Visible" : "1",
+            "To" : "Vincent Sharp",
+            "From" : "Tamara Lang",
+            "Subject" : "Reminder! High Tension Environments and Dealing with Stress [4 days ago]",
+            "Body" :"Hello Vincent,
+            
+    I understand we’ve reached the fever pitch of
+    your campaign. And that would align with the
+    episodes of anxiety you contacted me about.
+            
+    Stress can be a difficult thing to navigate,
+    especially when one is being thrust into the
+    public eye every moment expected to give off
+    nothing but confidence. In the coming days
+    you’ll likely not have the time to speak
+    confidentially with me, or with any other
+    professional. But that doesn’t mean you cannot
+    be helped through these attacks.
+            
+    One exercise I highly recommend whenever
+    you’re getting short of breath, or beginning
+    to feel negative emotions building up is to
+    write it all down.
+            
+    Start a journal. Put down what you feel. Allow
+    yourself the luxury of reflecting on your
+    thoughts and emotions after the fact.
+            
+    I believe doing this will help you cope.
+    -Tamara Lang
+            
+    PhD Psychoanalyst/Therapist"
+        },
+        "Email_3": {
+            "Visible" : "1",
+            "To" : "Vincent Sharp",
+            "From" : "Alex Wood",
+            "Subject" : "Nice Job Vincent! [2 days ago]",
+            "Body" :"Wooooooooo yeah!
+            
+    Now we can finally sleep.
+            
+    But seriously, this is incredible! I didn’t
+    think we’d beat McConnelly. I kept imagining
+    we’d have to wait another six years for this!
+                
+    - Alex
+                
+    State Director
+    Sharp Senatorial Campaign"
+        },
+        "Email_4": {
+            "Visible" : "1",
+            "To" : "Vincent Sharp",
+            "From" : "Melanie Harris",
+            "Subject" : "What a Landslide Win! [2 days ago]",
+            "Body" :"
+    You did it! But it’s no surprise to me that we
+    won.
+            
+    You were the best candidate by a mile!
+            
+    Regardless, well done.
+            
+    Best,
+    Melanie
+            
+    P.S. LET’S PARTY!!
+            
+    Press Secretary
+    Sharp Senatorial Campaign"
+        },
+        "Email_5": {
+            "Visible" : "1",
+            "To" : "Vincent Sharp",
+            "From" : "Will Shaffer - Chief of Staff",
+            "Subject" : "Congrats! We Won! [2 days ago]",
+            "Body" :"Vince!
+            
+    Can you believe it?! We pulled it off! We came
+    from behind and won this god damn race!!
+            
+    Congrats man. We’ve made it!
+            
+    It’s time to celebrate!
+            
+    Will Shaffer
+            
+    Chief of Staff
+    Sharp Senatorial Campaign"
+        },
+        "Email_6": {
+            "Visible" : "1",
+            "To" : "Vincent Sharp",
+            "From" : "Senatorial Computer Security",
+            "Subject" : "Update [yesterday]",
+            "Body" :"Dear Senator Sharp,
+            
+    Congratulations on attaining your new seat
+    within Congress.
+            
+    Given the status of your new work, you’ll be
+    privy to highly sensitive material. As you
+    know in recent months there’s been some stir
+    over email security, and in order to keep your
+    files, and our governments information in the
+    right hands, we ask that you use our secure
+    encrypted messaging system: Albatross.
+            
+    It’s essentially the same as your email
+    client, except that it’s communications stay
+    within the Senate networks, and thus are safer
+    from outside meddling.
+            
+    Thank you for your compliance."
+        },
+        "Email_7": {
+            "Visible" : "1",
+            "To" : "Vincent Sharp <vincentsharp@senate.gov>",
+            "From" : "AudreyHorne@FEC.gov",
+            "Subject" : "Federal Election Commission Audit [4hrs ago]",
+            "Body" :"Hi Vincent,
+            
+    I’m sorry to bear such poor news so soon after
+    you won your seat. But this is urgent.
+            
+    In fact, I could lose my job for telling you
+    this, but I owe you, so here it is:
+                
+    Within 48 hours the Federal Election
+    Commission will open a public investigation
+    against you, under the suspicion that you won
+    the election through fraudulent means.
+                
+    I don’t have anything solid, but by the looks
+    of things you are about to be in hot water.
+                
+    Good luck,
+    Audrey Horne
+                
+    FEC Analytics Assistant Manager"
+        },
     }
 }
