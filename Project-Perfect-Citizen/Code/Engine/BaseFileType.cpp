@@ -70,7 +70,7 @@ void BaseFileType::readFile(ppc::Desktop& desk, sf::Image& im, std::string filen
 	switch (this->filetype) {
 	case FileType::File:
 		FileWindow = new ppc::Window(500, 500, sf::Color(255, 255, 255));
-		spawnFile(FileWindow, FileWindow->getInputHandler(), *desk.getNodeState(), im, rand() % 500, rand() % 400,
+		spawnFile(FileWindow, FileWindow->getInputHandler(), *desk.getNodeState(), im, rand() % 500 + 25, rand() % 400 + 25,
                   filename, path);
 		desk.addWindow(FileWindow);
 		std::cout << path << std::endl;
