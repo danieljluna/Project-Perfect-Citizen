@@ -310,7 +310,7 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         enable = ((ev.type == ev.NetworkType) &&
                   (ev.network.type == ev.network.Center));
         if (enable) {
-            ev.network.net->checkCenterEquality(*World::getCurrDesktop().getSolVec()[1]);
+            enable = ev.network.net->checkCenterEquality(*World::getCurrDesktop().getSolVec()[1]);
         }
         break;
 	case FloppyInputComponent::Submission:
@@ -330,13 +330,13 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 	case FloppyInputComponent::Explorer:
         enable = ((ev.type == ev.OpenType) &&
             (ev.open.winType == ev.open.Folder) &&
-            (ev.open.file->getName().compare("Terrorism")) &&
+            (!ev.open.file->getName().compare("Terrorism")) &&
             (ev.open.success == false));
         break;
 	case FloppyInputComponent::Passwords:
         enable = ((ev.type == ev.OpenType) &&
             (ev.open.winType == ev.open.Folder) &&
-            (ev.open.file->getName().compare("Terrorism")) &&
+            (!ev.open.file->getName().compare("Terrorism")) &&
             (ev.open.success == true));
         break;
 	case FloppyInputComponent::SuspFolder:
