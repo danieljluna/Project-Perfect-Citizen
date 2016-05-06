@@ -424,6 +424,9 @@
 		E9F12D891CDC697100B0A152 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F12D541CDC697100B0A152 /* World.cpp */; };
 		E9FF5ABA1CDD38A100BB3791 /* Therapy_Journal_#1.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9FF5AB91CDD38A100BB3791 /* Therapy_Journal_#1.txt */; };
 		E9FF5ABC1CDD42D100BB3791 /* Therapy_Journal_#2.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9FF5ABB1CDD42D100BB3791 /* Therapy_Journal_#2.txt */; };
+		E9FF5ABE1CDD4D8500BB3791 /* Therapy_Journal_#3.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9FF5ABD1CDD4D8500BB3791 /* Therapy_Journal_#3.txt */; };
+		E9FF5AC01CDD4F5700BB3791 /* Albatross_Secure_Communications.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9FF5ABF1CDD4F5700BB3791 /* Albatross_Secure_Communications.txt */; };
+		E9FF5AC21CDD507F00BB3791 /* Albatross_Secure_Communications_2.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9FF5AC11CDD507F00BB3791 /* Albatross_Secure_Communications_2.txt */; };
 		E9FFE8491CDBE325001C252C /* Note_to_Voyeur_#5.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9FFE8481CDBE325001C252C /* Note_to_Voyeur_#5.txt */; };
 /* End PBXBuildFile section */
 
@@ -973,6 +976,9 @@
 		E9F12D551CDC697100B0A152 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		E9FF5AB91CDD38A100BB3791 /* Therapy_Journal_#1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Therapy_Journal_#1.txt"; sourceTree = "<group>"; };
 		E9FF5ABB1CDD42D100BB3791 /* Therapy_Journal_#2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Therapy_Journal_#2.txt"; sourceTree = "<group>"; };
+		E9FF5ABD1CDD4D8500BB3791 /* Therapy_Journal_#3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Therapy_Journal_#3.txt"; sourceTree = "<group>"; };
+		E9FF5ABF1CDD4F5700BB3791 /* Albatross_Secure_Communications.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Albatross_Secure_Communications.txt; sourceTree = "<group>"; };
+		E9FF5AC11CDD507F00BB3791 /* Albatross_Secure_Communications_2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Albatross_Secure_Communications_2.txt; sourceTree = "<group>"; };
 		E9FFE8481CDBE325001C252C /* Note_to_Voyeur_#5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Note_to_Voyeur_#5.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1471,6 +1477,9 @@
 				E98F69541CDD11810022627E /* Vincent_Sharp_Wins_Mayoral_Standoff.jpg */,
 				E9FF5AB91CDD38A100BB3791 /* Therapy_Journal_#1.txt */,
 				E9FF5ABB1CDD42D100BB3791 /* Therapy_Journal_#2.txt */,
+				E9FF5ABD1CDD4D8500BB3791 /* Therapy_Journal_#3.txt */,
+				E9FF5ABF1CDD4F5700BB3791 /* Albatross_Secure_Communications.txt */,
+				E9FF5AC11CDD507F00BB3791 /* Albatross_Secure_Communications_2.txt */,
 			);
 			path = Desktop3;
 			sourceTree = "<group>";
@@ -1956,6 +1965,7 @@
 				E94885B81CC6F3F600DFC68A /* 7-24-12-052.jpg in Resources */,
 				E94885BC1CC6F3F600DFC68A /* 8-9-11-0426.jpg in Resources */,
 				E948863C1CC6F42A00DFC68A /* Email0.json in Resources */,
+				E9FF5AC21CDD507F00BB3791 /* Albatross_Secure_Communications_2.txt in Resources */,
 				E94885B11CC6F3F600DFC68A /* 4-14-09-462.jpg in Resources */,
 				E94885D21CC6F3F600DFC68A /* Crowd31.jpg in Resources */,
 				E94885AC1CC6F3F600DFC68A /* 2-23-2011-213.jpg in Resources */,
@@ -2010,9 +2020,11 @@
 				E9AA74801CD6C47500ABEDBC /* h.jpg in Resources */,
 				E94885CF1CC6F3F600DFC68A /* Crowd21.jpg in Resources */,
 				E9AA74B91CD6C47500ABEDBC /* vgboard.jpg in Resources */,
+				E9FF5AC01CDD4F5700BB3791 /* Albatross_Secure_Communications.txt in Resources */,
 				E94886571CC6F42A00DFC68A /* Windows_UI.png in Resources */,
 				E948864A1CC6F42A00DFC68A /* Face_Sheet.png in Resources */,
 				E94886521CC6F42A00DFC68A /* Teacher_Wallpaper.png in Resources */,
+				E9FF5ABE1CDD4D8500BB3791 /* Therapy_Journal_#3.txt in Resources */,
 				E9AA74AC1CD6C47500ABEDBC /* ThRoE.jpg in Resources */,
 				E94885F51CC6F3F600DFC68A /* maxresdefault.jpg in Resources */,
 				E948864C1CC6F42A00DFC68A /* Icon_Sheet.png in Resources */,
