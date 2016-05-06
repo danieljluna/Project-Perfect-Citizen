@@ -65,6 +65,7 @@ void ppc::NodeState::setCwd(ppc::BaseFileType* newCwd)
     ev.type = ev.OpenType;
     ev.open.winType = ev.open.Folder;
     ev.open.file = newCwd;
+    ev.open.success = true;
     onOpen_.sendEvent(ev);
 }
 
@@ -78,6 +79,7 @@ void ppc::NodeState::readFile(const std::string& filename) {
     ev.type = ev.OpenType;
     ev.open.winType = ev.open.File;
     ev.open.file = file;
+    ev.open.success = true;
     onOpen_.sendEvent(ev);
 }
 
