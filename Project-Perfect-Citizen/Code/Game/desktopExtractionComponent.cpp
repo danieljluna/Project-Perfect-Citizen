@@ -25,8 +25,11 @@
 
 using namespace ppc;
 
-desktopExtractionComponent::desktopExtractionComponent(NodeState ft) : fileTree_(ft){
-    
+desktopExtractionComponent::desktopExtractionComponent(NodeState& ft) : fileTree_(ft){
+    BaseObserver* subHead = fileTree_.onOpen().getObserverHead();
+    if (subHead != nullptr) {
+        fileTree_.onOpen().removeObserver(subHead);
+    }
 }
 
 Json::Value desktopExtractionComponent::parseDesktopAsJson(std::string file, std::string obj) {

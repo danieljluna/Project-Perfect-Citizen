@@ -25,7 +25,7 @@ namespace ppc {
         ///////////////////////////////////////////////////////////////////
         ///@brief constructor for crearting desktop data
         ///////////////////////////////////////////////////////////////////
-        desktopExtractionComponent(NodeState fileTree_);
+        desktopExtractionComponent(NodeState& fileTree_);
         
         ////////////////////////////////////////////////////////////////////
         /// @brief Builds Json::Value Object containing Desktop content and

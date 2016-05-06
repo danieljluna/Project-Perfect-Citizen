@@ -66,8 +66,6 @@ void spawnStartButton2(ppc::Entity& entityToModify, Desktop& d, FloppyInputCompo
     builder.setLabelFont(f);
     builder.setLabelSize(size);
     builder.setSpriteSheet(spritesheet);
-    
-
     createWithEventFunc<FloppyInputComponent>(builder, entityToModify, flop, &(ppc::displayFloppy));
     
 }
@@ -92,18 +90,17 @@ void spawnSuspicionButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHan
                                  
                                  
 
-void spawnNetworkOkayButton(ppc::Network* nw, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size, NetworkCheckFunctor* ncf) {
+void spawnNetworkOkayButton(ppc::Network* nw, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size, NetworkCheckFunctor* ncf,
+	sf::Font f) {
 	
 	ButtonBuilder builder;
 	builder.setButtonPosition(sf::Vector2f(x, y));
 	builder.setInputHandle(ih);
 	builder.setSize(size);
-	builder.setSpritesByIndicies(0, 2, 2, 1);
-	builder.setLabelMessage("");
-    sf::Font f;
     builder.setLabelFont(f);
-	builder.setLabelSize(20);
+	builder.setLabelSize(15);
 	builder.setSpriteSheet(spritesheet);
+	builder.setLabelMessage("SUBMIT");
 
 	createWithEventFunc<NetworkCheckFunctor>(builder, entityToModify, ncf, &(ppc::runSubmitCheck));
 	

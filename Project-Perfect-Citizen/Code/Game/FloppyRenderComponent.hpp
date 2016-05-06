@@ -18,8 +18,10 @@ namespace ppc {
         sf::Sprite* staticBox;
         sf::Texture* texture;
         sf::IntRect* rectSourceSprite;
+        sf::IntRect* rectSourceSprite2;
         sf::Image& floppyImage;
         int emotion;
+        int loop;
         int xIndex, yIndex;
         bool _willAnimate;
         static const int size = 128;

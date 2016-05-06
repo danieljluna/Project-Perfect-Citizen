@@ -325,7 +325,6 @@
     <ClCompile Include="Code\Game\notificationButtonComponent.cpp">
       <Filter>Sources\Game Specific\Button</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\notifcationRenderComponent.cpp" />
     <ClCompile Include="Code\Engine\NotificationObserver.cpp">
       <Filter>Sources\Engine\Observer System</Filter>
     </ClCompile>
@@ -335,7 +334,6 @@
     <ClCompile Include="Code\Game\notifcationRenderComponent.cpp">
       <Filter>Sources\Game Specific</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\createTutorial.cpp" />
     <ClCompile Include="Code\Engine\frontTopObserver.cpp">
       <Filter>Sources\Engine\Observer System</Filter>
     </ClCompile>
@@ -347,6 +345,12 @@
     </ClCompile>
     <ClCompile Include="Code\Engine\SubjectObsvr.cpp">
       <Filter>Sources\Engine\Observer System</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\createTutorial.cpp">
+      <Filter>Sources\Game Specific\Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\notifcationRenderComponent.cpp">
+      <Filter>Sources\Game Specific\Icons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -721,6 +725,9 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\SubjectObsvr.h">
       <Filter>Headers\Engine\Observer System\Observers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\Transition.h">
+      <Filter>Headers\Engine\World</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

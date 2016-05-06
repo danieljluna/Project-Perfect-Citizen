@@ -39,7 +39,7 @@ characterRender::characterRender(sf::Image& image) {
         sf::IntRect area(0 * grid_size,
                          0 * grid_size,
                          12 * grid_size,
-                         20 * grid_size);
+                         45 * grid_size);
         if (!texture.loadFromImage(image, area)) {
             assert("COULD NOT LOAD CHARACTER RENDER TEXTURE.");
         }
@@ -84,6 +84,7 @@ void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
         ////////////////////////////////////
         
         shirt.setTexture(texture);
+    
         shirt.setTextureRect(sf::IntRect(2*grid_size,
                                           myCharacter.getShirtType()*grid_size,
                                           5*grid_size,

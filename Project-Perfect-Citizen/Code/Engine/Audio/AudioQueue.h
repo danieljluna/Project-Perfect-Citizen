@@ -48,6 +48,8 @@ public:
 	int addSound(std::string name, std::string filename);
 	bool addBgm(std::string filename);
 	void playBgm();
+	void loopBgm();
+	void stopBgmLoop();
 };
 
 

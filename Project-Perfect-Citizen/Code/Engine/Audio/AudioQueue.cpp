@@ -119,4 +119,15 @@ void ppc::AudioQueue::playBgm()
 	bgm.play();
 }
 
+void ppc::AudioQueue::loopBgm()
+{
+	bgm.setLoop(true);
+}
+
+void ppc::AudioQueue::stopBgmLoop()
+{
+	bgm.setLoop(false);
+}
+
+
 
