@@ -18,7 +18,7 @@ void ppc::createReportScreen(Desktop &d, World::ReportList report) {
 	TextDisplayBuilder reportText;
 	reportText.setColor(sf::Color::Red);
 	reportText.setFont(World::getFont(World::FontList::Consola));
-	reportText.setPosition({ 10,10 });
+	reportText.setPosition({ 100,100 });
 	reportText.setSize(14);
 	reportText.setString(content);
 

@@ -724,7 +724,7 @@
     </ClInclude>
     <ClInclude Include="Code\Game\CreateReportScreen.h">
       <Filter>Headers\Game Specific\Reports</Filter>
-    </ClCompile>
+    </ClInclude>
     <ClInclude Include="Code\Engine\SubjectObsvr.h">
       <Filter>Headers\Engine\Observer System\Observers</Filter>
     </ClInclude>
