@@ -103,6 +103,8 @@ namespace ppc {
 
 		static void startLoading();
 
+        static bool isLoading() { return isLoading_; };
+
 		static void setLoading(float);
 
 		static void drawLoading();
