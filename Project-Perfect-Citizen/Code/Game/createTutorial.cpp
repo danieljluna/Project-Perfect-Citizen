@@ -124,7 +124,7 @@ void ppc::createTutorial(Desktop & dt) {
     //String Up Floppy------------------------------
 
     //Connect Pipeline
-    BaseObserver* tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn);
+    BaseObserver* tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dynamic_cast<iconInputComponent*>(graphIcon.getComponent(2))->onOpen().addObserver(tempObsvr);
 
     //Conect FloppyEnd
