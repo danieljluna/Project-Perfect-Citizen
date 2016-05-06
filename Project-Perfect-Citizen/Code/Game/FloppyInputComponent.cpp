@@ -208,7 +208,9 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             //If we just ended the Welcome
             if (ev.floppy.sequence == 2) {
                 World::getCurrDesktop().incrementNetVecIndex();
-            } 
+            } else if (ev.floppy.sequence == FloppyInputComponent::Feedback) {
+                World::quitDesktop();
+            }
             if (FloppyInputComponent::floppyDictionary.at(ev.floppy.sequence).autoShift) {
                 wasSummoned = true;
                 ev.floppy.frame = 0;
@@ -317,7 +319,7 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 		enable = true;
 		break;
 	case FloppyInputComponent::Feedback:
-        World::quitDesktop();
+        enable = true;
         break;
 	case FloppyInputComponent::DesktopStart:
         enable = ((ev.type == ev.OpenType) &&
@@ -343,6 +345,7 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         enable = ((ev.type == ev.OpenType) &&
             (ev.open.winType == ev.open.Folder) &&
             (!ev.open.file->getName().compare("Schematics")));
+        break;
 	case FloppyInputComponent::SuspFolder:
         enable = ((ev.type == ev.SubmissionType) &&
             (ev.submission.type == ev.submission.Mark));
