@@ -310,17 +310,35 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         break;
 	case FloppyInputComponent::DesktopStart:
         enable = ((ev.type == ev.OpenType) &&
-            (ev.open.Email));
+            (ev.open.winType == ev.open.Email));
         break;
 	case FloppyInputComponent::Email:
         enable = ((ev.type == ev.OpenType) &&
-            (ev.open.Explorer));
+            (ev.open.winType == ev.open.HardDrive));
         break;
 	case FloppyInputComponent::Explorer:
+        enable = ((ev.type == ev.OpenType) &&
+            (ev.open.winType == ev.open.Folder) &&
+            (ev.open.success == false));
+        break;
 	case FloppyInputComponent::Passwords:
+        enable = ((ev.type == ev.OpenType) &&
+            (ev.open.winType == ev.open.Folder) &&
+            (ev.open.success == true));
+        break;
 	case FloppyInputComponent::SuspFolder:
+        enable = ((ev.type == ev.SubmissionType) &&
+            (ev.submission.type == ev.submission.Mark));
+        break;
 	case FloppyInputComponent::Scanning:
+        enable = ((ev.type == ev.SubmissionType) &&
+            (ev.submission.type == ev.submission.Scan));
+        break;
 	case FloppyInputComponent::DeskSubmission:
+        enable = ((ev.type == ev.SubmissionType) &&
+            (ev.submission.type == ev.submission.Submit) &&
+            (ev.submission.count > 0));
+        break;
 	case FloppyInputComponent::Wrapup:
         enable = true;
         break;
