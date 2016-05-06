@@ -316,7 +316,8 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         }
         break;
 	case FloppyInputComponent::Submission:
-		enable = true;
+        enable = ((ev.type == ev.NetworkType) &&
+            (ev.network.type == ev.network.Submit));
 		break;
 	case FloppyInputComponent::Feedback:
         enable = true;
