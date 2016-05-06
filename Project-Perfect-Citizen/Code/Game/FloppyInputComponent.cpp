@@ -285,7 +285,8 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             (ev.network.v != -1));
         break;
 	case FloppyInputComponent::TempFix:
-        enable = (World::getCurrDesktop().getNetVecIndex() == 1);
+        enable = ((ev.type == ev.OpenType) &&
+            (ev.open.winType == ev.open.Pipeline));
 		break;
 	case FloppyInputComponent::Goal:
         enable = (ev.type == ev.NetworkType);
@@ -323,11 +324,13 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 	case FloppyInputComponent::Explorer:
         enable = ((ev.type == ev.OpenType) &&
             (ev.open.winType == ev.open.Folder) &&
+            (ev.open.file->getName().compare("Terrorism")) &&
             (ev.open.success == false));
         break;
 	case FloppyInputComponent::Passwords:
         enable = ((ev.type == ev.OpenType) &&
             (ev.open.winType == ev.open.Folder) &&
+            (ev.open.file->getName().compare("Terrorism")) &&
             (ev.open.success == true));
         break;
 	case FloppyInputComponent::SuspFolder:
