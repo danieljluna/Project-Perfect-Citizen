@@ -10,6 +10,8 @@
 
 using namespace ppc;
 
+const float thickness = 3.f;
+
 Network::Network(size_t size) {
     size_ = size;
     edgeMat_ = new Edge*[size * size];
@@ -323,11 +325,56 @@ void Network::draw(sf::RenderTarget& target,
 	//sf::CircleShape vertShape(vertSize_);
 	//vertShape.setOrigin(vertSize_, vertSize_);
 
-    //Define vars for lines
+	unsigned int lineVerts = 2 * edgeCount_;
+	//unsigned int lineVerts = 4;
+	sf::VertexArray edgeLines(sf::Quads, lineVerts);
+	unsigned int linesDrawn = 0;
+	
+	for (size_t i = 0; i < size_; ++i) {
+		for (size_t j = i + 1; j < size_; ++j) {
+			if (isAdjacent(i, j)) { //draw it
+				size_t edgeIndex = getEdgeIndex(i, j);
+
+				sf::Vector2f point1 = vertexData_[i].getPosCenter();
+				sf::Vector2f point2 = vertexData_[j].getPosCenter(); 
+
+				sf::Vector2f direction = point2 - point1;
+				sf::Vector2f unitDirection = direction / std::sqrt(direction.x*direction.x + direction.y*direction.y);
+				sf::Vector2f unitPerpendicular(-unitDirection.y, unitDirection.x);
+
+				sf::Vector2f offset = (thickness / 2.f)*unitPerpendicular;
+
+				edgeLines[linesDrawn * 4].position = point1 + offset;
+				edgeLines[linesDrawn * 4 + 1].position = point2 + offset;
+				edgeLines[linesDrawn * 4 + 2].position = point2 - offset;
+				edgeLines[linesDrawn * 4 + 3].position = point1 - offset;
+
+				edgeLines[linesDrawn * 4].color = edgeMat_[edgeIndex]->getColor();
+				edgeLines[linesDrawn * 4 + 1].color = edgeMat_[edgeIndex]->getColor();
+				edgeLines[linesDrawn * 4 + 2].color = edgeMat_[edgeIndex]->getColor();
+				edgeLines[linesDrawn * 4 + 3].color = edgeMat_[edgeIndex]->getColor();
+
+				//Adjust the bounds of the edge based on
+				//where it is drawn.
+				edgeMat_[edgeIndex]->constructBounds(
+					vertexData_[i].getPosCenter(),
+					vertexData_[j].getPosCenter());
+				
+				linesDrawn++;
+			}
+		}
+	}
+
+	target.draw(edgeLines, states);
+
+	/*
+	Thin lines -- Deprecated
+
+	//Define vars for lines
     unsigned int lnVerts = 2 * edgeCount_;
 	sf::VertexArray edgeLines(sf::Lines, 2 * edgeCount_);
     unsigned int lnsDrawn = 0;
-	
+
     for (size_t i = 0; i < size_; ++i) {
 
         //For each edge leaving this Vertex
@@ -356,6 +403,7 @@ void Network::draw(sf::RenderTarget& target,
 
 	//Draw the edges
 	target.draw(edgeLines, states);
+	*/
 
 	//For each Vertex
 	for (size_t i = 0; i < size_; ++i) {

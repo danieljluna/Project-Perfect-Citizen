@@ -7,7 +7,7 @@
 
 namespace ppc {
 
-const sf::Color selRed = { 250, 125, 125 };
+const sf::Color selRed = { 255, 158, 158 };
 const sf::Color selBlack = { 171, 171, 171 };
 const sf::Color selGreen = { 138, 255, 173 };
 
