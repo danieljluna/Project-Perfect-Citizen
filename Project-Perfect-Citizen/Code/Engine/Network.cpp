@@ -3,6 +3,7 @@
 
 
 #include <cassert>
+#include <cmath>
 
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>

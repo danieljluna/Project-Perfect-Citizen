@@ -92,6 +92,8 @@ Network* PipelineLevelBuilder::buildTutorialTwo() {
 
     myNetwork->setCenter(3);
 
+    myNetwork->setCenter(3);
+
 	return myNetwork;
 }
 
