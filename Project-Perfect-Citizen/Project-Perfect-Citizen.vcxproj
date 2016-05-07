@@ -69,6 +69,7 @@
     <ClCompile Include="Code\Game\createDesktop.cpp" />
     <ClCompile Include="Code\Game\createIcon.cpp" />
     <ClCompile Include="Code\Game\createListElement.cpp" />
+    <ClCompile Include="Code\Game\CreateReportScreen.cpp" />
     <ClCompile Include="Code\Game\createTutorial.cpp" />
     <ClCompile Include="Code\Game\createWindow.cpp" />
     <ClCompile Include="Code\Game\Database.cpp" />
@@ -202,6 +203,7 @@
     <ClInclude Include="Code\Game\createDesktop.h" />
     <ClInclude Include="Code\Game\createIcon.h" />
     <ClInclude Include="Code\Game\createListElement.h" />
+    <ClInclude Include="Code\Game\CreateReportScreen.h" />
     <ClInclude Include="Code\Game\createTutorial.h" />
     <ClInclude Include="Code\Game\createWindow.h" />
     <ClInclude Include="Code\Game\Database.h" />

@@ -28,6 +28,13 @@ namespace ppc {
 			FontCount
 		};
 
+		enum ReportList {
+			DE1A = 0, //Guilty
+			DE1B, //NOT Guilty
+			DE2,
+			DE3
+		};
+
 		///////////////////////////////////////////////////////////////
 		// Ctors
 		///////////////////////////////////////////////////////////////
@@ -86,6 +93,8 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////
 		static sf::Font& getFont(FontList f);
 
+		static std::string getReportFile(ReportList rl);
+
         static void restartDesktop();
 
         static void quitDesktop();
@@ -122,9 +131,21 @@ namespace ppc {
 
 		static std::map<FontList, sf::Font> fontMap_;
 
+		static std::map<ReportList, std::string> reportListMap_;
+
 		static bool isLoading_;
 
 		static sf::RectangleShape tempLoadScreen_;
+        
+        static sf::Image loadImage_;
+        
+        static sf::Texture loadTexture_;
+        
+        static sf::Sprite loadBar_;
+        
+        static sf::Sprite loadBarBorder_;
+        
+        static sf::Sprite loadingDecal_;
 
 		static sf::RectangleShape tempLoadBar_;
 
