@@ -365,19 +365,6 @@
 		E9A137A41CDD9E65009A8BE1 /* x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A136751CDD9E65009A8BE1 /* x.jpg */; };
 		E9A137A51CDD9E65009A8BE1 /* y.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A136761CDD9E65009A8BE1 /* y.jpg */; };
 		E9A137A61CDD9E65009A8BE1 /* z.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A136771CDD9E65009A8BE1 /* z.jpg */; };
-		E9A137A71CDD9E65009A8BE1 /* 1967_Football_catch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A136791CDD9E65009A8BE1 /* 1967_Football_catch.jpg */; };
-		E9A137A81CDD9E65009A8BE1 /* Albatross_Secure_Communications.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A1367A1CDD9E65009A8BE1 /* Albatross_Secure_Communications.txt */; };
-		E9A137A91CDD9E65009A8BE1 /* Albatross_Secure_Communications_2.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A1367B1CDD9E65009A8BE1 /* Albatross_Secure_Communications_2.txt */; };
-		E9A137AA1CDD9E65009A8BE1 /* Ex-Mayor_Sharp_Runes_for_Senate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A1367C1CDD9E65009A8BE1 /* Ex-Mayor_Sharp_Runes_for_Senate.jpg */; };
-		E9A137AB1CDD9E65009A8BE1 /* Mayor_Sharp_Resigns_Amidst_Disaster.png in Resources */ = {isa = PBXBuildFile; fileRef = E9A1367D1CDD9E65009A8BE1 /* Mayor_Sharp_Resigns_Amidst_Disaster.png */; };
-		E9A137AC1CDD9E65009A8BE1 /* Mobile_vs_Redwood_'67.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A1367E1CDD9E65009A8BE1 /* Mobile_vs_Redwood_'67.jpg */; };
-		E9A137AD1CDD9E65009A8BE1 /* Senator_Elected_in_Suprise_Upheaval.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A1367F1CDD9E65009A8BE1 /* Senator_Elected_in_Suprise_Upheaval.jpg */; };
-		E9A137AE1CDD9E65009A8BE1 /* Sharp_in_Endzone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A136801CDD9E65009A8BE1 /* Sharp_in_Endzone.jpg */; };
-		E9A137AF1CDD9E65009A8BE1 /* Tensions_Rise_as_Voting_Day_Looms.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A136811CDD9E65009A8BE1 /* Tensions_Rise_as_Voting_Day_Looms.jpg */; };
-		E9A137B01CDD9E65009A8BE1 /* Therapy_Journal_#1.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A136821CDD9E65009A8BE1 /* Therapy_Journal_#1.txt */; };
-		E9A137B11CDD9E65009A8BE1 /* Therapy_Journal_#2.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A136831CDD9E65009A8BE1 /* Therapy_Journal_#2.txt */; };
-		E9A137B21CDD9E65009A8BE1 /* Therapy_Journal_#3.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A136841CDD9E65009A8BE1 /* Therapy_Journal_#3.txt */; };
-		E9A137B31CDD9E65009A8BE1 /* Vincent_Sharp_Wins_Mayoral_Standoff.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9A136851CDD9E65009A8BE1 /* Vincent_Sharp_Wins_Mayoral_Standoff.jpg */; };
 		E9A137B41CDD9E65009A8BE1 /* EngineSettings.ini in Resources */ = {isa = PBXBuildFile; fileRef = E9A136871CDD9E65009A8BE1 /* EngineSettings.ini */; };
 		E9A137B51CDD9E65009A8BE1 /* Project-Perfect-Citizen-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9A136881CDD9E65009A8BE1 /* Project-Perfect-Citizen-Info.plist */; };
 		E9A137B61CDD9E65009A8BE1 /* sampleReport.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9A1368A1CDD9E65009A8BE1 /* sampleReport.txt */; };
@@ -434,6 +421,28 @@
 		E9A137E91CDD9E65009A8BE1 /* micross.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9A136BE1CDD9E65009A8BE1 /* micross.ttf */; };
 		E9A137EA1CDD9E65009A8BE1 /* VT323-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9A136BF1CDD9E65009A8BE1 /* VT323-Regular.ttf */; };
 		E9A137EB1CDD9E65009A8BE1 /* Notification_Prompt.wav in Resources */ = {isa = PBXBuildFile; fileRef = E9A136C01CDD9E65009A8BE1 /* Notification_Prompt.wav */; };
+		E9EE724F1CDE80780085D033 /* 1967_Football_catch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9EE723B1CDE80780085D033 /* 1967_Football_catch.jpg */; };
+		E9EE72501CDE80790085D033 /* Albatross_Secure_Communications.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9EE723C1CDE80780085D033 /* Albatross_Secure_Communications.txt */; };
+		E9EE72511CDE80790085D033 /* Albatross_Secure_Communications_2.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9EE723D1CDE80780085D033 /* Albatross_Secure_Communications_2.txt */; };
+		E9EE72521CDE80790085D033 /* Baby_Rose.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9EE723E1CDE80780085D033 /* Baby_Rose.jpg */; };
+		E9EE72531CDE80790085D033 /* Bros.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9EE723F1CDE80780085D033 /* Bros.jpg */; };
+		E9EE72541CDE80790085D033 /* Brothers_in_Crime.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9EE72401CDE80780085D033 /* Brothers_in_Crime.jpg */; };
+		E9EE72551CDE80790085D033 /* Do_Not_Lose_This.png in Resources */ = {isa = PBXBuildFile; fileRef = E9EE72411CDE80780085D033 /* Do_Not_Lose_This.png */; };
+		E9EE72561CDE80790085D033 /* Ex-Mayor_Sharp_Runes_for_Senate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9EE72421CDE80780085D033 /* Ex-Mayor_Sharp_Runes_for_Senate.jpg */; };
+		E9EE72571CDE80790085D033 /* Last_Dance.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9EE72431CDE80780085D033 /* Last_Dance.jpg */; };
+		E9EE72581CDE80790085D033 /* Mayor_Sharp_Resigns_Amidst_Disaster.png in Resources */ = {isa = PBXBuildFile; fileRef = E9EE72441CDE80780085D033 /* Mayor_Sharp_Resigns_Amidst_Disaster.png */; };
+		E9EE72591CDE80790085D033 /* Mobile_vs_Redwood_'67.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9EE72451CDE80780085D033 /* Mobile_vs_Redwood_'67.jpg */; };
+		E9EE725A1CDE80790085D033 /* Reference.png in Resources */ = {isa = PBXBuildFile; fileRef = E9EE72461CDE80780085D033 /* Reference.png */; };
+		E9EE725B1CDE80790085D033 /* Rosemary.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9EE72471CDE80780085D033 /* Rosemary.jpg */; };
+		E9EE725C1CDE80790085D033 /* Senator_Elected_in_Suprise_Upheaval.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9EE72481CDE80780085D033 /* Senator_Elected_in_Suprise_Upheaval.jpg */; };
+		E9EE725D1CDE80790085D033 /* Sharp_in_Endzone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9EE72491CDE80780085D033 /* Sharp_in_Endzone.jpg */; };
+		E9EE725E1CDE80790085D033 /* Tensions_Rise_as_Voting_Day_Looms.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9EE724A1CDE80780085D033 /* Tensions_Rise_as_Voting_Day_Looms.jpg */; };
+		E9EE725F1CDE80790085D033 /* Therapy_Journal_#1.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9EE724B1CDE80780085D033 /* Therapy_Journal_#1.txt */; };
+		E9EE72601CDE80790085D033 /* Therapy_Journal_#2.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9EE724C1CDE80780085D033 /* Therapy_Journal_#2.txt */; };
+		E9EE72611CDE80790085D033 /* Therapy_Journal_#3.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9EE724D1CDE80780085D033 /* Therapy_Journal_#3.txt */; };
+		E9EE72621CDE80790085D033 /* Vincent_Sharp_Wins_Mayoral_Standoff.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9EE724E1CDE80780085D033 /* Vincent_Sharp_Wins_Mayoral_Standoff.jpg */; };
+		E9EE72641CDE80CE0085D033 /* Reference.png in Resources */ = {isa = PBXBuildFile; fileRef = E9EE72631CDE80CE0085D033 /* Reference.png */; };
+		E9EE72661CDE81480085D033 /* Lab3.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9EE72651CDE81480085D033 /* Lab3.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -925,19 +934,6 @@
 		E9A136751CDD9E65009A8BE1 /* x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = x.jpg; sourceTree = "<group>"; };
 		E9A136761CDD9E65009A8BE1 /* y.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = y.jpg; sourceTree = "<group>"; };
 		E9A136771CDD9E65009A8BE1 /* z.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = z.jpg; sourceTree = "<group>"; };
-		E9A136791CDD9E65009A8BE1 /* 1967_Football_catch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1967_Football_catch.jpg; sourceTree = "<group>"; };
-		E9A1367A1CDD9E65009A8BE1 /* Albatross_Secure_Communications.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Albatross_Secure_Communications.txt; sourceTree = "<group>"; };
-		E9A1367B1CDD9E65009A8BE1 /* Albatross_Secure_Communications_2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Albatross_Secure_Communications_2.txt; sourceTree = "<group>"; };
-		E9A1367C1CDD9E65009A8BE1 /* Ex-Mayor_Sharp_Runes_for_Senate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Ex-Mayor_Sharp_Runes_for_Senate.jpg"; sourceTree = "<group>"; };
-		E9A1367D1CDD9E65009A8BE1 /* Mayor_Sharp_Resigns_Amidst_Disaster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mayor_Sharp_Resigns_Amidst_Disaster.png; sourceTree = "<group>"; };
-		E9A1367E1CDD9E65009A8BE1 /* Mobile_vs_Redwood_'67.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Mobile_vs_Redwood_'67.jpg"; sourceTree = "<group>"; };
-		E9A1367F1CDD9E65009A8BE1 /* Senator_Elected_in_Suprise_Upheaval.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Senator_Elected_in_Suprise_Upheaval.jpg; sourceTree = "<group>"; };
-		E9A136801CDD9E65009A8BE1 /* Sharp_in_Endzone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sharp_in_Endzone.jpg; sourceTree = "<group>"; };
-		E9A136811CDD9E65009A8BE1 /* Tensions_Rise_as_Voting_Day_Looms.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tensions_Rise_as_Voting_Day_Looms.jpg; sourceTree = "<group>"; };
-		E9A136821CDD9E65009A8BE1 /* Therapy_Journal_#1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Therapy_Journal_#1.txt"; sourceTree = "<group>"; };
-		E9A136831CDD9E65009A8BE1 /* Therapy_Journal_#2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Therapy_Journal_#2.txt"; sourceTree = "<group>"; };
-		E9A136841CDD9E65009A8BE1 /* Therapy_Journal_#3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Therapy_Journal_#3.txt"; sourceTree = "<group>"; };
-		E9A136851CDD9E65009A8BE1 /* Vincent_Sharp_Wins_Mayoral_Standoff.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Vincent_Sharp_Wins_Mayoral_Standoff.jpg; sourceTree = "<group>"; };
 		E9A136871CDD9E65009A8BE1 /* EngineSettings.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EngineSettings.ini; sourceTree = "<group>"; };
 		E9A136881CDD9E65009A8BE1 /* Project-Perfect-Citizen-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Project-Perfect-Citizen-Info.plist"; sourceTree = "<group>"; };
 		E9A1368A1CDD9E65009A8BE1 /* sampleReport.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sampleReport.txt; sourceTree = "<group>"; };
@@ -994,6 +990,28 @@
 		E9A136BE1CDD9E65009A8BE1 /* micross.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = micross.ttf; sourceTree = "<group>"; };
 		E9A136BF1CDD9E65009A8BE1 /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VT323-Regular.ttf"; sourceTree = "<group>"; };
 		E9A136C01CDD9E65009A8BE1 /* Notification_Prompt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Notification_Prompt.wav; sourceTree = "<group>"; };
+		E9EE723B1CDE80780085D033 /* 1967_Football_catch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1967_Football_catch.jpg; sourceTree = "<group>"; };
+		E9EE723C1CDE80780085D033 /* Albatross_Secure_Communications.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Albatross_Secure_Communications.txt; sourceTree = "<group>"; };
+		E9EE723D1CDE80780085D033 /* Albatross_Secure_Communications_2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Albatross_Secure_Communications_2.txt; sourceTree = "<group>"; };
+		E9EE723E1CDE80780085D033 /* Baby_Rose.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Baby_Rose.jpg; sourceTree = "<group>"; };
+		E9EE723F1CDE80780085D033 /* Bros.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Bros.jpg; sourceTree = "<group>"; };
+		E9EE72401CDE80780085D033 /* Brothers_in_Crime.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Brothers_in_Crime.jpg; sourceTree = "<group>"; };
+		E9EE72411CDE80780085D033 /* Do_Not_Lose_This.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Do_Not_Lose_This.png; sourceTree = "<group>"; };
+		E9EE72421CDE80780085D033 /* Ex-Mayor_Sharp_Runes_for_Senate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Ex-Mayor_Sharp_Runes_for_Senate.jpg"; sourceTree = "<group>"; };
+		E9EE72431CDE80780085D033 /* Last_Dance.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Last_Dance.jpg; sourceTree = "<group>"; };
+		E9EE72441CDE80780085D033 /* Mayor_Sharp_Resigns_Amidst_Disaster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mayor_Sharp_Resigns_Amidst_Disaster.png; sourceTree = "<group>"; };
+		E9EE72451CDE80780085D033 /* Mobile_vs_Redwood_'67.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Mobile_vs_Redwood_'67.jpg"; sourceTree = "<group>"; };
+		E9EE72461CDE80780085D033 /* Reference.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reference.png; sourceTree = "<group>"; };
+		E9EE72471CDE80780085D033 /* Rosemary.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Rosemary.jpg; sourceTree = "<group>"; };
+		E9EE72481CDE80780085D033 /* Senator_Elected_in_Suprise_Upheaval.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Senator_Elected_in_Suprise_Upheaval.jpg; sourceTree = "<group>"; };
+		E9EE72491CDE80780085D033 /* Sharp_in_Endzone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sharp_in_Endzone.jpg; sourceTree = "<group>"; };
+		E9EE724A1CDE80780085D033 /* Tensions_Rise_as_Voting_Day_Looms.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tensions_Rise_as_Voting_Day_Looms.jpg; sourceTree = "<group>"; };
+		E9EE724B1CDE80780085D033 /* Therapy_Journal_#1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Therapy_Journal_#1.txt"; sourceTree = "<group>"; };
+		E9EE724C1CDE80780085D033 /* Therapy_Journal_#2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Therapy_Journal_#2.txt"; sourceTree = "<group>"; };
+		E9EE724D1CDE80780085D033 /* Therapy_Journal_#3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Therapy_Journal_#3.txt"; sourceTree = "<group>"; };
+		E9EE724E1CDE80780085D033 /* Vincent_Sharp_Wins_Mayoral_Standoff.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Vincent_Sharp_Wins_Mayoral_Standoff.jpg; sourceTree = "<group>"; };
+		E9EE72631CDE80CE0085D033 /* Reference.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reference.png; sourceTree = "<group>"; };
+		E9EE72651CDE81480085D033 /* Lab3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Lab3.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1409,10 +1427,10 @@
 		E9A135901CDD9E65009A8BE1 /* DesktopContent */ = {
 			isa = PBXGroup;
 			children = (
+				E9EE723A1CDE80780085D033 /* Desktop3 */,
 				E9A135911CDD9E65009A8BE1 /* Desktop0 */,
 				E9A135AA1CDD9E65009A8BE1 /* Desktop1 */,
 				E9A136171CDD9E65009A8BE1 /* Desktop2 */,
-				E9A136781CDD9E65009A8BE1 /* Desktop3 */,
 			);
 			path = DesktopContent;
 			sourceTree = "<group>";
@@ -1666,26 +1684,6 @@
 			path = Desktop2;
 			sourceTree = "<group>";
 		};
-		E9A136781CDD9E65009A8BE1 /* Desktop3 */ = {
-			isa = PBXGroup;
-			children = (
-				E9A136791CDD9E65009A8BE1 /* 1967_Football_catch.jpg */,
-				E9A1367A1CDD9E65009A8BE1 /* Albatross_Secure_Communications.txt */,
-				E9A1367B1CDD9E65009A8BE1 /* Albatross_Secure_Communications_2.txt */,
-				E9A1367C1CDD9E65009A8BE1 /* Ex-Mayor_Sharp_Runes_for_Senate.jpg */,
-				E9A1367D1CDD9E65009A8BE1 /* Mayor_Sharp_Resigns_Amidst_Disaster.png */,
-				E9A1367E1CDD9E65009A8BE1 /* Mobile_vs_Redwood_'67.jpg */,
-				E9A1367F1CDD9E65009A8BE1 /* Senator_Elected_in_Suprise_Upheaval.jpg */,
-				E9A136801CDD9E65009A8BE1 /* Sharp_in_Endzone.jpg */,
-				E9A136811CDD9E65009A8BE1 /* Tensions_Rise_as_Voting_Day_Looms.jpg */,
-				E9A136821CDD9E65009A8BE1 /* Therapy_Journal_#1.txt */,
-				E9A136831CDD9E65009A8BE1 /* Therapy_Journal_#2.txt */,
-				E9A136841CDD9E65009A8BE1 /* Therapy_Journal_#3.txt */,
-				E9A136851CDD9E65009A8BE1 /* Vincent_Sharp_Wins_Mayoral_Standoff.jpg */,
-			);
-			path = Desktop3;
-			sourceTree = "<group>";
-		};
 		E9A136861CDD9E65009A8BE1 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
@@ -1715,6 +1713,35 @@
 				E9A136921CDD9E65009A8BE1 /* teacherDesktop.ini */,
 			);
 			path = Saves;
+			sourceTree = "<group>";
+		};
+		E9EE723A1CDE80780085D033 /* Desktop3 */ = {
+			isa = PBXGroup;
+			children = (
+				E9EE723B1CDE80780085D033 /* 1967_Football_catch.jpg */,
+				E9EE723C1CDE80780085D033 /* Albatross_Secure_Communications.txt */,
+				E9EE723D1CDE80780085D033 /* Albatross_Secure_Communications_2.txt */,
+				E9EE723E1CDE80780085D033 /* Baby_Rose.jpg */,
+				E9EE723F1CDE80780085D033 /* Bros.jpg */,
+				E9EE72401CDE80780085D033 /* Brothers_in_Crime.jpg */,
+				E9EE72411CDE80780085D033 /* Do_Not_Lose_This.png */,
+				E9EE72421CDE80780085D033 /* Ex-Mayor_Sharp_Runes_for_Senate.jpg */,
+				E9EE72631CDE80CE0085D033 /* Reference.png */,
+				E9EE72431CDE80780085D033 /* Last_Dance.jpg */,
+				E9EE72441CDE80780085D033 /* Mayor_Sharp_Resigns_Amidst_Disaster.png */,
+				E9EE72451CDE80780085D033 /* Mobile_vs_Redwood_'67.jpg */,
+				E9EE72461CDE80780085D033 /* Reference.png */,
+				E9EE72471CDE80780085D033 /* Rosemary.jpg */,
+				E9EE72481CDE80780085D033 /* Senator_Elected_in_Suprise_Upheaval.jpg */,
+				E9EE72491CDE80780085D033 /* Sharp_in_Endzone.jpg */,
+				E9EE724A1CDE80780085D033 /* Tensions_Rise_as_Voting_Day_Looms.jpg */,
+				E9EE724B1CDE80780085D033 /* Therapy_Journal_#1.txt */,
+				E9EE724C1CDE80780085D033 /* Therapy_Journal_#2.txt */,
+				E9EE724D1CDE80780085D033 /* Therapy_Journal_#3.txt */,
+				E9EE724E1CDE80780085D033 /* Vincent_Sharp_Wins_Mayoral_Standoff.jpg */,
+				E9EE72651CDE81480085D033 /* Lab3.txt */,
+			);
+			path = Desktop3;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1775,6 +1802,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9A136FB1CDD9E65009A8BE1 /* Catch 22 - Joseph Heller.txt in Resources */,
+				E9EE72521CDE80790085D033 /* Baby_Rose.jpg in Resources */,
 				E9A137181CDD9E65009A8BE1 /* Fallen5.jpg in Resources */,
 				E9A137E71CDD9E65009A8BE1 /* World_Sheet.png in Resources */,
 				E9A1376C1CDD9E65009A8BE1 /* Leonardo2.jpg in Resources */,
@@ -1783,8 +1811,8 @@
 				E9A1376B1CDD9E65009A8BE1 /* LEONADO_INVENTION.jpg in Resources */,
 				E9A137801CDD9E65009A8BE1 /* Porticus_Aemilia.jpg in Resources */,
 				E9A1371A1CDD9E65009A8BE1 /* Family_Tree.txt in Resources */,
+				E9EE72611CDE80790085D033 /* Therapy_Journal_#3.txt in Resources */,
 				E9A137071CDD9E65009A8BE1 /* Crowd35.jpg in Resources */,
-				E9A137B01CDD9E65009A8BE1 /* Therapy_Journal_#1.txt in Resources */,
 				E9A136F81CDD9E65009A8BE1 /* Baptism_in_a_Catholic_Church.jpg in Resources */,
 				E9A1374C1CDD9E65009A8BE1 /* b.jpg in Resources */,
 				E9A137DE1CDD9E65009A8BE1 /* Teacher_Icon_Sheet2 - Copy.png in Resources */,
@@ -1806,9 +1834,9 @@
 				E9A137C41CDD9E65009A8BE1 /* Email0.json in Resources */,
 				E9A136D61CDD9E65009A8BE1 /* Sexy.jpg in Resources */,
 				E9A137D91CDD9E65009A8BE1 /* Icon_Sheet2 - Copy.png in Resources */,
+				E9EE72591CDE80790085D033 /* Mobile_vs_Redwood_'67.jpg in Resources */,
 				E9A1375E1CDD9E65009A8BE1 /* f.jpg in Resources */,
 				E9A136F01CDD9E65009A8BE1 /* 8444505634_646117787e.jpg in Resources */,
-				E9A137AE1CDD9E65009A8BE1 /* Sharp_in_Endzone.jpg in Resources */,
 				E9A1375D1CDD9E65009A8BE1 /* Exporting_Materials.jpg in Resources */,
 				E9A136FA1CDD9E65009A8BE1 /* Bluebird by Charles Bukowski.txt in Resources */,
 				E9A137331CDD9E65009A8BE1 /* NewCrowd46.jpg in Resources */,
@@ -1826,7 +1854,6 @@
 				E9A137341CDD9E65009A8BE1 /* NewCrowd52.jpg in Resources */,
 				E9A137C11CDD9E65009A8BE1 /* Desktop1.json in Resources */,
 				E9A137431CDD9E65009A8BE1 /* The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg in Resources */,
-				E9A137A91CDD9E65009A8BE1 /* Albatross_Secure_Communications_2.txt in Resources */,
 				E9A136F31CDD9E65009A8BE1 /* As I Lay Dying - Faulkner.txt in Resources */,
 				E9A137981CDD9E65009A8BE1 /* unnamed.jpg in Resources */,
 				E9A137061CDD9E65009A8BE1 /* Crowd32.jpg in Resources */,
@@ -1841,6 +1868,7 @@
 				E9A134821CDD9DB2009A8BE1 /* Notification_New.wav in Resources */,
 				E9A137BF1CDD9E65009A8BE1 /* DE1PipelineTexts.json in Resources */,
 				E9A137921CDD9E65009A8BE1 /* Tingle.jpg in Resources */,
+				E9EE72641CDE80CE0085D033 /* Reference.png in Resources */,
 				E9A1379B1CDD9E65009A8BE1 /* Van_Gogh_The_Olive_Trees.jpg in Resources */,
 				E9A137721CDD9E65009A8BE1 /* n.jpg in Resources */,
 				E9A136EA1CDD9E65009A8BE1 /* 6576.jpg in Resources */,
@@ -1849,6 +1877,7 @@
 				E9A137D01CDD9E65009A8BE1 /* first.txt in Resources */,
 				E9A136E31CDD9E65009A8BE1 /* 4-10-08-386.jpg in Resources */,
 				E9A1373B1CDD9E65009A8BE1 /* road-trip3.jpg in Resources */,
+				E9EE725C1CDE80790085D033 /* Senator_Elected_in_Suprise_Upheaval.jpg in Resources */,
 				E9A136CE1CDD9E65009A8BE1 /* Grocery Reminder!.txt in Resources */,
 				E9A136F11CDD9E65009A8BE1 /* 9-24-14-195-Edit.jpg in Resources */,
 				E9A137B91CDD9E65009A8BE1 /* desktopTutorial.ini in Resources */,
@@ -1857,12 +1886,18 @@
 				E9A1375C1CDD9E65009A8BE1 /* Explosive_Gas_Detector.jpg in Resources */,
 				E9A136C41CDD9E65009A8BE1 /* 3D_printer_3000.jpg in Resources */,
 				E9A137911CDD9E65009A8BE1 /* ThRoE.jpg in Resources */,
+				E9EE72551CDE80790085D033 /* Do_Not_Lose_This.png in Resources */,
 				E9A137931CDD9E65009A8BE1 /* Town_map.jpg in Resources */,
+				E9EE725A1CDE80790085D033 /* Reference.png in Resources */,
+				E9EE724F1CDE80780085D033 /* 1967_Football_catch.jpg in Resources */,
+				E9EE725D1CDE80790085D033 /* Sharp_in_Endzone.jpg in Resources */,
 				E9A136E51CDD9E65009A8BE1 /* 4-24-08-152.jpg in Resources */,
 				E9A137611CDD9E65009A8BE1 /* Giant_Crossbow.jpg in Resources */,
 				E9A137A21CDD9E65009A8BE1 /* Wheatfield_Under_Thunderclouds.jpg in Resources */,
 				E9A137161CDD9E65009A8BE1 /* Fallen1.jpg in Resources */,
+				E9EE72541CDE80790085D033 /* Brothers_in_Crime.jpg in Resources */,
 				E9A137DC1CDD9E65009A8BE1 /* Pixel_Title.png in Resources */,
+				E9EE72581CDE80790085D033 /* Mayor_Sharp_Resigns_Amidst_Disaster.png in Resources */,
 				E9A1372D1CDD9E65009A8BE1 /* New_bed_1.jpg in Resources */,
 				E9A1371E1CDD9E65009A8BE1 /* Geek Love by Katherine Dunn - Ch1.txt in Resources */,
 				E9A136F51CDD9E65009A8BE1 /* Bacchae - Euripides.txt in Resources */,
@@ -1900,6 +1935,7 @@
 				E9A134831CDD9DB2009A8BE1 /* SoundTrack_Extraction.ogg in Resources */,
 				E9A1376D1CDD9E65009A8BE1 /* Leonardo_Crossbow.jpg in Resources */,
 				E9A137151CDD9E65009A8BE1 /* EternalStation.jpg in Resources */,
+				E9EE72501CDE80790085D033 /* Albatross_Secure_Communications.txt in Resources */,
 				E9A137641CDD9E65009A8BE1 /* h.jpg in Resources */,
 				E9A137CD1CDD9E65009A8BE1 /* SoundTrack_Extraction.ogg in Resources */,
 				E9A1377D1CDD9E65009A8BE1 /* Paul_Gauguin.jpg in Resources */,
@@ -1911,6 +1947,7 @@
 				E9A137111CDD9E65009A8BE1 /* Doubt6.jpg in Resources */,
 				E9A1370B1CDD9E65009A8BE1 /* Doubt1.jpg in Resources */,
 				E9A137031CDD9E65009A8BE1 /* Crowd29.jpg in Resources */,
+				E9EE72571CDE80790085D033 /* Last_Dance.jpg in Resources */,
 				E9A137C01CDD9E65009A8BE1 /* Desktop0.json in Resources */,
 				E9A137471CDD9E65009A8BE1 /* 120mm_M830A1.jpg in Resources */,
 				E9A137511CDD9E65009A8BE1 /* Blueprints_2.jpg in Resources */,
@@ -1926,11 +1963,11 @@
 				E9A136C11CDD9E65009A8BE1 /* DoxygenHelp.txt in Resources */,
 				E9A1374F1CDD9E65009A8BE1 /* blueprints.jpg in Resources */,
 				E9A137BC1CDD9E65009A8BE1 /* politicianDesktop.ini in Resources */,
-				E9A137B21CDD9E65009A8BE1 /* Therapy_Journal_#3.txt in Resources */,
 				E9A1371C1CDD9E65009A8BE1 /* FeastPDX_House.jpg in Resources */,
 				E9A136C61CDD9E65009A8BE1 /* blueprint_4.jpg in Resources */,
 				E9A137521CDD9E65009A8BE1 /* bogen_cha75.jpg in Resources */,
 				E9A137D21CDD9E65009A8BE1 /* PipelineTutorial.txt in Resources */,
+				E9EE72601CDE80790085D033 /* Therapy_Journal_#2.txt in Resources */,
 				E9A137001CDD9E65009A8BE1 /* Crowd16.jpg in Resources */,
 				E9A137CF1CDD9E65009A8BE1 /* DesktopTutorial.txt in Resources */,
 				E9A137351CDD9E65009A8BE1 /* NewCrowd58.jpg in Resources */,
@@ -1942,6 +1979,7 @@
 				E9A137891CDD9E65009A8BE1 /* shiver.jpg in Resources */,
 				E9A1379F1CDD9E65009A8BE1 /* Vision.jpg in Resources */,
 				E9A136C51CDD9E65009A8BE1 /* blueprint.jpg in Resources */,
+				E9EE725B1CDE80790085D033 /* Rosemary.jpg in Resources */,
 				E9A1372F1CDD9E65009A8BE1 /* New_bed_3.jpg in Resources */,
 				E9A137D31CDD9E65009A8BE1 /* TestDialogue.txt in Resources */,
 				E9A136D51CDD9E65009A8BE1 /* route_plan.jpg in Resources */,
@@ -1950,7 +1988,6 @@
 				E9A137051CDD9E65009A8BE1 /* Crowd31.jpg in Resources */,
 				E9A136C71CDD9E65009A8BE1 /* blueprint_7.jpg in Resources */,
 				E9A137731CDD9E65009A8BE1 /* Note_to_Voyeur #1.txt in Resources */,
-				E9A137AB1CDD9E65009A8BE1 /* Mayor_Sharp_Resigns_Amidst_Disaster.png in Resources */,
 				E9A1375F1CDD9E65009A8BE1 /* g.jpg in Resources */,
 				E9A1377F1CDD9E65009A8BE1 /* plans_print.jpg in Resources */,
 				E9A1370F1CDD9E65009A8BE1 /* Doubt2.jpg in Resources */,
@@ -1959,13 +1996,12 @@
 				E9A137281CDD9E65009A8BE1 /* maxresdefault.jpg in Resources */,
 				E9A137711CDD9E65009A8BE1 /* Match_Line.jpg in Resources */,
 				E9A137371CDD9E65009A8BE1 /* Photo_shoot.jpg in Resources */,
-				E9A137A81CDD9E65009A8BE1 /* Albatross_Secure_Communications.txt in Resources */,
 				E9A137DB1CDD9E65009A8BE1 /* kappa.png in Resources */,
-				E9A137B31CDD9E65009A8BE1 /* Vincent_Sharp_Wins_Mayoral_Standoff.jpg in Resources */,
 				E9A137E91CDD9E65009A8BE1 /* micross.ttf in Resources */,
 				E9A137D41CDD9E65009A8BE1 /* Artist_Icon_Sheet.png in Resources */,
 				E9A137C31CDD9E65009A8BE1 /* Desktop3.json in Resources */,
 				E9A137DF1CDD9E65009A8BE1 /* Teacher_Icon_Sheet2.png in Resources */,
+				E9EE72621CDE80790085D033 /* Vincent_Sharp_Wins_Mayoral_Standoff.jpg in Resources */,
 				E9A137BB1CDD9E65009A8BE1 /* playerDesktop.ini in Resources */,
 				E9A136F41CDD9E65009A8BE1 /* At_the_river.jpg in Resources */,
 				E9A136C21CDD9E65009A8BE1 /* LinkHelp.txt in Resources */,
@@ -1976,6 +2012,7 @@
 				E9A137191CDD9E65009A8BE1 /* Fallen7.jpg in Resources */,
 				E9A137661CDD9E65009A8BE1 /* j.jpg in Resources */,
 				E9A136D01CDD9E65009A8BE1 /* Jazz-Fusion Meeting.txt in Resources */,
+				E9EE72561CDE80790085D033 /* Ex-Mayor_Sharp_Runes_for_Senate.jpg in Resources */,
 				E9A1370D1CDD9E65009A8BE1 /* Doubt15.jpg in Resources */,
 				E9A1376F1CDD9E65009A8BE1 /* m.jpg in Resources */,
 				E9A137081CDD9E65009A8BE1 /* Crowd7.jpg in Resources */,
@@ -2010,13 +2047,13 @@
 				E9A137C21CDD9E65009A8BE1 /* Desktop2.json in Resources */,
 				E9A136EB1CDD9E65009A8BE1 /* 7-24-12-052.jpg in Resources */,
 				E9A136DC1CDD9E65009A8BE1 /* 11062011img47161.jpg in Resources */,
-				E9A137AC1CDD9E65009A8BE1 /* Mobile_vs_Redwood_'67.jpg in Resources */,
 				E9A1376E1CDD9E65009A8BE1 /* Leonardo_da_Vincis_crossbow.jpg in Resources */,
 				E9A1347C1CDD9DB2009A8BE1 /* gunshot.ogg in Resources */,
 				E9A137EB1CDD9E65009A8BE1 /* Notification_Prompt.wav in Resources */,
 				E9A137B81CDD9E65009A8BE1 /* bootDesktop.ini in Resources */,
 				E9A136EC1CDD9E65009A8BE1 /* 7-29-14-345.jpg in Resources */,
 				E9A136C91CDD9E65009A8BE1 /* bomb_prospect.jpg in Resources */,
+				E9EE72511CDE80790085D033 /* Albatross_Secure_Communications_2.txt in Resources */,
 				E9A137091CDD9E65009A8BE1 /* Crowd8.jpg in Resources */,
 				E9A137421CDD9E65009A8BE1 /* St_H_Bap_OK.jpg in Resources */,
 				E9A137991CDD9E65009A8BE1 /* v.jpg in Resources */,
@@ -2035,8 +2072,11 @@
 				E9A136D21CDD9E65009A8BE1 /* Overview.jpg in Resources */,
 				E9A1370E1CDD9E65009A8BE1 /* Doubt16.jpg in Resources */,
 				E9A137141CDD9E65009A8BE1 /* Epidemic-2.jpg in Resources */,
+				E9EE72661CDE81480085D033 /* Lab3.txt in Resources */,
+				E9EE72531CDE80790085D033 /* Bros.jpg in Resources */,
 				E9A1375B1CDD9E65009A8BE1 /* Edgar_Germain_Hilaire_Degas.jpg in Resources */,
 				E9A137461CDD9E65009A8BE1 /* Trouble.txt in Resources */,
+				E9EE725F1CDE80790085D033 /* Therapy_Journal_#1.txt in Resources */,
 				E9A137E01CDD9E65009A8BE1 /* Teacher_Wallpaper.png in Resources */,
 				E9A136D71CDD9E65009A8BE1 /* Sterling_SMG.jpg in Resources */,
 				E9A137131CDD9E65009A8BE1 /* driving-sea-to-sky-highway.jpg in Resources */,
@@ -2044,8 +2084,6 @@
 				E9A137E81CDD9E65009A8BE1 /* consola.ttf in Resources */,
 				E9A136E61CDD9E65009A8BE1 /* 4-24-08-492.jpg in Resources */,
 				E9A136EE1CDD9E65009A8BE1 /* 7402.jpg in Resources */,
-				E9A137AF1CDD9E65009A8BE1 /* Tensions_Rise_as_Voting_Day_Looms.jpg in Resources */,
-				E9A137AA1CDD9E65009A8BE1 /* Ex-Mayor_Sharp_Runes_for_Senate.jpg in Resources */,
 				E9A1373C1CDD9E65009A8BE1 /* road_trip.jpg in Resources */,
 				E9A137861CDD9E65009A8BE1 /* Riviera_Schematic1.jpg in Resources */,
 				E9A137391CDD9E65009A8BE1 /* RE_Welcome.txt in Resources */,
@@ -2053,10 +2091,8 @@
 				E9A1378E1CDD9E65009A8BE1 /* t.jpg in Resources */,
 				E9A137021CDD9E65009A8BE1 /* Crowd21.jpg in Resources */,
 				E9A137591CDD9E65009A8BE1 /* Degas_The_Star.jpg in Resources */,
-				E9A137B11CDD9E65009A8BE1 /* Therapy_Journal_#2.txt in Resources */,
 				E9A137381CDD9E65009A8BE1 /* Portland-Conference-East-vs.-West-Soccer-Game.jpg in Resources */,
 				E9A1347F1CDD9DB2009A8BE1 /* Mouse_Up.wav in Resources */,
-				E9A137AD1CDD9E65009A8BE1 /* Senator_Elected_in_Suprise_Upheaval.jpg in Resources */,
 				E9A136D81CDD9E65009A8BE1 /* The_plan.txt in Resources */,
 				E9A134811CDD9DB2009A8BE1 /* Notification_Bad.wav in Resources */,
 				E9A137D11CDD9E65009A8BE1 /* last.txt in Resources */,
@@ -2067,10 +2103,10 @@
 				E9A137BD1CDD9E65009A8BE1 /* teacherDesktop.ini in Resources */,
 				E9A1378B1CDD9E65009A8BE1 /* Spasm.jpg in Resources */,
 				E9A136C31CDD9E65009A8BE1 /* 17391.jpg in Resources */,
+				E9EE725E1CDE80790085D033 /* Tensions_Rise_as_Voting_Day_Looms.jpg in Resources */,
 				E9A134801CDD9DB2009A8BE1 /* New_Email.wav in Resources */,
 				E9A1378C1CDD9E65009A8BE1 /* Submarine_Damge.jpg in Resources */,
 				E9A137441CDD9E65009A8BE1 /* The_Metamorphosis.txt in Resources */,
-				E9A137A71CDD9E65009A8BE1 /* 1967_Football_catch.jpg in Resources */,
 				E9A1372E1CDD9E65009A8BE1 /* New_bed_2.jpg in Resources */,
 				E9A137561CDD9E65009A8BE1 /* d.jpg in Resources */,
 				E9A137E31CDD9E65009A8BE1 /* Wallpaper.png in Resources */,
