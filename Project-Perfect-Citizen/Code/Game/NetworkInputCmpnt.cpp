@@ -5,10 +5,6 @@
 #include "../Engine/DraggableInput.h"
 const float MAX_DISTANCE_TO_EDGE = 10.f;
 
-const sf::Color selRed = { 250, 125, 125 };
-const sf::Color selBlack = { 171, 171, 171 };
-const sf::Color selGreen = { 138,255,173 };
-
 void ppc::NetworkInputCmpnt::selectEdge(sf::Vector2f mPos) {
 	std::vector<std::pair<int, int>> edgeList;
 

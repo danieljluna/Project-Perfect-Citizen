@@ -40,6 +40,8 @@ TextDisplayRenderComponent::TextDisplayRenderComponent() {
 	else outline_->setColor(sf::Color::Black);
 	outline_->setString(labelString_);
 
+	renderable_ = true;
+
 }
 
 TextDisplayRenderComponent::TextDisplayRenderComponent(sf::Font& f, sf::Color c,
@@ -66,6 +68,8 @@ TextDisplayRenderComponent::TextDisplayRenderComponent(sf::Font& f, sf::Color c,
 		outline_->setColor(sf::Color::White);
 	else outline_->setColor(sf::Color::Black);
 	outline_->setString(labelString_);
+
+	renderable_ = true;
 
 }
 
