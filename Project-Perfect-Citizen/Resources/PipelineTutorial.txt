@@ -13,18 +13,20 @@ Peek: Try selecting a Photo
 -Connections: T
 Default: You can create connections between photos
 Default: Select a photo and right click another to connect them
--Edges: T
+-SelectEdge: T
 Default: Left click a connection to select it
+-DeleteEdge: T
 Default: Now press "Z" to remove it
--TempFix: F
+-TempFix: T
 Default: Close and relaunch the graph application to continue
 -Goal: T
 Default: You are trying to find the most suspicious person
 Default: Select a photo and read the text messages on the right
 Default: Using the texts, try to find all of the connections
--Suspicion: T
+-ColorChange: T
 Default: Some connections are benign, while others are suspicious
 Default: Select a connection and press "Space" to switch the color
+-Suspicion: T
 Default: Innocent connections should be green and suspicious ones red
 Default: In the future if you are unsure you can leave it black
 Default: Now try indicating the correct colors based off the texts

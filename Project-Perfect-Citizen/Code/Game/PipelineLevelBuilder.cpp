@@ -64,7 +64,17 @@ Network* PipelineLevelBuilder::buildTutorialTwo() {
 	std::map<std::string, bool> usednames = NAME_MAP;
 
 	for (int i = 0; i < TUTORIAL_2_NODES;) {
-		PipelineCharacter newpc(JOBS_ALL[0], 18, false);
+		PipelineCharacter newpc;
+		//Char 0 - 18
+		//Char 1 - 40
+		//Char 2 - 18
+		//Char 3 - 40
+		if (i % 2 == 0) {
+			newpc = PipelineCharacter(JOBS_ALL[0], 18, false);
+		}
+		else {
+			newpc = PipelineCharacter(JOBS_ALL[0], 40, false);
+		}
 		if (usednames[newpc.getSSN().substr(0, 1)] == false) {
 			myNetwork->vert(i).setCharacter(newpc);
 			usednames[newpc.getSSN().substr(0, 1)] = true;
@@ -78,7 +88,7 @@ Network* PipelineLevelBuilder::buildTutorialTwo() {
 	addEdge(0, 1, *myNetwork, 0, exprGrammar);
 	addEdge(1, 2, *myNetwork, 0, exprGrammar);
 	addEdge(2, 3, *myNetwork, 1, exprGrammar);
-	addEdge(0, 3, *myNetwork, 1, exprGrammar);
+	addEdge(3, 0, *myNetwork, 1, exprGrammar);
 
     myNetwork->setCenter(3);
 
