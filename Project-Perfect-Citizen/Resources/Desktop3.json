@@ -1,6 +1,5 @@
 {
     "Desktop": {
-        "1/Therapy_Journal_#1.txt" : "DesktopContent/Desktop3/Therapy_Journal_#1.txt",
         "Articles" : {
             "Campaigns" : {
                 "1/Ex-Mayor_Sharp_Runes_for_Senate.jpg" : "DesktopContent/Desktop3/Ex-Mayor_Sharp_Runes_for_Senate.jpg",
@@ -28,13 +27,46 @@
                 "1/Last_Dance.jpg" : "DesktopContent/Desktop3/Last_Dance.jpg",
                 "1/Rosemary.jpg" : "DesktopContent/Desktop3/Rosemary.jpg"
             },
-            "Classified_Docs/Lions/HEX: 4C696F6E73" : {
-                "1/Empty" : "DesktopContent/Desktop3/Sharp_in_Endzone.jpg",
-                "1/Therapy_Journal_#3.txt" : "DesktopContent/Desktop3/Therapy_Journal_#3.txt",
-                "1/Albatross_Secure_Communications_2.txt" : "DesktopContent/Desktop3/Albatross_Secure_Communications_2.txt"
+            "Classified_Docs/Mobile/HEX: 4D6F62696C65" : {
+                "Docs" : {
+                    "1/Empty" : "DesktopContent/Desktop3/Therapy_Journal_#3.txt"
+                },
+                "Albatross_Extracted" : {
+                    "1/00.txt" : "DesktopContent/Desktop3/0.txt",
+                    "1/01.txt" : "DesktopContent/Desktop3/1.txt",
+                    "1/02.txt" : "DesktopContent/Desktop3/2.txt",
+                    "1/03.txt" : "DesktopContent/Desktop3/3.txt",
+                    "1/04.txt" : "DesktopContent/Desktop3/4.txt",
+                    "1/05.txt" : "DesktopContent/Desktop3/5.txt",
+                    "1/06.txt" : "DesktopContent/Desktop3/6.txt",
+                    "1/07.txt" : "DesktopContent/Desktop3/7.txt",
+                    "1/08.txt" : "DesktopContent/Desktop3/8.txt",
+                    "1/09.txt" : "DesktopContent/Desktop3/9.txt",
+                    "1/10.txt" : "DesktopContent/Desktop3/10.txt",
+                    "1/11.txt" : "DesktopContent/Desktop3/11.txt",
+                    "1/12.txt" : "DesktopContent/Desktop3/12.txt",
+                    "1/13.txt" : "DesktopContent/Desktop3/13.txt",
+                    "1/14.txt" : "DesktopContent/Desktop3/14.txt",
+                    "1/15.txt" : "DesktopContent/Desktop3/15.txt",
+                    "1/16.txt" : "DesktopContent/Desktop3/16.txt",
+                    "1/17.txt" : "DesktopContent/Desktop3/17.txt",
+                    "1/18.txt" : "DesktopContent/Desktop3/18.txt",
+                    "1/19.txt" : "DesktopContent/Desktop3/19.txt",
+                    "1/20.txt" : "DesktopContent/Desktop3/20.txt",
+                    "1/21.txt" : "DesktopContent/Desktop3/21.txt",
+                    "1/22.txt" : "DesktopContent/Desktop3/22.txt",
+                    "1/23.txt" : "DesktopContent/Desktop3/23.txt",
+                    "1/24.txt" : "DesktopContent/Desktop3/24.txt",
+                    "Private/Mom/That bitch" : {
+                        "1/EDIT_Albatross_Secure_Communications_2.txt" : "DesktopContent/Desktop3/Albatross_Secure_Communications_2.txt",
+                        "1/INSERT_Therapy_Journal_#4.txt" : "DesktopContent/Desktop3/Therapy_Journal_#3.txt"
+                    }
+                },
+                "1/Therapy_Journal_#3.txt" : "DesktopContent/Desktop3/Therapy_Journal_#3.txt"
             },
             "1/Therapy_Journal_#2.txt" : "DesktopContent/Desktop3/Therapy_Journal_#2.txt",
             "1/Albatross_Secure_Communications.txt" : "DesktopContent/Desktop3/Albatross_Secure_Communications.txt"
-        }
+        },
+        "1/Therapy_Journal_#1.txt" : "DesktopContent/Desktop3/Therapy_Journal_#1.txt"
     }
 }

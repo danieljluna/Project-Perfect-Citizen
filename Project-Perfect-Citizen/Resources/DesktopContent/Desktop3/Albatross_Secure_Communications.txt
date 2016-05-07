@@ -61,6 +61,11 @@ our potential responses if this goes public.
 I'll have the results to you as soon as their
 out.
 
+I am also sending you your Albatross data
+files. Make sure you look at the file 05 and
+decrypt the header. You have your old hex
+sheet right?
+
 -Melanie
 ----------------------------------------------
 From: Alex Wood
