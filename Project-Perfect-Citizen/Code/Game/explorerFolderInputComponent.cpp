@@ -226,7 +226,7 @@ bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
     } else {
         evOut.open.winType = evOut.open.File;
     }
-    evOut.open.file = target;
+    evOut.open.file = target->findElement(ptr->getFolderName());
 
 	if (target->findElement(ptr->getFolderName())->
 		comparePassword(ptr->getObservingTextBox()->getString())) {

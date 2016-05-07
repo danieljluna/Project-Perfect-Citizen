@@ -15,9 +15,9 @@ Default: You can create connections between photos
 Default: Select a photo and right click another to connect them
 -Edges: T
 Default: Left click a connection to select it
-Default: Select the connection and press "Z" to remove it
+Default: Now press "Z" to remove it
 -TempFix: F
-Default: Close and reopen the graph application to continue
+Default: Close and relaunch the graph application to continue
 -Goal: T
 Default: You are trying to find the most suspicious person
 Default: Select a photo and read the text messages on the right

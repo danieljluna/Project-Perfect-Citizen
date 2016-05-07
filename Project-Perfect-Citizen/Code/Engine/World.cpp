@@ -37,6 +37,13 @@ bool World::quitter_ = false;
 
 sf::RectangleShape World::tempLoadScreen_ = sf::RectangleShape({ 1000,1000 });
 sf::RectangleShape World::tempLoadBar_ = sf::RectangleShape({ 500, 50 });
+
+sf::Image World::loadImage_ = sf::Image();
+sf::Texture World::loadTexture_ = sf::Texture();
+sf::Sprite World::loadBar_ = sf::Sprite();
+sf::Sprite World::loadBarBorder_ = sf::Sprite();
+sf::Sprite World::loadingDecal_ = sf::Sprite();
+
 bool World::isLoading_ = false;
 
 void World::setGameScreen(sf::RenderWindow& gameScreen) {
@@ -148,6 +155,26 @@ std::string ppc::World::getReportFile(ReportList rl) {
 
 
 void ppc::World::initLoadScreen() {
+    
+    loadImage_.loadFromFile(resourcePath() + "World_Sheet.png");
+    loadTexture_.loadFromImage(loadImage_);
+
+    loadBar_.setTexture(loadTexture_);
+    loadBar_.setPosition(100.f, 500.f);
+    loadBar_.setScale(1.f, 1.f);
+    loadBar_.setTextureRect({0,4*128, 0, 128});
+    loadBar_.setScale(0.75f,0.75f);
+    
+    
+    loadBarBorder_.setTexture(loadTexture_);
+    loadBarBorder_.setPosition(100.f, 500.f);
+    loadBarBorder_.setScale(1.f, 1.f);
+    loadBarBorder_.setTextureRect({0,3*128, 8*128, 128});
+    loadBarBorder_.setScale(0.75f,0.75f);
+    
+    loadingDecal_.setTexture(loadTexture_);
+    loadingDecal_.setTextureRect({0,0, 6*128, 3*128});
+    loadingDecal_.setPosition(150, 100);
 
 	tempLoadScreen_.setPosition(0.f, 0.f);
 	tempLoadScreen_.setFillColor(sf::Color::Black);
@@ -167,6 +194,7 @@ void ppc::World::startLoading() {
 
 void ppc::World::setLoading(float f) {
 	if (f > 1.f || f < 0.f) f = 1.f;
+    loadBar_.setTextureRect({0, 4*128, static_cast<int>(1024*f),128});
 	tempLoadBar_.setSize({ 500.f * f, 50.f });
 	drawLoading();
 }
@@ -174,8 +202,11 @@ void ppc::World::setLoading(float f) {
 void ppc::World::drawLoading() {
 	if (isLoading_ == false) return;
 	screen_->clear(sf::Color::Black);
-	screen_->draw(tempLoadScreen_);
-	screen_->draw(tempLoadBar_);
+	//screen_->draw(tempLoadScreen_);
+	//screen_->draw(tempLoadBar_);
+    screen_->draw(loadingDecal_);
+    screen_->draw(loadBarBorder_);
+    screen_->draw(loadBar_);
 	screen_->display();
 }
 
