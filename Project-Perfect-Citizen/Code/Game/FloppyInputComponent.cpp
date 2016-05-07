@@ -279,7 +279,12 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             (ev.network.type == ev.network.Created) &&
             (ev.network.v != -1));
         break;
-	case FloppyInputComponent::Edges:
+	case FloppyInputComponent::SelectEdge:
+		enable = (ev.type == ev.NetworkType &&
+			ev.network.type == ev.network.Selected &&
+			ev.network.v != -1);
+		break;
+	case FloppyInputComponent::DeleteEdge:
         enable = ((ev.type == ev.NetworkType) &&
             (ev.network.type == ev.network.Removed) &&
             (ev.network.v != -1));
@@ -293,6 +298,12 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             enable = ev.network.net->checkColorlessEdgeEquality(*World::getCurrDesktop().getSolVec()[1]) == 1.0f;
         }
         break;
+	case FloppyInputComponent::ColorChange:
+		enable = (ev.type == ev.NetworkType && ev.network.type == ev.network.Edited && ev.network.v != -1);
+		if (enable) {
+			enable = ev.network.net->edge(ev.network.u, ev.network.v)->getColor() != selBlack;
+		}
+		break;
 	case FloppyInputComponent::Suspicion:
         enable = (ev.type == ev.NetworkType);
         if (enable) {
