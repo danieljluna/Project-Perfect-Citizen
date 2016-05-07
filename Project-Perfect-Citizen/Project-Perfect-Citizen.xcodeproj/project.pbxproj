@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
 		C8A593901C8E3AFE00036C1D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8A593461C8E3AFE00036C1D /* main.cpp */; };
+		C8B061AF1CDD65E800EDFC1E /* World_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = C8B061AE1CDD65E800EDFC1E /* World_Sheet.png */; };
 		C8C412851CDBEB5D003F9DF2 /* Artist_Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = C8C411631CDBEB5D003F9DF2 /* Artist_Icon_Sheet.png */; };
 		C8C412861CDBEB5D003F9DF2 /* Artist_Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = C8C411641CDBEB5D003F9DF2 /* Artist_Wallpaper.png */; };
 		C8C412871CDBEB5D003F9DF2 /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = C8C411661CDBEB5D003F9DF2 /* DoxygenHelp.txt */; };
@@ -16,7 +17,6 @@
 		C8C412891CDBEB5D003F9DF2 /* consola.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8C411681CDBEB5D003F9DF2 /* consola.ttf */; };
 		C8C4128A1CDBEB5D003F9DF2 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = C8C411691CDBEB5D003F9DF2 /* data.json */; };
 		C8C4128B1CDBEB5D003F9DF2 /* DE1PipelineTexts.json in Resources */ = {isa = PBXBuildFile; fileRef = C8C4116A1CDBEB5D003F9DF2 /* DE1PipelineTexts.json */; };
-		C8C4128C1CDBEB5D003F9DF2 /* DekstopTutorial.txt in Resources */ = {isa = PBXBuildFile; fileRef = C8C4116B1CDBEB5D003F9DF2 /* DekstopTutorial.txt */; };
 		C8C4128D1CDBEB5D003F9DF2 /* Desktop0.json in Resources */ = {isa = PBXBuildFile; fileRef = C8C4116C1CDBEB5D003F9DF2 /* Desktop0.json */; };
 		C8C4128E1CDBEB5D003F9DF2 /* Desktop1.json in Resources */ = {isa = PBXBuildFile; fileRef = C8C4116D1CDBEB5D003F9DF2 /* Desktop1.json */; };
 		C8C4128F1CDBEB5D003F9DF2 /* Desktop2.json in Resources */ = {isa = PBXBuildFile; fileRef = C8C4116E1CDBEB5D003F9DF2 /* Desktop2.json */; };
@@ -424,6 +424,7 @@
 		C82E60741C810DCB001860CC /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		C82E60751C810DCB001860CC /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
 		C8A593461C8E3AFE00036C1D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
+		C8B061AE1CDD65E800EDFC1E /* World_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = World_Sheet.png; sourceTree = "<group>"; };
 		C8C411631CDBEB5D003F9DF2 /* Artist_Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Artist_Icon_Sheet.png; sourceTree = "<group>"; };
 		C8C411641CDBEB5D003F9DF2 /* Artist_Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Artist_Wallpaper.png; sourceTree = "<group>"; };
 		C8C411661CDBEB5D003F9DF2 /* DoxygenHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoxygenHelp.txt; sourceTree = "<group>"; };
@@ -431,7 +432,6 @@
 		C8C411681CDBEB5D003F9DF2 /* consola.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = consola.ttf; sourceTree = "<group>"; };
 		C8C411691CDBEB5D003F9DF2 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		C8C4116A1CDBEB5D003F9DF2 /* DE1PipelineTexts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DE1PipelineTexts.json; sourceTree = "<group>"; };
-		C8C4116B1CDBEB5D003F9DF2 /* DekstopTutorial.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DekstopTutorial.txt; sourceTree = "<group>"; };
 		C8C4116C1CDBEB5D003F9DF2 /* Desktop0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Desktop0.json; sourceTree = "<group>"; };
 		C8C4116D1CDBEB5D003F9DF2 /* Desktop1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Desktop1.json; sourceTree = "<group>"; };
 		C8C4116E1CDBEB5D003F9DF2 /* Desktop2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Desktop2.json; sourceTree = "<group>"; };
@@ -1025,7 +1025,6 @@
 				C8C411681CDBEB5D003F9DF2 /* consola.ttf */,
 				C8C411691CDBEB5D003F9DF2 /* data.json */,
 				C8C4116A1CDBEB5D003F9DF2 /* DE1PipelineTexts.json */,
-				C8C4116B1CDBEB5D003F9DF2 /* DekstopTutorial.txt */,
 				C8C4116C1CDBEB5D003F9DF2 /* Desktop0.json */,
 				C8C4116D1CDBEB5D003F9DF2 /* Desktop1.json */,
 				C8C4116E1CDBEB5D003F9DF2 /* Desktop2.json */,
@@ -1056,6 +1055,7 @@
 				C8C412761CDBEB5D003F9DF2 /* SoundTrack_Extraction.ogg */,
 				C8C412771CDBEB5D003F9DF2 /* SoundTrack_Pipeline.ogg */,
 				C8C412781CDBEB5D003F9DF2 /* suspiciontest.json */,
+				C8B061AE1CDD65E800EDFC1E /* World_Sheet.png */,
 				C8C412791CDBEB5D003F9DF2 /* Teacher_Icon_Sheet.png */,
 				C8C4127A1CDBEB5D003F9DF2 /* Teacher_Icon_Sheet2 - Copy.png */,
 				C8C4127B1CDBEB5D003F9DF2 /* Teacher_Icon_Sheet2.png */,
@@ -1714,7 +1714,6 @@
 				C8C412991CDBEB5D003F9DF2 /* explosives_permit.txt in Resources */,
 				C8C413661CDBEB5D003F9DF2 /* Van_Gogh_Starry_Night.jpg in Resources */,
 				C8C412AF1CDBEB5D003F9DF2 /* 3573.jpg in Resources */,
-				C8C4128C1CDBEB5D003F9DF2 /* DekstopTutorial.txt in Resources */,
 				C8C413121CDBEB5D003F9DF2 /* The_Scarlet_Letter.txt in Resources */,
 				C8C413751CDBEB5D003F9DF2 /* Email1.json in Resources */,
 				C8C412F91CDBEB5D003F9DF2 /* New+Crowd39.jpg in Resources */,
@@ -1917,6 +1916,7 @@
 				C8C412E31CDBEB5D003F9DF2 /* Fallen1.jpg in Resources */,
 				C8C4137A1CDBEB5D003F9DF2 /* first.txt in Resources */,
 				C8C412D91CDBEB5D003F9DF2 /* Doubt11.jpg in Resources */,
+				C8B061AF1CDD65E800EDFC1E /* World_Sheet.png in Resources */,
 				C8C413141CDBEB5D003F9DF2 /* 120mm_M830A1.jpg in Resources */,
 				C8C4134B1CDBEB5D003F9DF2 /* plans_print.jpg in Resources */,
 				C8C412A01CDBEB5D003F9DF2 /* Passwords.txt in Resources */,

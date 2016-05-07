@@ -125,6 +125,16 @@ namespace ppc {
 		static bool isLoading_;
 
 		static sf::RectangleShape tempLoadScreen_;
+        
+        static sf::Image loadImage_;
+        
+        static sf::Texture loadTexture_;
+        
+        static sf::Sprite loadBar_;
+        
+        static sf::Sprite loadBarBorder_;
+        
+        static sf::Sprite loadingDecal_;
 
 		static sf::RectangleShape tempLoadBar_;
 
