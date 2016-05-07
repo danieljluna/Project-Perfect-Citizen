@@ -100,6 +100,7 @@ namespace ppc {
                 Edited,
                 Removed,
                 Center,
+                Submit,
                 Count
             };
 

@@ -60,6 +60,7 @@ namespace ppc {
 			Email,
 			Explorer,
 			Passwords,
+            Unlocked,
 			SuspFolder,
 			Scanning,
 			DeskSubmission,

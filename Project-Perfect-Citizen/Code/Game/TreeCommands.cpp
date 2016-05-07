@@ -36,7 +36,7 @@ void ppc::fn_mkfile(ppc::NodeState& state, const std::vector<std::string> words)
 		content = words.at(2);
 	}
 	state.getCwd()->makeFile(filename, content);
-	state.getCwd()->findElement(filename)->setName(filename);
+	//state.getCwd()->findElement(filename)->setName(filename);
 }
 
 void ppc::fn_ls(ppc::NodeState& state, const std::vector<std::string> words)
