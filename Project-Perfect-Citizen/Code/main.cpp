@@ -239,7 +239,7 @@ int main(int argc, char** argv) {
 
 	//Player Desktop
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Saves/teacherDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
 	Desktop playerDesktop;
 	desktopFileInput >> playerDesktop;
 	desktopFileInput.close();
