@@ -80,6 +80,8 @@ Network* PipelineLevelBuilder::buildTutorialTwo() {
 	addEdge(2, 3, *myNetwork, 1, exprGrammar);
 	addEdge(0, 3, *myNetwork, 1, exprGrammar);
 
+    myNetwork->setCenter(3);
+
 	return myNetwork;
 }
 

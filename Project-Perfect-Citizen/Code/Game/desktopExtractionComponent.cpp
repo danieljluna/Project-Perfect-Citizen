@@ -121,6 +121,7 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
             CMD.push_back(directory_name);
             CMD.push_back(pathName);
             if(directory_name != "Empty"){
+                fileTree_.getCwd()->setSuspicionLevel(suspicionPoints);
                 commandFn executeCommand = findFunction(mk_cmd);
                 executeCommand(fileTree_, CMD);
                 fileTree_.getCwd()->findElement(directory_name)->setSuspicionLevel(suspicionPoints);

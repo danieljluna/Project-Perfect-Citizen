@@ -18,7 +18,7 @@ namespace ppc {
 	class TextDisplayBuilder {
 	private:
 		sf::Font* f;
-		sf::Color* c;
+		sf::Color c;
 		float xPos;
 		float yPos;
 		int s;
