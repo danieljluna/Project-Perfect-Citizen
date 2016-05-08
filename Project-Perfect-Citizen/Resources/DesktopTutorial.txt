@@ -20,7 +20,7 @@ Default: A manual for making bombs? Log it into evidence!
 Default: Right click and select "Flag" to mark it as suspicious
 -Scanning: T
 Default: Once per desktop you can ask a colleagues opinion on a file
-Default: Click the scan button to see a number representing its suspiciousness
+Default: Right click the file and select "Scan" to see a number representing its suspiciousness
 -DeskSubmission: T
 Default: 1s are completely clean but this 10 is a smoking gun!
 Default: Click the submit button to log this evidence
