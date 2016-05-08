@@ -265,10 +265,6 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     /////// ENTITIES
     ///////////////////////////////////////
    
-    
-    
-    
-
 //   sf::Font& f, std::string str, int x, int y, int size
     /////////////////////////////////////////
     /////// WINDOW CONSTRUCTION
@@ -658,6 +654,67 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 
 }
 
+void ppc::spawnSuccessMessage(WindowInterface *& windowToModify, InputHandler & ih, sf::Image & buttonSheet, float x, float y, std::string message)
+{
+	if (windowToModify == nullptr) { return; }
+
+	/////////////////////////////////////////
+	/////// COMPONENTS
+	///////////////////////////////////////
+
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 16;
+
+	errorMessageRenderComponent* eMRC = new errorMessageRenderComponent(myFont, message,
+		windowToModify->getSize().x / 3, windowToModify->getSize().y / 3, fontSize);
+
+	/////////////////////////////////////////
+	/////// ENTITIES
+	///////////////////////////////////////
+	Entity alertIcon;
+	float alertScale = 0.5f;
+	float alertWidth = 128.0;
+	float windowWidth = static_cast<float>(windowToModify->getSize().x);
+	float windowHeight = static_cast<float>(windowToModify->getSize().y);
+	float alertX = windowWidth - ((alertWidth * alertScale) + (3 * (windowWidth / 4)));
+	float alertY = (windowHeight - (alertWidth * alertScale)) / 3;
+	float buttonScale = 0.25f;
+	float buttonX = ((windowWidth - (alertWidth * buttonScale)) / 2);
+	float buttonY = (2 * (windowHeight / 3));
+	spawnConfirmedIcon(alertIcon, ih, buttonSheet, alertX, alertY, 0.5f);
+	
+	float newWindowWidth = ((windowWidth)-(eMRC->getText()->getLocalBounds().width - windowWidth));
+
+	Entity errorMessageDisplayBox;
+	errorMessageDisplayBox.addComponent(eMRC);
+
+	// Button Test
+	ButtonBuilder builder;
+	builder.setButtonPosition(sf::Vector2f(buttonX, buttonY));
+	builder.setInputHandle(ih);
+	builder.setSize(0.25f);
+	builder.setSpritesByIndicies(0, 2, 2, 1);
+	builder.setSpriteSheet(buttonSheet);
+	builder.setLabelMessage("OK");
+	builder.setLabelFont(myFont);
+	builder.setLabelSize(12);
+	Entity ent;
+	createWithEventFunc(builder, ent, windowToModify, close_window);
+
+	/////////////////////////////////////////
+	/////// WINDOW CONSTRUCTION
+	///////////////////////////////////////
+	windowToModify->addEntity(errorMessageDisplayBox);
+	windowToModify->addEntity(alertIcon);
+	windowToModify->addEntity(ent);
+	windowToModify->setPosition(x, y);
+	//windowToModify->setSize(sf::Vector2u(newWindowWidth, windowHeight));
+	windowToModify = new BorderDecorator(*windowToModify);
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Success");
+}
+
 void ppc::spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message) {
     if (windowToModify == nullptr) { return; }
     
@@ -738,9 +795,10 @@ void ppc::spawnUnlock(WindowInterface *& windowToModify, InputHandler & ih, sf::
 
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
-	int fontSize = 16;
+	int fontSize = 14;
 
-	errorMessageRenderComponent* eMRC = new errorMessageRenderComponent(myFont, "Please Enter A Password",
+	errorMessageRenderComponent* eMRC = new errorMessageRenderComponent(myFont,
+		"Please enter a password:\n> Recovery Hint: '" + fldr->getFolderNodeState()->getCwd()->findElement(fldr->getFolderName())->getHint() +"'\n",
 		windowToModify->getSize().x / 3, (windowToModify->getSize().y / 3) - 40, fontSize);
 
 	/////////////////////////////////////////
@@ -774,7 +832,6 @@ void ppc::spawnUnlock(WindowInterface *& windowToModify, InputHandler & ih, sf::
 	Entity ent;
 	createWithEventFunc(builder, ent, fldr, ppc::unlock_folder);
 
-
 	Entity tbox;
 	TextBoxBuilder tbuilder;
 	tbuilder.setFont(myFont);
@@ -798,7 +855,7 @@ void ppc::spawnUnlock(WindowInterface *& windowToModify, InputHandler & ih, sf::
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
-	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Enter a Password");
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("'"+ fldr->getFolderName()+ "' is Password Protected");
 }
 
 
@@ -985,6 +1042,12 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Tracked Files:");
 	
 
+}
+
+bool ppc::close_window(WindowInterface * w, ppc::Event ev)
+{
+	w->close();
+	return false;
 }
 
 

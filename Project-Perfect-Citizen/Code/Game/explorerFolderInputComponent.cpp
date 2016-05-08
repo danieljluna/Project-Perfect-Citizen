@@ -231,7 +231,7 @@ bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 	if (target->findElement(ptr->getFolderName())->
 		comparePassword(ptr->getObservingTextBox()->getString())) {
 
-
+		/* Unlock the directory */
 		std::vector<string> unlockCommand;
 		string unlock = "unlock";
 		unlockCommand.push_back(unlock);
@@ -240,7 +240,18 @@ bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 		commandFn newCommand = findFunction(unlock);
 		newCommand(*ptr->getFolderNodeState(), unlockCommand);
 
+		/* Let the user know they successfully unlocked the directory */
+		ppc::WindowInterface* success =
+			new ppc::Window(500, 150, sf::Color(170, 170, 170));
+		spawnSuccessMessage(success, success->getInputHandler(), ptr->getFolderDesktop()->getButtonSheet(),
+			250, 250, "Access Granted. " + ptr->getFolderName() + "is now unlocked.";
+		ptr->getFolderDesktop()->addWindow(success);
+
+		/* Send the event and close the submit wind*/
+		evOut.open.success = false;
 		ptr->getObservingTextBox()->getContainingWindow()->close();
+
+
 
         evOut.open.success = true;
 	}
