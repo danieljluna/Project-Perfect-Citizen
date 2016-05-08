@@ -45,6 +45,7 @@
     <ClCompile Include="Code\Engine\subject.cpp" />
     <ClCompile Include="Code\Engine\SubjectObsvr.cpp" />
     <ClCompile Include="Code\Engine\SuspiciousFileHolder.cpp" />
+    <ClCompile Include="Code\Engine\Transition.cpp" />
     <ClCompile Include="Code\Engine\UpdateCmpntDecorator.cpp" />
     <ClCompile Include="Code\Engine\UpdateCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\Vertex.cpp" />
