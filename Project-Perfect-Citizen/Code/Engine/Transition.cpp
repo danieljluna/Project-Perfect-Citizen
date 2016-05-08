@@ -57,6 +57,9 @@ void Transition::setTransitionPoint(float position) {
     //Set the position of the Transition
     transitionPoint_ = position;
 
+    //Do onAdvance schtuff
+    onAdvance();
+
     //Bounds check
     clipTransitionPoint();
 }
@@ -67,6 +70,9 @@ void Transition::setTransitionPoint(float position) {
 void Transition::incrementTransition(float delta) {
     //Add delta to increment.
     transitionPoint_ += delta;
+
+    //Do onAdvance schtuff
+    onAdvance();
     
     //Bounds check
     clipTransitionPoint();
