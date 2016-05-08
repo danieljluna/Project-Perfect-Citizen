@@ -601,7 +601,7 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
-	int fontSize = 16;
+	int fontSize = 12;
 
 	errorMessageRenderComponent* eMRC = new errorMessageRenderComponent(myFont, message, 
 		windowToModify->getSize().x/3, windowToModify->getSize().y/3, fontSize);
@@ -637,14 +637,14 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	builder.setLabelFont(myFont);
 	builder.setLabelSize(12);
 	Entity ent;
-	builder.create(ent);
+	createWithEventFunc(builder, ent, windowToModify, close_window);
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 	windowToModify->addEntity(errorMessageDisplayBox);
 	windowToModify->addEntity(alertIcon);
-	//windowToModify->addEntity(ent);
+	windowToModify->addEntity(ent);
 	windowToModify->setPosition(x, y);
 	//windowToModify->setSize(sf::Vector2u(newWindowWidth, windowHeight));
 	windowToModify = new BorderDecorator(*windowToModify);
@@ -795,7 +795,7 @@ void ppc::spawnUnlock(WindowInterface *& windowToModify, InputHandler & ih, sf::
 
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
-	int fontSize = 14;
+	int fontSize = 12;
 
 	errorMessageRenderComponent* eMRC = new errorMessageRenderComponent(myFont,
 		"Please enter a password:\n> Recovery Hint: '" + fldr->getFolderNodeState()->getCwd()->findElement(fldr->getFolderName())->getHint() +"'\n",
