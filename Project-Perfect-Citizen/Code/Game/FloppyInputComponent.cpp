@@ -143,6 +143,12 @@ void ppc::FloppyInputComponent::setSequence(unsigned int s, unsigned int f) {
         sequence = s;
     } else {
         sequence = -1;
+        f = 0;
+        setFloppyButton(false);
+        Event ev;
+        ev.type = ppc::Event::AbleType;
+        ev.able.enable = false;
+        getEntity()->broadcastMessage(ev);
     }
     setFrame(f);
 }
@@ -202,7 +208,9 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             //If we just ended the Welcome
             if (ev.floppy.sequence == 2) {
                 World::getCurrDesktop().incrementNetVecIndex();
-            } 
+            } else if (ev.floppy.sequence == FloppyInputComponent::Feedback) {
+                World::quitDesktop();
+            }
             if (FloppyInputComponent::floppyDictionary.at(ev.floppy.sequence).autoShift) {
                 wasSummoned = true;
                 ev.floppy.frame = 0;
@@ -279,13 +287,19 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             (ev.network.type == ev.network.Created) &&
             (ev.network.v != -1));
         break;
-	case FloppyInputComponent::Edges:
+	case FloppyInputComponent::SelectEdge:
+		enable = (ev.type == ev.NetworkType &&
+			ev.network.type == ev.network.Selected &&
+			ev.network.v != -1);
+		break;
+	case FloppyInputComponent::DeleteEdge:
         enable = ((ev.type == ev.NetworkType) &&
             (ev.network.type == ev.network.Removed) &&
             (ev.network.v != -1));
         break;
 	case FloppyInputComponent::TempFix:
-        enable = (World::getCurrDesktop().getNetVecIndex() == 1);
+        enable = ((ev.type == ev.OpenType) &&
+            (ev.open.winType == ev.open.Pipeline));
 		break;
 	case FloppyInputComponent::Goal:
         enable = (ev.type == ev.NetworkType);
@@ -293,6 +307,12 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             enable = ev.network.net->checkColorlessEdgeEquality(*World::getCurrDesktop().getSolVec()[1]) == 1.0f;
         }
         break;
+	case FloppyInputComponent::ColorChange:
+		enable = (ev.type == ev.NetworkType && ev.network.type == ev.network.Edited && ev.network.v != -1);
+		if (enable) {
+			enable = ev.network.net->edge(ev.network.u, ev.network.v)->getColor() != selBlack;
+		}
+		break;
 	case FloppyInputComponent::Suspicion:
         enable = (ev.type == ev.NetworkType);
         if (enable) {
@@ -303,11 +323,12 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         enable = ((ev.type == ev.NetworkType) &&
                   (ev.network.type == ev.network.Center));
         if (enable) {
-            ev.network.net->checkCenterEquality(*World::getCurrDesktop().getSolVec()[1]);
+            enable = ev.network.net->checkCenterEquality(*(World::getCurrDesktop().getSolVec()[1]));
         }
         break;
 	case FloppyInputComponent::Submission:
-		enable = true;
+        enable = ((ev.type == ev.NetworkType) &&
+            (ev.network.type == ev.network.Submit));
 		break;
 	case FloppyInputComponent::Feedback:
         enable = true;
@@ -323,12 +344,19 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 	case FloppyInputComponent::Explorer:
         enable = ((ev.type == ev.OpenType) &&
             (ev.open.winType == ev.open.Folder) &&
+            (!ev.open.file->getName().compare("Terrorism")) &&
             (ev.open.success == false));
         break;
 	case FloppyInputComponent::Passwords:
         enable = ((ev.type == ev.OpenType) &&
             (ev.open.winType == ev.open.Folder) &&
+            (!ev.open.file->getName().compare("Terrorism")) &&
             (ev.open.success == true));
+        break;
+    case FloppyInputComponent::Unlocked:
+        enable = ((ev.type == ev.OpenType) &&
+            (ev.open.winType == ev.open.Folder) &&
+            (!ev.open.file->getName().compare("Schematics")));
         break;
 	case FloppyInputComponent::SuspFolder:
         enable = ((ev.type == ev.SubmissionType) &&

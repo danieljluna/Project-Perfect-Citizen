@@ -16,7 +16,7 @@ void ppc::TextDisplayBuilder::setFont(sf::Font& font) {
 }
 
 void ppc::TextDisplayBuilder::setColor(sf::Color color) {
-	c = &color;
+	c = color;
 }
 
 void ppc::TextDisplayBuilder::setPosition(sf::Vector2f vec) {
@@ -33,6 +33,6 @@ void ppc::TextDisplayBuilder::setString(std::string str) {
 }
 
 void ppc::TextDisplayBuilder::create(Entity& e) {
-	TextDisplayRenderComponent* t = new TextDisplayRenderComponent(*f, *c, xPos, yPos, s, stringToRender);
+	TextDisplayRenderComponent* t = new TextDisplayRenderComponent(*f, c, xPos, yPos, s, stringToRender);
 	e.addComponent(t);
 }

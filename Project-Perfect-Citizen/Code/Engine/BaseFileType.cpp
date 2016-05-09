@@ -101,6 +101,7 @@ void BaseFileType::makeFile(std::string filename, std::string content)
 	//TODO: FIX MEMORY LEAKS!
     BaseFileType* newFile = new BaseFileType(ppc::FileType::File);
 	newFile->fileData = content;
+    newFile->name = filename;
 	this->contents[filename] = newFile;
 }
 
@@ -108,6 +109,7 @@ BaseFileType* BaseFileType::makeDir(std::string filename)
 {
     //TODO: FIX MEMORY LEAKS!
 	BaseFileType* newDir = new BaseFileType(ppc::FileType::Directory);
+    newDir->name = filename;
 	newDir->contents["."] = newDir;
 	newDir->contents[".."] = this;
 	this->contents[filename] = newDir;
