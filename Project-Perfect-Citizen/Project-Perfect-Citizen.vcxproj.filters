@@ -355,6 +355,9 @@
     <ClCompile Include="Code\Game\notifcationRenderComponent.cpp">
       <Filter>Sources\Game Specific\Icons</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\Transition.cpp">
+      <Filter>Sources\Engine\World</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
