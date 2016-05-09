@@ -29,6 +29,9 @@
             },
             "Classified_Docs/Mobile/HEX: 4D6F62696C65" : {
                 "Docs" : {
+                    "1/Will.txt" : "DesktopContent/Desktop3/Will.txt",
+                    "1/NDA.txt" : "DesktopContent/Desktop3/NDA.txt",
+                    "1/Power_of_Attorney.txt" : "DesktopContent/Desktop3/Power_of_Attorney.txt",
                     "1/Empty" : "DesktopContent/Desktop3/Therapy_Journal_#3.txt"
                 },
                 "Albatross_Extracted" : {
