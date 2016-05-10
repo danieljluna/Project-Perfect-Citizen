@@ -47,7 +47,7 @@ using namespace ppc;
 
 
 
-void runBootDesktop(ppc::Desktop& myDesktop) {
+void setUpBootDesktop(ppc::Desktop& myDesktop) {
     
     Window* bootWindow = new Window(1800,1000,sf::Color(30,32,33));
     
@@ -73,7 +73,7 @@ void runBootDesktop(ppc::Desktop& myDesktop) {
 
 
 
-void runEndDesktop(ppc::Desktop& myDesktop) {
+void setUpEndDesktop(ppc::Desktop& myDesktop) {
     
     Window* endWindow = new Window(1800,1000,sf::Color(30,32,33));
     
@@ -90,25 +90,25 @@ void runEndDesktop(ppc::Desktop& myDesktop) {
 }
 
 
-void runPlayerDesktop(ppc::Desktop& myDesktop) {
+void setUpPlayerDesktop(ppc::Desktop& myDesktop) {
     createPlayerDesktop(myDesktop, *myDesktop.getDesktopWindow(),
                         myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
     
 }
 
-void runDummyDesktop(ppc::Desktop& myDesktop) {
+void setUpDummyDesktop(ppc::Desktop& myDesktop) {
     createDummyDesktop(myDesktop, *myDesktop.getDesktopWindow(),
                        myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
     
 }
 
-void runTargetDesktop(ppc::Desktop& myDesktop) {
+void setUpTeacherDesktop(ppc::Desktop& myDesktop) {
     createTeacherDesktop(myDesktop, *myDesktop.getDesktopWindow(),
                          myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
     
 }
 
-void runArtistDesktop(ppc::Desktop& myDesktop) {
+void setUpArtistDesktop(ppc::Desktop& myDesktop) {
     createArtistDesktop(myDesktop, *myDesktop.getDesktopWindow(),
                         myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
     
@@ -139,36 +139,6 @@ int main(int argc, char** argv) {
     audiotest.loopBgm();
     audiotest.playBgm();
 
-
-    
-    ///////////// Load Spritesheets/Textures/Background Images ////////
-    sf::Sprite playerWallpaper;
-    sf::Sprite teacherWallpaper;
-    sf::Sprite artistWallpaper;
-    sf::Texture playerWallpaperTexture;
-    sf::Texture teacherWallpaperTexture;
-    sf::Texture artistWallpaperTexture;
-    playerWallpaperTexture.loadFromFile(resourcePath() + "Wallpaper.png");
-    teacherWallpaperTexture.loadFromFile(resourcePath() + "Teacher_Wallpaper.png");
-    artistWallpaperTexture.loadFromFile(resourcePath() + "Artist_Wallpaper.png");
-    
-    playerWallpaper.setTexture(playerWallpaperTexture);
-    teacherWallpaper.setTexture(teacherWallpaperTexture);
-    artistWallpaper.setTexture(artistWallpaperTexture);
-    
-    playerWallpaper.setScale(0.7f, 0.7f);
-    playerWallpaper.setPosition(0, 0);
-    
-    sf::Image buttonSheet;
-    buttonSheet.loadFromFile(resourcePath() + "Windows_UI.png");
-    sf::Image pixelSheet;
-    pixelSheet.loadFromFile(resourcePath() + "Pixel_Title.png");
-    sf::Image iconSheet;
-    iconSheet.loadFromFile(resourcePath() + "Icon_Sheet.png");
-    sf::Image teacherIconSheet;
-    teacherIconSheet.loadFromFile(resourcePath() + "Teacher_Icon_Sheet.png");
-    sf::Image artistIconSheet;
-    artistIconSheet.loadFromFile(resourcePath() + "Artist_Icon_Sheet.png");
     ///////////////////////////////////////////////////////////////////
     
     //// ----------------   PYTHON LOCATION STUFF ---------------- ////
@@ -184,15 +154,14 @@ int main(int argc, char** argv) {
     
 	//Boot Desktop
 
-
+	Desktop mainDesktop;
 	desktopFileInput.open(resourcePath() + "Saves/bootDesktop.ini", std::ifstream::in);
-	Desktop bootDesktop;
-	desktopFileInput >> bootDesktop;
+	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
 	Logger::startTimer("bootDesktop");
     
-    World::setCurrDesktop(bootDesktop);
-    runBootDesktop(bootDesktop);
+	World::setCurrDesktop(mainDesktop);
+	setUpBootDesktop(mainDesktop);
 	World::runCurrDesktop();
     
     Logger::endTimer("bootDesktop");
@@ -203,19 +172,14 @@ int main(int argc, char** argv) {
 
 	//PE Tutorial Desktop
 	World::startLoading();
-
 	desktopFileInput.open(resourcePath() + "Saves/pipelineTutorial.ini", std::ifstream::in);
-	Desktop pipeTutorialDesktop;
-	
-	desktopFileInput >> pipeTutorialDesktop;
-
+	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
 
     Logger::startTimer("PipeTutorialDesktop");
-    
-    World::setCurrDesktop(pipeTutorialDesktop);
-    createTutorial(pipeTutorialDesktop);
-	
+
+	World::setCurrDesktop(mainDesktop);
+    createTutorial(mainDesktop);
     World::runCurrDesktop();
     
     Logger::endTimer("PipeTutorialDesktop");
@@ -225,14 +189,13 @@ int main(int argc, char** argv) {
 	//DE Tutorial Desktop 
 	World::startLoading();
 	desktopFileInput.open(resourcePath() + "Saves/desktopTutorial.ini", std::ifstream::in);
-	Desktop deskTutorialDesktop;
-	desktopFileInput >> deskTutorialDesktop;
+	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
 
 	Logger::startTimer("DeskTutorialDesktop");
 
-	World::setCurrDesktop(deskTutorialDesktop);
-	createDesktopTutorial(deskTutorialDesktop); 
+	World::setCurrDesktop(mainDesktop);
+	createDesktopTutorial(mainDesktop);
 	World::runCurrDesktop();
 
 	Logger::endTimer("DeskTutorialDesktop");
@@ -240,87 +203,74 @@ int main(int argc, char** argv) {
 	//Player Desktop
 	World::startLoading();
 	desktopFileInput.open(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
-	Desktop playerDesktop;
-	desktopFileInput >> playerDesktop;
+	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
 
     Logger::startTimer("playerDesktop");
     
-    World::setCurrDesktop(playerDesktop);
-    runTargetDesktop(playerDesktop);
+    World::setCurrDesktop(mainDesktop);
+	setUpPlayerDesktop(mainDesktop);
 	World::runCurrDesktop();
     
     Logger::endTimer("playerDesktop");
 	// End Player Desktop
 
 	//Testing Report Screen
-	Desktop reportScreen;
-	createReportScreen(reportScreen, World::DE1A);
-	World::setCurrDesktop(reportScreen);
-	World::runCurrDesktop();
+	//Desktop reportScreen;
+	//createReportScreen(reportScreen, World::DE1A);
+	//World::setCurrDesktop(reportScreen);
+	//World::runCurrDesktop();
 
 	//ENd of report screen
 
 	//Desktop 1 / Teacher Desktop
-	ppc::NodeState targetState;
-	targetState.setUp();
-	Window* targetDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-
-	Desktop* targetDesktop = new Desktop(targetDesktopWindow, targetState);
-	targetDesktop->setIconSheet(iconSheet);
-	targetDesktop->setButtonSheet(buttonSheet);
-	targetDesktop->setBackgrond(teacherWallpaper);
-
-    Logger::startTimer("targetDesktop");
+	World::startLoading();
+	desktopFileInput.open(resourcePath() + "Saves/teacherDesktop.ini", std::ifstream::in);
+	desktopFileInput >> mainDesktop;
+	desktopFileInput.close();
+    Logger::startTimer("TeacherDesktop");
     
-    World::setCurrDesktop(*targetDesktop);
-    runTargetDesktop(*targetDesktop);
-    while (World::runDesktop(*targetDesktop)) {}
-    delete targetDesktop;
+    World::setCurrDesktop(mainDesktop);
+	setUpTeacherDesktop(mainDesktop);
+	World::runCurrDesktop();
     
-    Logger::endTimer("targetDesktop");
+    Logger::endTimer("TeacherDesktop");
 	//End of Target/Teacher Desktop
     
+    //NEED TO MAKE INI FOR PLAYER DESKTOP 2
     
+
+	//Desktop 2 / (Artist Desktop or politician)
+	World::startLoading();
+	if (ppc::SuspiciousFileHolder::isGuilty()) {
+		desktopFileInput.open(resourcePath() + "Saves/politicianDesktop.ini", std::ifstream::in);
+	} else {
+		desktopFileInput.open(resourcePath() + "Saves/artistDesktop.ini", std::ifstream::in);
+	}
+	desktopFileInput >> mainDesktop;
+	desktopFileInput.close();
+
+    Logger::startTimer("DE2Desktop");
     
+    World::setCurrDesktop(mainDesktop);
+	//need to create function to make the artist and politician
+	setUpArtistDesktop(mainDesktop);
+	World::runCurrDesktop();
     
-    //Desktop 2 / Artist Desktop
-    ppc::NodeState artistState;
-    artistState.setUp();
-    Window* artistDesktopWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-    
-    Desktop* artistDesktop = new Desktop(artistDesktopWindow, artistState);
-    artistDesktop->setIconSheet(artistIconSheet);
-    artistDesktop->setButtonSheet(buttonSheet);
-    artistDesktop->setBackgrond(artistWallpaper);
-    
-    Logger::startTimer("targetDesktop");
-    
-    World::setCurrDesktop(*artistDesktop);
-    runArtistDesktop(*artistDesktop);
-    while (World::runDesktop(*artistDesktop)) {}
-    delete artistDesktop;
-    
-    Logger::endTimer("targetDesktop");
+    Logger::endTimer("DE2Desktop");
     //End of Target/Teacher Desktop
 
 
 
 	//Ending Desktop
-	ppc::NodeState endState;
-	Window* endWindow = new Window(1800, 1000, sf::Color(0, 0, 0));
-
-	Desktop* endDesktop = new Desktop(endWindow, endState);
-	endDesktop->setIconSheet(iconSheet);
-	endDesktop->setButtonSheet(pixelSheet);
-	endDesktop->setBackgrond(playerWallpaper);
-
+	desktopFileInput.open(resourcePath() + "Saves/endDesktop.ini", std::ifstream::in);
+	desktopFileInput >> mainDesktop;
+	desktopFileInput.close();
     Logger::startTimer("endDesktop");
     
-    World::setCurrDesktop(*endDesktop);
-    runEndDesktop(*endDesktop);
-    while (World::runDesktop(*endDesktop)) {}
-    delete endDesktop;
+    World::setCurrDesktop(mainDesktop);
+	setUpEndDesktop(mainDesktop);
+	World::runCurrDesktop();
     
     Logger::endTimer("endDesktop");
     
