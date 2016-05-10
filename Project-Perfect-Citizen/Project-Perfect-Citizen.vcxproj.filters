@@ -361,6 +361,9 @@
     <ClCompile Include="Code\Game\ConfirmWindowBuilder.cpp">
       <Filter>Sources\Game Specific</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\flaggedFileInputComponent.cpp">
+      <Filter>Sources\Game Specific</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -742,6 +745,9 @@
       <Filter>Headers\Engine\World</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\ConfirmWindowBuilder.h">
+      <Filter>Headers\Game Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\flaggedFileInputComponent.h">
       <Filter>Headers\Game Specific</Filter>
     </ClInclude>
   </ItemGroup>

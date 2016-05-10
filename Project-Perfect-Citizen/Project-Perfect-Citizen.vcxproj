@@ -91,6 +91,7 @@
     <ClCompile Include="Code\Game\explorerFileInputComponent.cpp" />
     <ClCompile Include="Code\Game\explorerFolderInputComponent.cpp" />
     <ClCompile Include="Code\Game\expressionistParser.cpp" />
+    <ClCompile Include="Code\Game\flaggedFileInputComponent.cpp" />
     <ClCompile Include="Code\Game\FloppyInputComponent.cpp" />
     <ClCompile Include="Code\Game\FloppyRenderComponent.cpp" />
     <ClCompile Include="Code\Game\FloppyUpdateComponent.cpp" />
@@ -226,6 +227,7 @@
     <ClInclude Include="Code\Game\explorerFileInputComponent.h" />
     <ClInclude Include="Code\Game\explorerFolderInputComponent.h" />
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
+    <ClInclude Include="Code\Game\flaggedFileInputComponent.h" />
     <ClInclude Include="Code\Game\FloppyInputComponent.h" />
     <ClInclude Include="Code\Game\FloppyRenderComponent.hpp" />
     <ClInclude Include="Code\Game\FloppySequence.h" />

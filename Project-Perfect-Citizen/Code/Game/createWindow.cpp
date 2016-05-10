@@ -66,6 +66,7 @@
 #include "../Game/explorerFolderInputComponent.h"
 
 #include "../Game/ConfirmWindowBuilder.h"
+#include "../Game/flaggedFileInputComponent.h"
 
 
 using namespace ppc;
@@ -992,13 +993,17 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Green,
 				(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12,
 				ppc::SuspiciousFileHolder::getBFTVectorElement(i)->getName());
+
+			mousePressButton* mpb = new mousePressButton(windowToModify->getInputHandler(), IconRender->getSprite()->getLocalBounds());
+			flaggedFileInputComponent* fIC = new flaggedFileInputComponent(&dt, windowToModify, windowToModify->getInputHandler(),
+				ppc::SuspiciousFileHolder::getBFTVectorElement(i)->getName());
+			fileRender.addComponent(mpb);
+			fileRender.addComponent(fIC);
 		}
 		else {
 			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red,
 				(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "[EMPTY]");
 		}
-
-		// Input Component here? What behavior would we like these shortcutted files to have?
 
 		fileRender.addComponent(IconRender);
 		fileRender.addComponent(label);
@@ -1023,14 +1028,11 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 	builder.setLabelSize(15);
 	builder.setSize(submitBtnSize);
 	builder.setSpriteSheet(dt.getButtonSheet());
-	//builder.create(submitBtn); // <- Replace this with createWithEventFunc
 	createWithEventFunc(builder, submitBtn, &dt, ppc::ConfirmSubmitFiles);
-	// once submit function is done
 
 	builder.setButtonPosition({ (float)(submitBtnX - (256 * submitBtnSize)), (256 * submitBtnSize) - padding });
-	builder.setLabelMessage("SCAN");
-	builder.create(scanBtn); // <- Replace this with createWithEventFunc
-	// once scan function is done
+	builder.setLabelMessage("CLEAR");
+	createWithEventFunc(builder, scanBtn, &dt, clear_flagged_files);
 
 	windowToModify->addEntity(submitBtn);
 	windowToModify->addEntity(scanBtn);
