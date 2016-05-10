@@ -65,6 +65,8 @@
 #include "../Engine/SuspiciousFileHolder.h"
 #include "../Game/explorerFolderInputComponent.h"
 
+#include "../Game/ConfirmWindowBuilder.h"
+
 
 using namespace ppc;
 
@@ -1022,7 +1024,7 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 	builder.setSize(submitBtnSize);
 	builder.setSpriteSheet(dt.getButtonSheet());
 	//builder.create(submitBtn); // <- Replace this with createWithEventFunc
-	createWithEventFunc(builder, submitBtn, &dt, ppc::submitFiles);
+	createWithEventFunc(builder, submitBtn, &dt, ppc::ConfirmSubmitFiles);
 	// once submit function is done
 
 	builder.setButtonPosition({ (float)(submitBtnX - (256 * submitBtnSize)), (256 * submitBtnSize) - padding });

@@ -358,6 +358,9 @@
     <ClCompile Include="Code\Engine\Transition.cpp">
       <Filter>Sources\Engine\World</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\ConfirmWindowBuilder.cpp">
+      <Filter>Sources\Game Specific</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -737,6 +740,9 @@
     </ClInclude>
     <ClInclude Include="Code\Engine\Transition.h">
       <Filter>Headers\Engine\World</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\ConfirmWindowBuilder.h">
+      <Filter>Headers\Game Specific</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -62,6 +62,7 @@
     <ClCompile Include="Code\Game\buttonRenderComponent.cpp" />
     <ClCompile Include="Code\Game\buttonUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\characterRender.cpp" />
+    <ClCompile Include="Code\Game\ConfirmWindowBuilder.cpp" />
     <ClCompile Include="Code\Game\consoleIconRenderComponent.cpp" />
     <ClCompile Include="Code\Game\consoleUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\ContextBuilder.cpp" />
@@ -196,6 +197,7 @@
     <ClInclude Include="Code\Game\buttonRenderComponent.h" />
     <ClInclude Include="Code\Game\buttonUpdateComponent.h" />
     <ClInclude Include="Code\Game\characterRender.hpp" />
+    <ClInclude Include="Code\Game\ConfirmWindowBuilder.h" />
     <ClInclude Include="Code\Game\consoleIconRenderComponent.h" />
     <ClInclude Include="Code\Game\consoleUpdateComponent.h" />
     <ClInclude Include="Code\Game\ContextBuilder.h" />
