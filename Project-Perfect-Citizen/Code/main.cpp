@@ -252,7 +252,7 @@ int main(int argc, char** argv) {
 	Logger::endTimer("playerDesktop2");
     
 
-	//Desktop Extraction 2 / (Artist Desktop or politician)
+	//Desktop Extraction 2 / (Artist or Politician DE)
 	World::startLoading();
 	if (ppc::SuspiciousFileHolder::isGuilty()) {
 		desktopFileInput.open(resourcePath() + "Saves/politicianDesktop.ini", std::ifstream::in);
@@ -275,7 +275,7 @@ int main(int argc, char** argv) {
     Logger::endTimer("DE2Desktop");
     //End of Target/Teacher Desktop
 
-	//Player Desktop (3)
+	//Player Desktop (PE3)
 	World::startLoading();
 	desktopFileInput.open(resourcePath() + "Saves/playerDesktop3.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
