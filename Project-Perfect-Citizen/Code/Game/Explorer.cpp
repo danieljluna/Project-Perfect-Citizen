@@ -60,6 +60,9 @@ vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
 				example.addComponent(label);
 				example.addComponent(IconInput);
 			}
+			/*else if (hasEnding(filenames.at(i), ".jpg")) {
+				// Use a different sprite
+			}*/
 			/* Case: FOLDER*/
 			else {
 				buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet_, 0, 9, 1, 1);

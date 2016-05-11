@@ -24,6 +24,7 @@ textInputKeys::textInputKeys(ppc::InputHandler& ih,
 	str.push_back((char)'>');
 	str.push_back((char)' ');
 	textBox.updateString(str);
+	textBox.updatePosition(textDisplay.getText()->getLocalBounds().height, 10);
     
 }
 
