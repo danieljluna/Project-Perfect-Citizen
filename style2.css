@@ -19,9 +19,21 @@ a:active {
 }
 
 #small_text {
-	font-size: smaller;
+	font-size: medium;
 	text-align:justify;
+	white-space: pre-line;
 } 
+
+p {
+	text-align:justify;
+	white-space: pre-line;	
+}
+
+li {
+	margin: 1em 0;
+}
+
+
 
 .title_head {
 	font-family: monospace;
@@ -32,7 +44,7 @@ a:active {
 }
 
 .content {
-	float:right;
+	float:left;
 	margin-right: 100px;
 	margin-bottom: 100px;
 	background-color:rgb(160,160,160);
@@ -53,7 +65,7 @@ a:active {
 	border-right-color: white;
 	border-left-color: black;
 	border-top-color: black;
-	height: 99%;
+	height: intrinsic;
 	background-color:rgb(170,170,170);
 }
 
@@ -62,8 +74,20 @@ a:active {
 	font-size: medium;
 	margin:5px;
 	color: #000000;
-	height: 500px;
+	height:intrinsic;
 }
+
+.inner_left {
+	margin-left:25px;
+	float: left;
+}
+
+.inner_right {
+	margin-right:20px;
+	float: right;
+}
+
+
 
 .sidebar_menu {
 	float:left;
