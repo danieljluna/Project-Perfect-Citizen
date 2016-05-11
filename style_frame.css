@@ -12,7 +12,7 @@ a:hover {
 	text-decoration: none;
 }
 a:visited {
-	color:#ffffff;
+	color:blue;
 	text-decoration: none;
 }
 
@@ -93,24 +93,6 @@ li {
 	float: right;
 }
 
-
-
-.sidebar_menu {
-	float:left;
-	font-family: monospace;
-	width: 300px;
-	text-align: left;
-}
-
-.sidebar_menu_item:hover {
-	background-color:rgba(98,224,224,0.68);
-	color:#ffffff;
-	text-shadow: 1px 1px #000000;
-	width: 90;
-	list-style-type: none;
-	padding: 6px;	
-}
-
 .button_box {
 	color:black;
 	padding: 10px;
@@ -126,24 +108,4 @@ li {
 	font-size: small;
 }
 
-.sidebar_menu_item {
-	color:#ffffff;
-	text-shadow: 1px 1px #000000;
 
-	width: inherit;
-	list-style-type: none;
-	padding: 6px;
-}
-
-
-#drag-1, #drag-2 {
-
-
-  -webkit-transform: translate(0px, 0px);
-          transform: translate(0px, 0px);
-}
-
-#drag-me::before {
-  content: "#" attr(id);
-  font-weight: bold;
-}
