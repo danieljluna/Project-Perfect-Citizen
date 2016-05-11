@@ -114,7 +114,7 @@ void setUpArtistDesktop(ppc::Desktop& myDesktop) {
     
 }
 
-void runPoliticianDesktop(ppc::Desktop& myDesktop) {
+void setUpPoliticianDesktop(ppc::Desktop& myDesktop) {
     createPoliticianDesktop(myDesktop, *myDesktop.getDesktopWindow(),
                         myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
 
@@ -237,10 +237,22 @@ int main(int argc, char** argv) {
     Logger::endTimer("TeacherDesktop");
 	//End of Target/Teacher Desktop
     
-    //NEED TO MAKE INI FOR PLAYER DESKTOP 2
+	//Player Desktop (2)
+	World::startLoading();
+	desktopFileInput.open(resourcePath() + "Saves/playerDesktop2.ini", std::ifstream::in);
+	desktopFileInput >> mainDesktop;
+	desktopFileInput.close();
+
+	Logger::startTimer("playerDesktop2");
+
+	World::setCurrDesktop(mainDesktop);
+	setUpPlayerDesktop(mainDesktop);
+	World::runCurrDesktop();
+
+	Logger::endTimer("playerDesktop2");
     
 
-	//Desktop 2 / (Artist Desktop or politician)
+	//Desktop Extraction 2 / (Artist Desktop or politician)
 	World::startLoading();
 	if (ppc::SuspiciousFileHolder::isGuilty()) {
 		desktopFileInput.open(resourcePath() + "Saves/politicianDesktop.ini", std::ifstream::in);
@@ -253,14 +265,32 @@ int main(int argc, char** argv) {
     Logger::startTimer("DE2Desktop");
     
     World::setCurrDesktop(mainDesktop);
-	//need to create function to make the artist and politician
-	setUpArtistDesktop(mainDesktop);
+	if (ppc::SuspiciousFileHolder::isGuilty()) {
+		setUpPoliticianDesktop(mainDesktop);
+	} else {
+		setUpArtistDesktop(mainDesktop);
+	}
 	World::runCurrDesktop();
     
     Logger::endTimer("DE2Desktop");
     //End of Target/Teacher Desktop
 
+	//Player Desktop (3)
+	World::startLoading();
+	desktopFileInput.open(resourcePath() + "Saves/playerDesktop3.ini", std::ifstream::in);
+	desktopFileInput >> mainDesktop;
+	desktopFileInput.close();
 
+	Logger::startTimer("playerDesktop3");
+
+	World::setCurrDesktop(mainDesktop);
+	setUpPlayerDesktop(mainDesktop);
+	World::runCurrDesktop();
+
+	Logger::endTimer("playerDesktop3");
+
+
+	//Desktop Extraction 3 goes here
 
 	//Ending Desktop
 	desktopFileInput.open(resourcePath() + "Saves/endDesktop.ini", std::ifstream::in);
