@@ -223,7 +223,7 @@ namespace ppc {
         Subject& onManip() { return onManip_; };
 
 		void setTempEdgeDraw(bool);
-		void setTempEdgePos(unsigned int);
+		void setTempEdgePos(unsigned int, sf::Vector2f);
 
 		void setTempColorBlack();
 		void setTempColorGreen();
@@ -281,6 +281,7 @@ namespace ppc {
 		bool drawTempEdge_;
 		unsigned int tempEdgeSource_;
 		sf::Color tempEdgeColor_;
+		sf::Vector2f mousePos_;
 
     };
 

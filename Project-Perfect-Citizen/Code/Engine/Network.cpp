@@ -370,9 +370,7 @@ void Network::draw(sf::RenderTarget& target,
 
 	if (drawTempEdge_) {
 		sf::Vector2f point1 = vertexData_[tempEdgeSource_].getPosCenter();
-		float mosx = static_cast<float>(sf::Mouse::getPosition().x);
-		float mosy = static_cast<float>(sf::Mouse::getPosition().y);
-		sf::Vector2f point2{ mosx, mosy };
+		sf::Vector2f point2 = mousePos_;
 
 		sf::Vector2f direction = point2 - point1;
 		sf::Vector2f unitDirection = direction / std::sqrt(direction.x*direction.x + direction.y*direction.y);
@@ -443,8 +441,9 @@ void Network::draw(sf::RenderTarget& target,
 // Extra functions for Drawing
 ///////////////////////////////////////////////////////////////////////
 
-void Network::setTempEdgePos(unsigned int vertnum) {
+void Network::setTempEdgePos(unsigned int vertnum, sf::Vector2f mouse) {
 	tempEdgeSource_ = vertnum;
+	mousePos_ = mouse;
 }
 
 void Network::setTempEdgeDraw(bool set) {

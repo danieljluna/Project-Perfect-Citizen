@@ -189,6 +189,9 @@ namespace ppc {
 
         bool isWindow(WindowInterface*);
 
+		//for testing purposes sorry no doc atm
+		WindowInterface* getFocusedWindow() { return focused_; };
+
 ///////////////////////////////////////////////////////////////////////
 ///@brief Removes a Window from the Desktop.
 ///@details After a window is closed, the desktopWindow is the new 

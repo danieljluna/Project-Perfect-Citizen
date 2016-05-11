@@ -3,6 +3,10 @@
 #include <cmath>
 #include <cfloat>
 #include "../Engine/DraggableInput.h"
+//#include "../Engine/World.h"
+//#include "../Engine/desktop.h"
+//#include "../Engine/WindowInterface.h"
+
 const float MAX_DISTANCE_TO_EDGE = 10.f;
 
 void ppc::NetworkInputCmpnt::selectEdge(sf::Vector2f mPos) {
@@ -171,11 +175,12 @@ void ppc::NetworkInputCmpnt::updateDataText() {
 
 ppc::NetworkInputCmpnt::NetworkInputCmpnt(Network& net,
 	Network& sol, ppc::InputHandler& ih) : 
-	InputComponent(3), network_(&net), solution_(&sol), handle_(ih)
+	InputComponent(4), network_(&net), solution_(&sol), handle_(ih)
 {
 	this->watch(handle_, sf::Event::KeyPressed);
 	this->watch(handle_, sf::Event::MouseButtonPressed);
 	this->watch(handle_, sf::Event::MouseButtonReleased);
+	this->watch(handle_, sf::Event::MouseMoved);
 
 	pipeRender_ = nullptr;
 
@@ -212,8 +217,17 @@ ppc::NetworkInputCmpnt::~NetworkInputCmpnt() {
 
 bool ppc::NetworkInputCmpnt::registerInput(Event ppcEv) {
     sf::Event ev(ppcEv);
-	sf::Vector2f mousePos(float(ev.mouseButton.x),
-		float(ev.mouseButton.y));
+	sf::Vector2f mousePos;
+	if (ev.type == ev.MouseMoved && vertWasPreviouslyClicked_) {
+		mousePos.x = ev.mouseMove.x;
+		mousePos.y = ev.mouseMove.y;
+		network_->setTempEdgePos(selectedVert_, mousePos);
+		return false;
+	}
+	else {
+		mousePos.x = float(ev.mouseButton.x);
+		mousePos.y = float(ev.mouseButton.y);
+	}
 	//If left click, select a vertex/edge
 	if (ev.type == ev.MouseButtonReleased && ev.mouseButton.button == sf::Mouse::Right) {
 		network_->setTempEdgeDraw(false);
@@ -263,7 +277,7 @@ bool ppc::NetworkInputCmpnt::registerInput(Event ppcEv) {
 					network_->setEdge(selectedVert_, temp, e);
 				}
 				network_->setTempEdgeDraw(true);
-				network_->setTempEdgePos(selectedVert_);
+				network_->setTempEdgePos(selectedVert_, mousePos);
 			}
 			else {
 				network_->setTempEdgeDraw(false);
