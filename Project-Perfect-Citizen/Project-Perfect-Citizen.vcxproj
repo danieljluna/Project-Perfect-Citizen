@@ -62,6 +62,7 @@
     <ClCompile Include="Code\Game\buttonRenderComponent.cpp" />
     <ClCompile Include="Code\Game\buttonUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\characterRender.cpp" />
+    <ClCompile Include="Code\Game\ConfirmWindowBuilder.cpp" />
     <ClCompile Include="Code\Game\consoleIconRenderComponent.cpp" />
     <ClCompile Include="Code\Game\consoleUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\ContextBuilder.cpp" />
@@ -90,6 +91,7 @@
     <ClCompile Include="Code\Game\explorerFileInputComponent.cpp" />
     <ClCompile Include="Code\Game\explorerFolderInputComponent.cpp" />
     <ClCompile Include="Code\Game\expressionistParser.cpp" />
+    <ClCompile Include="Code\Game\flaggedFileInputComponent.cpp" />
     <ClCompile Include="Code\Game\FloppyInputComponent.cpp" />
     <ClCompile Include="Code\Game\FloppyRenderComponent.cpp" />
     <ClCompile Include="Code\Game\FloppyUpdateComponent.cpp" />
@@ -196,6 +198,7 @@
     <ClInclude Include="Code\Game\buttonRenderComponent.h" />
     <ClInclude Include="Code\Game\buttonUpdateComponent.h" />
     <ClInclude Include="Code\Game\characterRender.hpp" />
+    <ClInclude Include="Code\Game\ConfirmWindowBuilder.h" />
     <ClInclude Include="Code\Game\consoleIconRenderComponent.h" />
     <ClInclude Include="Code\Game\consoleUpdateComponent.h" />
     <ClInclude Include="Code\Game\ContextBuilder.h" />
@@ -224,6 +227,7 @@
     <ClInclude Include="Code\Game\explorerFileInputComponent.h" />
     <ClInclude Include="Code\Game\explorerFolderInputComponent.h" />
     <ClInclude Include="Code\Game\expressionistParser.hpp" />
+    <ClInclude Include="Code\Game\flaggedFileInputComponent.h" />
     <ClInclude Include="Code\Game\FloppyInputComponent.h" />
     <ClInclude Include="Code\Game\FloppyRenderComponent.hpp" />
     <ClInclude Include="Code\Game\FloppySequence.h" />
