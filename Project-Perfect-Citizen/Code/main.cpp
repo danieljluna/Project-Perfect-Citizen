@@ -265,7 +265,7 @@ int main(int argc, char** argv) {
     Logger::startTimer("DE2Desktop");
     
     World::setCurrDesktop(mainDesktop);
-	if (ppc::SuspiciousFileHolder::isGuilty()) {
+	if (!ppc::SuspiciousFileHolder::isGuilty()) {
 		setUpPoliticianDesktop(mainDesktop);
 	} else {
 		setUpArtistDesktop(mainDesktop);
