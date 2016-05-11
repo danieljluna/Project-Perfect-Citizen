@@ -2,7 +2,61 @@
 <head>
 
 	<link rel="stylesheet" type="text/css" href="style2.css">
-	
+	  <style>
+            #elem{
+                position: absolute;
+                width: 800px;
+                height: 600px;
+                background-color: black;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -o-user-select: none;
+                -ms-user-select: none;
+                -khtml-user-select: none;     
+                user-select: none;
+                cursor: default;
+            }
+        </style>
+        
+         <script>
+        // Coded by TheZillion in a quarter of an hour. [thezillion.wordpress.com]
+            function $(el){
+                return document.getElementById(el);
+            }
+            var tzdragg = function(){
+                return {
+                    move : function(divid,xpos,ypos){
+                        var a = $(divid);
+                        $(divid).style.left = xpos + 'px';
+                        $(divid).style.top = ypos + 'px';
+                    },
+                    startMoving : function(evt){
+                        evt = evt || window.event;
+                        var posX = evt.clientX,
+                            posY = evt.clientY,
+                            a = $('elem'),
+                        divTop = a.style.top,
+                        divLeft = a.style.left;
+                        divTop = divTop.replace('px','');
+                        divLeft = divLeft.replace('px','');
+                        var diffX = posX - divLeft,
+                            diffY = posY - divTop;
+                        document.onmousemove = function(evt){
+                            evt = evt || window.event;
+                            var posX = evt.clientX,
+                                posY = evt.clientY,
+                                aX = posX - diffX,
+                                aY = posY - diffY;
+                            tzdragg.move('elem',aX,aY);
+                        }
+                    },
+                    stopMoving : function(){
+                        var a = document.createElement('script');
+                        document.onmousemove = function(){}
+                    },
+                }
+            }();
+        </script>
 	
 </head>
 <body background="wallpaper_t.png" onload="document.getElementById('content_b').innerHTML=document.getElementById('factSheetHTML').innerHTML;">
@@ -59,10 +113,10 @@
 		</a>-->
 	</ul>
 </div>
-<div id="drag-1" class="draggable">
+<div id='elem' onmousedown='tzdragg.startMoving(event);' onmouseup='tzdragg.stopMoving();' style='top: 135px; left: 300px; background-color:#aaaaaa' >
 	<div class="content">
-		<img src="menu_bar.png" width="800"><br>
-
+		<!--<img src="menu_bar.png" width="800"><br>-->
+		<div style="background-color:#191f92; width: 800px; height: 32px;"></div>
 		<div class="content_block">
 			<div class="content_box"  id="content_b">
 		
@@ -121,53 +175,6 @@ Fact sheet with
 </div>
 <div id="contactHTML" style="visibility:hidden;">Contact</div>
 
-
-<script>
-	// target elements with the "draggable" class
-	interact('.draggable').draggable({
-    // enable inertial throwing
-    inertia: true,
-    // keep the element within the area of it's parent
-    restrict: {
-      restriction: "parent",
-      endOnly: true,
-      elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
-    },
-    // enable autoScroll
-    autoScroll: true,
-
-    // call this function on every dragmove event
-    onmove: dragMoveListener,
-    // call this function on every dragend event
-    onend: function (event) {
-      var textEl = event.target.querySelector('p');
-
-      textEl && (textEl.textContent =
-        'moved a distance of '
-        + (Math.sqrt(event.dx * event.dx +
-                     event.dy * event.dy)|0) + 'px');
-    }
-  });
-
-  function dragMoveListener (event) {
-    var target = event.target,
-        // keep the dragged position in the data-x/data-y attributes
-        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-
-    // translate the element
-    target.style.webkitTransform =
-    target.style.transform =
-      'translate(' + x + 'px, ' + y + 'px)';
-
-    // update the posiion attributes
-    target.setAttribute('data-x', x);
-    target.setAttribute('data-y', y);
-  }
-
-  // this is used later in the resizing and gesture demos
-  window.dragMoveListener = dragMoveListener;
-	</script>
 
 
 </body>
