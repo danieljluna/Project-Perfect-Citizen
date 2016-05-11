@@ -24,6 +24,10 @@ a:active {
 	white-space: pre-line;
 } 
 
+#factSheetHTML a {
+		color:blue;
+}
+
 p {
 	text-align:justify;
 	white-space: pre-line;	
@@ -92,7 +96,7 @@ li {
 .sidebar_menu {
 	float:left;
 	font-family: monospace;
-	width: 250px;
+	width: 200px;
 	text-align: left;
 }
 
@@ -100,7 +104,7 @@ li {
 	background-color:rgba(98,224,224,0.68);
 	color:#ffffff;
 	text-shadow: 1px 1px #000000;
-	width: inherit;
+	width: 90;
 	list-style-type: none;
 	padding: 6px;	
 }
