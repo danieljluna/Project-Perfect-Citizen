@@ -25,6 +25,7 @@ namespace ppc {
 		size_t selectedVert_;
 		std::pair<size_t,size_t> selectedEdge_;
 		bool clickedVert_;
+		bool vertWasPreviouslyClicked_;
 		bool clickedEdge_;
 
 		void selectEdge(sf::Vector2f);

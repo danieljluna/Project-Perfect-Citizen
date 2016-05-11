@@ -181,6 +181,8 @@ ppc::NetworkInputCmpnt::NetworkInputCmpnt(Network& net,
 
 	clickedVert_ = false;
 	clickedEdge_ = false;
+	vertWasPreviouslyClicked_ = false;
+
 	selectedVert_ = 0;
 	selectedEdge_ = { 0,0 };
 
@@ -213,10 +215,35 @@ bool ppc::NetworkInputCmpnt::registerInput(Event ppcEv) {
 	sf::Vector2f mousePos(float(ev.mouseButton.x),
 		float(ev.mouseButton.y));
 	//If left click, select a vertex/edge
+	if (ev.type == ev.MouseButtonReleased && ev.mouseButton.button == sf::Mouse::Right) {
+		network_->setTempEdgeDraw(false);
+		size_t temp = selectedVert_;
+		selectVert(mousePos);
+		if (clickedVert_ && vertWasPreviouslyClicked_) {
+			if (selectedVert_ != temp &&
+				!network_->isAdjacent(temp, selectedVert_))
+			{
+				Edge e;
+				e.setWeight(0);
+				if (network_->getTempColor() == sf::Color::Black) e.setColorBlack();
+				else if (network_->getTempColor() == sf::Color::Red) e.setColorRed();
+				else if (network_->getTempColor() == sf::Color::Green) e.setColorGreen();
+				e.setRelation("");
+				network_->setEdge(temp, selectedVert_, e);
+				network_->setEdge(selectedVert_, temp, e);
+			}
+		}
+	}
 	if (ev.type == ev.MouseButtonPressed) {
+		vertWasPreviouslyClicked_ = clickedVert_;
 		if (ev.mouseButton.button == sf::Mouse::Left) {
 			selectVert(mousePos);
-			if(clickedVert_ == false) selectEdge(mousePos);
+			if (clickedVert_ == false) {
+				selectEdge(mousePos);
+			}
+			else {
+				network_->setTempEdgeDraw(false);
+			}
 		}
 		//If right click
 		else if (ev.mouseButton.button == sf::Mouse::Right) {
@@ -228,15 +255,30 @@ bool ppc::NetworkInputCmpnt::registerInput(Event ppcEv) {
 				{
 					Edge e;
 					e.setWeight(0);
-					e.setColorBlack();
+					if (network_->getTempColor() == sf::Color::Black) e.setColorBlack();
+					else if (network_->getTempColor() == sf::Color::Red) e.setColorRed();
+					else if (network_->getTempColor() == sf::Color::Green) e.setColorGreen();
 					e.setRelation("");
 					network_->setEdge(temp, selectedVert_, e);
 					network_->setEdge(selectedVert_, temp, e);
 				}
+				network_->setTempEdgeDraw(true);
+				network_->setTempEdgePos(selectedVert_);
+			}
+			else {
+				network_->setTempEdgeDraw(false);
 			}
 		}
 	} else if (ev.type == sf::Event::KeyPressed) {
-
+		if (ev.key.code == sf::Keyboard::LControl) {
+			network_->setTempColorGreen();
+		}
+		else if (ev.key.code == sf::Keyboard::LShift) {
+			network_->setTempColorRed();
+		} 
+		else if (ev.key.code == sf::Keyboard::LAlt) {
+			network_->setTempColorBlack();
+		}
 		if (ev.key.code == sf::Keyboard::C && clickedVert_) {
 			DEBUGF("ni", "HERE");
 			if (network_->getCenter() != -1) 

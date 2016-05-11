@@ -222,6 +222,13 @@ namespace ppc {
         ///////////////////////////////////////////////////////////////
         Subject& onManip() { return onManip_; };
 
+		void setTempEdgeDraw(bool);
+		void setTempEdgePos(unsigned int);
+
+		void setTempColorBlack();
+		void setTempColorGreen();
+		void setTempColorRed();
+		sf::Color getTempColor() { return tempEdgeColor_; };
 
     private:
 
@@ -270,6 +277,10 @@ namespace ppc {
 		unsigned int center_;
 
         Subject onManip_;
+
+		bool drawTempEdge_;
+		unsigned int tempEdgeSource_;
+		sf::Color tempEdgeColor_;
 
     };
 
