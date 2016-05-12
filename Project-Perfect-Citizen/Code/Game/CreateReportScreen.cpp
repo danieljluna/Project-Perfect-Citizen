@@ -1,7 +1,7 @@
 #include "CreateReportScreen.h"
 
 #include "TextDisplayBuilder.h"
-
+#include "TextCharacterUpdate.h"
 #include <fstream>
 
 using namespace ppc;
@@ -29,8 +29,13 @@ void ppc::createReportScreen(Desktop &d) {
 	reportText.create(reportEntity);
 	
 
-	//next, make/add components to scroll text and take input to 
+	//next, make/add components to end report screen
+	TextCharacterUpdate* tcu = new TextCharacterUpdate();
+	TextDisplayRenderComponent* tdrc = dynamic_cast<TextDisplayRenderComponent*>(reportEntity.getComponent(0));
+	tcu->setTextDisplay(*tdrc);
+	tcu->setContent(content);
 
+	reportEntity.addComponent(tcu);
 
 	reportScreen->addEntity(reportEntity);
 	d.setFrontTop(reportScreen, false);

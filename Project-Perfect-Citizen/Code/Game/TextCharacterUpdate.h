@@ -10,12 +10,14 @@ namespace ppc {
 	private:
 
 		std::string content_;
+		std::string::iterator strItor_;
 
 		TextDisplayRenderComponent* tdrc_;
 
 		sf::Time accumulator_;
 
-		const sf::Time totalTime_ ;
+		// .5 seconds
+		sf::Time displayRate_ = sf::milliseconds(sf::Int32(500.0f));
 
 		bool isEnd;
 
@@ -26,7 +28,8 @@ namespace ppc {
 
 		void setTextDisplay(TextDisplayRenderComponent&);
 		void setContent(std::string);
-
+		void setDisplayRate(sf::Time);
+		bool isEnded() { return isEnd; }
 		void update(sf::Time& deltaTime) override;
 
 	};
