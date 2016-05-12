@@ -118,6 +118,18 @@ void spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email
 ///@param Custom string the message will display
 ///////////////////////////////////////////////////////////////////////
 void spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message);
+
+///////////////////////////////////////////////////////////////////////
+///@brief Constructs a generic success message window
+///
+///@param The newly created window to add components/entities to.
+///@param The input handler of the listened-to window.
+///@param Sprite sheet of it's border component's buttons
+///@param The x position of the new window
+///@param The y position of the new window
+///@param Custom string the message will display
+///////////////////////////////////////////////////////////////////////
+void spawnSuccessMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message);
     
     
 ///////////////////////////////////////////////////////////////////////
@@ -192,6 +204,8 @@ void spawnContextMenu(WindowInterface*& windowToModify,
 ///@param The y position of the new window
 ///////////////////////////////////////////////////////////////////////
 void spawnFileTracker(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, float x, float y);
+
+bool close_window(WindowInterface* w, ppc::Event ev);
 
 };
 

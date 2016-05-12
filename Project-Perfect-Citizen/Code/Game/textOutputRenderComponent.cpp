@@ -37,7 +37,7 @@ textOutputRenderComponent::textOutputRenderComponent(Desktop& dt, WindowInterfac
 	text_->setColor(sf::Color::Green);
 	text_->setPosition(float(x), float(y));
 	text_->setCharacterSize(size);
-	text_->setString("");
+	text_->setString("DCPS CONSOLE PROMPT [Version 10.0.10586] \n(c) Department of Cyber Police and Security.\nEnter 'help' for command references. \n");
 
 }
 
@@ -90,8 +90,8 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		if (fileTree_.getCwd()->findElement(cmd.at(1)) != nullptr) {
 			string fileResourcePath = fileTree_.getCwd()->findElement(cmd.at(1))->getFileData();
 			fileTree_.readFile(cmd.at(1));
-			str_ = "Opening " + cmd.at(1) + "\n";
-			numDisplayedLines += 2;
+			str_ += "\nOpening " + cmd.at(1) + " ... \n";
+			numDisplayedLines += 3;
 			}
     }
 
@@ -114,8 +114,8 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		}
 		else {
 			if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
-				str_ = str_ + "Error: Directory '" + cmd.at(1)+"' is password protected. \nHint: " + fileTree_.getCwd()->findElement(cmd.at(1))->getHint();
-				numDisplayedLines+=2;
+				str_ = str_ + "Error: Directory '" + cmd.at(1)+"' is password protected. \nHint: " + fileTree_.getCwd()->findElement(cmd.at(1))->getHint() + "\n";
+				numDisplayedLines+=3;
 			}
 			std::vector<string> cdCommand;
 			string cd = "cd";
@@ -213,11 +213,13 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 		else if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
 			str_ = str_ + "Access denied.\n";
 		}
-        //else if (!fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
-            //str_ = str_ + "Directory not locked.\n";
-        //}
 		else {
-			str_ = str_ + "Access granted.\n";
+			str_ = str_ + "\nAccess granted. Moving into directory '" + cmd.at(1)+"' ...\n\n";
+			std::vector<std::string> cd_cmd;
+			cd_cmd.push_back("cd");
+			cd_cmd.push_back(cmd.at(1));
+			updateString(cd_cmd);
+			numDisplayedLines += 2;
 		}
 		numDisplayedLines+= 2;
 	}
