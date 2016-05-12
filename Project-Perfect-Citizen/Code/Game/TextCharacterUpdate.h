@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SFML/System/Clock.hpp>
+#include <SFML/System/Time.hpp>
 #include "../Engine/updateComponent.h"
 
 namespace ppc {
@@ -13,8 +13,9 @@ namespace ppc {
 
 		TextDisplayRenderComponent* tdrc_;
 
-		sf::Time elapsedTime_;
-		sf::Clock timer_;
+		sf::Time accumulator_;
+
+		const sf::Time totalTime_ ;
 
 		bool isEnd;
 
