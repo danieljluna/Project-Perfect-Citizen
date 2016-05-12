@@ -3,6 +3,10 @@
 #include <cmath>
 #include <cfloat>
 #include "../Engine/DraggableInput.h"
+//#include "../Engine/World.h"
+//#include "../Engine/desktop.h"
+//#include "../Engine/WindowInterface.h"
+
 const float MAX_DISTANCE_TO_EDGE = 10.f;
 
 void ppc::NetworkInputCmpnt::selectEdge(sf::Vector2f mPos) {
@@ -171,16 +175,19 @@ void ppc::NetworkInputCmpnt::updateDataText() {
 
 ppc::NetworkInputCmpnt::NetworkInputCmpnt(Network& net,
 	Network& sol, ppc::InputHandler& ih) : 
-	InputComponent(3), network_(&net), solution_(&sol), handle_(ih)
+	InputComponent(4), network_(&net), solution_(&sol), handle_(ih)
 {
 	this->watch(handle_, sf::Event::KeyPressed);
 	this->watch(handle_, sf::Event::MouseButtonPressed);
 	this->watch(handle_, sf::Event::MouseButtonReleased);
+	this->watch(handle_, sf::Event::MouseMoved);
 
 	pipeRender_ = nullptr;
 
 	clickedVert_ = false;
 	clickedEdge_ = false;
+	vertWasPreviouslyClicked_ = false;
+
 	selectedVert_ = 0;
 	selectedEdge_ = { 0,0 };
 
@@ -210,13 +217,47 @@ ppc::NetworkInputCmpnt::~NetworkInputCmpnt() {
 
 bool ppc::NetworkInputCmpnt::registerInput(Event ppcEv) {
     sf::Event ev(ppcEv);
-	sf::Vector2f mousePos(float(ev.mouseButton.x),
-		float(ev.mouseButton.y));
+	sf::Vector2f mousePos;
+	if (ev.type == ev.MouseMoved && vertWasPreviouslyClicked_) {
+		mousePos.x = ev.mouseMove.x;
+		mousePos.y = ev.mouseMove.y;
+		network_->setTempEdgePos(selectedVert_, mousePos);
+		return false;
+	}
+	else {
+		mousePos.x = float(ev.mouseButton.x);
+		mousePos.y = float(ev.mouseButton.y);
+	}
 	//If left click, select a vertex/edge
+	if (ev.type == ev.MouseButtonReleased && ev.mouseButton.button == sf::Mouse::Right) {
+		network_->setTempEdgeDraw(false);
+		size_t temp = selectedVert_;
+		selectVert(mousePos);
+		if (clickedVert_ && vertWasPreviouslyClicked_) {
+			if (selectedVert_ != temp &&
+				!network_->isAdjacent(temp, selectedVert_))
+			{
+				Edge e;
+				e.setWeight(0);
+				if (network_->getTempColor() == sf::Color::Black) e.setColorBlack();
+				else if (network_->getTempColor() == sf::Color::Red) e.setColorRed();
+				else if (network_->getTempColor() == sf::Color::Green) e.setColorGreen();
+				e.setRelation("");
+				network_->setEdge(temp, selectedVert_, e);
+				network_->setEdge(selectedVert_, temp, e);
+			}
+		}
+	}
 	if (ev.type == ev.MouseButtonPressed) {
+		vertWasPreviouslyClicked_ = clickedVert_;
 		if (ev.mouseButton.button == sf::Mouse::Left) {
 			selectVert(mousePos);
-			if(clickedVert_ == false) selectEdge(mousePos);
+			if (clickedVert_ == false) {
+				selectEdge(mousePos);
+			}
+			else {
+				network_->setTempEdgeDraw(false);
+			}
 		}
 		//If right click
 		else if (ev.mouseButton.button == sf::Mouse::Right) {
@@ -228,15 +269,30 @@ bool ppc::NetworkInputCmpnt::registerInput(Event ppcEv) {
 				{
 					Edge e;
 					e.setWeight(0);
-					e.setColorBlack();
+					if (network_->getTempColor() == sf::Color::Black) e.setColorBlack();
+					else if (network_->getTempColor() == sf::Color::Red) e.setColorRed();
+					else if (network_->getTempColor() == sf::Color::Green) e.setColorGreen();
 					e.setRelation("");
 					network_->setEdge(temp, selectedVert_, e);
 					network_->setEdge(selectedVert_, temp, e);
 				}
+				network_->setTempEdgeDraw(true);
+				network_->setTempEdgePos(selectedVert_, mousePos);
+			}
+			else {
+				network_->setTempEdgeDraw(false);
 			}
 		}
 	} else if (ev.type == sf::Event::KeyPressed) {
-
+		if (ev.key.code == sf::Keyboard::LControl) {
+			network_->setTempColorGreen();
+		}
+		else if (ev.key.code == sf::Keyboard::LShift) {
+			network_->setTempColorRed();
+		} 
+		else if (ev.key.code == sf::Keyboard::LAlt) {
+			network_->setTempColorBlack();
+		}
 		if (ev.key.code == sf::Keyboard::C && clickedVert_) {
 			DEBUGF("ni", "HERE");
 			if (network_->getCenter() != -1) 
