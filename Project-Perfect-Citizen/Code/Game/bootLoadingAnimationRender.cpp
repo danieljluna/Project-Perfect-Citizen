@@ -7,7 +7,7 @@
 //
 
 #include "bootLoadingAnimationRender.hpp"
-#include "../Engine/world.h"
+#include "../Engine/World.h"
 #include <math.h>
 
 bootLoadingAnimationRender::bootLoadingAnimationRender(sf::Image& img,textLabelComponent& l, int x, int y):image(img), textLabel(l){
