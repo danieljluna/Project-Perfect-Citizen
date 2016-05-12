@@ -24,10 +24,10 @@ void ppc::createReportScreen(Desktop &d) {
 	reportText.setFont(World::getFont(World::FontList::Consola));
 	reportText.setPosition({ 100,100 });
 	reportText.setSize(25);
-	reportText.setString(content);
+	reportText.setString("");
 
 	reportText.create(reportEntity);
-
+	
 
 	//next, make/add components to scroll text and take input to 
 

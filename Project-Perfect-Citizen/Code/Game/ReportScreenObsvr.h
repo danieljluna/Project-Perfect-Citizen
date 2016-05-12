@@ -14,7 +14,7 @@ namespace ppc {
 	public:
 
 		ReportScreenObsvr();
-		~ReportScreenObsvr();
+		virtual ~ReportScreenObsvr();
 
 		ReportScreenObsvr(Desktop&);
 
