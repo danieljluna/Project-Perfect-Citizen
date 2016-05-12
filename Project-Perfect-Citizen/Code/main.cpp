@@ -206,6 +206,17 @@ int main(int argc, char** argv) {
     Logger::endTimer("bootDesktop");
     //End Boot Desktop
 
+	//Login Desktop
+	desktopFileInput.open(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
+	desktopFileInput >> mainDesktop;
+	desktopFileInput.close();
+	Logger::startTimer("loginDesktop");
+
+	World::setCurrDesktop(mainDesktop);
+	
+	World::runCurrDesktop();
+
+	Logger::endTimer("loginDesktop");
 
 	//PE Tutorial Desktop
 	World::startLoading();
