@@ -195,8 +195,7 @@ int main(int argc, char** argv) {
     
     //Boot Desktop
     desktopFileInput.open(resourcePath() + "Saves/bootDesktop.ini", std::ifstream::in);
-    Desktop bootDesktop;
-    desktopFileInput >> bootDesktop;
+    desktopFileInput >> mainDesktop;
     desktopFileInput.close();
     Logger::startTimer("bootDesktop");
     
