@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
 		C8A593901C8E3AFE00036C1D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8A593461C8E3AFE00036C1D /* main.cpp */; };
+		C8ABAAC41CE3D710005FE11F /* Politician_Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = C8ABAAC31CE3D710005FE11F /* Politician_Wallpaper.png */; };
 		E9A134761CDD9DB2009A8BE1 /* AudioLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A134101CDD9DB2009A8BE1 /* AudioLocator.cpp */; };
 		E9A134771CDD9DB2009A8BE1 /* AudioLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A134121CDD9DB2009A8BE1 /* AudioLogger.cpp */; };
 		E9A134781CDD9DB2009A8BE1 /* AudioQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A134141CDD9DB2009A8BE1 /* AudioQueue.cpp */; };
@@ -442,6 +443,7 @@
 		C82E60741C810DCB001860CC /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		C82E60751C810DCB001860CC /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
 		C8A593461C8E3AFE00036C1D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
+		C8ABAAC31CE3D710005FE11F /* Politician_Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Politician_Wallpaper.png; sourceTree = "<group>"; };
 		E9A1340F1CDD9DB2009A8BE1 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
 		E9A134101CDD9DB2009A8BE1 /* AudioLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioLocator.cpp; sourceTree = "<group>"; };
 		E9A134111CDD9DB2009A8BE1 /* AudioLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioLocator.h; sourceTree = "<group>"; };
@@ -1086,6 +1088,7 @@
 				E9A136B11CDD9E65009A8BE1 /* Pixel_Title.png */,
 				E9A136B21CDD9E65009A8BE1 /* Teacher_Icon_Sheet.png */,
 				E9A136B31CDD9E65009A8BE1 /* Teacher_Icon_Sheet2 - Copy.png */,
+				C8ABAAC31CE3D710005FE11F /* Politician_Wallpaper.png */,
 				E9A136B41CDD9E65009A8BE1 /* Teacher_Icon_Sheet2.png */,
 				E9A136B51CDD9E65009A8BE1 /* Teacher_Wallpaper.png */,
 				E9A136B61CDD9E65009A8BE1 /* Toolbar_Icons.png */,
@@ -1827,6 +1830,7 @@
 				E9A137C11CDD9E65009A8BE1 /* Desktop1.json in Resources */,
 				E9A137431CDD9E65009A8BE1 /* The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg in Resources */,
 				E9A137A91CDD9E65009A8BE1 /* Albatross_Secure_Communications_2.txt in Resources */,
+				C8ABAAC41CE3D710005FE11F /* Politician_Wallpaper.png in Resources */,
 				E9A136F31CDD9E65009A8BE1 /* As I Lay Dying - Faulkner.txt in Resources */,
 				E9A137981CDD9E65009A8BE1 /* unnamed.jpg in Resources */,
 				E9A137061CDD9E65009A8BE1 /* Crowd32.jpg in Resources */,
