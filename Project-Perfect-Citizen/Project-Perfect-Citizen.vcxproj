@@ -55,6 +55,8 @@
     <ClCompile Include="Code\Engine\WindowLogger.cpp" />
     <ClCompile Include="Code\Engine\World.cpp" />
     <ClCompile Include="Code\Game\animatorComponent.cpp" />
+    <ClCompile Include="Code\Game\BadCopRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\BadCopUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\BootLoader.cpp" />
     <ClCompile Include="Code\Game\bootLoadingAnimationRender.cpp" />
     <ClCompile Include="Code\Game\bootLoadingUpdateComponent.cpp" />
@@ -191,6 +193,8 @@
     <ClInclude Include="Code\Engine\WindowLogger.h" />
     <ClInclude Include="Code\Engine\World.h" />
     <ClInclude Include="Code\Game\animatorComponent.hpp" />
+    <ClInclude Include="Code\Game\BadCopRenderComponent.hpp" />
+    <ClInclude Include="Code\Game\BadCopUpdateComponent.hpp" />
     <ClInclude Include="Code\Game\BootLoader.hpp" />
     <ClInclude Include="Code\Game\bootLoadingAnimationRender.hpp" />
     <ClInclude Include="Code\Game\bootLoadingUpdateComponent.hpp" />

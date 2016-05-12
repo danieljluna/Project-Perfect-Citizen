@@ -364,6 +364,8 @@
     <ClCompile Include="Code\Game\flaggedFileInputComponent.cpp">
       <Filter>Sources\Game Specific</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\BadCopRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\BadCopUpdateComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -750,6 +752,8 @@
     <ClInclude Include="Code\Game\flaggedFileInputComponent.h">
       <Filter>Headers\Game Specific</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Game\BadCopRenderComponent.hpp" />
+    <ClInclude Include="Code\Game\BadCopUpdateComponent.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json">
