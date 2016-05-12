@@ -4,5 +4,5 @@
 
 namespace ppc {
 
-	void createReportScreen(Desktop&, World::ReportList);
+	void createReportScreen(Desktop&);
 };

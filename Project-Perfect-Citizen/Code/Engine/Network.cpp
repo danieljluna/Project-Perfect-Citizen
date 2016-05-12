@@ -26,6 +26,7 @@ Network::Network(size_t size) {
     //Drawing Vars
     vertSize_ = 15.0f;
     edgeCount_ = 0;
+	drawTempEdge_ = false;
 }
 
 
@@ -327,6 +328,7 @@ void Network::draw(sf::RenderTarget& target,
 	//vertShape.setOrigin(vertSize_, vertSize_);
 
 	unsigned int lineVerts = 2 * edgeCount_;
+	if (drawTempEdge_) lineVerts += 4;
 	//unsigned int lineVerts = 4;
 	sf::VertexArray edgeLines(sf::Quads, lineVerts);
 	unsigned int linesDrawn = 0;
@@ -364,6 +366,27 @@ void Network::draw(sf::RenderTarget& target,
 				linesDrawn++;
 			}
 		}
+	}
+
+	if (drawTempEdge_) {
+		sf::Vector2f point1 = vertexData_[tempEdgeSource_].getPosCenter();
+		sf::Vector2f point2 = mousePos_;
+
+		sf::Vector2f direction = point2 - point1;
+		sf::Vector2f unitDirection = direction / std::sqrt(direction.x*direction.x + direction.y*direction.y);
+		sf::Vector2f unitPerpendicular(-unitDirection.y, unitDirection.x);
+
+		sf::Vector2f offset = (thickness / 2.f)*unitPerpendicular;
+
+		edgeLines[linesDrawn * 4].position = point1 + offset;
+		edgeLines[linesDrawn * 4 + 1].position = point2 + offset;
+		edgeLines[linesDrawn * 4 + 2].position = point2 - offset;
+		edgeLines[linesDrawn * 4 + 3].position = point1 - offset;
+
+		edgeLines[linesDrawn * 4].color = tempEdgeColor_;
+		edgeLines[linesDrawn * 4 + 1].color = tempEdgeColor_;
+		edgeLines[linesDrawn * 4 + 2].color = tempEdgeColor_;
+		edgeLines[linesDrawn * 4 + 3].color = tempEdgeColor_;
 	}
 
 	target.draw(edgeLines, states);
@@ -414,8 +437,30 @@ void Network::draw(sf::RenderTarget& target,
 
 }
 
+///////////////////////////////////////////////////////////////////////
+// Extra functions for Drawing
+///////////////////////////////////////////////////////////////////////
 
+void Network::setTempEdgePos(unsigned int vertnum, sf::Vector2f mouse) {
+	tempEdgeSource_ = vertnum;
+	mousePos_ = mouse;
+}
 
+void Network::setTempEdgeDraw(bool set) {
+	drawTempEdge_ = set;
+}
+
+void Network::setTempColorBlack() {
+	tempEdgeColor_ = sf::Color::Black;
+}
+
+void Network::setTempColorGreen() {
+	tempEdgeColor_ = sf::Color::Green;
+}
+
+void Network::setTempColorRed() {
+	tempEdgeColor_ = sf::Color::Red;
+}
 
 ///////////////////////////////////////////////////////////////////////
 // Check Helper Functions

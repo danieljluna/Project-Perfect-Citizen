@@ -6,7 +6,7 @@
 #include "../Engine/World.h"
 #include "../Engine/desktop.h"
 #include "../Game/explorerFileInputComponent.h"
-
+#include "../Game/ReportScreenObsvr.h"
 using namespace ppc;
 
 ppc::ConfirmWindowBuilder::ConfirmWindowBuilder()
@@ -166,6 +166,8 @@ bool ppc::ConfirmSubmitFiles(ppc::Desktop * ptr, ppc::Event ev)
 	builder.setSpriteSheet(ptr->getButtonSheet());
 	builder.setWindowCaption("Submission Confirmation");
 	createWithEventFunc(builder, confirmWindow, ptr, ppc::submitFiles);
+
+	SuspiciousFileHolder::onChange.addObserver(new ReportScreenObsvr(*ptr));
 
 	ptr->addWindow(confirmWindow);
 	return true;
