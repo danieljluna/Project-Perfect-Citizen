@@ -209,6 +209,14 @@ void characterRender::applyCharacterValues(PipelineCharacter& myCharacter) {
 void characterRender::initializeTones() {
     skinTones.push_back(sf::Color(255,220,177));
     skinTones.push_back(sf::Color(229,194,152));
+    skinTones.push_back(sf::Color(240,216,187));
+    skinTones.push_back(sf::Color(237,223,206));
+    skinTones.push_back(sf::Color(237,223,206));
+    skinTones.push_back(sf::Color(245,234,201));
+    skinTones.push_back(sf::Color(245,234,201));
+    skinTones.push_back(sf::Color(242,220,213));
+    skinTones.push_back(sf::Color(235,201,171));
+    
     skinTones.push_back(sf::Color(228,185,143));
     skinTones.push_back(sf::Color(227,161,115));
     skinTones.push_back(sf::Color(217,145,100));
