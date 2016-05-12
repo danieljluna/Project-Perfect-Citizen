@@ -37,6 +37,7 @@
 #include "Game/bootLoadingAnimationRender.hpp"
 #include "Game/BadCopRenderComponent.hpp"
 #include "Game/BadCopUpdateComponent.hpp"
+#include "Game/spriteRenderComponent.hpp"
 #include "Game/endAnimationUpdateComponent.hpp"
 #include "Game/endingAnimationRender.hpp"
 
@@ -96,6 +97,23 @@ void setUpBootDesktop(ppc::Desktop& myDesktop) {
 }
 
 
+void setUpLoginDesktop(ppc::Desktop& myDesktop) {
+
+    Window* loginWindow = new Window(1000,800,sf::Color(0,0,0));
+    
+    Entity title;
+    
+    spriteRenderComponent* titleRender = new spriteRenderComponent(myDesktop.getButtonSheet(), 0,7, 6, 1);
+    titleRender->setRenderPosition({100, 100});
+    
+    title.addComponent(titleRender);
+  
+    loginWindow->addEntity(title);
+    
+    myDesktop.addWindow(loginWindow);
+}
+
+
 
 
 void setUpEndDesktop(ppc::Desktop& myDesktop) {
@@ -144,6 +162,8 @@ void setUpPoliticianDesktop(ppc::Desktop& myDesktop) {
                         myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
 
 }
+
+
 
 int main(int argc, char** argv) {
     
@@ -207,13 +227,13 @@ int main(int argc, char** argv) {
     //End Boot Desktop
 
 	//Login Desktop
-	desktopFileInput.open(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Saves/loginDesktop.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
 	Logger::startTimer("loginDesktop");
 
 	World::setCurrDesktop(mainDesktop);
-	
+    setUpLoginDesktop(mainDesktop);
 	World::runCurrDesktop();
 
 	Logger::endTimer("loginDesktop");

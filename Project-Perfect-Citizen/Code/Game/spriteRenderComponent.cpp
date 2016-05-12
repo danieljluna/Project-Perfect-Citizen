@@ -16,7 +16,7 @@ spriteRenderComponent::spriteRenderComponent(sf::Image& i, float x, float y, flo
 
     texture->setRepeated(true);
     /* Check that the file exists in the path */
-    if (!texture->loadFromImage(image, sf::IntRect(x*size,y*size,128,128)))
+    if (!texture->loadFromImage(image, sf::IntRect(x*size,y*size,size,size)))
         std::exit(-1);
     
     sprite->setTexture(*texture);
@@ -24,6 +24,14 @@ spriteRenderComponent::spriteRenderComponent(sf::Image& i, float x, float y, flo
     sprite->setPosition(0, 0);
     sprite->setScale(1.f, 1.f);
 
+}
+
+void spriteRenderComponent::setRenderScale(sf::Vector2f vec) {
+    sprite->setScale(vec.x, vec.y);
+}
+
+void spriteRenderComponent::setRenderPosition(sf::Vector2f vec){
+    sprite->setPosition(vec.x, vec.y);
 }
 
 spriteRenderComponent::~spriteRenderComponent() {

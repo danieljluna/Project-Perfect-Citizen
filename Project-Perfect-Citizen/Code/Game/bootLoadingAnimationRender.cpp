@@ -7,6 +7,7 @@
 //
 
 #include "bootLoadingAnimationRender.hpp"
+#include "world.h"
 #include <math.h>
 
 bootLoadingAnimationRender::bootLoadingAnimationRender(sf::Image& img,textLabelComponent& l, int x, int y):image(img), textLabel(l){
@@ -226,11 +227,7 @@ void bootLoadingAnimationRender::animate() {
         
        frame +=1;
     } else {
-        
-        dcps->setTextureRect(sf::IntRect(0,7*128,6*128,128));
-        dcps->setScale(1.0f, 1.0f);
-        dcps->setPosition(100, 300);
-        dcps->setColor(sf::Color(255,255,255));
+        ppc::World::quitDesktop();
     }
 }
 
