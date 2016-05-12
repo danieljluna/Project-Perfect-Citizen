@@ -32,6 +32,8 @@ std::map<World::FontList, sf::Font> World::fontMap_ = {
 };
 
 std::map <std::pair<World::DesktopList, World::ReportType>, std::string > World::reportListMap_ = {
+	{ {DE0, A}, resourcePath() + "Reports/sampleReport.txt" },
+	{ {DE1, A}, resourcePath() + "Reports/sampleReport.txt" }
 
 
 };

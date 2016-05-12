@@ -1,8 +1,9 @@
 #include "frontTopObserver.h"
 #include "desktop.h"
 
-	propagate = prop;
+ppc::frontTopObsvr::frontTopObsvr(Desktop &d, bool prop) {
 	dt = &d;
+	propagate = prop;
 }
 
 void ppc::frontTopObsvr::setDesktop(Desktop &d) {
