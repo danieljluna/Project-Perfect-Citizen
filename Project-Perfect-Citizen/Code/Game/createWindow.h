@@ -117,7 +117,7 @@ void spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email
 ///@param The y position of the new window
 ///@param Custom string the message will display
 ///////////////////////////////////////////////////////////////////////
-void spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message);
+void spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message, std::string windowCaption);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Constructs a generic success message window
@@ -141,6 +141,7 @@ void spawnSuccessMessage(WindowInterface*& windowToModify, InputHandler& ih, sf:
 ///@param The x position of the new window
 ///@param The y position of the new window
 ///@param Custom string the message will display
+///@param The window caption to display on the window
 ///////////////////////////////////////////////////////////////////////
 void spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message);
 
