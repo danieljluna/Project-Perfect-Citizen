@@ -217,10 +217,12 @@ bool ppc::flag_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 
 bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 
+	if (ptr == nullptr) return false;
 
     Event evOut;
     evOut.type = evOut.OpenType;
     BaseFileType* target = ptr->getFolderNodeState()->getCwd();
+
     if (target->getFileType() == Directory) {
         evOut.open.winType = evOut.open.Folder;
     } else {
