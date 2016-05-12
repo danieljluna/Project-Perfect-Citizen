@@ -57,9 +57,9 @@ void ppc::SuspiciousFileHolder::printSuspiciousVector()
 
 void ppc::SuspiciousFileHolder::setWindow(ppc::WindowInterface * sWindow)
 {
-	if (susWindow_ != nullptr) {
-		susWindow_->close();
-	}
+	//if (susWindow_ != nullptr) {
+	//	susWindow_->close();
+	//}
 	susWindow_ = sWindow;
 }
 
