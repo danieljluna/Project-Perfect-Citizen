@@ -1,7 +1,7 @@
 #include "frontTopObserver.h"
 #include "desktop.h"
 
-ppc::frontTopObsvr::frontTopObsvr(Desktop &d) {
+	propagate = prop;
 	dt = &d;
 }
 
@@ -10,8 +10,7 @@ void ppc::frontTopObsvr::setDesktop(Desktop &d) {
 }
 
 bool ppc::frontTopObsvr::eventHandler(Event ev) {
-
-	dt->registerInputFocused(ev);
+	if(propagate) dt->registerInputFocused(ev);
 
 	return true;
 }

@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
-
+#include <utility>
 
 namespace ppc {
 
@@ -17,6 +17,12 @@ namespace ppc {
 
         enum DesktopList {
             //Fill with Enums as input files are made
+			DE0 = 0,
+			DEPlayer,
+			DE1,
+			DE2A,
+			DE2B,
+			DE3,
             Count
         };
 
@@ -28,11 +34,11 @@ namespace ppc {
 			FontCount
 		};
 
-		enum ReportList {
-			DE1A = 0, //Guilty
-			DE1B, //NOT Guilty
-			DE2,
-			DE3
+		enum ReportType {
+			A = 0, //guilty1
+			B, //guilty2
+			C, //not guilty1
+			D // not guilty2
 		};
 
 		///////////////////////////////////////////////////////////////
@@ -54,6 +60,8 @@ namespace ppc {
 		///@brief Set the Desktop currently used by World
 		///////////////////////////////////////////////////////////////
 		static void setCurrDesktop(ppc::Desktop&);
+
+		static void setCurrDesktopEnum(DesktopList);
 
 		///////////////////////////////////////////////////////////////
 		///@brief Returns a pointer to the Game Screen
@@ -88,12 +96,15 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////
 		static void initFontMap();
 
+		static ReportType getCurrReportType();
+		static void setCurrReportType(ReportType);
+
 		///////////////////////////////////////////////////////////////
 		///@brief Returns the sf:Font of the given Font
 		///////////////////////////////////////////////////////////////
 		static sf::Font& getFont(FontList f);
 
-		static std::string getReportFile(ReportList rl);
+		static std::string getReportFile();
 
         static void restartDesktop();
 
@@ -125,13 +136,16 @@ namespace ppc {
         static sf::RenderWindow* screen_;
         static ppc::Desktop* currDesktop_;
 
+		static DesktopList currDesktopEnum_;
+		static ReportType currReportType_;
+
         static bool quitter_;
 
         static std::map<DesktopList, std::string> desktopFileMap_;
 
 		static std::map<FontList, sf::Font> fontMap_;
 
-		static std::map<ReportList, std::string> reportListMap_;
+		static std::map <std::pair<DesktopList,ReportType>, std::string > reportListMap_;
 
 		static bool isLoading_;
 

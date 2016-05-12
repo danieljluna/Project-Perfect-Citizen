@@ -260,10 +260,10 @@ ppc::Inbox& ppc::Desktop::getInbox() {
 	return inbox_;
 }
 
-void ppc::Desktop::setFrontTop(WindowInterface* front) {
+void ppc::Desktop::setFrontTop(WindowInterface* front, bool prop) {
 	frontTop_ = front;
 
-    frontTopObsvr* ftObsvr = new frontTopObsvr(*this);
+    frontTopObsvr* ftObsvr = new frontTopObsvr(*this, prop);
 
     mousePressButton *mpb = new mousePressButton();
     mpb->setFloatRect(frontTop_->getBounds());

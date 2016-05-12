@@ -179,6 +179,7 @@ int main(int argc, char** argv) {
     Logger::startTimer("PipeTutorialDesktop");
 
 	World::setCurrDesktop(mainDesktop);
+	World::setCurrDesktopEnum(World::DesktopList::DE0);
     createTutorial(mainDesktop);
     World::runCurrDesktop();
     
@@ -209,6 +210,7 @@ int main(int argc, char** argv) {
     Logger::startTimer("playerDesktop");
     
     World::setCurrDesktop(mainDesktop);
+	World::setCurrDesktopEnum(World::DesktopList::DEPlayer);
 	setUpPlayerDesktop(mainDesktop);
 	World::runCurrDesktop();
     
@@ -231,6 +233,7 @@ int main(int argc, char** argv) {
     Logger::startTimer("TeacherDesktop");
     
     World::setCurrDesktop(mainDesktop);
+	World::setCurrDesktopEnum(World::DesktopList::DE1);
 	setUpTeacherDesktop(mainDesktop);
 	World::runCurrDesktop();
     
@@ -246,6 +249,7 @@ int main(int argc, char** argv) {
 	Logger::startTimer("playerDesktop2");
 
 	World::setCurrDesktop(mainDesktop);
+	World::setCurrDesktopEnum(World::DesktopList::DEPlayer);
 	setUpPlayerDesktop(mainDesktop);
 	World::runCurrDesktop();
 
@@ -256,8 +260,10 @@ int main(int argc, char** argv) {
 	World::startLoading();
 	if (ppc::SuspiciousFileHolder::isGuilty()) {
 		desktopFileInput.open(resourcePath() + "Saves/politicianDesktop.ini", std::ifstream::in);
+		World::setCurrDesktopEnum(World::DesktopList::DE2B);
 	} else {
 		desktopFileInput.open(resourcePath() + "Saves/artistDesktop.ini", std::ifstream::in);
+		World::setCurrDesktopEnum(World::DesktopList::DE2A);
 	}
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
@@ -284,6 +290,7 @@ int main(int argc, char** argv) {
 	Logger::startTimer("playerDesktop3");
 
 	World::setCurrDesktop(mainDesktop);
+	World::setCurrDesktopEnum(World::DesktopList::DE3);
 	setUpPlayerDesktop(mainDesktop);
 	World::runCurrDesktop();
 
