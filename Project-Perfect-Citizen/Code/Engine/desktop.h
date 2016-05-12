@@ -55,6 +55,7 @@ namespace ppc {
 ///@brief The sprite sheet for a Desktop's Icons
 ///////////////////////////////////////////////////////////////////////
 		sf::Image buttonSheet_;
+        
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief The FileTree structure of this Desktop
@@ -188,6 +189,9 @@ namespace ppc {
         bool focusWindow(WindowInterface*);
 
         bool isWindow(WindowInterface*);
+
+		//for testing purposes sorry no doc atm
+		WindowInterface* getFocusedWindow() { return focused_; };
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Removes a Window from the Desktop.

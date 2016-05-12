@@ -35,6 +35,8 @@
 
 #include "Game/bootLoadingUpdateComponent.hpp"
 #include "Game/bootLoadingAnimationRender.hpp"
+#include "Game/BadCopRenderComponent.hpp"
+#include "Game/BadCopUpdateComponent.hpp"
 #include "Game/endAnimationUpdateComponent.hpp"
 #include "Game/endingAnimationRender.hpp"
 
@@ -47,9 +49,28 @@ using namespace ppc;
 
 
 
+
+void setUpLogoDesktop(ppc::Desktop& myDesktop) {
+    
+    Window* bootWindow = new Window(1800,1000,sf::Color(0,0,0));
+    
+    Entity badCop;
+    
+    BadCopRenderComponent* badCopRender = new BadCopRenderComponent(myDesktop.getIconSheet());
+    BadCopUpdateComponent* badCopUpdate = new BadCopUpdateComponent(*badCopRender, .1f);
+    
+    badCop.addComponent(badCopRender);
+    badCop.addComponent(badCopUpdate);
+
+    bootWindow->addEntity(badCop);
+
+    
+    myDesktop.addWindow(bootWindow);
+}
+
 void setUpBootDesktop(ppc::Desktop& myDesktop) {
     
-    Window* bootWindow = new Window(1800,1000,sf::Color(30,32,33));
+    Window* bootWindow = new Window(1800,1000,sf::Color(0,0,0));
     
     Entity loading;
     
@@ -63,13 +84,17 @@ void setUpBootDesktop(ppc::Desktop& myDesktop) {
     
     bootLoadingUpdateComponent* bootUpdate = new bootLoadingUpdateComponent(*bootRender,0.1f);
     
+    Entity badCop;
+    
     loading.addComponent(bootRender);
     loading.addComponent(bootUpdate);
     loading.addComponent(textLabel);
     bootWindow->addEntity(loading);
     
+    
     myDesktop.addWindow(bootWindow);
 }
+
 
 
 
@@ -152,22 +177,35 @@ int main(int argc, char** argv) {
 
     //Main Loops for each Desktops
     
-	//Boot Desktop
 
+	//Logo Desktop
 	Desktop mainDesktop;
 	desktopFileInput.open(resourcePath() + "Saves/bootDesktop.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
+
 	desktopFileInput.close();
-	Logger::startTimer("bootDesktop");
+	Logger::startTimer("logoDesktop");
+    
+    World::setCurrDesktop(mainDesktop);
+	setUpLogoDesktop(mainDesktop);
+	World::runCurrDesktop();
+    
+    Logger::endTimer("logoDesktop");
+	//End Boot Desktop
+    
+    //Boot Desktop
+    desktopFileInput.open(resourcePath() + "Saves/bootDesktop.ini", std::ifstream::in);
+    Desktop bootDesktop;
+    desktopFileInput >> bootDesktop;
+    desktopFileInput.close();
+    Logger::startTimer("bootDesktop");
     
 	World::setCurrDesktop(mainDesktop);
 	setUpBootDesktop(mainDesktop);
 	World::runCurrDesktop();
     
     Logger::endTimer("bootDesktop");
-	//End Boot Desktop
-
-	
+    //End Boot Desktop
 
 
 	//PE Tutorial Desktop

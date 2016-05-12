@@ -190,13 +190,13 @@ string bootLoadingAnimationRender::getRandomString(int stringLength) {
 
 
 void bootLoadingAnimationRender::animate() {
-    if (frame < 30) {
+    if (frame < 29) {
         sprites.at(frame)->setColor(sf::Color::Green);
         string temp = textLabel.getString();
         textLabel.updateLabelString(temp + getRandomString(90) + "\n");
 
         frame += 1;
-    } else if (frame == 30){
+    } else if (frame == 29){
         for (int i = 0; i < 30; i++) {
             sprites.at(i)->setColor(sf::Color(0,0,0,0));
         }
@@ -214,12 +214,12 @@ void bootLoadingAnimationRender::animate() {
         dcps->setScale(2.0f, 2.0f);
 
         frame +=1;
-    } else if (frame < 62) {
+    } else if (frame < 61) {
         if (opacity != 0) opacity -= 8;
         sprite->setColor(sf::Color(255,255,255,opacity));
         dcps->setColor(sf::Color(255,255,255,opacity));
         frame +=1;
-    } else  if (frame < 70){
+    } else  if (frame < 69){
         opacity = 0;
         sprite->setColor(sf::Color(255,255,255,opacity));
         dcps->setColor(sf::Color(255,255,255,opacity));
