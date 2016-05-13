@@ -193,7 +193,7 @@ int main(int argc, char** argv) {
 	//End Boot Desktop
     
     //Boot Desktop
-    desktopFileInput.open(resourcePath() + "Saves/bootDesktop.ini", std::ifstream::in);
+    desktopFileInput.open(resourcePath() + "Engine/bootDesktop.ini", std::ifstream::in);
     desktopFileInput >> mainDesktop;
     desktopFileInput.close();
     Logger::startTimer("bootDesktop");
@@ -206,7 +206,7 @@ int main(int argc, char** argv) {
     //End Boot Desktop
 
 	//Login Desktop
-	desktopFileInput.open(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/playerDesktop.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
 	Logger::startTimer("loginDesktop");
@@ -275,7 +275,7 @@ int main(int argc, char** argv) {
 
 	//Desktop 1 / Teacher Desktop
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Saves/teacherDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/teacherDesktop.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
     Logger::startTimer("TeacherDesktop");
@@ -290,7 +290,7 @@ int main(int argc, char** argv) {
     
 	//Player Desktop (2)
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Saves/playerDesktop2.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/playerDesktop2.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
 
@@ -307,10 +307,10 @@ int main(int argc, char** argv) {
 	//Desktop Extraction 2 / (Artist or Politician DE)
 	World::startLoading();
 	if (ppc::SuspiciousFileHolder::isGuilty()) {
-		desktopFileInput.open(resourcePath() + "Saves/politicianDesktop.ini", std::ifstream::in);
+		desktopFileInput.open(resourcePath() + "Engine/politicianDesktop.ini", std::ifstream::in);
 		World::setCurrDesktopEnum(World::DesktopList::DE2B);
 	} else {
-		desktopFileInput.open(resourcePath() + "Saves/artistDesktop.ini", std::ifstream::in);
+		desktopFileInput.open(resourcePath() + "Engine/artistDesktop.ini", std::ifstream::in);
 		World::setCurrDesktopEnum(World::DesktopList::DE2A);
 	}
 	desktopFileInput >> mainDesktop;
@@ -331,7 +331,7 @@ int main(int argc, char** argv) {
 
 	//Player Desktop (PE3)
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Saves/playerDesktop3.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/playerDesktop3.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
 
@@ -348,7 +348,7 @@ int main(int argc, char** argv) {
 	//Desktop Extraction 3 goes here
 
 	//Ending Desktop
-	desktopFileInput.open(resourcePath() + "Saves/endDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/endDesktop.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
     Logger::startTimer("endDesktop");
