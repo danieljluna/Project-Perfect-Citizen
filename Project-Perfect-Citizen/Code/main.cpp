@@ -185,7 +185,7 @@ int main(int argc, char** argv) {
 	//Boot Desktop
 
 
-	desktopFileInput.open(resourcePath() + "Saves/bootDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/bootDesktop.ini", std::ifstream::in);
 	Desktop bootDesktop;
 	desktopFileInput >> bootDesktop;
 	desktopFileInput.close();
@@ -204,7 +204,7 @@ int main(int argc, char** argv) {
 	//PE Tutorial Desktop
 	World::startLoading();
 
-	desktopFileInput.open(resourcePath() + "Saves/pipelineTutorial.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/pipelineTutorial.ini", std::ifstream::in);
 	Desktop pipeTutorialDesktop;
 	
 	desktopFileInput >> pipeTutorialDesktop;
@@ -224,7 +224,7 @@ int main(int argc, char** argv) {
 
 	//DE Tutorial Desktop 
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Saves/desktopTutorial.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/desktopTutorial.ini", std::ifstream::in);
 	Desktop deskTutorialDesktop;
 	desktopFileInput >> deskTutorialDesktop;
 	desktopFileInput.close();
@@ -239,7 +239,7 @@ int main(int argc, char** argv) {
 
 	//Player Desktop
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Saves/playerDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/playerDesktop.ini", std::ifstream::in);
 	Desktop playerDesktop;
 	desktopFileInput >> playerDesktop;
 	desktopFileInput.close();

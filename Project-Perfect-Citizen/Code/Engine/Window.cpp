@@ -19,10 +19,9 @@ using namespace ppc;
 Window::Window(unsigned int width, 
                unsigned int height, 
                sf::Color col) : 
-            windowSpace_() {
+            windowSpace_(), inputHandler_() {
     windowSpace_.create(width, height);
     backgroundColor_ = col;
-	inputHandler_ = InputHandler();
 }
 
 
@@ -238,6 +237,10 @@ void Window::update(sf::Time& deltaTime) {
     for (UpdateComponent* c : updatecmpnts_) {
         c->update(deltaTime);
     }
+
+    if (notifWindow_ != nullptr) {
+        notifWindow_->update(deltaTime);
+    }
 }
 
 
@@ -245,43 +248,48 @@ void Window::update(sf::Time& deltaTime) {
 
 void Window::registerInput(Event ppcEv) {
     
-    sf::Vector2f click;
-    sf::FloatRect viewRect;
-    sf::View currView = windowSpace_.getView();
-    sf::Vector2f defaultViewPos = windowSpace_.getView().getSize();
-    defaultViewPos.x /= 2.0f;
-    defaultViewPos.y /= 2.0f;
+    if (notifWindow_ == nullptr) {
+        sf::Vector2f click;
+        sf::FloatRect viewRect;
+        sf::View currView = windowSpace_.getView();
+        sf::Vector2f defaultViewPos = windowSpace_.getView().getSize();
+        defaultViewPos.x /= 2.0f;
+        defaultViewPos.y /= 2.0f;
 
-	if (ppcEv.type == Event::sfEventType) {
-		switch (ppcEv.sfEvent.type) {
-		case sf::Event::MouseButtonPressed:
-		case sf::Event::MouseButtonReleased:
-			click = { float(ppcEv.sfEvent.mouseButton.x), 
-				float(ppcEv.sfEvent.mouseButton.y) };
-			viewRect.width = currView.getSize().x;
-			viewRect.height = currView.getSize().y;
-			mouseInView_ = viewRect.contains(click);
-			if (mouseInView_) {
-				click -= defaultViewPos;
-				click += currView.getCenter();
-				ppcEv.sfEvent.mouseButton.x = int(click.x);
-				ppcEv.sfEvent.mouseButton.y = int(click.y);
-			}
-			break;
-		case sf::Event::MouseMoved:
-			if (mouseInView_) {
-				click = { float(ppcEv.sfEvent.mouseMove.x), 
-					float(ppcEv.sfEvent.mouseMove.y) };
-				click -= defaultViewPos;
-				click += currView.getCenter();
-				ppcEv.sfEvent.mouseMove.x = int(click.x);
-				ppcEv.sfEvent.mouseMove.y = int(click.y);
-			}
-			break;
-		}
-	}
+        if (ppcEv.type == Event::sfEventType) {
+            switch (ppcEv.sfEvent.type) {
+            case sf::Event::MouseButtonPressed:
+            case sf::Event::MouseButtonReleased:
+                click = { float(ppcEv.sfEvent.mouseButton.x),
+                    float(ppcEv.sfEvent.mouseButton.y) };
+                viewRect.width = currView.getSize().x;
+                viewRect.height = currView.getSize().y;
+                mouseInView_ = viewRect.contains(click);
+                if (mouseInView_) {
+                    click -= defaultViewPos;
+                    click += currView.getCenter();
+                    ppcEv.sfEvent.mouseButton.x = int(click.x);
+                    ppcEv.sfEvent.mouseButton.y = int(click.y);
+                }
+                break;
+            case sf::Event::MouseMoved:
+                if (mouseInView_) {
+                    click = { float(ppcEv.sfEvent.mouseMove.x),
+                        float(ppcEv.sfEvent.mouseMove.y) };
+                    click -= defaultViewPos;
+                    click += currView.getCenter();
+                    ppcEv.sfEvent.mouseMove.x = int(click.x);
+                    ppcEv.sfEvent.mouseMove.y = int(click.y);
+                }
+                break;
+            }
+        }
 
-    inputHandler_.registerEvent(ppcEv);
+        inputHandler_.registerEvent(ppcEv);
+
+    } else {
+        notifWindow_->registerInput(ppcEv);
+    }
 }
 
 
@@ -297,6 +305,10 @@ void Window::refresh(sf::RenderStates states) {
     }
 
     windowSpace_.display();
+
+    if (notifWindow_ != nullptr) {
+        notifWindow_->refresh(states);
+    }
 }
 
 
@@ -317,6 +329,34 @@ void Window::draw(sf::RenderTarget& target,
 
     //Draw the sprite
     target.draw(spr, states);
+
+    if (notifWindow_ != nullptr) {
+        target.draw(*notifWindow_, states);
+    }
+}
+
+
+/////////////////////////////////////////////////////////////////////
+// Notification Window
+/////////////////////////////////////////////////////////////////////
+
+WindowInterface* Window::getNotifWindow() const {
+    return notifWindow_;
+}
+
+bool Window::createNotifWindow(WindowInterface* notifWin,
+                               bool tossOld) {
+    if ((tossOld) && (notifWindow_ != nullptr)) {
+        delete notifWindow_;
+    }
+
+    bool result = (notifWindow_ == nullptr);
+
+    if (result) {
+        notifWindow_ = notifWin;
+    }
+
+    return result;
 }
 
 
