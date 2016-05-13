@@ -260,10 +260,10 @@ ppc::Inbox& ppc::Desktop::getInbox() {
 	return inbox_;
 }
 
-void ppc::Desktop::setFrontTop(WindowInterface* front) {
+void ppc::Desktop::setFrontTop(WindowInterface* front, bool prop) {
 	frontTop_ = front;
 
-    frontTopObsvr* ftObsvr = new frontTopObsvr(*this);
+    frontTopObsvr* ftObsvr = new frontTopObsvr(*this, prop);
 
     mousePressButton *mpb = new mousePressButton();
     mpb->setFloatRect(frontTop_->getBounds());
@@ -380,10 +380,27 @@ void ppc::Desktop::clearDesktop() {
 	backgndTexture_ = sf::Texture();
 	desktopWindow_ = nullptr;
 	focused_ = nullptr;
-	windows_.clear();
 	if (frontTop_) delete frontTop_;
 	frontTop_ = nullptr;
 
+	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
+		if (*it != nullptr)
+			delete *it;
+	}
+
+	for (auto it = solVec_.begin(); it != solVec_.end(); ++it) {
+		if (*it != nullptr)
+			delete *it;
+	}
+	for (auto it = playVec_.begin(); it != playVec_.end(); ++it) {
+		if (*it != nullptr)
+			delete *it;
+	}
+
+	windows_.clear();
+	solVec_.clear();
+	playVec_.clear();
+	netVecIndex_ = 0;
 }
 
 
@@ -405,6 +422,7 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 	while (std::getline(in, line)) {
 		streamPos = in.tellg();
 		size_t pos = line.find_first_of(":");
+		if (pos == std::string::npos) continue;
 		std::string key = line.substr(0, pos);
 		std::string file = line.substr(pos + 2);
 		//DEBUGF("wc", key << " " << file)
