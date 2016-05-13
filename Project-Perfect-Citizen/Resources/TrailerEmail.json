@@ -1,0 +1,82 @@
+{
+    "Email": {
+        "Email_001": {
+            "Visible" : "1",
+            "To" : "John <boilingwhiz@empire.net>",
+            "From" : "Louise <pinewoodsscorers@peculiar.com>",
+            "Subject" : "Grocery List [2mo ago]",
+            "Body" :"
+            Remember to pick these up next time your out!
+            
+            - Tomatoes - Onions
+            - Lemons
+            - Milk
+            - Bread
+            - Lettuce
+            - Potatoes - Chicken
+            
+            Thanks!"
+        },
+        "Email_002": {
+            "Visible" : "1",
+            "To" : "John <boilingwhiz@empire.net>",
+            "From" : "DO_NOT_REPLY <DUSTBLASTER.COM>",
+            "Subject": "WORLD'S GREATEST VACUUMS [1mo ago]",
+            "Body" :"
+            You've been waiting your entirely life for this
+            deal.
+            Before now, you didn't know the true meaning of
+            joy.
+            
+            But with the DUST BLASTER 3000 your life will be
+            complete!
+            
+            FOR A SHORT TIME ONLY, GET THIS INCREDIBLE
+            MACHINE FOR JUST $59.99!!!
+            
+            Shut the front door! That offer is out of this
+            world!
+            
+            Order now at WWW.DUSTBLASTER.COM! Don't miss
+            your chance at a fulfilled existence!
+            
+            Site Access: My Orders | Help Center |
+            Buyer Protection | Forgot your password?
+            
+            You have received this email because you have
+            registered to become a member of
+            www.DUSTBLASTER.com To unsubscribe from
+            receiving this type of e-mails from us, please
+            click here.
+            您收到这经注册成为DUSTBLASTER用户。
+            如要退订此类 邮件,请。If you have any
+            questions or concerns, please visit our Customer
+            Support Website for assistance."
+                },
+        "Email_003": {
+            "Visible" : "1",
+            "To" : "John <boilingwhiz@empire.net>",
+            "From" : "̭̏̈͂ͩ26̲͓ẹ̵͎̋rͩ̋ͥ̉̊I̥ǂɘZ[]Ƶʍ<̺̗̪͕s̵̡̻͌̔̏̈̚ͅc̜͂͋̓͊@corpora.com>",
+            "Subject": "Precision Bombing Technique [3wks ago]",
+            "Body" :"
+            To take down the embassy, you're going to need
+            to place the charges at the base of 6 or more
+            stabilizing beams. Meet me at midnight for
+                further instructions."
+                },
+        "Email_004": {
+            "Visible" : "0",
+            "To" : "John <boilingwhiz@empire.net>",
+            "From" : "Stinson Env. Council <stcouncil@stealth.net>",
+            "Subject": "Local Beach Clean-Up! [1wk ago]",
+            "Body" : "
+            Come to Rodeo Beach this sunday to participate
+            in our monthly volunteer opportunity. We're 
+            interested in maintaining the beauty of our
+            coastline, and preserving a healthy ecosystem
+            for our local wildlife. Trash has build up on
+                our shores, and it's up to us to clean it up! If
+                you would like to join, come on down!"
+        }
+   	}
+}

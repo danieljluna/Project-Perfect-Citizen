@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
 		E9073A4A1CE5285100A7E428 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E907393E1CE5285100A7E428 /* main.cpp */; };
+		E99DF3E71CE6937100CBB79A /* TrailerEmail.json in Resources */ = {isa = PBXBuildFile; fileRef = E99DF3E61CE6937100CBB79A /* TrailerEmail.json */; };
+		E99DF3E91CE6938300CBB79A /* TrailerDesktop.json in Resources */ = {isa = PBXBuildFile; fileRef = E99DF3E81CE6938300CBB79A /* TrailerDesktop.json */; };
+		E99DF3ED1CE694D600CBB79A /* trailerDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E99DF3EC1CE694D600CBB79A /* trailerDesktop.ini */; };
 		E9BCDEB71CE642F4003C97B1 /* AudioLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9BCDDAF1CE642F4003C97B1 /* AudioLocator.cpp */; };
 		E9BCDEB81CE642F4003C97B1 /* AudioLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9BCDDB11CE642F4003C97B1 /* AudioLogger.cpp */; };
 		E9BCDEB91CE642F4003C97B1 /* AudioQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9BCDDB31CE642F4003C97B1 /* AudioQueue.cpp */; };
@@ -492,6 +495,9 @@
 		C82E60741C810DCB001860CC /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		C82E60751C810DCB001860CC /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
 		E907393E1CE5285100A7E428 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
+		E99DF3E61CE6937100CBB79A /* TrailerEmail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TrailerEmail.json; sourceTree = "<group>"; };
+		E99DF3E81CE6938300CBB79A /* TrailerDesktop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TrailerDesktop.json; sourceTree = "<group>"; };
+		E99DF3EC1CE694D600CBB79A /* trailerDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = trailerDesktop.ini; sourceTree = "<group>"; };
 		E9BCDDAE1CE642F4003C97B1 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
 		E9BCDDAF1CE642F4003C97B1 /* AudioLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioLocator.cpp; sourceTree = "<group>"; };
 		E9BCDDB01CE642F4003C97B1 /* AudioLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioLocator.h; sourceTree = "<group>"; };
@@ -1457,62 +1463,64 @@
 		E9BCDF3B1CE642FA003C97B1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E9BCDF3C1CE642FA003C97B1 /* Artist_Icon_Sheet.png */,
-				E9BCDF3D1CE642FA003C97B1 /* Artist_Wallpaper.png */,
-				E9BCDF3E1CE642FA003C97B1 /* Coding Reference */,
-				E9BCDF411CE642FA003C97B1 /* consola.ttf */,
+				E9BCDF451CE642FA003C97B1 /* Desktop0.json.backup */,
+				E9BCE0651CE642FA003C97B1 /* Email0.json.backup */,
+				E9BCE07E1CE642FA003C97B1 /* ResourcePath.hpp */,
 				E9BCDF421CE642FA003C97B1 /* data.json */,
 				E9BCDF431CE642FA003C97B1 /* DE1PipelineTexts.json */,
 				E9BCDF441CE642FA003C97B1 /* Desktop0.json */,
-				E9BCDF451CE642FA003C97B1 /* Desktop0.json.backup */,
 				E9BCDF461CE642FA003C97B1 /* Desktop1.json */,
 				E9BCDF471CE642FA003C97B1 /* Desktop2.json */,
 				E9BCDF481CE642FA003C97B1 /* Desktop3.json */,
-				E9BCDF491CE642FA003C97B1 /* DesktopContent */,
-				E9BCE0631CE642FA003C97B1 /* DesktopTutorial.txt */,
 				E9BCE0641CE642FA003C97B1 /* Email0.json */,
-				E9BCE0651CE642FA003C97B1 /* Email0.json.backup */,
 				E9BCE0661CE642FA003C97B1 /* Email1.json */,
 				E9BCE0671CE642FA003C97B1 /* Email2.json */,
 				E9BCE0681CE642FA003C97B1 /* Email3.json */,
-				E9BCE0691CE642FA003C97B1 /* Engine */,
+				E9BCE0791CE642FA003C97B1 /* PlayerDesktop.json */,
+				E9BCE07A1CE642FA003C97B1 /* PlayerEmail.json */,
+				E9BCE08C1CE642FA003C97B1 /* smsPipeline.json */,
+				E9BCE08F1CE642FA003C97B1 /* suspiciontest.json */,
+				E99DF3E81CE6938300CBB79A /* TrailerDesktop.json */,
+				E99DF3E61CE6937100CBB79A /* TrailerEmail.json */,
+				E9BCE07F1CE642FA003C97B1 /* ResourcePath.mm */,
+				E9BCE08D1CE642FA003C97B1 /* SoundTrack_Extraction.ogg */,
+				E9BCE08E1CE642FA003C97B1 /* SoundTrack_Pipeline.ogg */,
+				E9BCDF3C1CE642FA003C97B1 /* Artist_Icon_Sheet.png */,
+				E9BCDF3D1CE642FA003C97B1 /* Artist_Wallpaper.png */,
 				E9BCE06C1CE642FA003C97B1 /* Face_Sheet.png */,
-				E9BCE06D1CE642FA003C97B1 /* first.txt */,
 				E9BCE06E1CE642FA003C97B1 /* Floppy_Sheet.png */,
 				E9BCE06F1CE642FA003C97B1 /* Icon_Sheet.png */,
 				E9BCE0701CE642FA003C97B1 /* Icon_Sheet2 - Copy.png */,
 				E9BCE0711CE642FA003C97B1 /* Icon_Sheet2.png */,
 				E9BCE0721CE642FA003C97B1 /* kappa.png */,
-				E9BCE0731CE642FA003C97B1 /* last.txt */,
 				E9BCE0741CE642FA003C97B1 /* Logo_Sheet.png */,
-				E9BCE0751CE642FA003C97B1 /* micross.ttf */,
-				E9BCE0761CE642FA003C97B1 /* Notification_Prompt.wav */,
-				E9BCE0771CE642FA003C97B1 /* PipelineTutorial.txt */,
 				E9BCE0781CE642FA003C97B1 /* Pixel_Title.png */,
-				E9BCE0791CE642FA003C97B1 /* PlayerDesktop.json */,
-				E9BCE07A1CE642FA003C97B1 /* PlayerEmail.json */,
 				E9BCE07B1CE642FA003C97B1 /* Politician_Wallpaper.png */,
-				E9BCE07C1CE642FA003C97B1 /* Reports */,
-				E9BCE07E1CE642FA003C97B1 /* ResourcePath.hpp */,
-				E9BCE07F1CE642FA003C97B1 /* ResourcePath.mm */,
-				E9BCE0801CE642FA003C97B1 /* Saves */,
-				E9BCE08C1CE642FA003C97B1 /* smsPipeline.json */,
-				E9BCE08D1CE642FA003C97B1 /* SoundTrack_Extraction.ogg */,
-				E9BCE08E1CE642FA003C97B1 /* SoundTrack_Pipeline.ogg */,
-				E9BCE08F1CE642FA003C97B1 /* suspiciontest.json */,
 				E9BCE0901CE642FA003C97B1 /* Teacher_Icon_Sheet.png */,
 				E9BCE0911CE642FA003C97B1 /* Teacher_Icon_Sheet2 - Copy.png */,
 				E9BCE0921CE642FA003C97B1 /* Teacher_Icon_Sheet2.png */,
 				E9BCE0931CE642FA003C97B1 /* Teacher_Wallpaper.png */,
-				E9BCE0941CE642FA003C97B1 /* TestDialogue.txt */,
 				E9BCE0951CE642FA003C97B1 /* Toolbar_Icons.png */,
 				E9BCE0961CE642FA003C97B1 /* Tutorial_Icons_Sheets.png */,
-				E9BCE0971CE642FA003C97B1 /* VT323-Regular.ttf */,
 				E9BCE0981CE642FA003C97B1 /* Wallpaper.png */,
 				E9BCE0991CE642FA003C97B1 /* Wallpaper2.png */,
 				E9BCE09A1CE642FA003C97B1 /* Windows_Icons.png */,
 				E9BCE09B1CE642FA003C97B1 /* Windows_UI.png */,
 				E9BCE09C1CE642FA003C97B1 /* World_Sheet.png */,
+				E9BCDF411CE642FA003C97B1 /* consola.ttf */,
+				E9BCE0751CE642FA003C97B1 /* micross.ttf */,
+				E9BCE0971CE642FA003C97B1 /* VT323-Regular.ttf */,
+				E9BCE0631CE642FA003C97B1 /* DesktopTutorial.txt */,
+				E9BCE06D1CE642FA003C97B1 /* first.txt */,
+				E9BCE0731CE642FA003C97B1 /* last.txt */,
+				E9BCE0771CE642FA003C97B1 /* PipelineTutorial.txt */,
+				E9BCE0941CE642FA003C97B1 /* TestDialogue.txt */,
+				E9BCE0761CE642FA003C97B1 /* Notification_Prompt.wav */,
+				E9BCDF3E1CE642FA003C97B1 /* Coding Reference */,
+				E9BCDF491CE642FA003C97B1 /* DesktopContent */,
+				E9BCE0691CE642FA003C97B1 /* Engine */,
+				E9BCE07C1CE642FA003C97B1 /* Reports */,
+				E9BCE0801CE642FA003C97B1 /* Saves */,
 			);
 			path = Resources;
 			sourceTree = SOURCE_ROOT;
@@ -1873,6 +1881,7 @@
 				E9BCE0891CE642FA003C97B1 /* playerDesktop3.ini */,
 				E9BCE08A1CE642FA003C97B1 /* politicianDesktop.ini */,
 				E9BCE08B1CE642FA003C97B1 /* teacherDesktop.ini */,
+				E99DF3EC1CE694D600CBB79A /* trailerDesktop.ini */,
 			);
 			path = Saves;
 			sourceTree = "<group>";
@@ -2065,6 +2074,7 @@
 				E9BCE1B11CE642FA003C97B1 /* Mobile_vs_Redwood_'67.jpg in Resources */,
 				E9BCE0E51CE642FA003C97B1 /* Crowd14.jpg in Resources */,
 				E9BCE1CC1CE642FA003C97B1 /* kappa.png in Resources */,
+				E99DF3ED1CE694D600CBB79A /* trailerDesktop.ini in Resources */,
 				E9BCE1731CE642FA003C97B1 /* SVD_Sniper_Rifle.jpg in Resources */,
 				E9BCE0AE1CE642FA003C97B1 /* blueprint_9.jpg in Resources */,
 				E9BCE10A1CE642FA003C97B1 /* LacanMirrorPhase.txt in Resources */,
@@ -2102,6 +2112,7 @@
 				E9BCE12D1CE642FA003C97B1 /* 120mm_M830A1.jpg in Resources */,
 				E9BCE0AB1CE642FA003C97B1 /* blueprint.jpg in Resources */,
 				E9BCE1CB1CE642FA003C97B1 /* Icon_Sheet2.png in Resources */,
+				E99DF3E71CE6937100CBB79A /* TrailerEmail.json in Resources */,
 				E9BCE1471CE642FA003C97B1 /* Giant_Crossbow.jpg in Resources */,
 				E9BCE19C1CE642FA003C97B1 /* 21.txt in Resources */,
 				E9BCE1571CE642FA003C97B1 /* Match_Line.jpg in Resources */,
@@ -2121,6 +2132,7 @@
 				E9BCE1371CE642FA003C97B1 /* Blueprints_2.jpg in Resources */,
 				E9BCE1861CE642FA003C97B1 /* w.jpg in Resources */,
 				E9BCE1191CE642FA003C97B1 /* NewCrowd46.jpg in Resources */,
+				E99DF3E91CE6938300CBB79A /* TrailerDesktop.json in Resources */,
 				E9BCE1761CE642FA003C97B1 /* Thr1ll!#$.jpg in Resources */,
 				E9BCE1411CE642FA003C97B1 /* Edgar_Germain_Hilaire_Degas.jpg in Resources */,
 				E9BCE1C71CE642FA003C97B1 /* first.txt in Resources */,
