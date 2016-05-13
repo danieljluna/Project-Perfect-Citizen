@@ -6,11 +6,15 @@
 
 using namespace ppc;
 
-void ppc::createReportScreen(Desktop &d, World::ReportList report) {
+void ppc::createReportScreen(Desktop &d) {
+	
+	
+	//will be a front top
+	ppc::Window* reportScreen = new Window(1800, 1000);
 
 	Entity reportEntity;
-
-	std::ifstream reportFile(World::getReportFile(report));
+	std::string filename = World::getReportFile();
+	std::ifstream reportFile(filename);
 
 	std::string content((std::istreambuf_iterator<char>(reportFile)),
 						(std::istreambuf_iterator<char>()));
@@ -24,7 +28,12 @@ void ppc::createReportScreen(Desktop &d, World::ReportList report) {
 
 	reportText.create(reportEntity);
 
-	d.getDesktopWindow()->addEntity(reportEntity);
+
+	//next, make/add components to scroll text and take input to 
+
+
+	reportScreen->addEntity(reportEntity);
+	d.setFrontTop(reportScreen, false);
 
 
 }
