@@ -92,6 +92,11 @@ public:
     void close() override;
     bool isOpen() const override;
 
+    // Notification Window
+    WindowInterface* getNotifWindow() const override;
+    bool createNotifWindow(WindowInterface* notifWin,
+                           bool tossOld = false) override;
+
     ///////////////////////////////////////////////////////////////////
     /// @brief Returns a pointer to the WindowInterface that is being
     ///     decorated.
