@@ -10,10 +10,11 @@ namespace ppc {
 	private:
 
 		Desktop* dt;
+		bool propagate = true;
 
 	public:
 
-		frontTopObsvr(Desktop&);
+		frontTopObsvr(Desktop&, bool prop = true);
 
 		void setDesktop(Desktop&);
 

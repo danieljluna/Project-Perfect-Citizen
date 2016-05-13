@@ -65,7 +65,7 @@
     further instructions."
         },
 		"Email_004": {
-            "Visible" : "0",
+            "Visible" : "1",
 			"To" : "John <boilingwhiz@empire.net>",
 			"From" : "Stinson Env. Council <stcouncil@stealth.net>",
 			"Subject": "Local Beach Clean-Up! [1wk ago]",

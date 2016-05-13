@@ -56,6 +56,8 @@
     <ClCompile Include="Code\Engine\WindowLogger.cpp" />
     <ClCompile Include="Code\Engine\World.cpp" />
     <ClCompile Include="Code\Game\animatorComponent.cpp" />
+    <ClCompile Include="Code\Game\BadCopRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\BadCopUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\BootLoader.cpp" />
     <ClCompile Include="Code\Game\bootLoadingAnimationRender.cpp" />
     <ClCompile Include="Code\Game\bootLoadingUpdateComponent.cpp" />
@@ -114,6 +116,7 @@
     <ClCompile Include="Code\Game\PipelineDataRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineGraphRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineLevelBuilder.cpp" />
+    <ClCompile Include="Code\Game\ReportScreenObsvr.cpp" />
     <ClCompile Include="Code\Game\spriteRenderComponent.cpp" />
     <ClCompile Include="Code\Game\TextBoxBuilder.cpp" />
     <ClCompile Include="Code\Game\TextBoxInputComponent.cpp" />
@@ -193,6 +196,8 @@
     <ClInclude Include="Code\Engine\WindowLogger.h" />
     <ClInclude Include="Code\Engine\World.h" />
     <ClInclude Include="Code\Game\animatorComponent.hpp" />
+    <ClInclude Include="Code\Game\BadCopRenderComponent.hpp" />
+    <ClInclude Include="Code\Game\BadCopUpdateComponent.hpp" />
     <ClInclude Include="Code\Game\BootLoader.hpp" />
     <ClInclude Include="Code\Game\bootLoadingAnimationRender.hpp" />
     <ClInclude Include="Code\Game\bootLoadingUpdateComponent.hpp" />
@@ -252,6 +257,7 @@
     <ClInclude Include="Code\Game\PipelineGraphRenderComponent.h" />
     <ClInclude Include="Code\Game\PipelineJobsAndIncomes.h" />
     <ClInclude Include="Code\Game\PipelineLevelBuilder.h" />
+    <ClInclude Include="Code\Game\ReportScreenObsvr.h" />
     <ClInclude Include="Code\Game\spriteRenderComponent.hpp" />
     <ClInclude Include="Code\Game\TextBoxBuilder.h" />
     <ClInclude Include="Code\Game\TextBoxInputComponent.h" />

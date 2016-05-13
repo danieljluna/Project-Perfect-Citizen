@@ -22,8 +22,10 @@ std::map<std::string, World::savGroups> World::saveGroupMap_ = {
     { "[State]",        World::StateTag     }
 };
 
+World::DesktopList World::currDesktopEnum_ = DE0;
+World::ReportType World::currReportType_ = A;
 std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
-
+	{World::DE0, ""},
     {World::DesktopCount, ""}  //Empty pairing of Count to string.
 };
 
@@ -34,8 +36,11 @@ std::map<World::FontList, sf::Font> World::fontMap_ = {
 	{World::VT323Regular, sf::Font()}
 };
 
-std::map<World::ReportList, std::string> World::reportListMap_ = {
-	{World::DE1A, resourcePath() + "Reports/sampleReport.txt"}
+std::map <std::pair<World::DesktopList, World::ReportType>, std::string > World::reportListMap_ = {
+	{ {DE0, A}, resourcePath() + "Reports/sampleReport.txt" },
+	{ {DE1, A}, resourcePath() + "Reports/sampleReport.txt" }
+
+
 };
 
 bool World::quitter_ = false;
@@ -59,6 +64,10 @@ void World::setGameScreen(sf::RenderWindow& gameScreen) {
 
 void World::setCurrDesktop(Desktop &d) {
 	currDesktop_ = &d;
+}
+
+void ppc::World::setCurrDesktopEnum(DesktopList dl) {
+	currDesktopEnum_ = dl;
 }
 
 sf::RenderWindow& World::getGameScreen() {
@@ -150,14 +159,24 @@ void ppc::World::initFontMap() {
 
 }
 
+World::ReportType ppc::World::getCurrReportType() {
+	return currReportType_;
+}
+
+void ppc::World::setCurrReportType(ReportType rt) {
+	currReportType_ = rt;
+}
+
 sf::Font& ppc::World::getFont(FontList f) {
 	
 	return fontMap_.at(f);
 
 }
 
-std::string ppc::World::getReportFile(ReportList rl) {
-	return reportListMap_.at(rl);
+std::string ppc::World::getReportFile() {
+	auto i = reportListMap_.find({ currDesktopEnum_, currReportType_ });
+	if (i != reportListMap_.end()) return i->second;
+	return "";
 }
 
 

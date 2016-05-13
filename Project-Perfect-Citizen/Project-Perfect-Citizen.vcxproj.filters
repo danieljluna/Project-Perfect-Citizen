@@ -367,6 +367,11 @@
     <ClCompile Include="Code\Engine\Setting.cpp">
       <Filter>Sources\Engine\World</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\ReportScreenObsvr.cpp">
+      <Filter>Sources\Game Specific\Reports</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\BadCopRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\BadCopUpdateComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -756,6 +761,11 @@
     <ClInclude Include="Code\Engine\Setting.h">
       <Filter>Headers\Engine\World</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Game\ReportScreenObsvr.h">
+      <Filter>Headers\Game Specific\Reports</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\BadCopRenderComponent.hpp" />
+    <ClInclude Include="Code\Game\BadCopUpdateComponent.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json">
