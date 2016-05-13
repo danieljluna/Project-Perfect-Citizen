@@ -168,6 +168,20 @@ bool WindowDecorator::isOpen() const {
 }
 
 ///////////////////////////////////////////////////////////////////////
+// Notification Window
+///////////////////////////////////////////////////////////////////////
+
+WindowInterface* WindowDecorator::getNotifWindow() const {
+    return windowHandle_->getNotifWindow();
+}
+
+
+bool WindowDecorator::createNotifWindow(WindowInterface* notifWin,
+                                        bool tossOld) {
+    return windowHandle_->createNotifWindow(notifWin, tossOld);
+}
+
+///////////////////////////////////////////////////////////////////////
 // Draw Function
 ///////////////////////////////////////////////////////////////////////
 
