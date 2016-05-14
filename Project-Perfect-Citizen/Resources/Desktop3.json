@@ -1,75 +1,35 @@
 {
     "Desktop": {
-        "Articles" : {
-            "Campaigns" : {
-                "1/Ex-Mayor_Sharp_Runes_for_Senate.jpg" : "DesktopContent/Desktop3/Ex-Mayor_Sharp_Runes_for_Senate.jpg",
-                "1/Senator_Elected_in_Suprise_Upheaval.jpg" : "DesktopContent/Desktop3/Senator_Elected_in_Suprise_Upheaval.jpg",
-                "1/Tensions_Rise_as_Voting_Day_Looms.jpg" : "DesktopContent/Desktop3/Tensions_Rise_as_Voting_Day_Looms.jpg",
-                "1/Vincent_Sharp_Wins_Mayoral_Standoff.jpg" : "DesktopContent/Desktop3/Vincent_Sharp_Wins_Mayoral_Standoff.jpg",
-                "1/Mayor_Sharp_Resigns_Amidst_Disaster.jpg" : "DesktopContent/Desktop3/Mayor_Sharp_Resigns_Amidst_Disaster.png"
+        "Campaign_Files" : {
+            "Campaign_Media" : {
+                "1/Rally.jpg" : "DesktopContent/Desktop3/Rally.jpg",
+                "1/The_Hot_New_Face.jpg" : "DesktopContent/Desktop3/The_Hot_New_Face.png",
+                "1/Upcoming_Election.jpg" : "DesktopContent/Desktop3/Upcoming_Election.png",
+                "1/The_Changing_Times.jpg" : "DesktopContent/Desktop3/The_Changing_Times.png",
+                "1/Who_would_do_this.jpg" : "DesktopContent/Desktop3/Who_would_do_this.png",
+                "1/Vincent_Wins.jpg" : "DesktopContent/Desktop3/Vincent_Wins.png"
             },
-            "Simpler_Times" : {
-                "1/1967_Football_catch.jpg" : "DesktopContent/Desktop3/1967_Football_catch.jpg",
-                "1/Mobile_vs_Redwood_67.jpg" : "DesktopContent/Desktop3/Mobile_vs_Redwood_'67.jpg",
-                "1/Sharp_in_Endzone.jpg" : "DesktopContent/Desktop3/Sharp_in_Endzone.jpg"
+            "Contributions" : {
+                "August/3917823/ " : {
+                    "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png"
+                },
+                "September/13084/ " : {
+                    "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png"
+                },
+                "October/12930812/ " : {
+                    "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png"
+                },
+                "November" : {
+                    "1/Contributions.txt" : "DesktopContent/Desktop3/Contributions.txt"
+                }
+            },
+            "Speeches" : {
+                "1/Harduwich.txt" : "DesktopContent/Desktop3/Harduwich.txt",
+                "1/Osman_College.txt" : "DesktopContent/Desktop3/Osman_College.txt"
             }
         },
-        "Old_College_Docs" : {
-            "1/Lab3.bin.txt" : "DesktopContent/Desktop3/Lab3.txt",
-            "1/Reference.jpg" : "DesktopContent/Desktop3/Reference.png",
-            "1/Do_Not_Lose_This.jpg" : "DesktopContent/Desktop3/Do_Not_Lose_This.png"
-        },
-        "Personal_Docs/27/My old number" : {
-            "Family" : {
-                "1/Baby_Rose.jpg" : "DesktopContent/Desktop3/Baby_Rose.jpg",
-                "1/Bros.jpg" : "DesktopContent/Desktop3/Bros.jpg",
-                "1/Brothers_in_Crime.jpg" : "DesktopContent/Desktop3/Brothers_in_Crime.jpg",
-                "1/Last_Dance.jpg" : "DesktopContent/Desktop3/Last_Dance.jpg",
-                "1/Rosemary.jpg" : "DesktopContent/Desktop3/Rosemary.jpg"
-            },
-            "Classified_Docs/Mobile/HEX: 4D6F62696C65" : {
-                "Docs" : {
-                    "1/Will.txt" : "DesktopContent/Desktop3/Will.txt",
-                    "1/NDA.txt" : "DesktopContent/Desktop3/NDA.txt",
-                    "1/Power_of_Attorney.txt" : "DesktopContent/Desktop3/Power_of_Attorney.txt",
-                    "1/Empty" : "DesktopContent/Desktop3/Therapy_Journal_#3.txt"
-                },
-                "Albatross_Extracted" : {
-                    "1/00.txt" : "DesktopContent/Desktop3/0.txt",
-                    "1/01.txt" : "DesktopContent/Desktop3/1.txt",
-                    "1/02.txt" : "DesktopContent/Desktop3/2.txt",
-                    "1/03.txt" : "DesktopContent/Desktop3/3.txt",
-                    "1/04.txt" : "DesktopContent/Desktop3/4.txt",
-                    "1/05.txt" : "DesktopContent/Desktop3/5.txt",
-                    "1/06.txt" : "DesktopContent/Desktop3/6.txt",
-                    "1/07.txt" : "DesktopContent/Desktop3/7.txt",
-                    "1/08.txt" : "DesktopContent/Desktop3/8.txt",
-                    "1/09.txt" : "DesktopContent/Desktop3/9.txt",
-                    "1/10.txt" : "DesktopContent/Desktop3/10.txt",
-                    "1/11.txt" : "DesktopContent/Desktop3/11.txt",
-                    "1/12.txt" : "DesktopContent/Desktop3/12.txt",
-                    "1/13.txt" : "DesktopContent/Desktop3/13.txt",
-                    "1/14.txt" : "DesktopContent/Desktop3/14.txt",
-                    "1/15.txt" : "DesktopContent/Desktop3/15.txt",
-                    "1/16.txt" : "DesktopContent/Desktop3/16.txt",
-                    "1/17.txt" : "DesktopContent/Desktop3/17.txt",
-                    "1/18.txt" : "DesktopContent/Desktop3/18.txt",
-                    "1/19.txt" : "DesktopContent/Desktop3/19.txt",
-                    "1/20.txt" : "DesktopContent/Desktop3/20.txt",
-                    "1/21.txt" : "DesktopContent/Desktop3/21.txt",
-                    "1/22.txt" : "DesktopContent/Desktop3/22.txt",
-                    "1/23.txt" : "DesktopContent/Desktop3/23.txt",
-                    "1/24.txt" : "DesktopContent/Desktop3/24.txt",
-                    "Private/Mom/That bitch" : {
-                        "1/EDIT_Albatross_Secure_Communications_2.txt" : "DesktopContent/Desktop3/Albatross_Secure_Communications_2.txt",
-                        "1/INSERT_Therapy_Journal_#4.txt" : "DesktopContent/Desktop3/Therapy_Journal_#3.txt"
-                    }
-                },
-                "1/Therapy_Journal_#3.txt" : "DesktopContent/Desktop3/Therapy_Journal_#3.txt"
-            },
-            "1/Therapy_Journal_#2.txt" : "DesktopContent/Desktop3/Therapy_Journal_#2.txt",
-            "1/Albatross_Secure_Communications.txt" : "DesktopContent/Desktop3/Albatross_Secure_Communications.txt"
-        },
-        "1/Therapy_Journal_#1.txt" : "DesktopContent/Desktop3/Therapy_Journal_#1.txt"
+        "Personal" : {
+            "1/Vincent_Wins.jpg" : "DesktopContent/Desktop3/Vincent_Wins.png"
+        }
     }
 }
