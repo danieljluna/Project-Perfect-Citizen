@@ -2,20 +2,76 @@
     "Email": {
         "Email_001": {
             "Visible" : "1",
-            "To" : "John <boilingwhiz@empire.net>",
-            "From" : "Louise <pinewoodsscorers@peculiar.com>",
-            "Subject" : "Grocery List [2mo ago]",
+            "To" : "ROXY REED <rox_ur_world_@camgirl.com>",
+            "From" : "DOUG KAUFMAN  <dougk563@firemail.com>",
+            "Subject" : "Think bout youu <3",
             "Body" :"
-    Remembero pick these up next time your out!
+    I can't stop thinking about the other night
+    online. Did you get the money?
             
-    xw- Tomatoes - Onions
-            - Lemons
-            - Milk
-            - Bread
-            - Lettuce
-            - Potatoes - Chicken
+------------------------------------------------------------
+To: DOUG KAUFMAN, From: ROXY REED
+Subject: RE: Think bout youu <3
             
-            Thanks!"
+    Yea. Thnks 4 the tip. Want some new pics?
+            
+------------------------------------------------------------
+To: ROXY REED, From: DOUG KAUFMAN
+Subject: RE:RE: Thinkin bout youu <3
+        
+    Not right now. I think Katie is getting
+    suspicious. I don't want her to get mad.
+        
+------------------------------------------------------------
+To: DOUG KAUFMAN, From: ROXY REED
+Subject: RE:RE: Thinkin bout youu <3
+            
+    She cant get mad if she doesnt know ;)"
+        },
+        "Email_002": {
+            "Visible" : "1",
+            "To" : "DOUG KAUFMAN <dougk563@firemail.com>",
+            "From" : "VERONICA STEWART<vstewart@rickystewartfoundation.com>",
+            "Subject" : "Thank You For Your Donation!",
+            "Body" :"Mr. Kaufman,
+            
+    Thank you! We just received your generous
+    $2000 donation to the Ricky Stewart
+    Foundation, and it means the world to us. It's
+    currently the largest donation we've ever
+    received!
+            
+    I wanted to reach out to you personally to
+    express my deepest gratitude. Because of you,
+    we're one step closer to bringing Ricky's
+    unfortunate death to justice. I'm so happy to
+    know there are still some good people in this
+    world.
+            
+    Sincerely,
+            
+    Veronica Stewart"
+        },
+        "Email_003": {
+            "Visible" : "1",
+            "To" : "",
+            "From" : "",
+            "Subject" : "",
+            "Body" :""
+        },
+        "Email_004": {
+            "Visible" : "1",
+            "To" : "",
+            "From" : "",
+            "Subject" : "",
+            "Body" :""
+        },
+        "Email_005": {
+            "Visible" : "1",
+            "To" : "",
+            "From" : "",
+            "Subject" : "",
+            "Body" :""
         }
    	}
 }

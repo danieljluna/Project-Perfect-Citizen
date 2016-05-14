@@ -1,7 +1,14 @@
 {
     "Desktop": {
-        "Terrorism": {
-        
+        "Other" : {
+            "1/newspaper0.jpg" : "DesktopContent/Trailer/newspaper0.png",
+            "1/newspaper1.jpg" : "DesktopContent/Trailer/newspaper1.png"
+        },
+        "Photos" : {
+            "1/Sharp_in_Endzone.jpg" : "DesktopContent/Desktop3/Sharp_in_Endzone.jpg"
+        },
+        "Work" : {
+            "1/Sharp_in_Endzone.jpg" : "DesktopContent/Desktop3/Sharp_in_Endzone.jpg"
         }
     }
 }
