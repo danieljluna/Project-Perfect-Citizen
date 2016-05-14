@@ -2,13 +2,24 @@
     "Desktop": {
         "Other" : {
             "1/newspaper0.jpg" : "DesktopContent/Trailer/newspaper0.png",
-            "1/newspaper1.jpg" : "DesktopContent/Trailer/newspaper1.png"
+            "1/newspaper1.jpg" : "DesktopContent/Trailer/newspaper1.png",
+            "1/STMNT_JUN_NORTHN_PENINSULA.jpg" : "DesktopContent/Trailer/STMNT_JUN_NORTHN_PENINSULA.png"
         },
         "Photos" : {
-            "1/Sharp_in_Endzone.jpg" : "DesktopContent/Desktop3/Sharp_in_Endzone.jpg"
+            "1/daughter0.jpg" : "DesktopContent/Trailer/daughter0.jpg",
+            "1/daughter1.jpg" : "DesktopContent/Trailer/daughter1.jpg",
+            "1/family2.jpg" : "DesktopContent/Trailer/family2.jpg",
+            "1/house0.jpg" : "DesktopContent/Trailer/house0.jpg",
+            "1/house1.jpg" : "DesktopContent/Trailer/house1.jpg",
+            "1/money.jpg" : "DesktopContent/Trailer/money.jpg",
+            "1/volunteer0.jpg" : "DesktopContent/Trailer/volunteer0.jpg",
+            "1/family0.jpg" : "DesktopContent/Trailer/family0.png",
+            "1/nsfw0.jpg" : "DesktopContent/Trailer/nsfw0.png",
+            "1/nsfw1.jpg" : "DesktopContent/Trailer/nsfw1.png"
         },
         "Work" : {
-            "1/Sharp_in_Endzone.jpg" : "DesktopContent/Desktop3/Sharp_in_Endzone.jpg"
+            "1/Spreadsheet.jpg" : "DesktopContent/Trailer/Spreadsheet.png",
+            "1/Tax_From.jpg" : "DesktopContent/Trailer/Tax_From.png"
         }
     }
 }
