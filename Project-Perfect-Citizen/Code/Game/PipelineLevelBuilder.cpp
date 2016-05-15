@@ -284,6 +284,7 @@ void PipelineLevelBuilder::addSmsMessagesToEdge(Edge& anEdge, unsigned int numMe
 				withmeta.push_back("\n");
 			}
 			exprOutputSub = exprOutput.substr(0, exprOutput.find_first_of('%'));
+			trimWhiteSpace(exprOutputSub);
 			while (exprOutputSub.length() > 0) {
 				size_t firstSpace = exprOutputSub.find_first_of(' ');
 				if (firstSpace < std::string::npos) {
@@ -308,4 +309,19 @@ void PipelineLevelBuilder::addSmsMessagesToEdge(Edge& anEdge, unsigned int numMe
 		}
 		anEdge.pushSmsData(withmeta);
 	}
+}
+
+std::string PipelineLevelBuilder::trimWhiteSpace(std::string& str) {
+	unsigned int firstwhite, lastwhite, firstchar, lastchar;
+	firstwhite = str.find_first_of(" ");	
+	firstchar = str.find_first_not_of(" ");
+	if (firstwhite < firstchar) {
+		str = str.substr(firstchar);
+	}	
+	lastwhite = str.find_last_of(" ");
+	lastchar = str.find_last_not_of(" ");
+	if (lastchar < lastwhite) {
+		str = str.substr(0, lastchar + 1);
+	}
+	return str;
 }

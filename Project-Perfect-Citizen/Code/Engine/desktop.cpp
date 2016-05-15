@@ -323,7 +323,16 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
 	}
 	
 
-	focused_->registerInput(ppcEv);
+    if ((ppcEv.type == Event::sfEventType) &&
+        (ppcEv.sfEvent.type == sf::Event::MouseButtonReleased)) {
+
+        for (auto it: windows_) {
+            it->registerInput(ppcEv);
+        }
+
+    } else {
+        focused_->registerInput(ppcEv);
+    }
 }
 
 void ppc::Desktop::update(sf::Time& deltaTime){

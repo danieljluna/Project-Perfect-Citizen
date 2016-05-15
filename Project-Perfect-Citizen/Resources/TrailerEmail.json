@@ -4,10 +4,10 @@
             "Visible" : "1",
             "To" : "ROXY REED <rox_ur_world_@camgirl.com>",
             "From" : "DOUG KAUFMAN  <dougk563@firemail.com>",
-            "Subject" : "Think bout youu <3",
+            "Subject" : "Thinkin bout youu <3",
             "Body" :"
-    I can't stop thinking about the other night
-    online. Did you get the money?
+    I can't stop thinking about last night's cam sesh.
+    Did you get the money?
             
 ------------------------------------------------------------
 To: DOUG KAUFMAN, From: ROXY REED
@@ -31,7 +31,7 @@ Subject: RE:RE: Thinkin bout youu <3
         "Email_002": {
             "Visible" : "1",
             "To" : "DOUG KAUFMAN <dougk563@firemail.com>",
-            "From" : "VERONICA STEWART<vstewart@rickystewartfoundation.com>",
+            "From" : "VERONICA STEWART <vs@rickystewartfoundation.com>",
             "Subject" : "Thank You For Your Donation!",
             "Body" :"Mr. Kaufman,
             
@@ -54,23 +54,43 @@ Subject: RE:RE: Thinkin bout youu <3
         },
         "Email_003": {
             "Visible" : "1",
-            "To" : "",
-            "From" : "",
-            "Subject" : "",
-            "Body" :""
+            "To" : "DOUG KAUFMAN <dougk563@firemail.com>",
+            "From" : "PERRY HOWARD <phoward@npp.com>",
+            "Subject" : "From the Desk of Dr. P. Howard",
+            "Body" :"
+        Doug,
+        
+    I got your phone message this morning. I'm sorry to
+    hear you feel this way. Remember what we talked 
+    about - you need to confront your past, not run from it. 
+
+    You never were a criminal, Doug. 
+    Just because you got away, doesn't mean you're guilty. 
+    
+    Look at all the good you've done since then. I'd say 
+    you  paid your debt to society. You've got a 
+    great job, and a beautiful wife and daughter. 
+
+    You can't change Ricky's death. But you can move on.
+
+    Stay well,
+
+    Dr. Perry Howard
+    PhD Psychology
+    Northern Peninsula Psychiatry "
         },
         "Email_004": {
             "Visible" : "1",
-            "To" : "",
-            "From" : "",
-            "Subject" : "",
+            "To" : "DOUG KAUFMAN <dougk563@firemail.com>",
+            "From" : "sales4u@savingsnation.org",
+            "Subject" : "AMAZING LIMITED TIME OFFER! DETAILS INSIDE!",
             "Body" :""
         },
         "Email_005": {
             "Visible" : "1",
-            "To" : "",
-            "From" : "",
-            "Subject" : "",
+            "To" : "DOUG KAUFMAN <dougk563@firemail.com>",
+            "From" : "RICHARD MASON <rmason@hercules.inc",
+            "Subject" : "RE: This month's staff meeting ",
             "Body" :""
         }
    	}
