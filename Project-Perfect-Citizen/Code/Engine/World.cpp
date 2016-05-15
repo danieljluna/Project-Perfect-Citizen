@@ -18,8 +18,8 @@ using namespace ppc;
 sf::RenderWindow* World::screen_ = nullptr;
 Desktop* World::currDesktop_ = nullptr;
 std::map<std::string, World::savGroups> World::saveGroupMap_ = {
-    { "Settings]",      World::SettingsTag  },
-    { "[State]",        World::StateTag     }
+    { "Settings",      World::SettingsTag  },
+    { "State",         World::StateTag     }
 };
 
 World::DesktopList World::currDesktopEnum_ = DE0;
@@ -242,12 +242,50 @@ void ppc::World::endLoading() {
 }
 
 
+void ppc::World::setSettings(Setting settings) {
+    settings_ = settings;
+    manifestSettings();
+}
+
+
+Setting ppc::World::getSettings() {
+    return settings_;
+}
+
+
 void ppc::World::loadState(std::string filename) {
     filename = resourcePath() + "Saves/" + filename;
 
     std::ifstream file(filename);
 
-    file >> settings_;
+    std::string line;
+
+    while (file) {
+        std::getline(file, line);
+
+        if (line.size() == 0) break;
+
+        line = line.substr(line.find_first_not_of("[ \t]"),
+                           line.find_last_not_of("[ \t]"));
+
+        auto mapIt = saveGroupMap_.find(line);
+        
+        if (mapIt == saveGroupMap_.end()) {
+            //Output error
+            DEBUGF("wl", filename << ": Bad Group Tag: " << line);
+        } else {
+            //Handle Tag
+            switch (mapIt->second) {
+            case SettingsTag:
+                file >> settings_;
+                manifestSettings();
+                break;
+            case StateTag:
+            default:
+                break;
+            }
+        }
+    }
 
     file.close();
 }
@@ -258,21 +296,28 @@ void ppc::World::saveState(std::string filename) {
 
     std::ofstream file(filename);
 
-    for (auto& mapPair: saveGroupMap_) {
-        //Output grouping Tag
-        file << '[' << mapPair.first << ']' << std::endl;
+    while (file) {
+        for (auto& mapPair : saveGroupMap_) {
+            //Output grouping Tag
+            file << '[' << mapPair.first << ']' << std::endl;
 
-        //Output appropriate info
-        switch (mapPair.second) {
-        case SettingsTag:
-            file << settings_ << std::endl << std::endl;
-            break;
-        case StateTag:
-        default:
-            break;
+            //Output appropriate info
+            switch (mapPair.second) {
+            case SettingsTag:
+                file << settings_;
+                break;
+            case StateTag:
+            default:
+                break;
+            }
+            file << std::endl;
         }
     }
-    file << settings_;
 
     file.close();
+}
+
+
+void ppc::World::manifestSettings() {
+
 }
