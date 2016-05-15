@@ -10,7 +10,8 @@ std::map<std::string, Setting::IniTags> Setting::iniGroupMap = {
     { "ResolutionWidth",    Setting::ResolutionX },
     { "ResolutionX",        Setting::ResolutionX },
     { "ResolutionHeight",   Setting::ResolutionY },
-    { "ResolutionWidth",    Setting::ResolutionX }
+    { "ResolutionWidth",    Setting::ResolutionX },
+    { "Fullscreen",         Setting::Fullscreen  }
 };
 
 
@@ -39,6 +40,9 @@ std::istream& ppc::operator>>(std::istream& in, Setting& setting) {
                     break;
                 case Setting::ResolutionY:
                     in >> setting.resolution.y;
+                    break;
+                case Setting::Fullscreen:
+                    in >> setting.fullscreen;
                     break;
                 default:
                     in.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
