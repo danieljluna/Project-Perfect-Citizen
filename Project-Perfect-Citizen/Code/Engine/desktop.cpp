@@ -326,7 +326,9 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
     if ((ppcEv.type == Event::sfEventType) &&
         (ppcEv.sfEvent.type == sf::Event::MouseButtonReleased)) {
 
-        for (auto it: windows_) {
+        auto winCopy(windows_);
+        
+        for (auto it: winCopy) {
             it->registerInput(ppcEv);
         }
 

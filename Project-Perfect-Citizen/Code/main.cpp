@@ -154,7 +154,6 @@ int main(int argc, char** argv) {
     
     World::initFontMap();
 	World::initLoadScreen();
-    World::loadState("PPC.sav");
 
     bool BootToTitleCard = false;
     // Create the main sf::window
@@ -174,6 +173,7 @@ int main(int argc, char** argv) {
     // -----------------------------------------------------------//
 
     World::setGameScreen(screen);
+    World::loadState("PPC.sav");
 	ifstream desktopFileInput;
 
     //Main Loops for each Desktops
