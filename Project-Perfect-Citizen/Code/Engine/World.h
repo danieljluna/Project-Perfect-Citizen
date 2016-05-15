@@ -2,6 +2,8 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Setting.h"
+
 #include <utility>
 
 namespace ppc {
@@ -23,7 +25,7 @@ namespace ppc {
 			DE2A,
 			DE2B,
 			DE3,
-            Count
+            DesktopCount
         };
 
 		enum FontList {
@@ -131,7 +133,36 @@ namespace ppc {
 
 		static void endLoading();
 
+      /////////////////////////////////////////////////////////////////
+      // Settings Functionality
+      /////////////////////////////////////////////////////////////////
+
+        static void setSettings(Setting settings);
+
+        static Setting getSettings();
+
+        static void loadState(std::string filename);
+
+        static void saveState(std::string filename);
+
     private:
+
+      /////////////////////////////////////////////////////////////////
+      // Private Helpers
+      /////////////////////////////////////////////////////////////////
+
+        static void manifestSettings();
+
+
+      /////////////////////////////////////////////////////////////////
+      // Private Vars / Enums
+      /////////////////////////////////////////////////////////////////
+
+        enum savGroups {
+            SettingsTag = 0,
+            StateTag,
+            SaveTagCount
+        };
 
         static sf::RenderWindow* screen_;
         static ppc::Desktop* currDesktop_;
@@ -162,6 +193,10 @@ namespace ppc {
         static sf::Sprite loadingDecal_;
 
 		static sf::RectangleShape tempLoadBar_;
+
+        static Setting settings_;
+
+        static std::map<std::string, savGroups> saveGroupMap_;
 
 	};
 };

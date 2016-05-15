@@ -17,11 +17,16 @@ using namespace ppc;
 
 sf::RenderWindow* World::screen_ = nullptr;
 Desktop* World::currDesktop_ = nullptr;
+std::map<std::string, World::savGroups> World::saveGroupMap_ = {
+    { "Settings",      World::SettingsTag  },
+    { "State",         World::StateTag     }
+};
+
 World::DesktopList World::currDesktopEnum_ = DE0;
 World::ReportType World::currReportType_ = A;
 std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
 	{World::DE0, ""},
-    {World::Count, ""}  //Empty pairing of Count to string.
+    {World::DesktopCount, ""}  //Empty pairing of Count to string.
 };
 
 std::map<World::FontList, sf::Font> World::fontMap_ = {
@@ -50,6 +55,8 @@ sf::Sprite World::loadBarBorder_ = sf::Sprite();
 sf::Sprite World::loadingDecal_ = sf::Sprite();
 
 bool World::isLoading_ = false;
+
+Setting World::settings_;
 
 void World::setGameScreen(sf::RenderWindow& gameScreen) {
 	screen_ = &gameScreen;
@@ -232,4 +239,85 @@ void ppc::World::drawLoading() {
 void ppc::World::endLoading() {
 
 	isLoading_ = false;
+}
+
+
+void ppc::World::setSettings(Setting settings) {
+    settings_ = settings;
+    manifestSettings();
+}
+
+
+Setting ppc::World::getSettings() {
+    return settings_;
+}
+
+
+void ppc::World::loadState(std::string filename) {
+    filename = resourcePath() + "Saves/" + filename;
+
+    std::ifstream file(filename);
+
+    std::string line;
+
+    while (file) {
+        std::getline(file, line);
+
+        if (line.size() == 0) break;
+
+        line = line.substr(line.find_first_not_of("[ \t]"),
+                           line.find_last_not_of("[ \t]"));
+
+        auto mapIt = saveGroupMap_.find(line);
+        
+        if (mapIt == saveGroupMap_.end()) {
+            //Output error
+            DEBUGF("wl", filename << ": Bad Group Tag: " << line);
+        } else {
+            //Handle Tag
+            switch (mapIt->second) {
+            case SettingsTag:
+                file >> settings_;
+                manifestSettings();
+                break;
+            case StateTag:
+            default:
+                break;
+            }
+        }
+    }
+
+    file.close();
+}
+
+
+void ppc::World::saveState(std::string filename) {
+    filename = resourcePath() + "Saves/" + filename;
+
+    std::ofstream file(filename);
+
+    while (file) {
+        for (auto& mapPair : saveGroupMap_) {
+            //Output grouping Tag
+            file << '[' << mapPair.first << ']' << std::endl;
+
+            //Output appropriate info
+            switch (mapPair.second) {
+            case SettingsTag:
+                file << settings_;
+                break;
+            case StateTag:
+            default:
+                break;
+            }
+            file << std::endl;
+        }
+    }
+
+    file.close();
+}
+
+
+void ppc::World::manifestSettings() {
+
 }
