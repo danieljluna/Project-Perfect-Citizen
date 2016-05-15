@@ -63,6 +63,42 @@ void World::setGameScreen(sf::RenderWindow& gameScreen) {
 	screen_ = &gameScreen;
 }
 
+sf::VideoMode ppc::World::getVideoMode() {
+    sf::VideoMode result;
+
+    if (settings_.fullscreen) {
+
+        float aspect = float(settings_.resolution.x) /
+            float(settings_.resolution.y);
+        
+        // Display the list of all the video modes available for fullscreen
+        std::vector<sf::VideoMode> modes = sf::VideoMode::getFullscreenModes();
+        for (std::size_t i = 0; i < modes.size(); ++i)
+        {
+            sf::VideoMode mode = modes[i];
+            std::cout << "Mode #" << i << ": "
+                << mode.width << "x" << mode.height << " - "
+                << mode.bitsPerPixel << " bpp" << std::endl;
+        }
+
+        
+    } else {
+
+        result.width = settings_.resolution.x;
+        result.height = settings_.resolution.y;
+
+        sf::Vector2f scaleFactor;
+        scaleFactor.x = float(settings_.resolution.x) / 1000;
+        scaleFactor.y = float(settings_.resolution.y) / 800;
+
+        worldTransform_ = sf::Transform();
+        worldTransform_.scale(scaleFactor);
+
+    }
+
+    return result;
+}
+
 void World::setCurrDesktop(Desktop &d) {
 	currDesktop_ = &d;
 }
@@ -99,7 +135,30 @@ bool World::runDesktop(Desktop &myDesktop) {
 				if ((event.key.code == sf::Keyboard::Period) && (event.key.alt)) {
                     quitDesktop();
 				}
-			}
+            } else if ((event.type == sf::Event::MouseButtonPressed) ||
+                (event.type == sf::Event::MouseButtonReleased)) {
+                
+                sf::Vector2f transformedPoint = 
+                    worldTransform_.getInverse().transformPoint(
+                                event.mouseButton.x,
+                                event.mouseButton.y);
+                event.mouseButton.x = transformedPoint.x;
+                event.mouseButton.y = transformedPoint.y;
+            } else if (event.type == sf::Event::MouseMoved) {
+                sf::Vector2f transformedPoint =
+                    worldTransform_.getInverse().transformPoint(
+                        event.mouseMove.x,
+                        event.mouseMove.y);
+                event.mouseMove.x = transformedPoint.x;
+                event.mouseMove.y = transformedPoint.y;
+            } else if (event.type == sf::Event::MouseWheelScrolled) {
+                sf::Vector2f transformedPoint =
+                    worldTransform_.getInverse().transformPoint(
+                        event.mouseWheelScroll.x,
+                        event.mouseWheelScroll.y);
+                event.mouseWheelScroll.x = transformedPoint.x;
+                event.mouseWheelScroll.y = transformedPoint.y;
+            }
 
 			//Input phase
 			myDesktop.registerInput(event);
@@ -113,7 +172,9 @@ bool World::runDesktop(Desktop &myDesktop) {
 			elapsed -= framePeriod;
 		}
 		myDesktop.refresh();
-		screen_->draw(myDesktop);
+        sf::RenderStates states;
+        states.transform = worldTransform_;
+		screen_->draw(myDesktop, states);
 		screen_->display();
 	}
 	return false;
@@ -320,28 +381,7 @@ void ppc::World::saveState(std::string filename) {
 
 
 void ppc::World::manifestSettings() {
-    World::updateResolution();
+    
 }
 
 
-void ppc::World::updateResolution() {
-    if (settings_.fullscreen) {
-
-        float aspect = float(settings_.resolution.x) /
-                       float(settings_.resolution.y);
-        float scrnAspect = float(sf::VideoMode::getDesktopMode().width) /
-                           float(sf::VideoMode::getDesktopMode().height);
-
-    } else {
-
-        screen_->setSize(settings_.resolution);
-
-        sf::Vector2f scaleFactor;
-        scaleFactor.x = float(settings_.resolution.x) / 1800;
-        scaleFactor.y = float(settings_.resolution.y) / 1000;
-
-        worldTransform_ = sf::Transform();
-        worldTransform_.scale(scaleFactor);
-
-    }
-}

@@ -158,7 +158,7 @@ int main(int argc, char** argv) {
 
     bool BootToTitleCard = false;
     // Create the main sf::window
-    sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
+    sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen");
        
     AudioQueue audiotest(5);
     audiotest.addBgm("SoundTrack_Extraction.ogg");

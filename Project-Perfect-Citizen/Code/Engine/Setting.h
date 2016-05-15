@@ -14,7 +14,7 @@ public:
   /////////////////////////////////////////////////////////////////////
 
     sf::Vector2u resolution = {0, 0};
-    bool fullscreen = true;
+    bool fullscreen = false;
 
 
   /////////////////////////////////////////////////////////////////////
@@ -35,6 +35,7 @@ private:
     enum IniTags {
         ResolutionX = 0,
         ResolutionY,
+        Fullscreen,
         TagCount
     };
 
