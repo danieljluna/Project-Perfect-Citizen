@@ -145,6 +145,12 @@ void setUpPoliticianDesktop(ppc::Desktop& myDesktop) {
 
 }
 
+void setUpTrailerDesktop(ppc::Desktop& myDesktop) {
+    createTrailerDesktop(myDesktop, *myDesktop.getDesktopWindow(),
+                            myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
+    
+}
+
 int main(int argc, char** argv) {
     
     DBG_INIT();
@@ -156,13 +162,20 @@ int main(int argc, char** argv) {
 	World::initLoadScreen();
 
     bool BootToTitleCard = false;
+    bool PlayBackgroundMusic = false;
     // Create the main sf::window
+<<<<<<< HEAD
     sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen");
        
+=======
+    sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
+    
+    
+>>>>>>> eb1570dc6f147a0fc3f57235cc8a80f37661dd44
     AudioQueue audiotest(5);
     audiotest.addBgm("SoundTrack_Extraction.ogg");
     audiotest.loopBgm();
-    audiotest.playBgm();
+    if(PlayBackgroundMusic) audiotest.playBgm();
 
     ///////////////////////////////////////////////////////////////////
     
@@ -252,7 +265,7 @@ int main(int argc, char** argv) {
 
 	//Player Desktop
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Engine/playerDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/trailerDesktop.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
 
@@ -260,7 +273,7 @@ int main(int argc, char** argv) {
     
     World::setCurrDesktop(mainDesktop);
 	World::setCurrDesktopEnum(World::DesktopList::DEPlayer);
-	setUpPlayerDesktop(mainDesktop);
+	setUpTrailerDesktop(mainDesktop);
 	World::runCurrDesktop();
     
     Logger::endTimer("playerDesktop");
