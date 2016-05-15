@@ -1,0 +1,30 @@
+{
+    "Desktop": {
+        "Other" : {
+<<<<<<< HEAD
+            "1/nothern_herald_june.jpg" : "DesktopContent/Trailer/nothern_herald_june.png",
+            "1/northern_herald_november.jpg" : "DesktopContent/Trailer/nothern_herald_november.png",
+=======
+            "1/newspaper0.jpg" : "DesktopContent/Trailer/newspaper0.png",
+            "1/newspaper1.jpg" : "DesktopContent/Trailer/newspaper1.png",
+>>>>>>> parent of 3af7d9c...  - updated some content stuff
+            "1/STMNT_JUN_NORTHN_PENINSULA.jpg" : "DesktopContent/Trailer/STMNT_JUN_NORTHN_PENINSULA.png"
+        },
+        "Photos" : {
+            "1/sugarplum.jpg" : "DesktopContent/Trailer/daughter0.jpg",
+            "1/baby_photo.jpg" : "DesktopContent/Trailer/daughter1.jpg",
+            "1/family_volunteering.jpg" : "DesktopContent/Trailer/family_volunteering.jpg",
+            "1/our_home.jpg" : "DesktopContent/Trailer/our_home.jpg",
+            "1/backyard.jpg" : "DesktopContent/Trailer/backyard.jpg",
+            "1/regret.jpg" : "DesktopContent/Trailer/regret.jpg",
+            "1/volunteering.jpg" : "DesktopContent/Trailer/volunteering.jpg",
+            "1/old_photo.jpg" : "DesktopContent/Trailer/old_photo.png",
+            "1/roxy.jpg" : "DesktopContent/Trailer/roxy.png",
+            "1/roxy2.jpg" : "DesktopContent/Trailer/roxy2.png"
+        },
+        "Work" : {
+            "1/Spreadsheet.jpg" : "DesktopContent/Trailer/Spreadsheet.png",
+            "1/Tax_From.jpg" : "DesktopContent/Trailer/Tax_From.png"
+        }
+    }
+}
