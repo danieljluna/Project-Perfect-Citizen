@@ -153,6 +153,8 @@ namespace ppc {
 
         static void manifestSettings();
 
+        static void updateResolution();
+
 
       /////////////////////////////////////////////////////////////////
       // Private Vars / Enums
@@ -197,6 +199,8 @@ namespace ppc {
         static Setting settings_;
 
         static std::map<std::string, savGroups> saveGroupMap_;
+
+        static sf::Transform worldTransform_;
 
 	};
 };

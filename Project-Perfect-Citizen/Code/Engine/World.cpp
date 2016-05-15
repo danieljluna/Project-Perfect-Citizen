@@ -17,6 +17,7 @@ using namespace ppc;
 
 sf::RenderWindow* World::screen_ = nullptr;
 Desktop* World::currDesktop_ = nullptr;
+sf::Transform World::worldTransform_;
 std::map<std::string, World::savGroups> World::saveGroupMap_ = {
     { "Settings",      World::SettingsTag  },
     { "State",         World::StateTag     }
@@ -319,5 +320,28 @@ void ppc::World::saveState(std::string filename) {
 
 
 void ppc::World::manifestSettings() {
+    World::updateResolution();
+}
 
+
+void ppc::World::updateResolution() {
+    if (settings_.fullscreen) {
+
+        float aspect = float(settings_.resolution.x) /
+                       float(settings_.resolution.y);
+        float scrnAspect = float(sf::VideoMode::getDesktopMode().width) /
+                           float(sf::VideoMode::getDesktopMode().height);
+
+    } else {
+
+        screen_->setSize(settings_.resolution);
+
+        sf::Vector2f scaleFactor;
+        scaleFactor.x = float(settings_.resolution.x) / 1800;
+        scaleFactor.y = float(settings_.resolution.y) / 1000;
+
+        worldTransform_ = sf::Transform();
+        worldTransform_.scale(scaleFactor);
+
+    }
 }
