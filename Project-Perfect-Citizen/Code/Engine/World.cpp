@@ -68,18 +68,15 @@ sf::VideoMode ppc::World::getVideoMode() {
 
     if (settings_.fullscreen) {
 
-        float aspect = float(settings_.resolution.x) /
-            float(settings_.resolution.y);
-        
-        // Display the list of all the video modes available for fullscreen
-        std::vector<sf::VideoMode> modes = sf::VideoMode::getFullscreenModes();
-        for (std::size_t i = 0; i < modes.size(); ++i)
-        {
-            sf::VideoMode mode = modes[i];
-            std::cout << "Mode #" << i << ": "
-                << mode.width << "x" << mode.height << " - "
-                << mode.bitsPerPixel << " bpp" << std::endl;
-        }
+        result.width = settings_.resolution.x;
+        result.height = settings_.resolution.y;
+
+        sf::Vector2f scaleFactor;
+        scaleFactor.x = float(settings_.resolution.x) / 1000;
+        scaleFactor.y = float(settings_.resolution.y) / 800;
+
+        worldTransform_ = sf::Transform();
+        worldTransform_.scale(scaleFactor);
 
         
     } else {
@@ -134,7 +131,10 @@ bool World::runDesktop(Desktop &myDesktop) {
 				//Close
 				if ((event.key.code == sf::Keyboard::Period) && (event.key.alt)) {
                     quitDesktop();
-				}
+                } else if (event.key.code == sf::Keyboard::F5) {
+                    settings_.fullscreen = !settings_.fullscreen;
+                    manifestSettings();
+                }
             } else if ((event.type == sf::Event::MouseButtonPressed) ||
                 (event.type == sf::Event::MouseButtonReleased)) {
                 
@@ -288,14 +288,19 @@ void ppc::World::setLoading(float f) {
 }
 
 void ppc::World::drawLoading() {
-	if (isLoading_ == false) return;
-	screen_->clear(sf::Color::Black);
-	//screen_->draw(tempLoadScreen_);
-	//screen_->draw(tempLoadBar_);
-    screen_->draw(loadingDecal_);
-    screen_->draw(loadBarBorder_);
-    screen_->draw(loadBar_);
-	screen_->display();
+    if (isLoading_) {
+        sf::RenderStates states;
+        states.transform = worldTransform_;
+
+
+        screen_->clear(sf::Color::Black);
+        //screen_->draw(tempLoadScreen_);
+        //screen_->draw(tempLoadBar_);
+        screen_->draw(loadingDecal_, states);
+        screen_->draw(loadBarBorder_, states);
+        screen_->draw(loadBar_, states);
+        screen_->display();
+    }
 }
 
 void ppc::World::endLoading() {
@@ -381,7 +386,13 @@ void ppc::World::saveState(std::string filename) {
 
 
 void ppc::World::manifestSettings() {
-    
+    if (screen_ != nullptr) {
+        unsigned int flags = sf::Style::Default;
+        if (settings_.fullscreen) {
+            flags = flags | sf::Style::Fullscreen;
+        }
+        screen_->create(getVideoMode(), "Project Perfect Citizen", flags);
+    }
 }
 
 
