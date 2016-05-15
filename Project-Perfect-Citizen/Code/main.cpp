@@ -94,25 +94,16 @@ void setUpBootDesktop(ppc::Desktop& myDesktop) {
     
     
     myDesktop.addWindow(bootWindow);
+    
 }
 
 
 void setUpLoginDesktop(ppc::Desktop& myDesktop) {
-
-    Window* loginWindow = new Window(1000,800,sf::Color(0,0,0));
     
-    Entity title;
-    
-    spriteRenderComponent* titleRender = new spriteRenderComponent(myDesktop.getButtonSheet(), 0,7, 6, 1);
-    titleRender->setRenderPosition({100, 100});
-    
-    title.addComponent(titleRender);
+    createLoginDesktop(myDesktop, *myDesktop.getDesktopWindow(),
+                        myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
   
-    loginWindow->addEntity(title);
-    
-    myDesktop.addWindow(loginWindow);
 }
-
 
 
 
