@@ -8,6 +8,7 @@
 //#include "../Engine/WindowInterface.h"
 
 const float MAX_DISTANCE_TO_EDGE = 10.f;
+const unsigned int CHAR_LIMIT = 32; // THIS SHOULD BE DYNAMIC BASED ON WINDOW AND FONT SIZE
 
 void ppc::NetworkInputCmpnt::selectEdge(sf::Vector2f mPos) {
 	std::vector<std::pair<int, int>> edgeList;
@@ -140,34 +141,61 @@ void ppc::NetworkInputCmpnt::loopEdgeColor() {
 void ppc::NetworkInputCmpnt::updateDataText() {
 	if (pipeRender_ == nullptr) return;
 	pipeRender_->clearString();
+	pipeRender_->appendString(" " + network_->vert(selectedVert_).getCharacter().getSSN().substr(0, 2) +
+		"'s CONVERSATIONS\n\n");
 	for (unsigned int i = 0; i < solution_->size(); ++i) {
 		if (solution_->isAdjacent(selectedVert_, i)) {
 			std::vector<std::vector<std::string>> smsvec = 
 				solution_->edge(selectedVert_, i)->getSmsData();
-
 			for (unsigned int j = 0; j < smsvec.size(); ++j) {
-				unsigned int charlimit = 32; // THIS SHOULD BE DYNAMIC BASED ON WINDOW AND FONT SIZE
-				unsigned int currchars = 0;
-				std::string buff = "";
+				unsigned int currchars = 1;
+				std::string buff = " ";
 				for (unsigned int k = 0; k < smsvec[j].size(); ++k) {
-					if (smsvec[j][k] == "\n") {
-						pipeRender_->appendString(buff + '\n');
-						buff = "";
-						currchars = 0;
+					
+					if (smsvec[j][k].compare("FROM:") == 0 || smsvec[j][k].compare("TO:") == 0) {
+						buff = " ";
+						currchars = 1;
+						//if (network_->vert(selectedVert_).getCharacter().getSSN().compare(smsvec[j][k + 1]) == 0) {
+							//pipeRender_->appendString(smsvec[j][k + 2] + " " + smsvec[j][k + 3] + "\n");
+							pipeRender_->appendString(" " + smsvec[j][k + 3] + " SAID:\n ");
+						//}
+						//else {
+							//pipeRender_->appendString(smsvec[j][k] + " " + smsvec[j][k + 1] + "\n");
+						//	pipeRender_->appendString(smsvec[j][k + 1] + " SAID:\n");
+						//}
+						k += 4;
 						continue;
 					}
-					if (currchars + smsvec[j][k].size() < charlimit) {
+					
+
+					/*if (smsvec[j][k].compare("FROM:") == 0) {
+						buff = " ";
+						currchars = 1;
+						pipeRender_->appendString(smsvec[j][k + 1] + " SAYS:\n");
+						k += 4;
+						continue;
+					}*/
+
+					
+					if (smsvec[j][k] == "\n") {
+						pipeRender_->appendString(buff + "\n");
+						//buff = "  ";
+						//currchars = 2;
+						continue;
+					}
+					if (currchars + smsvec[j][k].size() < CHAR_LIMIT) {
 						buff += smsvec[j][k] + ' ';
 						currchars += smsvec[j][k].size() + 1;
 					}
 					else {
-						pipeRender_->appendString(buff + '\n');
-						buff = smsvec[j][k] + ' ';
+						pipeRender_->appendString(buff + "\n ");
+						buff = "  " + smsvec[j][k] + ' ';
 						currchars = buff.size();
 					}
 				}
-				if (currchars != 0) pipeRender_->appendString(buff + "\n\n");
-				else pipeRender_->appendString("\n\n");
+				//if (currchars != 0) pipeRender_->appendString(buff + "\n\n");
+				//else pipeRender_->appendString("\n\n");
+				pipeRender_->appendString("\n\n");
 			}
 		}
 	}
