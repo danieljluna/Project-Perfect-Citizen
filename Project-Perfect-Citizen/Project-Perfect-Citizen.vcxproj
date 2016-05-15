@@ -140,7 +140,6 @@
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
     <Text Include="Resources\Coding Reference\LinkHelp.txt" />
     <Text Include="Resources\DesktopTutorial.txt" />
-    <Text Include="Resources\Engine\PPC.sav" />
     <Text Include="Resources\PipelineTutorial.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -295,6 +294,7 @@
     <None Include="Resources\Saves\desktopTutorial.ini" />
     <None Include="Resources\Saves\pipelineTutorial.ini" />
     <None Include="Resources\Saves\playerDesktop.ini" />
+    <None Include="Resources\Saves\PPC.sav" />
     <None Include="Resources\smsPipeline.json" />
     <None Include="Resources\suspiciontest.json" />
   </ItemGroup>
