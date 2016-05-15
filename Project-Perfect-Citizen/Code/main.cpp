@@ -165,6 +165,7 @@ int main(int argc, char** argv) {
     
     World::initFontMap();
 	World::initLoadScreen();
+    World::loadState("PPC.sav");
 
     bool BootToTitleCard = false;
     // Create the main sf::window
@@ -188,7 +189,6 @@ int main(int argc, char** argv) {
 
     //Main Loops for each Desktops
     
-
 	//Logo Desktop
 	Desktop mainDesktop;
 	desktopFileInput.open(resourcePath() + "Engine/bootDesktop.ini", std::ifstream::in);
@@ -231,6 +231,8 @@ int main(int argc, char** argv) {
 
 	//PE Tutorial Desktop
 	World::startLoading();
+
+
 	desktopFileInput.open(resourcePath() + "Engine/pipelineTutorial.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
