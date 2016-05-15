@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
+		C8CAAE641CE92D8C003E10E8 /* backyard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C8CAAE591CE92D8C003E10E8 /* backyard.jpg */; };
+		C8CAAE651CE92D8C003E10E8 /* daughter0.JPG in Resources */ = {isa = PBXBuildFile; fileRef = C8CAAE5A1CE92D8C003E10E8 /* daughter0.JPG */; };
+		C8CAAE661CE92D8C003E10E8 /* daughter1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = C8CAAE5B1CE92D8C003E10E8 /* daughter1.JPG */; };
+		C8CAAE671CE92D8C003E10E8 /* family_volunteering.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C8CAAE5C1CE92D8C003E10E8 /* family_volunteering.jpg */; };
+		C8CAAE681CE92D8C003E10E8 /* northern_herald_june.png in Resources */ = {isa = PBXBuildFile; fileRef = C8CAAE5D1CE92D8C003E10E8 /* northern_herald_june.png */; };
+		C8CAAE691CE92D8C003E10E8 /* northern_herald_november.png in Resources */ = {isa = PBXBuildFile; fileRef = C8CAAE5E1CE92D8C003E10E8 /* northern_herald_november.png */; };
+		C8CAAE6A1CE92D8C003E10E8 /* old_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = C8CAAE5F1CE92D8C003E10E8 /* old_photo.png */; };
+		C8CAAE6B1CE92D8C003E10E8 /* our_home.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C8CAAE601CE92D8C003E10E8 /* our_home.jpg */; };
+		C8CAAE6C1CE92D8C003E10E8 /* regret.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C8CAAE611CE92D8C003E10E8 /* regret.jpg */; };
+		C8CAAE6D1CE92D8C003E10E8 /* roxy.png in Resources */ = {isa = PBXBuildFile; fileRef = C8CAAE621CE92D8C003E10E8 /* roxy.png */; };
+		C8CAAE6E1CE92D8C003E10E8 /* roxy2.png in Resources */ = {isa = PBXBuildFile; fileRef = C8CAAE631CE92D8C003E10E8 /* roxy2.png */; };
+		C8CAAE701CE92DD2003E10E8 /* volunteering.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C8CAAE6F1CE92DD2003E10E8 /* volunteering.jpg */; };
 		E96975F51CE6A58000629449 /* Artist_Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E96974811CE6A58000629449 /* Artist_Icon_Sheet.png */; };
 		E96975F61CE6A58000629449 /* Artist_Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = E96974821CE6A58000629449 /* Artist_Wallpaper.png */; };
 		E96975F71CE6A58000629449 /* DoxygenHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E96974841CE6A58000629449 /* DoxygenHelp.txt */; };
@@ -280,16 +292,6 @@
 		E96977351CE6A58000629449 /* PlayerDesktop.json in Resources */ = {isa = PBXBuildFile; fileRef = E96975C91CE6A58000629449 /* PlayerDesktop.json */; };
 		E96977361CE6A58000629449 /* PlayerEmail.json in Resources */ = {isa = PBXBuildFile; fileRef = E96975CA1CE6A58000629449 /* PlayerEmail.json */; };
 		E96977371CE6A58000629449 /* Politician_Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = E96975CB1CE6A58000629449 /* Politician_Wallpaper.png */; };
-		E96977381CE6A58000629449 /* artistDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96975CE1CE6A58000629449 /* artistDesktop.ini */; };
-		E96977391CE6A58000629449 /* bootDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96975CF1CE6A58000629449 /* bootDesktop.ini */; };
-		E969773A1CE6A58000629449 /* desktopTutorial.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96975D01CE6A58000629449 /* desktopTutorial.ini */; };
-		E969773B1CE6A58000629449 /* pipelineTutorial.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96975D11CE6A58000629449 /* pipelineTutorial.ini */; };
-		E969773C1CE6A58000629449 /* playerDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96975D21CE6A58000629449 /* playerDesktop.ini */; };
-		E969773D1CE6A58000629449 /* politicianDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96975D31CE6A58000629449 /* politicianDesktop.ini */; };
-		E969773E1CE6A58000629449 /* PPC.sav in Resources */ = {isa = PBXBuildFile; fileRef = E96975D41CE6A58000629449 /* PPC.sav */; };
-		E969773F1CE6A58000629449 /* Project-Perfect-Citizen-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E96975D51CE6A58000629449 /* Project-Perfect-Citizen-Info.plist */; };
-		E96977401CE6A58000629449 /* teacherDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96975D61CE6A58000629449 /* teacherDesktop.ini */; };
-		E96977411CE6A58000629449 /* trailerDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96975D71CE6A58000629449 /* trailerDesktop.ini */; };
 		E96977421CE6A58000629449 /* sampleReport.txt in Resources */ = {isa = PBXBuildFile; fileRef = E96975D81CE6A58000629449 /* sampleReport.txt */; };
 		E96977431CE6A58000629449 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = E96975DA1CE6A58000629449 /* ResourcePath.mm */; };
 		E96977441CE6A58000629449 /* endDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96975DC1CE6A58000629449 /* endDesktop.ini */; };
@@ -317,21 +319,6 @@
 		E969775A1CE6A58000629449 /* Windows_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = E96975F21CE6A58000629449 /* Windows_Icons.png */; };
 		E969775B1CE6A58000629449 /* Windows_UI.png in Resources */ = {isa = PBXBuildFile; fileRef = E96975F31CE6A58000629449 /* Windows_UI.png */; };
 		E969775C1CE6A58000629449 /* World_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E96975F41CE6A58000629449 /* World_Sheet.png */; };
-		E969778C1CE6AB7B00629449 /* daughter0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E969777D1CE6AB7B00629449 /* daughter0.jpg */; };
-		E969778D1CE6AB7B00629449 /* daughter1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E969777E1CE6AB7B00629449 /* daughter1.jpg */; };
-		E969778E1CE6AB7B00629449 /* family0.png in Resources */ = {isa = PBXBuildFile; fileRef = E969777F1CE6AB7B00629449 /* family0.png */; };
-		E969778F1CE6AB7B00629449 /* family2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E96977801CE6AB7B00629449 /* family2.jpg */; };
-		E96977901CE6AB7B00629449 /* house0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E96977811CE6AB7B00629449 /* house0.jpg */; };
-		E96977911CE6AB7B00629449 /* house1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E96977821CE6AB7B00629449 /* house1.jpg */; };
-		E96977921CE6AB7B00629449 /* money.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E96977831CE6AB7B00629449 /* money.jpg */; };
-		E96977931CE6AB7B00629449 /* newspaper0.png in Resources */ = {isa = PBXBuildFile; fileRef = E96977841CE6AB7B00629449 /* newspaper0.png */; };
-		E96977941CE6AB7B00629449 /* newspaper1.png in Resources */ = {isa = PBXBuildFile; fileRef = E96977851CE6AB7B00629449 /* newspaper1.png */; };
-		E96977951CE6AB7B00629449 /* nsfw0.png in Resources */ = {isa = PBXBuildFile; fileRef = E96977861CE6AB7B00629449 /* nsfw0.png */; };
-		E96977961CE6AB7B00629449 /* nsfw1.png in Resources */ = {isa = PBXBuildFile; fileRef = E96977871CE6AB7B00629449 /* nsfw1.png */; };
-		E96977971CE6AB7B00629449 /* Spreadsheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E96977881CE6AB7B00629449 /* Spreadsheet.png */; };
-		E96977981CE6AB7B00629449 /* STMNT_JUN_NORTHN_PENINSULA.png in Resources */ = {isa = PBXBuildFile; fileRef = E96977891CE6AB7B00629449 /* STMNT_JUN_NORTHN_PENINSULA.png */; };
-		E96977991CE6AB7B00629449 /* Tax_From.png in Resources */ = {isa = PBXBuildFile; fileRef = E969778A1CE6AB7B00629449 /* Tax_From.png */; };
-		E969779A1CE6AB7B00629449 /* volunteer0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E969778B1CE6AB7B00629449 /* volunteer0.jpg */; };
 		E99DF5311CE6963B00CBB79A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E99DF4231CE6963A00CBB79A /* main.cpp */; };
 		E99DF5321CE6963B00CBB79A /* AudioLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E99DF4271CE6963A00CBB79A /* AudioLocator.cpp */; };
 		E99DF5331CE6963B00CBB79A /* AudioLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E99DF4291CE6963A00CBB79A /* AudioLogger.cpp */; };
@@ -531,6 +518,18 @@
 		C82E60731C810DCB001860CC /* json-forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "json-forwards.h"; sourceTree = "<group>"; };
 		C82E60741C810DCB001860CC /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		C82E60751C810DCB001860CC /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
+		C8CAAE591CE92D8C003E10E8 /* backyard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backyard.jpg; sourceTree = "<group>"; };
+		C8CAAE5A1CE92D8C003E10E8 /* daughter0.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = daughter0.JPG; sourceTree = "<group>"; };
+		C8CAAE5B1CE92D8C003E10E8 /* daughter1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = daughter1.JPG; sourceTree = "<group>"; };
+		C8CAAE5C1CE92D8C003E10E8 /* family_volunteering.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = family_volunteering.jpg; sourceTree = "<group>"; };
+		C8CAAE5D1CE92D8C003E10E8 /* northern_herald_june.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = northern_herald_june.png; sourceTree = "<group>"; };
+		C8CAAE5E1CE92D8C003E10E8 /* northern_herald_november.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = northern_herald_november.png; sourceTree = "<group>"; };
+		C8CAAE5F1CE92D8C003E10E8 /* old_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = old_photo.png; sourceTree = "<group>"; };
+		C8CAAE601CE92D8C003E10E8 /* our_home.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = our_home.jpg; sourceTree = "<group>"; };
+		C8CAAE611CE92D8C003E10E8 /* regret.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = regret.jpg; sourceTree = "<group>"; };
+		C8CAAE621CE92D8C003E10E8 /* roxy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roxy.png; sourceTree = "<group>"; };
+		C8CAAE631CE92D8C003E10E8 /* roxy2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roxy2.png; sourceTree = "<group>"; };
+		C8CAAE6F1CE92DD2003E10E8 /* volunteering.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = volunteering.jpg; sourceTree = "<group>"; };
 		E96974811CE6A58000629449 /* Artist_Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Artist_Icon_Sheet.png; sourceTree = "<group>"; };
 		E96974821CE6A58000629449 /* Artist_Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Artist_Wallpaper.png; sourceTree = "<group>"; };
 		E96974841CE6A58000629449 /* DoxygenHelp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoxygenHelp.txt; sourceTree = "<group>"; };
@@ -803,16 +802,6 @@
 		E96975C91CE6A58000629449 /* PlayerDesktop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PlayerDesktop.json; sourceTree = "<group>"; };
 		E96975CA1CE6A58000629449 /* PlayerEmail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PlayerEmail.json; sourceTree = "<group>"; };
 		E96975CB1CE6A58000629449 /* Politician_Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Politician_Wallpaper.png; sourceTree = "<group>"; };
-		E96975CE1CE6A58000629449 /* artistDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = artistDesktop.ini; sourceTree = "<group>"; };
-		E96975CF1CE6A58000629449 /* bootDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bootDesktop.ini; sourceTree = "<group>"; };
-		E96975D01CE6A58000629449 /* desktopTutorial.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = desktopTutorial.ini; sourceTree = "<group>"; };
-		E96975D11CE6A58000629449 /* pipelineTutorial.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pipelineTutorial.ini; sourceTree = "<group>"; };
-		E96975D21CE6A58000629449 /* playerDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = playerDesktop.ini; sourceTree = "<group>"; };
-		E96975D31CE6A58000629449 /* politicianDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = politicianDesktop.ini; sourceTree = "<group>"; };
-		E96975D41CE6A58000629449 /* PPC.sav */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PPC.sav; sourceTree = "<group>"; };
-		E96975D51CE6A58000629449 /* Project-Perfect-Citizen-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Project-Perfect-Citizen-Info.plist"; sourceTree = "<group>"; };
-		E96975D61CE6A58000629449 /* teacherDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teacherDesktop.ini; sourceTree = "<group>"; };
-		E96975D71CE6A58000629449 /* trailerDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = trailerDesktop.ini; sourceTree = "<group>"; };
 		E96975D81CE6A58000629449 /* sampleReport.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sampleReport.txt; sourceTree = "<group>"; };
 		E96975D91CE6A58000629449 /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		E96975DA1CE6A58000629449 /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -841,21 +830,6 @@
 		E96975F21CE6A58000629449 /* Windows_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_Icons.png; sourceTree = "<group>"; };
 		E96975F31CE6A58000629449 /* Windows_UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_UI.png; sourceTree = "<group>"; };
 		E96975F41CE6A58000629449 /* World_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = World_Sheet.png; sourceTree = "<group>"; };
-		E969777D1CE6AB7B00629449 /* daughter0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = daughter0.jpg; sourceTree = "<group>"; };
-		E969777E1CE6AB7B00629449 /* daughter1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = daughter1.jpg; sourceTree = "<group>"; };
-		E969777F1CE6AB7B00629449 /* family0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = family0.png; sourceTree = "<group>"; };
-		E96977801CE6AB7B00629449 /* family2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = family2.jpg; sourceTree = "<group>"; };
-		E96977811CE6AB7B00629449 /* house0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = house0.jpg; sourceTree = "<group>"; };
-		E96977821CE6AB7B00629449 /* house1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = house1.jpg; sourceTree = "<group>"; };
-		E96977831CE6AB7B00629449 /* money.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = money.jpg; sourceTree = "<group>"; };
-		E96977841CE6AB7B00629449 /* newspaper0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newspaper0.png; sourceTree = "<group>"; };
-		E96977851CE6AB7B00629449 /* newspaper1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newspaper1.png; sourceTree = "<group>"; };
-		E96977861CE6AB7B00629449 /* nsfw0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nsfw0.png; sourceTree = "<group>"; };
-		E96977871CE6AB7B00629449 /* nsfw1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nsfw1.png; sourceTree = "<group>"; };
-		E96977881CE6AB7B00629449 /* Spreadsheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spreadsheet.png; sourceTree = "<group>"; };
-		E96977891CE6AB7B00629449 /* STMNT_JUN_NORTHN_PENINSULA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = STMNT_JUN_NORTHN_PENINSULA.png; sourceTree = "<group>"; };
-		E969778A1CE6AB7B00629449 /* Tax_From.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tax_From.png; sourceTree = "<group>"; };
-		E969778B1CE6AB7B00629449 /* volunteer0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = volunteer0.jpg; sourceTree = "<group>"; };
 		E99DF4231CE6963A00CBB79A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
 		E99DF4261CE6963A00CBB79A /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
 		E99DF4271CE6963A00CBB79A /* AudioLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioLocator.cpp; sourceTree = "<group>"; };
@@ -1596,27 +1570,9 @@
 		E96975CC1CE6A58000629449 /* Reports */ = {
 			isa = PBXGroup;
 			children = (
-				E96975CD1CE6A58000629449 /* Engine */,
 				E96975D81CE6A58000629449 /* sampleReport.txt */,
 			);
 			path = Reports;
-			sourceTree = "<group>";
-		};
-		E96975CD1CE6A58000629449 /* Engine */ = {
-			isa = PBXGroup;
-			children = (
-				E96975CE1CE6A58000629449 /* artistDesktop.ini */,
-				E96975CF1CE6A58000629449 /* bootDesktop.ini */,
-				E96975D01CE6A58000629449 /* desktopTutorial.ini */,
-				E96975D11CE6A58000629449 /* pipelineTutorial.ini */,
-				E96975D21CE6A58000629449 /* playerDesktop.ini */,
-				E96975D31CE6A58000629449 /* politicianDesktop.ini */,
-				E96975D41CE6A58000629449 /* PPC.sav */,
-				E96975D51CE6A58000629449 /* Project-Perfect-Citizen-Info.plist */,
-				E96975D61CE6A58000629449 /* teacherDesktop.ini */,
-				E96975D71CE6A58000629449 /* trailerDesktop.ini */,
-			);
-			path = Engine;
 			sourceTree = "<group>";
 		};
 		E96975DB1CE6A58000629449 /* Saves */ = {
@@ -1634,21 +1590,18 @@
 		E969777C1CE6AB7B00629449 /* Trailer */ = {
 			isa = PBXGroup;
 			children = (
-				E969777D1CE6AB7B00629449 /* daughter0.jpg */,
-				E969777E1CE6AB7B00629449 /* daughter1.jpg */,
-				E969777F1CE6AB7B00629449 /* family0.png */,
-				E96977801CE6AB7B00629449 /* family2.jpg */,
-				E96977811CE6AB7B00629449 /* house0.jpg */,
-				E96977821CE6AB7B00629449 /* house1.jpg */,
-				E96977831CE6AB7B00629449 /* money.jpg */,
-				E96977841CE6AB7B00629449 /* newspaper0.png */,
-				E96977851CE6AB7B00629449 /* newspaper1.png */,
-				E96977861CE6AB7B00629449 /* nsfw0.png */,
-				E96977871CE6AB7B00629449 /* nsfw1.png */,
-				E96977881CE6AB7B00629449 /* Spreadsheet.png */,
-				E96977891CE6AB7B00629449 /* STMNT_JUN_NORTHN_PENINSULA.png */,
-				E969778A1CE6AB7B00629449 /* Tax_From.png */,
-				E969778B1CE6AB7B00629449 /* volunteer0.jpg */,
+				C8CAAE6F1CE92DD2003E10E8 /* volunteering.jpg */,
+				C8CAAE591CE92D8C003E10E8 /* backyard.jpg */,
+				C8CAAE5A1CE92D8C003E10E8 /* daughter0.JPG */,
+				C8CAAE5B1CE92D8C003E10E8 /* daughter1.JPG */,
+				C8CAAE5C1CE92D8C003E10E8 /* family_volunteering.jpg */,
+				C8CAAE5D1CE92D8C003E10E8 /* northern_herald_june.png */,
+				C8CAAE5E1CE92D8C003E10E8 /* northern_herald_november.png */,
+				C8CAAE5F1CE92D8C003E10E8 /* old_photo.png */,
+				C8CAAE601CE92D8C003E10E8 /* our_home.jpg */,
+				C8CAAE611CE92D8C003E10E8 /* regret.jpg */,
+				C8CAAE621CE92D8C003E10E8 /* roxy.png */,
+				C8CAAE631CE92D8C003E10E8 /* roxy2.png */,
 			);
 			path = Trailer;
 			sourceTree = "<group>";
@@ -2105,10 +2058,10 @@
 				E96976051CE6A58000629449 /* blueprint_7.jpg in Resources */,
 				E99DF5381CE6963B00CBB79A /* gunshot.ogg in Resources */,
 				E96976671CE6A58000629449 /* ms1.jpg in Resources */,
-				E969773A1CE6A58000629449 /* desktopTutorial.ini in Resources */,
 				E96976551CE6A58000629449 /* Fallen2.jpg in Resources */,
 				E96976A81CE6A58000629449 /* Langlois_Bridge.jpg in Resources */,
 				E9C65E111CE7CA7400815589 /* The_Changing_Times.png in Resources */,
+				C8CAAE6E1CE92D8C003E10E8 /* roxy2.png in Resources */,
 				E96976D01CE6A58000629449 /* Tingle.jpg in Resources */,
 				E96976BE1CE6A58000629449 /* Porticus_Aemilia.jpg in Resources */,
 				E96976821CE6A58000629449 /* The_Metamorphosis.txt in Resources */,
@@ -2139,8 +2092,8 @@
 				E9C65E101CE7CA7400815589 /* Tensions_Rise_as_Voting_Day_Looms.jpg in Resources */,
 				E96976E41CE6A58000629449 /* z.jpg in Resources */,
 				E96976AA1CE6A58000629449 /* Leonardo2.jpg in Resources */,
-				E96977941CE6AB7B00629449 /* newspaper1.png in Resources */,
 				E969760E1CE6A58000629449 /* Jazz-Fusion Meeting.txt in Resources */,
+				C8CAAE6A1CE92D8C003E10E8 /* old_photo.png in Resources */,
 				E96976A91CE6A58000629449 /* LEONADO_INVENTION.jpg in Resources */,
 				E96976D71CE6A58000629449 /* v.jpg in Resources */,
 				E969763E1CE6A58000629449 /* Crowd16.jpg in Resources */,
@@ -2164,19 +2117,18 @@
 				E96976CC1CE6A58000629449 /* t.jpg in Resources */,
 				E96977441CE6A58000629449 /* endDesktop.ini in Resources */,
 				E9C65DED1CE7CA7400815589 /* 1967_Football_catch.jpg in Resources */,
-				E96977401CE6A58000629449 /* teacherDesktop.ini in Resources */,
 				E96976A31CE6A58000629449 /* i.jpg in Resources */,
 				E99DF53D1CE6963B00CBB79A /* Notification_Bad.wav in Resources */,
 				E96977521CE6A58000629449 /* Toolbar_Icons.png in Resources */,
 				E96977371CE6A58000629449 /* Politician_Wallpaper.png in Resources */,
 				E96976151CE6A58000629449 /* Sterling_SMG.jpg in Resources */,
 				E969769A1CE6A58000629449 /* Explosive_Gas_Detector.jpg in Resources */,
+				C8CAAE651CE92D8C003E10E8 /* daughter0.JPG in Resources */,
 				E96976841CE6A58000629449 /* Trouble.txt in Resources */,
 				E96976561CE6A58000629449 /* Fallen5.jpg in Resources */,
 				E96976981CE6A58000629449 /* e.jpg in Resources */,
 				E96975F51CE6A58000629449 /* Artist_Icon_Sheet.png in Resources */,
 				E969768D1CE6A58000629449 /* blueprints.jpg in Resources */,
-				E96977951CE6AB7B00629449 /* nsfw0.png in Resources */,
 				E96976AB1CE6A58000629449 /* Leonardo_Crossbow.jpg in Resources */,
 				E96977421CE6A58000629449 /* sampleReport.txt in Resources */,
 				E969760F1CE6A58000629449 /* liberator_1.jpg in Resources */,
@@ -2188,7 +2140,6 @@
 				E969760D1CE6A58000629449 /* interconnect-wiring.jpg in Resources */,
 				E99DF53E1CE6963B00CBB79A /* Notification_New.wav in Resources */,
 				E969771A1CE6A58000629449 /* Email0.json.backup in Resources */,
-				E96977391CE6A58000629449 /* bootDesktop.ini in Resources */,
 				E969761F1CE6A58000629449 /* 3191.jpg in Resources */,
 				E96976B01CE6A58000629449 /* n.jpg in Resources */,
 				E9C65DF81CE7CA7400815589 /* 7.txt in Resources */,
@@ -2199,7 +2150,6 @@
 				E96976391CE6A58000629449 /* Catch 22 - Joseph Heller.txt in Resources */,
 				E96976811CE6A58000629449 /* The-House-Party-Andrew-Ohanesian-at-The-Boiler.jpg in Resources */,
 				E9C65DFE1CE7CA7400815589 /* Bros.jpg in Resources */,
-				E969773E1CE6A58000629449 /* PPC.sav in Resources */,
 				E96975FE1CE6A58000629449 /* Desktop1.json in Resources */,
 				E9C65DE41CE7CA7400815589 /* 11.txt in Resources */,
 				E96976B31CE6A58000629449 /* Note_to_Voyeur_#3.txt in Resources */,
@@ -2211,23 +2161,18 @@
 				E96976B81CE6A58000629449 /* Olive_Trees,_Orange_Sky.jpg in Resources */,
 				E96976D91CE6A58000629449 /* Van_Gogh_The_Olive_Trees.jpg in Resources */,
 				E96976C21CE6A58000629449 /* Race_Horses_Edgar_Degas.jpg in Resources */,
-				E96977911CE6AB7B00629449 /* house1.jpg in Resources */,
 				E969768E1CE6A58000629449 /* blueprints_1.jpg in Resources */,
 				E96976291CE6A58000629449 /* 7-24-12-052.jpg in Resources */,
 				E969764E1CE6A58000629449 /* Doubt3.jpg in Resources */,
 				E96977221CE6A58000629449 /* playerDesktop.ini in Resources */,
 				E99DF53A1CE6963B00CBB79A /* Mouse_Down.wav in Resources */,
-				E96977921CE6AB7B00629449 /* money.jpg in Resources */,
 				E96976E31CE6A58000629449 /* y.jpg in Resources */,
 				E96976771CE6A58000629449 /* RE_Welcome.txt in Resources */,
 				E96976A41CE6A58000629449 /* j.jpg in Resources */,
-				E969778C1CE6AB7B00629449 /* daughter0.jpg in Resources */,
-				E969773D1CE6A58000629449 /* politicianDesktop.ini in Resources */,
 				E96977251CE6A58000629449 /* Project-Perfect-Citizen-Info.plist in Resources */,
 				E969760B1CE6A58000629449 /* fireperm.txt in Resources */,
 				E96976121CE6A58000629449 /* printable_5.jpg in Resources */,
 				E96976891CE6A58000629449 /* a.jpg in Resources */,
-				E96977991CE6AB7B00629449 /* Tax_From.png in Resources */,
 				E9C65E041CE7CA7400815589 /* Lab3.txt in Resources */,
 				E9C65DF21CE7CA7400815589 /* 23.txt in Resources */,
 				E96976C11CE6A58000629449 /* r.jpg in Resources */,
@@ -2272,7 +2217,6 @@
 				E969766F1CE6A58000629449 /* NewCrowd38Fragment.jpg in Resources */,
 				E96976311CE6A58000629449 /* As I Lay Dying - Faulkner.txt in Resources */,
 				E969769E1CE6A58000629449 /* Gadget2.jpg in Resources */,
-				E96977981CE6AB7B00629449 /* STMNT_JUN_NORTHN_PENINSULA.png in Resources */,
 				E96976DC1CE6A58000629449 /* vgboard.jpg in Resources */,
 				E9C65E0B1CE7CA7400815589 /* Rally.jpg in Resources */,
 				E96976271CE6A58000629449 /* 5678.jpg in Resources */,
@@ -2280,12 +2224,10 @@
 				E96976A21CE6A58000629449 /* h.jpg in Resources */,
 				E96976B41CE6A58000629449 /* Note_to_Voyeur_#4.txt in Resources */,
 				E96976581CE6A58000629449 /* Family_Tree.txt in Resources */,
-				E96977931CE6AB7B00629449 /* newspaper0.png in Resources */,
 				E96976611CE6A58000629449 /* Kristeva_-_powers_of_horror.txt in Resources */,
 				E969768A1CE6A58000629449 /* b.jpg in Resources */,
 				E969763C1CE6A58000629449 /* Crowd1.jpg in Resources */,
 				E96977211CE6A58000629449 /* pipelineTutorial.ini in Resources */,
-				E969778E1CE6AB7B00629449 /* family0.png in Resources */,
 				E96976491CE6A58000629449 /* Doubt1.jpg in Resources */,
 				E969769B1CE6A58000629449 /* Exporting_Materials.jpg in Resources */,
 				E969765D1CE6A58000629449 /* high_school_classroom.preview.jpg in Resources */,
@@ -2299,6 +2241,7 @@
 				E96977261CE6A58000629449 /* teacherDesktop.ini in Resources */,
 				E96975F81CE6A58000629449 /* LinkHelp.txt in Resources */,
 				E9C65DE11CE7CA7400815589 /* 0.txt in Resources */,
+				C8CAAE6B1CE92D8C003E10E8 /* our_home.jpg in Resources */,
 				E96977471CE6A58000629449 /* playerDesktop3.ini in Resources */,
 				E969764D1CE6A58000629449 /* Doubt2.jpg in Resources */,
 				E96977531CE6A58000629449 /* TrailerDesktop.json in Resources */,
@@ -2312,6 +2255,7 @@
 				E96977241CE6A58000629449 /* PPC.sav in Resources */,
 				E96976081CE6A58000629449 /* burnt1.jpg in Resources */,
 				E96976951CE6A58000629449 /* Dancers_at_the_Barre.jpg in Resources */,
+				C8CAAE691CE92D8C003E10E8 /* northern_herald_november.png in Resources */,
 				E969772A1CE6A58000629449 /* Floppy_Sheet.png in Resources */,
 				E96976911CE6A58000629449 /* c.jpg in Resources */,
 				E969769C1CE6A58000629449 /* f.jpg in Resources */,
@@ -2319,6 +2263,7 @@
 				E96975FF1CE6A58000629449 /* Desktop2.json in Resources */,
 				E96976141CE6A58000629449 /* Sexy.jpg in Resources */,
 				E96976451CE6A58000629449 /* Crowd35.jpg in Resources */,
+				C8CAAE6D1CE92D8C003E10E8 /* roxy.png in Resources */,
 				E96976801CE6A58000629449 /* St_H_Bap_OK.jpg in Resources */,
 				E96976B11CE6A58000629449 /* Note_to_Voyeur #1.txt in Resources */,
 				E969772F1CE6A58000629449 /* last.txt in Resources */,
@@ -2352,7 +2297,6 @@
 				E96977231CE6A58000629449 /* politicianDesktop.ini in Resources */,
 				E969774A1CE6A58000629449 /* SoundTrack_Extraction.ogg in Resources */,
 				E9C65DE51CE7CA7400815589 /* 12.txt in Resources */,
-				E96977901CE6AB7B00629449 /* house0.jpg in Resources */,
 				E9C65DE21CE7CA7400815589 /* 1.txt in Resources */,
 				E96977281CE6A58000629449 /* Face_Sheet.png in Resources */,
 				E969768B1CE6A58000629449 /* BankPark_Blueprint.jpg in Resources */,
@@ -2360,8 +2304,6 @@
 				E96976731CE6A58000629449 /* NewCrowd58.jpg in Resources */,
 				E96977561CE6A58000629449 /* VT323-Regular.ttf in Resources */,
 				E96975FB1CE6A58000629449 /* DE1PipelineTexts.json in Resources */,
-				E969773F1CE6A58000629449 /* Project-Perfect-Citizen-Info.plist in Resources */,
-				E969773C1CE6A58000629449 /* playerDesktop.ini in Resources */,
 				E96976DA1CE6A58000629449 /* Van_Gogh_The_Sower.jpg in Resources */,
 				E969772B1CE6A58000629449 /* Icon_Sheet.png in Resources */,
 				E969766B1CE6A58000629449 /* New_bed_1.jpg in Resources */,
@@ -2374,20 +2316,18 @@
 				E96976A11CE6A58000629449 /* Gogh_Wheat_Field_with_Crows.jpg in Resources */,
 				E9C65DFD1CE7CA7400815589 /* Baby_Rose.jpg in Resources */,
 				E969764C1CE6A58000629449 /* Doubt16.jpg in Resources */,
-				E969773B1CE6A58000629449 /* pipelineTutorial.ini in Resources */,
 				E969762F1CE6A58000629449 /* 9-24-14-195-Edit.jpg in Resources */,
-				E96977971CE6AB7B00629449 /* Spreadsheet.png in Resources */,
 				E96976631CE6A58000629449 /* Leila-crowded-classrooms.jpg in Resources */,
 				E96976741CE6A58000629449 /* Party.jpg in Resources */,
 				E9C65E151CE7CA7400815589 /* Therapy_Journal_#3.txt in Resources */,
 				E96977181CE6A58000629449 /* DesktopTutorial.txt in Resources */,
+				C8CAAE6C1CE92D8C003E10E8 /* regret.jpg in Resources */,
 				E9C65DF41CE7CA7400815589 /* 3.txt in Resources */,
 				E9C65DF01CE7CA7400815589 /* 21.txt in Resources */,
 				E9C65DEA1CE7CA7400815589 /* 17.txt in Resources */,
 				E969761C1CE6A58000629449 /* 2-20-09-431.jpg in Resources */,
 				E969771E1CE6A58000629449 /* artistDesktop.ini in Resources */,
 				E9C65E0C1CE7CA7400815589 /* Reference.png in Resources */,
-				E96977411CE6A58000629449 /* trailerDesktop.ini in Resources */,
 				E96977331CE6A58000629449 /* PipelineTutorial.txt in Resources */,
 				E96977541CE6A58000629449 /* TrailerEmail.json in Resources */,
 				E96976BB1CE6A58000629449 /* Paul_Gauguin.jpg in Resources */,
@@ -2397,8 +2337,8 @@
 				E96976C61CE6A58000629449 /* s.jpg in Resources */,
 				E96976351CE6A58000629449 /* Baptism_2.jpg in Resources */,
 				E9C65E0D1CE7CA7400815589 /* Rosemary.jpg in Resources */,
+				C8CAAE681CE92D8C003E10E8 /* northern_herald_june.png in Resources */,
 				E969772D1CE6A58000629449 /* Icon_Sheet2.png in Resources */,
-				E969779A1CE6AB7B00629449 /* volunteer0.jpg in Resources */,
 				E96975F61CE6A58000629449 /* Artist_Wallpaper.png in Resources */,
 				E99DF5371CE6963B00CBB79A /* Chat_Sent.wav in Resources */,
 				E9C65DFA1CE7CA7400815589 /* 9.txt in Resources */,
@@ -2412,12 +2352,12 @@
 				E96976201CE6A58000629449 /* 3573.jpg in Resources */,
 				E96976D41CE6A58000629449 /* u.jpg in Resources */,
 				E96976601CE6A58000629449 /* Journey+Into+Dark.jpg in Resources */,
-				E969778F1CE6AB7B00629449 /* family2.jpg in Resources */,
 				E96976071CE6A58000629449 /* bomb_prospect.jpg in Resources */,
 				E96976471CE6A58000629449 /* Crowd8.jpg in Resources */,
 				E969767E1CE6A58000629449 /* skillsstill.jpg in Resources */,
 				E96977361CE6A58000629449 /* PlayerEmail.json in Resources */,
 				E969765B1CE6A58000629449 /* Fragment+Of+Eternity.jpg in Resources */,
+				C8CAAE671CE92D8C003E10E8 /* family_volunteering.jpg in Resources */,
 				E96976531CE6A58000629449 /* EternalStation.jpg in Resources */,
 				E969772C1CE6A58000629449 /* Icon_Sheet2 - Copy.png in Resources */,
 				E9C65DFB1CE7CA7400815589 /* Albatross_Secure_Communications.txt in Resources */,
@@ -2432,11 +2372,12 @@
 				E969771D1CE6A58000629449 /* Email3.json in Resources */,
 				E96976BC1CE6A58000629449 /* Pipe_bomb_02.jpg in Resources */,
 				E969771F1CE6A58000629449 /* bootDesktop.ini in Resources */,
-				E96977381CE6A58000629449 /* artistDesktop.ini in Resources */,
 				E969762D1CE6A58000629449 /* 8-9-11-0426.jpg in Resources */,
 				E96976831CE6A58000629449 /* The_Scarlet_Letter.txt in Resources */,
+				C8CAAE701CE92DD2003E10E8 /* volunteering.jpg in Resources */,
 				E969775B1CE6A58000629449 /* Windows_UI.png in Resources */,
 				E9C65E011CE7CA7400815589 /* Do_Not_Lose_This.png in Resources */,
+				C8CAAE661CE92D8C003E10E8 /* daughter1.JPG in Resources */,
 				E96976541CE6A58000629449 /* Fallen1.jpg in Resources */,
 				E9C65DF71CE7CA7400815589 /* 6.txt in Resources */,
 				E9C65E0F1CE7CA7400815589 /* Sharp_in_Endzone.jpg in Resources */,
@@ -2450,11 +2391,10 @@
 				E96977581CE6A58000629449 /* Wallpaper2.png in Resources */,
 				E96977501CE6A58000629449 /* Teacher_Wallpaper.png in Resources */,
 				E969760C1CE6A58000629449 /* Grocery Reminder!.txt in Resources */,
-				E969778D1CE6AB7B00629449 /* daughter1.jpg in Resources */,
 				E96976211CE6A58000629449 /* 4-10-08-386.jpg in Resources */,
 				E96976701CE6A58000629449 /* NewCrowd42Fragment.jpg in Resources */,
-				E96977961CE6AB7B00629449 /* nsfw1.png in Resources */,
 				E96976681CE6A58000629449 /* mulvey-visualpleasure.txt in Resources */,
+				C8CAAE641CE92D8C003E10E8 /* backyard.jpg in Resources */,
 				E969775A1CE6A58000629449 /* Windows_Icons.png in Resources */,
 				E96977311CE6A58000629449 /* micross.ttf in Resources */,
 				E9C65DF31CE7CA7400815589 /* 24.txt in Resources */,

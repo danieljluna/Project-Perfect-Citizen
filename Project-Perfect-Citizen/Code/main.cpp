@@ -162,13 +162,15 @@ int main(int argc, char** argv) {
 	World::initLoadScreen();
 
     bool BootToTitleCard = false;
+    bool PlayBackgroundMusic = false;
     // Create the main sf::window
     sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
-       
+    
+    
     AudioQueue audiotest(5);
     audiotest.addBgm("SoundTrack_Extraction.ogg");
     audiotest.loopBgm();
-    audiotest.playBgm();
+    if(PlayBackgroundMusic) audiotest.playBgm();
 
     ///////////////////////////////////////////////////////////////////
     
