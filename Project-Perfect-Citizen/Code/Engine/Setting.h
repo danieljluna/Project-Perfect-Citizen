@@ -34,7 +34,7 @@ private:
     enum IniTags {
         ResolutionX = 0,
         ResolutionY,
-        Count
+        TagCount
     };
 
     static std::map<std::string, IniTags> iniGroupMap;

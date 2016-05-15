@@ -160,6 +160,7 @@ int main(int argc, char** argv) {
     
     World::initFontMap();
 	World::initLoadScreen();
+    World::loadState("PPC.sav");
 
     bool BootToTitleCard = false;
     // Create the main sf::window
@@ -296,7 +297,7 @@ int main(int argc, char** argv) {
     
 	//Player Desktop (2)
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Saves/playerDesktop2.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/playerDesktop2.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
 
@@ -337,7 +338,7 @@ int main(int argc, char** argv) {
 
 	//Player Desktop (PE3)
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Saves/playerDesktop3.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/playerDesktop3.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
 
@@ -354,7 +355,7 @@ int main(int argc, char** argv) {
 	//Desktop Extraction 3 goes here
 
 	//Ending Desktop
-	desktopFileInput.open(resourcePath() + "Saves/endDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/endDesktop.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
     Logger::startTimer("endDesktop");
