@@ -54,6 +54,8 @@ private:
 	static std::pair<int,int> designateCenter(unsigned int start, unsigned int end, Network & net);
 	
 	static void addEdge(int first, int second, Network & net, int suspLevel, const Json::Value & exprGrammar);
+
+	static std::string trimWhiteSpace(std::string& str);
 };
 
 };
