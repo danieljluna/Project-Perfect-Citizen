@@ -17,11 +17,16 @@ using namespace ppc;
 
 sf::RenderWindow* World::screen_ = nullptr;
 Desktop* World::currDesktop_ = nullptr;
+std::map<std::string, World::savGroups> World::saveGroupMap_ = {
+    { "Settings]",      World::SettingsTag  },
+    { "[State]",        World::StateTag     }
+};
+
 World::DesktopList World::currDesktopEnum_ = DE0;
 World::ReportType World::currReportType_ = A;
 std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
 	{World::DE0, ""},
-    {World::Count, ""}  //Empty pairing of Count to string.
+    {World::DesktopCount, ""}  //Empty pairing of Count to string.
 };
 
 std::map<World::FontList, sf::Font> World::fontMap_ = {
@@ -50,6 +55,8 @@ sf::Sprite World::loadBarBorder_ = sf::Sprite();
 sf::Sprite World::loadingDecal_ = sf::Sprite();
 
 bool World::isLoading_ = false;
+
+Setting World::settings_;
 
 void World::setGameScreen(sf::RenderWindow& gameScreen) {
 	screen_ = &gameScreen;
@@ -232,4 +239,40 @@ void ppc::World::drawLoading() {
 void ppc::World::endLoading() {
 
 	isLoading_ = false;
+}
+
+
+void ppc::World::loadState(std::string filename) {
+    filename = resourcePath() + "Saves/" + filename;
+
+    std::ifstream file(filename);
+
+    file >> settings_;
+
+    file.close();
+}
+
+
+void ppc::World::saveState(std::string filename) {
+    filename = resourcePath() + "Saves/" + filename;
+
+    std::ofstream file(filename);
+
+    for (auto& mapPair: saveGroupMap_) {
+        //Output grouping Tag
+        file << '[' << mapPair.first << ']' << std::endl;
+
+        //Output appropriate info
+        switch (mapPair.second) {
+        case SettingsTag:
+            file << settings_ << std::endl << std::endl;
+            break;
+        case StateTag:
+        default:
+            break;
+        }
+    }
+    file << settings_;
+
+    file.close();
 }
