@@ -510,10 +510,5 @@ void createTrailerDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
     EmailIcon.addComponent(notiRenderComp);
     desktopWindowToModify.addEntity(EmailIcon);
-
-	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
-	spawnFileTracker(desktopToModify, fileTracker, fileTracker->getInputHandler(), 250, 50);
-	desktopToModify.addWindow(fileTracker);
-	ppc::SuspiciousFileHolder::setWindow(fileTracker);
     
 }

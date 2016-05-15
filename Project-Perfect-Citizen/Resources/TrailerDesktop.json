@@ -1,8 +1,13 @@
 {
     "Desktop": {
         "Other" : {
+<<<<<<< HEAD
             "1/nothern_herald_june.jpg" : "DesktopContent/Trailer/nothern_herald_june.png",
             "1/northern_herald_november.jpg" : "DesktopContent/Trailer/nothern_herald_november.png",
+=======
+            "1/newspaper0.jpg" : "DesktopContent/Trailer/newspaper0.png",
+            "1/newspaper1.jpg" : "DesktopContent/Trailer/newspaper1.png",
+>>>>>>> parent of 3af7d9c...  - updated some content stuff
             "1/STMNT_JUN_NORTHN_PENINSULA.jpg" : "DesktopContent/Trailer/STMNT_JUN_NORTHN_PENINSULA.png"
         },
         "Photos" : {
