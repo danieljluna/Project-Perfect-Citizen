@@ -42,6 +42,7 @@
     <ClCompile Include="Code\Engine\RenderCmpntDecorator.cpp" />
     <ClCompile Include="Code\Engine\RenderCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\ScrollBarDeco.cpp" />
+    <ClCompile Include="Code\Engine\Setting.cpp" />
     <ClCompile Include="Code\Engine\subject.cpp" />
     <ClCompile Include="Code\Engine\SubjectObsvr.cpp" />
     <ClCompile Include="Code\Engine\SuspiciousFileHolder.cpp" />
@@ -141,7 +142,6 @@
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
     <Text Include="Resources\Coding Reference\LinkHelp.txt" />
     <Text Include="Resources\DesktopTutorial.txt" />
-    <Text Include="Resources\Engine\EngineSettings.ini" />
     <Text Include="Resources\PipelineTutorial.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +181,7 @@
     <ClInclude Include="Code\Engine\RenderCmpntLogger.h" />
     <ClInclude Include="Code\Engine\renderComponent.h" />
     <ClInclude Include="Code\Engine\ScrollBarDeco.h" />
+    <ClInclude Include="Code\Engine\Setting.h" />
     <ClInclude Include="Code\Engine\subject.h" />
     <ClInclude Include="Code\Engine\SubjectObsvr.h" />
     <ClInclude Include="Code\Engine\SuspiciousFileHolder.h" />
@@ -297,6 +298,7 @@
     <None Include="Resources\Saves\desktopTutorial.ini" />
     <None Include="Resources\Saves\pipelineTutorial.ini" />
     <None Include="Resources\Saves\playerDesktop.ini" />
+    <None Include="Resources\Saves\PPC.sav" />
     <None Include="Resources\smsPipeline.json" />
     <None Include="Resources\suspiciontest.json" />
   </ItemGroup>

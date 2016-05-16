@@ -125,6 +125,12 @@ public:
     void close() override { closed_ = true; };
     bool isOpen() const override { return !closed_; };
 
+    //NotificationWindows
+
+    WindowInterface* getNotifWindow() const override;
+    bool createNotifWindow(WindowInterface* notifWin,
+                           bool tossOld = false) override;
+
 
 private:
 
@@ -182,6 +188,9 @@ private:
     bool closed_ = false;
 
     bool mouseInView_ = false;
+
+    //Notification Window Pointer
+    mutable WindowInterface* notifWindow_ = nullptr;
 
 
 };

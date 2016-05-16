@@ -3,6 +3,8 @@
 
 using namespace ppc;
 
+const sf::Color textBGColor = sf::Color{ 0,51,153 };
+
 PipelineDataRenderComponent::PipelineDataRenderComponent(sf::Font& f,
 	int x, int y, int size, int backgroundWidth, int backgroundHeight) : font_(f) {
 
@@ -17,7 +19,7 @@ PipelineDataRenderComponent::PipelineDataRenderComponent(sf::Font& f,
 	/* The background */
 	dataBoxBackground_.setPosition(sf::Vector2f(float(x), float(y)));
 	dataBoxBackground_.setSize(sf::Vector2f(float(backgroundWidth), float(backgroundHeight)));
-	dataBoxBackground_.setFillColor(sf::Color::Blue);
+	dataBoxBackground_.setFillColor(textBGColor);
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #include "bootLoadingAnimationRender.hpp"
+#include "../Engine/World.h"
 #include <math.h>
 
 bootLoadingAnimationRender::bootLoadingAnimationRender(sf::Image& img,textLabelComponent& l, int x, int y):image(img), textLabel(l){
@@ -200,8 +201,8 @@ void bootLoadingAnimationRender::animate() {
         for (int i = 0; i < 30; i++) {
             sprites.at(i)->setColor(sf::Color(0,0,0,0));
         }
-        textLabel.updateLabelString("");
-        texture->loadFromImage(image,sf::IntRect(0,0,1022,1024));
+        /*textLabel.updateLabelString("");
+         texture->loadFromImage(image,sf::IntRect(0,0,1022,1024));
         sprite->setTextureRect(sf::IntRect(0,6*128,6*128,128));
         sprite->setColor(sf::Color(255,255,255,opacity));
         sprite->setTexture(*texture);
@@ -211,10 +212,14 @@ void bootLoadingAnimationRender::animate() {
         dcps->setPosition(350, 300);
         dcps->setTextureRect(sf::IntRect(6*128,6*128,128,128));
         dcps->setTexture(*texture);
-        dcps->setScale(2.0f, 2.0f);
-
-        frame +=1;
-    } else if (frame < 61) {
+        dcps->setScale(2.0f, 2.0f);*/
+        
+        frame += 1;
+    } else {
+        
+         ppc::World::quitDesktop();
+        
+    }/*else if (frame < 61) {
         if (opacity != 0) opacity -= 8;
         sprite->setColor(sf::Color(255,255,255,opacity));
         dcps->setColor(sf::Color(255,255,255,opacity));
@@ -223,14 +228,12 @@ void bootLoadingAnimationRender::animate() {
         opacity = 0;
         sprite->setColor(sf::Color(255,255,255,opacity));
         dcps->setColor(sf::Color(255,255,255,opacity));
-        
+       
        frame +=1;
-    } else {
-        
-        dcps->setTextureRect(sf::IntRect(0,7*128,6*128,128));
-        dcps->setScale(1.0f, 1.0f);
-        dcps->setPosition(100, 300);
-        dcps->setColor(sf::Color(255,255,255));
     }
+    
+    else {
+        
+    } */
 }
 
