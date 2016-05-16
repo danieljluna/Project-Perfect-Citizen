@@ -261,19 +261,28 @@ ppc::Inbox& ppc::Desktop::getInbox() {
 }
 
 void ppc::Desktop::setFrontTop(WindowInterface* front, bool prop) {
-	frontTop_ = front;
 
     frontTopObsvr* ftObsvr = new frontTopObsvr(*this, prop);
 
     mousePressButton *mpb = new mousePressButton();
-    mpb->setFloatRect(frontTop_->getBounds());
-    mpb->setInputHandle(frontTop_->getInputHandler());
+    mpb->setFloatRect(front->getBounds());
+    mpb->setInputHandle(front->getInputHandler());
 	mpb->onClick().addObserverToBack(ftObsvr);
 	mpb->onHover().addObserverToBack(ftObsvr);
 	mpb->onRelease().addObserverToBack(ftObsvr);
     mpb->onAll().addObserverToBack(ftObsvr);
 
-    frontTop_->addInputComponent(mpb);
+	if (frontTop_) {
+		nextFrontTop_ = front;
+		nextFrontTop_->addInputComponent(mpb);
+	} else {
+		frontTop_ = front;
+		frontTop_->addInputComponent(mpb);
+	}
+}
+
+WindowInterface* ppc::Desktop::getFrontTop() {
+	return frontTop_;
 }
 
 void ppc::Desktop::deleteFrontTop() {
@@ -289,6 +298,11 @@ void ppc::Desktop::registerInput(Event ppcEv) {
 		(ppcEv.sfEvent.type == sf::Event::MouseButtonPressed || 
 			ppcEv.sfEvent.type == sf::Event::MouseButtonReleased)) {
 		frontTop_->registerInput(ppcEv);
+		if (nextFrontTop_ != nullptr) {
+			delete frontTop_;
+			frontTop_ = nextFrontTop_;
+			nextFrontTop_ = nullptr;
+		}
 	} else {
 		registerInputFocused(ppcEv);
 	}

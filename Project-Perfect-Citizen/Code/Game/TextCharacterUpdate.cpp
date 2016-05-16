@@ -27,7 +27,7 @@ void ppc::TextCharacterUpdate::setDisplayRate(sf::Time t) {
 
 void ppc::TextCharacterUpdate::update(sf::Time& deltaTime) {
 	
-	if (isEnd) return;
+	if (isEnd || (tdrc_ == nullptr)) return;
 	accumulator_ += deltaTime;
 	
 	if (accumulator_ >= displayRate_) {
