@@ -20,9 +20,9 @@ const std::map<std::string, int> PipelineLevelBuilder::LEVEL_MAP = {
 
 const std::map<std::string, bool> NAME_MAP = {
 	{ "A", false },{ "B", false },{ "C", false },{ "D", false },
-	{ "E", false },{ "F", false },{ "G", false },{ "H", false },
+	{ "E", false },{ "F", true },{ "G", false },{ "H", false },
 	{ "I", false },{ "J", false },{ "K", false },{ "L", false },
-	{ "M", false },{ "N", false },{ "O", false },{ "P", false },
+	{ "M", true },{ "N", false },{ "O", false },{ "P", false },
 	{ "Q", false },{ "R", false },{ "S", false },{ "T", false },
 	{ "U", false },{ "V", false },{ "W", false },{ "X", false },
 	{ "Y", false },{ "Z", false }
@@ -130,7 +130,26 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	return myNetwork;
 }
 
-Network * ppc::PipelineLevelBuilder::buildDefaultNetwork() {
+Network* ppc::PipelineLevelBuilder::buildLevelTwoNetworkSolution() {
+	Network* myNetwork = new Network(10);
+	std::map<std::string, bool> usednames = NAME_MAP;
+
+	for (int i = 0; i < 10;) { //10 nodes in level 2
+		PipelineCharacter newpc;
+		if (usednames[newpc.getSSN().substr(0, 1)] == false) {
+			myNetwork->vert(i).setCharacter(newpc);
+			usednames[newpc.getSSN().substr(0, 1)] = true;
+			++i;
+			//add char to database here I think
+		}
+	}
+
+	myNetwork->setCenter(0);
+
+
+}
+
+Network* ppc::PipelineLevelBuilder::buildDefaultNetwork() {
 	Network* myNetwork = new Network(1);
 	PipelineCharacter newpc;
 	myNetwork->vert(0).setCharacter(newpc);

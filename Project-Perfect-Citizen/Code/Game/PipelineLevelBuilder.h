@@ -30,6 +30,8 @@ public:
 	///////////////////////////////////////////////////////////////////
 	static Network* buildLevelOneNetworkSolution();
 
+	static Network* buildLevelTwoNetworkSolution();
+
 	static Network* buildDefaultNetwork();
 
 	static const std::map<std::string, int> LEVEL_MAP;
