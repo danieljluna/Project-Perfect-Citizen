@@ -7,7 +7,6 @@
 
 #include "createDesktop.h"
 
-#include "createWindow.h"
 
 #include <iostream>
 #include <fstream>
@@ -28,6 +27,8 @@
 #include "emailExtraction.hpp"
 #include "TreeCommands.h"
 
+#include "../Game/createWindow.h"
+
 #include "FloppyUpdateComponent.hpp"
 #include "FloppyRenderComponent.hpp"
 #include "FloppyInputComponent.h"
@@ -35,6 +36,8 @@
 #include "TextBubbleRender.h"
 #include "ButtonBuilder.h"
 #include "IconBuilder.h"
+#include "spriteRenderComponent.hpp"
+
 
 #include "notifcationRenderComponent.h"
 
@@ -42,6 +45,27 @@
 #include "../Library/json/json.h"
 
 using namespace ppc;
+
+void createLoginDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet) {
+
+    Entity title;
+
+    spriteRenderComponent* titleRender = new spriteRenderComponent(desktopToModify.getButtonSheet(), 0 ,7, 6, 1);
+    titleRender->setRenderPosition({100, 200});
+    
+    title.addComponent(titleRender);
+
+    WindowInterface* loginPrompt = new Window(480, 150, sf::Color(170, 170, 170));
+    loginPrompt->setPosition((World::getGameScreen().getSize().x/2)-(loginPrompt->getSize().x/2), World::getGameScreen().getSize().y/2);
+    spawnLoginPrompt(loginPrompt, loginPrompt->getInputHandler(), buttonSheet, 400, 500);
+
+    desktopToModify.addWindow(loginPrompt);
+    desktopToModify.getDesktopWindow()->addEntity(title);
+
+// loginWindow->addEntity(title);
+
+}
+
 
 void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet) {
 	

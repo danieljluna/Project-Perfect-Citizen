@@ -58,6 +58,8 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////
 		static void setGameScreen(sf::RenderWindow&);
 
+        static sf::VideoMode getVideoMode();
+
         ///////////////////////////////////////////////////////////////
 		///@brief Set the Desktop currently used by World
 		///////////////////////////////////////////////////////////////
@@ -197,6 +199,8 @@ namespace ppc {
         static Setting settings_;
 
         static std::map<std::string, savGroups> saveGroupMap_;
+
+        static sf::Transform worldTransform_;
 
 	};
 };
