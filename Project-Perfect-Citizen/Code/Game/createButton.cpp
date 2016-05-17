@@ -157,6 +157,25 @@ void spawnPromptIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Ima
 
 }
 
+void spawnDCPSIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
+    /* Render Component */
+    
+    ButtonBuilder builder;
+    builder.setButtonPosition(sf::Vector2f(x, y));
+    builder.setInputHandle(ih);
+    builder.setSize(size);
+    builder.setSpritesByIndicies(6, 6, 1, 0);
+    builder.setLabelMessage("");
+    sf::Font f;
+    builder.setLabelFont(f);
+    builder.setLabelSize(20);
+    builder.setSpriteSheet(spritesheet);
+    builder.setNonClickable();
+    builder.create(entityToModify);
+    
+}
+
+
 
 bool ppc::spawnStartMenu(Desktop* ptr, Event ev) {
 	ppc::WindowInterface* ContextMenu =

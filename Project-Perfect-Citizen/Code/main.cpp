@@ -37,6 +37,7 @@
 #include "Game/bootLoadingAnimationRender.hpp"
 #include "Game/BadCopRenderComponent.hpp"
 #include "Game/BadCopUpdateComponent.hpp"
+#include "Game/spriteRenderComponent.hpp"
 #include "Game/endAnimationUpdateComponent.hpp"
 #include "Game/endingAnimationRender.hpp"
 
@@ -93,8 +94,16 @@ void setUpBootDesktop(ppc::Desktop& myDesktop) {
     
     
     myDesktop.addWindow(bootWindow);
+    
 }
 
+
+void setUpLoginDesktop(ppc::Desktop& myDesktop) {
+    
+    createLoginDesktop(myDesktop, *myDesktop.getDesktopWindow(),
+                        myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
+  
+}
 
 
 
@@ -145,6 +154,8 @@ void setUpPoliticianDesktop(ppc::Desktop& myDesktop) {
 
 }
 
+
+
 int main(int argc, char** argv) {
     
     DBG_INIT();
@@ -154,11 +165,10 @@ int main(int argc, char** argv) {
     
     World::initFontMap();
 	World::initLoadScreen();
-    World::loadState("PPC.sav");
 
     bool BootToTitleCard = false;
     // Create the main sf::window
-    sf::RenderWindow screen(sf::VideoMode(1000, 800), "SFML window");
+    sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen");
        
     AudioQueue audiotest(5);
     audiotest.addBgm("SoundTrack_Extraction.ogg");
@@ -174,6 +184,7 @@ int main(int argc, char** argv) {
     // -----------------------------------------------------------//
 
     World::setGameScreen(screen);
+    World::loadState("PPC.sav");
 	ifstream desktopFileInput;
 
     //Main Loops for each Desktops
@@ -207,19 +218,20 @@ int main(int argc, char** argv) {
     //End Boot Desktop
 
 	//Login Desktop
-	desktopFileInput.open(resourcePath() + "Engine/playerDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/loginDesktop.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
 	Logger::startTimer("loginDesktop");
 
 	World::setCurrDesktop(mainDesktop);
-	
+    setUpLoginDesktop(mainDesktop);
 	World::runCurrDesktop();
 
 	Logger::endTimer("loginDesktop");
 
 	//PE Tutorial Desktop
 	World::startLoading();
+
 
 	desktopFileInput.open(resourcePath() + "Engine/pipelineTutorial.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
@@ -276,7 +288,7 @@ int main(int argc, char** argv) {
 
 	//Desktop 1 / Teacher Desktop
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Engine/teacherDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/politicianDesktop.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
     Logger::startTimer("TeacherDesktop");
@@ -291,7 +303,7 @@ int main(int argc, char** argv) {
     
 	//Player Desktop (2)
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Engine/playerDesktop2.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Saves/playerDesktop2.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
 
@@ -332,7 +344,7 @@ int main(int argc, char** argv) {
 
 	//Player Desktop (PE3)
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Engine/playerDesktop3.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Saves/playerDesktop3.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
 
@@ -349,7 +361,7 @@ int main(int argc, char** argv) {
 	//Desktop Extraction 3 goes here
 
 	//Ending Desktop
-	desktopFileInput.open(resourcePath() + "Engine/endDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Saves/endDesktop.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
     Logger::startTimer("endDesktop");

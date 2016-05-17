@@ -83,6 +83,7 @@ void spawnAlertIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Imag
 /// the button animations, (x, y position), and a square scale size.
 ///////////////////////////////////////////////////////////////////////
 void spawnPromptIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
+void spawnDCPSIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 void spawnSuspicionButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 

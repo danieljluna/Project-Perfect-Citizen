@@ -807,6 +807,9 @@
     <None Include="Resources\Saves\pipelineTutorial.ini">
       <Filter>Resources\Desktops</Filter>
     </None>
+    <None Include="Resources\Saves\PPC.sav">
+      <Filter>Resources</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
@@ -819,9 +822,6 @@
       <Filter>Resources</Filter>
     </Text>
     <Text Include="Resources\DesktopTutorial.txt">
-      <Filter>Resources</Filter>
-    </Text>
-    <Text Include="Resources\Engine\PPC.sav">
       <Filter>Resources</Filter>
     </Text>
   </ItemGroup>

@@ -156,17 +156,17 @@ void ScrollBarDecorator::draw(sf::RenderTarget& target,
 
     WindowDecorator::draw(target, states);
     
-    target.draw(scrollBackgrounds_);
+    target.draw(scrollBackgrounds_, states);
    
     // black shadow
-    target.draw(drawBorder(0));
+    target.draw(drawBorder(0), states);
     // white shadow
-    target.draw(drawBorder(1));
+    target.draw(drawBorder(1), states);
  
     
-    target.draw(scrollBars_);
-    target.draw(*buttonRenders_[0]);
-    target.draw(*buttonRenders_[1]);
+    target.draw(scrollBars_, states);
+    target.draw(*buttonRenders_[0], states);
+    target.draw(*buttonRenders_[1], states);
 
 }
 

@@ -28,6 +28,9 @@ public:
     ///////////////////////////////////////////////////////////////////////
     spriteRenderComponent(sf::Image& i, float x, float y, float w, float h);
     
+    void setRenderScale(sf::Vector2f vec);
+    void setRenderPosition(sf::Vector2f vec);
+    
     ~spriteRenderComponent();
     virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
     
