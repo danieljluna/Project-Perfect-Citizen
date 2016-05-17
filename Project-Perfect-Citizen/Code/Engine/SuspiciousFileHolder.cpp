@@ -93,7 +93,7 @@ void ppc::SuspiciousFileHolder::submitFiles()
 
 
 	if (bftVector_.size() != 3) {
-		std::cout << "Need more files dingus" << std::endl;
+		//std::cout << "Need more files dingus" << std::endl;
 		return;
 	}
 
