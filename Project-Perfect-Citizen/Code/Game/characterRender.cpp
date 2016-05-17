@@ -20,15 +20,15 @@ bool characterRender::textureIsLoaded = false;
 characterRender::characterRender(sf::Image& image) {
     
     bodyScale  = 0.16f;
-    eyeScale   = 0.12f;
+    eyeScale   = 0.10f;
     mouthScale = 0.08f;
     noseScale  = 0.09f;
     
     hairPos  = {18, 2 };
-    eyeLPos  = {32, 32};
-    eyeRPos  = {52, 32};
-    browLPos = {32, 25};
-    browRPos = {52, 25};
+    eyeLPos  = {35, 33};
+    eyeRPos  = {53, 33};
+    browLPos = {35, 28};
+    browRPos = {53, 28};
     mouthPos = {40, 55};
     nosePos =  {56, 36};
 
