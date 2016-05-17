@@ -35,7 +35,7 @@ void ppc::createReportScreen(Desktop &d) {
 	TextDisplayRenderComponent* tdrc = dynamic_cast<TextDisplayRenderComponent*>(reportEntity.getComponent(0));
 	tcu->setTextDisplay(*tdrc);
 	tcu->setContent(content);
-	tcu->setDisplayRate(sf::milliseconds(sf::Int32(100.0f)));
+	tcu->setDisplayRate(sf::milliseconds(sf::Int32(50.0f)));
 
 	ReportScreenInput* rsi = new ReportScreenInput(reportScreen->getInputHandler());
 	rsi->setTextCharacterUpdate(*tcu);
