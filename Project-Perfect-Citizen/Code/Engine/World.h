@@ -58,6 +58,8 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////
 		static void setGameScreen(sf::RenderWindow&);
 
+        static sf::VideoMode getVideoMode();
+
         ///////////////////////////////////////////////////////////////
 		///@brief Set the Desktop currently used by World
 		///////////////////////////////////////////////////////////////
@@ -133,11 +135,30 @@ namespace ppc {
 
 		static void endLoading();
 
+      /////////////////////////////////////////////////////////////////
+      // Settings Functionality
+      /////////////////////////////////////////////////////////////////
+
+        static void setSettings(Setting settings);
+
+        static Setting getSettings();
+
         static void loadState(std::string filename);
 
         static void saveState(std::string filename);
 
     private:
+
+      /////////////////////////////////////////////////////////////////
+      // Private Helpers
+      /////////////////////////////////////////////////////////////////
+
+        static void manifestSettings();
+
+
+      /////////////////////////////////////////////////////////////////
+      // Private Vars / Enums
+      /////////////////////////////////////////////////////////////////
 
         enum savGroups {
             SettingsTag = 0,
@@ -178,6 +199,8 @@ namespace ppc {
         static Setting settings_;
 
         static std::map<std::string, savGroups> saveGroupMap_;
+
+        static sf::Transform worldTransform_;
 
 	};
 };

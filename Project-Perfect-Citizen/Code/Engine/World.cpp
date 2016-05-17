@@ -17,9 +17,10 @@ using namespace ppc;
 
 sf::RenderWindow* World::screen_ = nullptr;
 Desktop* World::currDesktop_ = nullptr;
+sf::Transform World::worldTransform_;
 std::map<std::string, World::savGroups> World::saveGroupMap_ = {
-    { "Settings]",      World::SettingsTag  },
-    { "[State]",        World::StateTag     }
+    { "Settings",      World::SettingsTag  },
+    { "State",         World::StateTag     }
 };
 
 World::DesktopList World::currDesktopEnum_ = DE0;
@@ -62,6 +63,39 @@ void World::setGameScreen(sf::RenderWindow& gameScreen) {
 	screen_ = &gameScreen;
 }
 
+sf::VideoMode ppc::World::getVideoMode() {
+    sf::VideoMode result;
+
+    if (settings_.fullscreen) {
+
+        result.width = settings_.resolution.x;
+        result.height = settings_.resolution.y;
+
+        sf::Vector2f scaleFactor;
+        scaleFactor.x = float(settings_.resolution.x) / 1000;
+        scaleFactor.y = float(settings_.resolution.y) / 800;
+
+        worldTransform_ = sf::Transform();
+        worldTransform_.scale(scaleFactor);
+
+        
+    } else {
+
+        result.width = settings_.resolution.x;
+        result.height = settings_.resolution.y;
+
+        sf::Vector2f scaleFactor;
+        scaleFactor.x = float(settings_.resolution.x) / 1000;
+        scaleFactor.y = float(settings_.resolution.y) / 800;
+
+        worldTransform_ = sf::Transform();
+        worldTransform_.scale(scaleFactor);
+
+    }
+
+    return result;
+}
+
 void World::setCurrDesktop(Desktop &d) {
 	currDesktop_ = &d;
 }
@@ -97,8 +131,34 @@ bool World::runDesktop(Desktop &myDesktop) {
 				//Close
 				if ((event.key.code == sf::Keyboard::Period) && (event.key.alt)) {
                     quitDesktop();
-				}
-			}
+                } else if (event.key.code == sf::Keyboard::F5) {
+                    settings_.fullscreen = !settings_.fullscreen;
+                    manifestSettings();
+                }
+            } else if ((event.type == sf::Event::MouseButtonPressed) ||
+                (event.type == sf::Event::MouseButtonReleased)) {
+                
+                sf::Vector2f transformedPoint = 
+                    worldTransform_.getInverse().transformPoint(
+                                event.mouseButton.x,
+                                event.mouseButton.y);
+                event.mouseButton.x = transformedPoint.x;
+                event.mouseButton.y = transformedPoint.y;
+            } else if (event.type == sf::Event::MouseMoved) {
+                sf::Vector2f transformedPoint =
+                    worldTransform_.getInverse().transformPoint(
+                        event.mouseMove.x,
+                        event.mouseMove.y);
+                event.mouseMove.x = transformedPoint.x;
+                event.mouseMove.y = transformedPoint.y;
+            } else if (event.type == sf::Event::MouseWheelScrolled) {
+                sf::Vector2f transformedPoint =
+                    worldTransform_.getInverse().transformPoint(
+                        event.mouseWheelScroll.x,
+                        event.mouseWheelScroll.y);
+                event.mouseWheelScroll.x = transformedPoint.x;
+                event.mouseWheelScroll.y = transformedPoint.y;
+            }
 
 			//Input phase
 			myDesktop.registerInput(event);
@@ -112,7 +172,9 @@ bool World::runDesktop(Desktop &myDesktop) {
 			elapsed -= framePeriod;
 		}
 		myDesktop.refresh();
-		screen_->draw(myDesktop);
+        sf::RenderStates states;
+        states.transform = worldTransform_;
+		screen_->draw(myDesktop, states);
 		screen_->display();
 	}
 	return false;
@@ -226,14 +288,19 @@ void ppc::World::setLoading(float f) {
 }
 
 void ppc::World::drawLoading() {
-	if (isLoading_ == false) return;
-	screen_->clear(sf::Color::Black);
-	//screen_->draw(tempLoadScreen_);
-	//screen_->draw(tempLoadBar_);
-    screen_->draw(loadingDecal_);
-    screen_->draw(loadBarBorder_);
-    screen_->draw(loadBar_);
-	screen_->display();
+    if (isLoading_) {
+        sf::RenderStates states;
+        states.transform = worldTransform_;
+
+
+        screen_->clear(sf::Color::Black);
+        //screen_->draw(tempLoadScreen_);
+        //screen_->draw(tempLoadBar_);
+        screen_->draw(loadingDecal_, states);
+        screen_->draw(loadBarBorder_, states);
+        screen_->draw(loadBar_, states);
+        screen_->display();
+    }
 }
 
 void ppc::World::endLoading() {
@@ -242,12 +309,50 @@ void ppc::World::endLoading() {
 }
 
 
+void ppc::World::setSettings(Setting settings) {
+    settings_ = settings;
+    manifestSettings();
+}
+
+
+Setting ppc::World::getSettings() {
+    return settings_;
+}
+
+
 void ppc::World::loadState(std::string filename) {
     filename = resourcePath() + "Saves/" + filename;
 
     std::ifstream file(filename);
 
-    file >> settings_;
+    std::string line;
+
+    while (file) {
+        std::getline(file, line);
+
+        if (line.size() == 0) break;
+
+        line = line.substr(line.find_first_not_of("[ \t]"),
+                           line.find_last_not_of("[ \t]"));
+
+        auto mapIt = saveGroupMap_.find(line);
+        
+        if (mapIt == saveGroupMap_.end()) {
+            //Output error
+            DEBUGF("wl", filename << ": Bad Group Tag: " << line);
+        } else {
+            //Handle Tag
+            switch (mapIt->second) {
+            case SettingsTag:
+                file >> settings_;
+                manifestSettings();
+                break;
+            case StateTag:
+            default:
+                break;
+            }
+        }
+    }
 
     file.close();
 }
@@ -258,21 +363,36 @@ void ppc::World::saveState(std::string filename) {
 
     std::ofstream file(filename);
 
-    for (auto& mapPair: saveGroupMap_) {
-        //Output grouping Tag
-        file << '[' << mapPair.first << ']' << std::endl;
+    while (file) {
+        for (auto& mapPair : saveGroupMap_) {
+            //Output grouping Tag
+            file << '[' << mapPair.first << ']' << std::endl;
 
-        //Output appropriate info
-        switch (mapPair.second) {
-        case SettingsTag:
-            file << settings_ << std::endl << std::endl;
-            break;
-        case StateTag:
-        default:
-            break;
+            //Output appropriate info
+            switch (mapPair.second) {
+            case SettingsTag:
+                file << settings_;
+                break;
+            case StateTag:
+            default:
+                break;
+            }
+            file << std::endl;
         }
     }
-    file << settings_;
 
     file.close();
 }
+
+
+void ppc::World::manifestSettings() {
+    if (screen_ != nullptr) {
+        unsigned int flags = sf::Style::Default;
+        if (settings_.fullscreen) {
+            flags = flags | sf::Style::Fullscreen;
+        }
+        screen_->create(getVideoMode(), "Project Perfect Citizen", flags);
+    }
+}
+
+

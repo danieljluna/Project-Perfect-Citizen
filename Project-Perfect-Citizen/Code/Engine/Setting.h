@@ -14,6 +14,7 @@ public:
   /////////////////////////////////////////////////////////////////////
 
     sf::Vector2u resolution = {0, 0};
+    bool fullscreen = false;
 
 
   /////////////////////////////////////////////////////////////////////
@@ -34,7 +35,8 @@ private:
     enum IniTags {
         ResolutionX = 0,
         ResolutionY,
-        Count
+        Fullscreen,
+        TagCount
     };
 
     static std::map<std::string, IniTags> iniGroupMap;
