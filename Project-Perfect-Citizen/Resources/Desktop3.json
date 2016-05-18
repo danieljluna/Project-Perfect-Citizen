@@ -1,53 +1,71 @@
 {
     "Desktop": {
-        "Campaign_Files" : {
-            "Campaign_Media" : {
-                "1/Rally.jpg" : "DesktopContent/Desktop3/Rally.jpg",
-                "1/The_Hot_New_Face.jpg" : "DesktopContent/Desktop3/The_Hot_New_Face.png",
-                "1/Upcoming_Election.jpg" : "DesktopContent/Desktop3/Upcoming_Election.png",
-                "1/The_Changing_Times.jpg" : "DesktopContent/Desktop3/The_Changing_Times.png",
-                "1/Who_would_do_this.jpg" : "DesktopContent/Desktop3/Who_would_do_this.png",
-                "1/Vincent_Wins.jpg" : "DesktopContent/Desktop3/Vincent_Wins.png"
-            },
-            "Contributions" : {
-                "August/3917823/ " : {
+        "Campaign_Data" : {
+            "Post_Election" : {
+                "Secure_Email_Server" : {
+                    "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png",
+                    "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png",
+                    "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png",
                     "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png"
-                },
-                "September/13084/ " : {
-                    "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png"
-                },
-                "October/12930812/ " : {
-                    "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png"
-                },
-                "November" : {
-                    "1/Contributions.txt" : "DesktopContent/Desktop3/Contributions.txt"
                 }
             },
-            "Speeches" : {
-                "1/Harduwich.txt" : "DesktopContent/Desktop3/Harduwich.txt",
-                "1/Osman_College.txt" : "DesktopContent/Desktop3/Osman_College.txt"
-            },
-            "Itinerary" : {
-                "1/November.jpg" : "DesktopContent/Desktop3/November.png",
-                "1/Nov1.jpg" : "DesktopContent/Desktop3/Nov1.png",
-                "1/Nov4.jpg" : "DesktopContent/Desktop3/Nov4.png",
-                "1/Nov7.jpg" : "DesktopContent/Desktop3/Nov7.png",
-                "1/Nov11.jpg" : "DesktopContent/Desktop3/Nov11.png",
-                "1/Nov14.jpg" : "DesktopContent/Desktop3/Nov14.png",
-                "1/Nov15.jpg" : "DesktopContent/Desktop3/Nov15.png"
+            "Pre_Election" : {
+                "Campaign_Media" : {
+                    "1/Rally.jpg" : "DesktopContent/Desktop3/Rally.jpg",
+                    "1/The_Hot_New_Face.jpg" : "DesktopContent/Desktop3/The_Hot_New_Face.png",
+                    "1/Upcoming_Election.jpg" : "DesktopContent/Desktop3/Upcoming_Election.png",
+                    "1/The_Changing_Times.jpg" : "DesktopContent/Desktop3/The_Changing_Times.png",
+                    "1/Who_would_do_this.jpg" : "DesktopContent/Desktop3/Who_would_do_this.png",
+                    "1/Vincent_Wins.jpg" : "DesktopContent/Desktop3/Vincent_Wins.png"
+                },
+                "Contributions" : {
+                    "August/3917823/No hint" : {
+                        "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png"
+                    },
+                    "September/13084/No hint" : {
+                        "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png"
+                    },
+                    "October/12930812/No hint" : {
+                        "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png"
+                    },
+                    "November" : {
+                        "1/Contributions.txt" : "DesktopContent/Desktop3/Contributions.txt"
+                    }
+                },
+                "Speeches" : {
+                    "1/Harduwich.txt" : "DesktopContent/Desktop3/Harduwich.txt",
+                    "1/Osman_College.txt" : "DesktopContent/Desktop3/Osman_College.txt"
+                },
+                "Itinerary" : {
+                    "Schedule" : {
+                        "1/November.jpg" : "DesktopContent/Desktop3/November.png"
+                    },
+                    "1/Nov1.jpg" : "DesktopContent/Desktop3/Nov1.png",
+                    "1/Nov4.jpg" : "DesktopContent/Desktop3/Nov4.png",
+                    "1/Nov7.jpg" : "DesktopContent/Desktop3/Nov7.png",
+                    "1/Nov11.jpg" : "DesktopContent/Desktop3/Nov11.png",
+                    "1/Nov14.jpg" : "DesktopContent/Desktop3/Nov14.png",
+                    "1/Nov15.jpg" : "DesktopContent/Desktop3/Nov15.png"
+                }
             }
         },
-        "Family_Docs" : {
-            "1/Joseph's_Will.txt" : "DesktopContent/Desktop3/Dad_Will.txt",
-            "1/Marie's_Will.txt" : "DesktopContent/Desktop3/Mom_Will.txt",
+        "Family_Documents" : {
+            "Joseph" : {
+                "1/Joseph's_Will.txt" : "DesktopContent/Desktop3/Dad_Will.txt",
+                "1/Medical_Reciept.jpg" : "DesktopContent/Desktop3/Medical_Reciept.jpg"
+            },
+            "Marie" : {
+                "1/Marie's_Will.txt" : "DesktopContent/Desktop3/Mom_Will.txt",
+                "1/Hospice_Receipt.jpg" : "DesktopContent/Desktop3/Hopsice_Gift_Receipt.jpg",
+                "1/MnR.jpg" : "DesktopContent/Desktop3/MnR.jpg"
+            },
             "1/Divorce_Petition_Copy.jpg" : "DesktopContent/Desktop3/Divorce_Petition_Copy.jpg",
-            "1/Hospice_Receipt.jpg" : "DesktopContent/Desktop3/Hopsice_Gift_Receipt.jpg",
-            "1/Medical_Reciept.jpg" : "DesktopContent/Desktop3/Medical_Reciept.jpg",
-            "1/MnR.jpg" : "DesktopContent/Desktop3/MnR.jpg",
             "1/Family_Photo.jpg" : "DesktopContent/Desktop3/Family_Photo.png"
         },
         "Personal_Files" : {
-            "1/Empty" : "DesktopContent/Desktop3/Family_Photo.png"
+            "1/Therapy_Journal_#1.txt" : "DesktopContent/Desktop3/Therapy_Journal_#1.txt",
+            "1/Therapy_Journal_#2.txt" : "DesktopContent/Desktop3/Therapy_Journal_#2.txt",
+            "1/Therapy_Journal_#3.txt" : "DesktopContent/Desktop3/Therapy_Journal_#3.txt"
         },
         "Trash" : {
             "1/You_Are_Invited.jpg" : "DesktopContent/Desktop3/You_Are_Invited.png"
