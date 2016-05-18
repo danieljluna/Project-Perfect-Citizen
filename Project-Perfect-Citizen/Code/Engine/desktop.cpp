@@ -507,6 +507,15 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 				case 1:
 					solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 					break;
+				case 2:
+					solNet = PipelineLevelBuilder::buildLevelTwoANetworkSolution();
+					break;
+				case 3:
+					solNet = PipelineLevelBuilder::buildLevelTwoBNetworkSolution();
+					break;
+				case 4:
+					solNet = PipelineLevelBuilder::buildLevelThreeNetworkSolution();
+					break;
 				default:
 					solNet = PipelineLevelBuilder::buildDefaultNetwork();
 					DEBUGF("wc", levelnum);

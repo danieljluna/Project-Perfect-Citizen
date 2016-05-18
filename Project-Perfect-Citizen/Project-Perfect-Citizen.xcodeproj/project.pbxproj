@@ -547,6 +547,7 @@
 		E95390C31CEBECE500F8A5DF /* WindowBkgndRenderCmpnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E953903A1CEBECE500F8A5DF /* WindowBkgndRenderCmpnt.cpp */; };
 		E961BB731CEC482E0008D573 /* Freaking_Out.txt in Resources */ = {isa = PBXBuildFile; fileRef = E961BB721CEC482E0008D573 /* Freaking_Out.txt */; };
 		E961BB751CEC49DA0008D573 /* Guardian_Angel.txt in Resources */ = {isa = PBXBuildFile; fileRef = E961BB741CEC49DA0008D573 /* Guardian_Angel.txt */; };
+		E9C94D431CED035A000E8732 /* Politician_Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E9C94D421CED035A000E8732 /* Politician_Icon_Sheet.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1228,6 +1229,7 @@
 		E953903B1CEBECE500F8A5DF /* WindowBkgndRenderCmpnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowBkgndRenderCmpnt.h; sourceTree = "<group>"; };
 		E961BB721CEC482E0008D573 /* Freaking_Out.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Freaking_Out.txt; sourceTree = "<group>"; };
 		E961BB741CEC49DA0008D573 /* Guardian_Angel.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Guardian_Angel.txt; sourceTree = "<group>"; };
+		E9C94D421CED035A000E8732 /* Politician_Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Politician_Icon_Sheet.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1323,6 +1325,7 @@
 				E9538D631CEBECD800F8A5DF /* kappa.png */,
 				E9538D651CEBECD800F8A5DF /* Logo_Sheet.png */,
 				E9538D691CEBECD800F8A5DF /* Pixel_Title.png */,
+				E9C94D421CED035A000E8732 /* Politician_Icon_Sheet.png */,
 				E9538D6C1CEBECD800F8A5DF /* Politician_Wallpaper.png */,
 				E9538D881CEBECD800F8A5DF /* Teacher_Icon_Sheet.png */,
 				E9538D891CEBECD800F8A5DF /* Teacher_Icon_Sheet2 - Copy.png */,
@@ -2387,6 +2390,7 @@
 				E9538EF71CEBECD800F8A5DF /* kappa.png in Resources */,
 				E9538E191CEBECD800F8A5DF /* Photo_shoot.jpg in Resources */,
 				E9538ECE1CEBECD800F8A5DF /* Vincent_Wins.png in Resources */,
+				E9C94D431CED035A000E8732 /* Politician_Icon_Sheet.png in Resources */,
 				E9538DD61CEBECD800F8A5DF /* At_the_river.jpg in Resources */,
 				E9538D9A1CEBECD800F8A5DF /* Artist_Wallpaper.png in Resources */,
 				E9538E121CEBECD800F8A5DF /* NewCrowd38.jpg in Resources */,

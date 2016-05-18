@@ -290,6 +290,7 @@
     <None Include="Resources\data.json" />
     <None Include="Resources\DE1PipelineTexts.json" />
     <None Include="Resources\Email1.json" />
+    <None Include="Resources\Engine\playerDesktop.ini" />
     <None Include="Resources\PlayerEmail.json" />
     <None Include="Resources\Saves\bootDesktop.ini" />
     <None Include="Resources\Saves\desktop0.ini" />
@@ -297,7 +298,6 @@
     <None Include="Resources\Saves\desktop2.ini" />
     <None Include="Resources\Saves\desktopTutorial.ini" />
     <None Include="Resources\Saves\pipelineTutorial.ini" />
-    <None Include="Resources\Saves\playerDesktop.ini" />
     <None Include="Resources\Saves\PPC.sav" />
     <None Include="Resources\smsPipeline.json" />
     <None Include="Resources\suspiciontest.json" />
