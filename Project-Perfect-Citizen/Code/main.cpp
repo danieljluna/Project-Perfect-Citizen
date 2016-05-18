@@ -288,7 +288,7 @@ int main(int argc, char** argv) {
 
 	//Desktop 1 / Teacher Desktop
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Engine/politicianDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/teacherDesktop.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
     Logger::startTimer("TeacherDesktop");
@@ -319,7 +319,7 @@ int main(int argc, char** argv) {
 
 	//Desktop Extraction 2 / (Artist or Politician DE)
 	World::startLoading();
-	if (ppc::SuspiciousFileHolder::isGuilty()) {
+    if (ppc::SuspiciousFileHolder::isGuilty()) {
 		desktopFileInput.open(resourcePath() + "Engine/politicianDesktop.ini", std::ifstream::in);
 		World::setCurrDesktopEnum(World::DesktopList::DE2B);
 	} else {
