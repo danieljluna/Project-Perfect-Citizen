@@ -37,7 +37,7 @@
                 "1/Nov15.jpg" : "DesktopContent/Desktop3/Nov15.png"
             }
         },
-        "Personal" : {
+        "Family_Docs" : {
             "1/Joseph's_Will.txt" : "DesktopContent/Desktop3/Dad_Will.txt",
             "1/Marie's_Will.txt" : "DesktopContent/Desktop3/Mom_Will.txt",
             "1/Divorce_Petition_Copy.jpg" : "DesktopContent/Desktop3/Divorce_Petition_Copy.jpg",
@@ -45,6 +45,9 @@
             "1/Medical_Reciept.jpg" : "DesktopContent/Desktop3/Medical_Reciept.jpg",
             "1/MnR.jpg" : "DesktopContent/Desktop3/MnR.jpg",
             "1/Family_Photo.jpg" : "DesktopContent/Desktop3/Family_Photo.png"
+        },
+        "Personal_Files" : {
+            "1/Empty" : "DesktopContent/Desktop3/Family_Photo.png"
         },
         "Trash" : {
             "1/You_Are_Invited.jpg" : "DesktopContent/Desktop3/You_Are_Invited.png"
