@@ -38,9 +38,30 @@ std::map<World::FontList, sf::Font> World::fontMap_ = {
 };
 
 std::map <std::pair<World::DesktopList, World::ReportType>, std::string > World::reportListMap_ = {
-	{ {DE0, A}, resourcePath() + "Reports/sampleReport.txt" },
-	{ {DE1, A}, resourcePath() + "Reports/sampleReport.txt" }
+	{ { DE0, A }, resourcePath() + "Reports/DummyReportA.txt" },
+	{ { DE0, B }, resourcePath() + "Reports/DummyReportB.txt" },
+	{ { DE0, C }, resourcePath() + "Reports/DummyReportC.txt" },
+	{ { DE0, D }, resourcePath() + "Reports/DummyReportD.txt" },
 
+	{ { DE1, A }, resourcePath() + "Reports/TeacherReportA.txt" },
+	{ { DE1, B }, resourcePath() + "Reports/TeacherReportB.txt" },
+	{ { DE1, C }, resourcePath() + "Reports/TeacherReportC.txt" },
+	{ { DE1, D }, resourcePath() + "Reports/TeacherReportD.txt" },
+
+	{ { DE2A, A }, resourcePath() + "Reports/ArtistReportA.txt" },
+	{ { DE2A, B }, resourcePath() + "Reports/ArtistReportB.txt" },
+	{ { DE2A, C }, resourcePath() + "Reports/ArtistReportC.txt" },
+	{ { DE2A, D }, resourcePath() + "Reports/ArtistReportD.txt" },
+
+	{ { DE2B, A }, resourcePath() + "Reports/sampleReport.txt" },
+	{ { DE2B, B }, resourcePath() + "Reports/sampleReport.txt" },
+	{ { DE2B, C }, resourcePath() + "Reports/sampleReport.txt" },
+	{ { DE2B, D }, resourcePath() + "Reports/sampleReport.txt" },
+
+	{ { DE3, A }, resourcePath() + "Reports/sampleReport.txt" },
+	{ { DE3, B }, resourcePath() + "Reports/sampleReport.txt" },
+	{ { DE3, C }, resourcePath() + "Reports/sampleReport.txt" },
+	{ { DE3, D }, resourcePath() + "Reports/sampleReport.txt" },
 
 };
 

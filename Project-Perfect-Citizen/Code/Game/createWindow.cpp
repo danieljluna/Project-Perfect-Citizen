@@ -335,10 +335,16 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	}
 	std::random_shuffle(indexVec.begin(), indexVec.end());
 
-	for (unsigned int i = 0, j = 0; i < indexVec.size(); ++i) {
-		playNet->vert(indexVec[i]).setPosition(static_cast<float>(50 + 125 * (i%4)), 
-			                                   static_cast<float>(50 + 100 * j));
-		if (i > 0 && (i % 4) == 0) j++;
+	float xcoord = 0;
+	float ycoord = 0;
+	for (unsigned int i = 0; i < indexVec.size(); ++i) {
+		playNet->vert(indexVec[i]).setPosition(static_cast<float>(25 + 125 * xcoord), 
+			                                     static_cast<float>(25 + 150 * ycoord));
+		++xcoord;
+		if (xcoord == 4) {
+			xcoord = 0;
+			++ycoord;
+		}
 	}
 
 	NetworkRenderComponent* networkRender = 
@@ -861,6 +867,75 @@ void ppc::spawnUnlock(WindowInterface *& windowToModify, InputHandler & ih, sf::
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("'"+ fldr->getFolderName()+ "' is Password Protected");
 }
 
+void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih, sf::Image & buttonSheet, float x, float y) {
+   
+    if (windowToModify == nullptr) { return; }
+    
+    /////////////////////////////////////////
+    /////// COMPONENTS
+    ///////////////////////////////////////
+    
+    sf::Font myFont;
+    myFont.loadFromFile(resourcePath() + "consola.ttf");
+    int fontSize = 12;
+    
+    /////////////////////////////////////////
+    /////// ENTITIES
+    ///////////////////////////////////////
+    Entity alertIcon;
+    float alertScale = 0.5f;
+    float alertWidth = 128.0;
+    float windowWidth = static_cast<float>(windowToModify->getSize().x);
+    float windowHeight = static_cast<float>(windowToModify->getSize().y);
+    float alertX = windowWidth - ((alertWidth * alertScale) + (3 * (windowWidth / 4)));
+    float alertY = (windowHeight - (alertWidth * alertScale)) / 3;
+    float buttonScale = 0.25f;
+    float buttonX = ((windowWidth - (alertWidth * buttonScale)) / 2);
+    float buttonY = (2 * (windowHeight / 3));
+    spawnDCPSIcon(alertIcon, ih, buttonSheet, alertX-15, alertY-8, 0.74f);
+    
+    Entity tbox;
+    TextBoxBuilder tbuilder;
+    tbuilder.setFont(myFont);
+    tbuilder.setSize(20);
+    tbuilder.setPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 3, 50.0f));
+    tbuilder.setColor(sf::Color::Black);
+    tbuilder.setString("");
+    tbuilder.setInputHandle(ih);
+    tbuilder.setContainingWindow(windowToModify);
+    tbuilder.create(tbox);
+    
+    Entity promptText;
+    TextDisplayBuilder tdBuilder;
+    tdBuilder.setFont(myFont);
+    tdBuilder.setSize(20);
+    tdBuilder.setPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 3, 20));
+    tdBuilder.setColor(sf::Color::Black);
+    tdBuilder.setString("Please Enter Your Name");
+    tdBuilder.create(promptText);
+    
+    Entity loginButton;
+    ButtonBuilder lBuilder;
+    lBuilder.setInputHandle(ih);
+    lBuilder.setLabelMessage("Continue");
+    lBuilder.setSpriteSheet(buttonSheet);
+    lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3)-2, 95.0f));
+    lBuilder.setSize(0.25f);
+    lBuilder.setLabelFont(myFont);
+    lBuilder.setLabelSize(12);
+    
+    createWithEventFunc(lBuilder, loginButton, windowToModify, continue_world);
+    
+    windowToModify->addEntity(alertIcon);
+    windowToModify->addEntity(tbox);
+    windowToModify->addEntity(promptText);
+    windowToModify->addEntity(loginButton);
+    windowToModify = new BorderDecorator(*windowToModify);
+
+    dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Login");
+
+}
+
 
 void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState ns,
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y) {
@@ -991,7 +1066,7 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 
 		if (ppc::SuspiciousFileHolder::getBFTVectorElement(i) != nullptr) {
 			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Green,
-				(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12,
+				(float)((fileSpacing*i) + padding / 2), IconRender->getSprite()->getLocalBounds().height*0.5f, 12,
 				ppc::SuspiciousFileHolder::getBFTVectorElement(i)->getName());
 
 			mousePressButton* mpb = new mousePressButton(windowToModify->getInputHandler(), IconRender->getSprite()->getLocalBounds());
@@ -1002,7 +1077,7 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 		}
 		else {
 			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red,
-				(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "[EMPTY]");
+				(float)((fileSpacing*i) + padding / 2), IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "[EMPTY]");
 		}
 
 		fileRender.addComponent(IconRender);
@@ -1052,6 +1127,11 @@ bool ppc::close_window(WindowInterface * w, ppc::Event ev)
 {
 	w->close();
 	return false;
+}
+
+bool ppc::continue_world(WindowInterface* w, ppc::Event ev) {
+    World::quitDesktop();
+    return false;
 }
 
 

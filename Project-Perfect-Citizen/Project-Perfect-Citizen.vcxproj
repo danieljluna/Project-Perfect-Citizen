@@ -116,6 +116,7 @@
     <ClCompile Include="Code\Game\PipelineDataRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineGraphRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineLevelBuilder.cpp" />
+    <ClCompile Include="Code\Game\ReportScreenInput.cpp" />
     <ClCompile Include="Code\Game\ReportScreenObsvr.cpp" />
     <ClCompile Include="Code\Game\spriteRenderComponent.cpp" />
     <ClCompile Include="Code\Game\TextBoxBuilder.cpp" />
@@ -123,6 +124,7 @@
     <ClCompile Include="Code\Game\TextBoxRenderComponent.cpp" />
     <ClCompile Include="Code\Game\TextBubble.cpp" />
     <ClCompile Include="Code\Game\TextBubbleRender.cpp" />
+    <ClCompile Include="Code\Game\TextCharacterUpdate.cpp" />
     <ClCompile Include="Code\Game\TextDisplayBuilder.cpp" />
     <ClCompile Include="Code\Game\TextDisplayRenderComponent.cpp" />
     <ClCompile Include="Code\Game\TextFieldRenderComponent.cpp" />
@@ -256,6 +258,7 @@
     <ClInclude Include="Code\Game\PipelineGraphRenderComponent.h" />
     <ClInclude Include="Code\Game\PipelineJobsAndIncomes.h" />
     <ClInclude Include="Code\Game\PipelineLevelBuilder.h" />
+    <ClInclude Include="Code\Game\ReportScreenInput.h" />
     <ClInclude Include="Code\Game\ReportScreenObsvr.h" />
     <ClInclude Include="Code\Game\spriteRenderComponent.hpp" />
     <ClInclude Include="Code\Game\TextBoxBuilder.h" />
@@ -263,6 +266,7 @@
     <ClInclude Include="Code\Game\TextBoxRenderComponent.h" />
     <ClInclude Include="Code\Game\TextBubble.h" />
     <ClInclude Include="Code\Game\TextBubbleRender.h" />
+    <ClInclude Include="Code\Game\TextCharacterUpdate.h" />
     <ClInclude Include="Code\Game\TextDisplayBuilder.h" />
     <ClInclude Include="Code\Game\TextDisplayRenderComponent.h" />
     <ClInclude Include="Code\Game\TextFieldRenderComponent.hpp" />
@@ -286,6 +290,7 @@
     <None Include="Resources\data.json" />
     <None Include="Resources\DE1PipelineTexts.json" />
     <None Include="Resources\Email1.json" />
+    <None Include="Resources\Engine\playerDesktop.ini" />
     <None Include="Resources\PlayerEmail.json" />
     <None Include="Resources\Saves\bootDesktop.ini" />
     <None Include="Resources\Saves\desktop0.ini" />
@@ -293,7 +298,6 @@
     <None Include="Resources\Saves\desktop2.ini" />
     <None Include="Resources\Saves\desktopTutorial.ini" />
     <None Include="Resources\Saves\pipelineTutorial.ini" />
-    <None Include="Resources\Saves\playerDesktop.ini" />
     <None Include="Resources\Saves\PPC.sav" />
     <None Include="Resources\smsPipeline.json" />
     <None Include="Resources\suspiciontest.json" />

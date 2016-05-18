@@ -26,13 +26,15 @@ FloppyRenderComponent::FloppyRenderComponent(sf::Image& image) : floppyImage(ima
     yIndex = 1;
     loop = -1;
     rectSourceSprite = new sf::IntRect(xIndex*size, yIndex*size, size, size);
+    rectSourceSprite2 = new sf::IntRect(xIndex*size+size, yIndex*size, size, size);
     
     sprite->setTexture(*texture);
     sprite->setTextureRect(*rectSourceSprite);
     sprite->setPosition(800, 35);
     sprite->setScale(0.75f, 0.75f);
     
-    _willAnimate = true;
+    counts = 0;
+    _willAnimate = false;
 }
 
 FloppyRenderComponent::~FloppyRenderComponent() {
@@ -60,14 +62,25 @@ void FloppyRenderComponent::setEmotion(int emote) {
         // Default Face
         rectSourceSprite->left = 0*size;
         rectSourceSprite->top = 1*size;
+        
+        rectSourceSprite2->left = 1*size;
+        rectSourceSprite2->top = 1*size;
+        
     } else if (emote == 1) {
         // Angry Face
         rectSourceSprite->left = 0*size;
         rectSourceSprite->top = 2*size;
+        
+        rectSourceSprite2->left = 1*size;
+        rectSourceSprite2->top = 2*size;
     } else if (emote == 2) {
         // Surprised
         rectSourceSprite->left = 0*size;
         rectSourceSprite->top = 3*size;
+        
+        rectSourceSprite2->left = 1*size;
+        rectSourceSprite2->top = 3*size;
+        
     } else if (emote == 3) {
         // Peek
         rectSourceSprite->left = 0*size;
@@ -80,40 +93,36 @@ void FloppyRenderComponent::setEmotion(int emote) {
 
 void FloppyRenderComponent::animate() {
     
-   /*  std::cout << "WERE HERE" << std::endl;
     
-    if (_willAnimate) {
-        if (rectSourceSprite->left == 128) {
-            rectSourceSprite->left = 0;
-        } else
-            rectSourceSprite->left += size;
+    if (_willAnimate && counts <= 12) {
+     
+        if (loop == -1) {
+           // texture->loadFromImage(floppyImage, *rectSourceSprite);
+            sprite->setTexture(*texture);
+            sprite->setTextureRect(*rectSourceSprite);
+            sprite->setRotation(3);
+        } else {
+            //texture->loadFromImage(floppyImage, *rectSourceSprite2);
+            sprite->setTextureRect(*rectSourceSprite2);
+            sprite->setTexture(*texture);
+            sprite->setRotation(-3);
+        }
         
-        texture->loadFromImage(floppyImage, *rectSourceSprite);
-        sprite->setTexture(*texture);
-    }
-    
-    
-   if (loop == -1) {
-        texture->loadFromImage(floppyImage, *rectSourceSprite);
-        sprite->setTexture(*texture);
+        counts += 1;
+        
     } else {
-        texture->loadFromImage(floppyImage, *rectSourceSprite2);
-        sprite->setTexture(*texture);
-    }*/
-   
-    
-   // loop = -loop;
+        counts = 0;
+        _willAnimate = false;
+    }
 
-
-    //setEmotion(emotion);
-
+    loop = -loop;
 }
 
 
 
 void FloppyRenderComponent::draw( sf::RenderTarget& target,
                                  sf::RenderStates states) const {
-	if (!_willAnimate) return;
+	//if (!_willAnimate) return;
     target.draw(*sprite, states);
     //target.draw(*staticBox, states);
 }
