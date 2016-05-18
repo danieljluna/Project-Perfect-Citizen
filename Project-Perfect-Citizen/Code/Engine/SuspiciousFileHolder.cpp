@@ -116,7 +116,7 @@ void ppc::SuspiciousFileHolder::submitFiles()
 		World::setCurrReportType(World::ReportType::B);
 	} else if (totalSuspicion >= 10 && totalSuspicion <= 19) {
 		World::setCurrReportType(World::ReportType::C);
-	} else if (totalSuspicion >= 0 && totalSuspicion <= 9) {
+	} else if (totalSuspicion >= 1 && totalSuspicion <= 9) {
 		World::setCurrReportType(World::ReportType::D);
 	}
 

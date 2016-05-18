@@ -18,6 +18,11 @@ using namespace ppc;
 sf::RenderWindow* World::screen_ = nullptr;
 Desktop* World::currDesktop_ = nullptr;
 sf::Transform World::worldTransform_;
+
+std::map<ppc::World::DesktopList, ppc::LevelPacket> World::levelMap_ = {
+
+};
+
 std::map<std::string, World::savGroups> World::saveGroupMap_ = {
     { "Settings",      World::SettingsTag  },
     { "State",         World::StateTag     }
@@ -79,6 +84,31 @@ sf::Sprite World::loadingDecal_ = sf::Sprite();
 bool World::isLoading_ = false;
 
 Setting World::settings_;
+
+void ppc::World::initLevelMap() {
+
+	LevelPacket levelZero;
+	levelZero.push(DEPlayer, 1);
+	levelMap_.emplace(DE0, levelZero);
+
+	LevelPacket levelPlayer;
+	levelPlayer.push(DE1, 1);
+	levelMap_.emplace(DEPlayer, levelPlayer);
+
+	LevelPacket levelOne;
+	levelOne.push(DE2A, 19);
+	levelOne.push(DE2B, 20);
+	levelMap_.emplace(DE1, levelOne);
+
+	LevelPacket levelTwo;
+	levelTwo.push(DE3, 1);
+	levelMap_.emplace(DE2A, levelTwo);
+	levelMap_.emplace(DE2B, levelTwo);
+
+	LevelPacket levelThree;
+	levelMap_.emplace(DE3, levelThree);
+
+}
 
 void World::setGameScreen(sf::RenderWindow& gameScreen) {
 	screen_ = &gameScreen;

@@ -1,21 +1,25 @@
 #include "LevelPacket.h"
+#include <math.h>
 
 
-void ppc::LevelPacket::push(World::DesktopList d, int i) {
-	nextVec_.push_back({ d,i });
+void ppc::LevelPacket::push(int d, int i) {
+	nextVec_.push_back({ d, i });
 }
 
-ppc::World::DesktopList ppc::LevelPacket::getNext(int i) {
+int ppc::LevelPacket::getNext(int i) {
 	
-	World::DesktopList d = World::DesktopCount;
+	int d = -1;
 
 	if (nextVec_.empty()) return d;
 
-	int min = 100; //arbitrarily large value
+	int minDist = 100; //arbitrarily large value
 
 	for (auto it = nextVec_.begin(); it != nextVec_.end(); ++it) {
-		int n = it->second;
-		if (n <= min) d = it->first;
+		int n = abs(i - it->second);
+		if (n <= minDist) {
+			d = it->first;
+			minDist = n;
+		}
 	}
 
 	return d;

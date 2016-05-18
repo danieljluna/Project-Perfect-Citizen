@@ -163,9 +163,11 @@ int main(int argc, char** argv) {
     //Scans Debug Flags
     Debug::scanOpts(argc, argv);
     DEBUGF("ac", argc);
-    
+
+	World::initLevelMap();
     World::initFontMap();
 	World::initLoadScreen();
+	
 
     bool BootToTitleCard = false;
     // Create the main sf::window

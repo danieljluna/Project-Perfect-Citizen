@@ -3,8 +3,9 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Setting.h"
-
+#include <vector>
 #include <utility>
+#include "LevelPacket.h"
 
 namespace ppc {
 
@@ -43,6 +44,9 @@ namespace ppc {
 			D // not guilty2
 		};
 
+
+		static std::map<DesktopList, ppc::LevelPacket> levelMap_;
+		static void initLevelMap();
 		///////////////////////////////////////////////////////////////
 		// Ctors
 		///////////////////////////////////////////////////////////////

@@ -2,21 +2,22 @@
 
 #include <vector>
 #include <utility>
-#include "World.h"
+
 
 namespace ppc {
 
-	class LevelPacket {
+	struct LevelPacket {
 
-	private:
+	//ppc::World::DesktopList iniCurr_;
+	// first int corresponds to enum values,
+	// second corresponds to score from file holder (smallest value is 1).
+	std::vector<std::pair<int, int>> nextVec_;
 
-		std::vector<std::pair<World::DesktopList, int>> nextVec_;
-
-	public:
-
-		void push(World::DesktopList, int);
+	void push(int, int);
 		
-		World::DesktopList getNext(int);
+	int getNext(int);
+
+
 
 	};
 
