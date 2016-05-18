@@ -1066,7 +1066,7 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 
 		if (ppc::SuspiciousFileHolder::getBFTVectorElement(i) != nullptr) {
 			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Green,
-				(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12,
+				(float)((fileSpacing*i) + padding / 2), IconRender->getSprite()->getLocalBounds().height*0.5f, 12,
 				ppc::SuspiciousFileHolder::getBFTVectorElement(i)->getName());
 
 			mousePressButton* mpb = new mousePressButton(windowToModify->getInputHandler(), IconRender->getSprite()->getLocalBounds());
@@ -1077,7 +1077,7 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 		}
 		else {
 			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red,
-				(fileSpacing*i) + padding / 2, IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "[EMPTY]");
+				(float)((fileSpacing*i) + padding / 2), IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "[EMPTY]");
 		}
 
 		fileRender.addComponent(IconRender);
