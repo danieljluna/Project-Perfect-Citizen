@@ -545,6 +545,8 @@
 		E95390C11CEBECE500F8A5DF /* textRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95390361CEBECE500F8A5DF /* textRenderComponent.cpp */; };
 		E95390C21CEBECE500F8A5DF /* TreeCommands.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E95390381CEBECE500F8A5DF /* TreeCommands.cpp */; };
 		E95390C31CEBECE500F8A5DF /* WindowBkgndRenderCmpnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E953903A1CEBECE500F8A5DF /* WindowBkgndRenderCmpnt.cpp */; };
+		E961BB731CEC482E0008D573 /* Freaking_Out.txt in Resources */ = {isa = PBXBuildFile; fileRef = E961BB721CEC482E0008D573 /* Freaking_Out.txt */; };
+		E961BB751CEC49DA0008D573 /* Guardian_Angel.txt in Resources */ = {isa = PBXBuildFile; fileRef = E961BB741CEC49DA0008D573 /* Guardian_Angel.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1224,6 +1226,8 @@
 		E95390391CEBECE500F8A5DF /* TreeCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeCommands.h; sourceTree = "<group>"; };
 		E953903A1CEBECE500F8A5DF /* WindowBkgndRenderCmpnt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowBkgndRenderCmpnt.cpp; sourceTree = "<group>"; };
 		E953903B1CEBECE500F8A5DF /* WindowBkgndRenderCmpnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowBkgndRenderCmpnt.h; sourceTree = "<group>"; };
+		E961BB721CEC482E0008D573 /* Freaking_Out.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Freaking_Out.txt; sourceTree = "<group>"; };
+		E961BB741CEC49DA0008D573 /* Guardian_Angel.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Guardian_Angel.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1697,6 +1701,8 @@
 				E9538D391CEBECD800F8A5DF /* Who_would_do_this.png */,
 				E9538D3A1CEBECD800F8A5DF /* Will.txt */,
 				E9538D3B1CEBECD800F8A5DF /* You_Are_Invited.png */,
+				E961BB721CEC482E0008D573 /* Freaking_Out.txt */,
+				E961BB741CEC49DA0008D573 /* Guardian_Angel.txt */,
 			);
 			path = Desktop3;
 			sourceTree = "<group>";
@@ -2288,6 +2294,7 @@
 				E9538EA41CEBECD800F8A5DF /* Albatross_Secure_Communications_2.txt in Resources */,
 				E9538F081CEBECD800F8A5DF /* DummyReportD.txt in Resources */,
 				E9538E931CEBECD800F8A5DF /* 18.txt in Resources */,
+				E961BB751CEC49DA0008D573 /* Guardian_Angel.txt in Resources */,
 				E9538E921CEBECD800F8A5DF /* 17.txt in Resources */,
 				E9538D9E1CEBECD800F8A5DF /* data.json in Resources */,
 				E9538E901CEBECD800F8A5DF /* 15.txt in Resources */,
@@ -2424,6 +2431,7 @@
 				E9538E321CEBECD800F8A5DF /* blueprints_1.jpg in Resources */,
 				E9538E981CEBECD800F8A5DF /* 21.txt in Resources */,
 				E9538EEA1CEBECD800F8A5DF /* loginDesktop.ini in Resources */,
+				E961BB731CEC482E0008D573 /* Freaking_Out.txt in Resources */,
 				E9538E361CEBECD800F8A5DF /* calmness.jpg in Resources */,
 				E9538DCB1CEBECD800F8A5DF /* 5678.jpg in Resources */,
 				E9538E9B1CEBECD800F8A5DF /* 24.txt in Resources */,
