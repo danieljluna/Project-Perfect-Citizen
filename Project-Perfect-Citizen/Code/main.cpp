@@ -351,7 +351,7 @@ int main(int argc, char** argv) {
 	Logger::startTimer("playerDesktop3");
 
 	World::setCurrDesktop(mainDesktop);
-	World::setCurrDesktopEnum(World::DesktopList::DE3);
+	World::setCurrDesktopEnum(World::DesktopList::DEPlayer);
 	setUpPlayerDesktop(mainDesktop);
 	World::runCurrDesktop();
 

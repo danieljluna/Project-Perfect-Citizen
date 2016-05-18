@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Engine/renderComponent.h"
-
+#include <SFML/Graphics.hpp>
 
 
 namespace ppc {
@@ -15,6 +15,7 @@ namespace ppc {
 		bool drawable_;
 		TextBubble* bubble_;
 		bool renderable_;
+        sf::Color bubbleColor_;
 
 	public:
 
@@ -23,6 +24,8 @@ namespace ppc {
 		virtual ~TextBubbleRender();
 
 		void setTextBubble(TextBubble&);
+        
+        void setColor(sf::Color);
 
 		TextBubble& getTextBubble();
 

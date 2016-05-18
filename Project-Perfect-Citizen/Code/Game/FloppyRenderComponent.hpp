@@ -22,6 +22,7 @@ namespace ppc {
         sf::Image& floppyImage;
         int emotion;
         int loop;
+        int counts;
         int xIndex, yIndex;
         bool _willAnimate;
         static const int size = 128;

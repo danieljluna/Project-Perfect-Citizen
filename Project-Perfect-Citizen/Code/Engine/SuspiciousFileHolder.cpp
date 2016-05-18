@@ -1,11 +1,12 @@
 #include "SuspiciousFileHolder.h"
+#include "../Engine/World.h"
 
 std::vector<ppc::BaseFileType*> ppc::SuspiciousFileHolder::bftVector_;
 ppc::WindowInterface* ppc::SuspiciousFileHolder::susWindow_;
 int ppc::SuspiciousFileHolder::staticCount_ = 0;
 ppc::WindowInterface* susWindow_ = nullptr;
-int ppc::SuspiciousFileHolder::badThreshold_ = 0;
-int ppc::SuspiciousFileHolder::goodThreshold_ = 0;
+int ppc::SuspiciousFileHolder::badThreshold_ = 20;
+int ppc::SuspiciousFileHolder::goodThreshold_ = 20;
 bool ppc::SuspiciousFileHolder::guilty_ = false;
 int ppc::SuspiciousFileHolder::susScore_ = 0;
 ppc::Subject ppc::SuspiciousFileHolder::onChange;
@@ -93,7 +94,7 @@ void ppc::SuspiciousFileHolder::submitFiles()
 
 
 	if (bftVector_.size() != 3) {
-		std::cout << "Need more files dingus" << std::endl;
+		//std::cout << "Need more files dingus" << std::endl;
 		return;
 	}
 
@@ -111,6 +112,18 @@ void ppc::SuspiciousFileHolder::submitFiles()
 	else if (totalSuspicion > badThreshold_) {
 		guilty_ = true;
 	}
+
+	if (totalSuspicion == 30) {
+		World::setCurrReportType(World::ReportType::A);
+	} else if (totalSuspicion >= 20 && totalSuspicion <= 29) {
+		World::setCurrReportType(World::ReportType::B);
+	} else if (totalSuspicion >= 10 && totalSuspicion <= 19) {
+		World::setCurrReportType(World::ReportType::C);
+	} else if (totalSuspicion >= 0 && totalSuspicion <= 9) {
+		World::setCurrReportType(World::ReportType::D);
+	}
+
+
 }
 
 void ppc::SuspiciousFileHolder::clearFiles()
