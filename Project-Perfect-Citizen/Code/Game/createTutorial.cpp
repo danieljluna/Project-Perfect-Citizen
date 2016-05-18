@@ -78,13 +78,13 @@ void ppc::createTutorial(Desktop & dt) {
 
 	FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
 	FloppyInputComponent* floppyIn = new FloppyInputComponent();
-	FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.20f);
-	floppy->renderPosition({ 400.f, 0.f });
-
+	FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.12f);
+	floppy->renderPosition({ 780.f, 650.f });
 	TextBubble* tb = new TextBubble();
-	tb->setPosition(0.f, 0.f);
+    tb->setPosition(530.f, 660.f);
 	TextBubbleRender* tbr = new TextBubbleRender();
 	tbr->setTextBubble(*tb);
+    tbr->setColor(sf::Color(243,241,206));
 	tbr->setRenderable(false);
 
 	floppyEntity.addComponent(tbr);
@@ -97,7 +97,8 @@ void ppc::createTutorial(Desktop & dt) {
 	nextButton.setLabelFont(World::getFont(World::Consola));
 	nextButton.setLabelMessage("Next >");
 	nextButton.setLabelSize(12);
-	nextButton.setButtonPosition({ 70.f,100.f });
+    sf::Vector2f tbrPos = {tbr->getTextBubble().getPosition().x,tbr->getTextBubble().getPosition().y};
+    nextButton.setButtonPosition({tbrPos.x+70,tbrPos.y+55});
 	nextButton.setSize(0.25f);
 	nextButton.setIsDisabled(true);
 	nextButton.setSpriteSheet(dt.getButtonSheet());
@@ -194,33 +195,34 @@ void ppc::createDesktopTutorial(Desktop & dt) {
 	//////////////////////////////////////
 	Window* floppyWindow = new Window(1800, 1000, sf::Color::Transparent);
 
-	Entity floppyEntity;
-
-	sf::Image floppyImage;
-	floppyImage.loadFromFile(resourcePath() + "Floppy_Sheet.png");
-
-	FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
-	FloppyInputComponent* floppyIn = new FloppyInputComponent();
-	FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.12f);
-	floppy->renderPosition({ 400.f, 0.f });
-
-	TextBubble* tb = new TextBubble();
-	tb->setPosition(0.f, 0.f);
-	TextBubbleRender* tbr = new TextBubbleRender();
-	tbr->setTextBubble(*tb);
-	tbr->setRenderable(false);
-
-	floppyEntity.addComponent(tbr);
-	floppyEntity.addComponent(floppy);
-	floppyEntity.addComponent(floppyIn);
-	floppyEntity.addComponent(floppyUpdate);
-
-	ButtonBuilder nextButton;
-	nextButton.setInputHandle(floppyWindow->getInputHandler());
-	nextButton.setLabelFont(World::getFont(World::Consola));
-	nextButton.setLabelMessage("Next >");
-	nextButton.setLabelSize(12);
-	nextButton.setButtonPosition({ 70.f,100.f });
+    Entity floppyEntity;
+    
+    sf::Image floppyImage;
+    floppyImage.loadFromFile(resourcePath() + "Floppy_Sheet.png");
+    
+    FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
+    FloppyInputComponent* floppyIn = new FloppyInputComponent();
+    FloppyUpdateComponent* floppyUpdate = new FloppyUpdateComponent(*floppy, 0.12f);
+    floppy->renderPosition({ 780.f, 650.f });
+    TextBubble* tb = new TextBubble();
+    tb->setPosition(530.f, 660.f);
+    TextBubbleRender* tbr = new TextBubbleRender();
+    tbr->setTextBubble(*tb);
+    tbr->setColor(sf::Color(243,241,206));
+    tbr->setRenderable(false);
+    
+    floppyEntity.addComponent(tbr);
+    floppyEntity.addComponent(floppy);
+    floppyEntity.addComponent(floppyIn);
+    floppyEntity.addComponent(floppyUpdate);
+    
+    ButtonBuilder nextButton;
+    nextButton.setInputHandle(floppyWindow->getInputHandler());
+    nextButton.setLabelFont(World::getFont(World::Consola));
+    nextButton.setLabelMessage("Next >");
+    nextButton.setLabelSize(12);
+    sf::Vector2f tbrPos = {tbr->getTextBubble().getPosition().x,tbr->getTextBubble().getPosition().y};
+    nextButton.setButtonPosition({tbrPos.x+70,tbrPos.y+55});
 	nextButton.setSize(0.25f);
 	nextButton.setIsDisabled(true);
 	nextButton.setSpriteSheet(dt.getButtonSheet());

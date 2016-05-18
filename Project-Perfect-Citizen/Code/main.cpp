@@ -288,7 +288,7 @@ int main(int argc, char** argv) {
     
     //Desktop 1 / Teacher Desktop
     World::startLoading();
-    desktopFileInput.open(resourcePath() + "Engine/teacherDesktop.ini", std::ifstream::in);
+    desktopFileInput.open(resourcePath() + "Engine/politicianDesktop.ini", std::ifstream::in);
     desktopFileInput >> mainDesktop;
     desktopFileInput.close();
     Logger::startTimer("TeacherDesktop");
@@ -351,7 +351,7 @@ int main(int argc, char** argv) {
     Logger::startTimer("playerDesktop3");
     
     World::setCurrDesktop(mainDesktop);
-    World::setCurrDesktopEnum(World::DesktopList::DE3);
+    World::setCurrDesktopEnum(World::DesktopList::DEPlayer);
     setUpPlayerDesktop(mainDesktop);
     World::runCurrDesktop();
     
