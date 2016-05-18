@@ -142,9 +142,6 @@
     <ClCompile Include="Code\Engine\FunctionObserver.cpp">
       <Filter>Sources\Engine\Observer System</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\FreeFunctionObserver.cpp">
-      <Filter>Sources\Engine\Observer System</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Game\iconInputComponent.cpp">
       <Filter>Sources\Game Specific\Input</Filter>
     </ClCompile>
