@@ -795,9 +795,6 @@
     <None Include="Resources\Saves\desktop1.ini">
       <Filter>Resources\Desktops</Filter>
     </None>
-    <None Include="Resources\Saves\playerDesktop.ini">
-      <Filter>Resources\Desktops</Filter>
-    </None>
     <None Include="Resources\Email1.json">
       <Filter>Resources</Filter>
     </None>
@@ -818,6 +815,9 @@
     </None>
     <None Include="Resources\Saves\PPC.sav">
       <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\Engine\playerDesktop.ini">
+      <Filter>Resources\Desktops</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
