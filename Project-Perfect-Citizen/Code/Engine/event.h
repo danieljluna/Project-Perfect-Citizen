@@ -65,6 +65,7 @@ namespace ppc {
 			AbleType,
             NetworkType,
             SubmissionType,
+            AnimationType,
 			Count
 		};
 
@@ -127,6 +128,10 @@ namespace ppc {
             };
         };
 
+        struct AnimationEv {
+            size_t index;
+        };
+
 		EventTypes type;
 
 		union {
@@ -137,6 +142,7 @@ namespace ppc {
 			AbleEv able;
             NetworkEv network;
             SubmissionEv submission;
+            AnimationEv animation;
             sf::Event sfEvent;
 		};
 	};
