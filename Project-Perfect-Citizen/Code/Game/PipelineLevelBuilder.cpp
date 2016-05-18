@@ -15,7 +15,10 @@ using namespace ppc;
 const std::map<std::string, int> PipelineLevelBuilder::LEVEL_MAP = {
 	{ "PE0A", -1},
 	{ "PE0B", 0},
-	{ "PE1", 1}
+	{ "PE1", 1},
+	{"PE2A", 2},
+	{"PE2B", 3},
+	{"PE3", 4}
 };
 
 const std::map<std::string, bool> NAME_MAP = {
@@ -37,6 +40,42 @@ const int LEVEL_ONE_NODES_LOW = (LEVEL_ONE_NUM_NODES - 1) / 2; // 0 - 3
 const int LEVEL_ONE_NODES_HIGH = (LEVEL_ONE_NUM_NODES / 2);    // 4 - 7
 const int LEVEL_ONE_MSG_PER_EDGE = 1;
 
+const std::vector<std::pair<unsigned int, unsigned int>> LEVEL_TWO_SUSP_EDGES = {
+	{0, 1},
+	{0, 4},
+	{0, 3},
+	{1, 6},
+	{2, 3},
+	{2, 5},
+	{5, 9}
+};
+
+const std::vector<std::pair<unsigned int, unsigned int>> LEVEL_TWO_INNO_EDGES = {
+	{0, 9},
+	{4, 6},
+	{6, 7},
+	{7, 8},
+	{8, 9}
+};
+
+const std::vector<std::pair<unsigned int, unsigned int>> LEVEL_THREE_SUSP_EDGES = {
+	{0, 1},
+	{0, 4},
+	{0, 5},
+	{1, 5},
+	{2, 3},
+	{3, 4},
+};
+
+const std::vector<std::pair<unsigned int, unsigned int>> LEVEL_THREE_INNO_EDGES = {
+	{2, 9},
+	{3, 7},
+	{5, 6},
+	{6, 7},
+	{6, 8},
+	{7, 8},
+	{7, 9}
+};
 
 Network* PipelineLevelBuilder::buildTutorialOne() {
 	Network* myNetwork = new Network(TUTORIAL_1_NODES);
@@ -58,6 +97,8 @@ Network* PipelineLevelBuilder::buildTutorialOne() {
 
 	return myNetwork;
 }
+
+
 
 Network* PipelineLevelBuilder::buildTutorialTwo() {
 	Network* myNetwork = new Network(TUTORIAL_2_NODES);
@@ -130,7 +171,15 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	return myNetwork;
 }
 
-Network* ppc::PipelineLevelBuilder::buildLevelTwoNetworkSolution() {
+Network* PipelineLevelBuilder::buildLevelTwoANetworkSolution() {
+	return LevelTwoWithOption("ArtistTexts.json");
+}
+
+Network* PipelineLevelBuilder::buildLevelTwoBNetworkSolution() {
+	return LevelTwoWithOption("PoliticianTexts.json");
+}
+
+Network* ppc::PipelineLevelBuilder::LevelTwoWithOption(std::string file) {
 	Network* myNetwork = new Network(10);
 	std::map<std::string, bool> usednames = NAME_MAP;
 
@@ -145,8 +194,40 @@ Network* ppc::PipelineLevelBuilder::buildLevelTwoNetworkSolution() {
 	}
 
 	myNetwork->setCenter(0);
+	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson(file);
+	populateEdgesBySet(LEVEL_TWO_SUSP_EDGES, *myNetwork, exprGrammar, 1);
+	populateEdgesBySet(LEVEL_TWO_INNO_EDGES, *myNetwork, exprGrammar, 0);
 
+	return myNetwork;
+}
 
+Network* PipelineLevelBuilder::buildLevelThreeNetworkSolution() {
+	Network* myNetwork = new Network(10);
+	std::map<std::string, bool> usednames = NAME_MAP;
+
+	for (int i = 0; i < 10;) { //10 nodes in level 2
+		PipelineCharacter newpc;
+		if (usednames[newpc.getSSN().substr(0, 1)] == false) {
+			myNetwork->vert(i).setCharacter(newpc);
+			usednames[newpc.getSSN().substr(0, 1)] = true;
+			++i;
+			//add char to database here I think
+		}
+	}
+
+	myNetwork->setCenter(0);
+	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson("suspicionTest.json");
+	populateEdgesBySet(LEVEL_THREE_SUSP_EDGES, *myNetwork, exprGrammar, 1);
+	populateEdgesBySet(LEVEL_THREE_INNO_EDGES, *myNetwork, exprGrammar, 0);
+
+	return myNetwork;
+}
+
+void ppc::PipelineLevelBuilder::populateEdgesBySet(const std::vector<std::pair<unsigned int, unsigned int>> set, Network& net, Json::Value& expr, int suspLevel) {
+	for (unsigned int i = 0; i < set.size(); ++i) {
+		if (net.isAdjacent(set[i].first, set[i].second)) continue;
+		addEdge(set[i].first, set[i].second, net, suspLevel, expr);
+	}
 }
 
 Network* ppc::PipelineLevelBuilder::buildDefaultNetwork() {
