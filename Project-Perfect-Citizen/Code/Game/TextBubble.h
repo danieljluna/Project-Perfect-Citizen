@@ -14,11 +14,13 @@ namespace ppc {
 
 		//sf::Sprite textBubble;
 
-		sf::RectangleShape rectBubble_;
+		sf::ConvexShape rectBubble_;
 
 		std::string currStr_;
-
+        
 		sf::Text displayText_;
+        
+        sf::Vector2f rectPos_;
 
 		//Function used is an altered version of the function found at
 		// https://gist.github.com/LiquidHelium/7858095
@@ -41,8 +43,9 @@ namespace ppc {
 		///@brief Set the string displayed
 		///////////////////////////////////////////////////////////////
 		void setText(std::string);
+        void setRectPos(sf::Vector2f);
 
-		sf::RectangleShape& getBubble();
+		sf::ConvexShape& getBubble();
 
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 

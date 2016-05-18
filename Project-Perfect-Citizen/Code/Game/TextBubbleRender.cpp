@@ -24,6 +24,11 @@ ppc::TextBubble & ppc::TextBubbleRender::getTextBubble() {
 	return *bubble_;
 }
 
+void ppc::TextBubbleRender::setColor(sf::Color c) {
+    bubbleColor_ = c;
+    bubble_->getBubble().setFillColor(bubbleColor_);
+}
+
 
 void ppc::TextBubbleRender::setRenderable(bool r) {
 	renderable_ = r;
