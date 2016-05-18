@@ -335,10 +335,16 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	}
 	std::random_shuffle(indexVec.begin(), indexVec.end());
 
-	for (unsigned int i = 0, j = 0; i < indexVec.size(); ++i) {
-		playNet->vert(indexVec[i]).setPosition(static_cast<float>(50 + 125 * (i%4)), 
-			                                   static_cast<float>(50 + 100 * j));
-		if (i > 0 && (i % 4) == 0) j++;
+	float xcoord = 0;
+	float ycoord = 0;
+	for (unsigned int i = 0; i < indexVec.size(); ++i) {
+		playNet->vert(indexVec[i]).setPosition(static_cast<float>(25 + 125 * xcoord), 
+			                                     static_cast<float>(25 + 150 * ycoord));
+		++xcoord;
+		if (xcoord == 4) {
+			xcoord = 0;
+			++ycoord;
+		}
 	}
 
 	NetworkRenderComponent* networkRender = 
