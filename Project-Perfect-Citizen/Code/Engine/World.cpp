@@ -127,6 +127,7 @@ bool World::runDesktop(Desktop &myDesktop) {
 		while (screen_->pollEvent(event)) {
 			if (event.type == sf::Event::Closed) {
 				screen_->close();
+                throw std::exception();
 			} else if (event.type == sf::Event::KeyPressed) {
 				//Close
 				if ((event.key.code == sf::Keyboard::Period) && (event.key.alt)) {
@@ -177,10 +178,6 @@ bool World::runDesktop(Desktop &myDesktop) {
 		screen_->draw(myDesktop, states);
 		screen_->display();
 	}
-
-    if (quitter_) {
-        throw;
-    }
 
 	return false;
 }

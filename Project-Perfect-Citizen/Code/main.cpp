@@ -146,7 +146,8 @@ void setUpPoliticianDesktop(ppc::Desktop& myDesktop) {
 }
 
 int main(int argc, char** argv) {
-    
+    try {
+
     DBG_INIT();
     //Scans Debug Flags
     Debug::scanOpts(argc, argv);
@@ -365,6 +366,10 @@ int main(int argc, char** argv) {
     
     
     return EXIT_SUCCESS;
+
+    } catch(std::exception e) {
+        cerr << e.what();
+    }
 }
 
 
