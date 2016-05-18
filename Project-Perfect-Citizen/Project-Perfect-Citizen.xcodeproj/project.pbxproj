@@ -466,6 +466,7 @@
 		C86F3F411CEBED6B00430C89 /* Windows_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = C86F3DFF1CEBED6B00430C89 /* Windows_Icons.png */; };
 		C86F3F421CEBED6B00430C89 /* Windows_UI.png in Resources */ = {isa = PBXBuildFile; fileRef = C86F3E001CEBED6B00430C89 /* Windows_UI.png */; };
 		C86F3F431CEBED6B00430C89 /* World_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = C86F3E011CEBED6B00430C89 /* World_Sheet.png */; };
+		C86F3F451CEBF73E00430C89 /* Politician_Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = C86F3F441CEBF73E00430C89 /* Politician_Icon_Sheet.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1066,6 +1067,7 @@
 		C86F3DFF1CEBED6B00430C89 /* Windows_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_Icons.png; sourceTree = "<group>"; };
 		C86F3E001CEBED6B00430C89 /* Windows_UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_UI.png; sourceTree = "<group>"; };
 		C86F3E011CEBED6B00430C89 /* World_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = World_Sheet.png; sourceTree = "<group>"; };
+		C86F3F441CEBF73E00430C89 /* Politician_Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Politician_Icon_Sheet.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1457,6 +1459,7 @@
 				C86F3DCE1CEBED6B00430C89 /* Icon_Sheet2.png */,
 				C86F3DCF1CEBED6B00430C89 /* kappa.png */,
 				C86F3DD01CEBED6B00430C89 /* last.txt */,
+				C86F3F441CEBF73E00430C89 /* Politician_Icon_Sheet.png */,
 				C86F3DD11CEBED6B00430C89 /* Logo_Sheet.png */,
 				C86F3DD21CEBED6B00430C89 /* micross.ttf */,
 				C86F3DD31CEBED6B00430C89 /* Notification_Prompt.wav */,
@@ -1970,6 +1973,7 @@
 				C86F3EC41CEBED6B00430C89 /* Old_Mission_Unit_4.jpg in Resources */,
 				C86F3ECC1CEBED6B00430C89 /* q.jpg in Resources */,
 				C86F3F311CEBED6B00430C89 /* PPC.sav in Resources */,
+				C86F3F451CEBF73E00430C89 /* Politician_Icon_Sheet.png in Resources */,
 				C86F3F001CEBED6B00430C89 /* Email0.json in Resources */,
 				C86F3E431CEBED6B00430C89 /* Baptism_in_a_Catholic_Church.jpg in Resources */,
 				C86F3E871CEBED6B00430C89 /* road_trip.jpg in Resources */,
