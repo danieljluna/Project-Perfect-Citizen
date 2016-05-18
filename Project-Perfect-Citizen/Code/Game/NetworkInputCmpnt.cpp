@@ -247,8 +247,8 @@ bool ppc::NetworkInputCmpnt::registerInput(Event ppcEv) {
     sf::Event ev(ppcEv);
 	sf::Vector2f mousePos;
 	if (ev.type == ev.MouseMoved && vertWasPreviouslyClicked_) {
-		mousePos.x = ev.mouseMove.x;
-		mousePos.y = ev.mouseMove.y;
+		mousePos.x = (float)ev.mouseMove.x;
+		mousePos.y = (float)ev.mouseMove.y;
 		network_->setTempEdgePos(selectedVert_, mousePos);
 		return false;
 	}
