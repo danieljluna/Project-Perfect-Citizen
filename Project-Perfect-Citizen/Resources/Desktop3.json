@@ -26,10 +26,28 @@
             "Speeches" : {
                 "1/Harduwich.txt" : "DesktopContent/Desktop3/Harduwich.txt",
                 "1/Osman_College.txt" : "DesktopContent/Desktop3/Osman_College.txt"
+            },
+            "Itinerary" : {
+                "1/November.jpg" : "DesktopContent/Desktop3/November.png",
+                "1/Nov1.jpg" : "DesktopContent/Desktop3/Nov1.png",
+                "1/Nov4.jpg" : "DesktopContent/Desktop3/Nov4.png",
+                "1/Nov7.jpg" : "DesktopContent/Desktop3/Nov7.png",
+                "1/Nov11.jpg" : "DesktopContent/Desktop3/Nov11.png",
+                "1/Nov14.jpg" : "DesktopContent/Desktop3/Nov14.png",
+                "1/Nov15.jpg" : "DesktopContent/Desktop3/Nov15.png"
             }
         },
         "Personal" : {
-            "1/Vincent_Wins.jpg" : "DesktopContent/Desktop3/Vincent_Wins.png"
+            "1/Joseph's_Will.txt" : "DesktopContent/Desktop3/Dad_Will.txt",
+            "1/Marie's_Will.txt" : "DesktopContent/Desktop3/Mom_Will.txt",
+            "1/Divorce_Petition_Copy.jpg" : "DesktopContent/Desktop3/Divorce_Petition_Copy.jpg",
+            "1/Hospice_Receipt.jpg" : "DesktopContent/Desktop3/Hopsice_Gift_Receipt.jpg",
+            "1/Medical_Reciept.jpg" : "DesktopContent/Desktop3/Medical_Reciept.jpg",
+            "1/MnR.jpg" : "DesktopContent/Desktop3/MnR.jpg",
+            "1/Family_Photo.jpg" : "DesktopContent/Desktop3/Family_Photo.png"
+        },
+        "Trash" : {
+            "1/You_Are_Invited.jpg" : "DesktopContent/Desktop3/You_Are_Invited.png"
         }
     }
 }
