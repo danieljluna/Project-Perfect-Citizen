@@ -10,7 +10,7 @@
 #include "desktop.h"
 
 #include "debug.h"
-#include "desktop.h"
+#include "../Engine/SuspiciousFileHolder.h"
 
 using namespace ppc;
 
@@ -133,8 +133,8 @@ Desktop& World::getCurrDesktop() {
 	return *currDesktop_;
 }
 
-bool World::runDesktop(Desktop &myDesktop) {
-	if (screen_ == nullptr) return false;
+void World::runDesktop(Desktop &myDesktop) {
+	if (screen_ == nullptr) return;
 	// Go into main game loop
 
     quitter_ = false;
@@ -200,15 +200,15 @@ bool World::runDesktop(Desktop &myDesktop) {
 		screen_->display();
 	}
 
-	return false;
 }
 
 bool World::loadDesktop(DesktopList desk) {
     return loadDesktop(desktopFileMap_.at(desk));
 }
 
-bool World::runCurrDesktop() {
-	return runDesktop(*currDesktop_);
+int World::runCurrDesktop() {
+	runDesktop(*currDesktop_);
+	return SuspiciousFileHolder::getFinalScore();
 }
 
 

@@ -12,7 +12,7 @@ int ppc::SuspiciousFileHolder::susScore_ = 0;
 ppc::Subject ppc::SuspiciousFileHolder::onChange;
 //std::vector < ppc::SuspiciousFileHolder*> ppc::SuspiciousFileHolder::susVec_;
 
-
+int ppc::SuspiciousFileHolder::finalScore_ = 0;
 
 std::vector<ppc::BaseFileType*>& ppc::SuspiciousFileHolder::getBftVector()
 {
@@ -58,9 +58,6 @@ void ppc::SuspiciousFileHolder::printSuspiciousVector()
 
 void ppc::SuspiciousFileHolder::setWindow(ppc::WindowInterface * sWindow)
 {
-	//if (susWindow_ != nullptr) {
-	//	susWindow_->close();
-	//}
 	susWindow_ = sWindow;
 }
 
@@ -94,7 +91,6 @@ void ppc::SuspiciousFileHolder::submitFiles()
 
 
 	if (bftVector_.size() != 3) {
-		//std::cout << "Need more files dingus" << std::endl;
 		return;
 	}
 
@@ -104,6 +100,7 @@ void ppc::SuspiciousFileHolder::submitFiles()
 		totalSuspicion += (**iter).getSuspicionLevel();
 	}
 
+	finalScore_ = totalSuspicion;
 
 	if (totalSuspicion < goodThreshold_) {
 		guilty_ = false;
@@ -122,7 +119,6 @@ void ppc::SuspiciousFileHolder::submitFiles()
 	} else if (totalSuspicion >= 0 && totalSuspicion <= 9) {
 		World::setCurrReportType(World::ReportType::D);
 	}
-
 
 }
 
@@ -165,4 +161,9 @@ void ppc::SuspiciousFileHolder::setSusScore(int score)
 bool ppc::SuspiciousFileHolder::isGuilty()
 {
 	return guilty_;
+}
+
+int ppc::SuspiciousFileHolder::getFinalScore() 
+{
+	return finalScore_;
 }
