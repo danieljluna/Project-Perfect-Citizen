@@ -177,6 +177,11 @@ bool World::runDesktop(Desktop &myDesktop) {
 		screen_->draw(myDesktop, states);
 		screen_->display();
 	}
+
+    if (quitter_) {
+        throw;
+    }
+
 	return false;
 }
 
@@ -330,13 +335,24 @@ void ppc::World::loadState(std::string filename) {
     while (file) {
         std::getline(file, line);
 
-        if (line.size() == 0) break;
+        //Trim Comments
+        size_t tempIndex = line.find('#');
+        if (tempIndex != std::string::npos) {
+            line = line.substr(0, tempIndex);
+        }
 
-        line = line.substr(line.find_first_not_of("[ \t]"),
-                           line.find_last_not_of("[ \t]"));
+        //Trim whitespace
+        tempIndex = line.find_first_not_of(" \t");
+        if (tempIndex == std::string::npos) continue;
+        line = line.substr(tempIndex,
+                           line.find_last_not_of(" \t"));
 
+        //Enforce Bracket Tagging
+        if (line.front() != '[') continue;
+        line = line.substr(1, line.find(']'));
+
+        //Find Tag
         auto mapIt = saveGroupMap_.find(line);
-        
         if (mapIt == saveGroupMap_.end()) {
             //Output error
             DEBUGF("wl", filename << ": Bad Group Tag: " << line);
