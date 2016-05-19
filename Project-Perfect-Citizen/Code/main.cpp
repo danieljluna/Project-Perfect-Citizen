@@ -307,14 +307,19 @@ int main(int argc, char** argv) {
         
         //Player Desktop (2)
         World::startLoading();
-        desktopFileInput.open(resourcePath() + "Engine/playerDesktop2.ini", std::ifstream::in);
+		if (ppc::SuspiciousFileHolder::isGuilty()) {
+			desktopFileInput.open(resourcePath() + "Engine/playerDesktop2B.ini", std::ifstream::in);
+			World::setCurrDesktopEnum(World::DesktopList::DEPlayer2B);
+		} else {
+			desktopFileInput.open(resourcePath() + "Engine/playerDesktop2A.ini", std::ifstream::in);
+			World::setCurrDesktopEnum(World::DesktopList::DEPlayer2A);
+		}
         desktopFileInput >> mainDesktop;
         desktopFileInput.close();
         
         Logger::startTimer("playerDesktop2");
         
         World::setCurrDesktop(mainDesktop);
-        World::setCurrDesktopEnum(World::DesktopList::DEPlayer2);
         setUpPlayerDesktop(mainDesktop);
         World::runCurrDesktop();
         

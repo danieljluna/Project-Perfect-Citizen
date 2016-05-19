@@ -3,7 +3,7 @@
 #include <iostream>
 
 
-void ppc::LevelPacket::push(int d, int i) {
+void ppc::LevelPacket::pushNext(int d, int i) {
 	nextVec_.push_back({ d, i });
 }
 

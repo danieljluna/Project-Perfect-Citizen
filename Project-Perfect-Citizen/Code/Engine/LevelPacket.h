@@ -13,7 +13,7 @@ namespace ppc {
 	// second corresponds to score from file holder (smallest value is 1).
 	std::vector<std::pair<int, int>> nextVec_;
 
-	void push(int, int);
+	void pushNext(int, int);
 		
 	int getNext(int);
 
