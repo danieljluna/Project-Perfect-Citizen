@@ -2,9 +2,9 @@
     "Email": {
         "Email_1": {
             "Visible" : "1",
-            "To" : "",
-            "From" : "",
-            "Subject" : "",
+            "To" : "You",
+            "From" : "JP",
+            "Subject" : "Your Simulation Run",
             "Body" :"
     Wow! Great job on the Pipeline and Desktop
     simulation! Only a handful of first-timers get
@@ -19,9 +19,9 @@
         },
         "Email_2": {
             "Visible" : "1",
-            "To" : "",
-            "From" : "",
-            "Subject" : "",
+            "To" : "You",
+            "From" : "CT",
+            "Subject" : "A PERFECT SCORE!",
             "Body" :"
     Heh. A perfect score. I scored a perfect score
     on my first simulation run as well. Well, good

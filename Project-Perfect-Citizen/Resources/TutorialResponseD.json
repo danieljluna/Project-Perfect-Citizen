@@ -2,9 +2,9 @@
     "Email": {
         "Email_1": {
             "Visible" : "1",
-            "To" : "",
-            "From" : "",
-            "Subject" : "",
+            "To" : "You",
+            "From" : "JP",
+            "Subject" : "Your Simulation Run",
             "Body" :"
     Unfortunately, you received the lowest score
     possible. That is a bit alarming, maybe you
@@ -19,9 +19,9 @@
         },
         "Email_2": {
             "Visible" : "1",
-            "To" : "",
-            "From" : "",
-            "Subject" : "",
+            "To" : "You",
+            "From" : "CT",
+            "Subject" : "Lowest Score Ever",
             "Body" :"
     You just achieved the lowest score in DCPS
     history, how do you feel newbie?  Well, just

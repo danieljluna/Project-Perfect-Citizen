@@ -2,9 +2,9 @@
     "Email": {
         "Email_1": {
             "Visible" : "1",
-            "To" : "",
-            "From" : "",
-            "Subject" : "",
+            "To" : "You",
+            "From" : "JP",
+            "Subject" : "Good Job Today",
             "Body" :"
     Good job today on your first big extraction!
     You see, it is important to go through people
@@ -19,9 +19,9 @@
         },
         "Email_2": {
             "Visible" : "1",
-            "To" : "",
-            "From" : "",
-            "Subject" : "",
+            "To" : "You",
+            "From" : "CT",
+            "Subject" : "Great Job!",
             "Body" :"
     Impressive work busting your guy! "
         }

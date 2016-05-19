@@ -2,15 +2,15 @@
     "Email": {
         "Email_1": {
             "Visible" : "1",
-            "To" : "",
-            "From" : "",
+            "To" : "You",
+            "From" : "JP",
             "Subject" : "",
             "Body" :""
         },
         "Email_2": {
             "Visible" : "1",
-            "To" : "",
-            "From" : "",
+            "To" : "You",
+            "From" : "CT",
             "Subject" : "",
             "Body" :""
         }
