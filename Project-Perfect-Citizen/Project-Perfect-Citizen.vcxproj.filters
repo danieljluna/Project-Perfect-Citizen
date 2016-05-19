@@ -778,6 +778,9 @@
     <ClInclude Include="Code\Game\ReportScreenInput.h">
       <Filter>Headers\Game Specific\Reports</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Engine\TimerObserver.h">
+      <Filter>Headers\Engine\Observer System\Observers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json">

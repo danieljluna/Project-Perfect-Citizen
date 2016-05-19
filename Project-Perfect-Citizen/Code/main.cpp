@@ -375,13 +375,13 @@ int main(int argc, char** argv) {
     
     Logger::exportParcels();
     
-    
-    
-    return EXIT_SUCCESS;
 
     } catch(std::exception e) {
         cerr << e.what();
     }
+
+    return EXIT_SUCCESS;
+
 }
 
 
