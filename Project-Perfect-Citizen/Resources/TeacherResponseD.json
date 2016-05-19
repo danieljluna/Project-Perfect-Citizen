@@ -1,0 +1,28 @@
+{
+    "Email": {
+        "Email_1": {
+            "Visible" : "1",
+            "To" : "",
+            "From" : "",
+            "Subject" : "",
+            "Body" :"
+    It is appalling when our system flags people
+    that are completely innocent. I will tell the
+    design team to work on the flagging algorithm.
+            
+    Your next assignment is ready in the Graph
+    application."
+        },
+        "Email_2": {
+            "Visible" : "1",
+            "To" : "",
+            "From" : "",
+            "Subject" : "",
+            "Body" :"
+    Why do I feel like there was more to Murphy
+    than what you submitted? Just make sure you
+    pay attention to all the details in the
+    Desktop Extraction."
+        }
+    }
+}

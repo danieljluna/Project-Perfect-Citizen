@@ -144,6 +144,26 @@
 		E92328FC1CEE46C5009466E1 /* textRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92328A71CEE46C5009466E1 /* textRenderComponent.cpp */; };
 		E92328FD1CEE46C5009466E1 /* TreeCommands.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92328A91CEE46C5009466E1 /* TreeCommands.cpp */; };
 		E92328FE1CEE46C5009466E1 /* WindowBkgndRenderCmpnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E92328AB1CEE46C5009466E1 /* WindowBkgndRenderCmpnt.cpp */; };
+		E92329021CEE63E4009466E1 /* TutorialResponseA.json in Resources */ = {isa = PBXBuildFile; fileRef = E92329011CEE63E4009466E1 /* TutorialResponseA.json */; };
+		E92329041CEE63F0009466E1 /* TutorialResponseB.json in Resources */ = {isa = PBXBuildFile; fileRef = E92329031CEE63F0009466E1 /* TutorialResponseB.json */; };
+		E92329061CEE63FB009466E1 /* TutorialResponseC.json in Resources */ = {isa = PBXBuildFile; fileRef = E92329051CEE63FB009466E1 /* TutorialResponseC.json */; };
+		E92329081CEE6405009466E1 /* TutorialResponseD.json in Resources */ = {isa = PBXBuildFile; fileRef = E92329071CEE6405009466E1 /* TutorialResponseD.json */; };
+		E923290A1CEE6415009466E1 /* TeacherResponseA.json in Resources */ = {isa = PBXBuildFile; fileRef = E92329091CEE6415009466E1 /* TeacherResponseA.json */; };
+		E923290C1CEE6429009466E1 /* TeacherResponseB.json in Resources */ = {isa = PBXBuildFile; fileRef = E923290B1CEE6429009466E1 /* TeacherResponseB.json */; };
+		E923290E1CEE643D009466E1 /* TeacherResponseC.json in Resources */ = {isa = PBXBuildFile; fileRef = E923290D1CEE643D009466E1 /* TeacherResponseC.json */; };
+		E92329101CEE6447009466E1 /* TeacherResponseD.json in Resources */ = {isa = PBXBuildFile; fileRef = E923290F1CEE6447009466E1 /* TeacherResponseD.json */; };
+		E92329121CEE6460009466E1 /* ArtistResponseA.json in Resources */ = {isa = PBXBuildFile; fileRef = E92329111CEE6460009466E1 /* ArtistResponseA.json */; };
+		E92329141CEE6475009466E1 /* ArtistResponseB.json in Resources */ = {isa = PBXBuildFile; fileRef = E92329131CEE6475009466E1 /* ArtistResponseB.json */; };
+		E92329161CEE6481009466E1 /* ArtistResponseC.json in Resources */ = {isa = PBXBuildFile; fileRef = E92329151CEE6481009466E1 /* ArtistResponseC.json */; };
+		E92329181CEE648C009466E1 /* ArtistResponseD.json in Resources */ = {isa = PBXBuildFile; fileRef = E92329171CEE648C009466E1 /* ArtistResponseD.json */; };
+		E923291A1CEE6582009466E1 /* PoliticianResponseA.json in Resources */ = {isa = PBXBuildFile; fileRef = E92329191CEE6582009466E1 /* PoliticianResponseA.json */; };
+		E923291C1CEE658C009466E1 /* PoliticianResponseB.json in Resources */ = {isa = PBXBuildFile; fileRef = E923291B1CEE658C009466E1 /* PoliticianResponseB.json */; };
+		E923291E1CEE659B009466E1 /* PoliticianResponseC.json in Resources */ = {isa = PBXBuildFile; fileRef = E923291D1CEE659B009466E1 /* PoliticianResponseC.json */; };
+		E92329201CEE65A5009466E1 /* PoliticianResponseD.json in Resources */ = {isa = PBXBuildFile; fileRef = E923291F1CEE65A5009466E1 /* PoliticianResponseD.json */; };
+		E92329221CEE65B0009466E1 /* HackerResponseA.json in Resources */ = {isa = PBXBuildFile; fileRef = E92329211CEE65B0009466E1 /* HackerResponseA.json */; };
+		E92329241CEE65C4009466E1 /* HackerResponseB.json in Resources */ = {isa = PBXBuildFile; fileRef = E92329231CEE65C4009466E1 /* HackerResponseB.json */; };
+		E92329261CEE65D0009466E1 /* HackerResponseC.json in Resources */ = {isa = PBXBuildFile; fileRef = E92329251CEE65D0009466E1 /* HackerResponseC.json */; };
+		E92329281CEE65DB009466E1 /* HackerResponseD.json in Resources */ = {isa = PBXBuildFile; fileRef = E92329271CEE65DB009466E1 /* HackerResponseD.json */; };
 		E953903C1CEBECE500F8A5DF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9538F2A1CEBECE500F8A5DF /* main.cpp */; };
 		E9C94EE61CED2E55000E8732 /* Artist_Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E9C94D451CED2E54000E8732 /* Artist_Icon_Sheet.png */; };
 		E9C94EE71CED2E55000E8732 /* Artist_Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = E9C94D461CED2E54000E8732 /* Artist_Wallpaper.png */; };
@@ -827,6 +847,26 @@
 		E92328AA1CEE46C5009466E1 /* TreeCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeCommands.h; sourceTree = "<group>"; };
 		E92328AB1CEE46C5009466E1 /* WindowBkgndRenderCmpnt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowBkgndRenderCmpnt.cpp; sourceTree = "<group>"; };
 		E92328AC1CEE46C5009466E1 /* WindowBkgndRenderCmpnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowBkgndRenderCmpnt.h; sourceTree = "<group>"; };
+		E92329011CEE63E4009466E1 /* TutorialResponseA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TutorialResponseA.json; sourceTree = "<group>"; };
+		E92329031CEE63F0009466E1 /* TutorialResponseB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TutorialResponseB.json; sourceTree = "<group>"; };
+		E92329051CEE63FB009466E1 /* TutorialResponseC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TutorialResponseC.json; sourceTree = "<group>"; };
+		E92329071CEE6405009466E1 /* TutorialResponseD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TutorialResponseD.json; sourceTree = "<group>"; };
+		E92329091CEE6415009466E1 /* TeacherResponseA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TeacherResponseA.json; sourceTree = "<group>"; };
+		E923290B1CEE6429009466E1 /* TeacherResponseB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TeacherResponseB.json; sourceTree = "<group>"; };
+		E923290D1CEE643D009466E1 /* TeacherResponseC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TeacherResponseC.json; sourceTree = "<group>"; };
+		E923290F1CEE6447009466E1 /* TeacherResponseD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TeacherResponseD.json; sourceTree = "<group>"; };
+		E92329111CEE6460009466E1 /* ArtistResponseA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ArtistResponseA.json; sourceTree = "<group>"; };
+		E92329131CEE6475009466E1 /* ArtistResponseB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ArtistResponseB.json; sourceTree = "<group>"; };
+		E92329151CEE6481009466E1 /* ArtistResponseC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ArtistResponseC.json; sourceTree = "<group>"; };
+		E92329171CEE648C009466E1 /* ArtistResponseD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ArtistResponseD.json; sourceTree = "<group>"; };
+		E92329191CEE6582009466E1 /* PoliticianResponseA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PoliticianResponseA.json; sourceTree = "<group>"; };
+		E923291B1CEE658C009466E1 /* PoliticianResponseB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PoliticianResponseB.json; sourceTree = "<group>"; };
+		E923291D1CEE659B009466E1 /* PoliticianResponseC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PoliticianResponseC.json; sourceTree = "<group>"; };
+		E923291F1CEE65A5009466E1 /* PoliticianResponseD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PoliticianResponseD.json; sourceTree = "<group>"; };
+		E92329211CEE65B0009466E1 /* HackerResponseA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HackerResponseA.json; sourceTree = "<group>"; };
+		E92329231CEE65C4009466E1 /* HackerResponseB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HackerResponseB.json; sourceTree = "<group>"; };
+		E92329251CEE65D0009466E1 /* HackerResponseC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HackerResponseC.json; sourceTree = "<group>"; };
+		E92329271CEE65DB009466E1 /* HackerResponseD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HackerResponseD.json; sourceTree = "<group>"; };
 		E9538F2A1CEBECE500F8A5DF /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
 		E9C94D451CED2E54000E8732 /* Artist_Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Artist_Icon_Sheet.png; sourceTree = "<group>"; };
 		E9C94D461CED2E54000E8732 /* Artist_Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Artist_Wallpaper.png; sourceTree = "<group>"; };
@@ -1662,6 +1702,26 @@
 				E9C94E9D1CED2E55000E8732 /* Engine */,
 				E9C94EBA1CED2E55000E8732 /* Reports */,
 				E9C94ECA1CED2E55000E8732 /* Saves */,
+				E92329011CEE63E4009466E1 /* TutorialResponseA.json */,
+				E92329031CEE63F0009466E1 /* TutorialResponseB.json */,
+				E92329051CEE63FB009466E1 /* TutorialResponseC.json */,
+				E92329071CEE6405009466E1 /* TutorialResponseD.json */,
+				E92329091CEE6415009466E1 /* TeacherResponseA.json */,
+				E923290B1CEE6429009466E1 /* TeacherResponseB.json */,
+				E923290D1CEE643D009466E1 /* TeacherResponseC.json */,
+				E923290F1CEE6447009466E1 /* TeacherResponseD.json */,
+				E92329111CEE6460009466E1 /* ArtistResponseA.json */,
+				E92329131CEE6475009466E1 /* ArtistResponseB.json */,
+				E92329151CEE6481009466E1 /* ArtistResponseC.json */,
+				E92329171CEE648C009466E1 /* ArtistResponseD.json */,
+				E92329191CEE6582009466E1 /* PoliticianResponseA.json */,
+				E923291B1CEE658C009466E1 /* PoliticianResponseB.json */,
+				E923291D1CEE659B009466E1 /* PoliticianResponseC.json */,
+				E923291F1CEE65A5009466E1 /* PoliticianResponseD.json */,
+				E92329211CEE65B0009466E1 /* HackerResponseA.json */,
+				E92329231CEE65C4009466E1 /* HackerResponseB.json */,
+				E92329251CEE65D0009466E1 /* HackerResponseC.json */,
+				E92329271CEE65DB009466E1 /* HackerResponseD.json */,
 			);
 			path = Resources;
 			sourceTree = SOURCE_ROOT;
@@ -2160,6 +2220,7 @@
 				E9C94FF91CED2E55000E8732 /* Do_Not_Lose_This.png in Resources */,
 				E9C950431CED2E55000E8732 /* Floppy_Sheet.png in Resources */,
 				E9C94EF01CED2E55000E8732 /* Desktop1.json in Resources */,
+				E92329141CEE6475009466E1 /* ArtistResponseB.json in Resources */,
 				E9C94EEE1CED2E55000E8732 /* Desktop0.json in Resources */,
 				E9C94FAC1CED2E55000E8732 /* p.jpg in Resources */,
 				E9C94F791CED2E55000E8732 /* 4004_composite.jpg in Resources */,
@@ -2181,6 +2242,7 @@
 				E9C94FFC1CED2E55000E8732 /* Freaking_Out.txt in Resources */,
 				E9C94F7E1CED2E55000E8732 /* Blueprint12.jpg in Resources */,
 				E9C950661CED2E55000E8732 /* PPC.sav in Resources */,
+				E92329081CEE6405009466E1 /* TutorialResponseD.json in Resources */,
 				E9C94F901CED2E55000E8732 /* Gadget2.jpg in Resources */,
 				E9C94F091CED2E55000E8732 /* Thompson.jpg in Resources */,
 				E9C950051CED2E55000E8732 /* Mobile_vs_Redwood_'67.jpg in Resources */,
@@ -2189,6 +2251,7 @@
 				E92327D81CEE4687009466E1 /* Mouse_Down.wav in Resources */,
 				E9C94F371CED2E55000E8732 /* Crowd35.jpg in Resources */,
 				E9C950631CED2E55000E8732 /* loginDesktop.ini in Resources */,
+				E92329241CEE65C4009466E1 /* HackerResponseB.json in Resources */,
 				E9C950741CED2E55000E8732 /* VT323-Regular.ttf in Resources */,
 				E9C9507D1CED3F61000E8732 /* Allegations.txt in Resources */,
 				E9C94FED1CED2E55000E8732 /* 6.txt in Resources */,
@@ -2200,6 +2263,7 @@
 				E9C950691CED2E55000E8732 /* SoundTrack_Pipeline.ogg in Resources */,
 				E9C94FDA1CED2E55000E8732 /* 11.txt in Resources */,
 				E9C94F9F1CED2E55000E8732 /* m.jpg in Resources */,
+				E92329061CEE63FB009466E1 /* TutorialResponseC.json in Resources */,
 				E9C94F871CED2E55000E8732 /* Dancers_at_the_Barre.jpg in Resources */,
 				E9C950261CED2E55000E8732 /* house0.jpg in Resources */,
 				E9C94F171CED2E55000E8732 /* 4-4-12-048.jpg in Resources */,
@@ -2232,6 +2296,7 @@
 				E9C950441CED2E55000E8732 /* Icon_Sheet.png in Resources */,
 				E9C94F301CED2E55000E8732 /* Crowd16.jpg in Resources */,
 				E9C94F551CED2E55000E8732 /* Leila-crowded-classrooms.jpg in Resources */,
+				E92329021CEE63E4009466E1 /* TutorialResponseA.json in Resources */,
 				E9C9504A1CED2E55000E8732 /* micross.ttf in Resources */,
 				E9C94F1F1CED2E55000E8732 /* 8-9-11-0426.jpg in Resources */,
 				E9C94FF01CED2E55000E8732 /* 9.txt in Resources */,
@@ -2242,6 +2307,7 @@
 				E9C94EE61CED2E55000E8732 /* Artist_Icon_Sheet.png in Resources */,
 				E9C94F541CED2E55000E8732 /* LacanMirrorPhase.txt in Resources */,
 				E9C950471CED2E55000E8732 /* kappa.png in Resources */,
+				E923290E1CEE643D009466E1 /* TeacherResponseC.json in Resources */,
 				E92327DC1CEE4687009466E1 /* Notification_New.wav in Resources */,
 				E9C94FE51CED2E55000E8732 /* 20.txt in Resources */,
 				E9C950311CED2E55000E8732 /* DesktopTutorial.txt in Resources */,
@@ -2275,6 +2341,7 @@
 				E9C94FA31CED2E55000E8732 /* Note_to_Voyeur #1.txt in Resources */,
 				E9C94EFE1CED2E55000E8732 /* Grocery Reminder!.txt in Resources */,
 				E9C94F151CED2E55000E8732 /* 4-24-08-152.jpg in Resources */,
+				E923291A1CEE6582009466E1 /* PoliticianResponseA.json in Resources */,
 				E9C94FA91CED2E55000E8732 /* Old_Mission_Unit_4.jpg in Resources */,
 				E9C9502D1CED2E55000E8732 /* Spreadsheet.png in Resources */,
 				E9C94F691CED2E55000E8732 /* RE_Welcome.txt in Resources */,
@@ -2303,6 +2370,7 @@
 				E9C94F421CED2E55000E8732 /* Doubt9.jpg in Resources */,
 				E9C94FEC1CED2E55000E8732 /* 5.txt in Resources */,
 				E9C9502C1CED2E55000E8732 /* nsfw1.png in Resources */,
+				E923291C1CEE658C009466E1 /* PoliticianResponseB.json in Resources */,
 				E9C94FB81CED2E55000E8732 /* s.jpg in Resources */,
 				E9C94F011CED2E55000E8732 /* liberator_1.jpg in Resources */,
 				E9C9501F1CED2E55000E8732 /* Who_would_do_this.png in Resources */,
@@ -2349,6 +2417,7 @@
 				E9C94F271CED2E55000E8732 /* Baptism_2.jpg in Resources */,
 				E9C950551CED2E55000E8732 /* ArtistReportC.txt in Resources */,
 				E92327DB1CEE4687009466E1 /* Notification_Bad.wav in Resources */,
+				E923290A1CEE6415009466E1 /* TeacherResponseA.json in Resources */,
 				E9C950031CED2E55000E8732 /* Medical_Reciept.jpg in Resources */,
 				E9C950481CED2E55000E8732 /* last.txt in Resources */,
 				E9C94FEF1CED2E55000E8732 /* 8.txt in Resources */,
@@ -2367,10 +2436,12 @@
 				E9C94F931CED2E55000E8732 /* Gogh_Wheat_Field_with_Crows.jpg in Resources */,
 				E9C9504D1CED2E55000E8732 /* Pixel_Title.png in Resources */,
 				E9C94FB71CED2E55000E8732 /* roland_TR-606.jpg in Resources */,
+				E92329261CEE65D0009466E1 /* HackerResponseC.json in Resources */,
 				E9C94FE81CED2E55000E8732 /* 23.txt in Resources */,
 				E9C94FCC1CED2E55000E8732 /* Van_Gogh_The_Sower.jpg in Resources */,
 				E9C94F4D1CED2E55000E8732 /* Fragment+Of+Eternity.jpg in Resources */,
 				E9C94F6A1CED2E55000E8732 /* Redwood_High_School,_Larkspur,_California.jpg in Resources */,
+				E92329101CEE6447009466E1 /* TeacherResponseD.json in Resources */,
 				E9C94F751CED2E55000E8732 /* The_Scarlet_Letter.txt in Resources */,
 				E9C94F1E1CED2E55000E8732 /* 7402.jpg in Resources */,
 				E9C94F761CED2E55000E8732 /* Trouble.txt in Resources */,
@@ -2446,7 +2517,9 @@
 				E9C94F451CED2E55000E8732 /* EternalStation.jpg in Resources */,
 				E9C94F191CED2E55000E8732 /* 5678.jpg in Resources */,
 				E9C94FEE1CED2E55000E8732 /* 7.txt in Resources */,
+				E92329201CEE65A5009466E1 /* PoliticianResponseD.json in Resources */,
 				E9C94F051CED2E55000E8732 /* route_plan.jpg in Resources */,
+				E92329181CEE648C009466E1 /* ArtistResponseD.json in Resources */,
 				E9C9505C1CED2E55000E8732 /* TeacherReportA.txt in Resources */,
 				E9C94F971CED2E55000E8732 /* k.jpg in Resources */,
 				E9C94F5D1CED2E55000E8732 /* New_bed_1.jpg in Resources */,
@@ -2466,6 +2539,7 @@
 				E9C950301CED2E55000E8732 /* volunteer0.jpg in Resources */,
 				E9C94F601CED2E55000E8732 /* NewCrowd38.jpg in Resources */,
 				E9C94EE71CED2E55000E8732 /* Artist_Wallpaper.png in Resources */,
+				E92329121CEE6460009466E1 /* ArtistResponseA.json in Resources */,
 				E9C94F561CED2E55000E8732 /* Lolita - Vladimir Nabokov.txt in Resources */,
 				E9C94F831CED2E55000E8732 /* c.jpg in Resources */,
 				E9C950791CED2E55000E8732 /* Windows_Icons.png in Resources */,
@@ -2484,6 +2558,7 @@
 				E9C94F7D1CED2E55000E8732 /* BankPark_Blueprint.jpg in Resources */,
 				E9C94F3E1CED2E55000E8732 /* Doubt16.jpg in Resources */,
 				E9C950581CED2E55000E8732 /* DummyReportB.txt in Resources */,
+				E92329161CEE6481009466E1 /* ArtistResponseC.json in Resources */,
 				E9C950161CED2E55000E8732 /* Tensions_Rise_as_Voting_Day_Looms.jpg in Resources */,
 				E9C94FB51CED2E55000E8732 /* rca_ctc11.jpg in Resources */,
 				E9C94FBC1CED2E55000E8732 /* Submarine_Damge.jpg in Resources */,
@@ -2494,6 +2569,7 @@
 				E9C94F141CED2E55000E8732 /* 4-14-09-462.jpg in Resources */,
 				E9C94F8A1CED2E55000E8732 /* e.jpg in Resources */,
 				E9C950401CED2E55000E8732 /* trailerDesktop.ini in Resources */,
+				E92329041CEE63F0009466E1 /* TutorialResponseB.json in Resources */,
 				E9C94F9A1CED2E55000E8732 /* Langlois_Bridge.jpg in Resources */,
 				E9C94EFC1CED2E55000E8732 /* explosives_permit.txt in Resources */,
 				E9C94FD11CED2E55000E8732 /* Wheat_Field_with_Cypresses.jpg in Resources */,
@@ -2507,6 +2583,7 @@
 				E9C950381CED2E55000E8732 /* bootDesktop.ini in Resources */,
 				E9C950371CED2E55000E8732 /* artistDesktop.ini in Resources */,
 				E9C94FE01CED2E55000E8732 /* 17.txt in Resources */,
+				E923290C1CEE6429009466E1 /* TeacherResponseB.json in Resources */,
 				E9C950081CED2E55000E8732 /* Nov1.png in Resources */,
 				E9C94F9C1CED2E55000E8732 /* Leonardo2.jpg in Resources */,
 				E9C9502E1CED2E55000E8732 /* STMNT_JUN_NORTHN_PENINSULA.png in Resources */,
@@ -2528,6 +2605,7 @@
 				E92327D51CEE4687009466E1 /* Chat_Sent.wav in Resources */,
 				E9C94FB31CED2E55000E8732 /* r.jpg in Resources */,
 				E9C94FE91CED2E55000E8732 /* 24.txt in Resources */,
+				E923291E1CEE659B009466E1 /* PoliticianResponseC.json in Resources */,
 				E9C950221CED2E55000E8732 /* daughter0.jpg in Resources */,
 				E9C9505E1CED2E55000E8732 /* TeacherReportC.txt in Resources */,
 				E9C950751CED2E55000E8732 /* Wallpaper.png in Resources */,
@@ -2535,9 +2613,11 @@
 				E9C94EF31CED2E55000E8732 /* 17391.jpg in Resources */,
 				E9C9502A1CED2E55000E8732 /* newspaper1.png in Resources */,
 				E9C94EFD1CED2E55000E8732 /* fireperm.txt in Resources */,
+				E92329221CEE65B0009466E1 /* HackerResponseA.json in Resources */,
 				E9C94F5A1CED2E55000E8732 /* mulvey-visualpleasure.txt in Resources */,
 				E9C94FF41CED2E55000E8732 /* Bros.jpg in Resources */,
 				E9C94F361CED2E55000E8732 /* Crowd32.jpg in Resources */,
+				E92329281CEE65DB009466E1 /* HackerResponseD.json in Resources */,
 				E9C94FCB1CED2E55000E8732 /* Van_Gogh_The_Olive_Trees.jpg in Resources */,
 				E9C94F341CED2E55000E8732 /* Crowd3.jpg in Resources */,
 				E9C94F351CED2E55000E8732 /* Crowd31.jpg in Resources */,

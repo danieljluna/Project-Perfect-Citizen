@@ -1,0 +1,18 @@
+{
+    "Email": {
+        "Email_1": {
+            "Visible" : "1",
+            "To" : "",
+            "From" : "",
+            "Subject" : "",
+            "Body" :""
+        },
+        "Email_2": {
+            "Visible" : "1",
+            "To" : "",
+            "From" : "",
+            "Subject" : "",
+            "Body" :""
+        }
+    }
+}
