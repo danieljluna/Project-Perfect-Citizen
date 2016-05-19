@@ -1131,115 +1131,107 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 
 void ppc::spawnSettingsMenu(Desktop * dt, WindowInterface *& windowToModify, InputHandler & ih, float x, float y)
 {
-	if (windowToModify == nullptr) { return; }
 
-	/////////////////////////////////////////
-	/////// COMPONENTS
-	///////////////////////////////////////
+	float windowWidth = static_cast<float>(windowToModify->getSize().x);
+	float windowHeight = static_cast<float>(windowToModify->getSize().y);
+	sf::Font myFont = World::getFont(ppc::World::VT323Regular);
+	int subHeaderSize = 20;
+	int headerSize = 36;
+	int buttonLetterSize = 20;
+	float buttonScale = 0.25f;
 
-	World::getFont(ppc::World::VT323Regular);
-	sf::Font myFont;
-	myFont.loadFromFile(resourcePath() + "consola.ttf");
-	int fontSize = 12;
-
-	/////////////////////////////////////////
-	/////// ENTITIES
-	///////////////////////////////////////
+	// Icon //
 	Entity alertIcon;
 	float alertScale = 0.5f;
 	float alertWidth = 128.0;
-	float windowWidth = static_cast<float>(windowToModify->getSize().x);
-	float windowHeight = static_cast<float>(windowToModify->getSize().y);
 	float alertX = windowWidth - ((alertWidth * alertScale) + (3 * (windowWidth / 4)));
 	float alertY = (windowHeight - (alertWidth * alertScale)) / 8;
-	float buttonScale = 0.25f;
-	float buttonX = ((windowWidth - (alertWidth * buttonScale)) / 2);
-	float buttonY = (2 * (windowHeight / 3));
 	spawnDCPSIcon(alertIcon, ih, dt->getButtonSheet(), alertX - 15, alertY - 8, 0.74f);
+	
+	TextDisplayRenderComponent* settingsText = new TextDisplayRenderComponent(myFont, sf::Color::Black,
+		alertX+100, alertY, headerSize-6, "Project Perfect Citizen:\n > Game Settings");
+	alertIcon.addComponent(settingsText);
 	windowToModify->addEntity(alertIcon);
-
-	// Some Settings Text Display Here
-
 
 	ButtonBuilder builder;
 
 	// Resolution Module //
 
-		// Label //
+		// Resolution Header //
 		Entity resolutionText;
-		TextDisplayBuilder tdBuilder;
-		tdBuilder.setFont(myFont);
-		tdBuilder.setSize(20);
-		tdBuilder.setPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 2 - 50,
-			static_cast<float>(windowToModify->getSize().y/3)));
-		tdBuilder.setColor(sf::Color::Black);
-		tdBuilder.setString("Resolution");
-		tdBuilder.create(resolutionText);
+		TextDisplayRenderComponent* resolutionHeader = new TextDisplayRenderComponent(myFont, sf::Color::Black,
+			0.0f, 0.0f, headerSize, "Resolution");
+		resolutionHeader->updatePosition((windowWidth - resolutionHeader->getText()->getLocalBounds().width) / 2, 
+			windowHeight/3);
+		resolutionText.addComponent(resolutionHeader);
 		windowToModify->addEntity(resolutionText);
+
+		// Current Resolution
+		Entity resDisplay;
+		TextDisplayRenderComponent* currentRes = new TextDisplayRenderComponent(myFont, sf::Color::Black, 0.0f, 0.0f,
+			subHeaderSize, std::to_string(World::getSettings().resolution.x) + " x " + std::to_string(World::getSettings().resolution.y));
+		currentRes->updatePosition((windowWidth - currentRes->getText()->getLocalBounds().width) / 2,
+			resolutionHeader->getTextPosition().y + 50);
+		resDisplay.addComponent(currentRes);
+		windowToModify->addEntity(resDisplay);
 
 		// Decrement Button
 		Entity decrementResolutionBtn;
 		builder.setInputHandle(ih);
 		builder.setLabelMessage("-");
 		builder.setSpriteSheet(dt->getButtonSheet());
-		builder.setButtonPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 2 - 100,
-			static_cast<float>(windowToModify->getSize().y / 3) + 50));
-		builder.setSize(0.25f);
+		builder.setButtonPosition((windowWidth) / 3,
+			resolutionHeader->getTextPosition().y + 50);
+		builder.setSize(buttonScale);
 		builder.setLabelFont(myFont);
-		builder.setLabelSize(12);
-		createWithEventFunc(builder, decrementResolutionBtn, dt, ppc::decrement_resolution);
+		builder.setLabelSize(buttonLetterSize);
+		createWithEventFunc(builder, decrementResolutionBtn, currentRes, ppc::decrement_resolution);
 		windowToModify->addEntity(decrementResolutionBtn);
-
-		// Current Resolution
-		Entity resDisplay;
-		TextDisplayRenderComponent* currentRes = new TextDisplayRenderComponent(myFont, sf::Color::Black,
-			static_cast<float>(windowToModify->getSize().x) / 2, static_cast<float>(windowToModify->getSize().y / 3) + 50,
-			12, std::to_string(World::getSettings().resolution.x) + "X" + std::to_string(World::getSettings().resolution.y));
-		resDisplay.addComponent(currentRes);
-		windowToModify->addEntity(resDisplay);
-
 
 		//Increment Button
 		Entity incrementResolutionBtn;
 		builder.setLabelMessage("+");
-		builder.setButtonPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 2 + 100,
-			static_cast<float>(windowToModify->getSize().y / 3) + 50));
-		createWithEventFunc(builder, incrementResolutionBtn, dt, ppc::increment_resolution);
+		builder.setButtonPosition((2 * windowWidth) / 3,
+			resolutionHeader->getTextPosition().y + 50);
+		createWithEventFunc(builder, incrementResolutionBtn, currentRes, ppc::increment_resolution);
 		windowToModify->addEntity(incrementResolutionBtn);
 
 
 	// Volume Module //
 
-		// Label //
+		// Volume Header //
 		Entity volumeText;
-		tdBuilder.setString("Volume"); 
-		tdBuilder.setPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 2 - 50,
-			static_cast<float>(windowToModify->getSize().y / 1.5)));
-		tdBuilder.create(resolutionText);
-		windowToModify->addEntity(resolutionText);
+		TextDisplayRenderComponent* volumeHeader = new TextDisplayRenderComponent(myFont, sf::Color::Black,
+			0.0f, 0.0f, headerSize, "Volume");
+		volumeHeader->updatePosition((windowWidth - volumeHeader->getText()->getLocalBounds().width) / 2,
+			(2 * windowHeight) / 3);
+		volumeText.addComponent(volumeHeader);
+		windowToModify->addEntity(volumeText);
+	
+		// Current Volume
+		Entity volDisplay;
+		TextDisplayRenderComponent* currentVol = new TextDisplayRenderComponent(myFont, sf::Color::Black,
+			0.0f, 0.0f, subHeaderSize, "50");
+		currentVol->updatePosition((windowWidth - currentVol->getText()->getLocalBounds().width) / 2,
+			volumeHeader->getTextPosition().y + 50);
+		volDisplay.addComponent(currentVol);
+		windowToModify->addEntity(volDisplay);
 
 		// Decrement Button //
 		Entity volumedecrementButton;
 		builder.setLabelMessage("-");
-		builder.setButtonPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 2 - 100,
-			static_cast<float>(windowToModify->getSize().y / 1.5) + 50));
-		createWithEventFunc(builder, volumedecrementButton, dt, ppc::decrement_volume);
+		builder.setButtonPosition((windowWidth) / 3,
+			volumeHeader->getTextPosition().y + 50);
+		createWithEventFunc(builder, volumedecrementButton, currentVol, ppc::decrement_volume);
 		windowToModify->addEntity(volumedecrementButton);
-
-		// Current Volume
-		Entity volDisplay;
-		TextDisplayRenderComponent* currentVol = new TextDisplayRenderComponent(myFont, sf::Color::Black,
-			static_cast<float>(windowToModify->getSize().x) / 2, static_cast<float>(windowToModify->getSize().y / 1.5) + 50,
-			12, "50");
-		volDisplay.addComponent(currentVol);
-		windowToModify->addEntity(volDisplay);
 
 		// Increment Button //
 		Entity volumeIncrementButton;
 		builder.setLabelMessage("+");
-		builder.setButtonPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 2 + 100,
-			static_cast<float>(windowToModify->getSize().y / 1.5) + 50));
-		createWithEventFunc(builder, volumeIncrementButton, dt, ppc::increment_volume);
+		builder.setButtonPosition(
+			(2*windowWidth)/3,
+			volumeHeader->getTextPosition().y + 50);
+		createWithEventFunc(builder, volumeIncrementButton, currentVol, ppc::increment_volume);
 		windowToModify->addEntity(volumeIncrementButton);
 
 
@@ -1252,8 +1244,9 @@ void ppc::spawnSettingsMenu(Desktop * dt, WindowInterface *& windowToModify, Inp
 		windowToModify->addEntity(updateButton);
 
 	windowToModify = new BorderDecorator(*windowToModify);
-	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Settings");
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(dt->getButtonSheet(), closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Settings");
+
 
 }
 
@@ -1276,28 +1269,75 @@ bool ppc::continue_world(WindowInterface* w, ppc::Event ev) {
     return false;
 }
 
-bool ppc::increment_resolution(Desktop *, ppc::Event ev)
+bool ppc::increment_resolution(TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
+	// Iterate up to next settings menu up
+
+	// Parse the x resolution value into resX below:
+	// int resX;
+
+	// Parse the y resolution value into resY below:
+	// int resY;
+
+	// Uncomment the line below when the resolutions are loaded.
+	//ptr->updateString(std::to_string(resX) + " x " + std::to_string(resY));
 	return true;
 }
 
-bool ppc::decrement_resolution(Desktop *, ppc::Event ev)
+bool ppc::decrement_resolution(TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
+	// Iterate up to next settings menu down
+
+	// Parse the x resolution value into resX below:
+	// int resX;
+
+	// Parse the y resolution value into resY below:
+	// int resY;
+
+	// Uncomment the line below when the resolutions are loaded.
+	//ptr->updateString(std::to_string(resX) + " x " + std::to_string(resY));
 	return true;
 }
 
-bool ppc::increment_volume(Desktop *, ppc::Event ev)
+bool ppc::increment_volume(TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
+	int incrementBy = 5;
+	int newVolumeVal = std::stoi(ptr->getString()) + incrementBy;
+
+	if (newVolumeVal > 100) return false;
+	else {
+		// Update the audio engine with newVolumeVal here
+
+
+		ptr->updateString(std::to_string(newVolumeVal));
+	}
 	return true;
 }
 
-bool ppc::decrement_volume(Desktop *, ppc::Event ev)
+bool ppc::decrement_volume(TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
+	int decrementBy = 5;
+	int newVolumeVal = std::stoi(ptr->getString()) - decrementBy;
+
+	if (newVolumeVal < 0) return false;
+	else {
+
+		// Update the audio engine with newVolumeVal here
+
+		ptr->updateString(std::to_string(newVolumeVal));
+	}
+	
 	return true;
 }
 
-bool ppc::update_settings(TextDisplayRenderComponent *, ppc::Event ev)
+bool ppc::update_settings(TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
+	string newResolution = ptr->getString();
+	// Parse resolution x and y into resX and resY
+	// int resX;
+	// int resY;
+	
+	// Set the new resolution using resX, resY;
 	return true;
 }
 

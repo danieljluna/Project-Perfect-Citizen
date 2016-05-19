@@ -234,11 +234,11 @@ bool close_window(WindowInterface* w, ppc::Event ev);
 bool open_settings(WindowInterface *w, ppc::Event ev);
 bool continue_world(WindowInterface* w, ppc::Event ev);
 
-bool increment_resolution(Desktop*, ppc::Event ev);
-bool decrement_resolution(Desktop*, ppc::Event ev);
+bool increment_resolution(TextDisplayRenderComponent*, ppc::Event ev);
+bool decrement_resolution(TextDisplayRenderComponent*, ppc::Event ev);
 
-bool increment_volume(Desktop*, ppc::Event ev);
-bool decrement_volume(Desktop*, ppc::Event ev);
+bool increment_volume(TextDisplayRenderComponent*, ppc::Event ev);
+bool decrement_volume(TextDisplayRenderComponent*, ppc::Event ev);
 
 bool update_settings(TextDisplayRenderComponent*, ppc::Event ev);
 };
