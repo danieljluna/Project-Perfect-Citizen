@@ -20,11 +20,14 @@ namespace ppc {
 
         enum DesktopList {
             //Fill with Enums as input files are made
-			DE0 = 0,
-			DEPlayer,
+			DE0A = 0,
+			DE0B,
+			DEPlayer1,
 			DE1,
+			DEPlayer2,
 			DE2A,
 			DE2B,
+			DEPlayer3,
 			DE3,
             DesktopCount
         };

@@ -243,7 +243,7 @@ int main(int argc, char** argv) {
     Logger::startTimer("PipeTutorialDesktop");
 
 	World::setCurrDesktop(mainDesktop);
-	World::setCurrDesktopEnum(World::DesktopList::DE0);
+	World::setCurrDesktopEnum(World::DesktopList::DE0A);
     createTutorial(mainDesktop);
     World::runCurrDesktop();
     
@@ -260,6 +260,7 @@ int main(int argc, char** argv) {
 	Logger::startTimer("DeskTutorialDesktop");
 
 	World::setCurrDesktop(mainDesktop);
+	World::setCurrDesktopEnum(World::DesktopList::DE0B);
 	createDesktopTutorial(mainDesktop);
 	World::runCurrDesktop();
 
@@ -274,7 +275,7 @@ int main(int argc, char** argv) {
     Logger::startTimer("playerDesktop");
     
     World::setCurrDesktop(mainDesktop);
-	World::setCurrDesktopEnum(World::DesktopList::DEPlayer);
+	World::setCurrDesktopEnum(World::DesktopList::DEPlayer1);
 	setUpPlayerDesktop(mainDesktop);
 	World::runCurrDesktop();
     
@@ -306,14 +307,14 @@ int main(int argc, char** argv) {
     
 	//Player Desktop (2)
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Saves/playerDesktop2.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/playerDesktop2.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
 
 	Logger::startTimer("playerDesktop2");
 
 	World::setCurrDesktop(mainDesktop);
-	World::setCurrDesktopEnum(World::DesktopList::DEPlayer);
+	World::setCurrDesktopEnum(World::DesktopList::DEPlayer2);
 	setUpPlayerDesktop(mainDesktop);
 	World::runCurrDesktop();
 
@@ -347,14 +348,14 @@ int main(int argc, char** argv) {
 
 	//Player Desktop (PE3)
 	World::startLoading();
-	desktopFileInput.open(resourcePath() + "Saves/playerDesktop3.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/playerDesktop3.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
 
 	Logger::startTimer("playerDesktop3");
 
 	World::setCurrDesktop(mainDesktop);
-	World::setCurrDesktopEnum(World::DesktopList::DEPlayer);
+	World::setCurrDesktopEnum(World::DesktopList::DEPlayer3);
 	setUpPlayerDesktop(mainDesktop);
 	World::runCurrDesktop();
 
@@ -364,7 +365,7 @@ int main(int argc, char** argv) {
 	//Desktop Extraction 3 goes here
 
 	//Ending Desktop
-	desktopFileInput.open(resourcePath() + "Saves/endDesktop.ini", std::ifstream::in);
+	desktopFileInput.open(resourcePath() + "Engine/endDesktop.ini", std::ifstream::in);
 	desktopFileInput >> mainDesktop;
 	desktopFileInput.close();
     Logger::startTimer("endDesktop");
