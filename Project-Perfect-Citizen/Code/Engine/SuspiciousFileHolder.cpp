@@ -83,13 +83,6 @@ ppc::BaseFileType * ppc::SuspiciousFileHolder::getBFTVectorElement(int element)
 
 void ppc::SuspiciousFileHolder::submitFiles()
 {
-    Event ev;
-    ev.type = ev.SubmissionType;
-    ev.submission.count = bftVector_.size();
-    ev.submission.type = ev.submission.Submit;
-    onChange.sendEvent(ev);
-
-
 	if (bftVector_.size() != 3) {
 		return;
 	}
@@ -104,7 +97,6 @@ void ppc::SuspiciousFileHolder::submitFiles()
 
 	if (totalSuspicion < goodThreshold_) {
 		guilty_ = false;
-		return;
 	}
 	else if (totalSuspicion > badThreshold_) {
 		guilty_ = true;
@@ -119,6 +111,13 @@ void ppc::SuspiciousFileHolder::submitFiles()
 	} else if (totalSuspicion >= 1 && totalSuspicion <= 9) {
 		World::setCurrReportType(World::ReportType::D);
 	}
+
+	Event ev;
+	ev.type = ev.SubmissionType;
+	ev.submission.count = bftVector_.size();
+	ev.submission.type = ev.submission.Submit;
+	onChange.sendEvent(ev);
+
 
 }
 
