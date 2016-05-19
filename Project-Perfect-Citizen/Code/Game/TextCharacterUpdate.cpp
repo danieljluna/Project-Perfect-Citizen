@@ -34,7 +34,10 @@ void ppc::TextCharacterUpdate::update(sf::Time& deltaTime) {
 
 		if (strItor_ == content_.end()) {
 			isEnd = true;
-			//onAnimEnd_.sendEvent();
+			ppc::Event myEv;
+			myEv.type = Event::AnimationType;
+			myEv.animation.index = 1;
+			onAnimEnd_.sendEvent(myEv);
 			accumulator_ = sf::milliseconds(sf::Int32(0.f));
 			return;
 		}
