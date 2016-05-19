@@ -139,7 +139,7 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
                     theDesktop_.focusWindow(openedWindow);
                 } else {
                     tempWin = new ppc::Window(500, 150, sf::Color(170, 170, 170));
-                    spawnErrorMessage(tempWin, tempWin->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
+                    spawnErrorMessage(tempWin, tempWin->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.", "Invalid Permissions");
                     theDesktop_.addWindow(tempWin);
                     openedWindow = tempWin;
                 }
@@ -149,7 +149,7 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
                     theDesktop_.focusWindow(openedWindow);
                 } else {
                     tempWin = new ppc::Window(500, 150, sf::Color(170, 170, 170));
-                    spawnErrorMessage(tempWin, tempWin->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.");
+                    spawnErrorMessage(tempWin, tempWin->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.", "Invalid Permissions");
                     theDesktop_.addWindow(tempWin);
                     openedWindow = tempWin;
                 }
@@ -225,7 +225,7 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
 						spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_,
 							250,
 							250,
-							"Error: " + labelName + " is protected. \nHint: " + tempNS->getCwd()->findElement(labelName)->getHint());
+							"Error: " + labelName + " is protected. \nHint: " + tempNS->getCwd()->findElement(labelName)->getHint(), "Directory is locked");
 						theDesktop_.addWindow(ErrorMsgWindow);
 					}
 					else {
