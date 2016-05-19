@@ -10,7 +10,7 @@
 #include "desktop.h"
 
 #include "debug.h"
-#include "desktop.h"
+#include "../Engine/SuspiciousFileHolder.h"
 
 using namespace ppc;
 
@@ -18,16 +18,29 @@ using namespace ppc;
 sf::RenderWindow* World::screen_ = nullptr;
 Desktop* World::currDesktop_ = nullptr;
 sf::Transform World::worldTransform_;
+
+std::map<ppc::World::DesktopList, ppc::LevelPacket> World::levelMap_ = {
+
+};
+
 std::map<std::string, World::savGroups> World::saveGroupMap_ = {
     { "Settings",      World::SettingsTag  },
     { "State",         World::StateTag     }
 };
 
-World::DesktopList World::currDesktopEnum_ = DE0;
+World::DesktopList World::currDesktopEnum_ = DE0A;
 World::ReportType World::currReportType_ = A;
 std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
-	{World::DE0, ""},
-    {World::DesktopCount, ""}  //Empty pairing of Count to string.
+	{ World::DE0A, resourcePath() + "Engine/pipelineTutorial.ini" },
+	{ World::DE0B, resourcePath() + "Engine/desktopTutorial.ini" },
+	{ World::DEPlayer1, resourcePath() + "Engine/playerDesktop.ini" },
+	{ World::DE1, resourcePath() + "Engine/teacherDesktop.ini" },
+	{ World::DEPlayer2, resourcePath() + "Engine/playerDesktop2.ini" },
+	{ World::DE2A, resourcePath() + "Engine/artistDesktop.ini" },
+	{ World::DE2B, resourcePath() + "Engine/politicianDesktop.ini" },
+	{ World::DEPlayer3, resourcePath() + "Engine/playerDesktop3.ini" },
+	{ World::DE3, resourcePath() + "Engine/hackerDesktop.ini" },
+    { World::DesktopCount, ""}  //Empty pairing of Count to string.
 };
 
 std::map<World::FontList, sf::Font> World::fontMap_ = {
@@ -38,10 +51,10 @@ std::map<World::FontList, sf::Font> World::fontMap_ = {
 };
 
 std::map <std::pair<World::DesktopList, World::ReportType>, std::string > World::reportListMap_ = {
-	{ { DE0, A }, resourcePath() + "Reports/DummyReportA.txt" },
-	{ { DE0, B }, resourcePath() + "Reports/DummyReportB.txt" },
-	{ { DE0, C }, resourcePath() + "Reports/DummyReportC.txt" },
-	{ { DE0, D }, resourcePath() + "Reports/DummyReportD.txt" },
+	{ { DE0B, A }, resourcePath() + "Reports/DummyReportA.txt" },
+	{ { DE0B, B }, resourcePath() + "Reports/DummyReportB.txt" },
+	{ { DE0B, C }, resourcePath() + "Reports/DummyReportC.txt" },
+	{ { DE0B, D }, resourcePath() + "Reports/DummyReportD.txt" },
 
 	{ { DE1, A }, resourcePath() + "Reports/TeacherReportA.txt" },
 	{ { DE1, B }, resourcePath() + "Reports/TeacherReportB.txt" },
@@ -79,6 +92,43 @@ sf::Sprite World::loadingDecal_ = sf::Sprite();
 bool World::isLoading_ = false;
 
 Setting World::settings_;
+
+void ppc::World::initLevelMap() {
+
+	LevelPacket levelTutorialPipeline;
+	levelTutorialPipeline.push(DE0B, 1);
+	levelMap_.emplace(DE0A, levelTutorialPipeline);
+
+	LevelPacket levelTutorialExtraction;
+	levelTutorialExtraction.push(DEPlayer1, 1);
+	levelMap_.emplace(DE0B, levelTutorialExtraction);
+
+	LevelPacket levelPlayer1;
+	levelPlayer1.push(DE1, 1);
+	levelMap_.emplace(DEPlayer1, levelPlayer1);
+
+	LevelPacket levelOne;
+	levelOne.push(DEPlayer2, 1);
+	levelMap_.emplace(DE1, levelOne);
+
+	LevelPacket levelPlayer2;
+	levelPlayer2.push(DE2A, 19);
+	levelPlayer2.push(DE2B, 20);
+	levelMap_.emplace(DEPlayer2, levelPlayer2);
+
+	LevelPacket levelTwo;
+	levelTwo.push(DEPlayer3, 1);
+	levelMap_.emplace(DE2A, levelTwo);
+	levelMap_.emplace(DE2B, levelTwo);
+
+	LevelPacket levelPlayer3;
+	levelPlayer3.push(DE3, 1);
+	levelMap_.emplace(DEPlayer3, levelPlayer3);
+
+	LevelPacket levelThree;
+	levelMap_.emplace(DE3, levelThree);
+
+}
 
 void World::setGameScreen(sf::RenderWindow& gameScreen) {
 	screen_ = &gameScreen;
@@ -133,8 +183,8 @@ Desktop& World::getCurrDesktop() {
 	return *currDesktop_;
 }
 
-bool World::runDesktop(Desktop &myDesktop) {
-	if (screen_ == nullptr) return false;
+void World::runDesktop(Desktop &myDesktop) {
+	if (screen_ == nullptr) return;
 	// Go into main game loop
 
     quitter_ = false;
@@ -202,15 +252,15 @@ bool World::runDesktop(Desktop &myDesktop) {
 		screen_->display();
 	}
 
-	return false;
 }
 
 bool World::loadDesktop(DesktopList desk) {
     return loadDesktop(desktopFileMap_.at(desk));
 }
 
-bool World::runCurrDesktop() {
-	return runDesktop(*currDesktop_);
+int World::runCurrDesktop() {
+	runDesktop(*currDesktop_);
+	return SuspiciousFileHolder::getFinalScore();
 }
 
 
