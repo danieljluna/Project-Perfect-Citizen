@@ -142,9 +142,6 @@
     <ClCompile Include="Code\Engine\FunctionObserver.cpp">
       <Filter>Sources\Engine\Observer System</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Engine\FreeFunctionObserver.cpp">
-      <Filter>Sources\Engine\Observer System</Filter>
-    </ClCompile>
     <ClCompile Include="Code\Game\iconInputComponent.cpp">
       <Filter>Sources\Game Specific\Input</Filter>
     </ClCompile>
@@ -378,6 +375,10 @@
     <ClCompile Include="Code\Game\ReportScreenInput.cpp">
       <Filter>Sources\Game Specific\Reports</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Engine\LevelPacket.cpp">
+      <Filter>Sources\Engine\World</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\ReportEndObsvr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -776,6 +777,12 @@
       <Filter>Headers\Game Specific\Reports</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\ReportScreenInput.h">
+      <Filter>Headers\Game Specific\Reports</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\LevelPacket.h">
+      <Filter>Headers\Engine\World</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\ReportEndObsvr.h">
       <Filter>Headers\Game Specific\Reports</Filter>
     </ClInclude>
   </ItemGroup>

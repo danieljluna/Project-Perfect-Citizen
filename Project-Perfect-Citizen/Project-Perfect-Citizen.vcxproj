@@ -27,12 +27,12 @@
     <ClCompile Include="Code\Engine\EntityDecorator.cpp" />
     <ClCompile Include="Code\Engine\EntityLogger.cpp" />
     <ClCompile Include="Code\Engine\event.cpp" />
-    <ClCompile Include="Code\Engine\FreeFunctionObserver.cpp" />
     <ClCompile Include="Code\Engine\frontTopObserver.cpp" />
     <ClCompile Include="Code\Engine\FunctionObserver.cpp" />
     <ClCompile Include="Code\Engine\InputCmpntLogger.cpp" />
     <ClCompile Include="Code\Engine\inputComponent.cpp" />
     <ClCompile Include="Code\Engine\InputHandler.cpp" />
+    <ClCompile Include="Code\Engine\LevelPacket.cpp" />
     <ClCompile Include="Code\Engine\Logger.cpp" />
     <ClCompile Include="Code\Engine\LoggerParcel.cpp" />
     <ClCompile Include="Code\Engine\Network.cpp" />
@@ -116,6 +116,7 @@
     <ClCompile Include="Code\Game\PipelineDataRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineGraphRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineLevelBuilder.cpp" />
+    <ClCompile Include="Code\Game\ReportEndObsvr.cpp" />
     <ClCompile Include="Code\Game\ReportScreenInput.cpp" />
     <ClCompile Include="Code\Game\ReportScreenObsvr.cpp" />
     <ClCompile Include="Code\Game\spriteRenderComponent.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="Code\Engine\InputCmpntLogger.h" />
     <ClInclude Include="Code\Engine\inputComponent.h" />
     <ClInclude Include="Code\Engine\InputHandler.h" />
+    <ClInclude Include="Code\Engine\LevelPacket.h" />
     <ClInclude Include="Code\Engine\Logger.h" />
     <ClInclude Include="Code\Engine\LoggerParcel.h" />
     <ClInclude Include="Code\Engine\Network.h" />
@@ -258,6 +260,7 @@
     <ClInclude Include="Code\Game\PipelineGraphRenderComponent.h" />
     <ClInclude Include="Code\Game\PipelineJobsAndIncomes.h" />
     <ClInclude Include="Code\Game\PipelineLevelBuilder.h" />
+    <ClInclude Include="Code\Game\ReportEndObsvr.h" />
     <ClInclude Include="Code\Game\ReportScreenInput.h" />
     <ClInclude Include="Code\Game\ReportScreenObsvr.h" />
     <ClInclude Include="Code\Game\spriteRenderComponent.hpp" />
