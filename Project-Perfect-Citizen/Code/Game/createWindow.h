@@ -219,9 +219,28 @@ void spawnContextMenu(WindowInterface*& windowToModify,
 ///////////////////////////////////////////////////////////////////////
 void spawnFileTracker(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, float x, float y);
 
+///////////////////////////////////////////////////////////////////////
+///@brief Constructs a settings menu
+///
+///@param The newly created window to add components/entities to.
+///@param The input handler of the listened-to window.
+///@param The static suspicious folder holder for the desktop extraction
+///@param The x position of the new window
+///@param The y position of the new window
+///////////////////////////////////////////////////////////////////////
+void spawnSettingsMenu(Desktop* dt, WindowInterface*& windowToModify, InputHandler& ih, float x, float y);
+
 bool close_window(WindowInterface* w, ppc::Event ev);
+bool open_settings(WindowInterface *w, ppc::Event ev);
 bool continue_world(WindowInterface* w, ppc::Event ev);
 
+bool increment_resolution(Desktop*, ppc::Event ev);
+bool decrement_resolution(Desktop*, ppc::Event ev);
+
+bool increment_volume(Desktop*, ppc::Event ev);
+bool decrement_volume(Desktop*, ppc::Event ev);
+
+bool update_settings(TextDisplayRenderComponent*, ppc::Event ev);
 };
 
 

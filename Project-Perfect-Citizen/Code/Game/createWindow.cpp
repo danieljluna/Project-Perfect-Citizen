@@ -923,13 +923,19 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
     lBuilder.setSize(0.25f);
     lBuilder.setLabelFont(myFont);
     lBuilder.setLabelSize(12);
-    
-    createWithEventFunc(lBuilder, loginButton, windowToModify, continue_world);
+	createWithEventFunc(lBuilder, loginButton, windowToModify, continue_world);
+
+	Entity settingsButton;
+	lBuilder.setLabelMessage("Settings");
+	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 75, 95.0f));
+	createWithEventFunc(lBuilder, settingsButton, windowToModify, open_settings);
+  
     
     windowToModify->addEntity(alertIcon);
     windowToModify->addEntity(tbox);
     windowToModify->addEntity(promptText);
     windowToModify->addEntity(loginButton);
+	windowToModify->addEntity(settingsButton);
     windowToModify = new BorderDecorator(*windowToModify);
 
     dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Login");
@@ -1123,15 +1129,176 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 
 }
 
+void ppc::spawnSettingsMenu(Desktop * dt, WindowInterface *& windowToModify, InputHandler & ih, float x, float y)
+{
+	if (windowToModify == nullptr) { return; }
+
+	/////////////////////////////////////////
+	/////// COMPONENTS
+	///////////////////////////////////////
+
+	World::getFont(ppc::World::VT323Regular);
+	sf::Font myFont;
+	myFont.loadFromFile(resourcePath() + "consola.ttf");
+	int fontSize = 12;
+
+	/////////////////////////////////////////
+	/////// ENTITIES
+	///////////////////////////////////////
+	Entity alertIcon;
+	float alertScale = 0.5f;
+	float alertWidth = 128.0;
+	float windowWidth = static_cast<float>(windowToModify->getSize().x);
+	float windowHeight = static_cast<float>(windowToModify->getSize().y);
+	float alertX = windowWidth - ((alertWidth * alertScale) + (3 * (windowWidth / 4)));
+	float alertY = (windowHeight - (alertWidth * alertScale)) / 8;
+	float buttonScale = 0.25f;
+	float buttonX = ((windowWidth - (alertWidth * buttonScale)) / 2);
+	float buttonY = (2 * (windowHeight / 3));
+	spawnDCPSIcon(alertIcon, ih, dt->getButtonSheet(), alertX - 15, alertY - 8, 0.74f);
+	windowToModify->addEntity(alertIcon);
+
+	// Some Settings Text Display Here
+
+
+	ButtonBuilder builder;
+
+	// Resolution Module //
+
+		// Label //
+		Entity resolutionText;
+		TextDisplayBuilder tdBuilder;
+		tdBuilder.setFont(myFont);
+		tdBuilder.setSize(20);
+		tdBuilder.setPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 2 - 50,
+			static_cast<float>(windowToModify->getSize().y/3)));
+		tdBuilder.setColor(sf::Color::Black);
+		tdBuilder.setString("Resolution");
+		tdBuilder.create(resolutionText);
+		windowToModify->addEntity(resolutionText);
+
+		// Decrement Button
+		Entity decrementResolutionBtn;
+		builder.setInputHandle(ih);
+		builder.setLabelMessage("-");
+		builder.setSpriteSheet(dt->getButtonSheet());
+		builder.setButtonPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 2 - 100,
+			static_cast<float>(windowToModify->getSize().y / 3) + 50));
+		builder.setSize(0.25f);
+		builder.setLabelFont(myFont);
+		builder.setLabelSize(12);
+		createWithEventFunc(builder, decrementResolutionBtn, dt, ppc::decrement_resolution);
+		windowToModify->addEntity(decrementResolutionBtn);
+
+		// Current Resolution
+		Entity resDisplay;
+		TextDisplayRenderComponent* currentRes = new TextDisplayRenderComponent(myFont, sf::Color::Black,
+			static_cast<float>(windowToModify->getSize().x) / 2, static_cast<float>(windowToModify->getSize().y / 3) + 50,
+			12, std::to_string(World::getSettings().resolution.x) + "X" + std::to_string(World::getSettings().resolution.y));
+		resDisplay.addComponent(currentRes);
+		windowToModify->addEntity(resDisplay);
+
+
+		//Increment Button
+		Entity incrementResolutionBtn;
+		builder.setLabelMessage("+");
+		builder.setButtonPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 2 + 100,
+			static_cast<float>(windowToModify->getSize().y / 3) + 50));
+		createWithEventFunc(builder, incrementResolutionBtn, dt, ppc::increment_resolution);
+		windowToModify->addEntity(incrementResolutionBtn);
+
+
+	// Volume Module //
+
+		// Label //
+		Entity volumeText;
+		tdBuilder.setString("Volume"); 
+		tdBuilder.setPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 2 - 50,
+			static_cast<float>(windowToModify->getSize().y / 1.5)));
+		tdBuilder.create(resolutionText);
+		windowToModify->addEntity(resolutionText);
+
+		// Decrement Button //
+		Entity volumedecrementButton;
+		builder.setLabelMessage("-");
+		builder.setButtonPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 2 - 100,
+			static_cast<float>(windowToModify->getSize().y / 1.5) + 50));
+		createWithEventFunc(builder, volumedecrementButton, dt, ppc::decrement_volume);
+		windowToModify->addEntity(volumedecrementButton);
+
+		// Current Volume
+		Entity volDisplay;
+		TextDisplayRenderComponent* currentVol = new TextDisplayRenderComponent(myFont, sf::Color::Black,
+			static_cast<float>(windowToModify->getSize().x) / 2, static_cast<float>(windowToModify->getSize().y / 1.5) + 50,
+			12, "50");
+		volDisplay.addComponent(currentVol);
+		windowToModify->addEntity(volDisplay);
+
+		// Increment Button //
+		Entity volumeIncrementButton;
+		builder.setLabelMessage("+");
+		builder.setButtonPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 2 + 100,
+			static_cast<float>(windowToModify->getSize().y / 1.5) + 50));
+		createWithEventFunc(builder, volumeIncrementButton, dt, ppc::increment_volume);
+		windowToModify->addEntity(volumeIncrementButton);
+
+
+	// Update Button //
+		Entity updateButton;
+		builder.setLabelMessage("Update");
+		builder.setButtonPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) - 100,
+			static_cast<float>(windowToModify->getSize().y) -50));
+		createWithEventFunc(builder, updateButton, currentRes, ppc::update_settings);
+		windowToModify->addEntity(updateButton);
+
+	windowToModify = new BorderDecorator(*windowToModify);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Settings");
+	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(dt->getButtonSheet(), closeWindow);
+
+}
+
 bool ppc::close_window(WindowInterface * w, ppc::Event ev)
 {
 	w->close();
 	return false;
 }
 
+bool ppc::open_settings(WindowInterface *w, ppc::Event ev) {
+	WindowInterface* settingsWindow = new ppc::Window(500, 600, sf::Color(170, 170, 170));
+	spawnSettingsMenu(&World::getCurrDesktop(), settingsWindow, settingsWindow->getInputHandler(), 500.0f, 500.0f);
+	settingsWindow->setPosition(sf::Vector2f{ 200.0f, 200.0f });
+	World::getCurrDesktop().addWindow(settingsWindow);
+	return true;
+}
+
 bool ppc::continue_world(WindowInterface* w, ppc::Event ev) {
     World::quitDesktop();
     return false;
+}
+
+bool ppc::increment_resolution(Desktop *, ppc::Event ev)
+{
+	return true;
+}
+
+bool ppc::decrement_resolution(Desktop *, ppc::Event ev)
+{
+	return true;
+}
+
+bool ppc::increment_volume(Desktop *, ppc::Event ev)
+{
+	return true;
+}
+
+bool ppc::decrement_volume(Desktop *, ppc::Event ev)
+{
+	return true;
+}
+
+bool ppc::update_settings(TextDisplayRenderComponent *, ppc::Event ev)
+{
+	return true;
 }
 
 
