@@ -3,6 +3,7 @@
 #include "TextDisplayBuilder.h"
 #include "TextCharacterUpdate.h"
 #include "ReportScreenInput.h"
+#include "ReportEndObsvr.h"
 #include <fstream>
 
 using namespace ppc;
@@ -32,10 +33,12 @@ void ppc::createReportScreen(Desktop &d) {
 
 	//next, make/add components to end report screen
 	TextCharacterUpdate* tcu = new TextCharacterUpdate();
+	tcu->onAnimEnd().addObserver(new ReportEndObsvr(*reportScreen));
+
 	TextDisplayRenderComponent* tdrc = dynamic_cast<TextDisplayRenderComponent*>(reportEntity.getComponent(0));
 	tcu->setTextDisplay(*tdrc);
 	tcu->setContent(content);
-	tcu->setDisplayRate(sf::milliseconds(sf::Int32(50.0f)));
+	tcu->setDisplayRate(sf::milliseconds(sf::Int32(30.0f)));
 
 	ReportScreenInput* rsi = new ReportScreenInput(reportScreen->getInputHandler());
 	rsi->setTextCharacterUpdate(*tcu);
