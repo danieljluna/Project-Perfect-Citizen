@@ -217,10 +217,12 @@ bool ppc::flag_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 
 bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 
+	if (ptr == nullptr) return false;
 
     Event evOut;
     evOut.type = evOut.OpenType;
     BaseFileType* target = ptr->getFolderNodeState()->getCwd();
+
     if (target->getFileType() == Directory) {
         evOut.open.winType = evOut.open.Folder;
     } else {
@@ -244,7 +246,7 @@ bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 		ppc::WindowInterface* success =
 			new ppc::Window(500, 150, sf::Color(170, 170, 170));
 		spawnSuccessMessage(success, success->getInputHandler(), ptr->getFolderDesktop()->getButtonSheet(),
-			250, 250, "Access Granted. " + ptr->getFolderName() + "is now unlocked.");
+			250, 250, "Access Granted. \n'" + ptr->getFolderName() + "' is now unlocked.");
 		ptr->getFolderDesktop()->addWindow(success);
 
 		/* Send the event and close the submit wind*/
@@ -260,7 +262,7 @@ bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 		new ppc::Window(500, 150, sf::Color(170, 170, 170));
 		spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), ptr->getFolderDesktop()->getButtonSheet(),
 		250, 250,
-			"Error: Password incorrect. \nHint: " + ptr->getFolderNodeState()->getCwd()->findElement(ptr->getFolderName())->getHint());
+			"Error: Password incorrect. \nHint: " + ptr->getFolderNodeState()->getCwd()->findElement(ptr->getFolderName())->getHint(), "Incorrect Password");
 		ptr->getFolderDesktop()->addWindow(ErrorMsgWindow);
         evOut.open.success = false;
 	}

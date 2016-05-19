@@ -153,6 +153,7 @@ void BaseFileType::setEncryption(bool flag) {
 	this->encrypted = flag;
 }
 
+
 bool BaseFileType::isHidden()
 {
 	return hidden;
