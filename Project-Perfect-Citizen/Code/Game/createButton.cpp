@@ -225,7 +225,7 @@ bool ppc::displayFloppy(FloppyInputComponent* ptr, Event ev) {
 bool ppc::LogOff(Desktop* ptr, Event ev) {
 	ppc::WindowInterface* ConfirmationWindow =
 		new ppc::Window(600, 150, sf::Color(170, 170, 170));
-	spawnErrorMessage(ConfirmationWindow, ConfirmationWindow->getInputHandler(), ptr->getButtonSheet(), 300, 300, "Are you sure you want to log off?");
+	spawnErrorMessage(ConfirmationWindow, ConfirmationWindow->getInputHandler(), ptr->getButtonSheet(), 300, 300, "Are you sure you want to log off?", "Log Off");
 	ptr->addWindow(ConfirmationWindow);
 	return true;
 }
@@ -233,7 +233,7 @@ bool ppc::LogOff(Desktop* ptr, Event ev) {
 bool ppc::displayFileInfo(Desktop* desk, Event ev) {
 	ppc::WindowInterface* infoWindow =
 		new ppc::Window(600, 150, sf::Color(177, 177, 177));
-	spawnErrorMessage(infoWindow, infoWindow->getInputHandler(), desk->getButtonSheet(), 300, 300, "HERES SOME FUKN INFO M8");
+	spawnErrorMessage(infoWindow, infoWindow->getInputHandler(), desk->getButtonSheet(), 300, 300, "HERES SOME FUKN INFO M8", "DELETE ME");
 	desk->addWindow(infoWindow);
 	return true;
 }

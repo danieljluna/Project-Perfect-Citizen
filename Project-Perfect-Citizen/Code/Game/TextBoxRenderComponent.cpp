@@ -56,11 +56,11 @@ void TextBoxRenderComponent::updateLabelSize(int s) {
 
 void TextBoxRenderComponent::updateLabelString(string str) {
 	labelString = str;
-	outline->setString(labelString);
+	outline->setString(labelString+"|");
 }
 
 void TextBoxRenderComponent::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
 	target.draw(*(this->outline), states);
-	target.draw(*(this->text), states);
+	//target.draw(*(this->text), states);
 }

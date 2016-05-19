@@ -117,7 +117,7 @@ void spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email
 ///@param The y position of the new window
 ///@param Custom string the message will display
 ///////////////////////////////////////////////////////////////////////
-void spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message);
+void spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message, std::string windowCaption);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Constructs a generic success message window
@@ -141,6 +141,7 @@ void spawnSuccessMessage(WindowInterface*& windowToModify, InputHandler& ih, sf:
 ///@param The x position of the new window
 ///@param The y position of the new window
 ///@param Custom string the message will display
+///@param The window caption to display on the window
 ///////////////////////////////////////////////////////////////////////
 void spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message);
 
@@ -218,9 +219,28 @@ void spawnContextMenu(WindowInterface*& windowToModify,
 ///////////////////////////////////////////////////////////////////////
 void spawnFileTracker(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, float x, float y);
 
+///////////////////////////////////////////////////////////////////////
+///@brief Constructs a settings menu
+///
+///@param The newly created window to add components/entities to.
+///@param The input handler of the listened-to window.
+///@param The static suspicious folder holder for the desktop extraction
+///@param The x position of the new window
+///@param The y position of the new window
+///////////////////////////////////////////////////////////////////////
+void spawnSettingsMenu(Desktop* dt, WindowInterface*& windowToModify, InputHandler& ih, float x, float y);
+
 bool close_window(WindowInterface* w, ppc::Event ev);
+bool open_settings(WindowInterface *w, ppc::Event ev);
 bool continue_world(WindowInterface* w, ppc::Event ev);
 
+bool increment_resolution(TextDisplayRenderComponent*, ppc::Event ev);
+bool decrement_resolution(TextDisplayRenderComponent*, ppc::Event ev);
+
+bool increment_volume(TextDisplayRenderComponent*, ppc::Event ev);
+bool decrement_volume(TextDisplayRenderComponent*, ppc::Event ev);
+
+bool update_settings(TextDisplayRenderComponent*, ppc::Event ev);
 };
 
 

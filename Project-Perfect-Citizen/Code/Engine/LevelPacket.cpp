@@ -1,5 +1,6 @@
 #include "LevelPacket.h"
 #include <math.h>
+#include <iostream>
 
 
 void ppc::LevelPacket::push(int d, int i) {
@@ -15,7 +16,7 @@ int ppc::LevelPacket::getNext(int i) {
 	int minDist = 100; //arbitrarily large value
 
 	for (auto it = nextVec_.begin(); it != nextVec_.end(); ++it) {
-		int n = abs(i - it->second);
+        int n = std::abs(i - it->second);
 		if (n <= minDist) {
 			d = it->first;
 			minDist = n;
