@@ -198,7 +198,9 @@ void World::runDesktop(Desktop &myDesktop) {
 		while (screen_->pollEvent(event)) {
 			if (event.type == sf::Event::Closed) {
 				screen_->close();
-                throw std::exception("Screen Closed");
+                throw std::exception();
+                // Does not work on Mac v
+                //throw std::exception("Screen Closed");
 			} else if (event.type == sf::Event::KeyPressed) {
 				//Close
 				if ((event.key.code == sf::Keyboard::Period) && (event.key.alt)) {
