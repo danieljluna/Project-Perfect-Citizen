@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <array>
 #include <vector>
+#include <map>
 #include "../Engine/subject.h"
 #include "../Engine/inputComponent.h"
 #include "../Engine/event.h"
@@ -30,7 +31,16 @@ namespace ppc {
 		buttonRenderComponent* floppyBtnRndr = nullptr;
 		mousePressButton* floppyBtnInpt = nullptr;
 		TextDisplayRenderComponent* floppyTxtRndr = nullptr;
-	
+
+
+		///////////////////////////////////////////////////////////////////////
+		/// @brief Initializes the table of what Floppy says and how he emotes
+		///////////////////////////////////////////////////////////////////////
+		void initializeFloppyDict();
+
+		void initTimerDisableEvents();
+		void initTimerResetEvents();
+
 	public:
 
 		FloppyInputComponent();
@@ -64,8 +74,17 @@ namespace ppc {
 			SuspFolder,
 			Scanning,
 			DeskSubmission,
-			Wrapup
+			Wrapup,
+			ResponseStart = 100,
+			EdgeSelectionHelper,
+			CircleDelay,
+			CircleDelete,
+			CircleFinishHelper
 		};
+
+
+		static std::map<FloppySequenceName, std::vector<ppc::Event>> TimerDisableEvents;
+		static std::map<FloppySequenceName, std::vector<ppc::Event>> TimerResetEvents;
 
         static bool initialized;
 		
@@ -82,10 +101,6 @@ namespace ppc {
 		void setFrame(unsigned int);
 		void setSequence(unsigned int s, unsigned int f = 0);
 	
-		///////////////////////////////////////////////////////////////////////
-		/// @brief Initializes the table of what Floppy says and how he emotes
-		///////////////////////////////////////////////////////////////////////
-		void initializeFloppyDict();
 
 		///////////////////////////////////////////////////////////////////////
 		/// Basic incrementers and decrementers (by one)

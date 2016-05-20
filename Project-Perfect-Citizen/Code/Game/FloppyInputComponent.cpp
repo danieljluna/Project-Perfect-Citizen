@@ -28,12 +28,18 @@ const std::string FLOPPY_DEBUG_CODE = "fl";
 
 std::vector<FloppySequence> FloppyInputComponent::floppyDictionary = {};
 bool FloppyInputComponent::initialized = false;
+std::map<FloppyInputComponent::FloppySequenceName, std::vector<ppc::Event>> FloppyInputComponent::TimerDisableEvents = {};
+std::map<FloppyInputComponent::FloppySequenceName, std::vector<ppc::Event>> FloppyInputComponent::TimerResetEvents = {};
+
 
 FloppyInputComponent::FloppyInputComponent() {
 
     if (!initialized) {
         initializeFloppyDict();
+		initTimerDisableEvents();
+		initTimerResetEvents();
     }
+
 }
 
 FloppyInputComponent::~FloppyInputComponent() {
@@ -215,6 +221,61 @@ void ppc::FloppyInputComponent::setFloppyButton(bool able)
 	floppyBtnRndr->recieveMessage(ppcEv);
 	floppyTxtRndr->recieveMessage(ppcEv);
 }
+
+
+//go through all timerDisableEvents and initialize them indivdually, then
+//add them to TimerDisableEvents
+void FloppyInputComponent::initTimerDisableEvents() {
+	ppc::Event ev;
+	std::vector<ppc::Event> evVec;
+	//EdgeSelectionHelper
+	ev.type = ppc::Event::NetworkType;
+	ev.network.type = ppc::Event::NetworkEv::Selected;
+	evVec.push_back(ev);
+	TimerDisableEvents.emplace(EdgeSelectionHelper, evVec);
+	evVec.clear();
+
+	//CircleDelay
+	ev.network.type = ppc::Event::NetworkEv::Created;
+	evVec.push_back(ev);
+	TimerDisableEvents.emplace(CircleDelay, evVec);
+	evVec.clear();
+
+	//CircleDelete
+	ev.network.type = ppc::Event::NetworkEv::Removed;
+	evVec.push_back(ev);
+	TimerDisableEvents.emplace(CircleDelete, evVec);
+	evVec.clear();
+
+	//CircleFinishHelper
+	ev.network.type = ppc::Event::NetworkEv::Created;
+	evVec.push_back(ev);
+	TimerDisableEvents.emplace(CircleFinishHelper, evVec);
+	evVec.clear();
+}
+
+//go through all timerResetEvents and initialize them indivdually, then
+//add them to TimerResetEvents
+void FloppyInputComponent::initTimerResetEvents() {
+	ppc::Event ev;
+	std::vector<ppc::Event> evVec;
+
+	//CicleDelete
+	ev.network.type = ppc::Event::NetworkEv::Removed;
+	evVec.push_back(ev);
+	TimerResetEvents.emplace(CircleDelete, evVec);
+	evVec.clear();
+
+	//CircleFinishHelper
+	ev.network.type = ppc::Event::NetworkEv::Removed;
+	evVec.push_back(ev);
+	ev.network.type = ppc::Event::NetworkEv::Created;
+	evVec.push_back(ev);
+	TimerResetEvents.emplace(CircleFinishHelper, evVec);
+	evVec.clear();
+}
+
+
 
 bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
     bool wasSummoned = false;
