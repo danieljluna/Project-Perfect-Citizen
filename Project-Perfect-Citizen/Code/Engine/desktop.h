@@ -231,8 +231,8 @@ namespace ppc {
 		  sf::Image& getButtonSheet();
 
 ///////////////////////////////////////////////////////////////////////
-///@brief Returns a reference of the NodeState in the Desktop.
-///@return A reference to the NodeState in the Desktop
+///@brief Returns the NodeState in the Desktop.
+///@return The NodeState in the Desktop
 ///////////////////////////////////////////////////////////////////////
 		  NodeState* getNodeState();
 
