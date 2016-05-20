@@ -1,4 +1,5 @@
 #include "TimerUpdateCmpnt.h"
+#include "../Engine/Entity.h"
 
 #include <algorithm>
 
@@ -201,6 +202,8 @@ void TimerUpdateCmpnt::recieveMessage(ppc::Event ev) {
 void TimerUpdateCmpnt::activateTimer(unsigned int timer) {
     Event ppcEv;
 
+    pauseTimer(timer);
+
     if (timerVec_.at(timer).eventIndex == -1) {
         //Use Default Event
         ppcEv.type = Event::TimerType;
@@ -212,4 +215,5 @@ void TimerUpdateCmpnt::activateTimer(unsigned int timer) {
     }
 
     onTimer_.sendEvent(ppcEv);
+    getEntity()->broadcastMessage(ppcEv);
 }
