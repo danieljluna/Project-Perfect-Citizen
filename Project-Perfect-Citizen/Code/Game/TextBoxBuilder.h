@@ -57,5 +57,28 @@ namespace ppc {
 
 	};
 
+	///////////////////////////////////////////////////////////////////////
+	/// @brief Returns the constructed textbox, with an attached function
+	/// observer.
+	/// @param The builder being used to make the textbox
+	/// @param The entity to modify
+	/// @param The target class object
+	/// @param The function to execute on a click
+	///////////////////////////////////////////////////////////////////////
+	template<class T>
+	void createWithEventFunc(TextBoxBuilder& builder, Entity& e, T* target, bool(*func)(T *, ppc::Event)) {
+
+		builder.create(e);
+		size_t s = e.cmpntCount();
+		TextBoxInputComponent* tbi = dynamic_cast<TextBoxInputComponent*>(e.getComponent(s - 1));
+
+		if (tbi != nullptr) {
+			setOnSubmit(tbi, target, func);
+		}
+		else {
+			return;
+		}
+	}
+
 
 };

@@ -7,6 +7,7 @@
 #include "../Engine/Entity.h"
 #include "../Engine/subject.h"
 #include "../Game/TextBoxRenderComponent.h"
+#include "../Engine/FreeFunctionObserver.h"
 
 namespace ppc {
 
@@ -27,6 +28,7 @@ namespace ppc {
 		InputHandler& inputHandle;
 		std::string str;
 		bool isCollision(sf::Vector2i);
+		Subject onSubmit_;
 
 	public:
 
@@ -38,6 +40,11 @@ namespace ppc {
 		/// @param s is the render component where the text will be drawn
 		///////////////////////////////////////////////////////////////////////
 		TextBoxInputComponent(ppc::InputHandler& ih, TextBoxRenderComponent &r);
+
+		template <class T>
+		friend void setOnSubmit(TextBoxInputComponent* tbi, T* objPtr,
+			bool(*onSubmit)(T*, Event));
+
 
 		string getString();
 
@@ -52,7 +59,18 @@ namespace ppc {
 		virtual ~TextBoxInputComponent();
 		virtual bool registerInput(Event ev) override;
 
+		Subject& onSubmit() { return onSubmit_; };
+
 	};
+
+	template<class T>
+	inline void setOnSubmit(TextBoxInputComponent* tbi, T * objPtr, bool(*onSubmit)(T *, Event)) {
+
+		FreeFunctionObserver<T>* fnObsvr = new FreeFunctionObserver<T>(onSubmit, objPtr);
+
+		tbi->onSubmit().addObserver(fnObsvr);
+
+	}
 
 
 };

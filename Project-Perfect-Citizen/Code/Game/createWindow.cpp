@@ -851,7 +851,7 @@ void ppc::spawnUnlock(WindowInterface *& windowToModify, InputHandler & ih, sf::
 	tbuilder.setString("");
 	tbuilder.setInputHandle(ih);
 	tbuilder.setContainingWindow(windowToModify);
-	tbuilder.create(tbox);
+	createWithEventFunc(tbuilder, tbox, fldr, ppc::unlock_folder);
 	fldr->setObservingTextBox(tbuilder.getTextBoxInputComponent());
 
 

@@ -5,6 +5,8 @@
 #include "../Game/TextFieldRenderComponent.hpp"
 #include "../Engine/Entity.h"
 #include "textLabelComponent.hpp"
+#include "createWindow.h"
+
 
 ppc::TextBoxBuilder::TextBoxBuilder() {
 	stringToRender = "DEFAULT_STRING";
@@ -69,7 +71,7 @@ void ppc::TextBoxBuilder::create(Entity& e) {
 	tbi = i;
 
 	e.addComponent(fr);
-    e.addComponent(i);	
 	e.addComponent(r);
+	e.addComponent(i);
 
 }

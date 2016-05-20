@@ -1,6 +1,7 @@
 #include "TextBoxInputComponent.h"
 #include "TextBoxRenderComponent.h"
 #include "../Engine/InputHandler.h"
+#include "../Engine/FreeFunctionObserver.h"
 
 
 using namespace ppc;
@@ -76,6 +77,9 @@ bool TextBoxInputComponent::registerInput(Event ppcEv) {
 			else if (ev.text.unicode == 8 && str.size() > 0) {
 				str.pop_back();
 				textBox.updateLabelString(str);
+			}
+			else if ((ev.text.unicode == 10 || ev.text.unicode == 13) && str.size() > 0) {
+				onSubmit_.sendEvent(ppcEv);
 			}
 		}
 	}
