@@ -1,6 +1,6 @@
 #include "TextCharacterUpdate.h"
 #include "TextDisplayRenderComponent.h"
-
+#include "../Engine/Entity.h"
 ppc::TextCharacterUpdate::TextCharacterUpdate() {
 	content_ = "";
 	strItor_ = content_.begin();
@@ -34,6 +34,10 @@ void ppc::TextCharacterUpdate::update(sf::Time& deltaTime) {
 
 		if (strItor_ == content_.end()) {
 			isEnd = true;
+			ppc::Event myEv;
+			myEv.type = Event::AnimationType;
+			myEv.animation.index = 1;
+			onAnimEnd_.sendEvent(myEv);
 			accumulator_ = sf::milliseconds(sf::Int32(0.f));
 			return;
 		}

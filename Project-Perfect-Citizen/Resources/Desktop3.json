@@ -1,28 +1,73 @@
 {
     "Desktop": {
-        "1/Therapy_Journal_#1.txt" : "DesktopContent/Desktop3/Therapy_Journal_#1.txt",
-        "Articles" : {
-            "Campaigns" : {
-                "1/Ex-Mayor_Sharp_Runes_for_Senate.jpg" : "DesktopContent/Desktop3/Ex-Mayor_Sharp_Runes_for_Senate.jpg",
-                "1/Senator_Elected_in_Suprise_Upheaval.jpg" : "DesktopContent/Desktop3/Senator_Elected_in_Suprise_Upheaval.jpg",
-                "1/Tensions_Rise_as_Voting_Day_Looms.jpg" : "DesktopContent/Desktop3/Tensions_Rise_as_Voting_Day_Looms.jpg",
-                "1/Vincent_Sharp_Wins_Mayoral_Standoff.jpg" : "DesktopContent/Desktop3/Vincent_Sharp_Wins_Mayoral_Standoff.jpg",
-                "1/Mayor_Sharp_Resigns_Amidst_Disaster.jpg" : "DesktopContent/Desktop3/Mayor_Sharp_Resigns_Amidst_Disaster.png"
+        "Campaign_Data" : {
+            "Post_Election" : {
+                "Secure_Email_Server/ADI/Top Donater" : {
+                    "1/Freaking_Out.txt" : "DesktopContent/Desktop3/Freaking_Out.txt",
+                    "1/Allegations.txt" : "DesktopContent/Desktop3/Allegations.txt",
+                    "1/Guardian_Angle.txt" : "DesktopContent/Desktop3/Guardian_Angel.txt"
+                }
             },
-            "Simpler_Times" : {
-                "1/1967_Football_catch.jpg" : "DesktopContent/Desktop3/1967_Football_catch.jpg",
-                "1/Mobile_vs_Redwood_67.jpg" : "DesktopContent/Desktop3/Mobile_vs_Redwood_'67.jpg",
-                "1/Sharp_in_Endzone.jpg" : "DesktopContent/Desktop3/Sharp_in_Endzone.jpg"
+            "Pre_Election" : {
+                "Campaign_Media" : {
+                    "1/Rally.jpg" : "DesktopContent/Desktop3/Rally.jpg",
+                    "1/The_Hot_New_Face.jpg" : "DesktopContent/Desktop3/The_Hot_New_Face.png",
+                    "1/Upcoming_Election.jpg" : "DesktopContent/Desktop3/Upcoming_Election.png",
+                    "1/The_Changing_Times.jpg" : "DesktopContent/Desktop3/The_Changing_Times.png",
+                    "1/Who_would_do_this.jpg" : "DesktopContent/Desktop3/Who_would_do_this.png",
+                    "1/Vincent_Wins.jpg" : "DesktopContent/Desktop3/Vincent_Wins.png"
+                },
+                "Contributions/Dallas/Home" : {
+                    "August/PPCCPP/No hint" : {
+                        "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png"
+                    },
+                    "September/PPCCPP/No hint" : {
+                        "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png"
+                    },
+                    "October/PPCCPP/No hint" : {
+                        "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png"
+                    },
+                    "November" : {
+                        "1/Contributions.txt" : "DesktopContent/Desktop3/Contributions.txt"
+                    }
+                },
+                "Speeches" : {
+                    "1/Harduwich.txt" : "DesktopContent/Desktop3/Harduwich.txt",
+                    "1/Osman_College.txt" : "DesktopContent/Desktop3/Osman_College.txt"
+                },
+                "Itinerary" : {
+                    "Schedule/Derby/Opponent" : {
+                        "1/November.jpg" : "DesktopContent/Desktop3/November.png"
+                    },
+                    "1/Nov1.jpg" : "DesktopContent/Desktop3/Nov1.png",
+                    "1/Nov4.jpg" : "DesktopContent/Desktop3/Nov4.png",
+                    "1/Nov7.jpg" : "DesktopContent/Desktop3/Nov7.png",
+                    "1/Nov11.jpg" : "DesktopContent/Desktop3/Nov11.png",
+                    "1/Nov14.jpg" : "DesktopContent/Desktop3/Nov14.png",
+                    "1/Nov15.jpg" : "DesktopContent/Desktop3/Nov15.png"
+                }
             }
         },
-        "Personal_Docs" : {
-            "Classified_Docs" : {
-                "1/Empty" : "DesktopContent/Desktop3/Sharp_in_Endzone.jpg",
-                "1/Therapy_Journal_#2.txt" : "DesktopContent/Desktop3/Therapy_Journal_#2.txt",
-                "1/Albatross_Secure_Communications.txt" : "DesktopContent/Desktop3/Albatross_Secure_Communications.txt"
+        "Family_Documents/Semper in excretia/Dad's old addage" : {
+            "Joseph" : {
+                "1/Joseph's_Will.txt" : "DesktopContent/Desktop3/Dad_Will.txt",
+                "1/Medical_Reciept.jpg" : "DesktopContent/Desktop3/Medical_Reciept.jpg"
             },
+            "Marie" : {
+                "1/Marie's_Will.txt" : "DesktopContent/Desktop3/Mom_Will.txt",
+                "1/Hospice_Receipt.jpg" : "DesktopContent/Desktop3/Hopsice_Gift_Receipt.jpg",
+                "1/MnR.jpg" : "DesktopContent/Desktop3/MnR.jpg"
+            },
+            "1/Divorce_Petition_Copy.jpg" : "DesktopContent/Desktop3/Divorce_Petition_Copy.jpg",
+            "1/Family_Photo.jpg" : "DesktopContent/Desktop3/Family_Photo.png"
+        },
+        "Personal_Files/Rosemary Sharp/R.S" : {
+            "1/Therapy_Journal_#1.txt" : "DesktopContent/Desktop3/Therapy_Journal_#1.txt",
             "1/Therapy_Journal_#2.txt" : "DesktopContent/Desktop3/Therapy_Journal_#2.txt",
-            "1/Albatross_Secure_Communications.txt" : "DesktopContent/Desktop3/Albatross_Secure_Communications.txt"
+            "1/Therapy_Journal_#3.txt" : "DesktopContent/Desktop3/Therapy_Journal_#3.txt"
+        },
+        "Trash" : {
+            "1/You_Are_Invited.jpg" : "DesktopContent/Desktop3/You_Are_Invited.png"
         }
     }
 }
