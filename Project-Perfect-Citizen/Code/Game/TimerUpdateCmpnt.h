@@ -45,7 +45,9 @@ namespace ppc {
 
         ppc::Event getMapping(int key);
 
-        void mapEvent(int key, ppc::Event ev);
+        void setTimerEvent(unsigned int timer, ppc::Event ev);
+
+        void setTimerEvent(unsigned int timer, int key);
 
 
       /////////////////////////////////////////////////////////////////
