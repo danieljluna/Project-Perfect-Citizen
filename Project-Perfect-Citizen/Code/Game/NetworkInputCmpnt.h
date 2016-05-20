@@ -34,7 +34,8 @@ namespace ppc {
 		void loopEdgeColor();
 
 		PipelineDataRenderComponent* pipeRender_;
-		void updateDataText();
+		void updateDataTextVert();
+		void updateDataTextEdge();
 
 	public:
 

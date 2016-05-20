@@ -60,6 +60,7 @@ void ppc::NetworkInputCmpnt::selectEdge(sf::Vector2f mPos) {
 		
 		clickedEdge_ = true;
 		clickedVert_ = false;
+		updateDataTextEdge();
 
         //Create Event
         Event ev;
@@ -104,7 +105,7 @@ void ppc::NetworkInputCmpnt::selectVert(sf::Vector2f mPos) {
             ev.network.net = network_;
             network_->onManip().sendEvent(ev);
 
-			updateDataText();
+			updateDataTextVert();
 			return;
 		}
 	}
@@ -138,11 +139,52 @@ void ppc::NetworkInputCmpnt::loopEdgeColor() {
     network_->onManip().sendEvent(ev);
 }
 
-void ppc::NetworkInputCmpnt::updateDataText() {
+void ppc::NetworkInputCmpnt::updateDataTextEdge() {
+	if (pipeRender_ == nullptr) return;
+	pipeRender_->clearString();
+	pipeRender_->appendString(" " + network_->vert(selectedEdge_.first).getCharacter().getSSN().substr(0, 2) + " and " +
+		network_->vert(selectedEdge_.second).getCharacter().getSSN().substr(0, 2) + "'s CONVERSTATIONS" +
+		"\n--------------------------------------------------\n");
+	if (!solution_->isAdjacent(selectedEdge_.first, selectedEdge_.second)) return;
+	std::vector<std::vector<std::string>> smsvec = solution_->edge(selectedEdge_.first, selectedEdge_.second)->getSmsData();
+	for (unsigned int j = 0; j < smsvec.size(); ++j) {
+		unsigned int currchars = 1;
+		std::string buff = " ";
+		for (unsigned int k = 0; k < smsvec[j].size(); ++k) {
+
+			if (smsvec[j][k].compare("FROM:") == 0 || smsvec[j][k].compare("TO:") == 0) {
+				buff = " ";
+				currchars = 1;
+				pipeRender_->appendString(" " + smsvec[j][k + 3] + " SAID:\n ");
+
+				k += 4;
+				continue;
+			}
+
+			if (smsvec[j][k] == "\n") {
+				pipeRender_->appendString(buff + "\n");
+				continue;
+			}
+			if (currchars + smsvec[j][k].size() < CHAR_LIMIT) {
+				buff += smsvec[j][k] + ' ';
+				currchars += smsvec[j][k].size() + 1;
+			}
+			else {
+				pipeRender_->appendString(buff + "\n ");
+				buff = "  " + smsvec[j][k] + ' ';
+				currchars = buff.size();
+			}
+		}
+		pipeRender_->appendString("------------------------------------------------\n\n");
+	}
+
+}
+
+void ppc::NetworkInputCmpnt::updateDataTextVert() {
 	if (pipeRender_ == nullptr) return;
 	pipeRender_->clearString();
 	pipeRender_->appendString(" " + network_->vert(selectedVert_).getCharacter().getSSN().substr(0, 2) +
-		"'s CONVERSATIONS\n\n");
+		"'s CONVERSATIONS\n----------------------------------------\n");
 	for (unsigned int i = 0; i < solution_->size(); ++i) {
 		if (solution_->isAdjacent(selectedVert_, i)) {
 			std::vector<std::vector<std::string>> smsvec = 
@@ -155,32 +197,14 @@ void ppc::NetworkInputCmpnt::updateDataText() {
 					if (smsvec[j][k].compare("FROM:") == 0 || smsvec[j][k].compare("TO:") == 0) {
 						buff = " ";
 						currchars = 1;
-						//if (network_->vert(selectedVert_).getCharacter().getSSN().compare(smsvec[j][k + 1]) == 0) {
-							//pipeRender_->appendString(smsvec[j][k + 2] + " " + smsvec[j][k + 3] + "\n");
-							pipeRender_->appendString(" " + smsvec[j][k + 3] + " SAID:\n ");
-						//}
-						//else {
-							//pipeRender_->appendString(smsvec[j][k] + " " + smsvec[j][k + 1] + "\n");
-						//	pipeRender_->appendString(smsvec[j][k + 1] + " SAID:\n");
-						//}
+						pipeRender_->appendString(" " + smsvec[j][k + 3] + " SAID:\n ");
+
 						k += 4;
 						continue;
 					}
 					
-
-					/*if (smsvec[j][k].compare("FROM:") == 0) {
-						buff = " ";
-						currchars = 1;
-						pipeRender_->appendString(smsvec[j][k + 1] + " SAYS:\n");
-						k += 4;
-						continue;
-					}*/
-
-					
 					if (smsvec[j][k] == "\n") {
 						pipeRender_->appendString(buff + "\n");
-						//buff = "  ";
-						//currchars = 2;
 						continue;
 					}
 					if (currchars + smsvec[j][k].size() < CHAR_LIMIT) {
@@ -193,9 +217,7 @@ void ppc::NetworkInputCmpnt::updateDataText() {
 						currchars = buff.size();
 					}
 				}
-				//if (currchars != 0) pipeRender_->appendString(buff + "\n\n");
-				//else pipeRender_->appendString("\n\n");
-				pipeRender_->appendString("\n\n");
+				pipeRender_->appendString("------------------------------------------------\n\n");
 			}
 		}
 	}

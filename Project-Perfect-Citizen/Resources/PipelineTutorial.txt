@@ -41,7 +41,7 @@ Default: You have been issued a warrant to search their desktop.
 Default: Hint - The line between the photos is the "Connection!"
 -CircleDelay: T 10
 Default: Remember - Select a photo and right click another to connect them!
--CircleDelete: T 10
+-CircleDelete: T 10.0
 Default: Remember - Select a connection and press "Z" to delete it!
--CircleFinishHelper: T 10
+-CircleFinishHelper: T 10.0
 Default: Hint - In this graph, each photo should have exactly two connections!

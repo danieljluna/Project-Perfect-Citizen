@@ -280,7 +280,15 @@ int main(int argc, char** argv) {
         World::runCurrDesktop();
         
         Logger::endTimer("playerDesktop");
-        // End Player Desktop      
+        // End Player Desktop
+        
+        //Testing Report Screen
+        //Desktop reportScreen;
+        //createReportScreen(reportScreen, World::DE1A);
+        //World::setCurrDesktop(reportScreen);
+        //World::runCurrDesktop();
+        
+        //ENd of report screen
         
         //Desktop 1 / Teacher Desktop
         World::startLoading();
