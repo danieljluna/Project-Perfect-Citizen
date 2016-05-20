@@ -28,6 +28,7 @@ namespace ppc {
 		InputHandler& inputHandle;
 		std::string str;
 		bool isCollision(sf::Vector2i);
+		int max_chars;
 		Subject onSubmit_;
 
 	public:
@@ -38,8 +39,9 @@ namespace ppc {
 		/// @brief Constructor for TextBoxInputComponent
 		/// @param ih is the input handler
 		/// @param s is the render component where the text will be drawn
+		/// @param The limit of characters to display
 		///////////////////////////////////////////////////////////////////////
-		TextBoxInputComponent(ppc::InputHandler& ih, TextBoxRenderComponent &r);
+		TextBoxInputComponent(ppc::InputHandler& ih, TextBoxRenderComponent &r, int lim);
 
 		template <class T>
 		friend void setOnSubmit(TextBoxInputComponent* tbi, T* objPtr,
@@ -47,6 +49,8 @@ namespace ppc {
 
 
 		string getString();
+
+		void setLimit(int);
 
 		WindowInterface* getContainingWindow();
 

@@ -26,6 +26,8 @@ namespace ppc {
 		InputHandler* ih;
 		TextBoxInputComponent* tbi;
 		WindowInterface* cw;
+		int lim = 15;
+		bool mask = false;
 
 
 	public:
@@ -50,6 +52,10 @@ namespace ppc {
 		void setInputHandle(ppc::InputHandler&);
 
 		void setContainingWindow(WindowInterface*);
+
+		void setTextBoxCharacterLimit(int l);
+
+		void setIsMasked(bool);
 
 		TextBoxInputComponent* getTextBoxInputComponent();
 

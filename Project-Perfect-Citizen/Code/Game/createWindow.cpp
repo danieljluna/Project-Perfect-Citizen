@@ -775,6 +775,7 @@ void ppc::spawnPromptMessage(WindowInterface*& windowToModify, InputHandler& ih,
     TextBoxBuilder tbuilder;
     tbuilder.setFont(myFont);
     tbuilder.setSize(20);
+	tbuilder.setTextBoxCharacterLimit(20);
     tbuilder.setPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x)/3,50.0f));
     tbuilder.setColor(sf::Color::Black);
     tbuilder.setString("text box");
@@ -846,11 +847,14 @@ void ppc::spawnUnlock(WindowInterface *& windowToModify, InputHandler & ih, sf::
 	TextBoxBuilder tbuilder;
 	tbuilder.setFont(myFont);
 	tbuilder.setSize(20);
+	tbuilder.setTextBoxCharacterLimit(24);
 	tbuilder.setPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 3, 50.0f));
 	tbuilder.setColor(sf::Color::Black);
 	tbuilder.setString("");
 	tbuilder.setInputHandle(ih);
+	tbuilder.setIsMasked(true);
 	tbuilder.setContainingWindow(windowToModify);
+	
 	createWithEventFunc(tbuilder, tbox, fldr, ppc::unlock_folder);
 	fldr->setObservingTextBox(tbuilder.getTextBoxInputComponent());
 
@@ -901,15 +905,18 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
     tbuilder.setSize(20);
     tbuilder.setPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 3, 50.0f));
     tbuilder.setColor(sf::Color::Black);
+	tbuilder.setTextBoxCharacterLimit(24);
     tbuilder.setString("");
     tbuilder.setInputHandle(ih);
     tbuilder.setContainingWindow(windowToModify);
-    tbuilder.create(tbox);
+	tbuilder.setIsMasked(true);
+	createWithEventFunc(tbuilder, tbox, windowToModify, continue_world);
     
     Entity promptText;
     TextDisplayBuilder tdBuilder;
     tdBuilder.setFont(myFont);
     tdBuilder.setSize(20);
+
     tdBuilder.setPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) / 3, 20));
     tdBuilder.setColor(sf::Color::Black);
     tdBuilder.setString("Please Enter Your Name");

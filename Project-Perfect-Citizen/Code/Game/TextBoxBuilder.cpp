@@ -19,6 +19,7 @@ ppc::TextBoxBuilder::TextBoxBuilder() {
 	ih = nullptr;
 	tbi = nullptr;
 	cw = nullptr;
+	lim = 0;
 }
 
 ppc::TextBoxBuilder::~TextBoxBuilder() {
@@ -55,6 +56,16 @@ void ppc::TextBoxBuilder::setContainingWindow(WindowInterface * win)
 	cw = win;
 }
 
+void ppc::TextBoxBuilder::setTextBoxCharacterLimit(int l)
+{
+	lim = l;
+}
+
+void ppc::TextBoxBuilder::setIsMasked(bool m)
+{
+	mask = m;
+}
+
 ppc::TextBoxInputComponent * ppc::TextBoxBuilder::getTextBoxInputComponent()
 {
 	return tbi;
@@ -64,7 +75,8 @@ ppc::TextBoxInputComponent * ppc::TextBoxBuilder::getTextBoxInputComponent()
 void ppc::TextBoxBuilder::create(Entity& e) {
 	
 	TextBoxRenderComponent* r = new TextBoxRenderComponent(*f, *c, xPos+s, yPos+5, s, stringToRender);
-	TextBoxInputComponent* i = new TextBoxInputComponent(*ih, *r);
+	r->setIsMasked(mask);
+	TextBoxInputComponent* i = new TextBoxInputComponent(*ih, *r, lim);
 	i->setContainingWindow(cw);
     TextFieldRenderComponent* fr = new TextFieldRenderComponent(xPos, yPos, 300, 36);
 
