@@ -390,4 +390,7 @@ int main(int argc, char** argv) {
     } catch(std::exception e) {
         cerr << e.what();
     }
+
+    return EXIT_SUCCESS;
+
 }
