@@ -60,6 +60,8 @@ const std::map<std::string, int> FLOPPY_EMOTION_MAP{
 
 
 void ppc::FloppyInputComponent::initializeFloppyDict() {
+    try {
+
 	for (const auto& filename: FLOPPY_SOURCES) {
 		std::ifstream myfile(resourcePath() + filename);
 		if (myfile.is_open()) {
@@ -131,6 +133,10 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 	}
 
     initialized = true;
+
+    } catch (std::exception& e) {
+        std::cerr << "ERROR READING FLOPPY: " << e.what();
+    }
 }
 
 unsigned int ppc::FloppyInputComponent::getFrame() { return frame; }
