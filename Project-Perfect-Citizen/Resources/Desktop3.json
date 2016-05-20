@@ -18,17 +18,14 @@
                     "1/Vincent_Wins.jpg" : "DesktopContent/Desktop3/Vincent_Wins.png"
                 },
                 "Contributions/Dallas/Home" : {
-                    "August/PPCCPP/No hint" : {
-                        "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png"
+                    "September" : {
+                        "1/September_Contributions.txt" : "DesktopContent/Desktop3/September_Contributions.txt"
                     },
-                    "September/PPCCPP/No hint" : {
-                        "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png"
-                    },
-                    "October/PPCCPP/No hint" : {
-                        "1/Empty" : "DesktopContent/Desktop3/Vincent_Wins.png"
+                    "October" : {
+                        "1/October_Contributions.txt" : "DesktopContent/Desktop3/October_Contributions.txt"
                     },
                     "November" : {
-                        "1/Contributions.txt" : "DesktopContent/Desktop3/Contributions.txt"
+                        "1/November_Contributions.txt" : "DesktopContent/Desktop3/November_Contributions.txt"
                     }
                 },
                 "Speeches" : {

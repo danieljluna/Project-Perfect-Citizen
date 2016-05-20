@@ -164,6 +164,8 @@
 		E92329241CEE65C4009466E1 /* HackerResponseB.json in Resources */ = {isa = PBXBuildFile; fileRef = E92329231CEE65C4009466E1 /* HackerResponseB.json */; };
 		E92329261CEE65D0009466E1 /* HackerResponseC.json in Resources */ = {isa = PBXBuildFile; fileRef = E92329251CEE65D0009466E1 /* HackerResponseC.json */; };
 		E92329281CEE65DB009466E1 /* HackerResponseD.json in Resources */ = {isa = PBXBuildFile; fileRef = E92329271CEE65DB009466E1 /* HackerResponseD.json */; };
+		E923292A1CEE9496009466E1 /* October_Contributions.txt in Resources */ = {isa = PBXBuildFile; fileRef = E92329291CEE9496009466E1 /* October_Contributions.txt */; };
+		E923292C1CEE94A3009466E1 /* September_Contributions.txt in Resources */ = {isa = PBXBuildFile; fileRef = E923292B1CEE94A3009466E1 /* September_Contributions.txt */; };
 		E953903C1CEBECE500F8A5DF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9538F2A1CEBECE500F8A5DF /* main.cpp */; };
 		E9C94EE61CED2E55000E8732 /* Artist_Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E9C94D451CED2E54000E8732 /* Artist_Icon_Sheet.png */; };
 		E9C94EE71CED2E55000E8732 /* Artist_Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = E9C94D461CED2E54000E8732 /* Artist_Wallpaper.png */; };
@@ -437,7 +439,7 @@
 		E9C94FF31CED2E55000E8732 /* Baby_Rose.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9C94E581CED2E54000E8732 /* Baby_Rose.jpg */; };
 		E9C94FF41CED2E55000E8732 /* Bros.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9C94E591CED2E54000E8732 /* Bros.jpg */; };
 		E9C94FF51CED2E55000E8732 /* Brothers_in_Crime.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9C94E5A1CED2E54000E8732 /* Brothers_in_Crime.jpg */; };
-		E9C94FF61CED2E55000E8732 /* Contributions.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9C94E5B1CED2E54000E8732 /* Contributions.txt */; };
+		E9C94FF61CED2E55000E8732 /* November_Contributions.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9C94E5B1CED2E54000E8732 /* November_Contributions.txt */; };
 		E9C94FF71CED2E55000E8732 /* Dad_Will.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9C94E5C1CED2E54000E8732 /* Dad_Will.txt */; };
 		E9C94FF81CED2E55000E8732 /* Divorce_Petition_Copy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9C94E5D1CED2E54000E8732 /* Divorce_Petition_Copy.jpg */; };
 		E9C94FF91CED2E55000E8732 /* Do_Not_Lose_This.png in Resources */ = {isa = PBXBuildFile; fileRef = E9C94E5E1CED2E55000E8732 /* Do_Not_Lose_This.png */; };
@@ -867,6 +869,8 @@
 		E92329231CEE65C4009466E1 /* HackerResponseB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HackerResponseB.json; sourceTree = "<group>"; };
 		E92329251CEE65D0009466E1 /* HackerResponseC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HackerResponseC.json; sourceTree = "<group>"; };
 		E92329271CEE65DB009466E1 /* HackerResponseD.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HackerResponseD.json; sourceTree = "<group>"; };
+		E92329291CEE9496009466E1 /* October_Contributions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = October_Contributions.txt; sourceTree = "<group>"; };
+		E923292B1CEE94A3009466E1 /* September_Contributions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = September_Contributions.txt; sourceTree = "<group>"; };
 		E9538F2A1CEBECE500F8A5DF /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
 		E9C94D451CED2E54000E8732 /* Artist_Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Artist_Icon_Sheet.png; sourceTree = "<group>"; };
 		E9C94D461CED2E54000E8732 /* Artist_Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Artist_Wallpaper.png; sourceTree = "<group>"; };
@@ -1140,7 +1144,7 @@
 		E9C94E581CED2E54000E8732 /* Baby_Rose.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Baby_Rose.jpg; sourceTree = "<group>"; };
 		E9C94E591CED2E54000E8732 /* Bros.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Bros.jpg; sourceTree = "<group>"; };
 		E9C94E5A1CED2E54000E8732 /* Brothers_in_Crime.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Brothers_in_Crime.jpg; sourceTree = "<group>"; };
-		E9C94E5B1CED2E54000E8732 /* Contributions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Contributions.txt; sourceTree = "<group>"; };
+		E9C94E5B1CED2E54000E8732 /* November_Contributions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = November_Contributions.txt; sourceTree = "<group>"; };
 		E9C94E5C1CED2E54000E8732 /* Dad_Will.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Dad_Will.txt; sourceTree = "<group>"; };
 		E9C94E5D1CED2E54000E8732 /* Divorce_Petition_Copy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Divorce_Petition_Copy.jpg; sourceTree = "<group>"; };
 		E9C94E5E1CED2E55000E8732 /* Do_Not_Lose_This.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Do_Not_Lose_This.png; sourceTree = "<group>"; };
@@ -2061,7 +2065,9 @@
 				E9C94E571CED2E54000E8732 /* Albatross_Secure_Communications_2.txt */,
 				E9C94E561CED2E54000E8732 /* Albatross_Secure_Communications.txt */,
 				E9C9507C1CED3F61000E8732 /* Allegations.txt */,
-				E9C94E5B1CED2E54000E8732 /* Contributions.txt */,
+				E9C94E5B1CED2E54000E8732 /* November_Contributions.txt */,
+				E923292B1CEE94A3009466E1 /* September_Contributions.txt */,
+				E92329291CEE9496009466E1 /* October_Contributions.txt */,
 				E9C94E5C1CED2E54000E8732 /* Dad_Will.txt */,
 				E9C94E611CED2E55000E8732 /* Freaking_Out.txt */,
 				E9C94E621CED2E55000E8732 /* Guardian_Angel.txt */,
@@ -2250,6 +2256,7 @@
 				E9C94FD71CED2E55000E8732 /* 0.txt in Resources */,
 				E92327D81CEE4687009466E1 /* Mouse_Down.wav in Resources */,
 				E9C94F371CED2E55000E8732 /* Crowd35.jpg in Resources */,
+				E923292A1CEE9496009466E1 /* October_Contributions.txt in Resources */,
 				E9C950631CED2E55000E8732 /* loginDesktop.ini in Resources */,
 				E92329241CEE65C4009466E1 /* HackerResponseB.json in Resources */,
 				E9C950741CED2E55000E8732 /* VT323-Regular.ttf in Resources */,
@@ -2267,12 +2274,13 @@
 				E9C94F871CED2E55000E8732 /* Dancers_at_the_Barre.jpg in Resources */,
 				E9C950261CED2E55000E8732 /* house0.jpg in Resources */,
 				E9C94F171CED2E55000E8732 /* 4-4-12-048.jpg in Resources */,
+				E923292C1CEE94A3009466E1 /* September_Contributions.txt in Resources */,
 				E9C94F721CED2E55000E8732 /* St_H_Bap_OK.jpg in Resources */,
 				E9C94FB01CED2E55000E8732 /* Porticus_Aemilia.jpg in Resources */,
 				E9C94FD61CED2E55000E8732 /* z.jpg in Resources */,
 				E9C94F771CED2E55000E8732 /* 120mm_M830A1.jpg in Resources */,
 				E9C950411CED2E55000E8732 /* Face_Sheet.png in Resources */,
-				E9C94FF61CED2E55000E8732 /* Contributions.txt in Resources */,
+				E9C94FF61CED2E55000E8732 /* November_Contributions.txt in Resources */,
 				E9C94F3F1CED2E55000E8732 /* Doubt2.jpg in Resources */,
 				E9C9501B1CED2E55000E8732 /* Therapy_Journal_#3.txt in Resources */,
 				E9C94FEA1CED2E55000E8732 /* 3.txt in Resources */,
