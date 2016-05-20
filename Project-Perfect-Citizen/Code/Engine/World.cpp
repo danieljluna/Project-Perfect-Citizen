@@ -35,7 +35,8 @@ std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
 	{ World::DE0B, resourcePath() + "Engine/desktopTutorial.ini" },
 	{ World::DEPlayer1, resourcePath() + "Engine/playerDesktop.ini" },
 	{ World::DE1, resourcePath() + "Engine/teacherDesktop.ini" },
-	{ World::DEPlayer2, resourcePath() + "Engine/playerDesktop2.ini" },
+	{ World::DEPlayer2A, resourcePath() + "Engine/playerDesktop2A.ini" },
+	{ World::DEPlayer2B, resourcePath() + "Engine/playerDesktop2B.ini" },
 	{ World::DE2A, resourcePath() + "Engine/artistDesktop.ini" },
 	{ World::DE2B, resourcePath() + "Engine/politicianDesktop.ini" },
 	{ World::DEPlayer3, resourcePath() + "Engine/playerDesktop3.ini" },
@@ -96,33 +97,37 @@ Setting World::settings_;
 void ppc::World::initLevelMap() {
 
 	LevelPacket levelTutorialPipeline;
-	levelTutorialPipeline.push(DE0B, 1);
+	levelTutorialPipeline.pushNext(DE0B, 1);
 	levelMap_.emplace(DE0A, levelTutorialPipeline);
 
 	LevelPacket levelTutorialExtraction;
-	levelTutorialExtraction.push(DEPlayer1, 1);
+	levelTutorialExtraction.pushNext(DEPlayer1, 1);
 	levelMap_.emplace(DE0B, levelTutorialExtraction);
 
 	LevelPacket levelPlayer1;
-	levelPlayer1.push(DE1, 1);
+	levelPlayer1.pushNext(DE1, 1);
 	levelMap_.emplace(DEPlayer1, levelPlayer1);
 
 	LevelPacket levelOne;
-	levelOne.push(DEPlayer2, 1);
+	levelOne.pushNext(DEPlayer2A, 19);
+	levelOne.pushNext(DEPlayer2B, 20);
 	levelMap_.emplace(DE1, levelOne);
 
-	LevelPacket levelPlayer2;
-	levelPlayer2.push(DE2A, 19);
-	levelPlayer2.push(DE2B, 20);
-	levelMap_.emplace(DEPlayer2, levelPlayer2);
+	LevelPacket levelPlayer2A;
+	levelPlayer2A.pushNext(DE2A, 19);
+	levelMap_.emplace(DEPlayer2A, levelPlayer2A);
+
+	LevelPacket levelPlayer2B;
+	levelPlayer2B.pushNext(DE2B, 20);
+	levelMap_.emplace(DEPlayer2B, levelPlayer2B);
 
 	LevelPacket levelTwo;
-	levelTwo.push(DEPlayer3, 1);
+	levelTwo.pushNext(DEPlayer3, 1);
 	levelMap_.emplace(DE2A, levelTwo);
 	levelMap_.emplace(DE2B, levelTwo);
 
 	LevelPacket levelPlayer3;
-	levelPlayer3.push(DE3, 1);
+	levelPlayer3.pushNext(DE3, 1);
 	levelMap_.emplace(DEPlayer3, levelPlayer3);
 
 	LevelPacket levelThree;
