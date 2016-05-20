@@ -378,6 +378,9 @@
     <ClCompile Include="Code\Game\ReportScreenInput.cpp">
       <Filter>Sources\Game Specific\Reports</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\TimerUpdateCmpnt.cpp">
+      <Filter>Sources\Game Specific</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -778,8 +781,8 @@
     <ClInclude Include="Code\Game\ReportScreenInput.h">
       <Filter>Headers\Game Specific\Reports</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Engine\TimerObserver.h">
-      <Filter>Headers\Engine\Observer System\Observers</Filter>
+    <ClInclude Include="Code\Game\TimerUpdateCmpnt.h">
+      <Filter>Headers\Game Specific</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

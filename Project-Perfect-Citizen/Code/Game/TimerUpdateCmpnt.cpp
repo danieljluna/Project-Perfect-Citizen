@@ -74,10 +74,7 @@ void TimerUpdateCmpnt::rewindTimer(unsigned int timer, sf::Time dt) {
 ///////////////////////////////////////////////////////////////////////
 
 int TimerUpdateCmpnt::mapEvent(ppc::Event ev) {
-    auto it = eventMap_.begin();
-    while (it != eventMap_.end()) {
-        ++it;
-    }
+    eventMap_.in
 }
 
 
