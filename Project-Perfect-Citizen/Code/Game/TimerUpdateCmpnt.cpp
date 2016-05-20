@@ -98,6 +98,7 @@ bool TimerUpdateCmpnt::isValidTimer(unsigned int timer) {
 int TimerUpdateCmpnt::mapEvent(ppc::Event ev) {
     int result;
 
+    /*
     auto it = std::find(eventVec_.begin(), eventVec_.end(), ev);
     if (it != eventVec_.end()) {
         result = (it - eventVec_.begin());
@@ -105,6 +106,10 @@ int TimerUpdateCmpnt::mapEvent(ppc::Event ev) {
         result = eventVec_.size();
         eventVec_.push_back(ev);
     }
+    */ // This doesn't work since Event has no == op.
+
+    result = eventVec_.size();
+    eventVec_.push_back(ev);
 
     return result;
 }
