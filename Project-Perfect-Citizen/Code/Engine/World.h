@@ -3,8 +3,9 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Setting.h"
-
+#include <vector>
 #include <utility>
+#include "LevelPacket.h"
 
 namespace ppc {
 
@@ -19,11 +20,15 @@ namespace ppc {
 
         enum DesktopList {
             //Fill with Enums as input files are made
-			DE0 = 0,
-			DEPlayer,
+			DE0A = 0,
+			DE0B,
+			DEPlayer1,
 			DE1,
+			DEPlayer2A,
+			DEPlayer2B,
 			DE2A,
 			DE2B,
+			DEPlayer3,
 			DE3,
             DesktopCount
         };
@@ -43,6 +48,9 @@ namespace ppc {
 			D // not guilty2
 		};
 
+
+		static std::map<DesktopList, ppc::LevelPacket> levelMap_;
+		static void initLevelMap();
 		///////////////////////////////////////////////////////////////
 		// Ctors
 		///////////////////////////////////////////////////////////////
@@ -84,7 +92,7 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////
 		///@brief Runs the main game loop with the given Desktop
 		///////////////////////////////////////////////////////////////
-		static bool runDesktop(ppc::Desktop&);
+		static void runDesktop(ppc::Desktop&);
 
         static bool loadDesktop(DesktopList desk);
 
@@ -117,7 +125,7 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////
 		///@brief Runs the main game loop with the current Desktop
 		///////////////////////////////////////////////////////////////
-		static bool runCurrDesktop();
+		static int runCurrDesktop();
 
 		//////////////////////////////////////////////////////////////
 		// Loading Screen Functions
@@ -154,6 +162,8 @@ namespace ppc {
       /////////////////////////////////////////////////////////////////
 
         static void manifestSettings();
+
+        static void drawDesktop();
 
 
       /////////////////////////////////////////////////////////////////
@@ -195,6 +205,8 @@ namespace ppc {
         static sf::Sprite loadingDecal_;
 
 		static sf::RectangleShape tempLoadBar_;
+
+        static sf::RectangleShape blackBars_[2];
 
         static Setting settings_;
 

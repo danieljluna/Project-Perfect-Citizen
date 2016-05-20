@@ -65,6 +65,8 @@ namespace ppc {
 			AbleType,
             NetworkType,
             SubmissionType,
+            AnimationType,
+            TimerType,
 			Count
 		};
 
@@ -112,6 +114,22 @@ namespace ppc {
             size_t v;
         };
 
+        struct TimerEv {
+            enum timerState {
+                Reset = 0,
+                FastForward,
+                Play,
+                Pause,
+                Rewind,
+                Finished
+            };
+
+            int timerIndex;
+            sf::Time time;
+            timerState action;
+            
+        };
+
         struct SubmissionEv {
             enum SubmissionType {
                 Mark = 0,
@@ -127,6 +145,10 @@ namespace ppc {
             };
         };
 
+        struct AnimationEv {
+            size_t index;
+        };
+
 		EventTypes type;
 
 		union {
@@ -137,6 +159,8 @@ namespace ppc {
 			AbleEv able;
             NetworkEv network;
             SubmissionEv submission;
+            AnimationEv animation;
+            TimerEv timer;
             sf::Event sfEvent;
 		};
 	};

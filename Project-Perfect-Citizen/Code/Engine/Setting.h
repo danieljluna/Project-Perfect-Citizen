@@ -15,6 +15,7 @@ public:
 
     sf::Vector2u resolution = {0, 0};
     bool fullscreen = false;
+    //Volume Vars
 
 
   /////////////////////////////////////////////////////////////////////

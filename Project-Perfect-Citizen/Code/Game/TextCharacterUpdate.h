@@ -2,6 +2,7 @@
 
 #include <SFML/System/Time.hpp>
 #include "../Engine/updateComponent.h"
+#include "../Engine/subject.h"
 
 namespace ppc {
 	class TextDisplayRenderComponent;
@@ -21,6 +22,8 @@ namespace ppc {
 
 		bool isEnd;
 
+		Subject onAnimEnd_;
+
 	public:
 		
 		TextCharacterUpdate();
@@ -31,6 +34,8 @@ namespace ppc {
 		void setDisplayRate(sf::Time);
 		bool isEnded() { return isEnd; }
 		void update(sf::Time& deltaTime) override;
+
+		Subject& onAnimEnd() { return onAnimEnd_; };
 
 	};
 };

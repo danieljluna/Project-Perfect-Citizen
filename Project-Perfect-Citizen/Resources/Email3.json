@@ -2,166 +2,97 @@
     "Email": {
         "Email_1": {
             "Visible" : "1",
-            "To" : "Vincent Sharp",
-            "From" : "Will Shaffer",
-            "Subject" : "Tough News [5 days ago]",
-            "Body" :"Vincent,
-            
-    Take this with a grain of salt, but it looks
-    like the latest polls have us down 7% vs.
-    McConnelly. We’ve been campaigning hard all
-    season, and I’m not sure what to make of this.
-    Don’t let it get to you though sir, these
-    sorts of predictive numbers aren’t always on
-    the mark.
-            
-    - Will Shaffer
-            
-    Chief of Staff
-    Sharp Senatorial Campaign"
+            "To" : "Vincent Sharp <vincentsharp@senate.gov>",
+            "From" : "Eugene Trilesnik <manager@sharpcampaign.com>",
+            "Subject" : "One in a million. [Nov 18]",
+            "Body" :"
+    Hey Vincent, It's your campaign manager again.
+    I have to be straight with you, our chances
+    don't look good. I know its been neck and neck
+    this entire campaign but this district has
+    been traditionally against you and the values
+    you represent. If we want to have any chance
+    of winning, we really need to get the youth
+    vote off the couch and into the voting
+    offices. I left a copy of a new speech our
+    writers whipped up for you to hopefully put a
+    fire under the millenials. Hope it works...
+    its our only shot at winning this. Id say its
+    one in a million though..."
         },
         "Email_2": {
             "Visible" : "1",
-            "To" : "Vincent Sharp",
-            "From" : "Tamara Lang",
-            "Subject" : "Reminder! High Tension Environments and Dealing with Stress [4 days ago]",
-            "Body" :"Hello Vincent,
+            "To" : "Vincent Sharp <vincentsharp@senate.gov>",
+            "From" : "A. Ambrose <aambrose12@hue.net>",
+            "Subject" : "Write things out! [Nov 19]",
+            "Body" :"Vincent,
             
-    I understand we’ve reached the fever pitch of
-    your campaign. And that would align with the
-    episodes of anxiety you contacted me about.
+    Remember what I told you at our last meeting.
+    Write down whatever is stressing you out in
+    journal format. It will help.
             
-    Stress can be a difficult thing to navigate,
-    especially when one is being thrust into the
-    public eye every moment expected to give off
-    nothing but confidence. In the coming days
-    you’ll likely not have the time to speak
-    confidentially with me, or with any other
-    professional. But that doesn’t mean you cannot
-    be helped through these attacks.
-            
-    One exercise I highly recommend whenever
-    you’re getting short of breath, or beginning
-    to feel negative emotions building up is to
-    write it all down.
-            
-    Start a journal. Put down what you feel. Allow
-    yourself the luxury of reflecting on your
-    thoughts and emotions after the fact.
-            
-    I believe doing this will help you cope.
-    -Tamara Lang
-            
-    PhD Psychoanalyst/Therapist"
+            Dr. Ambrose "
         },
         "Email_3": {
             "Visible" : "1",
-            "To" : "Vincent Sharp",
-            "From" : "Alex Wood",
-            "Subject" : "Nice Job Vincent! [2 days ago]",
-            "Body" :"Wooooooooo yeah!
-            
-    Now we can finally sleep.
-            
-    But seriously, this is incredible! I didn’t
-    think we’d beat McConnelly. I kept imagining
-    we’d have to wait another six years for this!
-                
-    - Alex
-                
-    State Director
-    Sharp Senatorial Campaign"
+            "To" : "Vincent Sharp <vincentsharp@senate.gov>",
+            "From" : "Dallas Hospice Care <harmonhospice@hue.net>",
+            "Subject" : "Order# S56389 [Nov 19]",
+            "Body" :"
+    Thank you for Ordering from the Dallas Hospice
+    Care. We thank you for your business
+                    
+    Items Ordered: Birds of Paradise Bouquet
+    Shipping Method: Pickup
+    Custom Engraving R.S. "
         },
         "Email_4": {
             "Visible" : "1",
-            "To" : "Vincent Sharp",
-            "From" : "Melanie Harris",
-            "Subject" : "What a Landslide Win! [2 days ago]",
+            "To" : "Vincent Sharp <vincentsharp@senate.gov>",
+            "From" : "Eugene Trilesnik <manager@sharpcampaign.com>",
+            "Subject" : "LETS CELEBRATE!!! [Nov 23]",
             "Body" :"
-    You did it! But it’s no surprise to me that we
-    won.
-            
-    You were the best candidate by a mile!
-            
-    Regardless, well done.
-            
-    Best,
-    Melanie
-            
-    P.S. LET’S PARTY!!
-            
-    Press Secretary
-    Sharp Senatorial Campaign"
+    WE DID IT VINCENT, WE WON THE ELECTION! I HAVE
+    NO IDEA HOW WE DID IT, BUT WE DID IT AND
+    THAT'S ALL THAT MATTERS!"
         },
         "Email_5": {
             "Visible" : "1",
-            "To" : "Vincent Sharp",
-            "From" : "Will Shaffer - Chief of Staff",
-            "Subject" : "Congrats! We Won! [2 days ago]",
-            "Body" :"Vince!
+            "To" : "Vincent Sharp <vincentsharp@senate.gov>",
+            "From" : "A little Bird <jasadf23329@gorillamail.com>",
+            "Subject" : "no subject [Nov 23]",
+            "Body" :"Vincent,
             
-    Can you believe it?! We pulled it off! We came
-    from behind and won this god damn race!!
-            
-    Congrats man. We’ve made it!
-            
-    It’s time to celebrate!
-            
-    Will Shaffer
-            
-    Chief of Staff
-    Sharp Senatorial Campaign"
+    Dont celebrate just yet. We at the FEC just
+    received compelling evidence that you and your
+    staff committed voter fraud. You do know the
+    repercussions of such an accusation don't you?
+    Expect to be contacted by the FCC and see the
+    story in the papers tomorrow. I'd prepare a 
+    team if I were you. You're going to need some
+    sort of guardian angel to get out of this
+    Vincent.
+                
+    Sincerely,
+    A little bird at the FEC
+                
+    P.S. Why am I 'helping' you? Well, let's just 
+    say I was a friend of your fathers back in the
+    day."
         },
         "Email_6": {
             "Visible" : "1",
-            "To" : "Vincent Sharp",
-            "From" : "Senatorial Computer Security",
-            "Subject" : "Update [yesterday]",
-            "Body" :"Dear Senator Sharp,
-            
-    Congratulations on attaining your new seat
-    within Congress.
-            
-    Given the status of your new work, you’ll be
-    privy to highly sensitive material. As you
-    know in recent months there’s been some stir
-    over email security, and in order to keep your
-    files, and our governments information in the
-    right hands, we ask that you use our secure
-    encrypted messaging system: Albatross.
-            
-    It’s essentially the same as your email
-    client, except that it’s communications stay
-    within the Senate networks, and thus are safer
-    from outside meddling.
-            
-    Thank you for your compliance."
-        },
-        "Email_7": {
-            "Visible" : "1",
             "To" : "Vincent Sharp <vincentsharp@senate.gov>",
-            "From" : "AudreyHorne@FEC.gov",
-            "Subject" : "Federal Election Commission Audit [4hrs ago]",
-            "Body" :"Hi Vincent,
-            
-    I’m sorry to bear such poor news so soon after
-    you won your seat. But this is urgent.
-            
-    In fact, I could lose my job for telling you
-    this, but I owe you, so here it is:
+            "From" : "Sharp Campaign IT <IT@sharpcampaign.com>",
+            "Subject" : "Your Secure Albatross Email [Nov 25]",
+            "Body" :"Hey Boss!
+    Just finished fixing the secure email server
+    after it crashed the other day. Dont forget,
+    we set up the password to be the highest
+    contributor from the previous month. A bit of
+    an ode if you will.
                 
-    Within 48 hours the Federal Election
-    Commission will open a public investigation
-    against you, under the suspicion that you won
-    the election through fraudulent means.
-                
-    I don’t have anything solid, but by the looks
-    of things you are about to be in hot water.
-                
-    Good luck,
-    Audrey Horne
-                
-    FEC Analytics Assistant Manager"
-        },
+    -Your boys from IT"
+        }
     }
 }

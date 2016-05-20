@@ -1,0 +1,29 @@
+{
+    "Email": {
+        "Email_1": {
+            "Visible" : "1",
+            "To" : "You",
+            "From" : "JP",
+            "Subject" : "Good Job Today",
+            "Body" :"
+    Good job today on your first big extraction!
+    You see, it is important to go through people
+    desktop so we can get scum like those out of
+    reach of our children! I still cannot believe
+    that a person like that was a teacher!
+            
+    We hope to see more good work from you.
+            
+    Your next assignment is ready in the Graph
+    application."
+        },
+        "Email_2": {
+            "Visible" : "1",
+            "To" : "You",
+            "From" : "CT",
+            "Subject" : "Great Job!",
+            "Body" :"
+    Impressive work busting your guy! "
+        }
+    }
+}

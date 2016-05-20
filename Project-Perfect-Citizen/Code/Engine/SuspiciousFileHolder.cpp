@@ -12,7 +12,7 @@ int ppc::SuspiciousFileHolder::susScore_ = 0;
 ppc::Subject ppc::SuspiciousFileHolder::onChange;
 //std::vector < ppc::SuspiciousFileHolder*> ppc::SuspiciousFileHolder::susVec_;
 
-
+int ppc::SuspiciousFileHolder::finalScore_ = 0;
 
 std::vector<ppc::BaseFileType*>& ppc::SuspiciousFileHolder::getBftVector()
 {
@@ -58,9 +58,6 @@ void ppc::SuspiciousFileHolder::printSuspiciousVector()
 
 void ppc::SuspiciousFileHolder::setWindow(ppc::WindowInterface * sWindow)
 {
-	//if (susWindow_ != nullptr) {
-	//	susWindow_->close();
-	//}
 	susWindow_ = sWindow;
 }
 
@@ -86,15 +83,7 @@ ppc::BaseFileType * ppc::SuspiciousFileHolder::getBFTVectorElement(int element)
 
 void ppc::SuspiciousFileHolder::submitFiles()
 {
-    Event ev;
-    ev.type = ev.SubmissionType;
-    ev.submission.count = bftVector_.size();
-    ev.submission.type = ev.submission.Submit;
-    onChange.sendEvent(ev);
-
-
 	if (bftVector_.size() != 3) {
-		//std::cout << "Need more files dingus" << std::endl;
 		return;
 	}
 
@@ -104,10 +93,10 @@ void ppc::SuspiciousFileHolder::submitFiles()
 		totalSuspicion += (**iter).getSuspicionLevel();
 	}
 
+	finalScore_ = totalSuspicion;
 
 	if (totalSuspicion < goodThreshold_) {
 		guilty_ = false;
-		return;
 	}
 	else if (totalSuspicion > badThreshold_) {
 		guilty_ = true;
@@ -119,9 +108,15 @@ void ppc::SuspiciousFileHolder::submitFiles()
 		World::setCurrReportType(World::ReportType::B);
 	} else if (totalSuspicion >= 10 && totalSuspicion <= 19) {
 		World::setCurrReportType(World::ReportType::C);
-	} else if (totalSuspicion >= 0 && totalSuspicion <= 9) {
+	} else if (totalSuspicion >= 1 && totalSuspicion <= 9) {
 		World::setCurrReportType(World::ReportType::D);
 	}
+
+	Event ev;
+	ev.type = ev.SubmissionType;
+	ev.submission.count = bftVector_.size();
+	ev.submission.type = ev.submission.Submit;
+	onChange.sendEvent(ev);
 
 
 }
@@ -165,4 +160,9 @@ void ppc::SuspiciousFileHolder::setSusScore(int score)
 bool ppc::SuspiciousFileHolder::isGuilty()
 {
 	return guilty_;
+}
+
+int ppc::SuspiciousFileHolder::getFinalScore() 
+{
+	return finalScore_;
 }

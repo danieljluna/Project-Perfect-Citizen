@@ -10,7 +10,7 @@
 #include "desktop.h"
 
 #include "debug.h"
-#include "desktop.h"
+#include "../Engine/SuspiciousFileHolder.h"
 
 using namespace ppc;
 
@@ -18,16 +18,31 @@ using namespace ppc;
 sf::RenderWindow* World::screen_ = nullptr;
 Desktop* World::currDesktop_ = nullptr;
 sf::Transform World::worldTransform_;
+sf::RectangleShape World::blackBars_[2] = {sf::RectangleShape(), sf::RectangleShape()};
+
+std::map<ppc::World::DesktopList, ppc::LevelPacket> World::levelMap_ = {
+
+};
+
 std::map<std::string, World::savGroups> World::saveGroupMap_ = {
     { "Settings",      World::SettingsTag  },
     { "State",         World::StateTag     }
 };
 
-World::DesktopList World::currDesktopEnum_ = DE0;
+World::DesktopList World::currDesktopEnum_ = DE0A;
 World::ReportType World::currReportType_ = A;
 std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
-	{World::DE0, ""},
-    {World::DesktopCount, ""}  //Empty pairing of Count to string.
+	{ World::DE0A, resourcePath() + "Engine/pipelineTutorial.ini" },
+	{ World::DE0B, resourcePath() + "Engine/desktopTutorial.ini" },
+	{ World::DEPlayer1, resourcePath() + "Engine/playerDesktop.ini" },
+	{ World::DE1, resourcePath() + "Engine/teacherDesktop.ini" },
+	{ World::DEPlayer2A, resourcePath() + "Engine/playerDesktop2A.ini" },
+	{ World::DEPlayer2B, resourcePath() + "Engine/playerDesktop2B.ini" },
+	{ World::DE2A, resourcePath() + "Engine/artistDesktop.ini" },
+	{ World::DE2B, resourcePath() + "Engine/politicianDesktop.ini" },
+	{ World::DEPlayer3, resourcePath() + "Engine/playerDesktop3.ini" },
+	{ World::DE3, resourcePath() + "Engine/hackerDesktop.ini" },
+    { World::DesktopCount, ""}  //Empty pairing of Count to string.
 };
 
 std::map<World::FontList, sf::Font> World::fontMap_ = {
@@ -38,10 +53,10 @@ std::map<World::FontList, sf::Font> World::fontMap_ = {
 };
 
 std::map <std::pair<World::DesktopList, World::ReportType>, std::string > World::reportListMap_ = {
-	{ { DE0, A }, resourcePath() + "Reports/DummyReportA.txt" },
-	{ { DE0, B }, resourcePath() + "Reports/DummyReportB.txt" },
-	{ { DE0, C }, resourcePath() + "Reports/DummyReportC.txt" },
-	{ { DE0, D }, resourcePath() + "Reports/DummyReportD.txt" },
+	{ { DE0B, A }, resourcePath() + "Reports/DummyReportA.txt" },
+	{ { DE0B, B }, resourcePath() + "Reports/DummyReportB.txt" },
+	{ { DE0B, C }, resourcePath() + "Reports/DummyReportC.txt" },
+	{ { DE0B, D }, resourcePath() + "Reports/DummyReportD.txt" },
 
 	{ { DE1, A }, resourcePath() + "Reports/TeacherReportA.txt" },
 	{ { DE1, B }, resourcePath() + "Reports/TeacherReportB.txt" },
@@ -80,6 +95,47 @@ bool World::isLoading_ = false;
 
 Setting World::settings_;
 
+void ppc::World::initLevelMap() {
+
+	LevelPacket levelTutorialPipeline;
+	levelTutorialPipeline.pushNext(DE0B, 1);
+	levelMap_.emplace(DE0A, levelTutorialPipeline);
+
+	LevelPacket levelTutorialExtraction;
+	levelTutorialExtraction.pushNext(DEPlayer1, 1);
+	levelMap_.emplace(DE0B, levelTutorialExtraction);
+
+	LevelPacket levelPlayer1;
+	levelPlayer1.pushNext(DE1, 1);
+	levelMap_.emplace(DEPlayer1, levelPlayer1);
+
+	LevelPacket levelOne;
+	levelOne.pushNext(DEPlayer2A, 19);
+	levelOne.pushNext(DEPlayer2B, 20);
+	levelMap_.emplace(DE1, levelOne);
+
+	LevelPacket levelPlayer2A;
+	levelPlayer2A.pushNext(DE2A, 19);
+	levelMap_.emplace(DEPlayer2A, levelPlayer2A);
+
+	LevelPacket levelPlayer2B;
+	levelPlayer2B.pushNext(DE2B, 20);
+	levelMap_.emplace(DEPlayer2B, levelPlayer2B);
+
+	LevelPacket levelTwo;
+	levelTwo.pushNext(DEPlayer3, 1);
+	levelMap_.emplace(DE2A, levelTwo);
+	levelMap_.emplace(DE2B, levelTwo);
+
+	LevelPacket levelPlayer3;
+	levelPlayer3.pushNext(DE3, 1);
+	levelMap_.emplace(DEPlayer3, levelPlayer3);
+
+	LevelPacket levelThree;
+	levelMap_.emplace(DE3, levelThree);
+
+}
+
 void World::setGameScreen(sf::RenderWindow& gameScreen) {
 	screen_ = &gameScreen;
 }
@@ -87,32 +143,49 @@ void World::setGameScreen(sf::RenderWindow& gameScreen) {
 sf::VideoMode ppc::World::getVideoMode() {
     sf::VideoMode result;
 
-    if (settings_.fullscreen) {
+    result.width = settings_.resolution.x;
+    result.height = settings_.resolution.y;
 
-        result.width = settings_.resolution.x;
-        result.height = settings_.resolution.y;
+    sf::Vector2f scaleFactorVec;
+    scaleFactorVec.x = float(settings_.resolution.x) / 1000;
+    scaleFactorVec.y = float(settings_.resolution.y) / 800;
 
-        sf::Vector2f scaleFactor;
-        scaleFactor.x = float(settings_.resolution.x) / 1000;
-        scaleFactor.y = float(settings_.resolution.y) / 800;
+    float scaleFactor = std::min(scaleFactorVec.x,
+                                    scaleFactorVec.y);
 
-        worldTransform_ = sf::Transform();
-        worldTransform_.scale(scaleFactor);
+    worldTransform_ = sf::Transform();
 
-        
+    blackBars_[0].setFillColor({ 0, 0, 0 });
+    blackBars_[1].setFillColor({ 0, 0, 0 });
+    
+    //If we are cramped by width:
+    if (scaleFactor == scaleFactorVec.x) {
+
+        float offset = (float(result.height) - 800.0f * scaleFactor) / 2.0f;
+
+        worldTransform_.translate(0, offset);
+
+        blackBars_[0].setPosition(0, 0);
+        blackBars_[0].setSize({ float(result.width), offset });
+        blackBars_[1].setPosition(0, float(result.height) - offset);
+        blackBars_[1].setSize({ float(result.width), offset });
+
+    //Else we are cramped by height:
     } else {
 
-        result.width = settings_.resolution.x;
-        result.height = settings_.resolution.y;
+        float offset = (float(result.width) - 1000.0f * scaleFactor) / 2.0f;
 
-        sf::Vector2f scaleFactor;
-        scaleFactor.x = float(settings_.resolution.x) / 1000;
-        scaleFactor.y = float(settings_.resolution.y) / 800;
+        worldTransform_.translate(offset, 0);
 
-        worldTransform_ = sf::Transform();
-        worldTransform_.scale(scaleFactor);
+        blackBars_[0].setPosition(0, 0);
+        blackBars_[0].setSize({ offset, float(result.height) });
+        blackBars_[1].setPosition(float(result.width) - offset, 0);
+        blackBars_[1].setSize({ offset, float(result.height) });
 
     }
+
+    worldTransform_.scale(scaleFactor, scaleFactor);
+
 
     return result;
 }
@@ -133,8 +206,8 @@ Desktop& World::getCurrDesktop() {
 	return *currDesktop_;
 }
 
-bool World::runDesktop(Desktop &myDesktop) {
-	if (screen_ == nullptr) return false;
+void World::runDesktop(Desktop &myDesktop) {
+	if (screen_ == nullptr) return;
 	// Go into main game loop
 
     quitter_ = false;
@@ -148,6 +221,9 @@ bool World::runDesktop(Desktop &myDesktop) {
 		while (screen_->pollEvent(event)) {
 			if (event.type == sf::Event::Closed) {
 				screen_->close();
+                throw std::exception();
+                // Does not work on Mac v
+                //throw std::exception("Screen Closed");
 			} else if (event.type == sf::Event::KeyPressed) {
 				//Close
 				if ((event.key.code == sf::Keyboard::Period) && (event.key.alt)) {
@@ -192,21 +268,19 @@ bool World::runDesktop(Desktop &myDesktop) {
 			myDesktop.update(dt);
 			elapsed -= framePeriod;
 		}
-		myDesktop.refresh();
-        sf::RenderStates states;
-        states.transform = worldTransform_;
-		screen_->draw(myDesktop, states);
-		screen_->display();
+	
+        World::drawDesktop();
 	}
-	return false;
+
 }
 
 bool World::loadDesktop(DesktopList desk) {
     return loadDesktop(desktopFileMap_.at(desk));
 }
 
-bool World::runCurrDesktop() {
-	return runDesktop(*currDesktop_);
+int World::runCurrDesktop() {
+	runDesktop(*currDesktop_);
+	return SuspiciousFileHolder::getFinalScore();
 }
 
 
@@ -351,13 +425,24 @@ void ppc::World::loadState(std::string filename) {
     while (file) {
         std::getline(file, line);
 
-        if (line.size() == 0) break;
+        //Trim Comments
+        size_t tempIndex = line.find('#');
+        if (tempIndex != std::string::npos) {
+            line = line.substr(0, tempIndex);
+        }
 
-        line = line.substr(line.find_first_not_of("[ \t]"),
-                           line.find_last_not_of("[ \t]"));
+        //Trim whitespace
+        tempIndex = line.find_first_not_of(" \t");
+        if (tempIndex == std::string::npos) continue;
+        line = line.substr(tempIndex,
+                           line.find_last_not_of(" \t"));
 
+        //Enforce Bracket Tagging
+        if (line.front() != '[') continue;
+        line = line.substr(1, line.find(']'));
+
+        //Find Tag
         auto mapIt = saveGroupMap_.find(line);
-        
         if (mapIt == saveGroupMap_.end()) {
             //Output error
             DEBUGF("wl", filename << ": Bad Group Tag: " << line);
@@ -417,3 +502,17 @@ void ppc::World::manifestSettings() {
 }
 
 
+
+
+
+
+void World::drawDesktop() {
+    currDesktop_->refresh();
+    sf::RenderStates states;
+    states.transform = worldTransform_;
+    screen_->draw(*currDesktop_, states);
+    screen_->draw(blackBars_[0]);
+    screen_->draw(blackBars_[1]);
+    
+    screen_->display();
+}

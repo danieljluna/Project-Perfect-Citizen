@@ -160,6 +160,13 @@ bool mousePressButton::registerInput(Event ppcEv) {
 				wasPressed_ = false;
             }
         }
+		else if (ev.type == sf::Event::MouseButtonReleased && 
+			ev.mouseButton.button == sf::Mouse::Left) {
+			ppc::Event ppcRelease(ev);
+			ppcRelease.type = Event::sfEventType;
+			ppcRelease.sfEvent.type = sf::Event::MouseButtonReleased;
+			getEntity()->broadcastMessage(ppcRelease);
+		}
 		/* Case: Mouse Move Event */
 		else if ((ev.type == sf::Event::MouseMoved)) {
 			if (isCollision({ ev.mouseButton.x, ev.mouseButton.y })) {

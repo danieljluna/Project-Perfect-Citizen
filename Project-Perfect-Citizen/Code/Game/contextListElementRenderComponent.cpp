@@ -44,6 +44,14 @@ void contextListElementRenderComponent::draw(sf::RenderTarget & target,
 
 void contextListElementRenderComponent::recieveMessage(Event ev) {
 	switch (ev.type) {
+
+	//Close the context menu if a release button is 
+	case Event::EventTypes::sfEventType:
+		if (ev.sfEvent.type == sf::Event::MouseButtonReleased) {
+			containingWindow->close();
+		}
+		break;
+
 		case Event::EventTypes::ButtonType:
 			if (ev.buttons.state == Event::ButtonsEv::Clicked
 				|| ev.buttons.state == Event::ButtonsEv::DblClicked) { 
@@ -52,6 +60,7 @@ void contextListElementRenderComponent::recieveMessage(Event ev) {
 				contextListElementBox.setFillColor(sf::Color(170, 170, 170)); 
 				containingWindow->close();
 			}
+			break;
 		default:
 			break;
 	}
