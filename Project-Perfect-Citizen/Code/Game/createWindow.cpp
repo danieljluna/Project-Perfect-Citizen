@@ -14,6 +14,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <sstream>
+#include <algorithm>
 
 #include "../Engine/World.h"
 #include "../Engine/Window.h"
@@ -1271,31 +1272,90 @@ bool ppc::continue_world(WindowInterface* w, ppc::Event ev) {
 
 bool ppc::increment_resolution(TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
-	// Iterate up to next settings menu up
+    // Iterate up to next settings menu down
+    string resolutionText = ptr->getString();
+    sf::Vector2u resolution;
+    resolution.x = std::atoi(resolutionText.substr(0, resolutionText.find_first_of(" ")).c_str());
+    resolution.y = std::atoi(resolutionText.substr(resolutionText.find_last_of(" ") + 1).c_str());
 
-	// Parse the x resolution value into resX below:
-	// int resX;
 
-	// Parse the y resolution value into resY below:
-	// int resY;
+    //------------------------------------
+    //This section only allows searches through the fullscreen modes.
+    //This hampers our aspect ratio currently
 
-	// Uncomment the line below when the resolutions are loaded.
-	//ptr->updateString(std::to_string(resX) + " x " + std::to_string(resY));
-	return true;
+    auto possibleModes = sf::VideoMode::getFullscreenModes();
+
+    //Search for current fullscreen mode
+    auto it = possibleModes.begin();
+    while (it != possibleModes.end()) {
+        if ((it->width == resolution.x) && (it->height == resolution.y)) {
+            break;
+        }
+        ++it;
+    }
+
+    //If we are on the first item or we couldn't find the current:
+    if ((it == possibleModes.end()) || (it == possibleModes.begin())) {
+        it = possibleModes.begin();
+    } else {
+        --it;
+    }
+
+    //------------------------------------
+
+    /*
+    Setting settings = World::getSettings();
+    settings.resolution = sf::Vector2u{ it->width, it->height };
+    World::setSettings(settings);
+    */
+
+    // Uncomment the line below when the resolutions are loaded.
+    ptr->updateString(std::to_string(it->width) + " x " +
+        std::to_string(it->height));
+    return true;
 }
 
 bool ppc::decrement_resolution(TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
 	// Iterate up to next settings menu down
+    string resolutionText = ptr->getString();
+    sf::Vector2u resolution;
+    resolution.x = std::atoi(resolutionText.substr(0, resolutionText.find_first_of(" ")).c_str());
+    resolution.y = std::atoi(resolutionText.substr(resolutionText.find_last_of(" ") + 1).c_str());
 
-	// Parse the x resolution value into resX below:
-	// int resX;
+    
+    //------------------------------------
+    //This section only allows searches through the fullscreen modes.
+    //This hampers our aspect ratio currently
+    
+    auto possibleModes = sf::VideoMode::getFullscreenModes();
 
-	// Parse the y resolution value into resY below:
-	// int resY;
+    //Search for current fullscreen mode
+    auto it = possibleModes.begin();
+    while (it != possibleModes.end()) {
+        if ((it->width == resolution.x) && (it->height == resolution.y)) {
+            break;
+        }
+        ++it;
+    }
+
+    //If we are not on the last item or we couldn't find the current:
+    if (possibleModes.end() - it > 1) {
+        ++it;
+    } else {
+        it = possibleModes.end();
+        --it;
+    }
+
+    //------------------------------------
+
+    /*
+    
+    */
 
 	// Uncomment the line below when the resolutions are loaded.
-	//ptr->updateString(std::to_string(resX) + " x " + std::to_string(resY));
+	ptr->updateString(std::to_string(it->width) + " x " + 
+                      std::to_string(it->height));
 	return true;
 }
 
@@ -1332,10 +1392,15 @@ bool ppc::decrement_volume(TextDisplayRenderComponent * ptr, ppc::Event ev)
 
 bool ppc::update_settings(TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
-	string newResolution = ptr->getString();
+	string resolutionText = ptr->getString();
 	// Parse resolution x and y into resX and resY
-	// int resX;
-	// int resY;
+    sf::Vector2u resolution;
+    resolution.x = std::atoi(resolutionText.substr(0, resolutionText.find_first_of(" ")).c_str());
+    resolution.y = std::atoi(resolutionText.substr(resolutionText.find_last_of(" ") + 1).c_str());
+
+    Setting settings = World::getSettings();
+    settings.resolution = resolution;
+    World::setSettings(settings);
 	
 	// Set the new resolution using resX, resY;
 	return true;
