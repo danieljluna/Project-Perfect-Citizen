@@ -65,8 +65,16 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 					if (sequence.frames.empty()) {
                         size_t tokenIndex = line.find_first_of(':');
 						label = line.substr(1, tokenIndex - 1);
+                        //Get Auto Shift
                         if (line.substr(tokenIndex + 2, 1) == "F") 
                             sequence.autoShift = false;
+                        //Get Wait
+                        std::string timeStr = line.substr(tokenIndex + 4, line.find_last_not_of(" \t"));
+                        float time = std::stof(timeStr);
+                        if (time > 0) {
+                            sequence.hasWaitSeq = true;
+                            sequence.waitTime = sf::seconds(time);
+                        }
 						continue;
 					}
 
@@ -78,6 +86,18 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
                     } else {
                         sequence.autoShift = true;
                     }
+
+                    //Get Wait
+                    std::string timeStr = line.substr(tokenIndex + 4, line.find_last_not_of(" \t"));
+                    float time = std::stof(timeStr);
+                    if (time > 0) {
+                        sequence.hasWaitSeq = true;
+                        sequence.waitTime = sf::seconds(time);
+                    } else {
+                        sequence.hasWaitSeq = false;
+                        sequence.waitTime = sf::Time();
+                    }
+
 					sequence.frames.clear();
 				}
 				else {

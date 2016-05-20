@@ -20,6 +20,22 @@ namespace ppc {
 
         operator sf::Event&();
 
+
+        enum EventTypes
+        {
+            ButtonType,
+            OpenType,
+            sfEventType,
+            NotificationType,
+            FloppyType,
+            AbleType,
+            NetworkType,
+            SubmissionType,
+            AnimationType,
+            TimerType,
+            Count
+        };
+
         //Used internally to recognize button state
 		struct ButtonsEv {
             enum State {
@@ -52,22 +68,6 @@ namespace ppc {
 
 		struct AbleEv {
 			bool enable;
-		};
-
-		enum EventTypes
-		{
-			ButtonType,
-			OpenType,
-			ScrollbarType,
-			sfEventType,
-            NotificationType,
-			FloppyType,
-			AbleType,
-            NetworkType,
-            SubmissionType,
-            AnimationType,
-            TimerType,
-			Count
 		};
 
 		struct OpenEv {
@@ -163,5 +163,9 @@ namespace ppc {
             TimerEv timer;
             sf::Event sfEvent;
 		};
+
+
+        bool operator==(const ppc::Event& other) const;
+
 	};
 } //end of ppc namespace
