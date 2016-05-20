@@ -2,7 +2,7 @@
 	"Email": {
    		"Email_1": {
             "Visible" : "1",
-   			"To" : "PLAYER_NAME",
+   			"To" : "You",
 			"From" : "DCPS automated system",
           	"Subject" : "What is Project Perfect Citizen?",
           	"Body" :"
@@ -20,7 +20,7 @@
         },
 		"Email_2": {
             "Visible" : "1",
-			"To" : "PLAYER_NAME",
+			"To" : "You",
 			"From" : "CT",
             "Subject": "Welcome!",
 			"Body" :"Hey new guy,
@@ -36,7 +36,7 @@
 		},
 		"Email_3": {
             "Visible" : "1",
-			"To" : "PLAYER_NAME",
+			"To" : "You",
 			"From" : "JP",
 			"Subject": "First Things First",
 			"Body" : "Hello there,
@@ -60,7 +60,7 @@
 		},
         "Email_4": {
             "Visible" : "0",
-			"To" : "PLAYER_NAME",
+			"To" : "You",
 			"From" : "DCPS automated system",
 			"Subject": "Graph App Instructions",
 			"Body" : 

@@ -18,6 +18,7 @@ using namespace ppc;
 sf::RenderWindow* World::screen_ = nullptr;
 Desktop* World::currDesktop_ = nullptr;
 sf::Transform World::worldTransform_;
+sf::RectangleShape World::blackBars_[2] = {sf::RectangleShape(), sf::RectangleShape()};
 
 std::map<ppc::World::DesktopList, ppc::LevelPacket> World::levelMap_ = {
 
@@ -35,7 +36,8 @@ std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
 	{ World::DE0B, resourcePath() + "Engine/desktopTutorial.ini" },
 	{ World::DEPlayer1, resourcePath() + "Engine/playerDesktop.ini" },
 	{ World::DE1, resourcePath() + "Engine/teacherDesktop.ini" },
-	{ World::DEPlayer2, resourcePath() + "Engine/playerDesktop2.ini" },
+	{ World::DEPlayer2A, resourcePath() + "Engine/playerDesktop2A.ini" },
+	{ World::DEPlayer2B, resourcePath() + "Engine/playerDesktop2B.ini" },
 	{ World::DE2A, resourcePath() + "Engine/artistDesktop.ini" },
 	{ World::DE2B, resourcePath() + "Engine/politicianDesktop.ini" },
 	{ World::DEPlayer3, resourcePath() + "Engine/playerDesktop3.ini" },
@@ -96,33 +98,37 @@ Setting World::settings_;
 void ppc::World::initLevelMap() {
 
 	LevelPacket levelTutorialPipeline;
-	levelTutorialPipeline.push(DE0B, 1);
+	levelTutorialPipeline.pushNext(DE0B, 1);
 	levelMap_.emplace(DE0A, levelTutorialPipeline);
 
 	LevelPacket levelTutorialExtraction;
-	levelTutorialExtraction.push(DEPlayer1, 1);
+	levelTutorialExtraction.pushNext(DEPlayer1, 1);
 	levelMap_.emplace(DE0B, levelTutorialExtraction);
 
 	LevelPacket levelPlayer1;
-	levelPlayer1.push(DE1, 1);
+	levelPlayer1.pushNext(DE1, 1);
 	levelMap_.emplace(DEPlayer1, levelPlayer1);
 
 	LevelPacket levelOne;
-	levelOne.push(DEPlayer2, 1);
+	levelOne.pushNext(DEPlayer2A, 19);
+	levelOne.pushNext(DEPlayer2B, 20);
 	levelMap_.emplace(DE1, levelOne);
 
-	LevelPacket levelPlayer2;
-	levelPlayer2.push(DE2A, 19);
-	levelPlayer2.push(DE2B, 20);
-	levelMap_.emplace(DEPlayer2, levelPlayer2);
+	LevelPacket levelPlayer2A;
+	levelPlayer2A.pushNext(DE2A, 19);
+	levelMap_.emplace(DEPlayer2A, levelPlayer2A);
+
+	LevelPacket levelPlayer2B;
+	levelPlayer2B.pushNext(DE2B, 20);
+	levelMap_.emplace(DEPlayer2B, levelPlayer2B);
 
 	LevelPacket levelTwo;
-	levelTwo.push(DEPlayer3, 1);
+	levelTwo.pushNext(DEPlayer3, 1);
 	levelMap_.emplace(DE2A, levelTwo);
 	levelMap_.emplace(DE2B, levelTwo);
 
 	LevelPacket levelPlayer3;
-	levelPlayer3.push(DE3, 1);
+	levelPlayer3.pushNext(DE3, 1);
 	levelMap_.emplace(DEPlayer3, levelPlayer3);
 
 	LevelPacket levelThree;
@@ -137,32 +143,49 @@ void World::setGameScreen(sf::RenderWindow& gameScreen) {
 sf::VideoMode ppc::World::getVideoMode() {
     sf::VideoMode result;
 
-    if (settings_.fullscreen) {
+    result.width = settings_.resolution.x;
+    result.height = settings_.resolution.y;
 
-        result.width = settings_.resolution.x;
-        result.height = settings_.resolution.y;
+    sf::Vector2f scaleFactorVec;
+    scaleFactorVec.x = float(settings_.resolution.x) / 1000;
+    scaleFactorVec.y = float(settings_.resolution.y) / 800;
 
-        sf::Vector2f scaleFactor;
-        scaleFactor.x = float(settings_.resolution.x) / 1000;
-        scaleFactor.y = float(settings_.resolution.y) / 800;
+    float scaleFactor = std::min(scaleFactorVec.x,
+                                    scaleFactorVec.y);
 
-        worldTransform_ = sf::Transform();
-        worldTransform_.scale(scaleFactor);
+    worldTransform_ = sf::Transform();
 
-        
+    blackBars_[0].setFillColor({ 0, 0, 0 });
+    blackBars_[1].setFillColor({ 0, 0, 0 });
+    
+    //If we are cramped by width:
+    if (scaleFactor == scaleFactorVec.x) {
+
+        float offset = (float(result.height) - 800.0f * scaleFactor) / 2.0f;
+
+        worldTransform_.translate(0, offset);
+
+        blackBars_[0].setPosition(0, 0);
+        blackBars_[0].setSize({ float(result.width), offset });
+        blackBars_[1].setPosition(0, float(result.height) - offset);
+        blackBars_[1].setSize({ float(result.width), offset });
+
+    //Else we are cramped by height:
     } else {
 
-        result.width = settings_.resolution.x;
-        result.height = settings_.resolution.y;
+        float offset = (float(result.width) - 1000.0f * scaleFactor) / 2.0f;
 
-        sf::Vector2f scaleFactor;
-        scaleFactor.x = float(settings_.resolution.x) / 1000;
-        scaleFactor.y = float(settings_.resolution.y) / 800;
+        worldTransform_.translate(offset, 0);
 
-        worldTransform_ = sf::Transform();
-        worldTransform_.scale(scaleFactor);
+        blackBars_[0].setPosition(0, 0);
+        blackBars_[0].setSize({ offset, float(result.height) });
+        blackBars_[1].setPosition(float(result.width) - offset, 0);
+        blackBars_[1].setSize({ offset, float(result.height) });
 
     }
+
+    worldTransform_.scale(scaleFactor, scaleFactor);
+
 
     return result;
 }
@@ -245,11 +268,8 @@ void World::runDesktop(Desktop &myDesktop) {
 			myDesktop.update(dt);
 			elapsed -= framePeriod;
 		}
-		myDesktop.refresh();
-        sf::RenderStates states;
-        states.transform = worldTransform_;
-		screen_->draw(myDesktop, states);
-		screen_->display();
+	
+        World::drawDesktop();
 	}
 
 }
@@ -482,3 +502,17 @@ void ppc::World::manifestSettings() {
 }
 
 
+
+
+
+
+void World::drawDesktop() {
+    currDesktop_->refresh();
+    sf::RenderStates states;
+    states.transform = worldTransform_;
+    screen_->draw(*currDesktop_, states);
+    screen_->draw(blackBars_[0]);
+    screen_->draw(blackBars_[1]);
+    
+    screen_->display();
+}
