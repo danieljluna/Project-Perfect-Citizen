@@ -1,0 +1,26 @@
+{
+    "Email": {
+        "Email_1": {
+            "Visible" : "1",
+            "To" : "You",
+            "From" : "JP",
+            "Subject" : "Keeping Our Citizens Safe",
+            "Body" :"
+    Amazing work! You just saved many lives
+    today! This is exactly why we need the DCPS,
+    so we can stomp out criminal scum and keep our
+    citizens safe.
+            
+    You can do your next assignment when you are
+    ready. "
+        },
+        "Email_2": {
+            "Visible" : "1",
+            "To" : "You",
+            "From" : "CT",
+            "Subject" : "Good Job Newbie",
+            "Body" :"
+    Impressive work, even for a new guy like you!"
+        }
+    }
+}

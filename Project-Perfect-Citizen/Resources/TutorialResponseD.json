@@ -1,0 +1,31 @@
+{
+    "Email": {
+        "Email_1": {
+            "Visible" : "1",
+            "To" : "You",
+            "From" : "JP",
+            "Subject" : "Your Simulation Run",
+            "Body" :"
+    Unfortunately, you received the lowest score
+    possible. That is a bit alarming, maybe you
+    should pay attention to the finer details.
+            
+    Well, on to business matters. You are going to
+    perform a real Pipeline Extraction. We suspect
+    that their is a person in possession of
+    illegal items.
+            
+    Good luck, I know you will do fine."
+        },
+        "Email_2": {
+            "Visible" : "1",
+            "To" : "You",
+            "From" : "CT",
+            "Subject" : "Lowest Score Ever",
+            "Body" :"
+    You just achieved the lowest score in DCPS
+    history, how do you feel newbie?  Well, just
+    try to be more observant next time."
+        }
+    }
+}

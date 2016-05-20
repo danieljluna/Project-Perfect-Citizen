@@ -1,0 +1,29 @@
+{
+    "Email": {
+        "Email_1": {
+            "Visible" : "1",
+            "To" : "You",
+            "From" : "JP",
+            "Subject" : "Depressing",
+            "Body" :"
+    It is depressing to see our system flag people
+    that are not guilty. I will tell the design
+    team to work on the flagging algorithm.
+            
+    Your next assignment is ready in the Graph
+    application."
+        },
+        "Email_2": {
+            "Visible" : "1",
+            "To" : "You",
+            "From" : "CT",
+            "Subject" : "Look At All The Details",
+            "Body" :"
+    It is quite strange that your first case was a
+    false pick by the system. That has only
+    happened to me once in my entire career. Just
+    make sure you pay attention to all the details
+    in the Desktop Extraction."
+        }
+    }
+}
