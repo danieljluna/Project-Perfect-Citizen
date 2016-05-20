@@ -2,7 +2,7 @@
     "Desktop": {
         "Campaign_Data" : {
             "Post_Election" : {
-                "Secure_Email_Server/ADI/Top Donater" : {
+                "Secure_Email_Server/ADI/Check your email" : {
                     "1/Freaking_Out.txt" : "DesktopContent/Desktop3/Freaking_Out.txt",
                     "1/Allegations.txt" : "DesktopContent/Desktop3/Allegations.txt",
                     "1/Guardian_Angle.txt" : "DesktopContent/Desktop3/Guardian_Angel.txt"
@@ -15,6 +15,7 @@
                     "1/Upcoming_Election.jpg" : "DesktopContent/Desktop3/Upcoming_Election.png",
                     "1/The_Changing_Times.jpg" : "DesktopContent/Desktop3/The_Changing_Times.png",
                     "1/Who_would_do_this.jpg" : "DesktopContent/Desktop3/Who_would_do_this.png",
+                    "1/Recent_Polls.jpg" : "DesktopContent/Desktop3/Recent_Polls.png",
                     "1/Vincent_Wins.jpg" : "DesktopContent/Desktop3/Vincent_Wins.png"
                 },
                 "Contributions/Dallas/Home" : {
@@ -45,14 +46,14 @@
                 }
             }
         },
-        "Family_Documents/Semper in excretia/Dad's old addage" : {
+        "Family_Documents" : {
             "Joseph" : {
                 "1/Joseph's_Will.txt" : "DesktopContent/Desktop3/Dad_Will.txt",
-                "1/Medical_Reciept.jpg" : "DesktopContent/Desktop3/Medical_Reciept.jpg"
+                "1/Medical_Reciept.jpg" : "DesktopContent/Desktop3/Medical_Reciept.png"
             },
             "Marie" : {
                 "1/Marie's_Will.txt" : "DesktopContent/Desktop3/Mom_Will.txt",
-                "1/Hospice_Receipt.jpg" : "DesktopContent/Desktop3/Hopsice_Gift_Receipt.jpg",
+                "1/Hospice_Receipt.jpg" : "DesktopContent/Desktop3/Hospice_Gift_Receipt.png",
                 "1/M_and_R.jpg" : "DesktopContent/Desktop3/MnR.jpg"
             },
             "1/Divorce_Petition_Copy.jpg" : "DesktopContent/Desktop3/Divorce_Petition_Copy.jpg",
