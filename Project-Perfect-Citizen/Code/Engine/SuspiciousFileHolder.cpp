@@ -118,7 +118,7 @@ void ppc::SuspiciousFileHolder::submitFiles()
 	ev.submission.type = ev.submission.Submit;
 	onChange.sendEvent(ev);
 
-
+	clearFiles();
 }
 
 void ppc::SuspiciousFileHolder::clearFiles()

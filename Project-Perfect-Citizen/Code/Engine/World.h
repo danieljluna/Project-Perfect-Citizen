@@ -92,7 +92,7 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////
 		///@brief Runs the main game loop with the given Desktop
 		///////////////////////////////////////////////////////////////
-		static void runDesktop(ppc::Desktop&);
+		static void runDesktop();
 
         static bool loadDesktop(DesktopList desk);
 
@@ -165,6 +165,9 @@ namespace ppc {
 
         static void drawDesktop();
 
+		static void registerInput();
+
+		static void update(sf::Clock&, sf::Time&);
 
       /////////////////////////////////////////////////////////////////
       // Private Vars / Enums

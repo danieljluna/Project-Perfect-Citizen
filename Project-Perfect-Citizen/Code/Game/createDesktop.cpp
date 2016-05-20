@@ -306,9 +306,6 @@ void createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopWindow
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
-    
-    ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
-    EmailIcon.addComponent(notiRenderComp);
     desktopWindowToModify.addEntity(EmailIcon);
     
 }
@@ -379,9 +376,6 @@ void createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
-    
-    ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
-    EmailIcon.addComponent(notiRenderComp);
     desktopWindowToModify.addEntity(EmailIcon);
     
 }
@@ -452,9 +446,6 @@ void createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& desktopW
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
-    
-    ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
-    EmailIcon.addComponent(notiRenderComp);
     desktopWindowToModify.addEntity(EmailIcon);
     
 }
@@ -525,9 +516,6 @@ void createTrailerDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
-    
-    ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
-    EmailIcon.addComponent(notiRenderComp);
     desktopWindowToModify.addEntity(EmailIcon);
     
 }
