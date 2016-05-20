@@ -2,11 +2,11 @@
 
 #include "../Engine/updateComponent.h"
 #include "../Engine/event.h"
+#include "../Engine/subject.h"
 
 #include <SFML/System/Time.hpp>
 
 #include <vector>
-#include <map>
 
 namespace ppc {
 
@@ -36,6 +36,10 @@ namespace ppc {
 
         void rewindTimer(unsigned int timer, sf::Time dt);
 
+        unsigned int createTimer(sf::Time time, int evKey = -1);
+
+        bool isValidTimer(unsigned int timer);
+
 
       /////////////////////////////////////////////////////////////////
       // Event Mapping
@@ -43,11 +47,18 @@ namespace ppc {
 
         int mapEvent(ppc::Event ev);
 
-        ppc::Event getMapping(int key);
+        ppc::Event getMapping(int evKey);
 
         void setTimerEvent(unsigned int timer, ppc::Event ev);
 
-        void setTimerEvent(unsigned int timer, int key);
+        void setTimerEvent(unsigned int timer, int evKey);
+
+
+      /////////////////////////////////////////////////////////////////
+      // Subject
+      /////////////////////////////////////////////////////////////////
+
+        Subject& onTimer() { return onTimer_; };
 
 
       /////////////////////////////////////////////////////////////////
@@ -69,9 +80,11 @@ namespace ppc {
             bool isRunning = true;
         };
 
-        std::map<int, ppc::Event> eventMap_;
+        std::vector<ppc::Event> eventVec_;
 
         std::vector<Timer> timerVec_;
+
+        Subject onTimer_;
 
 
     };

@@ -1,5 +1,7 @@
 #include "TimerUpdateCmpnt.h"
 
+#include <algorithm>
+
 using namespace ppc;
 
 ///////////////////////////////////////////////////////////////////////
@@ -69,22 +71,51 @@ void TimerUpdateCmpnt::rewindTimer(unsigned int timer, sf::Time dt) {
 
 
 
+unsigned int TimerUpdateCmpnt::createTimer(sf::Time time, int evKey) {
+    unsigned int result = timerVec_.size();
+    
+    timerVec_.push_back(Timer());
+    timerVec_.back().eventIndex = evKey;
+    timerVec_.back().timeLeft = time;
+
+    return result;
+}
+
+
+
+
+bool TimerUpdateCmpnt::isValidTimer(unsigned int timer) {
+    return (timer < timerVec_.size());
+}
+
+
+
+
 ///////////////////////////////////////////////////////////////////////
 // Event Mapping
 ///////////////////////////////////////////////////////////////////////
 
 int TimerUpdateCmpnt::mapEvent(ppc::Event ev) {
-    eventMap_.in
+    int result;
+
+    auto it = std::find(eventVec_.begin(), eventVec_.end(), ev);
+    if (it != eventVec_.end()) {
+        result = (it - eventVec_.begin());
+    } else {
+        result = eventVec_.size();
+        eventVec_.push_back(ev);
+    }
+
+    return result;
 }
 
 
 
 
 ppc::Event TimerUpdateCmpnt::getMapping(int key) {
-    auto it = eventMap_.find(key);
     ppc::Event result;
-    if (it != eventMap_.end()) {
-        return it->second;
+    if (key < eventVec_.size()) {
+        return eventVec_.at(key);
     } else {
         ppc::Event emptyEv;
         emptyEv.type = Event::Count;
@@ -96,14 +127,15 @@ ppc::Event TimerUpdateCmpnt::getMapping(int key) {
 
 
 void TimerUpdateCmpnt::setTimerEvent(unsigned int timer, ppc::Event ev) {
-
+    int key = mapEvent(ev);
+    setTimerEvent(timer, key);
 }
 
 
 
 
 void TimerUpdateCmpnt::setTimerEvent(unsigned int timer, int key) {
-
+    timerVec_.at(timer).eventIndex = key;
 }
 
 
@@ -162,5 +194,17 @@ void TimerUpdateCmpnt::recieveMessage(ppc::Event ev) {
 ///////////////////////////////////////////////////////////////////////
 
 void TimerUpdateCmpnt::activateTimer(unsigned int timer) {
+    Event ppcEv;
 
+    if (timerVec_.at(timer).eventIndex == -1) {
+        //Use Default Event
+        ppcEv.type = Event::TimerType;
+        ppcEv.timer.timerIndex = timer;
+        ppcEv.timer.time = timerVec_.at(timer).timeLeft;
+        ppcEv.timer.action = Event::TimerEv::Finished;
+    } else {
+        ppcEv = eventVec_.at(timerVec_.at(timer).eventIndex);
+    }
+
+    onTimer_.sendEvent(ppcEv);
 }
