@@ -1,0 +1,26 @@
+{
+    "Email": {
+        "Email_1": {
+            "Visible" : "1",
+            "To" : "You",
+            "From" : "JP",
+            "Subject" : "Shocked",
+            "Body" :"
+    I am utterly shocked! We could have saved the
+    lives of those 11 people! We will just have to
+    try harder next time."
+        },
+        "Email_2": {
+            "Visible" : "1",
+            "To" : "You",
+            "From" : "CT",
+            "Subject" : "Keep Your Head Uo",
+            "Body" :"
+    Hey, you are probably going through a rough
+    time right now, but don't beat yourself up 
+    over it. It is his fault, not your fault, that
+    those people died; he is the one that killed
+    those people, we just tried to prevent it."
+        }
+    }
+}

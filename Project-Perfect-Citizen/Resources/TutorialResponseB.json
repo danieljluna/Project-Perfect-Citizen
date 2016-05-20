@@ -1,0 +1,30 @@
+{
+    "Email": {
+        "Email_1": {
+            "Visible" : "1",
+            "To" : "You",
+            "From" : "JP",
+            "Subject" : "Your Simulation Run",
+            "Body" :"
+    Great job! You got an impressive score on your
+    simulation run.
+            
+    Next, you are going to perform a real Pipeline
+    Extraction. We suspect that their is a person
+    in possession of illegal items and it will be
+    your job to find them.
+            
+    Good luck, I know you will do fine. "
+        },
+        "Email_2": {
+            "Visible" : "1",
+            "To" : "You",
+            "From" : "CT",
+            "Subject" : "Great Score",
+            "Body" :"
+    Great score newbie! Remember to be really
+    attentive when looking at the suspects
+    desktop."
+        }
+    }
+}
