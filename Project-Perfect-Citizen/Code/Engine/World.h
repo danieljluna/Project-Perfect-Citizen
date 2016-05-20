@@ -163,6 +163,8 @@ namespace ppc {
 
         static void manifestSettings();
 
+        static void drawDesktop();
+
 
       /////////////////////////////////////////////////////////////////
       // Private Vars / Enums
@@ -203,6 +205,8 @@ namespace ppc {
         static sf::Sprite loadingDecal_;
 
 		static sf::RectangleShape tempLoadBar_;
+
+        static sf::RectangleShape blackBars_[2];
 
         static Setting settings_;
 
