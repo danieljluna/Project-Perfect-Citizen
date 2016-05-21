@@ -13,7 +13,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Engine/Engine.h"
-<<<<<<< HEAD
+
 #include "Game/mousePressButton.h"
 #include "Game/buttonRenderComponent.h"
 #include "Game/consoleIconRenderComponent.h"
@@ -32,9 +32,6 @@
 #include "Game/characterRender.hpp"
 #include "Game/interpolateUpdateComponent.hpp"
 #include "Game/textLabelComponent.hpp"
-=======
->>>>>>> refs/remotes/origin/experimental
-
 #include "Engine/SuspiciousFileHolder.h"
 
 #include "Engine/Audio/AudioQueue.h"
@@ -43,7 +40,6 @@
 
 using namespace ppc;
 
-<<<<<<< HEAD
 
 
 
@@ -151,9 +147,6 @@ void setUpPoliticianDesktop(ppc::Desktop& myDesktop) {
 }
 
 
-
-=======
->>>>>>> refs/remotes/origin/experimental
 int main(int argc, char** argv) {
     try {
         
@@ -186,7 +179,6 @@ int main(int argc, char** argv) {
         World::loadState("PPC.sav");
         std::ifstream desktopFileInput;
         
-<<<<<<< HEAD
         World::setCurrDesktop(mainDesktop);
         World::setCurrDesktopEnum(World::DesktopList::DE0A);
         createTutorial(mainDesktop);
@@ -258,7 +250,6 @@ int main(int argc, char** argv) {
 		} else {
 			desktopFileInput.open(resourcePath() + "Engine/playerDesktop2A.ini", std::ifstream::in);
 			World::setCurrDesktopEnum(World::DesktopList::DEPlayer2A);
-=======
 		Desktop mainDesktop;
 		World::setCurrDesktop(mainDesktop);
 		
@@ -286,7 +277,6 @@ int main(int argc, char** argv) {
 
 			//Use Score to determine next level to go to
 			World::goToNext(deskScore);
->>>>>>> refs/remotes/origin/experimental
 		}
 
     return EXIT_SUCCESS;
