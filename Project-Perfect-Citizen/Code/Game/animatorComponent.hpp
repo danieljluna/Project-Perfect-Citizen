@@ -1,12 +1,11 @@
 
 #pragma once
 
-#include <SFML/Graphics.hpp>
-
 #include "../Engine/updateComponent.h"
-#include "buttonRenderComponent.h"
+#include <SFML/System/Time.hpp>
 
 namespace ppc {
+	class buttonRenderComponent;
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Animator Component for an animated Button Renderer

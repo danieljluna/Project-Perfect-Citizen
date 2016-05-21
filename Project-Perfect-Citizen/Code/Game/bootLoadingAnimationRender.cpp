@@ -8,7 +8,13 @@
 
 #include "bootLoadingAnimationRender.hpp"
 #include "../Engine/World.h"
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Image.hpp>
 #include <math.h>
+#include "textLabelComponent.hpp"
+
+using namespace ppc;
 
 bootLoadingAnimationRender::bootLoadingAnimationRender(sf::Image& img,textLabelComponent& l, int x, int y):image(img), textLabel(l){
 
@@ -180,7 +186,7 @@ void bootLoadingAnimationRender::draw( sf::RenderTarget& target,
     target.draw(*sprite, states);
 }
 
-string bootLoadingAnimationRender::getRandomString(int stringLength) {
+std::string bootLoadingAnimationRender::getRandomString(int stringLength) {
     std::string text = "";
     std::string possible = "ABCDEFGHIJKLMNOPQRST!@#$%^&*/_+=UVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     for (int i = 0; i < stringLength; ++i) {
@@ -193,7 +199,7 @@ string bootLoadingAnimationRender::getRandomString(int stringLength) {
 void bootLoadingAnimationRender::animate() {
     if (frame < 29) {
         sprites.at(frame)->setColor(sf::Color::Green);
-        string temp = textLabel.getString();
+        std::string temp = textLabel.getString();
         textLabel.updateLabelString(temp + getRandomString(90) + "\n");
 
         frame += 1;

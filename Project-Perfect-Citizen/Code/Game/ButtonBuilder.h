@@ -2,14 +2,21 @@
 
 #include "../Engine/renderComponent.h"
 #include <iostream>
-#include <SFML/Graphics.hpp>
-#include "../Engine/renderComponent.h"
-#include "../Engine/InputHandler.h"
-#include "../Game/mousePressButton.h"
-#include "../Game/buttonRenderComponent.h"
-#include "../Game/TextDisplayRenderComponent.h"
+
+
+namespace sf {
+	class Sprite;
+	class Image;
+	class Font;
+}
 
 namespace ppc {
+	//class renderComponent;
+	class InputHandler;
+	class mousePressButton;
+	class buttonRenderComponent;
+	class TextDisplayRenderComponent;
+
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Designated Generic Builder Object for Buttons
 	/// @author Alex Vincent 

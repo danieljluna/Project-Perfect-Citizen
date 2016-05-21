@@ -1,16 +1,17 @@
 #include "../Engine/debug.h"
 #include "mousePressButton.h"
+
 #include <iostream>
 #include <string>
 
-#include "../Engine/FreeFunctionObserver.h"
+#include "../Engine/Entity.h"
 #include "../Engine/event.h"
+#include "../Engine/InputHandler.h"
 
 using namespace ppc;
 
 const float DOUBLE_CLICK_TIME = 500.0f;
 
-using namespace std;
 mousePressButton::mousePressButton() : 
 	InputComponent(3), buttonRect() {
 

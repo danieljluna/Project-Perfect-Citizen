@@ -16,11 +16,12 @@
 #include <fstream>
 #include <math.h>
 
+using namespace ppc;
 
 //////////////////////////////////////////////////////////
 ///// Random string function use for random file paths
 /////////////////////////////////////////////////////////
-std::string getRandomString(int stringLength) {
+std::string ppc::getRandomString(int stringLength) {
     std::string text = "";
     std::string possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     for (int i = 0; i < stringLength; ++i) {
@@ -34,7 +35,7 @@ std::string getRandomString(int stringLength) {
 ///// Boot loading animation function.
 /////////////////////////////////////////////////////////
 
-std::string bootLoad(int step, std::string renderString) {
+std::string ppc::bootLoad(int step, std::string renderString) {
     if (step == 200) {
         renderString += " PCOS(C) , UNMOS. UNAUTHORIZED USE OF THIS TERMINAL CAN RESULT IN PENALTY BY DEATH. \n";
     } else if (step == 500) {

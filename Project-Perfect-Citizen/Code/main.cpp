@@ -32,6 +32,7 @@
 #include "Game/BootLoader.hpp"
 #include "Game/characterRender.hpp"
 #include "Game/interpolateUpdateComponent.hpp"
+#include "Game/textLabelComponent.hpp"
 
 #include "Game/bootLoadingUpdateComponent.hpp"
 #include "Game/bootLoadingAnimationRender.hpp"
@@ -79,7 +80,7 @@ void setUpBootDesktop(ppc::Desktop& myDesktop) {
     font.loadFromFile(resourcePath() + "consola.ttf");
     
     
-    textLabelComponent* textLabel = new textLabelComponent(font,sf::Color::Green, 0,0, 20, " PCOS(C) , UNMOS. UNAUTHORIZED USE OF THIS TERMINAL CAN RESULT IN PENALTY BY DEATH. \n   Beginning File System Initialization \n");
+    ppc::textLabelComponent* textLabel = new ppc::textLabelComponent(font,sf::Color::Green, 0,0, 20, " PCOS(C) , UNMOS. UNAUTHORIZED USE OF THIS TERMINAL CAN RESULT IN PENALTY BY DEATH. \n   Beginning File System Initialization \n");
     
     bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(myDesktop.getButtonSheet(),*textLabel,7,5);
     
