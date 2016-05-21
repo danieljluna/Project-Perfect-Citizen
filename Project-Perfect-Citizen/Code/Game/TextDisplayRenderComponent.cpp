@@ -74,6 +74,8 @@ TextDisplayRenderComponent::TextDisplayRenderComponent(sf::Font& f, sf::Color c,
 }
 
 TextDisplayRenderComponent::~TextDisplayRenderComponent() {
+	delete text_;
+	delete outline_;
 }
 
 void TextDisplayRenderComponent::updatePosition(float x, float y) {

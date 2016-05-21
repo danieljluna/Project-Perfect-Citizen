@@ -50,7 +50,7 @@ std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
     { World::DesktopCount, ""}  //Empty pairing of Count to string.
 };
 
-std::map<World::DesktopList, World::desktopLoaders> loaderMap_ = {
+std::map<World::DesktopList, World::desktopLoaders> World::loaderMap_ = {
 	{World::DELogo, setUpLogoDesktop },
 	{ World::DEOpening, setUpBootDesktop },
 	{ World::DELogin, setUpLoginDesktop },
@@ -120,6 +120,10 @@ Setting World::settings_;
 
 void ppc::World::initLevelMap() {
 
+	LevelPacket levelGameLogo;
+	levelGameLogo.pushNext(DEOpening, 1);
+	levelMap_.emplace(DELogo, levelGameLogo);
+
 	LevelPacket levelGameOpening;
 	levelGameOpening.pushNext(DELogin, 1);
 	levelMap_.emplace(DEOpening, levelGameOpening);
@@ -165,6 +169,31 @@ void ppc::World::initLevelMap() {
 	LevelPacket levelThree;
 	levelThree.pushNext(DEEnd, 1);
 	levelMap_.emplace(DE3, levelThree);
+
+	LevelPacket levelEnd;
+	levelEnd.pushNext(DesktopCount, 1);
+	levelMap_.emplace(DEEnd, levelEnd);
+
+}
+
+void ppc::World::setLevel(int levelEnum, int score) {
+	if (levelEnum >= (int)World::DesktopCount) {
+		currDesktopEnum_ = DELogo;
+		return;
+	}
+	World::DesktopList nextD = 
+		(DesktopList)levelMap_.at((DesktopList)levelEnum).getNext(score);
+
+	currDesktopEnum_ = nextD;
+
+}
+
+void ppc::World::goToNext(int score) {
+
+	World::DesktopList nextD =
+		(DesktopList)levelMap_.at(currDesktopEnum_).getNext(score);
+
+	currDesktopEnum_ = nextD;
 
 }
 
@@ -228,6 +257,10 @@ void World::setCurrDesktop(Desktop &d) {
 
 void ppc::World::setCurrDesktopEnum(DesktopList dl) {
 	currDesktopEnum_ = dl;
+}
+
+World::DesktopList ppc::World::getCurrDesktopEnum() {
+	return currDesktopEnum_;
 }
 
 sf::RenderWindow& World::getGameScreen() {

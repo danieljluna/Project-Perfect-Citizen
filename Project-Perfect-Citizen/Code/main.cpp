@@ -36,8 +36,6 @@ int main(int argc, char** argv) {
         World::initFontMap();
         World::initLoadScreen();
         
-        
-        bool BootToTitleCard = false;
         // Create the main sf::window
         sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen");
         
@@ -58,202 +56,40 @@ int main(int argc, char** argv) {
         World::loadState("PPC.sav");
         std::ifstream desktopFileInput;
         
-        //Main Loops for each Desktops
-        
-        //Logo Desktop
-        Desktop mainDesktop;
-        desktopFileInput.open(resourcePath() + "Engine/bootDesktop.ini", std::ifstream::in);
-        desktopFileInput >> mainDesktop;
-        
-        desktopFileInput.close();
-        Logger::startTimer("logoDesktop");
-        
-        World::setCurrDesktop(mainDesktop);
-		World::setCurrDesktopEnum(World::DesktopList::DELogo);
-        ppc::setUpLogoDesktop(mainDesktop);
-        World::runCurrDesktop();
-        
-        Logger::endTimer("logoDesktop");
-        //End Boot Desktop
-        
-        //Boot Desktop
-        desktopFileInput.open(resourcePath() + "Engine/bootDesktop.ini", std::ifstream::in);
-        desktopFileInput >> mainDesktop;
-        desktopFileInput.close();
-        Logger::startTimer("bootDesktop");
-        
-        World::setCurrDesktop(mainDesktop);
-		World::setCurrDesktopEnum(World::DesktopList::DEOpening);
-        setUpBootDesktop(mainDesktop);
-        World::runCurrDesktop();
-        
-        Logger::endTimer("bootDesktop");
-        //End Boot Desktop
-        
-        //Login Desktop
-        desktopFileInput.open(resourcePath() + "Engine/loginDesktop.ini", std::ifstream::in);
-        desktopFileInput >> mainDesktop;
-        desktopFileInput.close();
-        Logger::startTimer("loginDesktop");
-        
-        World::setCurrDesktop(mainDesktop);
-		World::setCurrDesktopEnum(World::DesktopList::DELogin);
-        setUpLoginDesktop(mainDesktop);
-        World::runCurrDesktop();
-        
-        Logger::endTimer("loginDesktop");
-        
-        //PE Tutorial Desktop
-        World::startLoading();
-        
-        
-        desktopFileInput.open(resourcePath() + "Engine/pipelineTutorial.ini", std::ifstream::in);
-        desktopFileInput >> mainDesktop;
-        desktopFileInput.close();
-        
-        Logger::startTimer("PipeTutorialDesktop");
-        
-        World::setCurrDesktop(mainDesktop);
-        World::setCurrDesktopEnum(World::DesktopList::DE0A);
-        createTutorial(mainDesktop);
-        World::runCurrDesktop();
-        
-        Logger::endTimer("PipeTutorialDesktop");
-        //End PE Tutorial Desktop
-        
-        
-        //DE Tutorial Desktop
-        World::startLoading();
-        desktopFileInput.open(resourcePath() + "Engine/desktopTutorial.ini", std::ifstream::in);
-        desktopFileInput >> mainDesktop;
-        desktopFileInput.close();
-        
-        Logger::startTimer("DeskTutorialDesktop");
-        
-        World::setCurrDesktop(mainDesktop);
-        World::setCurrDesktopEnum(World::DesktopList::DE0B);
-        createDesktopTutorial(mainDesktop);
-        World::runCurrDesktop();
-        
-        Logger::endTimer("DeskTutorialDesktop");
-        
-        //Player Desktop
-        World::startLoading();
-        desktopFileInput.open(resourcePath() + "Engine/playerDesktop.ini", std::ifstream::in);
-        desktopFileInput >> mainDesktop;
-        desktopFileInput.close();
-        
-        Logger::startTimer("playerDesktop");
-        
-        World::setCurrDesktop(mainDesktop);
-        World::setCurrDesktopEnum(World::DesktopList::DEPlayer1);
-        setUpPlayerDesktop(mainDesktop);
-        World::runCurrDesktop();
-        
-        Logger::endTimer("playerDesktop");
-        // End Player Desktop      
-        
-        //Desktop 1 / Teacher Desktop
-        World::startLoading();
-        desktopFileInput.open(resourcePath() + "Engine/teacherDesktop.ini", std::ifstream::in);
-        desktopFileInput >> mainDesktop;
-        desktopFileInput.close();
-        Logger::startTimer("TeacherDesktop");
-        
-        World::setCurrDesktop(mainDesktop);
-        World::setCurrDesktopEnum(World::DesktopList::DE1);
-        setUpTeacherDesktop(mainDesktop);
-        World::runCurrDesktop();
-        
-        Logger::endTimer("TeacherDesktop");
-        //End of Target/Teacher Desktop
-        
-        //Player Desktop (2)
-        World::startLoading();
-		if (ppc::SuspiciousFileHolder::isGuilty()) {
-			desktopFileInput.open(resourcePath() + "Engine/playerDesktop2B.ini", std::ifstream::in);
-			World::setCurrDesktopEnum(World::DesktopList::DEPlayer2B);
-		} else {
-			desktopFileInput.open(resourcePath() + "Engine/playerDesktop2A.ini", std::ifstream::in);
-			World::setCurrDesktopEnum(World::DesktopList::DEPlayer2A);
+		Desktop mainDesktop;
+		World::setCurrDesktop(mainDesktop);
+		
+		//***For Daniel: Call  this function when you load from the save!***
+		//World::setLevel(i,j); where i is the DesktopEnum as an int,
+		// and j is the score from the most recent desktop
+
+		while (World::getCurrDesktopEnum() != World::DesktopCount) {
+			//Get Current Desktop Level
+			World::DesktopList currDesk = World::getCurrDesktopEnum();
+
+			//Load Screen for correct levels
+			if((int)currDesk >= 3) World::startLoading();
+
+			//Parse Curr Desktop's .ini
+			desktopFileInput.open(World::desktopFileMap_.at(currDesk));
+			desktopFileInput >> mainDesktop;
+			desktopFileInput.close();
+
+			//Set Up Curr Desktop Level
+			World::loaderMap_.at(currDesk)(mainDesktop);
+
+			//Run the Curr Desktop. Get Player's score when it ends
+			int deskScore = World::runCurrDesktop();
+
+			//Use Score to determine next level to go to
+			World::goToNext(deskScore);
 		}
-        desktopFileInput >> mainDesktop;
-        desktopFileInput.close();
-        
-        Logger::startTimer("playerDesktop2");
-        
-        World::setCurrDesktop(mainDesktop);
-        setUpPlayerDesktop(mainDesktop);
-        World::runCurrDesktop();
-        
-        Logger::endTimer("playerDesktop2");
-        
-        
-        //Desktop Extraction 2 / (Artist or Politician DE)
-        World::startLoading();
-        if (ppc::SuspiciousFileHolder::isGuilty()) {
-            desktopFileInput.open(resourcePath() + "Engine/politicianDesktop.ini", std::ifstream::in);
-            World::setCurrDesktopEnum(World::DesktopList::DE2B);
-        } else {
-            desktopFileInput.open(resourcePath() + "Engine/artistDesktop.ini", std::ifstream::in);
-            World::setCurrDesktopEnum(World::DesktopList::DE2A);
-        }
-        desktopFileInput >> mainDesktop;
-        desktopFileInput.close();
-        
-        Logger::startTimer("DE2Desktop");
-        
-        World::setCurrDesktop(mainDesktop);
-        if (ppc::SuspiciousFileHolder::isGuilty()) {
-            setUpPoliticianDesktop(mainDesktop);
-        } else {
-            setUpArtistDesktop(mainDesktop);
-        }
-        World::runCurrDesktop();
-        
-        Logger::endTimer("DE2Desktop");
-        //End of Target/Teacher Desktop
-        
-        //Player Desktop (PE3)
-        World::startLoading();
-        desktopFileInput.open(resourcePath() + "Engine/playerDesktop3.ini", std::ifstream::in);
-        desktopFileInput >> mainDesktop;
-        desktopFileInput.close();
-        
-        Logger::startTimer("playerDesktop3");
-        
-        World::setCurrDesktop(mainDesktop);
-        World::setCurrDesktopEnum(World::DesktopList::DEPlayer3);
-        setUpPlayerDesktop(mainDesktop);
-        World::runCurrDesktop();
-        
-        Logger::endTimer("playerDesktop3");
-        
-        
-        //Desktop Extraction 3 goes here
-        
-        //Ending Desktop
-        desktopFileInput.open(resourcePath() + "Engine/endDesktop.ini", std::ifstream::in);
-        desktopFileInput >> mainDesktop;
-        desktopFileInput.close();
-        Logger::startTimer("endDesktop");
-        
-        World::setCurrDesktop(mainDesktop);
-        setUpEndDesktop(mainDesktop);
-        World::runCurrDesktop();
-        
-        Logger::endTimer("endDesktop");
-        
-        Logger::exportParcels();
-        
-        
-        
-        return EXIT_SUCCESS;
-        
+
+    return EXIT_SUCCESS;
+       
     } catch(std::exception e) {
         std::cerr << e.what();
     }
-
+	
     return EXIT_SUCCESS;
-
 }

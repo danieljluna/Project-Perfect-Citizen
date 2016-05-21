@@ -58,8 +58,18 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////
 		World() = delete;
 
+		///////////////////////////////////////////////////////////////
+		// World std::Maps
+		///////////////////////////////////////////////////////////////
+		static std::map<DesktopList, std::string> desktopFileMap_;
+
 		static std::map<DesktopList, ppc::LevelPacket> levelMap_;
 		static void initLevelMap();
+		static void setLevel(int, int);
+		static void goToNext(int);
+		
+
+
 
 		using desktopLoaders = void(*)(ppc::Desktop&);
 
@@ -82,7 +92,7 @@ namespace ppc {
 		static void setCurrDesktop(ppc::Desktop&);
 
 		static void setCurrDesktopEnum(DesktopList);
-
+		static DesktopList getCurrDesktopEnum();
 		///////////////////////////////////////////////////////////////
 		///@brief Returns a pointer to the Game Screen
 		///////////////////////////////////////////////////////////////
@@ -194,8 +204,6 @@ namespace ppc {
 		static ReportType currReportType_;
 
         static bool quitter_;
-
-        static std::map<DesktopList, std::string> desktopFileMap_;
 
 		static std::map<FontList, sf::Font> fontMap_;
 
