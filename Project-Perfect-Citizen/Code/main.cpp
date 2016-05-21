@@ -1,159 +1,27 @@
 //Used to get XCODE working/////////////////////////////////
 
 #ifdef WINDOWS_MARKER
-#define resourcePath() string("Resources/")
+#define resourcePath() std::string("Resources/")
 #else
 #include "ResourcePath.hpp"
 #endif
 
 ///////////////////////////////////////////////////////////
-
-#include <iostream>
 #include <fstream>
+#include <string>
 #include <SFML/Main.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include "Library/json/json.h"
+
 #include "Engine/Engine.h"
-#include "Game/mousePressButton.h"
-#include "Game/buttonRenderComponent.h"
-#include "Game/consoleIconRenderComponent.h"
-#include "Game/TreeCommands.h"
-#include "Game/animatorComponent.hpp"
-#include "Game/textInputKeys.hpp"
-#include "Game/createWindow.h"
-#include "Game/createIcon.h"
-#include "Game/createButton.h"
-#include "Game/createDesktop.h"
-#include "Game/desktopExtractionComponent.hpp"
-#include "Game/expressionistParser.hpp"
-#include "Game/PipelineCharacter.h"
-#include "Game/Database.h"
-#include "Game/BootLoader.hpp"
-#include "Game/characterRender.hpp"
-#include "Game/interpolateUpdateComponent.hpp"
 
-#include "Game/bootLoadingUpdateComponent.hpp"
-#include "Game/bootLoadingAnimationRender.hpp"
-#include "Game/BadCopRenderComponent.hpp"
-#include "Game/BadCopUpdateComponent.hpp"
-#include "Game/spriteRenderComponent.hpp"
-#include "Game/endAnimationUpdateComponent.hpp"
-#include "Game/endingAnimationRender.hpp"
+#include "Engine/SuspiciousFileHolder.h"
 
-#include "Game/TextBubble.h"
+#include "Engine/Audio/AudioQueue.h"
 
-#include "Game/createTutorial.h"
-#include "Game/CreateReportScreen.h"
+#include "Engine/SetUpDesktops.h"
 
 using namespace ppc;
-
-
-
-
-void setUpLogoDesktop(ppc::Desktop& myDesktop) {
-    
-    Window* bootWindow = new Window(1800,1000,sf::Color(0,0,0));
-    
-    Entity badCop;
-    
-    BadCopRenderComponent* badCopRender = new BadCopRenderComponent(myDesktop.getIconSheet());
-    BadCopUpdateComponent* badCopUpdate = new BadCopUpdateComponent(*badCopRender, .1f);
-    
-    badCop.addComponent(badCopRender);
-    badCop.addComponent(badCopUpdate);
-    
-    bootWindow->addEntity(badCop);
-    
-    
-    myDesktop.addWindow(bootWindow);
-}
-
-void setUpBootDesktop(ppc::Desktop& myDesktop) {
-    
-    Window* bootWindow = new Window(1800,1000,sf::Color(0,0,0));
-    
-    Entity loading;
-    
-    sf::Font font;
-    font.loadFromFile(resourcePath() + "consola.ttf");
-    
-    
-    textLabelComponent* textLabel = new textLabelComponent(font,sf::Color::Green, 0,0, 20, " PCOS(C) , UNMOS. UNAUTHORIZED USE OF THIS TERMINAL CAN RESULT IN PENALTY BY DEATH. \n   Beginning File System Initialization \n");
-    
-    bootLoadingAnimationRender* bootRender = new bootLoadingAnimationRender(myDesktop.getButtonSheet(),*textLabel,7,5);
-    
-    bootLoadingUpdateComponent* bootUpdate = new bootLoadingUpdateComponent(*bootRender,0.1f);
-    
-    Entity badCop;
-    
-    loading.addComponent(bootRender);
-    loading.addComponent(bootUpdate);
-    loading.addComponent(textLabel);
-    bootWindow->addEntity(loading);
-    
-    
-    myDesktop.addWindow(bootWindow);
-    
-}
-
-
-void setUpLoginDesktop(ppc::Desktop& myDesktop) {
-    
-    createLoginDesktop(myDesktop, *myDesktop.getDesktopWindow(),
-                       myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
-    
-}
-
-
-
-void setUpEndDesktop(ppc::Desktop& myDesktop) {
-    
-    Window* endWindow = new Window(1800,1000,sf::Color(30,32,33));
-    
-    Entity ending;
-    
-    endingAnimationRender* endRender = new endingAnimationRender(myDesktop.getButtonSheet());
-    endAnimationUpdateComponent* endUpdate = new endAnimationUpdateComponent(*endRender, 0.1f);
-    
-    ending.addComponent(endRender);
-    ending.addComponent(endUpdate);
-    endWindow->addEntity(ending);
-    
-    myDesktop.addWindow(endWindow);
-}
-
-
-void setUpPlayerDesktop(ppc::Desktop& myDesktop) {
-    createPlayerDesktop(myDesktop, *myDesktop.getDesktopWindow(),
-                        myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
-    
-}
-
-void setUpDummyDesktop(ppc::Desktop& myDesktop) {
-    createDummyDesktop(myDesktop, *myDesktop.getDesktopWindow(),
-                       myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
-    
-}
-
-void setUpTeacherDesktop(ppc::Desktop& myDesktop) {
-    createTeacherDesktop(myDesktop, *myDesktop.getDesktopWindow(),
-                         myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
-    
-}
-
-void setUpArtistDesktop(ppc::Desktop& myDesktop) {
-    createArtistDesktop(myDesktop, *myDesktop.getDesktopWindow(),
-                        myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
-    
-}
-
-void setUpPoliticianDesktop(ppc::Desktop& myDesktop) {
-    createPoliticianDesktop(myDesktop, *myDesktop.getDesktopWindow(),
-                            myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
-    
-}
-
 
 
 int main(int argc, char** argv) {
@@ -188,7 +56,7 @@ int main(int argc, char** argv) {
         
         World::setGameScreen(screen);
         World::loadState("PPC.sav");
-        ifstream desktopFileInput;
+        std::ifstream desktopFileInput;
         
         //Main Loops for each Desktops
         
@@ -201,7 +69,8 @@ int main(int argc, char** argv) {
         Logger::startTimer("logoDesktop");
         
         World::setCurrDesktop(mainDesktop);
-        setUpLogoDesktop(mainDesktop);
+		World::setCurrDesktopEnum(World::DesktopList::DELogo);
+        ppc::setUpLogoDesktop(mainDesktop);
         World::runCurrDesktop();
         
         Logger::endTimer("logoDesktop");
@@ -214,6 +83,7 @@ int main(int argc, char** argv) {
         Logger::startTimer("bootDesktop");
         
         World::setCurrDesktop(mainDesktop);
+		World::setCurrDesktopEnum(World::DesktopList::DEOpening);
         setUpBootDesktop(mainDesktop);
         World::runCurrDesktop();
         
@@ -227,6 +97,7 @@ int main(int argc, char** argv) {
         Logger::startTimer("loginDesktop");
         
         World::setCurrDesktop(mainDesktop);
+		World::setCurrDesktopEnum(World::DesktopList::DELogin);
         setUpLoginDesktop(mainDesktop);
         World::runCurrDesktop();
         
@@ -380,7 +251,7 @@ int main(int argc, char** argv) {
         return EXIT_SUCCESS;
         
     } catch(std::exception e) {
-        cerr << e.what();
+        std::cerr << e.what();
     }
 
     return EXIT_SUCCESS;

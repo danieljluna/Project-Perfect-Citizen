@@ -11,6 +11,7 @@
 
 #include "debug.h"
 #include "../Engine/SuspiciousFileHolder.h"
+#include "SetUpDesktops.h"
 
 using namespace ppc;
 
@@ -29,9 +30,12 @@ std::map<std::string, World::savGroups> World::saveGroupMap_ = {
     { "State",         World::StateTag     }
 };
 
-World::DesktopList World::currDesktopEnum_ = DE0A;
+World::DesktopList World::currDesktopEnum_ = DELogo;
 World::ReportType World::currReportType_ = A;
 std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
+	{ World::DELogo, resourcePath() + "Engine/bootDesktop.ini" },
+	{ World::DEOpening, resourcePath() + "Engine/bootDesktop.ini" },
+	{ World::DELogin, resourcePath() + "Engine/loginDesktop.ini" },
 	{ World::DE0A, resourcePath() + "Engine/pipelineTutorial.ini" },
 	{ World::DE0B, resourcePath() + "Engine/desktopTutorial.ini" },
 	{ World::DEPlayer1, resourcePath() + "Engine/playerDesktop.ini" },
@@ -42,7 +46,26 @@ std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
 	{ World::DE2B, resourcePath() + "Engine/politicianDesktop.ini" },
 	{ World::DEPlayer3, resourcePath() + "Engine/playerDesktop3.ini" },
 	{ World::DE3, resourcePath() + "Engine/hackerDesktop.ini" },
+	{ World::DEEnd, resourcePath() + "Engine/endDesktop.ini" },
     { World::DesktopCount, ""}  //Empty pairing of Count to string.
+};
+
+std::map<World::DesktopList, World::desktopLoaders> loaderMap_ = {
+	{World::DELogo, setUpLogoDesktop },
+	{ World::DEOpening, setUpBootDesktop },
+	{ World::DELogin, setUpLoginDesktop },
+	{ World::DE0A, createTutorial },
+	{ World::DE0B, createDesktopTutorial },
+	{ World::DEPlayer1, setUpPlayerDesktop },
+	{ World::DE1, setUpTeacherDesktop },
+	{ World::DEPlayer2A, setUpPlayerDesktop },
+	{ World::DEPlayer2B, setUpPlayerDesktop },
+	{ World::DE2A, setUpArtistDesktop },
+	{ World::DE2B, setUpPoliticianDesktop },
+	{ World::DEPlayer3,setUpPlayerDesktop },
+	{ World::DE3, setUpHackerDesktop },
+	{ World::DEEnd, setUpEndDesktop },
+	{ World::DesktopCount, nullptr }  //Empty pairing of Count to nullptr.
 };
 
 std::map<World::FontList, sf::Font> World::fontMap_ = {
@@ -97,6 +120,14 @@ Setting World::settings_;
 
 void ppc::World::initLevelMap() {
 
+	LevelPacket levelGameOpening;
+	levelGameOpening.pushNext(DELogin, 1);
+	levelMap_.emplace(DEOpening, levelGameOpening);
+
+	LevelPacket levelLoginScreen;
+	levelLoginScreen.pushNext(DE0A, 1);
+	levelMap_.emplace(DELogin, levelLoginScreen);
+
 	LevelPacket levelTutorialPipeline;
 	levelTutorialPipeline.pushNext(DE0B, 1);
 	levelMap_.emplace(DE0A, levelTutorialPipeline);
@@ -132,6 +163,7 @@ void ppc::World::initLevelMap() {
 	levelMap_.emplace(DEPlayer3, levelPlayer3);
 
 	LevelPacket levelThree;
+	levelThree.pushNext(DEEnd, 1);
 	levelMap_.emplace(DE3, levelThree);
 
 }
