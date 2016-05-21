@@ -1,23 +1,27 @@
 
 #include "textOutputRenderComponent.h"
-#include "createWindow.h"
 
-#include <iostream>
-#include <SFML/Graphics.hpp>
-#include "../Engine/renderComponent.h"
-#include "../Engine/desktop.h"
-#include "../Game/TreeCommands.h"
+
 #include <string>
 #include <algorithm>
 #include <stdio.h>
 #include <ctype.h>
-#include "../Engine/World.h"
+#include <iostream>
+#include <SFML/Graphics.hpp>
 
+#include "../Engine/renderComponent.h"
+#include "../Engine/desktop.h"
+#include "../Engine/World.h"
 #include "../Engine/WindowInterface.h"
 #include "../Engine/BorderDecorator.h"
 #include "../Engine/ScrollBarDeco.h"
+#include "../Engine/Window.h"
+#include "../Engine/SuspiciousFileHolder.h"
 
 #include "../Engine/SubjectObsvr.h"
+
+#include "TreeCommands.h"
+#include "createWindow.h"
 
 const string TEXT_KEY_INPUT = "TKI";
 

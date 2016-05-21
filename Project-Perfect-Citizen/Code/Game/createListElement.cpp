@@ -1,9 +1,16 @@
 #include "createListElement.h"
+
+#include "../Engine/desktop.h"
+
 #include "contextListElementRenderComponent.h"
 #include "buttonRenderComponent.h"
 #include "TextDisplayBuilder.h"
 #include "TextDisplayRenderComponent.h"
 #include "mousePressButton.h"
+#include "emailListElementRenderComponent.h"
+#include "emailListElementInputComponent.h"
+#include "Email.h"
+
 
 using namespace ppc;
 
@@ -13,8 +20,8 @@ void ppc::createEmailListElement(ppc::Entity& entityToModify, Desktop& dT, sf::I
 	emailListElementInputComponent* eLIC = new emailListElementInputComponent(dT, ih, eM, bS, eLRC->getListElementBoxBounds());
 
 	buttonRenderComponent* emailIcon = new buttonRenderComponent(dT.getIconSheet(), 0, 10, 1, 2);
-	emailIcon->setImageScale(size, size);
-	emailIcon->renderPosition(sf::Vector2f(x+ 10, y-10));
+	emailIcon->setImageScale(static_cast<float>(size), static_cast<float>(size));
+	emailIcon->renderPosition(sf::Vector2f(static_cast<float>(x+ 10), static_cast<float>(y-10)));
 	emailIcon->setButtonType("ICON");
 	if (eM->getReadFlag()) emailIcon->setSprite(1, 10, 1);
 
@@ -29,7 +36,7 @@ void ppc::createContextListElement(ppc::Entity& entityToModify, WindowInterface*
 	contextListElementRenderComponent* rc = new contextListElementRenderComponent(win, f,
 		s, boxX, boxY, boxWidth, boxHeight, x, y, size);
 
-	TextDisplayRenderComponent *rc2 = new TextDisplayRenderComponent(f, sf::Color::Black, x, y, size, s);
+	TextDisplayRenderComponent *rc2 = new TextDisplayRenderComponent(f, sf::Color::Black, static_cast<float>(x), static_cast<float>(y), size, s);
 
 	mousePressButton* ic = new mousePressButton(ih, rc->getListElementBoxBounds());
 

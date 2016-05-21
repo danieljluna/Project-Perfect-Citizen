@@ -19,6 +19,8 @@
 
 #include "../Game/mousePressButton.h"
 
+#include "../Engine/Network.h"
+
 #include "../Engine/event.h"
 #include "../Engine/frontTopObserver.h"
 

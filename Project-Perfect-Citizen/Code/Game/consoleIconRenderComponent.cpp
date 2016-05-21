@@ -1,8 +1,13 @@
 #include "../Engine/debug.h"
 #include "consoleIconRenderComponent.h"
 
-using namespace std;
-const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Image.hpp>
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+
+using namespace ppc;
+const std::string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
 
 consoleIconRenderComponent::consoleIconRenderComponent(sf::Image& image,
 	int x, int y, int r) : buttonImage(image) {
@@ -53,5 +58,5 @@ void consoleIconRenderComponent::draw(sf::RenderTarget& target,
 void consoleIconRenderComponent::recieveMessage(msgType code) {
 
 	if (code.compare(MOUSE_DOUBLE_CLICK_CODE) == 0)
-		cout << "animate icon" << endl;
+		std::cout << "animate icon" << std::endl;
 }

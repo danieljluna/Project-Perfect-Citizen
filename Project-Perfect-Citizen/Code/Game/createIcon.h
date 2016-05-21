@@ -6,26 +6,6 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
-#include "../Engine/Window.h"
-#include "../Engine/inputComponent.h"
-#include "../Engine/InputHandler.h"
-#include "../Engine/Entity.h"
-#include "../Engine/subject.h"
-#include "textInputRenderComponent.hpp"
-#include "textInputKeys.hpp"
-#include "../Engine/InputHandler.h"
-#include "animatorComponent.hpp"
-#include "mousePressButton.h"
-#include "consoleIconRenderComponent.h"
-#include "buttonRenderComponent.h"
-#include "consoleUpdateComponent.h"
-#include "../Engine/NodeState.h"
-#include "iconInputComponent.h"
-#include "textLabelComponent.hpp"
-#include "Database.h"
-#include "../Game/Inbox.h"
-
-
 ///////////////////////////////////////////////////////////////////////
 /// @brief A toolkit of functions that turn entities into useable icons
 /// @author Alex Vincent 
@@ -34,6 +14,11 @@
 /// be augmented by the function you called on it.
 ///////////////////////////////////////////////////////////////////////
 namespace ppc {
+	class InputHandler;
+	class Entity;
+	class Database;
+	class Inbox;
+	class Desktop;
 
 //////////////////////////////////////////////////////////////////////
 /// @brief Turns the passed entity into a useable folder Icon

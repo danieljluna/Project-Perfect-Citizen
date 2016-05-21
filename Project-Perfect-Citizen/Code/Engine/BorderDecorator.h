@@ -145,7 +145,7 @@ private:
     DraggableInput draggableInput_;
 
     //Holds the window caption.
-    TextDisplayRenderComponent caption_;
+    ppc::TextDisplayRenderComponent caption_;
     //Holds the background color of the caption
     sf::RectangleShape captionBackground_;
     //Holds the Icon for the caption

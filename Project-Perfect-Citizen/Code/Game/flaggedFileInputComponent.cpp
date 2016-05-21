@@ -3,6 +3,7 @@
 #include "../Game/createWindow.h"
 #include "../Game/ContextBuilder.h"
 #include "../Engine/World.h"
+#include "../Engine/Window.h"
 
 using namespace ppc;
 

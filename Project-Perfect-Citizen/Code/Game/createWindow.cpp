@@ -6,68 +6,76 @@
 #define MAC 1
 #endif
 
+#include "../Engine/debug.h"
 #include "createWindow.h"
 
 #include <iostream>
 #include <fstream>
 #include <SFML/Main.hpp>
 #include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Image.hpp>
 #include <sstream>
 #include <algorithm>
 
 #include "../Engine/World.h"
 #include "../Engine/Window.h"
-#include "buttonRenderComponent.h"
-#include "consoleUpdateComponent.h"
 #include "../Engine/inputComponent.h"
 #include "../Engine/InputHandler.h"
 #include "../Engine/Entity.h"
 #include "../Engine/subject.h"
-#include "textInputRenderComponent.hpp"
-#include "textInputKeys.hpp"
 #include "../Engine/BorderDecorator.h"
 #include "../Engine/ScrollBarDeco.h"
-#include "../Game/textOutputRenderComponent.h"
-#include "../Game/databaseSearchRenderComponent.h"
-#include "../Game/databaseSearchInputComponent.h"
-#include "../Game/databaseDisplayRenderComponent.h"
-#include "../Game/Inbox.h"
-#include "../Game/errorMessageRenderComponent.h"
-#include "../Game/Explorer.h"
+#include "../Engine/FreeFunctionObserver.h"
+#include "../Engine/SuspiciousFileHolder.h"
+
+#include "../Library/json/json.h"
+
+#include "buttonRenderComponent.h"
+#include "consoleUpdateComponent.h"
+#include "textInputRenderComponent.hpp"
+#include "textInputKeys.hpp"
+#include "textOutputRenderComponent.h"
+#include "databaseSearchRenderComponent.h"
+#include "databaseSearchInputComponent.h"
+#include "databaseDisplayRenderComponent.h"
+#include "Inbox.h"
+#include "errorMessageRenderComponent.h"
+#include "Explorer.h"
 #include "NetworkCheckFunctor.h"
 
-#include "../Engine/debug.h"
-#include "../Game/characterRender.hpp"
 
-#include "../Game/PipelineDataRenderComponent.h"
-#include "../Game/PipelineGraphRenderComponent.h"
-#include "../Game/photoRenderComponent.hpp"
+#include "characterRender.hpp"
+
+#include "PipelineDataRenderComponent.h"
+#include "PipelineGraphRenderComponent.h"
+#include "photoRenderComponent.hpp"
 #include "textRenderComponent.hpp"
+#include "textLabelComponent.hpp"
 
-#include "../Game/NetworkRenderCmpnt.h"
-#include"../Game/NetworkInputCmpnt.h"
-#include"../Game/NetworkUpdateCmpnt.h"
+#include "NetworkRenderCmpnt.h"
+#include "NetworkInputCmpnt.h"
+#include "NetworkUpdateCmpnt.h"
 
-#include"../Game/PipelineLevelBuilder.h"
-#include "../Game/createListElement.h"
-#include "../Game/emailExtraction.hpp"
-#include "../Library/json/json.h"
-#include"../Engine/FreeFunctionObserver.h"
+#include "PipelineLevelBuilder.h"
+#include "createListElement.h"
+#include "emailExtraction.hpp"
+#include "emailMessageRenderComponent.h"
 
-#include "../Game/ButtonBuilder.h"
-#include "../Game/TextDisplayBuilder.h"
+#include "ButtonBuilder.h"
+#include "TextDisplayBuilder.h"
+#include "TextDisplayRenderComponent.h"
 
-#include "../Game/TextBoxBuilder.h"
+#include "TextBoxBuilder.h"
 
-#include "../Game/HelpRenderComponent.hpp"
-#include "../Game/readingMacDirectory.hpp"
+#include "HelpRenderComponent.hpp"
+#include "readingMacDirectory.hpp"
 
-#include "../Engine/SuspiciousFileHolder.h"
-#include "../Game/explorerFolderInputComponent.h"
+#include "createButton.h"
 
-#include "../Game/ConfirmWindowBuilder.h"
-#include "../Game/flaggedFileInputComponent.h"
+#include "explorerFolderInputComponent.h"
+
+#include "ConfirmWindowBuilder.h"
+#include "flaggedFileInputComponent.h"
 
 
 using namespace ppc;
@@ -315,7 +323,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
     //Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 	//Desktop* currDesk = &World::getCurrDesktop();
-	int netvecindex = World::getCurrDesktop().getNetVecIndex();
+	unsigned int netvecindex = World::getCurrDesktop().getNetVecIndex();
 	Network* solNet, *playNet;
 	if (netvecindex < World::getCurrDesktop().getSolVec().size()) {
 		solNet = World::getCurrDesktop().getSolVec().at(netvecindex);
@@ -397,7 +405,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 }
 
 void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, 
-	float x, float y, string filename, string p) {
+	float x, float y, std::string filename, std::string p) {
     if (windowToModify == nullptr) return; 
     
     if(MAC){
@@ -1163,7 +1171,7 @@ void ppc::spawnSettingsMenu(Desktop * dt, WindowInterface *& windowToModify, Inp
 	float alertY = (windowHeight - (alertWidth * alertScale)) / 8;
 	spawnDCPSIcon(alertIcon, ih, dt->getButtonSheet(), alertX - 15, alertY - 8, 0.74f);
 	
-	TextDisplayRenderComponent* settingsText = new TextDisplayRenderComponent(myFont, sf::Color::Black,
+	ppc::TextDisplayRenderComponent* settingsText = new ppc::TextDisplayRenderComponent(myFont, sf::Color::Black,
 		alertX+100, alertY, headerSize-6, "Project Perfect Citizen:\n > Game Settings");
 	alertIcon.addComponent(settingsText);
 	windowToModify->addEntity(alertIcon);
@@ -1174,7 +1182,7 @@ void ppc::spawnSettingsMenu(Desktop * dt, WindowInterface *& windowToModify, Inp
 
 		// Resolution Header //
 		Entity resolutionText;
-		TextDisplayRenderComponent* resolutionHeader = new TextDisplayRenderComponent(myFont, sf::Color::Black,
+		ppc::TextDisplayRenderComponent* resolutionHeader = new ppc::TextDisplayRenderComponent(myFont, sf::Color::Black,
 			0.0f, 0.0f, headerSize, "Resolution");
 		resolutionHeader->updatePosition((windowWidth - resolutionHeader->getText()->getLocalBounds().width) / 2, 
 			windowHeight/3);
@@ -1183,7 +1191,7 @@ void ppc::spawnSettingsMenu(Desktop * dt, WindowInterface *& windowToModify, Inp
 
 		// Current Resolution
 		Entity resDisplay;
-		TextDisplayRenderComponent* currentRes = new TextDisplayRenderComponent(myFont, sf::Color::Black, 0.0f, 0.0f,
+		ppc::TextDisplayRenderComponent* currentRes = new ppc::TextDisplayRenderComponent(myFont, sf::Color::Black, 0.0f, 0.0f,
 			subHeaderSize, std::to_string(World::getSettings().resolution.x) + " x " + std::to_string(World::getSettings().resolution.y));
 		currentRes->updatePosition((windowWidth - currentRes->getText()->getLocalBounds().width) / 2,
 			resolutionHeader->getTextPosition().y + 50);
@@ -1216,7 +1224,7 @@ void ppc::spawnSettingsMenu(Desktop * dt, WindowInterface *& windowToModify, Inp
 
 		// Volume Header //
 		Entity volumeText;
-		TextDisplayRenderComponent* volumeHeader = new TextDisplayRenderComponent(myFont, sf::Color::Black,
+		ppc::TextDisplayRenderComponent* volumeHeader = new ppc::TextDisplayRenderComponent(myFont, sf::Color::Black,
 			0.0f, 0.0f, headerSize, "Volume");
 		volumeHeader->updatePosition((windowWidth - volumeHeader->getText()->getLocalBounds().width) / 2,
 			(2 * windowHeight) / 3);
@@ -1225,7 +1233,7 @@ void ppc::spawnSettingsMenu(Desktop * dt, WindowInterface *& windowToModify, Inp
 	
 		// Current Volume
 		Entity volDisplay;
-		TextDisplayRenderComponent* currentVol = new TextDisplayRenderComponent(myFont, sf::Color::Black,
+		ppc::TextDisplayRenderComponent* currentVol = new ppc::TextDisplayRenderComponent(myFont, sf::Color::Black,
 			0.0f, 0.0f, subHeaderSize, "50");
 		currentVol->updatePosition((windowWidth - currentVol->getText()->getLocalBounds().width) / 2,
 			volumeHeader->getTextPosition().y + 50);
@@ -1284,7 +1292,7 @@ bool ppc::continue_world(WindowInterface* w, ppc::Event ev) {
     return false;
 }
 
-bool ppc::increment_resolution(TextDisplayRenderComponent * ptr, ppc::Event ev)
+bool ppc::increment_resolution(ppc::TextDisplayRenderComponent* ptr, ppc::Event ev)
 {
     // Iterate up to next settings menu down
     string resolutionText = ptr->getString();
@@ -1329,7 +1337,7 @@ bool ppc::increment_resolution(TextDisplayRenderComponent * ptr, ppc::Event ev)
     return true;
 }
 
-bool ppc::decrement_resolution(TextDisplayRenderComponent * ptr, ppc::Event ev)
+bool ppc::decrement_resolution(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
 	// Iterate up to next settings menu down
     string resolutionText = ptr->getString();
@@ -1373,7 +1381,7 @@ bool ppc::decrement_resolution(TextDisplayRenderComponent * ptr, ppc::Event ev)
 	return true;
 }
 
-bool ppc::increment_volume(TextDisplayRenderComponent * ptr, ppc::Event ev)
+bool ppc::increment_volume(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
 	int incrementBy = 5;
 	int newVolumeVal = std::stoi(ptr->getString()) + incrementBy;
@@ -1388,7 +1396,7 @@ bool ppc::increment_volume(TextDisplayRenderComponent * ptr, ppc::Event ev)
 	return true;
 }
 
-bool ppc::decrement_volume(TextDisplayRenderComponent * ptr, ppc::Event ev)
+bool ppc::decrement_volume(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
 	int decrementBy = 5;
 	int newVolumeVal = std::stoi(ptr->getString()) - decrementBy;
@@ -1404,7 +1412,7 @@ bool ppc::decrement_volume(TextDisplayRenderComponent * ptr, ppc::Event ev)
 	return true;
 }
 
-bool ppc::update_settings(TextDisplayRenderComponent * ptr, ppc::Event ev)
+bool ppc::update_settings(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
 	string resolutionText = ptr->getString();
 	// Parse resolution x and y into resX and resY

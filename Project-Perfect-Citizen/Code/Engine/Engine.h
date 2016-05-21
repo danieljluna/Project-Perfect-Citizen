@@ -29,3 +29,6 @@
 #include "ScrollBarDeco.h"
 #include "BorderDecorator.h"
 
+#include "SuspiciousFileHolder.h"
+
+#include "Audio/AudioQueue.h"

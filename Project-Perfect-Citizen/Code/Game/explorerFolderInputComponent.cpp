@@ -1,12 +1,19 @@
 #include "../Engine/debug.h"
 #include "explorerFolderInputComponent.h"
+
 #include <iostream>
 #include <string>
 
 #include "../Engine/FreeFunctionObserver.h"
+#include "../Engine/World.h"
+#include "../Engine/Window.h"
+#include "../Engine/desktop.h"
+
 #include "TreeCommands.h"
 #include "ContextBuilder.h"
-#include "../Engine/World.h"
+#include "TextBoxInputComponent.h"
+#include "createWindow.h"
+
 
 using namespace ppc;
 

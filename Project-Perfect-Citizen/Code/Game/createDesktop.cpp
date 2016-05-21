@@ -11,7 +11,9 @@
 #include <iostream>
 #include <fstream>
 
-#include "../Engine/Engine.h"
+//#include "../Engine/Engine.h"
+#include "../Engine/World.h"
+#include "../Engine/SuspiciousFileHolder.h"
 
 #include "buttonRenderComponent.h"
 #include "consoleUpdateComponent.h"
@@ -26,9 +28,7 @@
 #include "CharacterRender.hpp"
 #include "emailExtraction.hpp"
 #include "TreeCommands.h"
-
-#include "../Game/createWindow.h"
-
+#include "createWindow.h"
 #include "FloppyUpdateComponent.hpp"
 #include "FloppyRenderComponent.hpp"
 #include "FloppyInputComponent.h"
@@ -37,7 +37,7 @@
 #include "ButtonBuilder.h"
 #include "IconBuilder.h"
 #include "spriteRenderComponent.hpp"
-
+#include "Email.h"
 
 #include "notifcationRenderComponent.h"
 
@@ -46,7 +46,7 @@
 
 using namespace ppc;
 
-void createLoginDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet) {
+void ppc::createLoginDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet) {
 
     Entity title;
 
@@ -56,7 +56,9 @@ void createLoginDesktop(Desktop& desktopToModify, WindowInterface& desktopWindow
     title.addComponent(titleRender);
 
     WindowInterface* loginPrompt = new Window(480, 150, sf::Color(170, 170, 170));
-    loginPrompt->setPosition((World::getGameScreen().getSize().x/2)-(loginPrompt->getSize().x/2), World::getGameScreen().getSize().y/2);
+    loginPrompt->setPosition(static_cast<float>(World::getGameScreen().getSize().x/2)-(loginPrompt->getSize().x/2), 
+		                     static_cast<float>(World::getGameScreen().getSize().y/2));
+
     spawnLoginPrompt(loginPrompt, loginPrompt->getInputHandler(), buttonSheet, 400, 500);
 
     desktopToModify.addWindow(loginPrompt);
@@ -67,7 +69,7 @@ void createLoginDesktop(Desktop& desktopToModify, WindowInterface& desktopWindow
 }
 
 
-void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet) {
+void ppc::createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet) {
 	
 	std::vector<std::string> firstLsCommand;
 	std::string ls = "ls";
@@ -139,7 +141,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 
 }
 
-void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
+void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
     
     //////////////////////////////////////////////
     //// Create the database (really should take a seed)
@@ -240,7 +242,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
 
 }
 
-void createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
+void ppc::createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
     
     //////////////////////////////////////////////
     //// Create the database (really should take a seed)
@@ -310,7 +312,7 @@ void createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopWindow
     
 }
 
-void createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
+void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
     
     //////////////////////////////////////////////
     //// Create the database (really should take a seed)
@@ -380,7 +382,7 @@ void createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     
 }
 
-void createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
+void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
     
     //////////////////////////////////////////////
     //// Create the database (really should take a seed)
@@ -450,7 +452,7 @@ void createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& desktopW
     
 }
 
-void createTrailerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
+void ppc::createTrailerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
     
     //////////////////////////////////////////////
     //// Create the database (really should take a seed)

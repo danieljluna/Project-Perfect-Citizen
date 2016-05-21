@@ -42,26 +42,26 @@ void ppc::ContextBuilder::setLabelSize(int s)
 
 void ppc::ContextBuilder::setLabelPosition(sf::Vector2f pos)
 {
-	labelX = pos.x;
-	labelY = pos.y;
+	labelX = static_cast<int>(pos.x);
+	labelY = static_cast<int>(pos.y);
 }
 
 void ppc::ContextBuilder::setListElementPosition(float x, float y)
 {
-	boxX = x;
-	boxY = y;
+	boxX = static_cast<int>(x);
+	boxY = static_cast<int>(y);
 }
 
 void ppc::ContextBuilder::setListElementPosition(sf::Vector2f pos)
 {
-	boxX = pos.x;
-	boxY = pos.y;
+	boxX = static_cast<int>(pos.x);
+	boxY = static_cast<int>(pos.y);
 }
 
 void ppc::ContextBuilder::setListElementSize(sf::Vector2f pos)
 {
-	boxWidth = pos.x;
-	boxHeight = pos.y;
+	boxWidth = static_cast<int>(pos.x);
+	boxHeight = static_cast<int>(pos.y);
 }
 
 void ppc::ContextBuilder::setInputHandle(ppc::InputHandler& ihndl)
@@ -81,7 +81,7 @@ void ppc::ContextBuilder::create(Entity & ent)
 		labelY, labelSize);
 
 	TextDisplayRenderComponent* rc2 = new TextDisplayRenderComponent(labelFont, 
-		sf::Color::Black, labelX, labelY, labelSize, label);
+		sf::Color::Black, static_cast<float>(labelX), static_cast<float>(labelY), labelSize, label);
 
 	mousePressButton* ic = new mousePressButton(*inputHandle, rc->getListElementBoxBounds());
 
