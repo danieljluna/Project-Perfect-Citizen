@@ -1,5 +1,9 @@
 #include "SetUpDesktops.h"
+
 #include "World.h"
+#include "desktop.h"
+#include "Window.h"
+
 #include "../Game/createDesktop.h"
 #include "../Game/createWindow.h"
 #include "../Game/endAnimationUpdateComponent.hpp"
@@ -8,6 +12,7 @@
 #include "../Game/BadCopUpdateComponent.hpp"
 #include "../Game/bootLoadingUpdateComponent.hpp"
 #include "../Game/bootLoadingAnimationRender.hpp"
+#include "../Game/textLabelComponent.hpp"
 
 void ppc::setUpLogoDesktop(ppc::Desktop& myDesktop) {
 
