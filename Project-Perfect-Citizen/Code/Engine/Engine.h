@@ -6,8 +6,6 @@
 #include "debug.h"
 #include "Logger.h"
 
-#include "desktop.h"
-
 #include "entity.h"
 #include "component.h"
 #include "renderComponent.h"

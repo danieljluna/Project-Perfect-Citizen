@@ -6,8 +6,8 @@ using namespace ppc;
 Inbox::Inbox() {}
 
 Inbox::~Inbox() {
-    for(size_t i = 0; i < messageList.size(); i++){
-        delete(messageList[i]);
+	for (auto it = messageList.begin(); it != messageList.end(); ++it) {
+		delete *it;
     }
     messageList.clear();
 }
