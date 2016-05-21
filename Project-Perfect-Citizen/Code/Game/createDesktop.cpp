@@ -201,7 +201,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 725.0f, 450.0f, 0.5f, 0.25f, theInbox);
 
 
-	/*IconBuilder builder;
+	IconBuilder builder;
 	builder.setDesktop(desktopToModify);
 	builder.setInbox(desktopToModify.getInbox());
 	builder.setButtonSheet(desktopToModify.getButtonSheet());
@@ -215,7 +215,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
 	builder.setSpritebyIndicies(0, 9, 1, 1);
 	builder.setText("Documents", World::getFont(World::Consola), sf::Color::Black);
 	builder.create(DocumentsIcon);
-	desktopWindowToModify.addEntity(DocumentsIcon);*/
+	desktopWindowToModify.addEntity(DocumentsIcon);
 
     desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);

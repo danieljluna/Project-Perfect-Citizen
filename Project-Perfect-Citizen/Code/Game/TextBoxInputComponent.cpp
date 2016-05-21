@@ -1,13 +1,15 @@
 #include "TextBoxInputComponent.h"
 #include "TextBoxRenderComponent.h"
 #include "../Engine/InputHandler.h"
+#include "../Engine/FreeFunctionObserver.h"
 
 
 using namespace ppc;
 const string TEXT_KEY_INPUT = "TKI";
 const float DOUBLE_CLICK_TIME = 500;
 
-TextBoxInputComponent::TextBoxInputComponent(InputHandler& ih, TextBoxRenderComponent &r): inputHandle(ih), textBox(r) {
+TextBoxInputComponent::TextBoxInputComponent(InputHandler& ih, TextBoxRenderComponent &r, int l ) : inputHandle(ih), 
+textBox(r), max_chars(l) {
 
 	ih.addHandle(sf::Event::TextEntered);
 	ih.addHandle(sf::Event::KeyPressed);
@@ -55,7 +57,13 @@ bool TextBoxInputComponent::isCollision(sf::Vector2i mousePos) {
 }
 
 string TextBoxInputComponent::getString() {
+	str.erase(remove_if(str.begin(), str.end(), isspace), str.end());
 	return str;
+}
+
+void ppc::TextBoxInputComponent::setLimit(int l)
+{
+	max_chars = l;
 }
 
 WindowInterface * ppc::TextBoxInputComponent::getContainingWindow()
@@ -69,13 +77,17 @@ bool TextBoxInputComponent::registerInput(Event ppcEv) {
 		if (ev.type == sf::Event::TextEntered) {
 			/* Ignore CNTRL, BS, ENTR/LF, CR */
 			if (ev.text.unicode < 128 && ev.text.unicode != 8 &&
-				ev.text.unicode != 10 && ev.text.unicode != 13) {
+				ev.text.unicode != 10 && ev.text.unicode != 13 &&
+				str.length() < max_chars) {
 				str.push_back((char)ev.text.unicode);
 				textBox.updateLabelString(str);
 			}
 			else if (ev.text.unicode == 8 && str.size() > 0) {
 				str.pop_back();
 				textBox.updateLabelString(str);
+			}
+			else if ((ev.text.unicode == 10 || ev.text.unicode == 13) && str.size() > 0) {
+				onSubmit_.sendEvent(ppcEv);
 			}
 		}
 	}
