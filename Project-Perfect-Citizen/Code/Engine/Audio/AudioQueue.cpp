@@ -81,6 +81,7 @@ void AudioQueue::popAndPlay()
 		return;
 	}
 	findPair.second->setBuffer(bufferStorage.at(front).second);
+	findPair.second->setVolume(masterVolume_ * sfxVolume_);
 	findPair.second->play();
 	soundQueue.pop();
 	releaseSound(findPair.first);
@@ -96,7 +97,6 @@ int AudioQueue::addSound(std::string name, std::string filename)
 
 	sf::SoundBuffer newBuffer;
 	std::pair<std::string, sf::SoundBuffer> newPair;
-
 	newBuffer.loadFromFile(resourcePath() + filename);
 	newPair.first = name;
 	newPair.second = newBuffer;
@@ -116,6 +116,7 @@ bool ppc::AudioQueue::addBgm(std::string filename)
 
 void ppc::AudioQueue::playBgm()
 {
+	bgm.setVolume(bgmVolume_ * masterVolume_);
 	bgm.play();
 }
 
@@ -127,6 +128,45 @@ void ppc::AudioQueue::loopBgm()
 void ppc::AudioQueue::stopBgmLoop()
 {
 	bgm.setLoop(false);
+}
+
+void ppc::AudioQueue::setMasterVolume(float vol)
+{
+	if (vol > 1.f) {
+		vol = 1.f;
+	}
+	masterVolume_ = vol;
+}
+
+void ppc::AudioQueue::setBgmVolume(float vol)
+{
+	if (vol > 100.f) {
+		vol = 100.f;
+	}
+	bgmVolume_ = vol;
+}
+
+void ppc::AudioQueue::setSfxVolume(float vol)
+{
+	if (vol > 100.f) {
+		vol = 100.f;
+	}
+	sfxVolume_ = vol;
+}
+
+float ppc::AudioQueue::getMasterVolume()
+{
+	return masterVolume_;
+}
+
+float ppc::AudioQueue::getBgmVolume()
+{
+	return bgmVolume_;
+}
+
+float ppc::AudioQueue::getSfxVolume()
+{
+	return sfxVolume_;
 }
 
 

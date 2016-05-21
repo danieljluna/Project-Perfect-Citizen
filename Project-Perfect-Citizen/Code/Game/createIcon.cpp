@@ -294,6 +294,9 @@ void ppc::spawnEmailIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, 
     dT.getInbox().getInboxSubject().addObserver(test);
     notiRenderComp->setPosition({ x, y });
 
+	int testInt = dT.getInbox().getInboxSize();
+	notiRenderComp->updateText(-(dT.getInbox().getInboxSize()));
+
 	// Animator (Update) Component ///
 	animatorComponent* animator = new animatorComponent(*IconRender, animSpeed);
 
@@ -306,7 +309,6 @@ void ppc::spawnEmailIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, 
 	entityToModify.addComponent(mpbIcon);
 	entityToModify.addComponent(iconInputComp);
     entityToModify.addComponent(notiRenderComp);
-
 }
 
 

@@ -23,6 +23,9 @@ private:
 	std::queue<int> soundQueue;
 	std::string filepath = "Code/Engine/Audio/Sounds/";
 	sf::Music bgm;
+	float sfxVolume_ = 50.f;
+	float bgmVolume_ = 50.f;
+	float masterVolume_ = 1.0f;
 protected:
 	std::pair<int, sf::Sound*> findOpenSound();
 	void releaseSound(int element);
@@ -50,6 +53,12 @@ public:
 	void playBgm();
 	void loopBgm();
 	void stopBgmLoop();
+	void setMasterVolume(float vol);
+	void setBgmVolume(float vol);
+	void setSfxVolume(float vol);
+	float getMasterVolume();
+	float getBgmVolume();
+	float getSfxVolume();
 };
 
 

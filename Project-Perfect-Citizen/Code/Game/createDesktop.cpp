@@ -201,22 +201,6 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 725.0f, 450.0f, 0.5f, 0.25f, theInbox);
 
 
-	/*IconBuilder builder;
-	builder.setDesktop(desktopToModify);
-	builder.setInbox(desktopToModify.getInbox());
-	builder.setButtonSheet(desktopToModify.getButtonSheet());
-	builder.setAnimSpeed(0.30f);
-	builder.setInputHandle(desktopToModify.getInputHandler());
-	builder.setSize(0.5f);
-
-	Entity DocumentsIcon;
-	builder.setPosition({ 100.0f, 100.0f });
-	builder.setIconType(iconInputComponent::IconType::Folder);
-	builder.setSpritebyIndicies(0, 9, 1, 1);
-	builder.setText("Documents", World::getFont(World::Consola), sf::Color::Black);
-	builder.create(DocumentsIcon);
-	desktopWindowToModify.addEntity(DocumentsIcon);*/
-
     desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);
     desktopWindowToModify.addEntity(HardDriveIcon);
@@ -224,12 +208,6 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     desktopWindowToModify.addEntity(ConsoleIcon);
     desktopWindowToModify.addEntity(EmailIcon);
     
-	////////////////////////////////////////
-	// SUSPICIOUS FILES TEST HERE
-	//////////////////////////////////////
-	//ppc::BaseFileType herro("File");
-	//herro.setName("test");
-	//ppc::SuspiciousFileHolder::flagFile(&herro);
 
 	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
 	spawnFileTracker(desktopToModify, fileTracker, fileTracker->getInputHandler(), 250, 50);
