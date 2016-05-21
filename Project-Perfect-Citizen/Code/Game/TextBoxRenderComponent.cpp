@@ -54,8 +54,16 @@ void TextBoxRenderComponent::updateLabelSize(int s) {
 	text->setCharacterSize(s);
 }
 
+void TextBoxRenderComponent::setIsMasked(bool m)
+{
+	isMasked = m;
+}
+
 void TextBoxRenderComponent::updateLabelString(string str) {
 	labelString = str;
+	if (isMasked) {
+		labelString.replace(0, str.length(), str.length(), '*');
+	}
 	outline->setString(labelString+"|");
 }
 

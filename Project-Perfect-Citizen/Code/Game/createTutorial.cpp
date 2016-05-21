@@ -24,6 +24,7 @@
 
 #include "iconInputComponent.h"
 #include "../Engine/SuspiciousFileHolder.h"
+#include "TimerUpdateCmpnt.h"
 
 void ppc::createTutorial(Desktop & dt) {
 
@@ -87,10 +88,15 @@ void ppc::createTutorial(Desktop & dt) {
     tbr->setColor(sf::Color(243,241,206));
 	tbr->setRenderable(false);
 
+    TimerUpdateCmpnt* floppyTimer = new TimerUpdateCmpnt();
+    floppyTimer->createTimer(sf::Time());
+    floppyTimer->pauseTimer(0);
+
 	floppyEntity.addComponent(tbr);
 	floppyEntity.addComponent(floppy);
 	floppyEntity.addComponent(floppyIn);
 	floppyEntity.addComponent(floppyUpdate);
+    floppyEntity.addComponent(floppyTimer);
 
 	ButtonBuilder nextButton;
 	nextButton.setInputHandle(floppyWindow->getInputHandler());
