@@ -5,7 +5,6 @@
 #else
 #include "ResourcePath.hpp"
 #endif
-
 ///////////////////////////////////////////////////////////
 #include <fstream>
 #include <string>
@@ -22,7 +21,6 @@
 #include "Engine/SetUpDesktops.h"
 
 using namespace ppc;
-
 
 int main(int argc, char** argv) {
     try {
