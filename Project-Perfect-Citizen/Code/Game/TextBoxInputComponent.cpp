@@ -58,6 +58,7 @@ bool TextBoxInputComponent::isCollision(sf::Vector2i mousePos) {
 	return true;
 }
 
+
 std::string TextBoxInputComponent::getString() {
 	//str.erase(remove_if(str.begin(), str.end(), isspace), str.end());
 	return str;
