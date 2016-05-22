@@ -1,7 +1,9 @@
 #include "../Engine/debug.h"
 #include "TreeCommands.h"
-#include "../Engine/NodeState.h"
+
 #include <string>
+
+#include "../Engine/NodeState.h"
 #include "../Engine/SuspiciousFileHolder.h"
 
 using namespace ppc;

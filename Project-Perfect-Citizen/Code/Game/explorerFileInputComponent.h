@@ -1,12 +1,24 @@
 #pragma once
 
-#include "../Engine/debug.h"
-#include "iconInputComponent.h"
-#include "TreeCommands.h"
+#include <string>
 #include <iostream>
 
-namespace ppc {
+#include <SFML/Graphics/Rect.hpp>
+#include <SFML/System/Time.hpp>
 
+//#include "iconInputComponent.h"
+#include "../Engine/inputComponent.h"
+#include "../Engine/NodeState.h"
+#include "../Engine/subject.h"
+
+namespace sf {
+	class Image;
+};
+
+namespace ppc {
+	class Desktop;
+	class WindowInterface;
+	class InputHandler;
 
     ///////////////////////////////////////////////////////////////////////
     /// @brief Designated input component for explorer files
@@ -78,7 +90,7 @@ namespace ppc {
 		void openFile();
 
 		NodeState getFileNodeState();
-		string getFileName();
+		std::string getFileName();
 		Desktop* getFileDesktop();
 		
 

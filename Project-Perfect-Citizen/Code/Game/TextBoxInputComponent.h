@@ -1,15 +1,17 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
 #include <string>
-#include "../Engine/inputComponent.h"
-#include "../Engine/InputHandler.h"
-#include "../Engine/Entity.h"
-#include "../Engine/subject.h"
-#include "../Game/TextBoxRenderComponent.h"
-#include "../Engine/FreeFunctionObserver.h"
+
+#include <SFML/Graphics.hpp>
+
+#include "../Engine/inputComponent.h" //needed
+#include "../Engine/subject.h" //needed
+#include "../Engine/FreeFunctionObserver.h" //needed
+
 
 namespace ppc {
+	class InputHandler;
+	class TextBoxRenderComponent;
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Designated Input Component for a generic fillable text box
@@ -28,7 +30,7 @@ namespace ppc {
 		InputHandler& inputHandle;
 		std::string str;
 		bool isCollision(sf::Vector2i);
-		int max_chars;
+		unsigned int max_chars;
 		Subject onSubmit_;
 
 	public:
@@ -41,14 +43,14 @@ namespace ppc {
 		/// @param s is the render component where the text will be drawn
 		/// @param The limit of characters to display
 		///////////////////////////////////////////////////////////////////////
-		TextBoxInputComponent(ppc::InputHandler& ih, TextBoxRenderComponent &r, int lim);
+		TextBoxInputComponent(ppc::InputHandler& ih, TextBoxRenderComponent &r, unsigned int lim);
 
 		template <class T>
 		friend void setOnSubmit(TextBoxInputComponent* tbi, T* objPtr,
 			bool(*onSubmit)(T*, Event));
 
 
-		string getString();
+		std::string getString();
 
 		void setLimit(int);
 

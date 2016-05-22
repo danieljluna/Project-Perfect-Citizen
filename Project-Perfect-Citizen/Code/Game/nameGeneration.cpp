@@ -32,7 +32,7 @@ void nameGeneration::readFiles() {
     while(getline(firstFile, line)){
         if(nlines == 0){
             max = stoi(line);
-            srand (time(NULL));
+            srand (static_cast<unsigned int>(time(NULL)));
             randomLine = rand() % max;
         }
         if(++nlines == randomLine) {
@@ -47,7 +47,7 @@ void nameGeneration::readFiles() {
     while(getline(lastFile, line)){
         if(nlines == 0){
             max = stoi(line);
-            srand (time(NULL));
+            srand (static_cast<unsigned int>(time(NULL)));
             randomLine = rand() % max;
         }
         if(++nlines == randomLine) {

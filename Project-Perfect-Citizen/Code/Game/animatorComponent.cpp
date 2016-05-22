@@ -1,6 +1,6 @@
 #include "../Engine/debug.h"
 #include "animatorComponent.hpp"
-
+#include "buttonRenderComponent.h"
 
 using namespace ppc;
 

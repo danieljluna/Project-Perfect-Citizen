@@ -1,10 +1,18 @@
 #include "../Engine/debug.h"
 #include "databaseSearchInputComponent.h"
+
 #include <iostream>
 #include <string>
 
+#include "../Engine/InputHandler.h"
+
+#include "Database.h"
+#include "characterRender.hpp"
+#include "databaseDisplayRenderComponent.h"
+#include "databaseSearchRenderComponent.h"
+
 using namespace ppc;
-const string TEXT_KEY_INPUT = "TKI";
+const std::string TEXT_KEY_INPUT = "TKI";
 
 const float DOUBLE_CLICK_TIME = 500;
 const int CONTROL_UNICODE = 128;
@@ -62,14 +70,14 @@ bool databaseSearchInputComponent::isCollision(sf::Vector2i mousePos) {
     return true;//result;
 }
 
-std::vector<string> convertToVector(string cmd) {
-	std::vector<string> commandVec;
-	string delimiter = " ";
+std::vector<std::string> convertToVector(std::string cmd) {
+	std::vector<std::string> commandVec;
+	std::string delimiter = " ";
 	size_t last = 0;
 	size_t next = 0;
-	string token;
+	std::string token;
 	while ((next = cmd.find(delimiter, last)) !=
-		string::npos) {
+		std::string::npos) {
 		token = cmd.substr(last, next - last);
 		commandVec.push_back(token);
 		last = next + 1;
@@ -88,7 +96,7 @@ void databaseSearchInputComponent::clearSearchBox() {
 }
 
 void databaseSearchInputComponent::goBack() {
-		std::vector<string> displayVec;
+		std::vector<std::string> displayVec;
 		clearSearchBox();
 		if (searchHistory.size() > 1) {
 			if (searchHistory.size() == 2) {
@@ -107,7 +115,7 @@ void databaseSearchInputComponent::goBack() {
 		}
 }
 
-void databaseSearchInputComponent::updateDisplayResults(vector<string> displayVec, string newDisplay) {
+void databaseSearchInputComponent::updateDisplayResults(std::vector<std::string> displayVec, std::string newDisplay) {
 	displayVec.push_back(newDisplay);
 	updateDisplayOutput(displayVec);
 }
@@ -144,10 +152,10 @@ bool databaseSearchInputComponent::registerInput(Event ppcEv) {
 				}
 				cmd += " ";
 
-				std::vector<string> commandVec = convertToVector(cmd);
-				std::vector<string> displayVec;
-				string filter = "";
-				string query = "";
+				std::vector<std::string> commandVec = convertToVector(cmd);
+				std::vector<std::string> displayVec;
+				std::string filter = "";
+				std::string query = "";
 
 
 				/*// Temp back functionality: Will turn into function pointer
@@ -187,7 +195,7 @@ bool databaseSearchInputComponent::registerInput(Event ppcEv) {
 				
 
 				/* Clean the filter term of any caps*/
-				string cleaned = "";
+				std::string cleaned = "";
 				for (unsigned int i = 0; i < filter.length(); ++i) {
 					cleaned.push_back(tolower(filter.at(i)));
 
@@ -197,7 +205,7 @@ bool databaseSearchInputComponent::registerInput(Event ppcEv) {
 				if (searchHistory.top()->filterIsValid(cleaned)) {
 					Database* filteredDatabase;
 					filteredDatabase = &(searchHistory.top()->sortBy(cleaned, query));
-					cout << filteredDatabase->getDatabaseSize() << endl;
+					std::cout << filteredDatabase->getDatabaseSize() << std::endl;
 					if (filteredDatabase->isEmpty()) { 
 						searchHistory.emplace(filteredDatabase);
 						updateDisplayResults(displayVec, "No results found. Please go back and try another query.");
@@ -210,7 +218,7 @@ bool databaseSearchInputComponent::registerInput(Event ppcEv) {
 				}
 				
 				clearSearchBox();
-				cout << searchHistory.size() << endl;
+				std::cout << searchHistory.size() << std::endl;
 				textDisplay.updateString(displayResults_);
 			}
 		}

@@ -1,8 +1,13 @@
 #include "../Engine/debug.h"
 
+#include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+
 #include "databaseSearchRenderComponent.h"
 
-const string TEXT_KEY_INPUT = "TKI";
+using namespace ppc;
+
+const std::string TEXT_KEY_INPUT = "TKI";
 
 databaseSearchRenderComponent::databaseSearchRenderComponent(sf::Font& f,
 	int x, int y, int size) :font(f) {
@@ -21,7 +26,7 @@ databaseSearchRenderComponent::~databaseSearchRenderComponent() {
 
 }
 
-void databaseSearchRenderComponent::updateString(string s) {
+void databaseSearchRenderComponent::updateString(std::string s) {
 	str = s;
 	text->setString(str + "|");
 }

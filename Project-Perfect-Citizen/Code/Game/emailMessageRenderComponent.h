@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../Engine/renderComponent.h"
-#include "Email.h"
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
 
@@ -18,6 +17,7 @@ namespace sf {
 ///////////////////////////////////////////////////////////////////////
 
 namespace ppc {
+	class Email;
 
 	class emailMessageRenderComponent : public ppc::RenderComponent {
 	private:

@@ -1,6 +1,8 @@
 #include "../Engine/debug.h"
 #include "TextDisplayRenderComponent.h"
+
 #include <ostream>
+
 #include "../Engine/event.h"
 
 #ifdef WINDOWS_MARKER

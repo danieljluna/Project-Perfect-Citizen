@@ -1,16 +1,17 @@
 #include "../Engine/debug.h"
+
 #include "consoleUpdateComponent.h"
 #include "TreeCommands.h"
 
 using namespace ppc;
 
-const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
+const std::string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
 
 consoleUpdateComponent::consoleUpdateComponent(ppc::NodeState& ns) 
 	: fileTree(ns) {
 	canParse = false;
-	std::vector<string> firstLsCommand;
-	string ls = "ls";
+	std::vector<std::string> firstLsCommand;
+	std::string ls = "ls";
 	firstLsCommand.push_back(ls);
 	commandFn firstLs = findFunction(ls);
 	firstLs(fileTree, firstLsCommand);
@@ -24,7 +25,7 @@ void consoleUpdateComponent::toggleParsing() {
 	canParse = !canParse;
 }
 
-void consoleUpdateComponent::executeCommand(std::vector<string> cmd) {
+void consoleUpdateComponent::executeCommand(std::vector<std::string> cmd) {
 	toggleParsing();
 	commandVec = cmd;
 }

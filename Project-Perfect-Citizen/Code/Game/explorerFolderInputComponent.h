@@ -1,10 +1,19 @@
 #pragma once
-
-#include "../Engine/debug.h"
-#include "iconInputComponent.h"
-#include "TextBoxInputComponent.h"
 #include <iostream>
+#include <string>
 
+//#include "iconInputComponent.h"
+
+
+#include "../Engine/inputComponent.h"
+#include "../Engine/NodeState.h"
+#include "../Engine/subject.h"
+
+//#include "TextBoxInputComponent.h"
+
+namespace sf {
+	class Image;
+};
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -15,6 +24,8 @@
 ///////////////////////////////////////////////////////////////////////
 
 namespace ppc {
+	class Desktop;
+	class TextBoxInputComponent;
 
 	class explorerFolderInputComponent : public ppc::InputComponent {
 

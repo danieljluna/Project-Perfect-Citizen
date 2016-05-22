@@ -38,7 +38,7 @@ namespace ppc {
 		//static ppc::SuspiciousFileHolder* getSusVecElement(int element);
 		static int getStaticCount();
 		//static int pushWindow(ppc::SuspiciousFileHolder* fileHolder);
-		static ppc::BaseFileType* getBFTVectorElement(int element);
+		static ppc::BaseFileType* getBFTVectorElement(unsigned int element);
 		static void submitFiles();
 		static void clearFiles();
 		static void clearFile(std::string doomedFile);

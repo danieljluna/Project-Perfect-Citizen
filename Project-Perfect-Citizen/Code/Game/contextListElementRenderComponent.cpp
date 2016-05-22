@@ -1,10 +1,15 @@
 #include "contextListElementRenderComponent.h"
+
+#include <iostream>
+
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
+
 #include "../Engine/event.h"
-#include <iostream>
+#include "../Engine/WindowInterface.h"
+
 
 using namespace ppc;
 

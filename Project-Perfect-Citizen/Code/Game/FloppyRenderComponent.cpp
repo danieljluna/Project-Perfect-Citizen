@@ -1,8 +1,17 @@
 #include "../Engine/debug.h"
 #include "FloppyRenderComponent.hpp"
-#include "FloppyInputComponent.h"
-#include "../Engine/event.h"
+
 #include <ostream>
+
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Image.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+
+#include "../Engine/event.h"
+
+#include "FloppyInputComponent.h"
+
 
 using namespace ppc;
 

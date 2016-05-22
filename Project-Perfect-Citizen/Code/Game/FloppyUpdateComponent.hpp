@@ -1,13 +1,13 @@
 
 #pragma once
 
-#include <SFML/Graphics.hpp>
+#include <SFML/System/Time.hpp>
 
 #include "../Engine/updateComponent.h"
-#include "FloppyRenderComponent.hpp"
 
 namespace ppc {
-    
+	class FloppyRenderComponent;
+
     ///////////////////////////////////////////////////////////////////////
     /// @brief Designated Animator Component for an animated Button Renderer
     /// @author Michael Lowe
