@@ -5,14 +5,27 @@
             "To" : "You",
             "From" : "JP",
             "Subject" : "",
-            "Body" :""
+            "Body" :"
+    Well I guess this is another glitch in the
+    flagging algorithm. For every bad accusation,
+    our system gets little bit smarter.
+            
+    Your next assignment is ready. Apparently
+    there has been a “hacker” that broke into our
+    security and has been manipulating with the
+    databases. We suspect that he was a previous
+    worker of ours. Find him and bust him."
         },
         "Email_2": {
             "Visible" : "1",
             "To" : "You",
             "From" : "CT",
             "Subject" : "",
-            "Body" :""
+            "Body" :"
+    Great job on the investigation! It is great
+    that we get to go into their personal files so
+    we can know for sure who started the scandal
+    rumor."
         }
     }
 }
