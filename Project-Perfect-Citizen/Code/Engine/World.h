@@ -20,7 +20,10 @@ namespace ppc {
 
         enum DesktopList {
             //Fill with Enums as input files are made
-			DE0A = 0,
+			DELogo = 0,
+			DEOpening,
+			DELogin,
+			DE0A,
 			DE0B,
 			DEPlayer1,
 			DE1,
@@ -30,6 +33,7 @@ namespace ppc {
 			DE2B,
 			DEPlayer3,
 			DE3,
+			DEEnd,
             DesktopCount
         };
 
@@ -49,13 +53,27 @@ namespace ppc {
 		};
 
 
-		static std::map<DesktopList, ppc::LevelPacket> levelMap_;
-		static void initLevelMap();
 		///////////////////////////////////////////////////////////////
 		// Ctors
 		///////////////////////////////////////////////////////////////
 		World() = delete;
 
+		///////////////////////////////////////////////////////////////
+		// World std::Maps
+		///////////////////////////////////////////////////////////////
+		static std::map<DesktopList, std::string> desktopFileMap_;
+
+		static std::map<DesktopList, ppc::LevelPacket> levelMap_;
+		static void initLevelMap();
+		static void setLevel(int, int);
+		static void goToNext(int);
+		
+
+
+
+		using desktopLoaders = void(*)(ppc::Desktop&);
+
+		static std::map<DesktopList, desktopLoaders> loaderMap_;
       /////////////////////////////////////////////////////////////////
       // Setters
       /////////////////////////////////////////////////////////////////
@@ -74,7 +92,7 @@ namespace ppc {
 		static void setCurrDesktop(ppc::Desktop&);
 
 		static void setCurrDesktopEnum(DesktopList);
-
+		static DesktopList getCurrDesktopEnum();
 		///////////////////////////////////////////////////////////////
 		///@brief Returns a pointer to the Game Screen
 		///////////////////////////////////////////////////////////////
@@ -92,7 +110,7 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////
 		///@brief Runs the main game loop with the given Desktop
 		///////////////////////////////////////////////////////////////
-		static void runDesktop(ppc::Desktop&);
+		static void runDesktop();
 
         static bool loadDesktop(DesktopList desk);
 
@@ -165,6 +183,9 @@ namespace ppc {
 
         static void drawDesktop();
 
+		static void registerInput();
+
+		static void update(sf::Clock&, sf::Time&);
 
       /////////////////////////////////////////////////////////////////
       // Private Vars / Enums
@@ -183,8 +204,6 @@ namespace ppc {
 		static ReportType currReportType_;
 
         static bool quitter_;
-
-        static std::map<DesktopList, std::string> desktopFileMap_;
 
 		static std::map<FontList, sf::Font> fontMap_;
 

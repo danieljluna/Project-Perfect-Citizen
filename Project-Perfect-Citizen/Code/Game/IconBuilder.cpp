@@ -1,9 +1,15 @@
 #include "IconBuilder.h"
-
-#include "../Game/animatorComponent.hpp"
-#include "../Game/textLabelComponent.hpp"
-#include "../Engine/Engine.h"
 #include "../Engine/debug.h"
+
+//#include "../Engine/Engine.h"
+#include "../Engine/desktop.h"
+
+
+#include "animatorComponent.hpp"
+#include "textLabelComponent.hpp"
+
+#include "buttonRenderComponent.h"
+
 
 ppc::IconBuilder::IconBuilder() {
 
@@ -107,7 +113,10 @@ void ppc::IconBuilder::create(Entity &e) {
 	IconRender->renderPosition({ posX, posY });
 	IconRender->setButtonType("ICON");
 	animatorComponent* animator = new animatorComponent(*IconRender, animationSpeed);
-	mousePressButton* mpbFolder = new mousePressButton(*ih, IconRender->getSprite()->getGlobalBounds());
+
+	sf::FloatRect iconBounds(IconRender->getSprite()->getGlobalBounds().left, IconRender->getSprite()->getGlobalBounds().top,
+		IconRender->getSprite()->getGlobalBounds().width, IconRender->getSprite()->getGlobalBounds().height + 25);
+	mousePressButton* mpbFolder = new mousePressButton(*ih, iconBounds);
 	iconInputComponent* iconInputComp = new iconInputComponent(*dt, db, *ib, *buttonSheet, dt->getIconSheet(), iconType);
 	iconInputComp->setIconLabelName(label);
 

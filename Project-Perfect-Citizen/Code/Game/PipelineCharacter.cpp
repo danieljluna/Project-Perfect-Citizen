@@ -111,7 +111,7 @@ void PipelineCharacter::calcIncomeAndCrim() {
 	// (100 - 2.128 * (age_ - 18)) = inverse of age as a % of closeness to 65
 	// so 18 = 100%, 65 = 0%
 	//crimvalue ranges [0, 500]
-	int crimvalue = (100 - 2.128 * (age_ - 18)) + persAssertive_ * 25 +
+	int crimvalue = static_cast<int>(100 - 2.128 * (age_ - 18)) + persAssertive_ * 25 +
 		persDirectness_ * 25 + persJerk_ * 25 + crimvariance;
 	if (crimvalue > CRIM_THRESHOLD) criminal_ = true;
 	else criminal_ = false;

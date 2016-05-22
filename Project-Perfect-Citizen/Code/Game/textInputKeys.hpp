@@ -1,16 +1,19 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
 #include <string>
+
+#include <SFML/Graphics.hpp>
+
 #include "../Engine/inputComponent.h"
-#include "../Engine/InputHandler.h"
-#include "../Engine/Entity.h"
-#include "../Engine/subject.h"
-#include "textInputRenderComponent.hpp"
-#include "consoleUpdateComponent.h"
-#include "textOutputRenderComponent.h"
+//#include "../Engine/InputHandler.h"
+//#include "../Engine/Entity.h"
+//#include "../Engine/subject.h"
 
 namespace ppc {
+	class InputHandler;
+	class consoleUpdateComponent;
+	class textInputRenderComponent;
+	class textOutputRenderComponent;
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Input Component for a generic window 'X' button
@@ -19,7 +22,6 @@ namespace ppc {
 ///          the keyboard. This will mainly be used in combination
 ///          with a text input box render component.
 ///////////////////////////////////////////////////////////////////////
-class consoleUpdateComponent;
 
 class textInputKeys: public ppc::InputComponent {
 private:

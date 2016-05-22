@@ -1,4 +1,5 @@
 #include "TimerUpdateCmpnt.h"
+#include "../Engine/Entity.h"
 
 #include <algorithm>
 
@@ -119,7 +120,7 @@ int TimerUpdateCmpnt::mapEvent(ppc::Event ev) {
 
 ppc::Event TimerUpdateCmpnt::getMapping(int key) {
     ppc::Event result;
-    if (key < eventVec_.size()) {
+    if (static_cast<unsigned int>(key) < eventVec_.size()) {
         return eventVec_.at(key);
     } else {
         ppc::Event emptyEv;
@@ -201,6 +202,8 @@ void TimerUpdateCmpnt::recieveMessage(ppc::Event ev) {
 void TimerUpdateCmpnt::activateTimer(unsigned int timer) {
     Event ppcEv;
 
+    pauseTimer(timer);
+
     if (timerVec_.at(timer).eventIndex == -1) {
         //Use Default Event
         ppcEv.type = Event::TimerType;
@@ -212,4 +215,5 @@ void TimerUpdateCmpnt::activateTimer(unsigned int timer) {
     }
 
     onTimer_.sendEvent(ppcEv);
+    getEntity()->broadcastMessage(ppcEv);
 }

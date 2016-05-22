@@ -1,11 +1,16 @@
 #pragma once
 
-#include "../Engine/renderComponent.h"
-#include <SFML/Graphics/Font.hpp>
-#include "../Engine/NodeState.h"
-#include "../Game/textInputRenderComponent.hpp"
 #include <vector>
+
+#include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Image.hpp>
+
+#include "../Engine/renderComponent.h"
+#include "../Engine/NodeState.h"
+
+//#include "textInputRenderComponent.hpp"
+
+
 
 namespace sf {
     class Sprite;
@@ -13,9 +18,8 @@ namespace sf {
 };
 
 
-
 namespace ppc {
-
+	class textInputRenderComponent;
 	class Desktop;
 	class WindowInterface;
 

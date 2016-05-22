@@ -9,13 +9,13 @@
 #include "textLabelComponent.hpp"
 
 
-using namespace std;
+using namespace ppc;
 
 textLabelComponent::textLabelComponent(sf::Font& f,sf::Color c,
                                        float x,
                                        float y,
                                        int s,
-                                       string str): font(f) {
+                                       std::string str): font(f) {
     
     this->text = new sf::Text();
 	this->outline = new sf::Text();
@@ -66,7 +66,7 @@ void textLabelComponent::updateLabelSize(int s) {
     text->setCharacterSize(s);
 }
 
-void textLabelComponent::updateLabelString(string str) {
+void textLabelComponent::updateLabelString(std::string str) {
     labelString = str;
     text->setString(labelString);
     outline->setString(labelString);

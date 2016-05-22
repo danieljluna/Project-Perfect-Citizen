@@ -1,8 +1,10 @@
 #pragma once
 
-#include "../Engine/Network.h"
+#include <map>
+#include <string>
+
 #include "../Engine/debug.h"
-#include "../Library/JSON/json.h"
+
 
 ///////////////////////////////////////////////////////////////////////
 /// @author Mark Biundo
@@ -11,9 +13,14 @@
 ///   handy functions for quickly building and modifying pipeline
 ///   extraction scenarios.
 ///////////////////////////////////////////////////////////////////////
-
+namespace Json {
+	class Value;
+};
 
 namespace ppc {
+	class Network;
+	class Edge;
+	class PipelineCharacter;
 
 class PipelineLevelBuilder {
 public:

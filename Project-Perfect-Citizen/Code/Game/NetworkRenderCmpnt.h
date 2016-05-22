@@ -1,11 +1,10 @@
 #pragma once
-#include <SFML/Graphics.hpp>
 
 #include "../Engine/renderComponent.h"
-#include "../Engine/Network.h"
-
 
 namespace ppc {
+	class Network;
+
 	///////////////////////////////////////////////////////////////////
 	///@brief Render Component for Networks
 	///@details Allows a given network graph to be drawn on the screen

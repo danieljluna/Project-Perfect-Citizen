@@ -1,6 +1,8 @@
 #include "NetworkRenderCmpnt.h"
 #include "../Engine/debug.h"
 
+#include "../Engine/Network.h"
+
 using namespace ppc;
 
 NetworkRenderComponent::NetworkRenderComponent(ppc::Network& n): 

@@ -1,8 +1,12 @@
 #include "flaggedFileInputComponent.h"
+
 #include "../Engine/SuspiciousFileHolder.h"
-#include "../Game/createWindow.h"
-#include "../Game/ContextBuilder.h"
 #include "../Engine/World.h"
+#include "../Engine/Window.h"
+#include "../Engine/desktop.h"
+
+#include "createWindow.h"
+#include "ContextBuilder.h"
 
 using namespace ppc;
 

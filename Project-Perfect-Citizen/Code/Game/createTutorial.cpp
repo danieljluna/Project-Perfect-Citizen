@@ -6,24 +6,31 @@
 
 #include "createTutorial.h"
 
-#include "../Engine/Engine.h"
-#include "IconBuilder.h"
-#include "ButtonBuilder.h"
-
-#include "../Game/FloppyInputComponent.h"
-#include "../Game/FloppyRenderComponent.hpp"
-#include "../Game/FloppyUpdateComponent.hpp"
-
-#include "../Game/TextBubble.h"
-#include "../Game/TextBubbleRender.h"
-
-#include "../Game/mousePressButton.h"
-
+//#include "../Engine/Engine.h"
+#include "../Engine/SuspiciousFileHolder.h"
+#include "../Engine/Network.h"
 #include "../Engine/event.h"
 #include "../Engine/frontTopObserver.h"
+#include "../Engine/desktop.h"
+#include "../Engine/World.h"
+#include "../Engine/Window.h"
+
+#include "IconBuilder.h"
+#include "ButtonBuilder.h"
+#include "FloppyInputComponent.h"
+#include "FloppyRenderComponent.hpp"
+#include "FloppyUpdateComponent.hpp"
+
+#include "TextBubble.h"
+#include "TextBubbleRender.h"
+
+#include "mousePressButton.h"
 
 #include "iconInputComponent.h"
-#include "../Engine/SuspiciousFileHolder.h"
+
+#include "TimerUpdateCmpnt.h"
+
+#include "createWindow.h"
 
 void ppc::createTutorial(Desktop & dt) {
 
@@ -87,10 +94,15 @@ void ppc::createTutorial(Desktop & dt) {
     tbr->setColor(sf::Color(243,241,206));
 	tbr->setRenderable(false);
 
+    TimerUpdateCmpnt* floppyTimer = new TimerUpdateCmpnt();
+    floppyTimer->createTimer(sf::Time());
+    floppyTimer->pauseTimer(0);
+
 	floppyEntity.addComponent(tbr);
 	floppyEntity.addComponent(floppy);
 	floppyEntity.addComponent(floppyIn);
 	floppyEntity.addComponent(floppyUpdate);
+    floppyEntity.addComponent(floppyTimer);
 
 	ButtonBuilder nextButton;
 	nextButton.setInputHandle(floppyWindow->getInputHandler());

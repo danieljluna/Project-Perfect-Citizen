@@ -1,15 +1,25 @@
 #include "../Engine/debug.h"
 #include "emailListElementInputComponent.h"
+
 #include <iostream>
 #include <string>
 
-using namespace std;
-const string MOUSE_DOWN_CODE = "MDC";
-const string MOUSE_RELEASED_CODE = "MRC";
-const string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
-const string OPEN_EMAIL = "OE";
-const string SELECT_EMAIL = "SE";
-const string DESELECT_EMAIL = "DSE";
+#include <SFML/Graphics/Image.hpp>
+
+#include "../Engine/Window.h"
+#include "../Engine/desktop.h"
+
+#include "createWindow.h"
+#include "Email.h"
+
+
+using namespace ppc;
+const std::string MOUSE_DOWN_CODE = "MDC";
+const std::string MOUSE_RELEASED_CODE = "MRC";
+const std::string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
+const std::string OPEN_EMAIL = "OE";
+const std::string SELECT_EMAIL = "SE";
+const std::string DESELECT_EMAIL = "DSE";
 const float DOUBLE_CLICK_TIME = 500.0f;
 
 
@@ -52,7 +62,7 @@ bool emailListElementInputComponent::isCollision(sf::Vector2i mousePos) {
 }
 
 
-bool emailListElementInputComponent::registerInput(Event ppcEv) {
+bool emailListElementInputComponent::registerInput(ppc::Event ppcEv) {
     sf::Event ev(ppcEv);
 	if (getEntity() != nullptr) {
 
@@ -72,14 +82,14 @@ bool emailListElementInputComponent::registerInput(Event ppcEv) {
 				}
 				else if (mouseTime < DOUBLE_CLICK_TIME) {
 					ppc::WindowInterface* emailWindow =
-						new ppc::Window(600, 500, sf::Color(200, 200, 200));
+					new ppc::Window(600, 500, sf::Color(200, 200, 200));
 					spawnEmailMessage(emailWindow, emailWindow->getInputHandler(), emailToOpen, buttonSheet, 200, 50);
 					theDesktop.addWindow(emailWindow);
 					getEntity()->broadcastMessage(MOUSE_DOUBLE_CLICK_CODE);
 
 					ppc::Event ppcEv(ev);
-					ppcEv.type = Event::EventTypes::OpenType;
-					ppcEv.open.winType = Event::OpenEv::Email;
+					ppcEv.type = ppc::Event::EventTypes::OpenType;
+					ppcEv.open.winType = ppc::Event::OpenEv::Email;
 					getEntity()->broadcastMessage(ppcEv);
 					sf::Event ev;
 					//complains that its unintialized without this line.
@@ -107,7 +117,7 @@ bool emailListElementInputComponent::registerInput(Event ppcEv) {
 		else if (ev.type == sf::Event::MouseMoved) {
 			if (!boxRect.contains(float(ev.mouseMove.x), float(ev.mouseMove.y)) &&
 				ev.mouseButton.button == sf::Mouse::Left) {
-				cout << "left the button" << endl;
+				std::cout << "left the button" << std::endl;
 			}
 		}
 	}

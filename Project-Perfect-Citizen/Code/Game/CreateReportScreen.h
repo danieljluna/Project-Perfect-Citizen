@@ -1,8 +1,7 @@
 #pragma once
 
-#include "../Engine/Engine.h"
-
 namespace ppc {
+	class Desktop;
 
 	void createReportScreen(Desktop&);
 };

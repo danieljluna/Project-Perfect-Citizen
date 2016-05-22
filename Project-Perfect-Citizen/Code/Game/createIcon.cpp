@@ -1,13 +1,23 @@
 #ifdef WINDOWS_MARKER
-#define resourcePath() string("Resources/")
+#define resourcePath() std::string("Resources/")
 #else
 #include "ResourcePath.hpp"
 #endif
 
 #include "../Engine/debug.h"
 #include "createIcon.h"
-#include "../Game/emailExtraction.hpp"
+
+#include "../Engine/Entity.h"
+#include "../Engine/desktop.h"
+
+#include "iconInputComponent.h"
+#include "emailExtraction.hpp"
 #include "notifcationRenderComponent.h"
+#include "textLabelComponent.hpp"
+#include "buttonRenderComponent.h"
+#include "animatorComponent.hpp"
+#include "mousePressButton.h"
+
 using namespace ppc;
 
 void ppc::spawnFolderIcon(Entity& entityToModify, Desktop& dT, InputHandler& ih, Database& db, sf::Image& iconSheet, sf::Image& buttonSheet, float x, float y, float size, float animSpeed, ppc::Inbox* inbox) {

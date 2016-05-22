@@ -1,10 +1,10 @@
 #pragma once
-#include "../Engine/NodeState.h"
-#include "../Engine/BaseFileType.h"
+
 #include <map>
 
 
 namespace ppc {
+	class NodeState;
 
 using commandFn = void(*)(ppc::NodeState& state, const std::vector<std::string> words);
 using fnMap = std::map<std::string, commandFn>;

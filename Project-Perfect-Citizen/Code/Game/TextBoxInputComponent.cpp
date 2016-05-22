@@ -1,11 +1,12 @@
 #include "TextBoxInputComponent.h"
+
 #include "TextBoxRenderComponent.h"
 #include "../Engine/InputHandler.h"
 #include "../Engine/FreeFunctionObserver.h"
-
-
+#include <SFML/System/Time.hpp>
 using namespace ppc;
-const string TEXT_KEY_INPUT = "TKI";
+
+const std::string TEXT_KEY_INPUT = "TKI";
 const float DOUBLE_CLICK_TIME = 500;
 
 TextBoxInputComponent::TextBoxInputComponent(InputHandler& ih, TextBoxRenderComponent &r, TimerUpdateCmpnt* t, int l ) : inputHandle(ih), 
@@ -16,6 +17,16 @@ textBox(r), tmr(t), max_chars(l) {
 
 	watch(ih, sf::Event::TextEntered);
 	watch(ih, sf::Event::KeyPressed);
+
+	FreeFunctionObserver<TextBoxRenderComponent>* fnObsvr = 
+		new FreeFunctionObserver<TextBoxRenderComponent>(blink_cursor, &r);
+
+	tmr->onTimer().addObserver(fnObsvr);
+
+	sf::Time t1 = sf::seconds(1.0f);
+
+	tmr->playTimer(tmr->createTimer(t1, 1));
+
 
 	textBox.updateLabelString(str);
 
@@ -56,8 +67,9 @@ bool TextBoxInputComponent::isCollision(sf::Vector2i mousePos) {
 	return true;
 }
 
-string TextBoxInputComponent::getString() {
-	str.erase(remove_if(str.begin(), str.end(), isspace), str.end());
+
+std::string TextBoxInputComponent::getString() {
+	//str.erase(remove_if(str.begin(), str.end(), isspace), str.end());
 	return str;
 }
 
