@@ -7,9 +7,10 @@
 //
 
 #include "endAnimationUpdateComponent.hpp"
+#include "endingAnimationRender.hpp"
 #include "../Engine/debug.h"
 
-
+using namespace ppc;
 
 endAnimationUpdateComponent::endAnimationUpdateComponent(endingAnimationRender& r,float s){
     render = &r;

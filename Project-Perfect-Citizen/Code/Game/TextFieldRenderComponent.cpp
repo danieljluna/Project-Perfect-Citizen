@@ -6,7 +6,7 @@
 //  Copyright © 2016 Hyperfocus Games. All rights reserved.
 //
 #include "../Engine/debug.h"
-#include "TextDisplayRenderComponent.h"
+#include "TextFieldRenderComponent.hpp"
 
 #ifdef WINDOWS_MARKER
 #define resourcePath() std::string("Resources/")
@@ -14,8 +14,8 @@
 #include "ResourcePath.hpp"
 #endif
 
+#include "TextDisplayRenderComponent.h"
 
-#include "TextFieldRenderComponent.hpp"
 
 using namespace ppc;
 

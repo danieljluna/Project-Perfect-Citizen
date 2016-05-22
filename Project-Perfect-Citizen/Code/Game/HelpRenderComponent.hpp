@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../Engine/renderComponent.h"
-#include "Email.h"
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
+
+#include "../Engine/renderComponent.h"
 
 namespace sf {
     class Sprite;

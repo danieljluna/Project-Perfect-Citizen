@@ -1,8 +1,11 @@
 #include "../Engine/debug.h"
 
 #include "databaseDisplayRenderComponent.h"
+#include "characterRender.hpp"
 
-const string TEXT_KEY_INPUT = "TKI";
+using namespace ppc;
+
+const std::string TEXT_KEY_INPUT = "TKI";
 
 databaseDisplayRenderComponent::databaseDisplayRenderComponent(sf::Font& f,
                                                                sf::Image& faceSheet,
@@ -25,9 +28,9 @@ databaseDisplayRenderComponent::~databaseDisplayRenderComponent() {
 
 }
 
-void databaseDisplayRenderComponent::updateString(std::vector<string> cmd) {
+void databaseDisplayRenderComponent::updateString(std::vector<std::string> cmd) {
 	/* Print out what was just typed */
-	string output = "";
+	std::string output = "";
 	for (auto iter = cmd.begin(); iter != cmd.end(); ++iter) {
 		output.append(*iter);
 	}

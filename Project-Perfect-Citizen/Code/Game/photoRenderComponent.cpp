@@ -9,6 +9,11 @@
 #include "../Engine/debug.h"
 #include "photoRenderComponent.hpp"
 
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Image.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+
 using namespace ppc;
 
 photoRenderComponent::photoRenderComponent(sf::Image& image) : image(image){

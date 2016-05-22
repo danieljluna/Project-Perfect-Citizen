@@ -1,21 +1,21 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
+#include "../Engine/inputComponent.h" //needed
 
-#include "../Engine/inputComponent.h"
-#include "../Engine/InputHandler.h"
-#include "../Engine/Entity.h"
-#include "../Engine/subject.h"
-#include "../Engine/desktop.h"
-#include "createWindow.h"
-#include "../Engine/Window.h"
-#include "../Engine/WindowInterface.h"
-#include "../Engine/Audio/AudioQueue.h"
-#include "Database.h"
-#include "Inbox.h"
+#include "../Engine/subject.h" //needed
+#include "../Engine/Audio/AudioQueue.h" //needed
 
+
+namespace sf {
+	class Image;
+};
 
 namespace ppc {
+	class InputHandler;
+	class Desktop;
+	class Database;
+	class Inbox;
+	class WindowInterface;
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated non-mouse input handling for desktop icons

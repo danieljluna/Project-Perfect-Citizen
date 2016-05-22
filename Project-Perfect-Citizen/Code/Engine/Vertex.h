@@ -1,17 +1,16 @@
 #ifndef VERTEX_H
 #define VERTEX_H
 
-
+#include <SFML/Graphics/Transformable.hpp>
+#include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Graphics/Drawable.hpp>
-#include "DraggableInput.h"
-
 #include "../Game/PipelineCharacter.h"
-#include "../Game/characterRender.hpp"
 
 namespace ppc {
+	class DraggableInput;
+	class InputHandler;
+	class characterRender;
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Defines a Vertes for the Network

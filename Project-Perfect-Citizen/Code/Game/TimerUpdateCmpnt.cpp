@@ -120,7 +120,7 @@ int TimerUpdateCmpnt::mapEvent(ppc::Event ev) {
 
 ppc::Event TimerUpdateCmpnt::getMapping(int key) {
     ppc::Event result;
-    if (key < eventVec_.size()) {
+    if (static_cast<unsigned int>(key) < eventVec_.size()) {
         return eventVec_.at(key);
     } else {
         ppc::Event emptyEv;

@@ -4,12 +4,8 @@
 #include <array>
 
 #include "../Engine/inputComponent.h"
-#include "../Engine/InputHandler.h"
-#include "../Engine/Entity.h"
 #include "../Engine/subject.h"
-#include "../Engine/FunctionObserver.h"
 #include "../Engine/FreeFunctionObserver.h"
-#include "../Engine/debug.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Input Component for a generic window 'X' button
@@ -22,7 +18,7 @@
 
 
 namespace ppc {
-
+	class InputHandler;
 
 class mousePressButton: public ppc::InputComponent {
 private:

@@ -1,16 +1,8 @@
 #pragma once
 
-#include "../Engine/WindowInterface.h"
-#include "../Engine/InputHandler.h"
-#include "../Engine/NodeState.h"
-#include "buttonUpdateComponent.h"
-#include "Database.h"
-#include "createButton.h"
-#include "../Game/databaseSearchInputComponent.h"
-#include "createListElement.h"
-#include "emailMessageRenderComponent.h"
-#include "../Engine/SuspiciousFileHolder.h"
-#include "Inbox.h"
+#include <string>
+
+//#include "emailMessageRenderComponent.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief A toolkit of functions that sets up a complete window
@@ -20,10 +12,23 @@
 /// will be augmented by the function you called on it. Make sure that
 /// the input handler you pass is unique to that window.
 ///////////////////////////////////////////////////////////////////////
+namespace sf {
+	class Image;
+};
+
 
 namespace ppc {
-
+	class WindowInterface;
+	class InputHandler;
+	class TextDisplayRenderComponent;
 	class explorerFolderInputComponent;
+	class Database;
+	class Desktop;
+	class Inbox;
+	class NodeState;
+	class Email;
+	class Event;
+	class Entity;
 	//typedef bool (databaseSearchInputComponent::*goBack) (sf::Event&);
 	//using backFunction = bool(databaseSearchInputComponent::*goBack)(sf::Event& ev);
 	///////////////////////////////////////////////////////////////////////
@@ -81,7 +86,7 @@ void spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database*
 ///@param The out-of-game resource path to load the new file
 ///////////////////////////////////////////////////////////////////////
 void spawnFile(WindowInterface*& windowToModify, InputHandler& ih, float x, float y, 
-	string filename, string path);
+	std::string filename, std::string path);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Constructs an inbox window on the WindowInterface passed.

@@ -1,14 +1,18 @@
 #include "PipelineLevelBuilder.h"
 
-#include "../Engine/Edge.h"
-#include "../Game/expressionistParser.hpp"
-#include "../Game/PipelineJobsAndIncomes.h"
-
-
 #include <random>
 #include <ctime>
-#include <map>
-#include <string>
+
+#include "../Engine/Edge.h"
+#include "../Engine/Network.h"
+#include "../Engine/Vertex.h"
+
+#include "../Library/JSON/json.h"
+
+#include "expressionistParser.hpp"
+#include "PipelineJobsAndIncomes.h"
+#include "PipelineCharacter.h"
+
 
 using namespace ppc;
 

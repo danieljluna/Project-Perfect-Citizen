@@ -1,10 +1,14 @@
-#include "../Engine/debug.h"
 #include "buttonRenderComponent.h"
+
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Image.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+
+#include "../Engine/debug.h"
 #include "../Engine/event.h"
-#include <ostream>
 #include "../Engine/World.h"
 #include "../Engine/desktop.h"
-#include <string>
 #include "../Engine/Entity.h"
 
 using namespace ppc;

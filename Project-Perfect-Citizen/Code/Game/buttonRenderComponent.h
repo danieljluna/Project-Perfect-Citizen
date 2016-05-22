@@ -1,9 +1,18 @@
 #pragma once
 
-#include <iostream>
-#include <SFML/Graphics.hpp>
-#include "../Engine/renderComponent.h"
 #include <string>
+#include <iostream>
+
+#include <SFML/Graphics/Rect.hpp>
+
+#include "../Engine/renderComponent.h"
+
+namespace sf {
+	class Sprite;
+	class Texture;
+	class Image;
+	class RenderTarget;
+}
 
 namespace ppc {
 

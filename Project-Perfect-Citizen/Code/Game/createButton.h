@@ -6,26 +6,25 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
-#include "Database.h"
-#include "../Engine/Window.h"
-#include "../Engine/inputComponent.h"
-#include "../Engine/InputHandler.h"
-#include "../Engine/Entity.h"
-#include "../Engine/subject.h"
-#include "textInputRenderComponent.hpp"
-#include "textInputKeys.hpp"
-#include "../Engine/InputHandler.h"
-#include "animatorComponent.hpp"
-#include "mousePressButton.h"
-#include "consoleIconRenderComponent.h"
-#include "buttonRenderComponent.h"
-#include "consoleUpdateComponent.h"
-#include "../Engine/NodeState.h"
-#include "databaseSearchInputComponent.h"
-#include "../Engine/Network.h"
+//#include "Database.h"
+//#include "textInputRenderComponent.hpp"
+//#include "textInputKeys.hpp"
+//#include "animatorComponent.hpp"
+//#include "mousePressButton.h"
+//#include "consoleIconRenderComponent.h"
+//#include "buttonRenderComponent.h"
+//#include "consoleUpdateComponent.h"
+//#include "databaseSearchInputComponent.h"
 #include "NetworkCheckFunctor.h"
-#include "FloppyInputComponent.h"
+//#include "FloppyInputComponent.h" - move?
 
+namespace ppc {
+	class Network;
+	class InputHandler;
+	class Entity;
+	class databaseSearchInputComponent;
+	class FloppyInputComponent;
+	class Desktop;
 
 //typedef bool (databaseSearchInputComponent::*backFn)(sf::Event&);
 ///////////////////////////////////////////////////////////////////////
@@ -59,7 +58,7 @@ void spawnStartButton(ppc::Entity& entityToModify, Desktop&, ppc::InputHandler& 
 void spawnStartButton2(ppc::Entity& entityToModify, Desktop&, FloppyInputComponent*, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
 // * THIS IS TEMPORARY FOR FIRST PLAYABLE *//
-void spawnNetworkOkayButton(ppc::Network* theNetwork_, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size, NetworkCheckFunctor* ncf,
+void spawnNetworkOkayButton(ppc::Network* nw, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size, NetworkCheckFunctor* ncf,
 	sf::Font);
 
 //////////////////////////////////////////////////////////////////////
@@ -87,10 +86,14 @@ void spawnDCPSIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image
 
 void spawnSuspicionButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size);
 
-namespace ppc {
-	bool spawnStartMenu(Desktop*, Event);
-	bool spawnSuspicionMenu(Desktop*, Event);
-    bool displayFloppy(FloppyInputComponent*, Event);
-	bool LogOff(Desktop*, Event);
-	bool displayFileInfo(Desktop*, Event);
-}
+bool spawnStartMenu(Desktop*, Event);
+
+bool spawnSuspicionMenu(Desktop*, Event);
+
+bool displayFloppy(FloppyInputComponent*, Event);
+
+bool LogOff(Desktop*, Event);
+
+bool displayFileInfo(Desktop*, Event);
+
+};
