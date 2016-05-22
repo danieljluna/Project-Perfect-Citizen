@@ -23,6 +23,7 @@ private:
 	sf::Text* outline;
 	sf::Font font;
 	string labelString;
+	bool isMasked = false;
 
 
 public:
@@ -45,6 +46,8 @@ public:
 	void updateLabelPosition(float x, float y);
 
 	void updateLabelSize(int s);
+
+	void setIsMasked(bool);
 
 	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
 
