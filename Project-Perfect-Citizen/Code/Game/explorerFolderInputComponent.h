@@ -8,6 +8,7 @@
 #include "../Engine/inputComponent.h"
 #include "../Engine/NodeState.h"
 #include "../Engine/subject.h"
+#include "../Engine/FreeFunctionObserver.h"
 
 //#include "TextBoxInputComponent.h"
 
