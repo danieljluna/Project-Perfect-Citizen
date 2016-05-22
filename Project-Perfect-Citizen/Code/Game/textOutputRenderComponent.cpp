@@ -22,8 +22,9 @@
 
 #include "TreeCommands.h"
 #include "createWindow.h"
+#include "textInputRenderComponent.hpp"
 
-const string TEXT_KEY_INPUT = "TKI";
+const std::string TEXT_KEY_INPUT = "TKI";
 
 using namespace ppc;
 
@@ -50,7 +51,7 @@ textOutputRenderComponent::~textOutputRenderComponent() {
 
 }
 
-void textOutputRenderComponent::updateString(std::vector<string> cmd) {
+void textOutputRenderComponent::updateString(std::vector<std::string> cmd) {
     for (size_t i = 0; i < cmd[0].size(); i++) {
         cmd[0][i] = tolower(cmd[0][i]);
     }
@@ -64,8 +65,8 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 
 	/* CASE: LS*/
 	if (cmd.at(0) == "ls") {
-		std::vector<string> firstLsCommand;
-		string ls = "ls";
+		std::vector<std::string> firstLsCommand;
+		std::string ls = "ls";
 		firstLsCommand.push_back(ls);
 		commandFn firstLs = findFunction(ls);
 		firstLs(fileTree_, firstLsCommand);
@@ -92,7 +93,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 			numDisplayedLines++;
 		}
 		if (fileTree_.getCwd()->findElement(cmd.at(1)) != nullptr) {
-			string fileResourcePath = fileTree_.getCwd()->findElement(cmd.at(1))->getFileData();
+			std::string fileResourcePath = fileTree_.getCwd()->findElement(cmd.at(1))->getFileData();
 			fileTree_.readFile(cmd.at(1));
 			str_ += "\nOpening " + cmd.at(1) + " ... \n";
 			numDisplayedLines += 3;
@@ -121,8 +122,8 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 				str_ = str_ + "Error: Directory '" + cmd.at(1)+"' is password protected. \nHint: " + fileTree_.getCwd()->findElement(cmd.at(1))->getHint() + "\n";
 				numDisplayedLines+=3;
 			}
-			std::vector<string> cdCommand;
-			string cd = "cd";
+			std::vector<std::string> cdCommand;
+			std::string cd = "cd";
 			cdCommand.push_back(cd);
 			cdCommand.push_back(cmd.at(1));
 			commandFn newCD = findFunction(cd);
@@ -135,7 +136,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 	else if (cmd.at(0) == "flag" || cmd.at(0) == "Flag") {
 		ppc::BaseFileType* tempBFT = this->fileTree_.getCwd()->findElement(cmd.at(1));
 		if (tempBFT != nullptr) {
-			std::vector<string> firstFlagCommand;
+			std::vector<std::string> firstFlagCommand;
 			firstFlagCommand.push_back("flag");
 			firstFlagCommand.push_back(cmd.at(1));
 			commandFn firstLs = findFunction("flag");
@@ -161,8 +162,8 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 			numDisplayedLines++;
 		}
 		else {
-			std::vector<string> mkdirCommand;
-			string mkdir = "mkdir";
+			std::vector<std::string> mkdirCommand;
+			std::string mkdir = "mkdir";
 			mkdirCommand.push_back(mkdir);
 			mkdirCommand.push_back(cmd.at(1));
 			commandFn newCD = findFunction(mkdir);
@@ -179,8 +180,8 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 			numDisplayedLines++;
 		}
 		else {
-			std::vector<string> makeCommand;
-			string make = "make";
+			std::vector<std::string> makeCommand;
+			std::string make = "make";
 			makeCommand.push_back(make);
 			makeCommand.push_back(cmd.at(1));
 			commandFn newCD = findFunction(make);
@@ -198,8 +199,8 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 
 	/* CASE: UNLOCK */
 	else if (cmd.at(0) == "unlock") {
-		std::vector<string> unlockCommand;
-		string unlock = "unlock";
+		std::vector<std::string> unlockCommand;
+		std::string unlock = "unlock";
 		unlockCommand.push_back(unlock);
 		unlockCommand.push_back(cmd.at(1));
 		if (cmd.size() == 3) {
@@ -265,7 +266,7 @@ void textOutputRenderComponent::updateString(std::vector<string> cmd) {
 
 void textOutputRenderComponent::updatePrompt() {
 	std::vector<std::string> pwd_vector = fileTree_.getPwdVector();
-	string pwd = "C:/";
+	std::string pwd = "C:/";
 
 	for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {
 		pwd += *iter;

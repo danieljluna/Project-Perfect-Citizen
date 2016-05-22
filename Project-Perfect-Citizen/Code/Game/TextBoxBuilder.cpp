@@ -1,9 +1,11 @@
 #include "TextBoxBuilder.h"
+
 #include "../Engine/renderComponent.h"
-#include "../Game/TextBoxInputComponent.h"
-#include "../Game/TextBoxRenderComponent.h"
-#include "../Game/TextFieldRenderComponent.hpp"
 #include "../Engine/Entity.h"
+
+#include "TextBoxInputComponent.h"
+#include "TextBoxRenderComponent.h"
+#include "TextFieldRenderComponent.hpp"
 #include "textLabelComponent.hpp"
 #include "createWindow.h"
 

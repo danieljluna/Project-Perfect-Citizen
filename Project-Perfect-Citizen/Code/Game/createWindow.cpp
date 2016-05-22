@@ -1,5 +1,5 @@
 #ifdef WINDOWS_MARKER
-#define resourcePath() string("Resources/")
+#define resourcePath() std::string("Resources/")
 #define MAC 0
 #else
 #include "ResourcePath.hpp"
@@ -27,6 +27,10 @@
 #include "../Engine/ScrollBarDeco.h"
 #include "../Engine/FreeFunctionObserver.h"
 #include "../Engine/SuspiciousFileHolder.h"
+#include "../Engine/Network.h"
+#include "../Engine/Edge.h"
+#include "../Engine/Vertex.h"
+#include "../Engine/desktop.h"
 
 #include "../Library/json/json.h"
 
@@ -34,11 +38,14 @@
 #include "consoleUpdateComponent.h"
 #include "textInputRenderComponent.hpp"
 #include "textInputKeys.hpp"
+#include "textInputRenderComponent.hpp"
 #include "textOutputRenderComponent.h"
 #include "databaseSearchRenderComponent.h"
 #include "databaseSearchInputComponent.h"
 #include "databaseDisplayRenderComponent.h"
+
 #include "Inbox.h"
+#include "Email.h"
 #include "errorMessageRenderComponent.h"
 #include "Explorer.h"
 #include "NetworkCheckFunctor.h"
@@ -80,9 +87,9 @@
 
 using namespace ppc;
 
-const string PNG = ".png";
-const string JPG = ".jpg";
-const string TXT = ".txt";
+const std::string PNG = ".png";
+const std::string JPG = ".jpg";
+const std::string TXT = ".txt";
 
 void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
                        InputHandler & ih, NodeState ns,
@@ -414,9 +421,9 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih,
         delete(dir);
     }
     
-    string path = resourcePath() + p;
+    std::string path = resourcePath() + p;
     //std::cout <<  "\n" + path +  "\n" << std::endl;
-    string dotEnd;
+    std::string dotEnd;
     
     if (!path.empty()) dotEnd = path.substr(path.length() - 4);
     
@@ -439,9 +446,9 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih,
         int maxWindowLines = 350;
         int windowScrollHeight = 0;
         int minWindowHeight = 500;
-        ifstream f(path);
+        std::ifstream f(path);
         std::string line;
-        string content;
+		std::string content;
         while (std::getline(f, line)){
             if(windowScrollHeight < maxWindowLines){
                 ++windowScrollHeight;
@@ -573,7 +580,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 20;
 
-	string content = mail->getContentField();
+	std::string content = mail->getContentField();
 	int lineCount = 1;
 	int lineMultiplier = 23;
 	int preLineCount = 6;
@@ -1004,11 +1011,11 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 		windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
 	}
 
-	vector<string> pwd_vector = ns.getPwdVector();
-	string pwd = "C:/";
+	std::vector<std::string> pwd_vector = ns.getPwdVector();
+	std::string pwd = "C:/";
 
 	for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {
-        cout << *iter + "dasdasdas";
+		std::cout << *iter + "dasdasdas";
 		pwd += *iter;
 		pwd.push_back('/');
 	}
@@ -1295,7 +1302,7 @@ bool ppc::continue_world(WindowInterface* w, ppc::Event ev) {
 bool ppc::increment_resolution(ppc::TextDisplayRenderComponent* ptr, ppc::Event ev)
 {
     // Iterate up to next settings menu down
-    string resolutionText = ptr->getString();
+	std::string resolutionText = ptr->getString();
     sf::Vector2u resolution;
     resolution.x = std::atoi(resolutionText.substr(0, resolutionText.find_first_of(" ")).c_str());
     resolution.y = std::atoi(resolutionText.substr(resolutionText.find_last_of(" ") + 1).c_str());
@@ -1340,7 +1347,7 @@ bool ppc::increment_resolution(ppc::TextDisplayRenderComponent* ptr, ppc::Event 
 bool ppc::decrement_resolution(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
 	// Iterate up to next settings menu down
-    string resolutionText = ptr->getString();
+	std::string resolutionText = ptr->getString();
     sf::Vector2u resolution;
     resolution.x = std::atoi(resolutionText.substr(0, resolutionText.find_first_of(" ")).c_str());
     resolution.y = std::atoi(resolutionText.substr(resolutionText.find_last_of(" ") + 1).c_str());
@@ -1414,7 +1421,7 @@ bool ppc::decrement_volume(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)
 
 bool ppc::update_settings(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
-	string resolutionText = ptr->getString();
+	std::string resolutionText = ptr->getString();
 	// Parse resolution x and y into resX and resY
     sf::Vector2u resolution;
     resolution.x = std::atoi(resolutionText.substr(0, resolutionText.find_first_of(" ")).c_str());

@@ -1,11 +1,17 @@
 #include "NetworkInputCmpnt.h"
 #include "../Engine/debug.h"
+
 #include <cmath>
 #include <cfloat>
+
 #include "../Engine/DraggableInput.h"
-//#include "../Engine/World.h"
-//#include "../Engine/desktop.h"
-//#include "../Engine/WindowInterface.h"
+#include "../Engine/Network.h"
+#include "../Engine/Edge.h"
+#include "../Engine/Vertex.h"
+
+#include "PipelineDataRenderComponent.h"
+
+using namespace ppc;
 
 const float MAX_DISTANCE_TO_EDGE = 10.f;
 const unsigned int CHAR_LIMIT = 32; // THIS SHOULD BE DYNAMIC BASED ON WINDOW AND FONT SIZE

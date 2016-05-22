@@ -5,14 +5,15 @@
 #include <vector>
 
 #include <SFML/Graphics/Drawable.hpp>
+#include <SFML/Graphics/Color.hpp>
 
-#include "Vertex.h"
-#include "Edge.h"
+#include "subject.h"
+
 #include "debug.h"
 
-
 namespace ppc {
-
+	class Vertex;
+	class Edge;
 
     ///////////////////////////////////////////////////////////////////////
     /// @brief Describes a directional graph consisting of vertices and 

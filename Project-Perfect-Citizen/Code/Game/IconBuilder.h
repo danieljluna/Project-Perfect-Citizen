@@ -1,10 +1,15 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
 #include <string>
 #include "../Engine/Entity.h"
-#include "mousePressButton.h"
-#include "../Game/iconInputComponent.h"
+
+#include "mousePressButton.h" //needed
+#include "iconInputComponent.h" //needed
+
+namespace sf {
+	class Image;
+	class Font;
+};
 
 namespace ppc {
 

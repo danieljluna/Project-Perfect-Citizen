@@ -1,15 +1,17 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
 #include <string>
-#include "../Engine/inputComponent.h"
-#include "../Engine/InputHandler.h"
-#include "../Engine/Entity.h"
-#include "../Engine/subject.h"
-#include "../Game/TextBoxRenderComponent.h"
-#include "../Engine/FreeFunctionObserver.h"
+
+#include <SFML/Graphics.hpp>
+
+#include "../Engine/inputComponent.h" //needed
+#include "../Engine/subject.h" //needed
+#include "../Engine/FreeFunctionObserver.h" //needed
+
 
 namespace ppc {
+	class InputHandler;
+	class TextBoxRenderComponent;
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Designated Input Component for a generic fillable text box
@@ -48,7 +50,7 @@ namespace ppc {
 			bool(*onSubmit)(T*, Event));
 
 
-		string getString();
+		std::string getString();
 
 		void setLimit(int);
 

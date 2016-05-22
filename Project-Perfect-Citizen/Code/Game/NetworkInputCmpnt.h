@@ -1,17 +1,24 @@
 #pragma once
 
 #include <vector>
+
+#include <SFML/Graphics/Rect.hpp>
+
 #include "../Engine/inputComponent.h"
-#include "../Engine/Network.h"
-#include "PipelineDataRenderComponent.h"
+
+
 
 namespace ppc {
+	class Edge;
+	class DraggableInput;
+	class Network;
+	class PipelineDataRenderComponent;
+
 	///////////////////////////////////////////////////////////////////
 	///@brief Class that allows interactability with Network Graphs.
 	/// @author Mark Biundo & Nader Sleem
 	///////////////////////////////////////////////////////////////////
 	class NetworkInputCmpnt : public InputComponent {
-		//class Edge;
 
 	private:
 

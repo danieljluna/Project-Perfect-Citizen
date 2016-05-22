@@ -1,4 +1,7 @@
 #include "ContextBuilder.h"
+
+#include "../Engine/Entity.h"
+
 #include "contextListElementRenderComponent.h"
 #include "TextDisplayRenderComponent.h"
 #include "mousePressButton.h"

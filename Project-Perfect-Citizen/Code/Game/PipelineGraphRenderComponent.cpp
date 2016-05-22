@@ -1,6 +1,8 @@
 #include "../Engine/debug.h"
 #include "PipelineGraphRenderComponent.h"
 
+using namespace ppc;
+
 PipelineGraphRenderComponent::PipelineGraphRenderComponent(
 	float x, float y, float backgroundWidth, float backgroundHeight) {
 

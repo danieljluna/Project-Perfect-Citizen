@@ -7,6 +7,9 @@
 #include "../Engine/debug.h"
 #include "createIcon.h"
 
+#include "../Engine/Entity.h"
+#include "../Engine/desktop.h"
+
 #include "iconInputComponent.h"
 #include "emailExtraction.hpp"
 #include "notifcationRenderComponent.h"

@@ -8,6 +8,7 @@
 
 #include "spriteRenderComponent.hpp"
 
+using namespace ppc;
 
 spriteRenderComponent::spriteRenderComponent(sf::Image& i, float x, float y, float w, float h):image(i) {
     this->sprite = new sf::Sprite();

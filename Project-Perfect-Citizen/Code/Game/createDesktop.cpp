@@ -1,6 +1,6 @@
 
 #ifdef WINDOWS_MARKER
-#define resourcePath() string("Resources/")
+#define resourcePath() std::string("Resources/")
 #else
 #include "ResourcePath.hpp"
 #endif
@@ -14,6 +14,8 @@
 //#include "../Engine/Engine.h"
 #include "../Engine/World.h"
 #include "../Engine/SuspiciousFileHolder.h"
+#include "../Engine/desktop.h"
+#include "../Engine/Window.h"
 
 #include "buttonRenderComponent.h"
 #include "consoleUpdateComponent.h"

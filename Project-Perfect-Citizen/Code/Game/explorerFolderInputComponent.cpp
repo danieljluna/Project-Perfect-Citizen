@@ -65,7 +65,7 @@ NodeState * ppc::explorerFolderInputComponent::getFolderNodeState()
 	return &theFileTree_;
 }
 
-string ppc::explorerFolderInputComponent::getFolderName()
+std::string ppc::explorerFolderInputComponent::getFolderName()
 {
 	return directoryName;
 }
@@ -191,8 +191,8 @@ void ppc::explorerFolderInputComponent::changeDirectory(bool newWindow)
 		return;
 	}
 
-	std::vector<string> cdCommand;
-	string cd = "cd";
+	std::vector<std::string> cdCommand;
+	std::string cd = "cd";
 	cdCommand.push_back(cd);
 	cdCommand.push_back(directoryName);
 	commandFn newCD = findFunction(cd);
@@ -218,7 +218,7 @@ bool ppc::open_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 }
 
 bool ppc::flag_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
-	cout << " flag this folder using the new method " << endl;
+	std::cout << " flag this folder using the new method " << std::endl;
 	return true;
 }
 
@@ -241,8 +241,8 @@ bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 		comparePassword(ptr->getObservingTextBox()->getString())) {
 
 		/* Unlock the directory */
-		std::vector<string> unlockCommand;
-		string unlock = "unlock";
+		std::vector<std::string> unlockCommand;
+		std::string unlock = "unlock";
 		unlockCommand.push_back(unlock);
 		unlockCommand.push_back(ptr->getFolderName());
 		unlockCommand.push_back(ptr->getObservingTextBox()->getString());

@@ -1,10 +1,10 @@
 #pragma once
 
-#include "../Engine/renderComponent.h"
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/Text.hpp>
-#include "../Engine/WindowInterface.h"
+
+#include "../Engine/renderComponent.h"
 
 namespace sf {
 	class Sprite;
@@ -19,6 +19,7 @@ namespace sf {
 ///////////////////////////////////////////////////////////////////////
 
 namespace ppc {
+	class WindowInterface;
 
 	class contextListElementRenderComponent : public ppc::RenderComponent {
 	private:

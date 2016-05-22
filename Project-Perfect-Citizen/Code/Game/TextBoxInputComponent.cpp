@@ -1,11 +1,13 @@
 #include "TextBoxInputComponent.h"
+
 #include "TextBoxRenderComponent.h"
 #include "../Engine/InputHandler.h"
 #include "../Engine/FreeFunctionObserver.h"
 
 
 using namespace ppc;
-const string TEXT_KEY_INPUT = "TKI";
+
+const std::string TEXT_KEY_INPUT = "TKI";
 const float DOUBLE_CLICK_TIME = 500;
 
 TextBoxInputComponent::TextBoxInputComponent(InputHandler& ih, TextBoxRenderComponent &r, unsigned int l ) : inputHandle(ih), 
@@ -56,7 +58,7 @@ bool TextBoxInputComponent::isCollision(sf::Vector2i mousePos) {
 	return true;
 }
 
-string TextBoxInputComponent::getString() {
+std::string TextBoxInputComponent::getString() {
 	str.erase(remove_if(str.begin(), str.end(), isspace), str.end());
 	return str;
 }

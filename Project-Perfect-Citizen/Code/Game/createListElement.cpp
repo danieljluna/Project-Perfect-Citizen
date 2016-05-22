@@ -1,6 +1,7 @@
 #include "createListElement.h"
 
 #include "../Engine/desktop.h"
+#include "../Engine/Entity.h"
 
 #include "contextListElementRenderComponent.h"
 #include "buttonRenderComponent.h"

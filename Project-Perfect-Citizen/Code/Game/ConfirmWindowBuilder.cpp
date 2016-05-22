@@ -12,6 +12,7 @@
 #include "createButton.h"
 #include "createWindow.h"
 #include "ButtonBuilder.h"
+#include "errorMessageRenderComponent.h"
 
 
 using namespace ppc;

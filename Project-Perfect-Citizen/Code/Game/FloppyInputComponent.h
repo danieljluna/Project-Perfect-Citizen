@@ -1,15 +1,13 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
 #include <array>
 #include <vector>
 #include <map>
-#include "../Engine/subject.h"
+
 #include "../Engine/inputComponent.h"
+#include "../Engine/subject.h"
 #include "../Engine/event.h"
-#include "../Game/buttonRenderComponent.h"
-#include "../Game/mousePressButton.h"
-#include "../Game/TextDisplayRenderComponent.h"
+
 #include "FloppySequence.h"
 
 
@@ -21,6 +19,9 @@
 ///////////////////////////////////////////////////////////////////////
 
 namespace ppc {
+	class mousePressButton;
+	class TextDisplayRenderComponent;
+	class buttonRenderComponent;
 
 	class FloppyInputComponent : public ppc::InputComponent {
 	private:

@@ -3,6 +3,8 @@
 #include "../Engine/renderComponent.h"
 #include <iostream>
 
+#include "mousePressButton.h"
+
 
 namespace sf {
 	class Sprite;
@@ -13,7 +15,6 @@ namespace sf {
 namespace ppc {
 	//class renderComponent;
 	class InputHandler;
-	class mousePressButton;
 	class buttonRenderComponent;
 	class TextDisplayRenderComponent;
 

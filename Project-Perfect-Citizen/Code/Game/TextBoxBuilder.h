@@ -1,13 +1,15 @@
 #pragma once
 
-#include <SFML/Graphics/Font.hpp>
 #include <string>
-#include "../Engine/renderComponent.h"
-#include "../Engine/InputHandler.h"
-#include "../Game/TextBoxInputComponent.h"
+
+#include <SFML/Graphics/Font.hpp>
+
+#include "TextBoxInputComponent.h" //needed
 
 
 namespace ppc {
+	class InputHandler;
+
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Designated Generic Builder Object for non-editable Text Output Fields
 	/// @author Alex Vincent 

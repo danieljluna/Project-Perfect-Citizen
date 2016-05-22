@@ -7,16 +7,17 @@
 #include "ResourcePath.hpp"
 #endif
 
-
-#include "Window.h"
-#include "BorderDecorator.h"
-
 #include <string>
+#include <fstream>
 
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Window/Event.hpp>
-#include <fstream>
+
+#include "Window.h"
+#include "BorderDecorator.h"
+#include "World.h"
+#include "Network.h"
 
 #include "desktop.h"
 #include "debug.h"
@@ -30,7 +31,7 @@
 
 #include "frontTopObserver.h"
 
-#include "World.h"
+using namespace ppc;
 
 
 ppc::Desktop::Desktop() {

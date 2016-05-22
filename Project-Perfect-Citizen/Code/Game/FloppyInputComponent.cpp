@@ -15,12 +15,18 @@
 #include <string>
 #include <vector>
 #include <utility>
+
 #include "../Engine/Entity.h"
 #include "../Engine/World.h"
 #include "../Engine/desktop.h"
 
 #include "../Engine/FreeFunctionObserver.h"
 #include "../Engine/Network.h"
+#include "../Engine/Edge.h"
+
+#include "buttonRenderComponent.h"
+#include "mousePressButton.h"
+#include "TextDisplayRenderComponent.h"
 
 using namespace ppc;
 
