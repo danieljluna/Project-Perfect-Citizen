@@ -4,6 +4,7 @@
 #include "../Game/TextBoxRenderComponent.h"
 #include "../Game/TextFieldRenderComponent.hpp"
 #include "../Engine/Entity.h"
+#include "../Game/TimerUpdateCmpnt.h"
 #include "textLabelComponent.hpp"
 #include "createWindow.h"
 
@@ -74,9 +75,10 @@ ppc::TextBoxInputComponent * ppc::TextBoxBuilder::getTextBoxInputComponent()
 
 void ppc::TextBoxBuilder::create(Entity& e) {
 	
+	TimerUpdateCmpnt* tmr = new TimerUpdateCmpnt();
 	TextBoxRenderComponent* r = new TextBoxRenderComponent(*f, *c, xPos+s, yPos+5, s, stringToRender);
 	r->setIsMasked(mask);
-	TextBoxInputComponent* i = new TextBoxInputComponent(*ih, *r, lim);
+	TextBoxInputComponent* i = new TextBoxInputComponent(*ih, *r, tmr, lim);
 	i->setContainingWindow(cw);
     TextFieldRenderComponent* fr = new TextFieldRenderComponent(xPos, yPos, 300, 36);
 

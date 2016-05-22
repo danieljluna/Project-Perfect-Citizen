@@ -8,6 +8,7 @@
 #include "../Engine/subject.h"
 #include "../Game/TextBoxRenderComponent.h"
 #include "../Engine/FreeFunctionObserver.h"
+#include "../Game/TimerUpdateCmpnt.h"
 
 namespace ppc {
 
@@ -26,6 +27,7 @@ namespace ppc {
 		WindowInterface* containingWindow;
 		TextBoxRenderComponent& textBox;
 		InputHandler& inputHandle;
+		TimerUpdateCmpnt* tmr;
 		std::string str;
 		bool isCollision(sf::Vector2i);
 		int max_chars;
@@ -41,7 +43,7 @@ namespace ppc {
 		/// @param s is the render component where the text will be drawn
 		/// @param The limit of characters to display
 		///////////////////////////////////////////////////////////////////////
-		TextBoxInputComponent(ppc::InputHandler& ih, TextBoxRenderComponent &r, int lim);
+		TextBoxInputComponent(ppc::InputHandler& ih, TextBoxRenderComponent &r, TimerUpdateCmpnt* tmr, int lim);
 
 		template <class T>
 		friend void setOnSubmit(TextBoxInputComponent* tbi, T* objPtr,
