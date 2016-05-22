@@ -91,15 +91,15 @@ std::map <std::pair<World::DesktopList, World::ReportType>, std::string > World:
 	{ { DE2A, C }, resourcePath() + "Reports/ArtistReportC.txt" },
 	{ { DE2A, D }, resourcePath() + "Reports/ArtistReportD.txt" },
 
-	{ { DE2B, A }, resourcePath() + "Reports/sampleReport.txt" },
-	{ { DE2B, B }, resourcePath() + "Reports/sampleReport.txt" },
-	{ { DE2B, C }, resourcePath() + "Reports/sampleReport.txt" },
-	{ { DE2B, D }, resourcePath() + "Reports/sampleReport.txt" },
+	{ { DE2B, A }, resourcePath() + "Reports/PoliticianReportA.txt" },
+	{ { DE2B, B }, resourcePath() + "Reports/PoliticianReportB.txt" },
+	{ { DE2B, C }, resourcePath() + "Reports/PoliticianReportC.txt" },
+	{ { DE2B, D }, resourcePath() + "Reports/PoliticianReportD.txt" },
 
-	{ { DE3, A }, resourcePath() + "Reports/sampleReport.txt" },
-	{ { DE3, B }, resourcePath() + "Reports/sampleReport.txt" },
-	{ { DE3, C }, resourcePath() + "Reports/sampleReport.txt" },
-	{ { DE3, D }, resourcePath() + "Reports/sampleReport.txt" },
+	{ { DE3, A }, resourcePath() + "Reports/HackerReportA.txt" },
+	{ { DE3, B }, resourcePath() + "Reports/HackerReportB.txt" },
+	{ { DE3, C }, resourcePath() + "Reports/HackerReportC.txt" },
+	{ { DE3, D }, resourcePath() + "Reports/HackerReportD.txt" },
 
 };
 
