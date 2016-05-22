@@ -27,7 +27,6 @@ textBox(r), tmr(t), max_chars(l) {
 
 	tmr->playTimer(tmr->createTimer(t1, 1));
 
-
 	textBox.updateLabelString(str);
 
 }

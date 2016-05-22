@@ -88,5 +88,6 @@ void ppc::TextBoxBuilder::create(Entity& e) {
 	e.addComponent(fr);
 	e.addComponent(r);
 	e.addComponent(i);
+	e.addComponent(tmr);
 
 }

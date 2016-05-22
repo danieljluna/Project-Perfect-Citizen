@@ -85,9 +85,9 @@ void TextBoxRenderComponent::draw(sf::RenderTarget& target,
 
 bool ppc::blink_cursor(TextBoxRenderComponent * tbr, ppc::Event ev)
 {
-	tbr->toggleCursorRender();
-	tbr->updateLabelString(tbr->getString());
+	//tbr->toggleCursorRender();
+	//tbr->updateLabelString(tbr->getString());
 	std::cout << "ran blink_cursor" << std::endl;
 	// Send an event to reset the timer
-	return false;
+	return true;
 }
