@@ -1,9 +1,9 @@
-
 #pragma once
 
 #include <SFML/Graphics.hpp>
 
 #include "../Engine/updateComponent.h"
+
 #include "BadCopRenderComponent.hpp"
 
 namespace ppc {

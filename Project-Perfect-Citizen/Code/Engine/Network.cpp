@@ -9,6 +9,9 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 
+#include "Vertex.h"
+#include "Edge.h"
+
 using namespace ppc;
 
 const float thickness = 3.f;

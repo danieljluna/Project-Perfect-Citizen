@@ -1,12 +1,11 @@
 #pragma once
 
-#include <SFML/Graphics/Font.hpp>
 #include <string>
-#include "../Engine/renderComponent.h"
-#include "../Engine/InputHandler.h"
 
+#include <SFML/Graphics/Font.hpp>
 
 namespace ppc {
+	class Entity;
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Designated Generic Builder Object for non-editable Text Output Fields

@@ -1,9 +1,13 @@
 #ifndef photoRenderComponent_hpp
 #define photoRenderComponent_hpp
 
-#include <SFML/Graphics.hpp>
 #include "../Engine/renderComponent.h"
 
+namespace sf {
+	class Sprite;
+	class Image;
+	class Texture;
+}
 
 namespace ppc {
 

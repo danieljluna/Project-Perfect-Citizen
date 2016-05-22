@@ -11,6 +11,14 @@
 #include <cassert>
 #include <algorithm>
 
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Image.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+
+
+using namespace ppc;
+
 endingAnimationRender::endingAnimationRender(sf::Image& img):image(img){
     
     this->sprite = new sf::Sprite();

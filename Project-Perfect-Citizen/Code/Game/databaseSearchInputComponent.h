@@ -1,18 +1,11 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
 #include <string>
-#include "../Engine/inputComponent.h"
-#include "../Engine/InputHandler.h"
-#include "../Engine/Entity.h"
-#include "../Engine/subject.h"
-#include "textInputRenderComponent.hpp"
-#include "consoleUpdateComponent.h"
-#include "textOutputRenderComponent.h"
-#include "PipelineCharacter.h"
-#include "databaseSearchRenderComponent.h"
-#include "databaseDisplayRenderComponent.h"
 #include <stack>
+
+#include <SFML/Graphics.hpp>
+
+#include "../Engine/inputComponent.h" //needed
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -23,6 +16,11 @@
 ///          with a text input box render component.
 ///////////////////////////////////////////////////////////////////////
 namespace ppc {
+	class Database;
+	class InputHandler;
+	class databaseSearchRenderComponent;
+	class databaseDisplayRenderComponent;
+	class characterRender;
 
 class databaseSearchInputComponent : public ppc::InputComponent {
 	using backFunction = bool(*)(sf::Event& ev);

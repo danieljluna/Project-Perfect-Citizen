@@ -1,17 +1,16 @@
 #pragma once
 
-#include "../Engine/renderComponent.h"
 #include <iostream>
+
 #include <SFML/Graphics.hpp>
-#include "../Engine/renderComponent.h"
-#include "../Engine/InputHandler.h"
-#include "../Game/mousePressButton.h"
-#include "../Game/buttonRenderComponent.h"
-#include "../Game/TextDisplayRenderComponent.h"
-#include "../Game/errorMessageRenderComponent.h"
 
 namespace ppc {
 	class Desktop;
+	class InputHandler;
+	class mousePressButton;
+	class WindowInterface;
+	class Event;
+
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Designated Generic Builder Object for confirmation windows
 	/// @author Alex Vincent 

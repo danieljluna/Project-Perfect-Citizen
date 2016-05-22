@@ -4,6 +4,8 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
 
+#include "Email.h"
+
 using namespace ppc;
 const std::string SELECT_EMAIL = "SE";
 const std::string DESELECT_EMAIL = "DSE";

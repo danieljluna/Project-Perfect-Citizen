@@ -23,40 +23,40 @@
 using namespace ppc;
 
 int main(int argc, char** argv) {
-    try {
-        
-        DBG_INIT();
-        //Scans Debug Flags
-        Debug::scanOpts(argc, argv);
-        DEBUGF("ac", argc);
-        
-        World::initLevelMap();
-        World::initFontMap();
-        World::initLoadScreen();
-        
-        // Create the main sf::window
-        sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen");
-        
-        AudioQueue audiotest(5);
-        audiotest.addBgm("SoundTrack_Extraction.ogg");
-        audiotest.loopBgm();
-        audiotest.playBgm();
-        
-        ///////////////////////////////////////////////////////////////////
-        
-        //// ----------------   PYTHON LOCATION STUFF ---------------- ////
-        
-        // Run the locator python app
-        //system("osascript -e 'tell app \"ppc_location_print\" to open'");
-        // -----------------------------------------------------------//
-        
-        World::setGameScreen(screen);
-        World::loadState("PPC.sav");
-        std::ifstream desktopFileInput;
-        
+	try {
+
+		DBG_INIT();
+		//Scans Debug Flags
+		Debug::scanOpts(argc, argv);
+		DEBUGF("ac", argc);
+
+		World::initLevelMap();
+		World::initFontMap();
+		World::initLoadScreen();
+
+		// Create the main sf::window
+		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen");
+
+		AudioQueue audiotest(5);
+		audiotest.addBgm("SoundTrack_Extraction.ogg");
+		audiotest.loopBgm();
+		audiotest.playBgm();
+
+		///////////////////////////////////////////////////////////////////
+
+		//// ----------------   PYTHON LOCATION STUFF ---------------- ////
+
+		// Run the locator python app
+		//system("osascript -e 'tell app \"ppc_location_print\" to open'");
+		// -----------------------------------------------------------//
+
+		World::setGameScreen(screen);
+		World::loadState("PPC.sav");
+		std::ifstream desktopFileInput;
+
 		Desktop mainDesktop;
 		World::setCurrDesktop(mainDesktop);
-		
+
 		//***For Daniel: Call  this function when you load from the save!***
 		//World::setLevel(i,j); where i is the DesktopEnum as an int,
 		// and j is the score from the most recent desktop
@@ -66,7 +66,7 @@ int main(int argc, char** argv) {
 			World::DesktopList currDesk = World::getCurrDesktopEnum();
 
 			//Load Screen for correct levels
-			if((int)currDesk >= 3) World::startLoading();
+			if ((int)currDesk >= 3) World::startLoading();
 
 			//Parse Curr Desktop's .ini
 			desktopFileInput.open(World::desktopFileMap_.at(currDesk));
@@ -83,11 +83,12 @@ int main(int argc, char** argv) {
 			World::goToNext(deskScore);
 		}
 
-    return EXIT_SUCCESS;
-       
-    } catch(std::exception e) {
-        std::cerr << e.what();
-    }
-	
-    return EXIT_SUCCESS;
+		return EXIT_SUCCESS;
+
+	}
+	catch (std::exception e) {
+		std::cerr << e.what();
+	}
+
+	return EXIT_SUCCESS;
 }

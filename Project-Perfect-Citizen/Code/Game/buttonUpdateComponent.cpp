@@ -1,6 +1,12 @@
 #include "../Engine/debug.h"
 #include "buttonUpdateComponent.h"
 
+#include <SFML/System/Time.hpp>
+
+#include "buttonRenderComponent.h"
+//#include "textInputRenderComponent.hpp"
+#include "textInputKeys.hpp"
+
 using namespace ppc;
 
 buttonUpdateComponent::buttonUpdateComponent(buttonRenderComponent& bRC)
@@ -22,5 +28,5 @@ void buttonUpdateComponent::setButtonPosition(sf::Vector2f newPos) {
 
 void buttonUpdateComponent::update(sf::Time& deltaTime) {
 	buttonToUpdate_.renderPosition(lastPosition_);
-	std::cout << lastPosition_.x << ",  " << lastPosition_.y << endl;
+	std::cout << lastPosition_.x << ",  " << lastPosition_.y << std::endl;
 }

@@ -3,12 +3,13 @@
 #include <vector>
 #include <string>
 #include <stack>
-#include "../Engine/NodeState.h"
+
 #include "../Engine/Entity.h"
-#include "../Engine/WindowInterface.h"
-#include "../Game/createIcon.h"
-#include "../Game/explorerFolderInputComponent.h"
-#include "../Game/explorerFileInputComponent.h"
+
+
+namespace sf {
+	class Image;
+};
 
 ///////////////////////////////////////////////////////////////////////
 /// @author Alex Vincent
@@ -19,6 +20,9 @@
 ///////////////////////////////////////////////////////////////////////
 
 namespace ppc {
+	class NodeState;
+	class WindowInterface;
+	class Desktop;
 
 	class Explorer {
 
@@ -37,7 +41,7 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		///@brief Re-grabs the file state from the tree
 		///////////////////////////////////////////////////////////////////////
-		vector<Entity> createVectorFrame(vector<string> filenames);
+		std::vector<Entity> createVectorFrame(std::vector<std::string> filenames);
 
 		
 	private:

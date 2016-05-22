@@ -1,12 +1,20 @@
 #include "ConfirmWindowBuilder.h"
+
 #include "../Engine/WindowInterface.h"
-#include "../Game/createWindow.h"
-#include "../Game/ButtonBuilder.h"
 #include "../Engine/BorderDecorator.h"
 #include "../Engine/World.h"
 #include "../Engine/desktop.h"
-#include "../Game/explorerFileInputComponent.h"
-#include "../Game/ReportScreenObsvr.h"
+#include "../Engine/SuspiciousFileHolder.h"
+#include "../Engine/Window.h"
+
+#include "explorerFileInputComponent.h"
+#include "ReportScreenObsvr.h"
+#include "createButton.h"
+#include "createWindow.h"
+#include "ButtonBuilder.h"
+#include "errorMessageRenderComponent.h"
+
+
 using namespace ppc;
 
 ppc::ConfirmWindowBuilder::ConfirmWindowBuilder()

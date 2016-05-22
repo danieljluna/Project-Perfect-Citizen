@@ -1,4 +1,5 @@
 #include "Inbox.h"
+#include "Email.h"
 
 using namespace ppc;
 

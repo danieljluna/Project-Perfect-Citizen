@@ -73,7 +73,7 @@ int ppc::SuspiciousFileHolder::getStaticCount()
 }
 
 
-ppc::BaseFileType * ppc::SuspiciousFileHolder::getBFTVectorElement(int element)
+ppc::BaseFileType * ppc::SuspiciousFileHolder::getBFTVectorElement(unsigned int element)
 {
 	if (element >= bftVector_.size() || bftVector_.size() == 0) {
 		return nullptr;

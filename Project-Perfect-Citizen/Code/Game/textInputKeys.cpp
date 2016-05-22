@@ -1,10 +1,17 @@
 #include "../Engine/debug.h"
 #include "textInputKeys.hpp"
+
 #include <iostream>
 #include <string>
 
+#include "../Engine/InputHandler.h"
+
+#include "textOutputRenderComponent.h"
+#include "textInputRenderComponent.hpp"
+
 using namespace ppc;
-const string TEXT_KEY_INPUT = "TKI";
+
+const std::string TEXT_KEY_INPUT = "TKI";
 
 const float DOUBLE_CLICK_TIME = 500;
 
@@ -88,13 +95,13 @@ bool textInputKeys::registerInput(Event ppcEv) {
 				}
 				cmd += " ";
 
-				std::vector<string> commandVec;
-				string delimiter = " ";
+				std::vector<std::string> commandVec;
+				std::string delimiter = " ";
 				size_t last = 0;
 				size_t next = 0;
-				string token;
+				std::string token;
 				while ((next = cmd.find(delimiter, last)) != 
-											string::npos) {
+					std::string::npos) {
 					token = cmd.substr(last, next - last);
 					commandVec.push_back(token);
 					last = next + 1;
@@ -112,7 +119,7 @@ bool textInputKeys::registerInput(Event ppcEv) {
 				textBox.updateString(str);
 				textBox.updatePosition(textDisplay.getText()->getLocalBounds().height, 10);
 
-				cout << str.length();
+				std::cout << str.length();
 			}
         }
     }

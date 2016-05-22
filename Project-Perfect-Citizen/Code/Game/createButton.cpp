@@ -6,18 +6,23 @@
 
 #include "../Engine/debug.h"
 #include "createButton.h"
-#include "databaseSearchInputComponent.h"
+
 #include "../Engine/Network.h"
-#include "NetworkCheckFunctor.h"
+#include "../Engine/BaseFileType.h"
+#include "../Engine/Window.h"
+#include "../Engine/desktop.h"
+
+#include "databaseSearchInputComponent.h"
 #include "createWindow.h"
 #include "ButtonBuilder.h"
-#include "../Engine/BaseFileType.h"
+#include "FloppyInputComponent.h"
+
 
 using namespace ppc;
 
 typedef bool (databaseSearchInputComponent::*backFn)(sf::Event&);
 
-void spawnBackButton(databaseSearchInputComponent* db, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet,
+void ppc::spawnBackButton(databaseSearchInputComponent* db, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet,
     float x, float y, float size)
 {
 
@@ -29,7 +34,7 @@ void spawnBackButton(databaseSearchInputComponent* db, ppc::Entity& entityToModi
 	builder.setLabelMessage("");
     sf::Font f;
 	builder.setLabelFont(f);
-	builder.setLabelSize(size);
+	builder.setLabelSize(static_cast<int>(size));
 	builder.setSpriteSheet(spritesheet);
 
 	createWithEventFunc<databaseSearchInputComponent>(builder, entityToModify, db, &(ppc::goBackFn));
@@ -37,7 +42,7 @@ void spawnBackButton(databaseSearchInputComponent* db, ppc::Entity& entityToModi
 }
 
 
-void spawnStartButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
+void ppc::spawnStartButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
 
 	ButtonBuilder builder;
 	builder.setButtonPosition(sf::Vector2f(x, y));
@@ -47,7 +52,7 @@ void spawnStartButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHandler
 	builder.setLabelMessage("");
     sf::Font f;
     builder.setLabelFont(f);
-	builder.setLabelSize(size);
+	builder.setLabelSize(static_cast<int>(size));
 	builder.setSpriteSheet(spritesheet);
     
 
@@ -55,7 +60,7 @@ void spawnStartButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHandler
 
 }
 
-void spawnStartButton2(ppc::Entity& entityToModify, Desktop& d, FloppyInputComponent* flop, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
+void ppc::spawnStartButton2(ppc::Entity& entityToModify, Desktop& d, FloppyInputComponent* flop, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
     ButtonBuilder builder;
     builder.setButtonPosition(sf::Vector2f(x, y));
     builder.setInputHandle(ih);
@@ -64,13 +69,13 @@ void spawnStartButton2(ppc::Entity& entityToModify, Desktop& d, FloppyInputCompo
     builder.setLabelMessage("");
     sf::Font f;
     builder.setLabelFont(f);
-    builder.setLabelSize(size);
+    builder.setLabelSize(static_cast<int>(size));
     builder.setSpriteSheet(spritesheet);
     createWithEventFunc<FloppyInputComponent>(builder, entityToModify, flop, &(ppc::displayFloppy));
     
 }
 
-void spawnSuspicionButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
+void ppc::spawnSuspicionButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
 	ButtonBuilder builder;
 	builder.setButtonPosition(sf::Vector2f(x, y));
 	builder.setInputHandle(ih);
@@ -79,7 +84,7 @@ void spawnSuspicionButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHan
 	builder.setLabelMessage("");
 	sf::Font f;
 	builder.setLabelFont(f);
-	builder.setLabelSize(size);
+	builder.setLabelSize(static_cast<int>(size));
 	builder.setSpriteSheet(spritesheet);
 
 
@@ -90,7 +95,7 @@ void spawnSuspicionButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHan
                                  
                                  
 
-void spawnNetworkOkayButton(ppc::Network* nw, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size, NetworkCheckFunctor* ncf,
+void ppc::spawnNetworkOkayButton(ppc::Network* nw, ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size, NetworkCheckFunctor* ncf,
 	sf::Font f) {
 	
 	ButtonBuilder builder;
@@ -106,7 +111,7 @@ void spawnNetworkOkayButton(ppc::Network* nw, ppc::Entity& entityToModify, ppc::
 	
 }
 
-void spawnConfirmedIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
+void ppc::spawnConfirmedIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
 	
 	ButtonBuilder builder;
 	builder.setButtonPosition(sf::Vector2f(x, y));
@@ -123,7 +128,7 @@ void spawnConfirmedIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::
 
 }
 
-void spawnAlertIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
+void ppc::spawnAlertIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
 	
 	ButtonBuilder builder;
 	builder.setButtonPosition(sf::Vector2f(x, y));
@@ -139,7 +144,7 @@ void spawnAlertIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Imag
 	builder.create(entityToModify);
 
 }
-void spawnPromptIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
+void ppc::spawnPromptIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
     /* Render Component */
 
 	ButtonBuilder builder;
@@ -157,7 +162,7 @@ void spawnPromptIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Ima
 
 }
 
-void spawnDCPSIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
+void ppc::spawnDCPSIcon(ppc::Entity& entityToModify, ppc::InputHandler& ih, sf::Image& spritesheet, float x, float y, float size) {
     /* Render Component */
     
     ButtonBuilder builder;
@@ -185,7 +190,7 @@ bool ppc::spawnStartMenu(Desktop* ptr, Event ev) {
 	elementNames.push_back("Log Off");
 	elementFunctions.push_back(&(ppc::LogOff));
 	spawnContextMenu(*ptr, ContextMenu, ContextMenu->getInputHandler(), elementNames,
-		elementFunctions, 0, 700-((elementNames.size()-1)*20));
+		elementFunctions, 0.f, static_cast<float>(700-((elementNames.size()-1)*20)));
 	ptr->addWindow(ContextMenu);
 	return true;
 }
@@ -206,7 +211,7 @@ bool ppc::spawnSuspicionMenu(Desktop * ptr, Event ev)
 	//elementFunctions.push_back(&(ppc::displayFileInfo));
 	//elementFunctions.push_back(&(ppc::LogOff));
 	spawnContextMenu(*ptr, ContextMenu, ContextMenu->getInputHandler(), elementNames,
-		elementFunctions, 300, 700 - ((elementNames.size() - 1) * 20));
+		elementFunctions, 300.f, static_cast<float>(700 - ((elementNames.size() - 1) * 20)));
 	ptr->addWindow(ContextMenu);
 	return true;
 }
@@ -237,8 +242,3 @@ bool ppc::displayFileInfo(Desktop* desk, Event ev) {
 	desk->addWindow(infoWindow);
 	return true;
 }
-
-
-
-
-
