@@ -5,7 +5,6 @@
 #include <SFML/Graphics.hpp>
 
 #include "mousePressButton.h" //needed
-#include "Entity.h"
 
 namespace ppc {
 	class InputHandler;

@@ -4,7 +4,6 @@
 #include <iostream>
 
 #include "mousePressButton.h"
-#include "Entity.h"
 
 
 namespace sf {
