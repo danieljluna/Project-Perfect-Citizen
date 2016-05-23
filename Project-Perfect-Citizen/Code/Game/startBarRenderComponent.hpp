@@ -1,9 +1,10 @@
 #pragma once
 
+
 #include <string>
 #include <iostream>
 
-#include <SFML/Graphics/Rect.hpp>
+#include <SFML/Graphics.hpp>
 
 #include "../Engine/renderComponent.h"
 
@@ -11,6 +12,8 @@ namespace sf {
     class Sprite;
     class Texture;
     class Image;
+    class Font;
+    class Text;
     class RenderTarget;
 }
 
@@ -30,6 +33,9 @@ namespace ppc {
         sf::RectangleShape startBar;
         sf::RectangleShape blackBorder;
         sf::RectangleShape whiteBorder;
+        sf::Text dateText;
+        sf::Font dateFont;
+        
     public:
         ///////////////////////////////////////////////////////////////////////
         /// @brief Constructor for buttonRenderComponent
@@ -38,9 +44,11 @@ namespace ppc {
         /// @param r is the range of indices that the sprite covers
         /// @param f is the frame count of animation. 1 for static sprite
         ///////////////////////////////////////////////////////////////////////
-        startBarRenderComponent();
+        startBarRenderComponent(sf::Font&);
         
         ~startBarRenderComponent();
+        
+        std::string getCurrentTime();
         
         
         ///////////////////////////////////////////////////////////////////////
@@ -49,6 +57,7 @@ namespace ppc {
         void renderPosition(sf::Vector2f pos);
         
         
+        void animate();
         ///////////////////////////////////////////////////////////////////////
         /// @brief The main draw function that was inheirted from RenderComponent.
         /// @details You need to define this to create a child of RenderComponent
