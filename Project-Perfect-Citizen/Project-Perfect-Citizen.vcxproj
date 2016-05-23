@@ -122,6 +122,7 @@
     <ClCompile Include="Code\Game\ReportScreenObsvr.cpp" />
     <ClCompile Include="Code\Game\spriteRenderComponent.cpp" />
     <ClCompile Include="Code\Game\startBarRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\startBarUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\TextBoxBuilder.cpp" />
     <ClCompile Include="Code\Game\TextBoxInputComponent.cpp" />
     <ClCompile Include="Code\Game\TextBoxRenderComponent.cpp" />
@@ -268,6 +269,7 @@
     <ClInclude Include="Code\Game\ReportScreenInput.h" />
     <ClInclude Include="Code\Game\ReportScreenObsvr.h" />
     <ClInclude Include="Code\Game\spriteRenderComponent.hpp" />
+    <ClInclude Include="Code\Game\startBarUpdateComponent.hpp" />
     <ClInclude Include="Code\Game\TextBoxBuilder.h" />
     <ClInclude Include="Code\Game\TextBoxInputComponent.h" />
     <ClInclude Include="Code\Game\TextBoxRenderComponent.h" />
