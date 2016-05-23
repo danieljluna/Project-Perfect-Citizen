@@ -42,6 +42,7 @@
 #include "Email.h"
 
 #include "notifcationRenderComponent.h"
+#include "flaggedFileInputComponent.h"
 
 
 #include "../Library/json/json.h"
@@ -265,12 +266,7 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
 	//herro.setName("test");
 	//ppc::SuspiciousFileHolder::flagFile(&herro);
 
-	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
-	spawnFileTracker(desktopToModify, fileTracker, fileTracker->getInputHandler(), 250, 50);
-	desktopToModify.addWindow(fileTracker);
-	ppc::SuspiciousFileHolder::setWindow(fileTracker);
-
-
+	clear_flagged_files(&desktopToModify, ppc::Event());
 
 }
 
@@ -509,6 +505,12 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
     desktopWindowToModify.addEntity(EmailIcon);
+
+	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
+	spawnFileTracker(desktopToModify, fileTracker, fileTracker->getInputHandler(), 250, 50);
+	desktopToModify.addWindow(fileTracker);
+	ppc::SuspiciousFileHolder::setWindow(fileTracker);
+	ppc::SuspiciousFileHolder::clearFiles();
     
 }
 
@@ -579,6 +581,8 @@ void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& des
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
     desktopWindowToModify.addEntity(EmailIcon);
+
+	
     
 }
 
