@@ -10,6 +10,8 @@ using namespace ppc;
 Transition::Transition() {
     start_ = end_ = nullptr;
     transitionShape_.setFillColor(sf::Color::Black);
+    transitionShape2_.setFillColor(sf::Color::Black);
+
 }
 
 
@@ -35,8 +37,11 @@ void Transition::setTextures(sf::Texture& start, sf::Texture& end) {
 
 
 void Transition::setBounds(sf::FloatRect bounds) {
-    transitionShape_.setPosition(bounds.left, bounds.top);
-    transitionShape_.setSize({bounds.width, bounds.height});
+    transitionShape_.setPosition(bounds.left, 0);
+    transitionShape_.setSize({bounds.width, 0});
+    
+    transitionShape2_.setPosition(bounds.left, bounds.height);
+    transitionShape2_.setSize({bounds.width,0});
 }
 
 
@@ -92,6 +97,7 @@ void Transition::decrementTransition(float delta) {
 void Transition::draw(sf::RenderTarget& target,
                       sf::RenderStates states) const {
     target.draw(transitionShape_, states);
+    target.draw(transitionShape2_, states);
 }
 
 
