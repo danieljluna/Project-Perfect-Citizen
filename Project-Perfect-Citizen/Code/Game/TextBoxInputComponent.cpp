@@ -23,7 +23,7 @@ textBox(r), tmr(t), max_chars(l) {
 
 	tmr->onTimer().addObserver(fnObsvr);
 
-	sf::Time t1 = sf::seconds(1.0f);
+	sf::Time t1 = sf::seconds(0.5f);
 
 	tmr->playTimer(tmr->createTimer(t1));
 
@@ -100,6 +100,7 @@ bool TextBoxInputComponent::registerInput(Event ppcEv) {
 			else if ((ev.text.unicode == 10 || ev.text.unicode == 13) && str.size() > 0) {
 				onSubmit_.sendEvent(ppcEv);
 			}
+			textBox.setCursorRender(true);
 		}
 	}
 	return true;
@@ -111,7 +112,7 @@ void ppc::TextBoxInputComponent::recieveMessage(ppc::Event ev)
 	case Event::EventTypes::TimerType:
 		if (ev.timer.action == Event::TimerEv::timerState::Reset) {
 
-			sf::Time t1 = sf::seconds(1.0f);
+			sf::Time t1 = sf::seconds(0.5f);
 			tmr->resetTimer(0, sf::seconds(0.0f));
 			tmr->playTimer(tmr->createTimer(t1));
 		}

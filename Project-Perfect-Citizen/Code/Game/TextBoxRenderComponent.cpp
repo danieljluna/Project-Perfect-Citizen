@@ -67,19 +67,21 @@ void ppc::TextBoxRenderComponent::toggleCursorRender()
 	renderCursor = !renderCursor;
 }
 
+void ppc::TextBoxRenderComponent::setCursorRender(bool r)
+{
+	renderCursor = r;
+}
+
 std::string ppc::TextBoxRenderComponent::getString()
 {
-	if (renderCursor) return outline->getString().substring(
-		0, outline->getString().getSize() - 1);
-	else return outline->getString();
+	return labelString;
 }
 
 void TextBoxRenderComponent::updateLabelString(std::string str) {
 	labelString = str;
-	if (isMasked) {
-		labelString.replace(0, str.length(), str.length(), '*');
-	}
-	
+
+	if (isMasked) labelString.replace(0, str.length(), str.length(), '*');
+
 	if (renderCursor)
 		outline->setString(labelString+"|");
 	else 
@@ -101,7 +103,5 @@ bool ppc::blink_cursor(TextBoxRenderComponent * tbr, ppc::Event ev)
 	ev.type = Event::EventTypes::TimerType;
 	ev.timer.action = Event::TimerEv::timerState::Reset;
 	tbr->getEntity()->broadcastMessage(ev);
-	std::cout << "ran blink_cursor" << std::endl;
-	// Send an event to reset the timer
 	return true;
 }

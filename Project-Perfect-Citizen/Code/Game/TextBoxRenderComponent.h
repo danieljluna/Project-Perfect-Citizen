@@ -55,6 +55,8 @@ namespace ppc {
 
 		void toggleCursorRender();
 
+		void setCursorRender(bool);
+
 		virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
 
 	};
