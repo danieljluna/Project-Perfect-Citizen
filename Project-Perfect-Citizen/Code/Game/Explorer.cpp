@@ -40,7 +40,7 @@ std::vector<Entity> Explorer::createVectorFrame(std::vector<std::string> filenam
 	sf::Font font;
 	font.loadFromFile(resourcePath() + "consola.ttf");
 
-	int padding = 100;
+	int padding = 125;
 	std::vector<Entity> explorerFrame;
 	int numRows = 1;
 
@@ -51,7 +51,6 @@ std::vector<Entity> Explorer::createVectorFrame(std::vector<std::string> filenam
 	}
 
 	for (unsigned int i = 0, j = 0, k = 0; i < filenames.size(); ++i, ++k) {
-        if (filenames.at(i).compare("CP") == 0) { World::quitDesktop(); }
 		if (k % 5 == 0 && k != 0) {
 			++j;
 			numRows++;
@@ -86,7 +85,7 @@ std::vector<Entity> Explorer::createVectorFrame(std::vector<std::string> filenam
 			explorerFrame.push_back(example);
 
 	}
-	windowToWorkOn_->setSize(windowToWorkOn_->getSize().x, numRows * 100);
+	windowToWorkOn_->setSize(windowToWorkOn_->getSize().x, numRows * 125);
 	return explorerFrame;
 }
 

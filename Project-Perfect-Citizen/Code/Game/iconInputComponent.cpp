@@ -205,13 +205,13 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
                 if (openedWindow != nullptr && theDesktop_.isWindow(openedWindow)) {
                     theDesktop_.focusWindow(openedWindow);
                 } else {
-                    tempWin = new ppc::Window(500, 150, sf::Color(170, 170, 170));
-                    spawnPromptMessage(tempWin, tempWin->getInputHandler(), buttonSheet_, 100, 200, "Prompt: please enter password");
-                    que.addSound("prompt", "Notification_Prompt.wav");
-                    que.playSound(0);
-                    que.popAndPlay();
-                    theDesktop_.addWindow(tempWin);
-                    openedWindow = tempWin;
+					tempWin = new ppc::Window(500, 150, sf::Color(170, 170, 170));
+					spawnErrorMessage(tempWin, tempWin->getInputHandler(), buttonSheet_, 100, 200, "Error: Invalid permissions level.", "Invalid Permissions");
+					que.addSound("prompt", "Notification_Prompt.wav");
+					que.playSound(0);
+					que.popAndPlay();
+					theDesktop_.addWindow(tempWin);
+					openedWindow = tempWin;
                 }
                 break;
             case IconType::HardDrive: //Was Explorer

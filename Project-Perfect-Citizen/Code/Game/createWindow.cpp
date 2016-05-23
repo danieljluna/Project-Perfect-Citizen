@@ -646,18 +646,23 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	float alertWidth = 128.0;
 	float windowWidth = static_cast<float>(windowToModify->getSize().x);
 	float windowHeight = static_cast<float>(windowToModify->getSize().y);
+
+
 	float alertX = windowWidth - ((alertWidth * alertScale) + (3 * (windowWidth / 4)));
 	float alertY = (windowHeight - (alertWidth * alertScale)) / 3;
 	float buttonScale = 0.25f;
-	float buttonX = ((windowWidth - (alertWidth * buttonScale)) / 2);
-	float buttonY = (2 * (windowHeight / 3));
 	spawnAlertIcon(alertIcon, ih, buttonSheet, alertX, alertY, 0.5f);
 
-	//float newWindowWidth = ((windowWidth)-(eMRC->getText()->getLocalBounds().width - windowWidth));
-	float newWindowWidth = ((256 * buttonScale) + eMRC->getText()->getLocalBounds().width);
+	float constantWindowWidth = 50.0f;
+	float newWindowWidth = (constantWindowWidth + (256 * buttonScale)
+		+ eMRC->getText()->getLocalBounds().width);
 
 	Entity errorMessageDisplayBox;
 	errorMessageDisplayBox.addComponent(eMRC);
+
+	windowToModify->setSize(sf::Vector2u(newWindowWidth, windowHeight));
+	float buttonX = ((newWindowWidth - (alertWidth * buttonScale)) / 2);
+	float buttonY = (2 * (windowHeight / 3));
 
 	// Button Test
 	ButtonBuilder builder;
@@ -679,7 +684,7 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	windowToModify->addEntity(alertIcon);
 	windowToModify->addEntity(ent);
 	windowToModify->setPosition(x, y);
-	windowToModify->setSize(sf::Vector2u(newWindowWidth, windowHeight));
+	
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(windowCaption);
@@ -1092,8 +1097,8 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 	/////////////////////////////////////////
 	//// Files/Text Labels
 	///////////////////////////////////////
-	int fileSpacing = windowToModify->getSize().x / 4;
-	int padding = 10;
+	float fileSpacing = windowToModify->getSize().x / 3.5;
+	int padding = 20;
 	textLabelComponent* label;
 	for (unsigned int i = 0; i < 3/*fH->getBfgVector().size()*/; ++i) {
 		
@@ -1102,9 +1107,16 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 		IconRender->renderPosition(sf::Vector2f(static_cast<float>(fileSpacing*i) + padding, 5));
 
 		if (ppc::SuspiciousFileHolder::getBFTVectorElement(i) != nullptr) {
+
+			std::string newLabel = ppc::SuspiciousFileHolder::getBFTVectorElement(i)->getName();
+			if (newLabel.size() > 20) {
+				newLabel = newLabel.substr(0, 20);
+				newLabel += "...";
+			}
+			
 			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Green,
 				(float)((fileSpacing*i) + padding / 2), IconRender->getSprite()->getLocalBounds().height*0.5f, 12,
-				ppc::SuspiciousFileHolder::getBFTVectorElement(i)->getName());
+				newLabel);
 
 			mousePressButton* mpb = new mousePressButton(windowToModify->getInputHandler(), IconRender->getSprite()->getLocalBounds());
 			flaggedFileInputComponent* fIC = new flaggedFileInputComponent(&dt, windowToModify, windowToModify->getInputHandler(),
@@ -1152,6 +1164,7 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
+	windowToModify->setSize(sf::Vector2u(450, 100));
 	windowToModify = new BorderDecorator(*windowToModify);
 	windowToModify->setPosition({ x,y });
 	//dynamic_cast<BorderDecorator*>(windowToModify)->addButton(dt.getButtonSheet(), closeWindow);
