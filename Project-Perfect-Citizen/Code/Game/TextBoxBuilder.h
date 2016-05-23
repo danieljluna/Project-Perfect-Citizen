@@ -5,6 +5,7 @@
 #include <SFML/Graphics/Font.hpp>
 
 #include "TextBoxInputComponent.h" //needed
+#include "Entity.h"
 
 
 namespace ppc {

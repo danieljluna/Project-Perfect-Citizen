@@ -39,6 +39,7 @@
 #include "ButtonBuilder.h"
 #include "IconBuilder.h"
 #include "spriteRenderComponent.hpp"
+#include "startBarRenderComponent.hpp"
 #include "Email.h"
 
 #include "notifcationRenderComponent.h"
@@ -106,7 +107,10 @@ void ppc::createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktop
 	startToolbar->setPosition(0, 735);
     
     Entity startBar;
-    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    startBarRenderComponent* startBarRender = new startBarRenderComponent();
+    startBarRender->renderPosition({0,4});
+    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    startBar.addComponent(startBarRender);
 
     FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
     FloppyInputComponent* floppyIn = new FloppyInputComponent();
@@ -177,9 +181,13 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
     new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
     startToolbar->setPosition(0, 735);
     
+    //Entity startBar;
     Entity startBar;
-    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
-    startBar.addComponent(bar);
+    startBarRenderComponent* startBarRender = new startBarRenderComponent();
+    startBarRender->renderPosition({0,4});
+    startBar.addComponent(startBarRender);
+    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    //startBar.addComponent(bar);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -278,9 +286,13 @@ void ppc::createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopW
     new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
     startToolbar->setPosition(0, 735);
     
+    //Entity startBar;
+    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    //startBar.addComponent(bar);
     Entity startBar;
-    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
-    startBar.addComponent(bar);
+    startBarRenderComponent* startBarRender = new startBarRenderComponent();
+    startBarRender->renderPosition({0,4});
+    startBar.addComponent(startBarRender);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -348,9 +360,14 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
     new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
     startToolbar->setPosition(0, 735);
     
+    //Entity startBar;
+    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    //startBar.addComponent(bar);
+    
     Entity startBar;
-    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
-    startBar.addComponent(bar);
+    startBarRenderComponent* startBarRender = new startBarRenderComponent();
+    startBarRender->renderPosition({0,4});
+    startBar.addComponent(startBarRender);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -418,9 +435,13 @@ void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& des
     new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
     startToolbar->setPosition(0, 735);
     
+   // Entity startBar;
+    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    //startBar.addComponent(bar);
     Entity startBar;
-    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
-    startBar.addComponent(bar);
+    startBarRenderComponent* startBarRender = new startBarRenderComponent();
+    startBarRender->renderPosition({0,4});
+    startBar.addComponent(startBarRender);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -488,9 +509,13 @@ void ppc::createTrailerDesktop(Desktop& desktopToModify, WindowInterface& deskto
     new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
     startToolbar->setPosition(0, 735);
     
+    //Entity startBar;
+    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    //startBar.addComponent(bar);
     Entity startBar;
-    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
-    startBar.addComponent(bar);
+    startBarRenderComponent* startBarRender = new startBarRenderComponent();
+    startBarRender->renderPosition({0,4});
+    startBar.addComponent(startBarRender);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);

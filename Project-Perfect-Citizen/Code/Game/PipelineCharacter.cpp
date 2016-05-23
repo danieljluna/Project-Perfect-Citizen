@@ -181,6 +181,8 @@ void PipelineCharacter::generate() {
     
     // for random colors
     std::uniform_int_distribution<> colord(100, 250);
+    // for random colors
+    std::uniform_int_distribution<> colorshirtd(0, 255);
     // for eye types
     std::uniform_int_distribution<> eyed(0, 2);
     // for brow types
@@ -192,7 +194,7 @@ void PipelineCharacter::generate() {
     // for skin index
     std::uniform_int_distribution<> skind(0, 30);
     
-    std::uniform_int_distribution<> shirtd(0, 40);
+    std::uniform_int_distribution<> shirtd(5, 40);
     // for hair index
     std::uniform_int_distribution<> haircd(0, 7);
     // for har type
@@ -201,7 +203,7 @@ void PipelineCharacter::generate() {
     std::uniform_int_distribution<> lipcd(0, 3);
     
     
-    sf::Color sc(colord(gen),colord(gen),colord(gen));
+    sf::Color sc(colorshirtd(gen),colorshirtd(gen),colorshirtd(gen));
     shirtColor_ = sc;
     
     sf::Color ec(colord(gen),colord(gen),colord(gen));
