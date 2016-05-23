@@ -25,7 +25,7 @@ textBox(r), tmr(t), max_chars(l) {
 
 	sf::Time t1 = sf::seconds(1.0f);
 
-	tmr->playTimer(tmr->createTimer(t1, 1));
+	tmr->playTimer(tmr->createTimer(t1));
 
 	textBox.updateLabelString(str);
 
@@ -103,4 +103,17 @@ bool TextBoxInputComponent::registerInput(Event ppcEv) {
 		}
 	}
 	return true;
+}
+
+void ppc::TextBoxInputComponent::recieveMessage(ppc::Event ev)
+{
+	switch (ev.type) {
+	case Event::EventTypes::TimerType:
+		if (ev.timer.action == Event::TimerEv::timerState::Reset) {
+
+			sf::Time t1 = sf::seconds(1.0f);
+			tmr->resetTimer(0, sf::seconds(0.0f));
+			tmr->playTimer(tmr->createTimer(t1));
+		}
+	}
 }

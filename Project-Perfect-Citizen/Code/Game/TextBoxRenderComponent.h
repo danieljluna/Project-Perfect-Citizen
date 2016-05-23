@@ -41,9 +41,9 @@ namespace ppc {
 
 		~TextBoxRenderComponent();
 
-		sf::Vector2f getTextPosition() const { return text->getPosition(); }
+		sf::Vector2f getTextPosition() const { return outline->getPosition(); }
 
-		std::string getString() const { return text->getString(); }
+		std::string getString();
 
 		void updateLabelString(std::string str);
 

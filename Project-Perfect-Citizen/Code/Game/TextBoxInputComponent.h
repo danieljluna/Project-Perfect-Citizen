@@ -66,6 +66,7 @@ namespace ppc {
 
 		virtual ~TextBoxInputComponent();
 		virtual bool registerInput(Event ev) override;
+		virtual void recieveMessage(ppc::Event ev) override;
 
 		Subject& onSubmit() { return onSubmit_; };
 

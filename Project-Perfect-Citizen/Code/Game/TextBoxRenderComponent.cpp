@@ -1,5 +1,6 @@
 #include "../Engine/debug.h"
 #include "../Engine/event.h"
+#include "../Engine/Entity.h"
 #include "TextBoxRenderComponent.h"
 
 
@@ -66,11 +67,19 @@ void ppc::TextBoxRenderComponent::toggleCursorRender()
 	renderCursor = !renderCursor;
 }
 
+std::string ppc::TextBoxRenderComponent::getString()
+{
+	if (renderCursor) return outline->getString().substring(
+		0, outline->getString().getSize() - 1);
+	else return outline->getString();
+}
+
 void TextBoxRenderComponent::updateLabelString(std::string str) {
 	labelString = str;
 	if (isMasked) {
 		labelString.replace(0, str.length(), str.length(), '*');
 	}
+	
 	if (renderCursor)
 		outline->setString(labelString+"|");
 	else 
@@ -79,14 +88,19 @@ void TextBoxRenderComponent::updateLabelString(std::string str) {
 
 void TextBoxRenderComponent::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
+
 	target.draw(*(this->outline), states);
 	//target.draw(*(this->text), states);
 }
 
+
 bool ppc::blink_cursor(TextBoxRenderComponent * tbr, ppc::Event ev)
 {
-	//tbr->toggleCursorRender();
-	//tbr->updateLabelString(tbr->getString());
+	tbr->toggleCursorRender();
+	tbr->updateLabelString(tbr->getString());
+	ev.type = Event::EventTypes::TimerType;
+	ev.timer.action = Event::TimerEv::timerState::Reset;
+	tbr->getEntity()->broadcastMessage(ev);
 	std::cout << "ran blink_cursor" << std::endl;
 	// Send an event to reset the timer
 	return true;
