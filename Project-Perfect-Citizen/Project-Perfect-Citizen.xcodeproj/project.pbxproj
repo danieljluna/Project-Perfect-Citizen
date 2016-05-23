@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
-		C878851D1CF284060048D0FD /* TransitionBlink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C878851C1CF284060048D0FD /* TransitionBlink.cpp */; };
 		E96CDC0F1CF274B80023728F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E96CDAF61CF274B80023728F /* main.cpp */; };
 		E96CDC101CF274B80023728F /* AudioLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E96CDAFA1CF274B80023728F /* AudioLocator.cpp */; };
 		E96CDC111CF274B80023728F /* AudioLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E96CDAFC1CF274B80023728F /* AudioLogger.cpp */; };
@@ -597,8 +596,6 @@
 		C82E60731C810DCB001860CC /* json-forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "json-forwards.h"; sourceTree = "<group>"; };
 		C82E60741C810DCB001860CC /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		C82E60751C810DCB001860CC /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
-		C878851B1CF284060048D0FD /* TransitionBlink.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TransitionBlink.hpp; sourceTree = "<group>"; };
-		C878851C1CF284060048D0FD /* TransitionBlink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TransitionBlink.cpp; sourceTree = "<group>"; };
 		E96CDAF61CF274B80023728F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
 		E96CDAF91CF274B80023728F /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
 		E96CDAFA1CF274B80023728F /* AudioLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioLocator.cpp; sourceTree = "<group>"; };
@@ -1453,8 +1450,6 @@
 				E96CDB521CF274B80023728F /* SuspiciousFileHolder.h */,
 				E96CDB531CF274B80023728F /* Transition.cpp */,
 				E96CDB541CF274B80023728F /* Transition.h */,
-				C878851B1CF284060048D0FD /* TransitionBlink.hpp */,
-				C878851C1CF284060048D0FD /* TransitionBlink.cpp */,
 				E96CDB551CF274B80023728F /* UpdateCmpntDecorator.cpp */,
 				E96CDB561CF274B80023728F /* UpdateCmpntDecorator.h */,
 				E96CDB571CF274B80023728F /* UpdateCmpntLogger.cpp */,
@@ -2816,7 +2811,6 @@
 				E96CDC5A1CF274B80023728F /* CreateReportScreen.cpp in Sources */,
 				E96CDC301CF274B80023728F /* Logger.cpp in Sources */,
 				E96CDC701CF274B80023728F /* FloppyRenderComponent.cpp in Sources */,
-				C878851D1CF284060048D0FD /* TransitionBlink.cpp in Sources */,
 				E96CDC981CF274B80023728F /* TreeCommands.cpp in Sources */,
 				E96CDC881CF274B80023728F /* testRenderSprite.cpp in Sources */,
 				E96CDC581CF274B80023728F /* createIcon.cpp in Sources */,
