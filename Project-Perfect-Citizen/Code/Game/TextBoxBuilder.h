@@ -5,7 +5,7 @@
 #include <SFML/Graphics/Font.hpp>
 
 #include "TextBoxInputComponent.h" //needed
-
+#include "../Engine/Entity.h" //Needed for Mac compiler
 
 namespace ppc {
 	class InputHandler;
