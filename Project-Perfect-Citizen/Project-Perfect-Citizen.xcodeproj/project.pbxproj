@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
 		C87886CA1CF287700048D0FD /* TransitionBlink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C87886C81CF287700048D0FD /* TransitionBlink.cpp */; };
+		C87886CD1CF296370048D0FD /* startBarRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C87886CB1CF296370048D0FD /* startBarRenderComponent.cpp */; };
 		E96CDC0F1CF274B80023728F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E96CDAF61CF274B80023728F /* main.cpp */; };
 		E96CDC101CF274B80023728F /* AudioLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E96CDAFA1CF274B80023728F /* AudioLocator.cpp */; };
 		E96CDC111CF274B80023728F /* AudioLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E96CDAFC1CF274B80023728F /* AudioLogger.cpp */; };
@@ -599,6 +600,8 @@
 		C82E60751C810DCB001860CC /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
 		C87886C81CF287700048D0FD /* TransitionBlink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TransitionBlink.cpp; sourceTree = "<group>"; };
 		C87886C91CF287700048D0FD /* TransitionBlink.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TransitionBlink.hpp; sourceTree = "<group>"; };
+		C87886CB1CF296370048D0FD /* startBarRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = startBarRenderComponent.cpp; sourceTree = "<group>"; };
+		C87886CC1CF296370048D0FD /* startBarRenderComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = startBarRenderComponent.hpp; sourceTree = "<group>"; };
 		E96CDAF61CF274B80023728F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
 		E96CDAF91CF274B80023728F /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
 		E96CDAFA1CF274B80023728F /* AudioLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioLocator.cpp; sourceTree = "<group>"; };
@@ -1549,6 +1552,8 @@
 				E96CDB851CF274B80023728F /* createButton.cpp */,
 				E96CDB861CF274B80023728F /* createButton.h */,
 				E96CDB871CF274B80023728F /* createDesktop.cpp */,
+				C87886CB1CF296370048D0FD /* startBarRenderComponent.cpp */,
+				C87886CC1CF296370048D0FD /* startBarRenderComponent.hpp */,
 				E96CDB881CF274B80023728F /* createDesktop.h */,
 				E96CDB891CF274B80023728F /* createIcon.cpp */,
 				E96CDB8A1CF274B80023728F /* createIcon.h */,
@@ -2862,6 +2867,7 @@
 				E96CDC621CF274B80023728F /* Email.cpp in Sources */,
 				E96CDC851CF274B80023728F /* ReportScreenInput.cpp in Sources */,
 				E96CDC451CF274B80023728F /* WindowLogger.cpp in Sources */,
+				C87886CD1CF296370048D0FD /* startBarRenderComponent.cpp in Sources */,
 				E96CDC721CF274B80023728F /* HelpRenderComponent.cpp in Sources */,
 				E96CDC331CF274B80023728F /* NodeState.cpp in Sources */,
 				E96CDC971CF274B80023728F /* TimerUpdateCmpnt.cpp in Sources */,
