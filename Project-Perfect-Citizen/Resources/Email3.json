@@ -5,20 +5,20 @@
             "To" : "Vincent Sharp <vincentsharp@senate.gov>",
             "From" : "Eugene Trilesnik <manager@sharpcampaign.com>",
             "Subject" : "One in a million. [Nov 18]",
-            "Body" :"
-    Hey Vincent, It's your campaign manager again.
-    I have to be straight with you, our chances
-    don't look good. I know its been neck and neck
-    this entire campaign but this district has
-    been traditionally against you and the values
-    you represent. If we want to have any chance
-    of winning, we really need to get the youth
-    vote off the couch and into the voting
-    offices. I left a copy of a new speech our
-    writers whipped up for you to hopefully put a
-    fire under the millenials. Hope it works...
-    its our only shot at winning this. Id say its
-    one in a million though..."
+            "Body" :"Hey Vincent, 
+    It's your campaign manager again. I have to be
+    straight with you, our chances don't look 
+    good. I know its been neck and neck this
+    entire campaign but this district has been
+    traditionally against you and the values you
+    represent. If we want to have any chance of
+    winning, we really need to get the youth off
+    the couch and into the voting offices. I left
+    a copy of a new speech our writers whipped up
+    for you to hopefully put a fire under the
+    millenials. Hope it works...its our only shot
+    at winning this. Id say its one in a million
+    though..."
         },
         "Email_2": {
             "Visible" : "1",
@@ -27,9 +27,11 @@
             "Subject" : "Write things out! [Nov 19]",
             "Body" :"Vincent,
             
-    Remember what I told you at our last meeting.
-    Write down whatever is stressing you out in
-    journal format. It will help.
+    Remember what we worked on at our last meeting.
+    If you're feeling overwhelmed, take some time 
+    to write down your thoughts. If you can
+    describe your anxiety you're on the path to 
+    controlling it.
             
             Dr. Ambrose "
         },
@@ -42,7 +44,7 @@
     Thank you for Ordering from the Dallas Hospice
     Care. We thank you for your business
                     
-    Items Ordered: Birds of Paradise Bouquet
+    Items Ordered: Lilies of the Valley Bouquet
     Shipping Method: Pickup
     Custom Engraving R.S. "
         },
@@ -63,22 +65,16 @@
             "Subject" : "no subject [Nov 23]",
             "Body" :"Vincent,
             
-    Dont celebrate just yet. We at the FEC just
-    received compelling evidence that you and your
-    staff committed voter fraud. You do know the
-    repercussions of such an accusation don't you?
-    Expect to be contacted by the FCC and see the
-    story in the papers tomorrow. I'd prepare a 
-    team if I were you. You're going to need some
-    sort of guardian angel to get out of this
-    Vincent.
+    Dont celebrate just yet. The FEC just received
+    an anonymous tip that your campaign committed
+    election fraud. Expect to see a story in the
+    papers tomorrow. I'd prepare a team if I were 
+    you. You're going to need some sort of 
+    guardian angel to get out of this Vincent.
                 
     Sincerely,
-    A little bird at the FEC
-                
-    P.S. Why am I 'helping' you? Well, let's just 
-    say I was a friend of your fathers back in the
-    day."
+    Your little bird at the FEC
+    "
         },
         "Email_6": {
             "Visible" : "1",
@@ -86,6 +82,7 @@
             "From" : "Sharp Campaign IT <IT@sharpcampaign.com>",
             "Subject" : "Your Secure Albatross Email [Nov 25]",
             "Body" :"Hey Boss!
+            
     Just finished fixing the secure email server
     after it crashed the other day. Dont forget,
     we set up the password to be the highest
