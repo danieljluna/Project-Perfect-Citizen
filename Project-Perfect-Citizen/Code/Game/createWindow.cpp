@@ -653,7 +653,8 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	float buttonY = (2 * (windowHeight / 3));
 	spawnAlertIcon(alertIcon, ih, buttonSheet, alertX, alertY, 0.5f);
 
-	float newWindowWidth = ((windowWidth)-(eMRC->getText()->getLocalBounds().width - windowWidth));
+	//float newWindowWidth = ((windowWidth)-(eMRC->getText()->getLocalBounds().width - windowWidth));
+	float newWindowWidth = ((256 * buttonScale) + eMRC->getText()->getLocalBounds().width);
 
 	Entity errorMessageDisplayBox;
 	errorMessageDisplayBox.addComponent(eMRC);
@@ -678,7 +679,7 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	windowToModify->addEntity(alertIcon);
 	windowToModify->addEntity(ent);
 	windowToModify->setPosition(x, y);
-	//windowToModify->setSize(sf::Vector2u(newWindowWidth, windowHeight));
+	windowToModify->setSize(sf::Vector2u(newWindowWidth, windowHeight));
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(windowCaption);

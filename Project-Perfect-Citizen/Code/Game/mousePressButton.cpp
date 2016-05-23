@@ -166,7 +166,7 @@ bool mousePressButton::registerInput(Event ppcEv) {
 			ppc::Event ppcRelease(ev);
 			ppcRelease.type = Event::sfEventType;
 			ppcRelease.sfEvent.type = sf::Event::MouseButtonReleased;
-			getEntity()->broadcastMessage(ppcRelease);
+			//getEntity()->broadcastMessage(ppcRelease);
 		}
 		/* Case: Mouse Move Event */
 		else if ((ev.type == sf::Event::MouseMoved)) {

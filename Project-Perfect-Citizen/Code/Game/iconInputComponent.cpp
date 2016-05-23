@@ -13,6 +13,9 @@
 #include "ContextBuilder.h"
 #include "emailExtraction.hpp"
 #include "createWindow.h"
+#include "explorerFileInputComponent.h"
+#include "createWindow.h"
+#include "../Engine/SuspiciousFileHolder.h"
 
 using namespace ppc;
 
@@ -103,6 +106,25 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
 				listElements.push_back(listElement);
 				spawnContextMenu(ContextMenu, listElements, static_cast<float>(ev.buttons.mousePos.x), static_cast<float>(ev.buttons.mousePos.y));
                 break;
+			case Event::OpenEv::File:
+				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
+				listElements.push_back(listElement);
+
+				Entity listElement2;
+				builder.setLabelMessage("Flag");
+				builder.setListElementPosition(0, fontSize + fontPadding);
+				builder.setLabelPosition({ 0.0f, fontSize + fontPadding });
+				createWithEventFunc(builder, listElement2, this, ppc::flag_desktop_file);
+				listElements.push_back(listElement2);
+
+				Entity listElement3;
+				builder.setLabelMessage("Scan");
+				builder.setListElementPosition(0, (fontSize + fontPadding) * 2);
+				builder.setLabelPosition({ 0.0f, (fontSize + fontPadding) * 2 });
+				createWithEventFunc(builder, listElement3, this, ppc::spawn_desktop_prompt_msg);
+				listElements.push_back(listElement3);
+
+				spawnContextMenu(ContextMenu, listElements, static_cast<float>(ev.buttons.mousePos.x), static_cast<float>(ev.buttons.mousePos.y));
             }
 
             theDesktop_.addWindow(ContextMenu);
@@ -130,11 +152,7 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
                 if (openedWindow != nullptr && theDesktop_.isWindow(openedWindow)) {
                     theDesktop_.focusWindow(openedWindow);
                 } else {
-                    tempWin = new ppc::Window(500, 500, sf::Color(255, 255, 255));
-                    spawnFile(tempWin, tempWin->getInputHandler(),
-                        100, 200, "CHANGE_ME.JPG", "DesktopContent/Desktop1/3-29-12-184.jpg");
-                    theDesktop_.addWindow(tempWin);
-                    openedWindow = tempWin;
+					theDesktop_.getNodeState()->readFile(labelName);
                 }
                 break;
             case IconType::Settings:
@@ -263,6 +281,11 @@ void ppc::iconInputComponent::setIconLabelName(std::string s)
 	labelName = s;
 }
 
+std::string ppc::iconInputComponent::getLabelName()
+{
+	return labelName;
+}
+
 iconInputComponent::~iconInputComponent() {
 
 }
@@ -279,5 +302,44 @@ bool ppc::make_icon_window(iconInputComponent* ptr, ppc::Event ev) {
 	ppcEv.buttons.state = Event::ButtonsEv::DblClicked;
 	ptr->recieveMessage(ppcEv);
 
+	return true;
+}
+
+bool ppc::flag_desktop_file(iconInputComponent* ptr, ppc::Event ev) {
+	ppc::NodeState* tempNS = World::getCurrDesktop().getNodeState();
+	ppc::BaseFileType* tempBFT = tempNS->getCwd()->findElement(ptr->getLabelName());
+	
+	if (tempBFT != nullptr) {
+		std::vector<std::string> firstFlagCommand;
+		firstFlagCommand.push_back("flag");
+		firstFlagCommand.push_back(ptr->getLabelName());
+		commandFn firstLs = findFunction("flag");
+		firstLs(*tempNS, firstFlagCommand);
+	}
+	else {
+		std::cout << "SHOW ERROR MESSAGE" << std::endl;
+	}
+
+	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
+	spawnFileTracker(World::getCurrDesktop(), fileTracker, fileTracker->getInputHandler(), 250, 50);
+	World::getCurrDesktop().addWindow(fileTracker);
+	SuspiciousFileHolder::setWindow(fileTracker);
+	return true;
+}
+
+bool ppc::spawn_desktop_prompt_msg(iconInputComponent * ptr, ppc::Event)
+{
+	ppc::WindowInterface* newWindow = new ppc::Window(300, 150, sf::Color(170, 170, 170));
+	ppc::BaseFileType* tempBFT = World::getCurrDesktop().getNodeState()->getCwd()->findElement(ptr->getLabelName());
+
+	Event ev;
+	ev.type = ev.SubmissionType;
+	ev.submission.type = ev.submission.Scan;
+	ev.submission.file = tempBFT;
+	SuspiciousFileHolder::onChange.sendEvent(ev);
+
+	spawnErrorMessage(newWindow, newWindow->getInputHandler(), World::getCurrDesktop().getButtonSheet(), 100.f, 100.f,
+		"File '" + tempBFT->getName() + "'\n has a suspicion index of: " + std::to_string(tempBFT->getSuspicionLevel()), "Scan Results");
+	World::getCurrDesktop().addWindow(newWindow);
 	return true;
 }

@@ -52,7 +52,7 @@ public:
 	///////////////////////////////////////////////////////////////////////
 	iconInputComponent(Desktop& theDesktop, Database* db, Inbox& ib, sf::Image& buttonSheet_, sf::Image& iconSheet_, IconType type = IconType::Count);
 
-	
+	std::string getLabelName();
 	virtual ~iconInputComponent();
 	virtual bool registerInput(Event ev) override;
 	virtual void recieveMessage(msgType message) override;
@@ -66,4 +66,6 @@ public:
 
 };
     bool make_icon_window(iconInputComponent*, ppc::Event);
+	bool flag_desktop_file(iconInputComponent*, ppc::Event);
+	bool spawn_desktop_prompt_msg(iconInputComponent*, ppc::Event);
 };

@@ -213,13 +213,43 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
 	builder.setInputHandle(desktopToModify.getInputHandler());
 	builder.setSize(0.5f);
 
+	// Create teacher desktop folders/files
 	Entity DocumentsIcon;
-	builder.setPosition({ 100.0f, 100.0f });
+	builder.setPosition({ 800.0f, 100.0f });
 	builder.setIconType(iconInputComponent::IconType::Folder);
 	builder.setSpritebyIndicies(0, 9, 1, 1);
-	builder.setText("Documents", World::getFont(World::Consola), sf::Color::Black);
+	builder.setText("Documents", World::getFont(World::VT323Regular), sf::Color::White);
 	builder.create(DocumentsIcon);
 	desktopWindowToModify.addEntity(DocumentsIcon);
+
+	Entity ArtsFolder;
+	builder.setPosition({ 800.0f, 200.0f });
+	builder.setText("Art", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(ArtsFolder);
+	desktopWindowToModify.addEntity(ArtsFolder);
+
+	Entity MyFolder;
+	builder.setPosition({ 800.0f, 300.0f });
+	builder.setText("My_Folder", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(MyFolder);
+	desktopWindowToModify.addEntity(MyFolder);
+
+	Entity BlueBirdFile;
+	builder.setPosition({ 800.0f, 400.0f });
+	builder.setIconType(iconInputComponent::IconType::File);
+	builder.setSpritebyIndicies(0, 0, 1, 3);
+	builder.setText("Bluebird_by_Charles_Bukowski.txt", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(BlueBirdFile);
+	desktopWindowToModify.addEntity(BlueBirdFile);
+
+	Entity SisyphusFile;
+	builder.setPosition({ 800.0f, 550.0f });
+	builder.setIconType(iconInputComponent::IconType::File);
+	builder.setSpritebyIndicies(0, 0, 1, 3);
+	builder.setText("Myth_of_Sisyphus_by_Albert_Camus.txt", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(SisyphusFile);
+	desktopWindowToModify.addEntity(SisyphusFile);
+
 
     desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);
@@ -374,6 +404,104 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
     spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 600.0f, 0.5f, 0.25f, theInbox);
     spawnChatIcon(ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 325.0f, 600.0f, 0.4f, 0.25f, theInbox);
     spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 425.0f, 600.0f, 0.5f, 0.25f, theInbox);
+
+	IconBuilder builder;
+	builder.setDesktop(desktopToModify);
+	builder.setInbox(desktopToModify.getInbox());
+	builder.setButtonSheet(desktopToModify.getButtonSheet());
+	builder.setAnimSpeed(0.30f);
+	builder.setInputHandle(desktopToModify.getInputHandler());
+	builder.setSize(0.5f);
+
+	// Create teacher desktop folders/files
+	Entity folder1;
+	builder.setPosition({ 200.0f, 100.0f });
+	builder.setIconType(iconInputComponent::IconType::Folder);
+	builder.setSpritebyIndicies(0, 9, 1, 1);
+	builder.setText("Note_to_Voyeur", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(folder1);
+	desktopWindowToModify.addEntity(folder1);
+
+	Entity folder2;
+	builder.setPosition({ 400.0f, 100.0f });
+	builder.setText("Projects", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(folder2);
+	desktopWindowToModify.addEntity(folder2);
+
+	Entity file1;
+	builder.setPosition({ 600.0f, 100.0f });
+	builder.setIconType(iconInputComponent::IconType::File);
+	builder.setSpritebyIndicies(0, 0, 1, 3);
+	builder.setText("BankPark_Print.jpg", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(file1);
+	desktopWindowToModify.addEntity(file1);
+
+	Entity file2;
+	builder.setPosition({ 300.0f, 200.0f });
+	builder.setText("blueprints_1.jpg", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(file2);
+	desktopWindowToModify.addEntity(file2);
+
+	Entity file3;
+	builder.setPosition({ 500.0f, 200.0f });
+	builder.setText("Blueprints_2.jpg", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(file3);
+	desktopWindowToModify.addEntity(file3);
+
+	Entity file4;
+	builder.setPosition({ 200.0f, 300.0f });
+	builder.setText("Dancers_at_the_Barre.jpg", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(file4);
+	desktopWindowToModify.addEntity(file4);
+
+	Entity file5;
+	builder.setPosition({ 400.0f, 300.0f });
+	builder.setText("dc_fed_board5.jpg", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(file5);
+	desktopWindowToModify.addEntity(file5);
+
+	Entity file6;
+	builder.setPosition({ 600.0f, 300.0f });
+	builder.setText("Old_Mission_Unit_4.jpg", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(file6);
+	desktopWindowToModify.addEntity(file6);
+
+	Entity file7;
+	builder.setPosition({ 300.0f, 400.0f });
+	builder.setText("plans_print.jpg", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(file7);
+	desktopWindowToModify.addEntity(file7);
+
+	Entity file8;
+	builder.setPosition({ 500.0f, 400.0f });
+	builder.setText("wtcblueprints3.jpg", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(file8);
+	desktopWindowToModify.addEntity(file8);
+
+	Entity file9;
+	builder.setPosition({ 200.0f, 500.0f });
+	builder.setText("calmness.jpg", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(file9);
+	desktopWindowToModify.addEntity(file9);
+
+	Entity file10;
+	builder.setPosition({ 400.0f, 500.0f });
+	builder.setText("shiver.jpg", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(file10);
+	desktopWindowToModify.addEntity(file10);
+
+	Entity file11;
+	builder.setPosition({ 600.0f, 500.0f });
+	builder.setText("TRANQUILITY.jpg", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(file11);
+	desktopWindowToModify.addEntity(file11);
+
+	Entity file12;
+	builder.setPosition({ 600.0f, 600.0f });
+	builder.setText("optimism.jpg", World::getFont(World::VT323Regular), sf::Color::White);
+	builder.create(file12);
+	desktopWindowToModify.addEntity(file12);
+
     
     desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);
