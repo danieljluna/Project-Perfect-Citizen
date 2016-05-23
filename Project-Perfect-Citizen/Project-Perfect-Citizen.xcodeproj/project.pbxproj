@@ -10,6 +10,7 @@
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
 		C87886CA1CF287700048D0FD /* TransitionBlink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C87886C81CF287700048D0FD /* TransitionBlink.cpp */; };
 		C87886CD1CF296370048D0FD /* startBarRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C87886CB1CF296370048D0FD /* startBarRenderComponent.cpp */; };
+		C87886D01CF2A9590048D0FD /* startBarUpdateComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C87886CE1CF2A9590048D0FD /* startBarUpdateComponent.cpp */; };
 		E96CDC0F1CF274B80023728F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E96CDAF61CF274B80023728F /* main.cpp */; };
 		E96CDC101CF274B80023728F /* AudioLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E96CDAFA1CF274B80023728F /* AudioLocator.cpp */; };
 		E96CDC111CF274B80023728F /* AudioLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E96CDAFC1CF274B80023728F /* AudioLogger.cpp */; };
@@ -602,6 +603,8 @@
 		C87886C91CF287700048D0FD /* TransitionBlink.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TransitionBlink.hpp; sourceTree = "<group>"; };
 		C87886CB1CF296370048D0FD /* startBarRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = startBarRenderComponent.cpp; sourceTree = "<group>"; };
 		C87886CC1CF296370048D0FD /* startBarRenderComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = startBarRenderComponent.hpp; sourceTree = "<group>"; };
+		C87886CE1CF2A9590048D0FD /* startBarUpdateComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = startBarUpdateComponent.cpp; sourceTree = "<group>"; };
+		C87886CF1CF2A9590048D0FD /* startBarUpdateComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = startBarUpdateComponent.hpp; sourceTree = "<group>"; };
 		E96CDAF61CF274B80023728F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
 		E96CDAF91CF274B80023728F /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
 		E96CDAFA1CF274B80023728F /* AudioLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioLocator.cpp; sourceTree = "<group>"; };
@@ -1689,6 +1692,8 @@
 				E96CDC0C1CF274B80023728F /* TreeCommands.h */,
 				E96CDC0D1CF274B80023728F /* WindowBkgndRenderCmpnt.cpp */,
 				E96CDC0E1CF274B80023728F /* WindowBkgndRenderCmpnt.h */,
+				C87886CE1CF2A9590048D0FD /* startBarUpdateComponent.cpp */,
+				C87886CF1CF2A9590048D0FD /* startBarUpdateComponent.hpp */,
 			);
 			name = Game;
 			path = Code/Game;
@@ -2771,6 +2776,7 @@
 				E96CDC101CF274B80023728F /* AudioLocator.cpp in Sources */,
 				E96CDFF91CF274C00023728F /* ResourcePath.mm in Sources */,
 				E96CDC591CF274B80023728F /* createListElement.cpp in Sources */,
+				C87886D01CF2A9590048D0FD /* startBarUpdateComponent.cpp in Sources */,
 				E96CDC121CF274B80023728F /* AudioQueue.cpp in Sources */,
 				E96CDC5D1CF274B80023728F /* Database.cpp in Sources */,
 				E96CDC311CF274B80023728F /* LoggerParcel.cpp in Sources */,
