@@ -387,6 +387,9 @@
     <ClCompile Include="Code\Game\ReportEndObsvr.cpp">
       <Filter>Sources\Game Specific\Reports</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\startBarRenderComponent.cpp">
+      <Filter>Sources\Game Specific</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">

@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include "mousePressButton.h"
-#include "Entity.h"
+#include "../Engine/Entity.h" //Needed for Mac Compiler
 
 
 namespace sf {
