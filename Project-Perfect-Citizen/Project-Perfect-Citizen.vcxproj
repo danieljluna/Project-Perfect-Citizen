@@ -121,6 +121,7 @@
     <ClCompile Include="Code\Game\ReportScreenInput.cpp" />
     <ClCompile Include="Code\Game\ReportScreenObsvr.cpp" />
     <ClCompile Include="Code\Game\spriteRenderComponent.cpp" />
+    <ClCompile Include="Code\Game\startBarRenderComponent.cpp" />
     <ClCompile Include="Code\Game\TextBoxBuilder.cpp" />
     <ClCompile Include="Code\Game\TextBoxInputComponent.cpp" />
     <ClCompile Include="Code\Game\TextBoxRenderComponent.cpp" />
