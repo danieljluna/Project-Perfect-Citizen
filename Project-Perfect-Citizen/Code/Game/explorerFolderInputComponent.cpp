@@ -185,9 +185,10 @@ void ppc::explorerFolderInputComponent::changeDirectory(bool newWindow)
 		
 		ppc::WindowInterface* UnlockWindow =
 		new ppc::Window(500, 150, sf::Color(170, 170, 170));
+        UnlockWindow->setPosition(-100, -100);
 		spawnUnlock(UnlockWindow, UnlockWindow->getInputHandler(), buttonSheet_, 250, 250, this);
-        theDesktop_.addWindow(UnlockWindow);
-		//containingWindow_->createNotifWindow(UnlockWindow);
+        //theDesktop_.addWindow(UnlockWindow);
+		containingWindow_->createNotifWindow(UnlockWindow);
 		return;
 	}
 
