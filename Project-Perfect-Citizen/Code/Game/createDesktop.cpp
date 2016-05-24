@@ -212,11 +212,11 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
     Entity ConsoleIcon;
     Entity EmailIcon;
     
-    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 425.0f, 25.0f, 0.4f, 0.25f, theInbox);
+    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 350.0f, 400.0f, 0.4f, 0.25f, theInbox);
 	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 125.0f, 175.0f, 0.4f, 0.25f, theInbox);
 	spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 525.0f, 200.0f, 0.5f, 0.25f, theInbox);
     spawnChatIcon(ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 300.0f, 0.4f, 0.25f, theInbox);
-    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 725.0f, 450.0f, 0.5f, 0.25f, theInbox);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 600.0f, 500.0f, 0.5f, 0.25f, theInbox);
 
 
 	IconBuilder builder;
@@ -228,7 +228,7 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
 	builder.setSize(0.5f);
 
 	// Create teacher desktop folders/files
-	Entity DocumentsIcon;
+	/*Entity DocumentsIcon;
 	builder.setPosition({ 800.0f, 100.0f });
 	builder.setIconType(iconInputComponent::IconType::Folder);
 	builder.setSpritebyIndicies(0, 9, 1, 1);
@@ -246,10 +246,10 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
 	builder.setPosition({ 800.0f, 300.0f });
 	builder.setText("My_Folder", World::getFont(World::VT323Regular), sf::Color::White);
 	builder.create(MyFolder);
-	desktopWindowToModify.addEntity(MyFolder);
+	desktopWindowToModify.addEntity(MyFolder);*/
 
 	Entity BlueBirdFile;
-	builder.setPosition({ 800.0f, 400.0f });
+	builder.setPosition({ 750.0f, 350.0f });
 	builder.setIconType(iconInputComponent::IconType::File);
 	builder.setSpritebyIndicies(0, 0, 1, 3);
 	builder.setText("Bluebird_by_Charles_Bukowski.txt", World::getFont(World::VT323Regular), sf::Color::White);
@@ -257,7 +257,7 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
 	desktopWindowToModify.addEntity(BlueBirdFile);
 
 	Entity SisyphusFile;
-	builder.setPosition({ 800.0f, 550.0f });
+	builder.setPosition({ 50.0f, 500.0f });
 	builder.setIconType(iconInputComponent::IconType::File);
 	builder.setSpritebyIndicies(0, 0, 1, 3);
 	builder.setText("Myth_of_Sisyphus_by_Albert_Camus.txt", World::getFont(World::VT323Regular), sf::Color::White);
@@ -272,14 +272,10 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
     desktopWindowToModify.addEntity(ConsoleIcon);
     desktopWindowToModify.addEntity(EmailIcon);
     
-	////////////////////////////////////////
-	// SUSPICIOUS FILES TEST HERE
-	//////////////////////////////////////
-	//ppc::BaseFileType herro("File");
-	//herro.setName("test");
-	//ppc::SuspiciousFileHolder::flagFile(&herro);
-
-	clear_flagged_files(&desktopToModify, ppc::Event());
+	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
+	spawnFileTracker(desktopToModify, fileTracker, fileTracker->getInputHandler(), 250, 50);
+	desktopToModify.addWindow(fileTracker);
+	ppc::SuspiciousFileHolder::setWindow(fileTracker);
 
 }
 
@@ -354,6 +350,11 @@ void ppc::createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopW
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
     desktopWindowToModify.addEntity(EmailIcon);
+
+	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
+	spawnFileTracker(desktopToModify, fileTracker, fileTracker->getInputHandler(), 250, 50);
+	desktopToModify.addWindow(fileTracker);
+	ppc::SuspiciousFileHolder::setWindow(fileTracker);
     
 }
 
@@ -432,7 +433,7 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
 	builder.setSize(0.5f);
 
 	// Create teacher desktop folders/files
-	Entity folder1;
+	/*Entity folder1;
 	builder.setPosition({ 200.0f, 100.0f });
 	builder.setIconType(iconInputComponent::IconType::Folder);
 	builder.setSpritebyIndicies(0, 9, 1, 1);
@@ -444,7 +445,7 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
 	builder.setPosition({ 400.0f, 100.0f });
 	builder.setText("Projects", World::getFont(World::VT323Regular), sf::Color::White);
 	builder.create(folder2);
-	desktopWindowToModify.addEntity(folder2);
+	desktopWindowToModify.addEntity(folder2);*/
 
 	Entity file1;
 	builder.setPosition({ 600.0f, 100.0f });
@@ -532,7 +533,6 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
 	spawnFileTracker(desktopToModify, fileTracker, fileTracker->getInputHandler(), 250, 50);
 	desktopToModify.addWindow(fileTracker);
 	ppc::SuspiciousFileHolder::setWindow(fileTracker);
-	ppc::SuspiciousFileHolder::clearFiles();
     
 }
 
@@ -608,6 +608,10 @@ void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& des
     desktopWindowToModify.addEntity(ConsoleIcon);
     desktopWindowToModify.addEntity(EmailIcon);
 
+	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
+	spawnFileTracker(desktopToModify, fileTracker, fileTracker->getInputHandler(), 250, 50);
+	desktopToModify.addWindow(fileTracker);
+	ppc::SuspiciousFileHolder::setWindow(fileTracker);
 	
     
 }

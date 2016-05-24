@@ -204,9 +204,12 @@ bool ppc::flag_file(explorerFileInputComponent* ptr, ppc::Event ev) {
 		std::cout << "SHOW ERROR MESSAGE" << std::endl;
 	}
 
+	WindowInterface* oldWindow = SuspiciousFileHolder::getWindow();
 	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
 	spawnFileTracker(*(ptr->getFileDesktop()), fileTracker, fileTracker->getInputHandler(), 250, 50);
 	ptr->getFileDesktop()->addWindow(fileTracker);
+	fileTracker->setPosition(sf::Vector2f(oldWindow->getPosition().x, oldWindow->getPosition().y));
+	oldWindow->close();
 	SuspiciousFileHolder::setWindow(fileTracker);
 	return true;
 }

@@ -258,11 +258,12 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     
     Entity tab0;
     Entity tab1;
+	Entity tab2;
     
 
     // Button Test
     ButtonBuilder builder;
-    builder.setButtonPosition(sf::Vector2f(16, 16));
+    builder.setButtonPosition(sf::Vector2f(128, 16));
     builder.setInputHandle(ih);
     builder.setSize(0.25f);
     builder.setSpriteSheet(buttonSheet);
@@ -273,11 +274,16 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     builder.create(tab0);
     createWithEventFunc(builder, tab0, helpText1, swithTab0Fn);
 
-    builder.setButtonPosition(sf::Vector2f(128,16));
+    builder.setButtonPosition(sf::Vector2f(256,16));
     builder.setLabelMessage("Graph");
 
     builder.create(tab1);
     createWithEventFunc(builder, tab1, helpText1, swithTab1Fn);
+
+	builder.setButtonPosition(sf::Vector2f(384, 16));
+	builder.setLabelMessage("Desktops");
+
+	createWithEventFunc(builder, tab2, helpText1, swithTab2Fn);
 
     
     /////////////////////////////////////////
@@ -291,6 +297,7 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     windowToModify->setPosition(x, y);
     windowToModify->addEntity(tab0);
     windowToModify->addEntity(tab1);
+	windowToModify->addEntity(tab2);
     windowToModify->addEntity(help);
     
     sf::FloatRect viewRect = {
@@ -303,6 +310,7 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("DCPS Help Manual");
 }
 
 
@@ -627,6 +635,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message, std::string windowCaption) {
 	if (windowToModify == nullptr) { return; }
 
+	windowToModify->setSize(sf::Vector2u(300.0f, windowToModify->getSize().y));
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
@@ -937,7 +946,7 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
     tbuilder.setString("");
     tbuilder.setInputHandle(ih);
     tbuilder.setContainingWindow(windowToModify);
-	tbuilder.setIsMasked(true);
+	tbuilder.setIsMasked(false);
 	createWithEventFunc(tbuilder, tbox, windowToModify, continue_world);
     
     Entity promptText;
@@ -1110,7 +1119,7 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 
 			std::string newLabel = ppc::SuspiciousFileHolder::getBFTVectorElement(i)->getName();
 			if (newLabel.size() > 20) {
-				newLabel = newLabel.substr(0, 20);
+				newLabel = newLabel.substr(0, 15);
 				newLabel += "...";
 			}
 			

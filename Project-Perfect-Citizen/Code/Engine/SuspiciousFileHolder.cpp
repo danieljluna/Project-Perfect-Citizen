@@ -39,7 +39,7 @@ void ppc::SuspiciousFileHolder::flagFile(ppc::BaseFileType * file)
 	else {
 		WindowInterface* tempWin = new ppc::Window(300, 150, sf::Color(170, 170, 170));
 		spawnErrorMessage(tempWin, tempWin->getInputHandler(), World::getCurrDesktop().getButtonSheet(),
-			200, 200, "Error: You many only flag 3 files.", "File Holder is full");
+			200, 200, "Error: You may only flag 3 files.", "File Holder is full");
 		World::getCurrDesktop().addWindow(tempWin);
 	}
 }
@@ -71,11 +71,7 @@ void ppc::SuspiciousFileHolder::printSuspiciousVector()
 void ppc::SuspiciousFileHolder::setWindow(ppc::WindowInterface * sWindow)
 {
 	if (susWindow_ != nullptr) {
-		//float susX = susWindow_->getPosition().x;
-		//float susY = susWindow_->getPosition().y;
-		//susWindow_->close();
 		susWindow_ = sWindow;
-		//susWindow_->setPosition(sf::Vector2f(susX, susY));
 	}
 	else susWindow_ = sWindow;
 	

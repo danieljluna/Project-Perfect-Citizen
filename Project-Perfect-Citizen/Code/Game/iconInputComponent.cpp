@@ -319,10 +319,12 @@ bool ppc::flag_desktop_file(iconInputComponent* ptr, ppc::Event ev) {
 	else {
 		std::cout << "SHOW ERROR MESSAGE" << std::endl;
 	}
-
+	WindowInterface* oldWindow = SuspiciousFileHolder::getWindow();
 	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
 	spawnFileTracker(World::getCurrDesktop(), fileTracker, fileTracker->getInputHandler(), 250, 50);
+	fileTracker->setPosition(sf::Vector2f(oldWindow->getPosition().x, oldWindow->getPosition().y));
 	World::getCurrDesktop().addWindow(fileTracker);
+	oldWindow->close();
 	SuspiciousFileHolder::setWindow(fileTracker);
 	return true;
 }
