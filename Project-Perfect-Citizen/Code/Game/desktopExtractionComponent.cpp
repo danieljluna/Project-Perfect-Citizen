@@ -87,6 +87,19 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
                     directory_name_copy.erase(0, pos + delimiter.length());
                     pos = directory_name_copy.find(delimiter);
                     hint = directory_name_copy.substr(0, pos);
+                    
+                    std::string passwordDelimiter = "%";
+                    size_t passwordPos = 0;
+                    std::string otherPasswords = password;
+                    std::string passwordCopy = password;
+                    while((passwordPos = passwordCopy.find(passwordDelimiter)) != std::string::npos) {
+                        otherPasswords = passwordCopy.substr(0, passwordPos);
+                        //std::cout << otherPasswords << std::endl;
+                        passwordCopy.erase(0, passwordPos + passwordDelimiter.length());
+                        if((passwordPos = passwordCopy.find(passwordDelimiter)) == std::string::npos){
+                            //std::cout << passwordCopy << std::endl;
+                        }
+                    }
                     fileTree_.getCwd()->setPassword(password, hint);
                     parseForFileTree(directoryObj, objNames[i]);
                 }
