@@ -354,7 +354,7 @@ bool ppc::NetworkInputCmpnt::registerInput(Event ppcEv) {
 			if (network_->getCenter() != -1) 
 				network_->vert(network_->getCenter()).setColor(sf::Color(180,180,180));
 			network_->setCenter(selectedVert_);
-			network_->vert(selectedVert_).setColor(sf::Color::Red);
+			network_->vert(selectedVert_).setColor(sf::Color(200,0,0));
 			return false;
 		}
 
