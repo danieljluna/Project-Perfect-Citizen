@@ -247,49 +247,44 @@ void Window::update(sf::Time& deltaTime) {
 
 
 void Window::registerInput(Event ppcEv) {
-    
-    if (notifWindow_ == nullptr) {
-        sf::Vector2f click;
-        sf::FloatRect viewRect;
-        sf::View currView = windowSpace_.getView();
-        sf::Vector2f defaultViewPos = windowSpace_.getView().getSize();
-        defaultViewPos.x /= 2.0f;
-        defaultViewPos.y /= 2.0f;
+    sf::Vector2f click;
+    sf::FloatRect viewRect;
+    sf::View currView = windowSpace_.getView();
+    sf::Vector2f defaultViewPos = windowSpace_.getView().getSize();
+    defaultViewPos.x /= 2.0f;
+    defaultViewPos.y /= 2.0f;
 
-        if (ppcEv.type == Event::sfEventType) {
-            switch (ppcEv.sfEvent.type) {
-            case sf::Event::MouseButtonPressed:
-            case sf::Event::MouseButtonReleased:
-                click = { float(ppcEv.sfEvent.mouseButton.x),
-                    float(ppcEv.sfEvent.mouseButton.y) };
-                viewRect.width = currView.getSize().x;
-                viewRect.height = currView.getSize().y;
-                mouseInView_ = viewRect.contains(click);
-                if (mouseInView_) {
-                    click -= defaultViewPos;
-                    click += currView.getCenter();
-                    ppcEv.sfEvent.mouseButton.x = int(click.x);
-                    ppcEv.sfEvent.mouseButton.y = int(click.y);
-                }
-                break;
-            case sf::Event::MouseMoved:
-                if (mouseInView_) {
-                    click = { float(ppcEv.sfEvent.mouseMove.x),
-                        float(ppcEv.sfEvent.mouseMove.y) };
-                    click -= defaultViewPos;
-                    click += currView.getCenter();
-                    ppcEv.sfEvent.mouseMove.x = int(click.x);
-                    ppcEv.sfEvent.mouseMove.y = int(click.y);
-                }
-                break;
+    if (ppcEv.type == Event::sfEventType) {
+        switch (ppcEv.sfEvent.type) {
+        case sf::Event::MouseButtonPressed:
+        case sf::Event::MouseButtonReleased:
+            click = { float(ppcEv.sfEvent.mouseButton.x),
+                float(ppcEv.sfEvent.mouseButton.y) };
+            viewRect.width = currView.getSize().x;
+            viewRect.height = currView.getSize().y;
+            mouseInView_ = viewRect.contains(click);
+            if (mouseInView_) {
+                click -= defaultViewPos;
+                click += currView.getCenter();
+                ppcEv.sfEvent.mouseButton.x = int(click.x);
+                ppcEv.sfEvent.mouseButton.y = int(click.y);
             }
+            break;
+        case sf::Event::MouseMoved:
+            if (mouseInView_) {
+                click = { float(ppcEv.sfEvent.mouseMove.x),
+                    float(ppcEv.sfEvent.mouseMove.y) };
+                click -= defaultViewPos;
+                click += currView.getCenter();
+                ppcEv.sfEvent.mouseMove.x = int(click.x);
+                ppcEv.sfEvent.mouseMove.y = int(click.y);
+            }
+            break;
         }
-
-        inputHandler_.registerEvent(ppcEv);
-
-    } else {
-        notifWindow_->registerInput(ppcEv);
     }
+
+    inputHandler_.registerEvent(ppcEv);
+
 }
 
 
@@ -329,10 +324,6 @@ void Window::draw(sf::RenderTarget& target,
 
     //Draw the sprite
     target.draw(spr, states);
-
-    if (notifWindow_ != nullptr) {
-        target.draw(*notifWindow_, states);
-    }
 }
 
 

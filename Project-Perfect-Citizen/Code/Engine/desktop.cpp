@@ -141,6 +141,9 @@ void ppc::Desktop::draw(sf::RenderTarget& target,
 	
 	for (auto it = windows_.rbegin(); it != windows_.rend(); ++it) {
 		target.draw(*(*it), states);
+        if ((*it)->getNotifWindow() != nullptr) {
+            target.draw(*(*it)->getNotifWindow(), states);
+        }
 	}
 
 	if (frontTop_) target.draw(*frontTop_, states);
@@ -315,16 +318,31 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
 //if the window clicked in a window that wasnt focused,
 //then focus that window.
 //for any mouse event
+
 	if (ppcEv.type == Event::sfEventType) {
 		if (ppcEv.sfEvent.type == sf::Event::MouseButtonPressed) {
 			for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-				sf::FloatRect winBounds = (*it)->getBounds();
-				if (winBounds.contains(
-					float(ppcEv.sfEvent.mouseButton.x), 
-					float(ppcEv.sfEvent.mouseButton.y))) {
-						focusWindow(*it);
-						break;
-				}
+                sf::FloatRect winBounds;
+                if ((*it)->getNotifWindow() != nullptr) {
+                    winBounds = (*it)->getNotifWindow()->getBounds();
+                    if (winBounds.contains(
+                        float(ppcEv.sfEvent.mouseButton.x),
+                        float(ppcEv.sfEvent.mouseButton.y))) {
+                        focusWindow(*it);
+                        focused_ = (*it)->getNotifWindow();
+                        break;
+                    }
+                }
+                winBounds = (*it)->getBounds();
+                if (winBounds.contains(
+                        float(ppcEv.sfEvent.mouseButton.x),
+                        float(ppcEv.sfEvent.mouseButton.y))) {
+                    focusWindow(*it);
+                    if ((*it)->getNotifWindow() != nullptr) {
+                        focused_ = (*it)->getNotifWindow();
+                    }
+                    break;
+                }
 			}
 		}
 		if (ppcEv.sfEvent.type == sf::Event::MouseMoved) {
@@ -345,6 +363,9 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
         
         for (auto it: winCopy) {
             it->registerInput(ppcEv);
+            if (it->getNotifWindow() != nullptr) {
+                it->getNotifWindow()->registerInput(ppcEv);
+            }
         }
 
     } else {
