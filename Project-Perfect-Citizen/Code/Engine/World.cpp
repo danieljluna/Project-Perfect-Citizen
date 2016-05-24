@@ -21,6 +21,8 @@ Desktop* World::currDesktop_ = nullptr;
 sf::Transform World::worldTransform_;
 sf::RectangleShape World::blackBars_[2] = {sf::RectangleShape(), sf::RectangleShape()};
 
+bool World::progToNext_ = true;
+
 std::map<ppc::World::DesktopList, ppc::LevelPacket> World::levelMap_ = {
 
 };
@@ -181,20 +183,22 @@ void ppc::World::setLevel(int levelEnum, int score) {
 		currDesktopEnum_ = DELogo;
 		return;
 	}
-	World::DesktopList nextD = 
-		(DesktopList)levelMap_.at((DesktopList)levelEnum).getNext(score);
 
-	currDesktopEnum_ = nextD;
+	if (progToNext_) {
+		World::DesktopList nextD =
+			(DesktopList)levelMap_.at((DesktopList)levelEnum).getNext(score);
+
+		currDesktopEnum_ = nextD;
+	} else {
+		World::currDesktopEnum_ = (World::DesktopList)levelEnum;
+		progToNext_ = true;
+	}
+
 
 }
 
-void ppc::World::goToNext(int score) {
-
-	World::DesktopList nextD =
-		(DesktopList)levelMap_.at(currDesktopEnum_).getNext(score);
-
-	currDesktopEnum_ = nextD;
-
+void ppc::World::goBack() {
+	progToNext_ = false;
 }
 
 void World::setGameScreen(sf::RenderWindow& gameScreen) {

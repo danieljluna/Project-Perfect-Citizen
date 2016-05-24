@@ -66,9 +66,12 @@ namespace ppc {
 		static std::map<DesktopList, ppc::LevelPacket> levelMap_;
 		static void initLevelMap();
 		static void setLevel(int, int);
-		static void goToNext(int);
-		
 
+		/////////////////////////////////////////////////////////////
+		///@brief Signifies to the World that the next level to be
+		/// loaded is a previous level
+		/////////////////////////////////////////////////////////////
+		static void goBack();
 
 
 		using desktopLoaders = void(*)(ppc::Desktop&);
@@ -203,6 +206,8 @@ namespace ppc {
 		static DesktopList currDesktopEnum_;
 		static ReportType currReportType_;
 
+		static bool progToNext_
+			;
         static bool quitter_;
 
 		static std::map<FontList, sf::Font> fontMap_;

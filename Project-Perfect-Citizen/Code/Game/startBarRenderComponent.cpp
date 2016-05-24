@@ -1,3 +1,7 @@
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
 #include <SFML/Graphics/RenderTarget.hpp>
 
 #include "../Engine/debug.h"
@@ -8,10 +12,13 @@
 #include "startBarRenderComponent.hpp"
 #include <iomanip>
 #include <sstream>
-#include <ctime>
+#include <time.h>
 #include <cstdio>
+#include <mutex>
 
 using namespace ppc;
+
+std::mutex time_mutex;
 
 startBarRenderComponent::startBarRenderComponent(sf::Font& font) {
     dateFont = font;
@@ -43,11 +50,16 @@ startBarRenderComponent::~startBarRenderComponent() {
 }
 
 std::string startBarRenderComponent::getCurrentTime() {
-    auto t = std::time(nullptr);
-    auto tm = *std::localtime(&t);
-    std::stringstream buffer;
-    buffer << std::put_time(&tm, "%a %b %d %H:%M:%S");
-    return buffer.str();
+
+	std::lock_guard<std::mutex> lock(time_mutex);
+	time_t thetime;
+	time(&thetime);
+	tm ts = *std::localtime(&thetime);
+	std::string retstr = asctime(&ts);
+	retstr = retstr.substr(0, retstr.find_last_of(" "));
+
+	return retstr;
+
 }
 
 void startBarRenderComponent::renderPosition(sf::Vector2f pos) {
