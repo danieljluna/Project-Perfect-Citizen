@@ -1,15 +1,14 @@
 #pragma once
 
-#include "../Engine/renderComponent.h"
 #include <iostream>
+
 #include <SFML/Graphics.hpp>
-#include "../Engine/renderComponent.h"
-#include "../Engine/InputHandler.h"
-#include "../Game/mousePressButton.h"
-#include "../Game/buttonRenderComponent.h"
-#include "../Game/TextDisplayRenderComponent.h"
+
+#include "mousePressButton.h" //needed
+#include "../Engine/Entity.h"//Needed for Mac Compiler
 
 namespace ppc {
+	class InputHandler;
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Designated Generic Builder Object for Context List Element
 	/// ENTITIES (a.k.a - a clickable box with a string in it)

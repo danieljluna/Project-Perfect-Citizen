@@ -1,9 +1,15 @@
 #include "IconBuilder.h"
-
-#include "../Game/animatorComponent.hpp"
-#include "../Game/textLabelComponent.hpp"
-#include "../Engine/Engine.h"
 #include "../Engine/debug.h"
+
+//#include "../Engine/Engine.h"
+#include "../Engine/desktop.h"
+
+
+#include "animatorComponent.hpp"
+#include "textLabelComponent.hpp"
+
+#include "buttonRenderComponent.h"
+
 
 ppc::IconBuilder::IconBuilder() {
 

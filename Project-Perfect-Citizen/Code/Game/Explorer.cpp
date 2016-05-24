@@ -1,12 +1,21 @@
 #include "Explorer.h"
+
+#include <SFML/Graphics/Image.hpp>
+
 #include "../Engine/WindowInterface.h"
 #include "../Engine/ScrollBarDeco.h"
-#include "TreeCommands.h"
 #include "../Engine/World.h"
-#include "../Game/TextDisplayBuilder.h"
+
+#include "TreeCommands.h"
+#include "TextDisplayBuilder.h"
+#include "buttonRenderComponent.h"
+#include "textLabelComponent.hpp"
+#include "explorerFileInputComponent.h"
+#include "explorerFolderInputComponent.h"
+
 
 #ifdef WINDOWS_MARKER
-#define resourcePath() string("Resources/")
+#define resourcePath() std::string("Resources/")
 #else
 #include "ResourcePath.hpp"
 #endif
@@ -26,13 +35,13 @@ bool hasEnding(std::string const &fileName, std::string const &extension) {
 	}
 }
 
-vector<Entity> Explorer::createVectorFrame(vector<string> filenames) {
+std::vector<Entity> Explorer::createVectorFrame(std::vector<std::string> filenames) {
 
 	sf::Font font;
 	font.loadFromFile(resourcePath() + "consola.ttf");
 
 	int padding = 100;
-	vector<Entity> explorerFrame;
+	std::vector<Entity> explorerFrame;
 	int numRows = 1;
 
 	for (int i = 0; i != filenames.size(); ++i) {
@@ -89,19 +98,19 @@ void Explorer::renderTopFrame() {
 }
 
 void Explorer::updateExplorerDisplay() {
-	std::vector<string> firstLsCommand;
-	string ls = "ls";
+	std::vector<std::string> firstLsCommand;
+	std::string ls = "ls";
 	firstLsCommand.push_back(ls);
 	commandFn firstLs = findFunction(ls);
 	firstLs(theFileTree_, firstLsCommand);
 
-	string rawDirString = theFileTree_.getDirString();
-	string delimiter = "@";
+	std::string rawDirString = theFileTree_.getDirString();
+	std::string delimiter = "@";
 	size_t pos = 0;
-	string token;
-	vector<string> files;
+	std::string token;
+	std::vector<std::string> files;
 
-	while ((pos = rawDirString.find(delimiter)) != string::npos) {
+	while ((pos = rawDirString.find(delimiter)) != std::string::npos) {
 		token = rawDirString.substr(0, pos);
 		files.push_back(token);
 		rawDirString.erase(0, pos + delimiter.length());

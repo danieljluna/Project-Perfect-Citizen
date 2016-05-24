@@ -1,6 +1,7 @@
 #include "../Engine/debug.h"
 #include "FloppyUpdateComponent.hpp"
 
+#include "FloppyRenderComponent.hpp"
 
 using namespace ppc;
 

@@ -6,8 +6,6 @@
 #include "debug.h"
 #include "Logger.h"
 
-#include "desktop.h"
-
 #include "entity.h"
 #include "component.h"
 #include "renderComponent.h"
@@ -29,3 +27,6 @@
 #include "ScrollBarDeco.h"
 #include "BorderDecorator.h"
 
+#include "SuspiciousFileHolder.h"
+
+#include "Audio/AudioQueue.h"

@@ -8,9 +8,14 @@
 
 #include "../Engine/debug.h"
 #include "characterRender.hpp"
+
 #include <iostream>
 #include <random>
 #include <cassert>
+
+#include <SFML/Graphics/RenderTarget.hpp>
+
+using namespace ppc;
 
 sf::Texture characterRender::texture;
 bool characterRender::textureIsLoaded = false;

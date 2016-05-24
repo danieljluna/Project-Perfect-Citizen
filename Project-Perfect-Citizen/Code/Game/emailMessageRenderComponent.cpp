@@ -4,6 +4,8 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
 
+#include "Email.h"
+
 using namespace ppc;
 
 emailMessageRenderComponent::emailMessageRenderComponent(sf::Font& f, Email* email, int x, int y, int size,

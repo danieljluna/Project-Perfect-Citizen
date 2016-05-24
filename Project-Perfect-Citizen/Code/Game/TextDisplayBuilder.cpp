@@ -1,7 +1,9 @@
 #include "TextDisplayBuilder.h"
+
 #include "../Engine/renderComponent.h"
-#include "../Game/TextDisplayRenderComponent.h"
 #include "../Engine/Entity.h"
+
+#include "TextDisplayRenderComponent.h"
 
 ppc::TextDisplayBuilder::TextDisplayBuilder() {
 

@@ -2,13 +2,13 @@
 #include "TextBoxRenderComponent.h"
 
 
-using namespace std;
+using namespace ppc;
 
 TextBoxRenderComponent::TextBoxRenderComponent(sf::Font& f, sf::Color c,
 	float x,
 	float y,
 	int s,
-	string str) : font(f) {
+	std::string str) : font(f) {
 
 	this->text = new sf::Text();
 	this->outline = new sf::Text();
@@ -54,8 +54,16 @@ void TextBoxRenderComponent::updateLabelSize(int s) {
 	text->setCharacterSize(s);
 }
 
-void TextBoxRenderComponent::updateLabelString(string str) {
+void TextBoxRenderComponent::setIsMasked(bool m)
+{
+	isMasked = m;
+}
+
+void TextBoxRenderComponent::updateLabelString(std::string str) {
 	labelString = str;
+	if (isMasked) {
+		labelString.replace(0, str.length(), str.length(), '*');
+	}
 	outline->setString(labelString+"|");
 }
 

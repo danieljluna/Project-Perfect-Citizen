@@ -1,11 +1,13 @@
 #pragma once
 
 #include <iostream>
-#include <SFML/Graphics.hpp>
-#include "../Engine/renderComponent.h"
-#include "../Game/Database.h"
 #include <string>
 #include <stack>
+
+#include <SFML/Graphics.hpp>
+
+#include "../Engine/renderComponent.h"
+
 
 namespace ppc {
 

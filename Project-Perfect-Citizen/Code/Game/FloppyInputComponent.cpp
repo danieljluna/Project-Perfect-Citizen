@@ -15,12 +15,18 @@
 #include <string>
 #include <vector>
 #include <utility>
+
 #include "../Engine/Entity.h"
 #include "../Engine/World.h"
 #include "../Engine/desktop.h"
 
 #include "../Engine/FreeFunctionObserver.h"
 #include "../Engine/Network.h"
+#include "../Engine/Edge.h"
+
+#include "buttonRenderComponent.h"
+#include "mousePressButton.h"
+#include "TextDisplayRenderComponent.h"
 
 using namespace ppc;
 
@@ -28,12 +34,18 @@ const std::string FLOPPY_DEBUG_CODE = "fl";
 
 std::vector<FloppySequence> FloppyInputComponent::floppyDictionary = {};
 bool FloppyInputComponent::initialized = false;
+std::map<FloppyInputComponent::FloppySequenceName, std::vector<ppc::Event>> FloppyInputComponent::TimerDisableEvents = {};
+std::map<FloppyInputComponent::FloppySequenceName, std::vector<ppc::Event>> FloppyInputComponent::TimerResetEvents = {};
+
 
 FloppyInputComponent::FloppyInputComponent() {
 
     if (!initialized) {
         initializeFloppyDict();
+		initTimerDisableEvents();
+		initTimerResetEvents();
     }
+
 }
 
 FloppyInputComponent::~FloppyInputComponent() {
@@ -54,6 +66,8 @@ const std::map<std::string, int> FLOPPY_EMOTION_MAP{
 
 
 void ppc::FloppyInputComponent::initializeFloppyDict() {
+    try {
+
 	for (const auto& filename: FLOPPY_SOURCES) {
 		std::ifstream myfile(resourcePath() + filename);
 		if (myfile.is_open()) {
@@ -65,8 +79,16 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 					if (sequence.frames.empty()) {
                         size_t tokenIndex = line.find_first_of(':');
 						label = line.substr(1, tokenIndex - 1);
+                        //Get Auto Shift
                         if (line.substr(tokenIndex + 2, 1) == "F") 
                             sequence.autoShift = false;
+                        //Get Wait
+                        std::string timeStr = line.substr(tokenIndex + 4, line.find_last_not_of(" \t"));
+                        float time = std::stof(timeStr);
+                        if (time > 0) {
+                            sequence.hasWaitSeq = true;
+                            sequence.waitTime = sf::seconds(time);
+                        }
 						continue;
 					}
 
@@ -78,6 +100,18 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
                     } else {
                         sequence.autoShift = true;
                     }
+
+                    //Get Wait
+                    std::string timeStr = line.substr(tokenIndex + 4, line.find_last_not_of(" \t"));
+                    float time = std::stof(timeStr);
+                    if (time > 0) {
+                        sequence.hasWaitSeq = true;
+                        sequence.waitTime = sf::seconds(time);
+                    } else {
+                        sequence.hasWaitSeq = false;
+                        sequence.waitTime = sf::Time();
+                    }
+
 					sequence.frames.clear();
 				}
 				else {
@@ -105,6 +139,10 @@ void ppc::FloppyInputComponent::initializeFloppyDict() {
 	}
 
     initialized = true;
+
+    } catch (std::exception& e) {
+        std::cerr << "ERROR READING FLOPPY: " << e.what();
+    }
 }
 
 unsigned int ppc::FloppyInputComponent::getFrame() { return frame; }
@@ -195,6 +233,61 @@ void ppc::FloppyInputComponent::setFloppyButton(bool able)
 	floppyBtnRndr->recieveMessage(ppcEv);
 	floppyTxtRndr->recieveMessage(ppcEv);
 }
+
+
+//go through all timerDisableEvents and initialize them indivdually, then
+//add them to TimerDisableEvents
+void FloppyInputComponent::initTimerDisableEvents() {
+	ppc::Event ev;
+	std::vector<ppc::Event> evVec;
+	//EdgeSelectionHelper
+	ev.type = ppc::Event::NetworkType;
+	ev.network.type = ppc::Event::NetworkEv::Selected;
+	evVec.push_back(ev);
+	TimerDisableEvents.emplace(EdgeSelectionHelper, evVec);
+	evVec.clear();
+
+	//CircleDelay
+	ev.network.type = ppc::Event::NetworkEv::Created;
+	evVec.push_back(ev);
+	TimerDisableEvents.emplace(CircleDelay, evVec);
+	evVec.clear();
+
+	//CircleDelete
+	ev.network.type = ppc::Event::NetworkEv::Removed;
+	evVec.push_back(ev);
+	TimerDisableEvents.emplace(CircleDelete, evVec);
+	evVec.clear();
+
+	//CircleFinishHelper
+	ev.network.type = ppc::Event::NetworkEv::Created;
+	evVec.push_back(ev);
+	TimerDisableEvents.emplace(CircleFinishHelper, evVec);
+	evVec.clear();
+}
+
+//go through all timerResetEvents and initialize them indivdually, then
+//add them to TimerResetEvents
+void FloppyInputComponent::initTimerResetEvents() {
+	ppc::Event ev;
+	std::vector<ppc::Event> evVec;
+
+	//CicleDelete
+	ev.network.type = ppc::Event::NetworkEv::Removed;
+	evVec.push_back(ev);
+	TimerResetEvents.emplace(CircleDelete, evVec);
+	evVec.clear();
+
+	//CircleFinishHelper
+	ev.network.type = ppc::Event::NetworkEv::Removed;
+	evVec.push_back(ev);
+	ev.network.type = ppc::Event::NetworkEv::Created;
+	evVec.push_back(ev);
+	TimerResetEvents.emplace(CircleFinishHelper, evVec);
+	evVec.clear();
+}
+
+
 
 bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
     bool wasSummoned = false;

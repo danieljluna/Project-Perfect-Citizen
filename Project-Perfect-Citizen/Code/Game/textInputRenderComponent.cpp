@@ -9,7 +9,9 @@
 #include "../Engine/debug.h"
 #include "textInputRenderComponent.hpp"
 
-const string TEXT_KEY_INPUT = "TKI";
+using namespace ppc;
+
+const std::string TEXT_KEY_INPUT = "TKI";
 
 textInputRenderComponent::textInputRenderComponent(ppc::NodeState fT, sf::Font& f, 
 	int x, int y, int size): fileTree_(fT), font(f) {
@@ -30,7 +32,7 @@ textInputRenderComponent::~textInputRenderComponent() {
     
 }
 
-void textInputRenderComponent::updateString(string s) {
+void textInputRenderComponent::updateString(std::string s) {
 	//str = s;
 	/*std::vector<std::string> pwd_vector = fileTree_.getPwdVector();
 	string pwd = "C:/";
@@ -43,7 +45,7 @@ void textInputRenderComponent::updateString(string s) {
 	text->setString(str);
 }
 
-void textInputRenderComponent::updatePrompt(string s) {
+void textInputRenderComponent::updatePrompt(std::string s) {
 	str = s;
 	text->setString(str);
 }

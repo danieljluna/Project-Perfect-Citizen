@@ -1,11 +1,21 @@
 #include "ButtonBuilder.h"
 
-#include <SFML/Graphics.hpp>
-#include "buttonRenderComponent.h"
-#include "../Game/mousePressButton.h"
-#include "../Engine/debug.h"
 #include <ostream>
+
+#include "../Engine/debug.h"
+#include "../Engine/renderComponent.h"
+#include "../Engine/InputHandler.h"
+#include "../Engine/Entity.h"
+
+#include "buttonRenderComponent.h"
+#include "mousePressButton.h"
 #include "TextDisplayRenderComponent.h"
+
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Image.hpp>
+#include <SFML/Graphics/Font.hpp>
+
+using namespace ppc;
 
 ppc::ButtonBuilder::ButtonBuilder() 
 {

@@ -1,10 +1,14 @@
-#include "../Engine/debug.h"
 #include "buttonRenderComponent.h"
+
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Image.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+
+#include "../Engine/debug.h"
 #include "../Engine/event.h"
-#include <ostream>
 #include "../Engine/World.h"
 #include "../Engine/desktop.h"
-#include <string>
 #include "../Engine/Entity.h"
 
 using namespace ppc;
@@ -18,10 +22,11 @@ const std::string SELECT_EMAIL = "SE";
 const std::string DESELECT_EMAIL = "DSE";
 
 buttonRenderComponent::buttonRenderComponent( sf::Image& image, 
-	int x, int y, int r, int f) : buttonImage(image) {
+                                             int x, int y, int r, int f) : buttonImage(image) {
 	
 	this->sprite = new sf::Sprite();
 	this->texture = new sf::Texture();
+    
     
     width = r;
     frameCount = f;
@@ -52,10 +57,11 @@ buttonRenderComponent::buttonRenderComponent( sf::Image& image,
                                        size);
     
     /* Check that the file exists in the path */
-    if (!texture->loadFromImage(image, *rectSourceSprite))
+    if (!texture->loadFromImage(image, sf::IntRect(0,0,buttonImage.getSize().x,buttonImage.getSize().y)))
         std::exit(-1);
 
 	sprite->setTexture(*texture);
+    sprite->setTextureRect(*rectSourceSprite);
 	sprite->setPosition(0, 0);
 	sprite->setScale(.5f, .5f);
 }
@@ -96,8 +102,10 @@ void buttonRenderComponent::setSprite(int x, int y, int r) {
     rectSourceSprite->top = y*size;
     rectSourceSprite->width = r*size;
     rectSourceSprite->height = size;
-    texture->loadFromImage(buttonImage, *rectSourceSprite);
-    sprite->setTexture(*texture);
+    //texture->loadFromImage(buttonImage, *rectSourceSprite);
+    sprite->setTextureRect(*rectSourceSprite);
+    //sprite->setTexture(*texture);
+    
 }
 
 void buttonRenderComponent::setButtonScale(int r) {
@@ -112,8 +120,9 @@ void buttonRenderComponent::animate() {
         } else
             rectSourceSprite->left += size;
         
-        texture->loadFromImage(buttonImage, *rectSourceSprite);
-        sprite->setTexture(*texture);
+        //texture->loadFromImage(buttonImage, *rectSourceSprite);
+        sprite->setTextureRect(*rectSourceSprite);
+       // sprite->setTexture(*texture);
     }
 }
 

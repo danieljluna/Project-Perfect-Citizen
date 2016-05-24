@@ -1,10 +1,16 @@
 #include "CreateReportScreen.h"
 
+#include <fstream>
+
+#include "../Engine/Window.h"
+#include "../Engine/World.h"
+#include "../Engine/desktop.h"
+
+#include "TextDisplayRenderComponent.h"
 #include "TextDisplayBuilder.h"
 #include "TextCharacterUpdate.h"
 #include "ReportScreenInput.h"
 #include "ReportEndObsvr.h"
-#include <fstream>
 
 using namespace ppc;
 

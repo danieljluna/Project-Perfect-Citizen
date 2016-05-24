@@ -22,7 +22,7 @@ HelpWindowRenderComponent::HelpWindowRenderComponent(sf::Font& f, int x, int y, 
     contentText->setFont(font);
     contentText->setColor(sf::Color::Black);
     contentText->setCharacterSize(size-1);
-    contentText->setPosition(x, y);
+    contentText->setPosition(static_cast<float>(x), static_cast<float>(y));
     
     tab = 0;
 

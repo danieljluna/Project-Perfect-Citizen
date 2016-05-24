@@ -1,13 +1,15 @@
 #pragma once
 
-#include <SFML/Graphics/Font.hpp>
 #include <string>
-#include "../Engine/renderComponent.h"
-#include "../Engine/InputHandler.h"
-#include "../Game/TextBoxInputComponent.h"
 
+#include <SFML/Graphics/Font.hpp>
+
+#include "TextBoxInputComponent.h" //needed
+#include "../Engine/Entity.h" //Needed for Mac compiler
 
 namespace ppc {
+	class InputHandler;
+
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Designated Generic Builder Object for non-editable Text Output Fields
 	/// @author Alex Vincent 
@@ -26,6 +28,8 @@ namespace ppc {
 		InputHandler* ih;
 		TextBoxInputComponent* tbi;
 		WindowInterface* cw;
+		int lim = 15;
+		bool mask = false;
 
 
 	public:
@@ -51,11 +55,38 @@ namespace ppc {
 
 		void setContainingWindow(WindowInterface*);
 
+		void setTextBoxCharacterLimit(int l);
+
+		void setIsMasked(bool);
+
 		TextBoxInputComponent* getTextBoxInputComponent();
 
 		void create(Entity&);
 
 	};
+
+	///////////////////////////////////////////////////////////////////////
+	/// @brief Returns the constructed textbox, with an attached function
+	/// observer.
+	/// @param The builder being used to make the textbox
+	/// @param The entity to modify
+	/// @param The target class object
+	/// @param The function to execute on a click
+	///////////////////////////////////////////////////////////////////////
+	template<class T>
+	void createWithEventFunc(TextBoxBuilder& builder, Entity& e, T* target, bool(*func)(T *, ppc::Event)) {
+
+		builder.create(e);
+		size_t s = e.cmpntCount();
+		TextBoxInputComponent* tbi = dynamic_cast<TextBoxInputComponent*>(e.getComponent(s - 1));
+
+		if (tbi != nullptr) {
+			setOnSubmit(tbi, target, func);
+		}
+		else {
+			return;
+		}
+	}
 
 
 };

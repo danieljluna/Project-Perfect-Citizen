@@ -231,8 +231,8 @@ namespace ppc {
 		  sf::Image& getButtonSheet();
 
 ///////////////////////////////////////////////////////////////////////
-///@brief Returns a reference of the NodeState in the Desktop.
-///@return A reference to the NodeState in the Desktop
+///@brief Returns the NodeState in the Desktop.
+///@return The NodeState in the Desktop
 ///////////////////////////////////////////////////////////////////////
 		  NodeState* getNodeState();
 
@@ -314,6 +314,6 @@ namespace ppc {
 	///////////////////////////////////////////////////////////////////////
 	///@brief Used by operator>> in World to import Desktops from files.
 	///////////////////////////////////////////////////////////////////////
-	std::ifstream& operator>>(std::ifstream& in, Desktop& desktop);
+	std::ifstream& operator>>(std::ifstream& in, ppc::Desktop& desktop);
 
 };

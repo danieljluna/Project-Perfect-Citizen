@@ -2,9 +2,11 @@
 
 #include <stdio.h>
 #include <iostream>
-#include <SFML/Graphics.hpp>
-#include "../Engine/renderComponent.h"
 #include <string>
+
+#include <SFML/Graphics.hpp>
+
+#include "../Engine/renderComponent.h"
 
 namespace ppc {
 

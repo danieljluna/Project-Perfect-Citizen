@@ -111,7 +111,7 @@ void PipelineCharacter::calcIncomeAndCrim() {
 	// (100 - 2.128 * (age_ - 18)) = inverse of age as a % of closeness to 65
 	// so 18 = 100%, 65 = 0%
 	//crimvalue ranges [0, 500]
-	int crimvalue = (100 - 2.128 * (age_ - 18)) + persAssertive_ * 25 +
+	int crimvalue = static_cast<int>(100 - 2.128 * (age_ - 18)) + persAssertive_ * 25 +
 		persDirectness_ * 25 + persJerk_ * 25 + crimvariance;
 	if (crimvalue > CRIM_THRESHOLD) criminal_ = true;
 	else criminal_ = false;
@@ -181,6 +181,8 @@ void PipelineCharacter::generate() {
     
     // for random colors
     std::uniform_int_distribution<> colord(100, 250);
+    // for random colors
+    std::uniform_int_distribution<> colorshirtd(0, 255);
     // for eye types
     std::uniform_int_distribution<> eyed(0, 2);
     // for brow types
@@ -192,7 +194,7 @@ void PipelineCharacter::generate() {
     // for skin index
     std::uniform_int_distribution<> skind(0, 30);
     
-    std::uniform_int_distribution<> shirtd(0, 40);
+    std::uniform_int_distribution<> shirtd(5, 40);
     // for hair index
     std::uniform_int_distribution<> haircd(0, 7);
     // for har type
@@ -201,7 +203,7 @@ void PipelineCharacter::generate() {
     std::uniform_int_distribution<> lipcd(0, 3);
     
     
-    sf::Color sc(colord(gen),colord(gen),colord(gen));
+    sf::Color sc(colorshirtd(gen),colorshirtd(gen),colorshirtd(gen));
     shirtColor_ = sc;
     
     sf::Color ec(colord(gen),colord(gen),colord(gen));

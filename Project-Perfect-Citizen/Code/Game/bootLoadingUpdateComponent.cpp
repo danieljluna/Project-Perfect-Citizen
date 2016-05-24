@@ -8,7 +8,9 @@
 
 #include "../Engine/debug.h"
 #include "bootLoadingUpdateComponent.hpp"
+#include "bootLoadingAnimationRender.hpp"
 
+using namespace ppc;
 
 bootLoadingUpdateComponent::bootLoadingUpdateComponent(bootLoadingAnimationRender& r, float s){
     render = &r;

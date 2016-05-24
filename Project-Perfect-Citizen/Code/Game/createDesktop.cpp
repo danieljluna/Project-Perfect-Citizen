@@ -1,6 +1,6 @@
 
 #ifdef WINDOWS_MARKER
-#define resourcePath() string("Resources/")
+#define resourcePath() std::string("Resources/")
 #else
 #include "ResourcePath.hpp"
 #endif
@@ -11,7 +11,11 @@
 #include <iostream>
 #include <fstream>
 
-#include "../Engine/Engine.h"
+//#include "../Engine/Engine.h"
+#include "../Engine/World.h"
+#include "../Engine/SuspiciousFileHolder.h"
+#include "../Engine/desktop.h"
+#include "../Engine/Window.h"
 
 #include "buttonRenderComponent.h"
 #include "consoleUpdateComponent.h"
@@ -26,9 +30,7 @@
 #include "CharacterRender.hpp"
 #include "emailExtraction.hpp"
 #include "TreeCommands.h"
-
-#include "../Game/createWindow.h"
-
+#include "createWindow.h"
 #include "FloppyUpdateComponent.hpp"
 #include "FloppyRenderComponent.hpp"
 #include "FloppyInputComponent.h"
@@ -37,7 +39,9 @@
 #include "ButtonBuilder.h"
 #include "IconBuilder.h"
 #include "spriteRenderComponent.hpp"
-
+#include "startBarRenderComponent.hpp"
+#include "startBarUpdateComponent.hpp"
+#include "Email.h"
 
 #include "notifcationRenderComponent.h"
 
@@ -46,7 +50,7 @@
 
 using namespace ppc;
 
-void createLoginDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet) {
+void ppc::createLoginDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet) {
 
     Entity title;
 
@@ -56,7 +60,9 @@ void createLoginDesktop(Desktop& desktopToModify, WindowInterface& desktopWindow
     title.addComponent(titleRender);
 
     WindowInterface* loginPrompt = new Window(480, 150, sf::Color(170, 170, 170));
-    loginPrompt->setPosition((World::getGameScreen().getSize().x/2)-(loginPrompt->getSize().x/2), World::getGameScreen().getSize().y/2);
+    loginPrompt->setPosition(static_cast<float>(World::getGameScreen().getSize().x/2)-(loginPrompt->getSize().x/2), 
+		                     static_cast<float>(World::getGameScreen().getSize().y/2));
+
     spawnLoginPrompt(loginPrompt, loginPrompt->getInputHandler(), buttonSheet, 400, 500);
 
     desktopToModify.addWindow(loginPrompt);
@@ -67,7 +73,7 @@ void createLoginDesktop(Desktop& desktopToModify, WindowInterface& desktopWindow
 }
 
 
-void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet) {
+void ppc::createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet) {
 	
 	std::vector<std::string> firstLsCommand;
 	std::string ls = "ls";
@@ -102,7 +108,14 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 	startToolbar->setPosition(0, 735);
     
     Entity startBar;
-    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
+    
+    startBarRender->renderPosition({0,4});
+    
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
+    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
 
     FloppyRenderComponent* floppy = new FloppyRenderComponent(floppyImage);
     FloppyInputComponent* floppyIn = new FloppyInputComponent();
@@ -139,7 +152,7 @@ void createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
 
 }
 
-void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
+void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
     
     //////////////////////////////////////////////
     //// Create the database (really should take a seed)
@@ -173,9 +186,13 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
     startToolbar->setPosition(0, 735);
     
+    //Entity startBar;
     Entity startBar;
-    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
-    startBar.addComponent(bar);
+    startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
+    startBarRender->renderPosition({0,4});
+    startBar.addComponent(startBarRender);
+    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    //startBar.addComponent(bar);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -201,7 +218,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 725.0f, 450.0f, 0.5f, 0.25f, theInbox);
 
 
-	/*IconBuilder builder;
+	IconBuilder builder;
 	builder.setDesktop(desktopToModify);
 	builder.setInbox(desktopToModify.getInbox());
 	builder.setButtonSheet(desktopToModify.getButtonSheet());
@@ -215,7 +232,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
 	builder.setSpritebyIndicies(0, 9, 1, 1);
 	builder.setText("Documents", World::getFont(World::Consola), sf::Color::Black);
 	builder.create(DocumentsIcon);
-	desktopWindowToModify.addEntity(DocumentsIcon);*/
+	desktopWindowToModify.addEntity(DocumentsIcon);
 
     desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);
@@ -240,7 +257,7 @@ void createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
 
 }
 
-void createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
+void ppc::createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
     
     //////////////////////////////////////////////
     //// Create the database (really should take a seed)
@@ -274,9 +291,13 @@ void createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopWindow
     new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
     startToolbar->setPosition(0, 735);
     
+    //Entity startBar;
+    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    //startBar.addComponent(bar);
     Entity startBar;
-    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
-    startBar.addComponent(bar);
+    startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
+    startBarRender->renderPosition({0,4});
+    startBar.addComponent(startBarRender);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -306,14 +327,11 @@ void createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopWindow
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
-    
-    ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
-    EmailIcon.addComponent(notiRenderComp);
     desktopWindowToModify.addEntity(EmailIcon);
     
 }
 
-void createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
+void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
     
     //////////////////////////////////////////////
     //// Create the database (really should take a seed)
@@ -347,9 +365,14 @@ void createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
     startToolbar->setPosition(0, 735);
     
+    //Entity startBar;
+    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    //startBar.addComponent(bar);
+    
     Entity startBar;
-    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
-    startBar.addComponent(bar);
+    startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
+    startBarRender->renderPosition({0,4});
+    startBar.addComponent(startBarRender);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -379,14 +402,11 @@ void createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktopWindo
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
-    
-    ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
-    EmailIcon.addComponent(notiRenderComp);
     desktopWindowToModify.addEntity(EmailIcon);
     
 }
 
-void createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
+void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
     
     //////////////////////////////////////////////
     //// Create the database (really should take a seed)
@@ -420,9 +440,13 @@ void createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& desktopW
     new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
     startToolbar->setPosition(0, 735);
     
+   // Entity startBar;
+    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    //startBar.addComponent(bar);
     Entity startBar;
-    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
-    startBar.addComponent(bar);
+    startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
+    startBarRender->renderPosition({0,4});
+    startBar.addComponent(startBarRender);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -452,14 +476,11 @@ void createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& desktopW
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
-    
-    ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
-    EmailIcon.addComponent(notiRenderComp);
     desktopWindowToModify.addEntity(EmailIcon);
     
 }
 
-void createTrailerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
+void ppc::createTrailerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
     
     //////////////////////////////////////////////
     //// Create the database (really should take a seed)
@@ -493,9 +514,13 @@ void createTrailerDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
     startToolbar->setPosition(0, 735);
     
+    //Entity startBar;
+    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
+    //startBar.addComponent(bar);
     Entity startBar;
-    spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
-    startBar.addComponent(bar);
+    startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
+    startBarRender->renderPosition({0,4});
+    startBar.addComponent(startBarRender);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -525,9 +550,6 @@ void createTrailerDesktop(Desktop& desktopToModify, WindowInterface& desktopWind
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
-    
-    ppc::notificationRenderComponent* notiRenderComp = new ppc::notificationRenderComponent();
-    EmailIcon.addComponent(notiRenderComp);
     desktopWindowToModify.addEntity(EmailIcon);
     
 }
