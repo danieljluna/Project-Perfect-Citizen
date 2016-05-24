@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "mousePressButton.h" //needed
+#include "../Engine/Entity.h"//Needed for Mac Compiler
 
 namespace ppc {
 	class InputHandler;

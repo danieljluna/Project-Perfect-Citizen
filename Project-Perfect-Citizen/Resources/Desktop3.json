@@ -3,9 +3,8 @@
         "Campaign_Data" : {
             "Post_Election" : {
                 "Secure_Email_Server/ADI/Check your email" : {
-                    "1/Freaking_Out.txt" : "DesktopContent/Desktop3/Freaking_Out.txt",
-                    "1/Allegations.txt" : "DesktopContent/Desktop3/Allegations.txt",
-                    "1/Guardian_Angel.txt" : "DesktopContent/Desktop3/Guardian_Angel.txt"
+                    "1/Need_Help.txt" : "DesktopContent/Desktop3/Freaking_Out.txt",
+                    "1/Allegations.txt" : "DesktopContent/Desktop3/Allegations.txt"
                 }
             },
             "Pre_Election" : {
@@ -34,7 +33,7 @@
                     "1/Osman_College.txt" : "DesktopContent/Desktop3/Osman_College.txt"
                 },
                 "Itinerary" : {
-                    "Schedule/Derby/Opponent" : {
+                    "Schedule/Raymond Nash/Opponent" : {
                         "1/November.jpg" : "DesktopContent/Desktop3/November.png"
                     },
                     "1/Nov1.jpg" : "DesktopContent/Desktop3/Nov1.png",
