@@ -115,6 +115,7 @@ protected:
 
     //Rectangle the transition is projected on
     sf::RectangleShape transitionShape_;
+    sf::RectangleShape transitionShape2_;
 
 
 private:

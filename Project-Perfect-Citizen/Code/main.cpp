@@ -40,7 +40,7 @@ int main(int argc, char** argv) {
 		AudioQueue audiotest(5);
 		audiotest.addBgm("SoundTrack_Extraction.ogg");
 		audiotest.loopBgm();
-		audiotest.playBgm();
+		//audiotest.playBgm();
 
 		///////////////////////////////////////////////////////////////////
 
@@ -56,10 +56,6 @@ int main(int argc, char** argv) {
 
 		Desktop mainDesktop;
 		World::setCurrDesktop(mainDesktop);
-
-		//***For Daniel: Call  this function when you load from the save!***
-		//World::setLevel(i,j); where i is the DesktopEnum as an int,
-		// and j is the score from the most recent desktop
 
 		while (World::getCurrDesktopEnum() != World::DesktopCount) {
 			//Get Current Desktop Level
@@ -79,8 +75,11 @@ int main(int argc, char** argv) {
 			//Run the Curr Desktop. Get Player's score when it ends
 			int deskScore = World::runCurrDesktop();
 
+			//Have this here in case currDesktopEnum changed during the Desktop
+			currDesk = World::getCurrDesktopEnum();
+
 			//Use Score to determine next level to go to
-			World::goToNext(deskScore);
+			World::setLevel(currDesk, deskScore);
 		}
 
 		return EXIT_SUCCESS;
