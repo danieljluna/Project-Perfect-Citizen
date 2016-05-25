@@ -298,7 +298,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json" />
-    <None Include="Resources\DE1PipelineTexts.json" />
+    <None Include="Resources\HackerTexts.json" />
+    <None Include="Resources\TeacherTexts-Old.json" />
     <None Include="Resources\Email1.json" />
     <None Include="Resources\Engine\playerDesktop.ini" />
     <None Include="Resources\PlayerEmail.json" />
@@ -311,6 +312,7 @@
     <None Include="Resources\Saves\PPC.sav" />
     <None Include="Resources\smsPipeline.json" />
     <None Include="Resources\suspiciontest.json" />
+    <None Include="Resources\TeacherTexts.json" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{76E6A61E-6FF8-4ABA-82B6-674967E67119}</ProjectGuid>

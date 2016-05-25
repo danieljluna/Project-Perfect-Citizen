@@ -39,6 +39,7 @@ Json::Value expr::ExpressionistParser::parseExpressionistAsJson(std::string file
 	Json::Reader reader;
 	Json::Value value;
 	std::ifstream doc(resourcePath() + file, std::ifstream::binary);
+	if (!doc.good()) throw std::runtime_error("Expressionist: File not found.");
 	reader.parse(doc, value);
 	return value;
 }
@@ -219,14 +220,15 @@ bool expr::ExpressionistParser::checkMarkUpPreconditions(const Json::Value& mark
 			}
 			else if (markupNames[i].compare("linkSuspicion") == 0) {
 				if (link.getWeight() == 1) {
-					if (!(makeComparison("Ambiguous", value, oper) ||
-						makeComparison("Suggestive", value, oper) ||
-						makeComparison("ClearlySuspicious", value, oper))) return false;
+					if (makeComparison("Ambiguous", value, "==")) continue;
+					if (makeComparison("Suggestive", value, "==")) continue;
+					if (makeComparison("ClearlySuspicious", value, "==")) continue;
+					return false;
 				}
 				else {
-					if (makeComparison("ClearlyClean", value, oper)) continue;
-					if (makeComparison("SlightlySuspicious", value, oper)) continue;
-					if (makeComparison("Ambiguous", value, oper)) continue;
+					if (makeComparison("ClearlyClean", value, "==")) continue;
+					if (makeComparison("SlightlySuspicious", value, "==")) continue;
+					if (makeComparison("Ambiguous", value, "==")) continue;
 					return false;
 				}
 				continue;
