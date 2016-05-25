@@ -15,7 +15,7 @@ ppc::notificationRenderComponent::notificationRenderComponent() :
     position_ = { 0, 0 };
 
 	//set up text
-	notificationText_ = sf::Text(std::to_string(4),
+	notificationText_ = sf::Text(std::to_string(0),
 		World::getFont(World::Consola),
 		11);
 	notificationText_.move(2.0f, -2.0f);

@@ -228,26 +228,6 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
 	builder.setSize(0.5f);
 
 	// Create teacher desktop folders/files
-	/*Entity DocumentsIcon;
-	builder.setPosition({ 800.0f, 100.0f });
-	builder.setIconType(iconInputComponent::IconType::Folder);
-	builder.setSpritebyIndicies(0, 9, 1, 1);
-	builder.setText("Documents", World::getFont(World::VT323Regular), sf::Color::White);
-	builder.create(DocumentsIcon);
-	desktopWindowToModify.addEntity(DocumentsIcon);
-
-	Entity ArtsFolder;
-	builder.setPosition({ 800.0f, 200.0f });
-	builder.setText("Art", World::getFont(World::VT323Regular), sf::Color::White);
-	builder.create(ArtsFolder);
-	desktopWindowToModify.addEntity(ArtsFolder);
-
-	Entity MyFolder;
-	builder.setPosition({ 800.0f, 300.0f });
-	builder.setText("My_Folder", World::getFont(World::VT323Regular), sf::Color::White);
-	builder.create(MyFolder);
-	desktopWindowToModify.addEntity(MyFolder);*/
-
 	Entity BlueBirdFile;
 	builder.setPosition({ 750.0f, 350.0f });
 	builder.setIconType(iconInputComponent::IconType::File);
@@ -263,7 +243,6 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
 	builder.setText("Myth_of_Sisyphus_by_Albert_Camus.txt", World::getFont(World::VT323Regular), sf::Color::White);
 	builder.create(SisyphusFile);
 	desktopWindowToModify.addEntity(SisyphusFile);
-
 
     desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);
