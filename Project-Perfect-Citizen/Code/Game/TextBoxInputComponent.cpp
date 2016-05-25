@@ -3,21 +3,29 @@
 #include "TextBoxRenderComponent.h"
 #include "../Engine/InputHandler.h"
 #include "../Engine/FreeFunctionObserver.h"
-
-
+#include <SFML/System/Time.hpp>
 using namespace ppc;
 
 const std::string TEXT_KEY_INPUT = "TKI";
 const float DOUBLE_CLICK_TIME = 500;
 
-TextBoxInputComponent::TextBoxInputComponent(InputHandler& ih, TextBoxRenderComponent &r, unsigned int l ) : inputHandle(ih), 
-textBox(r), max_chars(l) {
+TextBoxInputComponent::TextBoxInputComponent(InputHandler& ih, TextBoxRenderComponent &r, TimerUpdateCmpnt* t, int l ) : inputHandle(ih), 
+textBox(r), tmr(t), max_chars(l) {
 
 	ih.addHandle(sf::Event::TextEntered);
 	ih.addHandle(sf::Event::KeyPressed);
 
 	watch(ih, sf::Event::TextEntered);
 	watch(ih, sf::Event::KeyPressed);
+
+	FreeFunctionObserver<TextBoxRenderComponent>* fnObsvr = 
+		new FreeFunctionObserver<TextBoxRenderComponent>(blink_cursor, &r);
+
+	tmr->onTimer().addObserver(fnObsvr);
+
+	sf::Time t1 = sf::seconds(0.5f);
+
+	tmr->playTimer(tmr->createTimer(t1));
 
 	textBox.updateLabelString(str);
 
@@ -92,7 +100,21 @@ bool TextBoxInputComponent::registerInput(Event ppcEv) {
 			else if ((ev.text.unicode == 10 || ev.text.unicode == 13) && str.size() > 0) {
 				onSubmit_.sendEvent(ppcEv);
 			}
+			textBox.setCursorRender(true);
 		}
 	}
 	return true;
+}
+
+void ppc::TextBoxInputComponent::recieveMessage(ppc::Event ev)
+{
+	switch (ev.type) {
+	case Event::EventTypes::TimerType:
+		if (ev.timer.action == Event::TimerEv::timerState::Reset) {
+
+			sf::Time t1 = sf::seconds(0.5f);
+			tmr->resetTimer(0, sf::seconds(0.0f));
+			tmr->playTimer(tmr->createTimer(t1));
+		}
+	}
 }

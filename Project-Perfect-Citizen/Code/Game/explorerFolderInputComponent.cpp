@@ -185,9 +185,10 @@ void ppc::explorerFolderInputComponent::changeDirectory(bool newWindow)
 		
 		ppc::WindowInterface* UnlockWindow =
 		new ppc::Window(500, 150, sf::Color(170, 170, 170));
+        UnlockWindow->setPosition(-100, -100);
 		spawnUnlock(UnlockWindow, UnlockWindow->getInputHandler(), buttonSheet_, 250, 250, this);
-        theDesktop_.addWindow(UnlockWindow);
-
+        //theDesktop_.addWindow(UnlockWindow);
+		containingWindow_->createNotifWindow(UnlockWindow);
 		return;
 	}
 
@@ -209,6 +210,7 @@ void ppc::explorerFolderInputComponent::changeDirectory(bool newWindow)
 		containingWindow_->close();
 	}
 	theDesktop_.addWindow(explorerWindow);
+
 
 }
 
@@ -239,6 +241,8 @@ bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 
 	if (target->findElement(ptr->getFolderName())->
 		comparePassword(ptr->getObservingTextBox()->getString())) {
+		
+		
 
 		/* Unlock the directory */
 		std::vector<std::string> unlockCommand;
@@ -259,9 +263,6 @@ bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 		/* Send the event and close the submit wind*/
 		evOut.open.success = false;
 		ptr->getObservingTextBox()->getContainingWindow()->close();
-
-
-
         evOut.open.success = true;
 	}
 	else {

@@ -40,7 +40,7 @@ std::vector<Entity> Explorer::createVectorFrame(std::vector<std::string> filenam
 	sf::Font font;
 	font.loadFromFile(resourcePath() + "consola.ttf");
 
-	int padding = 100;
+	int padding = 125;
 	std::vector<Entity> explorerFrame;
 	int numRows = 1;
 
@@ -51,7 +51,6 @@ std::vector<Entity> Explorer::createVectorFrame(std::vector<std::string> filenam
 	}
 
 	for (unsigned int i = 0, j = 0, k = 0; i < filenames.size(); ++i, ++k) {
-        if (filenames.at(i).compare("CP") == 0) { World::quitDesktop(); }
 		if (k % 5 == 0 && k != 0) {
 			++j;
 			numRows++;
@@ -76,7 +75,11 @@ std::vector<Entity> Explorer::createVectorFrame(std::vector<std::string> filenam
 			else {
 				buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet_, 0, 9, 1, 1);
 				IconRender->renderPosition(sf::Vector2f(static_cast<float>(k * padding), static_cast<float>(j * padding)));
-				textLabelComponent* label = new textLabelComponent(font, sf::Color::Black, float(k * padding), float(j * padding + 0.5 * 128), 12, filenames.at(i));
+				std::string folderName = filenames.at(i);
+				if (theFileTree_.getRoot() == theFileTree_.getCwd() && folderName.compare("..") == 0) { folderName = "  C://"; }
+				else if (folderName.compare("..") == 0) { folderName = "<- Back"; }
+				
+				textLabelComponent* label = new textLabelComponent(font, sf::Color::Black, float(k * padding), float(j * padding + 0.5 * 128), 12, folderName);
 				explorerFolderInputComponent* IconInput = new explorerFolderInputComponent(theDesktop_, windowToWorkOn_, windowToWorkOn_->getInputHandler(),
 					theFileTree_, buttonSheet_, iconSheet_, IconRender->getSprite()->getGlobalBounds(), filenames.at(i));
 				example.addComponent(IconRender);
@@ -86,7 +89,7 @@ std::vector<Entity> Explorer::createVectorFrame(std::vector<std::string> filenam
 			explorerFrame.push_back(example);
 
 	}
-	windowToWorkOn_->setSize(windowToWorkOn_->getSize().x, numRows * 100);
+	windowToWorkOn_->setSize(windowToWorkOn_->getSize().x, numRows * 125);
 	return explorerFrame;
 }
 

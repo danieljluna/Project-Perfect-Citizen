@@ -258,11 +258,12 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     
     Entity tab0;
     Entity tab1;
+	Entity tab2;
     
 
     // Button Test
     ButtonBuilder builder;
-    builder.setButtonPosition(sf::Vector2f(16, 16));
+    builder.setButtonPosition(sf::Vector2f(128, 16));
     builder.setInputHandle(ih);
     builder.setSize(0.25f);
     builder.setSpriteSheet(buttonSheet);
@@ -273,11 +274,16 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     builder.create(tab0);
     createWithEventFunc(builder, tab0, helpText1, swithTab0Fn);
 
-    builder.setButtonPosition(sf::Vector2f(128,16));
+    builder.setButtonPosition(sf::Vector2f(256,16));
     builder.setLabelMessage("Graph");
 
     builder.create(tab1);
     createWithEventFunc(builder, tab1, helpText1, swithTab1Fn);
+
+	builder.setButtonPosition(sf::Vector2f(384, 16));
+	builder.setLabelMessage("Desktops");
+
+	createWithEventFunc(builder, tab2, helpText1, swithTab2Fn);
 
     
     /////////////////////////////////////////
@@ -291,6 +297,7 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     windowToModify->setPosition(x, y);
     windowToModify->addEntity(tab0);
     windowToModify->addEntity(tab1);
+	windowToModify->addEntity(tab2);
     windowToModify->addEntity(help);
     
     sf::FloatRect viewRect = {
@@ -303,6 +310,7 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
     
     windowToModify = new BorderDecorator(*windowToModify);
     dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("DCPS Help Manual");
 }
 
 
@@ -627,6 +635,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message, std::string windowCaption) {
 	if (windowToModify == nullptr) { return; }
 
+	windowToModify->setSize(sf::Vector2u(300.0f, windowToModify->getSize().y));
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
@@ -646,17 +655,23 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	float alertWidth = 128.0;
 	float windowWidth = static_cast<float>(windowToModify->getSize().x);
 	float windowHeight = static_cast<float>(windowToModify->getSize().y);
+
+
 	float alertX = windowWidth - ((alertWidth * alertScale) + (3 * (windowWidth / 4)));
 	float alertY = (windowHeight - (alertWidth * alertScale)) / 3;
 	float buttonScale = 0.25f;
-	float buttonX = ((windowWidth - (alertWidth * buttonScale)) / 2);
-	float buttonY = (2 * (windowHeight / 3));
 	spawnAlertIcon(alertIcon, ih, buttonSheet, alertX, alertY, 0.5f);
 
-	float newWindowWidth = ((windowWidth)-(eMRC->getText()->getLocalBounds().width - windowWidth));
+	float constantWindowWidth = 50.0f;
+	float newWindowWidth = (constantWindowWidth + (256 * buttonScale)
+		+ eMRC->getText()->getLocalBounds().width);
 
 	Entity errorMessageDisplayBox;
 	errorMessageDisplayBox.addComponent(eMRC);
+
+	windowToModify->setSize(sf::Vector2u(newWindowWidth, windowHeight));
+	float buttonX = ((newWindowWidth - (alertWidth * buttonScale)) / 2);
+	float buttonY = (2 * (windowHeight / 3));
 
 	// Button Test
 	ButtonBuilder builder;
@@ -678,7 +693,7 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	windowToModify->addEntity(alertIcon);
 	windowToModify->addEntity(ent);
 	windowToModify->setPosition(x, y);
-	//windowToModify->setSize(sf::Vector2u(newWindowWidth, windowHeight));
+	
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(windowCaption);
@@ -931,8 +946,8 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
     tbuilder.setString("");
     tbuilder.setInputHandle(ih);
     tbuilder.setContainingWindow(windowToModify);
-	tbuilder.setIsMasked(true);
-	createWithEventFunc(tbuilder, tbox, windowToModify, continue_world);
+	tbuilder.setIsMasked(false);
+	createWithEventFunc(tbuilder, tbox, windowToModify, ppc::continue_world);
     
     Entity promptText;
     TextDisplayBuilder tdBuilder;
@@ -981,7 +996,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
-    
+	int maxCaptionCharacters = 30;
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 14;
@@ -1011,15 +1026,30 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 		windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
 	}
 
+	// Create the window caption and format it //
 	std::vector<std::string> pwd_vector = ns.getPwdVector();
-	std::string pwd = "C:/";
+	std::string pwd = "";
 
-	for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {
-		std::cout << *iter + "dasdasdas";
+	/*for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {
 		pwd += *iter;
 		pwd.push_back('/');
+	}*/
+
+	for (auto iter = pwd_vector.rbegin(); iter != pwd_vector.rend(); ++iter) {
+		
+		if (pwd.length() > maxCaptionCharacters) {
+			pwd = ".../" + pwd;
+			break;
+		}
+		else {
+			pwd = "/" + pwd;
+			pwd = *iter + pwd;
+		}
 	}
-	
+
+	if (pwd.length() <= maxCaptionCharacters) {
+		pwd = "C:" + pwd;
+	}
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(pwd);
@@ -1091,8 +1121,8 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 	/////////////////////////////////////////
 	//// Files/Text Labels
 	///////////////////////////////////////
-	int fileSpacing = windowToModify->getSize().x / 4;
-	int padding = 10;
+	float fileSpacing = windowToModify->getSize().x / 3.5;
+	int padding = 20;
 	textLabelComponent* label;
 	for (unsigned int i = 0; i < 3/*fH->getBfgVector().size()*/; ++i) {
 		
@@ -1101,11 +1131,18 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 		IconRender->renderPosition(sf::Vector2f(static_cast<float>(fileSpacing*i) + padding, 5));
 
 		if (ppc::SuspiciousFileHolder::getBFTVectorElement(i) != nullptr) {
+
+			std::string newLabel = ppc::SuspiciousFileHolder::getBFTVectorElement(i)->getName();
+			if (newLabel.size() > 20) {
+				newLabel = newLabel.substr(0, 15);
+				newLabel += "...";
+			}
+			
 			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Green,
 				(float)((fileSpacing*i) + padding / 2), IconRender->getSprite()->getLocalBounds().height*0.5f, 12,
-				ppc::SuspiciousFileHolder::getBFTVectorElement(i)->getName());
+				newLabel);
 
-			mousePressButton* mpb = new mousePressButton(windowToModify->getInputHandler(), IconRender->getSprite()->getLocalBounds());
+			mousePressButton* mpb = new mousePressButton(windowToModify->getInputHandler(), IconRender->getSprite()->getGlobalBounds());
 			flaggedFileInputComponent* fIC = new flaggedFileInputComponent(&dt, windowToModify, windowToModify->getInputHandler(),
 				ppc::SuspiciousFileHolder::getBFTVectorElement(i)->getName());
 			fileRender.addComponent(mpb);
@@ -1113,7 +1150,7 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 		}
 		else {
 			label = new textLabelComponent(World::getFont(World::Consola), sf::Color::Red,
-				(float)((fileSpacing*i) + padding / 2), IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "[EMPTY]");
+				(float)((fileSpacing*i) + padding / 2), IconRender->getSprite()->getLocalBounds().height*0.5f, 12, "  [EMPTY]");
 		}
 
 		fileRender.addComponent(IconRender);
@@ -1151,6 +1188,7 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
+	windowToModify->setSize(sf::Vector2u(450, 100));
 	windowToModify = new BorderDecorator(*windowToModify);
 	windowToModify->setPosition({ x,y });
 	//dynamic_cast<BorderDecorator*>(windowToModify)->addButton(dt.getButtonSheet(), closeWindow);
