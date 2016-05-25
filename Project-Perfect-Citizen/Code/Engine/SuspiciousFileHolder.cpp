@@ -1,5 +1,9 @@
 #include "SuspiciousFileHolder.h"
 #include "../Engine/World.h"
+#include "../Game/createWindow.h"
+#include "../Engine/Window.h"
+#include "../Engine/World.h"
+#include "../Engine/desktop.h"
 
 std::vector<ppc::BaseFileType*> ppc::SuspiciousFileHolder::bftVector_;
 ppc::WindowInterface* ppc::SuspiciousFileHolder::susWindow_;
@@ -21,14 +25,22 @@ std::vector<ppc::BaseFileType*>& ppc::SuspiciousFileHolder::getBftVector()
 
 void ppc::SuspiciousFileHolder::flagFile(ppc::BaseFileType * file)
 {
+	if (isInFileHolder(file)) return;
+
 	if (bftVector_.size() < 3) {
 		bftVector_.push_back(file);
 
-        Event ev;
-        ev.type = ev.SubmissionType;
-        ev.submission.file = file;
-        ev.submission.type = ev.submission.Mark;
-        onChange.sendEvent(ev);
+		Event ev;
+		ev.type = ev.SubmissionType;
+		ev.submission.file = file;
+		ev.submission.type = ev.submission.Mark;
+		onChange.sendEvent(ev);
+	}
+	else {
+		WindowInterface* tempWin = new ppc::Window(300, 150, sf::Color(170, 170, 170));
+		spawnErrorMessage(tempWin, tempWin->getInputHandler(), World::getCurrDesktop().getButtonSheet(),
+			200, 200, "Error: You may only flag 3 files.", "File Holder is full");
+		World::getCurrDesktop().addWindow(tempWin);
 	}
 }
 
@@ -58,7 +70,11 @@ void ppc::SuspiciousFileHolder::printSuspiciousVector()
 
 void ppc::SuspiciousFileHolder::setWindow(ppc::WindowInterface * sWindow)
 {
-	susWindow_ = sWindow;
+	if (susWindow_ != nullptr) {
+		susWindow_ = sWindow;
+	}
+	else susWindow_ = sWindow;
+	
 }
 
 ppc::WindowInterface * ppc::SuspiciousFileHolder::getWindow()
@@ -70,6 +86,14 @@ ppc::WindowInterface * ppc::SuspiciousFileHolder::getWindow()
 int ppc::SuspiciousFileHolder::getStaticCount()
 {
 	return staticCount_;
+}
+
+bool ppc::SuspiciousFileHolder::isInFileHolder(ppc::BaseFileType* file) {
+
+	for (int i = 0; i < bftVector_.size(); ++i) {
+		if (file == bftVector_.at(i)) return true;
+	}
+	return false;
 }
 
 

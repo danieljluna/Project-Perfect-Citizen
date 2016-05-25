@@ -141,6 +141,9 @@ void ppc::Desktop::draw(sf::RenderTarget& target,
 	
 	for (auto it = windows_.rbegin(); it != windows_.rend(); ++it) {
 		target.draw(*(*it), states);
+        if ((*it)->getNotifWindow() != nullptr) {
+            target.draw(*(*it)->getNotifWindow(), states);
+        }
 	}
 
 	if (frontTop_) target.draw(*frontTop_, states);
@@ -315,16 +318,31 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
 //if the window clicked in a window that wasnt focused,
 //then focus that window.
 //for any mouse event
+
 	if (ppcEv.type == Event::sfEventType) {
 		if (ppcEv.sfEvent.type == sf::Event::MouseButtonPressed) {
 			for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-				sf::FloatRect winBounds = (*it)->getBounds();
-				if (winBounds.contains(
-					float(ppcEv.sfEvent.mouseButton.x), 
-					float(ppcEv.sfEvent.mouseButton.y))) {
-						focusWindow(*it);
-						break;
-				}
+                sf::FloatRect winBounds;
+                if ((*it)->getNotifWindow() != nullptr) {
+                    winBounds = (*it)->getNotifWindow()->getBounds();
+                    if (winBounds.contains(
+                        float(ppcEv.sfEvent.mouseButton.x),
+                        float(ppcEv.sfEvent.mouseButton.y))) {
+                        focusWindow(*it);
+                        focused_ = (*it)->getNotifWindow();
+                        break;
+                    }
+                }
+                winBounds = (*it)->getBounds();
+                if (winBounds.contains(
+                        float(ppcEv.sfEvent.mouseButton.x),
+                        float(ppcEv.sfEvent.mouseButton.y))) {
+                    focusWindow(*it);
+                    if ((*it)->getNotifWindow() != nullptr) {
+                        focused_ = (*it)->getNotifWindow();
+                    }
+                    break;
+                }
 			}
 		}
 		if (ppcEv.sfEvent.type == sf::Event::MouseMoved) {
@@ -345,6 +363,9 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
         
         for (auto it: winCopy) {
             it->registerInput(ppcEv);
+            if (it->getNotifWindow() != nullptr) {
+                it->getNotifWindow()->registerInput(ppcEv);
+            }
         }
 
     } else {
@@ -356,11 +377,17 @@ void ppc::Desktop::update(sf::Time& deltaTime){
 	//No reverse itors needed
 	for (size_t i = 0; i < windows_.size(); ) {
 		windows_.at(i)->update(deltaTime);
+        if ((windows_.at(i)->getNotifWindow() != nullptr) &&
+            (!windows_.at(i)->getNotifWindow()->isOpen())) {
+            windows_.at(i)->createNotifWindow(nullptr, true);
+            focusWindow(windows_.at(i));
+        }
 		if (!windows_.at(i)->isOpen()) {
 			delete windows_.at(i);
 			windows_.erase(windows_.begin() + i);
 			focusWindow(desktopWindow_);
-		} else {
+		}
+		else {
 			++i;
 		}
 		//dont increment if you delete it
