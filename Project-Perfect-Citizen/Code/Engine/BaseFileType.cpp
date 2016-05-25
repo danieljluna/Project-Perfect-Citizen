@@ -192,17 +192,17 @@ bool ppc::BaseFileType::comparePassword(std::string input)
     for (unsigned int i = 0; i < input.size(); i++) {
         input[i] = tolower(input[i]);
     }
-    for (unsigned int i = 0; i < password.size(); i++) {
-        password[i] = tolower(password[i]);
-    }
+    //for (unsigned int i = 0; i < password.size(); i++) {
+       // password[i] = tolower(password[i]);
+    //}
 
 	for (auto iter = passwordVector_.begin(); iter != passwordVector_.end(); iter++) {
 		std::string tempIter = (*iter);
 		for (int i = 0; i < tempIter.size(); i++) {
 			tempIter[i] = tolower(tempIter[i]);
 		}
-		if (tempIter == password) {
-			!passwordProtected;
+		if (tempIter == input) {
+			passwordProtected = false;
 			return true;
 		}
 	}
