@@ -55,8 +55,7 @@ namespace ppc {
 		/// Emum of Floppy Sequence names to integers
 		///////////////////////////////////////////////////////////////////////
 		enum FloppySequenceName {
-			Welcome = 0,
-            Pipeline,
+            Pipeline = 0,
 			Connections,
 			SelectEdge,
 			DeleteEdge,
