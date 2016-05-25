@@ -82,6 +82,7 @@ namespace ppc {
 		std::string passwordHint = "";
 		unsigned int suspicionLevel = 0;
 		std::string name = "";
+		std::vector<std::string>passwordVector_;
 
 
 	public:
@@ -156,6 +157,8 @@ namespace ppc {
 		virtual std::string getFileData();
 
 		virtual void setPassword(std::string pwd, std::string hint);
+
+		virtual void addPassword(std::string pwd);
 
 		virtual bool comparePassword(std::string input);
 

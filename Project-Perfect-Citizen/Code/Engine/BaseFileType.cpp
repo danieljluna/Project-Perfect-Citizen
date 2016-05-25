@@ -178,8 +178,13 @@ std::string BaseFileType::getFileData()
 void ppc::BaseFileType::setPassword(std::string pwd, std::string hint)
 {
 	password = pwd;
+	passwordVector_.push_back(pwd);
 	passwordProtected = true;
 	passwordHint = hint;
+}
+
+void ppc::BaseFileType::addPassword(std::string pwd) {
+	passwordVector_.push_back(pwd);
 }
 
 bool ppc::BaseFileType::comparePassword(std::string input)
@@ -187,13 +192,25 @@ bool ppc::BaseFileType::comparePassword(std::string input)
     for (unsigned int i = 0; i < input.size(); i++) {
         input[i] = tolower(input[i]);
     }
-    for (unsigned int i = 0; i < password.size(); i++) {
-        password[i] = tolower(password[i]);
-    }
-    if (input == password) {
-		passwordProtected = false;
-		return true;
+    //for (unsigned int i = 0; i < password.size(); i++) {
+       // password[i] = tolower(password[i]);
+    //}
+
+	for (auto iter = passwordVector_.begin(); iter != passwordVector_.end(); iter++) {
+		std::string tempIter = (*iter);
+		for (int i = 0; i < tempIter.size(); i++) {
+			tempIter[i] = tolower(tempIter[i]);
+		}
+		if (tempIter == input) {
+			passwordProtected = false;
+			return true;
+		}
 	}
+
+    //if (input == password) {
+		//passwordProtected = false;
+		//return true;
+	//}
 	passwordAttemps++;
 	if (passwordAttemps >= 2) {
 		std::cout << passwordHint << std::endl;
