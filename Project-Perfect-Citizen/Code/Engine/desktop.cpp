@@ -377,6 +377,11 @@ void ppc::Desktop::update(sf::Time& deltaTime){
 	//No reverse itors needed
 	for (size_t i = 0; i < windows_.size(); ) {
 		windows_.at(i)->update(deltaTime);
+        if ((windows_.at(i)->getNotifWindow() != nullptr) &&
+            (!windows_.at(i)->getNotifWindow()->isOpen())) {
+            windows_.at(i)->createNotifWindow(nullptr, true);
+            focusWindow(windows_.at(i));
+        }
 		if (!windows_.at(i)->isOpen()) {
 			delete windows_.at(i);
 			windows_.erase(windows_.begin() + i);

@@ -44,6 +44,10 @@ Window::Window(const Window& other) :
 
 
 Window::~Window() {
+    if (notifWindow_ != nullptr) {
+        delete notifWindow_;
+    }
+
     for (unsigned int i = 0; i < inputcmpnts_.size(); ++i) {
         delete inputcmpnts_[i];
         inputcmpnts_[i] = nullptr;
@@ -339,6 +343,7 @@ bool Window::createNotifWindow(WindowInterface* notifWin,
                                bool tossOld) {
     if ((tossOld) && (notifWindow_ != nullptr)) {
         delete notifWindow_;
+        notifWindow_ = nullptr;
     }
 
     bool result = (notifWindow_ == nullptr);
