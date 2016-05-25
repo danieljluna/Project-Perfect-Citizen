@@ -257,6 +257,5 @@ bool ppc::displayFileInfo(Desktop* desk, Event ev) {
 }
 
 bool ppc::returnToLogin(Desktop* desk, Event ev) {
-	World::loadDesktop(World::DELogin);
 	return true;
 }
