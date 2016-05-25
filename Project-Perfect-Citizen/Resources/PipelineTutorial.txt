@@ -17,7 +17,8 @@ Default: Now press "Z" to remove it
 Default: Please close and relaunch the graph application to continue
 -Goal: T 0.0
 Default: Select a photo to read that person's SMS conversations
-Default: Use the conversations on the right to indicate all of the connections
+Default: Citizens are reffered to by their Database Identification Number (DIN)
+Default: Use the letters in the DIN and the conversations on the right to indicate all connections
 -ColorChange: T 0.0
 Default: Select a connection to view the conversations between those two people
 Default: Press "Space" to switch the color of the connection
