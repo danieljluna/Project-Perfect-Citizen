@@ -67,6 +67,10 @@ namespace ppc {
 			Center,
 			Submission,
 			Feedback,
+            EdgeSelectionHelper,
+            CircleDelay,
+            CircleDelete,
+            CircleFinishHelper,
 			DesktopStart,
 			Email,
 			Explorer,
@@ -76,11 +80,7 @@ namespace ppc {
 			Scanning,
 			DeskSubmission,
 			Wrapup,
-			ResponseStart = 100,
-			EdgeSelectionHelper,
-			CircleDelay,
-			CircleDelete,
-			CircleFinishHelper
+			ResponseStart = 100
 		};
 
 
