@@ -1,5 +1,8 @@
 #include "../Engine/debug.h"
+#include "../Engine/event.h"
+#include "../Engine/Entity.h"
 #include "TextBoxRenderComponent.h"
+
 
 
 using namespace ppc;
@@ -59,16 +62,46 @@ void TextBoxRenderComponent::setIsMasked(bool m)
 	isMasked = m;
 }
 
+void ppc::TextBoxRenderComponent::toggleCursorRender()
+{
+	renderCursor = !renderCursor;
+}
+
+void ppc::TextBoxRenderComponent::setCursorRender(bool r)
+{
+	renderCursor = r;
+}
+
+std::string ppc::TextBoxRenderComponent::getString()
+{
+	return labelString;
+}
+
 void TextBoxRenderComponent::updateLabelString(std::string str) {
 	labelString = str;
-	if (isMasked) {
-		labelString.replace(0, str.length(), str.length(), '*');
-	}
-	outline->setString(labelString+"|");
+
+	if (isMasked) labelString.replace(0, str.length(), str.length(), '*');
+
+	if (renderCursor)
+		outline->setString(labelString+"|");
+	else 
+		outline->setString(labelString);
 }
 
 void TextBoxRenderComponent::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
+
 	target.draw(*(this->outline), states);
 	//target.draw(*(this->text), states);
+}
+
+
+bool ppc::blink_cursor(TextBoxRenderComponent * tbr, ppc::Event ev)
+{
+	tbr->toggleCursorRender();
+	tbr->updateLabelString(tbr->getString());
+	ev.type = Event::EventTypes::TimerType;
+	ev.timer.action = Event::TimerEv::timerState::Reset;
+	tbr->getEntity()->broadcastMessage(ev);
+	return true;
 }

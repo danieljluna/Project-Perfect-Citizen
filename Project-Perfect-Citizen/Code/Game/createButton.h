@@ -96,4 +96,6 @@ bool LogOff(Desktop*, Event);
 
 bool displayFileInfo(Desktop*, Event);
 
+bool returnToLogin(Desktop*, Event); 
+
 };

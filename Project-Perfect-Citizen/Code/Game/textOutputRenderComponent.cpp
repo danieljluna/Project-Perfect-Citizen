@@ -141,12 +141,12 @@ void textOutputRenderComponent::updateString(std::vector<std::string> cmd) {
 			firstFlagCommand.push_back(cmd.at(1));
 			commandFn firstLs = findFunction("flag");
 			firstLs(fileTree_, firstFlagCommand);
-			str_ = str_ + " " + cmd.at(1) + " submitted for processing.";
+			str_ = str_ + " " + cmd.at(1) + " submitted for processing.\n";
 		}
 		else {
 			str_ = str_ + " Unable to find " + cmd.at(1) + ".";
 		}
-		numDisplayedLines++;
+		numDisplayedLines+=2;
 		
 		WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
 		spawnFileTracker(*theDesktop_, fileTracker, fileTracker->getInputHandler(), 250, 50);
@@ -234,8 +234,6 @@ void textOutputRenderComponent::updateString(std::vector<std::string> cmd) {
         str_ = str_ + "help                       basic help for commands\n";
         str_ = str_ + "pwd                        prints the working directory\n";
         str_ = str_ + "cd [path]                  changes the current directory\n";
-        str_ = str_ + "make [filename] [content]  creates a new text file\n";
-        str_ = str_ + "mkdir [name]               creates a new directory\n";
         str_ = str_ + "unlock [name] [password]   attempts to open a locked directory\n";
         str_ = str_ + "ls                         lists the contents of the current\n";
         str_ = str_ + "                           working directory\n";
@@ -258,6 +256,7 @@ void textOutputRenderComponent::updateString(std::vector<std::string> cmd) {
 			float(theWindow_->getBounds().width),
 			float(theWindow_->getBounds().height)
 		};
+		
 		//dynamic_cast<ScrollBarDecorator*>(theWindow_)->move(0, numDisplayedLines - maxDisplayedLines);
 		theWindow_->setView(sf::View(viewRect));
 	}
