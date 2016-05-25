@@ -15,13 +15,17 @@
 #endif
 
 ///////////////////////////////////////////////////////////
-
 #include "../Engine/debug.h"
 #include "desktopExtractionComponent.hpp"
-#include "../Library/json/json.h"
-#include "../Game/TreeCommands.h"
+
 #include <iostream>
 #include <fstream>
+
+#include "../Library/json/json.h"
+#include "../Game/TreeCommands.h"
+#include "../Engine/BaseFileType.h"
+
+
 
 using namespace ppc;
 

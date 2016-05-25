@@ -3,10 +3,11 @@
 #include "debug.h"
 #include "BaseFileType.h"
 #include "desktop.h"
-#include "../../Code/Game/createWindow.h"
+#include "../Game/createWindow.h"
 #include <stdio.h>
 #include <ctype.h>
 #include "World.h"
+#include "Window.h"
 
 using namespace ppc;
 
@@ -71,12 +72,12 @@ void BaseFileType::readFile(std::string filename, std::string path)
 	switch (this->filetype) {
 	case FileType::File:
 		FileWindow = new ppc::Window(500, 500, sf::Color(255, 255, 255));
-		spawnFile(FileWindow, FileWindow->getInputHandler(), rand() % 500 + 25, rand() % 400 + 25, filename, path);
+		spawnFile(FileWindow, FileWindow->getInputHandler(), static_cast<float>(rand() % 500 + 25), static_cast<float>(rand() % 400 + 25), filename, path);
 		World::getCurrDesktop().addWindow(FileWindow);
 		std::cout << path << std::endl;
 		break;
 	case FileType::Directory:
-		std::cout << "use CD instead" << endl;
+		std::cout << "use CD instead" << std::endl;
 		break;
 	default:
 		break;
@@ -119,12 +120,12 @@ BaseFileType* BaseFileType::makeDir(std::string filename)
 ppc::BaseFileType * ppc::BaseFileType::findElement(std::string filename)
 {
     std::string lowerCaseFilename = filename;
-    for (int i = 0; i < lowerCaseFilename.size(); i++) {
+    for (unsigned int i = 0; i < lowerCaseFilename.size(); i++) {
         lowerCaseFilename[i] = tolower(lowerCaseFilename[i]);
     }
 	for (auto iter = this->contents.begin(); iter != this->contents.end(); iter++) {
         std::string lowerCaseIter = iter->first;
-        for (int i = 0; i < lowerCaseIter.size(); i++) {
+        for (unsigned int i = 0; i < lowerCaseIter.size(); i++) {
             lowerCaseIter[i] = tolower(lowerCaseIter[i]);
         }
 		if (lowerCaseIter == lowerCaseFilename) {
@@ -188,10 +189,10 @@ void ppc::BaseFileType::addPassword(std::string pwd) {
 
 bool ppc::BaseFileType::comparePassword(std::string input)
 {
-    for (int i = 0; i < input.size(); i++) {
+    for (unsigned int i = 0; i < input.size(); i++) {
         input[i] = tolower(input[i]);
     }
-    for (int i = 0; i < password.size(); i++) {
+    for (unsigned int i = 0; i < password.size(); i++) {
         password[i] = tolower(password[i]);
     }
 

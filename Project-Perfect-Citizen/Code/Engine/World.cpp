@@ -11,6 +11,7 @@
 
 #include "debug.h"
 #include "../Engine/SuspiciousFileHolder.h"
+#include "SetUpDesktops.h"
 
 using namespace ppc;
 
@@ -19,6 +20,8 @@ sf::RenderWindow* World::screen_ = nullptr;
 Desktop* World::currDesktop_ = nullptr;
 sf::Transform World::worldTransform_;
 sf::RectangleShape World::blackBars_[2] = {sf::RectangleShape(), sf::RectangleShape()};
+
+bool World::progToNext_ = true;
 
 std::map<ppc::World::DesktopList, ppc::LevelPacket> World::levelMap_ = {
 
@@ -29,9 +32,12 @@ std::map<std::string, World::savGroups> World::saveGroupMap_ = {
     { "State",         World::StateTag     }
 };
 
-World::DesktopList World::currDesktopEnum_ = DE0A;
+World::DesktopList World::currDesktopEnum_ = DELogo;
 World::ReportType World::currReportType_ = A;
 std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
+	{ World::DELogo, resourcePath() + "Engine/bootDesktop.ini" },
+	{ World::DEOpening, resourcePath() + "Engine/bootDesktop.ini" },
+	{ World::DELogin, resourcePath() + "Engine/loginDesktop.ini" },
 	{ World::DE0A, resourcePath() + "Engine/pipelineTutorial.ini" },
 	{ World::DE0B, resourcePath() + "Engine/desktopTutorial.ini" },
 	{ World::DEPlayer1, resourcePath() + "Engine/playerDesktop.ini" },
@@ -42,7 +48,26 @@ std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
 	{ World::DE2B, resourcePath() + "Engine/politicianDesktop.ini" },
 	{ World::DEPlayer3, resourcePath() + "Engine/playerDesktop3.ini" },
 	{ World::DE3, resourcePath() + "Engine/hackerDesktop.ini" },
+	{ World::DEEnd, resourcePath() + "Engine/endDesktop.ini" },
     { World::DesktopCount, ""}  //Empty pairing of Count to string.
+};
+
+std::map<World::DesktopList, World::desktopLoaders> World::loaderMap_ = {
+	{World::DELogo, setUpLogoDesktop },
+	{ World::DEOpening, setUpBootDesktop },
+	{ World::DELogin, setUpLoginDesktop },
+	{ World::DE0A, createTutorial },
+	{ World::DE0B, createDesktopTutorial },
+	{ World::DEPlayer1, setUpPlayerDesktop },
+	{ World::DE1, setUpTeacherDesktop },
+	{ World::DEPlayer2A, setUpPlayerDesktop },
+	{ World::DEPlayer2B, setUpPlayerDesktop },
+	{ World::DE2A, setUpArtistDesktop },
+	{ World::DE2B, setUpPoliticianDesktop },
+	{ World::DEPlayer3,setUpPlayerDesktop },
+	{ World::DE3, setUpHackerDesktop },
+	{ World::DEEnd, setUpEndDesktop },
+	{ World::DesktopCount, nullptr }  //Empty pairing of Count to nullptr.
 };
 
 std::map<World::FontList, sf::Font> World::fontMap_ = {
@@ -68,15 +93,15 @@ std::map <std::pair<World::DesktopList, World::ReportType>, std::string > World:
 	{ { DE2A, C }, resourcePath() + "Reports/ArtistReportC.txt" },
 	{ { DE2A, D }, resourcePath() + "Reports/ArtistReportD.txt" },
 
-	{ { DE2B, A }, resourcePath() + "Reports/sampleReport.txt" },
-	{ { DE2B, B }, resourcePath() + "Reports/sampleReport.txt" },
-	{ { DE2B, C }, resourcePath() + "Reports/sampleReport.txt" },
-	{ { DE2B, D }, resourcePath() + "Reports/sampleReport.txt" },
+	{ { DE2B, A }, resourcePath() + "Reports/PoliticianReportA.txt" },
+	{ { DE2B, B }, resourcePath() + "Reports/PoliticianReportB.txt" },
+	{ { DE2B, C }, resourcePath() + "Reports/PoliticianReportC.txt" },
+	{ { DE2B, D }, resourcePath() + "Reports/PoliticianReportD.txt" },
 
-	{ { DE3, A }, resourcePath() + "Reports/sampleReport.txt" },
-	{ { DE3, B }, resourcePath() + "Reports/sampleReport.txt" },
-	{ { DE3, C }, resourcePath() + "Reports/sampleReport.txt" },
-	{ { DE3, D }, resourcePath() + "Reports/sampleReport.txt" },
+	{ { DE3, A }, resourcePath() + "Reports/HackerReportA.txt" },
+	{ { DE3, B }, resourcePath() + "Reports/HackerReportB.txt" },
+	{ { DE3, C }, resourcePath() + "Reports/HackerReportC.txt" },
+	{ { DE3, D }, resourcePath() + "Reports/HackerReportD.txt" },
 
 };
 
@@ -96,6 +121,18 @@ bool World::isLoading_ = false;
 Setting World::settings_;
 
 void ppc::World::initLevelMap() {
+
+	LevelPacket levelGameLogo;
+	levelGameLogo.pushNext(DEOpening, 1);
+	levelMap_.emplace(DELogo, levelGameLogo);
+
+	LevelPacket levelGameOpening;
+	levelGameOpening.pushNext(DELogin, 1);
+	levelMap_.emplace(DEOpening, levelGameOpening);
+
+	LevelPacket levelLoginScreen;
+	levelLoginScreen.pushNext(DE0A, 1);
+	levelMap_.emplace(DELogin, levelLoginScreen);
 
 	LevelPacket levelTutorialPipeline;
 	levelTutorialPipeline.pushNext(DE0B, 1);
@@ -132,8 +169,36 @@ void ppc::World::initLevelMap() {
 	levelMap_.emplace(DEPlayer3, levelPlayer3);
 
 	LevelPacket levelThree;
+	levelThree.pushNext(DEEnd, 1);
 	levelMap_.emplace(DE3, levelThree);
 
+	LevelPacket levelEnd;
+	levelEnd.pushNext(DesktopCount, 1);
+	levelMap_.emplace(DEEnd, levelEnd);
+
+}
+
+void ppc::World::setLevel(int levelEnum, int score) {
+	if (levelEnum >= (int)World::DesktopCount) {
+		currDesktopEnum_ = DELogo;
+		return;
+	}
+
+	if (progToNext_) {
+		World::DesktopList nextD =
+			(DesktopList)levelMap_.at((DesktopList)levelEnum).getNext(score);
+
+		currDesktopEnum_ = nextD;
+	} else {
+		World::currDesktopEnum_ = (World::DesktopList)levelEnum;
+		progToNext_ = true;
+	}
+
+
+}
+
+void ppc::World::goBack() {
+	progToNext_ = false;
 }
 
 void World::setGameScreen(sf::RenderWindow& gameScreen) {
@@ -196,6 +261,10 @@ void World::setCurrDesktop(Desktop &d) {
 
 void ppc::World::setCurrDesktopEnum(DesktopList dl) {
 	currDesktopEnum_ = dl;
+}
+
+World::DesktopList ppc::World::getCurrDesktopEnum() {
+	return currDesktopEnum_;
 }
 
 sf::RenderWindow& World::getGameScreen() {

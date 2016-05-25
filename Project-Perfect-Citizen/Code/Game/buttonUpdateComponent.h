@@ -1,14 +1,17 @@
 #pragma once
-
-#include <SFML/Graphics.hpp>
-#include "../Engine/updateComponent.h"
-#include "buttonRenderComponent.h"
-#include "textInputRenderComponent.hpp"
-#include "textInputKeys.hpp"
-#include "../Engine/NodeState.h"
 #include <iostream>
 
+#include <SFML/System/Vector2.hpp>
+
+#include "../Engine/updateComponent.h"
+
+namespace sf {
+	class Time;
+}
+
 namespace ppc {
+	class buttonRenderComponent;
+
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Update Component for a button

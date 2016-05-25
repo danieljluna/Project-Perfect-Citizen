@@ -1,12 +1,12 @@
 #pragma once
 
-#include "../Engine/inputComponent.h"
-#include "../Engine/desktop.h"
-#include "../Engine/WindowInterface.h"
-#include "../Engine/NodeState.h"
 #include <iostream>
 
+#include "../Engine/inputComponent.h"
+
 namespace ppc {
+	class Desktop;
+	class WindowInterface;
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Designated input component for explorer files

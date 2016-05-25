@@ -314,6 +314,6 @@ namespace ppc {
 	///////////////////////////////////////////////////////////////////////
 	///@brief Used by operator>> in World to import Desktops from files.
 	///////////////////////////////////////////////////////////////////////
-	std::ifstream& operator>>(std::ifstream& in, Desktop& desktop);
+	std::ifstream& operator>>(std::ifstream& in, ppc::Desktop& desktop);
 
 };

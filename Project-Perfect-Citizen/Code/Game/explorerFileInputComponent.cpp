@@ -1,14 +1,22 @@
 #include "../Engine/debug.h"
 #include "explorerFileInputComponent.h"
+
 #include <iostream>
 #include <string>
+
+#include <SFML/Graphics/Image.hpp>
 
 #include "../Engine/FreeFunctionObserver.h"
 #include "../Engine/BaseFileType.h"
 #include "../Engine/SuspiciousFileHolder.h"
-#include "ContextBuilder.h"
 #include "../Engine/World.h"
 #include "../Engine/SubjectObsvr.h"
+#include "../Engine/Window.h"
+#include "../Engine/desktop.h"
+
+#include "ContextBuilder.h"
+#include "TreeCommands.h"
+#include "createWindow.h"
 
 using namespace ppc;
 
@@ -167,7 +175,7 @@ NodeState ppc::explorerFileInputComponent::getFileNodeState()
 	return theFileTree_;
 }
 
-string ppc::explorerFileInputComponent::getFileName()
+std::string ppc::explorerFileInputComponent::getFileName()
 {
 	return fileName;
 }
@@ -185,7 +193,7 @@ bool ppc::open_file(explorerFileInputComponent* ptr, ppc::Event ev) {
 bool ppc::flag_file(explorerFileInputComponent* ptr, ppc::Event ev) {
 	ppc::BaseFileType* tempBFT = ptr->getFileNodeState().getCwd()->findElement(ptr->getFileName());
 	if (tempBFT != nullptr) {
-		std::vector<string> firstFlagCommand;
+		std::vector<std::string> firstFlagCommand;
 		firstFlagCommand.push_back("flag");
 		firstFlagCommand.push_back(ptr->getFileName());
 		commandFn firstLs = findFunction("flag");
@@ -193,7 +201,7 @@ bool ppc::flag_file(explorerFileInputComponent* ptr, ppc::Event ev) {
 		firstLs(temp, firstFlagCommand);
 	}
 	else {
-		cout << "SHOW ERROR MESSAGE" << endl;
+		std::cout << "SHOW ERROR MESSAGE" << std::endl;
 	}
 
 	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);

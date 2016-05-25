@@ -1,10 +1,6 @@
 #pragma once
 
-#include "../Engine/InputHandler.h"
-#include "emailListElementRenderComponent.h"
-#include "emailListElementInputComponent.h"
-#include "../Engine/Entity.h"
-#include "Email.h"
+#include <string>
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief A toolkit of functions that sets up a list element in an app
@@ -15,8 +11,19 @@
 /// the input handler you pass is unique to that window.
 ///////////////////////////////////////////////////////////////////////
 
+namespace sf {
+	class Image;
+	class Font;
+};
+
 namespace ppc {
-	
+	class Entity;
+	class InputHandler;
+	class Email;
+	class Desktop;
+	class WindowInterface;
+	class Event;
+
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Creates one element of an email list inside of the inbox
 	/// @author Alex Vincent 
@@ -62,4 +69,4 @@ namespace ppc {
 	void createContextListElement(ppc::Entity& entityToModify, WindowInterface* win, Desktop& dt, ppc::InputHandler& ih,
 		sf::Font& f, std::string s, bool(*func)(Desktop* desk, Event ev), int boxX, int boxY, int boxWidth, int boxHeight, int x, int y, int size);
 
-}
+};

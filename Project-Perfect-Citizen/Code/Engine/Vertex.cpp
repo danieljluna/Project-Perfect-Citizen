@@ -5,12 +5,20 @@
 #endif
 
 #include "Vertex.h"
+#include "debug.h"
+
+#include <iostream>
 
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
 
-#include "debug.h"
-#include <iostream>
+#include "InputHandler.h"
+#include "DraggableInput.h"
+
+#include "../Game/characterRender.hpp"
+
+
+
 const int ppc::Vertex::fontSize_ = 20;
 const float ppc::Vertex::radius_ = 30.f;
 

@@ -1,13 +1,11 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
+#include <SFML/System/Time.hpp>
+
 #include "../Engine/updateComponent.h"
-#include "buttonRenderComponent.h"
-#include "textInputRenderComponent.hpp"
-#include "textInputKeys.hpp"
-#include "../Engine/NodeState.h"
 
 namespace ppc {
+	class NodeState;
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Update Component for Console window
@@ -20,8 +18,8 @@ class consoleUpdateComponent : public UpdateComponent {
 private:
 	ppc::NodeState& fileTree;
     bool canParse;
-	string lastCommand;
-    std::vector<string> commandVec;
+	std::string lastCommand;
+    std::vector<std::string> commandVec;
 
 public:
 	///////////////////////////////////////////////////////////////////////
@@ -43,7 +41,7 @@ public:
 	/// @brief Converts the passed string into a useable vector that the
 	/// function map will read
 	///////////////////////////////////////////////////////////////////////
-	void executeCommand(std::vector<string> cmd);
+	void executeCommand(std::vector<std::string> cmd);
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Default destructor

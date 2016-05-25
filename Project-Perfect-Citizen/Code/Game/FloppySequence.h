@@ -21,6 +21,10 @@ struct FloppySequence {
     bool needTrigger = true;
     //The aforementioned trigger
     Event Trigger;
+
+    //If has wait Trigger
+    bool hasWaitSeq = false;
+    sf::Time waitTime;
 };
 
 

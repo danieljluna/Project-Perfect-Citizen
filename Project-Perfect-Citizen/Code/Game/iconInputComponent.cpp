@@ -1,15 +1,18 @@
 #include "../Engine/debug.h"
 #include "iconInputComponent.h"
+
+
 #include <iostream>
 #include <string>
+
 #include "../Engine/desktop.h"
-#include "../Game/emailExtraction.hpp"
-#include "../Engine/Audio/AudioQueue.h"
-#include "../Game/ContextBuilder.h"
 #include "../Engine/World.h"
+#include "../Engine/Window.h"
+
 #include "TreeCommands.h"
-
-
+#include "ContextBuilder.h"
+#include "emailExtraction.hpp"
+#include "createWindow.h"
 
 using namespace ppc;
 
@@ -53,52 +56,52 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
 			case Event::OpenEv::Email:
 				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
 				listElements.push_back(listElement);
-				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				spawnContextMenu(ContextMenu, listElements, static_cast<float>(ev.buttons.mousePos.x), static_cast<float>(ev.buttons.mousePos.y));
 				break;
             case Event::OpenEv::Browser:
 				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
 				listElements.push_back(listElement);
-				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				spawnContextMenu(ContextMenu, listElements, static_cast<float>(ev.buttons.mousePos.x), static_cast<float>(ev.buttons.mousePos.y));
                 break;
             case Event::OpenEv::HardDrive:
 				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
 				listElements.push_back(listElement);
-				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				spawnContextMenu(ContextMenu, listElements, static_cast<float>(ev.buttons.mousePos.x), static_cast<float>(ev.buttons.mousePos.y));
                 break;
             case Event::OpenEv::Help:
 				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
 				listElements.push_back(listElement);
-				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				spawnContextMenu(ContextMenu, listElements, static_cast<float>(ev.buttons.mousePos.x), static_cast<float>(ev.buttons.mousePos.y));
                 break;
             case Event::OpenEv::Pipeline:
 				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
 				listElements.push_back(listElement);
-				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				spawnContextMenu(ContextMenu, listElements, static_cast<float>(ev.buttons.mousePos.x), static_cast<float>(ev.buttons.mousePos.y));
                 break;
             case Event::OpenEv::Search:
 				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
 				listElements.push_back(listElement);
-				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				spawnContextMenu(ContextMenu, listElements, static_cast<float>(ev.buttons.mousePos.x), static_cast<float>(ev.buttons.mousePos.y));
                 break;
             case Event::OpenEv::Chat:
 				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
 				listElements.push_back(listElement);
-				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				spawnContextMenu(ContextMenu, listElements, static_cast<float>(ev.buttons.mousePos.x), static_cast<float>(ev.buttons.mousePos.y));
                 break;
             case Event::OpenEv::Settings:
 				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
 				listElements.push_back(listElement);
-				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				spawnContextMenu(ContextMenu, listElements, static_cast<float>(ev.buttons.mousePos.x), static_cast<float>(ev.buttons.mousePos.y));
                 break;
             case Event::OpenEv::Folder:
 				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
 				listElements.push_back(listElement);
-				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				spawnContextMenu(ContextMenu, listElements, static_cast<float>(ev.buttons.mousePos.x), static_cast<float>(ev.buttons.mousePos.y));
                 break;
             case Event::OpenEv::Console:
 				createWithEventFunc(builder, listElement, this, ppc::make_icon_window);
 				listElements.push_back(listElement);
-				spawnContextMenu(ContextMenu, listElements, ev.buttons.mousePos.x, ev.buttons.mousePos.y);
+				spawnContextMenu(ContextMenu, listElements, static_cast<float>(ev.buttons.mousePos.x), static_cast<float>(ev.buttons.mousePos.y));
                 break;
             }
 
@@ -215,27 +218,27 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
 				}
 				else {
 					tempWin = new ppc::Window(600, 350, sf::Color(255, 255, 255));
-					NodeState* tempNS = theDesktop_.getNodeState(); // <-- Not returning copy
+					NodeState tempNS = *theDesktop_.getNodeState();
 					
 					/* Check to make sure the folder is not password protected */
-					if (tempNS->getCwd()->findElement(labelName)->isPasswordProtected() &&
+					if (tempNS.getCwd()->findElement(labelName)->isPasswordProtected() &&
 						labelName.compare("..") != 0) {
 						ppc::WindowInterface* ErrorMsgWindow =
 							new ppc::Window(500, 150, sf::Color(170, 170, 170));
 						spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), buttonSheet_,
 							250,
 							250,
-							"Error: " + labelName + " is protected. \nHint: " + tempNS->getCwd()->findElement(labelName)->getHint(), "Directory is locked");
+							"Error: " + labelName + " is protected. \nHint: " + tempNS.getCwd()->findElement(labelName)->getHint(), "Directory is locked");
 						theDesktop_.addWindow(ErrorMsgWindow);
 					}
 					else {
-						std::vector<string> cdCommand;
-						string cd = "cd";
+						std::vector<std::string> cdCommand;
+						std::string cd = "cd";
 						cdCommand.push_back(cd);
 						cdCommand.push_back(labelName);
 						commandFn newCD = findFunction(cd);
-						newCD(*tempNS, cdCommand);
-						spawnExplorer(theDesktop_, tempWin, tempWin->getInputHandler(), *tempNS, buttonSheet_, iconSheet_, 100, 200);
+						newCD(tempNS, cdCommand);
+						spawnExplorer(theDesktop_, tempWin, tempWin->getInputHandler(), tempNS, buttonSheet_, iconSheet_, 100, 200);
 						theDesktop_.addWindow(tempWin);
 						openedWindow = tempWin;
 					}

@@ -20,7 +20,10 @@ namespace ppc {
 
         enum DesktopList {
             //Fill with Enums as input files are made
-			DE0A = 0,
+			DELogo = 0,
+			DEOpening,
+			DELogin,
+			DE0A,
 			DE0B,
 			DEPlayer1,
 			DE1,
@@ -30,6 +33,7 @@ namespace ppc {
 			DE2B,
 			DEPlayer3,
 			DE3,
+			DEEnd,
             DesktopCount
         };
 
@@ -49,13 +53,30 @@ namespace ppc {
 		};
 
 
-		static std::map<DesktopList, ppc::LevelPacket> levelMap_;
-		static void initLevelMap();
 		///////////////////////////////////////////////////////////////
 		// Ctors
 		///////////////////////////////////////////////////////////////
 		World() = delete;
 
+		///////////////////////////////////////////////////////////////
+		// World std::Maps
+		///////////////////////////////////////////////////////////////
+		static std::map<DesktopList, std::string> desktopFileMap_;
+
+		static std::map<DesktopList, ppc::LevelPacket> levelMap_;
+		static void initLevelMap();
+		static void setLevel(int, int);
+
+		/////////////////////////////////////////////////////////////
+		///@brief Signifies to the World that the next level to be
+		/// loaded is a previous level
+		/////////////////////////////////////////////////////////////
+		static void goBack();
+
+
+		using desktopLoaders = void(*)(ppc::Desktop&);
+
+		static std::map<DesktopList, desktopLoaders> loaderMap_;
       /////////////////////////////////////////////////////////////////
       // Setters
       /////////////////////////////////////////////////////////////////
@@ -74,7 +95,7 @@ namespace ppc {
 		static void setCurrDesktop(ppc::Desktop&);
 
 		static void setCurrDesktopEnum(DesktopList);
-
+		static DesktopList getCurrDesktopEnum();
 		///////////////////////////////////////////////////////////////
 		///@brief Returns a pointer to the Game Screen
 		///////////////////////////////////////////////////////////////
@@ -185,9 +206,9 @@ namespace ppc {
 		static DesktopList currDesktopEnum_;
 		static ReportType currReportType_;
 
+		static bool progToNext_
+			;
         static bool quitter_;
-
-        static std::map<DesktopList, std::string> desktopFileMap_;
 
 		static std::map<FontList, sf::Font> fontMap_;
 

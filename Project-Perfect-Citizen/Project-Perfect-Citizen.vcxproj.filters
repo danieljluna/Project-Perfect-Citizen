@@ -381,7 +381,18 @@
     <ClCompile Include="Code\Engine\LevelPacket.cpp">
       <Filter>Sources\Engine\World</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\ReportEndObsvr.cpp" />
+    <ClCompile Include="Code\Engine\SetUpDesktops.cpp">
+      <Filter>Sources\Engine\World</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\ReportEndObsvr.cpp">
+      <Filter>Sources\Game Specific\Reports</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\startBarRenderComponent.cpp">
+      <Filter>Sources\Game Specific</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\startBarUpdateComponent.cpp">
+      <Filter>Sources\Game Specific</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -790,6 +801,12 @@
     </ClInclude>
     <ClInclude Include="Code\Game\ReportEndObsvr.h">
       <Filter>Headers\Game Specific\Reports</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Engine\SetUpDesktops.h">
+      <Filter>Headers\Engine\World</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\startBarUpdateComponent.hpp">
+      <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

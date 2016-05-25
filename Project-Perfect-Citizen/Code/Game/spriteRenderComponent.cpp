@@ -8,6 +8,7 @@
 
 #include "spriteRenderComponent.hpp"
 
+using namespace ppc;
 
 spriteRenderComponent::spriteRenderComponent(sf::Image& i, float x, float y, float w, float h):image(i) {
     this->sprite = new sf::Sprite();
@@ -16,11 +17,14 @@ spriteRenderComponent::spriteRenderComponent(sf::Image& i, float x, float y, flo
 
     texture->setRepeated(true);
     /* Check that the file exists in the path */
-    if (!texture->loadFromImage(image, sf::IntRect(x*size,y*size,w*size,h*size)))
-        std::exit(-1);
+	if (!texture->loadFromImage(image, sf::IntRect(static_cast<int>(x*size),
+		static_cast<int>(y*size), static_cast<int>(w*size), static_cast<int>(h*size)))) {
+		std::exit(-1);
+	}
     
     sprite->setTexture(*texture);
-    sprite->setTextureRect(sf::IntRect(x*size,y*size,w*size,h*size));
+    sprite->setTextureRect(sf::IntRect(static_cast<int>(x*size), 
+		static_cast<int>(y*size), static_cast<int>(w*size), static_cast<int>(h*size)));
     sprite->setPosition(0, 0);
     sprite->setScale(1.f, 1.f);
 

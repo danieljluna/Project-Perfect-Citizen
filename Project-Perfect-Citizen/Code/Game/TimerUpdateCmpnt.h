@@ -1,12 +1,11 @@
 #pragma once
+#include <vector>
+
+#include <SFML/System/Time.hpp>
 
 #include "../Engine/updateComponent.h"
 #include "../Engine/event.h"
 #include "../Engine/subject.h"
-
-#include <SFML/System/Time.hpp>
-
-#include <vector>
 
 namespace ppc {
 
