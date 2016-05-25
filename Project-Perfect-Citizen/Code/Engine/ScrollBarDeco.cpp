@@ -310,10 +310,10 @@ void ScrollBarDecorator::updateView() {
 void ScrollBarDecorator::initialize(sf::Image img) {
 
     //Set up Observers
-    obsvrs_[1] = new FreeFunctionObserver<ScrollBarDecorator>(
-        onButtonUp, this);
     obsvrs_[2] = new FreeFunctionObserver<ScrollBarDecorator>(
         onButtonDown, this);
+    obsvrs_[1] = new FreeFunctionObserver<ScrollBarDecorator>(
+        onButtonUp, this);
 
     //Set ScrollBar Color
     scrollBars_.setFillColor({ 110, 110, 110 });
@@ -359,7 +359,7 @@ void ScrollBarDecorator::initialize(sf::Image img) {
         WindowDecorator::addInputComponent(buttonInputs_[i]);
 
         //Add Observer to Buttons
-        buttonInputs_[i]->onRelease().addObserver(obsvrs_[i]);
+        buttonInputs_[i]->onRelease().addObserver(obsvrs_[i + 1]);
 
 
     }   //End For Loop
@@ -383,19 +383,27 @@ bool ppc::onSliderDrag(ScrollBarDecorator* sb, Event ev) {
 }
 
 bool ppc::onButtonUp(ScrollBarDecorator* sb, Event ev) {
-    sf::View v = sb->getView();
-    v.move({ 0.0f, -10.0f });
-    sb->setView(v);
-    sb->updateSliders();
+    float spaceLeft = sb->scrollBars_.getPosition().y - 
+                sb->scrollBackgrounds_.getPosition().y;
+    if (spaceLeft >= 15) {
+        sb->scrollBars_.move(0, -15);
+    } else {
+        sb->scrollBars_.move(0, -spaceLeft);
+    }
+    sb->updateView();
 
     return true;
 }
 
 bool ppc::onButtonDown(ScrollBarDecorator* sb, Event ev) {
-    sf::View v = sb->getView();
-    v.move({ 0.0f, 10.0f });
-    sb->setView(v);
-    sb->updateSliders();
+    float spaceLeft = (sb->scrollBackgrounds_.getPosition().y + sb->scrollBackgrounds_.getSize().y) - 
+        (sb->scrollBars_.getPosition().y + sb->scrollBars_.getSize().y);
+    if (spaceLeft >= 15) {
+        sb->scrollBars_.move(0, 15);
+    } else {
+        sb->scrollBars_.move(0, spaceLeft);
+    }
+    sb->updateView();
 
     return true;
 }
