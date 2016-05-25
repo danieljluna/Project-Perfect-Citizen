@@ -162,10 +162,10 @@ std::pair<std::string, bool> expr::ExpressionistParser::fireWithJson(const Json:
 bool makeComparison(const std::string& str1, const std::string& str2, const std::string& oper) {
 	//std::cout << "strcmp: " << str1 << oper << str2 << std::endl;
 	
-	if (oper.compare("==")) {
+	if (oper.compare("==") == 0) {
 		return (str1.compare(str2) == 0);
 	}
-	else if (oper.compare("!=")) {
+	else if (oper.compare("!=") == 0) {
 		return (str1.compare(str2) != 0);
 	}
 	return false;
@@ -209,7 +209,7 @@ bool expr::ExpressionistParser::checkMarkUpPreconditions(const Json::Value& mark
 			//std::cout << "CurrCond = " << currCond << " markupNames[i] = " << markupNames[i] << std::endl;
 			size_t firstspace = currCond.find_first_of(" ");
 			req = currCond.substr(0, firstspace);
-			oper = currCond.substr(firstspace + 1, currCond.length() - currCond.find_last_of(" ") - 1);
+			oper = currCond.substr(firstspace + 1, (currCond.find_last_of(" ") - firstspace) - 1);
 			value = currCond.substr(currCond.find_last_of(" ") + 1, std::string::npos);
 			if (markupNames[i].compare("agePreconditions") == 0) {
 				//std::cout << "Making Age Comparison" << std::endl;
@@ -224,9 +224,10 @@ bool expr::ExpressionistParser::checkMarkUpPreconditions(const Json::Value& mark
 						makeComparison("ClearlySuspicious", value, oper))) return false;
 				}
 				else {
-					if (!(makeComparison("ClearlyClean", value, oper) ||
-						makeComparison("SlightlySuspicious", value, oper) ||
-						makeComparison("Ambiguous", value, oper))) return false;
+					if (makeComparison("ClearlyClean", value, oper)) continue;
+					if (makeComparison("SlightlySuspicious", value, oper)) continue;
+					if (makeComparison("Ambiguous", value, oper)) continue;
+					return false;
 				}
 				continue;
 			}
