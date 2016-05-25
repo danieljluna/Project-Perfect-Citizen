@@ -67,6 +67,7 @@ namespace ppc {
         
         int getMaxSize();
 		ppc::Subject& getInboxSubject();
+		int getUnreadEmailCount();
 
 	protected:
 		std::vector<ppc::Email*> messageList;
