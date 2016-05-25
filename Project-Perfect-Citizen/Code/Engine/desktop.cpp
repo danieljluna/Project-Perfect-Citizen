@@ -381,7 +381,8 @@ void ppc::Desktop::update(sf::Time& deltaTime){
 			delete windows_.at(i);
 			windows_.erase(windows_.begin() + i);
 			focusWindow(desktopWindow_);
-		} else {
+		}
+		else {
 			++i;
 		}
 		//dont increment if you delete it

@@ -112,7 +112,6 @@ bool mousePressButton::registerInput(Event ppcEv) {
         /* Case: Mouse Pressed Event*/
         if (ev.type == sf::Event::MouseButtonPressed) {
             if (isCollision({ ev.mouseButton.x ,ev.mouseButton.y })) {
-
                 ppcEv.buttons.mousePos = { ev.mouseButton.x, ev.mouseButton.y };
                 ppcEv.buttons.state = Event::ButtonsEv::Clicked;
 
@@ -166,7 +165,9 @@ bool mousePressButton::registerInput(Event ppcEv) {
 			ppc::Event ppcRelease(ev);
 			ppcRelease.type = Event::sfEventType;
 			ppcRelease.sfEvent.type = sf::Event::MouseButtonReleased;
-			//getEntity()->broadcastMessage(ppcRelease);
+			ppcRelease.buttons.activation = Event::ButtonsEv::LeftMouse;
+			if(getEntity() != nullptr)
+				getEntity()->broadcastMessage(ppcRelease);
 		}
 		/* Case: Mouse Move Event */
 		else if ((ev.type == sf::Event::MouseMoved)) {

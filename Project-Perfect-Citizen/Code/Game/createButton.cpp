@@ -16,6 +16,8 @@
 #include "createWindow.h"
 #include "ButtonBuilder.h"
 #include "FloppyInputComponent.h"
+#include "ConfirmWindowBuilder.h"
+#include "../Engine/World.h"
 
 
 using namespace ppc;
@@ -230,7 +232,18 @@ bool ppc::displayFloppy(FloppyInputComponent* ptr, Event ev) {
 bool ppc::LogOff(Desktop* ptr, Event ev) {
 	ppc::WindowInterface* ConfirmationWindow =
 		new ppc::Window(600, 150, sf::Color(170, 170, 170));
-	spawnErrorMessage(ConfirmationWindow, ConfirmationWindow->getInputHandler(), ptr->getButtonSheet(), 300, 300, "Are you sure you want to log off?", "Log Off");
+	ConfirmWindowBuilder builder;
+
+	builder.setButtonLabelFont(World::getFont(World::FontList::Consola));
+	builder.setCancelButtonLabel("CANCEL");
+	builder.setConfirmButtonLabel("LOG OUT");
+	builder.setConfirmMessage("Are you sure you want to log off?\n(This will return you to the main menu)");
+	builder.setMessageFont(World::getFont(World::FontList::Consola));
+	builder.setMessageFontSize(16);
+	builder.setPosition(sf::Vector2f(300,200));
+	builder.setSpriteSheet(World::getCurrDesktop().getButtonSheet());
+	builder.setWindowCaption("Log Off?");
+	createWithEventFunc(builder, ConfirmationWindow, ptr, ppc::returnToLogin);
 	ptr->addWindow(ConfirmationWindow);
 	return true;
 }
@@ -240,5 +253,10 @@ bool ppc::displayFileInfo(Desktop* desk, Event ev) {
 		new ppc::Window(600, 150, sf::Color(177, 177, 177));
 	spawnErrorMessage(infoWindow, infoWindow->getInputHandler(), desk->getButtonSheet(), 300, 300, "HERES SOME FUKN INFO M8", "DELETE ME");
 	desk->addWindow(infoWindow);
+	return true;
+}
+
+bool ppc::returnToLogin(Desktop* desk, Event ev) {
+	World::loadDesktop(World::DELogin);
 	return true;
 }
