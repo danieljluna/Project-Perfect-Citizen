@@ -7,6 +7,7 @@
 #include "../Engine/inputComponent.h" //needed
 #include "../Engine/subject.h" //needed
 #include "../Engine/FreeFunctionObserver.h" //needed
+#include "../Game/TimerUpdateCmpnt.h" //needed
 
 
 namespace ppc {
@@ -28,6 +29,7 @@ namespace ppc {
 		WindowInterface* containingWindow;
 		TextBoxRenderComponent& textBox;
 		InputHandler& inputHandle;
+		TimerUpdateCmpnt* tmr;
 		std::string str;
 		bool isCollision(sf::Vector2i);
 		unsigned int max_chars;
@@ -43,7 +45,7 @@ namespace ppc {
 		/// @param s is the render component where the text will be drawn
 		/// @param The limit of characters to display
 		///////////////////////////////////////////////////////////////////////
-		TextBoxInputComponent(ppc::InputHandler& ih, TextBoxRenderComponent &r, unsigned int lim);
+		TextBoxInputComponent(ppc::InputHandler& ih, TextBoxRenderComponent &r, TimerUpdateCmpnt* tmr, int lim);
 
 		template <class T>
 		friend void setOnSubmit(TextBoxInputComponent* tbi, T* objPtr,
@@ -64,6 +66,7 @@ namespace ppc {
 
 		virtual ~TextBoxInputComponent();
 		virtual bool registerInput(Event ev) override;
+		virtual void recieveMessage(ppc::Event ev) override;
 
 		Subject& onSubmit() { return onSubmit_; };
 

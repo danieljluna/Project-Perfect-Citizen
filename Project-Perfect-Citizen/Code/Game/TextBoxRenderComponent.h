@@ -27,6 +27,7 @@ namespace ppc {
 		sf::Font font;
 		std::string labelString;
 		bool isMasked = false;
+		bool renderCursor = true;
 
 
 	public:
@@ -40,9 +41,9 @@ namespace ppc {
 
 		~TextBoxRenderComponent();
 
-		sf::Vector2f getTextPosition() const { return text->getPosition(); }
+		sf::Vector2f getTextPosition() const { return outline->getPosition(); }
 
-		std::string getString() const { return text->getString(); }
+		std::string getString();
 
 		void updateLabelString(std::string str);
 
@@ -52,8 +53,14 @@ namespace ppc {
 
 		void setIsMasked(bool);
 
+		void toggleCursorRender();
+
+		void setCursorRender(bool);
+
 		virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
 
 	};
+
+	bool blink_cursor(TextBoxRenderComponent* tbr, ppc::Event ev);
 
 };

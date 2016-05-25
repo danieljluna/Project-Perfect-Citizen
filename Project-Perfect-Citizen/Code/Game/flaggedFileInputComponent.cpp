@@ -75,9 +75,12 @@ void ppc::flaggedFileInputComponent::recieveMessage(Event ev)
 bool ppc::unflag_file(flaggedFileInputComponent * ptr, ppc::Event)
 {
 	ppc::SuspiciousFileHolder::clearFile(ptr->getFileName());
+	WindowInterface* oldWindow = SuspiciousFileHolder::getWindow();
 	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
 	spawnFileTracker(*(ptr->getDesktop()), fileTracker, fileTracker->getInputHandler(), 250, 50);
 	ptr->getDesktop()->addWindow(fileTracker);
+	fileTracker->setPosition(sf::Vector2f(oldWindow->getPosition().x, oldWindow->getPosition().y));
+	oldWindow->close();
 	SuspiciousFileHolder::setWindow(fileTracker);
 	return true;
 }
@@ -85,9 +88,12 @@ bool ppc::unflag_file(flaggedFileInputComponent * ptr, ppc::Event)
 bool ppc::clear_flagged_files(Desktop* ptr, ppc::Event)
 {
 	ppc::SuspiciousFileHolder::clearFiles();
+	WindowInterface* oldWindow = SuspiciousFileHolder::getWindow();
 	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
 	spawnFileTracker(*ptr, fileTracker, fileTracker->getInputHandler(), 250, 50);
 	ptr->addWindow(fileTracker);
+	fileTracker->setPosition(sf::Vector2f(oldWindow->getPosition().x, oldWindow->getPosition().y));
+	oldWindow->close();
 	SuspiciousFileHolder::setWindow(fileTracker);
 	return true;
 }
