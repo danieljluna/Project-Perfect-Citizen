@@ -233,7 +233,6 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
 	builder.setText("Documents", World::getFont(World::Consola), sf::Color::Black);
 	builder.create(DocumentsIcon);
 	desktopWindowToModify.addEntity(DocumentsIcon);
-
     desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);
     desktopWindowToModify.addEntity(HardDriveIcon);
@@ -241,12 +240,6 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
     desktopWindowToModify.addEntity(ConsoleIcon);
     desktopWindowToModify.addEntity(EmailIcon);
     
-	////////////////////////////////////////
-	// SUSPICIOUS FILES TEST HERE
-	//////////////////////////////////////
-	//ppc::BaseFileType herro("File");
-	//herro.setName("test");
-	//ppc::SuspiciousFileHolder::flagFile(&herro);
 
 	WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
 	spawnFileTracker(desktopToModify, fileTracker, fileTracker->getInputHandler(), 250, 50);
