@@ -996,7 +996,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
-    
+	int maxCaptionCharacters = 30;
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 14;
@@ -1026,15 +1026,30 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 		windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
 	}
 
+	// Create the window caption and format it //
 	std::vector<std::string> pwd_vector = ns.getPwdVector();
-	std::string pwd = "C:/";
+	std::string pwd = "";
 
-	for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {
-		std::cout << *iter + "dasdasdas";
+	/*for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {
 		pwd += *iter;
 		pwd.push_back('/');
+	}*/
+
+	for (auto iter = pwd_vector.rbegin(); iter != pwd_vector.rend(); ++iter) {
+		
+		if (pwd.length() > maxCaptionCharacters) {
+			pwd = ".../" + pwd;
+			break;
+		}
+		else {
+			pwd = "/" + pwd;
+			pwd = *iter + pwd;
+		}
 	}
-	
+
+	if (pwd.length() <= maxCaptionCharacters) {
+		pwd = "C:" + pwd;
+	}
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption(pwd);
