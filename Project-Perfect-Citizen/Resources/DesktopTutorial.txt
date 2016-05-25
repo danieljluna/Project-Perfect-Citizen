@@ -23,7 +23,7 @@ Default: Once per desktop you can ask a colleagues opinion on a file
 Default: Right click the file and select "Scan" to see a number representing its suspiciousness
 -DeskSubmission: T 0.0
 Default: 1s are completely clean but this 10 is a smoking gun!
-Default: Click the submit button to log this evidence
+Default: Flag three suspicious files then click submit to log this evidence
 -Wrapup: T 0.0
 Default: Together we can hunt down criminals wherever they may hide
 Default: When you are satisfied you can click the start menu and log out
