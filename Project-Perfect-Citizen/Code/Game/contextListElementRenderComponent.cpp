@@ -53,7 +53,7 @@ void contextListElementRenderComponent::recieveMessage(Event ev) {
 	//Close the context menu if a release button is 
 	case Event::EventTypes::sfEventType:
 		if (ev.sfEvent.type == sf::Event::MouseButtonReleased) {
-			containingWindow->close();
+			//containingWindow->close();
 		}
 		break;
 
