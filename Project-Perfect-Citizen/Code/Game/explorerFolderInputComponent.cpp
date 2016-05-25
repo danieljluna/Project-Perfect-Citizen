@@ -241,6 +241,8 @@ bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 
 	if (target->findElement(ptr->getFolderName())->
 		comparePassword(ptr->getObservingTextBox()->getString())) {
+		
+		
 
 		/* Unlock the directory */
 		std::vector<std::string> unlockCommand;
@@ -261,9 +263,6 @@ bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 		/* Send the event and close the submit wind*/
 		evOut.open.success = false;
 		ptr->getObservingTextBox()->getContainingWindow()->close();
-
-
-
         evOut.open.success = true;
 	}
 	else {

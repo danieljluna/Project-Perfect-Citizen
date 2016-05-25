@@ -947,7 +947,7 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
     tbuilder.setInputHandle(ih);
     tbuilder.setContainingWindow(windowToModify);
 	tbuilder.setIsMasked(false);
-	createWithEventFunc(tbuilder, tbox, windowToModify, continue_world);
+	createWithEventFunc(tbuilder, tbox, windowToModify, ppc::continue_world);
     
     Entity promptText;
     TextDisplayBuilder tdBuilder;

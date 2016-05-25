@@ -85,9 +85,10 @@ void ppc::TextBoxBuilder::create(Entity& e) {
 
 	tbi = i;
 
+	e.addComponent(tmr);
 	e.addComponent(fr);
 	e.addComponent(r);
 	e.addComponent(i);
-	e.addComponent(tmr);
+	
 
 }
