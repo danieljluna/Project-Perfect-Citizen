@@ -140,6 +140,10 @@ void ppc::createTutorial(Desktop & dt) {
     BaseObserver* tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dynamic_cast<iconInputComponent*>(graphIcon.getComponent(2))->onOpen().addObserver(tempObsvr);
 
+    //Connect Pipeline
+    tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn);
+    dynamic_cast<iconInputComponent*>(graphIcon.getComponent(2))->onOpen().addObserver(tempObsvr);
+
     //Conect FloppyEnd
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn);
     floppyIn->onSequenceEnd().addObserver(tempObsvr);
@@ -147,10 +151,6 @@ void ppc::createTutorial(Desktop & dt) {
     //Connect Graph
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dt.getPlayVec().at(0)->onManip().addObserver(tempObsvr);
-
-    //Connect Graph
-    tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn);
-    dt.getPlayVec().at(1)->onManip().addObserver(tempObsvr);
 
     //Connect Graph
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
