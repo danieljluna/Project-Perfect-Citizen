@@ -44,6 +44,21 @@ const int LEVEL_ONE_NODES_LOW = (LEVEL_ONE_NUM_NODES - 1) / 2; // 0 - 3
 const int LEVEL_ONE_NODES_HIGH = (LEVEL_ONE_NUM_NODES / 2);    // 4 - 7
 const int LEVEL_ONE_MSG_PER_EDGE = 1;
 
+const std::vector<std::pair<unsigned int, unsigned int>> LEVEL_ONE_SUSP_EDGES = {
+	{0, 1},
+	{0, 2},
+	{1, 2},
+	{2, 3},
+	{2, 4}
+};
+
+const std::vector<std::pair<unsigned int, unsigned int>> LEVEL_ONE_INNO_EDGES = {
+	{4, 5},
+	{5, 6},
+	{6, 7},
+	{4, 7}
+};
+
 const std::vector<std::pair<unsigned int, unsigned int>> LEVEL_TWO_SUSP_EDGES = {
 	{0, 1},
 	{0, 4},
@@ -143,6 +158,29 @@ Network* PipelineLevelBuilder::buildTutorialTwo() {
 }
 
 Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
+	Network* myNetwork = new Network(8);
+	std::map<std::string, bool> usednames = NAME_MAP;
+
+	for (int i = 0; i < 8;) { //8 nodes in level 1
+		PipelineCharacter newpc;
+		if (usednames[newpc.getSSN().substr(0, 1)] == false) {
+			myNetwork->vert(i).setCharacter(newpc);
+			usednames[newpc.getSSN().substr(0, 1)] = true;
+			++i;
+			//add char to database here I think
+		}
+	}
+
+	myNetwork->setCenter(2);
+	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson("DE1PipelineTexts.json");
+	populateEdgesBySet(LEVEL_ONE_SUSP_EDGES, *myNetwork, exprGrammar, 1);
+	populateEdgesBySet(LEVEL_ONE_INNO_EDGES, *myNetwork, exprGrammar, 0);
+
+	return myNetwork;
+}
+
+/*
+Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	Network* myNetwork = new Network(LEVEL_ONE_NUM_NODES);
 	
 	std::map<std::string, bool> usednames = NAME_MAP;
@@ -174,6 +212,7 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 
 	return myNetwork;
 }
+*/
 
 Network* PipelineLevelBuilder::buildLevelTwoANetworkSolution() {
 	return LevelTwoWithOption("ArtistTexts.json");
@@ -209,7 +248,7 @@ Network* PipelineLevelBuilder::buildLevelThreeNetworkSolution() {
 	Network* myNetwork = new Network(10);
 	std::map<std::string, bool> usednames = NAME_MAP;
 
-	for (int i = 0; i < 10;) { //10 nodes in level 2
+	for (int i = 0; i < 10;) { //10 nodes in level 3
 		PipelineCharacter newpc;
 		if (usednames[newpc.getSSN().substr(0, 1)] == false) {
 			myNetwork->vert(i).setCharacter(newpc);
