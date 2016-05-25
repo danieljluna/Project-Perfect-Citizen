@@ -94,9 +94,11 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
                     std::string passwordCopy = password;
                     while((passwordPos = passwordCopy.find(passwordDelimiter)) != std::string::npos) {
                         otherPasswords = passwordCopy.substr(0, passwordPos);
+                        fileTree_.getCwd()->addPassword(otherPasswords);
                         //std::cout << otherPasswords << std::endl;
                         passwordCopy.erase(0, passwordPos + passwordDelimiter.length());
                         if((passwordPos = passwordCopy.find(passwordDelimiter)) == std::string::npos){
+                            fileTree_.getCwd()->addPassword(passwordCopy);
                             //std::cout << passwordCopy << std::endl;
                         }
                     }
