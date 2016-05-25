@@ -504,7 +504,6 @@
 		E96CDFBF1CF274C00023728F /* hackerDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96CDE021CF274BF0023728F /* hackerDesktop.ini */; };
 		E96CDFC01CF274C00023728F /* loginDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96CDE031CF274BF0023728F /* loginDesktop.ini */; };
 		E96CDFC11CF274C00023728F /* pipelineTutorial.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96CDE041CF274BF0023728F /* pipelineTutorial.ini */; };
-		E96CDFC21CF274C00023728F /* playerDeskto2B.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96CDE051CF274BF0023728F /* playerDeskto2B.ini */; };
 		E96CDFC31CF274C00023728F /* playerDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96CDE061CF274BF0023728F /* playerDesktop.ini */; };
 		E96CDFC41CF274C00023728F /* playerDesktop2A.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96CDE071CF274BF0023728F /* playerDesktop2A.ini */; };
 		E96CDFC51CF274C00023728F /* playerDesktop3.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96CDE081CF274BF0023728F /* playerDesktop3.ini */; };
@@ -592,6 +591,7 @@
 		E96CE0171CF274C00023728F /* Windows_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = E96CDE5D1CF274BF0023728F /* Windows_Icons.png */; };
 		E96CE0181CF274C00023728F /* Windows_UI.png in Resources */ = {isa = PBXBuildFile; fileRef = E96CDE5E1CF274BF0023728F /* Windows_UI.png */; };
 		E96CE0191CF274C00023728F /* World_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E96CDE5F1CF274C00023728F /* World_Sheet.png */; };
+		E9EFCA191CF54250000DE935 /* playerDesktop2B.ini in Resources */ = {isa = PBXBuildFile; fileRef = E9EFCA181CF54250000DE935 /* playerDesktop2B.ini */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1236,7 +1236,6 @@
 		E96CDE021CF274BF0023728F /* hackerDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hackerDesktop.ini; sourceTree = "<group>"; };
 		E96CDE031CF274BF0023728F /* loginDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = loginDesktop.ini; sourceTree = "<group>"; };
 		E96CDE041CF274BF0023728F /* pipelineTutorial.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pipelineTutorial.ini; sourceTree = "<group>"; };
-		E96CDE051CF274BF0023728F /* playerDeskto2B.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = playerDeskto2B.ini; sourceTree = "<group>"; };
 		E96CDE061CF274BF0023728F /* playerDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = playerDesktop.ini; sourceTree = "<group>"; };
 		E96CDE071CF274BF0023728F /* playerDesktop2A.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = playerDesktop2A.ini; sourceTree = "<group>"; };
 		E96CDE081CF274BF0023728F /* playerDesktop3.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = playerDesktop3.ini; sourceTree = "<group>"; };
@@ -1325,6 +1324,7 @@
 		E96CDE5D1CF274BF0023728F /* Windows_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_Icons.png; sourceTree = "<group>"; };
 		E96CDE5E1CF274BF0023728F /* Windows_UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Windows_UI.png; sourceTree = "<group>"; };
 		E96CDE5F1CF274C00023728F /* World_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = World_Sheet.png; sourceTree = "<group>"; };
+		E9EFCA181CF54250000DE935 /* playerDesktop2B.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = playerDesktop2B.ini; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2173,6 +2173,7 @@
 		E96CDDFD1CF274BF0023728F /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				E9EFCA181CF54250000DE935 /* playerDesktop2B.ini */,
 				E96CDDFE1CF274BF0023728F /* artistDesktop.ini */,
 				E96CDDFF1CF274BF0023728F /* bootDesktop.ini */,
 				E96CDE001CF274BF0023728F /* desktopTutorial.ini */,
@@ -2180,7 +2181,6 @@
 				E96CDE021CF274BF0023728F /* hackerDesktop.ini */,
 				E96CDE031CF274BF0023728F /* loginDesktop.ini */,
 				E96CDE041CF274BF0023728F /* pipelineTutorial.ini */,
-				E96CDE051CF274BF0023728F /* playerDeskto2B.ini */,
 				E96CDE061CF274BF0023728F /* playerDesktop.ini */,
 				E96CDE071CF274BF0023728F /* playerDesktop2A.ini */,
 				E96CDE081CF274BF0023728F /* playerDesktop3.ini */,
@@ -2383,6 +2383,7 @@
 				E96CDE9A1CF274C00023728F /* 7-29-14-345.jpg in Resources */,
 				E96CDECD1CF274C00023728F /* high_school_classroom.preview.jpg in Resources */,
 				E96CDC1D1CF274B80023728F /* SoundTrack_Extraction.ogg in Resources */,
+				E9EFCA191CF54250000DE935 /* playerDesktop2B.ini in Resources */,
 				E96CDE831CF274C00023728F /* route_plan.jpg in Resources */,
 				E96CDFD31CF274C00023728F /* Icon_Sheet2.png in Resources */,
 				E96CDFF31CF274C00023728F /* PoliticianReportD.txt in Resources */,
@@ -2639,7 +2640,6 @@
 				E96CDE711CF274C00023728F /* 17391.jpg in Resources */,
 				E96CE0191CF274C00023728F /* World_Sheet.png in Resources */,
 				E96CDFC01CF274C00023728F /* loginDesktop.ini in Resources */,
-				E96CDFC21CF274C00023728F /* playerDeskto2B.ini in Resources */,
 				E96CE0141CF274C00023728F /* Wallpaper2.png in Resources */,
 				E96CDEFD1CF274C00023728F /* blueprints.jpg in Resources */,
 				E96CE0111CF274C00023728F /* TutorialResponseD.json in Resources */,
