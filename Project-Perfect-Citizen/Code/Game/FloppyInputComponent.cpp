@@ -322,7 +322,7 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             ev.floppy.frame = 0;
             switch (World::getCurrDesktop().getNetVecIndex()) {
             case 0:
-				ev.floppy.sequence = FloppyInputComponent::Welcome;
+				ev.floppy.sequence = FloppyInputComponent::Pipeline;
                 break;
             case 1:
 				ev.floppy.sequence = FloppyInputComponent::Goal;
