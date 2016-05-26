@@ -42,33 +42,51 @@ void ppc::createTutorial(Desktop & dt) {
 	icons.setAnimSpeed(0.30f);
 	icons.setInputHandle(dt.getInputHandler());
 	icons.setSize(0.5f);
+    
+    //Console Icon
+    Entity consoleIcon;
+    icons.setPosition({ 175.f,375.f });
+    icons.setIconType(iconInputComponent::IconType::Console);
+    icons.setSpritebyIndicies(0, 8, 1, 1);
+    icons.setText("Console", World::getFont(World::VT323Regular), sf::Color::White);
+    icons.create(consoleIcon);
+    
+    //Explorer Icon
+    Entity explorerIcon;
+    icons.setPosition({ 250.f,475.f });
+    icons.setIconType(iconInputComponent::IconType::HardDrive);
+    icons.setSpritebyIndicies(0, 7, 1, 1);
+    icons.setText("My Files", World::getFont(World::VT323Regular), sf::Color::White);
+    icons.create(explorerIcon);
 
 	//Graph Icon
 	Entity graphIcon;
-	icons.setPosition({ 400.f,300.f });
+	icons.setPosition({ 675.f,375.f });
 	icons.setIconType(iconInputComponent::IconType::Pipeline);
 	icons.setSpritebyIndicies(0, 4, 1, 2);
-	icons.setText("Graph", World::getFont(World::VT323Regular), sf::Color::Black);
+	icons.setText("Graph", World::getFont(World::VT323Regular), sf::Color::White);
 	icons.create(graphIcon);
 
 
 	//Email Icon
 	Entity emailIcon;
-	icons.setPosition({ 250.f,300.f });
+	icons.setPosition({ 425.f,525.f });
 	icons.setIconType(iconInputComponent::IconType::Email);
 	icons.setSpritebyIndicies(0, 10, 1, 2);
-	icons.setText("Emails", World::getFont(World::VT323Regular), sf::Color::Black);
+	icons.setText("Emails", World::getFont(World::VT323Regular), sf::Color::White);
 	icons.create(emailIcon);
 
 
 	//Help Icon
 	Entity helpIcon;
-	icons.setPosition({ 550.f,300.f });
+	icons.setPosition({ 600.f,475.f });
 	icons.setIconType(iconInputComponent::IconType::Help);
 	icons.setSpritebyIndicies(0, 5, 1, 2);
-	icons.setText("Help", World::getFont(World::VT323Regular), sf::Color::Black);
+	icons.setText("Help", World::getFont(World::VT323Regular), sf::Color::White);
 	icons.create(helpIcon);
-
+    
+    dt.getDesktopWindow()->addEntity(consoleIcon);
+    dt.getDesktopWindow()->addEntity(explorerIcon);
 	dt.getDesktopWindow()->addEntity(graphIcon);
 	dt.getDesktopWindow()->addEntity(emailIcon);
 	dt.getDesktopWindow()->addEntity(helpIcon);
