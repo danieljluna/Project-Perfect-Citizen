@@ -28,10 +28,11 @@ namespace ppc {
 			DEPlayer1,
 			DE1,
 			DEPlayer2A,
-			DEPlayer2B,
 			DE2A,
+			DEPlayer2B,
 			DE2B,
-			DEPlayer3,
+			DEPlayer3A,
+			DEPlayer3B,
 			DE3,
 			DEEnd,
             DesktopCount
@@ -72,7 +73,6 @@ namespace ppc {
 		/// loaded is a previous level
 		/////////////////////////////////////////////////////////////
 		static void goBack();
-
 
 		using desktopLoaders = void(*)(ppc::Desktop&);
 
@@ -138,6 +138,7 @@ namespace ppc {
 		static sf::Font& getFont(FontList f);
 
 		static std::string getReportFile();
+		static std::string getBossEmail();
 
         static void restartDesktop();
 
@@ -212,7 +213,9 @@ namespace ppc {
 
 		static std::map<FontList, sf::Font> fontMap_;
 
-		static std::map <std::pair<DesktopList,ReportType>, std::string > reportListMap_;
+		static std::map <std::pair<DesktopList, ReportType>, std::string > reportListMap_;
+
+		static std::map <std::pair<DesktopList, ReportType>, std::string > bossEmailMap_;
 
 		static bool isLoading_;
 
