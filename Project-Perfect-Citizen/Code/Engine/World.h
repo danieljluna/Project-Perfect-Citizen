@@ -219,6 +219,8 @@ namespace ppc {
 
 		static bool isLoading_;
 
+		static bool isLoadBarFull_;
+
 		static sf::RectangleShape tempLoadScreen_;
         
         static sf::Image loadImage_;
