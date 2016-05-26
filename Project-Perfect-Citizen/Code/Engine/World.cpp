@@ -322,10 +322,10 @@ void World::runDesktop() {
 	World::endLoading();
 	while (screen_->isOpen() && !quitter_) {
 		//Process sf::events
-		registerInput();
+		World::registerInput();
 
 		//Update
-		update(deltaTime, framePeriod);
+		World::update(deltaTime, framePeriod);
 
 		//Draw
         World::drawDesktop();
@@ -452,10 +452,7 @@ void ppc::World::drawLoading() {
         sf::RenderStates states;
         states.transform = worldTransform_;
 
-
         screen_->clear(sf::Color::Black);
-        //screen_->draw(tempLoadScreen_);
-        //screen_->draw(tempLoadBar_);
         screen_->draw(loadingDecal_, states);
         screen_->draw(loadBarBorder_, states);
         screen_->draw(loadBar_, states);
@@ -464,8 +461,16 @@ void ppc::World::drawLoading() {
 }
 
 void ppc::World::endLoading() {
-
-	isLoading_ = false;
+	if (isLoading_ == true) {
+		sf::Event event;
+		while (true) {
+			screen_->pollEvent(event); 
+			if (event.type == sf::Event::MouseButtonPressed) {
+				isLoading_ = false;
+				return;
+			}
+		}
+	}
 }
 
 
@@ -565,11 +570,6 @@ void ppc::World::manifestSettings() {
         screen_->create(getVideoMode(), "Project Perfect Citizen", flags);
     }
 }
-
-
-
-
-
 
 void World::drawDesktop() {
     currDesktop_->refresh();
