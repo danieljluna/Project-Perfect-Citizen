@@ -366,10 +366,6 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 
     //Switch controls what event needs to be read to move on
     switch (ptr->getSequence()) {
-	case FloppyInputComponent::Welcome:
-        enable = ((ev.type == ev.OpenType) &&
-            (ev.open.winType == ev.open.Pipeline));
-        break;
     case FloppyInputComponent::Pipeline:
         enable = ((ev.type == ev.NetworkType) &&
             (ev.network.type == ev.network.Selected) &&
