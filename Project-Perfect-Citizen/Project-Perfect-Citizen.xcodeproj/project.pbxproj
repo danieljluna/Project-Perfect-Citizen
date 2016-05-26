@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
+		C84590751CF6267B00F2D9BF /* you_got_email.wav in Resources */ = {isa = PBXBuildFile; fileRef = C84590741CF6267B00F2D9BF /* you_got_email.wav */; };
+		C84590771CF62A6700F2D9BF /* you_got_email.wav in Resources */ = {isa = PBXBuildFile; fileRef = C84590761CF62A6700F2D9BF /* you_got_email.wav */; };
+		C84590791CF62BE900F2D9BF /* Mouse_Down.wav in Resources */ = {isa = PBXBuildFile; fileRef = C84590781CF62BE900F2D9BF /* Mouse_Down.wav */; };
+		C845907B1CF62CB600F2D9BF /* Mouse_Up.wav in Resources */ = {isa = PBXBuildFile; fileRef = C845907A1CF62CB600F2D9BF /* Mouse_Up.wav */; };
+		C845907D1CF634E900F2D9BF /* Double_Click.wav in Resources */ = {isa = PBXBuildFile; fileRef = C845907C1CF634E900F2D9BF /* Double_Click.wav */; };
+		C845907F1CF6487A00F2D9BF /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C845907E1CF6487A00F2D9BF /* Icon.png */; };
+		C84590811CF64A2E00F2D9BF /* Icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = C84590801CF64A2E00F2D9BF /* Icon.ico */; };
+		C84590861CF6574200F2D9BF /* Hacker_Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = C84590841CF6574200F2D9BF /* Hacker_Wallpaper.png */; };
+		C84590871CF6574200F2D9BF /* Hacker_Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = C84590851CF6574200F2D9BF /* Hacker_Icon_Sheet.png */; };
 		C87886CA1CF287700048D0FD /* TransitionBlink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C87886C81CF287700048D0FD /* TransitionBlink.cpp */; };
 		C87886CD1CF296370048D0FD /* startBarRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C87886CB1CF296370048D0FD /* startBarRenderComponent.cpp */; };
 		C87886D01CF2A9590048D0FD /* startBarUpdateComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C87886CE1CF2A9590048D0FD /* startBarUpdateComponent.cpp */; };
@@ -504,7 +513,6 @@
 		E96CDFBF1CF274C00023728F /* hackerDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96CDE021CF274BF0023728F /* hackerDesktop.ini */; };
 		E96CDFC01CF274C00023728F /* loginDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96CDE031CF274BF0023728F /* loginDesktop.ini */; };
 		E96CDFC11CF274C00023728F /* pipelineTutorial.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96CDE041CF274BF0023728F /* pipelineTutorial.ini */; };
-		E96CDFC21CF274C00023728F /* playerDeskto2B.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96CDE051CF274BF0023728F /* playerDeskto2B.ini */; };
 		E96CDFC31CF274C00023728F /* playerDesktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96CDE061CF274BF0023728F /* playerDesktop.ini */; };
 		E96CDFC41CF274C00023728F /* playerDesktop2A.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96CDE071CF274BF0023728F /* playerDesktop2A.ini */; };
 		E96CDFC51CF274C00023728F /* playerDesktop3.ini in Resources */ = {isa = PBXBuildFile; fileRef = E96CDE081CF274BF0023728F /* playerDesktop3.ini */; };
@@ -599,6 +607,16 @@
 		C82E60731C810DCB001860CC /* json-forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "json-forwards.h"; sourceTree = "<group>"; };
 		C82E60741C810DCB001860CC /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		C82E60751C810DCB001860CC /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
+		C84590731CF622F900F2D9BF /* you_got_email.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = you_got_email.ogg; sourceTree = "<group>"; };
+		C84590741CF6267B00F2D9BF /* you_got_email.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = you_got_email.wav; sourceTree = "<group>"; };
+		C84590761CF62A6700F2D9BF /* you_got_email.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = you_got_email.wav; sourceTree = "<group>"; };
+		C84590781CF62BE900F2D9BF /* Mouse_Down.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Mouse_Down.wav; sourceTree = "<group>"; };
+		C845907A1CF62CB600F2D9BF /* Mouse_Up.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Mouse_Up.wav; sourceTree = "<group>"; };
+		C845907C1CF634E900F2D9BF /* Double_Click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Double_Click.wav; sourceTree = "<group>"; };
+		C845907E1CF6487A00F2D9BF /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		C84590801CF64A2E00F2D9BF /* Icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = Icon.ico; sourceTree = "<group>"; };
+		C84590841CF6574200F2D9BF /* Hacker_Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hacker_Wallpaper.png; sourceTree = "<group>"; };
+		C84590851CF6574200F2D9BF /* Hacker_Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hacker_Icon_Sheet.png; sourceTree = "<group>"; };
 		C87886C81CF287700048D0FD /* TransitionBlink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TransitionBlink.cpp; sourceTree = "<group>"; };
 		C87886C91CF287700048D0FD /* TransitionBlink.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TransitionBlink.hpp; sourceTree = "<group>"; };
 		C87886CB1CF296370048D0FD /* startBarRenderComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = startBarRenderComponent.cpp; sourceTree = "<group>"; };
@@ -1236,7 +1254,6 @@
 		E96CDE021CF274BF0023728F /* hackerDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hackerDesktop.ini; sourceTree = "<group>"; };
 		E96CDE031CF274BF0023728F /* loginDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = loginDesktop.ini; sourceTree = "<group>"; };
 		E96CDE041CF274BF0023728F /* pipelineTutorial.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pipelineTutorial.ini; sourceTree = "<group>"; };
-		E96CDE051CF274BF0023728F /* playerDeskto2B.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = playerDeskto2B.ini; sourceTree = "<group>"; };
 		E96CDE061CF274BF0023728F /* playerDesktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = playerDesktop.ini; sourceTree = "<group>"; };
 		E96CDE071CF274BF0023728F /* playerDesktop2A.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = playerDesktop2A.ini; sourceTree = "<group>"; };
 		E96CDE081CF274BF0023728F /* playerDesktop3.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = playerDesktop3.ini; sourceTree = "<group>"; };
@@ -1505,6 +1522,7 @@
 		E96CDB031CF274B80023728F /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				C84590761CF62A6700F2D9BF /* you_got_email.wav */,
 				E96CDB041CF274B80023728F /* Chat_Recieved.wav */,
 				E96CDB051CF274B80023728F /* Chat_Sent.wav */,
 				E96CDB061CF274B80023728F /* gunshot.ogg */,
@@ -1702,6 +1720,11 @@
 		E96CDC9A1CF274BE0023728F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C84590841CF6574200F2D9BF /* Hacker_Wallpaper.png */,
+				C84590851CF6574200F2D9BF /* Hacker_Icon_Sheet.png */,
+				C845907E1CF6487A00F2D9BF /* Icon.png */,
+				C84590801CF64A2E00F2D9BF /* Icon.ico */,
+				C845907C1CF634E900F2D9BF /* Double_Click.wav */,
 				E96CDCA91CF274BE0023728F /* Desktop0.json.backup */,
 				E96CDDF91CF274BF0023728F /* Email0.json.backup */,
 				E96CDE3D1CF274BF0023728F /* ResourcePath.hpp */,
@@ -1747,6 +1770,7 @@
 				E96CDE3E1CF274BF0023728F /* ResourcePath.mm */,
 				E96CDE441CF274BF0023728F /* SoundTrack_Extraction.ogg */,
 				E96CDE451CF274BF0023728F /* SoundTrack_Pipeline.ogg */,
+				C84590731CF622F900F2D9BF /* you_got_email.ogg */,
 				E96CDC9B1CF274BE0023728F /* Artist_Icon_Sheet.png */,
 				E96CDC9C1CF274BE0023728F /* Artist_Wallpaper.png */,
 				E96CDE0D1CF274BF0023728F /* Face_Sheet.png */,
@@ -1781,6 +1805,9 @@
 				E96CDE1C1CF274BF0023728F /* PipelineTutorial.txt */,
 				E96CDE4F1CF274BF0023728F /* TestDialogue.txt */,
 				E96CDE1B1CF274BF0023728F /* Notification_Prompt.wav */,
+				C84590741CF6267B00F2D9BF /* you_got_email.wav */,
+				C845907A1CF62CB600F2D9BF /* Mouse_Up.wav */,
+				C84590781CF62BE900F2D9BF /* Mouse_Down.wav */,
 				E96CDCA21CF274BE0023728F /* Coding Reference */,
 				E96CDCAD1CF274BE0023728F /* DesktopContent */,
 				E96CDDFD1CF274BF0023728F /* Engine */,
@@ -2180,7 +2207,6 @@
 				E96CDE021CF274BF0023728F /* hackerDesktop.ini */,
 				E96CDE031CF274BF0023728F /* loginDesktop.ini */,
 				E96CDE041CF274BF0023728F /* pipelineTutorial.ini */,
-				E96CDE051CF274BF0023728F /* playerDeskto2B.ini */,
 				E96CDE061CF274BF0023728F /* playerDesktop.ini */,
 				E96CDE071CF274BF0023728F /* playerDesktop2A.ini */,
 				E96CDE081CF274BF0023728F /* playerDesktop3.ini */,
@@ -2323,6 +2349,7 @@
 				E96CDED91CF274C00023728F /* Myth of Sisyphus by Albert Camus.txt in Resources */,
 				E96CDEE71CF274C00023728F /* RE_Welcome.txt in Resources */,
 				E96CDF091CF274C00023728F /* Edgar_Germain_Hilaire_Degas.jpg in Resources */,
+				C84590751CF6267B00F2D9BF /* you_got_email.wav in Resources */,
 				E96CDF981CF274C00023728F /* September_Contributions.txt in Resources */,
 				E96CDEC91CF274C00023728F /* Fata+Morgana.jpg in Resources */,
 				E96CE0011CF274C00023728F /* Teacher_Icon_Sheet.png in Resources */,
@@ -2339,6 +2366,7 @@
 				E96CDEE41CF274C00023728F /* Party.jpg in Resources */,
 				E96CDE861CF274C00023728F /* The_plan.txt in Resources */,
 				E96CE0091CF274C00023728F /* TestDialogue.txt in Resources */,
+				C84590871CF6574200F2D9BF /* Hacker_Icon_Sheet.png in Resources */,
 				E96CDC1C1CF274B80023728F /* Notification_New.wav in Resources */,
 				E96CDFA81CF274C00023728F /* family0.png in Resources */,
 				E96CDF6E1CF274C00023728F /* 9.txt in Resources */,
@@ -2351,6 +2379,7 @@
 				E96CE0071CF274C00023728F /* TeacherResponseC.json in Resources */,
 				E96CDFFE1CF274C00023728F /* SoundTrack_Extraction.ogg in Resources */,
 				E96CDF971CF274C00023728F /* Senator_Elected_in_Suprise_Upheaval.jpg in Resources */,
+				C84590771CF62A6700F2D9BF /* you_got_email.wav in Resources */,
 				E96CDF551CF274C00023728F /* 0.txt in Resources */,
 				E96CDE941CF274C00023728F /* 4-24-08-492.jpg in Resources */,
 				E96CDEE01CF274C00023728F /* NewCrowd42Fragment.jpg in Resources */,
@@ -2425,6 +2454,7 @@
 				E96CDEED1CF274C00023728F /* Sheptune2.jpg in Resources */,
 				E96CDE651CF274C00023728F /* ArtistResponseD.json in Resources */,
 				E96CDF121CF274C00023728F /* h.jpg in Resources */,
+				C845907D1CF634E900F2D9BF /* Double_Click.wav in Resources */,
 				E96CDE971CF274C00023728F /* 5678.jpg in Resources */,
 				E96CDFB31CF274C00023728F /* Tax_From.png in Resources */,
 				E96CDF801CF274C00023728F /* Last_Dance.jpg in Resources */,
@@ -2487,6 +2517,7 @@
 				E96CDFD61CF274C00023728F /* Logo_Sheet.png in Resources */,
 				E96CDF4F1CF274C00023728F /* Wheat_Field_with_Cypresses.jpg in Resources */,
 				E96CDEA61CF274C00023728F /* Baptism_in_a_Catholic_Church.jpg in Resources */,
+				C84590811CF64A2E00F2D9BF /* Icon.ico in Resources */,
 				E96CDF421CF274C00023728F /* TRANQUILITY.jpg in Resources */,
 				E96CDE611CF274C00023728F /* Artist_Wallpaper.png in Resources */,
 				E96CDF711CF274C00023728F /* Allegations.txt in Resources */,
@@ -2519,6 +2550,7 @@
 				E96CDE921CF274C00023728F /* 4-14-09-462.jpg in Resources */,
 				E96CDEF71CF274C00023728F /* 4004_composite.jpg in Resources */,
 				E96CDF131CF274C00023728F /* i.jpg in Resources */,
+				C845907B1CF62CB600F2D9BF /* Mouse_Up.wav in Resources */,
 				E96CDEF21CF274C00023728F /* The_Metamorphosis.txt in Resources */,
 				E96CDECE1CF274C00023728F /* House-party.jpg in Resources */,
 				E96CDFD51CF274C00023728F /* last.txt in Resources */,
@@ -2558,6 +2590,7 @@
 				E96CDF461CF274C00023728F /* unnamed.jpg in Resources */,
 				E96CDE8F1CF274C00023728F /* 3191.jpg in Resources */,
 				E96CDF2B1CF274C00023728F /* Paul_Gauguin.jpg in Resources */,
+				C845907F1CF6487A00F2D9BF /* Icon.png in Resources */,
 				E96CDE951CF274C00023728F /* 4-4-12-048.jpg in Resources */,
 				E96CDEF51CF274C00023728F /* 120mm_M830A1.jpg in Resources */,
 				E96CDF941CF274C00023728F /* Recent_Polls.png in Resources */,
@@ -2600,6 +2633,7 @@
 				E96CDF9D1CF274C00023728F /* Therapy_Journal_#1.txt in Resources */,
 				E96CDFA41CF274C00023728F /* Will.txt in Resources */,
 				E96CDF581CF274C00023728F /* 11.txt in Resources */,
+				C84590861CF6574200F2D9BF /* Hacker_Wallpaper.png in Resources */,
 				E96CE0121CF274C00023728F /* VT323-Regular.ttf in Resources */,
 				E96CDF5D1CF274C00023728F /* 16.txt in Resources */,
 				E96CDF3A1CF274C00023728F /* Submarine_Damge.jpg in Resources */,
@@ -2639,7 +2673,6 @@
 				E96CDE711CF274C00023728F /* 17391.jpg in Resources */,
 				E96CE0191CF274C00023728F /* World_Sheet.png in Resources */,
 				E96CDFC01CF274C00023728F /* loginDesktop.ini in Resources */,
-				E96CDFC21CF274C00023728F /* playerDeskto2B.ini in Resources */,
 				E96CE0141CF274C00023728F /* Wallpaper2.png in Resources */,
 				E96CDEFD1CF274C00023728F /* blueprints.jpg in Resources */,
 				E96CE0111CF274C00023728F /* TutorialResponseD.json in Resources */,
@@ -2719,6 +2752,7 @@
 				E96CDE661CF274C00023728F /* ArtistTexts.json in Resources */,
 				E96CDE641CF274C00023728F /* ArtistResponseC.json in Resources */,
 				E96CDE961CF274C00023728F /* 4065.jpg in Resources */,
+				C84590791CF62BE900F2D9BF /* Mouse_Down.wav in Resources */,
 				E96CDF161CF274C00023728F /* katapulta_leonardo.jpg in Resources */,
 				E96CDFB81CF274C00023728F /* Email1.json in Resources */,
 				E96CDFDD1CF274C00023728F /* Politician_Icon_Sheet.png in Resources */,
@@ -3000,6 +3034,7 @@
 		C8058A791C4D679D005E23BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Engine/Project-Perfect-Citizen-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3009,6 +3044,7 @@
 		C8058A7A1C4D679D005E23BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Engine/Project-Perfect-Citizen-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
