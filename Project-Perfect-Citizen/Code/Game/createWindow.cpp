@@ -635,7 +635,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message, std::string windowCaption) {
 	if (windowToModify == nullptr) { return; }
 
-	windowToModify->setSize(sf::Vector2u(300.0f, windowToModify->getSize().y));
+	windowToModify->setSize(300.0f, windowToModify->getSize().y);
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
@@ -669,7 +669,7 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	Entity errorMessageDisplayBox;
 	errorMessageDisplayBox.addComponent(eMRC);
 
-	windowToModify->setSize(sf::Vector2u(newWindowWidth, windowHeight));
+	windowToModify->setSize(newWindowWidth, windowHeight);
 	float buttonX = ((newWindowWidth - (alertWidth * buttonScale)) / 2);
 	float buttonY = (2 * (windowHeight / 3));
 
@@ -1188,7 +1188,7 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
-	windowToModify->setSize(sf::Vector2u(450, 100));
+	windowToModify->setSize(450, 100);
 	windowToModify = new BorderDecorator(*windowToModify);
 	windowToModify->setPosition({ x,y });
 	//dynamic_cast<BorderDecorator*>(windowToModify)->addButton(dt.getButtonSheet(), closeWindow);
