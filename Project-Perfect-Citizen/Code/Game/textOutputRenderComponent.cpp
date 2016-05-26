@@ -211,8 +211,6 @@ void textOutputRenderComponent::updateString(std::vector<std::string> cmd) {
 	else if (cmd.at(0) == "unlock") {
 		std::vector<std::string> unlockCommand;
 		std::string unlock = "unlock";
-		//unlockCommand.push_back(unlock);
-		//unlockCommand.push_back(cmd.at(1));
 		if (cmd.size() == 3) {
             unlockCommand.push_back(unlock);
             unlockCommand.push_back(cmd.at(1));
