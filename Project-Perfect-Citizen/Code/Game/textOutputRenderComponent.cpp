@@ -92,12 +92,22 @@ void textOutputRenderComponent::updateString(std::vector<std::string> cmd) {
 			str_ = str_ + "Error: 'open' requires one parameter.\n";
 			numDisplayedLines++;
 		}
-		if (fileTree_.getCwd()->findElement(cmd.at(1)) != nullptr) {
-			std::string fileResourcePath = fileTree_.getCwd()->findElement(cmd.at(1))->getFileData();
-			fileTree_.readFile(cmd.at(1));
-			str_ += "\nOpening " + cmd.at(1) + " ... \n";
-			numDisplayedLines += 3;
-			}
+        if(cmd.size() == 2){
+            if (fileTree_.getCwd()->findElement(cmd.at(1)) != nullptr) {
+                std::string fileResourcePath = fileTree_.getCwd()->findElement(cmd.at(1))->getFileData();
+                fileTree_.readFile(cmd.at(1));
+                str_ += "\nOpening " + cmd.at(1) + " ... \n";
+                numDisplayedLines += 3;
+            }
+            else{
+                str_ = str_ + "Error: file not found.\n";
+                numDisplayedLines++;
+            }
+        }
+        if(cmd.size() == 1){
+            str_ = str_ + "Error: 'open' requires one parameter.\n";
+            numDisplayedLines++;
+        }
     }
 
 	/* CASE: CLEAR*/
@@ -201,32 +211,34 @@ void textOutputRenderComponent::updateString(std::vector<std::string> cmd) {
 	else if (cmd.at(0) == "unlock") {
 		std::vector<std::string> unlockCommand;
 		std::string unlock = "unlock";
-		unlockCommand.push_back(unlock);
-		unlockCommand.push_back(cmd.at(1));
 		if (cmd.size() == 3) {
+            unlockCommand.push_back(unlock);
+            unlockCommand.push_back(cmd.at(1));
 			unlockCommand.push_back(cmd.at(2));
 		}
         else {
             str_ = str_ + "Please enter: unlock [directory] [password].\n";
             numDisplayedLines++;
         }
-		commandFn newCommand = findFunction(unlock);
-		newCommand(fileTree_, unlockCommand);
-        if (fileTree_.getCwd()->findElement(cmd.at(1)) == nullptr) {
-            str_ = str_ + "Error: Directory '" + cmd.at(1) + "' not found. \n";
+        if(cmd.size() == 3){
+            commandFn newCommand = findFunction(unlock);
+            newCommand(fileTree_, unlockCommand);
+            if (fileTree_.getCwd()->findElement(cmd.at(1)) == nullptr) {
+                str_ = str_ + "Error: Directory '" + cmd.at(1) + "' not found. \n";
+            }
+            else if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
+                str_ = str_ + "Access denied.\n";
+            }
+            else {
+                str_ = str_ + "\nAccess granted. Moving into directory '" + cmd.at(1)+"' ...\n\n";
+                std::vector<std::string> cd_cmd;
+                cd_cmd.push_back("cd");
+                cd_cmd.push_back(cmd.at(1));
+                updateString(cd_cmd);
+                numDisplayedLines += 2;
+            }
+            numDisplayedLines+= 2;
         }
-		else if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
-			str_ = str_ + "Access denied.\n";
-		}
-		else {
-			str_ = str_ + "\nAccess granted. Moving into directory '" + cmd.at(1)+"' ...\n\n";
-			std::vector<std::string> cd_cmd;
-			cd_cmd.push_back("cd");
-			cd_cmd.push_back(cmd.at(1));
-			updateString(cd_cmd);
-			numDisplayedLines += 2;
-		}
-		numDisplayedLines+= 2;
 	}
     
     /* CASE: HELP*/
@@ -234,10 +246,11 @@ void textOutputRenderComponent::updateString(std::vector<std::string> cmd) {
         str_ = str_ + "help                       basic help for commands\n";
         str_ = str_ + "pwd                        prints the working directory\n";
         str_ = str_ + "cd [path]                  changes the current directory\n";
-        str_ = str_ + "unlock [name] [password]   attempts to open a locked directory\n";
+        str_ = str_ + "open [file]                opens a file\n";
+        str_ = str_ + "unlock [folder] [password] attempts to open a locked directory\n";
         str_ = str_ + "ls                         lists the contents of the current\n";
         str_ = str_ + "                           working directory\n";
-        numDisplayedLines+= 8;
+        numDisplayedLines+= 9;
     }
 
 	/* CASE: DEFAULT*/
