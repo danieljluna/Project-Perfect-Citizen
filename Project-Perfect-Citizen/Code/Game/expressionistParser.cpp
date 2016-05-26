@@ -202,15 +202,21 @@ bool expr::ExpressionistParser::checkMarkUpPreconditions(const Json::Value& mark
 	for (size_t i = 0; i < markup.size(); ++i) {
 		Json::Value currMark = markup[markupNames[i]];
 		std::string oper;
-		std::string req;
+		//std::string req;
 		std::string value;
 
 		for (unsigned int j = 0; j < currMark.size(); ++j) {
 			std::string currCond = currMark[j].asString();
 			//std::cout << "CurrCond = " << currCond << " markupNames[i] = " << markupNames[i] << std::endl;
 			size_t firstspace = currCond.find_first_of(" ");
-			req = currCond.substr(0, firstspace);
-			oper = currCond.substr(firstspace + 1, (currCond.find_last_of(" ") - firstspace) - 1);
+			size_t lastspace = currCond.find_last_of(" ");
+			//req = currCond.substr(0, firstspace);
+			if (firstspace == lastspace) {
+				oper = currCond.substr(0, firstspace);
+			}
+			else {
+				oper = currCond.substr(firstspace + 1, (currCond.find_last_of(" ") - firstspace) - 1);
+			}
 			value = currCond.substr(currCond.find_last_of(" ") + 1, std::string::npos);
 			if (markupNames[i].compare("agePreconditions") == 0) {
 				//std::cout << "Making Age Comparison" << std::endl;
