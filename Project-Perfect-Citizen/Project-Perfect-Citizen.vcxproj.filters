@@ -866,6 +866,9 @@
     <Text Include="Resources\DesktopTutorial.txt">
       <Filter>Resources</Filter>
     </Text>
+    <Text Include="Resources\DesktopTutorialAlt.txt">
+      <Filter>Resources</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headers">
