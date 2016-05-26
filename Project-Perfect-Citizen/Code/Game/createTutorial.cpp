@@ -20,6 +20,7 @@
 #include "FloppyInputComponent.h"
 #include "FloppyRenderComponent.hpp"
 #include "FloppyUpdateComponent.hpp"
+#include "createButton.h"
 
 #include "TextBubble.h"
 #include "TextBubbleRender.h"
@@ -31,8 +32,38 @@
 #include "TimerUpdateCmpnt.h"
 
 #include "createWindow.h"
+#include "startBarRenderComponent.hpp"
+#include "startBarUpdateComponent.hpp"
 
 void ppc::createTutorial(Desktop & dt) {
+    
+    
+    ////////////////////////////////////////
+    // START BAR / BUTTON
+    //////////////////////////////////////
+    ppc::WindowInterface* startToolbar =
+    new ppc::Window(1000, 200, sf::Color(195, 195, 195,0));
+    
+    startToolbar->setPosition(0, 735);
+    
+    Entity startBar;
+    startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
+    
+    startBarRender->renderPosition({0,4});
+    
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
+    startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
+    
+    
+    Entity startButton;
+    spawnStartButton(startButton, dt, startToolbar->getInputHandler(), dt.getButtonSheet(), 6, 14, 0.35f);
+    
+    startToolbar->addEntity(startBar);
+    startToolbar->addEntity(startButton);
+    dt.addWindow(startToolbar);
+    
+     //////////////////////////////////////
 
 	//Initialize Builder for Icons
 	IconBuilder icons;
@@ -177,10 +208,39 @@ void ppc::createTutorial(Desktop & dt) {
     ev.floppy.sequence = 0; // Line below crashes on mac - Brandon
     ev.floppy.frame = 0;
     summonFloppyDialog(floppyIn, ev);
+    
+    
 }
 
 
 void ppc::createDesktopTutorial(Desktop & dt) {
+    
+    ////////////////////////////////////////
+    // START BAR / BUTTON
+    //////////////////////////////////////
+    ppc::WindowInterface* startToolbar =
+    new ppc::Window(1000, 200, sf::Color(195, 195, 195,0));
+    
+    startToolbar->setPosition(0, 735);
+    
+    Entity startBar;
+    startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
+    
+    startBarRender->renderPosition({0,4});
+    
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
+    startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
+    
+    
+    Entity startButton;
+    spawnStartButton(startButton, dt, startToolbar->getInputHandler(), dt.getButtonSheet(), 6, 14, 0.35f);
+    
+    startToolbar->addEntity(startBar);
+    startToolbar->addEntity(startButton);
+    dt.addWindow(startToolbar);
+    
+    //////////////////////////////////////
 
 	//Initialize Builder for Icons
 	IconBuilder icons;
