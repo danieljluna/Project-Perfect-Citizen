@@ -32,3 +32,18 @@ ppc::Subject& ppc::Inbox::getInboxSubject()
 {
 	return inboxSubject_;
 }
+
+int ppc::Inbox::getUnreadEmailCount()
+{
+	int count = 0;
+	for (auto iter = messageList.begin(); iter != messageList.end(); iter++) {
+		if ( (*iter)->getVisible() == true) {
+			if ((*iter)->getReadFlag() == false) {
+				count++;
+			}
+		}
+	}
+	return count;
+}
+
+

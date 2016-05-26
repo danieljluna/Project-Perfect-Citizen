@@ -32,6 +32,7 @@ namespace ppc {
         ///////////////////////////////////////////////////////////////////////
         std::string consoleHelpString;
         std::string graphHelpString;
+		std::string desktopsHelpString;
         sf::Text* contentText;
         
         sf::Font font;
@@ -62,5 +63,6 @@ namespace ppc {
     
     bool swithTab0Fn(HelpWindowRenderComponent*, Event);
     bool swithTab1Fn(HelpWindowRenderComponent*, Event);
+	bool swithTab2Fn(HelpWindowRenderComponent*, Event);
     
 };

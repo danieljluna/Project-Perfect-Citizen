@@ -39,25 +39,25 @@ Subject: RE: Welcome
     of opening up communications, I'd like to
     share a bit about myself.
 
-    ’’’’’’’’’
+    [CORRUPTED:’’’’
     ’’’’’’’
             
     ’’’’’’’’’’’’’’’’’
-    ’’’’’’’’’’
+    ’’’’’’’’’’]
             
     I've never acted on these desires, and I
     never will. Still I doubt my condition will
     ever go away.
     
-    ’’’’’’’’’’’’’’’’’
+    [CORRUPTED:’’’’’’’’’
     ’’’’’’’’’’’’’’’’’
     ’’
             
     ’’’’’’’’’’’’’’’’’
     ’’’’’’’’’’’’’’’’’
     ’’’’’’’’’’’’’’’’’
-    ’’’’’’
-            
+    ’’’’’’]
+        
         Thank you,
         Murphy Goodwin"
         },
@@ -70,10 +70,10 @@ Subject: RE: Welcome
             "Body" : "
             
     You told me to be candid with you Chandler, so
-	’’’’’’’’’’’’’’’’’
+    [CORRUPTED:’’’’’’’’’’]
 	in person, I'm feeling guilty for something.
             
-    I found some ’’’ ’’’
+    I found some [CORRUPTED:’’’ ’’’]
             
     Am I wrong for looking at them? For keeping 
 	them?
@@ -84,7 +84,7 @@ Subject: RE: Welcome
 To: Murpy Goodwin, From: Chandler Garvey
 Subject: RE: Trouble
 	
-	’’’’’’’’’’’’’ There is a
+    [CORRUPTED: ’’’’’’] There is a
     line we don't cross and you're crossing it.
             
             - Chandler
@@ -93,8 +93,8 @@ Subject: RE: Trouble
 To: Chandler Garvey, From: Murphy Goodwin
 Subject: RE: RE: Trouble
 
-	Help me understand why. ’’’
-	’’’’’’’’’’’’’’
+    Help me understand why. [CORRUPTED:’’
+	’’’’’’’’’’’’’’]
             
             - Murphy		
 
@@ -103,8 +103,8 @@ To: Murphy Goodwin, From: Chandler Garvey
 Subject: RE: RE: RE: Trouble
 
 	No Murphy.
-            
-    ’’’’’’’’’’’’’’’’’
+        
+    [CORRUPTED:’’’’’’’’
     ’’’’’’’’’’’’
             
     ’’’’’’’’’’’’’’’’’
@@ -112,7 +112,7 @@ Subject: RE: RE: RE: Trouble
     ’’’’’’’’’’’’’’’’’
     ’’’’’’
         
-    ’’’ or remove yourself from
+    ’’’] or remove yourself from
     Virtue Community. Am I being clear?
             
             - Chandler
@@ -121,7 +121,7 @@ Subject: RE: RE: RE: Trouble
 To: Chandler Garvey, From: Murphy Goodwin
 Subject: RE: RE: RE: RE: Trouble
 
-    ’’’’’’’’’’’’’’’’’
+    [CORRUPTED:’’’’’’’’’’’]
             
     Sorry.
             
@@ -228,7 +228,7 @@ Subject: RE: RE: RE: RE: Coming Clean
             "Visible" : "1",
             "To" : "Chandler Garvey <cgarvey@fellowship.net>",
             "From" : "Murphy Goodwin <mgoodwin@corpora.com>",
-            "Subject": "Need to talk [1yr ago]",
+            "Subject": "Need to talk (4) [1yr ago]",
             "Body" : "Hi Chandler,
             
     I got in an argument with Lisa this morning.

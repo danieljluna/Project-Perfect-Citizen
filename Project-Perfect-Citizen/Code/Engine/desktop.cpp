@@ -28,6 +28,7 @@
 #include "../Game/emailExtraction.hpp"
 #include "../Game/desktopExtractionComponent.hpp"
 #include "../Game/PipelineLevelBuilder.h"
+#include "../Engine/Transition.h"
 
 #include "frontTopObserver.h"
 
@@ -42,6 +43,8 @@ ppc::Desktop::Desktop() {
 	background_ = sf::Sprite();
 	backgndTexture_ = sf::Texture();
 	frontTop_ = nullptr;
+	inTransition_ = nullptr;
+	outTransition_ = nullptr;
 
 	desktopWindow_ = new Window(1800, 1000);
 	windows_.push_back(desktopWindow_);
@@ -90,6 +93,8 @@ ppc::Desktop::~Desktop() {
 	}
 
 	if(frontTop_) delete frontTop_;
+	if (inTransition_) delete inTransition_;
+	if (outTransition_) delete outTransition_;
 	frontTop_ = nullptr;
 	focused_ = nullptr;
 	desktopWindow_ = nullptr;
@@ -141,6 +146,9 @@ void ppc::Desktop::draw(sf::RenderTarget& target,
 	
 	for (auto it = windows_.rbegin(); it != windows_.rend(); ++it) {
 		target.draw(*(*it), states);
+        if ((*it)->getNotifWindow() != nullptr) {
+            target.draw(*(*it)->getNotifWindow(), states);
+        }
 	}
 
 	if (frontTop_) target.draw(*frontTop_, states);
@@ -293,6 +301,14 @@ void ppc::Desktop::deleteFrontTop() {
 	}
 }
 
+void ppc::Desktop::setInTransition(Transition &in) {
+	inTransition_ = &in;
+}
+
+void ppc::Desktop::setOutTransition(Transition &out) {
+	outTransition_ = &out;
+}
+
 void ppc::Desktop::registerInput(Event ppcEv) {
     
 	if ((frontTop_ != nullptr) && (ppcEv.type == Event::sfEventType) &&
@@ -315,16 +331,31 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
 //if the window clicked in a window that wasnt focused,
 //then focus that window.
 //for any mouse event
+
 	if (ppcEv.type == Event::sfEventType) {
 		if (ppcEv.sfEvent.type == sf::Event::MouseButtonPressed) {
 			for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-				sf::FloatRect winBounds = (*it)->getBounds();
-				if (winBounds.contains(
-					float(ppcEv.sfEvent.mouseButton.x), 
-					float(ppcEv.sfEvent.mouseButton.y))) {
-						focusWindow(*it);
-						break;
-				}
+                sf::FloatRect winBounds;
+                if ((*it)->getNotifWindow() != nullptr) {
+                    winBounds = (*it)->getNotifWindow()->getBounds();
+                    if (winBounds.contains(
+                        float(ppcEv.sfEvent.mouseButton.x),
+                        float(ppcEv.sfEvent.mouseButton.y))) {
+                        focusWindow(*it);
+                        focused_ = (*it)->getNotifWindow();
+                        break;
+                    }
+                }
+                winBounds = (*it)->getBounds();
+                if (winBounds.contains(
+                        float(ppcEv.sfEvent.mouseButton.x),
+                        float(ppcEv.sfEvent.mouseButton.y))) {
+                    focusWindow(*it);
+                    if ((*it)->getNotifWindow() != nullptr) {
+                        focused_ = (*it)->getNotifWindow();
+                    }
+                    break;
+                }
 			}
 		}
 		if (ppcEv.sfEvent.type == sf::Event::MouseMoved) {
@@ -345,6 +376,9 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
         
         for (auto it: winCopy) {
             it->registerInput(ppcEv);
+            if (it->getNotifWindow() != nullptr) {
+                it->getNotifWindow()->registerInput(ppcEv);
+            }
         }
 
     } else {
@@ -356,11 +390,17 @@ void ppc::Desktop::update(sf::Time& deltaTime){
 	//No reverse itors needed
 	for (size_t i = 0; i < windows_.size(); ) {
 		windows_.at(i)->update(deltaTime);
+        if ((windows_.at(i)->getNotifWindow() != nullptr) &&
+            (!windows_.at(i)->getNotifWindow()->isOpen())) {
+            windows_.at(i)->createNotifWindow(nullptr, true);
+            focusWindow(windows_.at(i));
+        }
 		if (!windows_.at(i)->isOpen()) {
 			delete windows_.at(i);
 			windows_.erase(windows_.begin() + i);
 			focusWindow(desktopWindow_);
-		} else {
+		}
+		else {
 			++i;
 		}
 		//dont increment if you delete it
@@ -451,7 +491,6 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 		if (pos == std::string::npos) continue;
 		std::string key = line.substr(0, pos);
 		std::string file = line.substr(pos + 2);
-		//DEBUGF("wc", key << " " << file)
 		if (key == "Icons") {
 			importDesktop->iconSheet_.loadFromFile(resourcePath() + file);
 
@@ -473,6 +512,9 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 				desktopFiles.parseDesktopAsJson(file, "Desktop");
 		} else if (key == "Emails") {
 			ppc::emailExtraction* inbox = new emailExtraction();
+			
+			std::string bossEmail = World::getBossEmail();
+			if (bossEmail != "") inbox->parseEmailAsJson(bossEmail);
 			inbox->parseEmailAsJson(file);
 			
 			for (unsigned int i = 0; i < inbox->getSubject().size(); i++) {
@@ -484,6 +526,7 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 					"image.jpg");
 				importDesktop->getInbox().addEmailToList(testEmail1);
 			}
+			
 			delete inbox;
 		} else if (key == "Pipeline") {
 			desktop.netVecIndex_ = 0;
@@ -492,7 +535,6 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 				levelnum = PipelineLevelBuilder::LEVEL_MAP.at(file);
 			} 
 			else {
-				DEBUGF("wc", key << " " << file);
 				levelnum = -2;
 			}
 
@@ -519,7 +561,6 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 					break;
 				default:
 					solNet = PipelineLevelBuilder::buildDefaultNetwork();
-					DEBUGF("wc", levelnum);
 					break;
 			}
 			desktop.solVec_.push_back(solNet);
