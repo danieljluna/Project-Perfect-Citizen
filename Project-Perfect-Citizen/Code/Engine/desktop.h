@@ -28,6 +28,7 @@ namespace ppc {
 	class Inbox;
 	class World;
 	class Network;
+	class Transition;
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Manages a series of Windows, an associated file tree and
@@ -107,12 +108,19 @@ namespace ppc {
 		std::vector<WindowInterface*> windows_;
 
 ///////////////////////////////////////////////////////////////////////
+///@brief Pointers for Transitions (into and out of desktops)
+///////////////////////////////////////////////////////////////////////
+		Transition* inTransition_;
+		Transition* outTransition_;
+
+
+///////////////////////////////////////////////////////////////////////
 ///@brief Draws the Desktop & all its Windows.
 ///
 ///@param in target The object that is to be drawn on.
 ///@param in states Used to manipulate draw calls.
 ///////////////////////////////////////////////////////////////////////
-		  void draw(sf::RenderTarget&, sf::RenderStates) const;
+		void draw(sf::RenderTarget&, sf::RenderStates) const;
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief A helper function that checks if the mouse is within a
@@ -124,6 +132,8 @@ namespace ppc {
 ///@brief A helper function that clears all the values of a Desktop
 ///////////////////////////////////////////////////////////////////////
 		void clearDesktop();
+
+
 
 ///////////////////////////////////////////////////////////////////////
 //PUBLIC FIELD
@@ -289,6 +299,11 @@ namespace ppc {
 ///////////////////////////////////////////////////////////////////////
 		  void deleteFrontTop();
 
+		  void setInTransition(Transition&);
+		  Transition& getInTransition() { return *inTransition_; }
+
+		  void setOutTransition(Transition&);
+		  Transition& getOutTransition() { return *outTransition_; }
 ///////////////////////////////////////////////////////////////////////
 ///@brief Reacts to Input for the focused Window.
 ///////////////////////////////////////////////////////////////////////

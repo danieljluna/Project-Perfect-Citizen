@@ -11,7 +11,6 @@
 #include <iostream>
 #include <fstream>
 
-//#include "../Engine/Engine.h"
 #include "../Engine/World.h"
 #include "../Engine/SuspiciousFileHolder.h"
 #include "../Engine/desktop.h"
@@ -85,21 +84,12 @@ void ppc::createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktop
     sf::Image floppyImage;
     floppyImage.loadFromFile(resourcePath() + "Floppy_Sheet.png");
 
-	//TODO: FIX MEMORY LEAK
-    Database* theDatabase = new Database();
-	//theDatabase->generateFullDatabase(200);
 
-    //TODO: FIX MEMORY LEAK
+    Database theDatabase;
+
+
 	Inbox* theInbox = &desktopToModify.getInbox();
 
-    emailExtraction inbox;// = new emailExtraction();
-    inbox.parseEmailAsJson("PlayerEmail.json");
-    
-
-    for(unsigned int i = 0; i < inbox.getSubject().size(); i++){
-        Email* testEmail1 = new Email(inbox.getTo().at(i), inbox.getFrom().at(i), inbox.getSubject().at(i), inbox.getBody().at(i), inbox.getVisible().at(i), "image.jpg");
-        theInbox->addEmailToList(testEmail1);
-    }
     
 	//////////////////////////////////////////////
 	//// Create the start menu
@@ -114,7 +104,6 @@ void ppc::createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktop
     startBarRender->renderPosition({0,4});
     
     startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
-    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
     startBar.addComponent(startBarRender);
     startBar.addComponent(startBarUpdate);
 
@@ -139,11 +128,11 @@ void ppc::createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktop
 	Entity SearchIcon;
 	Entity EmailIcon;
 
-	spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 425.0f, 525.0f, 0.5f, 0.30f, theInbox);
-	spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 175.0f, 375.0f, 0.5f, 0.30f, theInbox);
-	spawnDataGraphIcon(DataGraphIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 675.0f, 375.0f, 0.5f, 0.30f, theInbox);
-	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 250.0f, 475.0f, 0.5f, 0.30f, theInbox);
-	spawnHelpIcon(SearchIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 600.0f, 475.0f, 0.5f, 0.30f, theInbox);
+	spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 425.0f, 525.0f, 0.5f, 0.30f, theInbox);
+	spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 175.0f, 375.0f, 0.5f, 0.30f, theInbox);
+	spawnDataGraphIcon(DataGraphIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 675.0f, 375.0f, 0.5f, 0.30f, theInbox);
+	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 250.0f, 475.0f, 0.5f, 0.30f, theInbox);
+	spawnHelpIcon(SearchIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 600.0f, 475.0f, 0.5f, 0.30f, theInbox);
     
     desktopWindowToModify.addEntity(ConsoleIcon);
 	desktopWindowToModify.addEntity(DataGraphIcon);
@@ -155,31 +144,10 @@ void ppc::createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktop
 
 void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
     
-    //////////////////////////////////////////////
-    //// Create the database (really should take a seed)
-    /////////////////////////////////////////////
-    //TODO: FIX MEMORY LEAK
-    Database* theDatabase = new Database();
-    //theDatabase->generateFullDatabase(0);
-    
-    //TODO: FIX MEMORY LEAK
-    Inbox* theInbox = new Inbox();
-    
-    //TODO: FIX MEMORY LEAK
-    emailExtraction* inbox = new emailExtraction();
-    inbox->parseEmailAsJson("Email1.json");
-    
-    for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
-        Email* testEmail1 = new Email(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
-        theInbox->addEmailToList(testEmail1);
-    }
-    
-    //////////////////////////////////////////////
-    //// Script to create file tree
-    /////////////////////////////////////////////
-    desktopExtractionComponent* teacherFiles = new desktopExtractionComponent(*desktopToModify.getNodeState());
-    Json::Value parsed = teacherFiles->parseDesktopAsJson("Desktop1.json", "Desktop");
-    
+    Database theDatabase;
+
+    Inbox* theInbox = &desktopToModify.getInbox();
+   
     //////////////////////////////////////////////
     //// Create the start menu
     /////////////////////////////////////////////
@@ -192,8 +160,6 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
     startBarRender->renderPosition({0,4});
     startBar.addComponent(startBarRender);
-    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
-    //startBar.addComponent(bar);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -212,11 +178,11 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
     Entity ConsoleIcon;
     Entity EmailIcon;
     
-    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 350.0f, 400.0f, 0.4f, 0.25f, theInbox);
-	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 125.0f, 175.0f, 0.4f, 0.25f, theInbox);
-	spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 525.0f, 200.0f, 0.5f, 0.25f, theInbox);
-    spawnChatIcon(ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 300.0f, 0.4f, 0.25f, theInbox);
-    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 600.0f, 500.0f, 0.5f, 0.25f, theInbox);
+    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, theDatabase, iconSheet,  buttonSheet, 350.0f, 400.0f, 0.4f, 0.25f, theInbox);
+	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 125.0f, 175.0f, 0.4f, 0.25f, theInbox);
+	spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 525.0f, 200.0f, 0.5f, 0.25f, theInbox);
+    spawnChatIcon(ChatIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 225.0f, 300.0f, 0.4f, 0.25f, theInbox);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 600.0f, 500.0f, 0.5f, 0.25f, theInbox);
 
 
 	IconBuilder builder;
@@ -260,41 +226,18 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
 
 void ppc::createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
     
-    //////////////////////////////////////////////
-    //// Create the database (really should take a seed)
-    /////////////////////////////////////////////
-    //TODO: FIX MEMORY LEAK
-    Database* theDatabase = new Database();
-    theDatabase->generateFullDatabase(0);
-    
-    //TODO: FIX MEMORY LEAK
-    Inbox* theInbox = new Inbox();
-    
-    //TODO: FIX MEMORY LEAK
-    emailExtraction* inbox = new emailExtraction();
-    inbox->parseEmailAsJson("Email0.json");
-    
-    for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
-        Email* testEmail1 = new Email(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
-        theInbox->addEmailToList(testEmail1);
-    }
-    
-    //////////////////////////////////////////////
-    //// Script to create file tree
-    /////////////////////////////////////////////
-    desktopExtractionComponent* teacherFiles = new desktopExtractionComponent(*desktopToModify.getNodeState());
-    Json::Value parsed = teacherFiles->parseDesktopAsJson("Desktop0.json", "Desktop");
-    
+
+    Database theDatabase;
+
+    Inbox* theInbox = &desktopToModify.getInbox();
+   
     //////////////////////////////////////////////
     //// Create the start menu
     /////////////////////////////////////////////
     ppc::WindowInterface* startToolbar =
     new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
     startToolbar->setPosition(0, 735);
-    
-    //Entity startBar;
-    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
-    //startBar.addComponent(bar);
+   
     Entity startBar;
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
     startBarRender->renderPosition({0,4});
@@ -317,11 +260,11 @@ void ppc::createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopW
     Entity ConsoleIcon;
     Entity EmailIcon;
     
-    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 25.0f, 600.0f, 0.4f, 0.25f, theInbox);
-    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 125.0f, 600.0f, 0.4f, 0.25f, theInbox);
-    spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 600.0f, 0.5f, 0.25f, theInbox);
-    spawnChatIcon(ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 325.0f, 600.0f, 0.4f, 0.25f, theInbox);
-    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 425.0f, 600.0f, 0.5f, 0.25f, theInbox);
+    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, theDatabase, iconSheet,  buttonSheet, 25.0f, 600.0f, 0.4f, 0.25f, theInbox);
+    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 125.0f, 600.0f, 0.4f, 0.25f, theInbox);
+    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 225.0f, 600.0f, 0.5f, 0.25f, theInbox);
+    spawnChatIcon(ChatIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 325.0f, 600.0f, 0.4f, 0.25f, theInbox);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 425.0f, 600.0f, 0.5f, 0.25f, theInbox);
     
     desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);
@@ -338,31 +281,10 @@ void ppc::createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopW
 }
 
 void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
-    
-    //////////////////////////////////////////////
-    //// Create the database (really should take a seed)
-    /////////////////////////////////////////////
-    //TODO: FIX MEMORY LEAK
-    Database* theDatabase = new Database();
-    theDatabase->generateFullDatabase(0);
-    
-    //TODO: FIX MEMORY LEAK
-    Inbox* theInbox = new Inbox();
-    
-    //TODO: FIX MEMORY LEAK
-    emailExtraction* inbox = new emailExtraction();
-    inbox->parseEmailAsJson("Email2.json");
-    
-    for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
-        Email* testEmail1 = new Email(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
-        theInbox->addEmailToList(testEmail1);
-    }
-    
-    //////////////////////////////////////////////
-    //// Script to create file tree
-    /////////////////////////////////////////////
-    desktopExtractionComponent* teacherFiles = new desktopExtractionComponent(*desktopToModify.getNodeState());
-    Json::Value parsed = teacherFiles->parseDesktopAsJson("Desktop2.json", "Desktop");
+  
+	Database theDatabase;
+
+	Inbox* theInbox = &desktopToModify.getInbox();
     
     //////////////////////////////////////////////
     //// Create the start menu
@@ -370,10 +292,6 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
     ppc::WindowInterface* startToolbar =
     new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
     startToolbar->setPosition(0, 735);
-    
-    //Entity startBar;
-    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
-    //startBar.addComponent(bar);
     
     Entity startBar;
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
@@ -397,11 +315,11 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
     Entity ConsoleIcon;
     Entity EmailIcon;
     
-    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 25.0f, 600.0f, 0.4f, 0.25f, theInbox);
-    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 125.0f, 600.0f, 0.4f, 0.25f, theInbox);
-    spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 225.0f, 600.0f, 0.5f, 0.25f, theInbox);
-    spawnChatIcon(ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 325.0f, 600.0f, 0.4f, 0.25f, theInbox);
-    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 425.0f, 600.0f, 0.5f, 0.25f, theInbox);
+    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, theDatabase, iconSheet,  buttonSheet, 25.0f, 600.0f, 0.4f, 0.25f, theInbox);
+    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 125.0f, 600.0f, 0.4f, 0.25f, theInbox);
+    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 225.0f, 600.0f, 0.5f, 0.25f, theInbox);
+    spawnChatIcon(ChatIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 325.0f, 600.0f, 0.4f, 0.25f, theInbox);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 425.0f, 600.0f, 0.5f, 0.25f, theInbox);
 
 	IconBuilder builder;
 	builder.setDesktop(desktopToModify);
@@ -410,21 +328,6 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
 	builder.setAnimSpeed(0.30f);
 	builder.setInputHandle(desktopToModify.getInputHandler());
 	builder.setSize(0.5f);
-
-	// Create teacher desktop folders/files
-	/*Entity folder1;
-	builder.setPosition({ 200.0f, 100.0f });
-	builder.setIconType(iconInputComponent::IconType::Folder);
-	builder.setSpritebyIndicies(0, 9, 1, 1);
-	builder.setText("Note_to_Voyeur", World::getFont(World::VT323Regular), sf::Color::White);
-	builder.create(folder1);
-	desktopWindowToModify.addEntity(folder1);
-
-	Entity folder2;
-	builder.setPosition({ 400.0f, 100.0f });
-	builder.setText("Projects", World::getFont(World::VT323Regular), sf::Color::White);
-	builder.create(folder2);
-	desktopWindowToModify.addEntity(folder2);*/
 
 	Entity file1;
 	builder.setPosition({ 600.0f, 100.0f });
@@ -517,31 +420,10 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
 
 void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
     
-    //////////////////////////////////////////////
-    //// Create the database (really should take a seed)
-    /////////////////////////////////////////////
-    //TODO: FIX MEMORY LEAK
-    Database* theDatabase = new Database();
-    theDatabase->generateFullDatabase(0);
-    
-    //TODO: FIX MEMORY LEAK
-    Inbox* theInbox = new Inbox();
-    
-    //TODO: FIX MEMORY LEAK
-    emailExtraction* inbox = new emailExtraction();
-    inbox->parseEmailAsJson("Email3.json");
-    
-    for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
-        Email* testEmail1 = new Email(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
-        theInbox->addEmailToList(testEmail1);
-    }
-    
-    //////////////////////////////////////////////
-    //// Script to create file tree
-    /////////////////////////////////////////////
-    desktopExtractionComponent* teacherFiles = new desktopExtractionComponent(*desktopToModify.getNodeState());
-    Json::Value parsed = teacherFiles->parseDesktopAsJson("Desktop3.json", "Desktop");
-    
+	Database theDatabase;
+
+	Inbox* theInbox = &desktopToModify.getInbox();
+
     //////////////////////////////////////////////
     //// Create the start menu
     /////////////////////////////////////////////
@@ -549,9 +431,6 @@ void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& des
     new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
     startToolbar->setPosition(0, 735);
     
-   // Entity startBar;
-    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
-    //startBar.addComponent(bar);
     Entity startBar;
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
     startBarRender->renderPosition({0,4});
@@ -574,11 +453,11 @@ void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& des
     Entity ConsoleIcon;
     Entity EmailIcon;
     
-    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 25.0f, 25.0f, 0.4f, 0.25f, theInbox);
-    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 125.0f, 0.4f, 0.25f, theInbox);
-    spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 225.0f, 0.5f, 0.25f, theInbox);
-    spawnChatIcon(ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 325.0f, 0.4f, 0.25f, theInbox);
-    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 425.0f, 0.5f, 0.25f, theInbox);
+    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, theDatabase, iconSheet,  buttonSheet, 25.0f, 25.0f, 0.4f, 0.25f, theInbox);
+    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 125.0f, 0.4f, 0.25f, theInbox);
+    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 225.0f, 0.5f, 0.25f, theInbox);
+    spawnChatIcon(ChatIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 325.0f, 0.4f, 0.25f, theInbox);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 425.0f, 0.5f, 0.25f, theInbox);
     
     desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);
@@ -597,30 +476,9 @@ void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& des
 
 void ppc::createTrailerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
     
-    //////////////////////////////////////////////
-    //// Create the database (really should take a seed)
-    /////////////////////////////////////////////
-    //TODO: FIX MEMORY LEAK
-    Database* theDatabase = new Database();
-    theDatabase->generateFullDatabase(0);
-    
-    //TODO: FIX MEMORY LEAK
-    Inbox* theInbox = new Inbox();
-    
-    //TODO: FIX MEMORY LEAK
-    emailExtraction* inbox = new emailExtraction();
-    inbox->parseEmailAsJson("TrailerEmail.json");
-    
-    for(unsigned int i = 0; i < inbox->getSubject().size(); i++){
-        Email* testEmail1 = new Email(inbox->getTo().at(i), inbox->getFrom().at(i), inbox->getSubject().at(i), inbox->getBody().at(i), inbox->getVisible().at(i), "image.jpg");
-        theInbox->addEmailToList(testEmail1);
-    }
-    
-    //////////////////////////////////////////////
-    //// Script to create file tree
-    /////////////////////////////////////////////
-    desktopExtractionComponent* teacherFiles = new desktopExtractionComponent(*desktopToModify.getNodeState());
-    Json::Value parsed = teacherFiles->parseDesktopAsJson("TrailerDesktop.json", "Desktop");
+	Database theDatabase;
+
+	Inbox* theInbox = &desktopToModify.getInbox();
     
     //////////////////////////////////////////////
     //// Create the start menu
@@ -628,10 +486,7 @@ void ppc::createTrailerDesktop(Desktop& desktopToModify, WindowInterface& deskto
     ppc::WindowInterface* startToolbar =
     new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
     startToolbar->setPosition(0, 735);
-    
-    //Entity startBar;
-    //spriteRenderComponent* bar = new spriteRenderComponent(buttonSheet, 7,7,startToolbar->getBounds().width,1);
-    //startBar.addComponent(bar);
+
     Entity startBar;
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
     startBarRender->renderPosition({0,4});
@@ -654,11 +509,11 @@ void ppc::createTrailerDesktop(Desktop& desktopToModify, WindowInterface& deskto
     Entity ConsoleIcon;
     Entity EmailIcon;
     
-    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, *theDatabase, iconSheet,  buttonSheet, 25.0f, 25.0f, 0.4f, 0.25f, theInbox);
-    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 125.0f, 0.4f, 0.25f, theInbox);
-    spawnEmailIcon(EmailIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 225.0f, 0.5f, 0.25f, theInbox);
-    spawnChatIcon(ChatIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 325.0f, 0.4f, 0.25f, theInbox);
-    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, *theDatabase, iconSheet, buttonSheet, 25.0f, 425.0f, 0.5f, 0.25f, theInbox);
+    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, theDatabase, iconSheet,  buttonSheet, 25.0f, 25.0f, 0.4f, 0.25f, theInbox);
+    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 125.0f, 0.4f, 0.25f, theInbox);
+    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 225.0f, 0.5f, 0.25f, theInbox);
+    spawnChatIcon(ChatIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 325.0f, 0.4f, 0.25f, theInbox);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 425.0f, 0.5f, 0.25f, theInbox);
     
     desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);

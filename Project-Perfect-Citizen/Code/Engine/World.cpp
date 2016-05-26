@@ -46,7 +46,8 @@ std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
 	{ World::DEPlayer2B, resourcePath() + "Engine/playerDesktop2B.ini" },
 	{ World::DE2A, resourcePath() + "Engine/artistDesktop.ini" },
 	{ World::DE2B, resourcePath() + "Engine/politicianDesktop.ini" },
-	{ World::DEPlayer3, resourcePath() + "Engine/playerDesktop3.ini" },
+	{ World::DEPlayer3A, resourcePath() + "Engine/playerDesktop3.ini" },
+	{ World::DEPlayer3B, resourcePath() + "Engine/playerDesktop3.ini" },
 	{ World::DE3, resourcePath() + "Engine/hackerDesktop.ini" },
 	{ World::DEEnd, resourcePath() + "Engine/endDesktop.ini" },
     { World::DesktopCount, ""}  //Empty pairing of Count to string.
@@ -64,7 +65,8 @@ std::map<World::DesktopList, World::desktopLoaders> World::loaderMap_ = {
 	{ World::DEPlayer2B, setUpPlayerDesktop },
 	{ World::DE2A, setUpArtistDesktop },
 	{ World::DE2B, setUpPoliticianDesktop },
-	{ World::DEPlayer3,setUpPlayerDesktop },
+	{ World::DEPlayer3A,setUpPlayerDesktop },
+	{ World::DEPlayer3B,setUpPlayerDesktop },
 	{ World::DE3, setUpHackerDesktop },
 	{ World::DEEnd, setUpEndDesktop },
 	{ World::DesktopCount, nullptr }  //Empty pairing of Count to nullptr.
@@ -102,6 +104,35 @@ std::map <std::pair<World::DesktopList, World::ReportType>, std::string > World:
 	{ { DE3, B }, resourcePath() + "Reports/HackerReportB.txt" },
 	{ { DE3, C }, resourcePath() + "Reports/HackerReportC.txt" },
 	{ { DE3, D }, resourcePath() + "Reports/HackerReportD.txt" },
+
+};
+
+std::map <std::pair<World::DesktopList, World::ReportType>, std::string > World::bossEmailMap_ = {
+	{ { DEPlayer1, A }, "TutorialResponseA.json" },
+	{ { DEPlayer1, B }, "TutorialResponseB.json" },
+	{ { DEPlayer1, C }, "TutorialResponseC.json" },
+	{ { DEPlayer1, D }, "TutorialResponseD.json" },
+
+	{ { DEPlayer2A, A }, "TeacherResponseA.json" },
+	{ { DEPlayer2A, B }, "TeacherResponseB.json" },
+	{ { DEPlayer2A, C }, "TeacherResponseC.json" },
+	{ { DEPlayer2A, D }, "TeacherResponseD.json" },
+
+	{ { DEPlayer2B, A }, "TeacherResponseA.json" },
+	{ { DEPlayer2B, B }, "TeacherResponseB.json" },
+	{ { DEPlayer2B, C }, "TeacherResponseC.json" },
+	{ { DEPlayer2B, D }, "TeacherResponseD.json" },
+
+	{ { DEPlayer3A, A }, "ArtistResponseA.json" },
+	{ { DEPlayer3A, B }, "ArtistResponseB.json" },
+	{ { DEPlayer3A, C }, "ArtistResponseC.json" },
+	{ { DEPlayer3A, D }, "ArtistResponseD.json" },
+
+	{ { DEPlayer3B, A }, "PoliticianResponseA.json" },
+	{ { DEPlayer3B, B }, "PoliticianResponseB.json" },
+	{ { DEPlayer3B, C }, "PoliticianResponseC.json" },
+	{ { DEPlayer3B, D }, "PoliticianResponseD.json" },
+
 
 };
 
@@ -159,14 +190,20 @@ void ppc::World::initLevelMap() {
 	levelPlayer2B.pushNext(DE2B, 20);
 	levelMap_.emplace(DEPlayer2B, levelPlayer2B);
 
-	LevelPacket levelTwo;
-	levelTwo.pushNext(DEPlayer3, 1);
-	levelMap_.emplace(DE2A, levelTwo);
-	levelMap_.emplace(DE2B, levelTwo);
+	LevelPacket level2A;
+	level2A.pushNext(DEPlayer3A, 1);
+	levelMap_.emplace(DE2A, level2A);
 
-	LevelPacket levelPlayer3;
-	levelPlayer3.pushNext(DE3, 1);
-	levelMap_.emplace(DEPlayer3, levelPlayer3);
+	LevelPacket level2B;
+	level2A.pushNext(DEPlayer3B, 1);
+	levelMap_.emplace(DE2B, level2B);
+
+	LevelPacket levelPlayer3A;
+	LevelPacket levelPlayer3B;
+	levelPlayer3A.pushNext(DE3, 1);
+	levelPlayer3B.pushNext(DE3, 1);
+	levelMap_.emplace(DEPlayer3A, levelPlayer3A);
+	levelMap_.emplace(DEPlayer3B, levelPlayer3B);
 
 	LevelPacket levelThree;
 	levelThree.pushNext(DEEnd, 1);
@@ -355,6 +392,12 @@ sf::Font& ppc::World::getFont(FontList f) {
 std::string ppc::World::getReportFile() {
 	auto i = reportListMap_.find({ currDesktopEnum_, currReportType_ });
 	if (i != reportListMap_.end()) return i->second;
+	return "";
+}
+
+std::string ppc::World::getBossEmail() {
+	auto i = bossEmailMap_.find({ currDesktopEnum_, currReportType_ });
+	if (i != bossEmailMap_.end()) return i->second;
 	return "";
 }
 

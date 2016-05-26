@@ -28,6 +28,7 @@
 #include "../Game/emailExtraction.hpp"
 #include "../Game/desktopExtractionComponent.hpp"
 #include "../Game/PipelineLevelBuilder.h"
+#include "../Engine/Transition.h"
 
 #include "frontTopObserver.h"
 
@@ -42,6 +43,8 @@ ppc::Desktop::Desktop() {
 	background_ = sf::Sprite();
 	backgndTexture_ = sf::Texture();
 	frontTop_ = nullptr;
+	inTransition_ = nullptr;
+	outTransition_ = nullptr;
 
 	desktopWindow_ = new Window(1800, 1000);
 	windows_.push_back(desktopWindow_);
@@ -90,6 +93,8 @@ ppc::Desktop::~Desktop() {
 	}
 
 	if(frontTop_) delete frontTop_;
+	if (inTransition_) delete inTransition_;
+	if (outTransition_) delete outTransition_;
 	frontTop_ = nullptr;
 	focused_ = nullptr;
 	desktopWindow_ = nullptr;
@@ -296,6 +301,14 @@ void ppc::Desktop::deleteFrontTop() {
 	}
 }
 
+void ppc::Desktop::setInTransition(Transition &in) {
+	inTransition_ = &in;
+}
+
+void ppc::Desktop::setOutTransition(Transition &out) {
+	outTransition_ = &out;
+}
+
 void ppc::Desktop::registerInput(Event ppcEv) {
     
 	if ((frontTop_ != nullptr) && (ppcEv.type == Event::sfEventType) &&
@@ -478,7 +491,6 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 		if (pos == std::string::npos) continue;
 		std::string key = line.substr(0, pos);
 		std::string file = line.substr(pos + 2);
-		//DEBUGF("wc", key << " " << file)
 		if (key == "Icons") {
 			importDesktop->iconSheet_.loadFromFile(resourcePath() + file);
 
@@ -500,6 +512,9 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 				desktopFiles.parseDesktopAsJson(file, "Desktop");
 		} else if (key == "Emails") {
 			ppc::emailExtraction* inbox = new emailExtraction();
+			
+			std::string bossEmail = World::getBossEmail();
+			if (bossEmail != "") inbox->parseEmailAsJson(bossEmail);
 			inbox->parseEmailAsJson(file);
 			
 			for (unsigned int i = 0; i < inbox->getSubject().size(); i++) {
@@ -511,6 +526,7 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 					"image.jpg");
 				importDesktop->getInbox().addEmailToList(testEmail1);
 			}
+			
 			delete inbox;
 		} else if (key == "Pipeline") {
 			desktop.netVecIndex_ = 0;
@@ -519,7 +535,6 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 				levelnum = PipelineLevelBuilder::LEVEL_MAP.at(file);
 			} 
 			else {
-				DEBUGF("wc", key << " " << file);
 				levelnum = -2;
 			}
 
@@ -546,7 +561,6 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 					break;
 				default:
 					solNet = PipelineLevelBuilder::buildDefaultNetwork();
-					DEBUGF("wc", levelnum);
 					break;
 			}
 			desktop.solVec_.push_back(solNet);
