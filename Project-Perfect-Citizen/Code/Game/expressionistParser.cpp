@@ -234,7 +234,7 @@ bool expr::ExpressionistParser::checkMarkUpPreconditions(const Json::Value& mark
 				else {
 					if (makeComparison("ClearlyClean", value, "==")) continue;
 					if (makeComparison("SlightlySuspicious", value, "==")) continue;
-					if (makeComparison("Ambiguous", value, "==")) continue;
+					//if (makeComparison("Ambiguous", value, "==")) continue;
 					return false;
 				}
 				continue;
