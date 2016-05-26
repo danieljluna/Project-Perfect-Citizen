@@ -228,7 +228,7 @@ void ppc::spawnHardDriveIcon(Entity& entityToModify, Desktop& dT, InputHandler& 
     sf::Font font;
     //font.loadFromFile(resourcePath() + "consola.ttf");
 	font.loadFromFile(resourcePath() + "VT323-Regular.ttf");
-    textLabelComponent* label = new textLabelComponent(font, sf::Color::White, x, y + size*128, 20, "My Files");
+    textLabelComponent* label = new textLabelComponent(font, sf::Color::White, x, y + size*128, 20, "Explorer");
     
 	/// Render Component ///
 	buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet, 0, 7, 1, 1);

@@ -178,7 +178,7 @@ void ppc::createDesktopTutorial(Desktop & dt) {
 	icons.setPosition({ 500.f,300.f });
 	icons.setIconType(iconInputComponent::IconType::HardDrive);
 	icons.setSpritebyIndicies(0, 7, 1, 1);
-	icons.setText("My Computer", World::getFont(World::VT323Regular), sf::Color::Black);
+	icons.setText("Explorer", World::getFont(World::VT323Regular), sf::Color::Black);
 	icons.create(hardDriveIcon);
 
 
