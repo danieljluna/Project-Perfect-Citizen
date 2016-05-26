@@ -3,27 +3,26 @@ Default: You are now exploring the targets desktop
 Default: You must decide if charges should be pressed against them
 Default: Start by reading their email
 -AltEmail: T 0.0
-Default: Emails will give you an idea of what to look for
-Default: After reading email look through their files
-Default: Try opening "My Computer"
+Default: You found their email!  Emails are a great place to start.
+Default: Emails give you an idea of what to search for on their desktop.
+Default: Next try looking through their files by opening "My Computer"
 -AltExplorer: T 0.0
-Default: 
-Default: That folder looks suspicious! You should enter it
+Default: You've found the file explorer!  Search through it for suspicious content.
 -AltPasswords: T 0.0
-Default: Looks like it has a password. Check the recovery hint
-Default: See if you can find the password and unlock the directory
+Default: This is a locked directory.  Check the recovery hint for a clue.
+Default: See if you can find the password in the files you have access to.
 -AltUnlocked: T 0.0
-Default: Good job!
-Default: Let's look around...
+Default: Great you found the password!  Lets see what they were hiding in here...
 -AltSuspFolder: T 0.0
-Default: A manual for making bombs? Log it into evidence!
-Default: Right click and select "Flag" to mark it as suspicious
+Default: These plans will nail this guy for sure!
+Default: Right click and select "Flag" to mark them into evidence
 -AltScanning: T 0.0
-Default: Once per desktop you can ask a colleagues opinion on a file
-Default: Right click the file and select "Scan" to see a number representing its suspiciousness
+Default: Let's make sure that file you flagged is going to help us
+Default: If you don't find enough evidence we won't be able to get a conviction at trial
+Default: Right click the file and select "Scan" to get a colleagues opinion
 -AltDeskSubmission: T 0.0
-Default: 1s are completely clean but this 10 is a smoking gun!
-Default: Click the submit button to log this evidence
+Default: If the file you flagged isn't suspicious enough try to replace it with better evidence.
+Default: Once you've flagged three suspicious files click submit to log it
 -AltWrapup: T 0.0
-Default: Together we can hunt down criminals wherever they may hide
+Default: Great job you've got a knack for this! Together we can hunt down criminals wherever they may hide
 Default: When you are satisfied you can click the start menu and log out
