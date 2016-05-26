@@ -342,8 +342,13 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
 			}
 		}
 		if (ppcEv.sfEvent.type == sf::Event::MouseMoved) {
-			ppcEv.sfEvent.mouseMove.x -= int(focused_->getPosition().x);
-			ppcEv.sfEvent.mouseMove.y -= int(focused_->getPosition().y);
+            if (focused_->getNotifWindow() == nullptr) {
+                ppcEv.sfEvent.mouseMove.x -= int(focused_->getPosition().x);
+                ppcEv.sfEvent.mouseMove.y -= int(focused_->getPosition().y);
+            } else {
+                ppcEv.sfEvent.mouseMove.x -= int(focused_->getNotifWindow()->getPosition().x);
+                ppcEv.sfEvent.mouseMove.y -= int(focused_->getNotifWindow()->getPosition().y);
+            }
 		} else if ((ppcEv.sfEvent.type == sf::Event::MouseButtonPressed) || 
 			(ppcEv.sfEvent.type == sf::Event::MouseButtonReleased)) {
 
