@@ -144,6 +144,7 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
         
 
             WindowInterface* tempWin = nullptr;
+			WindowInterface* tempWinB = nullptr;
 
             switch (type_) {
                 // Case: Double Clicked Console Icon
@@ -200,8 +201,10 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
                 if (openedWindow != nullptr && theDesktop_.isWindow(openedWindow)) {
                     theDesktop_.focusWindow(openedWindow);
                 } else {
-                    tempWin = new ppc::Window(800, 600, sf::Color(200, 200, 200));
-                    ppc::spawnPipeline(tempWin, tempWin->getInputHandler(), theDatabase_, buttonSheet_, 100, 200);
+					//Fix for Split 
+                    tempWin = new ppc::Window(533, 600, sf::Color(200, 200, 200));
+					tempWinB = new ppc::Window(267, 600, sf::Color(200, 200, 200));
+                    tempWin = ppc::spawnPipeline(tempWin, tempWinB, tempWin->getInputHandler(), theDatabase_, buttonSheet_, 100, 200);
                     theDesktop_.addWindow(tempWin);
                     openedWindow = tempWin;
                 }

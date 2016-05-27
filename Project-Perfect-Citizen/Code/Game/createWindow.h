@@ -70,8 +70,8 @@ void spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
 ///@param The input handler of the listened-to window.
 ///@param Sprite sheet of it's border component's buttons
 ///////////////////////////////////////////////////////////////////////
-void spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
-        sf::Image& buttonSheet, float x, float y);
+WindowInterface* spawnPipeline(WindowInterface* windowLeft, WindowInterface* windowRight, 
+	               InputHandler& ih, Database* db, sf::Image& buttonSheet, float x, float y);
 
 ///////////////////////////////////////////////////////////////////////
 ///@brief Constructs a file window on the WindowInterface passed.

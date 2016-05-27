@@ -304,7 +304,7 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
         0.0f,
         0.0f,
         float(windowToModify->getSize().x),
-        float(windowToModify->getSize().y / 1.5)
+        float(windowToModify->getSize().y / 1.5 )
     };
     windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     
@@ -314,14 +314,14 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
 }
 
 
-void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
+WindowInterface* ppc::spawnPipeline(WindowInterface* windowLeft, WindowInterface* windowRight, InputHandler& ih, Database* db,
 	sf::Image& buttonSheet, float x, float y) {
-	if (windowToModify == nullptr) { return; }
-
+	if (windowLeft == nullptr || windowRight == nullptr) { return nullptr; }
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 14;
-	float dataWindowX = float(2 * windowToModify->getSize().x) / 3.0f;
+	//float dataWindowX = float(2 * windowToModify->getSize().x) / 3.0f;
+	float dataWindowX = 0.f;
 
 	/////////////////////////////////////////
 	/////// COMPONENTS 
@@ -329,11 +329,11 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 
 	/* Create the render components */
 	PipelineDataRenderComponent* dataText = new PipelineDataRenderComponent(myFont, 
-		static_cast<int>(dataWindowX), 0, fontSize, windowToModify->getSize().x, 
-		windowToModify->getSize().y);
+		static_cast<int>(dataWindowX), 0, fontSize, windowRight->getSize().x, 
+		windowRight->getSize().y);
 
-	PipelineGraphRenderComponent* graphBounds = new PipelineGraphRenderComponent(0, 0, dataWindowX,
-		float(windowToModify->getSize().y));
+	PipelineGraphRenderComponent* graphBounds = new PipelineGraphRenderComponent(0, 0, float(windowLeft->getSize().x),
+		float(windowLeft->getSize().y));
     
 
     //Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
@@ -381,7 +381,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	NetworkRenderComponent* networkRender = 
 		new NetworkRenderComponent(*playNet);
 	NetworkInputCmpnt* networkInput = 
-		new NetworkInputCmpnt(*playNet, *solNet, windowToModify->getInputHandler());
+		new NetworkInputCmpnt(*playNet, *solNet, windowLeft->getInputHandler());
 	//Always need to call this setter.
 	networkInput->setPipelineData(*dataText);
     sf::FloatRect temp = graphBounds->getLocalBounds();
@@ -403,20 +403,33 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	Entity submitButton;
 	float buttonScale = 0.25f;
 	int buttonSize = 256;
-	spawnNetworkOkayButton(playNet,submitButton, windowToModify->getInputHandler(), buttonSheet, 
-		( ( graphBounds->getLocalBounds().width - (buttonSize * buttonScale) ) / 2 ), static_cast<float>(windowToModify->getSize().y-50), buttonScale, 
+	spawnNetworkOkayButton(playNet,submitButton, windowLeft->getInputHandler(), buttonSheet, 
+		( ( graphBounds->getLocalBounds().width - (buttonSize * buttonScale) ) / 2 ), static_cast<float>(windowLeft->getSize().y-50), buttonScale, 
 		ncf, myFont);
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
-	windowToModify->addEntity(dataBox);
-	windowToModify->addEntity(graphBox);
-	windowToModify->addEntity(submitButton);
-	windowToModify->setPosition(x, y);
-	windowToModify = new BorderDecorator(*windowToModify);
-	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
-	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("DCPS Pipeline Application v.3.762");
+
+	windowRight->addEntity(dataBox);
+	windowLeft->addEntity(graphBox);
+	windowLeft->addEntity(submitButton);
+	
+	//WindowInterface* windowToModify = new SplitDecorator(*windowRight, *windowLeft);
+	
+	//This Block temporary
+	//windowRight->setPosition(x, y);
+	//windowRight = new BorderDecorator(*windowRight);
+	//dynamic_cast<BorderDecorator*>(windowRight)->addButton(buttonSheet, closeWindow);
+	//dynamic_cast<BorderDecorator*>(windowRight)->setCaption("DCPS Pipeline Application v.3.762");	
+	//return windowRight;
+
+	windowLeft->setPosition(x, y);
+	windowLeft = new BorderDecorator(*windowLeft);
+	dynamic_cast<BorderDecorator*>(windowLeft)->addButton(buttonSheet, closeWindow);
+	dynamic_cast<BorderDecorator*>(windowLeft)->setCaption("DCPS Pipeline Application v.3.762");
+	return windowLeft;
+
 }
 
 void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih, 
