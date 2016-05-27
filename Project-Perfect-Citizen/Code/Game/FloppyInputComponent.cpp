@@ -52,9 +52,11 @@ FloppyInputComponent::~FloppyInputComponent() {
 
 }
 
-const std::array<std::string, 2> FLOPPY_SOURCES{
+const std::array<std::string, 4> FLOPPY_SOURCES{
 	"PipelineTutorial.txt",
-	"DesktopTutorial.txt"
+	"DesktopTutorial.txt",
+    "PipelineTutorial.txt",
+    "DesktopTutorialAlt.txt"
 };
 
 const std::map<std::string, int> FLOPPY_EMOTION_MAP{
@@ -291,17 +293,21 @@ void FloppyInputComponent::initTimerResetEvents() {
 
 bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
     bool wasSummoned = false;
-    unsigned int frame = 0, sequence = 0;
 
 	switch (ev.type) {
     case ppc::Event::FloppyType:
 
         //If we just ended a frame
         if (ev.floppy.frame == -1) {
+            unsigned int sequence = ev.floppy.sequence;
+            if (sequence >= ptr->AltStart) {
+                sequence -= ptr->AltStart;
+            }
+
             //If we just ended the Welcome
-            if (ev.floppy.sequence == 2) {
+            if (sequence == 2) {
                 World::getCurrDesktop().incrementNetVecIndex();
-            } else if (ev.floppy.sequence == FloppyInputComponent::Feedback) {
+            } else if (sequence == FloppyInputComponent::Feedback) {
                 World::quitDesktop();
             }
             if (FloppyInputComponent::floppyDictionary.at(ev.floppy.sequence).autoShift) {
@@ -364,8 +370,13 @@ bool ppc::incrementFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
     bool enable = false;
 
+    unsigned int sequence = ptr->getSequence();
+    if (sequence >= ptr->AltStart) {
+        sequence -= ptr->AltStart;
+    }
+
     //Switch controls what event needs to be read to move on
-    switch (ptr->getSequence()) {
+    switch (sequence) {
     //case FloppyInputComponent::Welcome:
     //    enable = ((ev.type == ev.OpenType) &&
     //        (ev.open.winType == ev.open.Pipeline));
