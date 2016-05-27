@@ -8,6 +8,7 @@
 
 #include "interpolateUpdateComponent.hpp"
 
+using namespace ppc;
 
 Interpolate::Interpolate(int i, int j, float f) {
     start = i;

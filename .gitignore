@@ -330,3 +330,6 @@ Project-Perfect-Citizen/Project-Perfect-Citizen.vcxproj.filters
 Project-Perfect-Citizen/Project-Perfect-Citizen.vcxproj.filters
 Project-Perfect-Citizen/Project-Perfect-Citizen.vcxproj.filters
 *.opendb
+Project-Perfect-Citizen/Resources/ArtistTexts.json.backup
+Project-Perfect-Citizen/Resources/PoliticianTexts.json.backup
+Project-Perfect-Citizen/Resources/HackerTexts.json.backup
