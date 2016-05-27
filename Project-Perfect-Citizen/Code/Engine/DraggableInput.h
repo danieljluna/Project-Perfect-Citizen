@@ -72,6 +72,9 @@ public:
 
     Subject& onDrag();
 
+    //Don't call this
+    void drag(const sf::Vector2f& delta);
+
 
 private:
 
@@ -80,8 +83,6 @@ private:
   /////////////////////////////////////////////////////////////////////
 
     void clamp();
-
-    void drag(const sf::Vector2f& delta);
 
 
   /////////////////////////////////////////////////////////////////////
