@@ -146,6 +146,7 @@ sf::Texture World::loadTexture_ = sf::Texture();
 sf::Sprite World::loadBar_ = sf::Sprite();
 sf::Sprite World::loadBarBorder_ = sf::Sprite();
 sf::Sprite World::loadingDecal_ = sf::Sprite();
+sf::Sprite World::clickToContinue_ = sf::Sprite();
 
 bool World::isLoading_ = false;
 
@@ -406,6 +407,11 @@ void ppc::World::initLoadScreen() {
     
     loadImage_.loadFromFile(resourcePath() + "World_Sheet.png");
     loadTexture_.loadFromImage(loadImage_);
+    
+    clickToContinue_.setTexture(loadTexture_);
+    clickToContinue_.setPosition(100.f, 600.f);
+    clickToContinue_.setTextureRect({0,5*128, 5*128, 128});
+    clickToContinue_.setScale(0.0f, 0.0f);
 
     loadBar_.setTexture(loadTexture_);
     loadBar_.setPosition(100.f, 500.f);
@@ -441,7 +447,7 @@ void ppc::World::startLoading() {
 }
 
 void ppc::World::setLoading(float f) {
-	if (f > 1.f || f < 0.f) f = 1.f;
+    if (f > 1.f || f < 0.f) f = 1.f;
     loadBar_.setTextureRect({0, 4*128, static_cast<int>(1024*f),128});
 	tempLoadBar_.setSize({ 500.f * f, 50.f });
 	drawLoading();
@@ -456,6 +462,8 @@ void ppc::World::drawLoading() {
         screen_->draw(loadingDecal_, states);
         screen_->draw(loadBarBorder_, states);
         screen_->draw(loadBar_, states);
+        screen_->draw(clickToContinue_, states);
+
         screen_->display();
     }
 }
@@ -464,7 +472,7 @@ void ppc::World::endLoading() {
 	if (isLoading_ == true) {
 		sf::Event event;
 		while (true) {
-			screen_->pollEvent(event); 
+			screen_->pollEvent(event);
 			if (event.type == sf::Event::MouseButtonPressed) {
 				isLoading_ = false;
 				return;
