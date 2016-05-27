@@ -858,6 +858,12 @@
     <None Include="Resources\TeacherTexts.json">
       <Filter>Resources</Filter>
     </None>
+    <None Include="Resources\ArtistTexts.json">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\PoliticianTexts.json">
+      <Filter>Resources</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
