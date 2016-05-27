@@ -5,7 +5,7 @@ Default: Start by reading their email
 -Email: T 0.0
 Default: Emails will give you an idea of what to look for
 Default: After reading email look through their files
-Default: Try opening "My Computer"
+Default: Try opening "My Files"
 -Explorer: T 0.0
 Default: Your search warrant covers all files relevant to the case
 Default: That folder looks suspicious! You should enter it

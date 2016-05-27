@@ -55,7 +55,7 @@ FloppyInputComponent::~FloppyInputComponent() {
 const std::array<std::string, 4> FLOPPY_SOURCES{
 	"PipelineTutorial.txt",
 	"DesktopTutorial.txt",
-    "PipelineTutorial.txt",
+    "PipelineTutorialAlt.txt",
     "DesktopTutorialAlt.txt"
 };
 
