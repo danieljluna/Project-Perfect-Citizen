@@ -233,6 +233,8 @@ namespace ppc {
         
         static sf::Sprite loadingDecal_;
         
+        static sf::Text loadingAddress_;
+        
         static sf::Sprite clickToContinue_;
 
 		static sf::RectangleShape tempLoadBar_;

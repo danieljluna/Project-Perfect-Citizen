@@ -148,6 +148,7 @@ sf::Sprite World::loadBar_ = sf::Sprite();
 sf::Sprite World::loadBarBorder_ = sf::Sprite();
 sf::Sprite World::loadingDecal_ = sf::Sprite();
 sf::Sprite World::clickToContinue_ = sf::Sprite();
+sf::Text World::loadingAddress_ = sf::Text();
 
 bool World::isLoading_ = false;
 bool World::isLoadBarFull_ = false;
