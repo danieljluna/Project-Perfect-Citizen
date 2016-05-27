@@ -172,7 +172,7 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	}
 
 	myNetwork->setCenter(2);
-	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson("DE1PipelineTexts.json");
+	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson("TeacherTexts.json");
 	populateEdgesBySet(LEVEL_ONE_SUSP_EDGES, *myNetwork, exprGrammar, 1);
 	populateEdgesBySet(LEVEL_ONE_INNO_EDGES, *myNetwork, exprGrammar, 0);
 

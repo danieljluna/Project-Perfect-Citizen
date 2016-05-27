@@ -822,9 +822,6 @@
     <None Include="Resources\suspiciontest.json">
       <Filter>Resources</Filter>
     </None>
-    <None Include="Resources\DE1PipelineTexts.json">
-      <Filter>Resources</Filter>
-    </None>
     <None Include="Resources\Saves\desktop1.ini">
       <Filter>Resources\Desktops</Filter>
     </None>
@@ -852,6 +849,21 @@
     <None Include="Resources\Engine\playerDesktop.ini">
       <Filter>Resources\Desktops</Filter>
     </None>
+    <None Include="Resources\TeacherTexts-Old.json">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\HackerTexts.json">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\TeacherTexts.json">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\ArtistTexts.json">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="Resources\PoliticianTexts.json">
+      <Filter>Resources</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt">
@@ -864,6 +876,9 @@
       <Filter>Resources</Filter>
     </Text>
     <Text Include="Resources\DesktopTutorial.txt">
+      <Filter>Resources</Filter>
+    </Text>
+    <Text Include="Resources\DesktopTutorialAlt.txt">
       <Filter>Resources</Filter>
     </Text>
   </ItemGroup>
