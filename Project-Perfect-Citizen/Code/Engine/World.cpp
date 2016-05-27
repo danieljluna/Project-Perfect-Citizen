@@ -410,9 +410,9 @@ void ppc::World::initLoadScreen() {
     loadTexture_.loadFromImage(loadImage_);
     
     clickToContinue_.setTexture(loadTexture_);
-    clickToContinue_.setPosition(100.f, 600.f);
+    clickToContinue_.setPosition(240.f, 600.f);
     clickToContinue_.setTextureRect({0,5*128, 5*128, 128});
-    clickToContinue_.setScale(0.0f, 0.0f);
+    clickToContinue_.setScale(0.75f, 0.75f);
 
     loadBar_.setTexture(loadTexture_);
     loadBar_.setPosition(100.f, 500.f);
@@ -450,6 +450,7 @@ void ppc::World::startLoading() {
 void ppc::World::setLoading(float f) {
 	if (f > 1.f || f < 0.f) f = 1.f;
 	if (f == 1.0f) isLoadBarFull_ = true;
+    else isLoadBarFull_ = false;
     loadBar_.setTextureRect({0, 4*128, static_cast<int>(1024*f),128});
 	tempLoadBar_.setSize({ 500.f * f, 50.f });
 	drawLoading();
