@@ -39,8 +39,8 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		void initializeFloppyDict();
 
-		void initTimerDisableEvents();
-		void initTimerResetEvents();
+		//void initTimerDisableEvents();
+		//void initTimerResetEvents();
 
 	public:
 
