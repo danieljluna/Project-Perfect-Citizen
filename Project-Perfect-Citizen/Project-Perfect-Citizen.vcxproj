@@ -147,6 +147,7 @@
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
     <Text Include="Resources\Coding Reference\LinkHelp.txt" />
     <Text Include="Resources\DesktopTutorial.txt" />
+    <Text Include="Resources\DesktopTutorialAlt.txt" />
     <Text Include="Resources\PipelineTutorial.txt" />
   </ItemGroup>
   <ItemGroup>
