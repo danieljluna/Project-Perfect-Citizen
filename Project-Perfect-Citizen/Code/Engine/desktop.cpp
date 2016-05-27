@@ -342,7 +342,6 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
                         float(ppcEv.sfEvent.mouseButton.x),
                         float(ppcEv.sfEvent.mouseButton.y))) {
                         focusWindow(*it);
-                        focused_ = (*it)->getNotifWindow();
                         break;
                     }
                 }
@@ -351,20 +350,28 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
                         float(ppcEv.sfEvent.mouseButton.x),
                         float(ppcEv.sfEvent.mouseButton.y))) {
                     focusWindow(*it);
-                    if ((*it)->getNotifWindow() != nullptr) {
-                        focused_ = (*it)->getNotifWindow();
-                    }
                     break;
                 }
 			}
 		}
 		if (ppcEv.sfEvent.type == sf::Event::MouseMoved) {
-			ppcEv.sfEvent.mouseMove.x -= int(focused_->getPosition().x);
-			ppcEv.sfEvent.mouseMove.y -= int(focused_->getPosition().y);
+            if (focused_->getNotifWindow() == nullptr) {
+                ppcEv.sfEvent.mouseMove.x -= int(focused_->getPosition().x);
+                ppcEv.sfEvent.mouseMove.y -= int(focused_->getPosition().y);
+            } else {
+                ppcEv.sfEvent.mouseMove.x -= int(focused_->getNotifWindow()->getPosition().x);
+                ppcEv.sfEvent.mouseMove.y -= int(focused_->getNotifWindow()->getPosition().y);
+            }
 		} else if ((ppcEv.sfEvent.type == sf::Event::MouseButtonPressed) || 
 			(ppcEv.sfEvent.type == sf::Event::MouseButtonReleased)) {
-				ppcEv.sfEvent.mouseButton.x -= int(focused_->getPosition().x);
-				ppcEv.sfEvent.mouseButton.y -= int(focused_->getPosition().y);
+
+            if (focused_->getNotifWindow() == nullptr) {
+                ppcEv.sfEvent.mouseButton.x -= int(focused_->getPosition().x);
+                ppcEv.sfEvent.mouseButton.y -= int(focused_->getPosition().y);
+            } else {
+                ppcEv.sfEvent.mouseButton.x -= int(focused_->getNotifWindow()->getPosition().x);
+                ppcEv.sfEvent.mouseButton.y -= int(focused_->getNotifWindow()->getPosition().y);
+            }
 		}
 	}
 	
@@ -382,7 +389,11 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
         }
 
     } else {
-        focused_->registerInput(ppcEv);
+        if (focused_->getNotifWindow() == nullptr) {
+            focused_->registerInput(ppcEv);
+        } else {
+            focused_->getNotifWindow()->registerInput(ppcEv);
+        }
     }
 }
 
