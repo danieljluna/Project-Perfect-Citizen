@@ -1,6 +1,6 @@
 [Settings] # You can add comments to inis
-ResolutionWidth         900
-ResolutionHeight        700
+ResolutionWidth         1000
+ResolutionHeight        800
 Fullscreen              0
 
 [BullShit] # Bad Tags are reported to cerr

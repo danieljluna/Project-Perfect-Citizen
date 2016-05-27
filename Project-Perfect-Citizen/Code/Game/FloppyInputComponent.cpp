@@ -471,8 +471,33 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         break;
     }
 
-    if (enable)
+    if (enable) {
         ptr->setFloppyButton(enable);
+
+        auto& dict = FloppyInputComponent::floppyDictionary;
+        if (dict.at(ptr->getSequence()).autoShift) {
+
+
+            Event ev;
+            ev.type = Event::FloppyType;
+            ev.floppy.frame = 0;
+            ev.floppy.sequence = ptr->getSequence() + 1;
+            bool wasSummoned = false;
+
+            //Get sequence in non-alt terms
+            if (ev.floppy.sequence >= FloppyInputComponent::AltStart) {
+                ev.floppy.sequence -= FloppyInputComponent::AltStart;
+            }
+
+            //Check if we are at the last frame
+            if (ptr->getFrame() < dict.at(ptr->getSequence()).frames.size() - 1) {
+                ev.floppy.sequence += FloppyInputComponent::AltStart;
+            }
+
+            summonFloppyDialog(ptr, ev);
+
+        }
+    }
 
     return true;
 }

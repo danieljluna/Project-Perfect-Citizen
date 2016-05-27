@@ -79,7 +79,31 @@ namespace ppc {
 			Scanning,
 			DeskSubmission,
 			Wrapup,
-			ResponseStart = 100
+			AltStart,
+            AltPipeline = AltStart,
+            AltConnections,
+            AltSelectEdge,
+            AltDeleteEdge,
+            AltTempFix,
+            AltGoal,
+            AltColorChange,
+            AltSuspicion,
+            AltCenter,
+            AltSubmission,
+            AltFeedback,
+            AltEdgeSelectionHelper,
+            AltCircleDelay,
+            AltCircleDelete,
+            AltCircleFinishHelper,
+            AltDesktopStart,
+            AltEmail,
+            AltExplorer,
+            AltPasswords,
+            AltUnlocked,
+            AltSuspFolder,
+            AltScanning,
+            AltDeskSubmission,
+            AltWrapup
 		};
 
 
