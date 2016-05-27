@@ -147,6 +147,8 @@ sf::Texture World::loadTexture_ = sf::Texture();
 sf::Sprite World::loadBar_ = sf::Sprite();
 sf::Sprite World::loadBarBorder_ = sf::Sprite();
 sf::Sprite World::loadingDecal_ = sf::Sprite();
+sf::Sprite World::clickToContinue_ = sf::Sprite();
+sf::Text World::loadingAddress_ = sf::Text();
 
 bool World::isLoading_ = false;
 bool World::isLoadBarFull_ = false;
@@ -407,6 +409,11 @@ void ppc::World::initLoadScreen() {
     
     loadImage_.loadFromFile(resourcePath() + "World_Sheet.png");
     loadTexture_.loadFromImage(loadImage_);
+    
+    clickToContinue_.setTexture(loadTexture_);
+    clickToContinue_.setPosition(240.f, 600.f);
+    clickToContinue_.setTextureRect({0,5*128, 5*128, 128});
+    clickToContinue_.setScale(0.75f, 0.75f);
 
     loadBar_.setTexture(loadTexture_);
     loadBar_.setPosition(100.f, 500.f);
@@ -423,7 +430,14 @@ void ppc::World::initLoadScreen() {
     
     loadingDecal_.setTexture(loadTexture_);
     loadingDecal_.setTextureRect({0,0, 6*128, 3*128});
-    loadingDecal_.setPosition(150, 100);
+    loadingDecal_.setPosition(150, 50);
+    
+    
+    loadingAddress_.setFont(World::getFont(World::FontList::Consola));
+    loadingAddress_.setCharacterSize(28);
+    loadingAddress_.setColor(sf::Color(0,200,0));
+    loadingAddress_.setPosition({150.f, 450.f});
+    loadingAddress_.setString("[     Loading Desktop At 1011 Nobel Dr     ]");
 
 	tempLoadScreen_.setPosition(0.f, 0.f);
 	tempLoadScreen_.setFillColor(sf::Color::Black);
@@ -444,6 +458,7 @@ void ppc::World::startLoading() {
 void ppc::World::setLoading(float f) {
 	if (f > 1.f || f < 0.f) f = 1.f;
 	if (f == 1.0f) isLoadBarFull_ = true;
+    else isLoadBarFull_ = false;
     loadBar_.setTextureRect({0, 4*128, static_cast<int>(1024*f),128});
 	tempLoadBar_.setSize({ 500.f * f, 50.f });
 	drawLoading();
@@ -453,11 +468,14 @@ void ppc::World::drawLoading() {
     if (isLoading_) {
         sf::RenderStates states;
         states.transform = worldTransform_;
-
+		
         screen_->clear(sf::Color::Black);
         screen_->draw(loadingDecal_, states);
         screen_->draw(loadBarBorder_, states);
         screen_->draw(loadBar_, states);
+        screen_->draw(loadingAddress_, states);
+        if(isLoadBarFull_) screen_->draw(clickToContinue_, states);
+
         screen_->display();
     }
 }
@@ -465,6 +483,7 @@ void ppc::World::drawLoading() {
 void ppc::World::endLoading() {
 	if (isLoading_ == true) {
 		sf::Event event;
+
 		while(screen_->pollEvent(event)){
 			//HACK: Clear the event queue first,
 			// so that events added before the load bar is 
