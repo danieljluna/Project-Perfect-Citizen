@@ -193,12 +193,12 @@ void PipelineCharacter::generate() {
     std::uniform_int_distribution<> nosed(0, 8);
     // for skin index
     std::uniform_int_distribution<> skind(0, 30);
-    
-    std::uniform_int_distribution<> shirtd(5, 40);
+
+    std::uniform_int_distribution<> shirtd(5, 8);
     // for hair index
     std::uniform_int_distribution<> haircd(0, 7);
     // for har type
-    std::uniform_int_distribution<> haird(0, 20);
+    std::uniform_int_distribution<> haird(0, 10);
     //for lip index
     std::uniform_int_distribution<> lipcd(0, 3);
     
@@ -209,7 +209,6 @@ void PipelineCharacter::generate() {
     sf::Color ec(colord(gen),colord(gen),colord(gen));
     eyeColor_ = ec;
     
-    
     eyeType_ = eyed(gen);
     
     browType_ = browd(gen);
@@ -218,20 +217,17 @@ void PipelineCharacter::generate() {
     
     noseType_ = nosed(gen);
     
-    hairType_ = haird(gen);
-    int remainder = hairType_% 2;
-    hairType_ = hairType_ + 2 - remainder;
+    hairType_ = 2*haird(gen);
+    //int remainder = hairType_% 2;
+    //hairType_ = hairType_ + 2 - remainder;
     
-    
-    shirtType_ = shirtd(gen);
-    int remainders = shirtType_% 5;
-    shirtType_ = shirtType_ + 5 - remainders;
-    
-
+    shirtType_ = 5*shirtd(gen);
+    //int remainders = shirtType_% 5;
+    //shirtType_ = shirtType_ + 5 - remainders;    
     
     //shirtType_ =  5*(shirtd(gen)/5);
     //shirt remainder
-  //  int s_remainder = shirtType_ % 5;
+    //int s_remainder = shirtType_ % 5;
     
     
     
