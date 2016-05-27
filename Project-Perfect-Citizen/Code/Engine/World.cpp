@@ -55,7 +55,7 @@ std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
 };
 
 std::map<World::DesktopList, World::desktopLoaders> World::loaderMap_ = {
-	{World::DELogo, setUpLogoDesktop },
+	{ World::DELogo, setUpLogoDesktop },
 	{ World::DEOpening, setUpBootDesktop },
 	{ World::DELogin, setUpLoginDesktop },
 	{ World::DE0A, createTutorial },
@@ -135,6 +135,25 @@ std::map <std::pair<World::DesktopList, World::ReportType>, std::string > World:
 	{ { DEPlayer3B, D }, "PoliticianResponseD.json" },
 
 
+};
+
+std::map <World::DesktopList, std::string> World::loadingAddressMap_ = {
+	{ World::DELogo, "" },
+	{ World::DEOpening, "" },
+	{ World::DELogin, "" },
+	{ World::DE0A, "{\n Now Beginning Training Simulation \n}" },
+	{ World::DE0B, "{\n Beginning Simulation Phase Two \n}" },
+	{ World::DEPlayer1, "{\n Returning to Workstation \n}" },
+	{ World::DE1, "" },
+	{ World::DEPlayer2A, "{\n Returning to Workstation \n}" },
+	{ World::DEPlayer2B, "{\n Returning to Workstation \n}" },
+	{ World::DE2A, "" },
+	{ World::DE2B, "" },
+	{ World::DEPlayer3A, "{\n Returning to Workstation \n}" },
+	{ World::DEPlayer3B, "{\n Returning to Workstation \n}" },
+	{ World::DE3, "" },
+	{ World::DEEnd, "" },
+	{ World::DesktopCount, "" }  //Empty pairing of Count to string.
 };
 
 bool World::quitter_ = false;
@@ -481,7 +500,7 @@ void ppc::World::drawLoading() {
 }
 
 void ppc::World::endLoading() {
-	if (isLoading_ == true) {
+	if (isLoading_) {
 		sf::Event event;
 
 		while(screen_->pollEvent(event)){
@@ -585,6 +604,54 @@ void ppc::World::saveState(std::string filename) {
     }
 
     file.close();
+}
+
+std::string ppc::World::getCurrAddress() {
+	return loadingAddressMap_.at(currDesktopEnum_);
+}
+
+std::string ppc::World::getAddress(DesktopList dl) {
+	if ((int)dl >= (int)DesktopCount) return "";
+	return loadingAddressMap_.at(dl);
+}
+
+void ppc::World::setAddress(World::DesktopList dl, std::string s) {
+	auto it = loadingAddressMap_.find(dl);
+	if (it != loadingAddressMap_.end()) it->second = s;
+}
+
+void ppc::World::setCurrAddress(std::string s) {
+	auto it = loadingAddressMap_.find(currDesktopEnum_);
+	if (it != loadingAddressMap_.end()) it->second = s;
+}
+
+void ppc::World::initAddressMap() {
+	std::ifstream fstream;
+
+	fstream.open(resourcePath() + "LoadAddress/DE1Address.txt");
+	std::string s1((std::istreambuf_iterator<char>(fstream)),
+		(std::istreambuf_iterator<char>()));
+	loadingAddressMap_.at(DE1) = s1;
+	fstream.close();
+
+	fstream.open(resourcePath() + "LoadAddress/DE2AAddress.txt");
+	std::string s2((std::istreambuf_iterator<char>(fstream)),
+		(std::istreambuf_iterator<char>()));
+	loadingAddressMap_.at(DE2A) = s2;
+	fstream.close();
+
+	fstream.open(resourcePath() + "LoadAddress/DE2BAddress.txt");
+	std::string s3((std::istreambuf_iterator<char>(fstream)),
+		(std::istreambuf_iterator<char>()));
+	loadingAddressMap_.at(DE2B) = s3;
+	fstream.close();
+
+	fstream.open(resourcePath() + "LoadAddress/DE3Address.txt");
+	std::string s4((std::istreambuf_iterator<char>(fstream)),
+		(std::istreambuf_iterator<char>()));
+	loadingAddressMap_.at(DE3) = s4;
+	fstream.close();
+
 }
 
 
