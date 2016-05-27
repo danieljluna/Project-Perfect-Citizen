@@ -33,6 +33,7 @@ int main(int argc, char** argv) {
 		World::initLevelMap();
 		World::initFontMap();
 		World::initLoadScreen();
+		World::initAddressMap();
 
 		// Create the main sf::window
 		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen");
