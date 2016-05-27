@@ -617,6 +617,35 @@ void ppc::World::setCurrAddress(std::string s) {
 	if (it != loadingAddressMap_.end()) it->second = s;
 }
 
+void ppc::World::initAddressMap() {
+	std::ifstream fstream;
+
+	fstream.open(resourcePath() + "LoadAddress/DE1Address.txt");
+	std::string s1((std::istreambuf_iterator<char>(fstream)),
+		(std::istreambuf_iterator<char>()));
+	loadingAddressMap_.at(DE1) = s1;
+	fstream.close();
+
+	fstream.open(resourcePath() + "LoadAddress/DE2AAddress.txt");
+	std::string s2((std::istreambuf_iterator<char>(fstream)),
+		(std::istreambuf_iterator<char>()));
+	loadingAddressMap_.at(DE2A) = s2;
+	fstream.close();
+
+	fstream.open(resourcePath() + "LoadAddress/DE2BAddress.txt");
+	std::string s3((std::istreambuf_iterator<char>(fstream)),
+		(std::istreambuf_iterator<char>()));
+	loadingAddressMap_.at(DE2B) = s3;
+	fstream.close();
+
+	fstream.open(resourcePath() + "LoadAddress/DE3Address.txt");
+	std::string s4((std::istreambuf_iterator<char>(fstream)),
+		(std::istreambuf_iterator<char>()));
+	loadingAddressMap_.at(DE3) = s4;
+	fstream.close();
+
+}
+
 
 void ppc::World::manifestSettings() {
     if (screen_ != nullptr) {
