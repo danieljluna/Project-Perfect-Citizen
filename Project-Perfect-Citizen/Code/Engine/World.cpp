@@ -55,7 +55,7 @@ std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
 };
 
 std::map<World::DesktopList, World::desktopLoaders> World::loaderMap_ = {
-	{World::DELogo, setUpLogoDesktop },
+	{ World::DELogo, setUpLogoDesktop },
 	{ World::DEOpening, setUpBootDesktop },
 	{ World::DELogin, setUpLoginDesktop },
 	{ World::DE0A, createTutorial },
@@ -135,6 +135,25 @@ std::map <std::pair<World::DesktopList, World::ReportType>, std::string > World:
 	{ { DEPlayer3B, D }, "PoliticianResponseD.json" },
 
 
+};
+
+std::map <World::DesktopList, std::string> World::loadingAddressMap_ = {
+	{ World::DELogo, "" },
+	{ World::DEOpening, "" },
+	{ World::DELogin, "" },
+	{ World::DE0A, "{ Now Beginning Training Simulation }" },
+	{ World::DE0B, "{ Beginning Simulation Phase Two }" },
+	{ World::DEPlayer1, "Returning to Workstation" },
+	{ World::DE1, "" },
+	{ World::DEPlayer2A, "Returning to Workstation" },
+	{ World::DEPlayer2B, "Returning to Workstation" },
+	{ World::DE2A, "" },
+	{ World::DE2B, "" },
+	{ World::DEPlayer3A, "Returning to Workstation" },
+	{ World::DEPlayer3B, "Returning to Workstation" },
+	{ World::DE3, "" },
+	{ World::DEEnd, "" },
+	{ World::DesktopCount, "" }  //Empty pairing of Count to string.
 };
 
 bool World::quitter_ = false;
@@ -577,6 +596,25 @@ void ppc::World::saveState(std::string filename) {
     }
 
     file.close();
+}
+
+std::string ppc::World::getCurrAddress() {
+	return loadingAddressMap_.at(currDesktopEnum_);
+}
+
+std::string ppc::World::getAddress(DesktopList dl) {
+	if ((int)dl >= (int)DesktopCount) return "";
+	return loadingAddressMap_.at(dl);
+}
+
+void ppc::World::setAddress(World::DesktopList dl, std::string s) {
+	auto it = loadingAddressMap_.find(dl);
+	if (it != loadingAddressMap_.end()) it->second = s;
+}
+
+void ppc::World::setCurrAddress(std::string s) {
+	auto it = loadingAddressMap_.find(currDesktopEnum_);
+	if (it != loadingAddressMap_.end()) it->second = s;
 }
 
 
