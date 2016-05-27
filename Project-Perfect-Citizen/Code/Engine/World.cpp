@@ -463,7 +463,7 @@ void ppc::World::drawLoading() {
 }
 
 void ppc::World::endLoading() {
-	if (isLoading_ == true) {
+	if (isLoading_) {
 		sf::Event event;
 		while(screen_->pollEvent(event)){
 			//HACK: Clear the event queue first,
