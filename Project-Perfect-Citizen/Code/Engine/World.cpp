@@ -23,6 +23,7 @@ sf::RectangleShape World::blackBars_[2] = {sf::RectangleShape(), sf::RectangleSh
 
 bool World::progToNext_ = true;
 
+
 std::map<ppc::World::DesktopList, ppc::LevelPacket> World::levelMap_ = {
 
 };
@@ -148,7 +149,7 @@ sf::Sprite World::loadBarBorder_ = sf::Sprite();
 sf::Sprite World::loadingDecal_ = sf::Sprite();
 
 bool World::isLoading_ = false;
-
+bool World::isLoadBarFull_ = false;
 Setting World::settings_;
 
 void ppc::World::initLevelMap() {
@@ -322,10 +323,10 @@ void World::runDesktop() {
 	World::endLoading();
 	while (screen_->isOpen() && !quitter_) {
 		//Process sf::events
-		registerInput();
+		World::registerInput();
 
 		//Update
-		update(deltaTime, framePeriod);
+		World::update(deltaTime, framePeriod);
 
 		//Draw
         World::drawDesktop();
@@ -442,6 +443,7 @@ void ppc::World::startLoading() {
 
 void ppc::World::setLoading(float f) {
 	if (f > 1.f || f < 0.f) f = 1.f;
+	if (f == 1.0f) isLoadBarFull_ = true;
     loadBar_.setTextureRect({0, 4*128, static_cast<int>(1024*f),128});
 	tempLoadBar_.setSize({ 500.f * f, 50.f });
 	drawLoading();
@@ -452,10 +454,7 @@ void ppc::World::drawLoading() {
         sf::RenderStates states;
         states.transform = worldTransform_;
 
-
         screen_->clear(sf::Color::Black);
-        //screen_->draw(tempLoadScreen_);
-        //screen_->draw(tempLoadBar_);
         screen_->draw(loadingDecal_, states);
         screen_->draw(loadBarBorder_, states);
         screen_->draw(loadBar_, states);
@@ -464,8 +463,22 @@ void ppc::World::drawLoading() {
 }
 
 void ppc::World::endLoading() {
-
-	isLoading_ = false;
+	if (isLoading_ == true) {
+		sf::Event event;
+		while(screen_->pollEvent(event)){
+			//HACK: Clear the event queue first,
+			// so that events added before the load bar is 
+			// full are ignored.
+		}  
+		while (isLoadBarFull_) {
+			screen_->pollEvent(event);
+			if (event.type == sf::Event::MouseButtonPressed) {
+				isLoading_ = false;
+				isLoadBarFull_ = false;
+				return;
+			}
+		}
+	}
 }
 
 
@@ -565,11 +578,6 @@ void ppc::World::manifestSettings() {
         screen_->create(getVideoMode(), "Project Perfect Citizen", flags);
     }
 }
-
-
-
-
-
 
 void World::drawDesktop() {
     currDesktop_->refresh();

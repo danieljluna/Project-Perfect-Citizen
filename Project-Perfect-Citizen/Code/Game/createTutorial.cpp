@@ -20,6 +20,7 @@
 #include "FloppyInputComponent.h"
 #include "FloppyRenderComponent.hpp"
 #include "FloppyUpdateComponent.hpp"
+#include "createButton.h"
 
 #include "TextBubble.h"
 #include "TextBubbleRender.h"
@@ -31,8 +32,38 @@
 #include "TimerUpdateCmpnt.h"
 
 #include "createWindow.h"
+#include "startBarRenderComponent.hpp"
+#include "startBarUpdateComponent.hpp"
 
 void ppc::createTutorial(Desktop & dt) {
+    
+    
+    ////////////////////////////////////////
+    // START BAR / BUTTON
+    //////////////////////////////////////
+    ppc::WindowInterface* startToolbar =
+    new ppc::Window(1000, 200, sf::Color(195, 195, 195,0));
+    
+    startToolbar->setPosition(0, 735);
+    
+    Entity startBar;
+    startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
+    
+    startBarRender->renderPosition({0,4});
+    
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
+    startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
+    
+    
+    Entity startButton;
+    spawnStartButton(startButton, dt, startToolbar->getInputHandler(), dt.getButtonSheet(), 6, 14, 0.35f);
+    
+    startToolbar->addEntity(startBar);
+    startToolbar->addEntity(startButton);
+    dt.addWindow(startToolbar);
+    
+     //////////////////////////////////////
 
 	//Initialize Builder for Icons
 	IconBuilder icons;
@@ -42,33 +73,51 @@ void ppc::createTutorial(Desktop & dt) {
 	icons.setAnimSpeed(0.30f);
 	icons.setInputHandle(dt.getInputHandler());
 	icons.setSize(0.5f);
+    
+    //Console Icon
+    Entity consoleIcon;
+    icons.setPosition({ 175.f,375.f });
+    icons.setIconType(iconInputComponent::IconType::Console);
+    icons.setSpritebyIndicies(0, 8, 1, 1);
+    icons.setText("Console", World::getFont(World::VT323Regular), sf::Color::White);
+    icons.create(consoleIcon);
+    
+    //Explorer Icon
+    Entity explorerIcon;
+    icons.setPosition({ 250.f,475.f });
+    icons.setIconType(iconInputComponent::IconType::HardDrive);
+    icons.setSpritebyIndicies(0, 7, 1, 1);
+    icons.setText("My Files", World::getFont(World::VT323Regular), sf::Color::White);
+    icons.create(explorerIcon);
 
 	//Graph Icon
 	Entity graphIcon;
-	icons.setPosition({ 400.f,300.f });
+	icons.setPosition({ 675.f,375.f });
 	icons.setIconType(iconInputComponent::IconType::Pipeline);
 	icons.setSpritebyIndicies(0, 4, 1, 2);
-	icons.setText("Graph", World::getFont(World::VT323Regular), sf::Color::Black);
+	icons.setText("Graph", World::getFont(World::VT323Regular), sf::Color::White);
 	icons.create(graphIcon);
 
 
 	//Email Icon
 	Entity emailIcon;
-	icons.setPosition({ 250.f,300.f });
+	icons.setPosition({ 425.f,525.f });
 	icons.setIconType(iconInputComponent::IconType::Email);
 	icons.setSpritebyIndicies(0, 10, 1, 2);
-	icons.setText("Emails", World::getFont(World::VT323Regular), sf::Color::Black);
+	icons.setText("Emails", World::getFont(World::VT323Regular), sf::Color::White);
 	icons.create(emailIcon);
 
 
 	//Help Icon
 	Entity helpIcon;
-	icons.setPosition({ 550.f,300.f });
+	icons.setPosition({ 600.f,475.f });
 	icons.setIconType(iconInputComponent::IconType::Help);
 	icons.setSpritebyIndicies(0, 5, 1, 2);
-	icons.setText("Help", World::getFont(World::VT323Regular), sf::Color::Black);
+	icons.setText("Help", World::getFont(World::VT323Regular), sf::Color::White);
 	icons.create(helpIcon);
-
+    
+    dt.getDesktopWindow()->addEntity(consoleIcon);
+    dt.getDesktopWindow()->addEntity(explorerIcon);
 	dt.getDesktopWindow()->addEntity(graphIcon);
 	dt.getDesktopWindow()->addEntity(emailIcon);
 	dt.getDesktopWindow()->addEntity(helpIcon);
@@ -156,10 +205,45 @@ void ppc::createTutorial(Desktop & dt) {
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dt.getPlayVec().at(1)->onManip().addObserver(tempObsvr);
 
+    ////Set up starting Message
+    //Event ev;
+    //ev.type = ev.FloppyType;
+    //ev.floppy.sequence = 0; // Line below crashes on mac - Brandon
+    //ev.floppy.frame = 0;
+    //summonFloppyDialog(floppyIn, ev);
+    //
+    
 }
 
 
 void ppc::createDesktopTutorial(Desktop & dt) {
+    
+    ////////////////////////////////////////
+    // START BAR / BUTTON
+    //////////////////////////////////////
+    ppc::WindowInterface* startToolbar =
+    new ppc::Window(1000, 200, sf::Color(195, 195, 195,0));
+    
+    startToolbar->setPosition(0, 735);
+    
+    Entity startBar;
+    startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
+    
+    startBarRender->renderPosition({0,4});
+    
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
+    startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
+    
+    
+    Entity startButton;
+    spawnStartButton(startButton, dt, startToolbar->getInputHandler(), dt.getButtonSheet(), 6, 14, 0.35f);
+    
+    startToolbar->addEntity(startBar);
+    startToolbar->addEntity(startButton);
+    dt.addWindow(startToolbar);
+    
+    //////////////////////////////////////
 
 	//Initialize Builder for Icons
 	IconBuilder icons;
@@ -175,7 +259,7 @@ void ppc::createDesktopTutorial(Desktop & dt) {
 	icons.setPosition({ 500.f,300.f });
 	icons.setIconType(iconInputComponent::IconType::HardDrive);
 	icons.setSpritebyIndicies(0, 7, 1, 1);
-	icons.setText("My Computer", World::getFont(World::VT323Regular), sf::Color::Black);
+	icons.setText("My Files", World::getFont(World::VT323Regular), sf::Color::Black);
 	icons.create(hardDriveIcon);
 
 
