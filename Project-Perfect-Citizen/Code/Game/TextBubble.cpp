@@ -8,7 +8,7 @@
 // https://gist.github.com/LiquidHelium/7858095
 // All credit for the creation of this code goes to its creator.
 sf::String ppc::TextBubble::wrapText(sf::String string, bool bold = false) {
-    unsigned width = 220;//rectBubble_.sf::Shape::getPoint(1).x-rectBubble_.sf::Shape::getPoint(0).x;//(int)rectBubble_.getSize().x;
+    unsigned width = 210;//rectBubble_.sf::Shape::getPoint(1).x-rectBubble_.sf::Shape::getPoint(0).x;//(int)rectBubble_.getSize().x;
 	unsigned characterSize = displayText_.getCharacterSize();
 	sf::Font font = *displayText_.getFont();
 	unsigned currentOffset = 0;
@@ -46,7 +46,7 @@ ppc::TextBubble::TextBubble() {
 	displayText_.setCharacterSize(12);
 	displayText_.setColor(sf::Color::Black);
 	displayText_.setFont(World::getFont(World::Consola));
-	displayText_.setPosition({4.f,20.f});
+	displayText_.setPosition({4.f,5.f});
     
     rectBubble_.setPointCount(7);
     rectBubble_.setPoint(0, sf::Vector2f(0,100));
