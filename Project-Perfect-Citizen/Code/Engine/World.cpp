@@ -430,7 +430,14 @@ void ppc::World::initLoadScreen() {
     
     loadingDecal_.setTexture(loadTexture_);
     loadingDecal_.setTextureRect({0,0, 6*128, 3*128});
-    loadingDecal_.setPosition(150, 100);
+    loadingDecal_.setPosition(150, 50);
+    
+    
+    loadingAddress_.setFont(World::getFont(World::FontList::Consola));
+    loadingAddress_.setCharacterSize(28);
+    loadingAddress_.setColor(sf::Color(0,200,0));
+    loadingAddress_.setPosition({150.f, 450.f});
+    loadingAddress_.setString("[     Loading Desktop At 1011 Nobel Dr     ]");
 
 	tempLoadScreen_.setPosition(0.f, 0.f);
 	tempLoadScreen_.setFillColor(sf::Color::Black);
@@ -466,6 +473,7 @@ void ppc::World::drawLoading() {
         screen_->draw(loadingDecal_, states);
         screen_->draw(loadBarBorder_, states);
         screen_->draw(loadBar_, states);
+        screen_->draw(loadingAddress_, states);
         if(isLoadBarFull_) screen_->draw(clickToContinue_, states);
 
         screen_->display();
