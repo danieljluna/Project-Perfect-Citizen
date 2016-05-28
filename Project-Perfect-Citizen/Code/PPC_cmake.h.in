@@ -1,0 +1,6 @@
+// This file is configured with cmake and creates macros
+#define PPC_VERSION_MAJOR @PPC_VERSION_MAJOR@
+#define PPC_VERSION_MINOR @PPC_VERSION_MINOR@
+#define PPC_VERSION_PATCH @PPC_VERSION_PATCH@
+
+#cmakedefine
