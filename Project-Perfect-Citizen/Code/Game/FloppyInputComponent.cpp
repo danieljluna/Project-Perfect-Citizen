@@ -1,13 +1,5 @@
-//Used to get XCODE working/////////////////////////////////
 
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
-
-///////////////////////////////////////////////////////////
-
+#include "../ResourceDef.h"
 #include "../Engine/debug.h"
 #include "FloppyInputComponent.h"
 #include <iostream>

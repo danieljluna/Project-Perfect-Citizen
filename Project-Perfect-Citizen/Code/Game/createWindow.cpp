@@ -1,10 +1,4 @@
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#define MAC 0
-#else
-#include "ResourcePath.hpp"
-#define MAC 1
-#endif
+#include "../ResourceDef.h"
 
 #include "../Engine/debug.h"
 #include "createWindow.h"
@@ -423,11 +417,11 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih,
 	float x, float y, std::string filename, std::string p) {
     if (windowToModify == nullptr) return; 
     
-    if(MAC){
+#ifndef WINDOWS_MARKER
         readingMacDirectory* dir = new readingMacDirectory();
         p = dir->getDirectory(p);
         delete(dir);
-    }
+#endif
     
     std::string path = resourcePath() + p;
     //std::cout <<  "\n" + path +  "\n" << std::endl;

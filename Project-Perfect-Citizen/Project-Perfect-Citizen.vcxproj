@@ -291,6 +291,7 @@
     <ClInclude Include="Code\Game\WindowBkgndRenderCmpnt.h" />
     <ClInclude Include="Code\Library\json\json-forwards.h" />
     <ClInclude Include="Code\Library\json\json.h" />
+    <ClInclude Include="Code\ResourceDef.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\kappa.png" />

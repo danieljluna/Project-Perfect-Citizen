@@ -14,11 +14,7 @@
 #include "explorerFolderInputComponent.h"
 
 
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
+#include "../ResourceDef.h"
 
 using namespace ppc;
 
