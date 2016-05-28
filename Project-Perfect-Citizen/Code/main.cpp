@@ -1,11 +1,4 @@
-//Used to get XCODE working/////////////////////////////////
-
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
-///////////////////////////////////////////////////////////
+#include "ResourceDef.h"
 #include <fstream>
 #include <string>
 #include <SFML/Main.hpp>
@@ -33,14 +26,16 @@ int main(int argc, char** argv) {
 		World::initLevelMap();
 		World::initFontMap();
 		World::initLoadScreen();
+		World::initAddressMap();
 
 		// Create the main sf::window
 		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen");
 
+
 		AudioQueue audiotest(5);
-		audiotest.addBgm("SoundTrack_Extraction.ogg");
+		audiotest.addBgm("SoundTrack_Pipeline.ogg");
 		audiotest.loopBgm();
-		//audiotest.playBgm();
+		audiotest.playBgm();
 
 		///////////////////////////////////////////////////////////////////
 

@@ -39,8 +39,8 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		void initializeFloppyDict();
 
-		void initTimerDisableEvents();
-		void initTimerResetEvents();
+		//void initTimerDisableEvents();
+		//void initTimerResetEvents();
 
 	public:
 
@@ -55,8 +55,7 @@ namespace ppc {
 		/// Emum of Floppy Sequence names to integers
 		///////////////////////////////////////////////////////////////////////
 		enum FloppySequenceName {
-			Welcome = 0,
-            Pipeline,
+            Pipeline = 0,
 			Connections,
 			SelectEdge,
 			DeleteEdge,
@@ -76,11 +75,27 @@ namespace ppc {
 			Scanning,
 			DeskSubmission,
 			Wrapup,
-			ResponseStart = 100,
-			EdgeSelectionHelper,
-			CircleDelay,
-			CircleDelete,
-			CircleFinishHelper
+			AltStart,
+            AltPipeline = AltStart,
+            AltConnections,
+            AltSelectEdge,
+            AltDeleteEdge,
+            AltTempFix,
+            AltGoal,
+            AltColorChange,
+            AltSuspicion,
+            AltCenter,
+            AltSubmission,
+            AltFeedback,
+            AltDesktopStart,
+            AltEmail,
+            AltExplorer,
+            AltPasswords,
+            AltUnlocked,
+            AltSuspFolder,
+            AltScanning,
+            AltDeskSubmission,
+            AltWrapup
 		};
 
 

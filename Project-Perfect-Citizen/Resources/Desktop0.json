@@ -2,21 +2,21 @@
    "Desktop": {
         "Terrorism/Germany/What nation is our target?": {
             "Schematics" : {
-                "5/VAR_1213_Schematic.jpg" : "DesktopContent/Desktop0/VAR_1213_Schematic.jpg",
-                "5/interconnect-wiring.jpg" : "DesktopContent/Desktop0/interconnect-wiring.jpg"
+                "5/VAR_1213_Schematic.jpg" : "DesktopContent/Desktop0/VAR_1213_Schematic.png",
+                "5/interconnect-wiring.jpg" : "DesktopContent/Desktop0/interconnect-wiring.png"
             },
             "Notes" : {
-                "10/route_plan.jpg": "DesktopContent/Desktop0/route_plan.jpg",
+                "10/route_plan.jpg": "DesktopContent/Desktop0/route_plan.png",
                 "10/The_plan.txt": "DesktopContent/Desktop0/The_plan.txt"
             }
         },
         "Documents": {
             "3D_Printer": {
-                "2/P_3000.jpg" : "DesktopContent/Desktop0/3D_printer_3000.jpg",
-                "2/Overview.jpg" : "DesktopContent/Desktop0/Overview.jpg"
+                "2/P_3000.jpg" : "DesktopContent/Desktop0/3D_printer_3000.png",
+                "2/Overview.jpg" : "DesktopContent/Desktop0/Overview.png"
             },
             "Instructions": {
-                "2/liberator_1.jpg" : "DesktopContent/Desktop0/liberator_1.jpg"
+                "2/liberator_1.jpg" : "DesktopContent/Desktop0/liberator_1.png"
             },
             "Permits": {
                 "3/explosives_permit.txt" : "DesktopContent/Desktop0/explosives_permit.txt",
@@ -25,25 +25,25 @@
             "2/For_My_Eyes_Only.txt" : "DesktopContent/Desktop0/Passwords.txt"
         },
         "Downloads": {
-            "5/bomb_prospect.jpg" : "DesktopContent/Desktop0/bomb_prospect.jpg",
-            "5/blueprint.jpg" : "DesktopContent/Desktop0/blueprint.jpg",
-            "5/blueprint_4.jpg" : "DesktopContent/Desktop0/blueprint_4.jpg",
-            "5/blueprint_7.jpg" : "DesktopContent/Desktop0/blueprint_7.jpg",
-            "5/blueprint_9.jpg" : "DesktopContent/Desktop0/blueprint_9.jpg",
-            "5/printable_5.jpg" : "DesktopContent/Desktop0/printable_5.jpg"
+            "5/bomb_prospect.jpg" : "DesktopContent/Desktop0/bomb_prospect.png",
+            "5/blueprint.jpg" : "DesktopContent/Desktop0/blueprint.png",
+            "5/blueprint_4.jpg" : "DesktopContent/Desktop0/blueprint_4.png",
+            "5/blueprint_7.jpg" : "DesktopContent/Desktop0/blueprint_7.png",
+            "5/blueprint_9.jpg" : "DesktopContent/Desktop0/blueprint_9.png",
+            "5/printable_5.jpg" : "DesktopContent/Desktop0/printable_5.png"
         },
         "Pictures": {
             "4_sale": {
-                "3/current.jpg" : "DesktopContent/Desktop0/current_collection.jpg"
+                "3/current.jpg" : "DesktopContent/Desktop0/current_collection.png"
             },
             "Selfies": {
-                "1/Sexy.jpg" : "DesktopContent/Desktop0/Sexy.jpg"
+                "1/Sexy.jpg" : "DesktopContent/Desktop0/Sexy.png"
             },
             "The_Babes": {
-                "3/17391.jpg" : "DesktopContent/Desktop0/17391.jpg",
-                "3/burnt1.jpg" : "DesktopContent/Desktop0/burnt1.jpg",
-                "3/89312.jpg" : "DesktopContent/Desktop0/Sterling_SMG.jpg",
-                "3/Big_Guy.jpg" : "DesktopContent/Desktop0/Thompson.jpg"
+                "3/17391.jpg" : "DesktopContent/Desktop0/17391.png",
+                "3/burnt1.jpg" : "DesktopContent/Desktop0/burnt1.png",
+                "3/89312.jpg" : "DesktopContent/Desktop0/Sterling_SMG.png",
+                "3/Big_Guy.jpg" : "DesktopContent/Desktop0/Thompson.png"
             }
         }
     }
