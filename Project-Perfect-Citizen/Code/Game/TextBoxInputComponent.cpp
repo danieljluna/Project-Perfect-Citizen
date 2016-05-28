@@ -113,8 +113,7 @@ void ppc::TextBoxInputComponent::recieveMessage(ppc::Event ev)
 		if (ev.timer.action == Event::TimerEv::timerState::Reset) {
 
 			sf::Time t1 = sf::seconds(0.5f);
-			tmr->resetTimer(0, sf::seconds(0.0f));
-			tmr->playTimer(tmr->createTimer(t1));
+			tmr->resetTimer(0, t1);
 		}
 	}
 }
