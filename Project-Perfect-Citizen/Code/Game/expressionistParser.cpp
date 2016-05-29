@@ -22,6 +22,8 @@
 
 using namespace expr;
 
+std::map<std::string, std::string> ExpressionistParser::systemVars_;
+
 ////////////////////////////////////////////////////////////////////////
 ///parsing out the JSON file
 ////////////////////////////////////////////////////////////////////////
@@ -42,7 +44,7 @@ std::string expr::ExpressionistParser::expressWithJson(const Json::Value& exprOu
 	for (; i < exprOutput["nonterminals"].size(); ++i) {
 		if (exprOutput["nonterminals"][terminalNames[i]]["deep"].asBool() == true) break;
 	}
-
+	systemVars_.clear();
 	std::pair<std::string, bool> result = expandWithJson(exprOutput, exprOutput["nonterminals"][terminalNames[i]], speaker, link);
 	if (result.second == true) return result.first;
 
@@ -130,6 +132,19 @@ std::pair<std::string, bool> expr::ExpressionistParser::fireWithJson(const Json:
 		} else if (braceCount == 1) {
 			//this is a run time variable that needs to be substituted for, otherwise treated as a string
 			//do replacement for system/run time variable
+			if (systemVars_.find(currExp) != systemVars_.end()) {
+				return std::make_pair(systemVars_.at(currExp), true);
+			}
+			else {
+				if (currExp == "day of the week" || "day") {
+					std::string day = generateDayOfWeek();
+					systemVars_.emplace(currExp, day);
+					return std::make_pair(day, true);
+				}
+				else {
+					return std::make_pair("", false);
+				}
+			}
 		} else if (braceCount == 2) {
 			Json::Value newExp = exprOutput["nonterminals"][currExp];
 			//recursively expands upon a new non terminal symbol (newExp), yielding a valid result if one is possible
@@ -150,6 +165,29 @@ std::pair<std::string, bool> expr::ExpressionistParser::fireWithJson(const Json:
 	return std::make_pair(result, true);
 }
 
+std::string ExpressionistParser::generateDayOfWeek() {
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	unsigned int daynum = std::uniform_int_distribution<>(0, 7)(gen);
+	switch (daynum) {
+		case 0:
+			return "Sunday";
+		case 1:
+			return "Monday";
+		case 2:
+			return "Tuesday";
+		case 3:
+			return "Wednesday";
+		case 4:
+			return "Thursday";
+		case 5:
+			return "Friday";
+		case 6:
+			return "Saturday";
+		default:
+			return "Tomorrow";
+	}
+}
 
 bool makeComparison(const std::string& str1, const std::string& str2, const std::string& oper) {
 	//std::cout << "strcmp: " << str1 << oper << str2 << std::endl;
