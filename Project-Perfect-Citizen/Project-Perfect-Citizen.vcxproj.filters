@@ -808,6 +808,9 @@
     <ClInclude Include="Code\Game\startBarUpdateComponent.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Code\ResourceDef.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\data.json">
@@ -879,6 +882,9 @@
       <Filter>Resources</Filter>
     </Text>
     <Text Include="Resources\DesktopTutorialAlt.txt">
+      <Filter>Resources</Filter>
+    </Text>
+    <Text Include="Resources\PipelineTutorialAlt.txt">
       <Filter>Resources</Filter>
     </Text>
   </ItemGroup>

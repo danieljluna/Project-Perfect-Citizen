@@ -1,4 +1,4 @@
--Pipeline: T 0.0
+-AltPipeline: T 0.0
 Default: Welcome to your new job at the DCPS!
 Angry: This training program will show you the ropes
 Default: If you need to review you can visit the help manual
@@ -7,30 +7,30 @@ Default: It is used to analyze groups of interconnected people.
 Default: We will then further investigate a target from this group.
 Default: Let's go over some basics...
 Peek: Try selecting a Photo
--Connections: T 0.0
+-AltConnections: T 0.0
 Default: Great! Select a photo and right click another to connect them
--SelectEdge: T 0.0
-Default: Nice job! Left click a connection to select it
--DeleteEdge: T 0.0
-Default: Now press "Z" to remove it
--TempFix: T 0.0
+-AltSelectEdge: T 0.0
+Default: You connected two photos! Left click the connection to select it
+-AltDeleteEdge: T 0.0
+Default: You can press "Z" to delete a selected connection
+-AltTempFix: T 0.0
 Default: Please close and relaunch the graph application to continue
--Goal: T 0.0
+-AltGoal: T 0.0
 Default: Select a photo to read that person's SMS conversations
 Default: Citizens are reffered to by their Database Identification Number (DIN)
 Default: Use the letters in the DIN and the conversations on the right to identify all connections
--ColorChange: T 0.0
-Default: Select a connection to view the conversations between those two people
+-AltColorChange: T 0.0
+Default: Good!  Now that you've found all the connections you'll want to color them correctly
 Default: Press "Space" to switch the color of the connection
--Suspicion: T 0.0
-Default: Innocent connections should be green and suspicious ones red
+-AltSuspicion: T 0.0
+Default: Cool! You'll want to make innocent connections are green and suspicous ones red
 Default: In future assignments its okay to leave them black when you're unsure
 Default: For now, indicate the correct colors based off the conversations
--Center: T 0.0
-Default: We want to target the most suspicious person
+-AltCenter: T 0.0
+Default: Now that you know about the connections, use them to find the most suspicious target
 Default: Select that person and press "C" to mark the center of the network
--Submission: T 0.0
-Default: When you are confident you have found the right center hit submit
--Feedback: F 0.0
+-AltSubmission: T 0.0
+Default: If you're confident you have found the right center hit submit
+-AltFeedback: F 0.0
 Default: A fellow DCPS officer has checked your work and approved it!
 Default: You have been issued a warrant to search their desktop.

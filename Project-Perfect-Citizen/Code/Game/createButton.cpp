@@ -1,8 +1,4 @@
-#ifdef WINDOWS_MARKER
-#define resourcePath() string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
+#include "../ResourceDef.h"
 
 #include "../Engine/debug.h"
 #include "createButton.h"

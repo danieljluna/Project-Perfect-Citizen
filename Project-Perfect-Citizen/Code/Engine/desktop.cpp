@@ -1,12 +1,6 @@
 //desktop.cpp
 // Nader Sleem
-
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
-
+#include "../ResourceDef.h"
 #include <string>
 #include <fstream>
 

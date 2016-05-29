@@ -177,6 +177,21 @@ namespace ppc {
 
         static void saveState(std::string filename);
 
+		/////////////////////////////////////////////////////////////////
+		// Loading Address Map
+		/////////////////////////////////////////////////////////////////
+
+		static std::string getCurrAddress();
+
+		static std::string getAddress(DesktopList);
+		
+		static void setAddress(World::DesktopList, std::string);
+
+		static void setCurrAddress(std::string);
+
+		static void initAddressMap();
+
+
     private:
 
       /////////////////////////////////////////////////////////////////
@@ -190,6 +205,8 @@ namespace ppc {
 		static void registerInput();
 
 		static void update(sf::Clock&, sf::Time&);
+
+        static void initializeResolution();
 
       /////////////////////////////////////////////////////////////////
       // Private Vars / Enums
@@ -217,6 +234,8 @@ namespace ppc {
 
 		static std::map <std::pair<DesktopList, ReportType>, std::string > bossEmailMap_;
 
+		static std::map <World::DesktopList, std::string> loadingAddressMap_;
+
 		static bool isLoading_;
 
 		static bool isLoadBarFull_;
@@ -232,6 +251,10 @@ namespace ppc {
         static sf::Sprite loadBarBorder_;
         
         static sf::Sprite loadingDecal_;
+        
+        static sf::Text loadingAddress_;
+        
+        static sf::Sprite clickToContinue_;
 
 		static sf::RectangleShape tempLoadBar_;
 
