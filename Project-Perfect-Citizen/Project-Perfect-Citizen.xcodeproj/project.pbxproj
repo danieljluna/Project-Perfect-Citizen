@@ -259,7 +259,6 @@
 		E98696CA1CFABFF50085EFC1 /* PoliticianReportB.txt in Resources */ = {isa = PBXBuildFile; fileRef = E98695A31CFABFF50085EFC1 /* PoliticianReportB.txt */; };
 		E98696CB1CFABFF50085EFC1 /* PoliticianReportC.txt in Resources */ = {isa = PBXBuildFile; fileRef = E98695A41CFABFF50085EFC1 /* PoliticianReportC.txt */; };
 		E98696CC1CFABFF50085EFC1 /* PoliticianReportD.txt in Resources */ = {isa = PBXBuildFile; fileRef = E98695A51CFABFF50085EFC1 /* PoliticianReportD.txt */; };
-		E98696CD1CFABFF50085EFC1 /* sampleReport.txt in Resources */ = {isa = PBXBuildFile; fileRef = E98695A61CFABFF50085EFC1 /* sampleReport.txt */; };
 		E98696CE1CFABFF50085EFC1 /* TeacherReportA.txt in Resources */ = {isa = PBXBuildFile; fileRef = E98695A71CFABFF50085EFC1 /* TeacherReportA.txt */; };
 		E98696CF1CFABFF50085EFC1 /* TeacherReportB.txt in Resources */ = {isa = PBXBuildFile; fileRef = E98695A81CFABFF50085EFC1 /* TeacherReportB.txt */; };
 		E98696D01CFABFF50085EFC1 /* TeacherReportC.txt in Resources */ = {isa = PBXBuildFile; fileRef = E98695A91CFABFF50085EFC1 /* TeacherReportC.txt */; };
@@ -701,7 +700,6 @@
 		E98695A31CFABFF50085EFC1 /* PoliticianReportB.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PoliticianReportB.txt; sourceTree = "<group>"; };
 		E98695A41CFABFF50085EFC1 /* PoliticianReportC.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PoliticianReportC.txt; sourceTree = "<group>"; };
 		E98695A51CFABFF50085EFC1 /* PoliticianReportD.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PoliticianReportD.txt; sourceTree = "<group>"; };
-		E98695A61CFABFF50085EFC1 /* sampleReport.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sampleReport.txt; sourceTree = "<group>"; };
 		E98695A71CFABFF50085EFC1 /* TeacherReportA.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TeacherReportA.txt; sourceTree = "<group>"; };
 		E98695A81CFABFF50085EFC1 /* TeacherReportB.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TeacherReportB.txt; sourceTree = "<group>"; };
 		E98695A91CFABFF50085EFC1 /* TeacherReportC.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TeacherReportC.txt; sourceTree = "<group>"; };
@@ -1450,7 +1448,6 @@
 				E98695A31CFABFF50085EFC1 /* PoliticianReportB.txt */,
 				E98695A41CFABFF50085EFC1 /* PoliticianReportC.txt */,
 				E98695A51CFABFF50085EFC1 /* PoliticianReportD.txt */,
-				E98695A61CFABFF50085EFC1 /* sampleReport.txt */,
 				E98695A71CFABFF50085EFC1 /* TeacherReportA.txt */,
 				E98695A81CFABFF50085EFC1 /* TeacherReportB.txt */,
 				E98695A91CFABFF50085EFC1 /* TeacherReportC.txt */,
@@ -2091,7 +2088,6 @@
 				E98696061CFABFF50085EFC1 /* CatcherInTheRye - Salinger.txt in Resources */,
 				E98696031CFABFF50085EFC1 /* bataille_story_of_eye.txt in Resources */,
 				E98696551CFABFF50085EFC1 /* TRANQUILITY.png in Resources */,
-				E98696CD1CFABFF50085EFC1 /* sampleReport.txt in Resources */,
 				E98695D81CFABFF50085EFC1 /* ArtistTexts.json in Resources */,
 				E986968C1CFABFF50085EFC1 /* Email3.json in Resources */,
 				E98696731CFABFF50085EFC1 /* Vincent_Wins.png in Resources */,
