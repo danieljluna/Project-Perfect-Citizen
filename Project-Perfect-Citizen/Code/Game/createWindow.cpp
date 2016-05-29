@@ -1,10 +1,4 @@
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#define MAC 0
-#else
-#include "ResourcePath.hpp"
-#define MAC 1
-#endif
+#include "../ResourceDef.h"
 
 #include "../Engine/debug.h"
 #include "createWindow.h"
@@ -423,11 +417,11 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih,
 	float x, float y, std::string filename, std::string p) {
     if (windowToModify == nullptr) return; 
     
-    if(MAC){
+#ifndef WINDOWS_MARKER
         readingMacDirectory* dir = new readingMacDirectory();
         p = dir->getDirectory(p);
         delete(dir);
-    }
+#endif
     
     std::string path = resourcePath() + p;
     //std::cout <<  "\n" + path +  "\n" << std::endl;
@@ -1370,12 +1364,6 @@ bool ppc::increment_resolution(ppc::TextDisplayRenderComponent* ptr, ppc::Event 
 
     //------------------------------------
 
-    /*
-    Setting settings = World::getSettings();
-    settings.resolution = sf::Vector2u{ it->width, it->height };
-    World::setSettings(settings);
-    */
-
     // Uncomment the line below when the resolutions are loaded.
     ptr->updateString(std::to_string(it->width) + " x " +
         std::to_string(it->height));
@@ -1396,10 +1384,14 @@ bool ppc::decrement_resolution(ppc::TextDisplayRenderComponent * ptr, ppc::Event
     //This hampers our aspect ratio currently
     
     auto possibleModes = sf::VideoMode::getFullscreenModes();
-
     //Search for current fullscreen mode
     auto it = possibleModes.begin();
+    auto depth = it->bitsPerPixel;
     while (it != possibleModes.end()) {
+        if (it->bitsPerPixel != depth) {
+            it = possibleModes.end();
+            break;
+        }
         if ((it->width == resolution.x) && (it->height == resolution.y)) {
             break;
         }
@@ -1407,18 +1399,22 @@ bool ppc::decrement_resolution(ppc::TextDisplayRenderComponent * ptr, ppc::Event
     }
 
     //If we are not on the last item or we couldn't find the current:
-    if (possibleModes.end() - it > 1) {
-        ++it;
+    //If we are on the first item or we couldn't find the current:
+    if (it == possibleModes.end()) {
+        it = possibleModes.begin();
+        while (it->bitsPerPixel == depth) {
+            ++it;
+        }
+        --it;
     } else {
-        it = possibleModes.end();
+        ++it;
+    }
+
+    if (it->bitsPerPixel != depth) {
         --it;
     }
 
     //------------------------------------
-
-    /*
-    
-    */
 
 	// Uncomment the line below when the resolutions are loaded.
 	ptr->updateString(std::to_string(it->width) + " x " + 
