@@ -55,6 +55,9 @@ namespace ppc {
 		bool clickable = true;
 		bool disabled = false;
 
+		bool isToggle = false;
+		std::vector<std::string> toggleStates;
+
 	public:
 		///////////////////////////////////////////////////////////////////////
 		/// @brief Constructor for buttonRenderComponent
@@ -136,6 +139,22 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		void setIsDisabled(bool);
 
+		///////////////////////////////////////////////////////////////////////
+		/// @brief Sets whether the button is toggle button
+		/// @param Whether or not it is a toggle button
+		/// @note Toggles must be given a toggle list (vector of strings).
+		/// Also, toggles have built-in functions that when clicked iterate
+		/// them to the next toggle state (next string).
+		///////////////////////////////////////////////////////////////////////
+		void setIsToggle(bool);
+
+
+		///////////////////////////////////////////////////////////////////////
+		/// @brief Sets the possible string states of a button-toggle
+		/// @param The list of possible toggle states
+		///////////////////////////////////////////////////////////////////////
+		void setToggleStates(std::vector<std::string>);
+
 
 		///////////////////////////////////////////////////////////////////////
 		/// @brief Returns the mousePressButton of a button
@@ -159,6 +178,11 @@ namespace ppc {
 		ppc::TextDisplayRenderComponent* getTextRenderComponent();
 
 		///////////////////////////////////////////////////////////////////////
+		/// @brief Returns whether button is toggle or not
+		///////////////////////////////////////////////////////////////////////
+		bool getIsToggle();
+
+		///////////////////////////////////////////////////////////////////////
 		/// @brief Returns the constructed button
 		/// @param The entity to modify
 		///////////////////////////////////////////////////////////////////////
@@ -175,6 +199,9 @@ namespace ppc {
 	template<class T>
 	void createWithEventFunc(ButtonBuilder& builder, Entity& e, T* target, bool(*func)(T *, ppc::Event)) {
 
+		/* Don't build toggles with event funcs - they have built in ones*/
+		if (builder.getIsToggle()) return;
+
 		builder.create(e);
 		size_t s = e.cmpntCount();
 		ppc::mousePressButton* mpb = dynamic_cast<mousePressButton*>(e.getComponent(s-1));
@@ -186,6 +213,7 @@ namespace ppc {
 		}
 	}
 
+	bool incrementToggleState(TextDisplayRenderComponent*, ppc::Event);
 
 };
 

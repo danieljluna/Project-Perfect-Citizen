@@ -38,6 +38,8 @@ TextDisplayRenderComponent::TextDisplayRenderComponent() {
 	else outline_->setColor(sf::Color::Black);
 	outline_->setString(labelString_);
 
+
+	renderStates.push_back(labelString_);
 	renderable_ = true;
 
 }
@@ -95,6 +97,31 @@ void TextDisplayRenderComponent::updateFont(sf::Font f) {
 
 void TextDisplayRenderComponent::updateColor(sf::Color c) {
     text_->setColor(c);
+}
+
+void ppc::TextDisplayRenderComponent::incrementRenderState()
+{
+	if (renderStates.size() <= currentRenderState + 1) {
+		updateString(renderStates.at(0));
+		currentRenderState = 0;
+	}
+	else {
+		updateString(renderStates.at(currentRenderState + 1));
+		currentRenderState++;
+	}
+	
+}
+
+void ppc::TextDisplayRenderComponent::setRenderState(int r)
+{
+	currentRenderState = r;
+	updateString(renderStates.at(currentRenderState));
+}
+
+void ppc::TextDisplayRenderComponent::setRenderList(std::vector<std::string> l )
+{
+	renderStates = l;
+	currentRenderState = 0;
 }
 
 void ppc::TextDisplayRenderComponent::setRenderable(bool r)

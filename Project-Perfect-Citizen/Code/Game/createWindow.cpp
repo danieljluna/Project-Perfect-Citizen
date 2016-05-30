@@ -1270,9 +1270,9 @@ void ppc::spawnSettingsMenu(Desktop * dt, WindowInterface *& windowToModify, Inp
 		// Volume Header //
 		Entity volumeText;
 		ppc::TextDisplayRenderComponent* volumeHeader = new ppc::TextDisplayRenderComponent(myFont, sf::Color::Black,
-			0.0f, 0.0f, headerSize, "Volume");
+			0.0f, 0.0f, headerSize-3, "Master Volume");
 		volumeHeader->updatePosition((windowWidth - volumeHeader->getText()->getLocalBounds().width) / 2,
-			(2 * windowHeight) / 3);
+			(2 * windowHeight) / 3 - 100);
 		volumeText.addComponent(volumeHeader);
 		windowToModify->addEntity(volumeText);
 	
@@ -1302,10 +1302,38 @@ void ppc::spawnSettingsMenu(Desktop * dt, WindowInterface *& windowToModify, Inp
 		createWithEventFunc(builder, volumeIncrementButton, currentVol, ppc::increment_volume);
 		windowToModify->addEntity(volumeIncrementButton);
 
+	// Window Settings Module //
+		// Window Settings Header //
+			Entity windowText;
+			ppc::TextDisplayRenderComponent* windowHeader = new ppc::TextDisplayRenderComponent(myFont, sf::Color::Black,
+				0.0f, 0.0f, headerSize-2, "Window Settings");
+			windowHeader->updatePosition((windowWidth - windowHeader->getText()->getLocalBounds().width) / 2,
+				(2 * windowHeight) / 3);
+			windowText.addComponent(windowHeader);
+			windowToModify->addEntity(windowText);
+
+		// Window Mode Button //
+			Entity windowButton;
+			builder.setLabelMessage("  Windowed  ");
+			builder.setSize(0.45f);
+			builder.setLabelSize(buttonLetterSize);
+			builder.setIsToggle(true);
+			std::vector<std::string> windowOptionsList;
+			windowOptionsList.push_back("  Windowed  ");
+			windowOptionsList.push_back(" Full Screen");
+			builder.setToggleStates(windowOptionsList);
+			builder.setButtonPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) - 300,
+				windowHeader->getTextPosition().y + 50));
+			builder.create(windowButton);
+			windowToModify->addEntity(windowButton);
+
 
 	// Update Button //
 		Entity updateButton;
 		builder.setLabelMessage("Update");
+		builder.setSize(0.25f);
+		builder.setLabelSize(buttonLetterSize);
+		builder.setIsToggle(false);
 		builder.setButtonPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) - 100,
 			static_cast<float>(windowToModify->getSize().y) -50));
 		createWithEventFunc(builder, updateButton, currentRes, ppc::update_settings);

@@ -35,6 +35,9 @@ ppc::ButtonBuilder::ButtonBuilder()
 	inputHandle = nullptr;
 
 	label = "";
+
+	std::vector<std::string> defaultToggles;
+	toggleStates = defaultToggles;
 }
 
 ppc::ButtonBuilder::~ButtonBuilder()
@@ -99,6 +102,16 @@ void ppc::ButtonBuilder::setIsDisabled(bool d)
 	disabled = d;
 }
 
+void ppc::ButtonBuilder::setIsToggle(bool t)
+{
+	isToggle = t;
+}
+
+void ppc::ButtonBuilder::setToggleStates(std::vector<std::string> l)
+{
+	toggleStates = l;
+}
+
 ppc::mousePressButton * ppc::ButtonBuilder::getMousePressButton()
 {
 	return button_mpb;
@@ -112,6 +125,11 @@ ppc::buttonRenderComponent * ppc::ButtonBuilder::getButtonRenderComponent()
 ppc::TextDisplayRenderComponent * ppc::ButtonBuilder::getTextRenderComponent()
 {
 	return text_rc;
+}
+
+bool ppc::ButtonBuilder::getIsToggle()
+{
+	return isToggle;
 }
 
 void ppc::ButtonBuilder::create(Entity& e){
@@ -128,6 +146,9 @@ void ppc::ButtonBuilder::create(Entity& e){
 
 		/* Construct the Custom Button*/
 		labelRender = new TextDisplayRenderComponent(*font, sf::Color::Black, posX, posY, labelSize, label);
+
+		/* Special Case: Button is a Toggle - add it's render list*/
+		if (isToggle) labelRender->setRenderList(toggleStates);
 
 		/* Determine the position where the text should be placed in this button */
 		float buttonWidth = (buttonRender->getSprite()->getLocalBounds().width) * size;
@@ -155,7 +176,16 @@ void ppc::ButtonBuilder::create(Entity& e){
 
 	/* II: INPUT COMPONENT */
 	if (clickable) {
-		sf::FloatRect rect(posX, posY, 64, 32);
+
+		sf::FloatRect rect;
+		// Create the bounding box of the constructed button
+		if (label.size() > 1) {
+			rect = sf::FloatRect(posX, posY, 256 * size, 128 * size);
+		}
+		else {
+			rect = sf::FloatRect(posX, posY, 128 * size, 128 * size);
+		}
+	
 		mpb = new mousePressButton(*inputHandle, rect);
 		button_mpb = mpb;
 	}
@@ -172,4 +202,11 @@ void ppc::ButtonBuilder::create(Entity& e){
 	if( mpb != nullptr) e.addComponent(mpb);
 	buttonRender->renderPosition(sf::Vector2f(posX, posY));
 
+	/* IV: Optional: Complete if the button is a toggle*/
+	if(isToggle) setOnPress(mpb, labelRender, incrementToggleState);
+}
+
+bool ppc::incrementToggleState(TextDisplayRenderComponent* ptr, ppc::Event ev) {
+	ptr->incrementRenderState();
+	return true;
 }
