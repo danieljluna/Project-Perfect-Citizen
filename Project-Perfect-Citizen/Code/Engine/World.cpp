@@ -1,8 +1,4 @@
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
+#include "../ResourceDef.h"
 
 #include <fstream>
 
@@ -269,47 +265,6 @@ sf::VideoMode ppc::World::getVideoMode() {
 
     result.width = settings_.resolution.x;
     result.height = settings_.resolution.y;
-
-    sf::Vector2f scaleFactorVec;
-    scaleFactorVec.x = float(settings_.resolution.x) / 1000;
-    scaleFactorVec.y = float(settings_.resolution.y) / 800;
-
-    float scaleFactor = std::min(scaleFactorVec.x,
-                                    scaleFactorVec.y);
-
-    worldTransform_ = sf::Transform();
-
-    blackBars_[0].setFillColor({ 0, 0, 0 });
-    blackBars_[1].setFillColor({ 0, 0, 0 });
-    
-    //If we are cramped by width:
-    if (scaleFactor == scaleFactorVec.x) {
-
-        float offset = (float(result.height) - 800.0f * scaleFactor) / 2.0f;
-
-        worldTransform_.translate(0, offset);
-
-        blackBars_[0].setPosition(0, 0);
-        blackBars_[0].setSize({ float(result.width), offset });
-        blackBars_[1].setPosition(0, float(result.height) - offset);
-        blackBars_[1].setSize({ float(result.width), offset });
-
-    //Else we are cramped by height:
-    } else {
-
-        float offset = (float(result.width) - 1000.0f * scaleFactor) / 2.0f;
-
-        worldTransform_.translate(offset, 0);
-
-        blackBars_[0].setPosition(0, 0);
-        blackBars_[0].setSize({ offset, float(result.height) });
-        blackBars_[1].setPosition(float(result.width) - offset, 0);
-        blackBars_[1].setSize({ offset, float(result.height) });
-
-    }
-
-    worldTransform_.scale(scaleFactor, scaleFactor);
-
 
     return result;
 }
@@ -656,7 +611,15 @@ void ppc::World::initAddressMap() {
 
 
 void ppc::World::manifestSettings() {
+    if (settings_.fullscreen) {
+        settings_.resolution.x = sf::VideoMode::getDesktopMode().width;
+        settings_.resolution.y = sf::VideoMode::getDesktopMode().height;
+    }
+
+
     if (screen_ != nullptr) {
+        initializeResolution();
+
         unsigned int flags = sf::Style::Default;
         if (settings_.fullscreen) {
             flags = flags | sf::Style::Fullscreen;
@@ -682,9 +645,7 @@ void ppc::World::registerInput() {
 
 		if (event.type == sf::Event::Closed) {
 			screen_->close();
-			throw std::exception();
-			// Does not work on Mac v
-			//throw std::exception("Screen Closed");
+			throw std::logic_error("Screen Closer");
 		} else if (event.type == sf::Event::KeyPressed) {
 			//Close
 			if ((event.key.code == sf::Keyboard::Period) && (event.key.alt)) {
@@ -732,4 +693,55 @@ void ppc::World::update(sf::Clock& deltaTime, sf::Time& framePeriod ) {
 		currDesktop_->update(dt);
 		elapsed -= framePeriod;
 	}
+}
+
+
+
+void ppc::World::initializeResolution() {
+    sf::Vector2f result;
+
+    result.y = settings_.resolution.y;
+    result.x = settings_.resolution.x;
+
+    sf::Vector2f scaleFactorVec;
+    scaleFactorVec.x = float(settings_.resolution.x) / 1000;
+    scaleFactorVec.y = float(settings_.resolution.y) / 800;
+
+    float scaleFactor = std::min(scaleFactorVec.x,
+        scaleFactorVec.y);
+
+    worldTransform_ = sf::Transform();
+
+    blackBars_[0].setFillColor({ 0, 0, 0 });
+    blackBars_[1].setFillColor({ 0, 0, 0 });
+
+    //If we are cramped by width:
+    if (scaleFactor == scaleFactorVec.x) {
+
+        float offset = (float(result.y) - 800.0f * scaleFactor) / 2.0f;
+
+        worldTransform_.translate(0, offset);
+
+        blackBars_[0].setPosition(0, 0);
+        blackBars_[0].setSize({ float(result.x), offset });
+        blackBars_[1].setPosition(0, float(result.y) - offset);
+        blackBars_[1].setSize({ float(result.x), offset });
+
+        //Else we are cramped by height:
+    } else {
+
+        float offset = (float(result.x) - 1000.0f * scaleFactor) / 2.0f;
+
+        worldTransform_.translate(offset, 0);
+
+        blackBars_[0].setPosition(0, 0);
+        blackBars_[0].setSize({ offset, float(result.y) });
+        blackBars_[1].setPosition(float(result.x) - offset, 0);
+        blackBars_[1].setSize({ offset, float(result.y) });
+
+    }
+
+    worldTransform_.scale(scaleFactor, scaleFactor);
+
+
 }
