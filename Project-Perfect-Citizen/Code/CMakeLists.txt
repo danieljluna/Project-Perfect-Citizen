@@ -51,23 +51,26 @@ include_directories("../Resources")
 
 
 # Install target
-install(TARGETS ${EXECUTABLE_NAME} DESTINATION .)
+install(TARGETS ${EXECUTABLE_NAME} DESTINATION bin)
+install(DIRECTORY "${PROJECT_SOURCE_DIR}/../Resources/" DESTINATION Resources)
+install(DIRECTORY "${PROJECT_SOURCE_DIR}/../Libs/" DESTINATION bin)
 
-install(PROGRAMS 
-   ${CMAKE_CURRENT_SOURCE_DIR}/../Redist/vc_redist.x86.exe
-   DESTINATION tmp)
-          
-list(APPEND CPACK_NSIS_EXTRA_INSTALL_COMMANDS " 
-   ExecWait '$INSTDIR\\\\tmp\\\\vc_redist.x86.exe'
-   ")
+
+# install(PROGRAMS 
+#    ${CMAKE_CURRENT_SOURCE_DIR}/../Redist/vc_redist.x86.exe
+#    DESTINATION redist)
 
 #CPack packaging
 include(InstallRequiredSystemLibraries)
 if (WIN32)
-   set(CPACK_GENERATOR NISIS)
+   set(CPACK_GENERATOR NSIS)
    set(CPACK_NSIS_MODIFY_PATH ON)
+   # list(APPEND CPACK_NSIS_EXTRA_INSTALL_COMMANDS " 
+   #    ExecWait '$INSTDIR\\\\redist\\\\vc_redist.x86.exe'
+   #    ")
+   # list(APPEND CPACK_NSIS_EXTRA_INSTALL_COMMANDS "del /Q /S $INSTDIR\\\\redist")
 else ()
-   
+   list(APPEND CPACK_NSIS_EXTRA_INSTALL_COMMANDS "rm -r $INSTDIR\\\\redist")
 endif()
 set(CPACK_PACKAGE_NAME "Project Perfect Citizen")
 set(CPACK_PACKAGE_VENDOR "Bad Cop Studios")
