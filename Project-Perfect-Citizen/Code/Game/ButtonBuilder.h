@@ -199,9 +199,6 @@ namespace ppc {
 	template<class T>
 	void createWithEventFunc(ButtonBuilder& builder, Entity& e, T* target, bool(*func)(T *, ppc::Event)) {
 
-		/* Don't build toggles with event funcs - they have built in ones*/
-		if (builder.getIsToggle()) return;
-
 		builder.create(e);
 		size_t s = e.cmpntCount();
 		ppc::mousePressButton* mpb = dynamic_cast<mousePressButton*>(e.getComponent(s-1));
@@ -209,6 +206,26 @@ namespace ppc {
 		if (mpb != nullptr) {
 			setOnPress(mpb, target, func);
 		} else {
+			return;
+		}
+	}
+
+	///////////////////////////////////////////////////////////////////////
+	/// @brief Attaches an event func to a button made with create
+	/// @param The entity to modify
+	/// @param The target class object
+	/// @param The function to execute on a click
+	///////////////////////////////////////////////////////////////////////
+	template<class T>
+	void attachEventFunc(ButtonBuilder& builder, Entity& e, T* target, bool(*func)(T *, ppc::Event)) {
+
+		size_t s = e.cmpntCount();
+		ppc::mousePressButton* mpb = dynamic_cast<mousePressButton*>(e.getComponent(s - 1));
+
+		if (mpb != nullptr) {
+			setOnPress(mpb, target, func);
+		}
+		else {
 			return;
 		}
 	}

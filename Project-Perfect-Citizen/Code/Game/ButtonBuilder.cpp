@@ -203,7 +203,7 @@ void ppc::ButtonBuilder::create(Entity& e){
 	buttonRender->renderPosition(sf::Vector2f(posX, posY));
 
 	/* IV: Optional: Complete if the button is a toggle*/
-	if(isToggle) setOnPress(mpb, labelRender, incrementToggleState);
+	//if(isToggle) setOnPress(mpb, labelRender, incrementToggleState);
 }
 
 bool ppc::incrementToggleState(TextDisplayRenderComponent* ptr, ppc::Event ev) {

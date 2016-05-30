@@ -39,7 +39,7 @@ TextDisplayRenderComponent::TextDisplayRenderComponent() {
 	outline_->setString(labelString_);
 
 
-	renderStates.push_back(labelString_);
+	renderStates.push_back("DEFAULT");
 	renderable_ = true;
 
 }
@@ -69,6 +69,7 @@ TextDisplayRenderComponent::TextDisplayRenderComponent(sf::Font& f, sf::Color c,
 	else outline_->setColor(sf::Color::Black);
 	outline_->setString(labelString_);
 
+	renderStates.push_back("DEFAULT");
 	renderable_ = true;
 
 }

@@ -1325,6 +1325,7 @@ void ppc::spawnSettingsMenu(Desktop * dt, WindowInterface *& windowToModify, Inp
 			builder.setButtonPosition(sf::Vector2f(static_cast<float>(windowToModify->getSize().x) - 300,
 				windowHeader->getTextPosition().y + 50));
 			builder.create(windowButton);
+			attachEventFunc(builder, windowButton, builder.getTextRenderComponent(), toggle_window_settings);
 			windowToModify->addEntity(windowButton);
 
 
@@ -1609,6 +1610,17 @@ bool ppc::decrement_volume(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)
 	}
 	
 	return true;
+}
+
+bool ppc::toggle_window_settings(TextDisplayRenderComponent * ptr, ppc::Event ev)
+{
+	ptr->incrementRenderState();
+
+	// Danny: Do something with this string
+	// It'll either be Windowed or Full Screen
+	std::string targetWindowMode = ptr->getString();
+	std::cout << targetWindowMode;
+	return ptr;
 }
 
 bool ppc::update_settings(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)

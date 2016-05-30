@@ -257,6 +257,7 @@ bool decrement_resolution(TextDisplayRenderComponent*, ppc::Event ev);
 bool increment_volume(TextDisplayRenderComponent*, ppc::Event ev);
 bool decrement_volume(TextDisplayRenderComponent*, ppc::Event ev);
 
+bool toggle_window_settings(TextDisplayRenderComponent*, ppc::Event);
 bool update_settings(TextDisplayRenderComponent*, ppc::Event ev);
 };
 
