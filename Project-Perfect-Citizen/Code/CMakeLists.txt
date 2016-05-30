@@ -37,7 +37,7 @@ set(EXECUTABLE_NAME "ProjectPerfectCitizen")
 add_executable(${EXECUTABLE_NAME} main.cpp ${PPC_SOURCES} ${PPC_HEADERS})
 
 
-set(CMAKE_MODULE_PATH "C:/SFML/SFML-2.3.2/cmake/Modules")
+set(CMAKE_MODULE_PATH ${SFML_DIR})
 #Find any version 2.X of SFML
 #See the FindSFML.cmake file for additional details and instructions
 find_package(SFML 2 REQUIRED system window graphics audio)
@@ -58,7 +58,7 @@ install(PROGRAMS
    DESTINATION tmp)
           
 list(APPEND CPACK_NSIS_EXTRA_INSTALL_COMMANDS " 
-   ExecWait '$INSTDIR\\\\tmp\\\\vcredist_2005_sp1_x64.exe'
+   ExecWait '$INSTDIR\\\\tmp\\\\vc_redist.x86.exe'
    ")
 
 #CPack packaging
