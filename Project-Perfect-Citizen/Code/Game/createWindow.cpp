@@ -988,7 +988,7 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
 }
 
 
-void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState ns,
+void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState* ns,
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y) {
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
@@ -1027,7 +1027,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	}
 
 	// Create the window caption and format it //
-	std::vector<std::string> pwd_vector = ns.getPwdVector();
+	std::vector<std::string> pwd_vector = ns->getPwdVector();
 	std::string pwd = "";
 
 	/*for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {

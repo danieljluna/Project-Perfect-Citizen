@@ -443,7 +443,7 @@ bool ppc::Desktop::isMouseCollision(WindowInterface* wi,
 
 void ppc::Desktop::clearDesktop() {
 	nodeState_ = ppc::NodeState();
-	nodeState_.setUp();
+	//nodeState_.setUp();
 	iconSheet_ = sf::Image();
 	buttonSheet_ = sf::Image();
 	inbox_ = ppc::Inbox();
@@ -511,9 +511,11 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 			importDesktop->desktopWindow_->addRenderComponent(wBRC);
 
 		} else if (key == "Filetree") {
-			ppc::desktopExtractionComponent desktopFiles(importDesktop->nodeState_);
+			importDesktop->nodeState_.setUp();
+			ppc::desktopExtractionComponent desktopFiles(&importDesktop->nodeState_);
 			Json::Value parsed =
 				desktopFiles.parseDesktopAsJson(file, "Desktop");
+
 		} else if (key == "Emails") {
 			ppc::emailExtraction* inbox = new emailExtraction();
 			
