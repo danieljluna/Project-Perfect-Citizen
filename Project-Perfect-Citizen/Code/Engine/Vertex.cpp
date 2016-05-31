@@ -77,7 +77,7 @@ ppc::Vertex& ppc::Vertex::operator=(const Vertex& other){
 }
 
 ppc::Vertex::~Vertex() {
-
+	delete rend_;
 }
 
 sf::Color ppc::Vertex::getColor() const {
