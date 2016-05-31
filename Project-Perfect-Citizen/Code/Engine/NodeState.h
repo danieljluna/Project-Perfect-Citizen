@@ -54,6 +54,8 @@ namespace ppc {
 		///////////////////////////////////////////////
 		NodeState(const NodeState&);
 
+		~NodeState();
+
 		///////////////////////////////////////////////
 		///@brief pops off the last element in the
 		///workingDirectory vector. Primarily used 

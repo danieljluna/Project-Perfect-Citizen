@@ -70,6 +70,7 @@ int main(int argc, char** argv) {
 		World::setCurrDesktop(mainDesktop);
 
 		while (World::getCurrDesktopEnum() != World::DesktopCount) {
+			
 			//Get Current Desktop Level
 			World::DesktopList currDesk = World::getCurrDesktopEnum();
 
