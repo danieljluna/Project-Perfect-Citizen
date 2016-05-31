@@ -1,8 +1,4 @@
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
+#include "../ResourceDef.h"
 
 #include "Vertex.h"
 #include "debug.h"
@@ -98,7 +94,7 @@ void ppc::Vertex::setColor(sf::Color col) {
 sf::Vector2f ppc::Vertex::getPosCenter() const {
 	sf::Vector2f p = getPosition();
 	//sf::FloatRect f = circ_.getGlobalBounds();
-    sf::FloatRect f = rect_.getGlobalBounds();
+    sf::FloatRect f = bgrect_.getGlobalBounds();
 	p.x += (f.width / 2.f);
 	p.y += (f.height / 2.f);
 	return p;
@@ -106,7 +102,7 @@ sf::Vector2f ppc::Vertex::getPosCenter() const {
 
 sf::FloatRect ppc::Vertex::getLocalBounds() const {
 //	sf::FloatRect fRect = circ_.getLocalBounds();
-    sf::FloatRect fRect = rect_.getLocalBounds();
+    sf::FloatRect fRect = bgrect_.getLocalBounds();
 	fRect.left = getPosition().x;
 	fRect.top = getPosition().y;
 	return fRect;
@@ -114,7 +110,7 @@ sf::FloatRect ppc::Vertex::getLocalBounds() const {
 
 sf::FloatRect ppc::Vertex::getGlobalBounds() const {
 //	sf::FloatRect fRect = circ_.getGlobalBounds();
-	sf::FloatRect fRect = rect_.getGlobalBounds();
+	sf::FloatRect fRect = bgrect_.getGlobalBounds();
     fRect.left = getPosition().x;
 	fRect.top = getPosition().y;
 	return fRect;

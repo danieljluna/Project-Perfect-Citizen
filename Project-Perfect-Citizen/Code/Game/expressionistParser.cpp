@@ -6,16 +6,7 @@
 //  Copyright © 2016 Hyperfocus Games. All rights reserved.
 //
 
-//Used to get XCODE working/////////////////////////////////////////////
-
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
-
-////////////////////////////////////////////////////////////////////////
-
+#include "../ResourceDef.h"
 #include "../Engine/debug.h"
 #include "expressionistParser.hpp"
 //#include "../Library/json/json.h"
@@ -39,6 +30,7 @@ Json::Value expr::ExpressionistParser::parseExpressionistAsJson(std::string file
 	Json::Reader reader;
 	Json::Value value;
 	std::ifstream doc(resourcePath() + file, std::ifstream::binary);
+	if (!doc.good()) throw std::runtime_error("Expressionist: File not found.");
 	reader.parse(doc, value);
 	return value;
 }
@@ -162,10 +154,10 @@ std::pair<std::string, bool> expr::ExpressionistParser::fireWithJson(const Json:
 bool makeComparison(const std::string& str1, const std::string& str2, const std::string& oper) {
 	//std::cout << "strcmp: " << str1 << oper << str2 << std::endl;
 	
-	if (oper.compare("==")) {
+	if (oper.compare("==") == 0) {
 		return (str1.compare(str2) == 0);
 	}
-	else if (oper.compare("!=")) {
+	else if (oper.compare("!=") == 0) {
 		return (str1.compare(str2) != 0);
 	}
 	return false;
@@ -201,15 +193,21 @@ bool expr::ExpressionistParser::checkMarkUpPreconditions(const Json::Value& mark
 	for (size_t i = 0; i < markup.size(); ++i) {
 		Json::Value currMark = markup[markupNames[i]];
 		std::string oper;
-		std::string req;
+		//std::string req;
 		std::string value;
 
 		for (unsigned int j = 0; j < currMark.size(); ++j) {
 			std::string currCond = currMark[j].asString();
 			//std::cout << "CurrCond = " << currCond << " markupNames[i] = " << markupNames[i] << std::endl;
 			size_t firstspace = currCond.find_first_of(" ");
-			req = currCond.substr(0, firstspace);
-			oper = currCond.substr(firstspace + 1, currCond.length() - currCond.find_last_of(" ") - 1);
+			size_t lastspace = currCond.find_last_of(" ");
+			//req = currCond.substr(0, firstspace);
+			if (firstspace == lastspace) {
+				oper = currCond.substr(0, firstspace);
+			}
+			else {
+				oper = currCond.substr(firstspace + 1, (currCond.find_last_of(" ") - firstspace) - 1);
+			}
 			value = currCond.substr(currCond.find_last_of(" ") + 1, std::string::npos);
 			if (markupNames[i].compare("agePreconditions") == 0) {
 				//std::cout << "Making Age Comparison" << std::endl;
@@ -219,14 +217,16 @@ bool expr::ExpressionistParser::checkMarkUpPreconditions(const Json::Value& mark
 			}
 			else if (markupNames[i].compare("linkSuspicion") == 0) {
 				if (link.getWeight() == 1) {
-					if (!(makeComparison("Ambiguous", value, oper) ||
-						makeComparison("Suggestive", value, oper) ||
-						makeComparison("ClearlySuspicious", value, oper))) return false;
+					if (makeComparison("Ambiguous", value, "==")) continue;
+					if (makeComparison("Suggestive", value, "==")) continue;
+					if (makeComparison("ClearlySuspicious", value, "==")) continue;
+					return false;
 				}
 				else {
-					if (!(makeComparison("ClearlyClean", value, oper) ||
-						makeComparison("SlightlySuspicious", value, oper) ||
-						makeComparison("Ambiguous", value, oper))) return false;
+					if (makeComparison("ClearlyClean", value, "==")) continue;
+					if (makeComparison("SlightlySuspicious", value, "==")) continue;
+					//if (makeComparison("Ambiguous", value, "==")) continue;
+					return false;
 				}
 				continue;
 			}

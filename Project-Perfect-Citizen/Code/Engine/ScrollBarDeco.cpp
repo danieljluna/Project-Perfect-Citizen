@@ -386,9 +386,9 @@ bool ppc::onButtonUp(ScrollBarDecorator* sb, Event ev) {
     float spaceLeft = sb->scrollBars_.getPosition().y - 
                 sb->scrollBackgrounds_.getPosition().y;
     if (spaceLeft >= 15) {
-        sb->scrollBars_.move(0, -15);
+        sb->draggableInputs_->drag({ 0, -15 });
     } else {
-        sb->scrollBars_.move(0, -spaceLeft);
+        sb->draggableInputs_->drag({ 0, spaceLeft });
     }
     sb->updateView();
 
@@ -399,9 +399,9 @@ bool ppc::onButtonDown(ScrollBarDecorator* sb, Event ev) {
     float spaceLeft = (sb->scrollBackgrounds_.getPosition().y + sb->scrollBackgrounds_.getSize().y) - 
         (sb->scrollBars_.getPosition().y + sb->scrollBars_.getSize().y);
     if (spaceLeft >= 15) {
-        sb->scrollBars_.move(0, 15);
+        sb->draggableInputs_->drag({ 0, 15 });
     } else {
-        sb->scrollBars_.move(0, spaceLeft);
+        sb->draggableInputs_->drag({ 0, spaceLeft });
     }
     sb->updateView();
 
