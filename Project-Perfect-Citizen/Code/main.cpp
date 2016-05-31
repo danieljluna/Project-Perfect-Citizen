@@ -49,11 +49,10 @@ int main(int argc, char** argv) {
 		World::loadState("PPC.sav");
 		std::ifstream desktopFileInput;
 
-
+		Desktop mainDesktop;
+		World::setCurrDesktop(mainDesktop);
 
 		while (World::getCurrDesktopEnum() != World::DesktopCount) {
-			Desktop mainDesktop;
-			World::setCurrDesktop(mainDesktop);
 			
 			//Get Current Desktop Level
 			World::DesktopList currDesk = World::getCurrDesktopEnum();
