@@ -43,6 +43,7 @@ ppc::Desktop::Desktop() {
 	desktopWindow_ = new Window(1800, 1000);
 	windows_.push_back(desktopWindow_);
 	focused_ = desktopWindow_;
+    nextFrontTop_ = nullptr;
 
 }
 
@@ -88,7 +89,7 @@ ppc::Desktop::~Desktop() {
             delete *it;
 	}
 
-    if (frontTop_) { delete frontTop_; frontTop_ = nullptr; }
+    if (frontTop_) delete frontTop_;
     if (inTransition_) { delete inTransition_; inTransition_ = nullptr; }
     if (outTransition_) { delete outTransition_; outTransition_ = nullptr; }
 	frontTop_ = nullptr;
@@ -453,7 +454,7 @@ void ppc::Desktop::clearDesktop() {
 	backgndTexture_ = sf::Texture();
 	desktopWindow_ = nullptr;
 	focused_ = nullptr;
-    if (frontTop_) { delete frontTop_; frontTop_ = nullptr; };
+    if (frontTop_) delete frontTop_;
 	frontTop_ = nullptr;
 
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
