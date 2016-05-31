@@ -461,30 +461,31 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih,
             }
         }
         
+        
+        textRenderComponent* textBox =
+        new textRenderComponent(myFont, content, 0, 0, fontSize);
+        newEnt.addComponent(textBox);
+        windowToModify->setPosition(x, y);
+        windowToModify->addEntity(newEnt);
+        
         windowScrollHeight = windowScrollHeight * textMuliplier;
         if(windowScrollHeight > maxWindowScroll){
             windowScrollHeight = maxWindowScroll;
         }
-        
-        if(windowScrollHeight < minWindowHeight){
+        else if(windowScrollHeight < minWindowHeight){
             windowScrollHeight = minWindowHeight;
+
         }
-        
-        textRenderComponent* textBox =
-            new textRenderComponent(myFont, content, 0, 0, fontSize);
-        
-        newEnt.addComponent(textBox);
-        windowToModify->setPosition(x, y);
-        windowToModify->addEntity(newEnt);
-        windowToModify->setSize(windowToModify->getSize().x, windowScrollHeight);
-        
-        sf::FloatRect viewRect = {
-            0.0f,
-            0.0f,
-            float(windowToModify->getSize().x),
-            float(windowToModify->getSize().x)
-        };
-        windowToModify = new ScrollBarDecorator(*windowToModify, World::getCurrDesktop().getButtonSheet(), sf::View(viewRect));
+        if(windowScrollHeight > minWindowHeight){
+            windowToModify->setSize(windowToModify->getSize().x, windowScrollHeight);
+            sf::FloatRect viewRect = {
+                0.0f,
+                0.0f,
+                float(windowToModify->getSize().x),
+                float(windowToModify->getSize().x)
+            };
+            windowToModify = new ScrollBarDecorator(*windowToModify, World::getCurrDesktop().getButtonSheet(), sf::View(viewRect));
+        }
     }
     
     else if(dotEnd == PNG || dotEnd == JPG){
