@@ -13,8 +13,8 @@ using namespace ppc;
 
 const std::string TEXT_KEY_INPUT = "TKI";
 
-textInputRenderComponent::textInputRenderComponent(ppc::NodeState fT, sf::Font& f, 
-	int x, int y, int size): fileTree_(fT), font(f) {
+textInputRenderComponent::textInputRenderComponent( sf::Font& f, 
+	int x, int y, int size): font(f) {
 
 	this->textSize_ = size;
 	this->text = new sf::Text();
