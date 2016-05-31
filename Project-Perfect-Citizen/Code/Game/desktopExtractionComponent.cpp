@@ -6,15 +6,7 @@
 //  Copyright © 2016 Hyperfocus Games. All rights reserved.
 //
 
-//Used to get XCODE working/////////////////////////////////
-
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
-
-///////////////////////////////////////////////////////////
+#include "../ResourceDef.h"
 #include "../Engine/debug.h"
 #include "desktopExtractionComponent.hpp"
 

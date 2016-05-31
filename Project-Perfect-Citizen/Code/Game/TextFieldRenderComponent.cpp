@@ -8,11 +8,7 @@
 #include "../Engine/debug.h"
 #include "TextFieldRenderComponent.hpp"
 
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
+#include "../ResourceDef.h"
 
 #include "TextDisplayRenderComponent.h"
 
