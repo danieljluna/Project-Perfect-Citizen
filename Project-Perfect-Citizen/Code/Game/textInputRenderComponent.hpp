@@ -6,7 +6,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "../Engine/renderComponent.h"
-#include "../Engine/NodeState.h"
+
 
 
 namespace ppc {
@@ -18,7 +18,7 @@ namespace ppc {
 	///////////////////////////////////////////////////////////////////////
 	class textInputRenderComponent : public ppc::RenderComponent {
 	private:
-		ppc::NodeState fileTree_;
+
 		sf::Sprite* sprite;
 		sf::Text* text;
 		sf::Font font;
@@ -27,7 +27,7 @@ namespace ppc {
 
 	public:
 
-		textInputRenderComponent(ppc::NodeState fT, sf::Font& f, int x, int y, int size);
+		textInputRenderComponent(sf::Font& f, int x, int y, int size);
 
 		~textInputRenderComponent();
 

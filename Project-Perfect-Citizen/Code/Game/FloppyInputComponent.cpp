@@ -1,13 +1,5 @@
-//Used to get XCODE working/////////////////////////////////
 
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
-
-///////////////////////////////////////////////////////////
-
+#include "../ResourceDef.h"
 #include "../Engine/debug.h"
 #include "FloppyInputComponent.h"
 #include <iostream>
@@ -42,8 +34,8 @@ FloppyInputComponent::FloppyInputComponent() {
 
     if (!initialized) {
         initializeFloppyDict();
-		initTimerDisableEvents();
-		initTimerResetEvents();
+//		initTimerDisableEvents();
+//		initTimerResetEvents();
     }
 
 }
@@ -52,9 +44,11 @@ FloppyInputComponent::~FloppyInputComponent() {
 
 }
 
-const std::array<std::string, 2> FLOPPY_SOURCES{
+const std::array<std::string, 4> FLOPPY_SOURCES{
 	"PipelineTutorial.txt",
-	"DesktopTutorial.txt"
+	"DesktopTutorial.txt",
+    "PipelineTutorialAlt.txt",
+    "DesktopTutorialAlt.txt"
 };
 
 const std::map<std::string, int> FLOPPY_EMOTION_MAP{
@@ -237,71 +231,75 @@ void ppc::FloppyInputComponent::setFloppyButton(bool able)
 
 //go through all timerDisableEvents and initialize them indivdually, then
 //add them to TimerDisableEvents
-void FloppyInputComponent::initTimerDisableEvents() {
-	ppc::Event ev;
-	std::vector<ppc::Event> evVec;
-	//EdgeSelectionHelper
-	ev.type = ppc::Event::NetworkType;
-	ev.network.type = ppc::Event::NetworkEv::Selected;
-	evVec.push_back(ev);
-	TimerDisableEvents.emplace(EdgeSelectionHelper, evVec);
-	evVec.clear();
-
-	//CircleDelay
-	ev.network.type = ppc::Event::NetworkEv::Created;
-	evVec.push_back(ev);
-	TimerDisableEvents.emplace(CircleDelay, evVec);
-	evVec.clear();
-
-	//CircleDelete
-	ev.network.type = ppc::Event::NetworkEv::Removed;
-	evVec.push_back(ev);
-	TimerDisableEvents.emplace(CircleDelete, evVec);
-	evVec.clear();
-
-	//CircleFinishHelper
-	ev.network.type = ppc::Event::NetworkEv::Created;
-	evVec.push_back(ev);
-	TimerDisableEvents.emplace(CircleFinishHelper, evVec);
-	evVec.clear();
-}
+//void FloppyInputComponent::initTimerDisableEvents() {
+//	ppc::Event ev;
+//	std::vector<ppc::Event> evVec;
+//	//EdgeSelectionHelper
+//	ev.type = ppc::Event::NetworkType;
+//	ev.network.type = ppc::Event::NetworkEv::Selected;
+//	evVec.push_back(ev);
+//	TimerDisableEvents.emplace(EdgeSelectionHelper, evVec);
+//	evVec.clear();
+//
+//	//CircleDelay
+//	ev.network.type = ppc::Event::NetworkEv::Created;
+//	evVec.push_back(ev);
+//	TimerDisableEvents.emplace(CircleDelay, evVec);
+//	evVec.clear();
+//
+//	//CircleDelete
+//	ev.network.type = ppc::Event::NetworkEv::Removed;
+//	evVec.push_back(ev);
+//	TimerDisableEvents.emplace(CircleDelete, evVec);
+//	evVec.clear();
+//
+//	//CircleFinishHelper
+//	ev.network.type = ppc::Event::NetworkEv::Created;
+//	evVec.push_back(ev);
+//	TimerDisableEvents.emplace(CircleFinishHelper, evVec);
+//	evVec.clear();
+//}
 
 //go through all timerResetEvents and initialize them indivdually, then
 //add them to TimerResetEvents
-void FloppyInputComponent::initTimerResetEvents() {
-	ppc::Event ev;
-	std::vector<ppc::Event> evVec;
-
-	//CicleDelete
-	ev.network.type = ppc::Event::NetworkEv::Removed;
-	evVec.push_back(ev);
-	TimerResetEvents.emplace(CircleDelete, evVec);
-	evVec.clear();
-
-	//CircleFinishHelper
-	ev.network.type = ppc::Event::NetworkEv::Removed;
-	evVec.push_back(ev);
-	ev.network.type = ppc::Event::NetworkEv::Created;
-	evVec.push_back(ev);
-	TimerResetEvents.emplace(CircleFinishHelper, evVec);
-	evVec.clear();
-}
+//void FloppyInputComponent::initTimerResetEvents() {
+//	ppc::Event ev;
+//	std::vector<ppc::Event> evVec;
+//
+//	//CicleDelete
+//	ev.network.type = ppc::Event::NetworkEv::Removed;
+//	evVec.push_back(ev);
+//	TimerResetEvents.emplace(CircleDelete, evVec);
+//	evVec.clear();
+//
+//	//CircleFinishHelper
+//	ev.network.type = ppc::Event::NetworkEv::Removed;
+//	evVec.push_back(ev);
+//	ev.network.type = ppc::Event::NetworkEv::Created;
+//	evVec.push_back(ev);
+//	TimerResetEvents.emplace(CircleFinishHelper, evVec);
+//	evVec.clear();
+//}
 
 
 
 bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
     bool wasSummoned = false;
-    unsigned int frame = 0, sequence = 0;
 
 	switch (ev.type) {
     case ppc::Event::FloppyType:
 
         //If we just ended a frame
         if (ev.floppy.frame == -1) {
+            unsigned int sequence = ev.floppy.sequence;
+            if (sequence >= ptr->AltStart) {
+                sequence -= ptr->AltStart;
+            }
+
             //If we just ended the Welcome
-            if (ev.floppy.sequence == 2) {
+            if (sequence == 2) {
                 World::getCurrDesktop().incrementNetVecIndex();
-            } else if (ev.floppy.sequence == FloppyInputComponent::Feedback) {
+            } else if (sequence == FloppyInputComponent::Feedback) {
                 World::quitDesktop();
             }
             if (FloppyInputComponent::floppyDictionary.at(ev.floppy.sequence).autoShift) {
@@ -322,7 +320,7 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             ev.floppy.frame = 0;
             switch (World::getCurrDesktop().getNetVecIndex()) {
             case 0:
-				ev.floppy.sequence = FloppyInputComponent::Welcome;
+				ev.floppy.sequence = FloppyInputComponent::Pipeline;
                 break;
             case 1:
 				ev.floppy.sequence = FloppyInputComponent::Goal;
@@ -364,12 +362,17 @@ bool ppc::incrementFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
     bool enable = false;
 
+    unsigned int sequence = ptr->getSequence();
+    if (sequence >= ptr->AltStart) {
+        sequence -= ptr->AltStart;
+    }
+
     //Switch controls what event needs to be read to move on
-    switch (ptr->getSequence()) {
-	case FloppyInputComponent::Welcome:
-        enable = ((ev.type == ev.OpenType) &&
-            (ev.open.winType == ev.open.Pipeline));
-        break;
+    switch (sequence) {
+    //case FloppyInputComponent::Welcome:
+    //    enable = ((ev.type == ev.OpenType) &&
+    //        (ev.open.winType == ev.open.Pipeline));
+    //    break;
     case FloppyInputComponent::Pipeline:
         enable = ((ev.type == ev.NetworkType) &&
             (ev.network.type == ev.network.Selected) &&
@@ -471,8 +474,33 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         break;
     }
 
-    if (enable)
+    if (enable) {
         ptr->setFloppyButton(enable);
+
+        auto& dict = FloppyInputComponent::floppyDictionary;
+        if (dict.at(ptr->getSequence()).autoShift) {
+
+
+            Event ev;
+            ev.type = Event::FloppyType;
+            ev.floppy.frame = 0;
+            ev.floppy.sequence = ptr->getSequence() + 1;
+            bool wasSummoned = false;
+
+            //Get sequence in non-alt terms
+            if (ev.floppy.sequence >= FloppyInputComponent::AltStart) {
+                ev.floppy.sequence -= FloppyInputComponent::AltStart;
+            }
+
+            //Check if we are at the last frame
+            if (ptr->getFrame() < dict.at(ptr->getSequence()).frames.size() - 1) {
+                ev.floppy.sequence += FloppyInputComponent::AltStart;
+            }
+
+            summonFloppyDialog(ptr, ev);
+
+        }
+    }
 
     return true;
 }

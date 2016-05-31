@@ -147,7 +147,9 @@
     <Text Include="Resources\Coding Reference\DoxygenHelp.txt" />
     <Text Include="Resources\Coding Reference\LinkHelp.txt" />
     <Text Include="Resources\DesktopTutorial.txt" />
+    <Text Include="Resources\DesktopTutorialAlt.txt" />
     <Text Include="Resources\PipelineTutorial.txt" />
+    <Text Include="Resources\PipelineTutorialAlt.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h" />
@@ -289,6 +291,7 @@
     <ClInclude Include="Code\Game\WindowBkgndRenderCmpnt.h" />
     <ClInclude Include="Code\Library\json\json-forwards.h" />
     <ClInclude Include="Code\Library\json\json.h" />
+    <ClInclude Include="Code\ResourceDef.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\kappa.png" />
@@ -297,8 +300,10 @@
     <Font Include="Resources\Consolas.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\ArtistTexts.json" />
     <None Include="Resources\data.json" />
     <None Include="Resources\HackerTexts.json" />
+    <None Include="Resources\PoliticianTexts.json" />
     <None Include="Resources\TeacherTexts-Old.json" />
     <None Include="Resources\Email1.json" />
     <None Include="Resources\Engine\playerDesktop.ini" />

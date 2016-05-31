@@ -22,6 +22,10 @@ ppc::NodeState::NodeState(const NodeState& other) {
     }
 }
 
+ppc::NodeState::~NodeState() {
+
+}
+
 void ppc::NodeState::popWorking()
 {
 	this->workingDirectory.pop_back();

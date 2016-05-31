@@ -27,7 +27,7 @@ HelpWindowRenderComponent::HelpWindowRenderComponent(sf::Font& f, int x, int y, 
     tab = 0;
 
 
-    consoleHelpString = "--------------------- CONSOLE REFERENCE --------------------\n";
+    consoleHelpString = "--------------------- CONSOLE REFERENCE --------------------";
     consoleHelpString += "\n\n pwd : Prints the current working directory";
     consoleHelpString += "\n\n cd [path] : changes the current directory";
     consoleHelpString += "\n\n ls : lists the contents of the current directory";
@@ -36,8 +36,34 @@ HelpWindowRenderComponent::HelpWindowRenderComponent(sf::Font& f, int x, int y, 
     
 
 
-    graphHelpString = "------------------------ GRAPH REFERENCE --------------------\n";
-    graphHelpString += "Node Selection: Left Click on a node, node will be highlighted.\n (Edges will be deselected)\n Edge Selection: Left click on an edge (Nodes will be deselected)\n\n  Node Position: Click and drag a node to reposition it.\n Edges are updated automatically.\n Node position is to help you work towards a solution,\n and does not affect correctness.\n\n Change Color of Selected Edge: \n Z - Black,\n X - Red,\n  C - Green,\n Space - Cycle Color.  \n  \n Edge Color Significance:\n Black - Unknown,\n Red - Suspicious,\n Green - Clean.\n\n Create an Edge: Select a node, then right click the node\n you want to connect it to.\n \n  Delete an Edge:\n Select the edge, press DEL Mark Center of Graph\n - S Submit for Approval\n - Okay Button For this first trial you will simply be searching\nfor the person with the highest total number of connections.\n You must still fill out the rest of the network\nwith high accuracy to receive approval.";
+    graphHelpString = "------------------------ GRAPH REFERENCE --------------------\n\n";
+	graphHelpString += " Node Selection: Left Click on a node, node will be highlighted.\n";
+	graphHelpString += " (Edges will be deselected)\n\n";
+	graphHelpString += " Edge Selection : Left click on an edge(Nodes will be deselected)\n\n";
+	graphHelpString += " Node Position : Click and drag a node to reposition it.\n";
+	graphHelpString += " Edges are updated automatically.\n";
+	graphHelpString += " Node position is to help you work towards a solution, \n";
+	graphHelpString += " and does not affect correctness.\n\n";
+	graphHelpString += " Change Color of Selected Edge : \n";
+	graphHelpString += "   A - Black, \n";
+	graphHelpString += "   S - Red, \n";
+	graphHelpString += "   D - Green, \n";
+	graphHelpString += "   Space - Cycle Color.\n\n";
+	graphHelpString += " Edge Color Significance : \n";
+	graphHelpString += "   Black - Unknown, \n";
+	graphHelpString += "   Red - Suspicious, \n";
+	graphHelpString += "   Green - Clean.\n\n";
+	graphHelpString += " Create an Edge : Select a node, then right click the node\n ";
+	graphHelpString += " you want to connect it to.\n\n";
+	graphHelpString += " Delete an Edge : Select the edge, press Z\n\n";
+	graphHelpString += " Mark Center of Graph : Select a node, press C\n\n";
+	graphHelpString += " Submit : Use the botton at the bottom\n\n";
+	graphHelpString += "--------------- ADVANCED PIPELINE CONTROLS ----------------\n\n";
+	graphHelpString += " To create an edge of a specific color, hold :\n";
+	graphHelpString += "   Alt - Black\n";
+	graphHelpString += "   Shift - Red\n";
+	graphHelpString += "   Ctrl - Green\n";
+	graphHelpString += " While creating an edge.\n";
  
 
 	desktopsHelpString = "-------------- DESKTOP EXTRACTION REFERENCE ---------------\n\n";

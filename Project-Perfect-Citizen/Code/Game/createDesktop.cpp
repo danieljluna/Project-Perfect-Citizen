@@ -1,9 +1,5 @@
 
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
+#include "../ResourceDef.h"
 
 #include "createDesktop.h"
 
@@ -235,20 +231,26 @@ void ppc::createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopW
     //// Create the start menu
     /////////////////////////////////////////////
     ppc::WindowInterface* startToolbar =
-    new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
+    new ppc::Window(1000, 200, sf::Color(195, 195, 195,0));
+    
     startToolbar->setPosition(0, 735);
-   
+    
     Entity startBar;
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
+    
     startBarRender->renderPosition({0,4});
+    
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
     startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
+
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
+    
     startToolbar->addEntity(startBar);
     startToolbar->addEntity(startButton);
     desktopToModify.addWindow(startToolbar);
-    
     
     ////////////////////////////////
     ///// ICONS ON TEACHER DESKTOP
