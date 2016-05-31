@@ -42,7 +42,24 @@ int main(int argc, char** argv) {
 		//// ----------------   PYTHON LOCATION STUFF ---------------- ////
 
 		// Run the locator python app
-		//system("osascript -e 'tell app \"ppc_location_print\" to open'");
+		//system("osascript -e 'tell app \"ppc_ip_location\" to open'");
+        
+        #ifdef WINDOWS_MARKER
+   
+        #else
+            system("open ./Project-Perfect-Citizen.app/Contents/Resources/ppc_ip_location.app");
+            std::string line;
+            std::ifstream myfile (resourcePath() + "/ppc_ip_location.app/Content/Resources/loc_file.txt");
+            if (myfile.is_open()){
+                while (getline (myfile,line) ){
+                    std::cout << line << '\n';
+                }
+                myfile.close();
+            }
+        
+            else std::cout << "Unable to open file";
+        #endif
+       
 		// -----------------------------------------------------------//
 
 		World::setGameScreen(screen);
