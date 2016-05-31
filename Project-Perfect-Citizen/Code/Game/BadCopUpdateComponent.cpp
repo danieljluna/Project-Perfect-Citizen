@@ -8,7 +8,7 @@
 
 #include "BadCopUpdateComponent.hpp"
 #include "../Engine/debug.h"
-
+#include <SFML/System/Time.hpp>
 
 using namespace ppc;
 
@@ -25,8 +25,10 @@ BadCopUpdateComponent::~BadCopUpdateComponent() {
 
 void BadCopUpdateComponent::update(sf::Time& deltaTime) {
     if (render->willAnimate()) {
-        
         counter += deltaTime;
+        
+       // if (counter.asSeconds() > speed)
+         //   counter = framePeriod;
         
         if (counter >= framePeriod) {
             render->animate();

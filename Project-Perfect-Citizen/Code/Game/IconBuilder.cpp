@@ -7,6 +7,7 @@
 
 #include "animatorComponent.hpp"
 #include "textLabelComponent.hpp"
+#include "notifcationRenderComponent.h"
 
 #include "buttonRenderComponent.h"
 
@@ -17,6 +18,7 @@ ppc::IconBuilder::IconBuilder() {
 	ih = nullptr;
 	db = nullptr;
 	ib = nullptr;
+	renderNotifications = false;
 	buttonSheet = nullptr;
 
 	font = nullptr;
@@ -105,6 +107,10 @@ void ppc::IconBuilder::setPosition(sf::Vector2f pos) {
 	posY = pos.y;
 }
 
+void ppc::IconBuilder::setRenderNotifications(bool toset) {
+	renderNotifications = toset;
+}
+
 void ppc::IconBuilder::create(Entity &e) {
 	textLabelComponent* textLabel = new textLabelComponent(*font, fontColor, posX, posY + size * 128, 20, label);
 
@@ -120,10 +126,25 @@ void ppc::IconBuilder::create(Entity &e) {
 	iconInputComponent* iconInputComp = new iconInputComponent(*dt, db, *ib, *buttonSheet, dt->getIconSheet(), iconType);
 	iconInputComp->setIconLabelName(label);
 
+	notificationRenderComponent* notirc = new notificationRenderComponent();
+
+	if (renderNotifications) {
+		NotificationObserver* notiobs = &notirc->getNotiObserver();
+		dt->getInbox().getInboxSubject().addObserver(notiobs);
+		notirc->setPosition({ posX, posY });
+		notirc->updateText(-(dt->getInbox().getUnreadEmailCount()));
+	}
+
 	e.addComponent(IconRender);
 	e.addComponent(textLabel);
 	e.addComponent(iconInputComp);
 	e.addComponent(animator);
 	e.addComponent(mpbFolder);
+	if (renderNotifications) {
+		e.addComponent(notirc);
+	}
+	else {
+		delete notirc;
+	}
 
 }

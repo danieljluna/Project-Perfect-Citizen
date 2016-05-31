@@ -394,19 +394,22 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	graphBox.addComponent(networkRender);
 	graphBox.addComponent(networkInput);
 
-	Entity submitButton;
-	float buttonScale = 0.25f;
-	int buttonSize = 256;
-	spawnNetworkOkayButton(playNet,submitButton, windowToModify->getInputHandler(), buttonSheet, 
-		( ( graphBounds->getLocalBounds().width - (buttonSize * buttonScale) ) / 2 ), static_cast<float>(windowToModify->getSize().y-50), buttonScale, 
-		ncf, myFont);
+
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 	windowToModify->addEntity(dataBox);
 	windowToModify->addEntity(graphBox);
-	windowToModify->addEntity(submitButton);
+	if (World::getCurrDesktop().getNetVecIndex() >= World::getCurrDesktop().getNetVecSize() - 1) {
+		Entity submitButton;
+		float buttonScale = 0.25f;
+		int buttonSize = 256;
+		spawnNetworkOkayButton(playNet, submitButton, windowToModify->getInputHandler(), buttonSheet,
+			((graphBounds->getLocalBounds().width - (buttonSize * buttonScale)) / 2), static_cast<float>(windowToModify->getSize().y - 50), buttonScale,
+			ncf, myFont);
+		windowToModify->addEntity(submitButton);
+	}
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
@@ -989,7 +992,7 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
 }
 
 
-void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState ns,
+void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState* ns,
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y) {
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
@@ -1028,7 +1031,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	}
 
 	// Create the window caption and format it //
-	std::vector<std::string> pwd_vector = ns.getPwdVector();
+	std::vector<std::string> pwd_vector = ns->getPwdVector();
 	std::string pwd = "";
 
 	/*for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {

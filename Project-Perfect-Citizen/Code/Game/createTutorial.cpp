@@ -101,6 +101,7 @@ void ppc::createTutorial(Desktop & dt) {
 	icons.setIconType(iconInputComponent::IconType::Email);
 	icons.setSpritebyIndicies(0, 10, 1, 2);
 	icons.setText("Emails", World::getFont(World::VT323Regular), sf::Color::White);
+	icons.setRenderNotifications(true);
 	icons.create(emailIcon);
 
 
@@ -110,6 +111,7 @@ void ppc::createTutorial(Desktop & dt) {
 	icons.setIconType(iconInputComponent::IconType::Help);
 	icons.setSpritebyIndicies(0, 5, 1, 2);
 	icons.setText("Help", World::getFont(World::VT323Regular), sf::Color::White);
+	icons.setRenderNotifications(false);
 	icons.create(helpIcon);
     
     dt.getDesktopWindow()->addEntity(consoleIcon);

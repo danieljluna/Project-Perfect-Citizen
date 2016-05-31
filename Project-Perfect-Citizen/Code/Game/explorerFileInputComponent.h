@@ -32,7 +32,7 @@ namespace ppc {
 
 		Desktop& theDesktop_;
 		WindowInterface* containingWindow_;
-		NodeState theFileTree_;
+		NodeState* theFileTree_;
 		sf::FloatRect buttonRect;
 		sf::Image& buttonSheet_;
 		std::string fileName;
@@ -51,7 +51,7 @@ namespace ppc {
 		///@brief Ctor
 		///////////////////////////////////////////////////////////////////////
 		explorerFileInputComponent(Desktop& dt, WindowInterface* cW,
-			ppc::InputHandler& ih, NodeState& ns, sf::Image& bS, sf::FloatRect rect, std::string directoryName);
+			ppc::InputHandler& ih, NodeState* ns, sf::Image& bS, sf::FloatRect rect, std::string directoryName);
 
 		///////////////////////////////////////////////////////////////////////
 		///@brief Removes all the current observers in the observerArray_
@@ -90,7 +90,7 @@ namespace ppc {
 
 		void openFile();
 
-		NodeState getFileNodeState();
+		NodeState* getFileNodeState();
 		std::string getFileName();
 		Desktop* getFileDesktop();
 		

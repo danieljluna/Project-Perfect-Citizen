@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
 		World::initAddressMap();
 
 		// Create the main sf::window
-		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen");
+		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen", sf::Style::Close | sf::Style::Titlebar);
 
 
 		AudioQueue audiotest(5);
@@ -66,11 +66,11 @@ int main(int argc, char** argv) {
 		World::loadState("PPC.sav");
 		std::ifstream desktopFileInput;
 
-		Desktop mainDesktop;
-		World::setCurrDesktop(mainDesktop);
 
 		while (World::getCurrDesktopEnum() != World::DesktopCount) {
-			
+			Desktop mainDesktop;
+			World::setCurrDesktop(mainDesktop);
+
 			//Get Current Desktop Level
 			World::DesktopList currDesk = World::getCurrDesktopEnum();
 
