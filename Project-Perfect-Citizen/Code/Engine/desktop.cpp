@@ -30,7 +30,6 @@ using namespace ppc;
 
 
 ppc::Desktop::Desktop() {
-	nodeState_.setUp();
 	iconSheet_ = sf::Image();
 	buttonSheet_ = sf::Image();
 	inbox_ = ppc::Inbox();
