@@ -21,12 +21,12 @@ BadCopRenderComponent::BadCopRenderComponent(sf::Image& image) : BadCopImage(ima
     this->sprite = new sf::Sprite();
     this->texture = new sf::Texture();
     
-    blackScreen = 0;
+    blackScreen = -12;
     
     alpha = 255;
     
     /* Check that the file exists in the path */
-    if (!texture->loadFromImage(image, sf::IntRect(0,0,size,size)))
+    if (!texture->loadFromImage(image, sf::IntRect(0,0,size,17*size)))
         std::exit(-1);
 
 
@@ -55,34 +55,37 @@ void BadCopRenderComponent::setImageScale(float ScaleX, float ScaleY) {
 }
 
 
-void BadCopRenderComponent::animate() {
-    
-     if (_willAnimate) {
-         if (rectSourceSprite->top == 6144) {
-             blackScreen++;
-             if (blackScreen > 20) alpha -= 12;
-             sprite->setColor(sf::Color(255, 255, 255, alpha));
 
-             //Wait time at end of animation
-             if (blackScreen == 40)  {
-                 _willAnimate = false;
-                 World::quitDesktop();
-                 
-             }
-             
-         } else
-             rectSourceSprite->top += size;
-     
-         texture->loadFromImage(BadCopImage, *rectSourceSprite);
-         sprite->setTexture(*texture);
-     }
+
+void BadCopRenderComponent::animate() {
+    if (blackScreen < 0) {
+        blackScreen++;
+    } else if (blackScreen >= 0) {
+        if (rectSourceSprite->top == 16*size) {
+            blackScreen++;
+            alpha -= 12;
+            
+            sprite->setColor(sf::Color(255, 255, 255, alpha));
+            
+            //Wait time at end of animation
+            if (blackScreen == 20)  {
+                _willAnimate = false;
+                World::quitDesktop();
+            }
+        } else {
+            rectSourceSprite->top += size;
+        }
+
+        sprite->setTextureRect(*rectSourceSprite);
+    }
 }
 
 
 
 void BadCopRenderComponent::draw( sf::RenderTarget& target,
                                  sf::RenderStates states) const {
-    if (!_willAnimate) return;
+    //if (!_willAnimate) return;
+    //hasDrawn = true;
     target.draw(*sprite, states);
 }
 
