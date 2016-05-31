@@ -17,6 +17,7 @@ using namespace ppc;
 
 
 sf::RenderWindow* World::screen_ = nullptr;
+ppc::AudioQueue ppc::World::audio_(5);
 Desktop* World::currDesktop_ = nullptr;
 sf::Transform World::worldTransform_;
 sf::RectangleShape World::blackBars_[2] = {sf::RectangleShape(), sf::RectangleShape()};
@@ -553,6 +554,11 @@ void ppc::World::saveState(std::string filename) {
     }
 
     file.close();
+}
+
+ppc::AudioQueue& ppc::World::getAudio()
+{
+	return audio_;
 }
 
 

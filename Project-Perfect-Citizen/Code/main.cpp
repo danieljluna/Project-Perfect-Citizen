@@ -37,11 +37,19 @@ int main(int argc, char** argv) {
 		// Create the main sf::window
 		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen");
 
-
-		AudioQueue audiotest(5);
-		audiotest.addBgm("SoundTrack_Pipeline.ogg");
-		audiotest.loopBgm();
-		audiotest.playBgm();
+		World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
+		World::getAudio().loopBgm();
+		World::getAudio().playBgm();
+		sf::SoundBuffer buffer;
+//		if (!buffer.loadFromFile(resourcePath() + "gunshots.wav")) {
+	//		return -1;
+		//}
+		//sf::Sound testSound;
+		//testSound.setBuffer(buffer);
+		//testSound.play();
+		//int testSound = World::getAudio().addSound("gunshots", "Double_Click.wav");
+		//World::getAudio().readySound(0);
+		//World::getAudio().popAndPlay();
 
 		///////////////////////////////////////////////////////////////////
 

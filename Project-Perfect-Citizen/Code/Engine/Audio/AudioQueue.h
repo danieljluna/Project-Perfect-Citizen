@@ -21,7 +21,7 @@ private:
 	int maxSounds = 5;
 	int soundCount = 0;
 	std::queue<int> soundQueue;
-	std::string filepath = "Code/Engine/Audio/Sounds/";
+	
 	sf::Music bgm;
 	float sfxVolume_ = 50.f;
 	float bgmVolume_ = 50.f;
@@ -30,6 +30,7 @@ protected:
 	std::pair<int, sf::Sound*> findOpenSound();
 	void releaseSound(int element);
 public:
+	std::string filepath = "Code/Engine/Audio/Sounds/";
 	AudioQueue(int number);
 	/////////////////////////////////////////
 	///@brief dont use this

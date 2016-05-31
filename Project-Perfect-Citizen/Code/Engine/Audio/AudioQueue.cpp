@@ -81,7 +81,7 @@ void AudioQueue::popAndPlay()
 		return;
 	}
 	findPair.second->setBuffer(bufferStorage.at(front).second);
-	findPair.second->setVolume(masterVolume_ * sfxVolume_);
+	//findPair.second->setVolume(masterVolume_ * sfxVolume_);
 	findPair.second->play();
 	soundQueue.pop();
 	releaseSound(findPair.first);
