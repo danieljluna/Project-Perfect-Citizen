@@ -1446,7 +1446,6 @@ void ppc::spawnCreditsWindow(Desktop * dt, WindowInterface *& windowToModify, In
 	builder.create(thanksList);
 	windowToModify->addEntity(thanksList);
 
-
 	windowToModify->setSize(windowWidth, 1000.0f);
 	sf::FloatRect viewRect = {
 		0.0f,
@@ -1454,9 +1453,10 @@ void ppc::spawnCreditsWindow(Desktop * dt, WindowInterface *& windowToModify, In
 		float(windowToModify->getSize().x),
 		float(windowToModify->getSize().y / 2)
 	};
-	
-	windowToModify = new ScrollBarDecorator(*windowToModify, World::getCurrDesktop().getButtonSheet(), sf::View(viewRect));
 
+	windowToModify = new ScrollBarDecorator(*windowToModify, World::getCurrDesktop().getButtonSheet(), sf::View(viewRect));
+    windowToModify->move(0, 200);
+    
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(dt->getButtonSheet(), closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Credits");
