@@ -60,6 +60,9 @@ private:
 
 	static bool checkMarkUpPreconditions(const Json::Value & markup, const ppc::PipelineCharacter & speaker, const ppc::Edge& link);
 
+	static std::map<std::string, std::string> systemVars_;
+
+	static std::string generateDayOfWeek();
 };
 
 };
