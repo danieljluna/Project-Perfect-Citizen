@@ -1121,7 +1121,7 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 	/////////////////////////////////////////
 	//// Files/Text Labels
 	///////////////////////////////////////
-	float fileSpacing = windowToModify->getSize().x / 3.5;
+	float fileSpacing = float(windowToModify->getSize().x) / 3.5f;
 	int padding = 20;
 	textLabelComponent* label;
 	for (unsigned int i = 0; i < 3/*fH->getBfgVector().size()*/; ++i) {
@@ -1620,7 +1620,7 @@ bool ppc::toggle_window_settings(TextDisplayRenderComponent * ptr, ppc::Event ev
 	// It'll either be Windowed or Full Screen
 	std::string targetWindowMode = ptr->getString();
 	std::cout << targetWindowMode;
-	return ptr;
+	return (ptr != nullptr);
 }
 
 bool ppc::update_settings(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)

@@ -57,6 +57,8 @@ ppc::Desktop::Desktop(WindowInterface* bkgndWin, NodeState n) :
 	windows_.push_back(bkgndWin);
 	desktopWindow_ = bkgndWin;
 	focused_ = desktopWindow_;
+
+    frontTop_ = nullptr;
 	
 }
 
@@ -86,9 +88,9 @@ ppc::Desktop::~Desktop() {
             delete *it;
 	}
 
-	if(frontTop_) delete frontTop_;
-	if (inTransition_) delete inTransition_;
-	if (outTransition_) delete outTransition_;
+    if (frontTop_) { delete frontTop_; frontTop_ = nullptr; }
+    if (inTransition_) { delete inTransition_; inTransition_ = nullptr; }
+    if (outTransition_) { delete outTransition_; outTransition_ = nullptr; }
 	frontTop_ = nullptr;
 	focused_ = nullptr;
 	desktopWindow_ = nullptr;
@@ -422,7 +424,7 @@ void ppc::Desktop::refresh(sf::RenderStates states) {
 		(*it)->refresh(states);
 	}
 
-	if (frontTop_) frontTop_->refresh(states);
+	if (frontTop_ != nullptr) frontTop_->refresh(states);
 }
 
 bool ppc::Desktop::isMouseCollision(WindowInterface* wi,
@@ -451,7 +453,7 @@ void ppc::Desktop::clearDesktop() {
 	backgndTexture_ = sf::Texture();
 	desktopWindow_ = nullptr;
 	focused_ = nullptr;
-	if (frontTop_) delete frontTop_;
+    if (frontTop_) { delete frontTop_; frontTop_ = nullptr; };
 	frontTop_ = nullptr;
 
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
