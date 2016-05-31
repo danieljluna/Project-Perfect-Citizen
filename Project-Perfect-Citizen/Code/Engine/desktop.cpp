@@ -474,7 +474,6 @@ void ppc::Desktop::clearDesktop() {
 	netVecIndex_ = 0;
 }
 
-
 std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 	std::string line;
 
