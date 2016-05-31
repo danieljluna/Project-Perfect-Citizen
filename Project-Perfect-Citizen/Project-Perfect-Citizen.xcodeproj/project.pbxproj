@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C82E60751C810DCB001860CC /* jsoncpp.cpp */; };
+		C8A181301CFD1C160010EA8F /* Close_Window.wav in Resources */ = {isa = PBXBuildFile; fileRef = C8A1812A1CFD1C160010EA8F /* Close_Window.wav */; };
+		C8A181311CFD1C160010EA8F /* Floppy_Appears.wav in Resources */ = {isa = PBXBuildFile; fileRef = C8A1812B1CFD1C160010EA8F /* Floppy_Appears.wav */; };
+		C8A181321CFD1C160010EA8F /* Floppy_Next_Button_Active.wav in Resources */ = {isa = PBXBuildFile; fileRef = C8A1812C1CFD1C160010EA8F /* Floppy_Next_Button_Active.wav */; };
+		C8A181331CFD1C160010EA8F /* Notification_Error.wav in Resources */ = {isa = PBXBuildFile; fileRef = C8A1812D1CFD1C160010EA8F /* Notification_Error.wav */; };
+		C8A181341CFD1C160010EA8F /* Notification_Prompt.wav in Resources */ = {isa = PBXBuildFile; fileRef = C8A1812E1CFD1C160010EA8F /* Notification_Prompt.wav */; };
+		C8A181351CFD1C160010EA8F /* Switch_Pipeline_Connection_Color.wav in Resources */ = {isa = PBXBuildFile; fileRef = C8A1812F1CFD1C160010EA8F /* Switch_Pipeline_Connection_Color.wav */; };
 		C8FFBE421CF914A1005AAB0C /* location.py in Resources */ = {isa = PBXBuildFile; fileRef = C8FFBE411CF914A1005AAB0C /* location.py */; };
 		E951AC7F1CF8CB4700E6E889 /* Artist_Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E951AB481CF8CB4700E6E889 /* Artist_Icon_Sheet.png */; };
 		E951AC801CF8CB4700E6E889 /* Artist_Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = E951AB491CF8CB4700E6E889 /* Artist_Wallpaper.png */; };
@@ -458,6 +464,12 @@
 		C82E60731C810DCB001860CC /* json-forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "json-forwards.h"; sourceTree = "<group>"; };
 		C82E60741C810DCB001860CC /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		C82E60751C810DCB001860CC /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
+		C8A1812A1CFD1C160010EA8F /* Close_Window.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Close_Window.wav; sourceTree = "<group>"; };
+		C8A1812B1CFD1C160010EA8F /* Floppy_Appears.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Floppy_Appears.wav; sourceTree = "<group>"; };
+		C8A1812C1CFD1C160010EA8F /* Floppy_Next_Button_Active.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Floppy_Next_Button_Active.wav; sourceTree = "<group>"; };
+		C8A1812D1CFD1C160010EA8F /* Notification_Error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Notification_Error.wav; sourceTree = "<group>"; };
+		C8A1812E1CFD1C160010EA8F /* Notification_Prompt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Notification_Prompt.wav; sourceTree = "<group>"; };
+		C8A1812F1CFD1C160010EA8F /* Switch_Pipeline_Connection_Color.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Switch_Pipeline_Connection_Color.wav; sourceTree = "<group>"; };
 		C8FFBE411CF914A1005AAB0C /* location.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = location.py; sourceTree = "<group>"; };
 		E951AB481CF8CB4700E6E889 /* Artist_Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Artist_Icon_Sheet.png; sourceTree = "<group>"; };
 		E951AB491CF8CB4700E6E889 /* Artist_Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Artist_Wallpaper.png; sourceTree = "<group>"; };
@@ -1154,6 +1166,12 @@
 				E951AC731CF8CB4700E6E889 /* TutorialResponseC.json */,
 				E951AC741CF8CB4700E6E889 /* TutorialResponseD.json */,
 				E951AC591CF8CB4700E6E889 /* ResourcePath.mm */,
+				C8A1812A1CFD1C160010EA8F /* Close_Window.wav */,
+				C8A1812B1CFD1C160010EA8F /* Floppy_Appears.wav */,
+				C8A1812C1CFD1C160010EA8F /* Floppy_Next_Button_Active.wav */,
+				C8A1812D1CFD1C160010EA8F /* Notification_Error.wav */,
+				C8A1812E1CFD1C160010EA8F /* Notification_Prompt.wav */,
+				C8A1812F1CFD1C160010EA8F /* Switch_Pipeline_Connection_Color.wav */,
 				E951AC5F1CF8CB4700E6E889 /* SoundTrack_Extraction.ogg */,
 				E951AC601CF8CB4700E6E889 /* SoundTrack_Pipeline.ogg */,
 				E951AC7D1CF8CB4700E6E889 /* you_got_email.ogg */,
@@ -1948,6 +1966,7 @@
 				E951AD691CF8CB4700E6E889 /* PlayerEmail.json in Resources */,
 				E951AC7F1CF8CB4700E6E889 /* Artist_Icon_Sheet.png in Resources */,
 				E951AD951CF8CB4700E6E889 /* TeacherResponseD.json in Resources */,
+				C8A181341CFD1C160010EA8F /* Notification_Prompt.wav in Resources */,
 				E951ACDE1CF8CB4700E6E889 /* calmness.png in Resources */,
 				E951ACB41CF8CB4700E6E889 /* CatcherInTheRye - Salinger.txt in Resources */,
 				E951ADA11CF8CB4700E6E889 /* VT323-Regular.ttf in Resources */,
@@ -1984,6 +2003,7 @@
 				E951ACCF1CF8CB4700E6E889 /* skillsstill.png in Resources */,
 				E951AD9A1CF8CB4700E6E889 /* TrailerDesktop.json in Resources */,
 				E951AD4E1CF8CB4700E6E889 /* teacherDesktop.ini in Resources */,
+				C8A181301CFD1C160010EA8F /* Close_Window.wav in Resources */,
 				E951ACEB1CF8CB4700E6E889 /* M_schematic.png in Resources */,
 				E951AD0B1CF8CB4700E6E889 /* Family_Photo.png in Resources */,
 				E9E830A51CF63D4A00945974 /* Chat_Recieved.wav in Resources */,
@@ -2006,6 +2026,7 @@
 				E951AC871CF8CB4700E6E889 /* LinkHelp.txt in Resources */,
 				E951AD1A1CF8CB4700E6E889 /* November_Contributions.txt in Resources */,
 				E951AD301CF8CB4700E6E889 /* money.jpg in Resources */,
+				C8A181321CFD1C160010EA8F /* Floppy_Next_Button_Active.wav in Resources */,
 				E951AD511CF8CB4700E6E889 /* first.txt in Resources */,
 				E951AD2E1CF8CB4700E6E889 /* house0.jpg in Resources */,
 				E951ADA41CF8CB4700E6E889 /* Wallpaper_Login.png in Resources */,
@@ -2072,6 +2093,7 @@
 				E951ACB91CF8CB4700E6E889 /* Family_Tree.txt in Resources */,
 				E951AD631CF8CB4700E6E889 /* Mouse_Down.wav in Resources */,
 				E951AD761CF8CB4700E6E889 /* DummyReportB.txt in Resources */,
+				C8A181351CFD1C160010EA8F /* Switch_Pipeline_Connection_Color.wav in Resources */,
 				E951ACAF1CF8CB4700E6E889 /* Baptism_2.png in Resources */,
 				E951AD561CF8CB4700E6E889 /* HackerResponseB.json in Resources */,
 				E951AD6F1CF8CB4700E6E889 /* PoliticianResponseD.json in Resources */,
@@ -2097,7 +2119,9 @@
 				E951ADA91CF8CB4700E6E889 /* you_got_email.ogg in Resources */,
 				E951AC901CF8CB4700E6E889 /* 17391.png in Resources */,
 				E951AC931CF8CB4700E6E889 /* blueprint_4.png in Resources */,
+				C8A181311CFD1C160010EA8F /* Floppy_Appears.wav in Resources */,
 				E951AD231CF8CB4700E6E889 /* Therapy_Journal_#1.txt in Resources */,
+				C8A181331CFD1C160010EA8F /* Notification_Error.wav in Resources */,
 				E951ACF81CF8CB4700E6E889 /* rca_ctc11.png in Resources */,
 				E951AD3A1CF8CB4700E6E889 /* DesktopTutorialAlt.txt in Resources */,
 				E951AD081CF8CB4700E6E889 /* Allegations.txt in Resources */,
