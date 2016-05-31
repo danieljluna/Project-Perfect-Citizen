@@ -34,7 +34,10 @@ include_directories(${PPC_INCLUDE_DIRS})
 #-Create-Exe-----------------------------------------------------------
 
 set(EXECUTABLE_NAME "ProjectPerfectCitizen")
-add_executable(${EXECUTABLE_NAME} main.cpp ${PPC_SOURCES} ${PPC_HEADERS})
+if (WIN32)
+   add_executable(${EXECUTABLE_NAME} main.cpp ${PPC_SOURCES} ${PPC_HEADERS} WIN32)
+else ()
+endif ()
 
 
 set(CMAKE_MODULE_PATH ${SFML_DIR})
@@ -56,19 +59,12 @@ install(DIRECTORY "${PROJECT_SOURCE_DIR}/../Resources/" DESTINATION Resources)
 install(DIRECTORY "${PROJECT_SOURCE_DIR}/../Libs/" DESTINATION bin)
 
 
-# install(PROGRAMS 
-#    ${CMAKE_CURRENT_SOURCE_DIR}/../Redist/vc_redist.x86.exe
-#    DESTINATION redist)
 
 #CPack packaging
 include(InstallRequiredSystemLibraries)
 if (WIN32)
    set(CPACK_GENERATOR NSIS)
    set(CPACK_NSIS_MODIFY_PATH ON)
-   # list(APPEND CPACK_NSIS_EXTRA_INSTALL_COMMANDS " 
-   #    ExecWait '$INSTDIR\\\\redist\\\\vc_redist.x86.exe'
-   #    ")
-   # list(APPEND CPACK_NSIS_EXTRA_INSTALL_COMMANDS "del /Q /S $INSTDIR\\\\redist")
 else ()
    list(APPEND CPACK_NSIS_EXTRA_INSTALL_COMMANDS "rm -r $INSTDIR\\\\redist")
 endif()
