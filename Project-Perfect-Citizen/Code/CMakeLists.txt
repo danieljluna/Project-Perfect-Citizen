@@ -57,7 +57,7 @@ include_directories("../Resources")
 install(TARGETS ${EXECUTABLE_NAME} DESTINATION bin)
 install(DIRECTORY "${PROJECT_SOURCE_DIR}/../Resources/" DESTINATION Resources)
 install(DIRECTORY "${PROJECT_SOURCE_DIR}/../Libs/" DESTINATION bin)
-install(DIRECTORY "${PROJECT_SOURCE_DIR}/../License/" DESTINATION .}
+install(DIRECTORY "${PROJECT_SOURCE_DIR}/../License/" DESTINATION .)
 
 
 
@@ -67,8 +67,10 @@ if (WIN32)
    set(CPACK_GENERATOR NSIS)
    set(CPACK_NSIS_MODIFY_PATH OFF)
 else ()
-   list(APPEND CPACK_NSIS_EXTRA_INSTALL_COMMANDS "rm -r $INSTDIR\\\\redist")
+   set(CPACK_GENERATOR NSIS)
+   set(CPACK_NSIS_MODIFY_PATH OFF)
 endif()
+
 set(CPACK_PACKAGE_NAME "Project Perfect Citizen")
 set(CPACK_PACKAGE_VENDOR "Bad Cop Studios")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Placeholder Summary")
