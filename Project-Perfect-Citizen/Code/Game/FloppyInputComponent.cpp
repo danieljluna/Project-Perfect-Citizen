@@ -297,7 +297,7 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             }
 
             //If we just ended the Welcome
-            if (sequence == 2) {
+            if (sequence == ptr->TempFix) {
                 World::getCurrDesktop().incrementNetVecIndex();
             } else if (sequence == FloppyInputComponent::Feedback) {
                 World::quitDesktop();

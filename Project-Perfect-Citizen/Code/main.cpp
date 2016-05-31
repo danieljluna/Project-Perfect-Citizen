@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
 		World::initAddressMap();
 
 		// Create the main sf::window
-		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen");
+		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen", sf::Style::Titlebar | sf::Style::Close);
 
 
 		AudioQueue audiotest(5);

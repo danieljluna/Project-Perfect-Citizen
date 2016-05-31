@@ -85,7 +85,7 @@ namespace ppc {
 		///@brief Set the screen the game is played on.
 		///@param [in] sf::RenderWindow
 		///////////////////////////////////////////////////////////////
-		static void setGameScreen(sf::RenderWindow&);
+		static void setGameScreen(sf::RenderWindow& win);
 
         static sf::VideoMode getVideoMode();
 
