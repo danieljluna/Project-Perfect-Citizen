@@ -35,7 +35,7 @@ include_directories(${PPC_INCLUDE_DIRS})
 
 set(EXECUTABLE_NAME "ProjectPerfectCitizen")
 if (WIN32)
-   add_executable(${EXECUTABLE_NAME} main.cpp ${PPC_SOURCES} ${PPC_HEADERS} WIN32)
+   add_executable(${EXECUTABLE_NAME} WIN32 main.cpp ${PPC_SOURCES} ${PPC_HEADERS})
 else ()
 endif ()
 
@@ -57,6 +57,7 @@ include_directories("../Resources")
 install(TARGETS ${EXECUTABLE_NAME} DESTINATION bin)
 install(DIRECTORY "${PROJECT_SOURCE_DIR}/../Resources/" DESTINATION Resources)
 install(DIRECTORY "${PROJECT_SOURCE_DIR}/../Libs/" DESTINATION bin)
+install(DIRECTORY "${PROJECT_SOURCE_DIR}/../License/" DESTINATION .}
 
 
 
@@ -64,7 +65,7 @@ install(DIRECTORY "${PROJECT_SOURCE_DIR}/../Libs/" DESTINATION bin)
 include(InstallRequiredSystemLibraries)
 if (WIN32)
    set(CPACK_GENERATOR NSIS)
-   set(CPACK_NSIS_MODIFY_PATH ON)
+   set(CPACK_NSIS_MODIFY_PATH OFF)
 else ()
    list(APPEND CPACK_NSIS_EXTRA_INSTALL_COMMANDS "rm -r $INSTDIR\\\\redist")
 endif()
@@ -75,4 +76,6 @@ set(CPACK_PACKAGE_INSTALL_DIRECTORY "Project-Perfect-Citizen-${PPC_VERSION_MAJOR
 set(CPACK_PACKAGE_VERSION_MAJOR "${PPC_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${PPC_VERSION_MINOR}")
 set(CPACK_PACKAGE_VERSION_PATCH "${PPC_VERSION_PATCH}")
+set(CPACK_RESOURCE_FILE_LICENSE "${PROJECT_SOURCE_DIR}/../License/GNUGPL_LICENSE.txt")
+set(CPACK_RESOURCE_FILE_README "${PROJECT_SOURCE_DIR}/../License/README.txt")
 include(CPACK)

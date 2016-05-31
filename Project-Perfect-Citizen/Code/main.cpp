@@ -15,14 +15,15 @@
 
 using namespace ppc;
 
+# ifdef WINDOWS_MARKER
+#include <windows.h>
+
+INT __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
+      PSTR lpCmdLine, INT nCmdShow) {
+# else
 int main(int argc, char** argv) {
+# endif
 	try {
-
-		DBG_INIT();
-		//Scans Debug Flags
-		Debug::scanOpts(argc, argv);
-		DEBUGF("ac", argc);
-
 		World::initLevelMap();
 		World::initFontMap();
 		World::initLoadScreen();
