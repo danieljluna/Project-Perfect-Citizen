@@ -118,6 +118,10 @@ namespace ppc {
 		virtual ~explorerFolderInputComponent();
 		virtual bool registerInput(Event ev) override;
 
+		WindowInterface* getContainingWindow() {
+			return containingWindow_;
+		}
+
 		///////////////////////////////////////////////////////////////////////
 		///@brief Moves into the directory, updating the new sprites.
 		///@param Whether the change should make a new window or just close/re-

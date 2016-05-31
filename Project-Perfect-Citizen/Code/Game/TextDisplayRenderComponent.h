@@ -28,6 +28,9 @@ private:
     static bool isLoaded;
 	bool renderable_;
 
+	std::vector<std::string> renderStates;
+	int currentRenderState = 0;
+
 
 public:
     ///////////////////////////////////////////////////////////////////////
@@ -63,6 +66,12 @@ public:
     void updateFont(sf::Font f);
 
     void updateColor(sf::Color c);
+
+	void incrementRenderState();
+
+	void setRenderState(int);
+
+	void setRenderList(std::vector<std::string>);
 
 	void setRenderable(bool r);
 

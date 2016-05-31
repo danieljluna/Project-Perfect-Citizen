@@ -1,8 +1,4 @@
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
+#include "../ResourceDef.h"
 
 #include <fstream>
 
@@ -55,7 +51,7 @@ std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
 };
 
 std::map<World::DesktopList, World::desktopLoaders> World::loaderMap_ = {
-	{World::DELogo, setUpLogoDesktop },
+	{ World::DELogo, setUpLogoDesktop },
 	{ World::DEOpening, setUpBootDesktop },
 	{ World::DELogin, setUpLoginDesktop },
 	{ World::DE0A, createTutorial },
@@ -135,6 +131,25 @@ std::map <std::pair<World::DesktopList, World::ReportType>, std::string > World:
 	{ { DEPlayer3B, D }, "PoliticianResponseD.json" },
 
 
+};
+
+std::map <World::DesktopList, std::string> World::loadingAddressMap_ = {
+	{ World::DELogo, "" },
+	{ World::DEOpening, "" },
+	{ World::DELogin, "" },
+	{ World::DE0A, "{\n Now Beginning Training Simulation \n}" },
+	{ World::DE0B, "{\n Beginning Simulation Phase Two \n}" },
+	{ World::DEPlayer1, "{\n Returning to Workstation \n}" },
+	{ World::DE1, "" },
+	{ World::DEPlayer2A, "{\n Returning to Workstation \n}" },
+	{ World::DEPlayer2B, "{\n Returning to Workstation \n}" },
+	{ World::DE2A, "" },
+	{ World::DE2B, "" },
+	{ World::DEPlayer3A, "{\n Returning to Workstation \n}" },
+	{ World::DEPlayer3B, "{\n Returning to Workstation \n}" },
+	{ World::DE3, "" },
+	{ World::DEEnd, "" },
+	{ World::DesktopCount, "" }  //Empty pairing of Count to string.
 };
 
 bool World::quitter_ = false;
@@ -250,47 +265,6 @@ sf::VideoMode ppc::World::getVideoMode() {
 
     result.width = settings_.resolution.x;
     result.height = settings_.resolution.y;
-
-    sf::Vector2f scaleFactorVec;
-    scaleFactorVec.x = float(settings_.resolution.x) / 1000;
-    scaleFactorVec.y = float(settings_.resolution.y) / 800;
-
-    float scaleFactor = std::min(scaleFactorVec.x,
-                                    scaleFactorVec.y);
-
-    worldTransform_ = sf::Transform();
-
-    blackBars_[0].setFillColor({ 0, 0, 0 });
-    blackBars_[1].setFillColor({ 0, 0, 0 });
-    
-    //If we are cramped by width:
-    if (scaleFactor == scaleFactorVec.x) {
-
-        float offset = (float(result.height) - 800.0f * scaleFactor) / 2.0f;
-
-        worldTransform_.translate(0, offset);
-
-        blackBars_[0].setPosition(0, 0);
-        blackBars_[0].setSize({ float(result.width), offset });
-        blackBars_[1].setPosition(0, float(result.height) - offset);
-        blackBars_[1].setSize({ float(result.width), offset });
-
-    //Else we are cramped by height:
-    } else {
-
-        float offset = (float(result.width) - 1000.0f * scaleFactor) / 2.0f;
-
-        worldTransform_.translate(offset, 0);
-
-        blackBars_[0].setPosition(0, 0);
-        blackBars_[0].setSize({ offset, float(result.height) });
-        blackBars_[1].setPosition(float(result.width) - offset, 0);
-        blackBars_[1].setSize({ offset, float(result.height) });
-
-    }
-
-    worldTransform_.scale(scaleFactor, scaleFactor);
-
 
     return result;
 }
@@ -481,7 +455,7 @@ void ppc::World::drawLoading() {
 }
 
 void ppc::World::endLoading() {
-	if (isLoading_ == true) {
+	if (isLoading_) {
 		sf::Event event;
 
 		while(screen_->pollEvent(event)){
@@ -587,9 +561,65 @@ void ppc::World::saveState(std::string filename) {
     file.close();
 }
 
+std::string ppc::World::getCurrAddress() {
+	return loadingAddressMap_.at(currDesktopEnum_);
+}
+
+std::string ppc::World::getAddress(DesktopList dl) {
+	if ((int)dl >= (int)DesktopCount) return "";
+	return loadingAddressMap_.at(dl);
+}
+
+void ppc::World::setAddress(World::DesktopList dl, std::string s) {
+	auto it = loadingAddressMap_.find(dl);
+	if (it != loadingAddressMap_.end()) it->second = s;
+}
+
+void ppc::World::setCurrAddress(std::string s) {
+	auto it = loadingAddressMap_.find(currDesktopEnum_);
+	if (it != loadingAddressMap_.end()) it->second = s;
+}
+
+void ppc::World::initAddressMap() {
+	std::ifstream fstream;
+
+	fstream.open(resourcePath() + "LoadAddress/DE1Address.txt");
+	std::string s1((std::istreambuf_iterator<char>(fstream)),
+		(std::istreambuf_iterator<char>()));
+	loadingAddressMap_.at(DE1) = s1;
+	fstream.close();
+
+	fstream.open(resourcePath() + "LoadAddress/DE2AAddress.txt");
+	std::string s2((std::istreambuf_iterator<char>(fstream)),
+		(std::istreambuf_iterator<char>()));
+	loadingAddressMap_.at(DE2A) = s2;
+	fstream.close();
+
+	fstream.open(resourcePath() + "LoadAddress/DE2BAddress.txt");
+	std::string s3((std::istreambuf_iterator<char>(fstream)),
+		(std::istreambuf_iterator<char>()));
+	loadingAddressMap_.at(DE2B) = s3;
+	fstream.close();
+
+	fstream.open(resourcePath() + "LoadAddress/DE3Address.txt");
+	std::string s4((std::istreambuf_iterator<char>(fstream)),
+		(std::istreambuf_iterator<char>()));
+	loadingAddressMap_.at(DE3) = s4;
+	fstream.close();
+
+}
+
 
 void ppc::World::manifestSettings() {
+    if (settings_.fullscreen) {
+        settings_.resolution.x = sf::VideoMode::getDesktopMode().width;
+        settings_.resolution.y = sf::VideoMode::getDesktopMode().height;
+    }
+
+
     if (screen_ != nullptr) {
+        initializeResolution();
+
         unsigned int flags = sf::Style::Default;
         if (settings_.fullscreen) {
             flags = flags | sf::Style::Fullscreen;
@@ -615,9 +645,7 @@ void ppc::World::registerInput() {
 
 		if (event.type == sf::Event::Closed) {
 			screen_->close();
-			throw std::exception();
-			// Does not work on Mac v
-			//throw std::exception("Screen Closed");
+			throw std::logic_error("Screen Closer");
 		} else if (event.type == sf::Event::KeyPressed) {
 			//Close
 			if ((event.key.code == sf::Keyboard::Period) && (event.key.alt)) {
@@ -665,4 +693,55 @@ void ppc::World::update(sf::Clock& deltaTime, sf::Time& framePeriod ) {
 		currDesktop_->update(dt);
 		elapsed -= framePeriod;
 	}
+}
+
+
+
+void ppc::World::initializeResolution() {
+    sf::Vector2f result;
+
+    result.y = settings_.resolution.y;
+    result.x = settings_.resolution.x;
+
+    sf::Vector2f scaleFactorVec;
+    scaleFactorVec.x = float(settings_.resolution.x) / 1000;
+    scaleFactorVec.y = float(settings_.resolution.y) / 800;
+
+    float scaleFactor = std::min(scaleFactorVec.x,
+        scaleFactorVec.y);
+
+    worldTransform_ = sf::Transform();
+
+    blackBars_[0].setFillColor({ 0, 0, 0 });
+    blackBars_[1].setFillColor({ 0, 0, 0 });
+
+    //If we are cramped by width:
+    if (scaleFactor == scaleFactorVec.x) {
+
+        float offset = (float(result.y) - 800.0f * scaleFactor) / 2.0f;
+
+        worldTransform_.translate(0, offset);
+
+        blackBars_[0].setPosition(0, 0);
+        blackBars_[0].setSize({ float(result.x), offset });
+        blackBars_[1].setPosition(0, float(result.y) - offset);
+        blackBars_[1].setSize({ float(result.x), offset });
+
+        //Else we are cramped by height:
+    } else {
+
+        float offset = (float(result.x) - 1000.0f * scaleFactor) / 2.0f;
+
+        worldTransform_.translate(offset, 0);
+
+        blackBars_[0].setPosition(0, 0);
+        blackBars_[0].setSize({ offset, float(result.y) });
+        blackBars_[1].setPosition(float(result.x) - offset, 0);
+        blackBars_[1].setSize({ offset, float(result.y) });
+
+    }
+
+    worldTransform_.scale(scaleFactor, scaleFactor);
+
+
 }
