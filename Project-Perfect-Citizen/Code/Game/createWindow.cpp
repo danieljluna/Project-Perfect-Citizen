@@ -843,6 +843,8 @@ void ppc::spawnUnlock(WindowInterface *& windowToModify, InputHandler & ih, sf::
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 12;
 
+	WindowInterface* ergerg = new Window(500, 500, sf::Color::Black);
+
 	errorMessageRenderComponent* eMRC = new errorMessageRenderComponent(myFont,
 		"Please enter a password:\n> Recovery Hint: '" + fldr->getFolderNodeState()->getCwd()->findElement(fldr->getFolderName())->getHint() +"'\n",
 		windowToModify->getSize().x / 3, (windowToModify->getSize().y / 3) - 40, fontSize);
