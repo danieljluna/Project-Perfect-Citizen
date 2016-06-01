@@ -28,9 +28,6 @@ int main(int argc, char** argv) {
 		World::initLoadScreen();
 		World::initAddressMap();
 
-		// Create the main sf::window
-		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen", sf::Style::Titlebar | sf::Style::Close);
-
 
 		AudioQueue audiotest(5);
 		audiotest.addBgm("SoundTrack_Pipeline.ogg");
@@ -62,7 +59,6 @@ int main(int argc, char** argv) {
        
 		// -----------------------------------------------------------//
 
-		World::setGameScreen(screen);
 		World::loadState("PPC.sav");
 		std::ifstream desktopFileInput;
 
