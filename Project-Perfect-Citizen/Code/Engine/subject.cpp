@@ -9,9 +9,14 @@ using namespace ppc;
 
 Subject::~Subject() {
     BaseObserver* temp = observerHead;
-    while (temp != nullptr) {
-        rmObserver(temp);
-        temp = temp->next;
+    BaseObserver* curr = temp;
+    observerHead = nullptr;
+    while (curr != nullptr) {
+        temp = curr;
+        curr = temp->next;
+        //temp->watching_ = nullptr;
+        delete temp;
+        temp = nullptr;
     }
 }
 

@@ -57,10 +57,6 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		explorerFolderInputComponent(Desktop& dt, WindowInterface* cW, ppc::InputHandler& ih, NodeState* ns, sf::Image& bS, sf::Image& iS, sf::FloatRect rect, std::string directoryName);
 
-		///////////////////////////////////////////////////////////////////////
-		///@brief Removes all the current observers in the observerArray_
-		///////////////////////////////////////////////////////////////////////
-		void clearObservers();
 
 		template <class T>
 		friend void setOnPress(explorerFolderInputComponent* mpb,
