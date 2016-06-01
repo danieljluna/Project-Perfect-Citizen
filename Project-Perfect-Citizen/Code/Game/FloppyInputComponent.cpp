@@ -392,6 +392,7 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         enable = ((ev.type == ev.NetworkType) &&
             (ev.network.type == ev.network.Removed) &&
             (ev.network.v != -1));
+        World::getCurrDesktop().incrementNetVecIndex();
         break;
 	case FloppyInputComponent::TempFix:
         enable = ((ev.type == ev.OpenType) &&
