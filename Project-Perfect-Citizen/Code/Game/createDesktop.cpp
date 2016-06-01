@@ -476,7 +476,7 @@ void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& des
     
 }
 
-void ppc::createTrailerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
+/*void ppc::createTrailerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
     
 	Database theDatabase;
 
@@ -524,4 +524,4 @@ void ppc::createTrailerDesktop(Desktop& desktopToModify, WindowInterface& deskto
     desktopWindowToModify.addEntity(ConsoleIcon);
     desktopWindowToModify.addEntity(EmailIcon);
     
-}
+}*/

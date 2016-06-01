@@ -41,6 +41,6 @@ void createArtistDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& de
 
 void createPoliticianDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& desktopWindowToModify, ppc::InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet);
 
-void createTrailerDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& desktopWindowToModify, ppc::InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet);
+//void createTrailerDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& desktopWindowToModify, ppc::InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet);
 
 };
