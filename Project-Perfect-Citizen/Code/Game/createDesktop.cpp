@@ -501,17 +501,31 @@ void ppc::createHackerDesktop(Desktop& desktopToModify, WindowInterface& desktop
     ////////////////////////////////
     ///// ICONS ON TEACHER DESKTOP
     ////////////////////////////////
+    IconBuilder builder;
+    builder.setDesktop(desktopToModify);
+    builder.setInbox(desktopToModify.getInbox());
+    builder.setButtonSheet(desktopToModify.getButtonSheet());
+    builder.setAnimSpeed(0.30f);
+    builder.setInputHandle(desktopToModify.getInputHandler());
+    builder.setSize(0.5f);
+    
+    Entity Resonation_1;
+    builder.setPosition({ 650.0f, 400.0f });
+    builder.setIconType(iconInputComponent::IconType::File);
+    builder.setSpritebyIndicies(0, 0, 1, 3);
+    builder.setText("Resignation_1.txt", World::getFont(World::VT323Regular), sf::Color::White);
+    builder.create(Resonation_1);
+    desktopWindowToModify.addEntity(Resonation_1);
+    
     Entity HardDriveIcon;
-    Entity SettingsIcon;
     Entity ConsoleIcon;
     Entity EmailIcon;
     
-    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 125.0f, 0.4f, 0.25f, theInbox);
-    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 225.0f, 0.5f, 0.25f, theInbox);
-    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 325.0f, 0.5f, 0.25f, theInbox);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 200.0f, 400.0f, 0.5f, 0.25f, theInbox);
+    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 325.0f, 520.0f, 0.4f, 0.25f, theInbox);
+    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 525.0f, 520.0f, 0.5f, 0.25f, theInbox);
     
     desktopWindowToModify.addEntity(HardDriveIcon);
-    desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
     desktopWindowToModify.addEntity(EmailIcon);
     
