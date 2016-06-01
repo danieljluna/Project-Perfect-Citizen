@@ -90,7 +90,7 @@ int ppc::SuspiciousFileHolder::getStaticCount()
 
 bool ppc::SuspiciousFileHolder::isInFileHolder(ppc::BaseFileType* file) {
 
-	for (int i = 0; i < bftVector_.size(); ++i) {
+	for (unsigned int i = 0; i < bftVector_.size(); ++i) {
 		if (file == bftVector_.at(i)) return true;
 	}
 	return false;

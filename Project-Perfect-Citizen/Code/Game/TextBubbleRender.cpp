@@ -13,6 +13,7 @@ ppc::TextBubbleRender::TextBubbleRender() {
 }
 
 ppc::TextBubbleRender::~TextBubbleRender() {
+	delete bubble_;
 	bubble_ = nullptr;
 }
 
