@@ -1,47 +1,38 @@
 {
     "Desktop": {
-        "5/Resignation_1.txt" : "DesktopContent/DesktopHacker/Resignation_1.txt",
-        "Trash": {
-            "1/DCPS_Crew.jpg" : "DesktopContent/DesktopHacker/DCPS_Crew.png",
+        "5/READ_ME_1.txt" : "DesktopContent/DesktopHacker/Resignation_1.txt",
+        "The_True_History_of_DCPS/I trust you/Admit 'I trust you'": {
             "1/DCPS_OS_v12.jpg" : "DesktopContent/DesktopHacker/DCPS_OS_v12.png",
             "1/DCPS_OS_v23.jpg" : "DesktopContent/DesktopHacker/DCPS_OS_v23.png",
             "1/DCPS_OS_v24.jpg" : "DesktopContent/DesktopHacker/DCPS_OS_v24.png",
             "1/DCPS_SCREENSHOT_131.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_131.png",
             "1/DCPS_SCREENSHOT_213.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_213.png",
-            "1/DCPS_SCREENSHOT_214.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_214.png",
             "1/DCPS_SCREENSHOT_215.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_215.png",
-            "1/DCPS_SCREENSHOT_216.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_216.png",
-            "1/DCPS_SCREENSHOT_217.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_217.png"
-        },
-        "Casefiles": {
-            "Global_Surveillance/I am guilty/Admit 'I am guilty'": {
-                "Domestic/I am corrupted/Admit 'I am corrupted'": {
-                    "5/Resignation_2.txt" : "DesktopContent/DesktopHacker/Resignation_2.txt",
-                    "Intra_Agency/I have ruined lives/Admit 'I have ruined lives'": {
-                        "5/Resignation_3.txt" : "DesktopContent/DesktopHacker/Resignation_3.txt",
-                        "Decision_Point//": {
-                            "5/Resignation_4.txt" : "DesktopContent/DesktopHacker/Resignation_4.txt",
-                            "Maintain_Order": {
-                                "10/Note_1.txt" : "DesktopContent/DesktopHacker/Note_1.txt",
-                                "10/Note_2.txt" : "DesktopContent/DesktopHacker/Note_2.txt",
-                                "10/Note_3.txt" : "DesktopContent/DesktopHacker/Note_3.txt"
-                            },
-                            "Public_Reveal": {
-                                "1/DCPS_1.txt" : "DesktopContent/DesktopHacker/DCPS_1.txt",
-                                "1/DCPS_2.txt" : "DesktopContent/DesktopHacker/DCPS_2.txt",
-                                "1/DCPS_3.txt" : "DesktopContent/DesktopHacker/DCPS_3.txt"
+            "1/DCPS_SCREENSHOT_217.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_217.png",
+            "Casefiles": {
+                "5/READ_ME_2.txt" : "DesktopContent/DesktopHacker/Resignation_2.txt",
+                "Global_Surveillance/I am guilty/Admit 'I am guilty'": {
+                    "1/DCPS_SCREENSHOT_214.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_214.png",
+                    "1/DCPS_SCREENSHOT_214.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_214.png",
+                    "1/DCPS_SCREENSHOT_216.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_216.png",
+                    "Domestic/I am corrupted/Admit 'I am corrupted'": {
+                        "Intra_Agency/I have ruined lives/Admit 'I have ruined lives'": {
+                            "5/READ_ME_3.txt" : "DesktopContent/DesktopHacker/Resignation_3.txt",
+                            "Decision_Point//": {
+                                "5/READ_ME_4.txt" : "DesktopContent/DesktopHacker/Resignation_4.txt",
+                                "Maintain_Order": {
+                                    "10/Note_1.txt" : "DesktopContent/DesktopHacker/Note_1.txt",
+                                    "10/Note_2.txt" : "DesktopContent/DesktopHacker/Note_2.txt",
+                                    "10/Note_3.txt" : "DesktopContent/DesktopHacker/Note_3.txt"
+                                },
+                                "Public_Reveal": {
+                                    "1/DCPS_1.txt" : "DesktopContent/DesktopHacker/DCPS_1.txt",
+                                    "1/DCPS_2.txt" : "DesktopContent/DesktopHacker/DCPS_2.txt",
+                                    "1/DCPS_3.txt" : "DesktopContent/DesktopHacker/DCPS_3.txt"
+                                }
                             }
                         }
                     }
-                },
-                "Western": {
-                     "1/Empty" : "DesktopContent/DesktopHacker/Resignation_2.txt"
-                },
-                "Global_South": {
-                    "1/Empty" : "DesktopContent/DesktopHacker/Resignation_2.txt"
-                },
-                "Eastern": {
-                    "1/Empty" : "DesktopContent/DesktopHacker/Resignation_2.txt"
                 }
             }
         }
