@@ -253,5 +253,9 @@ bool ppc::displayFileInfo(Desktop* desk, Event ev) {
 }
 
 bool ppc::returnToLogin(Desktop* desk, Event ev) {
+	DEBUGF("ac", "HERE");
+	World::goBack();
+	World::setLevel(1, 0);
+	World::quitDesktop();
 	return true;
 }
