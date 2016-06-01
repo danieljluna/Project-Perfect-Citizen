@@ -312,10 +312,12 @@ void World::runDesktop() {
 }
 
 bool World::loadDesktop(DesktopList desk) {
+	//add sound
     return loadDesktop(desktopFileMap_.at(desk));
 }
 
 int World::runCurrDesktop() {
+
 	runDesktop();
 	return SuspiciousFileHolder::getFinalScore();
 }
@@ -327,6 +329,7 @@ void World::quitDesktop() {
 
 
 bool World::loadDesktop(std::string filename) {
+	
     std::ifstream in(filename);
 
     bool result = false;

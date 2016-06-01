@@ -552,16 +552,33 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 					solNet = PipelineLevelBuilder::buildTutorialTwo();
 					break;
 				case 1:
+					World::getAudio().stopAllSounds();
+					World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
+					World::getAudio().loopBgm();
+					World::getAudio().playBgm();
 					solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 					break;
 				case 2:
+					World::getAudio().stopAllSounds();
+					World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
+					World::getAudio().loopBgm();
+					World::getAudio().playBgm();
 					solNet = PipelineLevelBuilder::buildLevelTwoANetworkSolution();
 					break;
 				case 3:
+					World::getAudio().stopAllSounds();
+					World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
+					World::getAudio().loopBgm();
+					World::getAudio().playBgm();
 					solNet = PipelineLevelBuilder::buildLevelTwoBNetworkSolution();
 					break;
 				case 4:
+					World::getAudio().stopAllSounds();
+					World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
+					World::getAudio().loopBgm();
+					World::getAudio().playBgm();
 					solNet = PipelineLevelBuilder::buildLevelThreeNetworkSolution();
+					
 					break;
 				default:
 					solNet = PipelineLevelBuilder::buildDefaultNetwork();
@@ -570,6 +587,7 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 			desktop.solVec_.push_back(solNet);
 			Network* playNet = solNet->copyNetworkByVerts();
 			desktop.playVec_.push_back(playNet);
+
 		}
 		//num of parsed line / total # of lines 
 		World::setLoading((float)(1 - ((float)(end - streamPos) / (float)end)));

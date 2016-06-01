@@ -12,6 +12,7 @@
 #include "expressionistParser.hpp"
 #include "PipelineJobsAndIncomes.h"
 #include "PipelineCharacter.h"
+#include "../Engine/World.h"
 
 
 using namespace ppc;
@@ -215,10 +216,18 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 */
 
 Network* PipelineLevelBuilder::buildLevelTwoANetworkSolution() {
+	World::getAudio().stopAllSounds();
+	World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
+	World::getAudio().loopBgm();
+	World::getAudio().playBgm();
 	return LevelTwoWithOption("ArtistTexts.json");
 }
 
 Network* PipelineLevelBuilder::buildLevelTwoBNetworkSolution() {
+	World::getAudio().stopAllSounds();
+	World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
+	World::getAudio().loopBgm();
+	World::getAudio().playBgm();
 	return LevelTwoWithOption("PoliticianTexts.json");
 }
 

@@ -126,7 +126,7 @@ bool mousePressButton::registerInput(Event ppcEv) {
                     } else if (mouseTime < DOUBLE_CLICK_TIME) {
 
 						int testSound = ppc::World::getAudio().addSound("gunshots", "Double_Click.wav");
-						ppc::World::getAudio().readySound(0);
+						ppc::World::getAudio().readySound(testSound);
 						ppc::World::getAudio().popAndPlay();
 
 

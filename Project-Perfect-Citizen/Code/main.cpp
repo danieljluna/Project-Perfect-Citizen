@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
 		// Create the main sf::window
 		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen");
 
-		World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
+		World::getAudio().addBgm("SoundTrack_Extraction.ogg");
 		World::getAudio().loopBgm();
 		World::getAudio().playBgm();
 		sf::SoundBuffer buffer;
