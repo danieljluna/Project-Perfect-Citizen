@@ -4,13 +4,13 @@
 #include <SFML/Graphics/Transformable.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Sprite.hpp>
-
+#include "../Game/characterRender.hpp"
 #include "../Game/PipelineCharacter.h"
 
 namespace ppc {
 	class DraggableInput;
 	class InputHandler;
-	class characterRender;
+
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Defines a Vertes for the Network
@@ -30,7 +30,7 @@ private:
 	static const int fontSize_;
 	
 	PipelineCharacter char_;
-    characterRender* rend_;
+    characterRender rend_;
 
 	sf::CircleShape circ_;
     sf::RectangleShape rect_;

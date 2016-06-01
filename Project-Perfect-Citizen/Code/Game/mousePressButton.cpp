@@ -36,14 +36,6 @@ mousePressButton::mousePressButton(ppc::InputHandler& ih,
 
 }
 
-void mousePressButton::clearObservers()
-{
-	for (size_t i = 0; i < observerCount_; ++i) {
-		delete observerArray_[i];
-	}
-}
-
-
 //void mousePressButton::addFunctionObserver(bool(*fnToAdd)(sf::Event &ev), mousePressButton* mpb, unsigned int placeToInsert)
 
 void mousePressButton::recieveMessage(Event ev) {
@@ -55,9 +47,8 @@ void mousePressButton::recieveMessage(Event ev) {
 }
 
 mousePressButton::~mousePressButton() {
-
-	//ignore(inputHandle, sf::Event::MouseButtonPressed);
-	//ignore(inputHandle, sf::Event::MouseButtonReleased);
+    
+	
 }
 
 void mousePressButton::setInputHandle(ppc::InputHandler& ih) {

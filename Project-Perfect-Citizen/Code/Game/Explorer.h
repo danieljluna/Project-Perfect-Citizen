@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 #include <stack>
-
+#include "../Engine/NodeState.h"
 #include "../Engine/Entity.h"
 
 
@@ -20,7 +20,6 @@ namespace sf {
 ///////////////////////////////////////////////////////////////////////
 
 namespace ppc {
-	class NodeState;
 	class WindowInterface;
 	class Desktop;
 
@@ -31,7 +30,7 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		///@brief Default constructor
 		///////////////////////////////////////////////////////////////////////
-		Explorer(Desktop& dt, WindowInterface* windowToWorkOn, NodeState& ns, sf::Image& buttonSheet, sf::Image& iconSheet);
+		Explorer(Desktop& dt, WindowInterface* windowToWorkOn, NodeState* ns, sf::Image& buttonSheet, sf::Image& iconSheet);
 
 		///////////////////////////////////////////////////////////////////////
 		///@brief Re-grabs the file state from the tree
@@ -47,7 +46,7 @@ namespace ppc {
 	private:
 		Desktop& theDesktop_;
 		WindowInterface* windowToWorkOn_;
-		NodeState& theFileTree_;
+		NodeState* theFileTree_;
 		sf::Image& buttonSheet_;
 		sf::Image& iconSheet_;
 

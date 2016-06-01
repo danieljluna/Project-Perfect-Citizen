@@ -30,7 +30,6 @@ using namespace ppc;
 
 
 ppc::Desktop::Desktop() {
-	nodeState_.setUp();
 	iconSheet_ = sf::Image();
 	buttonSheet_ = sf::Image();
 	inbox_ = ppc::Inbox();
@@ -72,21 +71,30 @@ ppc::Desktop::Desktop(const Desktop& other) {
 }
 
 ppc::Desktop::~Desktop() {
+
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-        if (*it != nullptr)
-            delete *it;
+		if (*it != nullptr) {
+			delete *it;
+			*it = nullptr;
+		}
 	}
 
 	for (auto it = solVec_.begin(); it != solVec_.end(); ++it) {
-        if (*it != nullptr)
-            delete *it;
+		if (*it != nullptr) {
+			delete *it;
+			*it = nullptr;
+		}
 	}
 	for (auto it = playVec_.begin(); it != playVec_.end(); ++it) {
-		if (*it != nullptr)
-            delete *it;
+		if (*it != nullptr) {
+			delete *it;
+			*it = nullptr;
+		}
 	}
 
-	if(frontTop_) delete frontTop_;
+
+    if (frontTop_) delete frontTop_;
+
 	if (inTransition_) delete inTransition_;
 	if (outTransition_) delete outTransition_;
 	frontTop_ = nullptr;
@@ -271,8 +279,11 @@ void ppc::Desktop::setFrontTop(WindowInterface* front, bool prop) {
     mpb->setFloatRect(front->getBounds());
     mpb->setInputHandle(front->getInputHandler());
 	mpb->onClick().addObserverToBack(ftObsvr);
+    ftObsvr = new frontTopObsvr(*this, prop);
 	mpb->onHover().addObserverToBack(ftObsvr);
+    ftObsvr = new frontTopObsvr(*this, prop);
 	mpb->onRelease().addObserverToBack(ftObsvr);
+    ftObsvr = new frontTopObsvr(*this, prop);
     mpb->onAll().addObserverToBack(ftObsvr);
 
 	if (frontTop_) {
@@ -443,7 +454,7 @@ bool ppc::Desktop::isMouseCollision(WindowInterface* wi,
 
 void ppc::Desktop::clearDesktop() {
 	nodeState_ = ppc::NodeState();
-	nodeState_.setUp();
+	//nodeState_.setUp();
 	iconSheet_ = sf::Image();
 	buttonSheet_ = sf::Image();
 	inbox_ = ppc::Inbox();
@@ -511,9 +522,11 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 			importDesktop->desktopWindow_->addRenderComponent(wBRC);
 
 		} else if (key == "Filetree") {
-			ppc::desktopExtractionComponent desktopFiles(importDesktop->nodeState_);
+			importDesktop->nodeState_.setUp();
+			ppc::desktopExtractionComponent desktopFiles(&importDesktop->nodeState_);
 			Json::Value parsed =
 				desktopFiles.parseDesktopAsJson(file, "Desktop");
+
 		} else if (key == "Emails") {
 			ppc::emailExtraction* inbox = new emailExtraction();
 			

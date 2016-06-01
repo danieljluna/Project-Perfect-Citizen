@@ -21,10 +21,10 @@
 
 using namespace ppc;
 
-desktopExtractionComponent::desktopExtractionComponent(NodeState& ft) : fileTree_(ft){
-    BaseObserver* subHead = fileTree_.onOpen().getObserverHead();
+desktopExtractionComponent::desktopExtractionComponent(NodeState* ft) : fileTree_(ft){
+    BaseObserver* subHead = fileTree_->onOpen().getObserverHead();
     if (subHead != nullptr) {
-        fileTree_.onOpen().removeObserver(subHead);
+        fileTree_->onOpen().removeObserver(subHead);
     }
 }
 
@@ -67,14 +67,14 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
                     CMD.push_back(mk_dir_cmd);
                     CMD.push_back(directory_name);
                     executeCommand = findFunction(mk_dir_cmd);
-                    executeCommand(fileTree_, CMD);
+                    executeCommand(*fileTree_, CMD);
                 }
                 else{
                     std::string cd_cmd = "cd";
                     CMD.push_back(cd_cmd);
                     CMD.push_back(directory_name);
                     executeCommand = findFunction(cd_cmd);
-                    executeCommand(fileTree_, CMD);
+                    executeCommand(*fileTree_, CMD);
                     password = token;
                     directory_name_copy.erase(0, pos + delimiter.length());
                     pos = directory_name_copy.find(delimiter);
@@ -86,15 +86,15 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
                     std::string passwordCopy = password;
                     while((passwordPos = passwordCopy.find(passwordDelimiter)) != std::string::npos) {
                         otherPasswords = passwordCopy.substr(0, passwordPos);
-                        fileTree_.getCwd()->addPassword(otherPasswords);
+                        fileTree_->getCwd()->addPassword(otherPasswords);
                         //std::cout << otherPasswords << std::endl;
                         passwordCopy.erase(0, passwordPos + passwordDelimiter.length());
                         if((passwordPos = passwordCopy.find(passwordDelimiter)) == std::string::npos){
-                            fileTree_.getCwd()->addPassword(passwordCopy);
+                            fileTree_->getCwd()->addPassword(passwordCopy);
                             //std::cout << passwordCopy << std::endl;
                         }
                     }
-                    fileTree_.getCwd()->setPassword(password, hint);
+                    fileTree_->getCwd()->setPassword(password, hint);
                     parseForFileTree(directoryObj, objNames[i]);
                 }
                 count++;
@@ -103,12 +103,12 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
                 CMD.push_back(mk_dir_cmd);
                 CMD.push_back(directory_name);
                 executeCommand = findFunction(mk_dir_cmd);
-                executeCommand(fileTree_, CMD);
+                executeCommand(*fileTree_, CMD);
                 std::string cd_cmd = "cd";
                 CMD.push_back(cd_cmd);
                 CMD.push_back(directory_name);
                 executeCommand = findFunction(cd_cmd);
-                executeCommand(fileTree_, CMD);
+                executeCommand(*fileTree_, CMD);
                 parseForFileTree(directoryObj, objNames[i]);
             }
         }
@@ -132,10 +132,10 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
             CMD.push_back(directory_name);
             CMD.push_back(pathName);
             if(directory_name != "Empty"){
-                fileTree_.getCwd()->setSuspicionLevel(suspicionPoints);
+                fileTree_->getCwd()->setSuspicionLevel(suspicionPoints);
                 commandFn executeCommand = findFunction(mk_cmd);
-                executeCommand(fileTree_, CMD);
-                fileTree_.getCwd()->findElement(directory_name)->setSuspicionLevel(suspicionPoints);
+                executeCommand(*fileTree_, CMD);
+                fileTree_->getCwd()->findElement(directory_name)->setSuspicionLevel(suspicionPoints);
             }
         }
     }
@@ -145,5 +145,5 @@ void desktopExtractionComponent::parseForFileTree(Json::Value value, std::string
     CMD2.push_back(cd_cmd);
     CMD2.push_back(dot_dot);
     commandFn executeCommand = findFunction(cd_cmd);
-    executeCommand(fileTree_, CMD2);
+    executeCommand(*fileTree_, CMD2);
 }
