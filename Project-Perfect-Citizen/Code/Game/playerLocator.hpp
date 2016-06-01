@@ -18,6 +18,8 @@ class PlayerLocator {
         std::string ip_;
         // Player's Lat/Long
         std::string loc_;
+        std::string lat_;
+        std::string long_;
         // Player's City
         std::string city_;
         //Players Zip
@@ -33,6 +35,8 @@ class PlayerLocator {
         std::string generateLocation();
         std::string getIp() const {return ip_;}
         std::string getLoc() const {return loc_;}
+        std::string getLat() const {return lat_;}
+        std::string getLong() const {return long_;}
         std::string getCity() const {return city_;}
         std::string getPostal() const {return postal_;}
         std::string getRegion() const {return region_;}

@@ -416,7 +416,7 @@ void ppc::World::initLoadScreen() {
     loadingAddress_.setColor(sf::Color(0,200,0));
     loadingAddress_.setPosition({150.f, 120.f});
     loadingAddress_.setString(" Beginning Desktop Extraction At \n\n Location : "
-                              + locator.getLoc()+ "\n"
+                              + locator.getLat()+ " W " + locator.getLong() + " N \n"
                               + " IP : " + locator.getIp() + " \n"
                               + " City : " + locator.getCity()+ ", " + locator.getPostal()+"\n"
                               + " Country : " + locator.getCountry()+"\n");

@@ -207,7 +207,7 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
                 }
                 break;
             case IconType::Help:
-                tempWin = new ppc::Window(600, 700, sf::Color(200, 200, 200));
+                tempWin = new ppc::Window(600, 900, sf::Color(200, 200, 200));
                 spawnHelp(tempWin, tempWin->getInputHandler(), buttonSheet_, 100, 100);
                 theDesktop_.addWindow(tempWin);
                 openedWindow = tempWin;

@@ -298,7 +298,7 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
         0.0f,
         0.0f,
         float(windowToModify->getSize().x),
-        float(windowToModify->getSize().y / 1.5)
+        float(windowToModify->getSize().y / 1.8)
     };
     windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     
