@@ -15,12 +15,6 @@
 #include <stdexcept>
 #include <string>
 
-
-
-#include "json.h"
-
-
-
 #include "Engine/Engine.h"
 
 #include "Engine/SuspiciousFileHolder.h"
@@ -60,26 +54,6 @@ int main(int argc, char** argv) {
 		//// ----------------   PYTHON LOCATION STUFF ---------------- ////
 
 		// Run the locator python app
-        std::string myLocation;
-               Json::Reader reader;
-        Json::Value value;
-        
-        #ifdef WINDOWS_MARKER
-   
-        #else
-            FILE *pipe;
-        
-            char str[1000];
-        
-            pipe = popen ( "curl ipinfo.io", "r" );
-        
-            while (fgets ( str, 1000, pipe )) {
-                myLocation += str;
-            }
-            pclose (pipe);
-        #endif
-        
-        reader.parse(myLocation, value);
 
        
 		// -----------------------------------------------------------//
