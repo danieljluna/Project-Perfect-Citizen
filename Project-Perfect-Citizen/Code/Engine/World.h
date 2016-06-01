@@ -261,7 +261,7 @@ namespace ppc {
         static sf::RectangleShape blackBars_[2];
 
         static Setting settings_;
-
+        
         static std::map<std::string, savGroups> saveGroupMap_;
 
         static sf::Transform worldTransform_;
