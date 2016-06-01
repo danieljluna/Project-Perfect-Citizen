@@ -315,6 +315,8 @@
 		C84E98E61CFE2100001E48AE /* you_got_email.wav in Resources */ = {isa = PBXBuildFile; fileRef = C84E97B41CFE2100001E48AE /* you_got_email.wav */; };
 		C84E98E71CFE2100001E48AE /* You_Got_Mail.wav in Resources */ = {isa = PBXBuildFile; fileRef = C84E97B51CFE2100001E48AE /* You_Got_Mail.wav */; };
 		C84E98E91CFE2CF2001E48AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C84E98E81CFE2CF2001E48AE /* Images.xcassets */; };
+		C84E98ED1CFE5E0D001E48AE /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C84E98EC1CFE5E0D001E48AE /* Python.framework */; };
+		C84E98F11CFE635B001E48AE /* location2.py in Resources */ = {isa = PBXBuildFile; fileRef = C84E98F01CFE635B001E48AE /* location2.py */; };
 		E9E830A01CF63D4A00945974 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E82F811CF63D4A00945974 /* main.cpp */; };
 		E9E830A11CF63D4A00945974 /* AudioLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E82F851CF63D4A00945974 /* AudioLocator.cpp */; };
 		E9E830A21CF63D4A00945974 /* AudioLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E82F871CF63D4A00945974 /* AudioLogger.cpp */; };
@@ -772,6 +774,8 @@
 		C84E97B41CFE2100001E48AE /* you_got_email.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = you_got_email.wav; sourceTree = "<group>"; };
 		C84E97B51CFE2100001E48AE /* You_Got_Mail.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = You_Got_Mail.wav; sourceTree = "<group>"; };
 		C84E98E81CFE2CF2001E48AE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C84E98EC1CFE5E0D001E48AE /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
+		C84E98F01CFE635B001E48AE /* location2.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = location2.py; path = "../Project-Perfect-Citizen/location2.py"; sourceTree = "<group>"; };
 		E9E82F811CF63D4A00945974 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
 		E9E82F841CF63D4A00945974 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
 		E9E82F851CF63D4A00945974 /* AudioLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioLocator.cpp; sourceTree = "<group>"; };
@@ -1062,6 +1066,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C84E98ED1CFE5E0D001E48AE /* Python.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1071,6 +1076,7 @@
 		C8058A591C4D679D005E23BA = {
 			isa = PBXGroup;
 			children = (
+				C84E98EC1CFE5E0D001E48AE /* Python.framework */,
 				C8058A651C4D679D005E23BA /* Project-Perfect-Citizen */,
 				C8058A641C4D679D005E23BA /* Products */,
 			);
@@ -1087,8 +1093,8 @@
 		C8058A651C4D679D005E23BA /* Project-Perfect-Citizen */ = {
 			isa = PBXGroup;
 			children = (
-				C84E96771CFE2100001E48AE /* Resources */,
 				E9E82F811CF63D4A00945974 /* main.cpp */,
+				C84E96771CFE2100001E48AE /* Resources */,
 				E9E82F821CF63D4A00945974 /* Engine */,
 				E9E82FF31CF63D4A00945974 /* Game */,
 				C82E60711C810DCB001860CC /* Library */,
@@ -1119,6 +1125,7 @@
 		C84E96771CFE2100001E48AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C84E98F01CFE635B001E48AE /* location2.py */,
 				C84E96781CFE2100001E48AE /* Artist_Icon_Sheet.png */,
 				C84E96791CFE2100001E48AE /* Artist_Wallpaper.png */,
 				C84E967A1CFE2100001E48AE /* ArtistResponseA.json */,
@@ -1939,6 +1946,7 @@
 				C84E98251CFE2100001E48AE /* Note_to_Voyeur_#2.txt in Resources */,
 				C84E98601CFE2100001E48AE /* house1.jpg in Resources */,
 				C84E984D1CFE2100001E48AE /* Osman_College.txt in Resources */,
+				C84E98F11CFE635B001E48AE /* location2.py in Resources */,
 				C84E98641CFE2100001E48AE /* nsfw0.png in Resources */,
 				E9E830A71CF63D4A00945974 /* gunshot.ogg in Resources */,
 				C84E989A1CFE2100001E48AE /* Logo_Sheet.png in Resources */,
@@ -2496,6 +2504,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Engine/Project-Perfect-Citizen-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				OTHER_CFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "perfectcitizen.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -2508,6 +2517,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Engine/Project-Perfect-Citizen-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				OTHER_CFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "perfectcitizen.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
