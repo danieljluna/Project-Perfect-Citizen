@@ -29,6 +29,8 @@ public:
 	///to nullptr (its empty after all!)
 	///////////////////////////////////////////////
 	Subject() : observerHead(nullptr) {};
+
+    ~Subject();
 	///////////////////////////////////////////////
 	///@brief Adds and observer to this subject.
 	///@details The observer parameter is an 

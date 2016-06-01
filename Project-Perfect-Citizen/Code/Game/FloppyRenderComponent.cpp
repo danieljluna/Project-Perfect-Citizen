@@ -51,6 +51,7 @@ FloppyRenderComponent::~FloppyRenderComponent() {
     delete sprite;
     delete staticBox;
     delete rectSourceSprite;
+	delete rectSourceSprite2;
 }
 
 void FloppyRenderComponent::renderPosition(sf::Vector2f pos) {
