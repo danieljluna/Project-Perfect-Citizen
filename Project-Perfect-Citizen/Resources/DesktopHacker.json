@@ -1,11 +1,11 @@
 {
     "Desktop": {
         "Casefiles": {
-            "Global_Surveillance": {
+            "Global_Surveillance/Resignation/The password is\nResignation": {
                 "5/Resignation_1.txt" : "DesktopContent/DesktopHacker/Resignation_1.txt",
-                "Domestic": {
+                "Domestic/Guilt/The password is Guilt": {
                     "5/Resignation_2.txt" : "DesktopContent/DesktopHacker/Resignation_2.txt",
-                    "Intra_Agency": {
+                    "Intra_Agency/Corruption/Corruption": {
                         "5/Resignation_3.txt" : "DesktopContent/DesktopHacker/Resignation_3.txt",
                         "Decision_Point": {
                             "5/Resignation_4.txt" : "DesktopContent/DesktopHacker/Resignation_4.txt",

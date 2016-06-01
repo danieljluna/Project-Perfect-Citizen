@@ -667,7 +667,7 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	Entity errorMessageDisplayBox;
 	errorMessageDisplayBox.addComponent(eMRC);
 
-	windowToModify->setSize(newWindowWidth, unsigned int(windowHeight));
+	windowToModify->setSize(newWindowWidth, (unsigned int)(windowHeight));
 	float buttonX = ((newWindowWidth - (alertWidth * buttonScale)) / 2);
 	float buttonY = (2 * (windowHeight / 3));
 
@@ -1450,7 +1450,7 @@ void ppc::spawnCreditsWindow(Desktop * dt, WindowInterface *& windowToModify, In
 	builder.create(thanksList);
 	windowToModify->addEntity(thanksList);
 
-	windowToModify->setSize(unsigned int(windowWidth), 1000);
+	windowToModify->setSize((unsigned int)(windowWidth), 1000);
 
 	sf::FloatRect viewRect = {
 		0.0f,
