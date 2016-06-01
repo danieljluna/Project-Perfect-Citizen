@@ -41,13 +41,6 @@ explorerFileInputComponent::explorerFileInputComponent(Desktop& dt, WindowInterf
 
 }
 
-void explorerFileInputComponent::clearObservers()
-{
-	for (size_t i = 0; i < observerCount_; ++i) {
-		delete observerArray_[i];
-	}
-}
-
 
 //void mousePressButton::addFunctionObserver(bool(*fnToAdd)(sf::Event &ev), mousePressButton* mpb, unsigned int placeToInsert)
 

@@ -71,21 +71,30 @@ ppc::Desktop::Desktop(const Desktop& other) {
 }
 
 ppc::Desktop::~Desktop() {
+
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-        if (*it != nullptr)
-            delete *it;
+		if (*it != nullptr) {
+			delete *it;
+			*it = nullptr;
+		}
 	}
 
 	for (auto it = solVec_.begin(); it != solVec_.end(); ++it) {
-        if (*it != nullptr)
-            delete *it;
+		if (*it != nullptr) {
+			delete *it;
+			*it = nullptr;
+		}
 	}
 	for (auto it = playVec_.begin(); it != playVec_.end(); ++it) {
-		if (*it != nullptr)
-            delete *it;
+		if (*it != nullptr) {
+			delete *it;
+			*it = nullptr;
+		}
 	}
 
-	if(frontTop_) delete frontTop_;
+
+    if (frontTop_) delete frontTop_;
+
 	if (inTransition_) delete inTransition_;
 	if (outTransition_) delete outTransition_;
 	frontTop_ = nullptr;
@@ -270,8 +279,11 @@ void ppc::Desktop::setFrontTop(WindowInterface* front, bool prop) {
     mpb->setFloatRect(front->getBounds());
     mpb->setInputHandle(front->getInputHandler());
 	mpb->onClick().addObserverToBack(ftObsvr);
+    ftObsvr = new frontTopObsvr(*this, prop);
 	mpb->onHover().addObserverToBack(ftObsvr);
+    ftObsvr = new frontTopObsvr(*this, prop);
 	mpb->onRelease().addObserverToBack(ftObsvr);
+    ftObsvr = new frontTopObsvr(*this, prop);
     mpb->onAll().addObserverToBack(ftObsvr);
 
 	if (frontTop_) {

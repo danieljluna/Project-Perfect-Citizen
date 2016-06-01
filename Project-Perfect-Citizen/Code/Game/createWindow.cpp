@@ -401,7 +401,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	///////////////////////////////////////
 	windowToModify->addEntity(dataBox);
 	windowToModify->addEntity(graphBox);
-	if (World::getCurrDesktop().getNetVecIndex() >= World::getCurrDesktop().getNetVecSize() - 1) {
+	if (World::getCurrDesktop().getNetVecIndex() >= int(World::getCurrDesktop().getNetVecSize() - 1)) {
 		Entity submitButton;
 		float buttonScale = 0.25f;
 		int buttonSize = 256;
@@ -633,7 +633,7 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message, std::string windowCaption) {
 	if (windowToModify == nullptr) { return; }
 
-	windowToModify->setSize(300.0f, windowToModify->getSize().y);
+	windowToModify->setSize(300, windowToModify->getSize().y);
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
@@ -660,14 +660,14 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	float buttonScale = 0.25f;
 	spawnAlertIcon(alertIcon, ih, buttonSheet, alertX, alertY, 0.5f);
 
-	float constantWindowWidth = 50.0f;
-	float newWindowWidth = (constantWindowWidth + (256 * buttonScale)
-		+ eMRC->getText()->getLocalBounds().width);
+	unsigned int constantWindowWidth = 50;
+	unsigned int newWindowWidth = (constantWindowWidth + (unsigned int)((256 * buttonScale)
+		+ eMRC->getText()->getLocalBounds().width));
 
 	Entity errorMessageDisplayBox;
 	errorMessageDisplayBox.addComponent(eMRC);
 
-	windowToModify->setSize(newWindowWidth, windowHeight);
+	windowToModify->setSize(newWindowWidth, unsigned int(windowHeight));
 	float buttonX = ((newWindowWidth - (alertWidth * buttonScale)) / 2);
 	float buttonY = (2 * (windowHeight / 3));
 
@@ -1000,7 +1000,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
-	int maxCaptionCharacters = 30;
+	unsigned int maxCaptionCharacters = 30;
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 14;
@@ -1125,7 +1125,7 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 	/////////////////////////////////////////
 	//// Files/Text Labels
 	///////////////////////////////////////
-	float fileSpacing = windowToModify->getSize().x / 3.5;
+	float fileSpacing = windowToModify->getSize().x / 3.5f;
 	int padding = 20;
 	textLabelComponent* label;
 	for (unsigned int i = 0; i < 3/*fH->getBfgVector().size()*/; ++i) {
@@ -1450,7 +1450,8 @@ void ppc::spawnCreditsWindow(Desktop * dt, WindowInterface *& windowToModify, In
 	builder.create(thanksList);
 	windowToModify->addEntity(thanksList);
 
-	windowToModify->setSize(windowWidth, 1000.0f);
+	windowToModify->setSize(unsigned int(windowWidth), 1000);
+
 	sf::FloatRect viewRect = {
 		0.0f,
 		0.0f,
@@ -1624,7 +1625,7 @@ bool ppc::toggle_window_settings(TextDisplayRenderComponent * ptr, ppc::Event ev
 	// It'll either be Windowed or Full Screen
 	std::string targetWindowMode = ptr->getString();
 	std::cout << targetWindowMode;
-	return ptr;
+	return (ptr != nullptr);
 }
 
 bool ppc::update_settings(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)

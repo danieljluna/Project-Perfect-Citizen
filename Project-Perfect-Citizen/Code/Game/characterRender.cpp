@@ -22,7 +22,10 @@ bool characterRender::textureIsLoaded = false;
 
 
 
-characterRender::characterRender(sf::Image& image) {
+ppc::characterRender::characterRender() {
+}
+
+characterRender::characterRender(sf::Image& image): characterRender() {
     
     bodyScale  = 0.16f;
     eyeScale   = 0.10f;
@@ -56,8 +59,80 @@ characterRender::characterRender(sf::Image& image) {
     
 }
 
+ppc::characterRender & ppc::characterRender::operator=(const characterRender & other) {
+	if (this != &other) {
+		shouldDraw_ = other.shouldDraw_;
+		scale = other.scale;
+
+		body = other.body;
+		shirt = other.shirt;
+		hair = other.hair;
+		irisL = other.irisL;
+		irisR = other.irisR;
+		eyeL = other.eyeL;
+		eyeR = other.eyeR;
+		browL = other.browL;
+		browR = other.browR;
+		mouth = other.mouth;
+		nose = other.nose;
+
+		origin = other.origin;
+
+		skinTones = other.skinTones;
+		hairTones = other.hairTones;
+		lipTones = other.lipTones;
+
+		bodyScale = other.bodyScale;
+		eyeScale = other.eyeScale;
+		mouthScale = other.mouthScale;
+		noseScale = other.noseScale;
+
+		hairPos = other.hairPos;
+		eyeLPos = other.eyeLPos;
+		eyeRPos = other.eyeRPos;
+		browLPos = other.browLPos;
+		browRPos = other.browRPos;
+		mouthPos = other.mouthPos;
+		nosePos = other.nosePos;
+	}
+	return *this;
+}
+
 characterRender::~characterRender() {
     //delete rectSourceSprite;
+}
+
+void ppc::characterRender::setImage(sf::Image & image) {
+	bodyScale = 0.16f;
+	eyeScale = 0.10f;
+	mouthScale = 0.08f;
+	noseScale = 0.09f;
+
+	hairPos = { 18, 2 };
+	eyeLPos = { 35, 33 };
+	eyeRPos = { 53, 33 };
+	browLPos = { 35, 28 };
+	browRPos = { 53, 28 };
+	mouthPos = { 40, 55 };
+	nosePos = { 56, 36 };
+
+	origin.x = 0;
+	origin.y = 0;
+
+	if (!textureIsLoaded) {
+		sf::IntRect area(0 * grid_size,
+			0 * grid_size,
+			12 * grid_size,
+			45 * grid_size);
+		if (!texture.loadFromImage(image, area)) {
+			assert("COULD NOT LOAD CHARACTER RENDER TEXTURE.");
+		}
+	}
+
+
+	initializeTones();
+	shouldDraw_ = true;
+
 }
 
 void characterRender::setOrigin(float x, float y){
