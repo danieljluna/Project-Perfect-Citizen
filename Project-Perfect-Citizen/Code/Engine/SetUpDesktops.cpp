@@ -116,5 +116,6 @@ void ppc::setUpPoliticianDesktop(ppc::Desktop& myDesktop) {
 }
 
 void ppc::setUpHackerDesktop(ppc::Desktop& myDesktop) {
-
+    createHackerDesktop(myDesktop, *myDesktop.getDesktopWindow(),
+        myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
 }

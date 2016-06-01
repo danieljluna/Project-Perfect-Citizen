@@ -167,14 +167,12 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
     ////////////////////////////////
     ///// ICONS ON TEACHER DESKTOP
     ////////////////////////////////
-    Entity BrowserIcon;
     Entity ChatIcon;
     Entity HardDriveIcon;
     Entity SettingsIcon;
     Entity ConsoleIcon;
     Entity EmailIcon;
     
-    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, theDatabase, iconSheet,  buttonSheet, 350.0f, 400.0f, 0.4f, 0.25f, theInbox);
 	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 125.0f, 175.0f, 0.4f, 0.25f, theInbox);
 	spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 525.0f, 200.0f, 0.5f, 0.25f, theInbox);
     spawnChatIcon(ChatIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 225.0f, 300.0f, 0.4f, 0.25f, theInbox);
@@ -206,7 +204,6 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
 	builder.create(SisyphusFile);
 	desktopWindowToModify.addEntity(SisyphusFile);
 
-    desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
@@ -310,17 +307,13 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
     ////////////////////////////////
     ///// ICONS ON TEACHER DESKTOP
     ////////////////////////////////
-    Entity BrowserIcon;
-    Entity ChatIcon;
     Entity HardDriveIcon;
     Entity SettingsIcon;
     Entity ConsoleIcon;
     Entity EmailIcon;
     
-    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, theDatabase, iconSheet,  buttonSheet, 25.0f, 600.0f, 0.4f, 0.25f, theInbox);
     spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 125.0f, 600.0f, 0.4f, 0.25f, theInbox);
     spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 225.0f, 600.0f, 0.5f, 0.25f, theInbox);
-    spawnChatIcon(ChatIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 325.0f, 600.0f, 0.4f, 0.25f, theInbox);
     spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 425.0f, 600.0f, 0.5f, 0.25f, theInbox);
 
 	IconBuilder builder;
@@ -405,9 +398,6 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
 	builder.create(file12);
 	desktopWindowToModify.addEntity(file12);
 
-    
-    desktopWindowToModify.addEntity(BrowserIcon);
-    desktopWindowToModify.addEntity(ChatIcon);
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
@@ -449,7 +439,6 @@ void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& des
     ///// ICONS ON TEACHER DESKTOP
     ////////////////////////////////
     Entity BrowserIcon;
-    Entity ChatIcon;
     Entity HardDriveIcon;
     Entity SettingsIcon;
     Entity ConsoleIcon;
@@ -458,11 +447,9 @@ void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& des
     spawnBrowserIcon(BrowserIcon, desktopToModify, ih, theDatabase, iconSheet,  buttonSheet, 25.0f, 25.0f, 0.4f, 0.25f, theInbox);
     spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 125.0f, 0.4f, 0.25f, theInbox);
     spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 225.0f, 0.5f, 0.25f, theInbox);
-    spawnChatIcon(ChatIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 325.0f, 0.4f, 0.25f, theInbox);
-    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 425.0f, 0.5f, 0.25f, theInbox);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 325.0f, 0.5f, 0.25f, theInbox);
     
     desktopWindowToModify.addEntity(BrowserIcon);
-    desktopWindowToModify.addEntity(ChatIcon);
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
@@ -475,6 +462,55 @@ void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& des
 	
     
 }
+
+void ppc::createHackerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
+    
+    Database theDatabase;
+    
+    Inbox* theInbox = &desktopToModify.getInbox();
+    
+    //////////////////////////////////////////////
+    //// Create the start menu
+    /////////////////////////////////////////////
+    ppc::WindowInterface* startToolbar =
+    new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
+    startToolbar->setPosition(0, 735);
+    
+    Entity startBar;
+    startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
+    startBarRender->renderPosition({0,4});
+    startBar.addComponent(startBarRender);
+    
+    Entity startButton;
+    spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
+    startToolbar->addEntity(startBar);
+    startToolbar->addEntity(startButton);
+    desktopToModify.addWindow(startToolbar);
+    
+    
+    ////////////////////////////////
+    ///// ICONS ON TEACHER DESKTOP
+    ////////////////////////////////
+    Entity HardDriveIcon;
+    Entity SettingsIcon;
+    Entity ConsoleIcon;
+    Entity EmailIcon;
+    
+    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 125.0f, 0.4f, 0.25f, theInbox);
+    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 225.0f, 0.5f, 0.25f, theInbox);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 325.0f, 0.5f, 0.25f, theInbox);
+    
+    desktopWindowToModify.addEntity(HardDriveIcon);
+    desktopWindowToModify.addEntity(SettingsIcon);
+    desktopWindowToModify.addEntity(ConsoleIcon);
+    desktopWindowToModify.addEntity(EmailIcon);
+    
+    WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
+    spawnFileTracker(desktopToModify, fileTracker, fileTracker->getInputHandler(), 250, 50);
+    desktopToModify.addWindow(fileTracker);
+    ppc::SuspiciousFileHolder::setWindow(fileTracker);
+}
+
 
 void ppc::createTrailerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
     
