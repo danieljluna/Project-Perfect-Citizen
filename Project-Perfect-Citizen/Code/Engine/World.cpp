@@ -256,10 +256,6 @@ void ppc::World::goBack() {
 	progToNext_ = false;
 }
 
-void World::setGameScreen(sf::RenderWindow& gameScreen) {
-	screen_ = &gameScreen;
-}
-
 sf::VideoMode ppc::World::getVideoMode() {
     sf::VideoMode result;
 
@@ -612,20 +608,23 @@ void ppc::World::initAddressMap() {
 
 void ppc::World::manifestSettings() {
     if (settings_.fullscreen) {
+        //TODO: TEST THIS ON MAC
         settings_.resolution.x = sf::VideoMode::getDesktopMode().width;
         settings_.resolution.y = sf::VideoMode::getDesktopMode().height;
     }
 
 
-    if (screen_ != nullptr) {
-        initializeResolution();
-
-        unsigned int flags = sf::Style::Default;
-        if (settings_.fullscreen) {
-            flags = flags | sf::Style::Fullscreen;
-        }
-        screen_->create(getVideoMode(), "Project Perfect Citizen", flags);
+    if (screen_ == nullptr) {
+        screen_ = new sf::RenderWindow();
     }
+
+    initializeResolution();
+
+    unsigned int flags = sf::Style::Titlebar | sf::Style::Close;
+    if (settings_.fullscreen) {
+        flags = flags | sf::Style::Fullscreen;
+    }
+    screen_->create(getVideoMode(), "Project Perfect Citizen", flags);
 }
 
 void World::drawDesktop() {
