@@ -57,13 +57,14 @@ void AudioQueue::readySound(int sound) {
 
 void AudioQueue::stopSound(int sound)
 {
-
+	return;
 }
 
 void AudioQueue::stopAllSounds() {
 	for (auto iter = soundStorage.begin(); iter != soundStorage.end(); iter++) {
 		iter->second.stop();
 	}
+	bgm.stop();
 }
 
 void AudioQueue::popAndPlay()
@@ -75,7 +76,7 @@ void AudioQueue::popAndPlay()
 		return;
 	}
 	findPair.second->setBuffer(bufferStorage.at(front).second);
-	findPair.second->setVolume(masterVolume_ * sfxVolume_);
+	//findPair.second->setVolume(masterVolume_ * sfxVolume_);
 	findPair.second->play();
 	soundQueue.pop();
 	releaseSound(findPair.first);
@@ -87,6 +88,14 @@ int AudioQueue::addSound(std::string name, std::string filename)
 	if (soundCount >= maxSounds) {
 		std::cerr << "too many sounds. Talk to Andy about increasing the limit" << std::endl;
 		return -1;
+	}
+	//its found a duplicate and doesnt need to load the sound again. 
+	int duplicateCount = 0;
+	for (auto iter = bufferStorage.begin(); iter != bufferStorage.end(); iter++) {
+		if ((*iter).first == name) {
+			return duplicateCount;
+		}
+		duplicateCount++;
 	}
 
 	sf::SoundBuffer newBuffer;
