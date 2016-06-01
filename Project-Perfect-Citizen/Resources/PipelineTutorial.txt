@@ -18,7 +18,7 @@ Default: Please close and relaunch the graph application to continue
 -Goal: T 0.0
 Default: Select a photo to read that person's SMS conversations
 Default: Citizens are reffered to by their Database Identification Number (DIN)
-Default: Use the letters in the DIN and the conversations on the right to indicate all connections
+Default: Use the letters in the DIN and the conversations on the right to identify all connections
 -ColorChange: T 0.0
 Default: Select a connection to view the conversations between those two people
 Default: Press "Space" to switch the color of the connection
@@ -34,11 +34,3 @@ Default: When you are confident you have found the right center hit submit
 -Feedback: F 0.0
 Default: A fellow DCPS officer has checked your work and approved it!
 Default: You have been issued a warrant to search their desktop.
--EdgeSelectionHelper: T 7.5
-Default: Hint - The line between the photos is the "Connection!"
--CircleDelay: T 10
-Default: Remember - Select a photo and right click another to connect them!
--CircleDelete: T 10.0
-Default: Remember - Select a connection and press "Z" to delete it!
--CircleFinishHelper: T 10.0
-Default: Hint - In this graph, each photo should have exactly two connections!

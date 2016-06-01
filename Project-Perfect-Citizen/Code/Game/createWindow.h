@@ -186,7 +186,7 @@ void spawnLoginPrompt(WindowInterface*& windowToModify, InputHandler& ih, sf::Im
 ///@param The x position of the new window
 ///@param The y position of the new window
 ///////////////////////////////////////////////////////////////////////
-void spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState ns,
+void spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState* ns,
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y);
 
 
@@ -235,8 +235,20 @@ void spawnFileTracker(Desktop& dt, WindowInterface*& windowToModify, InputHandle
 ///////////////////////////////////////////////////////////////////////
 void spawnSettingsMenu(Desktop* dt, WindowInterface*& windowToModify, InputHandler& ih, float x, float y);
 
+///////////////////////////////////////////////////////////////////////
+///@brief Constructs a credits window
+///
+///@param The desktop to add it to
+///@param An empty windowInterface
+///@param The input handler of the empty window interface
+///@param X position of the window
+///@param Y position of the window
+///////////////////////////////////////////////////////////////////////
+void spawnCreditsWindow(Desktop* dt, WindowInterface*& windowToModify, InputHandler& ih, float x, float y);
+
 bool close_window(WindowInterface* w, ppc::Event ev);
 bool open_settings(WindowInterface *w, ppc::Event ev);
+bool open_credits(WindowInterface* w, ppc::Event ev);
 bool continue_world(WindowInterface* w, ppc::Event ev);
 
 bool increment_resolution(TextDisplayRenderComponent*, ppc::Event ev);
@@ -245,6 +257,7 @@ bool decrement_resolution(TextDisplayRenderComponent*, ppc::Event ev);
 bool increment_volume(TextDisplayRenderComponent*, ppc::Event ev);
 bool decrement_volume(TextDisplayRenderComponent*, ppc::Event ev);
 
+bool toggle_window_settings(TextDisplayRenderComponent*, ppc::Event);
 bool update_settings(TextDisplayRenderComponent*, ppc::Event ev);
 };
 

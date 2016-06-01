@@ -1,13 +1,5 @@
-//Used to get XCODE working/////////////////////////////////
 
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
-
-///////////////////////////////////////////////////////////
-
+#include "../ResourceDef.h"
 #include "../Engine/debug.h"
 #include "FloppyInputComponent.h"
 #include <iostream>
@@ -42,8 +34,8 @@ FloppyInputComponent::FloppyInputComponent() {
 
     if (!initialized) {
         initializeFloppyDict();
-		initTimerDisableEvents();
-		initTimerResetEvents();
+//		initTimerDisableEvents();
+//		initTimerResetEvents();
     }
 
 }
@@ -55,7 +47,7 @@ FloppyInputComponent::~FloppyInputComponent() {
 const std::array<std::string, 4> FLOPPY_SOURCES{
 	"PipelineTutorial.txt",
 	"DesktopTutorial.txt",
-    "PipelineTutorial.txt",
+    "PipelineTutorialAlt.txt",
     "DesktopTutorialAlt.txt"
 };
 
@@ -239,55 +231,55 @@ void ppc::FloppyInputComponent::setFloppyButton(bool able)
 
 //go through all timerDisableEvents and initialize them indivdually, then
 //add them to TimerDisableEvents
-void FloppyInputComponent::initTimerDisableEvents() {
-	ppc::Event ev;
-	std::vector<ppc::Event> evVec;
-	//EdgeSelectionHelper
-	ev.type = ppc::Event::NetworkType;
-	ev.network.type = ppc::Event::NetworkEv::Selected;
-	evVec.push_back(ev);
-	TimerDisableEvents.emplace(EdgeSelectionHelper, evVec);
-	evVec.clear();
-
-	//CircleDelay
-	ev.network.type = ppc::Event::NetworkEv::Created;
-	evVec.push_back(ev);
-	TimerDisableEvents.emplace(CircleDelay, evVec);
-	evVec.clear();
-
-	//CircleDelete
-	ev.network.type = ppc::Event::NetworkEv::Removed;
-	evVec.push_back(ev);
-	TimerDisableEvents.emplace(CircleDelete, evVec);
-	evVec.clear();
-
-	//CircleFinishHelper
-	ev.network.type = ppc::Event::NetworkEv::Created;
-	evVec.push_back(ev);
-	TimerDisableEvents.emplace(CircleFinishHelper, evVec);
-	evVec.clear();
-}
+//void FloppyInputComponent::initTimerDisableEvents() {
+//	ppc::Event ev;
+//	std::vector<ppc::Event> evVec;
+//	//EdgeSelectionHelper
+//	ev.type = ppc::Event::NetworkType;
+//	ev.network.type = ppc::Event::NetworkEv::Selected;
+//	evVec.push_back(ev);
+//	TimerDisableEvents.emplace(EdgeSelectionHelper, evVec);
+//	evVec.clear();
+//
+//	//CircleDelay
+//	ev.network.type = ppc::Event::NetworkEv::Created;
+//	evVec.push_back(ev);
+//	TimerDisableEvents.emplace(CircleDelay, evVec);
+//	evVec.clear();
+//
+//	//CircleDelete
+//	ev.network.type = ppc::Event::NetworkEv::Removed;
+//	evVec.push_back(ev);
+//	TimerDisableEvents.emplace(CircleDelete, evVec);
+//	evVec.clear();
+//
+//	//CircleFinishHelper
+//	ev.network.type = ppc::Event::NetworkEv::Created;
+//	evVec.push_back(ev);
+//	TimerDisableEvents.emplace(CircleFinishHelper, evVec);
+//	evVec.clear();
+//}
 
 //go through all timerResetEvents and initialize them indivdually, then
 //add them to TimerResetEvents
-void FloppyInputComponent::initTimerResetEvents() {
-	ppc::Event ev;
-	std::vector<ppc::Event> evVec;
-
-	//CicleDelete
-	ev.network.type = ppc::Event::NetworkEv::Removed;
-	evVec.push_back(ev);
-	TimerResetEvents.emplace(CircleDelete, evVec);
-	evVec.clear();
-
-	//CircleFinishHelper
-	ev.network.type = ppc::Event::NetworkEv::Removed;
-	evVec.push_back(ev);
-	ev.network.type = ppc::Event::NetworkEv::Created;
-	evVec.push_back(ev);
-	TimerResetEvents.emplace(CircleFinishHelper, evVec);
-	evVec.clear();
-}
+//void FloppyInputComponent::initTimerResetEvents() {
+//	ppc::Event ev;
+//	std::vector<ppc::Event> evVec;
+//
+//	//CicleDelete
+//	ev.network.type = ppc::Event::NetworkEv::Removed;
+//	evVec.push_back(ev);
+//	TimerResetEvents.emplace(CircleDelete, evVec);
+//	evVec.clear();
+//
+//	//CircleFinishHelper
+//	ev.network.type = ppc::Event::NetworkEv::Removed;
+//	evVec.push_back(ev);
+//	ev.network.type = ppc::Event::NetworkEv::Created;
+//	evVec.push_back(ev);
+//	TimerResetEvents.emplace(CircleFinishHelper, evVec);
+//	evVec.clear();
+//}
 
 
 

@@ -27,7 +27,7 @@ const float DOUBLE_CLICK_TIME = 500.0f;
 
 
 explorerFileInputComponent::explorerFileInputComponent(Desktop& dt, WindowInterface* cW,
-	ppc::InputHandler& ih, NodeState& ns, sf::Image& bS, sf::FloatRect rect, std::string fN) :
+	ppc::InputHandler& ih, NodeState* ns, sf::Image& bS, sf::FloatRect rect, std::string fN) :
 	InputComponent(2), theDesktop_(dt), containingWindow_(cW),theFileTree_(ns), buttonSheet_(bS), 
 	buttonRect(rect), fileName(fN) {
 
@@ -159,7 +159,7 @@ bool explorerFileInputComponent::registerInput(Event ppcEv) {
 
 bool ppc::explorerFileInputComponent::andy_flag_file(Desktop* ptr, ppc::Event ev)
 {
-	ppc::BaseFileType* fileToAdd = this->theFileTree_.getCwd()->findElement(this->fileName);
+	ppc::BaseFileType* fileToAdd = this->theFileTree_->getCwd()->findElement(this->fileName);
 	ppc::SuspiciousFileHolder::flagFile(fileToAdd);
 	return true;
 
@@ -167,10 +167,10 @@ bool ppc::explorerFileInputComponent::andy_flag_file(Desktop* ptr, ppc::Event ev
 
 void ppc::explorerFileInputComponent::openFile()
 {
-	theFileTree_.readFile(fileName);
+	theFileTree_->readFile(fileName);
 }
 
-NodeState ppc::explorerFileInputComponent::getFileNodeState()
+NodeState* ppc::explorerFileInputComponent::getFileNodeState()
 {
 	return theFileTree_;
 }
@@ -191,13 +191,13 @@ bool ppc::open_file(explorerFileInputComponent* ptr, ppc::Event ev) {
 }
 
 bool ppc::flag_file(explorerFileInputComponent* ptr, ppc::Event ev) {
-	ppc::BaseFileType* tempBFT = ptr->getFileNodeState().getCwd()->findElement(ptr->getFileName());
+	ppc::BaseFileType* tempBFT = ptr->getFileNodeState()->getCwd()->findElement(ptr->getFileName());
 	if (tempBFT != nullptr) {
 		std::vector<std::string> firstFlagCommand;
 		firstFlagCommand.push_back("flag");
 		firstFlagCommand.push_back(ptr->getFileName());
 		commandFn firstLs = findFunction("flag");
-        ppc::NodeState temp = ptr->getFileNodeState();
+        ppc::NodeState temp = *ptr->getFileNodeState();
 		firstLs(temp, firstFlagCommand);
 	}
 	else {
@@ -224,7 +224,7 @@ bool ppc::submitFiles(ppc::Desktop * ptr, ppc::Event ev)
 bool ppc::spawnPromptMessage(ppc::explorerFileInputComponent * ptr, ppc::Event)
 {
 	ppc::WindowInterface* newWindow = new ppc::Window(300, 150, sf::Color(170, 170, 170));
- 	ppc::BaseFileType* tempBFT = ptr->getFileNodeState().getCwd()->findElement(ptr->getFileName());
+ 	ppc::BaseFileType* tempBFT = ptr->getFileNodeState()->getCwd()->findElement(ptr->getFileName());
 
     Event ev;
     ev.type = ev.SubmissionType;

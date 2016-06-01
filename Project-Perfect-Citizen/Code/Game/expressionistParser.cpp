@@ -6,16 +6,7 @@
 //  Copyright © 2016 Hyperfocus Games. All rights reserved.
 //
 
-//Used to get XCODE working/////////////////////////////////////////////
-
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
-
-////////////////////////////////////////////////////////////////////////
-
+#include "../ResourceDef.h"
 #include "../Engine/debug.h"
 #include "expressionistParser.hpp"
 //#include "../Library/json/json.h"
@@ -31,6 +22,8 @@
 
 using namespace expr;
 
+std::map<std::string, std::string> ExpressionistParser::systemVars_;
+
 ////////////////////////////////////////////////////////////////////////
 ///parsing out the JSON file
 ////////////////////////////////////////////////////////////////////////
@@ -39,6 +32,7 @@ Json::Value expr::ExpressionistParser::parseExpressionistAsJson(std::string file
 	Json::Reader reader;
 	Json::Value value;
 	std::ifstream doc(resourcePath() + file, std::ifstream::binary);
+	if (!doc.good()) throw std::runtime_error("Expressionist: File not found.");
 	reader.parse(doc, value);
 	return value;
 }
@@ -50,7 +44,7 @@ std::string expr::ExpressionistParser::expressWithJson(const Json::Value& exprOu
 	for (; i < exprOutput["nonterminals"].size(); ++i) {
 		if (exprOutput["nonterminals"][terminalNames[i]]["deep"].asBool() == true) break;
 	}
-
+	systemVars_.clear();
 	std::pair<std::string, bool> result = expandWithJson(exprOutput, exprOutput["nonterminals"][terminalNames[i]], speaker, link);
 	if (result.second == true) return result.first;
 
@@ -138,6 +132,19 @@ std::pair<std::string, bool> expr::ExpressionistParser::fireWithJson(const Json:
 		} else if (braceCount == 1) {
 			//this is a run time variable that needs to be substituted for, otherwise treated as a string
 			//do replacement for system/run time variable
+			if (systemVars_.find(currExp) != systemVars_.end()) {
+				return std::make_pair(systemVars_.at(currExp), true);
+			}
+			else {
+				if (currExp == "day of the week" || "day") {
+					std::string day = generateDayOfWeek();
+					systemVars_.emplace(currExp, day);
+					return std::make_pair(day, true);
+				}
+				else {
+					return std::make_pair("", false);
+				}
+			}
 		} else if (braceCount == 2) {
 			Json::Value newExp = exprOutput["nonterminals"][currExp];
 			//recursively expands upon a new non terminal symbol (newExp), yielding a valid result if one is possible
@@ -158,14 +165,37 @@ std::pair<std::string, bool> expr::ExpressionistParser::fireWithJson(const Json:
 	return std::make_pair(result, true);
 }
 
+std::string ExpressionistParser::generateDayOfWeek() {
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	unsigned int daynum = std::uniform_int_distribution<>(0, 7)(gen);
+	switch (daynum) {
+		case 0:
+			return "Sunday";
+		case 1:
+			return "Monday";
+		case 2:
+			return "Tuesday";
+		case 3:
+			return "Wednesday";
+		case 4:
+			return "Thursday";
+		case 5:
+			return "Friday";
+		case 6:
+			return "Saturday";
+		default:
+			return "Tomorrow";
+	}
+}
 
 bool makeComparison(const std::string& str1, const std::string& str2, const std::string& oper) {
 	//std::cout << "strcmp: " << str1 << oper << str2 << std::endl;
 	
-	if (oper.compare("==")) {
+	if (oper.compare("==") == 0) {
 		return (str1.compare(str2) == 0);
 	}
-	else if (oper.compare("!=")) {
+	else if (oper.compare("!=") == 0) {
 		return (str1.compare(str2) != 0);
 	}
 	return false;
@@ -201,15 +231,21 @@ bool expr::ExpressionistParser::checkMarkUpPreconditions(const Json::Value& mark
 	for (size_t i = 0; i < markup.size(); ++i) {
 		Json::Value currMark = markup[markupNames[i]];
 		std::string oper;
-		std::string req;
+		//std::string req;
 		std::string value;
 
 		for (unsigned int j = 0; j < currMark.size(); ++j) {
 			std::string currCond = currMark[j].asString();
 			//std::cout << "CurrCond = " << currCond << " markupNames[i] = " << markupNames[i] << std::endl;
 			size_t firstspace = currCond.find_first_of(" ");
-			req = currCond.substr(0, firstspace);
-			oper = currCond.substr(firstspace + 1, currCond.length() - currCond.find_last_of(" ") - 1);
+			size_t lastspace = currCond.find_last_of(" ");
+			//req = currCond.substr(0, firstspace);
+			if (firstspace == lastspace) {
+				oper = currCond.substr(0, firstspace);
+			}
+			else {
+				oper = currCond.substr(firstspace + 1, (currCond.find_last_of(" ") - firstspace) - 1);
+			}
 			value = currCond.substr(currCond.find_last_of(" ") + 1, std::string::npos);
 			if (markupNames[i].compare("agePreconditions") == 0) {
 				//std::cout << "Making Age Comparison" << std::endl;
@@ -219,14 +255,16 @@ bool expr::ExpressionistParser::checkMarkUpPreconditions(const Json::Value& mark
 			}
 			else if (markupNames[i].compare("linkSuspicion") == 0) {
 				if (link.getWeight() == 1) {
-					if (!(makeComparison("Ambiguous", value, oper) ||
-						makeComparison("Suggestive", value, oper) ||
-						makeComparison("ClearlySuspicious", value, oper))) return false;
+					if (makeComparison("Ambiguous", value, "==")) continue;
+					if (makeComparison("Suggestive", value, "==")) continue;
+					if (makeComparison("ClearlySuspicious", value, "==")) continue;
+					return false;
 				}
 				else {
-					if (!(makeComparison("ClearlyClean", value, oper) ||
-						makeComparison("SlightlySuspicious", value, oper) ||
-						makeComparison("Ambiguous", value, oper))) return false;
+					if (makeComparison("ClearlyClean", value, "==")) continue;
+					if (makeComparison("SlightlySuspicious", value, "==")) continue;
+					//if (makeComparison("Ambiguous", value, "==")) continue;
+					return false;
 				}
 				continue;
 			}

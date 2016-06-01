@@ -39,8 +39,8 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		void initializeFloppyDict();
 
-		void initTimerDisableEvents();
-		void initTimerResetEvents();
+		//void initTimerDisableEvents();
+		//void initTimerResetEvents();
 
 	public:
 
@@ -66,10 +66,6 @@ namespace ppc {
 			Center,
 			Submission,
 			Feedback,
-            EdgeSelectionHelper,
-            CircleDelay,
-            CircleDelete,
-            CircleFinishHelper,
 			DesktopStart,
 			Email,
 			Explorer,
@@ -91,10 +87,6 @@ namespace ppc {
             AltCenter,
             AltSubmission,
             AltFeedback,
-            AltEdgeSelectionHelper,
-            AltCircleDelay,
-            AltCircleDelete,
-            AltCircleFinishHelper,
             AltDesktopStart,
             AltEmail,
             AltExplorer,

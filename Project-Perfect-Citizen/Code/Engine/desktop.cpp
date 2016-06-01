@@ -1,12 +1,6 @@
 //desktop.cpp
 // Nader Sleem
-
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
-
+#include "../ResourceDef.h"
 #include <string>
 #include <fstream>
 
@@ -36,7 +30,6 @@ using namespace ppc;
 
 
 ppc::Desktop::Desktop() {
-	nodeState_.setUp();
 	iconSheet_ = sf::Image();
 	buttonSheet_ = sf::Image();
 	inbox_ = ppc::Inbox();
@@ -449,7 +442,7 @@ bool ppc::Desktop::isMouseCollision(WindowInterface* wi,
 
 void ppc::Desktop::clearDesktop() {
 	nodeState_ = ppc::NodeState();
-	nodeState_.setUp();
+	//nodeState_.setUp();
 	iconSheet_ = sf::Image();
 	buttonSheet_ = sf::Image();
 	inbox_ = ppc::Inbox();
@@ -479,7 +472,6 @@ void ppc::Desktop::clearDesktop() {
 	playVec_.clear();
 	netVecIndex_ = 0;
 }
-
 
 std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 	std::string line;
@@ -518,9 +510,11 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 			importDesktop->desktopWindow_->addRenderComponent(wBRC);
 
 		} else if (key == "Filetree") {
-			ppc::desktopExtractionComponent desktopFiles(importDesktop->nodeState_);
+			importDesktop->nodeState_.setUp();
+			ppc::desktopExtractionComponent desktopFiles(&importDesktop->nodeState_);
 			Json::Value parsed =
 				desktopFiles.parseDesktopAsJson(file, "Desktop");
+
 		} else if (key == "Emails") {
 			ppc::emailExtraction* inbox = new emailExtraction();
 			

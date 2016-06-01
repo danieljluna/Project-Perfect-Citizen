@@ -7,14 +7,7 @@
 //
 
 
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
-
-///////////////////////////////////////////////////////////
-
+#include "../ResourceDef.h"
 #include "emailExtraction.hpp"
 #include "../Engine/NodeState.h"
 #include "../Engine/debug.h"

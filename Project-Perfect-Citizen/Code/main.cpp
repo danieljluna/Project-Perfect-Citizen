@@ -1,11 +1,4 @@
-//Used to get XCODE working/////////////////////////////////
-
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
-///////////////////////////////////////////////////////////
+#include "ResourceDef.h"
 #include <fstream>
 #include <string>
 #include <SFML/Main.hpp>
@@ -33,9 +26,10 @@ int main(int argc, char** argv) {
 		World::initLevelMap();
 		World::initFontMap();
 		World::initLoadScreen();
+		World::initAddressMap();
 
 		// Create the main sf::window
-		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen");
+		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen", sf::Style::Close | sf::Style::Titlebar);
 
 
 		AudioQueue audiotest(5);
@@ -48,17 +42,35 @@ int main(int argc, char** argv) {
 		//// ----------------   PYTHON LOCATION STUFF ---------------- ////
 
 		// Run the locator python app
-		//system("osascript -e 'tell app \"ppc_location_print\" to open'");
+		//system("osascript -e 'tell app \"ppc_ip_location\" to open'");
+        
+        #ifdef WINDOWS_MARKER
+   
+        #else
+            system("open ./Project-Perfect-Citizen.app/Contents/Resources/ppc_ip_location.app");
+            std::string line;
+            std::ifstream myfile (resourcePath() + "/ppc_ip_location.app/Content/Resources/loc_file.txt");
+            if (myfile.is_open()){
+                while (getline (myfile,line) ){
+                    std::cout << line << '\n';
+                }
+                myfile.close();
+            }
+        
+            else std::cout << "Unable to open file";
+        #endif
+       
 		// -----------------------------------------------------------//
 
 		World::setGameScreen(screen);
 		World::loadState("PPC.sav");
 		std::ifstream desktopFileInput;
 
-		Desktop mainDesktop;
-		World::setCurrDesktop(mainDesktop);
 
 		while (World::getCurrDesktopEnum() != World::DesktopCount) {
+			Desktop mainDesktop;
+			World::setCurrDesktop(mainDesktop);
+
 			//Get Current Desktop Level
 			World::DesktopList currDesk = World::getCurrDesktopEnum();
 

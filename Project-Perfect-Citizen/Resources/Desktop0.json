@@ -3,7 +3,7 @@
         "Terrorism/Germany/What nation is our target?": {
             "Schematics" : {
                 "5/VAR_1213_Schematic.jpg" : "DesktopContent/Desktop0/VAR_1213_Schematic.png",
-                "5/interconnect-wiring.jpg" : "DesktopContent/Desktop0/interconnect-wiring.png"
+                "5/interconnect_wiring.jpg" : "DesktopContent/Desktop0/interconnect-wiring.png"
             },
             "Notes" : {
                 "10/route_plan.jpg": "DesktopContent/Desktop0/route_plan.png",
@@ -12,11 +12,10 @@
         },
         "Documents": {
             "3D_Printer": {
-                "2/P_3000.jpg" : "DesktopContent/Desktop0/3D_printer_3000.png",
-                "2/Overview.jpg" : "DesktopContent/Desktop0/Overview.jpg"
+                "2/P_3000.jpg" : "DesktopContent/Desktop0/3D_printer_3000.png"
             },
             "Instructions": {
-                "2/liberator_1.jpg" : "DesktopContent/Desktop0/liberator_1.png"
+                "2/instructions.jpg" : "DesktopContent/Desktop0/liberator_1.png"
             },
             "Permits": {
                 "3/explosives_permit.txt" : "DesktopContent/Desktop0/explosives_permit.txt",

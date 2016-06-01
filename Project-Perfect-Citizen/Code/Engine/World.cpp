@@ -1,8 +1,4 @@
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
+#include "../ResourceDef.h"
 
 #include <fstream>
 
@@ -55,7 +51,7 @@ std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
 };
 
 std::map<World::DesktopList, World::desktopLoaders> World::loaderMap_ = {
-	{World::DELogo, setUpLogoDesktop },
+	{ World::DELogo, setUpLogoDesktop },
 	{ World::DEOpening, setUpBootDesktop },
 	{ World::DELogin, setUpLoginDesktop },
 	{ World::DE0A, createTutorial },
@@ -137,6 +133,25 @@ std::map <std::pair<World::DesktopList, World::ReportType>, std::string > World:
 
 };
 
+std::map <World::DesktopList, std::string> World::loadingAddressMap_ = {
+	{ World::DELogo, "" },
+	{ World::DEOpening, "" },
+	{ World::DELogin, "" },
+	{ World::DE0A, "{\n Now Beginning Training Simulation \n}" },
+	{ World::DE0B, "{\n Beginning Simulation Phase Two \n}" },
+	{ World::DEPlayer1, "{\n Returning to Workstation \n}" },
+	{ World::DE1, "" },
+	{ World::DEPlayer2A, "{\n Returning to Workstation \n}" },
+	{ World::DEPlayer2B, "{\n Returning to Workstation \n}" },
+	{ World::DE2A, "" },
+	{ World::DE2B, "" },
+	{ World::DEPlayer3A, "{\n Returning to Workstation \n}" },
+	{ World::DEPlayer3B, "{\n Returning to Workstation \n}" },
+	{ World::DE3, "" },
+	{ World::DEEnd, "" },
+	{ World::DesktopCount, "" }  //Empty pairing of Count to string.
+};
+
 bool World::quitter_ = false;
 
 sf::RectangleShape World::tempLoadScreen_ = sf::RectangleShape({ 1000,1000 });
@@ -147,6 +162,8 @@ sf::Texture World::loadTexture_ = sf::Texture();
 sf::Sprite World::loadBar_ = sf::Sprite();
 sf::Sprite World::loadBarBorder_ = sf::Sprite();
 sf::Sprite World::loadingDecal_ = sf::Sprite();
+sf::Sprite World::clickToContinue_ = sf::Sprite();
+sf::Text World::loadingAddress_ = sf::Text();
 
 bool World::isLoading_ = false;
 bool World::isLoadBarFull_ = false;
@@ -366,6 +383,11 @@ void ppc::World::initLoadScreen() {
     
     loadImage_.loadFromFile(resourcePath() + "World_Sheet.png");
     loadTexture_.loadFromImage(loadImage_);
+    
+    clickToContinue_.setTexture(loadTexture_);
+    clickToContinue_.setPosition(240.f, 600.f);
+    clickToContinue_.setTextureRect({0,5*128, 5*128, 128});
+    clickToContinue_.setScale(0.75f, 0.75f);
 
     loadBar_.setTexture(loadTexture_);
     loadBar_.setPosition(100.f, 500.f);
@@ -382,7 +404,14 @@ void ppc::World::initLoadScreen() {
     
     loadingDecal_.setTexture(loadTexture_);
     loadingDecal_.setTextureRect({0,0, 6*128, 3*128});
-    loadingDecal_.setPosition(150, 100);
+    loadingDecal_.setPosition(150, 50);
+    
+    
+    loadingAddress_.setFont(World::getFont(World::FontList::Consola));
+    loadingAddress_.setCharacterSize(28);
+    loadingAddress_.setColor(sf::Color(0,200,0));
+    loadingAddress_.setPosition({150.f, 450.f});
+    loadingAddress_.setString("[     Loading Desktop At 1011 Nobel Dr     ]");
 
 	tempLoadScreen_.setPosition(0.f, 0.f);
 	tempLoadScreen_.setFillColor(sf::Color::Black);
@@ -403,6 +432,7 @@ void ppc::World::startLoading() {
 void ppc::World::setLoading(float f) {
 	if (f > 1.f || f < 0.f) f = 1.f;
 	if (f == 1.0f) isLoadBarFull_ = true;
+    else isLoadBarFull_ = false;
     loadBar_.setTextureRect({0, 4*128, static_cast<int>(1024*f),128});
 	tempLoadBar_.setSize({ 500.f * f, 50.f });
 	drawLoading();
@@ -412,18 +442,22 @@ void ppc::World::drawLoading() {
     if (isLoading_) {
         sf::RenderStates states;
         states.transform = worldTransform_;
-
+		
         screen_->clear(sf::Color::Black);
         screen_->draw(loadingDecal_, states);
         screen_->draw(loadBarBorder_, states);
         screen_->draw(loadBar_, states);
+        screen_->draw(loadingAddress_, states);
+        if(isLoadBarFull_) screen_->draw(clickToContinue_, states);
+
         screen_->display();
     }
 }
 
 void ppc::World::endLoading() {
-	if (isLoading_ == true) {
+	if (isLoading_) {
 		sf::Event event;
+
 		while(screen_->pollEvent(event)){
 			//HACK: Clear the event queue first,
 			// so that events added before the load bar is 
@@ -525,6 +559,54 @@ void ppc::World::saveState(std::string filename) {
     }
 
     file.close();
+}
+
+std::string ppc::World::getCurrAddress() {
+	return loadingAddressMap_.at(currDesktopEnum_);
+}
+
+std::string ppc::World::getAddress(DesktopList dl) {
+	if ((int)dl >= (int)DesktopCount) return "";
+	return loadingAddressMap_.at(dl);
+}
+
+void ppc::World::setAddress(World::DesktopList dl, std::string s) {
+	auto it = loadingAddressMap_.find(dl);
+	if (it != loadingAddressMap_.end()) it->second = s;
+}
+
+void ppc::World::setCurrAddress(std::string s) {
+	auto it = loadingAddressMap_.find(currDesktopEnum_);
+	if (it != loadingAddressMap_.end()) it->second = s;
+}
+
+void ppc::World::initAddressMap() {
+	std::ifstream fstream;
+
+	fstream.open(resourcePath() + "LoadAddress/DE1Address.txt");
+	std::string s1((std::istreambuf_iterator<char>(fstream)),
+		(std::istreambuf_iterator<char>()));
+	loadingAddressMap_.at(DE1) = s1;
+	fstream.close();
+
+	fstream.open(resourcePath() + "LoadAddress/DE2AAddress.txt");
+	std::string s2((std::istreambuf_iterator<char>(fstream)),
+		(std::istreambuf_iterator<char>()));
+	loadingAddressMap_.at(DE2A) = s2;
+	fstream.close();
+
+	fstream.open(resourcePath() + "LoadAddress/DE2BAddress.txt");
+	std::string s3((std::istreambuf_iterator<char>(fstream)),
+		(std::istreambuf_iterator<char>()));
+	loadingAddressMap_.at(DE2B) = s3;
+	fstream.close();
+
+	fstream.open(resourcePath() + "LoadAddress/DE3Address.txt");
+	std::string s4((std::istreambuf_iterator<char>(fstream)),
+		(std::istreambuf_iterator<char>()));
+	loadingAddressMap_.at(DE3) = s4;
+	fstream.close();
+
 }
 
 

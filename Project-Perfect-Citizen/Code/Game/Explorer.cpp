@@ -13,16 +13,11 @@
 #include "explorerFileInputComponent.h"
 #include "explorerFolderInputComponent.h"
 
-
-#ifdef WINDOWS_MARKER
-#define resourcePath() std::string("Resources/")
-#else
-#include "ResourcePath.hpp"
-#endif
+#include "../ResourceDef.h"
 
 using namespace ppc;
 
-Explorer::Explorer(Desktop& dT, WindowInterface* win, NodeState& ns, sf::Image& bS, sf::Image& iS) : theDesktop_(dT), windowToWorkOn_(win), theFileTree_(ns), buttonSheet_(bS), iconSheet_(iS) {
+Explorer::Explorer(Desktop& dT, WindowInterface* win, NodeState* ns, sf::Image& bS, sf::Image& iS) : theDesktop_(dT), windowToWorkOn_(win), theFileTree_(ns), buttonSheet_(bS), iconSheet_(iS) {
 	updateExplorerDisplay();
 }
 
@@ -76,7 +71,7 @@ std::vector<Entity> Explorer::createVectorFrame(std::vector<std::string> filenam
 				buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet_, 0, 9, 1, 1);
 				IconRender->renderPosition(sf::Vector2f(static_cast<float>(k * padding), static_cast<float>(j * padding)));
 				std::string folderName = filenames.at(i);
-				if (theFileTree_.getRoot() == theFileTree_.getCwd() && folderName.compare("..") == 0) { folderName = "  C://"; }
+				if (theFileTree_->getRoot() == theFileTree_->getCwd() && folderName.compare("..") == 0) { folderName = "  C://"; }
 				else if (folderName.compare("..") == 0) { folderName = "<- Back"; }
 				
 				textLabelComponent* label = new textLabelComponent(font, sf::Color::Black, float(k * padding), float(j * padding + 0.5 * 128), 12, folderName);
@@ -105,9 +100,9 @@ void Explorer::updateExplorerDisplay() {
 	std::string ls = "ls";
 	firstLsCommand.push_back(ls);
 	commandFn firstLs = findFunction(ls);
-	firstLs(theFileTree_, firstLsCommand);
+	firstLs(*theFileTree_, firstLsCommand);
 
-	std::string rawDirString = theFileTree_.getDirString();
+	std::string rawDirString = theFileTree_->getDirString();
 	std::string delimiter = "@";
 	size_t pos = 0;
 	std::string token;
