@@ -21,7 +21,7 @@ void ppc::setUpLogoDesktop(ppc::Desktop& myDesktop) {
 	Entity badCop;
 
 	BadCopRenderComponent* badCopRender = new BadCopRenderComponent(myDesktop.getIconSheet());
-	BadCopUpdateComponent* badCopUpdate = new BadCopUpdateComponent(*badCopRender, .1f);
+	BadCopUpdateComponent* badCopUpdate = new BadCopUpdateComponent(*badCopRender, 0.12f);
 
 	badCop.addComponent(badCopRender);
 	badCop.addComponent(badCopUpdate);
@@ -116,5 +116,6 @@ void ppc::setUpPoliticianDesktop(ppc::Desktop& myDesktop) {
 }
 
 void ppc::setUpHackerDesktop(ppc::Desktop& myDesktop) {
-
+    createHackerDesktop(myDesktop, *myDesktop.getDesktopWindow(),
+        myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
 }

@@ -394,19 +394,22 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	graphBox.addComponent(networkRender);
 	graphBox.addComponent(networkInput);
 
-	Entity submitButton;
-	float buttonScale = 0.25f;
-	int buttonSize = 256;
-	spawnNetworkOkayButton(playNet,submitButton, windowToModify->getInputHandler(), buttonSheet, 
-		( ( graphBounds->getLocalBounds().width - (buttonSize * buttonScale) ) / 2 ), static_cast<float>(windowToModify->getSize().y-50), buttonScale, 
-		ncf, myFont);
+
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 	windowToModify->addEntity(dataBox);
 	windowToModify->addEntity(graphBox);
-	windowToModify->addEntity(submitButton);
+	if (World::getCurrDesktop().getNetVecIndex() >= World::getCurrDesktop().getNetVecSize() - 1) {
+		Entity submitButton;
+		float buttonScale = 0.25f;
+		int buttonSize = 256;
+		spawnNetworkOkayButton(playNet, submitButton, windowToModify->getInputHandler(), buttonSheet,
+			((graphBounds->getLocalBounds().width - (buttonSize * buttonScale)) / 2), static_cast<float>(windowToModify->getSize().y - 50), buttonScale,
+			ncf, myFont);
+		windowToModify->addEntity(submitButton);
+	}
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
@@ -461,30 +464,31 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih,
             }
         }
         
+        
+        textRenderComponent* textBox =
+        new textRenderComponent(myFont, content, 0, 0, fontSize);
+        newEnt.addComponent(textBox);
+        windowToModify->setPosition(x, y);
+        windowToModify->addEntity(newEnt);
+        
         windowScrollHeight = windowScrollHeight * textMuliplier;
         if(windowScrollHeight > maxWindowScroll){
             windowScrollHeight = maxWindowScroll;
         }
-        
-        if(windowScrollHeight < minWindowHeight){
+        else if(windowScrollHeight < minWindowHeight){
             windowScrollHeight = minWindowHeight;
+
         }
-        
-        textRenderComponent* textBox =
-            new textRenderComponent(myFont, content, 0, 0, fontSize);
-        
-        newEnt.addComponent(textBox);
-        windowToModify->setPosition(x, y);
-        windowToModify->addEntity(newEnt);
-        windowToModify->setSize(windowToModify->getSize().x, windowScrollHeight);
-        
-        sf::FloatRect viewRect = {
-            0.0f,
-            0.0f,
-            float(windowToModify->getSize().x),
-            float(windowToModify->getSize().x)
-        };
-        windowToModify = new ScrollBarDecorator(*windowToModify, World::getCurrDesktop().getButtonSheet(), sf::View(viewRect));
+        if(windowScrollHeight > minWindowHeight){
+            windowToModify->setSize(windowToModify->getSize().x, windowScrollHeight);
+            sf::FloatRect viewRect = {
+                0.0f,
+                0.0f,
+                float(windowToModify->getSize().x),
+                float(windowToModify->getSize().x)
+            };
+            windowToModify = new ScrollBarDecorator(*windowToModify, World::getCurrDesktop().getButtonSheet(), sf::View(viewRect));
+        }
     }
     
     else if(dotEnd == PNG || dotEnd == JPG){
@@ -1377,86 +1381,87 @@ void ppc::spawnCreditsWindow(Desktop * dt, WindowInterface *& windowToModify, In
 	builder.setFont(myFont);
 
 	Entity productionHeader;
+    builder.setSize(headerSize);
 	builder.setPosition(sf::Vector2f(headerX-15, 200.0f));
-	builder.setSize(headerSize);
 	builder.setString("Production");
 	builder.create(productionHeader);
 	windowToModify->addEntity(productionHeader);
 
 	Entity productionList;
+    builder.setSize(subHeaderSize);
 	builder.setPosition(sf::Vector2f(subHeaderX, 250.0f));
-	builder.setSize(subHeaderSize);
 	builder.setString("     Alex Vincent   Project Lead");
 	builder.create(productionList);
 	windowToModify->addEntity(productionList);
 
 	Entity designHeader;
+    builder.setSize(headerSize);
 	builder.setPosition(sf::Vector2f(headerX+10, 300.0f));
-	builder.setSize(headerSize);
 	builder.setString("Design");
 	builder.create(designHeader);
 	windowToModify->addEntity(designHeader);
 
 	Entity designList;
+    builder.setSize(subHeaderSize);
 	builder.setPosition(sf::Vector2f(subHeaderX, 350.0f));
-	builder.setSize(subHeaderSize);
 	builder.setString("      Mark Biundo   Lead Designer\n    Brandon Gomez   Game Designer\n    Jason Brisson   Writer/Designer");
 	builder.create(designList);
 	windowToModify->addEntity(designList);
 
 	Entity programmerHeader;
+    builder.setSize(headerSize);
 	builder.setPosition(sf::Vector2f(headerX-15, 450.0f));
-	builder.setSize(headerSize);
 	builder.setString("Programming");
 	builder.create(programmerHeader);
 	windowToModify->addEntity(programmerHeader);
 
 	Entity programmerList;
+    builder.setSize(subHeaderSize);
 	builder.setPosition(sf::Vector2f(subHeaderX, 500.0f));
-	builder.setSize(subHeaderSize);
 	builder.setString("       Daniel Luna   Lead Developer\n       Nader Sleem   Game Programmer\n John 'Andy' Baden   Game Programmer/Designer");
 	builder.create(programmerList);
 	windowToModify->addEntity(programmerList);
 
 	Entity artHeader;
+    builder.setSize(headerSize);
 	builder.setPosition(sf::Vector2f(headerX-10, 600.0f));
-	builder.setSize(headerSize);
 	builder.setString("Art & Sound");
 	builder.create(artHeader);
 	windowToModify->addEntity(artHeader);
 
 	Entity artList;
+    builder.setSize(subHeaderSize);
 	builder.setPosition(sf::Vector2f(subHeaderX, 650.0f));
-	builder.setSize(subHeaderSize);
 	builder.setString("      Michael Lowe   Lead Technical Artist\n      Austin Enoch   Character Artist\n    Pilar Costabal   User Interface Artist");
 	builder.create(artList);
 	windowToModify->addEntity(artList);
 
 	Entity thanksHeader;
+    builder.setSize(headerSize);
 	builder.setPosition(sf::Vector2f(headerX-30, 750.0f));
-	builder.setSize(headerSize);
 	builder.setString("Special Thanks");
 	builder.create(thanksHeader);
 	windowToModify->addEntity(thanksHeader);
 
 	Entity thanksList;
+    builder.setSize(subHeaderSize);
 	builder.setPosition(sf::Vector2f(subHeaderX, 800.0f));
-	builder.setSize(subHeaderSize);
 	builder.setString("     Jim Whitehead   Senior Advisor\n    Michael Mateas   Senior Advisor\n        James Ryan   Advisor\n      Jessica Fong   Trailer Voice Over\n\n         UCSC Games & Playable Media");
 	builder.create(thanksList);
 	windowToModify->addEntity(thanksList);
 
-
 	windowToModify->setSize(unsigned int(windowWidth), 1000);
+
 	sf::FloatRect viewRect = {
 		0.0f,
 		0.0f,
 		float(windowToModify->getSize().x),
 		float(windowToModify->getSize().y / 2)
 	};
-	
-	windowToModify = new ScrollBarDecorator(*windowToModify, World::getCurrDesktop().getButtonSheet(), sf::View(viewRect));
 
+	windowToModify = new ScrollBarDecorator(*windowToModify, World::getCurrDesktop().getButtonSheet(), sf::View(viewRect));
+    windowToModify->move(0, 200);
+    
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(dt->getButtonSheet(), closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Credits");

@@ -247,6 +247,8 @@ namespace ppc {
 
 		  int getNetVecIndex();
 
+		  unsigned int getNetVecSize() { return solVec_.size();  }
+
 		  void incrementNetVecIndex();
 
 ///////////////////////////////////////////////////////////////////////
