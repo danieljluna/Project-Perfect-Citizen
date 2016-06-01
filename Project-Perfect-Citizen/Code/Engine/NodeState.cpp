@@ -7,7 +7,9 @@
 #include "SubjectObsvr.h"
 
 ppc::NodeState::NodeState() {
-
+	root = nullptr;
+	cwd = nullptr;
+	lastLsNode = nullptr;
 }
 
 ppc::NodeState::NodeState(const NodeState& other) {
@@ -23,7 +25,12 @@ ppc::NodeState::NodeState(const NodeState& other) {
 }
 
 ppc::NodeState::~NodeState() {
-
+	if (root != nullptr) {
+		delete root;
+	}
+	root = nullptr;
+	cwd = nullptr;
+	lastLsNode = nullptr;
 }
 
 void ppc::NodeState::popWorking()

@@ -24,6 +24,7 @@ namespace ppc {
         int blackScreen;
         int alpha;
         bool _willAnimate;
+        mutable bool hasDrawn = false;
         static const int size = 512;
         
     public:
@@ -53,7 +54,7 @@ namespace ppc {
         ///////////////////////////////////////////////////////////////////////
         void setImageScale(float ScaleX, float ScaleY);
         
-                
+        
         ///////////////////////////////////////////////////////////////////////
         /// @brief Animates the sprite
         ///////////////////////////////////////////////////////////////////////

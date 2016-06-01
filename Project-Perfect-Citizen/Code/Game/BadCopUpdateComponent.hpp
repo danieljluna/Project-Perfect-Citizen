@@ -22,6 +22,7 @@ namespace ppc {
         float speed;
         sf::Time counter;
         sf::Time framePeriod;
+        bool haveDrawn = false;
     public:
         ////////////////////////////////////////////////////////////////////
         /// @brief Constructor for animatorComponent
@@ -39,6 +40,8 @@ namespace ppc {
         /// @brief Destructor for animatorComponent
         ////////////////////////////////////////////////////////////////////
         ~BadCopUpdateComponent();
+        
+       // bool recieveMessage(Event)
         
         ////////////////////////////////////////////////////////////////////
         /// @brief update method for animatorComponent
