@@ -367,8 +367,6 @@
     <ClCompile Include="Code\Game\ReportScreenObsvr.cpp">
       <Filter>Sources\Game Specific\Reports</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Game\BadCopRenderComponent.cpp" />
-    <ClCompile Include="Code\Game\BadCopUpdateComponent.cpp" />
     <ClCompile Include="Code\Game\TextCharacterUpdate.cpp">
       <Filter>Sources\Game Specific\Reports</Filter>
     </ClCompile>
@@ -391,6 +389,12 @@
       <Filter>Sources\Game Specific</Filter>
     </ClCompile>
     <ClCompile Include="Code\Game\startBarUpdateComponent.cpp">
+      <Filter>Sources\Game Specific</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\BadCopRenderComponent.cpp">
+      <Filter>Sources\Game Specific</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\BadCopUpdateComponent.cpp">
       <Filter>Sources\Game Specific</Filter>
     </ClCompile>
   </ItemGroup>
@@ -785,8 +789,6 @@
     <ClInclude Include="Code\Game\ReportScreenObsvr.h">
       <Filter>Headers\Game Specific\Reports</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Game\BadCopRenderComponent.hpp" />
-    <ClInclude Include="Code\Game\BadCopUpdateComponent.hpp" />
     <ClInclude Include="Code\Game\TextCharacterUpdate.h">
       <Filter>Headers\Game Specific\Reports</Filter>
     </ClInclude>
@@ -805,11 +807,17 @@
     <ClInclude Include="Code\Engine\SetUpDesktops.h">
       <Filter>Headers\Engine\World</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Game\startBarUpdateComponent.hpp">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Code\ResourceDef.h">
       <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\BadCopUpdateComponent.hpp">
+      <Filter>Headers\Game Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\BadCopRenderComponent.hpp">
+      <Filter>Headers\Game Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\startBarUpdateComponent.hpp">
+      <Filter>Headers\Game Specific</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
