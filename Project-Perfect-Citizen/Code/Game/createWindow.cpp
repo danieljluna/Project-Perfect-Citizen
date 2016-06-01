@@ -298,7 +298,7 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
         0.0f,
         0.0f,
         float(windowToModify->getSize().x),
-        float(windowToModify->getSize().y / 1.5)
+        float(windowToModify->getSize().y / 1.8)
     };
     windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     
@@ -667,7 +667,7 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	Entity errorMessageDisplayBox;
 	errorMessageDisplayBox.addComponent(eMRC);
 
-	windowToModify->setSize(newWindowWidth, unsigned int(windowHeight));
+	windowToModify->setSize(newWindowWidth, (unsigned int)(windowHeight));
 	float buttonX = ((newWindowWidth - (alertWidth * buttonScale)) / 2);
 	float buttonY = (2 * (windowHeight / 3));
 
@@ -964,7 +964,7 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
     lBuilder.setInputHandle(ih);
     lBuilder.setLabelMessage("LOG IN");
     lBuilder.setSpriteSheet(buttonSheet);
-    lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3)-2, 95.0f));
+    lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3)- 227, 95.0f));
     lBuilder.setSize(0.25f);
     lBuilder.setLabelFont(myFont);
     lBuilder.setLabelSize(12);
@@ -972,17 +972,23 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
 
 	Entity settingsButton;
 	lBuilder.setLabelMessage("Settings");
-	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 75, 95.0f));
+	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 152, 95.0f));
 	createWithEventFunc(lBuilder, settingsButton, windowToModify, open_settings);
 
 	Entity creditsButton;
 	lBuilder.setLabelMessage("Credits");
-	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 152, 95.0f));
+	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 75, 95.0f));
 	createWithEventFunc(lBuilder, creditsButton, windowToModify, open_credits);
+
+	Entity quitButton;
+	lBuilder.setLabelMessage("QUIT");
+	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 2, 95.0f));
+	createWithEventFunc(lBuilder, quitButton, &World::getCurrDesktop(), confirm_quit);
   
     
     windowToModify->addEntity(alertIcon);
     windowToModify->addEntity(tbox);
+	windowToModify->addEntity(quitButton);
     windowToModify->addEntity(promptText);
     windowToModify->addEntity(loginButton);
 	windowToModify->addEntity(settingsButton);
@@ -1452,7 +1458,7 @@ void ppc::spawnCreditsWindow(Desktop * dt, WindowInterface *& windowToModify, In
 	builder.create(thanksList);
 	windowToModify->addEntity(thanksList);
 
-	windowToModify->setSize(unsigned int(windowWidth), 1000);
+	windowToModify->setSize((unsigned int)(windowWidth), 1000);
 
 	sf::FloatRect viewRect = {
 		0.0f,
@@ -1645,5 +1651,31 @@ bool ppc::update_settings(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)
 	// Set the new resolution using resX, resY;
 	return true;
 }
+
+bool ppc::confirm_quit(Desktop* ptr, ppc::Event ev) {
+	ppc::WindowInterface* ConfirmationWindow =
+		new ppc::Window(600, 150, sf::Color(170, 170, 170));
+	ConfirmWindowBuilder builder;
+
+	builder.setButtonLabelFont(World::getFont(World::FontList::Consola));
+	builder.setCancelButtonLabel("CANCEL");
+	builder.setConfirmButtonLabel("QUIT");
+	builder.setConfirmMessage("Are you sure you want to quit?");
+	builder.setMessageFont(World::getFont(World::FontList::Consola));
+	builder.setMessageFontSize(16);
+	builder.setPosition(sf::Vector2f(200, 375));
+	builder.setSpriteSheet(World::getCurrDesktop().getButtonSheet());
+	builder.setWindowCaption("Quit?");
+	createWithEventFunc(builder, ConfirmationWindow, ptr, ppc::quit_game);
+	ptr->addWindow(ConfirmationWindow);
+	return true;
+}
+
+bool ppc::quit_game(Desktop * ptr, ppc::Event ev)
+{
+	throw std::logic_error("Screen Closer");
+	return true;
+}
+
 
 

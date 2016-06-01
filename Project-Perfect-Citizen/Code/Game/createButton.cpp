@@ -236,7 +236,7 @@ bool ppc::LogOff(Desktop* ptr, Event ev) {
 	builder.setConfirmMessage("Are you sure you want to log off?\n(This will return you to the main menu)");
 	builder.setMessageFont(World::getFont(World::FontList::Consola));
 	builder.setMessageFontSize(16);
-	builder.setPosition(sf::Vector2f(300,200));
+	builder.setPosition(sf::Vector2f(300,300));
 	builder.setSpriteSheet(World::getCurrDesktop().getButtonSheet());
 	builder.setWindowCaption("Log Off?");
 	createWithEventFunc(builder, ConfirmationWindow, ptr, ppc::returnToLogin);

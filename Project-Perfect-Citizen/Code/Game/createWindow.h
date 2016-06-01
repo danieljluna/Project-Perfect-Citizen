@@ -259,6 +259,8 @@ bool decrement_volume(TextDisplayRenderComponent*, ppc::Event ev);
 
 bool toggle_window_settings(TextDisplayRenderComponent*, ppc::Event);
 bool update_settings(TextDisplayRenderComponent*, ppc::Event ev);
+bool confirm_quit(Desktop*, ppc::Event);
+bool quit_game(Desktop*, ppc::Event);
 };
 
 
