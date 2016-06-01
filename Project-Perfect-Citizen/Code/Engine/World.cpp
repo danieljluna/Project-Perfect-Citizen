@@ -7,6 +7,7 @@
 
 #include "debug.h"
 #include "../Engine/SuspiciousFileHolder.h"
+#include "../Game/playerLocator.hpp"
 #include "SetUpDesktops.h"
 
 using namespace ppc;
@@ -406,12 +407,14 @@ void ppc::World::initLoadScreen() {
     loadingDecal_.setTextureRect({0,0, 6*128, 3*128});
     loadingDecal_.setPosition(150, 50);
     
+    PlayerLocator locator;
+    
     
     loadingAddress_.setFont(World::getFont(World::FontList::Consola));
     loadingAddress_.setCharacterSize(28);
     loadingAddress_.setColor(sf::Color(0,200,0));
     loadingAddress_.setPosition({150.f, 450.f});
-    loadingAddress_.setString("[     Loading Desktop At 1011 Nobel Dr     ]");
+    loadingAddress_.setString(locator.getIp() + " " + locator.getCity());
 
 	tempLoadScreen_.setPosition(0.f, 0.f);
 	tempLoadScreen_.setFillColor(sf::Color::Black);
