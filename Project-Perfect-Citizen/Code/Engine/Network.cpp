@@ -36,7 +36,7 @@ Network::Network(size_t size) {
 Network::~Network() {
 	for (size_t i = 0; i < size_ * size_; ++i) {
 		if (edgeMat_[i] != nullptr) {
-			delete[] edgeMat_[i];
+			delete edgeMat_[i];
 			edgeMat_[i] = nullptr;
 		}
 	}
