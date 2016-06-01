@@ -228,7 +228,7 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
                 break;
             case IconType::HardDrive: //Was Explorer
                 tempWin = new ppc::Window(600, 350, sf::Color(255, 255, 255));
-                spawnExplorer(theDesktop_, tempWin, tempWin->getInputHandler(), *theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
+                spawnExplorer(theDesktop_, tempWin, tempWin->getInputHandler(), theDesktop_.getNodeState(), buttonSheet_, iconSheet_, 100, 200);
                 theDesktop_.addWindow(tempWin);
                 openedWindow = tempWin;
                 break;
@@ -268,7 +268,7 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
 						cdCommand.push_back(labelName);
 						commandFn newCD = findFunction(cd);
 						newCD(tempNS, cdCommand);
-						spawnExplorer(theDesktop_, tempWin, tempWin->getInputHandler(), tempNS, buttonSheet_, iconSheet_, 100, 200);
+						spawnExplorer(theDesktop_, tempWin, tempWin->getInputHandler(), &tempNS, buttonSheet_, iconSheet_, 100, 200);
 						theDesktop_.addWindow(tempWin);
 						openedWindow = tempWin;
 					}

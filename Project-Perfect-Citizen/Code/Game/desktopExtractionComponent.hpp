@@ -25,11 +25,11 @@ namespace ppc {
         ///////////////////////////////////////////////////////////////////
         ///@brief constructor for crearting desktop data
         ///////////////////////////////////////////////////////////////////
-        desktopExtractionComponent(NodeState& fileTree_);
+        desktopExtractionComponent(NodeState* fileTree_);
         
         ////////////////////////////////////////////////////////////////////
         /// @brief Builds Json::Value Object containing Desktop content and
-        //      their appropiate paths
+        ///      their appropiate paths
         /// @details Builds a C++ Json representation of Desktop content
         ///     object as specified by a .json file
         /// @param[out] Json::Value         Json object containing
@@ -51,7 +51,7 @@ namespace ppc {
         
         
     private:
-        NodeState fileTree_;
+        NodeState* fileTree_;
     };
     
 };
