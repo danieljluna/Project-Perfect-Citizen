@@ -401,7 +401,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	///////////////////////////////////////
 	windowToModify->addEntity(dataBox);
 	windowToModify->addEntity(graphBox);
-	if (World::getCurrDesktop().getNetVecIndex() >= World::getCurrDesktop().getNetVecSize() - 1) {
+	if (World::getCurrDesktop().getNetVecIndex() >= int(World::getCurrDesktop().getNetVecSize() - 1)) {
 		Entity submitButton;
 		float buttonScale = 0.25f;
 		int buttonSize = 256;
