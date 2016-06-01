@@ -193,7 +193,7 @@ void PipelineCharacter::generate() {
     std::uniform_int_distribution<> nosed(0, 8);
     // for skin index
     std::uniform_int_distribution<> skind(0, 30);
-
+	// for shirt index
     std::uniform_int_distribution<> shirtd(5, 8);
     // for hair index
     std::uniform_int_distribution<> haircd(0, 7);

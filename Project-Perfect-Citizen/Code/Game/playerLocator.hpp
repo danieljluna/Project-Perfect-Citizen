@@ -3,9 +3,11 @@
 //  Created by Michael Lowe on 5/31/16.
 //  Copyright © 2016 BadCop Studios. All rights reserved.
 //
-
 #pragma once
-#include "json.h"
+
+#include <string>
+
+#include "../Library/json/json.h"
 
 class PlayerLocator {
         
