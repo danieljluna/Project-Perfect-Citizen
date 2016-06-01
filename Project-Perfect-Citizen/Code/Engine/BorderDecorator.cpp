@@ -2,6 +2,8 @@
 #include "BorderDecorator.h"
 
 #include <SFML/Window/Event.hpp>
+//#include "Audio/AudioQueue.h"
+#include "World.h"
 
 using namespace ppc;
 
@@ -343,8 +345,11 @@ void BorderDecorator::updateButton(size_t i) {
 
 
 bool ppc::closeWindow(WindowInterface* win, Event ev) {
-    win->close();
 
+	int testSound = World::getAudio().addSound("Close_Window", "Close_Window.wav");
+	World::getAudio().readySound(testSound);
+	World::getAudio().popAndPlay();
+    win->close();
     return true;
 }
 

@@ -102,7 +102,7 @@ void TextDisplayRenderComponent::updateColor(sf::Color c) {
 
 void ppc::TextDisplayRenderComponent::incrementRenderState()
 {
-	if (renderStates.size() <= unsigned int(currentRenderState) + 1) {
+	if (renderStates.size() <= (unsigned int)(currentRenderState) + 1) {
 		updateString(renderStates.at(0));
 		currentRenderState = 0;
 	}
