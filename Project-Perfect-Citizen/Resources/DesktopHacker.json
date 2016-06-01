@@ -22,12 +22,14 @@
                         "Decision_Point//": {
                             "5/Resignation_4.txt" : "DesktopContent/DesktopHacker/Resignation_4.txt",
                             "Maintain_Order": {
+                                "5/Note_1.txt" : "DesktopContent/DesktopHacker/Note_1.txt",
+                                "5/Note_2.txt" : "DesktopContent/DesktopHacker/Note_2.txt",
+                                "5/Note_3.txt" : "DesktopContent/DesktopHacker/Note_3.txt"
+                            },
+                            "Public_Reveal": {
                                 "5/DCPS_1.txt" : "DesktopContent/DesktopHacker/DCPS_1.txt",
                                 "5/DCPS_2.txt" : "DesktopContent/DesktopHacker/DCPS_2.txt",
                                 "5/DCPS_3.txt" : "DesktopContent/DesktopHacker/DCPS_3.txt"
-                            },
-                            "Public_Reveal": {
-                                "5/Empty" : "DesktopContent/DesktopHacker/Resignation_2.txt"
                             }
                         }
                     }

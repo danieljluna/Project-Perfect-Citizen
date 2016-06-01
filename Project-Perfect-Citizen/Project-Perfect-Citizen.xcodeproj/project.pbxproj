@@ -321,6 +321,9 @@
 		E93CC0541CFF83D000E960EB /* Resignation_3.txt in Resources */ = {isa = PBXBuildFile; fileRef = E93CC0431CFF83D000E960EB /* Resignation_3.txt */; };
 		E93CC0551CFF83D000E960EB /* Resignation_4.txt in Resources */ = {isa = PBXBuildFile; fileRef = E93CC0441CFF83D000E960EB /* Resignation_4.txt */; };
 		E9636A7E1CFF9522008E6E66 /* playerLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9636A7C1CFF9522008E6E66 /* playerLocator.cpp */; };
+		E9636A801CFF997E008E6E66 /* Note_1.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9636A7F1CFF997E008E6E66 /* Note_1.txt */; };
+		E9636A821CFF9987008E6E66 /* Note_2.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9636A811CFF9987008E6E66 /* Note_2.txt */; };
+		E9636A841CFF9990008E6E66 /* Note_3.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9636A831CFF9990008E6E66 /* Note_3.txt */; };
 		E9E830A01CF63D4A00945974 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E82F811CF63D4A00945974 /* main.cpp */; };
 		E9E830A11CF63D4A00945974 /* AudioLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E82F851CF63D4A00945974 /* AudioLocator.cpp */; };
 		E9E830A21CF63D4A00945974 /* AudioLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E82F871CF63D4A00945974 /* AudioLogger.cpp */; };
@@ -786,6 +789,9 @@
 		E9636A7B1CFF94FE008E6E66 /* ResourceDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceDef.h; sourceTree = "<group>"; };
 		E9636A7C1CFF9522008E6E66 /* playerLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = playerLocator.cpp; sourceTree = "<group>"; };
 		E9636A7D1CFF9522008E6E66 /* playerLocator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = playerLocator.hpp; sourceTree = "<group>"; };
+		E9636A7F1CFF997E008E6E66 /* Note_1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Note_1.txt; sourceTree = "<group>"; };
+		E9636A811CFF9987008E6E66 /* Note_2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Note_2.txt; sourceTree = "<group>"; };
+		E9636A831CFF9990008E6E66 /* Note_3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Note_3.txt; sourceTree = "<group>"; };
 		E9E82F811CF63D4A00945974 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
 		E9E82F841CF63D4A00945974 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
 		E9E82F851CF63D4A00945974 /* AudioLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioLocator.cpp; sourceTree = "<group>"; };
@@ -1534,6 +1540,9 @@
 				E93CC0421CFF83D000E960EB /* Resignation_2.txt */,
 				E93CC0431CFF83D000E960EB /* Resignation_3.txt */,
 				E93CC0441CFF83D000E960EB /* Resignation_4.txt */,
+				E9636A7F1CFF997E008E6E66 /* Note_1.txt */,
+				E9636A811CFF9987008E6E66 /* Note_2.txt */,
+				E9636A831CFF9990008E6E66 /* Note_3.txt */,
 			);
 			path = DesktopHacker;
 			sourceTree = "<group>";
@@ -1987,6 +1996,7 @@
 				E90E0D721CFD53CA001D870C /* loginDesktop.ini in Resources */,
 				E90E0CD51CFD53CA001D870C /* explosives_permit.txt in Resources */,
 				E90E0D071CFD53CA001D870C /* RE_Welcome.txt in Resources */,
+				E9636A841CFF9990008E6E66 /* Note_3.txt in Resources */,
 				E90E0DAD1CFD53CA001D870C /* DummyReportB.txt in Resources */,
 				E90E0D5C1CFD53CA001D870C /* The_Changing_Times.png in Resources */,
 				E90E0DC21CFD53CA001D870C /* SoundTrack_Pipeline.ogg in Resources */,
@@ -2120,6 +2130,7 @@
 				E90E0DBF1CFD53CA001D870C /* PPC.sav in Resources */,
 				E90E0CF61CFD53CA001D870C /* Fragment+Of+Eternity.png in Resources */,
 				E90E0D391CFD53CA001D870C /* SVD_Sniper_Rifle.png in Resources */,
+				E9636A821CFF9987008E6E66 /* Note_2.txt in Resources */,
 				E90E0DBD1CFD53CA001D870C /* ResponseEmailA.json in Resources */,
 				E90E0D0F1CFD53CA001D870C /* To_Murphy.txt in Resources */,
 				E90E0D4D1CFD53CA001D870C /* Mom_Will.txt in Resources */,
@@ -2187,6 +2198,7 @@
 				E90E0D601CFD53CA001D870C /* Therapy_Journal_#3.txt in Resources */,
 				E90E0D1D1CFD53CA001D870C /* Exporting_Materials.png in Resources */,
 				E90E0CC61CFD53CA001D870C /* DE1PipelineTexts.json in Resources */,
+				E9636A801CFF997E008E6E66 /* Note_1.txt in Resources */,
 				E90E0DB51CFD53CA001D870C /* PoliticianReportB.txt in Resources */,
 				E90E0D4A1CFD53CA001D870C /* Hospice_Gift_Receipt.png in Resources */,
 				E90E0D1A1CFD53CA001D870C /* CRV-59AAE_Schematic.png in Resources */,
