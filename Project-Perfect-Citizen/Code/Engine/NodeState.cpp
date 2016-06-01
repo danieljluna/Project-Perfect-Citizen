@@ -26,7 +26,7 @@ ppc::NodeState::NodeState(const NodeState& other) {
 
 ppc::NodeState::~NodeState() {
 	if (root != nullptr) {
-		delete root;
+		//delete root;
 	}
 	root = nullptr;
 	cwd = nullptr;
