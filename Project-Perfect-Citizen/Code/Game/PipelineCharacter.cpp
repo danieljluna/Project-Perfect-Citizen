@@ -197,6 +197,7 @@ void PipelineCharacter::generate() {
      1, 1, 1, 2, 1, 2, 1, 1, 2, 1,
      1, 2, 1, 2, 1, 1, 1, 1, 1, 1,};
 
+
     std::uniform_int_distribution<> shirtd(5, 8);
     // for hair index
     std::uniform_int_distribution<> haircd(0, 7);
