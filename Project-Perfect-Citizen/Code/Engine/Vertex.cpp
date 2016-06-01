@@ -24,7 +24,7 @@ ppc::Vertex::Vertex(){
     
     sf::Image face_sheet;
     face_sheet.loadFromFile(resourcePath() + "Face_Sheet.png");
-    rend_ = new characterRender(face_sheet);
+	rend_.setImage(face_sheet);
     
     bgrect_.setSize(sf::Vector2f(100,125));
     bgrect_.setFillColor(sf::Color(181,179,165));
@@ -34,7 +34,7 @@ ppc::Vertex::Vertex(){
     rect_.setSize(sf::Vector2f(100,100));
     rect_.setFillColor(sf::Color(180,180,180));
     rect_.setOutlineColor(sf::Color::Black);
-    rend_->setOrigin(rect_.getOrigin().x, rect_.getOrigin().y);
+    rend_.setOrigin(rect_.getOrigin().x, rect_.getOrigin().y);
 
 
 	circ_.setRadius(radius_);
@@ -77,7 +77,7 @@ ppc::Vertex& ppc::Vertex::operator=(const Vertex& other){
 }
 
 ppc::Vertex::~Vertex() {
-
+	//delete rend_;
 }
 
 sf::Color ppc::Vertex::getColor() const {
@@ -122,8 +122,8 @@ ppc::PipelineCharacter ppc::Vertex::getCharacter() const {
 
 void ppc::Vertex::setCharacter(ppc::PipelineCharacter ch) {
 	char_ = ch;
-    rend_->applyCharacterValues(char_);
-    rend_->setShouldDraw(true);
+    rend_.applyCharacterValues(char_);
+    rend_.setShouldDraw(true);
 
 	text_.setString(char_.getSSN().substr(0, 2));
 }
@@ -152,7 +152,7 @@ void ppc::Vertex::selectVert() {
 	circ_.setOutlineThickness(3.f);
     rect_.setOutlineThickness(3.f);
     bgrect_.setOutlineThickness(3.f);
-    rend_->setOrigin(rect_.getOrigin().x, rect_.getOrigin().y);
+    rend_.setOrigin(rect_.getOrigin().x, rect_.getOrigin().y);
 
 }
 
@@ -178,6 +178,6 @@ void ppc::Vertex::draw(sf::RenderTarget& target,
     target.draw(bgrect_, states);
 	target.draw(rect_, states);
 	target.draw(text_, states);
-    target.draw(*rend_, states);
+    target.draw(rend_, states);
 
 }

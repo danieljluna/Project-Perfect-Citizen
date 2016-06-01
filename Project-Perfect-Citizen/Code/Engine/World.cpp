@@ -700,8 +700,8 @@ void ppc::World::update(sf::Clock& deltaTime, sf::Time& framePeriod ) {
 void ppc::World::initializeResolution() {
     sf::Vector2f result;
 
-    result.y = settings_.resolution.y;
-    result.x = settings_.resolution.x;
+    result.y = float(settings_.resolution.y);
+    result.x = float(settings_.resolution.x);
 
     sf::Vector2f scaleFactorVec;
     scaleFactorVec.x = float(settings_.resolution.x) / 1000;

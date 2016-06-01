@@ -6,6 +6,20 @@
 
 using namespace ppc;
 
+
+Subject::~Subject() {
+    BaseObserver* temp = observerHead;
+    BaseObserver* curr = temp;
+    observerHead = nullptr;
+    while (curr != nullptr) {
+        temp = curr;
+        curr = temp->next;
+        //temp->watching_ = nullptr;
+        delete temp;
+        temp = nullptr;
+    }
+}
+
 //adds to the front. 
 //TODO
 void Subject::addObserver(BaseObserver* observer) {
