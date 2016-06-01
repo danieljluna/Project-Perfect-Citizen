@@ -191,7 +191,7 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
 	builder.setSize(0.5f);
 
 	// Create teacher desktop folders/files
-	Entity BlueBirdFile;
+	/*Entity BlueBirdFile;
 	builder.setPosition({ 750.0f, 350.0f });
 	builder.setIconType(iconInputComponent::IconType::File);
 	builder.setSpritebyIndicies(0, 0, 1, 3);
@@ -205,7 +205,7 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
 	builder.setSpritebyIndicies(0, 0, 1, 3);
 	builder.setText("Myth_of_Sisyphus_by_Albert_Camus.txt", World::getFont(World::VT323Regular), sf::Color::White);
 	builder.create(SisyphusFile);
-	desktopWindowToModify.addEntity(SisyphusFile);
+	desktopWindowToModify.addEntity(SisyphusFile);*/
 
     desktopWindowToModify.addEntity(ChatIcon);
     desktopWindowToModify.addEntity(HardDriveIcon);
