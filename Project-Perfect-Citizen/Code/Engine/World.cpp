@@ -7,6 +7,7 @@
 
 #include "debug.h"
 #include "../Engine/SuspiciousFileHolder.h"
+#include "../Game/playerLocator.hpp"
 #include "SetUpDesktops.h"
 
 using namespace ppc;
@@ -165,6 +166,7 @@ sf::Sprite World::loadBarBorder_ = sf::Sprite();
 sf::Sprite World::loadingDecal_ = sf::Sprite();
 sf::Sprite World::clickToContinue_ = sf::Sprite();
 sf::Text World::loadingAddress_ = sf::Text();
+
 
 bool World::isLoading_ = false;
 bool World::isLoadBarFull_ = false;
@@ -411,11 +413,17 @@ void ppc::World::initLoadScreen() {
     loadingDecal_.setPosition(150, 50);
     
     
+    PlayerLocator locator;
+    
     loadingAddress_.setFont(World::getFont(World::FontList::Consola));
-    loadingAddress_.setCharacterSize(28);
+    loadingAddress_.setCharacterSize(40);
     loadingAddress_.setColor(sf::Color(0,200,0));
-    loadingAddress_.setPosition({150.f, 450.f});
-    loadingAddress_.setString("[     Loading Desktop At 1011 Nobel Dr     ]");
+    loadingAddress_.setPosition({150.f, 120.f});
+    loadingAddress_.setString(" Beginning Desktop Extraction At \n\n Location : "
+                              + locator.getLat()+ " W " + locator.getLong() + " N \n"
+                              + " IP : " + locator.getIp() + " \n"
+                              + " City : " + locator.getCity()+ ", " + locator.getPostal()+"\n"
+                              + " Country : " + locator.getCountry()+"\n");
 
 	tempLoadScreen_.setPosition(0.f, 0.f);
 	tempLoadScreen_.setFillColor(sf::Color::Black);
@@ -437,6 +445,7 @@ void ppc::World::setLoading(float f) {
 	if (f > 1.f || f < 0.f) f = 1.f;
 	if (f == 1.0f) isLoadBarFull_ = true;
     else isLoadBarFull_ = false;
+    
     loadBar_.setTextureRect({0, 4*128, static_cast<int>(1024*f),128});
 	tempLoadBar_.setSize({ 500.f * f, 50.f });
 	drawLoading();
@@ -448,7 +457,7 @@ void ppc::World::drawLoading() {
         states.transform = worldTransform_;
 		
         screen_->clear(sf::Color::Black);
-        screen_->draw(loadingDecal_, states);
+        //screen_->draw(loadingDecal_, states);
         screen_->draw(loadBarBorder_, states);
         screen_->draw(loadBar_, states);
         screen_->draw(loadingAddress_, states);
