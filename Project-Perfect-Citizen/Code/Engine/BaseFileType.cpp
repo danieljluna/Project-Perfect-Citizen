@@ -50,7 +50,9 @@ BaseFileType::~BaseFileType() {
             delete it->second;
             contents.erase(it);
         }
-    }
+	} else {
+		contents.clear();
+	}
 }
 
 void ppc::BaseFileType::setName(std::string newName)
