@@ -320,6 +320,7 @@
 		E93CC0531CFF83D000E960EB /* Resignation_2.txt in Resources */ = {isa = PBXBuildFile; fileRef = E93CC0421CFF83D000E960EB /* Resignation_2.txt */; };
 		E93CC0541CFF83D000E960EB /* Resignation_3.txt in Resources */ = {isa = PBXBuildFile; fileRef = E93CC0431CFF83D000E960EB /* Resignation_3.txt */; };
 		E93CC0551CFF83D000E960EB /* Resignation_4.txt in Resources */ = {isa = PBXBuildFile; fileRef = E93CC0441CFF83D000E960EB /* Resignation_4.txt */; };
+		E9636A7E1CFF9522008E6E66 /* playerLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9636A7C1CFF9522008E6E66 /* playerLocator.cpp */; };
 		E9E830A01CF63D4A00945974 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E82F811CF63D4A00945974 /* main.cpp */; };
 		E9E830A11CF63D4A00945974 /* AudioLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E82F851CF63D4A00945974 /* AudioLocator.cpp */; };
 		E9E830A21CF63D4A00945974 /* AudioLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E82F871CF63D4A00945974 /* AudioLogger.cpp */; };
@@ -782,6 +783,9 @@
 		E93CC0421CFF83D000E960EB /* Resignation_2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Resignation_2.txt; sourceTree = "<group>"; };
 		E93CC0431CFF83D000E960EB /* Resignation_3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Resignation_3.txt; sourceTree = "<group>"; };
 		E93CC0441CFF83D000E960EB /* Resignation_4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Resignation_4.txt; sourceTree = "<group>"; };
+		E9636A7B1CFF94FE008E6E66 /* ResourceDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceDef.h; sourceTree = "<group>"; };
+		E9636A7C1CFF9522008E6E66 /* playerLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = playerLocator.cpp; sourceTree = "<group>"; };
+		E9636A7D1CFF9522008E6E66 /* playerLocator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = playerLocator.hpp; sourceTree = "<group>"; };
 		E9E82F811CF63D4A00945974 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
 		E9E82F841CF63D4A00945974 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
 		E9E82F851CF63D4A00945974 /* AudioLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioLocator.cpp; sourceTree = "<group>"; };
@@ -1097,11 +1101,12 @@
 		C8058A651C4D679D005E23BA /* Project-Perfect-Citizen */ = {
 			isa = PBXGroup;
 			children = (
-				E90E0B891CFD53CA001D870C /* Resources */,
 				E9E82F811CF63D4A00945974 /* main.cpp */,
+				E9636A7B1CFF94FE008E6E66 /* ResourceDef.h */,
 				E9E82F821CF63D4A00945974 /* Engine */,
 				E9E82FF31CF63D4A00945974 /* Game */,
 				C82E60711C810DCB001860CC /* Library */,
+				E90E0B891CFD53CA001D870C /* Resources */,
 			);
 			path = "Project-Perfect-Citizen";
 			sourceTree = "<group>";
@@ -1670,6 +1675,8 @@
 		E9E82FF31CF63D4A00945974 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				E9636A7C1CFF9522008E6E66 /* playerLocator.cpp */,
+				E9636A7D1CFF9522008E6E66 /* playerLocator.hpp */,
 				E9E82FF41CF63D4A00945974 /* animatorComponent.cpp */,
 				E9E82FF51CF63D4A00945974 /* animatorComponent.hpp */,
 				E9E82FF61CF63D4A00945974 /* BadCopRenderComponent.cpp */,
@@ -2382,6 +2389,7 @@
 				C82E60AB1C810DCB001860CC /* jsoncpp.cpp in Sources */,
 				E9E830D21CF63D4A00945974 /* UpdateCmpntLogger.cpp in Sources */,
 				E9E830E31CF63D4A00945974 /* ConfirmWindowBuilder.cpp in Sources */,
+				E9636A7E1CFF9522008E6E66 /* playerLocator.cpp in Sources */,
 				E9E8310E1CF63D4A00945974 /* NetworkUpdateCmpnt.cpp in Sources */,
 				E9E830D31CF63D4A00945974 /* Vertex.cpp in Sources */,
 				E9E831171CF63D4A00945974 /* ReportScreenInput.cpp in Sources */,
