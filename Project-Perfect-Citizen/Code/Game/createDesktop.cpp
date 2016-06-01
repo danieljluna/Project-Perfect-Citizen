@@ -139,7 +139,10 @@ void ppc::createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktop
 }
 
 void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
-    
+	World::getAudio().stopAllSounds();
+	World::getAudio().addBgm("SoundTrack_Extraction.ogg");
+	World::getAudio().loopBgm();
+	World::getAudio().playBgm();
     Database theDatabase;
 
     Inbox* theInbox = &desktopToModify.getInbox();
@@ -281,6 +284,10 @@ void ppc::createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopW
 
 void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
   
+	World::getAudio().stopAllSounds();
+	World::getAudio().addBgm("SoundTrack_Extraction.ogg");
+	World::getAudio().loopBgm();
+	World::getAudio().playBgm();
 	Database theDatabase;
 
 	Inbox* theInbox = &desktopToModify.getInbox();
@@ -411,7 +418,10 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
 }
 
 void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
-    
+	World::getAudio().stopAllSounds();
+	World::getAudio().addBgm("SoundTrack_Extraction.ogg");
+	World::getAudio().loopBgm();
+	World::getAudio().playBgm();
 	Database theDatabase;
 
 	Inbox* theInbox = &desktopToModify.getInbox();

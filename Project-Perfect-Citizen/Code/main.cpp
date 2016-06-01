@@ -43,11 +43,9 @@ int main(int argc, char** argv) {
 
 		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen", sf::Style::Close | sf::Style::Titlebar);
 
-
-		AudioQueue audiotest(5);
-		audiotest.addBgm("SoundTrack_Pipeline.ogg");
-		audiotest.loopBgm();
-		audiotest.playBgm();
+		ppc::World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
+		ppc::World::getAudio().loopBgm();
+		ppc::World::getAudio().playBgm();
         
     
 		///////////////////////////////////////////////////////////////////

@@ -6,6 +6,7 @@
 #include <vector>
 #include <utility>
 #include "LevelPacket.h"
+#include "Audio/AudioQueue.h"
 
 namespace ppc {
 
@@ -177,6 +178,7 @@ namespace ppc {
 
         static void saveState(std::string filename);
 
+		static ppc::AudioQueue& getAudio();
 		/////////////////////////////////////////////////////////////////
 		// Loading Address Map
 		/////////////////////////////////////////////////////////////////
@@ -190,7 +192,6 @@ namespace ppc {
 		static void setCurrAddress(std::string);
 
 		static void initAddressMap();
-
 
     private:
 
@@ -266,5 +267,6 @@ namespace ppc {
 
         static sf::Transform worldTransform_;
 
+		static ppc::AudioQueue audio_;
 	};
 };

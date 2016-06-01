@@ -14,6 +14,7 @@ using namespace ppc;
 
 
 sf::RenderWindow* World::screen_ = nullptr;
+ppc::AudioQueue ppc::World::audio_(5);
 Desktop* World::currDesktop_ = nullptr;
 sf::Transform World::worldTransform_;
 sf::RectangleShape World::blackBars_[2] = {sf::RectangleShape(), sf::RectangleShape()};
@@ -313,10 +314,12 @@ void World::runDesktop() {
 }
 
 bool World::loadDesktop(DesktopList desk) {
+	//add sound
     return loadDesktop(desktopFileMap_.at(desk));
 }
 
 int World::runCurrDesktop() {
+
 	runDesktop();
 	return SuspiciousFileHolder::getFinalScore();
 }
@@ -328,6 +331,7 @@ void World::quitDesktop() {
 
 
 bool World::loadDesktop(std::string filename) {
+	
     std::ifstream in(filename);
 
     bool result = false;
@@ -570,6 +574,10 @@ void ppc::World::saveState(std::string filename) {
     file.close();
 }
 
+ppc::AudioQueue& ppc::World::getAudio()
+{
+	return audio_;
+}
 std::string ppc::World::getCurrAddress() {
 	return loadingAddressMap_.at(currDesktopEnum_);
 }

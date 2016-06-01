@@ -19,6 +19,7 @@
 #include "buttonRenderComponent.h"
 #include "mousePressButton.h"
 #include "TextDisplayRenderComponent.h"
+#include "../Engine/World.h"
 
 using namespace ppc;
 
@@ -220,6 +221,11 @@ void ppc::FloppyInputComponent::setFloppyTextRenderCmpt(TextDisplayRenderCompone
 
 void ppc::FloppyInputComponent::setFloppyButton(bool able)
 {
+	if (able) {
+		int testSound = World::getAudio().addSound("Floppy_Next_Button_Active", "Floppy_Next_Button_Active.wav");
+		World::getAudio().readySound(testSound);
+		World::getAudio().popAndPlay();
+	}
 	ppc::Event ppcEv;
 	ppcEv.type = ppc::Event::EventTypes::AbleType;
 	ppcEv.able.enable = able;
@@ -284,6 +290,7 @@ void ppc::FloppyInputComponent::setFloppyButton(bool able)
 
 
 bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
+	//TODO SOUND
     bool wasSummoned = false;
 
 	switch (ev.type) {
