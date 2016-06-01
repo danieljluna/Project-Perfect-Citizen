@@ -1,13 +1,25 @@
 {
     "Desktop": {
+        "5/Resignation_1.txt" : "DesktopContent/DesktopHacker/Resignation_1.txt",
+        "Trash": {
+            "5/DCPS_Crew.jpg" : "DesktopContent/DesktopHacker/DCPS_Crew.png",
+            "5/DCPS_OS_v12.jpg" : "DesktopContent/DesktopHacker/DCPS_OS_v12.png",
+            "5/DCPS_OS_v23.jpg" : "DesktopContent/DesktopHacker/DCPS_OS_v23.png",
+            "5/DCPS_OS_v24.jpg" : "DesktopContent/DesktopHacker/DCPS_OS_v24.png",
+            "5/DCPS_SCREENSHOT_131.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_131.png",
+            "5/DCPS_SCREENSHOT_213.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_213.png",
+            "5/DCPS_SCREENSHOT_214.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_214.png",
+            "5/DCPS_SCREENSHOT_215.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_215.png",
+            "5/DCPS_SCREENSHOT_216.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_216.png",
+            "5/DCPS_SCREENSHOT_217.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_217.png"
+        },
         "Casefiles": {
-            "Global_Surveillance/Resignation/The password is\nResignation": {
-                "5/Resignation_1.txt" : "DesktopContent/DesktopHacker/Resignation_1.txt",
-                "Domestic/Guilt/The password is Guilt": {
+            "Global_Surveillance/I am guilty/Admit 'I am guilty'": {
+                "Domestic/I am corrupted/Admit 'I am corrupted'": {
                     "5/Resignation_2.txt" : "DesktopContent/DesktopHacker/Resignation_2.txt",
-                    "Intra_Agency/Corruption/Corruption": {
+                    "Intra_Agency/I have ruined lives/Admit 'I have ruined lives'": {
                         "5/Resignation_3.txt" : "DesktopContent/DesktopHacker/Resignation_3.txt",
-                        "Decision_Point": {
+                        "Decision_Point//": {
                             "5/Resignation_4.txt" : "DesktopContent/DesktopHacker/Resignation_4.txt",
                             "Maintain_Order": {
                                 "5/DCPS_1.txt" : "DesktopContent/DesktopHacker/DCPS_1.txt",
