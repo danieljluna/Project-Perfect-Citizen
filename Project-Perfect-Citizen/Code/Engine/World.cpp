@@ -19,6 +19,8 @@ Desktop* World::currDesktop_ = nullptr;
 sf::Transform World::worldTransform_;
 sf::RectangleShape World::blackBars_[2] = {sf::RectangleShape(), sf::RectangleShape()};
 
+Save World::currSave = Save();
+
 bool World::progToNext_ = true;
 
 
@@ -28,7 +30,7 @@ std::map<ppc::World::DesktopList, ppc::LevelPacket> World::levelMap_ = {
 
 std::map<std::string, World::savGroups> World::saveGroupMap_ = {
     { "Settings",      World::SettingsTag  },
-    { "State",         World::StateTag     }
+    { "Save",         World::StateTag     }
 };
 
 World::DesktopList World::currDesktopEnum_ = DELogo;
@@ -257,10 +259,6 @@ void ppc::World::setLevel(int levelEnum, int score) {
 
 void ppc::World::goBack() {
 	progToNext_ = false;
-}
-
-void World::setGameScreen(sf::RenderWindow& gameScreen) {
-	screen_ = &gameScreen;
 }
 
 sf::VideoMode ppc::World::getVideoMode() {
@@ -629,20 +627,27 @@ void ppc::World::initAddressMap() {
 
 void ppc::World::manifestSettings() {
     if (settings_.fullscreen) {
+#ifdef WINDOWS_MARKER
         settings_.resolution.x = sf::VideoMode::getDesktopMode().width;
         settings_.resolution.y = sf::VideoMode::getDesktopMode().height;
+#else
+        settings_.resolution.x = sf::VideoMode::getFullscreenModes().front().width;
+        settings_.resolution.y = sf::VideoMode::getFullscreenModes().front().height;
+#endif
     }
 
 
-    if (screen_ != nullptr) {
-        initializeResolution();
-
-        unsigned int flags = sf::Style::Default;
-        if (settings_.fullscreen) {
-            flags = flags | sf::Style::Fullscreen;
-        }
-        screen_->create(getVideoMode(), "Project Perfect Citizen", flags);
+    if (screen_ == nullptr) {
+        screen_ = new sf::RenderWindow();
     }
+
+    initializeResolution();
+
+    unsigned int flags = sf::Style::Titlebar | sf::Style::Close;
+    if (settings_.fullscreen) {
+        flags = flags | sf::Style::Fullscreen;
+    }
+    screen_->create(getVideoMode(), "Project Perfect Citizen", flags);
 }
 
 void World::drawDesktop() {

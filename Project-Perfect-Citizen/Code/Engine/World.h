@@ -7,6 +7,7 @@
 #include <utility>
 #include "LevelPacket.h"
 #include "Audio/AudioQueue.h"
+#include "../Game/Save.h"
 
 namespace ppc {
 
@@ -51,7 +52,8 @@ namespace ppc {
 			A = 0, //guilty1
 			B, //guilty2
 			C, //not guilty1
-			D // not guilty2
+			D, // not guilty2
+            UNPLAYED
 		};
 
 
@@ -81,12 +83,6 @@ namespace ppc {
       /////////////////////////////////////////////////////////////////
       // Setters
       /////////////////////////////////////////////////////////////////
-
-		///////////////////////////////////////////////////////////////
-		///@brief Set the screen the game is played on.
-		///@param [in] sf::RenderWindow
-		///////////////////////////////////////////////////////////////
-		static void setGameScreen(sf::RenderWindow&);
 
         static sf::VideoMode getVideoMode();
 
@@ -193,6 +189,8 @@ namespace ppc {
 
 		static void initAddressMap();
 
+        static Save currSave;
+
     private:
 
       /////////////////////////////////////////////////////////////////
@@ -268,5 +266,6 @@ namespace ppc {
         static sf::Transform worldTransform_;
 
 		static ppc::AudioQueue audio_;
+
 	};
 };
