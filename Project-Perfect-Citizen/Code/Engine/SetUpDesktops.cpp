@@ -109,5 +109,5 @@ void ppc::setUpHackerDesktop(ppc::Desktop& myDesktop) {
 }
 
 void ppc::setUpPostHackerDesktop(ppc::Desktop& myDesktop) {
-
+	createPostHackerDesktop(myDesktop);
 }
