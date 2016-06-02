@@ -343,9 +343,15 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         ptr->setSequence(ev.floppy.sequence, ev.floppy.frame);
         ptr->getEntity()->broadcastMessage(ev);
 
-        ev.type = ppc::Event::AbleType;
-        ev.able.enable = true;
-        ptr->getEntity()->broadcastMessage(ev);
+        Event ableEv;
+        ableEv.type = ppc::Event::AbleType;
+        ableEv.able.enable = true;
+        ptr->getEntity()->broadcastMessage(ableEv);
+
+        //Disable button if we only have one frame
+        if (ptr->floppyDictionary.at(ev.floppy.sequence).frames.size() == 1) {
+            ptr->setFloppyButton(false);
+        }
     }
 
 	return true;

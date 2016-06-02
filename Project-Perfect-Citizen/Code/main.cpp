@@ -27,7 +27,7 @@
 using namespace ppc;
 
 int main(int argc, char** argv) {
-	try {
+    try {
 
 		DBG_INIT();
 		//Scans Debug Flags
