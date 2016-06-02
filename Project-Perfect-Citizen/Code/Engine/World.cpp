@@ -261,6 +261,12 @@ void ppc::World::goBack() {
 	progToNext_ = false;
 }
 
+void ppc::World::goToLevel(int dl) {
+	goBack();
+	currDesktopEnum_ = (World::DesktopList)dl;
+	quitDesktop();
+}
+
 sf::VideoMode ppc::World::getVideoMode() {
     sf::VideoMode result;
 

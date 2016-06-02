@@ -34,7 +34,7 @@ void LoginInputCmpnt::loadSave() {
     World::currSave = sav;
 
     World::DesktopList temp = World::DesktopList(sav.getDesktop());
-    World::setCurrDesktopEnum(temp);
+	World::goToLevel(temp);
 
 }
 

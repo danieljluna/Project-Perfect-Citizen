@@ -76,7 +76,7 @@ namespace ppc {
 		/// loaded is a previous level
 		/////////////////////////////////////////////////////////////
 		static void goBack();
-
+		static void goToLevel(int);
 		using desktopLoaders = void(*)(ppc::Desktop&);
 
 		static std::map<DesktopList, desktopLoaders> loaderMap_;
