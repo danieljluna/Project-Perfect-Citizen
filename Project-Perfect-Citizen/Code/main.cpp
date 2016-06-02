@@ -80,6 +80,7 @@ int main(int argc, char** argv) {
 	}
 	catch (std::exception e) {
 		std::cerr << e.what();
+
 		World::cleanWorld();
 	}
 
