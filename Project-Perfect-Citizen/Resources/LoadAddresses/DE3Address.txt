@@ -1,11 +1,4 @@
-{
- "ip": ,
- "hostname": ,
- "city": ,
- "region":,
- "country": ,
- "loc": ,
- "org": ,
- "postal": ,
- "phone": ,
-}
+ 
+ IP : 32.248.238.161
+ City : Tampa, 33605
+ 

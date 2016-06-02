@@ -35,7 +35,8 @@ namespace ppc {
 			DE2B,
 			DEPlayer3A,
 			DEPlayer3B,
-			DE3,
+			DE3A,
+			DE3B,
 			DEEnd,
             DesktopCount
         };
@@ -61,6 +62,8 @@ namespace ppc {
 		// Ctors
 		///////////////////////////////////////////////////////////////
 		World() = delete;
+
+		static void cleanWorld();
 
 		///////////////////////////////////////////////////////////////
 		// World std::Maps
@@ -207,6 +210,8 @@ namespace ppc {
 
         static void initializeResolution();
 
+		static std::string useLocator();
+
       /////////////////////////////////////////////////////////////////
       // Private Vars / Enums
       /////////////////////////////////////////////////////////////////
@@ -223,8 +228,7 @@ namespace ppc {
 		static DesktopList currDesktopEnum_;
 		static ReportType currReportType_;
 
-		static bool progToNext_
-			;
+		static bool progToNext_;
         static bool quitter_;
 
 		static std::map<FontList, sf::Font> fontMap_;

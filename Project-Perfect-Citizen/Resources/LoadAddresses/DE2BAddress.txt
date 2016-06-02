@@ -1,11 +1,4 @@
-{
- "ip": ,
- "hostname": ,
- "city": ,
- "region":,
- "country": ,
- "loc": ,
- "org": ,
- "postal": ,
- "phone": ,
-}
+ 
+ IP : 106.9.46.93 
+ City : Dallas, 75201
+ 

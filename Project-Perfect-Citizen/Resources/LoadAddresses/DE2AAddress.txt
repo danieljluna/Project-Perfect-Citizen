@@ -1,11 +1,4 @@
-{
- "ip": ,
- "hostname": ,
- "city": ,
- "region":,
- "country": ,
- "loc": ,
- "org": ,
- "postal": ,
- "phone": ,
-}
+ 
+ IP : 27.99.43.216 
+ City : New York, 10128
+ 

@@ -119,3 +119,7 @@ void ppc::setUpHackerDesktop(ppc::Desktop& myDesktop) {
     createHackerDesktop(myDesktop, *myDesktop.getDesktopWindow(),
         myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
 }
+
+void ppc::setUpPostHackerDesktop(ppc::Desktop& myDesktop) {
+
+}
