@@ -104,6 +104,7 @@
     <ClCompile Include="Code\Game\iconInputComponent.cpp" />
     <ClCompile Include="Code\Game\Inbox.cpp" />
     <ClCompile Include="Code\Game\interpolateUpdateComponent.cpp" />
+    <ClCompile Include="Code\Game\LoginInputCmpnt.cpp" />
     <ClCompile Include="Code\Game\mousePressButton.cpp" />
     <ClCompile Include="Code\Game\nameGeneration.cpp" />
     <ClCompile Include="Code\Game\NetworkCheckFunctor.cpp" />
@@ -121,6 +122,7 @@
     <ClCompile Include="Code\Game\ReportEndObsvr.cpp" />
     <ClCompile Include="Code\Game\ReportScreenInput.cpp" />
     <ClCompile Include="Code\Game\ReportScreenObsvr.cpp" />
+    <ClCompile Include="Code\Game\Save.cpp" />
     <ClCompile Include="Code\Game\spriteRenderComponent.cpp" />
     <ClCompile Include="Code\Game\startBarRenderComponent.cpp" />
     <ClCompile Include="Code\Game\startBarUpdateComponent.cpp" />
@@ -255,6 +257,7 @@
     <ClInclude Include="Code\Game\iconInputComponent.h" />
     <ClInclude Include="Code\Game\Inbox.h" />
     <ClInclude Include="Code\Game\interpolateUpdateComponent.hpp" />
+    <ClInclude Include="Code\Game\LoginInputCmpnt.h" />
     <ClInclude Include="Code\Game\mousePressButton.h" />
     <ClInclude Include="Code\Game\nameGeneration.hpp" />
     <ClInclude Include="Code\Game\NetworkCheckFunctor.h" />
@@ -272,6 +275,7 @@
     <ClInclude Include="Code\Game\ReportEndObsvr.h" />
     <ClInclude Include="Code\Game\ReportScreenInput.h" />
     <ClInclude Include="Code\Game\ReportScreenObsvr.h" />
+    <ClInclude Include="Code\Game\Save.h" />
     <ClInclude Include="Code\Game\spriteRenderComponent.hpp" />
     <ClInclude Include="Code\Game\startBarUpdateComponent.hpp" />
     <ClInclude Include="Code\Game\TextBoxBuilder.h" />

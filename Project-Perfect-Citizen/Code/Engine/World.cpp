@@ -19,6 +19,8 @@ Desktop* World::currDesktop_ = nullptr;
 sf::Transform World::worldTransform_;
 sf::RectangleShape World::blackBars_[2] = {sf::RectangleShape(), sf::RectangleShape()};
 
+Save World::currSave = Save();
+
 bool World::progToNext_ = true;
 
 
@@ -28,7 +30,7 @@ std::map<ppc::World::DesktopList, ppc::LevelPacket> World::levelMap_ = {
 
 std::map<std::string, World::savGroups> World::saveGroupMap_ = {
     { "Settings",      World::SettingsTag  },
-    { "State",         World::StateTag     }
+    { "Save",         World::StateTag     }
 };
 
 World::DesktopList World::currDesktopEnum_ = DELogo;
@@ -625,9 +627,13 @@ void ppc::World::initAddressMap() {
 
 void ppc::World::manifestSettings() {
     if (settings_.fullscreen) {
-        //TODO: TEST THIS ON MAC
+#ifdef WINDOWS_MARKER
         settings_.resolution.x = sf::VideoMode::getDesktopMode().width;
         settings_.resolution.y = sf::VideoMode::getDesktopMode().height;
+#else
+        settings_.resolution.x = sf::VideoMode::getFullscreenModes().front().width;
+        settings_.resolution.y = sf::VideoMode::getFullscreenModes().front().height;
+#endif
     }
 
 
