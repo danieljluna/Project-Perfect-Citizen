@@ -377,6 +377,11 @@ std::string ppc::World::getReportFile() {
 }
 
 std::string ppc::World::getBossEmail() {
+	//add report to save file at desktop conclusion
+	//check save file on load, see if vector is missing anything
+	//use vector of reports to trace email history
+	//confirm in player desktop/has report
+	//doesn't get get boss email in DE, only player desktop
 	auto i = bossEmailMap_.find({ currDesktopEnum_, currReportType_ });
 	if (i != bossEmailMap_.end()) return i->second;
 	return "";

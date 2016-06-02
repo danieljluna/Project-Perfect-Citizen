@@ -31,8 +31,6 @@ buttonRenderComponent::buttonRenderComponent( sf::Image& image,
 	this->sprite = new sf::Sprite();
 	this->texture = new sf::Texture();
     
-	_isIcon = NULL;
-    
     width = r;
     frameCount = f;
     xIndex = x;
@@ -159,20 +157,11 @@ void buttonRenderComponent::draw( sf::RenderTarget& target,
 
 
 void buttonRenderComponent::recieveMessage(ppc::Event ev) {
-	//bool isicon = false;
 	switch (ev.type) {
 	case Event::EventTypes::ButtonType:
-		if (_isIcon == NULL) {
-			for (unsigned int i = 0; i < entity->cmpntCount(); ++i) {
-				if (dynamic_cast<iconInputComponent*>(entity->getComponent(i)) != NULL) {
-					_isIcon = true;
-					break;
-				}
-			}
-			if (_isIcon == NULL) _isIcon = false;
-		}
-		if (((ev.buttons.state == ev.buttons.Clicked && !_isIcon) || 
-			ev.buttons.state == ev.buttons.DblClicked) &&
+		if (((ev.buttons.state == ev.buttons.Clicked
+			&& _buttonType.compare("ICON") != 0
+			) || ev.buttons.state == ev.buttons.DblClicked) &&
 				ev.buttons.activation != ev.buttons.RightMouse) {
 					setSprite(xIndex + width, yIndex, width);
 		}
