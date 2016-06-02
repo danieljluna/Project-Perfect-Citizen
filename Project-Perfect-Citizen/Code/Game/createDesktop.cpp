@@ -139,7 +139,10 @@ void ppc::createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktop
 }
 
 void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
-    
+	World::getAudio().stopAllSounds();
+	World::getAudio().addBgm("SoundTrack_Extraction.ogg");
+	World::getAudio().loopBgm();
+	World::getAudio().playBgm();
     Database theDatabase;
 
     Inbox* theInbox = &desktopToModify.getInbox();
@@ -188,7 +191,7 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
 	builder.setSize(0.5f);
 
 	// Create teacher desktop folders/files
-	Entity BlueBirdFile;
+	/*Entity BlueBirdFile;
 	builder.setPosition({ 750.0f, 350.0f });
 	builder.setIconType(iconInputComponent::IconType::File);
 	builder.setSpritebyIndicies(0, 0, 1, 3);
@@ -202,7 +205,7 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
 	builder.setSpritebyIndicies(0, 0, 1, 3);
 	builder.setText("Myth_of_Sisyphus_by_Albert_Camus.txt", World::getFont(World::VT323Regular), sf::Color::White);
 	builder.create(SisyphusFile);
-	desktopWindowToModify.addEntity(SisyphusFile);
+	desktopWindowToModify.addEntity(SisyphusFile);*/
 
     desktopWindowToModify.addEntity(ChatIcon);
     desktopWindowToModify.addEntity(HardDriveIcon);
@@ -281,6 +284,10 @@ void ppc::createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopW
 
 void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
   
+	World::getAudio().stopAllSounds();
+	World::getAudio().addBgm("SoundTrack_Extraction.ogg");
+	World::getAudio().loopBgm();
+	World::getAudio().playBgm();
 	Database theDatabase;
 
 	Inbox* theInbox = &desktopToModify.getInbox();
@@ -411,7 +418,10 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
 }
 
 void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
-    
+	World::getAudio().stopAllSounds();
+	World::getAudio().addBgm("SoundTrack_Extraction.ogg");
+	World::getAudio().loopBgm();
+	World::getAudio().playBgm();
 	Database theDatabase;
 
 	Inbox* theInbox = &desktopToModify.getInbox();
@@ -491,17 +501,31 @@ void ppc::createHackerDesktop(Desktop& desktopToModify, WindowInterface& desktop
     ////////////////////////////////
     ///// ICONS ON TEACHER DESKTOP
     ////////////////////////////////
+    IconBuilder builder;
+    builder.setDesktop(desktopToModify);
+    builder.setInbox(desktopToModify.getInbox());
+    builder.setButtonSheet(desktopToModify.getButtonSheet());
+    builder.setAnimSpeed(0.30f);
+    builder.setInputHandle(desktopToModify.getInputHandler());
+    builder.setSize(0.5f);
+    
+    Entity Resonation_1;
+    builder.setPosition({ 650.0f, 400.0f });
+    builder.setIconType(iconInputComponent::IconType::File);
+    builder.setSpritebyIndicies(0, 0, 1, 3);
+    builder.setText("Resignation_1.txt", World::getFont(World::VT323Regular), sf::Color::White);
+    builder.create(Resonation_1);
+    desktopWindowToModify.addEntity(Resonation_1);
+    
     Entity HardDriveIcon;
-    Entity SettingsIcon;
     Entity ConsoleIcon;
     Entity EmailIcon;
     
-    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 125.0f, 0.4f, 0.25f, theInbox);
-    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 225.0f, 0.5f, 0.25f, theInbox);
-    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 325.0f, 0.5f, 0.25f, theInbox);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 200.0f, 400.0f, 0.5f, 0.25f, theInbox);
+    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 325.0f, 520.0f, 0.4f, 0.25f, theInbox);
+    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 525.0f, 520.0f, 0.5f, 0.25f, theInbox);
     
     desktopWindowToModify.addEntity(HardDriveIcon);
-    desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
     desktopWindowToModify.addEntity(EmailIcon);
     

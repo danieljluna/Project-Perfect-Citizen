@@ -14,6 +14,7 @@ using namespace ppc;
 
 
 sf::RenderWindow* World::screen_ = nullptr;
+ppc::AudioQueue ppc::World::audio_(5);
 Desktop* World::currDesktop_ = nullptr;
 sf::Transform World::worldTransform_;
 sf::RectangleShape World::blackBars_[2] = {sf::RectangleShape(), sf::RectangleShape()};
@@ -258,10 +259,6 @@ void ppc::World::goBack() {
 	progToNext_ = false;
 }
 
-void World::setGameScreen(sf::RenderWindow& gameScreen) {
-	screen_ = &gameScreen;
-}
-
 sf::VideoMode ppc::World::getVideoMode() {
     sf::VideoMode result;
 
@@ -313,10 +310,12 @@ void World::runDesktop() {
 }
 
 bool World::loadDesktop(DesktopList desk) {
+	//add sound
     return loadDesktop(desktopFileMap_.at(desk));
 }
 
 int World::runCurrDesktop() {
+
 	runDesktop();
 	return SuspiciousFileHolder::getFinalScore();
 }
@@ -328,6 +327,7 @@ void World::quitDesktop() {
 
 
 bool World::loadDesktop(std::string filename) {
+	
     std::ifstream in(filename);
 
     bool result = false;
@@ -570,6 +570,10 @@ void ppc::World::saveState(std::string filename) {
     file.close();
 }
 
+ppc::AudioQueue& ppc::World::getAudio()
+{
+	return audio_;
+}
 std::string ppc::World::getCurrAddress() {
 	return loadingAddressMap_.at(currDesktopEnum_);
 }
@@ -621,20 +625,23 @@ void ppc::World::initAddressMap() {
 
 void ppc::World::manifestSettings() {
     if (settings_.fullscreen) {
+        //TODO: TEST THIS ON MAC
         settings_.resolution.x = sf::VideoMode::getDesktopMode().width;
         settings_.resolution.y = sf::VideoMode::getDesktopMode().height;
     }
 
 
-    if (screen_ != nullptr) {
-        initializeResolution();
-
-        unsigned int flags = sf::Style::Default;
-        if (settings_.fullscreen) {
-            flags = flags | sf::Style::Fullscreen;
-        }
-        screen_->create(getVideoMode(), "Project Perfect Citizen", flags);
+    if (screen_ == nullptr) {
+        screen_ = new sf::RenderWindow();
     }
+
+    initializeResolution();
+
+    unsigned int flags = sf::Style::Titlebar | sf::Style::Close;
+    if (settings_.fullscreen) {
+        flags = flags | sf::Style::Fullscreen;
+    }
+    screen_->create(getVideoMode(), "Project Perfect Citizen", flags);
 }
 
 void World::drawDesktop() {

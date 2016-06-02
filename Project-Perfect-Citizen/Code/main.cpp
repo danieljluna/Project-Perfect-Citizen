@@ -27,7 +27,7 @@
 using namespace ppc;
 
 int main(int argc, char** argv) {
-	try {
+    try {
 
 		DBG_INIT();
 		//Scans Debug Flags
@@ -39,17 +39,11 @@ int main(int argc, char** argv) {
 		World::initLoadScreen();
 		World::initAddressMap();
 
-		// Create the main sf::window
-
-		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen", sf::Style::Close | sf::Style::Titlebar);
-
-
 		AudioQueue audiotest(5);
 		audiotest.addBgm("SoundTrack_Pipeline.ogg");
 		audiotest.loopBgm();
 		audiotest.playBgm();
-        
-    
+
 		///////////////////////////////////////////////////////////////////
 
 		//// ----------------   PYTHON LOCATION STUFF ---------------- ////
@@ -61,11 +55,9 @@ int main(int argc, char** argv) {
        
 		// -----------------------------------------------------------//
 
-		World::setGameScreen(screen);
 		World::loadState("PPC.sav");
 		std::ifstream desktopFileInput;
-
-
+        World::setCurrDesktopEnum(World::DE2B);
 		while (World::getCurrDesktopEnum() != World::DesktopCount) {
 			Desktop mainDesktop;
 			World::setCurrDesktop(mainDesktop);

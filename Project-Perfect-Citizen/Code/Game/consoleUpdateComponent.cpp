@@ -7,7 +7,7 @@ using namespace ppc;
 
 const std::string MOUSE_DOUBLE_CLICK_CODE = "MDDC";
 
-consoleUpdateComponent::consoleUpdateComponent(ppc::NodeState& ns) 
+consoleUpdateComponent::consoleUpdateComponent(ppc::NodeState ns) 
 	: fileTree(ns) {
 	canParse = false;
 	std::vector<std::string> firstLsCommand;
