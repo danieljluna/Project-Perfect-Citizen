@@ -513,7 +513,7 @@ void ppc::createHackerDesktop(Desktop& desktopToModify, WindowInterface& desktop
     builder.setPosition({ 650.0f, 400.0f });
     builder.setIconType(iconInputComponent::IconType::File);
     builder.setSpritebyIndicies(0, 0, 1, 3);
-    builder.setText("Resignation_1.txt", World::getFont(World::VT323Regular), sf::Color::White);
+    builder.setText("READ_ME_1.txt", World::getFont(World::VT323Regular), sf::Color::White);
     builder.create(Resonation_1);
     desktopWindowToModify.addEntity(Resonation_1);
     
