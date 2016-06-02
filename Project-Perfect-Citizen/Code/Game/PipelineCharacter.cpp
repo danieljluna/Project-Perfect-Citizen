@@ -16,55 +16,65 @@ const std::string DEBUG_FLAG = "pc";
 const int CRIM_THRESHOLD = 350;
 
 ppc::PipelineCharacter::PipelineCharacter() {
-	generate();
+	age_ = NULL;
+	educationLevel_ = NULL;
+	annualIncome_ = NULL;
+	criminal_ = NULL;
+	persAssertive_ = NULL;
+	persJerk_ = NULL;
+	persDirectness_ = NULL;
+	ssn_ = "";
+	email_ = "";
+	phoneNumber_ = "";
+	job_ = "";
 }
 
-ppc::PipelineCharacter::PipelineCharacter(const std::string & job) {
-	auto itor = std::find(JOBS_ALL.begin(), JOBS_ALL.end(), job);
-	generate();
-	if (itor == JOBS_ALL.end()) {
-		DEBUGF(DEBUG_FLAG, "Job not found");
-	}
-	else {
-		job_ = job;
-		auto itor = MIN_EDUCATION.find(job);
-		if (itor == MIN_EDUCATION.end()) {
-			DEBUGF(DEBUG_FLAG, "Job not found in MIN_EDUCATION");
-		} 
-		else if (MIN_EDUCATION.at(job_) > educationLevel_)
-			educationLevel_ = MIN_EDUCATION.at(job_);
-	}
-	calcIncomeAndCrim();
-}
-
-ppc::PipelineCharacter::PipelineCharacter(const std::string & job, int age, bool criminal) {
-	auto itor = std::find(JOBS_ALL.begin(), JOBS_ALL.end(), job);
-	generate();
-	if (itor == JOBS_ALL.end()) {
-		DEBUGF(DEBUG_FLAG, "Job not found");
-	}
-	else {
-		job_ = job;
-		auto itor = MIN_EDUCATION.find(job);
-		if (itor == MIN_EDUCATION.end()) {
-			DEBUGF(DEBUG_FLAG, "Job not found in MIN_EDUCATION");
-		} 
-		else if (MIN_EDUCATION.at(job_) > educationLevel_)
-			educationLevel_ = MIN_EDUCATION.at(job_);
-	}
-
-	if (age > 65) {
-		age_ = 65;
-	}
-	else if (age < 18) {
-		age_ = 18;
-	}
-	else age_ = age;
-
-	calcIncomeAndCrim();
-
-	criminal_ = criminal;
-}
+//ppc::PipelineCharacter::PipelineCharacter(const std::string & job) {
+//	auto itor = std::find(JOBS_ALL.begin(), JOBS_ALL.end(), job);
+//	generate();
+//	if (itor == JOBS_ALL.end()) {
+//		DEBUGF(DEBUG_FLAG, "Job not found");
+//	}
+//	else {
+//		job_ = job;
+//		auto itor = MIN_EDUCATION.find(job);
+//		if (itor == MIN_EDUCATION.end()) {
+//			DEBUGF(DEBUG_FLAG, "Job not found in MIN_EDUCATION");
+//		} 
+//		else if (MIN_EDUCATION.at(job_) > educationLevel_)
+//			educationLevel_ = MIN_EDUCATION.at(job_);
+//	}
+//	calcIncomeAndCrim();
+//}
+//
+//ppc::PipelineCharacter::PipelineCharacter(const std::string & job, int age, bool criminal) {
+//	auto itor = std::find(JOBS_ALL.begin(), JOBS_ALL.end(), job);
+//	generate();
+//	if (itor == JOBS_ALL.end()) {
+//		DEBUGF(DEBUG_FLAG, "Job not found");
+//	}
+//	else {
+//		job_ = job;
+//		auto itor = MIN_EDUCATION.find(job);
+//		if (itor == MIN_EDUCATION.end()) {
+//			DEBUGF(DEBUG_FLAG, "Job not found in MIN_EDUCATION");
+//		} 
+//		else if (MIN_EDUCATION.at(job_) > educationLevel_)
+//			educationLevel_ = MIN_EDUCATION.at(job_);
+//	}
+//
+//	if (age > 65) {
+//		age_ = 65;
+//	}
+//	else if (age < 18) {
+//		age_ = 18;
+//	}
+//	else age_ = age;
+//
+//	calcIncomeAndCrim();
+//
+//	criminal_ = criminal;
+//}
 
 void PipelineCharacter::calcIncomeAndCrim() {
 	int median = 0;
@@ -106,20 +116,69 @@ void PipelineCharacter::calcIncomeAndCrim() {
 	//
 	//
 	//  SET CRIMINAL WEIGHTED BY AGE, PERSONALITY
-	std::uniform_int_distribution<> variance(0, 99);
-	int crimvariance = variance(gen);
-	// (100 - 2.128 * (age_ - 18)) = inverse of age as a % of closeness to 65
-	// so 18 = 100%, 65 = 0%
-	//crimvalue ranges [0, 500]
-	int crimvalue = static_cast<int>(100 - 2.128 * (age_ - 18)) + persAssertive_ * 25 +
-		persDirectness_ * 25 + persJerk_ * 25 + crimvariance;
-	if (crimvalue > CRIM_THRESHOLD) criminal_ = true;
-	else criminal_ = false;
+	if (criminal_ == NULL) {
+		std::uniform_int_distribution<> variance(0, 99);
+		int crimvariance = variance(gen);
+		// (100 - 2.128 * (age_ - 18)) = inverse of age as a % of closeness to 65
+		// so 18 = 100%, 65 = 0%
+		//crimvalue ranges [0, 500]
+		int crimvalue = static_cast<int>(100 - 2.128 * (age_ - 18)) + persAssertive_ * 25 +
+			persDirectness_ * 25 + persJerk_ * 25 + crimvariance;
+		if (crimvalue > CRIM_THRESHOLD) criminal_ = true;
+		else criminal_ = false;
+	}
 	//
 	//
 }
 
-void PipelineCharacter::generate() {
+void PipelineCharacter::generateWithNameJob(const std::string& name, const std::string& job) {
+	if (name.length() > 2) {
+		ssn_ = name.substr(0, 2);
+	}
+	for (auto & c : ssn_) c = toupper(c);
+
+	for (unsigned int i = 0; i < JOBS_ALL.size(); ++i) {
+		if (JOBS_ALL[i].compare(job) == 0) {
+			job_ = job;
+			generateRaw();
+			return;
+		}
+	}
+	job_ = "";
+	generateRaw();
+}
+
+void PipelineCharacter::generateWithName(const std::string& name) {
+	if (name.length() > 2) {
+		ssn_ = name.substr(0, 2);
+	}
+	for (auto & c : ssn_) c = toupper(c);
+	generateRaw();
+}
+
+void PipelineCharacter::generateWithNameJobAgeCrim(const std::string& name, const std::string& job, int age, bool crim) {
+	if (name.length() > 2) {
+		ssn_ = name.substr(0, 2);
+	}
+	for (auto & c : ssn_) c = toupper(c);
+
+	for (unsigned int i = 0; i < JOBS_ALL.size(); ++i) {
+		if (JOBS_ALL[i].compare(job) == 0) {
+			job_ = job;
+		}
+	}
+
+	if (age < 18) age_ = 18;
+	else if (age > 65) age_ = 65;
+	else age_ = age;
+
+	criminal_ = crim;
+	generateRaw();
+}
+
+
+
+void PipelineCharacter::generateRaw() {
 	std::random_device rd;
 	std::mt19937 gen(rd());
 
@@ -133,21 +192,28 @@ void PipelineCharacter::generate() {
 	else educationLevel_ = 5; //Doctorate
 
 	// set age (even distribution 18 - 65)
-	std::uniform_int_distribution<> aged(18, 65);
-	age_ = aged(gen);
+	if (age_ == NULL) {
+		std::uniform_int_distribution<> aged(18, 65);
+		age_ = aged(gen);
+	}
 
 	// set "Social Security Number" - two random letters followed by
 	// two random 3 digit numbers
-	std::uniform_int_distribution<> letterd(0, 25);
 	std::uniform_int_distribution<> threed(100, 999);
-	char first = letterd(gen) + 'A';
-	char second = letterd(gen) + 'A';
-	ssn_ = first;
-	ssn_ += second;
-	ssn_ += '-';
-	ssn_ += std::to_string(threed(gen));
-	ssn_ += '-';
-	ssn_ += std::to_string(threed(gen));
+	if (ssn_.empty()) {
+		std::uniform_int_distribution<> letterd(0, 25);
+
+		char first = letterd(gen) + 'A';
+		char second = letterd(gen) + 'A';
+		ssn_ = first;
+		ssn_ += second;
+	}
+	if (ssn_.length() == 2) {
+		ssn_ += '-';
+		ssn_ += std::to_string(threed(gen));
+		ssn_ += '-';
+		ssn_ += std::to_string(threed(gen));
+	}
 
 	// set email - currently just appends domain.tld to ssn
 	email_ = ssn_;
@@ -167,17 +233,21 @@ void PipelineCharacter::generate() {
 	persDirectness_ = persRange(gen);
 
 	//could add some more procedurality here
-	std::vector<std::string> validjobs;
-	for (unsigned int i = 0; i < MIN_EDUCATION.size(); ++i) {
-		if (MIN_EDUCATION.at(JOBS_ALL[i]) <= educationLevel_ &&
-			MIN_EDUCATION.at(JOBS_ALL[i]) >= educationLevel_ - 1) validjobs.push_back(JOBS_ALL[i]);
+	if (job_.compare("") == 0) {
+		std::vector<std::string> validjobs;
+		for (unsigned int i = 0; i < MIN_EDUCATION.size(); ++i) {
+			if (MIN_EDUCATION.at(JOBS_ALL[i]) <= educationLevel_ &&
+				MIN_EDUCATION.at(JOBS_ALL[i]) >= educationLevel_ - 1) validjobs.push_back(JOBS_ALL[i]);
+		}
+
+
+		assert(!validjobs.empty());
+
+		std::uniform_int_distribution<> jobd(0, validjobs.size() - 1);
+		job_ = validjobs[jobd(gen)];
 	}
-
-	assert(!validjobs.empty());
-
-    std::uniform_int_distribution<> jobd(0, validjobs.size() - 1);
-	job_ = validjobs[jobd(gen)];
     
+	calcIncomeAndCrim();
     
     // for random colors
     std::uniform_int_distribution<> colord(100, 250);
@@ -193,9 +263,9 @@ void PipelineCharacter::generate() {
     std::uniform_int_distribution<> nosed(0, 8);
     // for skin index
     std::discrete_distribution<> skind
-    {3, 3, 2, 1, 3, 2, 1, 3, 1, 3,
-     1, 1, 1, 2, 1, 2, 1, 1, 2, 1,
-     1, 2, 1, 2, 1, 1, 1, 1, 1, 1,};
+    {3, 3, 2, 1, 3, 2, 1, 3, 1, 3,  //10
+     1, 1, 1, 2, 1, 2, 1, 1, 2, 1,  //10
+	 1, 2, 1, 2, 1, 1, 1, 1, 1};
 
 
     std::uniform_int_distribution<> shirtd(5, 8);

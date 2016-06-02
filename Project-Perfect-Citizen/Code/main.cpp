@@ -49,9 +49,6 @@ int main(int argc, char** argv) {
 		//// ----------------   PYTHON LOCATION STUFF ---------------- ////
 
 		// Run the locator python app
-
-		
-
        
 		// -----------------------------------------------------------//
 
