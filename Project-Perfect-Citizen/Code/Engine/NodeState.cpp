@@ -93,6 +93,7 @@ void ppc::NodeState::setCwd(ppc::BaseFileType* newCwd)
 
 void ppc::NodeState::readFile(const std::string& filename) {
     BaseFileType* file = getCwd()->findElement(filename); 
+	if (file == nullptr) return;
     std::string fileResourcePath = file->getFileData();
     file->readFile(filename, fileResourcePath);
 
