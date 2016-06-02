@@ -1,3 +1,5 @@
+-Welcome: T 0.0
+Default: FILL THIS IN
 -Pipeline: T 0.0
 Default: Welcome to your new job at the DCPS!
 Angry: This training program will show you the ropes

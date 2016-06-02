@@ -1,3 +1,5 @@
+-AltWelcome: T 0.0
+Default: No one will ever see this, but fill in just in case
 -AltPipeline: T 0.0
 Default: Welcome to your new job at the DCPS!
 Angry: This training program will show you the ropes
