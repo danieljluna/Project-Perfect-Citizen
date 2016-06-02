@@ -26,7 +26,7 @@ BadCopRenderComponent::BadCopRenderComponent(sf::Image& image) : BadCopImage(ima
     alpha = 255;
     
     /* Check that the file exists in the path */
-    if (!texture->loadFromImage(image, sf::IntRect(0,0,size,17*size)))
+    if (!texture->loadFromImage(image, sf::IntRect(0,0,size,16*size)))
         std::exit(-1);
 
 
@@ -61,7 +61,7 @@ void BadCopRenderComponent::animate() {
     if (blackScreen < 0) {
         blackScreen++;
     } else if (blackScreen >= 0) {
-        if (rectSourceSprite->top == 16*size) {
+        if (rectSourceSprite->top == 15*size) {
             blackScreen++;
             alpha -= 12;
             
