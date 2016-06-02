@@ -247,7 +247,7 @@ void spawnSettingsMenu(Desktop* dt, WindowInterface*& windowToModify, InputHandl
 void spawnCreditsWindow(Desktop* dt, WindowInterface*& windowToModify, InputHandler& ih, float x, float y);
 
 bool close_window(WindowInterface* w, ppc::Event ev);
-bool open_settings(WindowInterface *w, ppc::Event ev);
+bool open_settings(Desktop*w, ppc::Event ev);
 bool open_credits(WindowInterface* w, ppc::Event ev);
 bool continue_world(WindowInterface* w, ppc::Event ev);
 

@@ -26,7 +26,8 @@ BadCopRenderComponent::BadCopRenderComponent(sf::Image& image) : BadCopImage(ima
     alpha = 255;
     
     /* Check that the file exists in the path */
-    if (!texture->loadFromImage(image, sf::IntRect(0,size,size,16*size)))
+    if (!texture->loadFromImage(image, sf::IntRect(0,0,size,16*size)))
+
         std::exit(-1);
 
 
