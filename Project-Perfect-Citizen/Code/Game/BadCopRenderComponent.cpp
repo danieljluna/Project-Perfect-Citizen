@@ -61,7 +61,7 @@ void BadCopRenderComponent::animate() {
     if (blackScreen < 0) {
         blackScreen++;
     } else if (blackScreen >= 0) {
-        if (rectSourceSprite->top == 16*size) {
+        if (rectSourceSprite->top == 15*size) {
             blackScreen++;
             alpha -= 12;
             
