@@ -63,7 +63,7 @@ void LoginInputCmpnt::createSave() {
     builder.setPosition(currWindow_->getPosition() + sf::Vector2f(25, 50));
     builder.setSpriteSheet(World::getCurrDesktop().getButtonSheet());
     builder.setWindowCaption("");
-    createWithEventFunc(builder, loginConfirm, this, create_save);
+    createWithEventFunc(builder, loginConfirm, this, ppc::create_save);
 
     currWindow_->createNotifWindow(loginConfirm);
 }

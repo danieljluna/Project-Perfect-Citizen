@@ -30,9 +30,11 @@ private:
     WindowInterface* currWindow_;
 
     TextBoxInputComponent* textBox_;
+    
 
 };
 
+bool create_save(LoginInputCmpnt*, ppc::Event);
 
 bool registerLogIn(LoginInputCmpnt*, ppc::Event);
 

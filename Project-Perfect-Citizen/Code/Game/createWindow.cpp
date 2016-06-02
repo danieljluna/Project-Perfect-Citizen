@@ -845,6 +845,8 @@ void ppc::spawnUnlock(WindowInterface *& windowToModify, InputHandler & ih, sf::
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 12;
 
+	WindowInterface* ergerg = new Window(500, 500, sf::Color::Black);
+
 	errorMessageRenderComponent* eMRC = new errorMessageRenderComponent(myFont,
 		"Please enter a password:\n> Recovery Hint: '" + fldr->getFolderNodeState()->getCwd()->findElement(fldr->getFolderName())->getHint() +"'\n",
 		windowToModify->getSize().x / 3, (windowToModify->getSize().y / 3) - 40, fontSize);
@@ -966,7 +968,7 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
     lBuilder.setInputHandle(ih);
     lBuilder.setLabelMessage("LOG IN");
     lBuilder.setSpriteSheet(buttonSheet);
-    lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3)-2, 95.0f));
+    lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3)- 227, 95.0f));
     lBuilder.setSize(0.25f);
     lBuilder.setLabelFont(myFont);
     lBuilder.setLabelSize(12);
@@ -974,16 +976,22 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
 
 	Entity settingsButton;
 	lBuilder.setLabelMessage("Settings");
-	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 75, 95.0f));
-	createWithEventFunc(lBuilder, settingsButton, windowToModify, open_settings);
+	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 152, 95.0f));
+    createWithEventFunc(lBuilder, settingsButton,&World::getCurrDesktop(), open_settings);
 
 	Entity creditsButton;
 	lBuilder.setLabelMessage("Credits");
-	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 152, 95.0f));
+	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 75, 95.0f));
 	createWithEventFunc(lBuilder, creditsButton, windowToModify, open_credits);
+
+	Entity quitButton;
+	lBuilder.setLabelMessage("QUIT");
+	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 2, 95.0f));
+	createWithEventFunc(lBuilder, quitButton, &World::getCurrDesktop(), confirm_quit);
   
     
     windowToModify->addEntity(tbox);
+	windowToModify->addEntity(quitButton);
     windowToModify->addEntity(alertIcon);
     windowToModify->addEntity(promptText);
     windowToModify->addEntity(loginButton);
@@ -1428,7 +1436,7 @@ void ppc::spawnCreditsWindow(Desktop * dt, WindowInterface *& windowToModify, In
 	Entity programmerList;
     builder.setSize(subHeaderSize);
 	builder.setPosition(sf::Vector2f(subHeaderX, 500.0f));
-	builder.setString("       Daniel Luna   Lead Developer\n       Nader Sleem   Game Programmer\n John 'Andy' Baden   Game Programmer/Designer");
+	builder.setString("       Daniel Luna   Lead Developer\n       Nader Sleem   Game Programmer\n John 'Andy' Baden   Game Programmer/Designer\n       Michael Lowe  Game Programmer\n");
 	builder.create(programmerList);
 	windowToModify->addEntity(programmerList);
 
@@ -1483,7 +1491,7 @@ bool ppc::close_window(WindowInterface * w, ppc::Event ev)
 	return false;
 }
 
-bool ppc::open_settings(WindowInterface *w, ppc::Event ev) {
+bool ppc::open_settings(Desktop *w, ppc::Event ev) {
 	WindowInterface* settingsWindow = new ppc::Window(500, 600, sf::Color(170, 170, 170));
 	spawnSettingsMenu(&World::getCurrDesktop(), settingsWindow, settingsWindow->getInputHandler(), 500.0f, 500.0f);
 	settingsWindow->setPosition(sf::Vector2f{ 200.0f, 200.0f });
@@ -1654,5 +1662,31 @@ bool ppc::update_settings(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)
 	// Set the new resolution using resX, resY;
 	return true;
 }
+
+bool ppc::confirm_quit(Desktop* ptr, ppc::Event ev) {
+	ppc::WindowInterface* ConfirmationWindow =
+		new ppc::Window(600, 150, sf::Color(170, 170, 170));
+	ConfirmWindowBuilder builder;
+
+	builder.setButtonLabelFont(World::getFont(World::FontList::Consola));
+	builder.setCancelButtonLabel("CANCEL");
+	builder.setConfirmButtonLabel("QUIT");
+	builder.setConfirmMessage("Are you sure you want to quit?");
+	builder.setMessageFont(World::getFont(World::FontList::Consola));
+	builder.setMessageFontSize(16);
+	builder.setPosition(sf::Vector2f(200, 375));
+	builder.setSpriteSheet(World::getCurrDesktop().getButtonSheet());
+	builder.setWindowCaption("Quit?");
+	createWithEventFunc(builder, ConfirmationWindow, ptr, ppc::quit_game);
+	ptr->addWindow(ConfirmationWindow);
+	return true;
+}
+
+bool ppc::quit_game(Desktop * ptr, ppc::Event ev)
+{
+	throw std::logic_error("Screen Closer");
+	return true;
+}
+
 
 
