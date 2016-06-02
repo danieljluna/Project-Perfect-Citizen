@@ -625,9 +625,13 @@ void ppc::World::initAddressMap() {
 
 void ppc::World::manifestSettings() {
     if (settings_.fullscreen) {
-        //TODO: TEST THIS ON MAC
+#ifdef WINDOWS_MARKER
         settings_.resolution.x = sf::VideoMode::getDesktopMode().width;
         settings_.resolution.y = sf::VideoMode::getDesktopMode().height;
+#else
+        settings_.resolution.x = sf::VideoMode::getFullscreenModes().front().width;
+        settings_.resolution.y = sf::VideoMode::getFullscreenModes().front().height;
+#endif
     }
 
 
@@ -642,6 +646,7 @@ void ppc::World::manifestSettings() {
         flags = flags | sf::Style::Fullscreen;
     }
     screen_->create(getVideoMode(), "Project Perfect Citizen", flags);
+    screen_->setFramerateLimit(60.0f);
 }
 
 void World::drawDesktop() {
