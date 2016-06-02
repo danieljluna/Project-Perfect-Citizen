@@ -19,6 +19,8 @@ Desktop* World::currDesktop_ = nullptr;
 sf::Transform World::worldTransform_;
 sf::RectangleShape World::blackBars_[2] = {sf::RectangleShape(), sf::RectangleShape()};
 
+Save World::currSave = Save();
+
 bool World::progToNext_ = true;
 
 
@@ -28,7 +30,7 @@ std::map<ppc::World::DesktopList, ppc::LevelPacket> World::levelMap_ = {
 
 std::map<std::string, World::savGroups> World::saveGroupMap_ = {
     { "Settings",      World::SettingsTag  },
-    { "State",         World::StateTag     }
+    { "Save",         World::StateTag     }
 };
 
 World::DesktopList World::currDesktopEnum_ = DELogo;
@@ -646,7 +648,6 @@ void ppc::World::manifestSettings() {
         flags = flags | sf::Style::Fullscreen;
     }
     screen_->create(getVideoMode(), "Project Perfect Citizen", flags);
-    screen_->setFramerateLimit(60.0f);
 }
 
 void World::drawDesktop() {

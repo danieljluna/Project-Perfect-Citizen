@@ -17,7 +17,6 @@ std::map<std::string, Setting::IniTags> Setting::iniGroupMap = {
 
 std::istream& ppc::operator>>(std::istream& in, Setting& setting) {
     std::string word;
-    //Setting::IniTags tag;  //This is not used in my current build, feel free to uncomment
 
     //Loop over groupings
     while (in) {

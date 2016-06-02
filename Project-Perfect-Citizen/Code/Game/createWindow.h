@@ -249,7 +249,6 @@ void spawnCreditsWindow(Desktop* dt, WindowInterface*& windowToModify, InputHand
 bool close_window(WindowInterface* w, ppc::Event ev);
 bool open_settings(WindowInterface *w, ppc::Event ev);
 bool open_credits(WindowInterface* w, ppc::Event ev);
-bool login_check(WindowInterface* w, ppc::Event ev);
 bool continue_world(WindowInterface* w, ppc::Event ev);
 
 bool increment_resolution(TextDisplayRenderComponent*, ppc::Event ev);

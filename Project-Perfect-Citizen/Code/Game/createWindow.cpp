@@ -78,6 +78,8 @@
 #include "ConfirmWindowBuilder.h"
 #include "flaggedFileInputComponent.h"
 
+#include "LoginInputCmpnt.h"
+
 
 using namespace ppc;
 
@@ -945,8 +947,10 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
     tbuilder.setInputHandle(ih);
     tbuilder.setContainingWindow(windowToModify);
 	tbuilder.setIsMasked(false);
-	createWithEventFunc(tbuilder, tbox, windowToModify, ppc::continue_world);
-    
+    LoginInputCmpnt* loginCmpnt = new LoginInputCmpnt(*windowToModify, tbuilder.getTextBoxInputComponent());
+	createWithEventFunc(tbuilder, tbox, loginCmpnt, registerLogIn);
+    loginCmpnt->setTextBox(*tbuilder.getTextBoxInputComponent());
+
     Entity promptText;
     TextDisplayBuilder tdBuilder;
     tdBuilder.setFont(myFont);
@@ -966,7 +970,7 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
     lBuilder.setSize(0.25f);
     lBuilder.setLabelFont(myFont);
     lBuilder.setLabelSize(12);
-    createWithEventFunc(lBuilder, loginButton, windowToModify, login_check);
+    createWithEventFunc(lBuilder, loginButton, loginCmpnt, registerLogIn);
 
 	Entity settingsButton;
 	lBuilder.setLabelMessage("Settings");
@@ -979,12 +983,13 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
 	createWithEventFunc(lBuilder, creditsButton, windowToModify, open_credits);
   
     
-    windowToModify->addEntity(alertIcon);
     windowToModify->addEntity(tbox);
+    windowToModify->addEntity(alertIcon);
     windowToModify->addEntity(promptText);
     windowToModify->addEntity(loginButton);
 	windowToModify->addEntity(settingsButton);
 	windowToModify->addEntity(creditsButton);
+    windowToModify->addInputComponent(loginCmpnt);
     BorderDecorator* temp = new BorderDecorator(*windowToModify);
     sf::FloatRect bounds;
     bounds.width = bounds.height = 0;
@@ -1495,26 +1500,6 @@ bool ppc::open_credits(WindowInterface * w, ppc::Event ev)
 	return true;
 }
 
-bool ppc::login_check(WindowInterface* w, ppc::Event ev) {
-    WindowInterface* loginConfirm =
-        new Window(400, 110, sf::Color(170, 170, 170));
-    
-    ConfirmWindowBuilder builder;
-    builder.setButtonLabelFont(World::getFont(World::FontList::Consola));
-    builder.setCancelButtonLabel("No");
-    builder.setConfirmButtonLabel("Yes");
-    builder.setConfirmMessage("Are you sure you want to create \na new user?\n(This will create a new save file)");
-    builder.setMessageFont(World::getFont(World::FontList::Consola));
-    builder.setMessageFontSize(12);
-    builder.setPosition(w->getPosition() + sf::Vector2f(25, 50));
-    builder.setSpriteSheet(World::getCurrDesktop().getButtonSheet());
-    builder.setWindowCaption("");
-    createWithEventFunc(builder, loginConfirm, w, continue_world);
-    
-    w->createNotifWindow(loginConfirm);
-
-    return false;
-}
 
 bool ppc::continue_world(WindowInterface* w, ppc::Event ev) {
     World::quitDesktop();

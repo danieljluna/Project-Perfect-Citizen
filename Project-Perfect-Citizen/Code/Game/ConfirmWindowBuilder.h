@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include <SFML/Graphics.hpp>
+#include "mousePressButton.h"
 
 namespace ppc {
 	class Desktop;

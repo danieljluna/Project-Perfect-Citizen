@@ -3,10 +3,4 @@ ResolutionWidth         1000
 ResolutionHeight        800
 Fullscreen              0
 
-[BullShit] # Bad Tags are reported to cerr
-Alluminum               20
-CurrentDesktop          10
-Fullscreen              0
-
 [Save]
-CurrentDesktop          0
