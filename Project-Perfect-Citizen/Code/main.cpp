@@ -44,10 +44,6 @@ int main(int argc, char** argv) {
 		audiotest.loopBgm();
 		audiotest.playBgm();
 
-		// Create the main sf::window
-
-		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen", sf::Style::Close | sf::Style::Titlebar);
-
 		///////////////////////////////////////////////////////////////////
 
 		//// ----------------   PYTHON LOCATION STUFF ---------------- ////
