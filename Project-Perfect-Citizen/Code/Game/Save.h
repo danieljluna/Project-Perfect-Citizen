@@ -1,5 +1,6 @@
 #pragma once
 #include <map>
+#include <string>
 
 namespace ppc {
 
@@ -16,7 +17,7 @@ public:
 
     void exportSave(const std::string& login);
 
-    Save& Save::operator=(const Save& other);
+    Save& operator=(const Save& other);
     
 
 private:
