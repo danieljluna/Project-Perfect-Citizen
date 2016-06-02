@@ -55,6 +55,8 @@ public:
     /// @param clamp The area in Desktop space to clamp to.
     ///////////////////////////////////////////////////////////////////
     void setClampBounds(const sf::FloatRect& clamp);
+
+    bool isClamped() { return isClamped_; };
     
   /////////////////////////////////////////////////////////////////////
   // Button Manipulation
@@ -152,6 +154,8 @@ private:
     sf::Sprite captionIcon_;
     //Whether or not we have an Icon
     bool captionHasIcon_ = false;
+
+    bool isClamped_ = false;
 
     //Array of buttonRenderComponents
 	buttonRenderComponent** buttonRenders_;
