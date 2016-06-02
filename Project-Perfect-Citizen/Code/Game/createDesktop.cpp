@@ -513,7 +513,7 @@ void ppc::createHackerDesktop(Desktop& desktopToModify, WindowInterface& desktop
     builder.setPosition({ 650.0f, 400.0f });
     builder.setIconType(iconInputComponent::IconType::File);
     builder.setSpritebyIndicies(0, 0, 1, 3);
-    builder.setText("Resignation_1.txt", World::getFont(World::VT323Regular), sf::Color::White);
+    builder.setText("READ_ME_1.txt", World::getFont(World::VT323Regular), sf::Color::White);
     builder.create(Resonation_1);
     desktopWindowToModify.addEntity(Resonation_1);
     
@@ -535,53 +535,3 @@ void ppc::createHackerDesktop(Desktop& desktopToModify, WindowInterface& desktop
     ppc::SuspiciousFileHolder::setWindow(fileTracker);
 }
 
-
-void ppc::createTrailerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
-    
-	Database theDatabase;
-
-	Inbox* theInbox = &desktopToModify.getInbox();
-    
-    //////////////////////////////////////////////
-    //// Create the start menu
-    /////////////////////////////////////////////
-    ppc::WindowInterface* startToolbar =
-    new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
-    startToolbar->setPosition(0, 735);
-
-    Entity startBar;
-    startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
-    startBarRender->renderPosition({0,4});
-    startBar.addComponent(startBarRender);
-    
-    Entity startButton;
-    spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
-    startToolbar->addEntity(startBar);
-    startToolbar->addEntity(startButton);
-    desktopToModify.addWindow(startToolbar);
-    
-    
-    ////////////////////////////////
-    ///// ICONS ON TEACHER DESKTOP
-    ////////////////////////////////
-    Entity BrowserIcon;
-    Entity ChatIcon;
-    Entity HardDriveIcon;
-    Entity SettingsIcon;
-    Entity ConsoleIcon;
-    Entity EmailIcon;
-    
-    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, theDatabase, iconSheet,  buttonSheet, 25.0f, 25.0f, 0.4f, 0.25f, theInbox);
-    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 125.0f, 0.4f, 0.25f, theInbox);
-    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 225.0f, 0.5f, 0.25f, theInbox);
-    spawnChatIcon(ChatIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 325.0f, 0.4f, 0.25f, theInbox);
-    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 425.0f, 0.5f, 0.25f, theInbox);
-    
-    desktopWindowToModify.addEntity(BrowserIcon);
-    desktopWindowToModify.addEntity(ChatIcon);
-    desktopWindowToModify.addEntity(HardDriveIcon);
-    desktopWindowToModify.addEntity(SettingsIcon);
-    desktopWindowToModify.addEntity(ConsoleIcon);
-    desktopWindowToModify.addEntity(EmailIcon);
-    
-}
