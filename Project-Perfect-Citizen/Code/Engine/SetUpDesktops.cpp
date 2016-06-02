@@ -70,18 +70,6 @@ void ppc::setUpLoginDesktop(ppc::Desktop& myDesktop) {
 
 void ppc::setUpEndDesktop(ppc::Desktop& myDesktop) {
 
-	Window* endWindow = new Window(1800, 1000, sf::Color(30, 32, 33));
-
-	Entity ending;
-
-	endingAnimationRender* endRender = new endingAnimationRender(myDesktop.getButtonSheet());
-	endAnimationUpdateComponent* endUpdate = new endAnimationUpdateComponent(*endRender, 0.1f);
-
-	ending.addComponent(endRender);
-	ending.addComponent(endUpdate);
-	endWindow->addEntity(ending);
-
-	myDesktop.addWindow(endWindow);
 }
 
 

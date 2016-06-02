@@ -45,8 +45,8 @@ int main(int argc, char** argv) {
 		audiotest.playBgm();
 
 		World::loadState("PPC.sav");
-		//World::setCurrDesktopEnum(World::DE3A);
 		std::ifstream desktopFileInput;
+
 		while (World::getCurrDesktopEnum() != World::DesktopCount) {
 			Desktop mainDesktop;
 			World::setCurrDesktop(mainDesktop);
