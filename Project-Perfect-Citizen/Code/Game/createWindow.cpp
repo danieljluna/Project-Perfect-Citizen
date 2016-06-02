@@ -975,7 +975,7 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
 	Entity settingsButton;
 	lBuilder.setLabelMessage("Settings");
 	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 75, 95.0f));
-	createWithEventFunc(lBuilder, settingsButton, windowToModify, open_settings);
+    createWithEventFunc(lBuilder, settingsButton,&World::getCurrDesktop(), open_settings);
 
 	Entity creditsButton;
 	lBuilder.setLabelMessage("Credits");
@@ -1483,7 +1483,7 @@ bool ppc::close_window(WindowInterface * w, ppc::Event ev)
 	return false;
 }
 
-bool ppc::open_settings(WindowInterface *w, ppc::Event ev) {
+bool ppc::open_settings(Desktop *w, ppc::Event ev) {
 	WindowInterface* settingsWindow = new ppc::Window(500, 600, sf::Color(170, 170, 170));
 	spawnSettingsMenu(&World::getCurrDesktop(), settingsWindow, settingsWindow->getInputHandler(), 500.0f, 500.0f);
 	settingsWindow->setPosition(sf::Vector2f{ 200.0f, 200.0f });
