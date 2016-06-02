@@ -252,6 +252,18 @@ void textOutputRenderComponent::updateString(std::vector<std::string> cmd) {
         str_ = str_ + "                           working directory\n";
         numDisplayedLines+= 9;
     }
+    
+    /* CASE: GIT SHREKT*/
+    else if (cmd.at(0) == "git" && cmd.at(1) == "shrekt") {
+        str_ = str_ + "\n..####...##..##..#####...######..##..##. \n";
+        str_ = str_ + ".##......##..##..##..##..##......##.##.. \n";
+        str_ = str_ + "..####...######..#####...####....####... \n";
+        str_ = str_ + ".....##..##..##..##..##..##......##.##.. \n";
+        str_ = str_ + "..####...##..##..##..##..######..##..##. \n";
+        str_ = str_ + "........................................ \n";
+        numDisplayedLines+= 6;
+    }
+
 
 	/* CASE: DEFAULT*/
 	else { 
