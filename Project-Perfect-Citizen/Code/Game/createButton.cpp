@@ -185,8 +185,10 @@ bool ppc::spawnStartMenu(Desktop* ptr, Event ev) {
 		new ppc::Window(200, 300, sf::Color(170, 170, 170));
 	std::vector<std::string> elementNames;
 	std::vector<bool(*)(Desktop*, Event ev)> elementFunctions;
-	elementNames.push_back("Log Off");
+	elementNames.push_back("Log Off \n ____________");
+    elementNames.push_back("Settings\n ____________");
 	elementFunctions.push_back(&(ppc::LogOff));
+    elementFunctions.push_back(&(ppc::open_settings));
 	spawnContextMenu(*ptr, ContextMenu, ContextMenu->getInputHandler(), elementNames,
 		elementFunctions, 0.f, static_cast<float>(700-((elementNames.size()-1)*20)));
 	ptr->addWindow(ContextMenu);

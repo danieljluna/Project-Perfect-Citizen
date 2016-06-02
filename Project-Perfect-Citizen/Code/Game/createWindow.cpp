@@ -977,7 +977,7 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
 	Entity settingsButton;
 	lBuilder.setLabelMessage("Settings");
 	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 152, 95.0f));
-	createWithEventFunc(lBuilder, settingsButton, windowToModify, open_settings);
+    createWithEventFunc(lBuilder, settingsButton,&World::getCurrDesktop(), open_settings);
 
 	Entity creditsButton;
 	lBuilder.setLabelMessage("Credits");
@@ -1436,7 +1436,7 @@ void ppc::spawnCreditsWindow(Desktop * dt, WindowInterface *& windowToModify, In
 	Entity programmerList;
     builder.setSize(subHeaderSize);
 	builder.setPosition(sf::Vector2f(subHeaderX, 500.0f));
-	builder.setString("       Daniel Luna   Lead Developer\n       Nader Sleem   Game Programmer\n John 'Andy' Baden   Game Programmer/Designer");
+	builder.setString("       Daniel Luna   Lead Developer\n       Nader Sleem   Game Programmer\n John 'Andy' Baden   Game Programmer/Designer\n       Michael Lowe  Game Programmer\n");
 	builder.create(programmerList);
 	windowToModify->addEntity(programmerList);
 
@@ -1491,7 +1491,7 @@ bool ppc::close_window(WindowInterface * w, ppc::Event ev)
 	return false;
 }
 
-bool ppc::open_settings(WindowInterface *w, ppc::Event ev) {
+bool ppc::open_settings(Desktop *w, ppc::Event ev) {
 	WindowInterface* settingsWindow = new ppc::Window(500, 600, sf::Color(170, 170, 170));
 	spawnSettingsMenu(&World::getCurrDesktop(), settingsWindow, settingsWindow->getInputHandler(), 500.0f, 500.0f);
 	settingsWindow->setPosition(sf::Vector2f{ 200.0f, 200.0f });
