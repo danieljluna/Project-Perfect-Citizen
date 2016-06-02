@@ -64,6 +64,8 @@ std::ostream& ppc::operator<<(std::ostream& out, const Setting& setting) {
             std::setw(0) << setting.resolution.x << std::endl;
     out << std::setw(25) << "ResolutionHeight" <<
         std::setw(0) << setting.resolution.y << std::endl;
+    out << std::setw(25) << "Fullscreen" <<
+        std::setw(0) << setting.fullscreen << std::endl;
 
     return out;
 }
