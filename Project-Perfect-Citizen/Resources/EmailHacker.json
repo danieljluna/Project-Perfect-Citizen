@@ -2,6 +2,49 @@
     "Email": {
         "Email_001": {
             "Visible" : "1",
+            "To" : "You",
+            "From" : "DCPS automated system",
+            "Subject" : "What is Project Perfect Citizen?",
+            "Body" :"
+            
+    Project Perfect Citizen is the first extensive
+    program initiated by the Department of Cyber
+    Police and Security tasked with the job of
+    detecting and eradicating cyber criminal
+    threats within our great nation's network.
+    This network, the SecureNetwork, is a series
+    of interconnected links between every
+    electronic telecommunications device
+    internationally that controls the channels
+    through which information is passed on."
+    },
+    "Email_002": {
+            "Visible" : "1",
+            "To" : "You",
+            "From" : "JP",
+            "Subject": "First Things First",
+            "Body" : "Hello there,
+            
+    So you are the new personnel here at the DCPS?
+    Well you are going to enjoy your time here, I
+    know it. Anyways, I'm JP and I am your boss
+    here.
+        
+    So the first thing our should do is to open
+    the Graph application and start your training.
+    We have a series of simulations designed to
+    quickly get you up to speed with our systems.
+                
+    Pretty soon you'll be busting cyber criminals 
+    left and right along side our best agents.
+    Just remember, with every successful takedown
+    we get closer to achieving the goal of
+    \"Perfect Citizen\"
+                
+    JP"
+    },
+        "Email_003": {
+            "Visible" : "1",
             "To" : "Isaac Durov",
             "From" : "Isaac Durov",
             "Subject" : "Hello Fellow Agent",

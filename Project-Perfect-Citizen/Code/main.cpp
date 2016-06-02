@@ -62,7 +62,7 @@ int main(int argc, char** argv) {
 		World::setGameScreen(screen);
 		World::loadState("PPC.sav");
 		std::ifstream desktopFileInput;
-
+        World::setCurrDesktopEnum(World::DE2B);
 		while (World::getCurrDesktopEnum() != World::DesktopCount) {
 			Desktop mainDesktop;
 			World::setCurrDesktop(mainDesktop);
