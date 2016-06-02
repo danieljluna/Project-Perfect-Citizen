@@ -36,9 +36,9 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
 
         if (ev.buttons.activation == ev.buttons.RightMouse) {
             
-            que.addSound("click", "Mouse_Down.wav");
-            que.playSound(0);
-            que.popAndPlay();
+            //que.addSound("click", "Mouse_Down.wav");
+            //que.playSound(0);
+            //que.popAndPlay();
           
 
 			/* Begin Building Context List */
@@ -135,13 +135,6 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
 
         } else if (ev.buttons.activation == ev.buttons.LeftMouse &&
                    ev.buttons.state == Event::ButtonsEv::DblClicked) {
-            
-            
-            
-            que.addSound("click", "Double_Click.wav");
-            que.playSound(0);
-            que.popAndPlay();
-        
 
             WindowInterface* tempWin = nullptr;
 
@@ -207,7 +200,7 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
                 }
                 break;
             case IconType::Help:
-                tempWin = new ppc::Window(600, 700, sf::Color(200, 200, 200));
+                tempWin = new ppc::Window(600, 900, sf::Color(200, 200, 200));
                 spawnHelp(tempWin, tempWin->getInputHandler(), buttonSheet_, 100, 100);
                 theDesktop_.addWindow(tempWin);
                 openedWindow = tempWin;

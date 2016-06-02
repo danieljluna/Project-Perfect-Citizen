@@ -10,6 +10,7 @@
 #include "../Engine/Vertex.h"
 
 #include "PipelineDataRenderComponent.h"
+#include "../Engine/World.h"
 
 using namespace ppc;
 
@@ -135,6 +136,9 @@ void ppc::NetworkInputCmpnt::loopEdgeColor() {
 		e1->setColorSelectedRed();
 		e2->setColorSelectedRed();
 	}
+	int testSound = World::getAudio().addSound("Switch_Pipeline_Connection_Color", "Switch_Pipeline_Connection_Color.wav");
+	World::getAudio().readySound(testSound);
+	World::getAudio().popAndPlay();
 
     Event ev;
     ev.type = ev.NetworkType;

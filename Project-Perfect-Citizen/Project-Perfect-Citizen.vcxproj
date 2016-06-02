@@ -117,6 +117,7 @@
     <ClCompile Include="Code\Game\PipelineDataRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineGraphRenderComponent.cpp" />
     <ClCompile Include="Code\Game\PipelineLevelBuilder.cpp" />
+    <ClCompile Include="Code\Game\playerLocator.cpp" />
     <ClCompile Include="Code\Game\ReportEndObsvr.cpp" />
     <ClCompile Include="Code\Game\ReportScreenInput.cpp" />
     <ClCompile Include="Code\Game\ReportScreenObsvr.cpp" />
@@ -267,6 +268,7 @@
     <ClInclude Include="Code\Game\PipelineGraphRenderComponent.h" />
     <ClInclude Include="Code\Game\PipelineJobsAndIncomes.h" />
     <ClInclude Include="Code\Game\PipelineLevelBuilder.h" />
+    <ClInclude Include="Code\Game\playerLocator.hpp" />
     <ClInclude Include="Code\Game\ReportEndObsvr.h" />
     <ClInclude Include="Code\Game\ReportScreenInput.h" />
     <ClInclude Include="Code\Game\ReportScreenObsvr.h" />

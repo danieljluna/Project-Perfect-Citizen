@@ -1,9 +1,19 @@
+
+
 #include "ResourceDef.h"
 #include <fstream>
 #include <string>
+#include <sstream>
+#include <stdlib.h>
+
 #include <SFML/Main.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <cstdio>
+#include <iostream>
+#include <memory>
+#include <stdexcept>
+#include <string>
 
 #include "Engine/Engine.h"
 
@@ -12,6 +22,7 @@
 #include "Engine/Audio/AudioQueue.h"
 
 #include "Engine/SetUpDesktops.h"
+
 
 using namespace ppc;
 
@@ -33,34 +44,23 @@ int main(int argc, char** argv) {
 		audiotest.loopBgm();
 		audiotest.playBgm();
 
+		// Create the main sf::window
+
+		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen", sf::Style::Close | sf::Style::Titlebar);
+
 		///////////////////////////////////////////////////////////////////
 
 		//// ----------------   PYTHON LOCATION STUFF ---------------- ////
 
 		// Run the locator python app
-		//system("osascript -e 'tell app \"ppc_ip_location\" to open'");
-        
-        #ifdef WINDOWS_MARKER
-   
-        #else
-            system("open ./Project-Perfect-Citizen.app/Contents/Resources/ppc_ip_location.app");
-            std::string line;
-            std::ifstream myfile (resourcePath() + "/ppc_ip_location.app/Content/Resources/loc_file.txt");
-            if (myfile.is_open()){
-                while (getline (myfile,line) ){
-                    std::cout << line << '\n';
-                }
-                myfile.close();
-            }
-        
-            else std::cout << "Unable to open file";
-        #endif
+
+		
+
        
 		// -----------------------------------------------------------//
 
 		World::loadState("PPC.sav");
 		std::ifstream desktopFileInput;
-
 
 		while (World::getCurrDesktopEnum() != World::DesktopCount) {
 			Desktop mainDesktop;
@@ -99,3 +99,5 @@ int main(int argc, char** argv) {
 
 	return EXIT_SUCCESS;
 }
+
+
