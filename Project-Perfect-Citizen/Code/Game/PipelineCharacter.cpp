@@ -263,9 +263,9 @@ void PipelineCharacter::generateRaw() {
     std::uniform_int_distribution<> nosed(0, 8);
     // for skin index
     std::discrete_distribution<> skind
-    {3, 3, 2, 1, 3, 2, 1, 3, 1, 3,
-     1, 1, 1, 2, 1, 2, 1, 1, 2, 1,
-     1, 2, 1, 2, 1, 1, 1, 1, 1, 1,};
+    {3, 3, 2, 1, 3, 2, 1, 3, 1, 3,  //10
+     1, 1, 1, 2, 1, 2, 1, 1, 2, 1,  //10
+	 1, 2, 1, 2, 1, 1, 1, 1, 1};
 
 
     std::uniform_int_distribution<> shirtd(5, 8);
