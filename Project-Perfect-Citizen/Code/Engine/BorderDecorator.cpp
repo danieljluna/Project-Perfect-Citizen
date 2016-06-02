@@ -111,6 +111,7 @@ void BorderDecorator::addButton(sf::Image& buttonImage,
 
 void BorderDecorator::setClampBounds(const sf::FloatRect& clamp) {
     draggableInput_.setClampBounds(clamp);
+    isClamped_ = true;
 }
 
 
@@ -244,13 +245,17 @@ void BorderDecorator::draw(sf::RenderTarget& target,
     target.draw(captionBackground_, states);
     if (captionHasIcon_) {
         target.draw(captionIcon_);
+        auto tempStates = states;
+        tempStates.transform.translate({ captionIcon_.getLocalBounds().width, 0 });
+        target.draw(caption_, tempStates);
+    } else {
+        target.draw(caption_, states);
     }
     target.draw(innerShadow, states);
     target.draw(innerWhite, states);
     WindowDecorator::draw(target, states);
     for (size_t i = 0; i < buttonCount_; ++i) {
         target.draw(*buttonRenders_[i], states);
-        target.draw(caption_, states);
     }
 }
 
@@ -285,7 +290,7 @@ void BorderDecorator::updateBounds() {
     bounds.left = 0.0f - borderTopLeft_.x;
     draggableInput_.setBounds(bounds);
 
-    caption_.updatePosition(WindowDecorator::getPosition().x + captionBackground_.getSize().y, 
+    caption_.updatePosition(WindowDecorator::getPosition().x + bounds.height * 0.1f,
                             WindowDecorator::getPosition().y - bounds.height * 0.88f);
 
     bounds = getBounds();

@@ -49,14 +49,14 @@ int main(int argc, char** argv) {
 		//// ----------------   PYTHON LOCATION STUFF ---------------- ////
 
 		// Run the locator python app
-
-		
-
        
 		// -----------------------------------------------------------//
 
 		World::loadState("PPC.sav");
 		std::ifstream desktopFileInput;
+
+        //World::setCurrDesktopEnum(World::DE2B);
+
 
 		while (World::getCurrDesktopEnum() != World::DesktopCount) {
 			Desktop mainDesktop;

@@ -78,6 +78,8 @@
 #include "ConfirmWindowBuilder.h"
 #include "flaggedFileInputComponent.h"
 
+#include "LoginInputCmpnt.h"
+
 
 using namespace ppc;
 
@@ -947,8 +949,10 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
     tbuilder.setInputHandle(ih);
     tbuilder.setContainingWindow(windowToModify);
 	tbuilder.setIsMasked(false);
-	createWithEventFunc(tbuilder, tbox, windowToModify, ppc::continue_world);
-    
+    LoginInputCmpnt* loginCmpnt = new LoginInputCmpnt(*windowToModify, tbuilder.getTextBoxInputComponent());
+	createWithEventFunc(tbuilder, tbox, loginCmpnt, registerLogIn);
+    loginCmpnt->setTextBox(*tbuilder.getTextBoxInputComponent());
+
     Entity promptText;
     TextDisplayBuilder tdBuilder;
     tdBuilder.setFont(myFont);
@@ -968,7 +972,7 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
     lBuilder.setSize(0.25f);
     lBuilder.setLabelFont(myFont);
     lBuilder.setLabelSize(12);
-	createWithEventFunc(lBuilder, loginButton, windowToModify, continue_world);
+    createWithEventFunc(lBuilder, loginButton, loginCmpnt, registerLogIn);
 
 	Entity settingsButton;
 	lBuilder.setLabelMessage("Settings");
@@ -986,16 +990,22 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
 	createWithEventFunc(lBuilder, quitButton, &World::getCurrDesktop(), confirm_quit);
   
     
-    windowToModify->addEntity(alertIcon);
     windowToModify->addEntity(tbox);
 	windowToModify->addEntity(quitButton);
+    windowToModify->addEntity(alertIcon);
     windowToModify->addEntity(promptText);
     windowToModify->addEntity(loginButton);
 	windowToModify->addEntity(settingsButton);
 	windowToModify->addEntity(creditsButton);
-    windowToModify = new BorderDecorator(*windowToModify);
-
-    dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Login");
+    windowToModify->addInputComponent(loginCmpnt);
+    BorderDecorator* temp = new BorderDecorator(*windowToModify);
+    sf::FloatRect bounds;
+    bounds.width = bounds.height = 0;
+    bounds.left = temp->getPosition().x;
+    bounds.top = temp->getPosition().y;
+    temp->setClampBounds(bounds);
+    temp->setCaption("Login");
+    windowToModify = temp;
 
 }
 
@@ -1497,6 +1507,7 @@ bool ppc::open_credits(WindowInterface * w, ppc::Event ev)
 	World::getCurrDesktop().addWindow(creditsWindow);
 	return true;
 }
+
 
 bool ppc::continue_world(WindowInterface* w, ppc::Event ev) {
     World::quitDesktop();

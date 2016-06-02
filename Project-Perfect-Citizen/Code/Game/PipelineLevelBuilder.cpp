@@ -100,14 +100,22 @@ const std::vector<std::pair<unsigned int, unsigned int>> LEVEL_THREE_INNO_EDGES 
 Network* PipelineLevelBuilder::buildTutorialOne() {
 	Network* myNetwork = new Network(TUTORIAL_1_NODES);
 	std::map<std::string, bool> usednames = NAME_MAP;
+	std::srand(time(NULL));
+	std::string name;
+	char c;
 
 	for (int i = 0; i < TUTORIAL_1_NODES;) {
-		PipelineCharacter newpc(JOBS_ALL[0], 18, false);
-		if (usednames[newpc.getSSN().substr(0, 1)] == false) {
+		name = "";
+		c = std::rand() % 26 + 'A';
+		name += c;
+		if (usednames[name] == false) {
+			usednames[name] = true;
+			c = std::rand() % 26 + 'A';
+			name += c;
+			PipelineCharacter newpc;
+			newpc.generateWithNameJobAgeCrim(name, JOBS_ALL[0], 18, false);
 			myNetwork->vert(i).setCharacter(newpc);
-			usednames[newpc.getSSN().substr(0, 1)] = true;
 			++i;
-			//add char to database here I think
 		}
 	}
 
@@ -123,24 +131,31 @@ Network* PipelineLevelBuilder::buildTutorialOne() {
 Network* PipelineLevelBuilder::buildTutorialTwo() {
 	Network* myNetwork = new Network(TUTORIAL_2_NODES);
 	std::map<std::string, bool> usednames = NAME_MAP;
+	std::srand(time(NULL));
+	std::string name;
+	char c;
 
 	for (int i = 0; i < TUTORIAL_2_NODES;) {
-		PipelineCharacter newpc;
 		//Char 0 - 18
 		//Char 1 - 40
 		//Char 2 - 18
 		//Char 3 - 40
-		if (i % 2 == 0) {
-			newpc = PipelineCharacter(JOBS_ALL[0], 18, false);
-		}
-		else {
-			newpc = PipelineCharacter(JOBS_ALL[0], 40, false);
-		}
-		if (usednames[newpc.getSSN().substr(0, 1)] == false) {
+		name = "";
+		c = std::rand() % 26 + 'A';
+		name += c;
+		if (usednames[name] == false) {
+			usednames[name] = true;
+			c = std::rand() % 26 + 'A';
+			name += c;
+			PipelineCharacter newpc;
+			if (i % 2 == 0) {
+				newpc.generateWithNameJobAgeCrim(name, JOBS_ALL[0], 18, false);
+			}
+			else {
+				newpc.generateWithNameJobAgeCrim(name, JOBS_ALL[0], 40, false);
+			}
 			myNetwork->vert(i).setCharacter(newpc);
-			usednames[newpc.getSSN().substr(0, 1)] = true;
 			++i;
-			//add char to database here I think
 		}
 	}
 
@@ -161,14 +176,22 @@ Network* PipelineLevelBuilder::buildTutorialTwo() {
 Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	Network* myNetwork = new Network(8);
 	std::map<std::string, bool> usednames = NAME_MAP;
+	std::srand(time(NULL));
+	std::string name;
+	char c;
 
 	for (int i = 0; i < 8;) { //8 nodes in level 1
-		PipelineCharacter newpc;
-		if (usednames[newpc.getSSN().substr(0, 1)] == false) {
+		name = "";
+		c = std::rand() % 26 + 'A';
+		name += c;
+		if (usednames[name] == false) {
+			usednames[name] = true;
+			c = std::rand() % 26 + 'A';
+			name += c;
+			PipelineCharacter newpc;
+			newpc.generateWithName(name);
 			myNetwork->vert(i).setCharacter(newpc);
-			usednames[newpc.getSSN().substr(0, 1)] = true;
 			++i;
-			//add char to database here I think
 		}
 	}
 
@@ -179,41 +202,6 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 
 	return myNetwork;
 }
-
-/*
-Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
-	Network* myNetwork = new Network(LEVEL_ONE_NUM_NODES);
-	
-	std::map<std::string, bool> usednames = NAME_MAP;
-	//These characters are randomly generated here, but should be more
-	//specific in practice
-	for (int i = 0; i < LEVEL_ONE_NUM_NODES;) {
-		PipelineCharacter newpc;
-		if (usednames[newpc.getSSN().substr(0, 1)] == false) {
-			myNetwork->vert(i).setCharacter(newpc);
-			usednames[newpc.getSSN().substr(0, 1)] = true;
-			++i;
-			//add char to database here I think
-		}
-	}
-
-	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson("DE1PipelineTexts.json");
-
-	//Fill random edges on low side - non suspicious
-	populateLevelEdges(0, LEVEL_ONE_NODES_LOW, (LEVEL_ONE_NUM_EDGES) / 2, 
-		*myNetwork, 0, exprGrammar);
-
-	//Fill random edges on high side - suspicious
-	populateLevelEdges(LEVEL_ONE_NODES_HIGH, LEVEL_ONE_NUM_NODES - 1,
-		LEVEL_ONE_NUM_EDGES / 2, *myNetwork, 1, exprGrammar);
-
-	std::pair<int, int> centerAndTarget = designateCenter(LEVEL_ONE_NODES_HIGH, LEVEL_ONE_NUM_NODES - 1, *myNetwork);
-	myNetwork->setCenter(centerAndTarget.first);
-	addEdge(centerAndTarget.first, centerAndTarget.second, *myNetwork, 1, exprGrammar);
-
-	return myNetwork;
-}
-*/
 
 Network* PipelineLevelBuilder::buildLevelTwoANetworkSolution() {
 	World::getAudio().stopAllSounds();
@@ -234,14 +222,22 @@ Network* PipelineLevelBuilder::buildLevelTwoBNetworkSolution() {
 Network* ppc::PipelineLevelBuilder::LevelTwoWithOption(std::string file) {
 	Network* myNetwork = new Network(10);
 	std::map<std::string, bool> usednames = NAME_MAP;
+	std::srand(time(NULL));
+	std::string name;
+	char c;
 
 	for (int i = 0; i < 10;) { //10 nodes in level 2
-		PipelineCharacter newpc;
-		if (usednames[newpc.getSSN().substr(0, 1)] == false) {
+		name = "";
+		c = std::rand() % 26 + 'A';
+		name += c;
+		if (usednames[name] == false) {
+			usednames[name] = true;
+			c = std::rand() % 26 + 'A';
+			name += c;
+			PipelineCharacter newpc;
+			newpc.generateWithName(name);
 			myNetwork->vert(i).setCharacter(newpc);
-			usednames[newpc.getSSN().substr(0, 1)] = true;
 			++i;
-			//add char to database here I think
 		}
 	}
 
@@ -256,14 +252,22 @@ Network* ppc::PipelineLevelBuilder::LevelTwoWithOption(std::string file) {
 Network* PipelineLevelBuilder::buildLevelThreeNetworkSolution() {
 	Network* myNetwork = new Network(10);
 	std::map<std::string, bool> usednames = NAME_MAP;
+	std::srand(time(NULL));
+	std::string name;
+	char c;
 
 	for (int i = 0; i < 10;) { //10 nodes in level 3
-		PipelineCharacter newpc;
-		if (usednames[newpc.getSSN().substr(0, 1)] == false) {
+		name = "";
+		c = std::rand() % 26 + 'A';
+		name += c;
+		if (usednames[name] == false) {
+			usednames[name] = true;
+			c = std::rand() % 26 + 'A';
+			name += c;
+			PipelineCharacter newpc;
+			newpc.generateWithName(name);
 			myNetwork->vert(i).setCharacter(newpc);
-			usednames[newpc.getSSN().substr(0, 1)] = true;
 			++i;
-			//add char to database here I think
 		}
 	}
 
@@ -285,6 +289,7 @@ void ppc::PipelineLevelBuilder::populateEdgesBySet(const std::vector<std::pair<u
 Network* ppc::PipelineLevelBuilder::buildDefaultNetwork() {
 	Network* myNetwork = new Network(1);
 	PipelineCharacter newpc;
+	newpc.generateRaw();
 	myNetwork->vert(0).setCharacter(newpc);
 	myNetwork->setCenter(0);
 

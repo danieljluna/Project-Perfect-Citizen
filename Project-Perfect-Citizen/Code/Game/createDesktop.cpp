@@ -319,9 +319,9 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
     Entity ConsoleIcon;
     Entity EmailIcon;
     
-    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 125.0f, 600.0f, 0.4f, 0.25f, theInbox);
-    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 225.0f, 600.0f, 0.5f, 0.25f, theInbox);
-    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 425.0f, 600.0f, 0.5f, 0.25f, theInbox);
+    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 100.0f, 200.0f, 0.4f, 0.25f, theInbox);
+    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 0.0f, 300.0f, 0.5f, 0.25f, theInbox);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 100.0f, 400.0f, 0.5f, 0.25f, theInbox);
 
 	IconBuilder builder;
 	builder.setDesktop(desktopToModify);
@@ -332,7 +332,7 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
 	builder.setSize(0.5f);
 
 	Entity file1;
-	builder.setPosition({ 600.0f, 100.0f });
+	builder.setPosition({ 700.0f, 400.0f });
 	builder.setIconType(iconInputComponent::IconType::File);
 	builder.setSpritebyIndicies(0, 0, 1, 3);
 	builder.setText("BankPark_Print.jpg", World::getFont(World::VT323Regular), sf::Color::White);
@@ -400,7 +400,7 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
 	desktopWindowToModify.addEntity(file11);
 
 	Entity file12;
-	builder.setPosition({ 600.0f, 600.0f });
+	builder.setPosition({ 300.0f, 600.0f });
 	builder.setText("optimism.jpg", World::getFont(World::VT323Regular), sf::Color::White);
 	builder.create(file12);
 	desktopWindowToModify.addEntity(file12);
