@@ -317,7 +317,7 @@ bool World::loadDesktop(DesktopList desk) {
 }
 
 int World::runCurrDesktop() {
-
+    currSave.setDesktop(currDesktopEnum_);
 	runDesktop();
 	return SuspiciousFileHolder::getFinalScore();
 }
@@ -551,25 +551,26 @@ void ppc::World::saveState(std::string filename) {
 
     std::ofstream file(filename);
 
-    while (file) {
-        for (auto& mapPair : saveGroupMap_) {
-            //Output grouping Tag
-            file << '[' << mapPair.first << ']' << std::endl;
+    for (auto& mapPair : saveGroupMap_) {
+        if (!file) break;
+        //Output grouping Tag
+        file << '[' << mapPair.first << ']' << std::endl;
 
-            //Output appropriate info
-            switch (mapPair.second) {
-            case SettingsTag:
-                file << settings_;
-                break;
-            case StateTag:
-            default:
-                break;
-            }
-            file << std::endl;
+        //Output appropriate info
+        switch (mapPair.second) {
+        case SettingsTag:
+            file << settings_;
+            break;
+        case StateTag:
+        default:
+            break;
         }
+        file << std::endl;
     }
 
     file.close();
+
+    World::currSave.exportSave(currSave.getLoginId());
 }
 
 ppc::AudioQueue& ppc::World::getAudio()

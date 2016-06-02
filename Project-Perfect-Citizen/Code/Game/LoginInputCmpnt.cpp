@@ -33,7 +33,8 @@ void LoginInputCmpnt::loadSave() {
     sav.importSave(textBox_->getString());
     World::currSave = sav;
 
-    World::quitDesktop();
+    World::DesktopList temp = World::DesktopList(sav.getDesktop());
+    World::setCurrDesktopEnum(temp);
 
 }
 
@@ -53,19 +54,30 @@ void LoginInputCmpnt::createSave() {
     WindowInterface* loginConfirm =
         new Window(400, 110, sf::Color(170, 170, 170));
 
-    ConfirmWindowBuilder builder;
-    builder.setButtonLabelFont(World::getFont(World::FontList::Consola));
-    builder.setCancelButtonLabel("No");
-    builder.setConfirmButtonLabel("Yes");
-    builder.setConfirmMessage("Are you sure you want to create \na new user?\n(This will create a new save file)");
-    builder.setMessageFont(World::getFont(World::FontList::Consola));
-    builder.setMessageFontSize(12);
-    builder.setPosition(currWindow_->getPosition() + sf::Vector2f(25, 50));
-    builder.setSpriteSheet(World::getCurrDesktop().getButtonSheet());
-    builder.setWindowCaption("");
-    createWithEventFunc(builder, loginConfirm, this, create_save);
+    if (textBox_->getString() != "") {
 
-    currWindow_->createNotifWindow(loginConfirm);
+        ConfirmWindowBuilder builder;
+        builder.setButtonLabelFont(World::getFont(World::FontList::Consola));
+        builder.setCancelButtonLabel("No");
+        builder.setConfirmButtonLabel("Yes");
+        builder.setConfirmMessage("Are you sure you want to create \na new user?\n(This will create a new save file)");
+        builder.setMessageFont(World::getFont(World::FontList::Consola));
+        builder.setMessageFontSize(12);
+        builder.setPosition(currWindow_->getPosition() + sf::Vector2f(25, 50));
+        builder.setSpriteSheet(World::getCurrDesktop().getButtonSheet());
+        builder.setWindowCaption("");
+        createWithEventFunc(builder, loginConfirm, this, create_save);
+
+        currWindow_->createNotifWindow(loginConfirm);
+
+    } else {
+        sf::Vector2f pos(currWindow_->getPosition() + sf::Vector2f(25, 50));
+
+        spawnErrorMessage(loginConfirm, loginConfirm->getInputHandler(), World::getCurrDesktop().getButtonSheet(), pos.x, pos.y, "No user name entered!", "Error");
+
+        currWindow_->createNotifWindow(loginConfirm);
+
+    }
 }
 
 

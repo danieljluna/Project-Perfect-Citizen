@@ -59,7 +59,7 @@ std::istream& ppc::operator>>(std::istream& in, Setting& setting) {
 }
 
 std::ostream& ppc::operator<<(std::ostream& out, const Setting& setting) {
-
+    out << std::left;
     out << std::setw(25) << "ResolutionWidth" <<
             std::setw(0) << setting.resolution.x << std::endl;
     out << std::setw(25) << "ResolutionHeight" <<
