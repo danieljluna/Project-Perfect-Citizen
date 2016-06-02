@@ -105,6 +105,7 @@ Network* PipelineLevelBuilder::buildTutorialOne() {
 	char c;
 
 	for (int i = 0; i < TUTORIAL_1_NODES;) {
+		name = "";
 		c = std::rand() % 26 + 'A';
 		name += c;
 		if (usednames[name] == false) {
@@ -139,6 +140,7 @@ Network* PipelineLevelBuilder::buildTutorialTwo() {
 		//Char 1 - 40
 		//Char 2 - 18
 		//Char 3 - 40
+		name = "";
 		c = std::rand() % 26 + 'A';
 		name += c;
 		if (usednames[name] == false) {
@@ -152,6 +154,7 @@ Network* PipelineLevelBuilder::buildTutorialTwo() {
 			else {
 				newpc.generateWithNameJobAgeCrim(name, JOBS_ALL[0], 40, false);
 			}
+			myNetwork->vert(i).setCharacter(newpc);
 			++i;
 		}
 	}
@@ -178,6 +181,7 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	char c;
 
 	for (int i = 0; i < 8;) { //8 nodes in level 1
+		name = "";
 		c = std::rand() % 26 + 'A';
 		name += c;
 		if (usednames[name] == false) {
@@ -223,6 +227,7 @@ Network* ppc::PipelineLevelBuilder::LevelTwoWithOption(std::string file) {
 	char c;
 
 	for (int i = 0; i < 10;) { //10 nodes in level 2
+		name = "";
 		c = std::rand() % 26 + 'A';
 		name += c;
 		if (usednames[name] == false) {
@@ -252,6 +257,7 @@ Network* PipelineLevelBuilder::buildLevelThreeNetworkSolution() {
 	char c;
 
 	for (int i = 0; i < 10;) { //10 nodes in level 3
+		name = "";
 		c = std::rand() % 26 + 'A';
 		name += c;
 		if (usednames[name] == false) {

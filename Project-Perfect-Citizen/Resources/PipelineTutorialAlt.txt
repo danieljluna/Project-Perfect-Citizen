@@ -21,7 +21,7 @@ Default: Citizens are reffered to by their Database Identification Number (DIN)
 Default: Use the letters in the DIN and the conversations on the right to identify all connections
 -AltColorChange: T 0.0
 Default: Good!  Now that you've found all the connections you'll want to color them correctly
-Default: Press "Space" to switch the color of the connection
+Default: Select a connection and press "Space" to switch its color
 -AltSuspicion: T 0.0
 Default: Cool! You'll want to make innocent connections are green and suspicous ones red
 Default: In future assignments its okay to leave them black when you're unsure
