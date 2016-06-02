@@ -499,7 +499,6 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             ev.type = Event::FloppyType;
             ev.floppy.frame = 0;
             ev.floppy.sequence = ptr->getSequence() + 1;
-            bool wasSummoned = false;
 
             //Get sequence in non-alt terms
             if (ev.floppy.sequence >= FloppyInputComponent::AltStart) {
