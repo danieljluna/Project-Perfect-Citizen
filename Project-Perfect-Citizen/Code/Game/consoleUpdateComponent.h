@@ -3,9 +3,9 @@
 #include <SFML/System/Time.hpp>
 
 #include "../Engine/updateComponent.h"
-
+#include "../Engine/NodeState.h"
 namespace ppc {
-	class NodeState;
+	
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Designated Update Component for Console window
@@ -16,7 +16,7 @@ namespace ppc {
 class consoleUpdateComponent : public UpdateComponent {
 
 private:
-	ppc::NodeState& fileTree;
+	ppc::NodeState fileTree;
     bool canParse;
 	std::string lastCommand;
     std::vector<std::string> commandVec;
@@ -25,7 +25,7 @@ public:
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Constructor linking it to a live fileTree
 	///////////////////////////////////////////////////////////////////////
-	consoleUpdateComponent(ppc::NodeState& ns);
+	consoleUpdateComponent(ppc::NodeState ns);
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief No default constructor. A console needs a fileTree to live

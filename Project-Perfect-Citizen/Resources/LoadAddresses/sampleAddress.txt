@@ -1,11 +1,11 @@
 {
- "ip": "169.233.225.181",
- "hostname": "eduroam-169-233-225-181.ucsc.edu",
- "city": "Santa Cruz",
- "region": "California",
- "country": "US",
- "loc": "36.9899,-122.0603",
- "org": "AS5739 University of California, Santa Cruz",
- "postal": "95064",
- "phone": "831"
+ "ip": "127.0.0.1",
+ "hostname": "Your Computer",
+ "city": "Your City",
+ "region": "Your State",
+ "country": "Your Country",
+ "loc": "____,____",
+ "org": "Your Home",
+ "postal": "We're Watching",
+ "phone": "###"
 }
