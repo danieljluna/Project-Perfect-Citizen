@@ -315,6 +315,8 @@
 		E9636A881CFFA566008E6E66 /* Joseph_Young.png in Resources */ = {isa = PBXBuildFile; fileRef = E9636A851CFFA566008E6E66 /* Joseph_Young.png */; };
 		E9636A891CFFA566008E6E66 /* Marie_Young.png in Resources */ = {isa = PBXBuildFile; fileRef = E9636A861CFFA566008E6E66 /* Marie_Young.png */; };
 		E9636A8A1CFFA566008E6E66 /* Raymond_Nash.png in Resources */ = {isa = PBXBuildFile; fileRef = E9636A871CFFA566008E6E66 /* Raymond_Nash.png */; };
+		E9636A8C1CFFBDA6008E6E66 /* Antigone.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9636A8B1CFFBDA6008E6E66 /* Antigone.txt */; };
+		E9636A8E1CFFBDAA008E6E66 /* Oedipus.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9636A8D1CFFBDAA008E6E66 /* Oedipus.txt */; };
 		E9E830A01CF63D4A00945974 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E82F811CF63D4A00945974 /* main.cpp */; };
 		E9E830A11CF63D4A00945974 /* AudioLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E82F851CF63D4A00945974 /* AudioLocator.cpp */; };
 		E9E830A21CF63D4A00945974 /* AudioLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E82F871CF63D4A00945974 /* AudioLogger.cpp */; };
@@ -774,6 +776,8 @@
 		E9636A851CFFA566008E6E66 /* Joseph_Young.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Joseph_Young.png; sourceTree = "<group>"; };
 		E9636A861CFFA566008E6E66 /* Marie_Young.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marie_Young.png; sourceTree = "<group>"; };
 		E9636A871CFFA566008E6E66 /* Raymond_Nash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Raymond_Nash.png; sourceTree = "<group>"; };
+		E9636A8B1CFFBDA6008E6E66 /* Antigone.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Antigone.txt; sourceTree = "<group>"; };
+		E9636A8D1CFFBDAA008E6E66 /* Oedipus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Oedipus.txt; sourceTree = "<group>"; };
 		E9E82F811CF63D4A00945974 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
 		E9E82F841CF63D4A00945974 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
 		E9E82F851CF63D4A00945974 /* AudioLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioLocator.cpp; sourceTree = "<group>"; };
@@ -1309,6 +1313,8 @@
 				E90E0BDE1CFD53CA001D870C /* skillsstill.png */,
 				E90E0BE01CFD53CA001D870C /* The-House-Party-Andrew-Ohanesian-at-The-Boiler.png */,
 				E90E0BBA1CFD53CA001D870C /* ap_english_composition_syllabus.txt */,
+				E9636A8D1CFFBDAA008E6E66 /* Oedipus.txt */,
+				E9636A8B1CFFBDA6008E6E66 /* Antigone.txt */,
 				E90E0BBC1CFD53CA001D870C /* Bacchae - Euripides.txt */,
 				E90E0BC51CFD53CA001D870C /* Donne - Med 17.txt */,
 				E90E0BC81CFD53CA001D870C /* Family_Tree.txt */,
@@ -2072,6 +2078,7 @@
 				E90E0CE11CFD53CA001D870C /* 11062011img47161.png in Resources */,
 				E90E0D0B1CFD53CA001D870C /* St. Augustine - Confessions copy.txt in Resources */,
 				E90E0DC41CFD53CA001D870C /* Switch_Pipeline_Connection_Color.wav in Resources */,
+				E9636A8C1CFFBDA6008E6E66 /* Antigone.txt in Resources */,
 				E90E0D011CFD53CA001D870C /* New_bed_1.png in Resources */,
 				E90E0DAB1CFD53CA001D870C /* ArtistReportD.txt in Resources */,
 				E90E0DB11CFD53CA001D870C /* HackerReportB.txt in Resources */,
@@ -2207,6 +2214,7 @@
 				E90E0D7B1CFD53CA001D870C /* trailerDesktop.ini in Resources */,
 				E90E0D481CFD53CA001D870C /* Guardian_Angel.txt in Resources */,
 				E90E0CD61CFD53CA001D870C /* fireperm.txt in Resources */,
+				E9636A8E1CFFBDAA008E6E66 /* Oedipus.txt in Resources */,
 				E90E0DBE1CFD53CA001D870C /* loginDesktop.ini in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
