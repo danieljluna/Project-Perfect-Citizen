@@ -289,6 +289,7 @@ void ppc::PipelineLevelBuilder::populateEdgesBySet(const std::vector<std::pair<u
 Network* ppc::PipelineLevelBuilder::buildDefaultNetwork() {
 	Network* myNetwork = new Network(1);
 	PipelineCharacter newpc;
+	newpc.generateRaw();
 	myNetwork->vert(0).setCharacter(newpc);
 	myNetwork->setCenter(0);
 

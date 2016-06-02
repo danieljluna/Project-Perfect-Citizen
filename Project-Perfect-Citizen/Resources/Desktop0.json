@@ -2,8 +2,8 @@
    "Desktop": {
         "Terrorism/Germany/What nation is our target?": {
             "Schematics" : {
-                "5/VAR_1213_Schematic.jpg" : "DesktopContent/Desktop0/VAR_1213_Schematic.png",
-                "5/interconnect_wiring.jpg" : "DesktopContent/Desktop0/interconnect-wiring.png"
+                "10/VAR_1213_Schematic.jpg" : "DesktopContent/Desktop0/VAR_1213_Schematic.png",
+                "10/interconnect_wiring.jpg" : "DesktopContent/Desktop0/interconnect-wiring.png"
             },
             "Notes" : {
                 "10/route_plan.jpg": "DesktopContent/Desktop0/route_plan.png",
