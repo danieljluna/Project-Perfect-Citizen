@@ -966,7 +966,7 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
     lBuilder.setSize(0.25f);
     lBuilder.setLabelFont(myFont);
     lBuilder.setLabelSize(12);
-	createWithEventFunc(lBuilder, loginButton, windowToModify, continue_world);
+    createWithEventFunc(lBuilder, loginButton, windowToModify, login_check);
 
 	Entity settingsButton;
 	lBuilder.setLabelMessage("Settings");
@@ -985,9 +985,14 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
     windowToModify->addEntity(loginButton);
 	windowToModify->addEntity(settingsButton);
 	windowToModify->addEntity(creditsButton);
-    windowToModify = new BorderDecorator(*windowToModify);
-
-    dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Login");
+    BorderDecorator* temp = new BorderDecorator(*windowToModify);
+    sf::FloatRect bounds;
+    bounds.width = bounds.height = 0;
+    bounds.left = temp->getPosition().x;
+    bounds.top = temp->getPosition().y;
+    temp->setClampBounds(bounds);
+    temp->setCaption("Login");
+    windowToModify = temp;
 
 }
 
@@ -1488,6 +1493,27 @@ bool ppc::open_credits(WindowInterface * w, ppc::Event ev)
 	creditsWindow->setPosition(sf::Vector2f{ 200.0f, 200.0f });
 	World::getCurrDesktop().addWindow(creditsWindow);
 	return true;
+}
+
+bool ppc::login_check(WindowInterface* w, ppc::Event ev) {
+    WindowInterface* loginConfirm =
+        new Window(400, 110, sf::Color(170, 170, 170));
+    
+    ConfirmWindowBuilder builder;
+    builder.setButtonLabelFont(World::getFont(World::FontList::Consola));
+    builder.setCancelButtonLabel("No");
+    builder.setConfirmButtonLabel("Yes");
+    builder.setConfirmMessage("Are you sure you want to create \na new user?\n(This will create a new save file)");
+    builder.setMessageFont(World::getFont(World::FontList::Consola));
+    builder.setMessageFontSize(12);
+    builder.setPosition(w->getPosition() + sf::Vector2f(25, 50));
+    builder.setSpriteSheet(World::getCurrDesktop().getButtonSheet());
+    builder.setWindowCaption("");
+    createWithEventFunc(builder, loginConfirm, w, continue_world);
+    
+    w->createNotifWindow(loginConfirm);
+
+    return false;
 }
 
 bool ppc::continue_world(WindowInterface* w, ppc::Event ev) {

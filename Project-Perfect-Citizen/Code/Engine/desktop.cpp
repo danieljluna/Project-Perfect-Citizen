@@ -168,7 +168,7 @@ void ppc::Desktop::addWindow(WindowInterface* wi){
         //automatically put it at the front,
         //and focused is set to what was added
         BorderDecorator* borderOfWi = dynamic_cast<BorderDecorator*>(wi);
-        if (borderOfWi != nullptr) {
+        if ((borderOfWi != nullptr) && (!borderOfWi->isClamped())) {
             //The following creates bounds for dragging Windows.
             sf::FloatRect desktopBounds = desktopWindow_->getBounds();
             sf::FloatRect wiBounds = wi->getBounds();
