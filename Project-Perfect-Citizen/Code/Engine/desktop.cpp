@@ -533,7 +533,10 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 			std::string bossEmail = World::getBossEmail();
 			if (bossEmail != "") inbox->parseEmailAsJson(bossEmail);
 			inbox->parseEmailAsJson(file);
-			
+			for (unsigned int i = 0; i < importDesktop->getInbox().getInboxSize(); ++i) {
+				if (importDesktop->getInbox().getEmailAt(i)->getReadFlag() == false) 
+					importDesktop->getInbox().getEmailAt(i)->setRead();
+			}
 			for (unsigned int i = 0; i < inbox->getSubject().size(); i++) {
 				ppc::Email* testEmail1 = new Email(inbox->getTo().at(i),
 					inbox->getFrom().at(i),

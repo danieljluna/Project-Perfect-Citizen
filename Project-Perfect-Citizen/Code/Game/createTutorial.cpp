@@ -264,6 +264,7 @@ void ppc::createDesktopTutorial(Desktop & dt) {
 	icons.setIconType(iconInputComponent::IconType::Email);
 	icons.setSpritebyIndicies(0, 10, 1, 2);
 	icons.setText("Emails", World::getFont(World::VT323Regular), sf::Color::Black);
+	icons.setRenderNotifications(true);
 	icons.create(emailIcon);
 
 	dt.getDesktopWindow()->addEntity(hardDriveIcon);
