@@ -100,7 +100,7 @@ void ppc::ConfirmWindowBuilder::create(WindowInterface*& win)
 {
 	
 	errorMessageRenderComponent* eMRC = new errorMessageRenderComponent(messageFont, confirmMessage,
-		win->getSize().x / 3, win->getSize().y / 3, messageFontSize);
+		win->getSize().x / 3, win->getSize().y / 6, messageFontSize);
 
 	/////////////////////////////////////////
 	/////// ENTITIES

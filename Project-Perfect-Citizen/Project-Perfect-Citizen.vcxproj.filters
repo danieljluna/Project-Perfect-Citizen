@@ -396,6 +396,12 @@
     <ClCompile Include="Code\Game\playerLocator.cpp">
       <Filter>Sources\Game Specific</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game\LoginInputCmpnt.cpp">
+      <Filter>Sources\Game Specific</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game\Save.cpp">
+      <Filter>Sources\Game Specific</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Engine\Audio\Audio.h">
@@ -815,6 +821,12 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="Code\Game\playerLocator.hpp">
+      <Filter>Headers\Game Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\LoginInputCmpnt.h">
+      <Filter>Headers\Game Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Game\Save.h">
       <Filter>Headers\Game Specific</Filter>
     </ClInclude>
   </ItemGroup>
