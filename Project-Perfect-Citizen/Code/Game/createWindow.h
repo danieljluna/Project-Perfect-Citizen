@@ -29,6 +29,7 @@ namespace ppc {
 	class Email;
 	class Event;
 	class Entity;
+
 	//typedef bool (databaseSearchInputComponent::*goBack) (sf::Event&);
 	//using backFunction = bool(databaseSearchInputComponent::*goBack)(sf::Event& ev);
 	///////////////////////////////////////////////////////////////////////

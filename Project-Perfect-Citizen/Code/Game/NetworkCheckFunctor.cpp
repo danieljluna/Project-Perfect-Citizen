@@ -2,8 +2,12 @@
 #include "../Engine/Network.h"
 #include "../Engine/subject.h"
 #include "../Engine/World.h"
+#include "../Engine/desktop.h"
+#include "../Engine/Window.h"
 
 #include "../Engine/WindowInterface.h"
+
+#include "createWindow.h"
 
 using namespace ppc;
 
@@ -20,8 +24,15 @@ bool NetworkCheckFunctor::operator()() {
             onWin_.sendEvent(ev);
             return true;
         }
+		else {
+			//respond to center equal
+		}
     }
-
+	WindowInterface* feedback = new ppc::Window(300, 300);
+	Desktop& desk = World::getCurrDesktop();
+	spawnErrorMessage(feedback, feedback->getInputHandler(), desk.getButtonSheet(), 400.f, 200.f, "Check Center", "Pipeline Feedback");
+	desk.addWindow(feedback);
+	//respond to center different
     return false;
 }
 
