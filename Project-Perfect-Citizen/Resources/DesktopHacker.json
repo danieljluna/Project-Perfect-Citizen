@@ -30,15 +30,12 @@
                         "Try_Again/I am corrupt/Mean it this time.": {
                             "5/READ_ME_6.txt" : "DesktopContent/DesktopHacker/Resignation_6.txt",
                             "The_Truth/I ruin lives/Admit you ruin lives.": {
-                                "5/READ_ME_7.txt" : "DesktopContent/DesktopHacker/Resignation_7.txt",
+                                "1/READ_ME_7.txt" : "DesktopContent/DesktopHacker/Resignation_7.txt",
                                 "Decision_Point": {
                                     "The_End": {
-                                        "1/DCPS_Report_12.jpg" : "DesktopContent/DesktopHacker/DCPS_Report_12.png",
-                                        "1/DCPS_Report_23.jpg" : "DesktopContent/DesktopHacker/DCPS_Report_23.png",
-                                        "1/DCPS_Report_42.jpg" : "DesktopContent/DesktopHacker/DCPS_Report_42.png",
-                                        "1/DCPS_1.txt" : "DesktopContent/DesktopHacker/DCPS_1.txt",
-                                        "1/DCPS_2.txt" : "DesktopContent/DesktopHacker/DCPS_2.txt",
-                                        "1/DCPS_3.txt" : "DesktopContent/DesktopHacker/DCPS_3.txt"
+                                        "30/DCPS_Report_12.jpg" : "DesktopContent/DesktopHacker/DCPS_Report_12.png",
+                                        "30/DCPS_Report_23.jpg" : "DesktopContent/DesktopHacker/DCPS_Report_23.png",
+                                        "30/DCPS_Report_42.jpg" : "DesktopContent/DesktopHacker/DCPS_Report_42.png"
                                     }
                                 }
                             }
