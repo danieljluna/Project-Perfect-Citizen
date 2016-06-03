@@ -55,7 +55,8 @@ namespace ppc {
 		/// Emum of Floppy Sequence names to integers
 		///////////////////////////////////////////////////////////////////////
 		enum FloppySequenceName {
-            Pipeline = 0,
+            Welcome = 0,
+            Pipeline,
 			Connections,
 			SelectEdge,
 			DeleteEdge,
@@ -76,7 +77,8 @@ namespace ppc {
 			DeskSubmission,
 			Wrapup,
 			AltStart,
-            AltPipeline = AltStart,
+            AltWelcome = AltStart,
+            AltPipeline,
             AltConnections,
             AltSelectEdge,
             AltDeleteEdge,

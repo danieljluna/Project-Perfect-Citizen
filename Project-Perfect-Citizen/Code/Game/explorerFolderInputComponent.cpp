@@ -23,7 +23,7 @@ const std::string MOUSE_RELEASED_CODE = "MRC";
 const float DOUBLE_CLICK_TIME = 500.0f;
 
 
-explorerFolderInputComponent::explorerFolderInputComponent(Desktop& dt, WindowInterface* cW, ppc::InputHandler& ih, NodeState& ns, sf::Image& bS, sf::Image& iS, sf::FloatRect rect, std::string dN) :
+explorerFolderInputComponent::explorerFolderInputComponent(Desktop& dt, WindowInterface* cW, ppc::InputHandler& ih, NodeState* ns, sf::Image& bS, sf::Image& iS, sf::FloatRect rect, std::string dN) :
 	InputComponent(2), theDesktop_(dt), containingWindow_(cW), theFileTree_(ns), buttonSheet_(bS), iconSheet_(iS),buttonRect(rect), directoryName(dN) {
 
 	//add a new subject that is tied to the event
@@ -38,14 +38,6 @@ explorerFolderInputComponent::explorerFolderInputComponent(Desktop& dt, WindowIn
 
 		
 }
-
-void explorerFolderInputComponent::clearObservers()
-{
-	for (size_t i = 0; i < observerCount_; ++i) {
-		delete observerArray_[i];
-	}
-}
-
 
 //void mousePressButton::addFunctionObserver(bool(*fnToAdd)(sf::Event &ev), mousePressButton* mpb, unsigned int placeToInsert)
 
@@ -62,7 +54,7 @@ TextBoxInputComponent * ppc::explorerFolderInputComponent::getObservingTextBox()
 
 NodeState * ppc::explorerFolderInputComponent::getFolderNodeState()
 {
-	return &theFileTree_;
+	return theFileTree_;
 }
 
 std::string ppc::explorerFolderInputComponent::getFolderName()
@@ -180,7 +172,7 @@ bool explorerFolderInputComponent::registerInput(Event ppcEv) {
 
 void ppc::explorerFolderInputComponent::changeDirectory(bool newWindow)
 {
-	if (theFileTree_.getCwd()->findElement(directoryName)->isPasswordProtected() &&
+	if (theFileTree_->getCwd()->findElement(directoryName)->isPasswordProtected() &&
 		directoryName.compare("..") != 0) {
 		
 		ppc::WindowInterface* UnlockWindow =
@@ -197,7 +189,7 @@ void ppc::explorerFolderInputComponent::changeDirectory(bool newWindow)
 	cdCommand.push_back(cd);
 	cdCommand.push_back(directoryName);
 	commandFn newCD = findFunction(cd);
-	newCD(theFileTree_, cdCommand);
+	newCD(*theFileTree_, cdCommand);
 	ppc::WindowInterface* explorerWindow =
 		new ppc::Window(600, 350, sf::Color(255, 255, 255));
 	spawnExplorer(theDesktop_, explorerWindow, explorerWindow->getInputHandler(), theFileTree_, buttonSheet_, iconSheet_, 100, 200);
@@ -240,9 +232,7 @@ bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
     evOut.open.file = target->findElement(ptr->getFolderName());
 
 	if (target->findElement(ptr->getFolderName())->
-		comparePassword(ptr->getObservingTextBox()->getString())) {
-		
-		
+		comparePassword(ptr->getObservingTextBox()->getString())) {	
 
 		/* Unlock the directory */
 		std::vector<std::string> unlockCommand;
@@ -258,13 +248,8 @@ bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 			new ppc::Window(500, 150, sf::Color(170, 170, 170));
 		spawnSuccessMessage(success, success->getInputHandler(), ptr->getFolderDesktop()->getButtonSheet(),
 			250, 250, "Access Granted. \n'" + ptr->getFolderName() + "' is now unlocked.");
-		//ptr->getObservingTextBox()->getContainingWindow()->createNotifWindow(success);
-		ptr->getContainingWindow()->createNotifWindow(success);
-		//ptr->getFolderDesktop()->addWindow(success);
+		ptr->getContainingWindow()->createNotifWindow(success, true);
 
-		/* Send the event and close the submit wind*/
-		evOut.open.success = false;
-		ptr->getObservingTextBox()->getContainingWindow()->close();
 		
         evOut.open.success = true;
 	}

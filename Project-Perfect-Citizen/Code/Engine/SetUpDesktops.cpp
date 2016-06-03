@@ -21,7 +21,7 @@ void ppc::setUpLogoDesktop(ppc::Desktop& myDesktop) {
 	Entity badCop;
 
 	BadCopRenderComponent* badCopRender = new BadCopRenderComponent(myDesktop.getIconSheet());
-	BadCopUpdateComponent* badCopUpdate = new BadCopUpdateComponent(*badCopRender, .1f);
+	BadCopUpdateComponent* badCopUpdate = new BadCopUpdateComponent(*badCopRender, 0.12f);
 
 	badCop.addComponent(badCopRender);
 	badCop.addComponent(badCopUpdate);
@@ -69,19 +69,9 @@ void ppc::setUpLoginDesktop(ppc::Desktop& myDesktop) {
 
 
 void ppc::setUpEndDesktop(ppc::Desktop& myDesktop) {
-
-	Window* endWindow = new Window(1800, 1000, sf::Color(30, 32, 33));
-
-	Entity ending;
-
-	endingAnimationRender* endRender = new endingAnimationRender(myDesktop.getButtonSheet());
-	endAnimationUpdateComponent* endUpdate = new endAnimationUpdateComponent(*endRender, 0.1f);
-
-	ending.addComponent(endRender);
-	ending.addComponent(endUpdate);
-	endWindow->addEntity(ending);
-
-	myDesktop.addWindow(endWindow);
+	if (World::getCurrDesktopEnum() == World::DEEnd1) {
+		throw std::exception();
+	}
 }
 
 
@@ -116,5 +106,8 @@ void ppc::setUpPoliticianDesktop(ppc::Desktop& myDesktop) {
 }
 
 void ppc::setUpHackerDesktop(ppc::Desktop& myDesktop) {
-
+    createHackerDesktop(myDesktop, *myDesktop.getDesktopWindow(),
+        myDesktop.getInputHandler(), myDesktop.getIconSheet(), myDesktop.getButtonSheet());
 }
+
+

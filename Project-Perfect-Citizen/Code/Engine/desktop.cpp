@@ -30,7 +30,6 @@ using namespace ppc;
 
 
 ppc::Desktop::Desktop() {
-	nodeState_.setUp();
 	iconSheet_ = sf::Image();
 	buttonSheet_ = sf::Image();
 	inbox_ = ppc::Inbox();
@@ -75,18 +74,25 @@ ppc::Desktop::Desktop(const Desktop& other) {
 }
 
 ppc::Desktop::~Desktop() {
+
 	for (auto it = windows_.begin(); it != windows_.end(); ++it) {
-        if (*it != nullptr)
-            delete *it;
+		if (*it != nullptr) {
+			delete *it;
+			*it = nullptr;
+		}
 	}
 
 	for (auto it = solVec_.begin(); it != solVec_.end(); ++it) {
-        if (*it != nullptr)
-            delete *it;
+		if (*it != nullptr) {
+			delete *it;
+			*it = nullptr;
+		}
 	}
 	for (auto it = playVec_.begin(); it != playVec_.end(); ++it) {
-		if (*it != nullptr)
-            delete *it;
+		if (*it != nullptr) {
+			delete *it;
+			*it = nullptr;
+		}
 	}
 
     if (frontTop_) delete frontTop_;
@@ -163,7 +169,7 @@ void ppc::Desktop::addWindow(WindowInterface* wi){
         //automatically put it at the front,
         //and focused is set to what was added
         BorderDecorator* borderOfWi = dynamic_cast<BorderDecorator*>(wi);
-        if (borderOfWi != nullptr) {
+        if ((borderOfWi != nullptr) && (!borderOfWi->isClamped())) {
             //The following creates bounds for dragging Windows.
             sf::FloatRect desktopBounds = desktopWindow_->getBounds();
             sf::FloatRect wiBounds = wi->getBounds();
@@ -274,8 +280,11 @@ void ppc::Desktop::setFrontTop(WindowInterface* front, bool prop) {
     mpb->setFloatRect(front->getBounds());
     mpb->setInputHandle(front->getInputHandler());
 	mpb->onClick().addObserverToBack(ftObsvr);
+    ftObsvr = new frontTopObsvr(*this, prop);
 	mpb->onHover().addObserverToBack(ftObsvr);
+    ftObsvr = new frontTopObsvr(*this, prop);
 	mpb->onRelease().addObserverToBack(ftObsvr);
+    ftObsvr = new frontTopObsvr(*this, prop);
     mpb->onAll().addObserverToBack(ftObsvr);
 
 	if (frontTop_) {
@@ -446,7 +455,7 @@ bool ppc::Desktop::isMouseCollision(WindowInterface* wi,
 
 void ppc::Desktop::clearDesktop() {
 	nodeState_ = ppc::NodeState();
-	nodeState_.setUp();
+	//nodeState_.setUp();
 	iconSheet_ = sf::Image();
 	buttonSheet_ = sf::Image();
 	inbox_ = ppc::Inbox();
@@ -476,7 +485,6 @@ void ppc::Desktop::clearDesktop() {
 	playVec_.clear();
 	netVecIndex_ = 0;
 }
-
 
 std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 	std::string line;
@@ -515,16 +523,26 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 			importDesktop->desktopWindow_->addRenderComponent(wBRC);
 
 		} else if (key == "Filetree") {
-			ppc::desktopExtractionComponent desktopFiles(importDesktop->nodeState_);
+			importDesktop->nodeState_.setUp();
+			ppc::desktopExtractionComponent desktopFiles(&importDesktop->nodeState_);
 			Json::Value parsed =
 				desktopFiles.parseDesktopAsJson(file, "Desktop");
+
 		} else if (key == "Emails") {
 			ppc::emailExtraction* inbox = new emailExtraction();
 			
-			std::string bossEmail = World::getBossEmail();
-			if (bossEmail != "") inbox->parseEmailAsJson(bossEmail);
+			std::vector<std::string> bossEmail = World::getBossEmail();
+			unsigned int newemails = 0;
+			for (auto i = bossEmail.rbegin(); i != bossEmail.rend(); ++i) {
+				inbox->parseEmailAsJson(*i);
+				if (i == bossEmail.rbegin()) newemails = inbox->getSubject().size();
+			}
+			World::DesktopList deskenum = World::getCurrDesktopEnum();
+			bool limitread = true;
+			if (deskenum == World::DE0B || deskenum == World::DE1 || deskenum == World::DE2A ||
+				deskenum == World::DE2B || deskenum == World::DE3) limitread = false;
+			if (newemails == 0) newemails = 3;
 			inbox->parseEmailAsJson(file);
-			
 			for (unsigned int i = 0; i < inbox->getSubject().size(); i++) {
 				ppc::Email* testEmail1 = new Email(inbox->getTo().at(i),
 					inbox->getFrom().at(i),
@@ -532,6 +550,8 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 					inbox->getBody().at(i),
                     inbox->getVisible().at(i),
 					"image.jpg");
+
+				if (i >= newemails && limitread) testEmail1->setRead();
 				importDesktop->getInbox().addEmailToList(testEmail1);
 			}
 			
@@ -556,16 +576,33 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 					solNet = PipelineLevelBuilder::buildTutorialTwo();
 					break;
 				case 1:
+					World::getAudio().stopAllSounds();
+					World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
+					World::getAudio().loopBgm();
+					World::getAudio().playBgm();
 					solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
 					break;
 				case 2:
+					World::getAudio().stopAllSounds();
+					World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
+					World::getAudio().loopBgm();
+					World::getAudio().playBgm();
 					solNet = PipelineLevelBuilder::buildLevelTwoANetworkSolution();
 					break;
 				case 3:
+					World::getAudio().stopAllSounds();
+					World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
+					World::getAudio().loopBgm();
+					World::getAudio().playBgm();
 					solNet = PipelineLevelBuilder::buildLevelTwoBNetworkSolution();
 					break;
 				case 4:
+					World::getAudio().stopAllSounds();
+					World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
+					World::getAudio().loopBgm();
+					World::getAudio().playBgm();
 					solNet = PipelineLevelBuilder::buildLevelThreeNetworkSolution();
+					
 					break;
 				default:
 					solNet = PipelineLevelBuilder::buildDefaultNetwork();
@@ -574,6 +611,7 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 			desktop.solVec_.push_back(solNet);
 			Network* playNet = solNet->copyNetworkByVerts();
 			desktop.playVec_.push_back(playNet);
+
 		}
 		//num of parsed line / total # of lines 
 		World::setLoading((float)(1 - ((float)(end - streamPos) / (float)end)));

@@ -6,12 +6,18 @@
 #include "desktop.h"
 #include "SubjectObsvr.h"
 
-ppc::NodeState::NodeState() {
+ppc::BaseFileType* ppc::NodeState::root = nullptr;
+unsigned int ppc::NodeState::nodeStateCount = 0;
 
+ppc::NodeState::NodeState() {
+	root = nullptr;
+	cwd = nullptr;
+	lastLsNode = nullptr;
+	
 }
 
 ppc::NodeState::NodeState(const NodeState& other) {
-	this->root = other.root;
+	++nodeStateCount;
 	this->cwd = other.cwd;
 	this->workingDirectory = other.workingDirectory;
 	this->lastLsNode = other.lastLsNode;
@@ -20,6 +26,16 @@ ppc::NodeState::NodeState(const NodeState& other) {
     if ((this != globalNodeState)) {
         onOpen_.addObserver(new SubjectObsvr(globalNodeState->onOpen()));
     }
+}
+
+ppc::NodeState::~NodeState() {
+	if (nodeStateCount == 0) {
+		delete root;
+		root = nullptr;
+	}
+	cwd = nullptr;
+	lastLsNode = nullptr;
+	if(nodeStateCount != 0) --nodeStateCount;
 }
 
 void ppc::NodeState::popWorking()
@@ -54,7 +70,10 @@ void ppc::NodeState::setUp()
 	BaseFileType* newRoot = new BaseFileType(ppc::FileType::Directory);
 	newRoot->contents["."] = newRoot;
 	newRoot->contents[".."] = newRoot;
-	this->root = newRoot;
+	if (root != nullptr) {
+		delete root;
+	}
+	root = newRoot;
 	this->cwd = newRoot;
 	this->lastLsNode = newRoot;
      
@@ -75,6 +94,7 @@ void ppc::NodeState::setCwd(ppc::BaseFileType* newCwd)
 
 void ppc::NodeState::readFile(const std::string& filename) {
     BaseFileType* file = getCwd()->findElement(filename); 
+	if (file == nullptr) return;
     std::string fileResourcePath = file->getFileData();
     file->readFile(filename, fileResourcePath);
 

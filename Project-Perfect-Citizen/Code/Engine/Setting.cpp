@@ -17,7 +17,6 @@ std::map<std::string, Setting::IniTags> Setting::iniGroupMap = {
 
 std::istream& ppc::operator>>(std::istream& in, Setting& setting) {
     std::string word;
-    //Setting::IniTags tag;  //This is not used in my current build, feel free to uncomment
 
     //Loop over groupings
     while (in) {
@@ -60,11 +59,13 @@ std::istream& ppc::operator>>(std::istream& in, Setting& setting) {
 }
 
 std::ostream& ppc::operator<<(std::ostream& out, const Setting& setting) {
-
+    out << std::left;
     out << std::setw(25) << "ResolutionWidth" <<
             std::setw(0) << setting.resolution.x << std::endl;
     out << std::setw(25) << "ResolutionHeight" <<
         std::setw(0) << setting.resolution.y << std::endl;
+    out << std::setw(25) << "Fullscreen" <<
+        std::setw(0) << setting.fullscreen << std::endl;
 
     return out;
 }

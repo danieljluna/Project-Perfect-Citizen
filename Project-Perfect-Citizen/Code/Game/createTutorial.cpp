@@ -101,6 +101,7 @@ void ppc::createTutorial(Desktop & dt) {
 	icons.setIconType(iconInputComponent::IconType::Email);
 	icons.setSpritebyIndicies(0, 10, 1, 2);
 	icons.setText("Emails", World::getFont(World::VT323Regular), sf::Color::White);
+	icons.setRenderNotifications(true);
 	icons.create(emailIcon);
 
 
@@ -110,6 +111,7 @@ void ppc::createTutorial(Desktop & dt) {
 	icons.setIconType(iconInputComponent::IconType::Help);
 	icons.setSpritebyIndicies(0, 5, 1, 2);
 	icons.setText("Help", World::getFont(World::VT323Regular), sf::Color::White);
+	icons.setRenderNotifications(false);
 	icons.create(helpIcon);
     
     dt.getDesktopWindow()->addEntity(consoleIcon);
@@ -181,9 +183,7 @@ void ppc::createTutorial(Desktop & dt) {
 
     //String Up Floppy------------------------------
 
-    //Connect Pipeline
-    BaseObserver* tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
-    dynamic_cast<iconInputComponent*>(graphIcon.getComponent(2))->onOpen().addObserver(tempObsvr);
+    BaseObserver* tempObsvr;
 
     //Connect Pipeline
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(summonFloppyDialog, floppyIn);
@@ -201,13 +201,12 @@ void ppc::createTutorial(Desktop & dt) {
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dt.getPlayVec().at(1)->onManip().addObserver(tempObsvr);
 
-    ////Set up starting Message
-    //Event ev;
-    //ev.type = ev.FloppyType;
-    //ev.floppy.sequence = 0; // Line below crashes on mac - Brandon
-    //ev.floppy.frame = 0;
-    //summonFloppyDialog(floppyIn, ev);
-    //
+    //Set up starting Message
+    Event ev;
+    ev.type = ev.FloppyType;
+    ev.floppy.sequence = 0; // Line below crashes on mac - Brandon
+    ev.floppy.frame = 0;
+    summonFloppyDialog(floppyIn, ev);
     
 }
 
@@ -265,6 +264,7 @@ void ppc::createDesktopTutorial(Desktop & dt) {
 	icons.setIconType(iconInputComponent::IconType::Email);
 	icons.setSpritebyIndicies(0, 10, 1, 2);
 	icons.setText("Emails", World::getFont(World::VT323Regular), sf::Color::Black);
+	icons.setRenderNotifications(true);
 	icons.create(emailIcon);
 
 	dt.getDesktopWindow()->addEntity(hardDriveIcon);

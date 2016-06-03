@@ -1,4 +1,5 @@
 #include "Edge.h"
+#include "World.h"
 
 using namespace ppc;
 
@@ -26,6 +27,7 @@ std::string ppc::Edge::getRelation() const {
 }
 
 void ppc::Edge::setColorRed() {
+
 	color_ = sf::Color::Red;
 }
 
@@ -42,6 +44,7 @@ void ppc::Edge::setColorSelectedGreen() {
 }
 
 void ppc::Edge::setColorBlack() {
+	
   	color_ = sf::Color::Black;
 }
 

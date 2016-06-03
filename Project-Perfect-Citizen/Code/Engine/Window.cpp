@@ -9,6 +9,9 @@
 #include "updateComponent.h"
 #include "renderComponent.h"
 
+#include "World.h"
+#include "desktop.h"
+
 using namespace ppc;
 
 
@@ -342,13 +345,14 @@ WindowInterface* Window::getNotifWindow() const {
 bool Window::createNotifWindow(WindowInterface* notifWin,
                                bool tossOld) {
     if ((tossOld) && (notifWindow_ != nullptr)) {
-        delete notifWindow_;
+        World::getCurrDesktop().addWindow(notifWindow_);
+        notifWindow_->close();
         notifWindow_ = nullptr;
     }
 
     bool result = (notifWindow_ == nullptr);
 
-    if (result) {
+    if (result && (notifWin != nullptr)) {
         notifWindow_ = notifWin;
     }
 

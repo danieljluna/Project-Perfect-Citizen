@@ -78,8 +78,14 @@
 #include "ConfirmWindowBuilder.h"
 #include "flaggedFileInputComponent.h"
 
+#include "LoginInputCmpnt.h"
+
+#include "../Engine/Setting.h"
+
 
 using namespace ppc;
+
+static Setting tempSetting = Setting();
 
 const std::string PNG = ".png";
 const std::string JPG = ".jpg";
@@ -89,6 +95,11 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
                        InputHandler & ih, NodeState ns,
                        sf::Image& buttonSheet, float x, float y) {
     if (windowToModify == nullptr) { return; }
+
+	int testSound = ppc::World::getAudio().addSound("gunshots", "Double_Click.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
+
 	ns.moveToRoot();
     
     /////////////////////////////////////////
@@ -104,7 +115,7 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
     int windowOffset = 5;
     
     textInputRenderComponent* textInputBox =
-    new textInputRenderComponent(ns, myFont, 0, 0, fontSize);
+    new textInputRenderComponent(myFont, 0, 0, fontSize);
     textOutputRenderComponent* textDisplayBox =
     new textOutputRenderComponent(dt, windowToModify, buttonSheet, myFont, ns,
 		textInputBox, 0, 0, fontSize);
@@ -232,6 +243,10 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
                         sf::Image& buttonSheet, float x, float y) {
     if (windowToModify == nullptr) { return; }
     
+	int testSound = ppc::World::getAudio().addSound("gunshots", "Double_Click.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
+
     /////////////////////////////////////////
     /////// COMPONENTS
     ///////////////////////////////////////
@@ -298,7 +313,7 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
         0.0f,
         0.0f,
         float(windowToModify->getSize().x),
-        float(windowToModify->getSize().y / 1.5)
+        float(windowToModify->getSize().y / 1.8)
     };
     windowToModify = new ScrollBarDecorator(*windowToModify, buttonSheet, sf::View(viewRect));
     
@@ -311,6 +326,10 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
 void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
 	sf::Image& buttonSheet, float x, float y) {
 	if (windowToModify == nullptr) { return; }
+
+	int testSound = ppc::World::getAudio().addSound("gunshots", "Double_Click.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
 
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
@@ -351,7 +370,6 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 		playNet->vert(1).setPosition(static_cast<float>(275), static_cast<float>(25));
 	}
 	else {
-		//std::vector<int> indexVec {0, 1, 2, 3, 4, 5, 6, 7};
 		std::vector<int> indexVec;
 		for (unsigned int i = 0; i < solNet->size(); ++i) {
 			indexVec.push_back(i);
@@ -394,19 +412,22 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	graphBox.addComponent(networkRender);
 	graphBox.addComponent(networkInput);
 
-	Entity submitButton;
-	float buttonScale = 0.25f;
-	int buttonSize = 256;
-	spawnNetworkOkayButton(playNet,submitButton, windowToModify->getInputHandler(), buttonSheet, 
-		( ( graphBounds->getLocalBounds().width - (buttonSize * buttonScale) ) / 2 ), static_cast<float>(windowToModify->getSize().y-50), buttonScale, 
-		ncf, myFont);
+
 
 	/////////////////////////////////////////
 	/////// WINDOW CONSTRUCTION
 	///////////////////////////////////////
 	windowToModify->addEntity(dataBox);
 	windowToModify->addEntity(graphBox);
-	windowToModify->addEntity(submitButton);
+	if (World::getCurrDesktop().getNetVecIndex() >= int(World::getCurrDesktop().getNetVecSize() - 1)) {
+		Entity submitButton;
+		float buttonScale = 0.25f;
+		int buttonSize = 256;
+		spawnNetworkOkayButton(playNet, submitButton, windowToModify->getInputHandler(), buttonSheet,
+			((graphBounds->getLocalBounds().width - (buttonSize * buttonScale)) / 2), static_cast<float>(windowToModify->getSize().y - 50), buttonScale,
+			ncf, myFont);
+		windowToModify->addEntity(submitButton);
+	}
 	windowToModify->setPosition(x, y);
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
@@ -423,6 +444,9 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih,
         delete(dir);
 #endif
     
+	int testSound = ppc::World::getAudio().addSound("email", "Button.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
     std::string path = resourcePath() + p;
     //std::cout <<  "\n" + path +  "\n" << std::endl;
     std::string dotEnd;
@@ -461,30 +485,31 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih,
             }
         }
         
+        
+        textRenderComponent* textBox =
+        new textRenderComponent(myFont, content, 0, 0, fontSize);
+        newEnt.addComponent(textBox);
+        windowToModify->setPosition(x, y);
+        windowToModify->addEntity(newEnt);
+        
         windowScrollHeight = windowScrollHeight * textMuliplier;
         if(windowScrollHeight > maxWindowScroll){
             windowScrollHeight = maxWindowScroll;
         }
-        
-        if(windowScrollHeight < minWindowHeight){
+        else if(windowScrollHeight < minWindowHeight){
             windowScrollHeight = minWindowHeight;
+
         }
-        
-        textRenderComponent* textBox =
-            new textRenderComponent(myFont, content, 0, 0, fontSize);
-        
-        newEnt.addComponent(textBox);
-        windowToModify->setPosition(x, y);
-        windowToModify->addEntity(newEnt);
-        windowToModify->setSize(windowToModify->getSize().x, windowScrollHeight);
-        
-        sf::FloatRect viewRect = {
-            0.0f,
-            0.0f,
-            float(windowToModify->getSize().x),
-            float(windowToModify->getSize().x)
-        };
-        windowToModify = new ScrollBarDecorator(*windowToModify, World::getCurrDesktop().getButtonSheet(), sf::View(viewRect));
+        if(windowScrollHeight > minWindowHeight){
+            windowToModify->setSize(windowToModify->getSize().x, windowScrollHeight);
+            sf::FloatRect viewRect = {
+                0.0f,
+                0.0f,
+                float(windowToModify->getSize().x),
+                float(windowToModify->getSize().x)
+            };
+            windowToModify = new ScrollBarDecorator(*windowToModify, World::getCurrDesktop().getButtonSheet(), sf::View(viewRect));
+        }
     }
     
     else if(dotEnd == PNG || dotEnd == JPG){
@@ -516,6 +541,10 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih,
 void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, Inbox& inbox) {
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
+
+	int testSound = ppc::World::getAudio().addSound("gunshots", "Double_Click.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
 
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
@@ -574,7 +603,9 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 
 void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email* mail, sf::Image& buttonSheet, float x, float y) {
 	if (windowToModify == nullptr) { return; }
-
+	int testSound = ppc::World::getAudio().addSound("email", "Button.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
@@ -628,8 +659,10 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 
 void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message, std::string windowCaption) {
 	if (windowToModify == nullptr) { return; }
-
-	windowToModify->setSize(300.0f, windowToModify->getSize().y);
+	int testSound = ppc::World::getAudio().addSound("error", "Blip.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
+	windowToModify->setSize(300, windowToModify->getSize().y);
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
@@ -656,14 +689,14 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 	float buttonScale = 0.25f;
 	spawnAlertIcon(alertIcon, ih, buttonSheet, alertX, alertY, 0.5f);
 
-	float constantWindowWidth = 50.0f;
-	float newWindowWidth = (constantWindowWidth + (256 * buttonScale)
-		+ eMRC->getText()->getLocalBounds().width);
+	unsigned int constantWindowWidth = 50;
+	unsigned int newWindowWidth = (constantWindowWidth + (unsigned int)((256 * buttonScale)
+		+ eMRC->getText()->getLocalBounds().width));
 
 	Entity errorMessageDisplayBox;
 	errorMessageDisplayBox.addComponent(eMRC);
 
-	windowToModify->setSize(newWindowWidth, windowHeight);
+	windowToModify->setSize(newWindowWidth, (unsigned int)(windowHeight));
 	float buttonX = ((newWindowWidth - (alertWidth * buttonScale)) / 2);
 	float buttonY = (2 * (windowHeight / 3));
 
@@ -698,7 +731,9 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 void ppc::spawnSuccessMessage(WindowInterface *& windowToModify, InputHandler & ih, sf::Image & buttonSheet, float x, float y, std::string message)
 {
 	if (windowToModify == nullptr) { return; }
-
+	int testSound = ppc::World::getAudio().addSound("success", "Notification_New.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
@@ -839,6 +874,8 @@ void ppc::spawnUnlock(WindowInterface *& windowToModify, InputHandler & ih, sf::
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 12;
 
+	WindowInterface* ergerg = new Window(500, 500, sf::Color::Black);
+
 	errorMessageRenderComponent* eMRC = new errorMessageRenderComponent(myFont,
 		"Please enter a password:\n> Recovery Hint: '" + fldr->getFolderNodeState()->getCwd()->findElement(fldr->getFolderName())->getHint() +"'\n",
 		windowToModify->getSize().x / 3, (windowToModify->getSize().y / 3) - 40, fontSize);
@@ -941,8 +978,10 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
     tbuilder.setInputHandle(ih);
     tbuilder.setContainingWindow(windowToModify);
 	tbuilder.setIsMasked(false);
-	createWithEventFunc(tbuilder, tbox, windowToModify, ppc::continue_world);
-    
+    LoginInputCmpnt* loginCmpnt = new LoginInputCmpnt(*windowToModify, tbuilder.getTextBoxInputComponent());
+	createWithEventFunc(tbuilder, tbox, loginCmpnt, registerLogIn);
+    loginCmpnt->setTextBox(*tbuilder.getTextBoxInputComponent());
+
     Entity promptText;
     TextDisplayBuilder tdBuilder;
     tdBuilder.setFont(myFont);
@@ -958,45 +997,61 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
     lBuilder.setInputHandle(ih);
     lBuilder.setLabelMessage("LOG IN");
     lBuilder.setSpriteSheet(buttonSheet);
-    lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3)-2, 95.0f));
+    lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3)- 227, 95.0f));
     lBuilder.setSize(0.25f);
     lBuilder.setLabelFont(myFont);
     lBuilder.setLabelSize(12);
-	createWithEventFunc(lBuilder, loginButton, windowToModify, continue_world);
+    createWithEventFunc(lBuilder, loginButton, loginCmpnt, registerLogIn);
 
 	Entity settingsButton;
 	lBuilder.setLabelMessage("Settings");
-	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 75, 95.0f));
-	createWithEventFunc(lBuilder, settingsButton, windowToModify, open_settings);
+	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 152, 95.0f));
+    createWithEventFunc(lBuilder, settingsButton,&World::getCurrDesktop(), open_settings);
 
 	Entity creditsButton;
 	lBuilder.setLabelMessage("Credits");
-	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 152, 95.0f));
+	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 75, 95.0f));
 	createWithEventFunc(lBuilder, creditsButton, windowToModify, open_credits);
+
+	Entity quitButton;
+	lBuilder.setLabelMessage("QUIT");
+	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 2, 95.0f));
+	createWithEventFunc(lBuilder, quitButton, &World::getCurrDesktop(), confirm_quit);
   
     
-    windowToModify->addEntity(alertIcon);
     windowToModify->addEntity(tbox);
+	windowToModify->addEntity(quitButton);
+    windowToModify->addEntity(alertIcon);
     windowToModify->addEntity(promptText);
     windowToModify->addEntity(loginButton);
 	windowToModify->addEntity(settingsButton);
 	windowToModify->addEntity(creditsButton);
-    windowToModify = new BorderDecorator(*windowToModify);
-
-    dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Login");
+    windowToModify->addInputComponent(loginCmpnt);
+    BorderDecorator* temp = new BorderDecorator(*windowToModify);
+    sf::FloatRect bounds;
+    bounds.width = bounds.height = 0;
+    bounds.left = temp->getPosition().x;
+    bounds.top = temp->getPosition().y;
+    temp->setClampBounds(bounds);
+    temp->setCaption("Login");
+    windowToModify = temp;
 
 }
 
 
-void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState ns,
+void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHandler& ih, NodeState* ns,
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y) {
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
 
+	int testSound = ppc::World::getAudio().addSound("gunshots", "Double_Click.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
+
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
-	int maxCaptionCharacters = 30;
+	unsigned int maxCaptionCharacters = 30;
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 14;
@@ -1027,7 +1082,7 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	}
 
 	// Create the window caption and format it //
-	std::vector<std::string> pwd_vector = ns.getPwdVector();
+	std::vector<std::string> pwd_vector = ns->getPwdVector();
 	std::string pwd = "";
 
 	/*for (auto iter = pwd_vector.begin() + 1; iter != pwd_vector.end(); ++iter) {
@@ -1199,6 +1254,8 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 
 void ppc::spawnSettingsMenu(Desktop * dt, WindowInterface *& windowToModify, InputHandler & ih, float x, float y)
 {
+
+    tempSetting = World::getSettings();
 
 	float windowWidth = static_cast<float>(windowToModify->getSize().x);
 	float windowHeight = static_cast<float>(windowToModify->getSize().y);
@@ -1377,86 +1434,87 @@ void ppc::spawnCreditsWindow(Desktop * dt, WindowInterface *& windowToModify, In
 	builder.setFont(myFont);
 
 	Entity productionHeader;
+    builder.setSize(headerSize);
 	builder.setPosition(sf::Vector2f(headerX-15, 200.0f));
-	builder.setSize(headerSize);
 	builder.setString("Production");
 	builder.create(productionHeader);
 	windowToModify->addEntity(productionHeader);
 
 	Entity productionList;
+    builder.setSize(subHeaderSize);
 	builder.setPosition(sf::Vector2f(subHeaderX, 250.0f));
-	builder.setSize(subHeaderSize);
 	builder.setString("     Alex Vincent   Project Lead");
 	builder.create(productionList);
 	windowToModify->addEntity(productionList);
 
 	Entity designHeader;
+    builder.setSize(headerSize);
 	builder.setPosition(sf::Vector2f(headerX+10, 300.0f));
-	builder.setSize(headerSize);
 	builder.setString("Design");
 	builder.create(designHeader);
 	windowToModify->addEntity(designHeader);
 
 	Entity designList;
+    builder.setSize(subHeaderSize);
 	builder.setPosition(sf::Vector2f(subHeaderX, 350.0f));
-	builder.setSize(subHeaderSize);
 	builder.setString("      Mark Biundo   Lead Designer\n    Brandon Gomez   Game Designer\n    Jason Brisson   Writer/Designer");
 	builder.create(designList);
 	windowToModify->addEntity(designList);
 
 	Entity programmerHeader;
+    builder.setSize(headerSize);
 	builder.setPosition(sf::Vector2f(headerX-15, 450.0f));
-	builder.setSize(headerSize);
 	builder.setString("Programming");
 	builder.create(programmerHeader);
 	windowToModify->addEntity(programmerHeader);
 
 	Entity programmerList;
+    builder.setSize(subHeaderSize);
 	builder.setPosition(sf::Vector2f(subHeaderX, 500.0f));
-	builder.setSize(subHeaderSize);
-	builder.setString("       Daniel Luna   Lead Developer\n       Nader Sleem   Game Programmer\n John 'Andy' Baden   Game Programmer/Designer");
+	builder.setString("       Daniel Luna   Lead Developer\n       Nader Sleem   Game Programmer\n John 'Andy' Baden   Game Programmer/Designer\n       Michael Lowe  Game Programmer\n");
 	builder.create(programmerList);
 	windowToModify->addEntity(programmerList);
 
 	Entity artHeader;
+    builder.setSize(headerSize);
 	builder.setPosition(sf::Vector2f(headerX-10, 600.0f));
-	builder.setSize(headerSize);
 	builder.setString("Art & Sound");
 	builder.create(artHeader);
 	windowToModify->addEntity(artHeader);
 
 	Entity artList;
+    builder.setSize(subHeaderSize);
 	builder.setPosition(sf::Vector2f(subHeaderX, 650.0f));
-	builder.setSize(subHeaderSize);
 	builder.setString("      Michael Lowe   Lead Technical Artist\n      Austin Enoch   Character Artist\n    Pilar Costabal   User Interface Artist");
 	builder.create(artList);
 	windowToModify->addEntity(artList);
 
 	Entity thanksHeader;
+    builder.setSize(headerSize);
 	builder.setPosition(sf::Vector2f(headerX-30, 750.0f));
-	builder.setSize(headerSize);
 	builder.setString("Special Thanks");
 	builder.create(thanksHeader);
 	windowToModify->addEntity(thanksHeader);
 
 	Entity thanksList;
+    builder.setSize(subHeaderSize);
 	builder.setPosition(sf::Vector2f(subHeaderX, 800.0f));
-	builder.setSize(subHeaderSize);
 	builder.setString("     Jim Whitehead   Senior Advisor\n    Michael Mateas   Senior Advisor\n        James Ryan   Advisor\n      Jessica Fong   Trailer Voice Over\n\n         UCSC Games & Playable Media");
 	builder.create(thanksList);
 	windowToModify->addEntity(thanksList);
 
+	windowToModify->setSize((unsigned int)(windowWidth), 1000);
 
-	windowToModify->setSize(windowWidth, 1000.0f);
 	sf::FloatRect viewRect = {
 		0.0f,
 		0.0f,
 		float(windowToModify->getSize().x),
 		float(windowToModify->getSize().y / 2)
 	};
-	
-	windowToModify = new ScrollBarDecorator(*windowToModify, World::getCurrDesktop().getButtonSheet(), sf::View(viewRect));
 
+	windowToModify = new ScrollBarDecorator(*windowToModify, World::getCurrDesktop().getButtonSheet(), sf::View(viewRect));
+    windowToModify->move(0, 200);
+    
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(dt->getButtonSheet(), closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("Credits");
@@ -1468,7 +1526,7 @@ bool ppc::close_window(WindowInterface * w, ppc::Event ev)
 	return false;
 }
 
-bool ppc::open_settings(WindowInterface *w, ppc::Event ev) {
+bool ppc::open_settings(Desktop *w, ppc::Event ev) {
 	WindowInterface* settingsWindow = new ppc::Window(500, 600, sf::Color(170, 170, 170));
 	spawnSettingsMenu(&World::getCurrDesktop(), settingsWindow, settingsWindow->getInputHandler(), 500.0f, 500.0f);
 	settingsWindow->setPosition(sf::Vector2f{ 200.0f, 200.0f });
@@ -1484,6 +1542,7 @@ bool ppc::open_credits(WindowInterface * w, ppc::Event ev)
 	World::getCurrDesktop().addWindow(creditsWindow);
 	return true;
 }
+
 
 bool ppc::continue_world(WindowInterface* w, ppc::Event ev) {
     World::quitDesktop();
@@ -1526,6 +1585,9 @@ bool ppc::increment_resolution(ppc::TextDisplayRenderComponent* ptr, ppc::Event 
     // Uncomment the line below when the resolutions are loaded.
     ptr->updateString(std::to_string(it->width) + " x " +
         std::to_string(it->height));
+
+    tempSetting.resolution = resolution;
+
     return true;
 }
 
@@ -1578,6 +1640,9 @@ bool ppc::decrement_resolution(ppc::TextDisplayRenderComponent * ptr, ppc::Event
 	// Uncomment the line below when the resolutions are loaded.
 	ptr->updateString(std::to_string(it->width) + " x " + 
                       std::to_string(it->height));
+
+    tempSetting.resolution = resolution;
+
 	return true;
 }
 
@@ -1619,24 +1684,48 @@ bool ppc::toggle_window_settings(TextDisplayRenderComponent * ptr, ppc::Event ev
 	// Danny: Do something with this string
 	// It'll either be Windowed or Full Screen
 	std::string targetWindowMode = ptr->getString();
-	std::cout << targetWindowMode;
+    if (targetWindowMode == "Windowed") {
+        tempSetting.fullscreen = false;
+    } else if (targetWindowMode == "Fullscreen") {
+        tempSetting.fullscreen = true;
+    }
+
 	return (ptr != nullptr);
+
 }
 
 bool ppc::update_settings(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
-	std::string resolutionText = ptr->getString();
-	// Parse resolution x and y into resX and resY
-    sf::Vector2u resolution;
-    resolution.x = std::atoi(resolutionText.substr(0, resolutionText.find_first_of(" ")).c_str());
-    resolution.y = std::atoi(resolutionText.substr(resolutionText.find_last_of(" ") + 1).c_str());
-
-    Setting settings = World::getSettings();
-    settings.resolution = resolution;
-    World::setSettings(settings);
+    World::setSettings(tempSetting);
 	
 	// Set the new resolution using resX, resY;
 	return true;
 }
+
+bool ppc::confirm_quit(Desktop* ptr, ppc::Event ev) {
+	ppc::WindowInterface* ConfirmationWindow =
+		new ppc::Window(600, 150, sf::Color(170, 170, 170));
+	ConfirmWindowBuilder builder;
+
+	builder.setButtonLabelFont(World::getFont(World::FontList::Consola));
+	builder.setCancelButtonLabel("CANCEL");
+	builder.setConfirmButtonLabel("QUIT");
+	builder.setConfirmMessage("Are you sure you want to quit?");
+	builder.setMessageFont(World::getFont(World::FontList::Consola));
+	builder.setMessageFontSize(16);
+	builder.setPosition(sf::Vector2f(200, 375));
+	builder.setSpriteSheet(World::getCurrDesktop().getButtonSheet());
+	builder.setWindowCaption("Quit?");
+	createWithEventFunc(builder, ConfirmationWindow, ptr, ppc::quit_game);
+	ptr->addWindow(ConfirmationWindow);
+	return true;
+}
+
+bool ppc::quit_game(Desktop * ptr, ppc::Event ev)
+{
+	throw std::logic_error("Screen Closer");
+	return true;
+}
+
 
 

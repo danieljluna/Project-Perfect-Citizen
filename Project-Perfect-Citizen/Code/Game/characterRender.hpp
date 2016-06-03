@@ -74,14 +74,19 @@ namespace ppc {
 		sf::Vector2f nosePos;
 
 	public:
+
+		characterRender();
+
 		////////////////////////////////////////////////////////////////////
 		/// @brief Constructor for buttonRenderComponent
 		/// @param image is the String of a file path of a .png file
 		/// @param s is the scale of the render
 		////////////////////////////////////////////////////////////////////
 		characterRender(sf::Image& image);
-
+		ppc::characterRender& operator=(const characterRender&);
 		~characterRender();
+
+		void setImage(sf::Image& image);
 
 		bool shouldDraw() const { return shouldDraw_; }
 

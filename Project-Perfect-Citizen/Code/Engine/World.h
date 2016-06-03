@@ -6,6 +6,8 @@
 #include <vector>
 #include <utility>
 #include "LevelPacket.h"
+#include "Audio/AudioQueue.h"
+#include "../Game/Save.h"
 
 namespace ppc {
 
@@ -34,7 +36,8 @@ namespace ppc {
 			DEPlayer3A,
 			DEPlayer3B,
 			DE3,
-			DEEnd,
+			DEEnd1,
+			DEEnd2,
             DesktopCount
         };
 
@@ -50,7 +53,8 @@ namespace ppc {
 			A = 0, //guilty1
 			B, //guilty2
 			C, //not guilty1
-			D // not guilty2
+			D, // not guilty2
+            UNPLAYED
 		};
 
 
@@ -58,6 +62,8 @@ namespace ppc {
 		// Ctors
 		///////////////////////////////////////////////////////////////
 		World() = delete;
+
+		static void cleanWorld();
 
 		///////////////////////////////////////////////////////////////
 		// World std::Maps
@@ -73,19 +79,13 @@ namespace ppc {
 		/// loaded is a previous level
 		/////////////////////////////////////////////////////////////
 		static void goBack();
-
+		static void goToLevel(int);
 		using desktopLoaders = void(*)(ppc::Desktop&);
 
 		static std::map<DesktopList, desktopLoaders> loaderMap_;
       /////////////////////////////////////////////////////////////////
       // Setters
       /////////////////////////////////////////////////////////////////
-
-		///////////////////////////////////////////////////////////////
-		///@brief Set the screen the game is played on.
-		///@param [in] sf::RenderWindow
-		///////////////////////////////////////////////////////////////
-		static void setGameScreen(sf::RenderWindow&);
 
         static sf::VideoMode getVideoMode();
 
@@ -138,7 +138,7 @@ namespace ppc {
 		static sf::Font& getFont(FontList f);
 
 		static std::string getReportFile();
-		static std::string getBossEmail();
+		static std::vector<std::string> getBossEmail();
 
         static void restartDesktop();
 
@@ -177,6 +177,7 @@ namespace ppc {
 
         static void saveState(std::string filename);
 
+		static ppc::AudioQueue& getAudio();
 		/////////////////////////////////////////////////////////////////
 		// Loading Address Map
 		/////////////////////////////////////////////////////////////////
@@ -191,6 +192,7 @@ namespace ppc {
 
 		static void initAddressMap();
 
+        static Save currSave;
 
     private:
 
@@ -208,6 +210,8 @@ namespace ppc {
 
         static void initializeResolution();
 
+		static std::string useLocator();
+
       /////////////////////////////////////////////////////////////////
       // Private Vars / Enums
       /////////////////////////////////////////////////////////////////
@@ -224,8 +228,9 @@ namespace ppc {
 		static DesktopList currDesktopEnum_;
 		static ReportType currReportType_;
 
-		static bool progToNext_
-			;
+		static ReportType priorReports_[5];
+
+		static bool progToNext_;
         static bool quitter_;
 
 		static std::map<FontList, sf::Font> fontMap_;
@@ -261,10 +266,12 @@ namespace ppc {
         static sf::RectangleShape blackBars_[2];
 
         static Setting settings_;
-
+        
         static std::map<std::string, savGroups> saveGroupMap_;
 
         static sf::Transform worldTransform_;
+
+		static ppc::AudioQueue audio_;
 
 	};
 };

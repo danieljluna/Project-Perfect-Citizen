@@ -7,26 +7,30 @@
 
 #include "debug.h"
 #include "../Engine/SuspiciousFileHolder.h"
+#include "../Game/playerLocator.hpp"
 #include "SetUpDesktops.h"
 
 using namespace ppc;
 
 
 sf::RenderWindow* World::screen_ = nullptr;
+ppc::AudioQueue ppc::World::audio_(5);
 Desktop* World::currDesktop_ = nullptr;
 sf::Transform World::worldTransform_;
 sf::RectangleShape World::blackBars_[2] = {sf::RectangleShape(), sf::RectangleShape()};
 
+Save World::currSave = Save();
+
 bool World::progToNext_ = true;
 
+World::ReportType World::priorReports_[5] = { World::UNPLAYED, World::UNPLAYED, World::UNPLAYED, World::UNPLAYED, World::UNPLAYED };
 
 std::map<ppc::World::DesktopList, ppc::LevelPacket> World::levelMap_ = {
 
 };
 
 std::map<std::string, World::savGroups> World::saveGroupMap_ = {
-    { "Settings",      World::SettingsTag  },
-    { "State",         World::StateTag     }
+    { "Settings",      World::SettingsTag  }
 };
 
 World::DesktopList World::currDesktopEnum_ = DELogo;
@@ -46,7 +50,8 @@ std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
 	{ World::DEPlayer3A, resourcePath() + "Engine/playerDesktop3.ini" },
 	{ World::DEPlayer3B, resourcePath() + "Engine/playerDesktop3.ini" },
 	{ World::DE3, resourcePath() + "Engine/hackerDesktop.ini" },
-	{ World::DEEnd, resourcePath() + "Engine/endDesktop.ini" },
+	{ World::DEEnd1, resourcePath() + "Engine/endDesktop.ini" },
+	{ World::DEEnd2, resourcePath() + "Engine/endDesktop.ini" },
     { World::DesktopCount, ""}  //Empty pairing of Count to string.
 };
 
@@ -65,7 +70,8 @@ std::map<World::DesktopList, World::desktopLoaders> World::loaderMap_ = {
 	{ World::DEPlayer3A,setUpPlayerDesktop },
 	{ World::DEPlayer3B,setUpPlayerDesktop },
 	{ World::DE3, setUpHackerDesktop },
-	{ World::DEEnd, setUpEndDesktop },
+	{ World::DEEnd1, setUpEndDesktop },
+	{ World::DEEnd2, setUpEndDesktop },
 	{ World::DesktopCount, nullptr }  //Empty pairing of Count to nullptr.
 };
 
@@ -137,18 +143,19 @@ std::map <World::DesktopList, std::string> World::loadingAddressMap_ = {
 	{ World::DELogo, "" },
 	{ World::DEOpening, "" },
 	{ World::DELogin, "" },
-	{ World::DE0A, "{\n Now Beginning Training Simulation \n}" },
-	{ World::DE0B, "{\n Beginning Simulation Phase Two \n}" },
-	{ World::DEPlayer1, "{\n Returning to Workstation \n}" },
+	{ World::DE0A, "\nNow Beginning Training Simulation \n" },
+	{ World::DE0B, "\nBeginning Simulation Phase Two \n" },
+	{ World::DEPlayer1, "\nDesktop Extraction Complete\nReturning to Workstation" },
 	{ World::DE1, "" },
-	{ World::DEPlayer2A, "{\n Returning to Workstation \n}" },
-	{ World::DEPlayer2B, "{\n Returning to Workstation \n}" },
+	{ World::DEPlayer2A, "\nDesktop Extraction Complete\nReturning to Workstation" },
+	{ World::DEPlayer2B, "\nDesktop Extraction Complete\nReturning to Workstation" },
 	{ World::DE2A, "" },
 	{ World::DE2B, "" },
-	{ World::DEPlayer3A, "{\n Returning to Workstation \n}" },
-	{ World::DEPlayer3B, "{\n Returning to Workstation \n}" },
+	{ World::DEPlayer3A, "\nDesktop Extraction Complete\nReturning to Workstation" },
+	{ World::DEPlayer3B, "\nDesktop Extraction Complete\nReturning to Workstation" },
 	{ World::DE3, "" },
-	{ World::DEEnd, "" },
+	{ World::DEEnd1, "" },
+	{ World::DEEnd2, "" },
 	{ World::DesktopCount, "" }  //Empty pairing of Count to string.
 };
 
@@ -165,9 +172,14 @@ sf::Sprite World::loadingDecal_ = sf::Sprite();
 sf::Sprite World::clickToContinue_ = sf::Sprite();
 sf::Text World::loadingAddress_ = sf::Text();
 
+
 bool World::isLoading_ = false;
 bool World::isLoadBarFull_ = false;
 Setting World::settings_;
+
+void ppc::World::cleanWorld() {
+	delete screen_;
+}
 
 void ppc::World::initLevelMap() {
 
@@ -224,12 +236,16 @@ void ppc::World::initLevelMap() {
 	levelMap_.emplace(DEPlayer3B, levelPlayer3B);
 
 	LevelPacket levelThree;
-	levelThree.pushNext(DEEnd, 1);
+	levelThree.pushNext(DEEnd1, 30);
+	levelThree.pushNext(DEEnd2, 29);
 	levelMap_.emplace(DE3, levelThree);
 
-	LevelPacket levelEnd;
-	levelEnd.pushNext(DesktopCount, 1);
-	levelMap_.emplace(DEEnd, levelEnd);
+
+	LevelPacket end;
+	end.pushNext(DesktopCount, 1);
+	levelMap_.emplace(DEEnd1, end);
+	levelMap_.emplace(DEEnd2, end);
+
 
 }
 
@@ -256,8 +272,10 @@ void ppc::World::goBack() {
 	progToNext_ = false;
 }
 
-void World::setGameScreen(sf::RenderWindow& gameScreen) {
-	screen_ = &gameScreen;
+void ppc::World::goToLevel(int dl) {
+	goBack();
+	currDesktopEnum_ = (World::DesktopList)dl;
+	quitDesktop();
 }
 
 sf::VideoMode ppc::World::getVideoMode() {
@@ -311,10 +329,12 @@ void World::runDesktop() {
 }
 
 bool World::loadDesktop(DesktopList desk) {
+	//add sound
     return loadDesktop(desktopFileMap_.at(desk));
 }
 
 int World::runCurrDesktop() {
+    currSave.setDesktop(currDesktopEnum_);
 	runDesktop();
 	return SuspiciousFileHolder::getFinalScore();
 }
@@ -326,6 +346,7 @@ void World::quitDesktop() {
 
 
 bool World::loadDesktop(std::string filename) {
+	
     std::ifstream in(filename);
 
     bool result = false;
@@ -358,6 +379,21 @@ World::ReportType ppc::World::getCurrReportType() {
 
 void ppc::World::setCurrReportType(ReportType rt) {
 	currReportType_ = rt;
+	if (currDesktopEnum_ == DE0B) {
+		priorReports_[0] = rt;
+	}
+	else if (currDesktopEnum_ == DE1) {
+		priorReports_[1] = rt;
+	}
+	else if (currDesktopEnum_ == DE2A) {
+		priorReports_[2] = rt;
+	}
+	else if (currDesktopEnum_ == DE2B) {
+		priorReports_[3] = rt;
+	}
+	else if (currDesktopEnum_ == DE3) {
+		priorReports_[4] = rt;
+	}
 }
 
 sf::Font& ppc::World::getFont(FontList f) {
@@ -372,10 +408,51 @@ std::string ppc::World::getReportFile() {
 	return "";
 }
 
-std::string ppc::World::getBossEmail() {
-	auto i = bossEmailMap_.find({ currDesktopEnum_, currReportType_ });
-	if (i != bossEmailMap_.end()) return i->second;
-	return "";
+std::vector<std::string> ppc::World::getBossEmail() {
+	//add report to save file at desktop conclusion
+	//check save file on load, see if vector is missing anything
+	//use vector of reports to trace email history
+	//confirm in player desktop/has report
+	//doesn't get get boss email in DE, only player desktop
+	std::vector<std::string> temp;
+	unsigned int bossindex = 0;
+	bool skip2 = false;
+	if (currDesktopEnum_ == World::DEPlayer1) bossindex = 0;
+	else if (currDesktopEnum_ == World::DEPlayer2A) bossindex = 1;
+	else if (currDesktopEnum_ == World::DEPlayer2B) bossindex = 1;
+	else if (currDesktopEnum_ == World::DEPlayer3A) bossindex = 2;
+	else if (currDesktopEnum_ == World::DEPlayer3B) {
+		bossindex = 3;
+		skip2 = true;
+	}
+	else return temp;
+
+	for (int i = 0; i <= bossindex; ++i) {
+		ReportType rep;
+		rep = priorReports_[i];
+
+		DesktopList desknum;
+		if (i == 0) desknum = World::DEPlayer1;
+		else if (i == 1) desknum = World::DEPlayer2A;
+		else if (i == 2) {
+			if (skip2) continue;
+			desknum = World::DEPlayer3A;
+		}
+		else if (i == 3) {
+			desknum = World::DEPlayer3B;
+		}
+
+		if (rep == World::UNPLAYED) {
+			rep = World::D;
+		}
+
+		auto itor = bossEmailMap_.find({ desknum, rep});
+		if (itor != bossEmailMap_.end()) temp.push_back(itor->second);
+
+	}
+
+	
+	return temp;
 }
 
 
@@ -407,11 +484,11 @@ void ppc::World::initLoadScreen() {
     loadingDecal_.setPosition(150, 50);
     
     
-    loadingAddress_.setFont(World::getFont(World::FontList::Consola));
-    loadingAddress_.setCharacterSize(28);
+    loadingAddress_.setFont(World::getFont(World::FontList::VT323Regular));
+    loadingAddress_.setCharacterSize(55);
     loadingAddress_.setColor(sf::Color(0,200,0));
-    loadingAddress_.setPosition({150.f, 450.f});
-    loadingAddress_.setString("[     Loading Desktop At 1011 Nobel Dr     ]");
+    loadingAddress_.setPosition({150.f, 120.f});
+    loadingAddress_.setString(getCurrAddress());
 
 	tempLoadScreen_.setPosition(0.f, 0.f);
 	tempLoadScreen_.setFillColor(sf::Color::Black);
@@ -426,6 +503,12 @@ void ppc::World::initLoadScreen() {
 
 void ppc::World::startLoading() {
 	isLoading_ = true;
+	if ((int)currDesktopEnum_ > (int)DE3) {
+		loadingAddress_.setString(useLocator());
+	}else{
+		loadingAddress_.setString(getCurrAddress());
+	}
+	
 	drawLoading();
 }
 
@@ -433,6 +516,7 @@ void ppc::World::setLoading(float f) {
 	if (f > 1.f || f < 0.f) f = 1.f;
 	if (f == 1.0f) isLoadBarFull_ = true;
     else isLoadBarFull_ = false;
+    
     loadBar_.setTextureRect({0, 4*128, static_cast<int>(1024*f),128});
 	tempLoadBar_.setSize({ 500.f * f, 50.f });
 	drawLoading();
@@ -444,7 +528,7 @@ void ppc::World::drawLoading() {
         states.transform = worldTransform_;
 		
         screen_->clear(sf::Color::Black);
-        screen_->draw(loadingDecal_, states);
+        //screen_->draw(loadingDecal_, states);
         screen_->draw(loadBarBorder_, states);
         screen_->draw(loadBar_, states);
         screen_->draw(loadingAddress_, states);
@@ -468,6 +552,9 @@ void ppc::World::endLoading() {
 			if (event.type == sf::Event::MouseButtonPressed) {
 				isLoading_ = false;
 				isLoadBarFull_ = false;
+				if (currDesktopEnum_ == DEEnd2) {
+					throw std::exception();
+				}
 				return;
 			}
 		}
@@ -540,34 +627,43 @@ void ppc::World::saveState(std::string filename) {
 
     std::ofstream file(filename);
 
-    while (file) {
-        for (auto& mapPair : saveGroupMap_) {
-            //Output grouping Tag
-            file << '[' << mapPair.first << ']' << std::endl;
+    for (auto& mapPair : saveGroupMap_) {
+        if (!file) break;
+        //Output grouping Tag
+        file << '[' << mapPair.first << ']' << std::endl;
 
-            //Output appropriate info
-            switch (mapPair.second) {
-            case SettingsTag:
-                file << settings_;
-                break;
-            case StateTag:
-            default:
-                break;
-            }
-            file << std::endl;
+        //Output appropriate info
+        switch (mapPair.second) {
+        case SettingsTag:
+            file << settings_;
+            break;
+        case StateTag:
+            break;
+        default:
+            break;
         }
+        file << std::endl;
     }
 
     file.close();
+
+    World::currSave.exportSave(currSave.getLoginId());
 }
 
+ppc::AudioQueue& ppc::World::getAudio()
+{
+	return audio_;
+}
 std::string ppc::World::getCurrAddress() {
-	return loadingAddressMap_.at(currDesktopEnum_);
+	auto i = loadingAddressMap_.find(currDesktopEnum_);
+	if (i != loadingAddressMap_.end()) return i->second;
+	return "";
 }
 
 std::string ppc::World::getAddress(DesktopList dl) {
-	if ((int)dl >= (int)DesktopCount) return "";
-	return loadingAddressMap_.at(dl);
+	auto i = loadingAddressMap_.find(dl);
+	if (i != loadingAddressMap_.end()) return i->second;
+	return "";
 }
 
 void ppc::World::setAddress(World::DesktopList dl, std::string s) {
@@ -583,25 +679,25 @@ void ppc::World::setCurrAddress(std::string s) {
 void ppc::World::initAddressMap() {
 	std::ifstream fstream;
 
-	fstream.open(resourcePath() + "LoadAddress/DE1Address.txt");
+	fstream.open(resourcePath() + "LoadAddresses/DE1Address.txt");
 	std::string s1((std::istreambuf_iterator<char>(fstream)),
 		(std::istreambuf_iterator<char>()));
 	loadingAddressMap_.at(DE1) = s1;
 	fstream.close();
 
-	fstream.open(resourcePath() + "LoadAddress/DE2AAddress.txt");
+	fstream.open(resourcePath() + "LoadAddresses/DE2AAddress.txt");
 	std::string s2((std::istreambuf_iterator<char>(fstream)),
 		(std::istreambuf_iterator<char>()));
 	loadingAddressMap_.at(DE2A) = s2;
 	fstream.close();
 
-	fstream.open(resourcePath() + "LoadAddress/DE2BAddress.txt");
+	fstream.open(resourcePath() + "LoadAddresses/DE2BAddress.txt");
 	std::string s3((std::istreambuf_iterator<char>(fstream)),
 		(std::istreambuf_iterator<char>()));
 	loadingAddressMap_.at(DE2B) = s3;
 	fstream.close();
 
-	fstream.open(resourcePath() + "LoadAddress/DE3Address.txt");
+	fstream.open(resourcePath() + "LoadAddresses/DE3Address.txt");
 	std::string s4((std::istreambuf_iterator<char>(fstream)),
 		(std::istreambuf_iterator<char>()));
 	loadingAddressMap_.at(DE3) = s4;
@@ -612,20 +708,27 @@ void ppc::World::initAddressMap() {
 
 void ppc::World::manifestSettings() {
     if (settings_.fullscreen) {
+#ifdef WINDOWS_MARKER
         settings_.resolution.x = sf::VideoMode::getDesktopMode().width;
         settings_.resolution.y = sf::VideoMode::getDesktopMode().height;
+#else
+        settings_.resolution.x = sf::VideoMode::getFullscreenModes().front().width;
+        settings_.resolution.y = sf::VideoMode::getFullscreenModes().front().height;
+#endif
     }
 
 
-    if (screen_ != nullptr) {
-        initializeResolution();
-
-        unsigned int flags = sf::Style::Default;
-        if (settings_.fullscreen) {
-            flags = flags | sf::Style::Fullscreen;
-        }
-        screen_->create(getVideoMode(), "Project Perfect Citizen", flags);
+    if (screen_ == nullptr) {
+        screen_ = new sf::RenderWindow();
     }
+
+    initializeResolution();
+
+    unsigned int flags = sf::Style::Titlebar | sf::Style::Close;
+    if (settings_.fullscreen) {
+        flags = flags | sf::Style::Fullscreen;
+    }
+    screen_->create(getVideoMode(), "Project Perfect Citizen", flags);
 }
 
 void World::drawDesktop() {
@@ -700,8 +803,8 @@ void ppc::World::update(sf::Clock& deltaTime, sf::Time& framePeriod ) {
 void ppc::World::initializeResolution() {
     sf::Vector2f result;
 
-    result.y = settings_.resolution.y;
-    result.x = settings_.resolution.x;
+    result.y = float(settings_.resolution.y);
+    result.x = float(settings_.resolution.x);
 
     sf::Vector2f scaleFactorVec;
     scaleFactorVec.x = float(settings_.resolution.x) / 1000;
@@ -742,6 +845,19 @@ void ppc::World::initializeResolution() {
     }
 
     worldTransform_.scale(scaleFactor, scaleFactor);
+
+
+}
+
+std::string ppc::World::useLocator() {
+	PlayerLocator locator;
+	std::string s =
+		" Beginning Desktop Extraction At \n\n Location : "
+		+ locator.getLat() + " W " + locator.getLong() + " N \n"
+		+ " IP : " + locator.getIp() + " \n"
+		+ " City : " + locator.getCity() + ", " + locator.getPostal() + "\n";
+
+	return s;
 
 
 }

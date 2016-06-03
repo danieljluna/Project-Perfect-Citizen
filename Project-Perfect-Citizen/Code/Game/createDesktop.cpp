@@ -37,11 +37,13 @@
 #include "startBarRenderComponent.hpp"
 #include "startBarUpdateComponent.hpp"
 #include "Email.h"
-
+#include "TextDisplayBuilder.h"
 #include "notifcationRenderComponent.h"
 #include "flaggedFileInputComponent.h"
-
-
+#include "TextCharacterUpdate.h"
+#include "ReportScreenInput.h"
+#include "ReportEndObsvr.h"
+#include "TextDisplayRenderComponent.h"
 #include "../Library/json/json.h"
 
 using namespace ppc;
@@ -56,8 +58,8 @@ void ppc::createLoginDesktop(Desktop& desktopToModify, WindowInterface& desktopW
     title.addComponent(titleRender);
 
     WindowInterface* loginPrompt = new Window(480, 150, sf::Color(170, 170, 170));
-    loginPrompt->setPosition(static_cast<float>(World::getGameScreen().getSize().x/2)-(loginPrompt->getSize().x/2), 
-		                     static_cast<float>(World::getGameScreen().getSize().y/2));
+    loginPrompt->setPosition(static_cast<float>(250),
+		                     static_cast<float>(400));
 
     spawnLoginPrompt(loginPrompt, loginPrompt->getInputHandler(), buttonSheet, 400, 500);
 
@@ -139,7 +141,10 @@ void ppc::createPlayerDesktop(Desktop& desktopToModify, WindowInterface& desktop
 }
 
 void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
-    
+	World::getAudio().stopAllSounds();
+	World::getAudio().addBgm("SoundTrack_Extraction.ogg");
+	World::getAudio().loopBgm();
+	World::getAudio().playBgm();
     Database theDatabase;
 
     Inbox* theInbox = &desktopToModify.getInbox();
@@ -155,7 +160,10 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
     Entity startBar;
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
     startBarRender->renderPosition({0,4});
+    
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
     startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -167,14 +175,12 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
     ////////////////////////////////
     ///// ICONS ON TEACHER DESKTOP
     ////////////////////////////////
-    Entity BrowserIcon;
     Entity ChatIcon;
     Entity HardDriveIcon;
     Entity SettingsIcon;
     Entity ConsoleIcon;
     Entity EmailIcon;
     
-    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, theDatabase, iconSheet,  buttonSheet, 350.0f, 400.0f, 0.4f, 0.25f, theInbox);
 	spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 125.0f, 175.0f, 0.4f, 0.25f, theInbox);
 	spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 525.0f, 200.0f, 0.5f, 0.25f, theInbox);
     spawnChatIcon(ChatIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 225.0f, 300.0f, 0.4f, 0.25f, theInbox);
@@ -190,7 +196,7 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
 	builder.setSize(0.5f);
 
 	// Create teacher desktop folders/files
-	Entity BlueBirdFile;
+	/*Entity BlueBirdFile;
 	builder.setPosition({ 750.0f, 350.0f });
 	builder.setIconType(iconInputComponent::IconType::File);
 	builder.setSpritebyIndicies(0, 0, 1, 3);
@@ -204,9 +210,8 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
 	builder.setSpritebyIndicies(0, 0, 1, 3);
 	builder.setText("Myth_of_Sisyphus_by_Albert_Camus.txt", World::getFont(World::VT323Regular), sf::Color::White);
 	builder.create(SisyphusFile);
-	desktopWindowToModify.addEntity(SisyphusFile);
+	desktopWindowToModify.addEntity(SisyphusFile);*/
 
-    desktopWindowToModify.addEntity(BrowserIcon);
     desktopWindowToModify.addEntity(ChatIcon);
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
@@ -284,6 +289,10 @@ void ppc::createDummyDesktop(Desktop& desktopToModify, WindowInterface& desktopW
 
 void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
   
+	World::getAudio().stopAllSounds();
+	World::getAudio().addBgm("SoundTrack_Extraction.ogg");
+	World::getAudio().loopBgm();
+	World::getAudio().playBgm();
 	Database theDatabase;
 
 	Inbox* theInbox = &desktopToModify.getInbox();
@@ -298,7 +307,9 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
     Entity startBar;
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
     startBarRender->renderPosition({0,4});
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
     startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -310,18 +321,14 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
     ////////////////////////////////
     ///// ICONS ON TEACHER DESKTOP
     ////////////////////////////////
-    Entity BrowserIcon;
-    Entity ChatIcon;
     Entity HardDriveIcon;
     Entity SettingsIcon;
     Entity ConsoleIcon;
     Entity EmailIcon;
     
-    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, theDatabase, iconSheet,  buttonSheet, 25.0f, 600.0f, 0.4f, 0.25f, theInbox);
-    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 125.0f, 600.0f, 0.4f, 0.25f, theInbox);
-    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 225.0f, 600.0f, 0.5f, 0.25f, theInbox);
-    spawnChatIcon(ChatIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 325.0f, 600.0f, 0.4f, 0.25f, theInbox);
-    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 425.0f, 600.0f, 0.5f, 0.25f, theInbox);
+    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 100.0f, 200.0f, 0.4f, 0.25f, theInbox);
+    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 0.0f, 300.0f, 0.5f, 0.25f, theInbox);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 100.0f, 400.0f, 0.5f, 0.25f, theInbox);
 
 	IconBuilder builder;
 	builder.setDesktop(desktopToModify);
@@ -332,7 +339,7 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
 	builder.setSize(0.5f);
 
 	Entity file1;
-	builder.setPosition({ 600.0f, 100.0f });
+	builder.setPosition({ 700.0f, 400.0f });
 	builder.setIconType(iconInputComponent::IconType::File);
 	builder.setSpritebyIndicies(0, 0, 1, 3);
 	builder.setText("BankPark_Print.jpg", World::getFont(World::VT323Regular), sf::Color::White);
@@ -400,14 +407,11 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
 	desktopWindowToModify.addEntity(file11);
 
 	Entity file12;
-	builder.setPosition({ 600.0f, 600.0f });
+	builder.setPosition({ 300.0f, 600.0f });
 	builder.setText("optimism.jpg", World::getFont(World::VT323Regular), sf::Color::White);
 	builder.create(file12);
 	desktopWindowToModify.addEntity(file12);
 
-    
-    desktopWindowToModify.addEntity(BrowserIcon);
-    desktopWindowToModify.addEntity(ChatIcon);
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
@@ -421,7 +425,10 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
 }
 
 void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
-    
+	World::getAudio().stopAllSounds();
+	World::getAudio().addBgm("SoundTrack_Extraction.ogg");
+	World::getAudio().loopBgm();
+	World::getAudio().playBgm();
 	Database theDatabase;
 
 	Inbox* theInbox = &desktopToModify.getInbox();
@@ -436,7 +443,9 @@ void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& des
     Entity startBar;
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
     startBarRender->renderPosition({0,4});
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
     startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -449,7 +458,6 @@ void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& des
     ///// ICONS ON TEACHER DESKTOP
     ////////////////////////////////
     Entity BrowserIcon;
-    Entity ChatIcon;
     Entity HardDriveIcon;
     Entity SettingsIcon;
     Entity ConsoleIcon;
@@ -458,11 +466,9 @@ void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& des
     spawnBrowserIcon(BrowserIcon, desktopToModify, ih, theDatabase, iconSheet,  buttonSheet, 25.0f, 25.0f, 0.4f, 0.25f, theInbox);
     spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 125.0f, 0.4f, 0.25f, theInbox);
     spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 225.0f, 0.5f, 0.25f, theInbox);
-    spawnChatIcon(ChatIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 325.0f, 0.4f, 0.25f, theInbox);
-    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 425.0f, 0.5f, 0.25f, theInbox);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 325.0f, 0.5f, 0.25f, theInbox);
     
     desktopWindowToModify.addEntity(BrowserIcon);
-    desktopWindowToModify.addEntity(ChatIcon);
     desktopWindowToModify.addEntity(HardDriveIcon);
     desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
@@ -476,11 +482,11 @@ void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& des
     
 }
 
-void ppc::createTrailerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
+void ppc::createHackerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
     
-	Database theDatabase;
-
-	Inbox* theInbox = &desktopToModify.getInbox();
+    Database theDatabase;
+    
+    Inbox* theInbox = &desktopToModify.getInbox();
     
     //////////////////////////////////////////////
     //// Create the start menu
@@ -488,11 +494,13 @@ void ppc::createTrailerDesktop(Desktop& desktopToModify, WindowInterface& deskto
     ppc::WindowInterface* startToolbar =
     new ppc::Window(1000, 75, sf::Color(195, 195, 195,0));
     startToolbar->setPosition(0, 735);
-
+    
     Entity startBar;
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
     startBarRender->renderPosition({0,4});
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
     startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -504,24 +512,78 @@ void ppc::createTrailerDesktop(Desktop& desktopToModify, WindowInterface& deskto
     ////////////////////////////////
     ///// ICONS ON TEACHER DESKTOP
     ////////////////////////////////
-    Entity BrowserIcon;
-    Entity ChatIcon;
+    IconBuilder builder;
+    builder.setDesktop(desktopToModify);
+    builder.setInbox(desktopToModify.getInbox());
+    builder.setButtonSheet(desktopToModify.getButtonSheet());
+    builder.setAnimSpeed(0.30f);
+    builder.setInputHandle(desktopToModify.getInputHandler());
+    builder.setSize(0.5f);
+    
+    Entity Resonation_1;
+    builder.setPosition({ 650.0f, 400.0f });
+    builder.setIconType(iconInputComponent::IconType::File);
+    builder.setSpritebyIndicies(0, 0, 1, 3);
+    builder.setText("READ_ME_1.txt", World::getFont(World::VT323Regular), sf::Color::White);
+    builder.create(Resonation_1);
+    desktopWindowToModify.addEntity(Resonation_1);
+    
     Entity HardDriveIcon;
-    Entity SettingsIcon;
     Entity ConsoleIcon;
     Entity EmailIcon;
     
-    spawnBrowserIcon(BrowserIcon, desktopToModify, ih, theDatabase, iconSheet,  buttonSheet, 25.0f, 25.0f, 0.4f, 0.25f, theInbox);
-    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 125.0f, 0.4f, 0.25f, theInbox);
-    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 225.0f, 0.5f, 0.25f, theInbox);
-    spawnChatIcon(ChatIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 325.0f, 0.4f, 0.25f, theInbox);
-    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 25.0f, 425.0f, 0.5f, 0.25f, theInbox);
+    spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 200.0f, 400.0f, 0.5f, 0.25f, theInbox);
+    spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 325.0f, 520.0f, 0.4f, 0.25f, theInbox);
+    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 525.0f, 520.0f, 0.5f, 0.25f, theInbox);
     
-    desktopWindowToModify.addEntity(BrowserIcon);
-    desktopWindowToModify.addEntity(ChatIcon);
     desktopWindowToModify.addEntity(HardDriveIcon);
-    desktopWindowToModify.addEntity(SettingsIcon);
     desktopWindowToModify.addEntity(ConsoleIcon);
     desktopWindowToModify.addEntity(EmailIcon);
     
+    WindowInterface* fileTracker = new Window(450, 100, sf::Color::Transparent);
+    spawnFileTracker(desktopToModify, fileTracker, fileTracker->getInputHandler(), 250, 50);
+    desktopToModify.addWindow(fileTracker);
+    ppc::SuspiciousFileHolder::setWindow(fileTracker);
 }
+
+//depricated
+//void ppc::createPostHackerDesktop(Desktop& desktopToModify) {
+//	ppc::Window* endScreen = new Window(1800, 1000);
+//
+//	Entity endEntity;
+//
+//	std::ifstream endFile(resourcePath() + "Reports/DE3B.txt");
+//
+//	std::string content((std::istreambuf_iterator<char>(endFile)),
+//		(std::istreambuf_iterator<char>()));
+//
+//	TextDisplayBuilder reportText;
+//	reportText.setColor(sf::Color::Red);
+//	reportText.setFont(World::getFont(World::FontList::Consola));
+//	reportText.setPosition({ 100,100 });
+//	reportText.setSize(25);
+//	reportText.setString("");
+//
+//	reportText.create(endEntity);
+//
+//	TextCharacterUpdate* tcu = new TextCharacterUpdate();
+//	ReportEndObsvr* reO = new ReportEndObsvr(*endScreen);
+//	reO->setPos(400.f, 700.f);
+//	tcu->onAnimEnd().addObserver(reO);
+//
+//	TextDisplayRenderComponent* tdrc = dynamic_cast<TextDisplayRenderComponent*>(endEntity.getComponent(0));
+//	tcu->setTextDisplay(*tdrc);
+//	tcu->setContent(content);
+//	tcu->setDisplayRate(sf::milliseconds(sf::Int32(30.0f)));
+//
+//	ReportScreenInput* rsi = new ReportScreenInput(endScreen->getInputHandler());
+//	rsi->setTextCharacterUpdate(*tcu);
+//
+//
+//	endEntity.addComponent(tcu);
+//	endEntity.addComponent(rsi);
+//
+//	endScreen->addEntity(endEntity);
+//
+//	desktopToModify.setFrontTop(endScreen, false);
+//}

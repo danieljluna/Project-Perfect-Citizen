@@ -62,7 +62,9 @@ void emailExtraction::parseEmailForInbox(Json::Value value, std::string folder) 
             else{
                 std::cout << "ERROR" << std::endl;
             }
+
         }
+		
     }
 }
 

@@ -5,11 +5,15 @@
 #include <SFML/Graphics/Image.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 
+#include <typeinfo>
+
 #include "../Engine/debug.h"
 #include "../Engine/event.h"
 #include "../Engine/World.h"
 #include "../Engine/desktop.h"
 #include "../Engine/Entity.h"
+
+#include "iconInputComponent.h"
 
 using namespace ppc;
 const std::string MOUSE_DOWN_CODE = "MDC";
@@ -26,7 +30,6 @@ buttonRenderComponent::buttonRenderComponent( sf::Image& image,
 	
 	this->sprite = new sf::Sprite();
 	this->texture = new sf::Texture();
-    
     
     width = r;
     frameCount = f;
@@ -156,8 +159,9 @@ void buttonRenderComponent::draw( sf::RenderTarget& target,
 void buttonRenderComponent::recieveMessage(ppc::Event ev) {
 	switch (ev.type) {
 	case Event::EventTypes::ButtonType:
-		if ((ev.buttons.state == ev.buttons.Clicked || 
-			ev.buttons.state == ev.buttons.DblClicked) &&
+		if (((ev.buttons.state == ev.buttons.Clicked
+			&& _buttonType.compare("ICON") != 0
+			) || ev.buttons.state == ev.buttons.DblClicked) &&
 				ev.buttons.activation != ev.buttons.RightMouse) {
 					setSprite(xIndex + width, yIndex, width);
 		}

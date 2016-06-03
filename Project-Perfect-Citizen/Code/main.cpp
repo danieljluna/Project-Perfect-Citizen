@@ -1,9 +1,19 @@
+
+
 #include "ResourceDef.h"
 #include <fstream>
 #include <string>
+#include <sstream>
+#include <stdlib.h>
+
 #include <SFML/Main.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <cstdio>
+#include <iostream>
+#include <memory>
+#include <stdexcept>
+#include <string>
 
 #include "Engine/Engine.h"
 
@@ -13,52 +23,44 @@
 
 #include "Engine/SetUpDesktops.h"
 
+
 using namespace ppc;
 
-# ifdef WINDOWS_MARKER
-#include <windows.h>
-
-INT __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
-      PSTR lpCmdLine, INT nCmdShow) {
-# else
 int main(int argc, char** argv) {
-# endif
-	try {
+
+
+    try {
+
+		DBG_INIT();
+		//Scans Debug Flags
+		Debug::scanOpts(argc, argv);
+		DEBUGF("ac", argc);
+
 		World::initLevelMap();
 		World::initFontMap();
 		World::initLoadScreen();
 		World::initAddressMap();
 
-		// Create the main sf::window
-		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen");
+		ppc::World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
+		ppc::World::getAudio().loopBgm();
+		ppc::World::getAudio().playBgm();
+		int buzzSound = ppc::World::getAudio().addSound("buzz", "Randomize36.wav");
 
+		ppc::World::getAudio().readySound(buzzSound);
+		ppc::World::getAudio().popAndPlay();
 
-		AudioQueue audiotest(5);
-		audiotest.addBgm("SoundTrack_Pipeline.ogg");
-		audiotest.loopBgm();
-		audiotest.playBgm();
-
-		///////////////////////////////////////////////////////////////////
-
-		//// ----------------   PYTHON LOCATION STUFF ---------------- ////
-
-		// Run the locator python app
-		//system("osascript -e 'tell app \"ppc_location_print\" to open'");
-		// -----------------------------------------------------------//
-
-		World::setGameScreen(screen);
 		World::loadState("PPC.sav");
 		std::ifstream desktopFileInput;
 
-		Desktop mainDesktop;
-		World::setCurrDesktop(mainDesktop);
-
 		while (World::getCurrDesktopEnum() != World::DesktopCount) {
+			Desktop mainDesktop;
+			World::setCurrDesktop(mainDesktop);
+
 			//Get Current Desktop Level
 			World::DesktopList currDesk = World::getCurrDesktopEnum();
 
 			//Load Screen for correct levels
-			if ((int)currDesk >= 3) World::startLoading();
+			if ((int)currDesk >= 3 && (int)currDesk != (int)World::DEEnd1) World::startLoading();
 
 			//Parse Curr Desktop's .ini
 			desktopFileInput.open(World::desktopFileMap_.at(currDesk));
@@ -78,12 +80,18 @@ int main(int argc, char** argv) {
 			World::setLevel(currDesk, deskScore);
 		}
 
-		return EXIT_SUCCESS;
-
 	}
 	catch (std::exception e) {
 		std::cerr << e.what();
 	}
 
+    	if (World::getCurrDesktopEnum() > World::DELogin) {
+        	World::saveState("PPC.sav");
+   	}
+	
+	World::cleanWorld();
+
 	return EXIT_SUCCESS;
 }
+
+

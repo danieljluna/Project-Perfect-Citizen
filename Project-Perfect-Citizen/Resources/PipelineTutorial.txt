@@ -1,7 +1,9 @@
--Pipeline: T 0.0
+-Welcome: T 0.0
 Default: Welcome to your new job at the DCPS!
-Angry: This training program will show you the ropes
-Default: If you need to review you can visit the help manual
+Default: I'm Floppy, your automated training assistant!
+Default: If you need to review after the training simulations, just open the help manual!
+Default: Now, please read your email for further instructions
+-Pipeline: T 0.0
 Default: This is the Pipeline Extraction Application.
 Default: It is used to analyze groups of interconnected people.
 Default: We will then further investigate a target from this group.
@@ -30,7 +32,8 @@ Default: For now, indicate the correct colors based off the conversations
 Default: We want to target the most suspicious person
 Default: Select that person and press "C" to mark the center of the network
 -Submission: T 0.0
-Default: When you are confident you have found the right center hit submit
+Default: When you're finished a fellow DCPS officer will check your graph and give you feedback
+Default: Use the button to submit and if your graph is approved you will pipe into the target's Desktop
 -Feedback: F 0.0
 Default: A fellow DCPS officer has checked your work and approved it!
 Default: You have been issued a warrant to search their desktop.

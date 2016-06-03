@@ -33,7 +33,7 @@ namespace ppc {
 	private:
 
 		WindowInterface* containingWindow_;
-		NodeState theFileTree_;
+		NodeState* theFileTree_;
 		Desktop& theDesktop_;
 		TextBoxInputComponent* observingTextBox_;
 		sf::Image& buttonSheet_;
@@ -55,12 +55,8 @@ namespace ppc {
 		///////////////////////////////////////////////////////////////////////
 		///@brief Ctor
 		///////////////////////////////////////////////////////////////////////
-		explorerFolderInputComponent(Desktop& dt, WindowInterface* cW, ppc::InputHandler& ih, NodeState& ns, sf::Image& bS, sf::Image& iS, sf::FloatRect rect, std::string directoryName);
+		explorerFolderInputComponent(Desktop& dt, WindowInterface* cW, ppc::InputHandler& ih, NodeState* ns, sf::Image& bS, sf::Image& iS, sf::FloatRect rect, std::string directoryName);
 
-		///////////////////////////////////////////////////////////////////////
-		///@brief Removes all the current observers in the observerArray_
-		///////////////////////////////////////////////////////////////////////
-		void clearObservers();
 
 		template <class T>
 		friend void setOnPress(explorerFolderInputComponent* mpb,

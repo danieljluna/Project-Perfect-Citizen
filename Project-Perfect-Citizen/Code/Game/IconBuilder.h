@@ -17,6 +17,7 @@ namespace ppc {
 	class InputHandler;
 	class Database;
 	class Inbox;
+	class notificationRenderComponent;
 
 	///////////////////////////////////////////////////////////////////////
 	/// @brief Designated Generic Builder Object for Icons
@@ -31,6 +32,7 @@ namespace ppc {
 		ppc::InputHandler* ih;
 		ppc::Database* db;
 		ppc::Inbox* ib;
+		bool renderNotifications;
 		sf::Image* buttonSheet;
 
 		sf::Font* font;
@@ -126,6 +128,8 @@ namespace ppc {
 		///@breif Sets the position for the Icon
 		///////////////////////////////////////////////////////////////
 		void setPosition(sf::Vector2f pos);
+
+		void setRenderNotifications(bool);
 
 ///////////////////////////////////////////////////////////////////////
 /// @brief Returns the constructed icon
