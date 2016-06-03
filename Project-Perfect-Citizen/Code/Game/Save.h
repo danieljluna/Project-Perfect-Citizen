@@ -19,6 +19,7 @@ public:
 
     Save& operator=(const Save& other);
     
+	unsigned int getReport(unsigned int);
 
 private:
 

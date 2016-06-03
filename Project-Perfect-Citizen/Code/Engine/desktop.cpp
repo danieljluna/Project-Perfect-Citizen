@@ -530,13 +530,18 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 		} else if (key == "Emails") {
 			ppc::emailExtraction* inbox = new emailExtraction();
 			
-			std::string bossEmail = World::getBossEmail();
-			if (bossEmail != "") inbox->parseEmailAsJson(bossEmail);
-			inbox->parseEmailAsJson(file);
-			for (unsigned int i = 0; i < importDesktop->getInbox().getInboxSize(); ++i) {
-				if (importDesktop->getInbox().getEmailAt(i)->getReadFlag() == false) 
-					importDesktop->getInbox().getEmailAt(i)->setRead();
+			std::vector<std::string> bossEmail = World::getBossEmail();
+			unsigned int newemails = 0;
+			for (auto i = bossEmail.rbegin(); i != bossEmail.rend(); ++i) {
+				inbox->parseEmailAsJson(*i);
+				if (i == bossEmail.rbegin()) newemails = inbox->getSubject().size();
 			}
+			World::DesktopList deskenum = World::getCurrDesktopEnum();
+			bool limitread = true;
+			if (deskenum == World::DE0B || deskenum == World::DE1 || deskenum == World::DE2A ||
+				deskenum == World::DE2B || deskenum == World::DE3) limitread = false;
+			if (newemails == 0) newemails = 3;
+			inbox->parseEmailAsJson(file);
 			for (unsigned int i = 0; i < inbox->getSubject().size(); i++) {
 				ppc::Email* testEmail1 = new Email(inbox->getTo().at(i),
 					inbox->getFrom().at(i),
@@ -544,6 +549,8 @@ std::ifstream& ppc::operator>>(std::ifstream& in, ppc::Desktop& desktop) {
 					inbox->getBody().at(i),
                     inbox->getVisible().at(i),
 					"image.jpg");
+
+				if (i >= newemails && limitread) testEmail1->setRead();
 				importDesktop->getInbox().addEmailToList(testEmail1);
 			}
 			

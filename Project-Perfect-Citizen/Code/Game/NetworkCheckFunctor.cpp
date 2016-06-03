@@ -3,6 +3,8 @@
 #include "../Engine/subject.h"
 #include "../Engine/World.h"
 
+#include "../Engine/WindowInterface.h"
+
 using namespace ppc;
 
 
