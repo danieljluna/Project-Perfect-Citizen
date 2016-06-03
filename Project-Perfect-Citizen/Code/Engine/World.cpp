@@ -374,19 +374,19 @@ World::ReportType ppc::World::getCurrReportType() {
 
 void ppc::World::setCurrReportType(ReportType rt) {
 	currReportType_ = rt;
-	if (currDesktopEnum_ = DE0B) {
+	if (currDesktopEnum_ == DE0B) {
 		priorReports_[0] = rt;
 	}
-	else if (currDesktopEnum_ = DE1) {
+	else if (currDesktopEnum_ == DE1) {
 		priorReports_[1] = rt;
 	}
-	else if (currDesktopEnum_ = DE2A) {
+	else if (currDesktopEnum_ == DE2A) {
 		priorReports_[2] = rt;
 	}
-	else if (currDesktopEnum_ = DE2B) {
+	else if (currDesktopEnum_ == DE2B) {
 		priorReports_[3] = rt;
 	}
-	else if (currDesktopEnum_ = DE3) {
+	else if (currDesktopEnum_ == DE3) {
 		priorReports_[4] = rt;
 	}
 }

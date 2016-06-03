@@ -79,15 +79,13 @@ int main(int argc, char** argv) {
 			//Use Score to determine next level to go to
 			World::setLevel(currDesk, deskScore);
 		}
-		World::cleanWorld();
-		return EXIT_SUCCESS;
 
 	}
 	catch (std::exception e) {
 		std::cerr << e.what();
-
-		World::cleanWorld();
 	}
+
+	World::cleanWorld();
 
 	return EXIT_SUCCESS;
 }
