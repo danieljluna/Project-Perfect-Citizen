@@ -23,6 +23,7 @@ Save World::currSave = Save();
 
 bool World::progToNext_ = true;
 
+World::ReportType World::priorReports_[5] = { World::UNPLAYED, World::UNPLAYED, World::UNPLAYED, World::UNPLAYED, World::UNPLAYED };
 
 std::map<ppc::World::DesktopList, ppc::LevelPacket> World::levelMap_ = {
 
@@ -378,6 +379,21 @@ World::ReportType ppc::World::getCurrReportType() {
 
 void ppc::World::setCurrReportType(ReportType rt) {
 	currReportType_ = rt;
+	if (currDesktopEnum_ = DE0B) {
+		priorReports_[0] = rt;
+	}
+	else if (currDesktopEnum_ = DE1) {
+		priorReports_[1] = rt;
+	}
+	else if (currDesktopEnum_ = DE2A) {
+		priorReports_[2] = rt;
+	}
+	else if (currDesktopEnum_ = DE2B) {
+		priorReports_[3] = rt;
+	}
+	else if (currDesktopEnum_ = DE3) {
+		priorReports_[4] = rt;
+	}
 }
 
 sf::Font& ppc::World::getFont(FontList f) {
@@ -392,10 +408,51 @@ std::string ppc::World::getReportFile() {
 	return "";
 }
 
-std::string ppc::World::getBossEmail() {
-	auto i = bossEmailMap_.find({ currDesktopEnum_, currReportType_ });
-	if (i != bossEmailMap_.end()) return i->second;
-	return "";
+std::vector<std::string> ppc::World::getBossEmail() {
+	//add report to save file at desktop conclusion
+	//check save file on load, see if vector is missing anything
+	//use vector of reports to trace email history
+	//confirm in player desktop/has report
+	//doesn't get get boss email in DE, only player desktop
+	std::vector<std::string> temp;
+	unsigned int bossindex = 0;
+	bool skip2 = false;
+	if (currDesktopEnum_ == World::DEPlayer1) bossindex = 0;
+	else if (currDesktopEnum_ == World::DEPlayer2A) bossindex = 1;
+	else if (currDesktopEnum_ == World::DEPlayer2B) bossindex = 1;
+	else if (currDesktopEnum_ == World::DEPlayer3A) bossindex = 2;
+	else if (currDesktopEnum_ == World::DEPlayer3B) {
+		bossindex = 3;
+		skip2 = true;
+	}
+	else return temp;
+
+	for (int i = 0; i <= bossindex; ++i) {
+		ReportType rep;
+		rep = priorReports_[i];
+
+		DesktopList desknum;
+		if (i == 0) desknum = World::DEPlayer1;
+		else if (i == 1) desknum = World::DEPlayer2A;
+		else if (i == 2) {
+			if (skip2) continue;
+			desknum = World::DEPlayer3A;
+		}
+		else if (i == 3) {
+			desknum = World::DEPlayer3B;
+		}
+
+		if (rep == World::UNPLAYED) {
+			rep = World::D;
+		}
+
+		auto itor = bossEmailMap_.find({ desknum, rep});
+		if (itor != bossEmailMap_.end()) temp.push_back(itor->second);
+
+	}
+
+	
+	return temp;
 }
 
 

@@ -36,6 +36,7 @@ private:
     std::string _buttonType;
 	static const int size = 128;
 	bool _willRender = true;
+	bool _isIcon;
     //unsigned int notificationCount_ = 0;
     //sf::CircleShape badge_;
     //sf::Text notificationText_;

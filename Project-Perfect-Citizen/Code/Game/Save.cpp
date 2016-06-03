@@ -144,3 +144,7 @@ void Save::exportSave(const std::string& login) {
     out << std::endl;
 }
 
+unsigned int Save::getReport(unsigned int index) {
+	if (index >= 0 && index < 5) return reports_[index];
+	return 4;
+}

@@ -9,7 +9,7 @@ using namespace ppc;
 const std::string TEXT_KEY_INPUT = "TKI";
 const float DOUBLE_CLICK_TIME = 500;
 
-TextBoxInputComponent::TextBoxInputComponent(InputHandler& ih, TextBoxRenderComponent &r, TimerUpdateCmpnt* t, int l ) : inputHandle(ih), 
+TextBoxInputComponent::TextBoxInputComponent(InputHandler& ih, TextBoxRenderComponent &r, TimerUpdateCmpnt* t, int l, unsigned int obscount) : InputComponent(obscount), inputHandle(ih), 
 textBox(r), tmr(t), max_chars(l) {
 
 	ih.addHandle(sf::Event::TextEntered);
@@ -27,7 +27,12 @@ textBox(r), tmr(t), max_chars(l) {
 
 	tmr->playTimer(tmr->createTimer(t1));
 
-	textBox.updateLabelString(str);
+	textBox.updateLabelString(str, 0);
+
+	//vecstrpos = vecstr.begin();
+	vecstrindex = 0;
+
+	//std::cout << ";lskjdfa;jklsfd" << std::endl;
 
 }
 
@@ -69,7 +74,11 @@ bool TextBoxInputComponent::isCollision(sf::Vector2i mousePos) {
 
 std::string TextBoxInputComponent::getString() {
 	//str.erase(remove_if(str.begin(), str.end(), isspace), str.end());
-	return str;
+	std::string temp = "";
+	for (auto& itor = vecstr.begin(); itor != vecstr.end(); ++itor) {
+		temp += *itor;
+	}
+	return temp;
 }
 
 void ppc::TextBoxInputComponent::setLimit(int l)
@@ -86,22 +95,41 @@ bool TextBoxInputComponent::registerInput(Event ppcEv) {
     sf::Event ev(ppcEv);
 	if (getEntity() != nullptr) {
 		if (ev.type == sf::Event::TextEntered) {
-			/* Ignore CNTRL, BS, ENTR/LF, CR */
-			if (ev.text.unicode < 128 && ev.text.unicode != 8 &&
-				ev.text.unicode != 10 && ev.text.unicode != 13 &&
-				str.length() < max_chars) {
-				str.push_back((char)ev.text.unicode);
-				textBox.updateLabelString(str);
-			}
-			else if (ev.text.unicode == 8 && str.size() > 0) {
-				str.pop_back();
-				textBox.updateLabelString(str);
-			}
-			else if ((ev.text.unicode == 10 || ev.text.unicode == 13) && str.size() > 0) {
-				onSubmit_.sendEvent(ppcEv);
+			/* Ignore CNTRL, BS, ENTR/LF, CR -- now handled by keypressed */
+			if (ev.text.unicode <= 126 && ev.text.unicode >= 33 &&
+				vecstr.size() < max_chars - 1) {
+				vecstr.insert(vecstr.begin() + vecstrindex, (char)ev.text.unicode);
+				textBox.updateLabelString(getString(), ++vecstrindex);
 			}
 			textBox.setCursorRender(true);
 		}
+		else if (ev.type == sf::Event::KeyPressed) {
+			if (ev.key.code == sf::Keyboard::Left) {
+				if (vecstrindex > 0) {
+					vecstrindex--;
+					textBox.updateLabelString(getString(), vecstrindex);
+				}
+			}
+			else if (ev.key.code == sf::Keyboard::Right) {
+				if (vecstrindex < vecstr.size()) {
+					vecstrindex++;
+					textBox.updateLabelString(getString(), vecstrindex);
+				}
+			}
+			else if (ev.key.code == sf::Keyboard::BackSpace && vecstr.size() > 0 && vecstrindex > 0) {
+				vecstr.erase(vecstr.begin() + vecstrindex - 1);
+				if (vecstrindex != 0) --vecstrindex;
+				textBox.updateLabelString(getString(), vecstrindex);
+			}
+			else if (ev.key.code == sf::Keyboard::Delete && vecstr.size() > 0 && vecstrindex < (vecstr.size())) {
+				vecstr.erase(vecstr.begin() + vecstrindex);
+				textBox.updateLabelString(getString(), vecstrindex);
+			}
+			else if (ev.key.code == sf::Keyboard::Return) {
+				onSubmit_.sendEvent(ppcEv);
+			}
+		}
+		
 	}
 	return true;
 }

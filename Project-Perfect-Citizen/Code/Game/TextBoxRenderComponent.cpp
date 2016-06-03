@@ -3,6 +3,7 @@
 #include "../Engine/Entity.h"
 #include "TextBoxRenderComponent.h"
 
+#include "../ResourceDef.h"
 
 
 using namespace ppc;
@@ -15,6 +16,14 @@ TextBoxRenderComponent::TextBoxRenderComponent(sf::Font& f, sf::Color c,
 
 	this->text = new sf::Text();
 	this->outline = new sf::Text();
+	this->cursorSprite = new sf::Sprite();
+	this->cursorTexture = new sf::Texture();
+
+	if (!cursorTexture->loadFromFile(resourcePath() + "TextCursor.png"))
+	{
+		//handle error
+	}
+	cursorSprite->setTexture(*cursorTexture);
 
 	labelString = str;
 
@@ -77,21 +86,27 @@ std::string ppc::TextBoxRenderComponent::getString()
 	return labelString;
 }
 
-void TextBoxRenderComponent::updateLabelString(std::string str) {
+void TextBoxRenderComponent::updateLabelString(std::string str, unsigned int cursorpos) {
 	labelString = str;
 
-	if (isMasked) labelString.replace(0, str.length(), str.length(), '*');
+	//if (isMasked) labelString.replace(0, str.length(), str.length(), '*');
+	outline->setString(str);
 
-	if (renderCursor)
-		outline->setString(labelString+"|");
-	else 
-		outline->setString(labelString);
+	cursorSprite->setPosition(text->getPosition().x + (cursorpos * text->getCharacterSize())/1.80, text->getPosition().y + 5);
+	//if (renderCursor)
+
+		//outline->setString(labelString+"|");
+	//else 
+		//outline->setString(labelString);
 }
 
 void TextBoxRenderComponent::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
 
 	target.draw(*(this->outline), states);
+	if (renderCursor) {
+		target.draw(*(this->cursorSprite), states);
+	}
 	//target.draw(*(this->text), states);
 }
 
@@ -99,7 +114,7 @@ void TextBoxRenderComponent::draw(sf::RenderTarget& target,
 bool ppc::blink_cursor(TextBoxRenderComponent * tbr, ppc::Event ev)
 {
 	tbr->toggleCursorRender();
-	tbr->updateLabelString(tbr->getString());
+	//tbr->updateLabelString(tbr->getString());
 	ev.type = Event::EventTypes::TimerType;
 	ev.timer.action = Event::TimerEv::timerState::Reset;
 	tbr->getEntity()->broadcastMessage(ev);

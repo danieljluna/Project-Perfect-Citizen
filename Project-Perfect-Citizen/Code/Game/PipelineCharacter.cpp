@@ -149,8 +149,9 @@ void PipelineCharacter::generateWithNameJob(const std::string& name, const std::
 }
 
 void PipelineCharacter::generateWithName(const std::string& name) {
+	ssn_ = name;
 	if (name.length() > 2) {
-		ssn_ = name.substr(0, 2);
+		ssn_ = ssn_.substr(0, 2);
 	}
 	for (auto & c : ssn_) c = toupper(c);
 	generateRaw();
