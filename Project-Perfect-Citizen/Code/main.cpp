@@ -39,8 +39,6 @@ int main(int argc, char** argv) {
 		World::initLoadScreen();
 		World::initAddressMap();
 
-		//sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen", sf::Style::Close | sf::Style::Titlebar);
-
 		ppc::World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
 		ppc::World::getAudio().loopBgm();
 		ppc::World::getAudio().playBgm();
@@ -51,9 +49,7 @@ int main(int argc, char** argv) {
 
 		World::loadState("PPC.sav");
 		std::ifstream desktopFileInput;
-
-		//World::setCurrDesktopEnum(World::DE3);
-
+        
 		while (World::getCurrDesktopEnum() != World::DesktopCount) {
 			Desktop mainDesktop;
 			World::setCurrDesktop(mainDesktop);
@@ -90,6 +86,10 @@ int main(int argc, char** argv) {
 
 		World::cleanWorld();
 	}
+
+    if (World::getCurrDesktopEnum() > World::DELogin) {
+        World::saveState("PPC.sav");
+    }
 
 	return EXIT_SUCCESS;
 }
