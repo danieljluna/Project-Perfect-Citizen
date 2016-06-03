@@ -349,6 +349,7 @@
 		C86EA6301D01EDB30006E168 /* you_got_email.ogg in Resources */ = {isa = PBXBuildFile; fileRef = C86EA4DA1D01EDB30006E168 /* you_got_email.ogg */; };
 		C86EA6311D01EDB30006E168 /* you_got_email.wav in Resources */ = {isa = PBXBuildFile; fileRef = C86EA4DB1D01EDB30006E168 /* you_got_email.wav */; };
 		C86EA6321D01EDB30006E168 /* You_Got_Mail.wav in Resources */ = {isa = PBXBuildFile; fileRef = C86EA4DC1D01EDB30006E168 /* You_Got_Mail.wav */; };
+		C86EA6381D021BDC0006E168 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C86EA6371D021BDC0006E168 /* Images.xcassets */; };
 		E909397D1D00C08600E01211 /* Save.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E909397B1D00C08600E01211 /* Save.cpp */; };
 		E90939801D00C0AA00E01211 /* LoginInputCmpnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E909397E1D00C0AA00E01211 /* LoginInputCmpnt.cpp */; };
 		E9636A7E1CFF9522008E6E66 /* playerLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9636A7C1CFF9522008E6E66 /* playerLocator.cpp */; };
@@ -843,6 +844,7 @@
 		C86EA4DA1D01EDB30006E168 /* you_got_email.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = you_got_email.ogg; sourceTree = "<group>"; };
 		C86EA4DB1D01EDB30006E168 /* you_got_email.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = you_got_email.wav; sourceTree = "<group>"; };
 		C86EA4DC1D01EDB30006E168 /* You_Got_Mail.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = You_Got_Mail.wav; sourceTree = "<group>"; };
+		C86EA6371D021BDC0006E168 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E909397B1D00C08600E01211 /* Save.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Save.cpp; sourceTree = "<group>"; };
 		E909397C1D00C08600E01211 /* Save.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Save.h; sourceTree = "<group>"; };
 		E909397E1D00C0AA00E01211 /* LoginInputCmpnt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoginInputCmpnt.cpp; sourceTree = "<group>"; };
@@ -1165,6 +1167,7 @@
 		C8058A651C4D679D005E23BA /* Project-Perfect-Citizen */ = {
 			isa = PBXGroup;
 			children = (
+				C86EA6371D021BDC0006E168 /* Images.xcassets */,
 				C86EA37A1D01EDB30006E168 /* Resources */,
 				E9E82F811CF63D4A00945974 /* main.cpp */,
 				E9636A7B1CFF94FE008E6E66 /* ResourceDef.h */,
@@ -2206,6 +2209,7 @@
 				C86EA50B1D01EDB30006E168 /* 3-29-12-184.png in Resources */,
 				C86EA5E81D01EDB30006E168 /* Notification_Error.wav in Resources */,
 				C86EA5BF1D01EDB30006E168 /* playerDesktop2A.ini in Resources */,
+				C86EA6381D021BDC0006E168 /* Images.xcassets in Resources */,
 				C86EA53A1D01EDB30006E168 /* CRV-59AAE_Schematic.png in Resources */,
 				C86EA5081D01EDB30006E168 /* VAR_1213_Schematic.png in Resources */,
 				C86EA5651D01EDB30006E168 /* Divorce_Petition_Copy.png in Resources */,
@@ -2624,6 +2628,7 @@
 		C8058A791C4D679D005E23BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Engine/Project-Perfect-Citizen-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2633,6 +2638,7 @@
 		C8058A7A1C4D679D005E23BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Engine/Project-Perfect-Citizen-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
