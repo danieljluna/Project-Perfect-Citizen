@@ -26,15 +26,20 @@
 
 using namespace ppc;
 
+#ifdef WINDOWS_MARKER
+
+#include <windows.h>
+
+INT WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow) {
+
+#else
+
 int main(int argc, char** argv) {
+
+#endif
 
 
     try {
-
-		DBG_INIT();
-		//Scans Debug Flags
-		Debug::scanOpts(argc, argv);
-		DEBUGF("ac", argc);
 
 		World::initLevelMap();
 		World::initFontMap();
