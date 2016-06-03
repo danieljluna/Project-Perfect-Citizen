@@ -87,6 +87,10 @@ int main(int argc, char** argv) {
 		World::cleanWorld();
 	}
 
+    if (World::getCurrDesktopEnum() > World::DELogin) {
+        World::saveState("PPC.sav");
+    }
+
 	return EXIT_SUCCESS;
 }
 
