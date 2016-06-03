@@ -39,13 +39,20 @@ int main(int argc, char** argv) {
 		World::initLoadScreen();
 		World::initAddressMap();
 
-		AudioQueue audiotest(5);
-		audiotest.addBgm("SoundTrack_Pipeline.ogg");
-		audiotest.loopBgm();
-		audiotest.playBgm();
+		//sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen", sf::Style::Close | sf::Style::Titlebar);
+
+		ppc::World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
+		ppc::World::getAudio().loopBgm();
+		ppc::World::getAudio().playBgm();
+		int buzzSound = ppc::World::getAudio().addSound("buzz", "Randomize36.wav");
+
+		ppc::World::getAudio().readySound(buzzSound);
+		ppc::World::getAudio().popAndPlay();
 
 		World::loadState("PPC.sav");
 		std::ifstream desktopFileInput;
+
+		World::setCurrDesktopEnum(World::DE3);
 
 		while (World::getCurrDesktopEnum() != World::DesktopCount) {
 			Desktop mainDesktop;

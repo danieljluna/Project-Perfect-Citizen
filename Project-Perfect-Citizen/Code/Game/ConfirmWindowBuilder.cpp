@@ -13,7 +13,7 @@
 #include "createWindow.h"
 #include "ButtonBuilder.h"
 #include "errorMessageRenderComponent.h"
-
+#include <string.h>
 
 using namespace ppc;
 
@@ -162,20 +162,20 @@ bool ppc::ConfirmSubmitFiles(ppc::Desktop * ptr, ppc::Event ev)
 {
 	/* Check to make sure player has flagged three files */
 	WindowInterface* submitResponse = new Window(400, 150, sf::Color(170, 170, 170));
-
-	if (SuspiciousFileHolder::getBftVector().size() < 3) {
-		spawnErrorMessage(submitResponse, submitResponse->getInputHandler(), 
-			ptr->getButtonSheet(), 300, 150, "Error: The DCPS requires at least 3 flagged files", "Insufficient Files Flagged");
-		ptr->addWindow(submitResponse);
-	}
-	
-	else {
 		ConfirmWindowBuilder builder;
-		// Buttons //
+		int amntToSubmit = SuspiciousFileHolder::getBftVector().size();
+		std::string confirmMessage;
+		if (amntToSubmit == 0) {
+			confirmMessage = "Are you sure you want to\n submit 0 files?";
+		}
+		else {
+			confirmMessage = "Are you sure you want to\n submit these " + std::to_string(amntToSubmit) + " files?";
+		}
+	// Buttons //
 		builder.setButtonLabelFont(World::getFont(World::Consola));
 		builder.setCancelButtonLabel("CANCEL");
 		builder.setConfirmButtonLabel("CONFIRM");
-		builder.setConfirmMessage("Are you sure you want to\n submit these files?");
+		builder.setConfirmMessage(confirmMessage);
 		builder.setMessageFont(World::getFont(World::Consola));
 		builder.setMessageFontSize(12);
 		builder.setPosition(sf::Vector2f({ 300.0f, 300.0f }));
@@ -186,6 +186,5 @@ bool ppc::ConfirmSubmitFiles(ppc::Desktop * ptr, ppc::Event ev)
 		SuspiciousFileHolder::onChange.addObserver(new ReportScreenObsvr(*ptr));
 
 		ptr->addWindow(submitResponse);
-	}
 	return true;
 }

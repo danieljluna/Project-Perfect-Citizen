@@ -289,9 +289,9 @@ bool ppc::NetworkInputCmpnt::registerInput(Event ppcEv) {
 		mousePos.y = float(ev.mouseButton.y);
 	}
 	//If left click, select a vertex/edge
+	size_t temp = selectedVert_;
 	if (ev.type == ev.MouseButtonReleased && ev.mouseButton.button == sf::Mouse::Right) {
 		network_->setTempEdgeDraw(false);
-		size_t temp = selectedVert_;
 		selectVert(mousePos);
 		if (clickedVert_ && vertWasPreviouslyClicked_) {
 			if (selectedVert_ != temp &&
@@ -316,7 +316,13 @@ bool ppc::NetworkInputCmpnt::registerInput(Event ppcEv) {
 				selectEdge(mousePos);
 			}
 			else {
+				if (selectedVert_ != temp) {
+					int testSound = World::getAudio().addSound("selectVert", "Click.wav");
+					World::getAudio().readySound(testSound);
+					World::getAudio().popAndPlay();
+				}
 				network_->setTempEdgeDraw(false);
+			
 			}
 		}
 		//If right click

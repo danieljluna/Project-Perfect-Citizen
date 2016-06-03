@@ -1,33 +1,42 @@
 {
     "Desktop": {
-        "5/READ_ME_1.txt" : "DesktopContent/DesktopHacker/Resignation_1.txt",
-        "A_History_of_PPC/I trust you/Do you trust me?": {
-            "1/DCPS_OS_v12.jpg" : "DesktopContent/DesktopHacker/DCPS_OS_v12.png",
-            "1/DCPS_OS_v23.jpg" : "DesktopContent/DesktopHacker/DCPS_OS_v23.png",
-            "1/DCPS_OS_v24.jpg" : "DesktopContent/DesktopHacker/DCPS_OS_v24.png",
-            "1/DCPS_SCREENSHOT_131.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_131.png",
-            "1/DCPS_SCREENSHOT_213.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_213.png",
-            "1/DCPS_SCREENSHOT_215.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_215.png",
-            "1/DCPS_SCREENSHOT_217.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_217.png",
-            "5/READ_ME_2.txt" : "DesktopContent/DesktopHacker/Resignation_2.txt",
-            "Casefiles/I am unjust/Admit you are unjust.": {
-                "5/READ_ME_3.txt" : "DesktopContent/DesktopHacker/Resignation_3.txt",
-                "Domestic_Spying/I am guilty/Admit your guilt.": {
-                    "1/DCPS_SCREENSHOT_214.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_214.png",
-                    "1/DCPS_SCREENSHOT_214.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_214.png",
-                    "1/DCPS_SCREENSHOT_216.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_216.png",
-                    "5/READ_ME_4.txt" : "DesktopContent/DesktopHacker/Resignation_4.txt",
-                    "Domestic/I am corrupt/Admit your corruption.": {
-                        "5/READ_ME_5.txt" : "DesktopContent/DesktopHacker/Resignation_5.txt",
+        "0/READ_ME_1.txt" : "DesktopContent/DesktopHacker/Resignation_1.txt",
+        "The_Beginning/I trust you/Do you trust me?": {
+            "0/DCPS_OS_v12.jpg" : "DesktopContent/DesktopHacker/DCPS_OS_v12.png",
+            "0/DCPS_OS_v23.jpg" : "DesktopContent/DesktopHacker/DCPS_OS_v23.png",
+            "0/DCPS_OS_v24.jpg" : "DesktopContent/DesktopHacker/DCPS_OS_v24.png",
+            "0/DCPS_SCREENSHOT_131.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_131.png",
+            "0/DCPS_SCREENSHOT_213.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_213.png",
+            "0/DCPS_SCREENSHOT_215.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_215.png",
+            "0/DCPS_SCREENSHOT_217.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_217.png",
+            "0/Diego.jpg" : "DesktopContent/DesktopHacker/Diego.png",
+            "0/Diego's_Father.jpg" : "DesktopContent/DesktopHacker/Diego's_Father.png",
+            "0/READ_ME_2.txt" : "DesktopContent/DesktopHacker/Resignation_2.txt",
+            "First_Months/I am unjust/Admit you are unjust.": {
+                "0/Ayer's_Pills.jpg" : "DesktopContent/DesktopHacker/Ayer's_Pills.png",
+                "0/Candles.jpg" : "DesktopContent/DesktopHacker/Candles.png",
+                "0/Mile_End.jpg" : "DesktopContent/DesktopHacker/Mile_End.png",
+                "0/READ_ME_3.txt" : "DesktopContent/DesktopHacker/Resignation_3.txt",
+                "A_Turning_Point/I am guilty/Admit your guilt.": {
+                    "0/DCPS_SCREENSHOT_216.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_216.png",
+                    "0/The_Roaring_Times.jpg" : "DesktopContent/DesktopHacker/The_Roaring_Times.png",
+                    "0/Head_Scan.jpg" : "DesktopContent/DesktopHacker/Head_Scan.png",
+                    "0/Head_Cross_Section.jpg" : "DesktopContent/DesktopHacker/Head_Cross_Section.png",
+                    "0/READ_ME_4.txt" : "DesktopContent/DesktopHacker/Resignation_4.txt",
+                    "Corruption/I am corrupt/Admit your corruption.": {
+                        "0/READ_ME_5.txt" : "DesktopContent/DesktopHacker/Resignation_5.txt",
                         "Try_Again/I am corrupt/Mean it this time.": {
-                            "5/READ_ME_6.txt" : "DesktopContent/DesktopHacker/Resignation_6.txt",
-                            "The_Truth/I ruin lives/Admit you ruin lives.": {
-                                "5/READ_ME_7.txt" : "DesktopContent/DesktopHacker/Resignation_7.txt",
-                            "Decision_Point": {
-                                "The_End": {
-                                    "1/DCPS_1.txt" : "DesktopContent/DesktopHacker/DCPS_1.txt",
-                                    "1/DCPS_2.txt" : "DesktopContent/DesktopHacker/DCPS_2.txt",
-                                    "1/DCPS_3.txt" : "DesktopContent/DesktopHacker/DCPS_3.txt"
+                            "0/READ_ME_6.txt" : "DesktopContent/DesktopHacker/Resignation_6.txt",
+                            "The_Secret/I love you/Tell me you love me.": {
+                                "0/READ_ME_7.txt" : "DesktopContent/DesktopHacker/Resignation_7.txt",
+                                "0/My_Loves.jpg" : "DesktopContent/DesktopHacker/My_Loves.png",
+                                "0/The_Daily.jpg" : "DesktopContent/DesktopHacker/The_Daily.png",
+                                "The_Choice": {
+                                    "0/READ_ME_8.txt" : "DesktopContent/DesktopHacker/Resignation_8.txt",
+                                    "The_End": {
+                                        "30/DCPS_Report_12.jpg" : "DesktopContent/DesktopHacker/DCPS_Report_12.png",
+                                        "30/DCPS_Report_23.jpg" : "DesktopContent/DesktopHacker/DCPS_Report_23.png",
+                                        "30/DCPS_Report_42.jpg" : "DesktopContent/DesktopHacker/DCPS_Report_42.png"
                                     }
                                 }
                             }
