@@ -304,7 +304,7 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             }
 
             //If we just ended the Welcome
-            if (sequence == 2) {
+            if (sequence == ptr->TempFix) {
                 World::getCurrDesktop().incrementNetVecIndex();
             } else if (sequence == FloppyInputComponent::Feedback) {
                 World::quitDesktop();
@@ -343,9 +343,15 @@ bool ppc::summonFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         ptr->setSequence(ev.floppy.sequence, ev.floppy.frame);
         ptr->getEntity()->broadcastMessage(ev);
 
-        ev.type = ppc::Event::AbleType;
-        ev.able.enable = true;
-        ptr->getEntity()->broadcastMessage(ev);
+        Event ableEv;
+        ableEv.type = ppc::Event::AbleType;
+        ableEv.able.enable = true;
+        ptr->getEntity()->broadcastMessage(ableEv);
+
+        //Disable button if we only have one frame
+        if (ptr->floppyDictionary.at(ev.floppy.sequence).frames.size() == 1) {
+            ptr->setFloppyButton(false);
+        }
     }
 
 	return true;
@@ -399,6 +405,7 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
         enable = ((ev.type == ev.NetworkType) &&
             (ev.network.type == ev.network.Removed) &&
             (ev.network.v != -1));
+        World::getCurrDesktop().incrementNetVecIndex();
         break;
 	case FloppyInputComponent::TempFix:
         enable = ((ev.type == ev.OpenType) &&
@@ -492,7 +499,6 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
             ev.type = Event::FloppyType;
             ev.floppy.frame = 0;
             ev.floppy.sequence = ptr->getSequence() + 1;
-            bool wasSummoned = false;
 
             //Get sequence in non-alt terms
             if (ev.floppy.sequence >= FloppyInputComponent::AltStart) {

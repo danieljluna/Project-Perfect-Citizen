@@ -185,8 +185,10 @@ bool ppc::spawnStartMenu(Desktop* ptr, Event ev) {
 		new ppc::Window(200, 300, sf::Color(170, 170, 170));
 	std::vector<std::string> elementNames;
 	std::vector<bool(*)(Desktop*, Event ev)> elementFunctions;
-	elementNames.push_back("Log Off");
+	elementNames.push_back("Log Off \n ____________");
+    elementNames.push_back("Settings\n ____________");
 	elementFunctions.push_back(&(ppc::LogOff));
+    elementFunctions.push_back(&(ppc::open_settings));
 	spawnContextMenu(*ptr, ContextMenu, ContextMenu->getInputHandler(), elementNames,
 		elementFunctions, 0.f, static_cast<float>(700-((elementNames.size()-1)*20)));
 	ptr->addWindow(ContextMenu);
@@ -236,7 +238,7 @@ bool ppc::LogOff(Desktop* ptr, Event ev) {
 	builder.setConfirmMessage("Are you sure you want to log off?\n(This will return you to the main menu)");
 	builder.setMessageFont(World::getFont(World::FontList::Consola));
 	builder.setMessageFontSize(16);
-	builder.setPosition(sf::Vector2f(300,200));
+	builder.setPosition(sf::Vector2f(300,300));
 	builder.setSpriteSheet(World::getCurrDesktop().getButtonSheet());
 	builder.setWindowCaption("Log Off?");
 	createWithEventFunc(builder, ConfirmationWindow, ptr, ppc::returnToLogin);
@@ -253,5 +255,9 @@ bool ppc::displayFileInfo(Desktop* desk, Event ev) {
 }
 
 bool ppc::returnToLogin(Desktop* desk, Event ev) {
+	DEBUGF("ac", "HERE");
+	World::goBack();
+	World::setLevel(1, 0);
+	World::quitDesktop();
 	return true;
 }

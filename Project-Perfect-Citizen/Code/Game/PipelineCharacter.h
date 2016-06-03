@@ -72,7 +72,7 @@ public:
 	///                 PipelineCharacter.cpp
 	///////////////////////////////////////////////////////////////////
 
-	PipelineCharacter(const std::string& job);
+	//PipelineCharacter(const std::string& job);
 
 	///////////////////////////////////////////////////////////////////
 	/// @brief Specific constructor, generates a character with a
@@ -82,7 +82,12 @@ public:
 	///                 PipelineCharacter.cpp
 	///////////////////////////////////////////////////////////////////
 
-	PipelineCharacter(const std::string& job, int age, bool criminal);
+	//PipelineCharacter(const std::string& job, int age, bool criminal);
+
+	void generateRaw();
+	void generateWithName(const std::string&);
+	void generateWithNameJob(const std::string&, const std::string&);
+	void generateWithNameJobAgeCrim(const std::string&, const std::string&, int, bool);
 
 
 private:
@@ -90,7 +95,7 @@ private:
 	///////////////////////////////////////////////////////////////////
 	/// @brief Generates pipeline character data
 	///////////////////////////////////////////////////////////////////
-	void generate();
+
 
 	///////////////////////////////////////////////////////////////////
 	/// @brief Sets income level and criminality based
@@ -118,11 +123,6 @@ private:
 	std::string ssn_;
 	std::string email_;
 	std::string phoneNumber_;
-
-	//std::string persSocial_;
-	//std::string persTakeIn_;
-	//std::string persDecisions_;
-	//std::string persOuterLife_;
 
 	std::string job_;
     

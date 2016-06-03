@@ -25,7 +25,15 @@ std::vector<ppc::BaseFileType*>& ppc::SuspiciousFileHolder::getBftVector()
 
 void ppc::SuspiciousFileHolder::flagFile(ppc::BaseFileType * file)
 {
-	if (isInFileHolder(file)) return;
+	WindowInterface* flagResponse = new ppc::Window(300, 150, sf::Color(170, 170, 170));
+	if (isInFileHolder(file)) {
+	
+		spawnErrorMessage(flagResponse, flagResponse->getInputHandler(),
+			World::getCurrDesktop().getButtonSheet(), 300, 250,
+			"Error: File '" + file->getName() + "' has already been flagged.", "Existing File Flagged");
+		World::getCurrDesktop().addWindow(flagResponse);
+		return;
+	}
 
 	if (bftVector_.size() < 3) {
 		bftVector_.push_back(file);
@@ -37,10 +45,9 @@ void ppc::SuspiciousFileHolder::flagFile(ppc::BaseFileType * file)
 		onChange.sendEvent(ev);
 	}
 	else {
-		WindowInterface* tempWin = new ppc::Window(300, 150, sf::Color(170, 170, 170));
-		spawnErrorMessage(tempWin, tempWin->getInputHandler(), World::getCurrDesktop().getButtonSheet(),
+		spawnErrorMessage(flagResponse, flagResponse->getInputHandler(), World::getCurrDesktop().getButtonSheet(),
 			200, 200, "Error: You may only flag 3 files.", "File Holder is full");
-		World::getCurrDesktop().addWindow(tempWin);
+		World::getCurrDesktop().addWindow(flagResponse);
 	}
 }
 
@@ -126,7 +133,7 @@ void ppc::SuspiciousFileHolder::submitFiles()
 		guilty_ = true;
 	}
 
-	if (totalSuspicion == 30) {
+	if (totalSuspicion >= 30) {
 		World::setCurrReportType(World::ReportType::A);
 	} else if (totalSuspicion >= 20 && totalSuspicion <= 29) {
 		World::setCurrReportType(World::ReportType::B);

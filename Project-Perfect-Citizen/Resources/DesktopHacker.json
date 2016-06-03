@@ -1,33 +1,38 @@
 {
     "Desktop": {
-        "Casefiles": {
-            "Global_Surveillance": {
-                "5/Resignation_1.txt" : "DesktopContent/DesktopHacker/Resignation_1.txt",
-                "Domestic": {
-                    "5/Resignation_2.txt" : "DesktopContent/DesktopHacker/Resignation_2.txt",
-                    "Intra_Agency": {
-                        "5/Resignation_3.txt" : "DesktopContent/DesktopHacker/Resignation_3.txt",
-                        "Decision_Point": {
-                            "5/Resignation_4.txt" : "DesktopContent/DesktopHacker/Resignation_4.txt",
-                            "Maintain_Order": {
-                                "5/DCPS_1.txt" : "DesktopContent/DesktopHacker/DCPS_1.txt",
-                                "5/DCPS_2.txt" : "DesktopContent/DesktopHacker/DCPS_2.txt",
-                                "5/DCPS_3.txt" : "DesktopContent/DesktopHacker/DCPS_3.txt"
-                            },
-                            "Public_Reveal": {
-                                "5/Empty" : "DesktopContent/DesktopHacker/Resignation_2.txt"
+        "5/READ_ME_1.txt" : "DesktopContent/DesktopHacker/Resignation_1.txt",
+        "A_History_of_PPC/I trust you/Do you trust me?": {
+            "1/DCPS_OS_v12.jpg" : "DesktopContent/DesktopHacker/DCPS_OS_v12.png",
+            "1/DCPS_OS_v23.jpg" : "DesktopContent/DesktopHacker/DCPS_OS_v23.png",
+            "1/DCPS_OS_v24.jpg" : "DesktopContent/DesktopHacker/DCPS_OS_v24.png",
+            "1/DCPS_SCREENSHOT_131.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_131.png",
+            "1/DCPS_SCREENSHOT_213.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_213.png",
+            "1/DCPS_SCREENSHOT_215.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_215.png",
+            "1/DCPS_SCREENSHOT_217.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_217.png",
+            "5/READ_ME_2.txt" : "DesktopContent/DesktopHacker/Resignation_2.txt",
+            "Casefiles/I am unjust/Admit you are unjust.": {
+                "5/READ_ME_3.txt" : "DesktopContent/DesktopHacker/Resignation_3.txt",
+                "Domestic_Spying/I am guilty/Admit your guilt.": {
+                    "1/DCPS_SCREENSHOT_214.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_214.png",
+                    "1/DCPS_SCREENSHOT_214.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_214.png",
+                    "1/DCPS_SCREENSHOT_216.jpg" : "DesktopContent/DesktopHacker/DCPS_SCREENSHOT_216.png",
+                    "5/READ_ME_4.txt" : "DesktopContent/DesktopHacker/Resignation_4.txt",
+                    "Domestic/I am corrupt/Admit your corruption.": {
+                        "5/READ_ME_5.txt" : "DesktopContent/DesktopHacker/Resignation_5.txt",
+                        "Try_Again/I am corrupt/Mean it this time.": {
+                            "5/READ_ME_6.txt" : "DesktopContent/DesktopHacker/Resignation_6.txt",
+                            "The_Truth/I ruin lives/Admit you ruin lives.": {
+                                "5/READ_ME_7.txt" : "DesktopContent/DesktopHacker/Resignation_7.txt",
+                            "Decision_Point": {
+                                "The_End": {
+                                    "1/DCPS_1.txt" : "DesktopContent/DesktopHacker/DCPS_1.txt",
+                                    "1/DCPS_2.txt" : "DesktopContent/DesktopHacker/DCPS_2.txt",
+                                    "1/DCPS_3.txt" : "DesktopContent/DesktopHacker/DCPS_3.txt"
+                                    }
+                                }
                             }
                         }
                     }
-                },
-                "Western": {
-                     "5/Empty" : "DesktopContent/DesktopHacker/Resignation_2.txt"
-                },
-                "Global_South": {
-                    "5/Empty" : "DesktopContent/DesktopHacker/Resignation_2.txt"
-                },
-                "Eastern": {
-                    "5/Empty" : "DesktopContent/DesktopHacker/Resignation_2.txt"
                 }
             }
         }
