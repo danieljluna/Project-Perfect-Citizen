@@ -223,8 +223,8 @@ namespace ppc {
 		static DesktopList currDesktopEnum_;
 		static ReportType currReportType_;
 
-		static bool progToNext_
-			;
+		static bool progToNext_;
+
         static bool quitter_;
 
 		static std::map<FontList, sf::Font> fontMap_;

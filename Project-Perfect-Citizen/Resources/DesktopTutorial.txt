@@ -20,11 +20,11 @@ Default: A manual for making bombs? Log it into evidence!
 Default: Right click and select "Flag" to mark it as suspicious
 -Scanning: T 0.0
 Default: Once per desktop you can ask a colleagues opinion on a file
-Default: We want to make sure we find enough evidence to get a conviction at trial
 Default: Right click the file and select "Scan" to see a number representing its suspiciousness
 -DeskSubmission: T 0.0
 Default: 1s are completely clean but this 10 is a smoking gun!
-Default: Flag a total of three suspicious files then click submit to log this evidence
+Default: The more strong evidence you find the better our chance of getting a conviction!
+Default: When you're satisfied with your selection, click submit to log it and exit the desktop
 -Wrapup: T 0.0
 Default: Together we can hunt down criminals wherever they may hide
 Default: When you are satisfied you can click the start menu and log out
