@@ -29,8 +29,7 @@ std::map<ppc::World::DesktopList, ppc::LevelPacket> World::levelMap_ = {
 };
 
 std::map<std::string, World::savGroups> World::saveGroupMap_ = {
-    { "Settings",      World::SettingsTag  },
-    { "Save",         World::StateTag     }
+    { "Settings",      World::SettingsTag  }
 };
 
 World::DesktopList World::currDesktopEnum_ = DELogo;
@@ -568,6 +567,7 @@ void ppc::World::saveState(std::string filename) {
             file << settings_;
             break;
         case StateTag:
+            break;
         default:
             break;
         }
