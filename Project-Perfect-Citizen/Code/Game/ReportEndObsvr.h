@@ -10,7 +10,8 @@ namespace ppc {
 	private:
 
 		Window* w_;
-
+		float x_;
+		float y_;
 	public:
 
 		ReportEndObsvr();
@@ -19,6 +20,8 @@ namespace ppc {
 		ReportEndObsvr(Window&);
 
 		void setEntity(Window&);
+		
+		void setPos(float, float);
 
 		bool eventHandler(Event ev) override;
 

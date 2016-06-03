@@ -1,0 +1,22 @@
+HALTING RETURN TO WORKSTATION
+
+RECIEVING MESSAGE ... 
+
+ > Good work, Officer.
+ > I've got one more desktop
+   extraction for you. 
+ > Let me get your warrant.
+
+COMPLETING PIPELINE EXTRACTION . . . . . .
+
+WARRANT STATUS: OBTAINED
+
+ > There. 
+
+ > I'll go ahead and boot you
+   directly to their desktop. 
+
+ > Good luck.
+
+
+

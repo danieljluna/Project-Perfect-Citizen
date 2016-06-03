@@ -39,12 +39,7 @@ int main(int argc, char** argv) {
 		World::initLoadScreen();
 		World::initAddressMap();
 
-		//AudioQueue audiotest(5);
-		//audiotest.addBgm("SoundTrack_Pipeline.ogg");
-		//audiotest.loopBgm();
-		//audiotest.playBgm();
-
-		sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen", sf::Style::Close | sf::Style::Titlebar);
+		//sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen", sf::Style::Close | sf::Style::Titlebar);
 
 		ppc::World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
 		ppc::World::getAudio().loopBgm();
@@ -53,20 +48,10 @@ int main(int argc, char** argv) {
 
 		ppc::World::getAudio().readySound(buzzSound);
 		ppc::World::getAudio().popAndPlay();
-    
-		///////////////////////////////////////////////////////////////////
-
-		//// ----------------   PYTHON LOCATION STUFF ---------------- ////
-
-		// Run the locator python app
-       
-		// -----------------------------------------------------------//
 
 		World::loadState("PPC.sav");
 		std::ifstream desktopFileInput;
-
-        //World::setCurrDesktopEnum(World::DE2B);
-
+		World::setCurrDesktopEnum(World::DE3);
 
 		while (World::getCurrDesktopEnum() != World::DesktopCount) {
 			Desktop mainDesktop;
@@ -76,7 +61,7 @@ int main(int argc, char** argv) {
 			World::DesktopList currDesk = World::getCurrDesktopEnum();
 
 			//Load Screen for correct levels
-			if ((int)currDesk >= 3) World::startLoading();
+			if ((int)currDesk >= 3 && (int)currDesk != (int)World::DEEnd1) World::startLoading();
 
 			//Parse Curr Desktop's .ini
 			desktopFileInput.open(World::desktopFileMap_.at(currDesk));
@@ -95,12 +80,14 @@ int main(int argc, char** argv) {
 			//Use Score to determine next level to go to
 			World::setLevel(currDesk, deskScore);
 		}
-
+		World::cleanWorld();
 		return EXIT_SUCCESS;
 
 	}
 	catch (std::exception e) {
 		std::cerr << e.what();
+
+		World::cleanWorld();
 	}
 
 	return EXIT_SUCCESS;
