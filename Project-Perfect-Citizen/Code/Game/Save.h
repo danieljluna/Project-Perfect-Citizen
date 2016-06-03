@@ -17,9 +17,15 @@ public:
 
     void exportSave(const std::string& login);
 
-    Save& operator=(const Save& other);
+    Save& Save::operator=(const Save& other);
+
+    void setDesktop(unsigned desktop);
+
+    unsigned getDesktop() { return currDesktop_; };
     
 	unsigned int getReport(unsigned int);
+    void setReportType(unsigned reportIndex, unsigned int reportValue) { reports_[reportIndex] = reportValue; }
+
 
 private:
 
@@ -28,7 +34,7 @@ private:
     std::string loginId_;
     //Array for each desktop ending. Match ExtractionCount
     unsigned int reports_[5];
-    unsigned int currDesktop_ = 0;
+    unsigned currDesktop_ = 3;
 
     enum IniTags {
         DesktopEndings = 0,

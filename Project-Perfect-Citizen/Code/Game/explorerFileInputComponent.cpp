@@ -209,7 +209,6 @@ bool ppc::flag_file(explorerFileInputComponent* ptr, ppc::Event ev) {
 
 bool ppc::submitFiles(ppc::Desktop * ptr, ppc::Event ev)
 {
-	std::cout << "inside submit files" << std::endl;
 	ppc::SuspiciousFileHolder::submitFiles();
 	return true;
 }

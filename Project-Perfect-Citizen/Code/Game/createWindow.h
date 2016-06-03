@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include "../Engine/Setting.h"
 
 //#include "emailMessageRenderComponent.h"
 
@@ -29,6 +30,9 @@ namespace ppc {
 	class Email;
 	class Event;
 	class Entity;
+
+    static Setting tempSetting;
+
 	//typedef bool (databaseSearchInputComponent::*goBack) (sf::Event&);
 	//using backFunction = bool(databaseSearchInputComponent::*goBack)(sf::Event& ev);
 	///////////////////////////////////////////////////////////////////////
