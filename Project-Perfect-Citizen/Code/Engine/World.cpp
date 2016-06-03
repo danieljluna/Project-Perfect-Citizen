@@ -491,7 +491,7 @@ void ppc::World::endLoading() {
 				isLoading_ = false;
 				isLoadBarFull_ = false;
 				if (currDesktopEnum_ == DEEnd2) {
-					std::exception();
+					throw std::exception();
 				}
 				return;
 			}

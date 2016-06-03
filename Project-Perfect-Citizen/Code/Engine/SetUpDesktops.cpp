@@ -69,7 +69,9 @@ void ppc::setUpLoginDesktop(ppc::Desktop& myDesktop) {
 
 
 void ppc::setUpEndDesktop(ppc::Desktop& myDesktop) {
-
+	if (World::getCurrDesktopEnum() == World::DEEnd1) {
+		throw std::exception();
+	}
 }
 
 
