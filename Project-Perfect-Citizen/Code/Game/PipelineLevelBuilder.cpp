@@ -187,7 +187,7 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 		if (usednames[name] == false) {
 			usednames[name] = true;
 			c = std::rand() % 26 + 'A';
-			name += c;
+			name.push_back(c);
 			PipelineCharacter newpc;
 			newpc.generateWithName(name);
 			myNetwork->vert(i).setCharacter(newpc);

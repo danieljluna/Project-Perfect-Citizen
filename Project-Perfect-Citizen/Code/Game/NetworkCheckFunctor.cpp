@@ -2,8 +2,12 @@
 #include "../Engine/Network.h"
 #include "../Engine/subject.h"
 #include "../Engine/World.h"
+#include "../Engine/desktop.h"
+#include "../Engine/Window.h"
 
 #include "../Engine/WindowInterface.h"
+
+#include "createWindow.h"
 
 using namespace ppc;
 
@@ -13,15 +17,33 @@ bool NetworkCheckFunctor::operator()() {
     float EdgeEquality = net1_->checkEdgeEquality(*net2_);    //for both of these
     if (CenterEquality) {
         //std::cout << "Center Selection Correct!" << std::endl;
-        if (EdgeEquality > .7) {
+        if ((EdgeEquality > .7  && World::getCurrDesktopEnum() != World::DE0A || EdgeEquality == 1 )) {
             //std::cout << "You win!" << std::endl;
             sf::Event ev;
             ev.type = sf::Event::Count;
             onWin_.sendEvent(ev);
             return true;
         }
+		else {
+			//respond to center equal
+			WindowInterface* feedback = new ppc::Window(300, 120, sf::Color(170, 170, 170));
+			Desktop& desk = World::getCurrDesktop();
+			std::string message = "Your target seems reasonable, but I don't think you have enough\n";
+			message +=	          "     supporting evidence.  Recheck your connections! - CT";
+			spawnErrorMessage(feedback, feedback->getInputHandler(), desk.getButtonSheet(), 300.f, 300.f,
+				message, "Pipeline Feedback");
+			desk.addWindow(feedback);
+			return false;
+		}
     }
-
+	WindowInterface* feedback = new ppc::Window(300, 150, sf::Color(170, 170, 170));
+	Desktop& desk = World::getCurrDesktop();
+	std::string message = "I think there is a target more suspicious than the\n";
+	message +=			  "  one you chose.  See if you can find them! - CT";
+	spawnErrorMessage(feedback, feedback->getInputHandler(), desk.getButtonSheet(), 300.f, 300.f, 
+		message, "Pipeline Feedback");
+	desk.addWindow(feedback);
+	//respond to center different
     return false;
 }
 
