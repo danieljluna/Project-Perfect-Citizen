@@ -42,7 +42,7 @@ ppc::Vertex::Vertex(){
 	circ_.setPosition(0, 0);
 	circ_.setOutlineColor(sf::Color::White);
 	//text_.setPosition(radius_ / 2.f, radius_ / 2.f);
-    text_.setPosition(40, rect_.getSize().y+1);
+    text_.setPosition(40*scale_, rect_.getSize().y+1);
 	setTextFontLoad(resourcePath() + "consola.ttf");
 	isSelected_ = false;
 }
@@ -103,8 +103,8 @@ sf::Vector2f ppc::Vertex::getPosCenter() const {
 sf::FloatRect ppc::Vertex::getLocalBounds() const {
 //	sf::FloatRect fRect = circ_.getLocalBounds();
     sf::FloatRect fRect = bgrect_.getLocalBounds();
-    fRect.width = fRect.width*scale;
-    fRect.height = fRect.height*scale;
+	fRect.width = fRect.width;// *scale_;
+	fRect.height = fRect.height;// *scale_;
 	fRect.left = getPosition().x;
 	fRect.top = getPosition().y;
 	return fRect;
@@ -113,6 +113,8 @@ sf::FloatRect ppc::Vertex::getLocalBounds() const {
 sf::FloatRect ppc::Vertex::getGlobalBounds() const {
 //	sf::FloatRect fRect = circ_.getGlobalBounds();
 	sf::FloatRect fRect = bgrect_.getGlobalBounds();
+	fRect.width = fRect.width;// *scale_;
+	fRect.height = fRect.height;// *scale_;
     fRect.left = getPosition().x;
 	fRect.top = getPosition().y;
 	return fRect;
@@ -173,7 +175,7 @@ void ppc::Vertex::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
 
     //The line below draws Vertices at double size (Uncomment it to see)
-    states.transform.scale(sf::Vector2f{scale, scale});
+    states.transform.scale(sf::Vector2f{scale_, scale_});
 
 	states.transform *= getTransform();
 
