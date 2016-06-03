@@ -69,7 +69,8 @@ bool Save::importSave(const std::string& login) {
             //Get info from sub item as appropriate
             switch (mapIt->second) {
             case Save::CurrDesktop:
-                in >> currDesktop_;
+                in >> i;
+                setDesktop(i);
                 break;
             case Save::DesktopEndings:
                 in >> word;
@@ -108,9 +109,18 @@ bool Save::importSave(const std::string& login) {
         }
     }
 
-    return in.good();
+    return (in.good() && currDesktop_);
 }
 
+
+
+void Save::setDesktop(unsigned desktop) { 
+    if ((desktop < World::DesktopCount) && (desktop > World::DELogin)) {
+        currDesktop_ = World::DesktopList(desktop);
+    } else {
+        currDesktop_ = World::DE0A;
+    }
+}
 
 
 void Save::exportSave(const std::string& login) {
@@ -134,3 +144,7 @@ void Save::exportSave(const std::string& login) {
     out << std::endl;
 }
 
+unsigned int Save::getReport(unsigned int index) {
+	if (index >= 0 && index < 5) return reports_[index];
+	return 4;
+}

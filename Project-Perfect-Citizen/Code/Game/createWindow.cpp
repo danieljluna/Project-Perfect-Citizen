@@ -80,8 +80,12 @@
 
 #include "LoginInputCmpnt.h"
 
+#include "../Engine/Setting.h"
+
 
 using namespace ppc;
+
+static Setting tempSetting = Setting();
 
 const std::string PNG = ".png";
 const std::string JPG = ".jpg";
@@ -366,7 +370,6 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 		playNet->vert(1).setPosition(static_cast<float>(275), static_cast<float>(25));
 	}
 	else {
-		//std::vector<int> indexVec {0, 1, 2, 3, 4, 5, 6, 7};
 		std::vector<int> indexVec;
 		for (unsigned int i = 0; i < solNet->size(); ++i) {
 			indexVec.push_back(i);
@@ -1252,6 +1255,8 @@ void ppc::spawnFileTracker(Desktop & dt, WindowInterface *& windowToModify, Inpu
 void ppc::spawnSettingsMenu(Desktop * dt, WindowInterface *& windowToModify, InputHandler & ih, float x, float y)
 {
 
+    tempSetting = World::getSettings();
+
 	float windowWidth = static_cast<float>(windowToModify->getSize().x);
 	float windowHeight = static_cast<float>(windowToModify->getSize().y);
 	sf::Font myFont = World::getFont(ppc::World::VT323Regular);
@@ -1580,6 +1585,9 @@ bool ppc::increment_resolution(ppc::TextDisplayRenderComponent* ptr, ppc::Event 
     // Uncomment the line below when the resolutions are loaded.
     ptr->updateString(std::to_string(it->width) + " x " +
         std::to_string(it->height));
+
+    tempSetting.resolution = resolution;
+
     return true;
 }
 
@@ -1632,6 +1640,9 @@ bool ppc::decrement_resolution(ppc::TextDisplayRenderComponent * ptr, ppc::Event
 	// Uncomment the line below when the resolutions are loaded.
 	ptr->updateString(std::to_string(it->width) + " x " + 
                       std::to_string(it->height));
+
+    tempSetting.resolution = resolution;
+
 	return true;
 }
 
@@ -1673,21 +1684,19 @@ bool ppc::toggle_window_settings(TextDisplayRenderComponent * ptr, ppc::Event ev
 	// Danny: Do something with this string
 	// It'll either be Windowed or Full Screen
 	std::string targetWindowMode = ptr->getString();
-	std::cout << targetWindowMode;
+    if (targetWindowMode == "Windowed") {
+        tempSetting.fullscreen = false;
+    } else if (targetWindowMode == "Fullscreen") {
+        tempSetting.fullscreen = true;
+    }
+
 	return (ptr != nullptr);
+
 }
 
 bool ppc::update_settings(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
-	std::string resolutionText = ptr->getString();
-	// Parse resolution x and y into resX and resY
-    sf::Vector2u resolution;
-    resolution.x = std::atoi(resolutionText.substr(0, resolutionText.find_first_of(" ")).c_str());
-    resolution.y = std::atoi(resolutionText.substr(resolutionText.find_last_of(" ") + 1).c_str());
-
-    Setting settings = World::getSettings();
-    settings.resolution = resolution;
-    World::setSettings(settings);
+    World::setSettings(tempSetting);
 	
 	// Set the new resolution using resX, resY;
 	return true;

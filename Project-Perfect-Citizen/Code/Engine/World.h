@@ -79,7 +79,7 @@ namespace ppc {
 		/// loaded is a previous level
 		/////////////////////////////////////////////////////////////
 		static void goBack();
-
+		static void goToLevel(int);
 		using desktopLoaders = void(*)(ppc::Desktop&);
 
 		static std::map<DesktopList, desktopLoaders> loaderMap_;
@@ -138,7 +138,7 @@ namespace ppc {
 		static sf::Font& getFont(FontList f);
 
 		static std::string getReportFile();
-		static std::string getBossEmail();
+		static std::vector<std::string> getBossEmail();
 
         static void restartDesktop();
 
@@ -227,6 +227,8 @@ namespace ppc {
 
 		static DesktopList currDesktopEnum_;
 		static ReportType currReportType_;
+
+		static ReportType priorReports_[5];
 
 		static bool progToNext_;
         static bool quitter_;
