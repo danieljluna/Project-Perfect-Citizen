@@ -114,11 +114,7 @@ ppc::BaseFileType * ppc::SuspiciousFileHolder::getBFTVectorElement(unsigned int 
 
 void ppc::SuspiciousFileHolder::submitFiles()
 {
-	if (bftVector_.size() != 3) {
-		return;
-	}
-
-
+	
 	int totalSuspicion = 0;
 	for (auto iter = bftVector_.begin(); iter != bftVector_.end(); iter++) {
 		totalSuspicion += (**iter).getSuspicionLevel();
@@ -139,7 +135,7 @@ void ppc::SuspiciousFileHolder::submitFiles()
 		World::setCurrReportType(World::ReportType::B);
 	} else if (totalSuspicion >= 10 && totalSuspicion <= 19) {
 		World::setCurrReportType(World::ReportType::C);
-	} else if (totalSuspicion >= 1 && totalSuspicion <= 9) {
+	} else if (totalSuspicion >= 0 && totalSuspicion <= 9) {
 		World::setCurrReportType(World::ReportType::D);
 	}
 
