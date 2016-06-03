@@ -1,11 +1,6 @@
-{
- "ip": ,
- "hostname": ,
- "city": ,
- "region":,
- "country": ,
- "loc": ,
- "org": ,
- "postal": ,
- "phone": ,
-}
+ Beginning Desktop Extraction At:
+ 
+ Location : 27.9 W ,-82.4 N
+ IP : 32.248.238.161
+ City : Tampa, 33605
+ 

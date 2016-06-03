@@ -44,20 +44,9 @@ int main(int argc, char** argv) {
 		audiotest.loopBgm();
 		audiotest.playBgm();
 
-		///////////////////////////////////////////////////////////////////
-
-		//// ----------------   PYTHON LOCATION STUFF ---------------- ////
-
-		// Run the locator python app
-       
-		// -----------------------------------------------------------//
-
 		World::loadState("PPC.sav");
 		std::ifstream desktopFileInput;
 
-        //World::setCurrDesktopEnum(World::DE2A);
-
-		World::setCurrDesktopEnum(World::DE0B);
 		while (World::getCurrDesktopEnum() != World::DesktopCount) {
 			Desktop mainDesktop;
 			World::setCurrDesktop(mainDesktop);
@@ -66,7 +55,7 @@ int main(int argc, char** argv) {
 			World::DesktopList currDesk = World::getCurrDesktopEnum();
 
 			//Load Screen for correct levels
-			if ((int)currDesk >= 3) World::startLoading();
+			if ((int)currDesk >= 3 && (int)currDesk != (int)World::DEEnd1) World::startLoading();
 
 			//Parse Curr Desktop's .ini
 			desktopFileInput.open(World::desktopFileMap_.at(currDesk));
@@ -85,12 +74,14 @@ int main(int argc, char** argv) {
 			//Use Score to determine next level to go to
 			World::setLevel(currDesk, deskScore);
 		}
-
+		World::cleanWorld();
 		return EXIT_SUCCESS;
 
 	}
 	catch (std::exception e) {
 		std::cerr << e.what();
+
+		World::cleanWorld();
 	}
 
 	return EXIT_SUCCESS;

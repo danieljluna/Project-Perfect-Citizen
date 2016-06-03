@@ -1,11 +1,6 @@
-{
- "ip": ,
- "hostname": ,
- "city": ,
- "region":,
- "country": ,
- "loc": ,
- "org": ,
- "postal": ,
- "phone": ,
-}
+ Beginning Desktop Extraction At: 
+ 
+ Location : 35.4 W ,-97.4 N
+ IP : 24.101.32.105 
+ City : Del City, 73115
+ 
