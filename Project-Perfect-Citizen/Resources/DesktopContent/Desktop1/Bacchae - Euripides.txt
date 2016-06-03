@@ -1,486 +1,355 @@
-THE BACCHAE
-v.2.1
+                THE BACCHAE
+                  v.2.1
 
-1
+
 
 THE BACCHAE
 By Euripides
 Translated by Ian Johnston
 Editing/Staging by Stephen A. Schrum
-[Scene: The Greek city of Thebes, 
-outside the royal palace.]
+[Scene: The Greek city of Thebes, outside the
+royal palace.]
+
 PROLOGUE
-[Dionysus teleports in and appears, 
-hovering, above the center of the 
-Orchestra. His appearance is that
-of a young man. He is alone, with the 
-palace behind him, its main doors 
-facing the audience. He speaks
-directly to the audience]
-DIONYSUS: I, Dionysus, son of Zeus,
-Have come to Thebes, city of Greeks,
-only after I've set the eastern lands
-dancing in the mysteries I established,
-making known to men my own divinity.
-Thebes is the first city of the Greeks
-where I've roused people to shout out 
-my cries,
-with this deerskin draped around my 
-body,
-this ivy spear, a thyrsus, in my hand.
-For my mother's sisters have acted 
-badly,
-something they, of all people, should 
-avoid.
-They boasted aloud that I, Dionysus,
-was no child of Zeus, claiming Semele,
-once she was pregnant by some mortal 
-man,
-attributed her bad luck in bed to Zeus,
-a story made up (they said) to trick 
-Cadmus.
-So I've driven those women from their 
-homes
-in a frenzy-they now live in the 
-mountains,
-out of their minds. I've made them put 
-on costumes,
-outfits appropriate for my mysteries.
-All Theban offspring-or, at least, all 
-women-
-I've driven in a crazed fit from their 
-homes.
+[Dionysus teleports in and appears, hovering,
+above the center of the Orchestra. His
+appearance is that of a young man. He is
+alone, with the palace behind him, its main
+doors facing the audience. He speaks directly
+to the audience]
+
+DIONYSUS: I, Dionysus, son of Zeus, Have come
+to Thebes, city of Greeks, only after I've
+set the eastern lands dancing in the
+mysteries I established, making known to men
+my own divinity. Thebes is the first city of
+the Greeks where I've roused people to shout
+out my cries, with this deerskin draped
+around my body, this ivy spear, a thyrsus, in
+my hand. For my mother's sisters have acted
+badly, something they, of all people, should
+avoid. They boasted aloud that I, Dionysus,
+was no child of Zeus, claiming Semele, once
+she was pregnant by some mortal man,
+attributed her bad luck in bed to Zeus, a
+story made up (they said) to trick Cadmus.
+So I've driven those women from their homes
+in a frenzy-they now live in the mountains,
+out of their minds. I've made them put on
+costumes, outfits appropriate for my
+mysteries. All Theban offspring-or, at least,
+all women- I've driven in a crazed fit from
+their homes.
 Now they sit out there among the rocks,
-underneath green pine trees, no roof 
-overhead,
-Cadmus' daughters in their company as 
-well.
+underneath green pine trees, no roof overhead,
+Cadmus' daughters in their company as well.
 For this city has to learn, that it has 
-yet to be initiated
-into my Dionysian rites. Here I plead
-the cause of my own mother, Semele,
-appearing as a god to mortal men,
-the one she bore to Zeus. Now Cadmus,
-the old king, has just transferred his 
-power,
-his royal authority, to Pentheus,
-his daughter's son, who, in my case at 
-least,
-fights against the gods, prohibiting me
-all sacrificial offerings. When he 
-prays,
-he chooses to ignore me. For this 
-neglect
+yet to be initiated into my Dionysian rites.
+Here I plead the cause of my own mother,
+Semele, appearing as a god to mortal men, the
+one she bore to Zeus. Now Cadmus, the old
+king, has just transferred his power, his
+royal authority, to Pentheus, his daughter's
+son, who, in my case at least, fights against
+the gods, prohibiting me all sacrificial
+offerings. When he prays, he chooses to
+ignore me. For this neglect
 
-THE BACCHAE
-v.2.1
+I'll demonstrate to him, to all in Thebes,
+that I was born a god. But if Thebans in this
+city, in their anger, try to make those
+Bacchic women leave, to drive them from the
+mountains forcibly, then I, commander of
+these Maenads, will fight them. That's why
+I've transformed myself, assumed a mortal
+shape, altered my looks, so I resemble any
+human being.
 
-2
-
-I'll demonstrate to him, to all in 
-Thebes,
-that I was born a god.
-But if Thebans in this city, in their 
-anger,
-try to make those Bacchic women leave,
-to drive them from the mountains 
-forcibly,
-then I, commander of these Maenads,
-will fight them. That's why I've 
-transformed myself,
-assumed a mortal shape, altered my 
-looks,
-so I resemble any human being.
 PARADOS
-[Music. Enter the Chorus Leader of the 
-Bacchae, dressed in a ritual deerskin, 
-carrying a small drum like
-a tambourine. She enters from the SL 
-parados.]
+[Music. Enter the Chorus Leader of the
+Bacchae, dressed in a ritual deerskin,
+carrying a small drum like a tambourine. She
+enters from the SL parados.]
+
 DIONYSUS: But you there:
-beat yours drum by Pentheus' palace,
-let Cadmus' city see you, while I go,
-in person, to the clefts of Mount 
-Cithaeron,
-to my Bacchae, to join their dancing.
-[Exit Dionysus, teleporting away to 
-backstage. The Chorus Leader crosses to 
-the center of the orchestra
-and dances as we hear the Chorus on the 
-audio stream]
-FIRST VOICE: Sweet and easy task,
-to cry out in celebration,
-hailing great god Bacchus.
-SECOND VOICE: Let every mouth be pure.
-In my hymn I celebrate
-our old eternal custom,
+beat yours drum by Pentheus' palace, let
+Cadmus' city see you, while I go, in person,
+to the clefts of Mount Cithaeron, to my
+Bacchae, to join their dancing.
+[Exit Dionysus, teleporting away to
+backstage. The Chorus Leader crosses to the
+center of the orchestra and dances as we hear
+the Chorus on the audio stream]
+
+FIRST VOICE: Sweet and easy task, to cry out
+in celebration, hailing great god Bacchus.
+
+SECOND VOICE: Let every mouth be pure. In my
+hymn I celebrate our old eternal custom,
 hailing Dionysus.
-THIRD VOICE: O, blessed is the man,
-the fortunate man who knows
-the rituals of the gods,
-who leads a pious life,
-whose spirit merges
-with these Bacchic celebrations,
-frenzied dancing in the mountains,
-our purifying rites.
-FIRST VOICE: His mother dropped him 
-early,
-as her womb, in forceful birth pangs,
-was struck by Zeus' flying lightning 
-bolt,
-a blast which took her life.
-Then Zeus, son of Cronos,
-at once hid him away,
-concealed from Hera.
 
-THE BACCHAE
-v.2.1
+THIRD VOICE: O, blessed is the man, the
+fortunate man who knows the rituals of the
+gods, who leads a pious life, whose spirit
+merges with these Bacchic celebrations,
+frenzied dancing in the mountains, our
+purifying rites.
 
-SECOND VOICE: Fates made him perfect.
-Then Zeus gave birth to him,
-the god with ox's horns,
-crowned with wreaths of snakes-
-that's why the Maenads
-twist in their hair
-wild snakes they capture.
-THIRD VOICE: O Thebes, nursemaid of 
-Semele,
-put on your ivy crown.
-Consecrate yourselves to Bacchus.
-Dress yourselves in spotted fawn skins,
-trimmed with white sheep's wool.
-As you wave your thyrsus,
-revere the violence it contains.
-All the earth will dance at once.
-FIRST VOICE: He's welcome in the 
-mountains,
-when he sinks down to the ground,
-after the running dance,
-hunting the goat's blood,
-blood of the slain beast,
-devouring its raw flesh with joy,
-rushing off into the mountains,
-leading the dance-
-Bromius-Evoe!
+FIRST VOICE: His mother dropped him early, as
+her womb, in forceful birth pangs, was struck
+by Zeus' flying lightning bolt, a blast which
+took her life. Then Zeus, son of Cronos, at
+once hid him away, concealed from Hera.
+
+SECOND VOICE: Fates made him perfect. Then
+Zeus gave birth to him, the god with ox's
+horns, crowned with wreaths of snakes-that's
+why the Maenads twist in their hair wild
+snakes they capture. THIRD VOICE: O Thebes,
+nursemaid of Semele, put on your ivy crown.
+Consecrate yourselves to Bacchus. Dress
+yourselves in spotted fawn skins, trimmed
+with white sheep's wool. As you wave your
+thyrsus, revere the violence it contains. All
+the earth will dance at once.
+
+FIRST VOICE: He's welcome in the mountains,
+when he sinks down to the ground, after the
+running dance, hunting the goat's blood,
+blood of the slain beast, devouring its raw
+flesh with joy, rushing off into the
+mountains, leading the dance-Bromius-Evoe!
+
 ALL VOICES: Evoe!
-The land flows with milk,
-the land flows with wine,
-the land flows with honey from the bees.
-He holds the torch high,
-our leader, the Bacchic One,
-blazing flame of pine,
-sweet smoke like Syrian incense,
-trailing from his thyrsus.
-As he dances, he runs,
-here and there,
-rousing the stragglers,
-stirring them with his cries.
-Among the Maenads' shouts
-his voice reverberates:
-"On Bacchants, on!"
+The land flows with milk, the land flows with
+wine, the land flows with honey from the
+bees. He holds the torch high, our leader,
+the Bacchic One, blazing flame of pine, sweet
+smoke like Syrian incense, trailing from his
+thyrsus. As he dances, he runs, here and
+there, rousing the stragglers, stirring them
+with his cries. Among the Maenads' shouts his
+voice reverberates: "On Bacchants, on!"
 
-3
 
-THE BACCHAE
-v.2.1
-
-4
 
 EPISODE 1
-[Enter Tiresias, from the SR parados. 
-He is a very old blind man, dressed in 
-clothing appropriate for the
-Dionysian ritual. He crosses to the 
-middle door of the skene and knocks 
-very aggressively. The Chorus
-Leader crosses to the extreme DS edge 
-of the orchestra.]
-TIRESIAS: [shouting] You in there,
-tell Cadmus to get himself out of the 
-house!
-Go tell him Tiresias is waiting for him.
-He knows well enough why I've come for 
-him.
-I'm an old man, and he's even older,
-but we've agreed make ourselves a 
-thyrsus,
-to put on fawn skins and crown our heads
-with garlands of these ivy branches.
-[Enter Cadmus from the center door of 
-the skene, a very old man, also dressed 
-in clothing appropriate
-for the Dionysian ritual.]
-CADMUS: My dearest friend,
-I was inside the house. I heard your 
-voice.
-I recognized it-the voice of a man 
-truly wise.
-So I've come equipped with all this god 
-stuff.
+[Enter Tiresias, from the SR parados. He is a
+very old blind man, dressed in clothing
+appropriate for the Dionysian ritual. He
+crosses to the middle door of the skene and
+knocks very aggressively. The Chorus Leader
+crosses to the extreme DS edge of the
+orchestra.]
+
+TIRESIAS: [shouting] You in there, tell
+Cadmus to get himself out of the house! Go
+tell him Tiresias is waiting for him. He
+knows well enough why I've come for him. I'm
+an old man, and he's even older, but we've
+agreed make ourselves a thyrsus, to put on
+fawn skins and crown our heads with garlands
+of these ivy branches. [Enter Cadmus from the
+center door of the skene, a very old man,
+also dressed in clothing appropriate for the
+Dionysian ritual.]
+
+CADMUS: My dearest friend, I was inside the
+house. I heard your voice. I recognized
+it-the voice of a man truly wise. So I've
+come equipped with all this god stuff.
 [He crosses to the orchestra]
-We must sing his praise, as much as we 
-can.
-Dionysus has revealed himself a god to 
+We must sing his praise, as much as we can.
+Dionysus has revealed himself a god to men.
+Where must I go and dance? Where do I get to
+move my feet and shake my old gray head? You
+must guide me, Tiresias, one old man leading
+another, for you're the expert here.
+Oh, I'll never tire of waving this  thyrsus,
+day and night, striking the ground. What
+rapture! Now we can forget that we're old
 men.
-Where must I go and dance? Where do I 
-get
-to move my feet and shake my old gray 
-head?
-You must guide me, Tiresias, one old man
-leading another, for you're the expert 
-here.
-Oh, I'll never tire of waving this 
-thyrsus,
-day and night, striking the ground. 
-What rapture!
-Now we can forget that we're old men.
-TIRESIAS: [Following] You feel the same 
-way I do, then.
-For I'm young and going to try the 
+
+TIRESIAS: [Following] You feel the same way I
+do, then. For I'm young and going to try the
 dancing.
-CADMUS: Shall we go up the mountain in 
-a chariot?
-TIRESIAS: The god would not then get 
-complete respect.
-CADMUS: So I'll be your nursemaid-one 
-old man will take charge of another one?
-TIRESIAS: The god himself will get us 
-to the place without our efforts.
-CADMUS: Of all the city are we the only 
-ones who'll dance to honor Bacchus?
-TIRESIAS: Yes, indeed, for we're the 
-only ones whose minds are clear.
-As for the others, well, their 
-thinking's wrong.
-CADMUS: I'm a mortal, so I don't mock 
-the gods. [Dances to SL side of 
-orchestra]
 
-THE BACCHAE
-v.2.1
+CADMUS: Shall we go up the mountain in a
+chariot?
 
-5
+TIRESIAS: The god would not then get complete
+respect.
 
-TIRESIAS: Will someone say I disrespect 
-old age,
-if I intend to dance with ivy on my 
-head?
-Not so, for the god makes no 
-distinctions-
-whether the dancing is for young or old.
-He wants to gather honors from us all. 
+CADMUS: So I'll be your nursemaid-one old man
+will take charge of another one?
+
+TIRESIAS: The god himself will get us to the
+place without our efforts.
+
+CADMUS: Of all the city are we the only ones
+who'll dance to honor Bacchus?
+
+TIRESIAS: Yes, indeed, for we're the only
+ones whose minds are clear. As for the
+others, well, their thinking's wrong.
+
+CADMUS: I'm a mortal, so I don't mock the
+gods. [Dances to SL side of orchestra]
+
+TIRESIAS: Will someone say I disrespect old
+age, if I intend to dance with ivy on my
+head? Not so, for the god makes no
+distinctions- whether the dancing is for
+young or old. He wants to gather honors from
+us all.
 [Dances to SR side of orchestra]
-CADMUS: Since you're blind to daylight, 
-Tiresias,
-I'll be your seer, tell you what's 
-going on- [Looks left]
-Pentheus, the one to whom I handed over 
-power in this land,
-he's coming here. He's in a rush. He 
-looks so flustered. [They stop dancing]
-[Enter Pentheus, with an armed Soldier, 
-from SR parados. Pentheus crosses up 
-the ramp to the second
-story of the skene; the Soldier lingers 
-by the parados. At first Pentheus does 
-not notice Cadmus and
-Tiresias, not until he calls attention 
-to them.]
-PENTHEUS: It so happens I've been away 
-from Thebes,
-but I hear about disgusting things 
-going on,
-here in the city-women leaving home
-to go to silly Bacchic rituals,
-cavorting there in mountain shadows,
-with dances honoring some upstart god,
-this Dionysus, whoever he may be. 
-Mixing bowls
-in the middle of their meetings are 
-filled with wine.
-They creep off one by one to lonely 
-spots
-to have sex with men, claiming they're 
-Maenads
-busy worshipping.
-All the ones I've caught, my servants 
-guard
-in our public prison, their hands 
-chained up.
-All those who're still away, I'll chase 
-down,
-hunt them from the mountains-that 
-includes
-Agave, who bore me.
-Once I've clamped them all in iron 
-fetters,
-I'll quickly end this perverse 
-nastiness,
-this Bacchic celebration. People say
-some stranger has arrived, some wizard,
-a conjurer-with sweet-smelling hair in 
-golden ringlets
-and Aphrodite's charms in wine-dark 
-eyes.
-He hangs around the young girls day and 
-night,
-dangling in front of them his joyful 
-mysteries.
-If I catch him in this city, I'll stop 
-him.
-He'll make no more clatter with his 
-thyrsus,
-or wave his hair around. I'll chop off 
-his head,
-slice it right from his body. This man 
-claims
-that Dionysus is a god.
+
+CADMUS: Since you're blind to daylight,
+Tiresias, I'll be your seer, tell you what's
+going on- [Looks left] Pentheus, the one to
+whom I handed over power in this land, he's
+coming here. He's in a rush. He looks so
+flustered.
+[They stop dancing]
+[Enter Pentheus, with an armed Soldier, from
+SR parados. Pentheus crosses up the ramp to
+the second story of the skene; the Soldier
+lingers by the parados. At first Pentheus
+does not notice Cadmus and Tiresias, not
+until he calls attention to them.]
+
+PENTHEUS: It so happens I've been away from
+Thebes, but I hear about disgusting things
+going on, here in the city-women leaving home
+to go to silly Bacchic rituals, cavorting
+there in mountain shadows, with dances
+honoring some upstart god, this Dionysus,
+whoever he may be. Mixing bowls in the middle
+of their meetings are filled with wine.
+They creep off one by one to lonely spots
+to have sex with men, claiming they're
+Maenads busy worshipping.
+All the ones I've caught, my servants guard
+in our public prison, their hands chained up.
+All those who're still away, I'll chase down,
+hunt them from the mountains-that includes
+Agave, who bore me. Once I've clamped them
+all in iron fetters, I'll quickly end this
+perverse nastiness, this Bacchic celebration.
+People say some stranger has arrived, some
+wizard, a conjurer-with sweet-smelling hair
+in golden ringlets and Aphrodite's charms in
+wine-dark eyes.
+He hangs around the young girls day and night,
+dangling in front of them his joyful
+mysteries. If I catch him in this city, I'll
+stop him.
+He'll make no more clatter with his thyrsus,
+or wave his hair around. I'll chop off his
+head, slice it right from his body. This man
+claims that Dionysus is a god.
 All this surely merits harsh punishment.
-Whoever this stranger is, his insolence 
-is an insult to me.
-[Noticing Cadmus and Tiresias for the 
-first time]
-Well, here's something totally 
-astounding!
-I see Tiresias, our soothsayer, all 
-dressed up
-in dappled fawn skins-my mother's 
-father, too!
-This is ridiculous. To take a thyrsus
+Whoever this stranger is, his insolence is an
+insult to me.
+[Noticing Cadmus and Tiresias for the first
+time]
+Well, here's something totally astounding!
+I see Tiresias, our soothsayer, all dressed
+up in dappled fawn skins-my mother's father,
+too! This is ridiculous. To take a thyrsus
+and jump around like this. [To Cadmus]
+You sir, I don't like to see such arrant
+foolishness from your old age. Why not throw
+out that ivy? And, grandfather, why not let
+that thyrsus go? Tiresias, you're the one
+who's put him up to this.
+You want to bring in some new god for men,
+and from his sacrifices make more money. If
+your gray old age did not protect you, you'd
+sit in chains with all the Bacchae for such a
+ceremonial perversion. Whenever women at some
+banquet start to take pleasure in the
+gleaming wine, I say there's nothing healthy
+in their worshipping.
 
-THE BACCHAE
-v.2.1
+TIRESIAS: You've got a quick tongue and seem
+intelligent, but your words don't make any
+sense at all. A fluent orator whose power
+comes from self-assurance and from nothing
+else makes a bad citizen, for he lacks sense.
+This man, this new god, whom you ridicule-
+it's impossible for me to tell you just how
+great he'll be in all of Greece.
+Trust me, Pentheus. Don't be too confident a
+sovereign's force controls men. If something
+seems right to you, but your mind's diseased,
+don't think that's wisdom. So welcome this
+god into your country. Pour libations to him,
+then celebrate these Bacchic rites with
+garlands on your head.
+[Begins to dance again.]
 
-and jump around like this. [To Cadmus] 
-You sir,
-I don't like to see such arrant 
-foolishness
-from your old age. Why not throw out 
-that ivy?
-And, grandfather, why not let that 
-thyrsus go?
-Tiresias, you're the one who's put him 
-up to this.
-You want to bring in some new god for 
-men,
-and from his sacrifices make more money.
-If your gray old age did not protect 
-you,
-you'd sit in chains with all the Bacchae
-for such a ceremonial perversion.
-Whenever women at some banquet
-start to take pleasure in the gleaming 
-wine,
-I say there's nothing healthy in their 
-worshipping.
-TIRESIAS: You've got a quick tongue and 
-seem intelligent,
-but your words don't make any sense at 
-all.
-A fluent orator whose power comes
-from self-assurance and from nothing 
-else
-makes a bad citizen, for he lacks sense.
-This man, this new god, whom you 
-ridicule-
-it's impossible for me to tell you
-just how great he'll be in all of 
-Greece.
-Trust me, Pentheus.
-Don't be too confident a sovereign's 
-force
-controls men. If something seems right 
-to you,
-but your mind's diseased, don't think 
-that's wisdom.
-So welcome this god into your country.
-Pour libations to him, then celebrate
-these Bacchic rites with garlands on 
-your head. [Begins to dance again.]
-CADMUS: My child, Tiresias has given you
-some good advice. You should live among 
-us,
-not outside traditions. At this point,
-you're flying around-thinking, but not 
-clearly.
-Come here. Let me crown your head with 
-ivy.
-Join us in giving honor to this god. 
+CADMUS: My child, Tiresias has given you some
+good advice. You should live among us, not
+outside traditions. At this point, you're
+flying around-thinking, but not clearly.
+Come here. Let me crown your head with ivy.
+Join us in giving honor to this god.
 [Steps closer to the skene]
-PENTHEUS: Keep your hands off me!
-Go to these Bacchic rituals of yours.
-But don't infect me with your madness.
-As for the one who in this foolishness
-has been your teacher, I'll bring him 
-to justice.
+
+PENTHEUS: Keep your hands off me! Go to these
+Bacchic rituals of yours. But don't infect me
+with your madness. As for the one who in this
+foolishness has been your teacher, I'll bring
+him to justice.
 [To his soldier]
-You, go quickly to the city, scour it
-to capture this effeminate stranger,
-who corrupts our women with a new 
-disease,
-and thus infects our beds. If you get 
-him,
-tie him up and bring him here for 
-judgment,
-a death by stoning. That way he'll see
-his rites in Thebes come to a bitter 
-end.
+You, go quickly to the city, scour it to
+capture this effeminate stranger, who
+corrupts our women with a new disease, and
+thus infects our beds. If you get him, tie
+him up and bring him here for judgment, a
+death by stoning. That way he'll see his
+rites in Thebes come to a bitter end.
 
-6
-
-THE BACCHAE
-v.2.1
-
-7
-
-[Exit Pentheus into the skene. The 
-Soldier exits SR parados.]
-TIRESIAS: [Stops dancing] You unhappy 
-man, you've no idea
-just what it is you're saying. You've 
-gone mad!
-Even before now you weren't in your 
-right mind.
-Let's be off, Cadmus. We'll pray to the 
-god
-on Pentheus' behalf, though he's a 
-savage,
-and for the city, too, so he won't harm 
-it.
-Come with me-bring the ivy-covered 
-staff.
+[Exit Pentheus into the skene. The Soldier
+exits SR parados.]
+TIRESIAS: [Stops dancing] You unhappy man,
+you've no idea just what it is you're saying.
+You've gone mad!
+Even before now you weren't in your right
+mind.
+Let's be off, Cadmus. We'll pray to the god
+on Pentheus' behalf, though he's a savage,
+and for the city, too, so he won't harm it.
+Come with me-bring the ivy-covered staff.
 See if you can help support my body.
-I'll do the same for you. It would be 
-shameful
-if two old men collapsed.
-I'm not saying this as a prophecy,
-but on the basis of what's going on.
-A man who's mad tends to utter madness.
-[Exit Tiresias and Cadmus together 
+I'll do the same for you. It would be
+shameful if two old men collapsed.
+I'm not saying this as a prophecy, but on the
+basis of what's going on. A man who's mad
+tends to utter madness.
+[Exit Tiresias and Cadmus together
 through the SL parados. Music, and the 
 Chorus is heard on the
 stream, as the Chorus Leader crosses 
 the orchestra and dances.]
 ODE 1
-FIRST VOICE: Do you hear what Pentheus 
-says?
+
+FIRST VOICE: Do you hear what Pentheus says?
 Do you hear the profanities he utters,
-the insults against Bromius, chief god
-among all blessed gods?
-This is his special office,
-to lead men together in the dance,
-to bring all sorrows to an end,
-at the god's sacrificial feast.
-SECOND VOICE: Unbridled tongues and 
-lawless folly
-come to an end only in disaster.
-A peaceful life of wisdom
-maintains tranquility.
-But being clever isn't wisdom.
-Our life is brief-that's why
-the man who chases greatness
-fails to grasp what's near at hand.
-That's what madmen do,
+the insults against Bromius, chief god among
+all blessed gods? This is his special office,
+to lead men together in the dance, to bring
+all sorrows to an end, at the god's
+sacrificial feast.
+
+SECOND VOICE: Unbridled tongues and lawless
+folly come to an end only in disaster.
+A peaceful life of wisdom maintains
+tranquility. But being clever isn't wisdom.
+Our life is brief-that's why the man who
+chases greatness fails to grasp what's near
+at hand. That's what madmen do,
 men who've lost their wits.
 That's what I believe.
 THIRD VOICE: This god, son of Zeus,
