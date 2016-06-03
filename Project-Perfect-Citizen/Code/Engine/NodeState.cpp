@@ -13,7 +13,7 @@ ppc::NodeState::NodeState() {
 	root = nullptr;
 	cwd = nullptr;
 	lastLsNode = nullptr;
-	++nodeStateCount;
+	
 }
 
 ppc::NodeState::NodeState(const NodeState& other) {
@@ -35,6 +35,7 @@ ppc::NodeState::~NodeState() {
 	}
 	cwd = nullptr;
 	lastLsNode = nullptr;
+	if(nodeStateCount != 0) --nodeStateCount;
 }
 
 void ppc::NodeState::popWorking()

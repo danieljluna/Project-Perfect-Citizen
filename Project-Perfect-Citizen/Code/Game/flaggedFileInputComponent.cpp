@@ -95,5 +95,8 @@ bool ppc::clear_flagged_files(Desktop* ptr, ppc::Event)
 	fileTracker->setPosition(sf::Vector2f(oldWindow->getPosition().x, oldWindow->getPosition().y));
 	oldWindow->close();
 	SuspiciousFileHolder::setWindow(fileTracker);
+	int testSound = ppc::World::getAudio().addSound("woosh", "Woosh.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
 	return true;
 }

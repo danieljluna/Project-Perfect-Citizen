@@ -43,5 +43,6 @@ void createPoliticianDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface
     
 void createHackerDesktop(ppc::Desktop& desktopToModify, ppc::WindowInterface& desktopWindowToModify, ppc::InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet);
 
-
+//depricated
+//void createPostHackerDesktop(ppc::Desktop& desktopToModify);
 };
