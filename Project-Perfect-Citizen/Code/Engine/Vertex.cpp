@@ -13,7 +13,9 @@
 
 #include "../Game/characterRender.hpp"
 
-
+////////  SCALING FOR  MARK    ///////////
+const float scale_ = float(1);
+//////////////////////////////////////////
 
 const int ppc::Vertex::fontSize_ = 20;
 const float ppc::Vertex::radius_ = 30.f;

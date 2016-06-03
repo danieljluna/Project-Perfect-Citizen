@@ -23,9 +23,7 @@ class Vertex: public sf::Drawable, public sf::Transformable {
 
 private:
     
-    ////////  SCALING FOR  MARK    ///////////
-    float scale_ = float(1);
-    //////////////////////////////////////////
+
 
 	sf::Color color_;
 
