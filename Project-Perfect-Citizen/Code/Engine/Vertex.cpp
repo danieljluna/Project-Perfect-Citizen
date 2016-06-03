@@ -103,6 +103,8 @@ sf::Vector2f ppc::Vertex::getPosCenter() const {
 sf::FloatRect ppc::Vertex::getLocalBounds() const {
 //	sf::FloatRect fRect = circ_.getLocalBounds();
     sf::FloatRect fRect = bgrect_.getLocalBounds();
+    fRect.width = fRect.width*scale;
+    fRect.height = fRect.height*scale;
 	fRect.left = getPosition().x;
 	fRect.top = getPosition().y;
 	return fRect;
@@ -171,7 +173,7 @@ void ppc::Vertex::draw(sf::RenderTarget& target,
 	sf::RenderStates states) const {
 
     //The line below draws Vertices at double size (Uncomment it to see)
-    //states.transform.scale(sf::Vector2f{ 2.f, 2.f });
+    states.transform.scale(sf::Vector2f{scale, scale});
 
 	states.transform *= getTransform();
 
