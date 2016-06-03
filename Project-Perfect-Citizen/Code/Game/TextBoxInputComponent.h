@@ -31,6 +31,9 @@ namespace ppc {
 		InputHandler& inputHandle;
 		TimerUpdateCmpnt* tmr;
 		std::string str;
+		std::vector<char> vecstr;
+		std::vector<char>::iterator vecstrpos;
+		unsigned int vecstrindex;
 		bool isCollision(sf::Vector2i);
 		unsigned int max_chars;
 		Subject onSubmit_;
@@ -45,7 +48,7 @@ namespace ppc {
 		/// @param s is the render component where the text will be drawn
 		/// @param The limit of characters to display
 		///////////////////////////////////////////////////////////////////////
-		TextBoxInputComponent(ppc::InputHandler& ih, TextBoxRenderComponent &r, TimerUpdateCmpnt* tmr, int lim);
+		TextBoxInputComponent(ppc::InputHandler& ih, TextBoxRenderComponent &r, TimerUpdateCmpnt* tmr, int lim, unsigned int);
 
 		template <class T>
 		friend void setOnSubmit(TextBoxInputComponent* tbi, T* objPtr,

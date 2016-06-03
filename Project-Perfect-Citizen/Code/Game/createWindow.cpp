@@ -370,7 +370,6 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 		playNet->vert(1).setPosition(static_cast<float>(275), static_cast<float>(25));
 	}
 	else {
-		//std::vector<int> indexVec {0, 1, 2, 3, 4, 5, 6, 7};
 		std::vector<int> indexVec;
 		for (unsigned int i = 0; i < solNet->size(); ++i) {
 			indexVec.push_back(i);

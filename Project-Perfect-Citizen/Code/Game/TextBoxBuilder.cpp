@@ -79,7 +79,7 @@ void ppc::TextBoxBuilder::create(Entity& e) {
 	TimerUpdateCmpnt* tmr = new TimerUpdateCmpnt();
 	TextBoxRenderComponent* r = new TextBoxRenderComponent(*f, *c, xPos+s, yPos+5, s, stringToRender);
 	r->setIsMasked(mask);
-	TextBoxInputComponent* i = new TextBoxInputComponent(*ih, *r, tmr, lim);
+	TextBoxInputComponent* i = new TextBoxInputComponent(*ih, *r, tmr, lim, 2);
 	i->setContainingWindow(cw);
     TextFieldRenderComponent* fr = new TextFieldRenderComponent(xPos, yPos, 300, 36);
 

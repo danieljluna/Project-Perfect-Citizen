@@ -23,6 +23,8 @@ public:
 
     unsigned getDesktop() { return currDesktop_; };
     
+    unsigned int getReport(unsigned int);
+
     void setReportType(unsigned reportIndex, unsigned int reportValue) { reports_[reportIndex] = reportValue; }
 
 

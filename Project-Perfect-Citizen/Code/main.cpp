@@ -49,7 +49,7 @@ int main(int argc, char** argv) {
 
 		World::loadState("PPC.sav");
 		std::ifstream desktopFileInput;
-        
+
 		while (World::getCurrDesktopEnum() != World::DesktopCount) {
 			Desktop mainDesktop;
 			World::setCurrDesktop(mainDesktop);
@@ -77,19 +77,17 @@ int main(int argc, char** argv) {
 			//Use Score to determine next level to go to
 			World::setLevel(currDesk, deskScore);
 		}
-		World::cleanWorld();
-		return EXIT_SUCCESS;
 
 	}
 	catch (std::exception e) {
 		std::cerr << e.what();
-
-		World::cleanWorld();
 	}
 
-    if (World::getCurrDesktopEnum() > World::DELogin) {
-        World::saveState("PPC.sav");
-    }
+    	if (World::getCurrDesktopEnum() > World::DELogin) {
+        	World::saveState("PPC.sav");
+   	}
+	
+	World::cleanWorld();
 
 	return EXIT_SUCCESS;
 }
