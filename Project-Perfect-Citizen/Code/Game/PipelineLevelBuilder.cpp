@@ -173,7 +173,7 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	std::string name;
 	char c;
 
-	for (int i = 0; i < 8;) { //8 nodes in level 1
+	for (int i = 0; i < myNetwork->size();) { //6 nodes in level 1
 		name = "";
 		c = std::rand() % 26 + 'A';
 		name += c;
@@ -219,7 +219,7 @@ Network* ppc::PipelineLevelBuilder::LevelTwoWithOption(std::string file) {
 	std::string name;
 	char c;
 
-	for (int i = 0; i < 10;) { //10 nodes in level 2
+	for (int i = 0; i < myNetwork->size();) { //7 nodes in level 2
 		name = "";
 		c = std::rand() % 26 + 'A';
 		name += c;
@@ -249,7 +249,7 @@ Network* PipelineLevelBuilder::buildLevelThreeNetworkSolution() {
 	std::string name;
 	char c;
 
-	for (int i = 0; i < 10;) { //10 nodes in level 3
+	for (int i = 0; i < myNetwork->size();) { //8 nodes in level 3
 		name = "";
 		c = std::rand() % 26 + 'A';
 		name += c;
