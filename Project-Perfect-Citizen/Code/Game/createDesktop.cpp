@@ -58,8 +58,8 @@ void ppc::createLoginDesktop(Desktop& desktopToModify, WindowInterface& desktopW
     title.addComponent(titleRender);
 
     WindowInterface* loginPrompt = new Window(480, 150, sf::Color(170, 170, 170));
-    loginPrompt->setPosition(static_cast<float>(World::getGameScreen().getSize().x/2)-(loginPrompt->getSize().x/2), 
-		                     static_cast<float>(World::getGameScreen().getSize().y/2));
+    loginPrompt->setPosition(static_cast<float>(250),
+		                     static_cast<float>(400));
 
     spawnLoginPrompt(loginPrompt, loginPrompt->getInputHandler(), buttonSheet, 400, 500);
 
