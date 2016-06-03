@@ -13,7 +13,7 @@ ppc::NodeState::NodeState() {
 	root = nullptr;
 	cwd = nullptr;
 	lastLsNode = nullptr;
-	++nodeStateCount;
+	
 }
 
 ppc::NodeState::NodeState(const NodeState& other) {
@@ -35,6 +35,7 @@ ppc::NodeState::~NodeState() {
 	}
 	cwd = nullptr;
 	lastLsNode = nullptr;
+	if(nodeStateCount != 0) --nodeStateCount;
 }
 
 void ppc::NodeState::popWorking()
@@ -93,6 +94,7 @@ void ppc::NodeState::setCwd(ppc::BaseFileType* newCwd)
 
 void ppc::NodeState::readFile(const std::string& filename) {
     BaseFileType* file = getCwd()->findElement(filename); 
+	if (file == nullptr) return;
     std::string fileResourcePath = file->getFileData();
     file->readFile(filename, fileResourcePath);
 

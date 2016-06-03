@@ -91,6 +91,11 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
                        InputHandler & ih, NodeState ns,
                        sf::Image& buttonSheet, float x, float y) {
     if (windowToModify == nullptr) { return; }
+
+	int testSound = ppc::World::getAudio().addSound("gunshots", "Double_Click.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
+
 	ns.moveToRoot();
     
     /////////////////////////////////////////
@@ -234,6 +239,10 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
                         sf::Image& buttonSheet, float x, float y) {
     if (windowToModify == nullptr) { return; }
     
+	int testSound = ppc::World::getAudio().addSound("gunshots", "Double_Click.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
+
     /////////////////////////////////////////
     /////// COMPONENTS
     ///////////////////////////////////////
@@ -313,6 +322,10 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
 void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
 	sf::Image& buttonSheet, float x, float y) {
 	if (windowToModify == nullptr) { return; }
+
+	int testSound = ppc::World::getAudio().addSound("gunshots", "Double_Click.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
 
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
@@ -428,6 +441,9 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih,
         delete(dir);
 #endif
     
+	int testSound = ppc::World::getAudio().addSound("email", "Button.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
     std::string path = resourcePath() + p;
     //std::cout <<  "\n" + path +  "\n" << std::endl;
     std::string dotEnd;
@@ -523,6 +539,10 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
 
+	int testSound = ppc::World::getAudio().addSound("gunshots", "Double_Click.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
+
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 20;
@@ -580,7 +600,9 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 
 void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email* mail, sf::Image& buttonSheet, float x, float y) {
 	if (windowToModify == nullptr) { return; }
-
+	int testSound = ppc::World::getAudio().addSound("email", "Button.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
@@ -634,7 +656,9 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 
 void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message, std::string windowCaption) {
 	if (windowToModify == nullptr) { return; }
-
+	int testSound = ppc::World::getAudio().addSound("error", "Blip.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
 	windowToModify->setSize(300, windowToModify->getSize().y);
 	/////////////////////////////////////////
 	/////// COMPONENTS
@@ -704,7 +728,9 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 void ppc::spawnSuccessMessage(WindowInterface *& windowToModify, InputHandler & ih, sf::Image & buttonSheet, float x, float y, std::string message)
 {
 	if (windowToModify == nullptr) { return; }
-
+	int testSound = ppc::World::getAudio().addSound("success", "Notification_New.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
@@ -845,6 +871,8 @@ void ppc::spawnUnlock(WindowInterface *& windowToModify, InputHandler & ih, sf::
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 12;
 
+	WindowInterface* ergerg = new Window(500, 500, sf::Color::Black);
+
 	errorMessageRenderComponent* eMRC = new errorMessageRenderComponent(myFont,
 		"Please enter a password:\n> Recovery Hint: '" + fldr->getFolderNodeState()->getCwd()->findElement(fldr->getFolderName())->getHint() +"'\n",
 		windowToModify->getSize().x / 3, (windowToModify->getSize().y / 3) - 40, fontSize);
@@ -966,7 +994,7 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
     lBuilder.setInputHandle(ih);
     lBuilder.setLabelMessage("LOG IN");
     lBuilder.setSpriteSheet(buttonSheet);
-    lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3)-2, 95.0f));
+    lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3)- 227, 95.0f));
     lBuilder.setSize(0.25f);
     lBuilder.setLabelFont(myFont);
     lBuilder.setLabelSize(12);
@@ -974,16 +1002,22 @@ void ppc::spawnLoginPrompt(WindowInterface *& windowToModify, InputHandler & ih,
 
 	Entity settingsButton;
 	lBuilder.setLabelMessage("Settings");
-	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 75, 95.0f));
+	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 152, 95.0f));
     createWithEventFunc(lBuilder, settingsButton,&World::getCurrDesktop(), open_settings);
 
 	Entity creditsButton;
 	lBuilder.setLabelMessage("Credits");
-	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 152, 95.0f));
+	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 75, 95.0f));
 	createWithEventFunc(lBuilder, creditsButton, windowToModify, open_credits);
+
+	Entity quitButton;
+	lBuilder.setLabelMessage("QUIT");
+	lBuilder.setButtonPosition(sf::Vector2f(static_cast<float>((2.5*windowToModify->getSize().x) / 3) - 2, 95.0f));
+	createWithEventFunc(lBuilder, quitButton, &World::getCurrDesktop(), confirm_quit);
   
     
     windowToModify->addEntity(tbox);
+	windowToModify->addEntity(quitButton);
     windowToModify->addEntity(alertIcon);
     windowToModify->addEntity(promptText);
     windowToModify->addEntity(loginButton);
@@ -1006,6 +1040,10 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y) {
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
+
+	int testSound = ppc::World::getAudio().addSound("gunshots", "Double_Click.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
 
 	/////////////////////////////////////////
 	/////// COMPONENTS
@@ -1654,5 +1692,31 @@ bool ppc::update_settings(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)
 	// Set the new resolution using resX, resY;
 	return true;
 }
+
+bool ppc::confirm_quit(Desktop* ptr, ppc::Event ev) {
+	ppc::WindowInterface* ConfirmationWindow =
+		new ppc::Window(600, 150, sf::Color(170, 170, 170));
+	ConfirmWindowBuilder builder;
+
+	builder.setButtonLabelFont(World::getFont(World::FontList::Consola));
+	builder.setCancelButtonLabel("CANCEL");
+	builder.setConfirmButtonLabel("QUIT");
+	builder.setConfirmMessage("Are you sure you want to quit?");
+	builder.setMessageFont(World::getFont(World::FontList::Consola));
+	builder.setMessageFontSize(16);
+	builder.setPosition(sf::Vector2f(200, 375));
+	builder.setSpriteSheet(World::getCurrDesktop().getButtonSheet());
+	builder.setWindowCaption("Quit?");
+	createWithEventFunc(builder, ConfirmationWindow, ptr, ppc::quit_game);
+	ptr->addWindow(ConfirmationWindow);
+	return true;
+}
+
+bool ppc::quit_game(Desktop * ptr, ppc::Event ev)
+{
+	throw std::logic_error("Screen Closer");
+	return true;
+}
+
 
 

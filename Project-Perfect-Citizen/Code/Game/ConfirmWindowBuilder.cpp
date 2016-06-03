@@ -13,7 +13,7 @@
 #include "createWindow.h"
 #include "ButtonBuilder.h"
 #include "errorMessageRenderComponent.h"
-
+#include <string.h>
 
 using namespace ppc;
 
@@ -160,23 +160,31 @@ void ppc::ConfirmWindowBuilder::create(WindowInterface*& win)
 
 bool ppc::ConfirmSubmitFiles(ppc::Desktop * ptr, ppc::Event ev)
 {
-	WindowInterface* confirmWindow = new Window(400, 150, sf::Color(170, 170, 170));
-	ConfirmWindowBuilder builder;
-
+	/* Check to make sure player has flagged three files */
+	WindowInterface* submitResponse = new Window(400, 150, sf::Color(170, 170, 170));
+		ConfirmWindowBuilder builder;
+		int amntToSubmit = SuspiciousFileHolder::getBftVector().size();
+		std::string confirmMessage;
+		if (amntToSubmit == 0) {
+			confirmMessage = "Are you sure you want to\n submit 0 files?";
+		}
+		else {
+			confirmMessage = "Are you sure you want to\n submit these " + std::to_string(amntToSubmit) + " files?";
+		}
 	// Buttons //
-	builder.setButtonLabelFont(World::getFont(World::Consola));
-	builder.setCancelButtonLabel("CANCEL");
-	builder.setConfirmButtonLabel("CONFIRM");
-	builder.setConfirmMessage("Are you sure you want to\n submit these files?");
-	builder.setMessageFont(World::getFont(World::Consola));
-	builder.setMessageFontSize(12);
-	builder.setPosition(sf::Vector2f({ 300.0f, 300.0f }));
-	builder.setSpriteSheet(ptr->getButtonSheet());
-	builder.setWindowCaption("Submission Confirmation");
-	createWithEventFunc(builder, confirmWindow, ptr, ppc::submitFiles);
+		builder.setButtonLabelFont(World::getFont(World::Consola));
+		builder.setCancelButtonLabel("CANCEL");
+		builder.setConfirmButtonLabel("CONFIRM");
+		builder.setConfirmMessage(confirmMessage);
+		builder.setMessageFont(World::getFont(World::Consola));
+		builder.setMessageFontSize(12);
+		builder.setPosition(sf::Vector2f({ 300.0f, 300.0f }));
+		builder.setSpriteSheet(ptr->getButtonSheet());
+		builder.setWindowCaption("Submission Confirmation");
+		createWithEventFunc(builder, submitResponse, ptr, ppc::submitFiles);
 
-	SuspiciousFileHolder::onChange.addObserver(new ReportScreenObsvr(*ptr));
+		SuspiciousFileHolder::onChange.addObserver(new ReportScreenObsvr(*ptr));
 
-	ptr->addWindow(confirmWindow);
+		ptr->addWindow(submitResponse);
 	return true;
 }
