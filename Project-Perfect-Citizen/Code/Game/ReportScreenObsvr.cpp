@@ -19,8 +19,7 @@ void ppc::ReportScreenObsvr::setDesktop(Desktop &d) {
 
 bool ppc::ReportScreenObsvr::eventHandler(Event ev) {
 	if (ev.type == ppc::Event::SubmissionType) {
-		if (ev.submission.type == ev.submission.Submit && 
-			(SuspiciousFileHolder::getBftVector().size() == 3)) {
+		if (ev.submission.type == ev.submission.Submit) {
 			createReportScreen(*dt);
 		}
 	}
