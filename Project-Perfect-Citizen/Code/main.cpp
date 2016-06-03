@@ -39,8 +39,6 @@ int main(int argc, char** argv) {
 		World::initLoadScreen();
 		World::initAddressMap();
 
-		//sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen", sf::Style::Close | sf::Style::Titlebar);
-
 		ppc::World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
 		ppc::World::getAudio().loopBgm();
 		ppc::World::getAudio().playBgm();
@@ -85,6 +83,10 @@ int main(int argc, char** argv) {
 		std::cerr << e.what();
 	}
 
+    	if (World::getCurrDesktopEnum() > World::DELogin) {
+        	World::saveState("PPC.sav");
+   	}
+	
 	World::cleanWorld();
 
 	return EXIT_SUCCESS;
