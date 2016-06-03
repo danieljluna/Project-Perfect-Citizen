@@ -336,6 +336,9 @@
 		E9636A8A1CFFA566008E6E66 /* Raymond_Nash.png in Resources */ = {isa = PBXBuildFile; fileRef = E9636A871CFFA566008E6E66 /* Raymond_Nash.png */; };
 		E9636A8C1CFFBDA6008E6E66 /* Antigone.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9636A8B1CFFBDA6008E6E66 /* Antigone.txt */; };
 		E9636A8E1CFFBDAA008E6E66 /* Oedipus.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9636A8D1CFFBDAA008E6E66 /* Oedipus.txt */; };
+		E9BCEFB51D020B70005CD04F /* Pieces.png in Resources */ = {isa = PBXBuildFile; fileRef = E9BCEFB21D020B70005CD04F /* Pieces.png */; };
+		E9BCEFB61D020B70005CD04F /* 3D_Print.png in Resources */ = {isa = PBXBuildFile; fileRef = E9BCEFB31D020B70005CD04F /* 3D_Print.png */; };
+		E9BCEFB71D020B70005CD04F /* New_Printer.png in Resources */ = {isa = PBXBuildFile; fileRef = E9BCEFB41D020B70005CD04F /* New_Printer.png */; };
 		E9E830A01CF63D4A00945974 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E82F811CF63D4A00945974 /* main.cpp */; };
 		E9E830A11CF63D4A00945974 /* AudioLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E82F851CF63D4A00945974 /* AudioLocator.cpp */; };
 		E9E830A21CF63D4A00945974 /* AudioLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E82F871CF63D4A00945974 /* AudioLogger.cpp */; };
@@ -818,6 +821,9 @@
 		E9636A871CFFA566008E6E66 /* Raymond_Nash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Raymond_Nash.png; sourceTree = "<group>"; };
 		E9636A8B1CFFBDA6008E6E66 /* Antigone.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Antigone.txt; sourceTree = "<group>"; };
 		E9636A8D1CFFBDAA008E6E66 /* Oedipus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Oedipus.txt; sourceTree = "<group>"; };
+		E9BCEFB21D020B70005CD04F /* Pieces.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pieces.png; sourceTree = "<group>"; };
+		E9BCEFB31D020B70005CD04F /* 3D_Print.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3D_Print.png; sourceTree = "<group>"; };
+		E9BCEFB41D020B70005CD04F /* New_Printer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = New_Printer.png; sourceTree = "<group>"; };
 		E9E82F811CF63D4A00945974 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Code/main.cpp; sourceTree = SOURCE_ROOT; };
 		E9E82F841CF63D4A00945974 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audio.h; sourceTree = "<group>"; };
 		E9E82F851CF63D4A00945974 /* AudioLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioLocator.cpp; sourceTree = "<group>"; };
@@ -1299,6 +1305,9 @@
 			isa = PBXGroup;
 			children = (
 				E90E0BA01CFD53CA001D870C /* 3D_printer_3000.png */,
+				E9BCEFB21D020B70005CD04F /* Pieces.png */,
+				E9BCEFB31D020B70005CD04F /* 3D_Print.png */,
+				E9BCEFB41D020B70005CD04F /* New_Printer.png */,
 				E90E0B9F1CFD53CA001D870C /* 17391.png */,
 				E90E0BA21CFD53CA001D870C /* blueprint_4.png */,
 				E90E0BA31CFD53CA001D870C /* blueprint_7.png */,
@@ -2203,7 +2212,9 @@
 				E9E830AC1CF63D4A00945974 /* Notification_Bad.wav in Resources */,
 				E90E0D1E1CFD53CA001D870C /* Gadget2.png in Resources */,
 				E90E0DA41CFD53CA001D870C /* PoliticianResponseC.json in Resources */,
+				E9BCEFB51D020B70005CD04F /* Pieces.png in Resources */,
 				E909398C1D01185600E01211 /* Candles.png in Resources */,
+				E9BCEFB71D020B70005CD04F /* New_Printer.png in Resources */,
 				E909398F1D01185600E01211 /* Diego.png in Resources */,
 				E90E0D7E1CFD53CA001D870C /* Floppy_Appears.wav in Resources */,
 				E90E0DB81CFD53CA001D870C /* TeacherReportA.txt in Resources */,
@@ -2233,6 +2244,7 @@
 				E90E0D091CFD53CA001D870C /* road_trip.png in Resources */,
 				E90E0DC91CFD53CA001D870C /* TeacherResponseA.json in Resources */,
 				E90E0DC11CFD53CA001D870C /* SoundTrack_Extraction.ogg in Resources */,
+				E9BCEFB61D020B70005CD04F /* 3D_Print.png in Resources */,
 				E90E0CDF1CFD53CA001D870C /* Thompson.png in Resources */,
 				E90E0CE51CFD53CA001D870C /* 8444505634_646117787e.png in Resources */,
 				E90E0D7D1CFD53CA001D870C /* first.txt in Resources */,
