@@ -9,6 +9,7 @@ using namespace ppc;
 const std::string TEXT_KEY_INPUT = "TKI";
 const float DOUBLE_CLICK_TIME = 500;
 
+TextBoxInputComponent::TextBoxInputComponent(InputHandler& ih, TextBoxRenderComponent &r, TimerUpdateCmpnt* t, int l, unsigned int obscount) : InputComponent(obscount), inputHandle(ih), 
 textBox(r), tmr(t), max_chars(l) {
 
 	ih.addHandle(sf::Event::TextEntered);
