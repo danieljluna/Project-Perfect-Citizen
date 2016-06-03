@@ -1,8 +1,7 @@
 OMB No. 1140-0070
 
-U.S. Department of Justice
-Bureau of Alcohol, Tobacco, Firearms and 
-Explosives
+U.S. Department of Justice Bureau of Alcohol,
+Tobacco, Firearms and Explosives
 
 Application for Explosives License or Permit
 
@@ -16,8 +15,6 @@ include name of each partner)
 
 4. Name of County in Which
 Business is Located
-
-FOR ATF USE ONLY
 
 3. Employer Identification Number (EIN) or 
 Social
@@ -69,25 +66,6 @@ Other (Specify)
 Cashier's Check or
 Money Order (Enclosed)
 
-Check (Enclosed)
-
-Visa
-
-Credit/Debit Card Number (No dashes)
-
-Mastercard
-
-American
-Express
-
-Discover
-
-Name as Printed on Your Credit/Debit Card
-
-Diners Club
-
-Expiration Date (Month & year)
-
 Address:
 Credit/Debit Card
 Billing Address: City:
@@ -114,16 +92,15 @@ Date
 Your credit/debit card will be charged the 
 above stated amount upon receipt of your 
 application. The charge will be reflected on 
-your credit/debit card
-statement. In the event a license/permit is 
-NOT issued, the above amount will be 
-credited to the credit/debit card noted 
-above.
+your credit/debit card statement. In the
+event a license/permit is NOT issued, the
+above amount will be credited to the
+credit/debit card noted above.
 
 ATF E-Form 5400.13/5400.16
 Revised June 2012
 
-Responsible Person(s) List
+Responsible Person(s) List
 11. Provide information for each individual 
 owner, partner, and all other responsible 
 persons (See Definition 3) in the trade or 
@@ -178,91 +155,7 @@ h
 Sex
 i
 
-Race
-Ethnicity
-(Mark all that apply)
-j
-j
-Are you
-Hispanic
-or
-Latino?
-Yes
-No
-
-Are you
-Hispanic
-or
-Latino?
-Yes
-No
-
-Are you
-Hispanic
-or
-Latino?
-Yes
-No
-
-Are you
-Hispanic
-or
-Latino?
-Yes
-No
-
-Are you
-Hispanic
-or
-Latino?
-Yes
-No
-
-American Indian or
-Alaska Native
-Asian
-Black or African
-American
-Native Hawaiian or
-Other Pacific Islanders
-White
-American Indian or
-Alaska Native
-Asian
-Black or African
-American
-Native Hawaiian or
-Other Pacific Islanders
-White
-American Indian or
-Alaska Native
-Asian
-Black or African
-American
-Native Hawaiian or
-Other Pacific Islanders
-White
-American Indian or
-Alaska Native
-Asian
-Black or African
-American
-Native Hawaiian or
-Other Pacific Islanders
-White
-American Indian or
-Alaska Native
-Asian
-Black or African
-American
-Native Hawaiian or
-Other Pacific Islanders
-White
-
-ATF E-Form 5400.13/5400.16
-Revised June 2012
-
-12. Application is made for an explosives 
+12. Application is made for an explosives
 license or permit under 18 U.S.C., Chapter 
 40, as an: (See definitions 5 through 9)
 Explosives License
@@ -434,7 +327,8 @@ under dishonorable conditions?
 d. Renounced his or her United States 
 citizenship?
 Section B (Must be completed)
-16. Hours of Operation of Applicant's 
+
+16. Hours of Operation of Applicant's
 Business and/or Operations:
 Time
 Sunday
@@ -446,12 +340,14 @@ Friday
 Saturday
 Open
 Close
-17. Applicant's Business and/or Operation is 
+
+17. Applicant's Business and/or Operation is
 Located in:
 A Commercial Building
 A Residence
 Other (Specify)
-18. Applicant's Business and/or Operations 
+
+18. Applicant's Business and/or Operations
 Premises are:
 
 Owned
@@ -483,7 +379,7 @@ Yes
 ATF E-Form 5400.13/5400.16
 Revised June 2012
 
-21. Do you Deal in Black Powder? Do You Have 
+21. Do you Deal in Black Powder? Do You Have
 a Federal Firearms License? (If "yes," 
 provide the Federal firearms license number)
 No
@@ -555,7 +451,7 @@ Date
 ATF E-Form 5400.13/5400.16
 Revised June 2012
 
-Explosives Storage Magazine Description 
+Explosives Storage Magazine Description
 Worksheet
 (Submit one for each magazine; you may 
 photocopy for additional magazines)
@@ -715,7 +611,7 @@ Date:
 ATF E-Form 5400.13/5400.16
 Revised June 2012
 
-All Applications are to be Submitted with 
+All Applications are to be Submitted with
 Fees to:
 Bureau of Alcohol, Tobacco, Firearms, and 
 Explosives
@@ -933,7 +829,7 @@ Call Toll Free: 1-888-ATF-BOMB
 ATF E-Form 5400.13/5400.16
 Revised June 2012
 
-7. Manufacturer. Any person engaged in the 
+7. Manufacturer. Any person engaged in the
 business of manufacturing explosive
 materials for purposes of sale or 
 distribution or for his own use.
@@ -1063,9 +959,4 @@ determine the eligibility of the applicant
 to obtain such license or permit; to
 determine the ownership of the business or 
 operations; and to identify responsible
-persons in the business or operations.
-
-ATF E-Form 5400.13/5400.16
-Revised June 2012
-
-
+persons in the business or operations.
