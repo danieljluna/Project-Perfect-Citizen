@@ -28,7 +28,7 @@ void ppc::createReportScreen(Desktop &d) {
 						(std::istreambuf_iterator<char>()));
 
 	TextDisplayBuilder reportText;
-	reportText.setColor(sf::Color::Red);
+	reportText.setColor(sf::Color::Green);
 	reportText.setFont(World::getFont(World::FontList::Consola));
 	reportText.setPosition({ 100,100 });
 	reportText.setSize(25);
@@ -39,7 +39,9 @@ void ppc::createReportScreen(Desktop &d) {
 
 	//next, make/add components to end report screen
 	TextCharacterUpdate* tcu = new TextCharacterUpdate();
-	tcu->onAnimEnd().addObserver(new ReportEndObsvr(*reportScreen));
+	ReportEndObsvr* reO = new ReportEndObsvr(*reportScreen);
+	reO->setPos(400.f, 500.f);
+	tcu->onAnimEnd().addObserver(reO);
 
 	TextDisplayRenderComponent* tdrc = dynamic_cast<TextDisplayRenderComponent*>(reportEntity.getComponent(0));
 	tcu->setTextDisplay(*tdrc);

@@ -30,7 +30,7 @@ bool ppc::ReportEndObsvr::eventHandler(Event ev) {
 	if (ev.type == Event::AnimationType) {
 		TextDisplayRenderComponent* t = new TextDisplayRenderComponent(
 			World::getFont(World::FontList::Consola), 
-			sf::Color::Red, x_, y_, 20, "Click to Continue");
+			sf::Color::Green, x_, y_, 20, "Click to Continue");
 		
 		w_->addRenderComponent(t);
 	}
