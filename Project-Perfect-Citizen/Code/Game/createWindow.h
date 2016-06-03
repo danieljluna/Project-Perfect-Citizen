@@ -251,7 +251,7 @@ void spawnSettingsMenu(Desktop* dt, WindowInterface*& windowToModify, InputHandl
 void spawnCreditsWindow(Desktop* dt, WindowInterface*& windowToModify, InputHandler& ih, float x, float y);
 
 bool close_window(WindowInterface* w, ppc::Event ev);
-bool open_settings(WindowInterface *w, ppc::Event ev);
+bool open_settings(Desktop*w, ppc::Event ev);
 bool open_credits(WindowInterface* w, ppc::Event ev);
 bool continue_world(WindowInterface* w, ppc::Event ev);
 
@@ -263,6 +263,8 @@ bool decrement_volume(TextDisplayRenderComponent*, ppc::Event ev);
 
 bool toggle_window_settings(TextDisplayRenderComponent*, ppc::Event);
 bool update_settings(TextDisplayRenderComponent*, ppc::Event ev);
+bool confirm_quit(Desktop*, ppc::Event);
+bool quit_game(Desktop*, ppc::Event);
 };
 
 

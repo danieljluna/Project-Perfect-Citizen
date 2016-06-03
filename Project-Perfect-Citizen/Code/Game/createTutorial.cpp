@@ -201,13 +201,12 @@ void ppc::createTutorial(Desktop & dt) {
     tempObsvr = new FreeFunctionObserver<FloppyInputComponent>(enableFloppyDialog, floppyIn);
     dt.getPlayVec().at(1)->onManip().addObserver(tempObsvr);
 
-    ////Set up starting Message
-    //Event ev;
-    //ev.type = ev.FloppyType;
-    //ev.floppy.sequence = 0; // Line below crashes on mac - Brandon
-    //ev.floppy.frame = 0;
-    //summonFloppyDialog(floppyIn, ev);
-    //
+    //Set up starting Message
+    Event ev;
+    ev.type = ev.FloppyType;
+    ev.floppy.sequence = 0; // Line below crashes on mac - Brandon
+    ev.floppy.frame = 0;
+    summonFloppyDialog(floppyIn, ev);
     
 }
 
