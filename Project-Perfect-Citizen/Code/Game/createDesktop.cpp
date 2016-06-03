@@ -537,43 +537,44 @@ void ppc::createHackerDesktop(Desktop& desktopToModify, WindowInterface& desktop
     ppc::SuspiciousFileHolder::setWindow(fileTracker);
 }
 
-void ppc::createPostHackerDesktop(Desktop& desktopToModify) {
-	ppc::Window* endScreen = new Window(1800, 1000);
-
-	Entity endEntity;
-
-	std::ifstream endFile(resourcePath() + "Reports/DE3B.txt");
-
-	std::string content((std::istreambuf_iterator<char>(endFile)),
-		(std::istreambuf_iterator<char>()));
-
-	TextDisplayBuilder reportText;
-	reportText.setColor(sf::Color::Red);
-	reportText.setFont(World::getFont(World::FontList::Consola));
-	reportText.setPosition({ 100,100 });
-	reportText.setSize(25);
-	reportText.setString("");
-
-	reportText.create(endEntity);
-
-	TextCharacterUpdate* tcu = new TextCharacterUpdate();
-	ReportEndObsvr* reO = new ReportEndObsvr(*endScreen);
-	reO->setPos(400.f, 700.f);
-	tcu->onAnimEnd().addObserver(reO);
-
-	TextDisplayRenderComponent* tdrc = dynamic_cast<TextDisplayRenderComponent*>(endEntity.getComponent(0));
-	tcu->setTextDisplay(*tdrc);
-	tcu->setContent(content);
-	tcu->setDisplayRate(sf::milliseconds(sf::Int32(30.0f)));
-
-	ReportScreenInput* rsi = new ReportScreenInput(endScreen->getInputHandler());
-	rsi->setTextCharacterUpdate(*tcu);
-
-
-	endEntity.addComponent(tcu);
-	endEntity.addComponent(rsi);
-
-	endScreen->addEntity(endEntity);
-
-	desktopToModify.setFrontTop(endScreen, false);
-}
+//depricated
+//void ppc::createPostHackerDesktop(Desktop& desktopToModify) {
+//	ppc::Window* endScreen = new Window(1800, 1000);
+//
+//	Entity endEntity;
+//
+//	std::ifstream endFile(resourcePath() + "Reports/DE3B.txt");
+//
+//	std::string content((std::istreambuf_iterator<char>(endFile)),
+//		(std::istreambuf_iterator<char>()));
+//
+//	TextDisplayBuilder reportText;
+//	reportText.setColor(sf::Color::Red);
+//	reportText.setFont(World::getFont(World::FontList::Consola));
+//	reportText.setPosition({ 100,100 });
+//	reportText.setSize(25);
+//	reportText.setString("");
+//
+//	reportText.create(endEntity);
+//
+//	TextCharacterUpdate* tcu = new TextCharacterUpdate();
+//	ReportEndObsvr* reO = new ReportEndObsvr(*endScreen);
+//	reO->setPos(400.f, 700.f);
+//	tcu->onAnimEnd().addObserver(reO);
+//
+//	TextDisplayRenderComponent* tdrc = dynamic_cast<TextDisplayRenderComponent*>(endEntity.getComponent(0));
+//	tcu->setTextDisplay(*tdrc);
+//	tcu->setContent(content);
+//	tcu->setDisplayRate(sf::milliseconds(sf::Int32(30.0f)));
+//
+//	ReportScreenInput* rsi = new ReportScreenInput(endScreen->getInputHandler());
+//	rsi->setTextCharacterUpdate(*tcu);
+//
+//
+//	endEntity.addComponent(tcu);
+//	endEntity.addComponent(rsi);
+//
+//	endScreen->addEntity(endEntity);
+//
+//	desktopToModify.setFrontTop(endScreen, false);
+//}

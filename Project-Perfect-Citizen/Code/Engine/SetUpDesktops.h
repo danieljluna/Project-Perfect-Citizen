@@ -24,5 +24,5 @@ namespace ppc {
 
 	void setUpHackerDesktop(ppc::Desktop& myDesktop);
 
-	void setUpPostHackerDesktop(ppc::Desktop& myDesktop);
+
 };

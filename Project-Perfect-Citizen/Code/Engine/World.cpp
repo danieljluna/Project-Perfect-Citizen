@@ -49,9 +49,9 @@ std::map<World::DesktopList, std::string> World::desktopFileMap_ = {
 	{ World::DE2B, resourcePath() + "Engine/politicianDesktop.ini" },
 	{ World::DEPlayer3A, resourcePath() + "Engine/playerDesktop3.ini" },
 	{ World::DEPlayer3B, resourcePath() + "Engine/playerDesktop3.ini" },
-	{ World::DE3A, resourcePath() + "Engine/hackerDesktop.ini" },
-	{ World::DE3B, resourcePath() + "Engine/endDesktop.ini" },
-	{ World::DEEnd, resourcePath() + "Engine/endDesktop.ini" },
+	{ World::DE3, resourcePath() + "Engine/hackerDesktop.ini" },
+	{ World::DEEnd1, resourcePath() + "Engine/endDesktop.ini" },
+	{ World::DEEnd2, resourcePath() + "Engine/endDesktop.ini" },
     { World::DesktopCount, ""}  //Empty pairing of Count to string.
 };
 
@@ -69,9 +69,9 @@ std::map<World::DesktopList, World::desktopLoaders> World::loaderMap_ = {
 	{ World::DE2B, setUpPoliticianDesktop },
 	{ World::DEPlayer3A,setUpPlayerDesktop },
 	{ World::DEPlayer3B,setUpPlayerDesktop },
-	{ World::DE3A, setUpHackerDesktop },
-	{ World::DE3B, setUpPostHackerDesktop },
-	{ World::DEEnd, setUpEndDesktop },
+	{ World::DE3, setUpHackerDesktop },
+	{ World::DEEnd1, setUpEndDesktop },
+	{ World::DEEnd2, setUpEndDesktop },
 	{ World::DesktopCount, nullptr }  //Empty pairing of Count to nullptr.
 };
 
@@ -103,10 +103,10 @@ std::map <std::pair<World::DesktopList, World::ReportType>, std::string > World:
 	{ { DE2B, C }, resourcePath() + "Reports/PoliticianReportC.txt" },
 	{ { DE2B, D }, resourcePath() + "Reports/PoliticianReportD.txt" },
 
-	{ { DE3A, A }, resourcePath() + "Reports/HackerReportA.txt" },
-	{ { DE3A, B }, resourcePath() + "Reports/HackerReportB.txt" },
-	{ { DE3A, C }, resourcePath() + "Reports/HackerReportC.txt" },
-	{ { DE3A, D }, resourcePath() + "Reports/HackerReportD.txt" },
+	{ { DE3, A }, resourcePath() + "Reports/HackerReportA.txt" },
+	{ { DE3, B }, resourcePath() + "Reports/HackerReportB.txt" },
+	{ { DE3, C }, resourcePath() + "Reports/HackerReportC.txt" },
+	{ { DE3, D }, resourcePath() + "Reports/HackerReportD.txt" },
 
 };
 
@@ -153,8 +153,9 @@ std::map <World::DesktopList, std::string> World::loadingAddressMap_ = {
 	{ World::DE2B, "" },
 	{ World::DEPlayer3A, "\nDesktop Extraction Complete\nReturning to Workstation" },
 	{ World::DEPlayer3B, "\nDesktop Extraction Complete\nReturning to Workstation" },
-	{ World::DE3A, "" },
-	{ World::DEEnd, "" },
+	{ World::DE3, "" },
+	{ World::DEEnd1, "" },
+	{ World::DEEnd2, "" },
 	{ World::DesktopCount, "" }  //Empty pairing of Count to string.
 };
 
@@ -229,22 +230,21 @@ void ppc::World::initLevelMap() {
 
 	LevelPacket levelPlayer3A;
 	LevelPacket levelPlayer3B;
-	levelPlayer3A.pushNext(DE3A, 1);
-	levelPlayer3B.pushNext(DE3A, 1);
+	levelPlayer3A.pushNext(DE3, 1);
+	levelPlayer3B.pushNext(DE3, 1);
 	levelMap_.emplace(DEPlayer3A, levelPlayer3A);
 	levelMap_.emplace(DEPlayer3B, levelPlayer3B);
 
 	LevelPacket levelThree;
-	levelThree.pushNext(DE3B, 1);
-	levelMap_.emplace(DE3A, levelThree);
+	levelThree.pushNext(DEEnd1, 30);
+	levelThree.pushNext(DEEnd2, 29);
+	levelMap_.emplace(DE3, levelThree);
 
-	LevelPacket levelThreePost;
-	levelThreePost.pushNext(DEEnd, 1);
-	levelMap_.emplace(DE3B, levelThreePost);
 
 	LevelPacket end;
 	end.pushNext(DesktopCount, 1);
-	levelMap_.emplace(DEEnd, end);
+	levelMap_.emplace(DEEnd1, end);
+	levelMap_.emplace(DEEnd2, end);
 
 
 }
@@ -422,8 +422,6 @@ void ppc::World::initLoadScreen() {
     loadingDecal_.setPosition(150, 50);
     
     
-    //PlayerLocator locator;
-    
     loadingAddress_.setFont(World::getFont(World::FontList::VT323Regular));
     loadingAddress_.setCharacterSize(55);
     loadingAddress_.setColor(sf::Color(0,200,0));
@@ -443,7 +441,7 @@ void ppc::World::initLoadScreen() {
 
 void ppc::World::startLoading() {
 	isLoading_ = true;
-	if ((int)currDesktopEnum_ > (int)DE3B) {
+	if ((int)currDesktopEnum_ > (int)DE3) {
 		loadingAddress_.setString(useLocator());
 	}else{
 		loadingAddress_.setString(getCurrAddress());
@@ -492,8 +490,8 @@ void ppc::World::endLoading() {
 			if (event.type == sf::Event::MouseButtonPressed) {
 				isLoading_ = false;
 				isLoadBarFull_ = false;
-				if (currDesktopEnum_ == World::DEEnd) {
-					throw std::exception();
+				if (currDesktopEnum_ == DEEnd2) {
+					std::exception();
 				}
 				return;
 			}
@@ -638,7 +636,7 @@ void ppc::World::initAddressMap() {
 	fstream.open(resourcePath() + "LoadAddresses/DE3Address.txt");
 	std::string s4((std::istreambuf_iterator<char>(fstream)),
 		(std::istreambuf_iterator<char>()));
-	loadingAddressMap_.at(DE3A) = s4;
+	loadingAddressMap_.at(DE3) = s4;
 	fstream.close();
 
 }

@@ -35,9 +35,9 @@ namespace ppc {
 			DE2B,
 			DEPlayer3A,
 			DEPlayer3B,
-			DE3A,
-			DE3B,
-			DEEnd,
+			DE3,
+			DEEnd1,
+			DEEnd2,
             DesktopCount
         };
 

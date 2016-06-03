@@ -46,7 +46,7 @@ int main(int argc, char** argv) {
 
 		World::loadState("PPC.sav");
 		std::ifstream desktopFileInput;
-		World::setCurrDesktopEnum(World::DE3A);
+		World::setCurrDesktopEnum(World::DE3);
 		while (World::getCurrDesktopEnum() != World::DesktopCount) {
 			Desktop mainDesktop;
 			World::setCurrDesktop(mainDesktop);
@@ -55,7 +55,7 @@ int main(int argc, char** argv) {
 			World::DesktopList currDesk = World::getCurrDesktopEnum();
 
 			//Load Screen for correct levels
-			if ((int)currDesk >= 3 && (int)currDesk != (int)World::DE3B) World::startLoading();
+			if ((int)currDesk >= 3 && (int)currDesk != (int)World::DEEnd1) World::startLoading();
 
 			//Parse Curr Desktop's .ini
 			desktopFileInput.open(World::desktopFileMap_.at(currDesk));
