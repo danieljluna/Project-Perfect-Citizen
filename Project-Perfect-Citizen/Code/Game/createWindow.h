@@ -31,7 +31,7 @@ namespace ppc {
 	class Event;
 	class Entity;
 
-    static Setting tempSetting;
+    	static Setting tempSetting;
 
 	//typedef bool (databaseSearchInputComponent::*goBack) (sf::Event&);
 	//using backFunction = bool(databaseSearchInputComponent::*goBack)(sf::Event& ev);

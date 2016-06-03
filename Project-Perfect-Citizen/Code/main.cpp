@@ -77,19 +77,17 @@ int main(int argc, char** argv) {
 			//Use Score to determine next level to go to
 			World::setLevel(currDesk, deskScore);
 		}
-		World::cleanWorld();
-		return EXIT_SUCCESS;
 
 	}
 	catch (std::exception e) {
 		std::cerr << e.what();
-
-		World::cleanWorld();
 	}
 
-    if (World::getCurrDesktopEnum() > World::DELogin) {
-        World::saveState("PPC.sav");
-    }
+    	if (World::getCurrDesktopEnum() > World::DELogin) {
+        	World::saveState("PPC.sav");
+   	}
+	
+	World::cleanWorld();
 
 	return EXIT_SUCCESS;
 }
