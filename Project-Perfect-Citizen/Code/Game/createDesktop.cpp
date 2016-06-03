@@ -160,7 +160,10 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
     Entity startBar;
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
     startBarRender->renderPosition({0,4});
+    
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
     startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -304,7 +307,9 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
     Entity startBar;
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
     startBarRender->renderPosition({0,4});
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
     startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -438,7 +443,9 @@ void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& des
     Entity startBar;
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
     startBarRender->renderPosition({0,4});
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
     startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -491,7 +498,9 @@ void ppc::createHackerDesktop(Desktop& desktopToModify, WindowInterface& desktop
     Entity startBar;
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
     startBarRender->renderPosition({0,4});
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
     startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
