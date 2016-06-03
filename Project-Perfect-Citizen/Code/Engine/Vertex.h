@@ -22,6 +22,10 @@ namespace ppc {
 class Vertex: public sf::Drawable, public sf::Transformable {
 
 private:
+    
+    ////////  SCALING FOR  MARK    ///////////
+    float scale = 0.9f;
+    //////////////////////////////////////////
 
 	sf::Color color_;
 
@@ -37,6 +41,7 @@ private:
     sf::RectangleShape bgrect_;
 	static const float radius_;
 	sf::FloatRect bounds_;
+    
 	bool isSelected_;
 
 public:

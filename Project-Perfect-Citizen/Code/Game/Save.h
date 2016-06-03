@@ -17,7 +17,7 @@ public:
 
     void exportSave(const std::string& login);
 
-    Save& Save::operator=(const Save& other);
+    Save& operator=(const Save& other);
 
     void setDesktop(unsigned desktop);
 
