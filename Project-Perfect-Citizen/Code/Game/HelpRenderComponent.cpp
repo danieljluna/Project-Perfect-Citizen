@@ -3,7 +3,7 @@
 //  Project-Perfect-Citizen
 //
 //  Created by Michael Lowe on 4/15/16.
-//  Copyright © 2016 Hyperfocus Games. All rights reserved.
+//  Copyright © 2016 BadCop Studio. All rights reserved.
 //
 
 #include "HelpRenderComponent.hpp"
@@ -13,6 +13,7 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
 #include "../Engine/event.h"
+#include "../Engine/World.h"
 
 using namespace ppc;
 
@@ -129,14 +130,23 @@ void HelpWindowRenderComponent::recieveMessage(msgType code) {
 
 
 bool ppc::swithTab0Fn(HelpWindowRenderComponent* h, Event ev){
+	int testSound = ppc::World::getAudio().addSound("woosh", "Woosh.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
     h->setTab(0);
     return true;
 }
 bool ppc::swithTab1Fn(HelpWindowRenderComponent* h, Event ev){
+	int testSound = ppc::World::getAudio().addSound("woosh", "Woosh.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
     h->setTab(1);
     return true;
 }
 bool ppc::swithTab2Fn(HelpWindowRenderComponent* h, Event ev) {
+	int testSound = ppc::World::getAudio().addSound("woosh", "Woosh.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
 	h->setTab(2);
 	return true;
 }
