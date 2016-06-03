@@ -25,6 +25,8 @@
 		E909399B1D0118CB00E01211 /* Resignation_7.txt in Resources */ = {isa = PBXBuildFile; fileRef = E90939971D0118CB00E01211 /* Resignation_7.txt */; };
 		E909399C1D0118CB00E01211 /* Resignation_8.txt in Resources */ = {isa = PBXBuildFile; fileRef = E90939981D0118CB00E01211 /* Resignation_8.txt */; };
 		E909399E1D011B2400E01211 /* DCPS_Report_42.png in Resources */ = {isa = PBXBuildFile; fileRef = E909399D1D011B2400E01211 /* DCPS_Report_42.png */; };
+		E90939A11D01300E00E01211 /* My_Loves.png in Resources */ = {isa = PBXBuildFile; fileRef = E909399F1D01300E00E01211 /* My_Loves.png */; };
+		E90939A21D01300E00E01211 /* The_Daily.png in Resources */ = {isa = PBXBuildFile; fileRef = E90939A01D01300E00E01211 /* The_Daily.png */; };
 		E90E0CBA1CFD53CA001D870C /* Artist_Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E90E0B8A1CFD53CA001D870C /* Artist_Icon_Sheet.png */; };
 		E90E0CBB1CFD53CA001D870C /* Artist_Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = E90E0B8B1CFD53CA001D870C /* Artist_Wallpaper.png */; };
 		E90E0CBC1CFD53CA001D870C /* ArtistResponseA.json in Resources */ = {isa = PBXBuildFile; fileRef = E90E0B8C1CFD53CA001D870C /* ArtistResponseA.json */; };
@@ -502,6 +504,8 @@
 		E90939971D0118CB00E01211 /* Resignation_7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Resignation_7.txt; sourceTree = "<group>"; };
 		E90939981D0118CB00E01211 /* Resignation_8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Resignation_8.txt; sourceTree = "<group>"; };
 		E909399D1D011B2400E01211 /* DCPS_Report_42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DCPS_Report_42.png; sourceTree = "<group>"; };
+		E909399F1D01300E00E01211 /* My_Loves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = My_Loves.png; sourceTree = "<group>"; };
+		E90939A01D01300E00E01211 /* The_Daily.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = The_Daily.png; sourceTree = "<group>"; };
 		E90E0B8A1CFD53CA001D870C /* Artist_Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Artist_Icon_Sheet.png; sourceTree = "<group>"; };
 		E90E0B8B1CFD53CA001D870C /* Artist_Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Artist_Wallpaper.png; sourceTree = "<group>"; };
 		E90E0B8C1CFD53CA001D870C /* ArtistResponseA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ArtistResponseA.json; sourceTree = "<group>"; };
@@ -1540,6 +1544,8 @@
 			children = (
 				E90939811D01185600E01211 /* Ayer's_Pills.png */,
 				E90939821D01185600E01211 /* Candles.png */,
+				E909399F1D01300E00E01211 /* My_Loves.png */,
+				E90939A01D01300E00E01211 /* The_Daily.png */,
 				E90939831D01185600E01211 /* DCPS_Report_12.png */,
 				E90939841D01185600E01211 /* DCPS_Report_23.png */,
 				E90939851D01185600E01211 /* Diego.png */,
@@ -1987,6 +1993,7 @@
 				E90E0D501CFD53CA001D870C /* Nov14.png in Resources */,
 				E90939941D01185600E01211 /* The_Roaring_Times.png in Resources */,
 				E90E0D061CFD53CA001D870C /* Portland-Conference-East-vs.-West-Soccer-Game.png in Resources */,
+				E90939A21D01300E00E01211 /* The_Daily.png in Resources */,
 				E90E0D371CFD53CA001D870C /* shiver.png in Resources */,
 				E90E0D8C1CFD53CA001D870C /* Icon_Sheet2.png in Resources */,
 				E90E0D661CFD53CA001D870C /* DesktopTutorialAlt.txt in Resources */,
@@ -2140,6 +2147,7 @@
 				E9E830A81CF63D4A00945974 /* gunshots.wav in Resources */,
 				E90E0D8F1CFD53CA001D870C /* DE1Address.txt in Resources */,
 				E90E0CE11CFD53CA001D870C /* 11062011img47161.png in Resources */,
+				E90939A11D01300E00E01211 /* My_Loves.png in Resources */,
 				E90E0D0B1CFD53CA001D870C /* St. Augustine - Confessions copy.txt in Resources */,
 				E90E0DC41CFD53CA001D870C /* Switch_Pipeline_Connection_Color.wav in Resources */,
 				E9636A8C1CFFBDA6008E6E66 /* Antigone.txt in Resources */,
