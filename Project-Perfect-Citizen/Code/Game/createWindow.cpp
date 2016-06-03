@@ -89,6 +89,11 @@ void ppc::spawnConsole(Desktop& dt, WindowInterface*& windowToModify,
                        InputHandler & ih, NodeState ns,
                        sf::Image& buttonSheet, float x, float y) {
     if (windowToModify == nullptr) { return; }
+
+	int testSound = ppc::World::getAudio().addSound("gunshots", "Double_Click.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
+
 	ns.moveToRoot();
     
     /////////////////////////////////////////
@@ -232,6 +237,10 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
                         sf::Image& buttonSheet, float x, float y) {
     if (windowToModify == nullptr) { return; }
     
+	int testSound = ppc::World::getAudio().addSound("gunshots", "Double_Click.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
+
     /////////////////////////////////////////
     /////// COMPONENTS
     ///////////////////////////////////////
@@ -311,6 +320,10 @@ void ppc::spawnHelp(WindowInterface*& windowToModify, InputHandler& ih,
 void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Database* db,
 	sf::Image& buttonSheet, float x, float y) {
 	if (windowToModify == nullptr) { return; }
+
+	int testSound = ppc::World::getAudio().addSound("gunshots", "Double_Click.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
 
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
@@ -426,6 +439,9 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih,
         delete(dir);
 #endif
     
+	int testSound = ppc::World::getAudio().addSound("email", "Button.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
     std::string path = resourcePath() + p;
     //std::cout <<  "\n" + path +  "\n" << std::endl;
     std::string dotEnd;
@@ -521,6 +537,10 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
 
+	int testSound = ppc::World::getAudio().addSound("gunshots", "Double_Click.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
+
 	sf::Font myFont;
 	myFont.loadFromFile(resourcePath() + "consola.ttf");
 	int fontSize = 20;
@@ -578,7 +598,9 @@ void ppc::spawnInbox(Desktop& dT, WindowInterface*& windowToModify, InputHandler
 
 void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, Email* mail, sf::Image& buttonSheet, float x, float y) {
 	if (windowToModify == nullptr) { return; }
-
+	int testSound = ppc::World::getAudio().addSound("email", "Button.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
@@ -632,7 +654,9 @@ void ppc::spawnEmailMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 
 void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, sf::Image& buttonSheet, float x, float y, std::string message, std::string windowCaption) {
 	if (windowToModify == nullptr) { return; }
-
+	int testSound = ppc::World::getAudio().addSound("error", "Blip.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
 	windowToModify->setSize(300, windowToModify->getSize().y);
 	/////////////////////////////////////////
 	/////// COMPONENTS
@@ -702,7 +726,9 @@ void ppc::spawnErrorMessage(WindowInterface*& windowToModify, InputHandler& ih, 
 void ppc::spawnSuccessMessage(WindowInterface *& windowToModify, InputHandler & ih, sf::Image & buttonSheet, float x, float y, std::string message)
 {
 	if (windowToModify == nullptr) { return; }
-
+	int testSound = ppc::World::getAudio().addSound("success", "Notification_New.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
 	/////////////////////////////////////////
 	/////// COMPONENTS
 	///////////////////////////////////////
@@ -996,6 +1022,10 @@ void ppc::spawnExplorer(Desktop& dt, WindowInterface*& windowToModify, InputHand
 	sf::Image& buttonSheet, sf::Image& iconSheet, float x, float y) {
 	/* Check to make sure the window passed isn't null */
 	if (windowToModify == nullptr) { return; }
+
+	int testSound = ppc::World::getAudio().addSound("gunshots", "Double_Click.wav");
+	ppc::World::getAudio().readySound(testSound);
+	ppc::World::getAudio().popAndPlay();
 
 	/////////////////////////////////////////
 	/////// COMPONENTS

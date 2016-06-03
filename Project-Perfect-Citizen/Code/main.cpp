@@ -46,7 +46,10 @@ int main(int argc, char** argv) {
 		ppc::World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
 		ppc::World::getAudio().loopBgm();
 		ppc::World::getAudio().playBgm();
-        
+		int buzzSound = ppc::World::getAudio().addSound("buzz", "Randomize36.wav");
+
+		ppc::World::getAudio().readySound(buzzSound);
+		ppc::World::getAudio().popAndPlay();
     
 		///////////////////////////////////////////////////////////////////
 

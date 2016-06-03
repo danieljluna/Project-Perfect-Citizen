@@ -316,6 +316,9 @@ bool ppc::NetworkInputCmpnt::registerInput(Event ppcEv) {
 				selectEdge(mousePos);
 			}
 			else {
+				int testSound = World::getAudio().addSound("selectVert", "Click.wav");
+				World::getAudio().readySound(testSound);
+				World::getAudio().popAndPlay();
 				network_->setTempEdgeDraw(false);
 			}
 		}
