@@ -36,7 +36,7 @@ bool NetworkCheckFunctor::operator()() {
 			return false;
 		}
     }
-	if (net2_->getCenter < net2_->size()) {
+	if (net2_->getCenter() < net2_->size()) {
 		WindowInterface* feedback = new ppc::Window(300, 150, sf::Color(170, 170, 170));
 		Desktop& desk = World::getCurrDesktop();
 		std::string message = "I think there is a target more suspicious than the\n";
