@@ -249,9 +249,9 @@ bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 		spawnSuccessMessage(success, success->getInputHandler(), ptr->getFolderDesktop()->getButtonSheet(),
 			250, 250, "Access Granted. \n'" + ptr->getFolderName() + "' is now unlocked.");
 		//ptr->getObservingTextBox()->getContainingWindow()->getNotifWindow()->close();
-		ptr->getObservingTextBox()->getContainingWindow()->createNotifWindow(success, true);
-		//ptr->getContainingWindow()->createNotifWindow(success);
-		//ptr->getFolderDesktop()->addWindow(success);
+		//ptr->getObservingTextBox()->getContainingWindow()->createNotifWindow(success, true);
+		//ptr->getContainingWindow()->createNotifWindow(success, true);
+		ptr->getFolderDesktop()->addWindow(success);
 
 		/* Send the event and close the submit wind*/
 		evOut.open.success = false;
