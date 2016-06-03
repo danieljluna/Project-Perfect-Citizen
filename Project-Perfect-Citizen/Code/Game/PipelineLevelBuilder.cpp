@@ -39,68 +39,61 @@ const std::map<std::string, bool> NAME_MAP = {
 const int TUTORIAL_1_NODES = 2;
 const int TUTORIAL_2_NODES = 4;
 
-const int LEVEL_ONE_NUM_NODES = 8;
-const int LEVEL_ONE_NUM_EDGES = 8;
-const int LEVEL_ONE_NODES_LOW = (LEVEL_ONE_NUM_NODES - 1) / 2; // 0 - 3
-const int LEVEL_ONE_NODES_HIGH = (LEVEL_ONE_NUM_NODES / 2);    // 4 - 7
-const int LEVEL_ONE_MSG_PER_EDGE = 1;
+//const int LEVEL_ONE_NUM_NODES = 8;
+//const int LEVEL_ONE_NUM_EDGES = 8;
+//const int LEVEL_ONE_NODES_LOW = (LEVEL_ONE_NUM_NODES - 1) / 2; // 0 - 3
+//const int LEVEL_ONE_NODES_HIGH = (LEVEL_ONE_NUM_NODES / 2);    // 4 - 7
+//const int LEVEL_ONE_MSG_PER_EDGE = 1;
 
 const std::vector<std::pair<unsigned int, unsigned int>> LEVEL_ONE_SUSP_EDGES = {
-	{0, 1},
-	{0, 2},
-	{1, 2},
-	{2, 3},
-	{2, 4}
+	{0, 4},
+	{2, 4},
+	{3, 4},
+	{4, 5}
 };
 
 const std::vector<std::pair<unsigned int, unsigned int>> LEVEL_ONE_INNO_EDGES = {
-	{4, 5},
-	{5, 6},
-	{6, 7},
-	{4, 7}
+	{0, 1},
+	{0, 3},
+	{1, 2},
+	{1, 5}
 };
 
 const std::vector<std::pair<unsigned int, unsigned int>> LEVEL_TWO_SUSP_EDGES = {
 	{0, 1},
-	{0, 4},
+	{0, 2},
 	{0, 3},
-	{1, 6},
-	{2, 3},
-	{2, 5},
-	{5, 9}
+	{0, 4},
+	{1, 4},
 };
 
 const std::vector<std::pair<unsigned int, unsigned int>> LEVEL_TWO_INNO_EDGES = {
-	{0, 9},
-	{4, 6},
-	{6, 7},
-	{7, 8},
-	{8, 9}
+	{1, 6},
+	{2, 5},
+	{3, 6},
+	{5, 6}
 };
 
 const std::vector<std::pair<unsigned int, unsigned int>> LEVEL_THREE_SUSP_EDGES = {
 	{0, 1},
-	{0, 4},
-	{0, 5},
+	{0, 2},
+	{0, 3},
 	{1, 5},
-	{2, 3},
-	{3, 4},
+	{3, 6},
 };
 
 const std::vector<std::pair<unsigned int, unsigned int>> LEVEL_THREE_INNO_EDGES = {
-	{2, 9},
-	{3, 7},
-	{5, 6},
+	{2, 7},
+	{4, 7},
+	{4, 5},
+	{5, 7},
 	{6, 7},
-	{6, 8},
-	{7, 8},
-	{7, 9}
 };
 
 Network* PipelineLevelBuilder::buildTutorialOne() {
 	Network* myNetwork = new Network(TUTORIAL_1_NODES);
 	std::map<std::string, bool> usednames = NAME_MAP;
-	std::srand(time(NULL));
+	std::srand(unsigned int(time(NULL)));
 	std::string name;
 	char c;
 
@@ -131,7 +124,7 @@ Network* PipelineLevelBuilder::buildTutorialOne() {
 Network* PipelineLevelBuilder::buildTutorialTwo() {
 	Network* myNetwork = new Network(TUTORIAL_2_NODES);
 	std::map<std::string, bool> usednames = NAME_MAP;
-	std::srand(time(NULL));
+	std::srand(unsigned int(time(NULL)));
 	std::string name;
 	char c;
 
@@ -174,9 +167,9 @@ Network* PipelineLevelBuilder::buildTutorialTwo() {
 }
 
 Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
-	Network* myNetwork = new Network(8);
+	Network* myNetwork = new Network(6);
 	std::map<std::string, bool> usednames = NAME_MAP;
-	std::srand(time(NULL));
+	std::srand(unsigned int(time(NULL)));
 	std::string name;
 	char c;
 
@@ -195,7 +188,7 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 		}
 	}
 
-	myNetwork->setCenter(2);
+	myNetwork->setCenter(4);
 	Json::Value exprGrammar = expr::ExpressionistParser::parseExpressionistAsJson("TeacherTexts.json");
 	populateEdgesBySet(LEVEL_ONE_SUSP_EDGES, *myNetwork, exprGrammar, 1);
 	populateEdgesBySet(LEVEL_ONE_INNO_EDGES, *myNetwork, exprGrammar, 0);
@@ -220,9 +213,9 @@ Network* PipelineLevelBuilder::buildLevelTwoBNetworkSolution() {
 }
 
 Network* ppc::PipelineLevelBuilder::LevelTwoWithOption(std::string file) {
-	Network* myNetwork = new Network(10);
+	Network* myNetwork = new Network(7);
 	std::map<std::string, bool> usednames = NAME_MAP;
-	std::srand(time(NULL));
+	std::srand(unsigned int(time(NULL)));
 	std::string name;
 	char c;
 
@@ -250,9 +243,9 @@ Network* ppc::PipelineLevelBuilder::LevelTwoWithOption(std::string file) {
 }
 
 Network* PipelineLevelBuilder::buildLevelThreeNetworkSolution() {
-	Network* myNetwork = new Network(10);
+	Network* myNetwork = new Network(8);
 	std::map<std::string, bool> usednames = NAME_MAP;
-	std::srand(time(NULL));
+	std::srand(unsigned int(time(NULL)));
 	std::string name;
 	char c;
 
@@ -377,7 +370,7 @@ void PipelineLevelBuilder::addEdge(int first, int second, Network& net, int susp
 		else thisedge.setColorRed();
 	}
 
-	addSmsMessagesToEdge(thisedge, LEVEL_ONE_MSG_PER_EDGE, net.vert(first).getCharacter(),
+	addSmsMessagesToEdge(thisedge, 1, net.vert(first).getCharacter(),
 		net.vert(second).getCharacter(), exprGrammar);
 
 	net.setEdge(first, second, thisedge);
