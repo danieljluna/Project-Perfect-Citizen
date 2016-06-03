@@ -23,4 +23,6 @@ namespace ppc {
 	void setUpPoliticianDesktop(ppc::Desktop& myDesktop);
 
 	void setUpHackerDesktop(ppc::Desktop& myDesktop);
+
+
 };

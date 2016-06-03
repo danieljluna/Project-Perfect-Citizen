@@ -1,11 +1,6 @@
-{
- "ip": ,
- "hostname": ,
- "city": ,
- "region":,
- "country": ,
- "loc": ,
- "org": ,
- "postal": ,
- "phone": ,
-}
+ Beginning Desktop Extraction At:
+ 
+ Location : 32.7 W ,-96.8 N
+ IP : 106.9.46.93 
+ City : Dallas, 75201
+ 

@@ -18,7 +18,7 @@ private:
 	ssVector bufferStorage;
 	bsVector soundStorage;
 	//bVec bufferVector;
-	int maxSounds = 5;
+	int maxSounds = 15;
 	int soundCount = 0;
 	std::queue<int> soundQueue;
 	
