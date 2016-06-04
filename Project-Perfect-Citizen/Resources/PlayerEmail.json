@@ -21,7 +21,7 @@
 		"Email_2": {
             "Visible" : "1",
 			"To" : "You",
-			"From" : "CT",
+			"From" : "Rex Davis",
             "Subject": "Welcome!",
 			"Body" :"Hey new guy,
             
@@ -37,13 +37,13 @@
 		"Email_3": {
             "Visible" : "1",
 			"To" : "You",
-			"From" : "JP",
+			"From" : "Janelle Pax",
 			"Subject": "First Things First",
 			"Body" : "Hello there,
             
     So you are the new personnel here at the DCPS?
     Well you are going to enjoy your time here, I
-    know it. Anyways, I'm JP and I am your boss 
+    know it. Anyways, I'm Janelle Pax and I am your boss 
     here.
     
     So the first thing you should do is to open the
@@ -57,6 +57,6 @@
     we get closer to achieving the goal of
     \"Perfect Citizen\"
             
-    JP"
+    Janelle Pax"
 		}
 }

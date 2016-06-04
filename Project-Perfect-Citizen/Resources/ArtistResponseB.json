@@ -3,7 +3,7 @@
         "Email_1": {
             "Visible" : "1",
             "To" : "You",
-            "From" : "JP",
+            "From" : "Janelle Pax",
             "Subject" : "Keeping Our Citizens Safe",
             "Body" :"
     Great Work! You just saved many lives today!
@@ -17,7 +17,7 @@
         "Email_2": {
             "Visible" : "1",
             "To" : "You",
-            "From" : "CT",
+            "From" : "Rex Davis",
             "Subject" : "Good Job Newbie",
             "Body" :"
     Impressive work, even for a new guy like you!"
