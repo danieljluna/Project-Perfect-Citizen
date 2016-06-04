@@ -8,7 +8,7 @@ Default: This is the Pipeline Extraction Application.
 Default: It is used to analyze groups of interconnected people.
 Default: We will then further investigate a target from this group.
 Default: Let's go over some basics...
-Peek: Try selecting a Photo
+Default: Try selecting a Photo
 -AltConnections: T 0.0
 Default: Great! Select a photo and right click another to connect them
 -AltSelectEdge: T 0.0
