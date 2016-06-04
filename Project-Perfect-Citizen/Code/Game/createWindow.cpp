@@ -913,7 +913,7 @@ void ppc::spawnUnlock(WindowInterface *& windowToModify, InputHandler & ih, sf::
 	builder.setSize(0.25f);
 	builder.setSpritesByIndicies(0, 2, 2, 1);
 	builder.setSpriteSheet(buttonSheet);
-	builder.setLabelMessage("GO");
+	builder.setLabelMessage("ENTER");
 	builder.setLabelFont(myFont);
 	builder.setLabelSize(12);
 	Entity ent;

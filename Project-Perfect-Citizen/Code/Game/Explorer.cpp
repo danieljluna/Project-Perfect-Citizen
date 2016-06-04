@@ -17,7 +17,8 @@
 
 using namespace ppc;
 
-Explorer::Explorer(Desktop& dT, WindowInterface* win, NodeState* ns, sf::Image& bS, sf::Image& iS) : theDesktop_(dT), windowToWorkOn_(win), theFileTree_(ns), buttonSheet_(bS), iconSheet_(iS) {
+Explorer::Explorer(Desktop& dT, WindowInterface* win, NodeState* ns, sf::Image& bS, sf::Image& iS) : theDesktop_(dT), windowToWorkOn_(win), buttonSheet_(bS), iconSheet_(iS) {
+	theFileTree_ = new NodeState(*ns);
 	updateExplorerDisplay();
 }
 

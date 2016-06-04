@@ -182,9 +182,11 @@ void ppc::ButtonBuilder::create(Entity& e){
 		if (label.size() > 1) {
 			rect = sf::FloatRect(posX, posY, 256 * size, 128 * size);
 		}
-		else {
+		else if(label.compare("") != 0) {
 			rect = sf::FloatRect(posX, posY, 128 * size, 128 * size);
 		}
+		else 
+			rect = sf::FloatRect(posX, posY, 256 * size, 128 * size);
 	
 		mpb = new mousePressButton(*inputHandle, rect);
 		button_mpb = mpb;
