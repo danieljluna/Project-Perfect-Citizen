@@ -21,7 +21,7 @@ mousePressButton::mousePressButton() :
 
 mousePressButton::mousePressButton(ppc::InputHandler& ih, 
 	sf::FloatRect rect) : 
-	InputComponent(3), buttonRect(rect) {
+	InputComponent(4), buttonRect(rect) {
 
 	//add a new subject that is tied to the event
 	ih.addHandle(sf::Event::MouseButtonPressed);
@@ -60,6 +60,7 @@ void mousePressButton::setInputHandle(ppc::InputHandler& ih) {
 	watch(ih, sf::Event::MouseButtonPressed);
 	watch(ih, sf::Event::MouseButtonReleased);
 	watch(ih, sf::Event::MouseMoved);
+
 
 }
 

@@ -34,6 +34,7 @@ namespace ppc {
             SubmissionType,
             AnimationType,
             TimerType,
+			KillContextType,
             Count
         };
 
@@ -69,6 +70,10 @@ namespace ppc {
 
 		struct AbleEv {
 			bool enable;
+		};
+
+		struct KillEv {
+			bool kill;
 		};
 
 		struct OpenEv {
@@ -161,6 +166,7 @@ namespace ppc {
             NetworkEv network;
             SubmissionEv submission;
             AnimationEv animation;
+			KillEv kill;
             TimerEv timer;
             sf::Event sfEvent;
 		};
