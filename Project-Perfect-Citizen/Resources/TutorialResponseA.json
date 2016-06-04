@@ -3,7 +3,7 @@
         "Email_1": {
             "Visible" : "1",
             "To" : "You",
-            "From" : "JP",
+            "From" : "Janelle Pax",
             "Subject" : "Your Simulation Run",
             "Body" :"
     Wow! Great job on the Pipeline and Desktop
@@ -13,14 +13,15 @@
     Well, on to business matters. You are going to
     perform a real Pipeline Extraction. We suspect
     that there is a person in possession of
-    illegal items and it will be your job to find them.
+    illegal items and it will be your job to find
+    them.
             
     Good luck, I know you will do fine. "
         },
         "Email_2": {
             "Visible" : "1",
             "To" : "You",
-            "From" : "CT",
+            "From" : "Rex Davis",
             "Subject" : "A PERFECT SCORE!",
             "Body" :"
     Heh. A perfect score. I scored a perfect score

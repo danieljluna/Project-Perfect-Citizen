@@ -3,7 +3,7 @@
         "Email_1": {
             "Visible" : "1",
             "To" : "You",
-            "From" : "JP",
+            "From" : "Janelle Pax",
             "Subject" : "Your Simulation Run",
             "Body" :"
     Unfortunately, you received the lowest score
@@ -20,7 +20,7 @@
         "Email_2": {
             "Visible" : "1",
             "To" : "You",
-            "From" : "CT",
+            "From" : "Rex Davis",
             "Subject" : "Lowest Score Ever",
             "Body" :"
     You just achieved the lowest score in DCPS
