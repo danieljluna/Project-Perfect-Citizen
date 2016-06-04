@@ -259,7 +259,6 @@
 		C86EA5D51D01EDB30006E168 /* Icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = C86EA47B1D01EDB30006E168 /* Icon.ico */; };
 		C86EA5D61D01EDB30006E168 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C86EA47C1D01EDB30006E168 /* Icon.png */; };
 		C86EA5D71D01EDB30006E168 /* Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = C86EA47D1D01EDB30006E168 /* Icon_Sheet.png */; };
-		C86EA5D91D01EDB30006E168 /* Icon_Sheet2.png in Resources */ = {isa = PBXBuildFile; fileRef = C86EA47F1D01EDB30006E168 /* Icon_Sheet2.png */; };
 		C86EA5DB1D01EDB30006E168 /* last.txt in Resources */ = {isa = PBXBuildFile; fileRef = C86EA4811D01EDB30006E168 /* last.txt */; };
 		C86EA5DC1D01EDB30006E168 /* DE1Address.txt in Resources */ = {isa = PBXBuildFile; fileRef = C86EA4831D01EDB30006E168 /* DE1Address.txt */; };
 		C86EA5DD1D01EDB30006E168 /* DE2AAddress.txt in Resources */ = {isa = PBXBuildFile; fileRef = C86EA4841D01EDB30006E168 /* DE2AAddress.txt */; };
@@ -321,7 +320,6 @@
 		C86EA6161D01EDB30006E168 /* sweeping.wav in Resources */ = {isa = PBXBuildFile; fileRef = C86EA4C01D01EDB30006E168 /* sweeping.wav */; };
 		C86EA6171D01EDB30006E168 /* Switch_Pipeline_Connection_Color.wav in Resources */ = {isa = PBXBuildFile; fileRef = C86EA4C11D01EDB30006E168 /* Switch_Pipeline_Connection_Color.wav */; };
 		C86EA6181D01EDB30006E168 /* Teacher_Icon_Sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = C86EA4C21D01EDB30006E168 /* Teacher_Icon_Sheet.png */; };
-		C86EA61A1D01EDB30006E168 /* Teacher_Icon_Sheet2.png in Resources */ = {isa = PBXBuildFile; fileRef = C86EA4C41D01EDB30006E168 /* Teacher_Icon_Sheet2.png */; };
 		C86EA61B1D01EDB30006E168 /* Teacher_Wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = C86EA4C51D01EDB30006E168 /* Teacher_Wallpaper.png */; };
 		C86EA61C1D01EDB30006E168 /* TeacherResponseA.json in Resources */ = {isa = PBXBuildFile; fileRef = C86EA4C61D01EDB30006E168 /* TeacherResponseA.json */; };
 		C86EA61D1D01EDB30006E168 /* TeacherResponseB.json in Resources */ = {isa = PBXBuildFile; fileRef = C86EA4C71D01EDB30006E168 /* TeacherResponseB.json */; };
@@ -751,7 +749,6 @@
 		C86EA47B1D01EDB30006E168 /* Icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = Icon.ico; sourceTree = "<group>"; };
 		C86EA47C1D01EDB30006E168 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		C86EA47D1D01EDB30006E168 /* Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Sheet.png; sourceTree = "<group>"; };
-		C86EA47F1D01EDB30006E168 /* Icon_Sheet2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Sheet2.png; sourceTree = "<group>"; };
 		C86EA4811D01EDB30006E168 /* last.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = last.txt; sourceTree = "<group>"; };
 		C86EA4831D01EDB30006E168 /* DE1Address.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DE1Address.txt; sourceTree = "<group>"; };
 		C86EA4841D01EDB30006E168 /* DE2AAddress.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DE2AAddress.txt; sourceTree = "<group>"; };
@@ -814,7 +811,6 @@
 		C86EA4C01D01EDB30006E168 /* sweeping.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sweeping.wav; sourceTree = "<group>"; };
 		C86EA4C11D01EDB30006E168 /* Switch_Pipeline_Connection_Color.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Switch_Pipeline_Connection_Color.wav; sourceTree = "<group>"; };
 		C86EA4C21D01EDB30006E168 /* Teacher_Icon_Sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Teacher_Icon_Sheet.png; sourceTree = "<group>"; };
-		C86EA4C41D01EDB30006E168 /* Teacher_Icon_Sheet2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Teacher_Icon_Sheet2.png; sourceTree = "<group>"; };
 		C86EA4C51D01EDB30006E168 /* Teacher_Wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Teacher_Wallpaper.png; sourceTree = "<group>"; };
 		C86EA4C61D01EDB30006E168 /* TeacherResponseA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TeacherResponseA.json; sourceTree = "<group>"; };
 		C86EA4C71D01EDB30006E168 /* TeacherResponseB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TeacherResponseB.json; sourceTree = "<group>"; };
@@ -1255,14 +1251,12 @@
 				C86EA4741D01EDB30006E168 /* Hacker_Icon_Sheet.png */,
 				C86EA4751D01EDB30006E168 /* Hacker_Wallpaper.png */,
 				C86EA47D1D01EDB30006E168 /* Icon_Sheet.png */,
-				C86EA47F1D01EDB30006E168 /* Icon_Sheet2.png */,
 				C86EA47C1D01EDB30006E168 /* Icon.png */,
 				C86EA4891D01EDB30006E168 /* Logo_Sheet.png */,
 				C86EA4941D01EDB30006E168 /* Pixel_Title.png */,
 				C86EA4971D01EDB30006E168 /* Politician_Icon_Sheet.png */,
 				C86EA4981D01EDB30006E168 /* Politician_Wallpaper.png */,
 				C86EA4C21D01EDB30006E168 /* Teacher_Icon_Sheet.png */,
-				C86EA4C41D01EDB30006E168 /* Teacher_Icon_Sheet2.png */,
 				C86EA4C51D01EDB30006E168 /* Teacher_Wallpaper.png */,
 				C86EA4CD1D01EDB30006E168 /* Toolbar_Icons.png */,
 				C86EA4CE1D01EDB30006E168 /* Tutorial_Icons_Sheets.png */,
@@ -2281,7 +2275,6 @@
 				C86EA5AE1D01EDB30006E168 /* DesktopTutorial.txt in Resources */,
 				C86EA5BB1D01EDB30006E168 /* hackerDesktop.ini in Resources */,
 				C86EA5B41D01EDB30006E168 /* Email2.json in Resources */,
-				C86EA5D91D01EDB30006E168 /* Icon_Sheet2.png in Resources */,
 				C86EA58D1D01EDB30006E168 /* DCPS_Crew.png in Resources */,
 				C86EA5F91D01EDB30006E168 /* ArtistReportA.txt in Resources */,
 				C86EA50C1D01EDB30006E168 /* 5678.png in Resources */,
@@ -2351,7 +2344,6 @@
 				C86EA62F1D01EDB30006E168 /* World_Sheet.png in Resources */,
 				C86EA5011D01EDB30006E168 /* Passwords.txt in Resources */,
 				C86EA5701D01EDB30006E168 /* Nov1.png in Resources */,
-				C86EA61A1D01EDB30006E168 /* Teacher_Icon_Sheet2.png in Resources */,
 				C86EA5031D01EDB30006E168 /* route_plan.png in Resources */,
 				C86EA5161D01EDB30006E168 /* Donne - Med 17.txt in Resources */,
 			);
