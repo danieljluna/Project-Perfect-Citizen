@@ -194,7 +194,7 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
                     theDesktop_.focusWindow(openedWindow);
                 } else {
                     tempWin = new ppc::Window(800, 600, sf::Color(200, 200, 200));
-                    ppc::spawnPipeline(tempWin, tempWin->getInputHandler(), theDatabase_, buttonSheet_, 100, 200);
+                    ppc::spawnPipeline(tempWin, tempWin->getInputHandler(), theDatabase_, buttonSheet_, 100, 100);
                     theDesktop_.addWindow(tempWin);
                     openedWindow = tempWin;
                 }
