@@ -82,9 +82,7 @@ HelpWindowRenderComponent::HelpWindowRenderComponent(sf::Font& f, int x, int y, 
 	desktopsHelpString += " The virtual machine will compare the file against our database\n";
 	desktopsHelpString += "of known criminal data and deliver you a suspiciousness report\n";
 	desktopsHelpString += "ranging from 1-10. 1's are considered the least suspicious reports \n";
-	desktopsHelpString += "while 10's are considered extremely dangerous. Please note that in \n"; 
-	desktopsHelpString += "order to prevent a security breach on SecureNet servers, the DCPS \n";
-	desktopsHelpString += "will only grant 3 scans per Desktop Extraction. Use them wisely!\n\n";
+	desktopsHelpString += "while 10's are considered extremely dangerous. \n";
 	desktopsHelpString += " When you are done, click 'Submit' in the file holder to complete\n";
 	desktopsHelpString += "your desktop extraction. \n\n";
 	desktopsHelpString += " Note: The DCPS recommends looking at all potential files before\n";
