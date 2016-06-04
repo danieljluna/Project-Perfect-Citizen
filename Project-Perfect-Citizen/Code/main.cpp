@@ -27,7 +27,7 @@
 using namespace ppc;
 
 int main(int argc, char** argv) {
-    //try {
+    try {
 
 		DBG_INIT();
 		//Scans Debug Flags
@@ -78,10 +78,10 @@ int main(int argc, char** argv) {
 			World::setLevel(currDesk, deskScore);
 		}
 
-	/*}
+	}
 	catch (std::exception e) {
 		std::cerr << e.what();
-	}*/
+	}
 
     if (World::getCurrDesktopEnum() > World::DELogin) {
         World::saveState("PPC.sav");
