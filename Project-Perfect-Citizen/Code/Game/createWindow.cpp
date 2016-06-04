@@ -1471,7 +1471,7 @@ void ppc::spawnCreditsWindow(Desktop * dt, WindowInterface *& windowToModify, In
 	Entity programmerList;
     builder.setSize(subHeaderSize);
 	builder.setPosition(sf::Vector2f(subHeaderX, 500.0f));
-	builder.setString("       Daniel Luna   Lead Developer\n       Nader Sleem   Game Programmer\n John 'Andy' Baden   Game Programmer/Designer\n       Michael Lowe  Game Programmer\n");
+	builder.setString("       Daniel Luna   Lead Developer\n       Nader Sleem   Game Programmer\n John 'Andy' Baden   Game Programmer/Designer\n      Michael Lowe   Game Programmer\n");
 	builder.create(programmerList);
 	windowToModify->addEntity(programmerList);
 
