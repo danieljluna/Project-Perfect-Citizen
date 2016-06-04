@@ -36,13 +36,23 @@ bool NetworkCheckFunctor::operator()() {
 			return false;
 		}
     }
-	WindowInterface* feedback = new ppc::Window(300, 150, sf::Color(170, 170, 170));
-	Desktop& desk = World::getCurrDesktop();
-	std::string message = "I think there is a target more suspicious than the\n";
-	message +=			  "  one you chose.  See if you can find them! - CT";
-	spawnErrorMessage(feedback, feedback->getInputHandler(), desk.getButtonSheet(), 300.f, 300.f, 
-		message, "Pipeline Feedback");
-	desk.addWindow(feedback);
+	if (net2_->getCenter() < net2_->size()) {
+		WindowInterface* feedback = new ppc::Window(300, 150, sf::Color(170, 170, 170));
+		Desktop& desk = World::getCurrDesktop();
+		std::string message = "I think there is a target more suspicious than the\n";
+		message += "  one you chose.  See if you can find them! - CT";
+		spawnErrorMessage(feedback, feedback->getInputHandler(), desk.getButtonSheet(), 300.f, 300.f,
+			message, "Pipeline Feedback");
+		desk.addWindow(feedback);
+	}
+	else {
+		WindowInterface* feedback = new ppc::Window(300, 150, sf::Color(170, 170, 170));
+		Desktop& desk = World::getCurrDesktop();
+		std::string message = "You must choose a center before submitting";
+		spawnErrorMessage(feedback, feedback->getInputHandler(), desk.getButtonSheet(), 300.f, 300.f,
+			message, "Pipeline Error");
+		desk.addWindow(feedback);
+	}
 	//respond to center different
     return false;
 }
