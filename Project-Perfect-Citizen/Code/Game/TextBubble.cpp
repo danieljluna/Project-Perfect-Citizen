@@ -43,7 +43,7 @@ sf::String ppc::TextBubble::wrapText(sf::String string, bool bold = false) {
 ppc::TextBubble::TextBubble() {
 	currStr_ = "";
 	displayText_.setString(currStr_);
-	displayText_.setCharacterSize(12);
+	displayText_.setCharacterSize(13);
 	displayText_.setColor(sf::Color::Black);
 	displayText_.setFont(World::getFont(World::Consola));
 	displayText_.setPosition({4.f,5.f});
