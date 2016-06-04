@@ -380,26 +380,23 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
 		}
 	}
 
-	if (focused_->getNotifWindow() == nullptr) {
-		focused_->registerInput(ppcEv);
-	}
-	else {
-		focused_->getNotifWindow()->registerInput(ppcEv);
-	}
-
 	if ((ppcEv.type == Event::sfEventType) &&
 		(ppcEv.sfEvent.type == sf::Event::MouseButtonReleased)) {
-
 		auto winCopy(windows_);
 
-		Event ev;
-		ev.type = Event::EventTypes::KillContextType;
-
 		for (auto it : winCopy) {
-			it->registerInput(ev);
+			it->registerInput(ppcEv);
 			if (it->getNotifWindow() != nullptr) {
-				it->getNotifWindow()->registerInput(ev);
+				it->getNotifWindow()->registerInput(ppcEv);
 			}
+		}
+	}
+	else {
+		if (focused_->getNotifWindow() == nullptr) {
+			focused_->registerInput(ppcEv);
+		}
+		else {
+			focused_->getNotifWindow()->registerInput(ppcEv);
 		}
 	}
 

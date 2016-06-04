@@ -1689,8 +1689,6 @@ bool ppc::decrement_volume(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)
 bool ppc::toggle_window_settings(TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
 	ptr->incrementRenderState();
-	// Danny: Do something with this string
-	// It'll either be Windowed or Full Screen
 	std::string targetWindowMode = ptr->getString();
 	std::remove_if(targetWindowMode.begin(), targetWindowMode.end(), isspace);
 	std::cout << targetWindowMode;
