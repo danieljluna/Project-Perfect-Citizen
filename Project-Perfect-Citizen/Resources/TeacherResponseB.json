@@ -3,16 +3,12 @@
         "Email_1": {
             "Visible" : "1",
             "To" : "You",
-            "From" : "JP",
-            "Subject" : "Good Job Today",
+            "From" : "Janelle Pax",
+            "Subject" : "Depressing",
             "Body" :"
-    Good job today on your first big extraction!
-    You see, it is important to go through people
-    desktop so we can get scum like those out of
-    reach of our children! I still cannot believe
-    that a person like that was a teacher!
-            
-    We hope to see more good work from you.
+    It is depressing to see our system flag people
+    that are not guilty. I will tell the design
+    team to work on the flagging algorithm.
             
     Your next assignment is ready in the Graph
     application."
@@ -20,10 +16,14 @@
         "Email_2": {
             "Visible" : "1",
             "To" : "You",
-            "From" : "CT",
-            "Subject" : "Great Job!",
+            "From" : "Rex Davis",
+            "Subject" : "Look At All The Details",
             "Body" :"
-    Impressive work busting your guy! "
+    It is quite strange that your first case was a
+    false pick by the system. That has only
+    happened to me once in my entire career. Just
+    make sure you pay attention to all the details
+    in the Desktop Extraction."
         }
     }
 }

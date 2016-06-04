@@ -115,17 +115,17 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
 				listElements.push_back(listElement);
 
 				Entity listElement2;
-				builder.setLabelMessage("Flag");
+				builder.setLabelMessage("Scan");
 				builder.setListElementPosition(0, fontSize + fontPadding);
 				builder.setLabelPosition({ 0.0f, fontSize + fontPadding });
-				createWithEventFunc(builder, listElement2, this, ppc::flag_desktop_file);
+				createWithEventFunc(builder, listElement2, this, ppc::spawn_desktop_prompt_msg);
 				listElements.push_back(listElement2);
 
 				Entity listElement3;
-				builder.setLabelMessage("Scan");
+				builder.setLabelMessage("Flag");
 				builder.setListElementPosition(0, (fontSize + fontPadding) * 2);
 				builder.setLabelPosition({ 0.0f, (fontSize + fontPadding) * 2 });
-				createWithEventFunc(builder, listElement3, this, ppc::spawn_desktop_prompt_msg);
+				createWithEventFunc(builder, listElement3, this, ppc::flag_desktop_file);
 				listElements.push_back(listElement3);
 
 				spawnContextMenu(ContextMenu, listElements, static_cast<float>(ev.buttons.mousePos.x), static_cast<float>(ev.buttons.mousePos.y));
@@ -194,7 +194,7 @@ void ppc::iconInputComponent::recieveMessage(ppc::Event ev) {
                     theDesktop_.focusWindow(openedWindow);
                 } else {
                     tempWin = new ppc::Window(800, 600, sf::Color(200, 200, 200));
-                    ppc::spawnPipeline(tempWin, tempWin->getInputHandler(), theDatabase_, buttonSheet_, 100, 200);
+                    ppc::spawnPipeline(tempWin, tempWin->getInputHandler(), theDatabase_, buttonSheet_, 100, 100);
                     theDesktop_.addWindow(tempWin);
                     openedWindow = tempWin;
                 }

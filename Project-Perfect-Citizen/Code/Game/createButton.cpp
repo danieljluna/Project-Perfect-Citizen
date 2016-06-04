@@ -53,7 +53,6 @@ void ppc::spawnStartButton(ppc::Entity& entityToModify, Desktop& d, ppc::InputHa
 	builder.setLabelSize(static_cast<int>(size));
 	builder.setSpriteSheet(spritesheet);
     
-
 	createWithEventFunc<Desktop>(builder, entityToModify, &d, &(ppc::spawnStartMenu));
 
 }

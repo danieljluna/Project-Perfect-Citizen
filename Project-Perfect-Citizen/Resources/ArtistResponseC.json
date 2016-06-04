@@ -3,11 +3,13 @@
         "Email_1": {
             "Visible" : "1",
             "To" : "You",
-            "From" : "JP",
+            "From" : "Janelle Pax",
             "Subject" : "Shocked",
             "Body" :"
+    
+    A lot of people died today. 
     I am utterly shocked! We could have saved the
-    lives of those 11 people! We will just have to
+    lives of those 8 people! We will just have to
     try harder next time.
 	
 	Your next assignment is available, but keep in
@@ -17,14 +19,13 @@
         "Email_2": {
             "Visible" : "1",
             "To" : "You",
-            "From" : "CT",
-            "Subject" : "Keep Your Head Uo",
+            "From" : "Rex Davis",
+            "Subject" : "Keep Your Head Up",
             "Body" :"
-    Hey, you are probably going through a rough
-    time right now, but don't beat yourself up 
-    over it. It is his fault, not your fault, that
-    those people died; he is the one that killed
-    those people, we just tried to prevent it."
+    Hey, we all screwed up at some point. Just try
+    and learn from it. You can't stop every crazy 
+    you run into. Let's just make sure we stop the
+    next one."
         }
     }
 }

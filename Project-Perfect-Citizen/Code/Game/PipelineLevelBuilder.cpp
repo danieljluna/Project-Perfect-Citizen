@@ -93,7 +93,7 @@ const std::vector<std::pair<unsigned int, unsigned int>> LEVEL_THREE_INNO_EDGES 
 Network* PipelineLevelBuilder::buildTutorialOne() {
 	Network* myNetwork = new Network(TUTORIAL_1_NODES);
 	std::map<std::string, bool> usednames = NAME_MAP;
-	std::srand(unsigned int(time(NULL)));
+	std::srand((unsigned int)(time(NULL)));
 	std::string name;
 	char c;
 
@@ -124,7 +124,7 @@ Network* PipelineLevelBuilder::buildTutorialOne() {
 Network* PipelineLevelBuilder::buildTutorialTwo() {
 	Network* myNetwork = new Network(TUTORIAL_2_NODES);
 	std::map<std::string, bool> usednames = NAME_MAP;
-	std::srand(unsigned int(time(NULL)));
+	std::srand((unsigned int)(time(NULL)));
 	std::string name;
 	char c;
 
@@ -169,7 +169,7 @@ Network* PipelineLevelBuilder::buildTutorialTwo() {
 Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 	Network* myNetwork = new Network(6);
 	std::map<std::string, bool> usednames = NAME_MAP;
-	std::srand(unsigned int(time(NULL)));
+	std::srand((unsigned int)(time(NULL)));
 	std::string name;
 	char c;
 
@@ -215,7 +215,7 @@ Network* PipelineLevelBuilder::buildLevelTwoBNetworkSolution() {
 Network* ppc::PipelineLevelBuilder::LevelTwoWithOption(std::string file) {
 	Network* myNetwork = new Network(7);
 	std::map<std::string, bool> usednames = NAME_MAP;
-	std::srand(unsigned int(time(NULL)));
+	std::srand((unsigned int)(time(NULL)));
 	std::string name;
 	char c;
 
@@ -245,7 +245,7 @@ Network* ppc::PipelineLevelBuilder::LevelTwoWithOption(std::string file) {
 Network* PipelineLevelBuilder::buildLevelThreeNetworkSolution() {
 	Network* myNetwork = new Network(8);
 	std::map<std::string, bool> usednames = NAME_MAP;
-	std::srand(unsigned int(time(NULL)));
+	std::srand((unsigned int)(time(NULL)));
 	std::string name;
 	char c;
 
