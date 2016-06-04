@@ -257,10 +257,9 @@ bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 		ppc::WindowInterface* ErrorMsgWindow =
 		new ppc::Window(500, 150, sf::Color(170, 170, 170));
 		spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), ptr->getFolderDesktop()->getButtonSheet(),
-		250, 250,
+		300, 250,
 			"Error: Password incorrect. \nHint: " + ptr->getFolderNodeState()->getCwd()->findElement(ptr->getFolderName())->getHint(), "Incorrect Password");
-		ptr->getObservingTextBox()->getContainingWindow()->createNotifWindow(ErrorMsgWindow, false);
-		//ptr->getFolderDesktop()->addWindow(ErrorMsgWindow);
+		ptr->getContainingWindow()->createNotifWindow(ErrorMsgWindow, true);
         evOut.open.success = false;
 	}
 	

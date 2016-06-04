@@ -83,8 +83,8 @@ int main(int argc, char** argv) {
 		std::cerr << e.what();
 	}
 
-    	if (World::getCurrDesktopEnum() > World::DELogin) {
-        	World::saveState("PPC.sav");
+    if (World::getCurrDesktopEnum() > World::DELogin) {
+        World::saveState("PPC.sav");
    	}
 	
 	World::cleanWorld();

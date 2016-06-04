@@ -287,6 +287,7 @@ void Window::registerInput(Event ppcEv) {
                 ppcEv.sfEvent.mouseMove.y = int(click.y);
             }
             break;
+		
         }
     }
 
