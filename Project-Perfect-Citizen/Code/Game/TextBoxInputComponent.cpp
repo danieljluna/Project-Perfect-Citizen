@@ -110,6 +110,12 @@ bool TextBoxInputComponent::registerInput(Event ppcEv) {
 					textBox.updateLabelString(getString(), vecstrindex);
 				}
 			}
+			else if (ev.key.code == sf::Keyboard::Space) {
+				if (vecstr.size() < max_chars - 1) {
+					vecstr.insert(vecstr.begin() + vecstrindex, ' ');
+					textBox.updateLabelString(getString(), ++vecstrindex);
+				}
+			}
 			else if (ev.key.code == sf::Keyboard::Right) {
 				if (vecstrindex < vecstr.size()) {
 					vecstrindex++;
