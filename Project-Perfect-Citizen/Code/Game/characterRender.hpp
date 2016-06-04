@@ -61,7 +61,7 @@ namespace ppc {
 		std::vector<sf::Color> hairTones;
 		std::vector<sf::Color> lipTones;
 
-		static const int grid_size = 128;
+		static const int grid_size = 32;
 		static const int combinations = 3;
 
 		float bodyScale, eyeScale, mouthScale, noseScale;

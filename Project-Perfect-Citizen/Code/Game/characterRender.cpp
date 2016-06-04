@@ -43,6 +43,8 @@ characterRender::characterRender(sf::Image& image): characterRender() {
 	origin.x = 0; 
 	origin.y = 0;
     
+    texture.setSmooth(true);
+    
     if (!textureIsLoaded) {
         sf::IntRect area(0 * grid_size,
                          0 * grid_size,
@@ -103,10 +105,10 @@ characterRender::~characterRender() {
 }
 
 void ppc::characterRender::setImage(sf::Image & image) {
-	bodyScale = 0.16f;
-	eyeScale = 0.10f;
-	mouthScale = 0.08f;
-	noseScale = 0.09f;
+	bodyScale = 0.64f;
+	eyeScale = 0.4f;
+	mouthScale = 0.32f;
+	noseScale = 0.36f;
 
 	hairPos = { 18, 2 };
 	eyeLPos = { 35, 33 };
@@ -345,6 +347,7 @@ void characterRender::setShouldDraw(bool d) {
 void characterRender::draw( sf::RenderTarget& target,
                            sf::RenderStates states) const {
     if (shouldDraw_) {
+        
         target.draw(body, states);
         target.draw(hair, states);
         target.draw(shirt, states);
