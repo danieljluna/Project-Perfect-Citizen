@@ -343,10 +343,10 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	/* Create the render components */
 	PipelineDataRenderComponent* dataText = new PipelineDataRenderComponent(myFont, 
 		static_cast<int>(dataWindowX), 0, fontSize, windowToModify->getSize().x, 
-		windowToModify->getSize().y);
+		windowToModify->getSize().y*2);
 
 	PipelineGraphRenderComponent* graphBounds = new PipelineGraphRenderComponent(0, 0, dataWindowX,
-		float(windowToModify->getSize().y));
+		float(windowToModify->getSize().y*2));
     
 
     //Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
@@ -428,7 +428,15 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 			ncf, myFont);
 		windowToModify->addEntity(submitButton);
 	}
+    windowToModify->setSize(windowToModify->getSize().x, 1000.f);
+    sf::FloatRect viewRect = {
+        0.0f,
+        0.0f,
+        float(windowToModify->getSize().x),
+        float(windowToModify->getSize().y/1.6)
+    };
 	windowToModify->setPosition(x, y);
+    windowToModify = new ScrollBarDecorator(*windowToModify, World::getCurrDesktop().getButtonSheet(), sf::View(viewRect));
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("DCPS Pipeline Application v.3.762");
@@ -526,7 +534,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih,
         photoRender->setImageScale((float)windowToModify->getSize().x /
                                (float)photo.getSize().x,
                                (float)windowToModify->getSize().y /
-                                   (float)photo.getSize().y);
+                                (float)photo.getSize().y);
     }
     
     /////////////////////////////////////////
