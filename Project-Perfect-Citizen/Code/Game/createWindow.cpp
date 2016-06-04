@@ -79,6 +79,7 @@
 #include "flaggedFileInputComponent.h"
 
 #include "LoginInputCmpnt.h"
+#include <algorithm>
 
 #include "../Engine/Setting.h"
 
@@ -1688,13 +1689,14 @@ bool ppc::decrement_volume(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)
 bool ppc::toggle_window_settings(TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
 	ptr->incrementRenderState();
-
 	// Danny: Do something with this string
 	// It'll either be Windowed or Full Screen
 	std::string targetWindowMode = ptr->getString();
-    if (targetWindowMode == "Windowed") {
+	std::remove_if(targetWindowMode.begin(), targetWindowMode.end(), isspace);
+	std::cout << targetWindowMode;
+    if (targetWindowMode == "Windoweded") {
         tempSetting.fullscreen = false;
-    } else if (targetWindowMode == "Fullscreen") {
+    } else if (targetWindowMode == "FullScreenen") {
         tempSetting.fullscreen = true;
     }
 

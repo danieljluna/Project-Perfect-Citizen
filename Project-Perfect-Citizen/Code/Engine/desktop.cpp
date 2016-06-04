@@ -392,10 +392,13 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
 
 		auto winCopy(windows_);
 
+		Event ev;
+		ev.type = Event::EventTypes::KillContextType;
+
 		for (auto it : winCopy) {
-			it->registerInput(ppcEv);
+			it->registerInput(ev);
 			if (it->getNotifWindow() != nullptr) {
-				it->getNotifWindow()->registerInput(ppcEv);
+				it->getNotifWindow()->registerInput(ev);
 			}
 		}
 	}
