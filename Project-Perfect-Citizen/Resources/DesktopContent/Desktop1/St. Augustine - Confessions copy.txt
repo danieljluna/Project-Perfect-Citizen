@@ -13,55 +13,49 @@ Number: 55-5021
 This book is in the public domain.
 It was scanned from an uncopyrighted 
 edition.
-Harry Plantinga
-planting@cs.pitt.edu
 
 Introduction
-LIKE A COLOSSUS BESTRIDING TWO WORLDS, 
-Augustine stands as the last patristic
-and the first medieval father of 
-Western Christianity. He gathered 
-together and
+LIKE A COLOSSUS BESTRIDING TWO WORLDS,
+Augustine stands as the last patristic and
+the first medieval father of Western
+Christianity. He gathered together and
 conserved all the main motifs of Latin 
-Christianity from Tertullian to 
-Ambrose; he
+Christianity from Tertullian to Ambrose; he
 appropriated the heritage of Nicene 
 orthodoxy; he was a Chalcedonian before
-Chalcedon--and he drew all this into an 
+Chalcedon--and he drew all this into an
 unsystematic synthesis which is still 
-our best mirror of the heart and mind of
-the Christian community in the Roman
-Empire. More than this, he freely 
-received and deliberately reconsecrated 
-the religious philosophy of the Greco-Roman
-world to a new apologetic use in
-maintaining the intelligibility of the 
-Christian proclamation. Yet, even in 
-his role as summator of tradition, he was
-no mere eclectic. The center of his "system"
-is in the Holy Scriptures, as they ordered and
-moved his heart and mind. It was in 
-Scripture that, first and last, Augustine found
-the focus of his religious authority.
-At the same time, it was this 
-essentially conservative genius who 
-recast the patristic tradition into the new
-pattern by which European Christianity 
-would be largely shaped and who, with relatively
-little interest in historical detail, 
-wrought out the first comprehensive "philosophy
-of history." Augustine regarded himself 
-as much less an innovator than a summator.
-He was less a reformer of the Church
-than the defender of the Church's 
+our best mirror of the heart and mind of the
+Christian community in the Roman Empire. More
+than this, he freely received and
+deliberately reconsecrated the religious
+philosophy of the Greco-Roman world to a new
+apologetic use in maintaining the
+intelligibility of the Christian
+proclamation. Yet, even in his role as
+summator of tradition, he was no mere
+eclectic. The center of his "system" is in
+the Holy Scriptures, as they ordered and
+moved his heart and mind. It was in Scripture
+that, first and last, Augustine found the
+focus of his religious authority. At the same
+time, it was this essentially conservative
+genius who recast the patristic tradition
+into the new pattern by which European
+Christianity would be largely shaped and who,
+with relatively little interest in historical
+detail, wrought out the first comprehensive
+"philosophy of history." Augustine regarded
+himself as much less an innovator than a
+summator. He was less a reformer of the
+Church than the defender of the Church's
 faith. His own self-chosen project was 
 to save Christianity from the disruption of
 heresy and the calumnies of the pagans, 
 and, above everything else, to renew and
 exalt the faithful hearing of the 
-gospel of man's
-utter need and God's abundant grace. 
-But the unforeseen result of this 
+gospel of man's utter need and God's abundant
+grace. But the unforeseen result of this
 enterprise was to furnish the motifs of the
 Church's piety and doctrine for the 
 next thousand years and more. Wherever one
@@ -69,48 +63,41 @@ touches the Middle Ages, he finds the marks
 of Augustine's influence, powerful and
 pervasive--even Aquinas is more of an
 Augustinian at heart than a "proper" 
-Aristotelian. In the Protestant 
-Reformation, the evangelical elements in
-Augustine's thought were appealed to in
-condemnation of the corruptions of popular
-Catholicism--yet even those corruptions 
-had a certain right of appeal to some of the
-non-evangelical aspects of Augustine's 
-thought and life. And, still today, in the
-important theological revival of our 
-own time, the influence of Augustine is
-obviously one of the most potent and
-productive impulses at work.
-A succinct characterization of 
-Augustine is impossible, not only 
-because his thought is so extraordinarily
-complex and his expository method so incurably
-digressive, but also because throughout 
-his entire career there were lively 
-tensions and massive prejudices in his heart
-and head. His doctrine of God holds the
-Plotinian notions of divine unity and 
-remotion in tension with the Biblical 
+Aristotelian. In the Protestant Reformation,
+the evangelical elements in Augustine's
+thought were appealed to in condemnation of
+the corruptions of popular Catholicism--yet
+even those corruptions had a certain right of
+appeal to some of the non-evangelical aspects
+of Augustine's thought and life. And, still
+today, in the important theological revival
+of our own time, the influence of Augustine
+is obviously one of the most potent and
+productive impulses at work. A succinct
+characterization of Augustine is impossible,
+not only because his thought is so
+extraordinarily complex and his expository
+method so incurably digressive, but also
+because throughout his entire career there
+were lively tensions and massive prejudices
+in his heart and head. His doctrine of God
+holds the Plotinian notions of divine unity
+and remotion in tension with the Biblical
 emphasis upon the sovereign God's active
 involvement in creation and redemption. 
-For all his
-devotion to Jesus Christ, this theology 
-was never adequately Christocentric, and
-this reflects itself in many ways in 
-his practical conception of the 
-Christian life. He
-did not invent the doctrines of 
+For all his devotion to Jesus Christ, this
+theology was never adequately Christocentric,
+and this reflects itself in many ways in
+his practical conception of the Christian
+life. He did not invent the doctrines of
 original sin and seminal transmission 
-of guilt but he
-did set them as cornerstones in his 
-"system," matching them with a doctrine 
-of infant baptism which cancels, ex opere
-operato, birth sin and hereditary 
-guilt. He
-never wearied of celebrating God's 
-abundant mercy and grace--but he was 
-also fully
-persuaded that the vast majority of 
+of guilt but he did set them as cornerstones
+in his "system," matching them with a
+doctrine of infant baptism which cancels, ex
+opere operato, birth sin and hereditary
+guilt. He never wearied of celebrating God's
+abundant mercy and grace--but he was also
+fully persuaded that the vast majority of 
 mankind are condemned to a wholly just 
 and appalling damnation. He never denied
 the reality of human freedom and never
