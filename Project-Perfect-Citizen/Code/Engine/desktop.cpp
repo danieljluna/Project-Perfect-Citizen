@@ -379,27 +379,29 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
             }
 		}
 	}
-	
 
-    if ((ppcEv.type == Event::sfEventType) &&
-        (ppcEv.sfEvent.type == sf::Event::MouseButtonReleased)) {
+	if (focused_->getNotifWindow() == nullptr) {
+		focused_->registerInput(ppcEv);
+	}
+	else {
+		focused_->getNotifWindow()->registerInput(ppcEv);
+	}
 
-        auto winCopy(windows_);
-        
-        for (auto it: winCopy) {
-            it->registerInput(ppcEv);
-            if (it->getNotifWindow() != nullptr) {
-                it->getNotifWindow()->registerInput(ppcEv);
-            }
-        }
+	if ((ppcEv.type == Event::sfEventType) &&
+		(ppcEv.sfEvent.type == sf::Event::MouseButtonReleased)) {
 
-    } else {
-        if (focused_->getNotifWindow() == nullptr) {
-            focused_->registerInput(ppcEv);
-        } else {
-            focused_->getNotifWindow()->registerInput(ppcEv);
-        }
-    }
+		auto winCopy(windows_);
+
+		for (auto it : winCopy) {
+			it->registerInput(ppcEv);
+			if (it->getNotifWindow() != nullptr) {
+				it->getNotifWindow()->registerInput(ppcEv);
+			}
+		}
+	}
+
+       
+  
 }
 
 void ppc::Desktop::update(sf::Time& deltaTime){

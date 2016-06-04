@@ -52,11 +52,10 @@ void contextListElementRenderComponent::recieveMessage(Event ev) {
 
 	//Close the context menu if a release button is 
 	case Event::EventTypes::sfEventType:
-		if (ev.sfEvent.type == sf::Event::MouseButtonReleased &&
-			ev.buttons.activation == Event::ButtonsEv::LeftMouse) {
+		if(ev.sfEvent.type == sf::Event::MouseButtonReleased &&
+			ev.buttons.activation == Event::ButtonsEv::LeftMouse)
 			if(containingWindow != nullptr)
 				containingWindow->close();
-		}
 		break;
 
 		case Event::EventTypes::ButtonType:

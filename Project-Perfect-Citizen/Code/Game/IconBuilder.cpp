@@ -117,7 +117,7 @@ void ppc::IconBuilder::create(Entity &e) {
 	buttonRenderComponent* IconRender = new buttonRenderComponent(dt->getIconSheet(), sheetX, sheetY, width, frames);
 	IconRender->setImageScale(size, size);
 	IconRender->renderPosition({ posX, posY });
-	IconRender->setButtonType("ICON");
+	if(iconType != iconInputComponent::IconType::File) IconRender->setButtonType("ICON");
 	animatorComponent* animator = new animatorComponent(*IconRender, animationSpeed);
 
 	sf::FloatRect iconBounds(IconRender->getSprite()->getGlobalBounds().left, IconRender->getSprite()->getGlobalBounds().top,
