@@ -92,7 +92,7 @@ void TextBoxRenderComponent::updateLabelString(std::string str, unsigned int cur
 	//if (isMasked) labelString.replace(0, str.length(), str.length(), '*');
 	outline->setString(str);
 
-	cursorSprite->setPosition(text->getPosition().x + (cursorpos * text->getCharacterSize())/1.80, text->getPosition().y + 5);
+	cursorSprite->setPosition(float(text->getPosition().x + (cursorpos * text->getCharacterSize())/1.80), float(text->getPosition().y + 5));
 	//if (renderCursor)
 
 		//outline->setString(labelString+"|");

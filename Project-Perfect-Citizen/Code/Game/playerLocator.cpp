@@ -107,6 +107,7 @@ std::string PlayerLocator::generateLocation() {
     catch (std::exception& e) {
         //No member named 'cerr' in namespace 'std'
         //std::cerr << e.what() << std::endl;
+		e.what(); //to mute the warning
         return "{\n   \"ip\": \"127.0.0.1\",\n   \"hostname\" : \"Your Computer\",\n   \"city\" : \"Your City\",\n   \"region\" : \"Your State\",\n   \"country\" : \"Your Country\",\n   \"loc\" : \"____,____\",\n   \"org\" : \"Your Home\",\n   \"postal\" : \"We're Watching\",\n   \"phone\" : \"###\" \n}";
     }
 }

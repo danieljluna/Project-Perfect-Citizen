@@ -90,7 +90,10 @@ const std::vector<std::pair<unsigned int, unsigned int>> LEVEL_THREE_INNO_EDGES 
 	{6, 7},
 };
 
+bool PipelineLevelBuilder::doShuffle = true;
+
 Network* PipelineLevelBuilder::buildTutorialOne() {
+	doShuffle = true;
 	Network* myNetwork = new Network(TUTORIAL_1_NODES);
 	std::map<std::string, bool> usednames = NAME_MAP;
 	std::srand((unsigned int)(time(NULL)));
@@ -119,9 +122,8 @@ Network* PipelineLevelBuilder::buildTutorialOne() {
 	return myNetwork;
 }
 
-
-
 Network* PipelineLevelBuilder::buildTutorialTwo() {
+	doShuffle = true;
 	Network* myNetwork = new Network(TUTORIAL_2_NODES);
 	std::map<std::string, bool> usednames = NAME_MAP;
 	std::srand((unsigned int)(time(NULL)));
@@ -159,7 +161,8 @@ Network* PipelineLevelBuilder::buildTutorialTwo() {
 	addEdge(2, 3, *myNetwork, 1, exprGrammar);
 	addEdge(3, 0, *myNetwork, 1, exprGrammar);
 
-    myNetwork->setCenter(3);
+	std::vector<size_t> indexVec = { 0, 1, 2, 3 };
+	std::random_shuffle(indexVec.begin(), indexVec.end());
 
     myNetwork->setCenter(3);
 
@@ -167,13 +170,14 @@ Network* PipelineLevelBuilder::buildTutorialTwo() {
 }
 
 Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
+	doShuffle = true;
 	Network* myNetwork = new Network(6);
 	std::map<std::string, bool> usednames = NAME_MAP;
 	std::srand((unsigned int)(time(NULL)));
 	std::string name;
 	char c;
 
-	for (int i = 0; i < myNetwork->size();) { //6 nodes in level 1
+	for (size_t i = 0; i < myNetwork->size();) { //6 nodes in level 1
 		name = "";
 		c = std::rand() % 26 + 'A';
 		name += c;
@@ -197,6 +201,7 @@ Network* PipelineLevelBuilder::buildLevelOneNetworkSolution() {
 }
 
 Network* PipelineLevelBuilder::buildLevelTwoANetworkSolution() {
+
 	World::getAudio().stopAllSounds();
 	World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
 	World::getAudio().loopBgm();
@@ -213,13 +218,14 @@ Network* PipelineLevelBuilder::buildLevelTwoBNetworkSolution() {
 }
 
 Network* ppc::PipelineLevelBuilder::LevelTwoWithOption(std::string file) {
+	doShuffle = true;
 	Network* myNetwork = new Network(7);
 	std::map<std::string, bool> usednames = NAME_MAP;
 	std::srand((unsigned int)(time(NULL)));
 	std::string name;
 	char c;
 
-	for (int i = 0; i < myNetwork->size();) { //7 nodes in level 2
+	for (size_t i = 0; i < myNetwork->size();) { //7 nodes in level 2
 		name = "";
 		c = std::rand() % 26 + 'A';
 		name += c;
@@ -243,13 +249,14 @@ Network* ppc::PipelineLevelBuilder::LevelTwoWithOption(std::string file) {
 }
 
 Network* PipelineLevelBuilder::buildLevelThreeNetworkSolution() {
+	doShuffle = true;
 	Network* myNetwork = new Network(8);
 	std::map<std::string, bool> usednames = NAME_MAP;
 	std::srand((unsigned int)(time(NULL)));
 	std::string name;
 	char c;
 
-	for (int i = 0; i < myNetwork->size();) { //8 nodes in level 3
+	for (size_t i = 0; i < myNetwork->size();) { //8 nodes in level 3
 		name = "";
 		c = std::rand() % 26 + 'A';
 		name += c;
@@ -288,6 +295,62 @@ Network* ppc::PipelineLevelBuilder::buildDefaultNetwork() {
 
 	return myNetwork;
 }
+
+void PipelineLevelBuilder::shufflePosition(Network& net) {
+	int rowsize = 3;//all other position setters are based on this value, may need
+	                //to change stuff later if we make bigger pipeline levels
+
+	std::vector<size_t> indexVec;
+	for (size_t i = 0; i < net.size(); ++i) {
+		indexVec.push_back(i);
+	}
+	std::random_shuffle(indexVec.begin(), indexVec.end());
+
+	if (net.size() == 4) {
+		net.vert(indexVec[0]).setPosition(float(100 + std::rand() % 40), float(100 + std::rand() % 40));
+		net.vert(indexVec[1]).setPosition(float(300 + std::rand() % 40), float(100 + std::rand() % 40));
+		net.vert(indexVec[2]).setPosition(float(100 + std::rand() % 40), float(300 + std::rand() % 40));
+		net.vert(indexVec[3]).setPosition(float(300 + std::rand() % 40), float(300 + std::rand() % 40));
+		return;
+	}
+	else if (net.size() == 2) {
+		net.vert(0).setPosition(static_cast<float>(25), static_cast<float>(25));
+		net.vert(1).setPosition(static_cast<float>(275), static_cast<float>(25));
+		return;
+	}
+
+	size_t lastrow = indexVec.size() - (indexVec.size() % rowsize);
+
+	float xcoord = 0;
+	float ycoord = 0;
+
+	std::srand((unsigned int)(time(NULL)));
+
+	size_t i = 0;
+	for (; i < lastrow; ++i) {
+		net.vert(indexVec[i]).setPosition(float(25 + 175 * xcoord + std::rand() % 40),
+			float(25 + 175 * ycoord + std::rand() % 40));
+		++xcoord;
+		if (xcoord == rowsize) {
+			xcoord = 0;
+			++ycoord;
+		}
+	}
+
+	if (indexVec.size() % 3 == 1) {
+		net.vert(indexVec[i]).setPosition(float(200 + std::rand() % 40), 
+			                              float(25 + 175 * ycoord + std::rand() % 40));
+	}
+	else if (indexVec.size() % 3 == 2) {
+		net.vert(indexVec[i]).setPosition(float(100 + std::rand() % 40),
+			float(25 + 175 * ycoord + std::rand() % 40));
+		net.vert(indexVec[i + 1]).setPosition(float(300 + std::rand() % 40),
+			float(25 + 175 * ycoord + std::rand() % 40));
+	}
+
+	doShuffle = false;
+}
+
 
 // Finds a valid vertex in range [start, end] designates it as center,
 // adds an edge between it and the other side of the graph (Presuming graph is split in halves, may need to be updated)
