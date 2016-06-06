@@ -377,7 +377,15 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
                 ppcEv.sfEvent.mouseButton.x -= int(focused_->getNotifWindow()->getPosition().x);
                 ppcEv.sfEvent.mouseButton.y -= int(focused_->getNotifWindow()->getPosition().y);
             }
-		}
+        } else if (ppcEv.sfEvent.type == sf::Event::MouseWheelScrolled) {
+            if (focused_->getNotifWindow() == nullptr) {
+                ppcEv.sfEvent.mouseWheelScroll.x -= int(focused_->getPosition().x);
+                ppcEv.sfEvent.mouseWheelScroll.y -= int(focused_->getPosition().y);
+            } else {
+                ppcEv.sfEvent.mouseWheelScroll.x -= int(focused_->getNotifWindow()->getPosition().x);
+                ppcEv.sfEvent.mouseWheelScroll.y -= int(focused_->getNotifWindow()->getPosition().y);
+            }
+        }
 	}
 
 	if ((ppcEv.type == Event::sfEventType) &&
