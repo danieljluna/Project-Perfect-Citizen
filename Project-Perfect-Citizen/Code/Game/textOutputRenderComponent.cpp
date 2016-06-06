@@ -256,14 +256,26 @@ void textOutputRenderComponent::updateString(std::vector<std::string> cmd) {
     }
     
     /* CASE: GIT SHREKT*/
-    else if (cmd.at(0) == "git" && cmd.at(1) == "shrekt") {
-        str_ = str_ + "\n..####...##..##..#####...######..##..##. \n";
-        str_ = str_ + ".##......##..##..##..##..##......##.##.. \n";
-        str_ = str_ + "..####...######..#####...####....####... \n";
-        str_ = str_ + ".....##..##..##..##..##..##......##.##.. \n";
-        str_ = str_ + "..####...##..##..##..##..######..##..##. \n";
-        str_ = str_ + "........................................ \n";
-        numDisplayedLines+= 6;
+    else if (cmd.at(0) == "git") {
+        if(cmd.size() == 2){
+            if(cmd.at(1) == "shrekt"){
+                str_ = str_ + "\n..####...##..##..#####...######..##..##. \n";
+                str_ = str_ + ".##......##..##..##..##..##......##.##.. \n";
+                str_ = str_ + "..####...######..#####...####....####... \n";
+                str_ = str_ + ".....##..##..##..##..##..##......##.##.. \n";
+                str_ = str_ + "..####...##..##..##..##..######..##..##. \n";
+                str_ = str_ + "........................................ \n";
+                numDisplayedLines+= 7;
+            }
+            if(cmd.at(1) == "gud"){
+                str_ = str_ + "You stupid bottom fragger, you need to git gud \n";
+                numDisplayedLines+= 1;
+            }
+        }
+        else{
+            str_ = str_ + "Error: 'git' requires one parameter.\n";
+            numDisplayedLines++;
+        }
     }
 
 
