@@ -122,24 +122,26 @@ void textOutputRenderComponent::updateString(std::vector<std::string> cmd) {
 			str_ = str_ + "Error: 'cd' requires one parameter.\n";
 			numDisplayedLines++;
 		}
-		if (cmd.at(1).compare("CP") == 0) { World::quitDesktop(); }
-		if (fileTree_.getCwd()->findElement(cmd.at(1)) == nullptr) {
-			str_ = str_ + "Error: Directory '" + cmd.at(1) + "' not found. \n";
-			numDisplayedLines++;
-		}
-		else {
-			if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
-				str_ = str_ + "Error: Directory '" + cmd.at(1)+"' is password protected. \nHint: " + fileTree_.getCwd()->findElement(cmd.at(1))->getHint() + "\n";
-				numDisplayedLines+=3;
-			}
-			std::vector<std::string> cdCommand;
-			std::string cd = "cd";
-			cdCommand.push_back(cd);
-			cdCommand.push_back(cmd.at(1));
-			commandFn newCD = findFunction(cd);
-			newCD(fileTree_, cdCommand);
-			numDisplayedLines++;
-		}
+        if(cmd.size() > 1){
+            if (cmd.at(1).compare("CP") == 0) { World::quitDesktop(); }
+            if (fileTree_.getCwd()->findElement(cmd.at(1)) == nullptr) {
+                str_ = str_ + "Error: Directory '" + cmd.at(1) + "' not found. \n";
+                numDisplayedLines++;
+            }
+            else {
+                if (fileTree_.getCwd()->findElement(cmd.at(1))->isPasswordProtected()) {
+                    str_ = str_ + "Error: Directory '" + cmd.at(1)+"' is password protected. \nHint: " + fileTree_.getCwd()->findElement(cmd.at(1))->getHint() + "\n";
+                    numDisplayedLines+=3;
+                }
+                std::vector<std::string> cdCommand;
+                std::string cd = "cd";
+                cdCommand.push_back(cd);
+                cdCommand.push_back(cmd.at(1));
+                commandFn newCD = findFunction(cd);
+                newCD(fileTree_, cdCommand);
+                numDisplayedLines++;
+            }
+        }
 	}
 
 	//CASE: FLAG
