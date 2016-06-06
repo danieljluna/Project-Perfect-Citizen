@@ -170,13 +170,12 @@ void ppc::Desktop::addWindow(WindowInterface* wi){
         BorderDecorator* borderOfWi = dynamic_cast<BorderDecorator*>(wi);
         if ((borderOfWi != nullptr) && (!borderOfWi->isClamped())) {
             //The following creates bounds for dragging Windows.
-            sf::FloatRect desktopBounds = desktopWindow_->getBounds();
+            sf::FloatRect bounds = desktopWindow_->getBounds();
             sf::FloatRect wiBounds = wi->getBounds();
-            sf::FloatRect bounds(desktopBounds);
-            bounds.left += 5;
-            bounds.top += 34;
-            bounds.width -= wiBounds.width;
-            bounds.height -= wiBounds.height;
+            bounds.left += 80 - wiBounds.width;
+            bounds.top += 17;
+            bounds.width = 1000 - 160 + wiBounds.width;
+            bounds.height = 800 - 24;
             borderOfWi->setClampBounds(bounds);
         }
 
@@ -377,29 +376,39 @@ void ppc::Desktop::registerInputFocused(Event ppcEv) {
                 ppcEv.sfEvent.mouseButton.x -= int(focused_->getNotifWindow()->getPosition().x);
                 ppcEv.sfEvent.mouseButton.y -= int(focused_->getNotifWindow()->getPosition().y);
             }
-		}
-	}
-	
-
-    if ((ppcEv.type == Event::sfEventType) &&
-        (ppcEv.sfEvent.type == sf::Event::MouseButtonReleased)) {
-
-        auto winCopy(windows_);
-        
-        for (auto it: winCopy) {
-            it->registerInput(ppcEv);
-            if (it->getNotifWindow() != nullptr) {
-                it->getNotifWindow()->registerInput(ppcEv);
+        } else if (ppcEv.sfEvent.type == sf::Event::MouseWheelScrolled) {
+            if (focused_->getNotifWindow() == nullptr) {
+                ppcEv.sfEvent.mouseWheelScroll.x -= int(focused_->getPosition().x);
+                ppcEv.sfEvent.mouseWheelScroll.y -= int(focused_->getPosition().y);
+            } else {
+                ppcEv.sfEvent.mouseWheelScroll.x -= int(focused_->getNotifWindow()->getPosition().x);
+                ppcEv.sfEvent.mouseWheelScroll.y -= int(focused_->getNotifWindow()->getPosition().y);
             }
         }
+	}
 
-    } else {
-        if (focused_->getNotifWindow() == nullptr) {
-            focused_->registerInput(ppcEv);
-        } else {
-            focused_->getNotifWindow()->registerInput(ppcEv);
-        }
-    }
+	if ((ppcEv.type == Event::sfEventType) &&
+		(ppcEv.sfEvent.type == sf::Event::MouseButtonReleased)) {
+		auto winCopy(windows_);
+
+		for (auto it : winCopy) {
+			it->registerInput(ppcEv);
+			if (it->getNotifWindow() != nullptr) {
+				it->getNotifWindow()->registerInput(ppcEv);
+			}
+		}
+	}
+	else {
+		if (focused_->getNotifWindow() == nullptr) {
+			focused_->registerInput(ppcEv);
+		}
+		else {
+			focused_->getNotifWindow()->registerInput(ppcEv);
+		}
+	}
+
+       
+  
 }
 
 void ppc::Desktop::update(sf::Time& deltaTime){

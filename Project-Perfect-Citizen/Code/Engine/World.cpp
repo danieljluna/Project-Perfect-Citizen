@@ -1,6 +1,7 @@
 #include "../ResourceDef.h"
 
 #include <fstream>
+#include <SFML/System.hpp>
 
 #include "World.h"
 #include "desktop.h"
@@ -225,7 +226,7 @@ void ppc::World::initLevelMap() {
 	levelMap_.emplace(DE2A, level2A);
 
 	LevelPacket level2B;
-	level2A.pushNext(DEPlayer3B, 1);
+	level2B.pushNext(DEPlayer3B, 1);
 	levelMap_.emplace(DE2B, level2B);
 
 	LevelPacket levelPlayer3A;
@@ -790,12 +791,22 @@ void ppc::World::registerInput() {
 void ppc::World::update(sf::Clock& deltaTime, sf::Time& framePeriod ) {
 
 	sf::Time elapsed = deltaTime.getElapsedTime();
+    bool didUpdate = false;
+    sf::Clock updateTimer;
 	while (elapsed > framePeriod) {
-		screen_->clear(sf::Color::Black);
-		sf::Time dt = deltaTime.restart();
-		currDesktop_->update(dt);
+		currDesktop_->update(framePeriod);
 		elapsed -= framePeriod;
+        didUpdate = true;
 	}
+
+    if (didUpdate) {
+        screen_->clear(sf::Color::Black);
+        deltaTime.restart();
+    } else {
+        sf::Time updateLength = updateTimer.getElapsedTime();
+        sf::sleep((framePeriod - deltaTime.getElapsedTime()) * .8f);
+    }
+
 }
 
 
@@ -810,8 +821,7 @@ void ppc::World::initializeResolution() {
     scaleFactorVec.x = float(settings_.resolution.x) / 1000;
     scaleFactorVec.y = float(settings_.resolution.y) / 800;
 
-    float scaleFactor = std::min(scaleFactorVec.x,
-        scaleFactorVec.y);
+    float scaleFactor = std::min(scaleFactorVec.x, scaleFactorVec.y);
 
     worldTransform_ = sf::Transform();
 

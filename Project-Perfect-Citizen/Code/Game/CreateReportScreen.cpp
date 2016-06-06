@@ -40,7 +40,7 @@ void ppc::createReportScreen(Desktop &d) {
 	//next, make/add components to end report screen
 	TextCharacterUpdate* tcu = new TextCharacterUpdate();
 	ReportEndObsvr* reO = new ReportEndObsvr(*reportScreen);
-	reO->setPos(400.f, 500.f);
+	reO->setPos(400.f, 700.f);
 	tcu->onAnimEnd().addObserver(reO);
 
 	TextDisplayRenderComponent* tdrc = dynamic_cast<TextDisplayRenderComponent*>(reportEntity.getComponent(0));
