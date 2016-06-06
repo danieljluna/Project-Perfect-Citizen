@@ -483,7 +483,10 @@ void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& des
 }
 
 void ppc::createHackerDesktop(Desktop& desktopToModify, WindowInterface& desktopWindowToModify, InputHandler& ih, sf::Image& iconSheet, sf::Image& buttonSheet ) {
-    
+    World::getAudio().stopAllSounds();
+    World::getAudio().addBgm("SoundTrack_Extraction.ogg");
+    World::getAudio().loopBgm();
+    World::getAudio().playBgm();
     Database theDatabase;
     
     Inbox* theInbox = &desktopToModify.getInbox();
