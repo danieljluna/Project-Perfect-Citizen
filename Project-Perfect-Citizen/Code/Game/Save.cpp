@@ -124,6 +124,8 @@ void Save::setDesktop(unsigned desktop) {
 
 
 void Save::exportSave(const std::string& login) {
+    if (login == "") return;
+
     loginId_ = login;
     loginId_ = loginId_.substr(loginId_.find_first_not_of(" \t"),
                                loginId_.find_last_not_of(" \t") + 1);
