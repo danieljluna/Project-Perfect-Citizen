@@ -225,7 +225,7 @@ void ppc::World::initLevelMap() {
 	levelMap_.emplace(DE2A, level2A);
 
 	LevelPacket level2B;
-	level2A.pushNext(DEPlayer3B, 1);
+	level2B.pushNext(DEPlayer3B, 1);
 	levelMap_.emplace(DE2B, level2B);
 
 	LevelPacket levelPlayer3A;

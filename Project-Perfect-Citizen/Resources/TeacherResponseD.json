@@ -4,17 +4,11 @@
             "Visible" : "1",
             "To" : "You",
             "From" : "Janelle Pax",
-            "Subject" : "We Hope To See More From You",
+            "Subject" : "Im Appalled!",
             "Body" :"
-    Amazing job today on your first big
-    extraction! It just goes to show how
-    impressive and accurate our system is. You
-    see, it is important to go through people's
-    desktop so we can get scum like that out of
-    reach of our children! I still cannot believe
-    that a person like that was a teacher!
-            
-    We hope to see more good work from you.
+    It is appalling when our system flags people
+    that are completely innocent. I will tell the
+    design team to work on the flagging algorithm.
             
     Your next assignment is ready in the Graph
     application."
@@ -23,9 +17,12 @@
             "Visible" : "1",
             "To" : "You",
             "From" : "Rex Davis",
-            "Subject" : "Got Em!",
+            "Subject" : "Murphy? More Than Meets The Eye?",
             "Body" :"
-    Impressive work busting your guy!"
+    Why do I feel like there was more to Murphy
+    than what you submitted? Just make sure you
+    pay attention to all the details in the
+    Desktop Extraction."
         }
     }
 }
