@@ -145,6 +145,34 @@ sf::RectangleShape ScrollBarDecorator::drawBorder(int b) const{
     }
     return borderShadow;
 }
+
+
+void ScrollBarDecorator::registerInput(Event ev) {
+    if ((ev.type == Event::sfEventType) && (ev.sfEvent.type == sf::Event::MouseWheelScrolled)) {
+        float spaceLeft = 0;
+        float wheelScroll = -10.f * ev.sfEvent.mouseWheelScroll.delta;
+        if (wheelScroll < 0) {
+            spaceLeft = scrollBars_.getPosition().y -
+                scrollBackgrounds_.getPosition().y;
+        } else if (wheelScroll > 0) {
+            spaceLeft = (scrollBackgrounds_.getPosition().y + scrollBackgrounds_.getSize().y) -
+                (scrollBars_.getPosition().y + scrollBars_.getSize().y);
+        }
+
+        if (spaceLeft >= abs(wheelScroll)) {
+            draggableInputs_->drag({ 0, wheelScroll });
+        } else {
+            if (wheelScroll < 0) {
+                spaceLeft *= -1.f;
+            }
+
+            draggableInputs_->drag({ 0, spaceLeft });
+        }
+        updateView();
+    }
+
+    WindowDecorator::registerInput(ev);
+}
     
 
 ///////////////////////////////////////////////////////////////////////
@@ -388,7 +416,7 @@ bool ppc::onButtonUp(ScrollBarDecorator* sb, Event ev) {
     if (spaceLeft >= 15) {
         sb->draggableInputs_->drag({ 0, -15 });
     } else {
-        sb->draggableInputs_->drag({ 0, spaceLeft });
+        sb->draggableInputs_->drag({ 0, (-1) * spaceLeft });
     }
     sb->updateView();
 

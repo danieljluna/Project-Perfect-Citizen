@@ -7,7 +7,7 @@
 ppc::ReportEndObsvr::ReportEndObsvr() {
 	w_ = nullptr;
 	x_ = 400.f;
-	y_ = 500.f;
+	y_ = 700.f;
 }
 
 ppc::ReportEndObsvr::~ReportEndObsvr() {

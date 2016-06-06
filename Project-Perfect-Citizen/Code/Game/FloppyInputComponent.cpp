@@ -454,8 +454,10 @@ bool ppc::enableFloppyDialog(FloppyInputComponent* ptr, ppc::Event ev) {
 	case FloppyInputComponent::Explorer:
         enable = ((ev.type == ev.OpenType) &&
             (ev.open.winType == ev.open.Folder) &&
-            (!ev.open.file->getName().compare("Terrorism")) &&
-            (ev.open.success == false));
+            (!ev.open.file->getName().compare("Terrorism")));
+        if (ev.open.success) {
+            sequence += 1;
+        }
         break;
 	case FloppyInputComponent::Passwords:
         enable = ((ev.type == ev.OpenType) &&
