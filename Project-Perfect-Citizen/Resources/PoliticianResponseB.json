@@ -3,29 +3,29 @@
         "Email_1": {
             "Visible" : "1",
             "To" : "You",
-            "From" : "JP",
-            "Subject" : "",
+            "From" : "Janelle Pax",
+            "Subject" : "Glitch in the System",
             "Body" :"
     Well I guess this is another glitch in the
     flagging algorithm. For every bad accusation,
     our system gets little bit smarter.
             
     Your next assignment is ready. Apparently
-    there has been a “hacker” that broke into our
-    security and has been manipulating with the
+    there has been a 'hacker' that broke into our
+    security and has been manipulating the
     databases. We suspect that he was a previous
     worker of ours. Find him and bust him."
         },
         "Email_2": {
             "Visible" : "1",
             "To" : "You",
-            "From" : "CT",
-            "Subject" : "",
+            "From" : "Rex Davis",
+            "Subject" : "Find any Dirt?",
             "Body" :"
-    Great job on the investigation! It is great
-    that we get to go into their personal files so
-    we can know for sure who started the scandal
-    rumor."
+    Great job on the investigation! That guy 
+    was really lucky that you gave him a chance.
+    You will have to teach me your black magic
+    some day!"
         }
     }
 }

@@ -17,12 +17,14 @@ public:
 
     void exportSave(const std::string& login);
 
-    Save& Save::operator=(const Save& other);
+    Save& operator=(const Save& other);
 
     void setDesktop(unsigned desktop);
 
     unsigned getDesktop() { return currDesktop_; };
     
+    unsigned int getReport(unsigned int);
+
     void setReportType(unsigned reportIndex, unsigned int reportValue) { reports_[reportIndex] = reportValue; }
 
 

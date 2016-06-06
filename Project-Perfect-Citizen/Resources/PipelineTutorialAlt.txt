@@ -8,7 +8,7 @@ Default: This is the Pipeline Extraction Application.
 Default: It is used to analyze groups of interconnected people.
 Default: We will then further investigate a target from this group.
 Default: Let's go over some basics...
-Peek: Try selecting a Photo
+Default: Try selecting a Photo
 -AltConnections: T 0.0
 Default: Great! Select a photo and right click another to connect them
 -AltSelectEdge: T 0.0
@@ -32,7 +32,8 @@ Default: For now, indicate the correct colors based off the conversations
 Default: Now that you know about the connections, use them to find the most suspicious target
 Default: Select that person and press "C" to mark the center of the network
 -AltSubmission: T 0.0
-Default: If you're confident you have found the right center hit submit
+Default: When you're finished a fellow DCPS officer will check your graph and give you feedback
+Default: Use the button to submit and if your graph is approved you will pipe into the target's Desktop
 -AltFeedback: F 0.0
 Default: A fellow DCPS officer has checked your work and approved it!
 Default: You have been issued a warrant to search their desktop.

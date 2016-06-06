@@ -25,6 +25,8 @@ namespace ppc {
 		sf::Text* text;
 		sf::Text* outline;
 		sf::Font font;
+		sf::Sprite* cursorSprite;
+		sf::Texture* cursorTexture;
 		std::string labelString;
 		bool isMasked = false;
 		bool renderCursor = true;
@@ -45,7 +47,7 @@ namespace ppc {
 
 		std::string getString();
 
-		void updateLabelString(std::string str);
+		void updateLabelString(std::string str, unsigned int);
 
 		void updateLabelPosition(float x, float y);
 

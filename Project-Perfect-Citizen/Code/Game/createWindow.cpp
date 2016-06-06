@@ -79,6 +79,7 @@
 #include "flaggedFileInputComponent.h"
 
 #include "LoginInputCmpnt.h"
+#include <algorithm>
 
 #include "../Engine/Setting.h"
 
@@ -343,10 +344,10 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	/* Create the render components */
 	PipelineDataRenderComponent* dataText = new PipelineDataRenderComponent(myFont, 
 		static_cast<int>(dataWindowX), 0, fontSize, windowToModify->getSize().x, 
-		windowToModify->getSize().y);
+		windowToModify->getSize().y*2);
 
 	PipelineGraphRenderComponent* graphBounds = new PipelineGraphRenderComponent(0, 0, dataWindowX,
-		float(windowToModify->getSize().y));
+		float(windowToModify->getSize().y*2));
     
 
     //Network* solNet = PipelineLevelBuilder::buildLevelOneNetworkSolution();
@@ -370,7 +371,6 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 		playNet->vert(1).setPosition(static_cast<float>(275), static_cast<float>(25));
 	}
 	else {
-		//std::vector<int> indexVec {0, 1, 2, 3, 4, 5, 6, 7};
 		std::vector<int> indexVec;
 		for (unsigned int i = 0; i < solNet->size(); ++i) {
 			indexVec.push_back(i);
@@ -429,7 +429,15 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 			ncf, myFont);
 		windowToModify->addEntity(submitButton);
 	}
+    windowToModify->setSize(windowToModify->getSize().x, 1000.f);
+    sf::FloatRect viewRect = {
+        0.0f,
+        0.0f,
+        float(windowToModify->getSize().x),
+        float(windowToModify->getSize().y/1.6)
+    };
 	windowToModify->setPosition(x, y);
+    windowToModify = new ScrollBarDecorator(*windowToModify, World::getCurrDesktop().getButtonSheet(), sf::View(viewRect));
 	windowToModify = new BorderDecorator(*windowToModify);
 	dynamic_cast<BorderDecorator*>(windowToModify)->addButton(buttonSheet, closeWindow);
 	dynamic_cast<BorderDecorator*>(windowToModify)->setCaption("DCPS Pipeline Application v.3.762");
@@ -527,7 +535,7 @@ void ppc::spawnFile(WindowInterface*& windowToModify, InputHandler & ih,
         photoRender->setImageScale((float)windowToModify->getSize().x /
                                (float)photo.getSize().x,
                                (float)windowToModify->getSize().y /
-                                   (float)photo.getSize().y);
+                                (float)photo.getSize().y);
     }
     
     /////////////////////////////////////////
@@ -906,7 +914,7 @@ void ppc::spawnUnlock(WindowInterface *& windowToModify, InputHandler & ih, sf::
 	builder.setSize(0.25f);
 	builder.setSpritesByIndicies(0, 2, 2, 1);
 	builder.setSpriteSheet(buttonSheet);
-	builder.setLabelMessage("GO");
+	builder.setLabelMessage("ENTER");
 	builder.setLabelFont(myFont);
 	builder.setLabelSize(12);
 	Entity ent;
@@ -1472,7 +1480,7 @@ void ppc::spawnCreditsWindow(Desktop * dt, WindowInterface *& windowToModify, In
 	Entity programmerList;
     builder.setSize(subHeaderSize);
 	builder.setPosition(sf::Vector2f(subHeaderX, 500.0f));
-	builder.setString("       Daniel Luna   Lead Developer\n       Nader Sleem   Game Programmer\n John 'Andy' Baden   Game Programmer/Designer\n       Michael Lowe  Game Programmer\n");
+	builder.setString("       Daniel Luna   Lead Developer\n       Nader Sleem   Game Programmer\n John 'Andy' Baden   Game Programmer/Designer\n      Michael Lowe   Game Programmer\n");
 	builder.create(programmerList);
 	windowToModify->addEntity(programmerList);
 
@@ -1681,13 +1689,12 @@ bool ppc::decrement_volume(ppc::TextDisplayRenderComponent * ptr, ppc::Event ev)
 bool ppc::toggle_window_settings(TextDisplayRenderComponent * ptr, ppc::Event ev)
 {
 	ptr->incrementRenderState();
-
-	// Danny: Do something with this string
-	// It'll either be Windowed or Full Screen
 	std::string targetWindowMode = ptr->getString();
-    if (targetWindowMode == "Windowed") {
+	std::remove_if(targetWindowMode.begin(), targetWindowMode.end(), isspace);
+	std::cout << targetWindowMode;
+    if (targetWindowMode == "Windoweded") {
         tempSetting.fullscreen = false;
-    } else if (targetWindowMode == "Fullscreen") {
+    } else if (targetWindowMode == "FullScreenen") {
         tempSetting.fullscreen = true;
     }
 

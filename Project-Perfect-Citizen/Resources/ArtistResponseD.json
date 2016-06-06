@@ -3,24 +3,27 @@
         "Email_1": {
             "Visible" : "1",
             "To" : "You",
-            "From" : "JP",
+            "From" : "Janelle Pax",
             "Subject" : "Unbelievable",
             "Body" :"
-    I am utterly shocked! We could have saved the
-    lives of those 21 people! I just can’t believe
-    it. "
+   If you had done your job 19 people would
+	still be alive today.  I hope you keep that in
+	mind going forward if you want to keep your
+   job.
+	
+	Your next assignment is available, but I'm
+	warning you.  You're on thin ice."
         },
         "Email_2": {
             "Visible" : "1",
             "To" : "You",
-            "From" : "CT",
+            "From" : "Rex Davis",
             "Subject" : "Don't Beat Yourself Up",
             "Body" :"
-    Hey, you are probably going through a rough
-    time right now, but don't beat yourself up 
-    over it. It is his fault, not your fault, that
-    those people died; he is the one that killed
-    those people, we just tried to prevent it."
+    Hey, we all screwed up at some point. Just try
+    and learn from it. You can't stop every crazy 
+    you run into. Let's just make sure we stop the
+    next one."
         }
     }
 }

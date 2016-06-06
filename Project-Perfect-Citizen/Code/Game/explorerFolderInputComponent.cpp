@@ -248,13 +248,8 @@ bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 			new ppc::Window(500, 150, sf::Color(170, 170, 170));
 		spawnSuccessMessage(success, success->getInputHandler(), ptr->getFolderDesktop()->getButtonSheet(),
 			250, 250, "Access Granted. \n'" + ptr->getFolderName() + "' is now unlocked.");
-		//ptr->getObservingTextBox()->getContainingWindow()->createNotifWindow(success);
-		ptr->getContainingWindow()->createNotifWindow(success);
-		ptr->getFolderDesktop()->addWindow(success);
+		ptr->getContainingWindow()->createNotifWindow(success, true);
 
-		/* Send the event and close the submit wind*/
-		evOut.open.success = false;
-		ptr->getObservingTextBox()->getContainingWindow()->close();
 		
         evOut.open.success = true;
 	}
@@ -262,9 +257,9 @@ bool ppc::unlock_folder(explorerFolderInputComponent* ptr, ppc::Event ev) {
 		ppc::WindowInterface* ErrorMsgWindow =
 		new ppc::Window(500, 150, sf::Color(170, 170, 170));
 		spawnErrorMessage(ErrorMsgWindow, ErrorMsgWindow->getInputHandler(), ptr->getFolderDesktop()->getButtonSheet(),
-		250, 250,
+		300, 250,
 			"Error: Password incorrect. \nHint: " + ptr->getFolderNodeState()->getCwd()->findElement(ptr->getFolderName())->getHint(), "Incorrect Password");
-		ptr->getFolderDesktop()->addWindow(ErrorMsgWindow);
+		ptr->getContainingWindow()->createNotifWindow(ErrorMsgWindow, true);
         evOut.open.success = false;
 	}
 	

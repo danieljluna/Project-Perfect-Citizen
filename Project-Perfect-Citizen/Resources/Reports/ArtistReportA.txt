@@ -1,6 +1,11 @@
-After the evidence against David Finley was found, David was
-sent to prison for life for an attempted terrorist attack.
-After staying in prison for a little less than two months,
-David was caught making an explosive with random items found
-at the prison. In response, David was sent to a mental
-institution located on an island.
+Case: #FJ5953706858
+Suspect: David Finley
+Investigator ID: #E25308456
+
+Thanks to the information gathered from David Finley's 
+computer, local law enforcement was able to stop the 
+terrorist attack on the bank before it could be
+completed. David pleaded guilty to charges of terrorism in
+federal court and was taken to a maximum securtiy prison
+to wait on death row. Due to the success of the program,
+the DCPS has been promised more funds for expansion.

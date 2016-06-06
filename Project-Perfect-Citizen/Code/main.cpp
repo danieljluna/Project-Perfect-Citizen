@@ -39,8 +39,6 @@ int main(int argc, char** argv) {
 		World::initLoadScreen();
 		World::initAddressMap();
 
-		//sf::RenderWindow screen(World::getVideoMode(), "Project Perfect Citizen", sf::Style::Close | sf::Style::Titlebar);
-
 		ppc::World::getAudio().addBgm("SoundTrack_Pipeline.ogg");
 		ppc::World::getAudio().loopBgm();
 		ppc::World::getAudio().playBgm();
@@ -79,19 +77,17 @@ int main(int argc, char** argv) {
 			//Use Score to determine next level to go to
 			World::setLevel(currDesk, deskScore);
 		}
-		World::cleanWorld();
-		return EXIT_SUCCESS;
 
 	}
 	catch (std::exception e) {
 		std::cerr << e.what();
-
-		World::cleanWorld();
 	}
 
     if (World::getCurrDesktopEnum() > World::DELogin) {
         World::saveState("PPC.sav");
-    }
+   	}
+	
+	World::cleanWorld();
 
 	return EXIT_SUCCESS;
 }

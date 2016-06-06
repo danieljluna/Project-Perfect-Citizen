@@ -3,7 +3,7 @@
         "Email_1": {
             "Visible" : "1",
             "To" : "You",
-            "From" : "JP",
+            "From" : "Janelle Pax",
             "Subject" : "Your Simulation Run",
             "Body" :"
     You did an okay job today, but that is why we
@@ -20,10 +20,10 @@
         "Email_2": {
             "Visible" : "1",
             "To" : "You",
-            "From" : "CT",
+            "From" : "Rex Davis",
             "Subject" : "You Did Okay",
             "Body" :"
-    It’s okay newbie, we all can’t be naturally
+    It's okay newbie, we all can't be naturally
     talented. Well, just try to be more observant
     next time."
         }

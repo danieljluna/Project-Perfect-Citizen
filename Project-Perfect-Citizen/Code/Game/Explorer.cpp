@@ -17,7 +17,8 @@
 
 using namespace ppc;
 
-Explorer::Explorer(Desktop& dT, WindowInterface* win, NodeState* ns, sf::Image& bS, sf::Image& iS) : theDesktop_(dT), windowToWorkOn_(win), theFileTree_(ns), buttonSheet_(bS), iconSheet_(iS) {
+Explorer::Explorer(Desktop& dT, WindowInterface* win, NodeState* ns, sf::Image& bS, sf::Image& iS) : theDesktop_(dT), windowToWorkOn_(win), buttonSheet_(bS), iconSheet_(iS) {
+	theFileTree_ = new NodeState(*ns);
 	updateExplorerDisplay();
 }
 
@@ -54,7 +55,9 @@ std::vector<Entity> Explorer::createVectorFrame(std::vector<std::string> filenam
 			Entity example;
 			/* Case: FILE*/
 			if (hasEnding(filenames.at(i), ".txt") || hasEnding(filenames.at(i), ".jpg")) {
-				buttonRenderComponent* IconRender = new buttonRenderComponent(iconSheet_, 0, 0, 1, 3);
+				buttonRenderComponent* IconRender;
+				if (hasEnding(filenames.at(i), ".jpg")) { IconRender = new buttonRenderComponent(iconSheet_, 0, 14, 1, 1); }
+				else { IconRender = new buttonRenderComponent(iconSheet_, 0, 0, 1, 3); }
 				IconRender->renderPosition(sf::Vector2f(static_cast<float>(k * padding), static_cast<float>(j * padding)));
 				textLabelComponent* label = new textLabelComponent(font, sf::Color::Black, float(k * padding), float(j * padding + 0.5 * 128), 10, filenames.at(i));
 				explorerFileInputComponent* IconInput = new explorerFileInputComponent(theDesktop_, windowToWorkOn_, windowToWorkOn_->getInputHandler(), 

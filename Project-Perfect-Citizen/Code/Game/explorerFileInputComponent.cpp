@@ -125,18 +125,18 @@ bool explorerFileInputComponent::registerInput(Event ppcEv) {
 
 			/* Second Element: 'Flag' */
 			Entity listElement2;
-			builder.setLabelMessage("Flag");
+			builder.setLabelMessage("Scan");
 			builder.setListElementPosition(0, fontSize + fontPadding);
 			builder.setLabelPosition({ 0.0f, fontSize + fontPadding });
-			createWithEventFunc(builder, listElement2, this, ppc::flag_file);
+			createWithEventFunc(builder, listElement2, this, ppc::spawnPromptMessage);
 			listElements.push_back(listElement2);
 
 			/*Third Element: 'Scan'*/
 			Entity listElementThree;
-			builder.setLabelMessage("Scan");
+			builder.setLabelMessage("Flag");
 			builder.setListElementPosition(0, (fontSize + fontPadding)* 2);
 			builder.setLabelPosition({ 0.0f, (fontSize + fontPadding) * 2 });
-			createWithEventFunc(builder, listElementThree, this, ppc::spawnPromptMessage);
+			createWithEventFunc(builder, listElementThree, this, ppc::flag_file);
 			listElements.push_back(listElementThree);
 
 			/* Completed: Make the Context Menu at the mouse position*/
@@ -209,7 +209,6 @@ bool ppc::flag_file(explorerFileInputComponent* ptr, ppc::Event ev) {
 
 bool ppc::submitFiles(ppc::Desktop * ptr, ppc::Event ev)
 {
-	std::cout << "inside submit files" << std::endl;
 	ppc::SuspiciousFileHolder::submitFiles();
 	return true;
 }

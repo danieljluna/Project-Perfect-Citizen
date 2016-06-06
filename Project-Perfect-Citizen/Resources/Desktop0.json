@@ -12,10 +12,13 @@
         },
         "Documents": {
             "3D_Printer": {
-                "2/P_3000.jpg" : "DesktopContent/Desktop0/3D_printer_3000.png"
+                "2/P_3000.jpg" : "DesktopContent/Desktop0/P_3000.png",
+                "2/New_Printer.jpg" : "DesktopContent/Desktop0/New_Printer.png"
             },
             "Instructions": {
-                "2/instructions.jpg" : "DesktopContent/Desktop0/liberator_1.png"
+                "2/instructions.jpg" : "DesktopContent/Desktop0/liberator_1.png",
+                "2/Pieces.jpg" : "DesktopContent/Desktop0/Pieces.png",
+                "2/3D_Print.jpg" : "DesktopContent/Desktop0/3D_Print.png"
             },
             "Permits": {
                 "3/explosives_permit.txt" : "DesktopContent/Desktop0/explosives_permit.txt",

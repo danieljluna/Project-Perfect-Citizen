@@ -160,7 +160,10 @@ void ppc::createTeacherDesktop(Desktop& desktopToModify, WindowInterface& deskto
     Entity startBar;
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
     startBarRender->renderPosition({0,4});
+    
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
     startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -304,7 +307,9 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
     Entity startBar;
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
     startBarRender->renderPosition({0,4});
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
     startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -322,7 +327,7 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
     Entity EmailIcon;
     
     spawnHardDriveIcon(HardDriveIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 100.0f, 200.0f, 0.4f, 0.25f, theInbox);
-    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 0.0f, 300.0f, 0.5f, 0.25f, theInbox);
+    spawnEmailIcon(EmailIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 500.0f, 600.0f, 0.5f, 0.25f, theInbox);
     spawnConsoleIcon(ConsoleIcon, desktopToModify, ih, theDatabase, iconSheet, buttonSheet, 100.0f, 400.0f, 0.5f, 0.25f, theInbox);
 
 	IconBuilder builder;
@@ -336,7 +341,7 @@ void ppc::createArtistDesktop(Desktop& desktopToModify, WindowInterface& desktop
 	Entity file1;
 	builder.setPosition({ 700.0f, 400.0f });
 	builder.setIconType(iconInputComponent::IconType::File);
-	builder.setSpritebyIndicies(0, 0, 1, 3);
+	builder.setSpritebyIndicies(0, 14, 1, 0);
 	builder.setText("BankPark_Print.jpg", World::getFont(World::VT323Regular), sf::Color::White);
 	builder.create(file1);
 	desktopWindowToModify.addEntity(file1);
@@ -438,7 +443,9 @@ void ppc::createPoliticianDesktop(Desktop& desktopToModify, WindowInterface& des
     Entity startBar;
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
     startBarRender->renderPosition({0,4});
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
     startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);
@@ -491,7 +498,9 @@ void ppc::createHackerDesktop(Desktop& desktopToModify, WindowInterface& desktop
     Entity startBar;
     startBarRenderComponent* startBarRender = new startBarRenderComponent(World::getFont(ppc::World::FontList::Consola));
     startBarRender->renderPosition({0,4});
+    startBarUpdateComponent* startBarUpdate = new startBarUpdateComponent(*startBarRender);
     startBar.addComponent(startBarRender);
+    startBar.addComponent(startBarUpdate);
     
     Entity startButton;
     spawnStartButton(startButton, desktopToModify, startToolbar->getInputHandler(), buttonSheet, 6, 14, 0.35f);

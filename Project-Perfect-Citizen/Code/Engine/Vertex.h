@@ -22,6 +22,8 @@ namespace ppc {
 class Vertex: public sf::Drawable, public sf::Transformable {
 
 private:
+    
+
 
 	sf::Color color_;
 
@@ -37,6 +39,7 @@ private:
     sf::RectangleShape bgrect_;
 	static const float radius_;
 	sf::FloatRect bounds_;
+    
 	bool isSelected_;
 
 public:
