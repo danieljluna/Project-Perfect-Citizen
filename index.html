@@ -18,45 +18,7 @@
             }
         </style>
         
-         <script>
-        // Coded by TheZillion in a quarter of an hour. [thezillion.wordpress.com]
-            function $(el){
-                return document.getElementById(el);
-            }
-            var tzdragg = function(){
-                return {
-                    move : function(divid,xpos,ypos){
-                        var a = $(divid);
-                        $(divid).style.left = xpos + 'px';
-                        $(divid).style.top = ypos + 'px';
-                    },
-                    startMoving : function(evt){
-                        evt = evt || window.event;
-                        var posX = evt.clientX,
-                            posY = evt.clientY,
-                            a = $('elem'),
-                        divTop = a.style.top,
-                        divLeft = a.style.left;
-                        divTop = divTop.replace('px','');
-                        divLeft = divLeft.replace('px','');
-                        var diffX = posX - divLeft,
-                            diffY = posY - divTop;
-                        document.onmousemove = function(evt){
-                            evt = evt || window.event;
-                            var posX = evt.clientX,
-                                posY = evt.clientY,
-                                aX = posX - diffX,
-                                aY = posY - diffY;
-                            tzdragg.move('elem',aX,aY);
-                        }
-                    },
-                    stopMoving : function(){
-                        var a = document.createElement('script');
-                        document.onmousemove = function(){}
-                    },
-                }
-            }();
-        </script>
+      
 	
 </head>
 <body background="wallpaper_t.png" onload="document.getElementById('content_b').innerHTML=document.getElementById('descriptionHTML').innerHTML;">
@@ -89,7 +51,7 @@
 		</a>
 			</ul>
 </div>
-<div id='elem' onmousedown='tzdragg.startMoving(event);' onmouseup='tzdragg.stopMoving();' style='top: 135px; left: 300px; background-color:#aaaaaa' >
+<div id='elem' style='top: 135px; left: 300px; background-color:#aaaaaa' >
 	<div class="content">
 		<!--<img src="menu_bar.png" width="800"><br>-->
 		<div style="background-color:#191f92; width: 800px; height: 32px;"></div>
