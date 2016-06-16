@@ -354,6 +354,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 	//Desktop* currDesk = &World::getCurrDesktop();
 	unsigned int netvecindex = World::getCurrDesktop().getNetVecIndex();
 	Network* solNet, *playNet;
+
 	if (netvecindex < World::getCurrDesktop().getSolVec().size()) {
 		solNet = World::getCurrDesktop().getSolVec().at(netvecindex);
 		playNet = World::getCurrDesktop().getPlayVec().at(netvecindex);
@@ -366,29 +367,8 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
     NetworkCheckFunctor *ncf = new NetworkCheckFunctor(*solNet, *playNet);
 	playNet->setCenter(-1);  //TEST THIS
 
-	if (playNet->size() == 2) {
-		playNet->vert(0).setPosition(static_cast<float>(25), static_cast<float>(25));
-		playNet->vert(1).setPosition(static_cast<float>(275), static_cast<float>(25));
-	}
-	else {
-		std::vector<int> indexVec;
-		for (unsigned int i = 0; i < solNet->size(); ++i) {
-			indexVec.push_back(i);
-		}
-		std::random_shuffle(indexVec.begin(), indexVec.end());
-
-		float xcoord = 0;
-		float ycoord = 0;
-
-		for (unsigned int i = 0; i < indexVec.size(); ++i) {
-			playNet->vert(indexVec[i]).setPosition(static_cast<float>(25 + 125 * xcoord),
-				static_cast<float>(25 + 150 * ycoord));
-			++xcoord;
-			if (xcoord == 4) {
-				xcoord = 0;
-				++ycoord;
-			}
-		}
+	if (PipelineLevelBuilder::doShuffle == true) {
+		PipelineLevelBuilder::shufflePosition(*playNet);
 	}
 
 	NetworkRenderComponent* networkRender = 
@@ -429,7 +409,7 @@ void ppc::spawnPipeline(WindowInterface*& windowToModify, InputHandler& ih, Data
 			ncf, myFont);
 		windowToModify->addEntity(submitButton);
 	}
-    windowToModify->setSize(windowToModify->getSize().x, 1000.f);
+    windowToModify->setSize(windowToModify->getSize().x, 1000);
     sf::FloatRect viewRect = {
         0.0f,
         0.0f,

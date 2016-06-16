@@ -46,6 +46,10 @@ public:
 
 	static const std::map<std::string, int> LEVEL_MAP;
 
+	static void shufflePosition(Network & net);
+
+	static bool doShuffle;
+
 private:
 
 	//static Network * initNetwork(int numnodes);
@@ -57,6 +61,8 @@ private:
 
 	static void addSmsMessagesToEdge(Edge& anEdge, unsigned int numMessages, const PipelineCharacter& sender,
 		const PipelineCharacter& receiver, const Json::Value& exprGrammar);
+
+
 
 	static std::pair<int,int> designateCenter(unsigned int start, unsigned int end, Network & net);
 	
