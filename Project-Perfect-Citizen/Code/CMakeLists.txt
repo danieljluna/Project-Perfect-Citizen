@@ -8,7 +8,7 @@ project (ProjectPerfectCitizen)
 # Version Number
 set(PPC_VERSION_MAJOR 1)
 set(PPC_VERSION_MINOR 0)
-set(PPC_VERSION_PATCH 1)
+set(PPC_VERSION_PATCH 2)
 
 if (WIN32)
    add_definitions(-DWINDOWS_MARKER)
